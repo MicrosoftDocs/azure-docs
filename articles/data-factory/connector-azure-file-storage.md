@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/31/2024
+ms.date: 09/13/2024
 ---
 
 # Copy data from or to Azure Files by using Azure Data Factory
@@ -213,8 +213,8 @@ To use system-assigned managed identity authentication, follow these steps：
 
 2. Grant the managed identity permission in Azure Files. For more information on the roles, see this [article](../role-based-access-control/built-in-roles/storage.md#storage-file-data-smb-share-reader).
 
-    - **As source**, in **Access control (IAM)**, grant at least the **Storage File Data SMB Share Reader** role.
-    - **As sink**, in **Access control (IAM)**, grant at least the **Storage File Data SMB Share Contributor** role.
+    - **As source**, in **Access control (IAM)**, grant at least the **Storage File Data Privileged Reader** role.
+    - **As sink**, in **Access control (IAM)**, grant at least the **Storage File Data Privileged Contributor** role.
 
 These properties are supported for an Azure Files linked service:
 
@@ -257,8 +257,8 @@ To use user-assigned managed identity authentication, follow these steps:
 
 1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Files. For more information on the roles, see this [article](../role-based-access-control/built-in-roles/storage.md#storage-file-data-smb-share-reader).
 
-    - **As source**, in **Access control (IAM)**, grant at least the **Storage File Data SMB Share Reader** role.
-    - **As sink**, in **Access control (IAM)**, grant at least the **Storage File Data SMB Share Contributor** role.
+    - **As source**, in **Access control (IAM)**, grant at least the **Storage File Data Privileged Reader** role.
+    - **As sink**, in **Access control (IAM)**, grant at least the **Storage File Data Privileged Contributor** role.
      
 2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
 

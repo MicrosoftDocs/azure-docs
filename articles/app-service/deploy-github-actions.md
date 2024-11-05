@@ -196,7 +196,7 @@ To use [user-level credentials](#1-generate-deployment-credentials), paste the e
 When you configure the GitHub workflow file later, you use the secret for the input `creds` of the [Azure/login](https://github.com/marketplace/actions/azure-login). For example:
 
 ```yaml
-- uses: azure/login@v1
+- uses: azure/login@v2
   with:
     creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 09/27/2024
 ms.custom: engagement-fy23, devx-track-dotnet
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
@@ -25,6 +25,7 @@ This how-to guide shows how to create an example integration workflow that runs 
   When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime. 
 
    > [!NOTE]
+   > 
    > Deploying your logic app to a Kubernetes cluster is currently in public preview. 
    
     For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md#resource-environment-differences).
@@ -327,23 +328,22 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot shows Explorer pane with project folder, workflow folder, and workflow.json file.](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
 
-   [!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
+   [!INCLUDE [Visual Studio Code - logic app project structure](includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
    > [!NOTE]
    > 
-   > By default, in your **local.settings.json** file, the language worker runtime value for your 
-   > Standard logic app is **`dotnet`**. Previously, **`node`** was the default value. However, 
-   > **`dotnet`** is now the default value for all new and existing deployed Standard logic apps, 
-   > even for apps that had a different value. This change shouldn't affect your workflow's runtime, 
-   > and everything should work the same way as before. For more information, see the 
+   > The **FUNCTIONS_WORKER_RUNTIME** app setting is required for your Standard logic app, and the
+   > value was previously set to **node**. However, the required value is now **dotnet** for all new
+   > and existing deployed Standard logic apps. This change in value shouldn't affect your workflow's
+   > runtime, so everything should work the same way as before. For more information, see the
    > [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
-   >
-   > The **APP_KIND** app setting for your Standard logic app is set to **workflowApp**, but in some 
-   > scenarios, this app setting is missing, for example, due to automation using Azure Resource Manager 
-   > templates or other scenarios where the setting isn't included. If certain actions don't work, 
-   > such as the **Execute JavaScript Code** action or the workflow stops working, check that the 
-   > **APP_KIND** app setting exists and is set to to **workflowApp**. For more information, see the 
-   > [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+   > 
+   > The **APP_KIND** app setting is required for your Standard logic app, and the value
+   > must be **workflowApp**. Howeever, in some scenarios, this app setting might be missing,
+   > for example, due to automation using Azure Resource Manager templates or other scenarios
+   > where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code**
+   > action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to to **workflowApp**.
+   > For more information, see the [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
 <a name="convert-project-nuget"></a>
 

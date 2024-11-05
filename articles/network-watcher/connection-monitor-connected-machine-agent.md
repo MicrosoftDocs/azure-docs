@@ -19,12 +19,12 @@ This article describes how to install the Azure Connected Machine agent.
 
 * An Azure account with an active subscription. If you don't already have an account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Administrator permissions to install and configure the Connected Machine agent. On Linux, you install and configure it using the root account, and on Windows, you use an account that's a member of the Local Administrators group.
-* Register the Microsoft.HybridCompute, Microsoft.GuestConfiguration, and Microsoft.HybridConnectivity resource providers on your subscription. You can [register these resource providers](../azure-arc/servers/prerequisites.md#azure-resource-providers) either ahead of time or as you're completing the steps in this article.
-* Review the [agent prerequisites](../azure-arc/servers/prerequisites.md), and ensure that:
-  * Your target machine is running a supported [operating system](../azure-arc/servers/prerequisites.md#supported-operating-systems).
-  * Your account has the [required Azure built-in roles](../azure-arc/servers/prerequisites.md#required-permissions).
-  * The machine is in a [supported region](../azure-arc/overview.md).
-  * If the machine connects through a firewall or proxy server to communicate over the internet, the listed URLs in [Connected Machine agent network requirements](../azure-arc/servers/network-requirements.md#urls) aren't blocked.
+* Register the Microsoft.HybridCompute, Microsoft.GuestConfiguration, and Microsoft.HybridConnectivity resource providers on your subscription. You can [register these resource providers](/azure/azure-arc/servers/prerequisites#azure-resource-providers) either ahead of time or as you're completing the steps in this article.
+* Review the [agent prerequisites](/azure/azure-arc/servers/prerequisites), and ensure that:
+  * Your target machine is running a supported [operating system](/azure/azure-arc/servers/prerequisites#supported-operating-systems).
+  * Your account has the [required Azure built-in roles](/azure/azure-arc/servers/prerequisites#required-permissions).
+  * The machine is in a [supported region](/azure/azure-arc/overview).
+  * If the machine connects through a firewall or proxy server to communicate over the internet, the listed URLs in [Connected Machine agent network requirements](/azure/azure-arc/servers/network-requirements#urls) aren't blocked.
 
 ## Generate an installation script
 
@@ -95,11 +95,11 @@ For servers that are enabled with Azure Arc, you can take the previously mention
 
 Alternatively, you can use the PowerShell cmdlet `Connect-AzConnectedMachine` to download the Azure Connected Machine agent, install the agent, and register the machine with Azure Arc. The cmdlet downloads the Windows agent package (Windows Installer) from the Microsoft Download Center, and it downloads the Linux agent package from the Microsoft package repository.
 
-Refer to the linked document to discover the required steps to install the [Azure Arc agent via PowerShell](../azure-arc/servers/onboard-powershell.md).
+Refer to the linked document to discover the required steps to install the [Azure Arc agent via PowerShell](/azure/azure-arc/servers/onboard-powershell).
 
 ## Connect hybrid machines to Azure from Windows Admin Center
 
-You can enable Azure Arc-enabled servers for one or more Windows machines in your environment manually, or you can use the Windows Admin Center to deploy the Azure Connected Machine agent and register your on-premises servers without having to perform any steps outside of this tool. For more information about installing the Azure Arc agent via Windows Admin Center, see [Connect hybrid machines to Azure from Windows Admin Center](../azure-arc/servers/onboard-windows-admin-center.md).
+You can enable Azure Arc-enabled servers for one or more Windows machines in your environment manually, or you can use the Windows Admin Center to deploy the Azure Connected Machine agent and register your on-premises servers without having to perform any steps outside of this tool. For more information about installing the Azure Arc agent via Windows Admin Center, see [Connect hybrid machines to Azure from Windows Admin Center](/azure/azure-arc/servers/onboard-windows-admin-center).
 
 ## Next step
 

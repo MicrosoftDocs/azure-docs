@@ -7,6 +7,10 @@ ms.date: 08/13/2024
 ms.author: cwatson
 ms.service: microsoft-sentinel
 #Customer intent: As a SOC architect, I want to learn about how Microsoft Sentinel can extend across workspaces so I can determine whether I need this capability and prepare accordingly.
+
+
+#Customer intent: As a security operations center (SOC) manager, I want to understand how to extend and manage Microsoft Sentinel across multiple workspaces and tenants so that I can ensure compliance, data ownership, and efficient monitoring for my organization.
+
 ---
 
 # Prepare for multiple workspaces and tenants in Microsoft Sentinel
@@ -41,7 +45,7 @@ In case of an MSSP, many if not all of the above requirements apply, making mult
 
 - [Partner data connectors](data-connectors-reference.md) are often based on API or agent collections, and therefore are not attached to a specific Microsoft Entra tenant.
 
-Use [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md) to help manage multiple Microsoft Sentinel instances in different tenants.u
+Use [Azure Lighthouse](/azure/lighthouse/how-to/onboard-customer) to help manage multiple Microsoft Sentinel instances in different tenants.u
 
 ## Microsoft Sentinel multiple workspace architecture
 

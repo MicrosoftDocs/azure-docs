@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: As a security operator, I want to ingest and filter text file-based logs from network or security applications installed on Windows- or Linux-based machines to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
+#Customer intent: As a security engineer, I want to ingest and filter text file-based logs from network or security applications installed on Windows- or Linux-based machines to my Microsoft Sentinel workspace, so that analysts can monitor activity on these systems and detect security threats.
 ---
 
 # Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel
@@ -56,7 +56,7 @@ Certain custom applications are hosted on closed appliances that necessitate sen
     - [Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
     - [Supported Linux operating systems for Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview#linux).
 
-- If your log forwarder *isn't* an Azure virtual machine, it must have the Azure Arc [Connected Machine agent](../azure-arc/servers/overview.md) installed on it.
+- If your log forwarder *isn't* an Azure virtual machine, it must have the Azure Arc [Connected Machine agent](/azure/azure-arc/servers/overview) installed on it.
 
 - The Linux log forwarder VM must have Python 2.7 or 3 installed. Use the ``python --version`` or ``python3 --version`` command to check. If you're using Python 3, make sure it's set as the default command on the machine, or run scripts with the 'python3' command instead of 'python'.
 

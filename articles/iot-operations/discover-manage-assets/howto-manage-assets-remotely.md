@@ -22,7 +22,7 @@ _OPC UA servers_ are software applications that communicate with assets. OPC UA 
 
 An _asset endpoint_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to connector for OPC UA modules. This connection enables a connector for OPC UA to access an asset's data points. Without an asset endpoint, data can't flow from an OPC UA server to the connector for OPC UA and MQTT broker. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards telemetry to the connector for OPC UA.
 
-A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](../../azure-arc/site-manager/overview.md).
+A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
 
 In the operations experience web UI, an _instance_ represents an Azure IoT Operations cluster. An instance can have one or more asset endpoints.
 
@@ -31,11 +31,22 @@ This article describes how to use the operations experience web UI and the Azure
 - Define the asset endpoints that connect assets to your Azure IoT Operations instance.
 - Add assets, and define their tags and events to enable dataflow from OPC UA servers to the MQTT broker.
 
-These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data processor pipelines.
+These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and dataflows.
 
 ## Prerequisites
 
 To configure an assets endpoint, you need a running instance of Azure IoT Operations.
+
+To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create a suitable Microsoft Entra ID account in your Azure tenant:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
+1. In the Azure portal, go to the **Microsoft Entra ID** section, select **Users > +New user > Create new user**. Create a new user and make a note of the password, you need it to sign in later.
+1. In the Azure portal, go to the resource group that contains your **Kubernetes - Azure Arc** instance. On the **Access control (IAM)** page, select **+Add > Add role assignment**.
+1. On the **Add role assignment page**, select **Privileged administrator roles**. Then select **Contributor** and then select **Next**.
+1. On the **Members** page, add your new user to the role.
+1. Select **Review and assign** to complete setting up the new user.
+
+You can now use the new user account to sign in to the [Azure IoT Operations](https://iotoperations.azure.com) portal.
 
 ## Sign in
 
@@ -45,7 +56,7 @@ To sign in to the operations experience, go to the [operations experience](https
 
 ## Select your site
 
-After you sign in, the web UI displays a list of sites. Each site is a collection of Azure IoT Operations instances where you can configure and manage your assets. A site typically represents a physical location where a you have physcial assets deployed. Sites make it easier for you to locate and manage assets. Your [IT administrator is responsible for grouping instances in to sites](../../azure-arc/site-manager/overview.md). Any Azure IoT Operations instances that aren't assigned to a site appear in the **Unassigned instances** node. Select the site that you want to use:
+After you sign in, the web UI displays a list of sites. Each site is a collection of Azure IoT Operations instances where you can configure and manage your assets. A site typically represents a physical location where you have physical assets deployed. Sites make it easier for you to locate and manage assets. Your [IT administrator is responsible for grouping instances in to sites](/azure/azure-arc/site-manager/overview). Any Azure IoT Operations instances that aren't assigned to a site appear in the **Unassigned instances** node. Select the site that you want to use:
 
 :::image type="content" source="media/howto-manage-assets-remotely/site-list.png" alt-text="Screenshot that shows a list of sites in the operations experience.":::
 
@@ -62,6 +73,10 @@ After you select a site, the operations experience displays a list of the Azure 
 
 > [!TIP]
 > You can use the filter box to search for instances.
+
+After you select your instance, the operations experience displays the **Overview** page for the instance. The **Overview** page shows the status of the instance and the resources, such as assets, that are associated with it:
+
+:::image type="content" source="media/howto-manage-assets-remotely/instance-overview.png" alt-text="Screenshot that shows the instance overview in the operations experience.":::
 
 # [Azure CLI](#tab/cli)
 
@@ -113,7 +128,7 @@ To learn more, see [az iot ops asset endpoint](/cli/azure/iot/ops/asset/endpoint
 
 This configuration deploys a new `assetendpointprofile` resource called `opc-ua-connector-0` to the cluster. After you define an asset, a connector for OPC UA pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server.
 
-When the OPC PLC simulator is running, dataflows from the simulator, to the connector, to the OPC UA broker, and finally to the MQTT broker.
+When the OPC PLC simulator is running, data flows from the simulator, to the connector for OPC UA, and then to the MQTT broker.
 
 ### Configure an asset endpoint to use a username and password
 
@@ -204,8 +219,8 @@ Now you can define the tags associated with the asset. To add OPC UA tags:
 
     | Node ID | Tag name | Observability mode |
     | ------- | -------- | ------------------ |
-    | ns=3;s=FastUInt10 | temperature | None |
-    | ns=3;s=FastUInt100 | Tag 10 | None |
+    | ns=3;s=FastUInt10 | Temperature | None |
+    | ns=3;s=FastUInt100 | Humidity | None |
 
 1. Select **Manage default settings** to configure default telemetry settings for the asset. These settings apply to all the OPC UA tags that belong to the asset. You can override these settings for each tag that you add. Default telemetry settings include:
 
@@ -436,6 +451,5 @@ To view activity logs as the resource level, select the resource that you want t
 ## Related content
 
 - [Connector for OPC UA overview](overview-opcua-broker.md)
-- [Akri services overview](overview-akri.md)
 - [az iot ops asset](/cli/azure/iot/ops/asset)
 - [az iot ops asset endpoint](/cli/azure/iot/ops/asset/endpoint)

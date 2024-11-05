@@ -40,23 +40,12 @@ Documentation for starting with [Azure CLI](/cli/azure/get-started-with-azure-cl
 Install latest version of the
 [necessary CLI extensions](./howto-install-cli-extensions.md).
 
-## Monitor Nexus Kubernetes cluster – VM layer
+## Monitor Nexus Kubernetes cluster
 
-This how-to guide provides steps and utility scripts to [Arc connect](../azure-arc/servers/overview.md) the Nexus Kubernetes cluster Virtual Machines to Azure and enable monitoring agents for the collection of System logs from these VMs using [Azure Monitoring Agent](/azure/azure-monitor/agents/agents-overview).
+This how-to guide provides steps to enable monitoring agents for the collection of System logs from these VMs using [Azure Monitoring Agent](/azure/azure-monitor/agents/agents-overview).
 The instructions further capture details on how to set up log data collection into a Log Analytics workspace.
 
-The following resources provide you with support:
-
-- `arc-connect.env`: use this template file to create environment variables needed by included scripts
-[!INCLUDE [arc-connect.env](./includes/arc-connect.md)]
-- `dcr.sh`: use this script to create a Data Collection Rule (DCR) to configure syslog collection
-[!INCLUDE [dcr.sh](./includes/dcr.md)]
-- `assign.sh`: use the script to create a policy to associate the DCR with all Arc-enabled servers in a resource group
-[!INCLUDE [assign.sh](./includes/assign.md)]
-- `install.sh`: Install Azure Monitoring Agent on each VM to collect monitoring data from Azure Virtual Machines. 
-[!INCLUDE [install.sh](./includes/install.md)]
-
-### Prerequisites-VM
+### Prerequisites
 
 - Cluster administrator access to the Nexus Kubernetes cluster.
 
@@ -84,127 +73,14 @@ Assign the service principal to the Azure resource group that has the machines t
 | [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator), and [Resource Policy Contributor](../role-based-access-control/built-in-roles.md#resource-policy-contributor) or [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Needed if you want to use Azure policy assignment(s) to ensure that a DCR is associated with [Arc-enabled machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd5c37ce1-5f52-4523-b949-f19bf945b73a) |
 | [Kubernetes Extension Contributor](../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) | Needed to deploy the K8s extension for Container Insights |
 
-### Environment setup
+### Monitor Nexus Kubernetes cluster
 
-Copy and run the included scripts. You can run them from an
-[Azure Cloud Shell](../cloud-shell/overview.md), in the Azure portal. Or you can run them from a Linux command
-prompt where the Kubernetes command line tool (kubectl) and Azure CLI are installed.
-
-Prior to running the included scripts, define the following environment variables:
-
-| Environment Variable | Description |
-|------------------------|---------------------------------------------------------------|
-| SUBSCRIPTION_ID | The ID of the Azure subscription that contains the resource group |
-| RESOURCE_GROUP | The resource group name where Arc-enabled server and associated resources are created |
-| LOCATION | The Azure Region where the Arc-enabled servers and associated resources are created   |
-| SERVICE_PRINCIPAL_ID | The appId of the Azure service principal with appropriate role assignment(s) |
-| SERVICE_PRINCIPAL_SECRET | The authentication password for the Azure service principal |
-| TENANT_ID | The ID of the tenant directory where the service principal exists |
-| PROXY_URL | The proxy URL to use for connecting to Azure services |
-| NAMESPACE | The namespace where the Kubernetes artifacts are created |
-
-For convenience, you can modify the template file, `arc-connect.env`, to set the environment variable values.
-
-```bash
-# Apply the modified values to the environment
- ./arc-connect.env
-```
-
-### Add a data collection rule (DCR)
-
-Associate the Arc-enabled servers with a DCR to enable the collection of log data into a Log Analytics workspace.
-You can create the DCR via the Azure portal or CLI.
-Information on creating a DCR to collect data from the VMs is available [here](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent).
-
-The included **`dcr.sh`** script creates a DCR, in the specified resource group, that will configure log collection.
-
-1. Ensure proper [environment setup](#environment-setup) and role [prerequisites](#prerequisites-vm) for the service principal. The DCR is created in the specified resource group.
-
-2. Create or identify a Log Analytics workspace for log data ingestion as per the DCR. Set an environment variable, LAW_RESOURCE_ID to its resource ID. Retrieve the resource ID for a known Log Analytics workspace name:
-
-  ```bash
-  export LAW_RESOURCE_ID=$(az monitor log-analytics workspace show -g "${RESOURCE_GROUP}" -n <law name> --query id -o tsv)
-  ```
-
-3. Run the dcr.sh script. It creates a DCR in the specified resource group with name ${RESOURCE_GROUP}-syslog-dcr
-
-```bash
-./dcr.sh
-```
-
-View/manage the DCR from the Azure portal or [CLI](/cli/azure/monitor/data-collection/rule).
-By default, the Linux Syslog log level is set to "INFO". You can change the log level as needed.
-
-> [!NOTE]
-> Manually, or via a policy, associate servers created prior to the DCR's creation.
-See [remediation task](../governance/policy/how-to/remediate-resources.md#create-a-remediation-task).
-
-### Associate Arc-enabled server resources to DCR
-
-Associate the Arc-enabled server resources to the created DCR for logs to flow to the Log Analytics workspace.
-There are options for associating servers with DCRs.
-
-#### Use Azure portal or CLI to associate selected Arc-enabled servers to DCR
-
-In Azure portal, add Arc-enabled server resource to the DCR using its Resources section.
-
-Use this [link](/cli/azure/monitor/data-collection/rule/association#az-monitor-data-collection-rule-association-create)
-for information about associating the resources via the Azure CLI.
-
-### Use Azure policy to manage DCR associations
-
-Assign a policy to the resource group to enforce the association.
-There's a built-in policy definition, to associate [Linux Arc Machines with a DCR](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd5c37ce1-5f52-4523-b949-f19bf945b73a). Assign the policy to the resource group with DCR as a parameter.
-It ensures association of all Arc-enabled servers, within the resource group, with the same DCR.
-
-In the Azure portal, select the `Assign` button from the [policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd5c37ce1-5f52-4523-b949-f19bf945b73a) page.
-
-For convenience, the provided **`assign.sh`** script assigns the built-in policy to the specified resource group and DCR created with the **`dcr.sh`** script.
-
-1. Ensure proper [environment setup](#environment-setup) and role [prerequisites](#prerequisites-vm) for the service principal to do policy and role assignments.
-2. Create the DCR, in the resource group, using **`dcr.sh`** script as described in [Adding a Data Collection Rule](/azure/azure-monitor/essentials/data-collection-endpoint-overview?tabs=portal#create-a-data-collection-endpoint) section.
-3. Run the **`assign.sh`** script. It creates the policy assignment and necessary role assignments.
-
-```bash
-./assign.sh
-```
-
-#### Install Azure monitoring agent
-
-Use the included **`install.sh`** which creates a Kubernetes daemonSet on the Nexus Kubernetes cluster.
-It deploys a pod to each cluster node and installs the Azure Monitoring Agent (AMA).
-The `daemonSet` also includes a liveness probe that monitors the server connection and AMA processes.
-> [!NOTE]
-> To install Azure Monitoring Agent, you must first Arc connect the Nexus Kubernetes cluster VMs. This process is automated if you are using the latest version bundle. However, if the version bundle you use does not support cluster VM Arc enrollment by default, you will need to upgrade your cluster to the latest version bundle. For more information about the version bundle, please refer [Nexus Kubernetes cluster supported versions](reference-nexus-kubernetes-cluster-supported-versions.md)
-
-1. Set the environment as specified in [Environment Setup](#environment-setup). Set the current `kubeconfig` context for the Nexus Kubernetes cluster VMs.
-2. Permit `Kubectl` access to the Nexus Kubernetes cluster.
-    [!INCLUDE [cluster-connect](./includes/kubernetes-cluster/cluster-connect.md)]
-3. Run the **`install.sh`** script from the command prompt with kubectl access to the Nexus Kubernetes cluster.
-
-The script deploys the `daemonSet` to the cluster. Monitor the progress as follows:
-
-```bash
-# Run the install script and observe results
-./install.sh
-kubectl get pod --selector='name=naks-vm-telemetry'
-kubectl logs <podname>
-```
-
-On completion, the system logs the message "Server monitoring configured successfully".
-
-> [!NOTE]
-> Associate these connected servers to the [DCR](#associate-arc-enabled-server-resources-to-dcr).
-After you configure a policy, there may be some delay to observe the logs in Azure Log Analytics Workspace
-
-### Monitor Nexus Kubernetes cluster – K8s layer
-
-#### Prerequisites-Kubernetes
+#### Prerequisites
 
 There are certain prerequisites the operator should ensure to configure the monitoring tools on Nexus Kubernetes Clusters.
 
 Container Insights stores its data in a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview).
-Log data flows into the workspace whose Resource ID you provided during the initial scripts covered in the ["Add a data collection rule (DCR)"](#add-a-data-collection-rule-dcr) section.
+Log data flows into the workspace whose Resource ID you provided during the installation of the Container Insights extension.
 Else, data funnels into a default workspace in the Resource group associated with your subscription (based on Azure location).
 
 An example for East US may look like follows:
@@ -284,7 +160,39 @@ Look for a Provisioning State of "Succeeded" for the extension. The "k8s-extensi
 
 #### Customize logs & metrics collection
 
-Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from Nexus Kubernetes Clusters--[Configure Container insights agent data collection](/azure/azure-monitor/containers/container-insights-data-collection-configmap).
+Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from Nexus Kubernetes Clusters. See the instructions for [Configure Container insights agent data collection](/azure/azure-monitor/containers/container-insights-data-collection-configure) for more information.
+
+
+> [!NOTE]
+> Container Insights does not collect logs from the `kube-system` namespace by default. To collect logs from the `kube-system` namespace, you must configure the agent to collect logs from the `kube-system` namespace.
+> This can be done by removing the `kube-system` namespace from the `excludedNamespaces` field in the ConfigMap following the [`configMap` configuraiton](/azure/azure-monitor/containers/container-insights-data-collection-configure?tabs=portal#configure-data-collection-using-configmap) approach.
+> ```
+> [log_collection_settings]
+>   [log_collection_settings.stdout]
+>     # In the absense of this configmap, default value for enabled is true
+>     enabled = true
+>     # exclude_namespaces setting holds good only if enabled is set to true
+>     # kube-system,gatekeeper-system log collection are disabled by default in the absence of 'log_collection_settings.stdout' setting. If you want to enable kube-system,gatekeeper-system, remove them from the following setting.
+>     # If you want to continue to disable kube-system,gatekeeper-system log collection keep the namespaces in the following setting and add any other namespace you want to disable log collection to the array.
+>     # In the absense of this configmap, default value for exclude_namespaces = ["kube-system","gatekeeper-system"]
+>     exclude_namespaces = ["gatekeeper-system"]
+>     # If you want to collect logs from only selective pods inside system namespaces add them to the following setting. Provide namepace:controllerName of the system pod. NOTE: this setting is only for pods in system namespaces
+>     # Valid values for system namespaces are: kube-system, azure-arc, gatekeeper-system, kube-public, kube-node-lease, calico-system. The system namespace used should not be present in exclude_namespaces
+>     # collect_system_pod_logs = ["kube-system:coredns"]
+>
+>   [log_collection_settings.stderr]
+>     # Default value for enabled is true
+>     enabled = true
+>     # exclude_namespaces setting holds good only if enabled is set to true
+>     # kube-system,gatekeeper-system log collection are disabled by default in the absence of 'log_collection_settings.stderr' setting. If you want to enable kube-system,gatekeeper-system, remove them from the following setting.
+>     # If you want to continue to disable kube-system,gatekeeper-system log collection keep the namespaces in the following setting and add any other namespace you want to disable log collection to the array.
+>     # In the absense of this configmap, default value for exclude_namespaces = ["kube-system","gatekeeper-system"]
+>     exclude_namespaces = ["gatekeeper-system"]
+>     # If you want to collect logs from only selective pods inside system namespaces add them to the following setting. Provide namepace:controllerName of the system pod. NOTE: this setting is only for pods in system namespaces
+>     # Valid values for system namespaces are: kube-system, azure-arc, gatekeeper-system, kube-public, kube-node-lease, calico-system. The system namespace used should not be present in exclude_namespaces
+>     # collect_system_pod_logs = ["kube-system:coredns"]
+>```
+
 
 ## Extra resources
 

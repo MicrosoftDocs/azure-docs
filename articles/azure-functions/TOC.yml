@@ -105,10 +105,8 @@
             displayName: TypeScript, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript
         - name: Other (Go/Rust)
-          items:
-          - name: Visual Studio Code
-            displayName: Go, Rust, quickstart, get started
-            href: create-first-function-vs-code-other.md
+          displayName: Go, Rust, quickstart, get started
+          href: create-first-function-vs-code-other.md   
         - name: Resource Manager
           items:
           - name: Bicep

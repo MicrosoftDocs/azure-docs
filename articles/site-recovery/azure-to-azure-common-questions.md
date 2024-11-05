@@ -3,9 +3,8 @@ title: Common questions about Azure virtual machine disaster recovery with Azure
 description: This article answers common questions about Azure virtual machine disaster recovery when you use Azure Site Recovery.
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-manager: rochakm
 ms.date: 09/16/2024
-ms.topic: conceptual
+ms.topic: faq
 ms.service: azure-site-recovery
 
 ---
@@ -86,6 +85,10 @@ This isn't supported.
 ### Can I replicate zoned virtual machines to a different zone in the same region?
 
 Support for this is limited to a few regions. [Learn more](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+
+### Can we replicate from one Zone to non-zone with Azure Site Recovery?
+
+Yes, this is supported.
 
 ### Can I exclude disks from replication?
 

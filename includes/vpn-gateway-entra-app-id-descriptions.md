@@ -14,7 +14,7 @@ When possible, we recommend that you configure new P2S gateways using the Micros
 
 If you have an existing P2S gateway that you want to update to use a new Audience value, see [Change Audience for a P2S VPN gateway](../articles/vpn-gateway/point-to-site-entra-gateway-update.md). If you want to create or modify a custom Audience value, see [Create a custom audience app ID for P2S VPN](../articles/vpn-gateway/point-to-site-entra-register-custom-app.md). If you want to configure or restrict access to P2S based on users and groups, see [Scenario: Configure P2S VPN access based on users and groups](../articles/vpn-gateway/point-to-site-entra-users-access.md).
 
-Considerations and limitations:
+**Considerations and limitations**
 
 * A P2S VPN gateway can only support one Audience value. It can't support multiple Audience values simultaneously.
 
@@ -25,6 +25,8 @@ Considerations and limitations:
 * [!INCLUDE [Supported versions](vpn-gateway-azure-vpn-client-linux-supported-releases.md)]
 
 * The Azure VPN Client for macOS and Windows is backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. You can also use Custom Audience values with these clients.
+
+**Azure VPN Client Audience values**
 
 The following table shows the versions of the Azure VPN Client that are supported for each App ID and the corresponding available Audience values.
 

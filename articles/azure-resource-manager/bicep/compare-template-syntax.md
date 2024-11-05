@@ -56,7 +56,7 @@ name: orgName
 ```
 
 ```json
-"name": "[parameters('orgName'))]"
+"name": "[parameters('orgName')]"
 ```
 
 ## Variables
@@ -70,7 +70,7 @@ var description = 'example value'
 ```json
 "variables": {
   "description": "example value"
-},
+}
 ```
 
 To get a variable value, use the name you defined:
@@ -80,7 +80,7 @@ workloadSetting: description
 ```
 
 ```json
-"workloadSetting": "[variables('description'))]"
+"workloadSetting": "[variables('description')]"
 ```
 
 ## Strings

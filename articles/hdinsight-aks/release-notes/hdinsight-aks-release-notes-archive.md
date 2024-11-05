@@ -3,7 +3,8 @@ title: Archived release notes for Azure HDInsight on AKS
 description: Archived release notes for Azure HDInsight on AKS. Get development tips and details for Trino, Flink, and Spark.
 ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 09/05/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Azure HDInsight on AKS archived release notes

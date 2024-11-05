@@ -93,6 +93,8 @@
         href: manage/spending-limit.md
       - name: Track credits for Microsoft Customer Agreement
         href: manage/mca-check-azure-credits-balance.md
+      - name: Manage a Microsoft Azure Consumption Commitment
+        href: manage/manage-consumption-commitment.md
       - name: Track your Microsoft Azure Consumption Commitment
         href: manage/track-consumption-commitment.md
       - name: Markup - China
@@ -252,7 +254,7 @@
     - name: Troubleshoot threshold billing
       href: troubleshoot-billing/troubleshoot-threshold-billing.md
     - name: Contact support
-      href: ../azure-portal/supportability/how-to-create-azure-support-request.md
+      href: /azure/azure-portal/supportability/how-to-create-azure-support-request
     - name: Create EA support request
       href: troubleshoot-billing/how-to-create-azure-support-request-ea.md
     - name: Can't create VM - Contact reseller

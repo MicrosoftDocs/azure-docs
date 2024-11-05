@@ -138,7 +138,7 @@ More considerations for using a custom Linux image:
 
 To enable a Batch pool to run container workloads, you must specify [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) settings in the pool's [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object. This article provides links to the Batch .NET API reference. Corresponding settings are in the [Batch Python](/python/api/overview/azure/batch) API.
 
-You can create a container-enabled pool with or without prefetched container images, as shown in the following examples. The pull (or prefetch) process lets you preload container images from either Docker Hub or another container registry on the Internet. For best performance, use an [Azure container registry](../container-registry/container-registry-intro.md) in the same region as the Batch account.
+You can create a container-enabled pool with or without prefetched container images, as shown in the following examples. The pull (or prefetch) process lets you preload container images from either Docker Hub or another container registry on the Internet. For best performance, use an [Azure container registry](/azure/container-registry/container-registry-intro) in the same region as the Batch account.
 
 The advantage of prefetching container images is that when tasks first start running, they don't have to wait for the container image to download. The container configuration pulls container images to the VMs when the pool is created. Tasks that run on the pool can then reference the list of container images and container run options.
 
@@ -146,8 +146,8 @@ The advantage of prefetching container images is that when tasks first start run
 > Docker Hub limits the number of image pulls. Ensure that your workload doesn't
 > [exceed published rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for Docker
 > Hub-based images. It's recommended to use
-> [Azure Container Registry](../container-registry/container-registry-intro.md) directly or leverage
-> [Artifact cache in ACR](../container-registry/container-registry-artifact-cache.md).
+> [Azure Container Registry](/azure/container-registry/container-registry-intro) directly or leverage
+> [Artifact cache in ACR](/azure/container-registry/container-registry-artifact-cache).
 
 ### Pool without prefetched container images
 

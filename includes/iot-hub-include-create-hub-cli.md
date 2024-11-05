@@ -3,7 +3,7 @@ title: include file
 description: include file
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 01/31/2023
 ---

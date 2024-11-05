@@ -3,7 +3,8 @@ title: Query data from AWS S3 and with AWS Glue
 description: How to configure Trino catalogs for HDInsight on AKS with AWS Glue as metastore
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 
@@ -138,7 +139,7 @@ You can add the following sample JSON in your Trino cluster under `clusterProfil
 Catalog examples in the previous code  refer to access keys stored as secrets in Azure Key Vault, here's how you can configure that.
 ```json
 "secretsProfile": {
-    "keyVaultResourceId": "/subscriptions/1234abcd-aaaa-0000-zzzz-000000000000/resourceGroups/trino-rp/providers/Microsoft.KeyVault/vaults/trinoakv",
+    "keyVaultResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/trino-rp/providers/Microsoft.KeyVault/vaults/trinoakv",
     "secrets": [
         {
             "referenceName": "aws-user-access-key-ref",

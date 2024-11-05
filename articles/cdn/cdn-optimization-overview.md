@@ -11,6 +11,8 @@ ms.author: duau
 
 # Optimize Azure Content Delivery Network for the type of content delivery
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 When you deliver content to a large global audience, it's critical to ensure the optimized delivery of your content. [Azure Content Delivery Network](cdn-overview.md) can optimize the delivery experience based on the type of content you have. The content can be a website, a live stream, a video, or a large file for download. When you create a content delivery network endpoint, you specify a scenario in the **Optimized for** option. Your choice determines which optimization is applied to the content delivered from the content delivery network endpoint.
 
 Optimization choices are designed to use best-practice behaviors to improve content delivery performance and better origin offload. Your scenario choices affect performance by modifying configurations for partial caching, object chunking, and the origin failure retry policy.

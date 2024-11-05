@@ -350,8 +350,6 @@ In the export list, select the storage account name. On the storage account page
 
 In Storage Explorer, navigate to the container that you want to open and select the folder corresponding to the current month. A list of CSV files is shown. Select one and then select **Open**.
 
-:::image type="content" border="true" source="./media/tutorial-export-acm-data/storage-explorer.png" alt-text="Screenshot showing example information in Storage Explorer.":::
-
 The file opens with the program or application set to open CSV file extensions. Here's an example in Excel.
 
 :::image type="content" border="true" source="./media/tutorial-export-acm-data/example-export-data.png" alt-text="Screenshot showing exported CSV data in Excel.":::

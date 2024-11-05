@@ -4,13 +4,15 @@ description: This tutorial shows you how to use Azure SQL Edge for wake-detectio
 author: kendalvandyke
 ms.author: kendalv
 ms.reviewer: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: tutorial
 ---
 # Use Azure SQL Edge to build smarter renewable resources
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 The [Wind Turbine Demo](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/Wind%20Turbine%20Demo) for Azure SQL Edge is based on Contoso Renewable Energy, a wind turbine farm that uses SQL Edge for data processing onboard the generator.

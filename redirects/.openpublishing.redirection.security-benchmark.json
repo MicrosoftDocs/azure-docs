@@ -246,11 +246,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/lighthouse/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/lighthouse-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/load-balancer/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/load-balancer-security-baseline",
       "redirect_document_id": false
@@ -328,11 +323,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/cognitive-services-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-registry/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/container-registry-security-baseline",
       "redirect_document_id": false
     },
     {

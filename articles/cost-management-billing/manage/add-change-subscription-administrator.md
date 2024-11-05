@@ -18,7 +18,7 @@ This article describes how to add or change the administrator role for a user us
 
 This article applies to a Microsoft Online Service Program (pay-as-you-go) account or a Visual Studio account. If you have a Microsoft Customer Agreement (Azure plan) account, see [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md). If you have an Azure Enterprise Agreement, see [Manage Azure Enterprise Agreement roles](understand-ea-roles.md).
 
-Microsoft recommends that you manage access to resources using Azure RBAC. Classic administrative roles are retried. For more information, see [Prepare for Azure classic administrator roles retirement](classic-administrator-retire.md).
+Microsoft recommends that you manage access to resources using Azure RBAC. Classic administrative roles are retired. For more information, see [Prepare for Azure classic administrator roles retirement](classic-administrator-retire.md).
 
 ## Determine account billing administrator
 

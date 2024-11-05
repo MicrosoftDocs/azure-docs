@@ -2,15 +2,12 @@
 title: Replicate Azure Stack VMs to Azure using Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for Azure Stack VMs with the Azure Site Recovery service.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 10/16/2024
 ms.author: ankitadutta
 ms.custom: engagement-fy23
 ms.service: azure-site-recovery
 ---
-# Replicate Azure Stack VMs to Azure
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+# Replicate Azure Stack VMs to Azure using Azure Site Recovery
 
 This article shows you how to set up disaster recovery Azure Stack VMs to Azure, using the [Azure Site Recovery service](site-recovery-overview.md).
 
@@ -83,7 +80,6 @@ Make sure that the VMs are running one of the operating systems summarized in th
 **Operating system** | **Details**
 --- | ---
 **64-bit Windows** | Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (from SP1)
-**CentOS** | 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.3
 **Ubuntu** | 14.04 LTS server, 16.04 LTS server. Review [supported kernels](vmware-physical-azure-support-matrix.md#ubuntu-kernel-versions)
 
 ### Prepare for Mobility service installation

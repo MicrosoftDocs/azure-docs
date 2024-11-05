@@ -2,12 +2,12 @@
 title: Azure cross-region replication
 description: Learn about Azure cross-region replication
 author: anaharris-ms
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 12/12/2022
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Azure cross-region replication

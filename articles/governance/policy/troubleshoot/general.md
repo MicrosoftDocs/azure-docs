@@ -100,7 +100,7 @@ Troubleshoot your policy assignment's enforcement by doing the following steps:
    - The mode should be `all` for all resource types.
    - The mode should be `indexed` if the policy definition checks for tags or location.
 1. Ensure that the scope of the resource isn't [excluded](../concepts/assignment-structure.md#excluded-scopes) or [exempt](../concepts/exemption-structure.md).
-1. Verify that the resource payload matches the policy logic. This verification can be done by [capturing an HTTP Archive (HAR) trace](../../../azure-portal/capture-browser-trace.md) or reviewing the Azure Resource Manager template (ARM template) properties.
+1. Verify that the resource payload matches the policy logic. This verification can be done by [capturing an HTTP Archive (HAR) trace](/azure/azure-portal/capture-browser-trace) or reviewing the Azure Resource Manager template (ARM template) properties.
 1. For other common issues and solutions, see [Troubleshoot: Compliance not as expected](#scenario-compliance-isnt-as-expected).
 
 If you still have an issue with your duplicated and customized built-in policy definition or custom definition, create a support ticket under **Authoring a policy** to route the issue correctly.
