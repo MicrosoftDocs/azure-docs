@@ -63,17 +63,15 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: SAP ASE (Sybase) database backup support (preview)
+            url: sap-ase-database-about.md
+          - text: Azure Database for PostgreSQL - Flexible Server backup support
+            url: backup-azure-database-postgresql-flex-overview.md
           - text: Azure Blob vaulted backup
             url: blob-backup-overview.md?tabs=vaulted-backup
-          - text: Agentless multi-disk crash-consistent VM backup (preview)
-            url: backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md
           - text: Azure Files vaulted backup (preview)
             url: azure-file-share-backup-overview.md?tabs=vault-standard
-          - text: Azure Database for MySQL - Flexible Server long-term retention (preview)
-            url: backup-azure-mysql-flexible-server-about.md
-          - text: Cross Region Restore for Azure PostgreSQL Database
-            url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup
-          - text: Vaulted backup and Cross Region Restore for support for AKS (preview)
+          - text: Vaulted backup and Cross Region Restore support for AKS
             url: azure-kubernetes-service-backup-overview.md          
 
   # Card
