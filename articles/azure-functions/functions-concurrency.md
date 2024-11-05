@@ -13,8 +13,6 @@ ms.author: cachai
 
 This article describes the concurrency behaviors of event-driven triggers in Azure Functions. It also compares the static and dynamic concurrency models. 
 
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
-
 In Functions, you can have multiple executing processes of a given function running concurrently on a single compute instance. For example, consider a case where you have three different functions in your function app that is scaled-out to multiple instances to handle an increased load. In this scenario, each function is executing in response to individual invocations across all three instances, and a given instance can handle multiple invocations of the same type. Keep in mind that the function executions on a single instance share the same memory, CPU, and connection resources. Because multiple function executions can run on each instance concurrently, each function needs to have a way to manage the number of concurrent executions.
 
 When your app is hosted in a dynamic scale plan (Consumption, Flex Consumption, or Premium), the host scales the number of function app instances up or down based on the number of incoming events. To learn more, see [Event Driven Scaling](./Event-Driven-Scaling.md). When you host your functions in a Dedicated (App Service) plan, you must manually configure your instances or [set up an autoscale scheme](dedicated-plan.md#scaling).
