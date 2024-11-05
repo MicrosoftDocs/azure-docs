@@ -111,6 +111,7 @@ items:
       items:
         - name: Create assessment
         - name: Customize assessment settings
+          href: assessment-properties.md
         - name: Review assessment report
           items: 
           - name: Overview
@@ -128,10 +129,12 @@ items:
         items:
         - name: Create an Azure VM assessment
         - name: Customize assessment settings
+          href: vm-assessment-properties.md
         - name: Azure VM Readiness criteria
         - name: Performance-based assessment vs. As-is on-premises assessment
           href: target-right-sizing.md
         - name: Review assessment report
+          href: review-assessment.md
       - name: Azure SQL assessment
         items:
         - name: Prerequisites
