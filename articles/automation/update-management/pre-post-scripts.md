@@ -3,7 +3,7 @@ title: Manage pre-scripts and post-scripts in your Update Management deployment 
 description: This article tells how to configure and manage pre-scripts and post-scripts for update deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 09/10/2024
+ms.date: 09/15/2024
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
@@ -11,8 +11,7 @@ ms.service: azure-automation
 
 # Manage pre-scripts and post-scripts
 
-[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
-
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 Pre-scripts and post-scripts are runbooks to run in your Azure Automation account before (pre-task) and after (post-task) an update deployment. Pre-scripts and post-scripts run in the Azure context, not locally. Pre-scripts run at the beginning of the update deployment. On Windows, post-scripts run at the end of the deployment and after any reboots that are configured. For Linux, post-scripts run after the end of the deployment, not after the machine reboots. 
 
@@ -85,7 +84,7 @@ The following example is a JSON string passed to the **SoftwareUpdateConfigurati
         "box2.contoso.com"
      ],
      "AzureVirtualMachines": [
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/vm-01"
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/vm-01"
      ],
      "Duration": "02:00:00",
      "PSComputerName": "localhost",
@@ -112,9 +111,9 @@ The following example is a JSON string passed to the **SoftwareUpdateConfigurati
         "rebootSetting": "IfRequired"
       },
       "azureVirtualMachines": [
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-01",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-02",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-03"
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-01",
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-02",
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-03"
       ],
       "nonAzureComputerNames": [
         "box1.contoso.com",

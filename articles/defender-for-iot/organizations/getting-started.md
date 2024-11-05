@@ -19,7 +19,7 @@ For more information, see [Free trial](billing.md#free-trial).
 Before you start, you need:
 
 1. An email address to be used as the contact for your new Microsoft Tenant
-1. A Global Admin permissions (Entra ID role on the tenant)
+1. A Billing Admin permissions (Entra ID role on the tenant)
 1. Credit card details for your new Azure subscription, although you aren't charged until you switch from the **Free Trial** to the **Pay-As-You-Go** plan
 
 ## Add a trial license

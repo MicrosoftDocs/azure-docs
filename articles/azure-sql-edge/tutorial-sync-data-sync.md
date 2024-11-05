@@ -3,7 +3,7 @@ title: Sync data from Azure SQL Edge by using SQL Data Sync
 description: Learn about syncing data from Azure SQL Edge by using Azure SQL Data Sync
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: tutorial
 keywords:
@@ -13,7 +13,9 @@ keywords:
 ---
 # Tutorial: Sync data from SQL Edge to Azure SQL Database by using SQL Data Sync
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 This tutorial shows you how to use an Azure SQL Data Sync *sync group* to incrementally sync data from Azure SQL Edge to Azure SQL Database. SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases in Azure SQL Database and SQL Server instances. For more information on SQL Data Sync, see [Azure SQL Data Sync](/azure/azure-sql/database/sql-data-sync-data-sql-server-sql-database).
@@ -56,6 +58,6 @@ For more info about SQL Data Sync, see these articles:
 
 - [Update the sync schema with Transact-SQL](/azure/azure-sql/database/sql-data-sync-update-sync-schema) or [PowerShell](/azure/azure-sql/database/scripts/update-sync-schema-in-sync-group)
 
-## Next steps
+## Related content
 
 - [Use PowerShell to sync between Azure SQL Database and Azure SQL Edge](/azure/azure-sql/database/scripts/sql-data-sync-sync-data-between-azure-onprem). In this tutorial, replace the `OnPremiseServer` database details with the Azure SQL Edge details.

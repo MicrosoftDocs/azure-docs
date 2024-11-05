@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban  
 ms.topic: conceptual
 ms.date: 04/10/2024
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ---
 

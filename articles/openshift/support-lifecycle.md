@@ -5,7 +5,7 @@ author: joharder
 ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 07/17/2024
+ms.date: 09/17/2024
 ---
 
 # Support lifecycle for Azure Red Hat OpenShift 4
@@ -98,10 +98,11 @@ See the following guide for the [past Red Hat OpenShift Container Platform (upst
 |4.9|November 2021| February 1 2022|March 2 2023|
 |4.10|March 2022| June 21 2022|August 19 2023|
 |4.11|August 2022| March 2 2023|February 10 2024|
-|4.12|January 2023| August 19 2023|October 17 2024|
+|4.12|January 2023| August 19 2023|January 17 2025|
 |4.13|May 2023| December 15 2023|November 17 2024|
 |4.14|October 2023| April 25 2024|May 1 2025|
-|4.15|February 2024| Coming soon|June 27 2025|
+|4.15|February 2024| September 4 2024|June 27 2025|
+|4.16|June 2024| Coming soon|November 2 2025|
 
 ## FAQ
 

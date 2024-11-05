@@ -480,16 +480,6 @@ items:
         href: scalability-targets-premium-page-blobs.md
       - name: Storage resource provider
         href: ../common/scalability-targets-resource-provider.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: 'Tutorial: Optimize performance and scalability'
-      items:
-      - name: 1 - Create a VM and storage account
-        href: storage-blob-scalable-app-create-vm.md
-      - name: 2 - Upload large data to an Azure storage account
-        href: storage-blob-scalable-app-upload-files.md
-      - name: 3 - Download large data from an Azure storage account
-        href: storage-blob-scalable-app-download-files.md
-      - name: 4 - Verify throughput and latency metrics
-        href: storage-blob-scalable-app-verify-metrics.md
     - name: Object replication
       items:
       - name: Object replication
@@ -504,12 +494,12 @@ items:
       href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Find prices
       items:
-        - name: Azure Blob Storage prices
-          href: https://azure.microsoft.com/pricing/details/storage/blobs/
-        - name: Azure Data Lake Storage prices
-          href: https://azure.microsoft.com/pricing/details/storage/data-lake/
-        - name: Map each REST operation to a price
-          href: map-rest-apis-transaction-categories.md
+      - name: Azure Blob Storage prices
+        href: https://azure.microsoft.com/pricing/details/storage/blobs/
+      - name: Azure Data Lake Storage prices
+        href: https://azure.microsoft.com/pricing/details/storage/data-lake/
+      - name: Map each REST operation to a price
+        href: map-rest-apis-transaction-categories.md
     - name: Estimate costs
       items:
       - name: Estimate the cost of Azure Blob Storage
@@ -813,78 +803,6 @@ items:
             href: storage-retry-policy-javascript.md
         - name: 'Tutorial: Upload and process image files'
           href: blob-upload-function-trigger-javascript.md
-      - name: TypeScript
-        items:
-        - name: Get started
-          href: storage-blob-typescript-get-started.md
-        - name: Authorize access from your application
-          items:
-          - name: Microsoft Entra ID
-            items:
-            - name: Overview
-              href: /azure/developer/javascript/sdk/authentication/overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth using developer service principals
-              href: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth using developer accounts
-              href: /azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth from Azure-hosted apps
-              href: /azure/developer/javascript/sdk/authentication/azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth from on-premises apps
-              href: /azure/developer/javascript/sdk/authentication/on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Work with SAS tokens
-            items:
-            - name: User delegation SAS
-              href: storage-blob-create-user-delegation-sas-javascript.md
-            - name: Service SAS
-              href: sas-service-create-javascript.md
-            - name: Account SAS
-              href: storage-blob-account-delegation-sas-create-javascript.md
-        - name: Container actions
-          items:
-          - name: Create a container
-            href: storage-blob-container-create-typescript.md
-          - name: Get container URL
-            href: storage-blob-get-url-typescript.md
-          - name: Delete and restore containers
-            href: storage-blob-container-delete-typescript.md
-          - name: List containers
-            href: storage-blob-containers-list-typescript.md
-          - name: Manage container leases
-            href: storage-blob-container-lease-typescript.md
-          - name: Manage properties and metadata
-            href: storage-blob-container-properties-metadata-typescript.md
-        - name: Blob actions
-          items:
-          - name: Upload blobs
-            href: storage-blob-upload-typescript.md
-          - name: Download blobs
-            href: storage-blob-download-typescript.md
-          - name: Copy blobs
-            items:
-            - name: Overview of copy operations
-              href: storage-blob-copy-typescript.md
-            - name: Copy from a source object URL
-              href: storage-blob-copy-url-typescript.md
-            - name: Copy with asynchronous scheduling
-              href: storage-blob-copy-async-typescript.md
-          - name: List blobs
-            href: storage-blobs-list-typescript.md
-          - name: Delete and restore blobs
-            href: storage-blob-delete-typescript.md
-          - name: Find blobs using tags
-            href: storage-blob-tags-typescript.md
-          - name: Manage blob leases
-            href: storage-blob-lease-typescript.md
-          - name: Manage blob properties and metadata
-            href: storage-blob-properties-metadata-typescript.md
-          - name: Get blob URL
-            href: storage-blob-get-url-typescript.md
-          - name: Set or change a blob's access tier
-            href: storage-blob-use-access-tier-typescript.md
-        - name: Client library configuration options
-          items:
-          - name: Implement a retry policy
-            href: storage-retry-policy-javascript.md
       - name: Python
         items:
         - name: Get started
@@ -1005,6 +923,8 @@ items:
             href: storage-blob-properties-metadata-go.md
         - name: Client library configuration options
           items:
+          - name: Performance tuning for uploads and downloads
+            href: storage-blobs-tune-upload-download-go.md
           - name: Implement a retry policy
             href: storage-retry-policy-go.md
     - name: Test with a storage emulator
@@ -1046,17 +966,9 @@ items:
     - name: Other languages
       href: ../common/storage-samples.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Azure PowerShell
-      items: 
+      items:
       - name: Overview
         href: storage-samples-blobs-powershell.md
-      - name: Calculate the total billing size of a blob container
-        href: ../scripts/storage-blobs-container-calculate-billing-size-powershell.md
-      - name: Calculate the size of blob containers with PowerShell
-        href: ../scripts/storage-blobs-container-calculate-size-powershell.md
-      - name: Delete containers with a specific prefix
-        href: ../scripts/storage-blobs-container-delete-by-prefix-powershell.md
-      - name: Retrieve and rotate the access keys
-        href: ../scripts/storage-common-rotate-account-keys-powershell.md
     - name: Azure CLI
       items:
       - name: Overview
@@ -1302,7 +1214,7 @@ items:
         - name: Data Movement library
           href: https://github.com/Azure/azure-storage-net-data-movement
         - name: Storage Resource Provider library
-          href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
+          href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage
       - name: Java
         items:
         - name: Azure Storage client library version 12.x
@@ -1474,7 +1386,7 @@ items:
     - name: Use with Databricks Delta and Event Grid
       href: data-lake-storage-events.md
     - name: Use with other Azure services
-      href: data-lake-storage-integrate-with-services-tutorials.md    
+      href: data-lake-storage-integrate-with-services-tutorials.md
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
 - name: Reference
@@ -1710,7 +1622,7 @@ items:
       - name: Data Movement library
         href: https://github.com/Azure/azure-storage-net-data-movement
       - name: Storage Resource Provider library
-        href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
+        href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage
     - name: Java
       items:
       - name: Azure Storage client library version 12.x

@@ -196,3 +196,7 @@ If isolation is desired, deploy a new CI policy by following steps outlined in S
 - [Deploy catalog files to support Windows Defender Application Control (Windows 10) - Windows security](/windows/security/threat-protection/windows-defender-application-control/deploy-catalog-files-to-support-windows-defender-application-control#:~:text=%20Deploy%20catalog%20files%20to%20support%20Windows%20Defender,signing%20certificate%20to%20a%20Windows%20Defender...%20More%20).
 - [Example Windows Defender Application Control (WDAC) base policies (Windows 10) - Windows security | Microsoft Docs](/windows/security/threat-protection/windows-defender-application-control/example-wdac-base-policies)
 - [Use multiple Windows Defender Application Control Policies (Windows 10)](/windows/security/threat-protection/windows-defender-application-control/deploy-multiple-windows-defender-application-control-policies#deploying-multiple-policies-locally)
+- Need help with the migration: Contact us via:
+    - Support + troubleshooting (on Azure portal)
+    - [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) 
+    - [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).

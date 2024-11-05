@@ -15,6 +15,31 @@ ms.custom: references_regions
 
 This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## October 2024
+
+### Azure Health Data Services
+
+### FHIR service
+
+#### Bug fixes
+
+- Export Validation: An issue was identified where exports proceeded despite invalid search parameters. We're introducing a change that prevents exports under these conditions. This feature is currently behind a strict validation flag and will become the default behavior on or after October 30.
+- Search Parameter Inclusion: We resolved an issue where additional search parameters (for instance, `_include`, `_has`) didn't return all expected results, sometimes omitting the next link.
+- Export Job Execution: A rare occurrence of `System.ObjectDisposedException` during export job completion has been addressed by preventing premature exits.
+- HTTP Status Code Update: The HTTP status code for invalid parameters during `$reindex` job creation is now updated to 400, ensuring better error handling.
+- Search Parameter Cleanup: A fix has been implemented to ensure complete cleanup of search parameters in the database when triggered with delete API calls, addressing issues related to incomplete deletions.
+- Descending Sort Issue: Resolved an issue where descending sort operations returned no resources if the sorted field had no data in the database, even when relevant resources existed.
+- Authentication Failure Handling: Added a new catch block to manage authentication failures when import requests are executed with managed identity turned off.
+
+## September 2024
+
+### Azure Health Data Services
+
+### FHIR service
+
+#### Enhanced Export Efficiency
+The export functionality has been improved to optimize memory usage. With this change, the export process now pushes data to blob storage one resource at a time, reducing memory consumption. 
+
 ## August 2024
 
 ### Azure Health Data Services
@@ -22,8 +47,8 @@ This article describes features, enhancements, and bug fixes released in 2024 fo
 ### FHIR service
 
 #### Import operation error handling
-1. The import operation returns a HTTP 400 error when a search parameter resource is ingested via the import process. This change is intended to prevent search parameters from being placed in an invalid state when ingested with an import operation.
-2. The import operation will return a HTTP 400 status code, as opposed to the previous HTTP 500 status code, in cases where configuration issues with the storage account occur. This update aims to improve error handling associated with managed identities during import operations. 
+1. The import operation returns an HTTP 400 error when a search parameter resource is ingested via the import process. This change is intended to prevent search parameters from being placed in an invalid state when ingested with an import operation.
+2. The import operation returns an HTTP 400 status code, as opposed to the previous HTTP 500 status code, in cases where configuration issues with the storage account occur. This update aims to improve error handling associated with managed identities during import operations. 
 
 ## July 2024
 
@@ -50,7 +75,7 @@ Updating Status Code from HTTP 500 to HTTP 400
 During a patch operation, if the payload requested an update for a resource type other than parameter, an internal server error (HTTP 500) was initially thrown. This has been updated to throw an HTTP 400 error instead.
 
 #### Performance enhancement
-Query optimization is added when searching FHIR resources with a data range. This query optimization will help with efficient querying as one combined CTE is generated.
+Query optimization is added when searching FHIR resources with a data range. This query optimization helps with efficient querying as one combined CTE is generated.
 
 ## May 2024
 
@@ -64,7 +89,7 @@ The scaling logic for import operations is improved, enabling multiple jobs to b
 
 #### Bug fixes
 - **Fixed: HTTP status code for long-running requests**. FHIR requests that take longer than 100 seconds to execute return an HTTP 408 status code instead of HTTP 500. 
-- **Fixed: History request in bundle**. Prior to the fix, history request in a bundle returned HTTP status code 404.
+- **Fixed: History request in bundle**. Before the fix, history request in a bundle returned HTTP status code 404.
 
 #### Stand-alone FHIR converter (preview)
 

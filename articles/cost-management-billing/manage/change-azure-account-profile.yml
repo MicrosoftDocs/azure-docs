@@ -6,7 +6,7 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.reviewer: judupont
-  ms.date: 08/27/2024
+  ms.date: 09/17/2024
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: how-to
@@ -145,7 +145,7 @@ procedureSection:
       **To update billing account information**
     steps: 
       - |
-        Sign in to the [Microsoft Store for Business](https://businessstore.microsoft.com/) or [Microsoft Store for Education](https://educationstore.microsoft.com/).
+        Sign in to the [Microsoft Store for Education](https://www.microsoft.com/store/b/education).
       - |  
         Select **Manage**, and then select **Billing accounts**.
       - |  
@@ -153,7 +153,6 @@ procedureSection:
       - |  
         Make your updates, and then select **Save**.
         
-        [Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
   - title: |
       Service and marketing emails
     summary: |
@@ -204,6 +203,8 @@ procedureSection:
   - title: | 
       Change the subscription name
     summary: |
+      To protect Azure subscriptions from misuse, renaming a subscription is monitored for suspicious activity. You can only rename a subscription twice in a five-minute period.
+      
       Follow these steps: 
     steps: 
       - |

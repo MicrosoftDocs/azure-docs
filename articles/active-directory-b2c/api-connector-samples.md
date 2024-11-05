@@ -9,8 +9,8 @@ ms.author: kengaderdus
 ms.date: 01/11/2024
 ms.custom: mvc
 ms.topic: sample
-ms.service: active-directory
-ms.subservice: B2C
+ms.service: azure-active-directory
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating web APIs into user flows using API connectors, I want to access code samples that use API connectors, so that I can easily implement functionality such as fraud and abuse protection, identity verification, and invitation codes in my applications.

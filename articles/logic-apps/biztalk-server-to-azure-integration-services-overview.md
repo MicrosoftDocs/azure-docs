@@ -578,7 +578,7 @@ Administrators use the [BizTalk Server Administrator Console](/biztalk/core/usin
 
 #### Azure Integration Services
 
-The [Azure portal](../azure-portal/azure-portal-overview.md) is a common tool that administrators and support personnel use to view and monitor the health of interfaces. For Azure Logic Apps, this experience includes rich transaction traces that are available through run history.
+The [Azure portal](/azure/azure-portal/azure-portal-overview) is a common tool that administrators and support personnel use to view and monitor the health of interfaces. For Azure Logic Apps, this experience includes rich transaction traces that are available through run history.
 
 Granular [role-based access controls (RBAC)](../role-based-access-control/overview.md) are also available so you can manage and restrict access to Azure resources at various levels.
 

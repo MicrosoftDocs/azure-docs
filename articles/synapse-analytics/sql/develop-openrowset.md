@@ -5,7 +5,7 @@ author: filippopovic
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 09/11/2023
+ms.date: 09/11/2024
 ms.author: fipopovi
 ms.reviewer: whhender
 ---

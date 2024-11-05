@@ -105,10 +105,8 @@
             displayName: TypeScript, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript
         - name: Other (Go/Rust)
-          items:
-          - name: Visual Studio Code
-            displayName: Go, Rust, quickstart, get started
-            href: create-first-function-vs-code-other.md
+          displayName: Go, Rust, quickstart, get started
+          href: create-first-function-vs-code-other.md   
         - name: Resource Manager
           items:
           - name: Bicep
@@ -595,8 +593,8 @@
           href: disable-function.md
         - name: Networking
           href: configure-networking-how-to.md
-        - name: Move across regions
-          href: functions-move-across-regions.md
+        - name: Relocate to another region
+          href: ../operational-excellence/relocation-functions.md?toc=/azure/azure-functions/toc.json
         - name: Work with legacy Functions Proxies
           href: legacy-proxies.md
     - name: Migrate

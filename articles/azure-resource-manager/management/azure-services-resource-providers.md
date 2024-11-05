@@ -2,7 +2,7 @@
 title: Find resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 09/26/2024
 ms.custom: devx-track-arm-template
 content_well_notification: 
   - AI-contribution
@@ -23,7 +23,6 @@ The resource providers for AI and machine learning services are:
 | Microsoft.BotService | [Azure Bot Service](/azure/bot-service/) |
 | Microsoft.CognitiveServices | [Cognitive Services](/azure/ai-services/) |
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
-| Microsoft.MachineLearning | [Machine Learning Studio](/azure/machine-learning/classic/) |
 | Microsoft.MachineLearningServices | [Azure Machine Learning](/azure/machine-learning/) |
 | Microsoft.Search | [Azure AI Search](/azure/search/) |
 
@@ -90,7 +89,7 @@ The resource providers for container services are:
 | --------------------------- | ------------- |
 | Microsoft.App | [Azure Container Apps](../../container-apps/index.yml) |
 | Microsoft.ContainerInstance | [Container Instances](/azure/container-instances/) |
-| Microsoft.ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
+| Microsoft.ContainerRegistry | [Container Registry](/azure/container-registry/) |
 | Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](/azure/aks/) |
 | Microsoft.RedHatOpenShift | [Azure Red Hat OpenShift](/azure/virtual-machines/linux/openshift-get-started) |
 
@@ -157,10 +156,10 @@ The resource providers for hybrid services are:
 | --------------------------- | ------------- |
 | Microsoft.AzureArcData | [Azure Arc-enabled data services](/azure/azure-arc/data/overview) |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
-| Microsoft.HybridCompute | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) |
-| Microsoft.Kubernetes | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
-| Microsoft.KubernetesConfiguration | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
-| Microsoft.Edge | [Azure Arc site manager](../../azure-arc/site-manager/index.yml) |
+| Microsoft.HybridCompute | [Azure Arc-enabled servers](/azure/azure-arc/servers/) |
+| Microsoft.Kubernetes | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) |
+| Microsoft.KubernetesConfiguration | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) |
+| Microsoft.Edge | [Azure Arc site manager](/azure/azure-arc/site-manager/) |
 
 ## Identity resource providers
 
@@ -225,10 +224,10 @@ The resource providers for management services are:
 | Microsoft.DynamicsLcs | [Lifecycle Services](https://lcs.dynamics.com/Logon/Index) |
 | Microsoft.Features - [registered by default](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.ManagedServices | [Azure Lighthouse](../../lighthouse/index.yml) |
+| Microsoft.ManagedServices | [Azure Lighthouse](/azure/lighthouse/) |
 | Microsoft.Management | [Management Groups](../../governance/management-groups/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.Portal - [registered by default](#registration) | [Azure portal](../../azure-portal/index.yml) |
+| Microsoft.Portal - [registered by default](#registration) | [Azure portal](/azure/azure-portal/) |
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.ResourceGraph - [registered by default](#registration) | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
 | Microsoft.ResourceHealth | [Azure Service Health](/azure/service-health/) |

@@ -1,7 +1,7 @@
 ---
 title: Extend your IoT solution
 description: An overview of the extensibility options in an IoT solution.
-ms.service: iot
+ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett

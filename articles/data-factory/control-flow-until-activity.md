@@ -7,7 +7,7 @@ ms.author: makromer
 ms.reviewer: jburchel
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell, synapse
 ---
 

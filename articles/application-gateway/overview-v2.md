@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: overview
-ms.date: 09/06/2024
+ms.date: 10/02/2024
 ms.author: greglin
 ms.custom: references_regions, devx-track-azurepowershell
 ---
@@ -52,7 +52,7 @@ The following table displays a comparison between Basic and Standard_v2.
 |     :---:                | :---                                     |     :---:      |     :---:         |
 | Reliability              | SLA                                      | 99.9           | 99.95             |
 | Functionality - basic    | HTTP/HTTP2/HTTPS<br>Websocket<br>Public/Private IP<br>Cookie Affinity<br>Path-based affinity<br>Wildcard<br>Multisite<br>KeyVault<br>Zone<br>Header rewrite | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;|
-| Functionality - advanced | AKS (via AGIC)<br>URL rewrite<br>mTLS<br>Private Link<br>Private-only<sup>1</sup><br>TCP/TLS Proxy |  | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; |
+| Functionality - advanced | AKS (via AGIC)<br>URL rewrite<br>mTLS<br>Private Link<br>Private-only (preview)<br>TCP/TLS Proxy (preview) |  | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; |
 | Scale                    | Max. connections per second<br>Number of listeners<br>Number of backend pools<br>Number of backend servers per pool<br>Number of rules | 200<sup>1</sup><br>5<br>5<br>5<br>5  | 62500<sup>1</sup><br>100<br>100<br>1200<br>400 |
 | Capacity Unit            | Connections per second per compute unit<br>Throughput<br>Persistent new connections  | 10<br>2.22 Mbps<br>2500 | 50<br>2.22 Mbps<br>2500 |
 

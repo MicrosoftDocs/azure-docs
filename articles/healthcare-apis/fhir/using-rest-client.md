@@ -69,7 +69,7 @@ grant_type=client_credentials
 @token = {{getAADToken.response.body.access_token}}
 ```
 
-[ ![Get access token](media/rest-config.png) ](media/rest-config.png#lightbox)
+[![Get access token](media/rest-config.png)](media/rest-config.png#lightbox)
 
 > [!NOTE] 
 > When the FHIR service audience parameter is not mapped to the FHIR service endpoint url, the resource parameter value should be mapped to the Audience value under the FHIR Service Authentication blade.
@@ -84,17 +84,17 @@ GET {{fhirurl}}/Patient/<patientid>
 Authorization: Bearer {{token}}
 ```
 
-[ ![GET Patient](media/rest-patient.png) ](media/rest-patient.png#lightbox)
+[![GET Patient](media/rest-patient.png)](media/rest-patient.png#lightbox)
 
 ## Run PowerShell or CLI
 
 You can run PowerShell or CLI scripts within Visual Studio Code. Press `CTRL` and the `~` key and select PowerShell or Bash. You can find more details on [Integrated Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
 ### PowerShell in Visual Studio Code
-[ ![running PowerShell](media/rest-powershell.png) ](media/rest-powershell.png#lightbox)
+[![running PowerShell](media/rest-powershell.png)](media/rest-powershell.png#lightbox)
 
 ### CLI in Visual Studio Code
-[ ![running CLI](media/rest-cli.png) ](media/rest-cli.png#lightbox)
+[![running CLI](media/rest-cli.png)](media/rest-cli.png#lightbox)
 
 ## Troubleshooting
 

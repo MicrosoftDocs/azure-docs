@@ -4,10 +4,9 @@ description: Describes Azure Stack Edge Mini R, a storage solution for military 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: overview
-ms.date: 05/22/2023
+ms.date: 10/09/2024
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Mini R is and how it works so I can use it to process and transform data before sending to Azure.
 ---

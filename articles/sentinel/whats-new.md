@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
 ms.date: 09/09/2024
+
+
+#Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
+
 ---
 
 # What's new in Microsoft Sentinel
@@ -18,11 +22,46 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## September 2024 
+## September 2024
 
+- [Schema mapping added to the SIEM migration experience](#schema-mapping-added-to-the-siem-migration-experience)
+- [Third-party enrichment widgets to be retired in February 2025](#third-party-enrichment-widgets-to-be-retired-in-february-2025)
+- [Azure reservations now have pre-purchase plans available for Microsoft Sentinel](#pre-purchase-plans-now-available-for-microsoft-sentinel)
 - [Import/export of automation rules now generally available (GA)](#importexport-of-automation-rules-now-generally-available-ga)
 - [Google Cloud Platform data connectors are now generally available (GA)](#google-cloud-platform-data-connectors-are-now-generally-available-ga)
 - [Microsoft Sentinel now generally available (GA) in Azure Israel Central](#microsoft-sentinel-now-generally-available-ga-in-azure-israel-central)
+
+### Schema mapping added to the SIEM migration experience
+
+Since the SIEM migration experience became generally available in May 2024, steady improvements have been made to help migrate your security monitoring from Splunk. The following new features let customers provide more contextual details about their Splunk environment and usage to the Microsoft Sentinel SIEM Migration translation engine:
+
+- Schema Mapping
+- Support for Splunk Macros in translation
+- Support for Splunk Lookups in translation
+
+To learn more about these updates, see [SIEM migration experience](siem-migration.md).
+
+For more information about the SIEM migration experience, see the following articles:
+- [Become a Microsoft Sentinel ninja - migration section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310#toc-hId-111398316)
+- [SIEM migration update - Microsoft Sentinel blog](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/siem-migration-update-now-migrate-with-contextual-depth-in/ba-p/4241234)
+
+### Third-party enrichment widgets to be retired in February 2025
+
+Effective immediately, you can no longer enable the feature to create enrichment widgets that retrieve data from external, third-party data sources. These widgets are displayed on Microsoft Sentinel entity pages and in other locations where entity information is presented. This change is happening because you can no longer create the Azure key vault required to access these external data sources.
+
+If you already use any third-party enrichment widgets, that is, if this key vault already exists, you can still configure and use widgets that you weren't using before, though we don't recommend doing so.
+
+As of **February 2025**, any existing enrichment widgets that retrieve data from third-party sources will *stop being displayed*, on entity pages or anywhere else.
+
+If your organization uses third-party enrichment widgets, we recommend disabling them in advance, by deleting the key vault you created for this purpose from its resource group. The key vault's name begins with "widgets".
+
+Enrichment widgets based on first-party data sources are not affected by this change, and will continue to function as before. "First-party data sources" include any data that's already ingested into Microsoft Sentinel from external sources&mdash;in other words, anything in tables in your Log Analytics workspace&mdash;and Microsoft Defender Threat Intelligence.
+
+### Pre-purchase plans now available for Microsoft Sentinel
+
+Pre-purchase plans are a type of Azure reservation. When you buy a pre-purchase plan, you get commit units (CUs) at discounted tiers for a specific product. Microsoft Sentinel commit units (SCUs) apply towards eligible costs in your workspace. When you have predictable costs, choosing the right pre-purchase plan saves you money! 
+
+For more information, see [Optimize costs with a pre-purchase plan](billing-pre-purchase-plan.md).
 
 ### Import/export of automation rules now generally available (GA)
 
@@ -48,6 +87,7 @@ For more information, see as [Microsoft Sentinel feature support for Azure comme
 
 ## August 2024
 
+- [Log Analytics agent retirement](#log-analytics-agent-retirement)
 - [Export and import automation rules (Preview)](#export-and-import-automation-rules-preview)
 - [Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)](#microsoft-sentinel-support-in-microsoft-defender-multitenant-management-preview)
 - [Premium Microsoft Defender Threat Intelligence data connector (Preview)](#premium-microsoft-defender-threat-intelligence-data-connector-preview)
@@ -55,6 +95,21 @@ For more information, see as [Microsoft Sentinel feature support for Azure comme
 - [Better visibility for Windows security events](#better-visibility-for-windows-security-events)
 - [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
 - [Create summary rules for large sets of data (Preview)](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data-preview)
+
+### Log Analytics agent retirement
+
+As of August 31, 2024, the [Log Analytics Agent (MMA/OMS) is retired](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). 
+
+Log collection from many appliances and devices is now supported by the Common Event Format (CEF) via AMA, Syslog via AMA, or Custom Logs via AMA data connector in Microsoft Sentinel. If you've been using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you migrate to the Azure Monitor Agent (AMA). 
+
+For more information, see:
+
+- [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
+- [Migrate to Azure Monitor Agent from Log Analytics agent](/azure/azure-monitor/agents/azure-monitor-agent-migration)
+- [AMA migration for Microsoft Sentinel](ama-migrate.md)
+- Blogs:
+    - [Revolutionizing log collection with Azure Monitor Agent](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/revolutionizing-log-collection-with-azure-monitor-agent/ba-p/4218129)
+    - [The power of Data Collection Rules: Collecting events for advanced use cases in Microsoft USOP](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-power-of-data-collection-rules-collecting-events-for/ba-p/4236486)
 
 ### Export and import automation rules (Preview)
 
@@ -112,7 +167,7 @@ Microsoft Sentinel now provides the ability to create dynamic summaries using [A
 
 - Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
 - Run high performance Kusto Query Language (KQL) queries on summarized data.
-- Use summary rule results for longer in investigations, hunting, and compliance activities.
+- Use summary rule results for longer periods in investigations, hunting, and compliance activities.
 
 For more information, see [Aggregate Microsoft Sentinel data with summary rules](summary-rules.md).
 

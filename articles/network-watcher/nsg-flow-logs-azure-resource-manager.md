@@ -6,11 +6,13 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 09/26/2024
 ms.custom: devx-track-arm-template, fasttrack-edit
 ---
 
 # Manage NSG flow logs using an Azure Resource Manager template
+
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
 Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](nsg-flow-logs-overview.md).
 
@@ -81,8 +83,8 @@ Example 1 uses the simplest version of the ARM template with minimum parameters 
     "location": "eastus",
     "apiVersion": "2022-11-01",
     "properties": {
-      "targetResourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
-      "storageId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+      "targetResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+      "storageId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
       "enabled": true,
       "flowAnalyticsConfiguration": {},
       "retentionPolicy": {},
@@ -113,13 +115,13 @@ Example 2 uses the following template to enable NSG flow logs (version 2) with r
       "location": "eastus",
       "apiVersion": "2022-11-01",
       "properties": {
-        "targetResourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
-        "storageId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+        "targetResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+        "storageId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
         "enabled": true,
         "flowAnalyticsConfiguration": {
           "networkWatcherFlowAnalyticsConfiguration": {
             "enabled": true,
-            "workspaceResourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/defaultresourcegroup-eus/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-abcdef01-2345-6789-0abc-def012345678-EUS",
+            "workspaceResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/defaultresourcegroup-eus/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e-EUS",
             "trafficAnalyticsInterval": 10
           }
         },

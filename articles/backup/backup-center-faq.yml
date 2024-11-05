@@ -14,7 +14,7 @@ sections:
     questions:
       - question: Can Backup center be used across tenants? 
         answer: |
-          Yes, if you're using [Azure Lighthouse](../lighthouse/overview.md) and have delegated access to subscriptions across different tenants, you can use Backup Center as a single pane of glass to manage backups across tenants.
+          Yes, if you're using [Azure Lighthouse](/azure/lighthouse/overview) and have delegated access to subscriptions across different tenants, you can use Backup Center as a single pane of glass to manage backups across tenants.
       - question: Can Backup center be used to manage both Recovery Services vaults and Backup vaults? 
         answer: |
           Yes, Backup center can manage both [Recovery Services vaults](./backup-azure-recovery-services-vault-overview.md) and [Backup vaults](backup-vault-overview.md).

@@ -32,7 +32,7 @@ To access and use the default templates for your conversion requests, ensure tha
 >
 > The default templates are provided to help you get started with your data conversion workflow. These default templates are _not_ intended for production and might change when Microsoft releases updates for the FHIR service. To have consistent data conversion behavior across different versions of the FHIR service, you must do the following.
 >
-> 1. Host your own copy of the templates in an [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md) instance.
+> 1. Host your own copy of the templates in an [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro) instance.
 > 2. Register the templates to the FHIR service. 
 > 3. Use your registered templates in your API calls.
 > 4. Verify that the conversion behavior meets your requirements.
@@ -105,7 +105,7 @@ In the example code, two example custom fields `customfield_message` and `custom
  
 ## Host your own templates
 
-We recommend that you host your own copy of templates in an [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md) instance. ACR can be used to host your custom templates and support with versioning.
+We recommend that you host your own copy of templates in an [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro) instance. ACR can be used to host your custom templates and support with versioning.
 
 Hosting your own templates and using them for `$convert-data` operations involves the following seven steps.
 
@@ -119,15 +119,15 @@ Hosting your own templates and using them for `$convert-data` operations involve
 
 ### Step 1: Create an Azure Container Registry instance
 
-Read the [Introduction to container registries in Azure](../../container-registry/container-registry-intro.md) and follow the instructions for creating your own ACR instance. We recommend that you place your ACR instance in the same resource group as your FHIR service.
+Read the [Introduction to container registries in Azure](/azure/container-registry/container-registry-intro) and follow the instructions for creating your own ACR instance. We recommend that you place your ACR instance in the same resource group as your FHIR service.
 
 ### Step 2: Push the templates to your Azure Container Registry instance
 
 After you create an ACR instance, you can use the **FHIR Converter: Push Templates** command in the [FHIR Converter extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to push your custom templates to your ACR instance. Alternatively, you can use the [Template Management CLI tool](https://github.com/microsoft/FHIR-Converter/blob/main/docs/TemplateManagementCLI.md) for this purpose.
 
 To maintain different versions of custom templates in your Azure Container Registry, you can push the image containing your custom templates into your ACR instance with different image tags. 
-* For more information about ACR registries, repositories, and artifacts, see [About registries, repositories, and artifacts](../../container-registry/container-registry-concepts.md).
-* For more information about image tag best practices, see [Recommendations for tagging and versioning container images](../../container-registry/container-registry-image-tag-version.md).
+* For more information about ACR registries, repositories, and artifacts, see [About registries, repositories, and artifacts](/azure/container-registry/container-registry-concepts).
+* For more information about image tag best practices, see [Recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
 
 To reference specific template versions in the API, be sure to use the exact image name and tag that contains the versioned template to be used. For the API parameter `templateCollectionReference`, use the appropriate **image name + tag** (for example: `<RegistryServer>/<imageName>:<imageTag>`).
 
@@ -178,16 +178,19 @@ You can register up to 20 ACR servers in the FHIR service.
 
 There are many methods for securing ACR using the built-in firewall depending on your particular use case.
 
-* [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md)
-* [Configure public IP network rules](../../container-registry/container-registry-access-selected-networks.md)
-* [Azure Container Registry mitigating data exfiltration with dedicated data endpoints](../../container-registry/container-registry-dedicated-data-endpoints.md)
-* [Restrict access to a container registry using a service endpoint in an Azure virtual network](../../container-registry/container-registry-vnet.md)
-* [Allow trusted services to securely access a network-restricted container registry](../../container-registry/allow-access-trusted-services.md)
-* [Configure rules to access an Azure container registry behind a firewall](../../container-registry/container-registry-firewall-access-rules.md)
+* [Connect privately to an Azure container registry using Azure Private Link](/azure/container-registry/container-registry-private-link)
+* [Configure public IP network rules](/azure/container-registry/container-registry-access-selected-networks)
+* [Azure Container Registry mitigating data exfiltration with dedicated data endpoints](/azure/container-registry/container-registry-dedicated-data-endpoints)
+* [Restrict access to a container registry using a service endpoint in an Azure virtual network](/azure/container-registry/container-registry-vnet)
+* [Configure rules to access an Azure container registry behind a firewall](/azure/container-registry/container-registry-firewall-access-rules)
 * [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519)
 
+<!-- * [Allow trusted services to securely access a network-restricted container registry](/azure/container-registry/allow-access-trusted-services)  This link should follow the Restric access link (currently 3rd from bottom).-->
+
+<!-- Removed from document per ADO131844, can be un-commented when service updates (similar for above link)
 > [!NOTE]
 > The FHIR service has been registered as a trusted Microsoft service with Azure Container Registry.
+-->
 
 ### Step 7: Verify the $convert-data operation
 

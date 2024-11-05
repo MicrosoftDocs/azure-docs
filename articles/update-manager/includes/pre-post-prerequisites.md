@@ -2,7 +2,7 @@
 author: SnehaSudhir
 ms.author: sudhirsneha
 ms.topic: include
-ms.date: 12/07/2023
+ms.date: 09/24/2024
 ---
 
 
@@ -22,24 +22,24 @@ ms.date: 12/07/2023
     Use PowerShell cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to assign a role to the system-assigned managed identity.
 
     ```powershell
-            New-AzRoleAssignment `
-            -ObjectId $SA_PrincipalId `
-            -ResourceGroupName $resourceGroup `
-            -RoleDefinitionName "Contributor"
+   New-AzRoleAssignment `
+                   -ObjectId $SA_PrincipalId `
+                   -ResourceGroupName $resourceGroup `
+                   -RoleDefinitionName "Contributor"
     ```        
  
     Assign a role to a user-assigned managed identity.
 
     ```powershell
-             New-AzRoleAssignment `
-            -ObjectId $UAMI.PrincipalId`
-            -ResourceGroupName $resourceGroup `
-            -RoleDefinitionName "Contributor"
+   New-AzRoleAssignment `
+                   -ObjectId $UAMI.PrincipalId `
+                   -ResourceGroupName $resourceGroup `
+                   -RoleDefinitionName "Contributor"
     ```
     For the system-assigned managed identity, show `ClientId` and record the value for later use.
         
     ```powershell
-             $UAMI.ClientId
+    $UAMI.ClientId
     ```
   ---
 3. Import the `Az.ResourceGraph` module, ensure the module is updated to ThreadJob with the module version 2.0.3.

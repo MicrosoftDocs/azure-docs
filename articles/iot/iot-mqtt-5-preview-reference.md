@@ -2,7 +2,7 @@
 title: Azure IoT Hub MQTT 5 API reference (preview)
 description: Learn about the IoT Hub MQTT 5 preview API
 services: iot
-ms.service: iot
+ms.service: azure-iot
 ms.custom:
   - ignite-2023
 author: kgremban

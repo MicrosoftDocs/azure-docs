@@ -3,8 +3,8 @@
 metadata:
   title: Trusted Signing FAQ
   description: Get answers to frequently asked questions about Trusted Signing.
-  author: microsoftshawarma
-  ms.author: rakiasegev
+  author: TacoTechSharma
+  ms.author: mesharm
   ms.service: trusted-signing
   ms.topic: faq
   ms.date: 03/18/2024
@@ -35,11 +35,20 @@ sections:
           
           :::image type="content" source="media/trusted-signing-resource-provider.png" alt-text="Screenshot of registering the Microsoft.CodeSigning resource provider." lightbox="media/trusted-signing-resource-provider.png":::
 
-      - question: What if identity validation fails?
+      - question: What if Organization identity validation fails?
         answer: | 
           - Currently, an organization that has a year-founded date of less than three years can't be onboarded, and identity validation fails. 
           - If your organization has a year-founded date of more than three years, ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
           - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
+      - question: For Individual identity validation, 	what if I don’t have an address on a bank statement or utility bill?
+        answer: | 
+          	Be sure to use a government issued ID with address on it, in order to successfully go through the process.
+      - question: For Individual identity validation, I see an error - "You do not have permission to access this page".
+        answer: | 
+          	Verify you are using the same email address to access the Identity Validation link, that you entered in the Identity Validation request.
+      - question: What if I already have a VID?
+        answer: | 
+          	Follow the steps to present your existing VID for Trusted Signing. For this process, VIDs must include your address in addition to your name. Ensure that your VIDs have your address on them before using them for Trusted Signing.
       - question: What if I need assistance with identity validation?
         answer: | 
           For questions about identity validation in Trusted Signing, contact us by using [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**). Azure support doesn't resolve identity validation issues for Trusted Signing.
@@ -95,13 +104,6 @@ sections:
       - question: How do we get the Authenticode certificate?  
         answer: |
           The Authenticode certificate that's used for signing with the profile is never given to you. All certificates are securely stored within the service and are accessible only at the time of signing. The public certificate is always included in any binary that the service signs. 
-      - question: What are the common steps I should complete if I get a SignTool error (for example, if an unexpected internal error occurs)?  
-        answer: |
-          1. Check that the dlib and DLL files are in the correct path.
-          1. Check that the version of SignTool that's installed and the dlib are both 64-bit.
-          1. Download and install [C++ Redistributables](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170).
-          1. Search for the specific issue on Bing or review the [SignTool overview](https://docs.microsoft.com/windows/win32/seccrypto/signtool).
-          1. We recommend that you use [a specific version of SignTool](https://developer.microsoft.com/windows/downloads/windows-sdk/) instead of getting it directly from NuGet. In an earlier article, we tested the SignTool version and confirmed that it works with our dlib (version 10.0.22621 currently is recommended). 
       - question: How do I check whether the time stamp service is healthy? 
         answer: |
           Run the following command: `curl http://timestamp.acs.microsoft.com`. If status code 200 is returned, the time stamp service is healthy and running. 
@@ -114,11 +116,11 @@ sections:
       - question: How do I fix pop-up credentials in an Azure virtual machine when I run the SignTool + dlib command?
         answer: |
           1. Create a [user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). 
-          1. Add the user-assigned managed identity to the VM:
+          2. Add the user-assigned managed identity to the VM:
              1. Select the VM.
-             1. On the left menu, select **Identity**, and then select **User assigned**.
-             1. Select **Add** to add the managed identity. 
-          1. In the resource group (or subscription) that has the Trusted Signing Certificate Profile Signer role, add the user-assigned managed identity to the role. To assign the correct role, go to **Access control (IAM)** > **Role assignments**.
+             2. On the left menu, select **Identity**, and then select **User assigned**.
+             3. Select **Add** to add the managed identity. 
+          3. In the resource group (or subscription) that has the Trusted Signing Certificate Profile Signer role, add the user-assigned managed identity to the role. To assign the correct role, go to **Access control (IAM)** > **Role assignments**.
       - question: How do I fix pop-up credentials when I use Google Cloud Platform?
         answer: |
           - Because Google Cloud Platform (GCP) doesn't have an Azure managed identity resource by default, set up an [environment credential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Use the [EnvironmentCredential class](https://docs.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. We recommend that you use these variables:
@@ -133,7 +135,7 @@ sections:
           If a certificate is misused or abused per the service Terms of Use, Trusted Signing suspends the account or revokes a signing certificate or both. In this scenario, we engage with you directly and follow the guidelines in the CA/Browser Forum CSBRs. 
       - question: What if I change my subscription ID or tenant ID?
         answer: |
-         Currently, Trusted Signing resources can't be migrated across subscriptions or tenants. If you want to make any change to your tenant ID or subscription ID, you must create all your Trusted Signing resources again.
+         Currently, Trusted Signing resources can't be migrated across subscriptions or tenants or resource groups or resources. If you want to make any change to your tenant ID or subscription ID, you must create all your Trusted Signing resources again.
       - question: Does Trusted Signing issue EV certificates?
         answer: |
           No, Trusted Signing doesn't issue Extended Validation (EV) certificates. We don't plan to issue EV certificates in the future.
@@ -151,6 +153,7 @@ sections:
           | No certificates were found that met all the given criteria.         |  Check the dlib path, dlib version, dlib name, filename, and SignTool version. This error indicates that SignTool is attempting to pull certificates from your local computer instead of using Trusted Signing certificates. |
           | Error: "SignerSign() failed." (-2147024846/0x80070032)           |  Ensure that you're using the latest version of SignTool. |
           | Error code (-2147024885/0x8007000b)            |  For MSIX signing, this error indicates that the publisher in the manifest file doesn't match the certificate subject. Check the publisher that's listed in the manifest file. |
+          | Error code (-2147467259/0x80004005)            |  If you use Service Principal + certificate based authentication, check your Environment Variables listed under the table for ["Service principal with certificate"](https://learn.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet).|
           | No error codes, SignTool silently fails          |  Ensure that the relevant .NET runtime version is installed. |
           | `Azure.Identity.CredentialUnavailableException`      |  You might see this error in [environments outside Azure](https://github.com/Azure/azure-sdk-for-net/issues/29471). If you are working outside of Azure, we recommend that you add "exclude ManagedIdentity" to your manifest file. |
           | 403          |  - Check your Trusted Signing role.  <br>  - Check the Trusted Signing account name and the Trusted Signing certificate profile name in your *metadata.json* file. <br> - Check the dlib and dlib path. <br>  - Install C++ Redistributables from https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170. <br>  - Check your .NET version, dlib version, and Windows SDK version. <br>  - Check if the Trusted Signing role is assigned to the identity that's trying to sign the file. <br>  - Check if the corresponding identity validation has a status of **Completed**.<br>  - Verify whether you access the Trusted Signing endpoint from this virtual machine or computer. Try executing the action on a different virtual machine or computer. The error might indicate a network issue. <br> - For Private Trust scenarios 403: The user object ID that does the signing is different from the user object ID that calls  `Get-azCodeSigningRootCert`. The appropriate object ID must have the role Trusted Signing Certificate Profile Signer.|

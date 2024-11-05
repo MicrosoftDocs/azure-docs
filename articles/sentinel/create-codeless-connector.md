@@ -4,7 +4,11 @@ description: Learn how to create a codeless connector in Microsoft Sentinel usin
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 09/26/2024
+
+
+#Customer intent: As a security engineer, I want to create custom data connectors for Microsoft Sentinel so that I can ingest and analyze data from various sources without writing code.
+
 ---
 # Create a codeless connector for Microsoft Sentinel
 
@@ -71,7 +75,7 @@ We recommend testing your components with an API testing tool like one of the fo
 
 ## Build the data connector
 
-There are 4 components required to build the CCP data connector.
+There are four components required to build the CCP data connector.
 
 1. [Output table definition](#output-table-definition)
 1. [Data Collection Rule (DCR)](#data-collection-rule)
@@ -119,7 +123,7 @@ Build the data connector user interface with the [**Data Connector Definition** 
 Notes: 
 1)	The `kind` property for API polling connector should always be `Customizable`.
 2)	Since this is a type of API polling connector, set the `connectivityCriteria` type to `hasDataConnectors`
-3)	The example `instructionsSteps` include a button of type `ConnectionToggleButton`. This button helps trigger the deployment of data connector rules based on the connection parameters specified.
+3)	The example `instructionSteps` include a button of type `ConnectionToggleButton`. This button helps trigger the deployment of data connector rules based on the connection parameters specified.
 
 Use an [API testing tool](#testing-apis) to call the data connector definitions API to create the data connector UI in order to validate it in the data connectors gallery.
 
@@ -127,14 +131,10 @@ To learn from an example, see the [Data connector definitions reference example 
 
 ### Data connection rules
 
-This portion defines the connection rules including:
-- polling
-- authentication
-- paging
+There are currently two kinds of data connection rules possible for defining your CCP data connector.
 
-For more information on building this section, see the [Data connector connection rules reference](data-connector-connection-rules-reference.md).
-
-To learn from an example, see the [Data connector connection rules reference example](data-connector-connection-rules-reference.md#example-ccp-data-connector).
+- `RestApiPoller` kind allows you to customize paging, authorization and expected request/response payloads for your data source. For more information, see [RestApiPoller data connector connection rules reference](data-connector-connection-rules-reference.md).
+- `GCP` kind allows you to decrease your development time by automatically configuring paging and expected response payloads for your Google Cloud Platform (GCP) data source. For more information, see [GCP data connector connection rules reference](data-connection-rules-reference-gcp.md)
 
 Use an [API testing tool](#testing-apis) to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 
@@ -216,16 +216,23 @@ Finally, the CCP utilizes the credential objects in the data connector section.
 
 ## Create the deployment template
 
-Manually package an Azure Resource Management (ARM) template using the [example template code samples](#example-arm-template) as your guide. These code samples are divided by ARM template sections for you to splice together.
+Manually package an Azure Resource Management (ARM) template using the [example template code samples](#example-arm-template) as your guide. These code samples are divided by ARM template sections which you must splice together.
 
-In addition to the example template, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connector. Review the following solutions as more examples of how to stitch the components together into an ARM template.
+If you're creating a Google Cloud Platform (GCP) CCP data connector, package the deployment template using the [example GCP CCP template](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/Templates/Connector_GCP_CCP_template.json). For information on how to fill out the GCP CCP template, see [GCP data connector connection rules reference](data-connection-rules-reference-gcp.md).
 
+In addition to the example templates, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connectors. Review the following solutions as more examples of how to stitch the components together into an ARM template.
+
+**`RestApiPoller`** CCP data connector examples
 - [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Ermes%20Browser%20Security/Data%20Connectors/ErmesBrowserSecurityEvents_ccp)
 - [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Palo%20Alto%20Prisma%20Cloud%20CWPP/Data%20Connectors/PaloAltoPrismaCloudCWPP_ccp)
 - [Sophos Endpoint Protection](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Sophos%20Endpoint%20Protection/Data%20Connectors/SophosEP_ccp)
 - [Workday](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Workday/Data%20Connectors/Workday_ccp)
 - [Atlassian Jira](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/AtlassianJiraAudit/Data%20Connectors/JiraAuditAPISentinelConnector_ccpv2)
 - [Okta Single Sign-On](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Okta%20Single%20Sign-On/Data%20Connectors/OktaNativePollerConnectorV2)
+
+**`GCP`** CCP data connector examples
+- [GCP audit logs](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Google%20Cloud%20Platform%20Audit%20Logs/Package/mainTemplate.json)
+- [GCP security command center](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Google%20Cloud%20Platform%20Security%20Command%20Center/Package/mainTemplate.json)
 
 ## Deploy the connector
 
@@ -901,7 +908,7 @@ There are 5 ARM deployment resources in this template guide which house the 4 CC
 }
 ```
 
-## Next steps
+## Related content
 
 For more information, see 
 - [About Microsoft Sentinel solutions](sentinel-solutions.md).

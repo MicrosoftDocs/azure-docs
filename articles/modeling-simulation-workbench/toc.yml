@@ -4,7 +4,17 @@ items:
   - name: Overview
     items:
       - name: What is Azure Modeling and Simulation Workbench?
-        href: modeling-simulation-workbench-overview.md
+        href: ./modeling-simulation-workbench-overview.md
+      - name: Get started with Azure Modeling and Simulation Workbench
+        href: ./get-started-modeling-simulation-workbench.md
+  - name: Quickstarts
+    items:
+      - name: Add users
+        href: ./quickstart-add-users.md
+      - name: Connect to desktop
+        href: ./quickstart-connect-desktop.md
+      - name: Import data
+        href: ./quickstart-import-data.md
   - name: Concepts
     items:
       - name: Workbench
@@ -23,20 +33,26 @@ items:
         href: ./concept-vm-offerings.md
       - name: Storage
         href: ./concept-storage.md
-      - name: Business continuity
-        items:
-          - name: Disaster recovery
-            href: ./disaster-recovery.md
   - name: Tutorials
     items:
-      - name: Create an Azure Modeling and Simulation Workbench
-        href: ./quickstart-create-portal.md
+      - name: Create a Slurm cluster
+        href: ./tutorial-install-slurm.md
+  - name: Networking
+    items:
+      - name: Networking overview
+        href: ./concept-network.md
+      - name: Connectors
+        href: ./concept-connector.md
+      - name: Create a private network connector for VPN
+        href: ./how-to-guide-private-network.md
+      - name: Create a public network connector
+        href: ./how-to-guide-public-network.md
+      - name: Manage Red Hat firewalls
+        href: ./how-to-guide-configure-firewall-red-hat.md
   - name: How-to guides
     items:
       - name: Manage users
         href: ./how-to-guide-manage-users.md
-      - name: Set up networking
-        href: ./how-to-guide-set-up-networking.md
       - name: Manage license service
         href: ./how-to-guide-licenses.md
       - name: Import data
@@ -47,28 +63,36 @@ items:
         href: ./how-to-guide-manage-chamber-storage.md
       - name: Manage shared storage
         href: ./how-to-guide-manage-shared-storage.md
-      - name: Manage Red Hat firewalls
-        href: ./how-to-guide-configure-firewall-red-hat.md
       - name: Start and stop chambers, connectors, and VMs
         href: ./how-to-guide-start-stop-restart.md
       - name: Enable copy/paste
         href: ./how-to-guide-enable-copy-paste.md
-      - name: Place a chamber into Idle mode
+      - name: Place a chamber into idle mode
         href: ./how-to-guide-chamber-idle.md
-      - name: Add redirect URIs
-        href: ./how-to-guide-add-redirect-uris.md
       - name: Manage VMs
         href: ./how-to-guide-chamber-vm.md
-      - name: Register a resource provider
-        href: ./how-to-guide-register-resource-provider.md
       - name: Create a chamber
         href: ./how-to-guide-chamber.md
-      - name: Refresh remote connection keys
-        href: ./refresh-remote-connection-keys.md
+      - name: Management and configuration
+        items:
+          - name: Refresh remote connection keys
+            href: ./refresh-remote-connection-keys.md
+          - name: Register a resource provider
+            href: ./how-to-guide-register-resource-provider.md
+          - name: Add redirect URIs
+            href: ./how-to-guide-add-redirect-uris.md
   - name: Resources
     items:
-      - name: Troubleshoot
+      - name: Troubleshooting
         href: ./resources-troubleshoot.md
+      - name: Known issues
+        href: ./troubleshoot-known-issues.md
+      - name: Best practices
+        href: ./best-practices.md
+      - name: Limits and quotas
+        href: ./limits-quotas.md
+      - name: Business continuity and disaster recovery
+        href: ./disaster-recovery.md
       - name: Get support
         href: ./resources-get-support.md
       - name: AzCopy

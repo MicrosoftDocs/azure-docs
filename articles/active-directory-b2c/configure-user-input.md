@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Learn how to customize user input and add user attributes to the sign-up or sign-in journey in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 12/13/2023
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As a developer using Azure Active Directory B2C, I want to add a new attribute to the sign-up journey, customize the input type, and define whether it's required, so that I can collect specific user information during the sign-up process.

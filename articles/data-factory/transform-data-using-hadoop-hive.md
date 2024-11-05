@@ -6,7 +6,8 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Transform data using Hadoop Hive activity in Azure Data Factory or Synapse Analytics

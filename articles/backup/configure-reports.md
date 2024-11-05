@@ -27,7 +27,7 @@ Azure Backup provides a reporting solution that uses [Azure Monitor logs](/azure
 - For DPM workloads, Backup reports are supported for DPM Version 5.1.363.0 and above and Agent Version 2.0.9127.0 and above.
 - For MABS workloads, Backup reports are supported for MABS Version 13.0.415.0 and above and Agent Version 2.0.9170.0 and above.
 - Backup reports can be viewed across all backup items, vaults, subscriptions, and regions as long as their data is being sent to a Log Analytics workspace that the user has access to. To view reports for a set of vaults, you only need to have reader access to the Log Analytics workspace to which the vaults are sending their data. You don't need to have access to the individual vaults.
-- If you're an [Azure Lighthouse](../lighthouse/index.yml) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
+- If you're an [Azure Lighthouse](/azure/lighthouse/) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
 - Currently, data can be viewed in Backup Reports across a maximum of 100 Log Analytics Workspaces (across tenants).
   >[!Note]
   >Depending on the complexity of queries and the volume of data processed, it's possible that you might see errors when selecting a large number of workspaces that are less than 100, in some cases. We recommend that you limit the number of workspaces being queried at a time.
@@ -195,7 +195,7 @@ Select the pin button at the top of each widget to pin the widget to your Azure 
 
 ## Cross-tenant reports
 
-If you use [Azure Lighthouse](../lighthouse/index.yml) with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. Select the filter button in the upper-right corner of the Azure portal to choose all the subscriptions for which you want to see data. Doing so lets you select Log Analytics workspaces across your tenants to view multi-tenanted reports.
+If you use [Azure Lighthouse](/azure/lighthouse/) with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. Select the filter button in the upper-right corner of the Azure portal to choose all the subscriptions for which you want to see data. Doing so lets you select Log Analytics workspaces across your tenants to view multi-tenanted reports.
 
 ## Conventions used in Backup reports
 

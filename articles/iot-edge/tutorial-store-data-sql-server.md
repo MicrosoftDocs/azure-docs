@@ -7,7 +7,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 07/08/2024
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: "mvc, devx-track-csharp"
 #Customer intent: As an IoT developer, I want to use SQL Service to execute logic on edge devices to filter data and communications that is sent to the cloud.
 ---
@@ -40,7 +40,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * An AMD64 device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
   * ARM devices, like Raspberry Pis, cannot run SQL Server. If you want to use SQL on an ARM device, you can use [Azure SQL Edge](../azure-sql-edge/overview.md).
-* A container registry, like [Azure Container Registry](../container-registry/index.yml).
+* A container registry, like [Azure Container Registry](/azure/container-registry/).
 * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions. The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 * Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.
 

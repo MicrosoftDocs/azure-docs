@@ -3,7 +3,8 @@ title: What is Apache Spark™ in HDInsight on AKS? (Preview)
 description: An introduction to Apache Spark™ in HDInsight on AKS
 ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 10/27/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # What is Apache Spark™ in HDInsight on AKS? (Preview)

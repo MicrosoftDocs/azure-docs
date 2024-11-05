@@ -39,7 +39,7 @@ The following tables list the activities available by CLI and the privileged use
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
 |Sensor health     |   *admin*, *cyberx*      | [Check OT monitoring services health](cli-ot-sensor.md#check-ot-monitoring-services-health)        |
-|Reboot and shutdown     |  *admin*, *cyberx*, *cyberx_host*       | [Restart an appliance](cli-ot-sensor.md#restart-an-appliance)<br>[Shut down an appliance](cli-ot-sensor.md#shutdown-an-appliance)        |
+|Reboot and shutdown     |  *admin*, *cyberx*, *cyberx_host*       | [Restart an appliance](cli-ot-sensor.md#restart-an-appliance)<br>[Shut down an appliance](cli-ot-sensor.md#shut-down-an-appliance)        |
 |Software versions     |  *admin*, *cyberx*       |  [Show installed software version](cli-ot-sensor.md#show-installed-software-version)  <br>[Update software version](update-ot-software.md)     |
 |Date and time     |   *admin*, *cyberx*, *cyberx_host*          |  [Show current system date/time](cli-ot-sensor.md#show-current-system-datetime)       |
 |NTP     | *admin*, *cyberx*        | [Turn on NTP time sync](cli-ot-sensor.md#turn-on-ntp-time-sync)<br>[Turn off NTP time sync](cli-ot-sensor.md#turn-off-ntp-time-sync)        |
@@ -57,7 +57,6 @@ The following tables list the activities available by CLI and the privileged use
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
 |Password management     | *cyberx*, *cyberx_host*        | [Change local user passwords](cli-ot-sensor.md#change-local-user-passwords)        |
-|  Sign-in configuration| *admin*, *cyberx*, *cyberx_host* |[Control user session timeouts](manage-users-sensor.md#control-user-session-timeouts) |
 | Sign-in configuration     | *cyberx*        | [Define maximum number of failed sign-ins](manage-users-sensor.md#define-maximum-number-of-failed-sign-ins)       |
 
 ### Network configuration commands
@@ -69,6 +68,12 @@ The following tables list the activities available by CLI and the privileged use
 |Network connectivity     |  *admin*, *cyberx*       |  [Check network connectivity from the OT sensor](cli-ot-sensor.md#check-network-connectivity-from-the-ot-sensor)       |
 |Physical interfaces management     | *admin*        | [Locate a physical port by blinking interface lights](cli-ot-sensor.md#locate-a-physical-port-by-blinking-interface-lights)        |
 |Physical interfaces management    | *admin*, *cyberx*        |     [List connected physical interfaces](cli-ot-sensor.md#list-connected-physical-interfaces)    |
+
+### Traffic capture filter commands
+
+|Service area  |Users  |Actions  |
+|---------|---------|---------|
+| Capture filter management    |  *admin*, *cyberx*       | [Create a basic filter for all components](cli-ot-sensor.md#create-a-basic-filter-for-all-components)<br>[Create an advanced filter for specific components](cli-ot-sensor.md#create-an-advanced-filter-for-specific-components)  <br>[List current capture filters for specific components](cli-ot-sensor.md#list-current-capture-filters-for-specific-components)  <br> [Reset all capture filters](cli-ot-sensor.md#reset-all-capture-filters)   |
 
 ## Defender for IoT CLI access
 

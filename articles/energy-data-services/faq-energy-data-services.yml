@@ -2,7 +2,7 @@
 metadata:
   title: Microsoft Azure Data Manager for Energy FAQ
   description: Get answers to common questions about Azure Data Manager for Energy.
-  ms.service: energy-data-services
+  ms.service: azure-data-manager-energy
   ms.topic: faq
   ms.date: 09/13/2022
   ms.author: bselvaraj

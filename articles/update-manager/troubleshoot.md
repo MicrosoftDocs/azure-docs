@@ -42,7 +42,7 @@ To review the logs related to all actions performed by the extension, check for 
 #### [Arc-enabled Servers](#tab/azure-arc)
 
 
-For Azure Arc-enabled servers, see [Troubleshoot VM extensions](../azure-arc/servers/troubleshoot-vm-extensions.md) for general troubleshooting steps.
+For Azure Arc-enabled servers, see [Troubleshoot VM extensions](/azure/azure-arc/servers/troubleshoot-vm-extensions) for general troubleshooting steps.
 
 To review the logs related to all actions performed by the extension, on Windows, check for more information in `C:\ProgramData\GuestConfig\extension_Logs\Microsoft.SoftwareUpdateManagement\WindowsOsUpdateExtension`. It includes the following two log files of interest:
 
@@ -247,7 +247,7 @@ The Windows/Linux OS Update extension must be successfully installed on Arc mach
 
 Trigger an on-demand assessment or patching to install the extension on the machine. You can also attach the machine to a maintenance configuration schedule which will install the extension when patching is performed as per the schedule. 
 
-If the extension is already present on the machine but the extension status is not **Succeeded**, ensure that you [remove the extension](../azure-arc/servers/manage-vm-extensions-portal.md#remove-extensions) and trigger an on-demand operation so that it is installed again.
+If the extension is already present on the machine but the extension status is not **Succeeded**, ensure that you [remove the extension](/azure/azure-arc/servers/manage-vm-extensions-portal#remove-extensions) and trigger an on-demand operation so that it is installed again.
 
 ### Windows/Linux patch update extension isn't installed
 
@@ -257,14 +257,14 @@ The Windows/Linux patch update extension must be successfully installed on Azure
 #### Resolution
 Trigger an on-demand assessment or patching to install the extension on the machine. You can also attach the machine to a maintenance configuration schedule which will install the extension when patching is performed as per the schedule. 
 
-If the extension is already present on the machine but the extension status is not **Succeeded**, ensure that you [remove the extension](../azure-arc/servers/manage-vm-extensions-portal.md#remove-extensions) and trigger an on-demand operation which will install it again. 
+If the extension is already present on the machine but the extension status is not **Succeeded**, ensure that you [remove the extension](/azure/azure-arc/servers/manage-vm-extensions-portal#remove-extensions) and trigger an on-demand operation which will install it again. 
 
 
 ### Allow Extension Operations check failed
 
 #### Issue
 
-The property [AllowExtensionOperations](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.osprofile.allowextensionoperations?view=azure-dotnet-legacy) is set to false in the machine OSProfile.
+The property [AllowExtensionOperations](/dotnet/api/microsoft.azure.management.compute.models.osprofile.allowextensionoperations) is set to false in the machine OSProfile.
 
 #### Resolution
 The property should be set to true to allow extensions to work properly. 
@@ -286,7 +286,7 @@ Proxy is configured on Windows or Linux machines that may block access to endpoi
 
 #### Resolution
 
-For Windows, see [issues related to proxy](https://learn.microsoft.com/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting?toc=%2Fwindows%2Fdeployment%2Ftoc.json&bc=%2Fwindows%2Fdeployment%2Fbreadcrumb%2Ftoc.json#issues-related-to-httpproxy). 
+For Windows, see [issues related to proxy](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting#issues-related-to-httpproxy). 
 
 For Linux, ensure proxy setup doesn't block access to repositories that are required for downloading and installing updates.
 
@@ -300,7 +300,7 @@ TLS 1.0 and TLS 1.1 are deprecated.
 
 Use TLS 1.2 or higher.
  
-For Windows, see [Protocols in TLS/SSL Schannel SSP](https://learn.microsoft.com/windows/win32/secauthn/protocols-in-tls-ssl--schannel-ssp-).
+For Windows, see [Protocols in TLS/SSL Schannel SSP](/windows/win32/secauthn/protocols-in-tls-ssl--schannel-ssp-).
 
 For Linux, execute the following command to see the supported versions of TLS for your distro.
 `nmap --script ssl-enum-ciphers -p 443 www.azure.com`

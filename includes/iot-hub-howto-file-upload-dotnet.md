@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Hub
 description: How to upload files from a device to the cloud using Azure IoT device SDK for .NET. Uploaded files are stored in an Azure storage blob container.
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: include
 ms.date: 07/01/2024

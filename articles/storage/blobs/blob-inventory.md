@@ -266,9 +266,6 @@ Runs don't overlap so a run must complete before another run of the same rule ca
 
 Inventory policies are read or written in full. Partial updates aren't supported. Inventory rules are evaluated daily. Therefore, if you change the definition of a rule, but the rules of a policy have already been evaluated for that day, then your updates won't be evaluated until the following day.
 
-> [!IMPORTANT]
-> If you enable firewall rules for your storage account, inventory requests might be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
-
 ## Inventory completed event
 
 The `BlobInventoryPolicyCompleted` event is generated when the inventory run completes for a rule. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container isn't present will trigger the event. The following json shows an example `BlobInventoryPolicyCompleted` event.

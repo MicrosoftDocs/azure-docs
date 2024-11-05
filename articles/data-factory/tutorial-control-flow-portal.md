@@ -5,7 +5,8 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.topic: tutorial
-ms.date: 10/20/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Copy data and send email notifications on success and failure

@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 07/13/2023
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: mvc
 #Customer intent: As an IoT developer, I want to perform image recognition directly on my IoT Edge device so that I can have faster results and lower costs for data transfers.
 ---
@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 * Configure your environment for Linux container development by completing [Tutorial: Develop IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md). After completing the tutorial, you should have the following prerequisites in available in your development environment:
     * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
     * A device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
-    * A container registry, like [Azure Container Registry](../container-registry/index.yml).
+    * A container registry, like [Azure Container Registry](/azure/container-registry/).
     * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and
     [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions. The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
     * Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.

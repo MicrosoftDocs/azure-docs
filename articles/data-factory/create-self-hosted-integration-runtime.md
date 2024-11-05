@@ -8,6 +8,7 @@ author: lrtoyou1223
 ms.author: lle
 ms.date: 09/03/2024
 ms.custom: synapse
+ai-usage: ai-assisted
 ---
 
 # Create and configure a self-hosted integration runtime
@@ -267,7 +268,11 @@ You can associate multiple nodes by installing the self-hosted integration runti
 
 #### Scale out
 
-When processor usage is high and available memory is low on the self-hosted IR, add a new node to help scale out the load across machines. If activities fail because they time out or the self-hosted IR node is offline, it helps if you add a node to the gateway.
+When processor usage is high and available memory is low on the self-hosted IR, add a new node to help scale out the load across machines. If activities fail because they time out or the self-hosted IR node is offline, it helps if you add a node to the gateway. To add a node, complete the following steps:
+
+1. [Download the SHIR setup from the Azure Data Factory portal](create-self-hosted-integration-runtime.md).
+2. Run the Installer on the node you want to add to the cluster.
+3. During the installation, select the option to join an existing integration runtime, and provide the authentication key from the existing SHIR to link the new node to the existing SHIR cluster.
 
 #### Scale up
 

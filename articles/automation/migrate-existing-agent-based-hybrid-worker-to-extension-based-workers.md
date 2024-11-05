@@ -48,7 +48,7 @@ The purpose of the Extension-based approach is to simplify the installation and 
 
 - Two cores
 - 4 GB of RAM
-- **Non-Azure machines** must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
+- **Non-Azure machines** must have the [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 - The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server or Arc-enabled VMware vSphere VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the installation process through the Azure portal.
 
 ### Supported operating systems
@@ -101,7 +101,7 @@ To install Hybrid worker extension on an existing agent based hybrid worker, ens
 
 1. Under **Process Automation**, select **Hybrid worker groups**, and then select your existing hybrid worker group to go to the **Hybrid worker group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers** > **+ Add** to go to the **Add machines as hybrid worker** page.
-1. Select the checkbox next to the existing Agent based (V1) Hybrid worker. If you don't see your agent-based Hybrid Worker listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers, or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
+1. Select the checkbox next to the existing Agent based (V1) Hybrid worker. If you don't see your agent-based Hybrid Worker listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers, or see [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 
    :::image type="content" source="./media/migrate-existing-agent-based-hybrid-worker-extension-based-hybrid-worker/add-machines-hybrid-worker-inline.png" alt-text="Screenshot of adding machines as hybrid worker." lightbox="./media/migrate-existing-agent-based-hybrid-worker-extension-based-hybrid-worker/add-machines-hybrid-worker-expanded.png":::
 
@@ -686,7 +686,7 @@ Review the parameters used in this template.
 
 **Prerequisites**
 
-You would require an Azure VM or Arc-enabled server. You can follow the steps [here](../azure-arc/servers/onboard-portal.md) to create an Arc connected machine.
+You would require an Azure VM or Arc-enabled server. You can follow the steps [here](/azure/azure-arc/servers/onboard-portal) to create an Arc connected machine.
 
 **Install and use Hybrid Worker extension**
 

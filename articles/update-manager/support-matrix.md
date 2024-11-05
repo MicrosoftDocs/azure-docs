@@ -50,14 +50,14 @@ Following is the list of supported images and no other marketplace images releas
 
 | **Publisher**| **Offer** | **Plan**|**Unsupported image(s)** |
 |----------|-------------|-----| --- |
-| | cis-windows-server-2012-r2-v2-2-1-l2 | cis-ws2012-r2-l2 ||
-| | cis-windows-server-2016-v1-0-0-l1 | cis--l1 ||
-| | cis-windows-server-2016-v1-0-0-l2 | cis-ws2016-l2 ||
-| | cis-windows-server-2019-v1-0-0-l1 | cis-ws2019-l1 ||
-| | cis-windows-server-2019-v1-0-0-l2 | cis-ws2019-l2 ||
-| | cis-windows-server-2022-l1| cis-windows-server-2022-l1 </br> cis-windows-server-2022-l1-gen2 | |
-| | cis-windows-server-2022-l2 | cis-windows-server-2022-l2 </br> cis-windows-server-2022-l2-gen2 | |
-| | cis-windows-server| cis-windows-server2016-l1-gen1 </br> cis-windows-server2019-l1-gen1 </br> cis-windows-server2019-l1-gen2 </br> cis-windows-server2019-l2-gen1 </br> cis-windows-server2022-l1-gen2 </br> cis-windows-server2022-l2-gen2 </br> cis-windows-server2022-l1-gen1 | |
+|center-for-internet-security-inc | cis-windows-server-2012-r2-v2-2-1-l2 | cis-ws2012-r2-l2 ||
+|center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l1 | cis--l1 ||
+| center-for-internet-security-inc| cis-windows-server-2016-v1-0-0-l2 | cis-ws2016-l2 ||
+|center-for-internet-security-inc | cis-windows-server-2019-v1-0-0-l1 | cis-ws2019-l1 ||
+|center-for-internet-security-inc | cis-windows-server-2019-v1-0-0-l2 | cis-ws2019-l2 ||
+|center-for-internet-security-inc| cis-windows-server-2022-l1| cis-windows-server-2022-l1 </br> cis-windows-server-2022-l1-gen2 | |
+|center-for-internet-security-inc | cis-windows-server-2022-l2 | cis-windows-server-2022-l2 </br> cis-windows-server-2022-l2-gen2 | |
+|center-for-internet-security-inc | cis-windows-server| cis-windows-server2016-l1-gen1 </br> cis-windows-server2019-l1-gen1 </br> cis-windows-server2019-l1-gen2 </br> cis-windows-server2019-l2-gen1 </br> cis-windows-server2022-l1-gen2 </br> cis-windows-server2022-l2-gen2 </br> cis-windows-server2022-l1-gen1 | |
 | | hpc2019-windows-server-2019| hpc2019-windows-server-2019||
 | | sql2016sp2-ws2016 | standard|
 | | sql2017-ws2016 | enterprise |
@@ -108,17 +108,22 @@ Following is the list of supported images and no other marketplace images releas
 | |centos-hpc | 7.1, 7.3, 7.4 |
 | |centos-lvm | 7-lvm-gen2 |
 | |centos-lvm | 7-lvm, 8-lvm |
-| |cis-oracle-linux-8-l1 | cis-oracle8-l1||
-| |cis-rhel | cis-redhat7-l1-gen1 </br> cis-redhat8-l1-gen1 </br> cis-redhat8-l2-gen1 </br>  cis-redhat9-l1-gen1 </br> cis-redhat9-l1-gen2| |
-| |cis-rhel-7-l2 | cis-rhel7-l2 | |
-| |cis-rhel-8-l1 | | |
-| |cis-rhel-8-l2 | cis-rhel8-l2 | |
-| |cis-rhel9-l1 | cis-rhel9-l1 </br> cis-rhel9-l1-gen2 ||
-| |cis-ubuntu | cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 ||
+|center-for-internet-security-inc |cis-oracle-linux-8-l1 | cis-oracle8-l1||
+| center-for-internet-security-inc
+|cis-rhel | cis-redhat7-l1-gen1 </br> cis-redhat8-l1-gen1 </br> cis-redhat8-l2-gen1 </br>  cis-redhat9-l1-gen1 </br> cis-redhat9-l1-gen2| |
+|center-for-internet-security-inc
+ |cis-rhel-7-l2 | cis-rhel7-l2 | |
+|center-for-internet-security-inc
+ |cis-rhel-8-l1 | | |
+|center-for-internet-security-inc
+ |cis-rhel-8-l2 | cis-rhel8-l2 | |
+| center-for-internet-security-inc
+|cis-rhel9-l1 | cis-rhel9-l1 </br> cis-rhel9-l1-gen2 ||
+|center-for-internet-security-inc |cis-ubuntu | cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 ||
 | |cis-ubuntu-linux-1804-l1| cis-ubuntu1804-l1||
 | |cis-ubuntu-linux-2004-l1 | cis-ubuntu2004-l1 </br> cis-ubuntu-linux-2204-l1-gen2||
-| |cis-ubuntu-linux-2004-l1| cis-ubuntu2004-l1||
-| |cis-ubuntu-linux-2204-l1 | cis-ubuntu-linux-2204-l1 </br> cis-ubuntu-linux-2204-l1-gen2 | |
+|center-for-internet-security-inc |cis-ubuntu-linux-2004-l1| cis-ubuntu2004-l1||
+| center-for-internet-security-inc|cis-ubuntu-linux-2204-l1 | cis-ubuntu-linux-2204-l1 </br> cis-ubuntu-linux-2204-l1-gen2 | |
 | |debian-10-daily | 10, 10-gen2,</br> 10-backports,</br> 10-backports-gen2|
 | |debian-11 | 11, 11-gen2,</br> 11-backports, </br> 11-backports-gen2 |
 | |debian-11-daily | 11, 11-gen2,</br>  11-backports, </br> 11-backports-gen2 |
@@ -175,6 +180,8 @@ Following is the list of supported images and no other marketplace images releas
 |esri |pro-byol| pro-byol-29||
 |esri|arcgis-enterprise | byol-108 </br> byol-109 </br> byol-111 </br> byol-1081 </br> byol-1091|
 |esri|arcgis-enterprise-106| byol-1061||
+|erockyenterprisesoftwarefoundationinc1653071250513 | rockylinux | free |
+|erockyenterprisesoftwarefoundationinc1653071250513 | rockylinux-9 | rockylinux-9 |
 |microsoft-aks |aks |aks-engine-ubuntu-1804-202112 | |
 |microsoft-dsvm |aml-workstation |  ubuntu-20, ubuntu-20-gen2 | |
 |microsoft-dsvm |aml-workstation | ubuntu |
@@ -246,19 +253,21 @@ We support VMs created from customized images (including images uploaded to [Azu
 
 # [Azure Arc-enabled servers](#tab/azurearc-os)
 
-The following table lists the operating systems supported on [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
+The following table lists the operating systems supported on [Azure Arc-enabled servers](/azure/azure-arc/servers/overview).
 
    |**Operating system**|
    |-------------|
-   | Amazon Linux 2023 |
-   | Windows Server 2012 R2 and higher (including Server Core) |
-   | Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |
-   | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
-   | Red Hat Enterprise Linux (RHEL) 7, 8, 9 (x64) |
+   | Alma Linux 9 |
    | Amazon Linux 2 (x64)   |
-   | Oracle 7.x, 8.x|
+   | Amazon Linux 2023 |
    | Debian 10 and 11|
-   | Rocky Linux 8|
+   | Oracle 7.x, 8.x|
+   | Oracle Linux 9 |
+   | Red Hat Enterprise Linux (RHEL) 7, 8, 9 (x64) |
+   | Rocky Linux 8, 9|
+   | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
+   | Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |
+   | Windows Server 2012 R2 and higher (including Server Core) |
 
 # [Windows IoT Enterprise on Arc enabled servers (preview)](#tab/winio-arc)
 
@@ -307,6 +316,7 @@ Europe | North Europe </br> West Europe
 France | France Central
 Germany | Germany West Central
 India | Central India
+Italy | Italy North
 Japan | Japan East
 Korea | Korea Central
 Norway | Norway East

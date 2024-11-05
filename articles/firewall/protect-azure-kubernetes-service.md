@@ -6,7 +6,7 @@ ms.service: azure-firewall
 ms.custom: devx-track-azurecli, build-2023
 services: firewall
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 09/30/2024
 ms.author: victorh
 ---
 
@@ -26,7 +26,7 @@ However, in a production environment, communications with a Kubernetes cluster s
 
 The simplest solution uses a firewall device that can control outbound traffic based on domain names. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the Internet. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination, giving you fine-grained egress traffic control, but at the same time allows you to provide access to the FQDNs encompassing an AKS cluster’s outbound dependencies (something that NSGs can't do). Likewise, you can control ingress traffic and improve security by enabling threat intelligence-based filtering on an Azure Firewall deployed to a shared perimeter network. This filtering can provide alerts, and deny traffic to and from known malicious IP addresses and domains.
 
-See the following video by Abhinav Sriram for a quick overview on how this works in practice on a sample environment:
+See the following video for a quick overview on how this works in practice on a sample environment:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE529Qc]
 
@@ -267,227 +267,13 @@ You can now start exposing services and deploying applications to this cluster. 
 
 ![Public Service DNAT](~/reusable-content/ce-skilling/azure/media/aks/aks-create-svc.png)
 
-Deploy the Azure voting app application by copying the following yaml to a file named `example.yaml`.
+1. Review the [AKS Store Demo quickstart](https://github.com/Azure-Samples/aks-store-demo/blob/main/aks-store-quickstart.yaml) manifest to see all the resources that will be created.
 
-```yaml
-# voting-storage-deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: voting-storage
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: voting-storage
-  template:
-    metadata:
-      labels:
-        app: voting-storage
-    spec:
-      containers:
-      - name: voting-storage
-        image: mcr.microsoft.com/azuredocs/voting/storage:2.0
-        args: ["--ignore-db-dir=lost+found"]
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 3306
-          name: mysql
-        volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_ROOT_PASSWORD
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_USER
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_DATABASE
-      volumes:
-      - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
----
-# voting-storage-secret.yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: voting-storage-secret
-type: Opaque
-data:
-  MYSQL_USER: ZGJ1c2Vy
-  MYSQL_PASSWORD: UGFzc3dvcmQxMg==
-  MYSQL_DATABASE: YXp1cmV2b3Rl
-  MYSQL_ROOT_PASSWORD: UGFzc3dvcmQxMg==
----
-# voting-storage-pv-claim.yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mysql-pv-claim
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
-# voting-storage-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: voting-storage
-  labels:
-    app: voting-storage
-spec:
-  ports:
-  - port: 3306
-    name: mysql
-  selector:
-    app: voting-storage
----
-# voting-app-deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: voting-app
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: voting-app
-  template:
-    metadata:
-      labels:
-        app: voting-app
-    spec:
-      containers:
-      - name: voting-app
-        image: mcr.microsoft.com/azuredocs/voting/app:2.0
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-          name: http
-        env:
-        - name: MYSQL_HOST
-          value: "voting-storage"
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_USER
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_DATABASE
-        - name: ANALYTICS_HOST
-          value: "voting-analytics"
----
-# voting-app-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: voting-app
-  labels:
-    app: voting-app
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    targetPort: 8080
-    name: http
-  selector:
-    app: voting-app
----
-# voting-analytics-deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: voting-analytics
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: voting-analytics
-      version: "2.0"
-  template:
-    metadata:
-      labels:
-        app: voting-analytics
-        version: "2.0"
-    spec:
-      containers:
-      - name: voting-analytics
-        image: mcr.microsoft.com/azuredocs/voting/analytics:2.0
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-          name: http
-        env:
-        - name: MYSQL_HOST
-          value: "voting-storage"
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_USER
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_PASSWORD
-        - name: MYSQL_DATABASE
-          valueFrom:
-            secretKeyRef:
-              name: voting-storage-secret
-              key: MYSQL_DATABASE
----
-# voting-analytics-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: voting-analytics
-  labels:
-    app: voting-analytics
-spec:
-  ports:
-  - port: 8080
-    name: http
-  selector:
-    app: voting-analytics
-```
+2. Deploy the service using the `kubectl apply` command.
 
-Deploy the service by running:
-
-```bash
-kubectl apply -f example.yaml
-```
+   ```azurecli-interactive
+   kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/aks-store-demo/main/aks-store-quickstart.yaml
+   ```
 
 ### Add a DNAT rule to Azure Firewall
 
@@ -507,17 +293,18 @@ kubectl get services
 The IP address needed is listed in the EXTERNAL-IP column, similar to the following.
 
 ```bash
-NAME               TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-kubernetes         ClusterIP      10.41.0.1       <none>        443/TCP        10h
-voting-analytics   ClusterIP      10.41.88.129    <none>        8080/TCP       9m
-voting-app         LoadBalancer   10.41.185.82    20.39.18.6    80:32718/TCP   9m
-voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9m
+NAME               TYPE           CLUSTER-IP      EXTERNAL-IP       PORT(S)                AGE
+kubernetes         ClusterIP      10.41.0.1       <none>            443/TCP                10h
+store-front        LoadBalancer   10.41.185.82    203.0.113.254     80:32718/TCP           9m
+order-service      ClusterIP      10.0.104.144    <none>            3000/TCP               11s
+product-service    ClusterIP      10.0.237.60     <none>            3002/TCP               10s
+rabbitmq           ClusterIP      10.0.161.128    <none>            5672/TCP,15672/TCP     11s
 ```
 
 Get the service IP by running:
 
 ```bash
-SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
+SERVICE_IP=$(kubectl get svc store-front -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 Add the NAT rule by running:
@@ -530,9 +317,11 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 
 Navigate to the Azure Firewall frontend IP address in a browser to validate connectivity.
 
-You should see the AKS voting app. In this example, the Firewall public IP was `52.253.228.132`.
+You should see the AKS store app. In this example, the Firewall public IP was `203.0.113.32`.
 
-![Screenshot shows the A K S Voting App with buttons for Cats, Dogs, and Reset, and totals.](./media/aks-vote.png)
+:::image type="content" source="/azure/aks/media/container-service-kubernetes-tutorials/aks-store-application.png" alt-text="Screenshot showing the Azure Store Front App opened in a local browser." lightbox="/azure/aks/media/container-service-kubernetes-tutorials/aks-store-application.png":::
+
+On this page, you can view products, add them to your cart, and then place an order.
 
 ## Clean up resources
 
