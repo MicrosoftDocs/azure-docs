@@ -109,6 +109,8 @@ items:
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting calling to your app
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
+        - name: Connect Teams users to Azure calls
+          href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md
       - name: Use a Teams identity
         items:
           - name: Generate an access token for a Teams User
@@ -121,8 +123,6 @@ items:
           href: quickstarts/voice-video-calling/get-started-teams-call-queue.md
         - name: Connect to Auto Attendant
           href: quickstarts/voice-video-calling/get-started-teams-auto-attendant.md
-    - name: Connect Teams users to Azure calls
-      href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md
     - name: Connect to a Room call
       items:
       - name: Create a room
