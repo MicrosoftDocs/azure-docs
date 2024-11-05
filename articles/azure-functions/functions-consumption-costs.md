@@ -55,11 +55,7 @@ This diagram represents how on-demand costs are determined in this plan:
 In addition to execution time, when using one or more always ready instances, you're also billed at a lower, baseline rate for the number of always ready instances you maintain. Execution time for always ready instances might be cheaper than execution time on instances with on demand execution.   
 
 > [!IMPORTANT]
-> In this article, prices are only provided to help understand example calculations. The examples in this section assume these two costs:
-> + **On-demand rate**: `$0.000016` per GB-s
-> + **On-demand execution cost**: `$0.20` per million executions   
->
-> Always check the complete set of current costs in the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) when estimating costs you might incur while running your functions in the Flex Consumption plan. 
+> In this article, on-demand pricing is used to help understand example calculations. Always check the current costs in the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) when estimating costs you might incur while running your functions in the Flex Consumption plan. 
 
 Consider a function app that is comprised only of HTTP triggers with and these basic facts:
 
@@ -67,7 +63,7 @@ Consider a function app that is comprised only of HTTP triggers with and these b
 + HTTP triggers handle 10 concurrent requests.
 + The instance memory size setting is `2048 MB`. 
 + There are _no always ready instances configured_, which means the app can scale to zero.
-
+<!--- Update these example calculations after 12/1 based on GA pricing -->
 In a situation like this, the pricing depends more on the kind of work being done during code execution. Let's look at two workload scenarios:
 
 + **CPU-bound workload:** In a CPU-bound workload, there's no advantage to processing multiple requests in parallel in the same instance. This means that you're better off distributing each request to its own instance so requests complete as a quickly as possible without contention. In this scenario, you should set a low [HTTP trigger concurrency](./functions-concurrency.md#http-trigger-concurrency) of `1`. With 10 concurrent requests, the app scales to a steady state of roughly 10 instances, and each instance is continuously active processing one request at a time. 
