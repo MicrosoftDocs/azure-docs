@@ -282,10 +282,10 @@ There are two ways to use managed identities with custom container session pools
 
 * **Image pull authentication**: Use the managed identity to authenticate with the container registry to pull the container image.
 
-* **Resource access**: Use the session pool's managed identity in a session to access other Microsoft Entra protected resources. This is off by default.
+* **Resource access**: Use the session pool's managed identity in a session to access other Microsoft Entra protected resources. Due to its security implications, this capability is disabled by default.
 
     > [!IMPORTANT]
-    > If you enable access to the managed identity in a session, any code or programs running in the session can access the pool's managed identity. Because sessions typically run untrusted code, it's recommended to use this feature with caution.
+    > If you enable access to managed identity in a session, any code or programs running in the session can create Entra tokens for the pool's managed identity. Because sessions typically run untrusted code, it's recommended to use this feature with caution.
 
 # [Azure CLI](#tab/azure-cli)
 
