@@ -215,7 +215,7 @@ To disable zone-redundancy for a single database or an elastic pool, you can use
 # [PowerShell](#tab/powershell)
 
 ```powershell
-set-azsqlDatabase -ResourceGroupName "RSETLEM-AzureSQLDB" -DatabaseName "TestDB1" -ServerName "rs-az-testserver1" -ZoneRedundant:$false 
+set-azsqlDatabase -ResourceGroupName "<Resource-Group-Name>" -DatabaseName "<Database-Name>" -ServerName "<Server-Name>" -ZoneRedundant:$false 
 ```
 
 # [CLI](#tab/cli)
@@ -245,7 +245,7 @@ See [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/datab
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Set-AzSqlElasticpool -ResourceGroupName "RSETLEM-AzureSQLDB" -ServerName "rs-az-testserver1" -ElasticPoolName "testep10" -ZoneRedundant:$false
+Set-AzSqlElasticpool -ResourceGroupName "<Resource-Group-Name>"  -ServerName "<Server-Name>" -ElasticPoolName "<Elastic-Pool-Name>" -ZoneRedundant:$false
 ```
 
 # [CLI](#tab/cli)
