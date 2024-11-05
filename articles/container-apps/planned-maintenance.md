@@ -113,6 +113,8 @@ Use the following steps to review the maintenance history in the Azure portal.
 
 In the *Diagnose and solve problems* window, you can view the configured maintenance window and upgrade events that occurred in the last month. As you hover your mouse over the bars in the chart, you can see the start time for each upgrade event.
 
+:::image type="content" source="media/planned-maintenance/azure-container-apps-plannedmaintenance-upgrade-events.png" alt-text="Screenshot of an Azure Container Apps planned maintenance event history graph.":::
+
 ## Considerations
 
 Planned maintenance is free during preview.
