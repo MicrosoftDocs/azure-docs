@@ -52,17 +52,19 @@ For configuration, the MQTT broker is composed of several Kubernetes custom reso
 
 So, the relationship between Broker and BrokerListener is **one-to-many**, and the relationship between BrokerListener and BrokerAuthentication/BrokerAuthorization is **many-to-many**. The entity relationship diagram (ERD) for these resources is as follows:
 
-```mermaid
+<!-- ```mermaid
 erDiagram
     Broker ||--|{ BrokerListener : "exposes"
     BrokerListener ||--|{ Port : "contains"
     Port }|..o{ BrokerAuthentication : "uses" 
     Port }|..o{ BrokerAuthorization : "uses"
-```
+``` -->
+
+:::image type="content" source="media/overview-broker/broker-resources.svg" alt-text="Diagram showing the broker resource model.":::
 
 By default, Azure IoT Operations deploys a [default Broker](#default-broker-resource), a [default BrokerListener](howto-configure-brokerlistener.md#default-brokerlistener), and a [default BrokerAuthentication](howto-configure-authentication.md#default-brokerauthentication-resource). All of these resources are named "default". Together, these resources provide a basic MQTT broker setup required for Azure IoT Operations to function. The default setup is as follows:
 
-```mermaid
+<!-- ```mermaid
 erDiagram
     Broker ||--|| BrokerListener : "exposes"
     Broker {
@@ -81,7 +83,9 @@ erDiagram
            name default
            method ServiceAccountToken
     }
-```
+``` -->
+
+:::image type="content" source="media/overview-broker/default-broker-resources.svg" alt-text="Diagram showing the default broker resources and relationships between them.":::
 
 > [!IMPORTANT]
 > To prevent unintentional disruption with communication between Azure IoT Operations internal components, we recommended not modifying any default configuration.
@@ -101,7 +105,7 @@ For example, starting from the default setup, you add:
 
 Then, if you configure all the new ports use the same BrokerAuthentication and BrokerAuthorization resources, the setup would look like:
 
-```mermaid
+<!-- ```mermaid
 erDiagram
     Broker ||--|| BrokerListener : "exposes"
     Broker {
@@ -156,7 +160,9 @@ erDiagram
     }
     Port3 ||..|| BrokerAuthentication1 : "uses"
     Port3 ||..|| BrokerAuthorization1 : "uses"
-```
+``` -->
+
+:::image type="content" source="media/overview-broker/full-broker-deployment-resources.svg" alt-text="Diagram showing a full custom broker deployment and relationships between each.":::
 
 This way, you keep the default setup intact and add new resources to customize the MQTT broker deployment to your needs.
 
