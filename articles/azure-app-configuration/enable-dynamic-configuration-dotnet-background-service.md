@@ -70,8 +70,35 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-1. Connect to App Configuration.
+1. Connect to App Configuration using Microsoft Entra ID (recommended), or a connection string.
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    ```csharp
+    // Existing code in Program.cs
+    // ... ...
+    
+    var builder = Host.CreateApplicationBuilder(args);
+    
+    builder.Configuration.AddAzureAppConfiguration(options =&gt;
+    {
+        options.Connect(new DefaultAzureCredential())
+            // Load all keys that start with `TestApp:`.
+            .Select("TestApp:*")
+            // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
+            .ConfigureRefresh(refreshOptions =&gt;
+            {
+                refreshOptions.Register("TestApp:Settings:Message");
+            });
+    
+        // Register the refresher so that the Worker service can consume it through DI
+        builder.Services.AddSingleton(options.GetRefresher());
+    });
+    
+    // The rest of existing code in Program.cs
+    // ... ...
+    ```    
+
+    ### [Connection string](#tab/connection-string)
     ```csharp
     // Existing code in Program.cs
     // ... ...
@@ -96,6 +123,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     // The rest of existing code in Program.cs
     // ... ...
     ```
+    ---
 
     In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. All settings registered for refresh have a default cache expiration of 30 seconds before a new refresh is attempted. It can be updated by calling the `AzureAppConfigurationRefreshOptions.SetCacheExpiration` method.
 
@@ -137,42 +165,49 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command.
+1. Set an environment variable.
 
-    ### [Windows command prompt](#tab/windowscommandprompt)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    Set the environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
-    To build and run the app locally using the Windows command prompt, run the following command.
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```console
+    ```cmd
+    setx Endpoint "endpoint-of-your-app-configuration-store"
+    ```
+
+    If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:Endpoint = "endpoint-of-your-app-configuration-store"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export Endpoint='endpoint-of-your-app-configuration-store'
+    ```
+
+    ### [Connection string](#tab/connection-string)
+    Set the environment variable named **ConnectionString** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
     setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
+   If you use PowerShell, run the following command:
 
-    ### [PowerShell](#tab/powershell)
-
-    If you use Windows PowerShell, run the following command.
-
-    ```azurepowershell
+    ```powershell
     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
-    ### [macOS](#tab/unix)
+    If you use macOS or Linux, run the following command:
 
-    If you use macOS, run the following command.
-
-    ```console
+    ```bash
     export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
-
-    ### [Linux](#tab/linux)
-
-    If you use Linux, run the following command.
-
-    ```console
-    export ConnectionString='connection-string-of-your-app-configuration-store'
-    ```
-
     ---
 
 1. Run the following command to build the app.
