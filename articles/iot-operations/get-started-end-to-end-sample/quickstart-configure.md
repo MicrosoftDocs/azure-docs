@@ -43,10 +43,6 @@ This quickstart uses the OPC PLC simulator to generate sample data. To deploy th
 kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-plc-deployment.yaml
 ```
 
-The following snippet shows the YAML file that you applied:
-
-:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/opc-plc-deployment.yaml":::
-
 > [!CAUTION]
 > This configuration uses a self-signed application instance certificate. Don't use this configuration in a production environment. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
 
@@ -92,8 +88,6 @@ Run the following commands to download and run the Bicep file that configures yo
 - Adds an asset that represents the oven and defines the data points that the oven exposes.
 - Adds a dataflow that manipulates the messages from the simulated oven.
 - Creates an Azure Event Hubs instance to receive the data.
-
-<!-- TODO: Fix download link -->
 
 # [Bash](#tab/bash)
 
@@ -149,56 +143,6 @@ The dataflows define how the messages from the simulated oven are processed and 
 The following screenshot shows how the temperature conversion dataflow is configured:
 
 :::image type="content" source="media/quickstart-configure/dataflow-compute.png" alt-text="Screenshot in the operations experience that shows the temperature conversion calculation.":::
-
-## Verify data is flowing to MQTT broker
-
-[!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
-
-To verify that the oven asset you added is publishing data, view the telemetry in the `azure-iot-operations/data` topic:
-
-```output
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/oven', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:17.1858435Z","Value":4558},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:17.1858869Z","Value":4558}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/oven', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:18.1838125Z","Value":4559},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:18.1838523Z","Value":4559}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/oven', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:19.1834363Z","Value":4560},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:19.1834879Z","Value":4560}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/oven', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:20.1861251Z","Value":4561},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:20.1861709Z","Value":4561}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/oven', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:21.1856798Z","Value":4562},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:21.1857211Z","Value":4562}}
-```
-
-If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
-
-1. Find the name of your `aio-opc-opc.tcp-1` pod by using the following command:
-
-    ```console
-    kubectl get pods -n azure-iot-operations
-    ```
-
-    The name of your pod looks like `aio-opc-opc.tcp-1-849dd78866-vhmz6`.
-
-1. Restart the `aio-opc-opc.tcp-1` pod by using a command that looks like the following example. Use the `aio-opc-opc.tcp-1` pod name from the previous step:
-
-    ```console
-    kubectl delete pod aio-opc-opc.tcp-1-849dd78866-vhmz6 -n azure-iot-operations
-    ```
-
-The sample tags you added in the previous quickstart generate messages from your asset that look like the following example:
-
-```json
-{
-    "temperature": {
-        "SourceTimestamp": "2024-08-02T13:52:15.1969959Z",
-        "Value": 2696
-    },
-    "Tag 10": {
-        "SourceTimestamp": "2024-08-02T13:52:15.1970198Z",
-        "Value": 2696
-    }
-}
-```
 
 ## Verify data is flowing to Event Hubs
 
