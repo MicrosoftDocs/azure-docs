@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Manage and monitor backed up SAP ASE databases
+# Manage and monitor backed up SAP ASE databases (preview)
 
 This article describes how to manage the SAP Adaptive Server Enterprise (ASE) (Sybase) databases that are running on an Azure virtual machine (VM) by using the [Azure Backup](./backup-overview.md) service. 
 
@@ -88,21 +88,23 @@ To resume protection for an SAP ASE database:
 1.	Open the backup item, and then select **Resume backup**.
 2.	On the **Backup policy** menu, select a policy, and then select **Save**.
 
-   :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/resume-backup.png" alt-text="Screenshot showing how to resume backup." lightbox="media/sap-adaptive-server-enterprise-db-manage/resume-backup.png":::
+     :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/resume-backup.png" alt-text="Screenshot showing how to resume backup." lightbox="media/sap-adaptive-server-enterprise-db-manage/resume-backup.png":::
 
 ## Unregister an SAP ASE instance
 
-Unregister an SAP ASE instance after you disable protection but before you delete the vault:
+Unregister an SAP ASE instance after you disable protection but before you delete the vault.
+
+To unregister an SAP ASE instance, follow these steps:
 
 1.	In the **Recovery Services** vault, under **Manage**, select **Backup Infrastructure**.
 
-   :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/backup-infrastructure.png" alt-text="Screenshot showing how to backup infrastructure." lightbox="media/sap-adaptive-server-enterprise-db-manage/backup-infrastructure.png":::
+     :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/backup-infrastructure.png" alt-text="Screenshot showing how to backup infrastructure." lightbox="media/sap-adaptive-server-enterprise-db-manage/backup-infrastructure.png":::
 
-2. For **Backup Management type**, select **Workload in Azure VM**.
+2. On the **Backup Infrastructure** blade, for **Backup Management type**, select **Workload in Azure VM**.
 
    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/select-workload.png" alt-text="Screenshot showing how to select workload in Azure VM." lightbox="media/sap-adaptive-server-enterprise-db-manage/select-workload.png":::
 
-3. On the **Protected Servers** pane, select the instance to unregister. To delete the vault, you must unregister all servers and instances.
+3. On the **Protected Servers** blade, select the instance to unregister. To delete the vault, you must unregister all servers and instances.
 
    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/select-instance.png" alt-text="Screenshot showing how to select instance to deregister." lightbox="media/sap-adaptive-server-enterprise-db-manage/select-instance.png":::
 

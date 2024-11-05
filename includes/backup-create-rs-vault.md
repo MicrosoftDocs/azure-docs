@@ -39,7 +39,7 @@ To create a Recovery Services vault:
       > [!IMPORTANT]
       > If you're not sure of the location of your data source, close the window. Go to the list of your resources in the portal. If you have data sources in multiple regions, create a Recovery Services vault for each region. Create the vault in the first location before you create a vault in another location. There's no need to specify storage accounts to store the backup data. The Recovery Services vault and Azure Backup handle that automatically.
       
-    ![Screenshot that shows fields for configuring a Recovery Services vault.](./media/backup-create-rs-vault/backup-center-add-vault-details.png)
+      ![Screenshot that shows fields for configuring a Recovery Services vault.](./media/backup-create-rs-vault/backup-center-add-vault-details.png)
 
 1. After providing the values, select **Review + create**.
 
