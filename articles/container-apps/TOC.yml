@@ -250,7 +250,7 @@
 - name: GPUs
   items:
     - name: Overview
-      href: gpu-overview.md
+      href: gpu-serverless-overview.md
     - name: Tutorials
       items:
       - name: Generate images

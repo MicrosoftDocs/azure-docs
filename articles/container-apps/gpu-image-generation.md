@@ -101,4 +101,4 @@ If you aren't going to use these services long-term, use the steps to remove eve
 
 ## Related content
 
-- [Using serverless GPUs in Azure Container Apps](./gpu-overview.md)
+- [Using serverless GPUs in Azure Container Apps](./gpu-serverless-overview.md)

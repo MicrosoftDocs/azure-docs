@@ -45,7 +45,7 @@ Free usage doesn't appear on your bill. You're only charged as your resource usa
 
 ### Serverless GPU
 
-The following pricing is applied to [serverless GPU usage](gpu-overview.md).
+The following pricing is applied to [serverless GPU usage](gpu-serverless-overview.md).
 
 # [West US 3](#tab/westus3)
 
