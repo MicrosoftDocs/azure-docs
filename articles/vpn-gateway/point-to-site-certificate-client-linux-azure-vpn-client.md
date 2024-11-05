@@ -26,8 +26,8 @@ Verify that you are on the correct article. The following table shows the config
 
 This article assumes that you've already performed the following prerequisites:
 
-* The VPN gateway is configured for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md) for steps.
-* VPN client profile configuration files have been generated and are available. See [Generate VPN client profile configuration files](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) for steps.
+* The VPN gateway is configured for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-certificate-gateway.md) for steps.
+* VPN client profile configuration files have been generated and are available. See [Generate VPN client profile configuration files](point-to-site-certificate-gateway.md#profile-files) for steps.
 
 ### Connection requirements
 
@@ -41,7 +41,7 @@ To connect to Azure using the Azure VPN Client and certificate authentication, e
 The basic workflow is as follows:
 
 1. Generate and install client certificates.
-1. Locate the VPN client profile configuration package that you generated in the [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) article.
+1. Locate the VPN client profile configuration package that you generated in the [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-certificate-gateway.md#profile-files) article.
 1. Download and configure the Azure VPN Client for Linux.
 1. Connect to Azure.
 
@@ -131,4 +131,4 @@ sudo apt remove microsoft-azurevpnclient
 
 ## Next steps
 
-For additional steps, return to the [P2S Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) article.
+For additional steps, return to the [P2S Azure portal](point-to-site-certificate-gateway.md) article.
