@@ -388,11 +388,11 @@ There are three core steps when [registering a data source with JBoss EAP](https
 
 App Service is a stateless hosting service, so you must put these steps into a startup script and run it each time the JBoss container starts. Using PostgreSQL and MySQL as an examples:
 
-# [PostgreSQL](#tab/jboss_postgresql)
+# [PostgreSQL](#tab/postgresql)
 
 [!INCLUDE [configure-jboss-postgresql](includes/configure-language-java-data-sources/configure-jboss-postgresql.md)]
 
-# [MySQL](#tab/jboss_mysql)
+# [MySQL](#tab/mysql)
 
 [!INCLUDE [configure-jboss-mysql](includes/configure-language-java-data-sources/configure-jboss-mysql.md)]
 

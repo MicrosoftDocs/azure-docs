@@ -26,7 +26,7 @@ ms.author: cephalin
 
 1. Using a deployment option of your choice, upload your JDBC driver, *jboss-cli-commands.cli*, and *startup.sh* to the paths specified in the respective scripts. Especially, upload *startup.sh* as a startup file. For example:
 
-# [Azure CLI](#tab/cli)
+    # [Azure CLI](#tab/cli)
 
     ```azurecli-interactive
     export RESOURCE_GROUP_NAME=<resource-group-name>
@@ -39,9 +39,9 @@ ms.author: cephalin
     az webapp deploy --resource-group $RESOURCE_GROUP_NAME --name $APP_NAME --src-path startup.sh --type startup
     ```
 
-For more information, see [Deploy files to App Service](deploy-zip.md).
+    For more information, see [Deploy files to App Service](../../deploy-zip.md).
 
-# [Azure Maven Plugin](#tab/maven)
+    # [Azure Maven Plugin](#tab/maven)
 
     ```xml
     <deployment>
@@ -75,7 +75,7 @@ For more information, see [Deploy files to App Service](deploy-zip.md).
     </deployment>
     ```
 
----
+    ---
 
 To confirm that the datasource was added to the JBoss server, SSH into your webapp and run `$JBOSS_HOME/bin/jboss-cli.sh --connect`. Once you're connected to JBoss, run the `/subsystem=datasources:read-resource` to print a list of the data sources.
 
