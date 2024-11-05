@@ -1,6 +1,6 @@
 ---
-title: Connect a private endpoint to an Azure Front Door
-description: Learn how to connect a private endpoint to an Azure Front Door.
+title: Access an Azure container app using an Azure Front Door
+description: Learn how to access an Azure container app using an Azure Front Door.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -73,8 +73,9 @@ ENVIRONMENT_NAME="my-environment"
 CONTAINERAPP_NAME="my-container-app"
 AFD_PROFILE="my-afd-profile"
 AFD_ENDPOINT="my-afd-endpoint"
-ORIGIN_GROUP="my-afd-origin-group"
-ORIGIN="my-afd-origin"
+AFD_ORIGIN_GROUP="my-afd-origin-group"
+AFD_ORIGIN="my-afd-origin"
+AFD_ROUTE="my-afd-route"
 ```
 
 ## Create an Azure resource group
@@ -95,10 +96,10 @@ Create the Container Apps environment.
 az containerapp env create \
   --name $ENVIRONMENT_NAME \
   --resource-group $RESOURCE_GROUP \
-  --location $LOCATION \
+  --location $LOCATION
 ```
 
-With the environment created, you can retrieve the environment ID.
+Retrieve the environment ID. You use this to configure the environment.
 
 ```azurecli
 ENVIRONMENT_ID=`az containerapp env show --resource-group ${RESOURCE_GROUP} --name ${ENVIRONMENT_NAME} --query "id"`
@@ -107,7 +108,9 @@ ENVIRONMENT_ID=`az containerapp env show --resource-group ${RESOURCE_GROUP} --na
 Disable public network access for the environment. This is needed to enable private endpoints.
 
 ```azurecli
-az rest -u ${ENVIRONMENT_ID}?api-version=2024-02-02-preview -b "{'properties': {'publicNetworkAccess':'Disabled'}}" -m Patch
+az containerapp env update \
+  --id $ENVIRONMENT_ID \
+  --public-network-access Disabled
 ```
 
 ## Deploy a container app
@@ -126,7 +129,7 @@ az containerapp up \
   --query properties.configuration.ingress.fqdn
 ```
 
-Retrieve the FQDN for your container app.
+Retrieve your container app endpoint.
 
 ```azurecli
 ACA_ENDPOINT=`az containerapp show --name ${CONTAINERAPP_NAME} --resource-group ${RESOURCE_GROUP} --query properties.configuration.ingress.fqdn`
@@ -138,10 +141,14 @@ Run the following command to create an Azure Front Door profile.
 
 ```azurecli
 az afd profile create \
-    --profile-name ${AFD_PROFILE} \
-    --resource-group ${RESOURCE_GROUP} \
-    --sku Standard_AzureFrontDoor
+    --profile-name $AFD_PROFILE \
+    --resource-group $RESOURCE_GROUP \
+    --sku Premium_AzureFrontDoor
 ```
+
+TODO1 Replace Azure Front Door (AFD).
+
+Private link is not supported for origins in an AFD profile with SKU `Standard_AzureFrontDoor`.
 
 ## Create an Azure Front Door endpoint
 
@@ -149,9 +156,9 @@ Run the following command to add an endpoint to your Azure Front Door profile.
 
 ```azurecli
 az afd endpoint create \
-    --resource-group ${RESOURCE_GROUP} \
-    --endpoint-name ${AFD_ENDPOINT} \
-    --profile-name ${AFD_PROFILE} \
+    --resource-group $RESOURCE_GROUP \
+    --endpoint-name $AFD_ENDPOINT \
+    --profile-name $AFD_PROFILE \
     --enabled-state Enabled
 ```
 
@@ -161,9 +168,9 @@ Run the following command to create an Azure Front Door origin group.
 
 ```azurecli
 az afd origin-group create \
-    --resource-group ${RESOURCE_GROUP} \
-    --origin-group-name ${ORIGIN_GROUP} \
-    --profile-name ${AFD_PROFILE} \
+    --resource-group $RESOURCE_GROUP \
+    --origin-group-name $AFD_ORIGIN_GROUP \
+    --profile-name $AFD_PROFILE \
     --probe-request-type GET \
     --probe-protocol Http \
     --probe-interval-in-seconds 60 \
@@ -179,18 +186,18 @@ Run the following command to add an Azure Front Door origin to your origin group
 
 ```azurecli
 az afd origin create \
-    --resource-group ${RESOURCE_GROUP} \
-    --origin-group-name ${ORIGIN_GROUP} \
-    --origin-name ${ORIGIN} \
-    --profile-name ${AFD_PROFILE} \
-    --host-name ${ACA_ENDPOINT} \
-    --origin-host-header ${ACA_ENDPOINT} \
+    --resource-group $RESOURCE_GROUP \
+    --origin-group-name $AFD_ORIGIN_GROUP \
+    --origin-name $AFD_ORIGIN \
+    --profile-name $AFD_PROFILE \
+    --host-name $ACA_ENDPOINT \
+    --origin-host-header $ACA_ENDPOINT \
     --priority 1 \
     --weight 500 \
     --enable-private-link true \
-    --private-link-location ${LOCATION} \
+    --private-link-location $LOCATION \
     --private-link-request-message "please approve" \
-    --private-link-resource ${ENVIRONMENT_ID} \
+    --private-link-resource $ENVIRONMENT_ID \
     --private-link-sub-resource-type managedEnvironments
 ```
 
@@ -200,14 +207,12 @@ Run the following command to list the private endpoint connections for your envi
 
 ```azurecli
 az network private-endpoint-connection list \
-    --name ${ENVIRONMENT_NAME} \
-    --resource-group ${RESOURCE_GROUP} \
+    --name $ENVIRONMENT_NAME \
+    --resource-group $RESOURCE_GROUP \
     --type Microsoft.App/managedEnvironments
 ```
 
 Record the private endpoint connection resource ID from the response. The private endpoint connection has a `properties.privateLinkServiceConnectionState.description` value of `please approve`. The private endpoint connection resource ID looks like the following.
-
-TODO1 Use query instead, but query isn't working.
 
 ```
 /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/managedEnvironments/my-environment/privateEndpointConnections/<PRIVATE_ENDPOINT_CONNECTION_ID>
@@ -221,21 +226,54 @@ Don't confuse this with the private endpoint ID, which looks like the following.
 
 ## Approve the private endpoint connection
 
-Run the following command to approve the connection. Replace the \<PLACEHOLDER\> with the value you recorded in the previous section.
+Run the following command to approve the connection. Replace the \<PLACEHOLDER\> with the private endpoint connection resource ID you recorded in the previous section.
 
 ```azurecli
 az network private-endpoint-connection approve --id "<PRIVATE_ENDPOINT_CONNECTION_RESOURCE_ID>"
 ```
 
+## Add a route
+
+Run the following command to map the endpoint you created earlier to the origin group.
+
+```azurecli
+az afd route create \
+  --resource-group $RESOURCE_GROUP \
+  --profile-name $AFD_PROFILE \
+  --endpoint-name $AFD_ENDPOINT \
+  --forwarding-protocol MatchRequest \
+  --route-name $AFD_ROUTE \
+  --https-redirect Enabled \
+  --origin-group $AFD_ORIGIN_GROUP \
+  --supported-protocols Http Https \
+  --link-to-default-domain Enabled
+```
+
 ## Access your container app from Azure Front Door
 
-TODO1
+Run the following command to retrieve the hostname of your endpoint.
+
+```azurecli
+az afd endpoint show \
+  --resource-group $RESOURCE_GROUP \
+  --profile-name $AFD_PROFILE \
+  --endpoint-name $AFD_ENDPOINT \
+  --query hostName
+```
+
+Your hostname looks like the following example.
+
+```
+my-afd-endpoint.<HASH>.b01.azurefd.net
+```
+
+Browse to the hostname. You see the output for the quickstart container app image.
+
+It takes a few minutes for your Azure Front Door profile to be deployed globally, so if you do not see the expected output at first, wait a few minutes and then refresh.
 
 ## Clean up resources
 
 If you're not going to continue to use this application, you can remove the **my-container-apps** resource group. This deletes the Azure Container Apps instance and all associated services. It also deletes the resource group that the Container Apps service automatically created and which contains the custom network components.
-
-::: zone pivot="azure-cli"
 
 > [!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
@@ -243,8 +281,6 @@ If you're not going to continue to use this application, you can remove the **my
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP
 ```
-
-::: zone-end
 
 ## Next steps
 
