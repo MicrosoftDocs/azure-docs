@@ -1,5 +1,5 @@
 ---
-title: Azure Databasase for MySQL output binding for Functions
+title: Azure Database for MySQL output binding for Functions
 description: Learn to use the Azure Database for MySQL output binding in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Azure Database for MySQL output binding for Azure Functions (Preview)
 
-The Azure Databasase for MySQL output binding lets you write to a database.
+The Azure Database for MySQL output binding lets you write to a database.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-azure-mysql.md).
 
@@ -31,9 +31,9 @@ For information on setup and configuration details, see the [overview](./functio
 
 # [Isolated worker model](#tab/isolated-process)
 
-More samples for the Azure Databasase for MySQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples).
+More samples for the Azure Database for MySQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples).
 
-This section contains the below example:
+This section contains the following example:
 
 * [HTTP trigger, write one record](#http-trigger-write-one-record-c-oop)
 
@@ -97,9 +97,9 @@ namespace AzureMySqlSamples.OutputBindingSamples
 
 # [In-process model](#tab/in-process)
 
-More samples for the Azure Databasase for MySQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-csharp).
+More samples for the Azure Database for MySQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-csharp).
 
-This section contains the below example:
+This section contains the following example:
 
 * [HTTP trigger, write one record](#http-trigger-write-one-record-c)
 
@@ -168,9 +168,9 @@ namespace AzureMySqlSamples.OutputBindingSamples
 
 ::: zone pivot="programming-language-java"
 
-More samples for the Azure Databasase for MySQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-java).
+More samples for the Azure Database for MySQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-java).
 
-This section contains the below example:
+This section contains the following example:
 
 * [HTTP trigger, write a record to a table](#http-trigger-write-record-to-table-java)
 
@@ -213,7 +213,7 @@ CREATE TABLE Products (
 <a id="http-trigger-write-record-to-table-java"></a>
 ### HTTP trigger, write a record to a table
 
-The following example shows a MySQL output binding in a Java function that adds a record to a table, using data provided in an HTTP POST request as a JSON body.  The function takes an additional dependency on the [com.google.code.gson](https://github.com/google/gson) library to parse the JSON body.
+The following example shows a MySQL output binding in a Java function that adds a record to a table, using data provided in an HTTP POST request as a JSON body. The function takes an additional dependency on the [com.google.code.gson](https://github.com/google/gson) library to parse the JSON body.
 
 ```xml
 <dependency>
@@ -272,9 +272,9 @@ public class AddProduct {
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
-More samples for the Azure Databasase for MySQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples).
+More samples for the Azure Database for MySQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples).
 
-This section contains the below example:
+This section contains the following example:
 
 * [HTTP trigger, write records to a table](#http-trigger-write-records-to-table-javascript)
 
@@ -374,7 +374,7 @@ app.http('AddProduct', {
 
 # [Model v3](#tab/nodejs-v3)
 
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -408,7 +408,7 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample JavaScript code:
+The following example is sample JavaScript code:
 
 ```javascript
 module.exports = async function (context, req, products) {
@@ -427,9 +427,9 @@ module.exports = async function (context, req, products) {
 
 ::: zone pivot="programming-language-powershell"
 
-More samples for the Azure Databasase for MySQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-powershell).
+More samples for the Azure Database for MySQL output binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-powershell).
 
-This section contains the below example:
+This section contains the following example:
 
 * [HTTP trigger, write records to a table](#http-trigger-write-records-to-table-powershell)
 
@@ -450,7 +450,7 @@ CREATE TABLE Products (
 
 The following example shows a MySQL output binding in a function.json file and a PowerShell function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
 
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -484,7 +484,7 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample PowerShell code for the function in the `run.ps1` file:
+The following example is sample PowerShell code for the function in the `run.ps1` file:
 
 ```powershell
 using namespace System.Net
@@ -516,9 +516,9 @@ Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 ::: zone pivot="programming-language-python"  
 
-More samples for the Azure Databasase for MySQL output binding are available in the [GitHub repository](hhttps://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-python).
+More samples for the Azure Database for MySQL output binding are available in the [GitHub repository](hhttps://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-python).
 
-This section contains the below example:
+This section contains the following example:
 
 * [HTTP trigger, write records to a table](#http-trigger-write-records-to-table-python)
 
@@ -546,7 +546,7 @@ The following example shows a MySQL output binding in a function.json file and a
 
 # [v2](#tab/python-v2)
 
-The following is sample python code for the function_app.py file:
+The following example is sample python code for the function_app.py file:
 
 ```python
 import json 
@@ -574,7 +574,7 @@ def mysql_output(req: func.HttpRequest, r: func.Out[func.MySqlRow]) \
 
 # [v1](#tab/python-v1)
 
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -609,7 +609,7 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample Python code:
+The following example is sample Python code:
 
 ```python
 import json
@@ -661,7 +661,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 | Element |Description|
 |---------|---------|
-| **commandText** | Required.  The name of the table being written to by the binding.  |
+| **commandText** | Required. The name of the table being written to by the binding.  |
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.| 
 |**name** |  Required. The unique name of the function binding. | 
 
@@ -725,7 +725,7 @@ The following table explains the binding configuration properties that you set i
 
 The `CommandText` property is the name of the table where the data is to be stored. The connection string setting name corresponds to the application setting that contains the connection string to Azure Database for MySQL.
 
-If an exception occurs when a MySQL output binding is executed then the function code stop executing.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.  
+If an exception occurs when a MySQL output binding is executed then the function code stop executing. This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.  
 
 ## Next steps
 

@@ -141,7 +141,7 @@ namespace AzureMySqlSamples.InputBindingIsolatedSamples
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `DeleteProductsCost` must be created on the MySQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `DeleteProductsCost` must be created on the MySQL database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
@@ -283,7 +283,7 @@ namespace AzureMySqlSamples.InputBindingSamples
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `DeleteProductsCost` must be created on the MySQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `DeleteProductsCost` must be created on the MySQL database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
@@ -434,7 +434,7 @@ public class GetProductById {
 
 The following example shows a MySQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `DeleteProductsCost` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `DeleteProductsCost` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
@@ -570,7 +570,7 @@ app.http('GetProducts', {
 
 # [Model v3](#tab/nodejs-v3)
 
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -605,7 +605,7 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample JavaScript code:
+The following example is sample JavaScript code:
 
 ```javascript
 module.exports = async function (context, req, products) {
@@ -702,7 +702,7 @@ app.http('GetProducts', {
 
 # [Model v3](#tab/nodejs-v3)
 
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -738,7 +738,7 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample JavaScript code:
+The following example is sample JavaScript code:
 
 ```javascript
 module.exports = async function (context, req, products) {
@@ -762,7 +762,7 @@ module.exports = async function (context, req, products) {
 
 The following example shows a MySQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `DeleteProductsCost` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `DeleteProductsCost` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
@@ -880,7 +880,7 @@ app.http('httpTrigger1', {
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample JavaScript code:
+The following example is sample JavaScript code:
 
 
 ```javascript
@@ -925,7 +925,7 @@ CREATE TABLE Products (
 
 The following example shows a MySQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
 
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -960,7 +960,7 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample PowerShell code for the function in the `run.ps1` file:
+The following example is sample PowerShell code for the function in the `run.ps1` file:
 
 ```powershell
 using namespace System.Net
@@ -980,7 +980,7 @@ Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 The following example shows a MySQL input binding in a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -1037,7 +1037,7 @@ Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 The following example shows a MySQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `DeleteProductsCost` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `DeleteProductsCost` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
@@ -1082,7 +1082,7 @@ END
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample PowerShell code for the function in the `run.ps1` file:
+The following example is sample PowerShell code for the function in the `run.ps1` file:
 
 
 ```powershell
@@ -1133,7 +1133,7 @@ The following example shows a MySQL input binding in a function.json file and a 
 
 # [v2](#tab/python-v2)
 
-The following is sample python code for the function_app.py file:
+The following example is sample python code for the function_app.py file:
 
 ```python
 import azure.functions as func
@@ -1162,7 +1162,7 @@ def mysql_test(req: func.HttpRequest, products: func.MySqlRowList) -> func.HttpR
 
 # [v1](#tab/python-v1)
 
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -1223,7 +1223,7 @@ The following example shows a MySQL input binding in a Python function that is [
 
 # [v2](#tab/python-v2)
 
-The following is sample python code for the function_app.py file:
+The following example is sample python code for the function_app.py file:
 
 ```python
 import azure.functions as func
@@ -1289,7 +1289,7 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample Python code:
+The following example is sample Python code:
 
 
 ```python
@@ -1313,7 +1313,7 @@ def main(req: func.HttpRequest, products: func.MySqlRowList) -> func.HttpRespons
 
 The following example shows a MySQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `DeleteProductsCost` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `DeleteProductsCost` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
@@ -1326,7 +1326,7 @@ END
 
 # [v2](#tab/python-v2)
 
-The following is sample python code for the function_app.py file:
+The following example is sample python code for the function_app.py file:
 
 ```python
 import azure.functions as func
@@ -1470,7 +1470,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `in`. |
 |**name** |  Required. The name of the variable that represents the query results in function code. | 
 | **commandText** | Required. The MySQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name.  Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 | **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
 
@@ -1489,7 +1489,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `in`. |
 |**name** |  Required. The name of the variable that represents the query results in function code. | 
 | **commandText** | Required. The MySQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name.  Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 | **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
 
@@ -1503,7 +1503,7 @@ The following table explains the binding configuration properties that you set i
 The attribute's constructor takes the MySQL command text, the command type, parameters, and the connection string setting name. The command can be a MYSQL query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to the Azure Database for MySQL.
 
 
-If an exception occurs when a MySQL input binding is executed then the function code won't execute.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
+If an exception occurs when a MySQL input binding is executed then the function code won't execute. This might result in an error code being returned, such as an HTTP trigger returning a 500 error code.
 
 ## Next steps
 
