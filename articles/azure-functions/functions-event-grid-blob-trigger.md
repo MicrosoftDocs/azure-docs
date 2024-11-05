@@ -3,7 +3,7 @@ title: 'Tutorial: Trigger Azure Functions on blob containers using an event subs
 description: This tutorial shows how to create a low-latency, event-driven trigger on an Azure Blob Storage container using an Event Grid event subscription. 
 ms.topic: tutorial
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 05/20/2024
+ms.date: 11/04/2024
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want learn how to create an event-based trigger on a Blob Storage container so that I can get a more rapid response to changes in the container.
 ---
@@ -32,9 +32,9 @@ This article supports version 2 of the Python programming model for Azure Functi
 This article creates a C# app that runs in isolated worker mode, which supports .NET 8.0.
 ::: zone-end
 
-> [!IMPORTANT]  
-> This tutorial has you use the [Flex Consumption plan](flex-consumption-plan.md), which is currently in preview. The Flex Consumption plan only supports the event-based version of the Blob Storage trigger.
-> You can complete this tutorial using any other [hosting plan](functions-scale.md) for your function app. 
+> [!TIP]  
+> This tutorial shows you how to create an app that runs on the [Flex Consumption plan](flex-consumption-plan.md). This dynamic scale plan supports only the event-based version of the Blob Storage trigger.
+> You can also complete this tutorial using any other [hosting plan](functions-scale.md) for your function app by choosing a different hosting plan when you create your function app.
 
 ## Prerequisites
 
@@ -251,7 +251,7 @@ Use these steps to create a function app in the Flex Consumption plan. When your
     | Prompt |  Selection |
     | ------ |  ----------- |
     | **Enter a globally unique name for the new function app.** | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
-    | **Select a hosting plan.** | Choose **Flex Consumption (Preview)**. |
+    | **Select a hosting plan.** | Choose **Flex Consumption**. |
     | **Select a runtime stack.** | Choose the language stack and version on which you've been running locally. |
     | **Select a resource group for new resources.** | Choose the existing resource group in which you created the storage account. |
     | **Select a location for new resources.** | Select a location in a supported [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Unsupported regions aren't displayed. For more information, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).|
