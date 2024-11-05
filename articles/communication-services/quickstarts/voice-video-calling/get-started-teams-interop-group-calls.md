@@ -394,7 +394,7 @@ In results get the "id" field.
 ```
 
 Or the same ID could be found in [Azure portal](https://aka.ms/portal) in Users tab:
-![User Object ID in Azure Portal](./includes/teams-user/portal-user-id.png)
+![Screenshot of User Object ID in Azure portal.](./includes/teams-user/portal-user-id.png)
 
 ## Run the code
 
