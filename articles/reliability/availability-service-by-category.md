@@ -55,7 +55,7 @@ Azure services are presented in the following tables by category. Note that some
 > | Virtual Machines: Bs-series            | Azure Media Services                |
 > | Virtual Machines: Dv2 and DSv2-series  | Azure Monitor: Application Insights |
 > | Virtual Machines: Dv3 and DSv3-series  | Azure Monitor: Log Analytics        |
-> | Virtual Machines: ESv3 abd ESv3-series | Azure Network Watcher               |
+> | Virtual Machines: ESv3 and ESv3-series | Azure Network Watcher               |
 > |                                        | Azure Private Link                  |
 > |                                        | Azure Storage: Files Storage        |
 > |                                        | Azure Storage: Premium Blob Storage |
