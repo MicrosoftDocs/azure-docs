@@ -234,7 +234,7 @@ In this step, you create a virtual network with a nonoverlapping CIDR range usin
     
     ```
 
-4. In the **Custom deployment** windows, enter or select the following information::
+4. In the **Custom deployment** windows, enter or select the following information:
 
     | **Field** | **Description** |
     | --- | --- |
