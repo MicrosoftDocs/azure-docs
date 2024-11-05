@@ -61,7 +61,7 @@ Azure HDInsight now supports OAuth-based authentication for accessing Azure Blob
   * This change will be rolled out in a phased manner for different regions between November 07, 2024 and November 21, 2024.
 
 > [!NOTE]
-> When using your own Virtual Network (custom VNet) during cluster creation, please be advised that the cluster creation will not succeed once this change is enabled. We recommend referring to the migration guide to recreate the cluster. For assistance, kindly contact support.
+> When using your own Virtual Network (custom VNet) during cluster creation, please be advised that the cluster creation will not succeed once this change is enabled. We recommend referring to the migration guide to recreate the cluster. For any assistance, kindly contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
