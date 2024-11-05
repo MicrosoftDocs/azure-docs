@@ -78,6 +78,27 @@ The cluster registry feature deploys helper pods on the target edge cluster to a
 #### Registry
 * This pod stores and retrieves container images for CNF.
 
+### Cluster registry garbage collection
+AOSM cluster extension runs a background job to regularly clean up container images. The job schedule and conditions are configured by end-user, but by default the job runs once per days at a 0% utilization threshold. This job will check if the cluster registry usage has reached the specified threshold, and if so, it will initiate the garbage collection process.
+
+#### Clean up garbage image manifests
+AOSM maintains references between pod owner resource and consuming images in cluster registry. Upon initiating the images cleanup process, images will be identified which are not linked to any pods, issuing a soft delete to remove them from cluster registry. This type of soft delete doesn't immediately free cluster registry storage space. Actual image files removal depends on the CNCF distribution registry garbage collection outlined below.
+
+> [!NOTE]
+> The reference between a pod's owner and its container images ensures that AOSM does not mistakenly delete images. For example, if a replicaset pod goes down, AOSM will not dereference the container images. AOSM only dereferences container images when the replicaset is deleted. The same principle applies to pods managed by Kubernetes jobs and daemonsets.
+
+#### CNCF garbage collection distribution
+AOSM sets up the cluster registry using open source [CNCF distribution registry](https://distribution.github.io/distribution/). Therefore, AOSM relies on garbage collection capabilities that provided by [Garbage collection | CNCF Distribution](https://distribution.github.io/distribution/about/garbage-collection/#:~:text=About%20garbage%20collection,considerable%20amounts%20of%20disk%20space.). Overall, it follows standard 2 phase “mark and sweep” process to delete image files to free registry storage space.
+
+> [!NOTE]
+> This process requires the cluster registry in read-only mode. If images are uploaded when registry not in read-only mode, there is the risk that images layers are mistakenly deleted leading to a corrupted image. Registry requires lock in read-only mode for a duration of up to 1 minute. Consequently, AOSM will defer other NF deployment when cluster registry in read-only mode.
+
+#### Garbage collection configuration parameters
+Customers can adjust the following settings to configure the schedule and conditions for the garbage collection job.
+* global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence
+* global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold
+* For more configuration details, please refer to the [Network function extension installation instructions](manage-network-function-operator.md)
+
 ## High availability and resiliency considerations 
 The AOSM NF extension relies uses a mutating webhook and edge registry to support key features. 
 * Onboarding helm charts without requiring customization of image path.
