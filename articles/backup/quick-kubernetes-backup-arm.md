@@ -18,13 +18,6 @@ Azure Backup for AKS is a cloud-native, enterprise-ready, application-centric ba
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-## Prerequisites
-
-To set up your environment for Bicep development, see [Install Bicep tools](../azure-resource-manager/bicep/install.md).
-
->[!Note]
->Install the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az) and the Bicep CLI as detailed in article.
-
 ## Review the template
 
 This template enables you to configure backup for an AKS cluster. In this template, we create a backup vault with a backup policy for the AKS cluster with a *four hourly* schedule and a *seven day* retention duration.
