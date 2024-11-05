@@ -31,27 +31,9 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 - A [Teams deployment](/deployoffice/teams-install).
 - An [access token](../identity/access-tokens.md).
 
-## Get the Teams user IDs
-
-The Teams user IDs can be retrieved using Graph APIs, which is detailed in [Graph documentation](/graph/api/user-get?tabs=http).
-
-```console
-https://graph.microsoft.com/v1.0/me
-```
-
-In results get the "id" field.
-
-```json
-    "userPrincipalName": "lab-test2-cq@contoso.com",
-    "id": "31a011c2-2672-4dd0-b6f9-9334ef4999db"
-```
-
-Or the same ID could be found in [Azure portal](https://aka.ms/portal) in Users tab:
-![User Object ID in Azure Portal](./includes/teams-user/portal-user-id.png)
-
 ## Add the Call UI controls
 
-Replace code in index.html with the following snippet. Place a call to the Teams users by specifying their ID(s).
+Replace code in index.html with the following snippet. Place a call to the Teams users by specifying their <a href="#userIds">ID(s)</a>.
 - The text box is used to enter the Teams user IDs you are planning to call. Enter one id for a 1:1 call, or multiple for a group call
 
 ```html
@@ -395,6 +377,24 @@ hangUpButton.addEventListener("click", async () => {
     await call.hangUp();
 });
 ```
+
+ <h2 id="userIds">Get the Teams user IDs</h2>
+
+The Teams user IDs can be retrieved using Graph APIs, which is detailed in [Graph documentation](/graph/api/user-get?tabs=http).
+
+```console
+https://graph.microsoft.com/v1.0/me
+```
+
+In results get the "id" field.
+
+```json
+    "userPrincipalName": "lab-test2-cq@contoso.com",
+    "id": "31a011c2-2672-4dd0-b6f9-9334ef4999db"
+```
+
+Or the same ID could be found in [Azure portal](https://aka.ms/portal) in Users tab:
+![User Object ID in Azure Portal](./includes/teams-user/portal-user-id.png)
 
 ## Run the code
 
