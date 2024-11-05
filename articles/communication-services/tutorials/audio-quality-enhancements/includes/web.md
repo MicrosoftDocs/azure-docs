@@ -6,7 +6,7 @@ author: sloanster
 ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 09/11/2024
+ms.date: 11/05/2024
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -17,7 +17,7 @@ The Azure Communication Services audio effects *noise suppression* abilities can
 ## Use audio effects: Install the calling effects npm package
 
 > [!IMPORTANT]
-> This tutorial employs the Azure Communication Services Calling SDK version `1.28.4` or later, alongside the Azure Communication Services Calling Effects SDK version `1.1.1` or later. The general availability (GA) stable version `1.28.4` and later of the Calling SDK support noise suppression features. Alternatively, if you opt to use the public preview version, Calling SDK versions `1.24.2-beta.1` and later also support noise suppression.
+> This tutorial employs the Azure Communication Services Calling SDK version `1.28.4` or later, alongside the Azure Communication Services Calling Effects SDK version `1.1.2` or later. The general availability (GA) stable version `1.28.4` and later of the Calling SDK support noise suppression features. Alternatively, if you opt to use the public preview version, Calling SDK versions `1.24.2-beta.1` and later also support noise suppression.
 > 
 > Current browser support for adding audio noise suppression effects is available only on Chrome and Edge desktop browsers.
 
@@ -25,16 +25,17 @@ The calling effects library can't be used standalone. It works only when used wi
 
 Use the `npm install` command to install the Azure Communication Services Audio Effects SDK for JavaScript.
 
-If you use the GA version of the Calling SDK, you must use the [GA version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.1.1) of the Calling Effects SDK.
+If you use the GA version of the Calling SDK, you must use the [GA version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/latest) of the Calling Effects SDK.
 
 ```console
-@azure/communication-calling-effects@1.1.1
+@azure/communication-calling-effects/v/latest
 ```
 
-If you use the public preview of the Calling SDK, you must use the [beta version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.1.1-beta.2) of the Calling Effects SDK.
+If you use the public preview of the Calling SDK, you must use the [beta version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/next) of the Calling Effects SDK.
 
 ```console
-@azure/communication-calling-effects@1.1.1-beta
+@azure/communication-calling-effects/v/next
+```
 ```
 
 ## Load the noise suppression effects library
