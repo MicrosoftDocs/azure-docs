@@ -650,6 +650,8 @@ spec:
       # Omitting authenticationRef and tls for testing only
 ```
 
+---
+
 ## Related content
 
 - [Configure TLS with manual certificate management to secure MQTT communication](howto-configure-tls-manual.md)
