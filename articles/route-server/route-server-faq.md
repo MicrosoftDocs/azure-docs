@@ -22,7 +22,7 @@ No. Azure Route Server is a service designed with high availability. Your route 
 
 ### Do I need to peer each NVA with both Azure Route Server instances?
 
-Yes, to ensure that routes are successfully advertised into Azure and to configure high availability, it is required to peer each NVA instance with both instances of Route Server. It is also recommended to peer at least 2 NVA instances with both instances of Route Server. 
+Yes, to ensure that routes are successfully advertised to Route Server and to configure high availability, it is required to peer each NVA instance with both instances of Route Server. It is also recommended to peer at least 2 NVA instances with both instances of Route Server. 
 
 ### Does Azure Route Server store customer data?
 
