@@ -69,8 +69,10 @@
       href: ../files/files-manage-namespaces.md?toc=/azure/storage/file-sync/toc.json
     - name: Enable threat protection with Microsoft Defender for Storage
       href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/file-sync/toc.json
-  - name: Encryption
+  - name: Security
     items:
+    - name: Configure managed identities
+      href: file-sync-managed-identities.md
     - name: Encryption at rest
       href: ../common/storage-service-encryption.md?toc=/azure/storage/file-sync/toc.json
     - name: Encryption at rest with customer-managed keys
@@ -185,6 +187,8 @@
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json
   - name: Troubleshoot cloud tiering issues
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
+  - name: Troubleshoot managed identities
+    href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-managed-identities?toc=/azure/storage/file-sync/toc.json
 - name: Reference
   items:
   - name: Azure File Sync agent silent installation

@@ -1015,6 +1015,15 @@ groups:
   - id: container-apps-jobs-self-hosted-ci-cd-github-actions
     title: GitHub Actions runner
 # Owner: cshoe
+- id: static-web-apps-ci-cd
+  title: CI/CD system
+  prompt: Select a CI/CD system
+  pivots:
+  - id: github-actions
+    title: GitHub Actions
+  - id: azure-pipelines
+    title: Azure Pipelines
+# Owner: cshoe
 - id: static-web-apps-api-protocols
   title: API protocol
   prompt: Select an API protocol
@@ -1434,6 +1443,14 @@ groups:
     title: Windows 365
   - id: dev-box
     title: Microsoft Dev Box
+- id: azure-virtual-desktop-host-pool-management-approaches
+  title: Host pool management approaches
+  prompt: "Choose a host pool management approach:"
+  pivots:
+  - id: host-pool-standard
+    title: Standard
+  - id: host-pool-session-host-configuration
+    title: Session host configuration (preview)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -1686,3 +1703,12 @@ groups:
     title: Azure CLI
   - id: experience-gui
     title: Grafana UI
+# Owner: danlep
+- id: api-management-howto-add-products
+  title: Interactive or Script
+  prompt: Choose Interactive for Azure CLI and Azure Portal instructions, or Terraform
+  pivots:
+  - id: interactive
+    title: Interactive
+  - id: terraform
+    title: Terraform

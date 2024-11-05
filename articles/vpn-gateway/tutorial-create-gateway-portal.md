@@ -124,4 +124,4 @@ After you create a VPN gateway, you can configure more gateway settings and conn
 > [Site-to-site VPN connections](./tutorial-site-to-site-portal.md)
 
 > [!div class="nextstepaction"]
-> [Point-to-site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> [Point-to-site VPN connections](point-to-site-certificate-gateway.md)

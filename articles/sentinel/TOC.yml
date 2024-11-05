@@ -137,82 +137,87 @@
       href: ci-cd-custom-deploy.md
   - name: Protect business applications
     items: 
-    - name: Integrate SAP applications
+    - name: Integrate SAP systems
       items: 
-      - name: SAP solution overview
+      - name: SAP applications
         items:
         - name: Overview
           href: sap/solution-overview.md
-        - name: Content overview
-          href: sap/sap-solution-security-content.md
-        - name: Working with the SAP solution across multiple workspaces
-          href: sap/cross-workspace.md
-        - name: Respond to SAP incidents with playbooks
-          href: sap/sap-incident-response-playbooks.md
-        - name: Automatic attack disruption for SAP
-          href: sap/deployment-attack-disrupt.md
-        - name: Deployment guide
+        - name: Deploy the SAP integration
           items: 
-          - name: Overview
+          - name: Deployment overview
             href: sap/deployment-overview.md
           - name: Deployment prerequisites
             href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
-          - name: Prepare SAP environment
-            href: sap/preparing-sap.md
-          - name: Configure auditing
-            href: sap/configure-audit.md
-          - name: Deploy the data connector agent
-            href: sap/deploy-data-connector-agent-container.md        
-          - name: Deploy SAP security content
+          - name: Install the solution for SAP applications
             href: sap/deploy-sap-security-content.md
-          - name: Configure the solution
-            href: sap/deployment-solution-configuration.md
-          - name: Update the connector
-            href: sap/update-sap-data-connector.md      
-          - name: Disable the connector
-            displayName: disable, stop ingestion, stop
-            href: sap/deployment-solution-configuration.md#stop-log-ingestion-and-disable-the-connector
-        - name: Reference
-          items:    
-          - name: SAP solution data reference
-            href: sap/sap-solution-log-reference.md
+          - name: Prepare your SAP environment
+            href: sap/preparing-sap.md
+          - name: Connect your SAP system
+            displayName: disable, stop ingestion, stop 
+            href: sap/deploy-data-connector-agent-container.md
+          - name: Troubleshoot SAP solution deployment
+            href: sap/sap-deploy-troubleshoot.md    
+          - name: Extra deployment steps
+            items:
+            - name: Collect SAP HANA audit logs
+              href: sap/collect-sap-hana-audit-logs.md
+            - name: Update the connector
+              href: sap/update-sap-data-connector.md      
+            - name: Deploy from the command line
+              href: sap/deploy-command-line.md
+            - name: Deploy with expert options
+              href: sap/sap-solution-deploy-alternate.md
+          - name: SAP deployment reference (advanced)
+            items:
+            - name: Required ABAP permissions
+              href: sap/required-abap-authorizations.md
+            - name: Kickstart script reference
+              href: sap/reference-kickstart.md
+            - name: Container update script reference 
+              href: sap/reference-update.md
+            - name: Systemconfig.json file reference
+              href: sap/reference-systemconfig-json.md
+            - name: Systemconfig.ini file reference (legacy)
+              href: sap/reference-systemconfig.md
+        - name: Enable SAP detections and threat protection
+          href: sap/deployment-solution-configuration.md
+        - name: Automatic attack disruption for SAP
+          href: sap/deployment-attack-disrupt.md
+        - name: Integrate SAP across multiple workspaces
+          href: sap/cross-workspace.md
+        - name: Monitor SAP systems
+          items:
+          - name: Monitor SAP system health and role
+            href: monitor-sap-system-health.md
+          - name: Monitor SAP audit logs
+            href: sap/sap-audit-log-workbook.md
+          - name: Monitor SAP audit controls
+            href: sap/sap-audit-controls-workbook.md
+        - name: SAP solution content reference
+          items:
+          - name: SAP security content reference
+            href: sap/sap-solution-security-content.md
           - name: Monitored SAP security parameters
             href: sap/sap-suspicious-configuration-security-parameters.md
-          - name: SAP audit log workbook
-            href: sap/sap-audit-log-workbook.md
-          - name: SAP audit controls workbook
-            href: sap/sap-audit-controls-workbook.md   
-          - name: Kickstart script reference
-            href: sap/reference-kickstart.md
-          - name: Container update script reference 
-            href: sap/reference-update.md
-          - name: Systemconfig.json file reference
-            href: sap/reference-systemconfig-json.md
-          - name: Systemconfig.ini file reference
-            href: sap/reference-systemconfig.md
-      - name: Optional deployment steps
-        items: 
-        - name: Configure SAP data connector to use SNC
-          href: sap/configure-snc.md      
-        - name: Collect SAP HANA audit logs
-          href: sap/collect-sap-hana-audit-logs.md
-        - name: Deploy SAP connector manually
-          href: sap/sap-solution-deploy-alternate.md
-        - name: Configure SAP audit log monitoring rules
-          href: sap/configure-audit-log-rules.md
-        - name: Select SAP ingestion profile
-          href: sap/select-ingestion-profiles.md 
-      - name: SAP BTP solution
+          - name: SAP solution function reference
+            href: sap/sap-solution-function-reference.md
+          - name: SAP solution log and table reference
+            href: sap/sap-solution-log-reference.md
+        - name: Stop SAP data collection
+          href: sap/stop-collection.md
+      - name: SAP BTP
         items:
         - name: Overview
           href: sap/sap-btp-solution-overview.md
-        - name: Content overview
+          displayName: BTP
+        - name: Security content reference
           href: sap/sap-btp-security-content.md
         - name: Deploy SAP BTP
           href: sap/deploy-sap-btp-solution.md
     - name: Integrate Microsoft business applications
       items:
-      - name: Dynamics 365 Finance and Operations solution
+      - name: Dynamics 365 Finance and Operations
         items:
         - name: Overview
           href: dynamics-365/dynamics-365-finance-operations-solution-overview.md
@@ -220,7 +225,7 @@
           href: dynamics-365/dynamics-365-finance-operations-security-content.md
         - name: Deploy solution
           href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
-      - name: Microsoft Power Platform solution
+      - name: Microsoft Power Platform
         items:
         - name: Overview
           href: business-applications/power-platform-solution-overview.md 
@@ -254,8 +259,6 @@
     href: forward-syslog-monitor-agent.md
   - name: Connect data sources
     href: configure-data-connector.md
-  - name: Classifying data with entities
-    href: entities.md
   - name: Ingestion-time data transformation
     href: data-transformation.md
   - name: AMA migration for Microsoft Sentinel
@@ -286,6 +289,8 @@
       href: data-connectors/armis-activities.md
     - name: Armis Alerts (using Azure Functions)
       href: data-connectors/armis-alerts.md
+    - name: Armis Alerts Activities (using Azure Functions)
+      href: data-connectors/armis-alerts-activities.md
     - name: Armis Devices (using Azure Functions)
       href: data-connectors/armis-devices.md
     - name: Armorblox (using Azure Functions)
@@ -304,6 +309,8 @@
       href: data-connectors/azure-activity.md
     - name: Azure Batch Account
       href: data-connectors/azure-batch-account.md
+    - name: Azure CloudNGFW By Palo Alto Networks
+      href: data-connectors/azure-cloudngfw-by-palo-alto-networks.md
     - name: Azure Cognitive Search
       href: data-connectors/azure-cognitive-search.md
     - name: Azure DDoS Protection
@@ -362,6 +369,8 @@
       href: data-connectors/corelight-connector-exporter.md
     - name: Cortex XDR - Incidents
       href: data-connectors/cortex-xdr-incidents.md
+    - name: Cribl
+      href: data-connectors/cribl.md
     - name: CrowdStrike Falcon Adversary Intelligence (using Azure Functions)
       href: data-connectors/crowdstrike-falcon-adversary-intelligence.md
     - name: Crowdstrike Falcon Data Replicator (using Azure Functions)
@@ -440,10 +449,22 @@
       href: data-connectors/greynoise-threat-intelligence.md
     - name: HackerView Intergration (using Azure Functions)
       href: data-connectors/hackerview-intergration.md
+    - name: HYAS Protect (using Azure Functions)
+      href: data-connectors/hyas-protect.md
     - name: Holm Security Asset Data (using Azure Functions)
       href: data-connectors/holm-security-asset-data.md
+    - name: Illumio SaaS (using Azure Functions)
+      href: data-connectors/illumio-saas.md
     - name: Imperva Cloud WAF (using Azure Functions)
       href: data-connectors/imperva-cloud-waf.md
+    - name: Infoblox Data Connector via REST API (using Azure Functions)
+      href: data-connectors/infoblox-data-connector-via-rest-api.md
+    - name: Infoblox Cloud Data Connector via AMA
+      href: data-connectors/recommended-infoblox-cloud-data-connector-via-ama.md
+    - name: Infoblox SOC Insight Data Connector via AMA
+      href: data-connectors/recommended-infoblox-soc-insight-data-connector-via-ama.md
+    - name: Infoblox SOC Insight Data Connector via REST API
+      href: data-connectors/infoblox-soc-insight-data-connector-via-rest-api.md
     - name: InfoSecGlobal Data Connector
       href: data-connectors/infosecglobal-data-connector.md
     - name: IONIX Security Logs
@@ -546,8 +567,12 @@
       href: data-connectors/palo-alto-prisma-cloud-cspm.md
     - name: Perimeter 81 Activity Logs
       href: data-connectors/perimeter-81-activity-logs.md
+    - name: Phosphorus Devices
+      href: data-connectors/phosphorus-devices.md
     - name: Prancer Data Connector
       href: data-connectors/prancer-data-connector.md
+    - name: Premium Microsoft Defender Threat Intelligence (Preview)
+      href: data-connectors/premium-microsoft-defender-threat-intelligence.md
     - name: Proofpoint On Demand Email Security (using Azure Functions)
       href: data-connectors/proofpoint-on-demand-email-security.md
     - name: Proofpoint TAP (using Azure Functions)
@@ -556,6 +581,8 @@
       href: data-connectors/qualys-vm-knowledgebase.md
     - name: Qualys Vulnerability Management (using Azure Functions)
       href: data-connectors/qualys-vulnerability-management.md
+    - name: Radiflow iSID via AMA
+      href: data-connectors/radiflow-isid-via-ama.md
     - name: Rapid7 Insight Platform Vulnerability Management Reports (using Azure Functions)
       href: data-connectors/rapid7-insight-platform-vulnerability-management-reports.md
     - name: Rubrik Security Cloud data connector (using Azure Functions)
@@ -572,6 +599,8 @@
       href: data-connectors/sentinelone.md
     - name: Seraphic Web Security
       href: data-connectors/seraphic-web-security.md
+    - name: Silverfort Admin Console
+      href: data-connectors/silverfort-admin-console.md
     - name: Slack Audit (using Azure Functions)
       href: data-connectors/slack-audit.md
     - name: Snowflake (using Azure Functions)
@@ -634,6 +663,10 @@
       href: data-connectors/zero-networks-segment-audit.md
     - name: Zero Networks Segment Audit (Function) (using Azure Functions)
       href: data-connectors/zero-networks-segment-audit.md
+    - name: ZeroFox CTI (using Azure Functions)
+      href: data-connectors/zerofox-cti.md
+    - name: ZeroFox Enterprise - Alerts (Polling CCP)
+      href: data-connectors/zerofox-enterprise-alerts-polling-ccp.md
     - name: Zimperium Mobile Threat Defense
       href: data-connectors/zimperium-mobile-threat-defense.md
     - name: Zoom Reports (using Azure Functions)
@@ -644,11 +677,11 @@
       items: 
       - name: Connect Microsoft Sentinel to Microsoft connectors
         href: connect-azure-windows-microsoft-services.md
-      - name: API-based connection
+      - name: Connect via API-based connectors
         href: connect-services-api-based.md
-      - name: Diagnostic settings-based connection
+      - name: Connect via diagnostic settings-based connectors
         href: connect-services-diagnostic-setting-based.md
-      - name: Windows agent-based connection
+      - name: Connect via Windows agent-based connectors
         href: connect-services-windows-based.md
     - name: Azure Functions API connection
       href: connect-azure-functions-template.md    
@@ -814,8 +847,17 @@
     href: tutorial-log4j-detection.md
   - name: MITRE ATT&CK coverage
     href: mitre-coverage.md
-  - name: User and entity behavior analytics (UEBA)
-    href: identify-threats-with-entity-behavior-analytics.md
+  - name: Data classification with entities
+    items:
+    - name: Overview
+      displayName: data classification, entities
+      href: entities.md
+    - name: Entity pages
+      href: entity-pages.md
+    - name: User and entity behavior analytics (UEBA)
+      href: identify-threats-with-entity-behavior-analytics.md
+    - name: Create custom entity activities
+      href: customize-entity-activities.md
   - name: Watchlists
     items:
     - name: Overview
@@ -896,12 +938,6 @@
       href: work-with-tasks.md
     - name: Audit and track changes to incident tasks
       href: audit-track-tasks.md
-  - name: Investigate entities
-    items:
-    - name: Overview
-      href: entity-pages.md
-    - name: Create custom entity activities
-      href: customize-entity-activities.md
   - name: Investigate large datasets
     items:
     - name: Overview
@@ -1021,8 +1057,6 @@
       href: monitor-optimize-analytics-rule-execution.md
     - name: Audit and monitor the health of analytics rules
       href: monitor-analytics-rule-integrity.md
-    - name: Monitor SAP system health and role
-      href: monitor-sap-system-health.md 
   - name: Auditing Microsoft Sentinel with Azure Activity Logs
     href: audit-sentinel-data.md
   - name: Remove Microsoft Sentinel from your workspaces
@@ -1031,8 +1065,6 @@
   items:
   - name: Troubleshoot AWS S3 connector issues
     href: aws-s3-troubleshoot.md
-  - name: Troubleshoot SAP solution deployment
-    href: sap/sap-deploy-troubleshoot.md    
 - name: Reference
   items:
   - name: Service limits

@@ -145,7 +145,7 @@ procedureSection:
       **To update billing account information**
     steps: 
       - |
-        Sign in to the [Microsoft Store for Business](https://businessstore.microsoft.com/) or [Microsoft Store for Education](https://www.microsoft.com/store/b/education).
+        Sign in to the [Microsoft Store for Education](https://www.microsoft.com/store/b/education).
       - |  
         Select **Manage**, and then select **Billing accounts**.
       - |  
@@ -153,7 +153,6 @@ procedureSection:
       - |  
         Make your updates, and then select **Save**.
         
-        [Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
   - title: |
       Service and marketing emails
     summary: |

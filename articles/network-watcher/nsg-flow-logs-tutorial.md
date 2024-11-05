@@ -232,7 +232,7 @@ Open the downloaded `PT1H.json` file using a text editor of your choice. The fol
     "systemId": "00000000-0000-0000-0000-000000000000",
     "macAddress": "112233445566",
     "category": "NetworkSecurityGroupFlowEvent",
-    "resourceId": "/SUBSCRIPTIONS/abcdef01-2345-6789-0abc-def012345678/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 2,
