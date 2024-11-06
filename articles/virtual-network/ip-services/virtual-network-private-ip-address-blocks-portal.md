@@ -118,7 +118,7 @@ You can add a static private IP address prefix to a virtual machine by completin
 
 9. Select **OK**.
 
-:::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/add-static-ip-prefix-config-config.png" alt-text="Screenshot of Add static IP configuration for a private IP address block.":::
+:::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/add-static-ip-prefix-config.png" alt-text="Screenshot of Add static IP configuration for a private IP address block.":::
 
 > [!NOTE]
 > When adding a static IP address, you must specify an unused, valid private IP address CIDR from the subnet the NIC is connected to.
