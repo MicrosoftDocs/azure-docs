@@ -36,7 +36,6 @@ If you use the public preview of the Calling SDK, you must use the [beta version
 ```console
 @azure/communication-calling-effects/v/next
 ```
-```
 
 ## Load the noise suppression effects library
 
