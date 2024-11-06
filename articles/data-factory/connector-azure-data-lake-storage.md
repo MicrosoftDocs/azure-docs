@@ -700,7 +700,7 @@ In this case, all files that were sourced under /data/sales are moved to /backup
 
 ### Sink properties
 
-In the sink transformation, you can write to either a container or folder in Azure Data Lake Storage Gen2. the **Settings** tab lets you manage how the files get written.
+In the sink transformation, you can write to either a container or folder in Azure Data Lake Storage Gen2. The **Settings** tab lets you manage how the files get written.
 
 :::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="sink options":::
 
