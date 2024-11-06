@@ -144,7 +144,7 @@ You can select  **Sizing assumptions** to understand the assumptions that went i
 
 1. In **Azure readiness**, verify whether servers are ready for migration to AVS.
 
-2. Review the server status:
+2. [Review](concepts-azure-vmware-solution-assessment-calculation.md#server-properties) the server status:
     - **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It starts in AVS with full AVS support.
     - **Ready with conditions**: There might be some compatibility issues, for example, internet protocol or deprecated OS in VMware and need to be remediated before migrating to Azure VMware Solution. To fix any readiness problems, follow the remediation guidance the assessment suggests.
     - **Not ready for AVS**: The VM won't start in AVS. For example, if the on-premises VMware VM has an external device attached such as a cd-rom the VMware vMotion operation fails (if using VMware vMotion).

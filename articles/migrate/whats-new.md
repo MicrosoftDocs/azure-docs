@@ -16,7 +16,7 @@ ms.custom: mvc, engagement-fy24
 
 ## Update (November 2024)
 
-- AVS assessments and Business case now support cost assessments with AV64 SKU and Azure NetApp Files (ANF) as an external storage option. [Learn more](how-to-create-azure-vmware-solution-assessment.md).
+- AVS assessments now support cost assessments with AV64 SKU and Azure NetApp Files (ANF) as an external storage option. [Learn more](how-to-create-azure-vmware-solution-assessment.md).
 - Support for cost of SKUs when porting on-premises VCF subscription to AVS.
 
 ## Update (October 2024)
