@@ -3,7 +3,7 @@ title: Azure Firewall Management NIC
 description: You can configure a Management NIC to support the Forced Tunneling and Packet Capture features.
 services: firewall
 author: vhorne
-ms.date: 09/10/2024
+ms.date: 11/6/2024
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.author: victorh
@@ -12,9 +12,9 @@ ms.author: victorh
 # Azure Firewall Management NIC
 
 > [!NOTE]
-> This feature was previously called Forced Tunneling. Originally, a Management NIC was required only for Forced Tunneling. However, now Packet capture (preview) also requires a Management NIC, so it has been decoupled from Forced Tunneling. All relevant documentation has been updated to reflect this.
+> This feature was previously called Forced Tunneling. Originally, a Management NIC was required only for Forced Tunneling. However, upcoming Firewall features will also require a Management NIC, so it has been decoupled from Forced Tunneling. All relevant documentation has been updated to reflect this.
 
-An Azure Firewall Management NIC separates firewall management traffic from customer traffic. The Firewall Management NIC helps support two features today: Forced Tunneling and Packet Capture (preview). To support either of these capabilities, you must create an Azure Firewall with the Firewall Management NIC enabled or enable it on an existing Azure Firewall. This is a mandatory requirement to avoid service disruption.
+An Azure Firewall Management NIC separates firewall management traffic from customer traffic. Upcoming Firewall features will also require a Management NIC. To support any of these capabilities, you must create an Azure Firewall with the Firewall Management NIC enabled or enable it on an existing Azure Firewall. This is a mandatory requirement to avoid service disruption.
 
 ## What happens when you enable the Management NIC
 
@@ -28,7 +28,7 @@ By default, the service associates a system-provided route table to the Manageme
 
 For Standard and Premium firewall versions, the Firewall Management NIC must be manually enabled during the create process as shown previously, but all Basic Firewall versions and all Secured Hub firewalls always have a Management NIC enabled. 
 
-For a pre-existing firewall, you must stop the firewall and then restart it with the Firewall Management NIC enabled to support Forced tunneling and Packet capture (preview). Stopping/starting the firewall can be used to enable the Firewall Management NIC without the need to delete an existing firewall and redeploy a new one. You should always start/stop the firewall during maintenance hours to avoid disruptions, including when attempting to enable the Firewall Management NIC. 
+For a pre-existing firewall, you must stop the firewall and then restart it with the Firewall Management NIC enabled to support Forced tunneling. Stopping/starting the firewall can be used to enable the Firewall Management NIC without the need to delete an existing firewall and redeploy a new one. You should always start/stop the firewall during maintenance hours to avoid disruptions, including when attempting to enable the Firewall Management NIC. 
 
 Use the following steps:
 
