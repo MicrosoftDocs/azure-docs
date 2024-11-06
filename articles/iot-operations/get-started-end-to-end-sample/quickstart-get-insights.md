@@ -62,9 +62,9 @@ After completing this flow, the Azure event hub is visible in the eventstream li
 
 Follow these steps to check your work so far, and make sure data is flowing into the eventstream.
 
-1. Start your cluster where you deployed Azure IoT Operations in earlier quickstarts. The OPC PLC simulator you deployed with your Azure IoT Operations instance should begin running and sending data to the MQTT broker. You can verify this part of the flow using mqttui as described in [Verify data is flowing](quickstart-add-assets.md#verify-data-is-flowing).
+1. Start your cluster where you deployed Azure IoT Operations in earlier quickstarts. The OPC PLC simulator you deployed with your Azure IoT Operations instance should begin running and sending data to the MQTT broker. You can verify this part of the flow using `mosquitto_sub` as described in [Verify data is flowing to MQTT broker](quickstart-configure.md#verify-data-is-flowing-to-mqtt-broker).
 
-1. Wait a few minutes for data to propagate. Then, in the eventstream live view, select the *AzureEventHub* source and refresh the **Data preview**. You should see JSON data from the simulator begin to appear in the table.
+1. Wait a few minutes for data to propagate. Then, in the eventstream live view, select the Azure event hub source and refresh the **Data preview**. You should see JSON data from the simulator begin to appear in the table.
 
     :::image type="content" source="media/quickstart-get-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
 
