@@ -54,10 +54,12 @@ In the brand registration form, provide details about your company:
    - **Contact Email Address**: Contact email for inquiries related to the brand registration.
    - **Contact Phone Number**: Phone number for inquiries related to the brand registration.
 
+:::image type="content" source="./media/apply-for-brand-registration/brand-registration-2.png" alt-text="Screenshot showing Brand registration form 2." lightbox="./media/apply-for-brand-registration/brand-registration-2.png":::
+
 ### Review and submit
 Submit the form for verification. Brand verification may take up to 48 hours.
 
-:::image type="content" source="./media/apply-for-brand-registration/brand-registration-2.png" alt-text="Screenshot showing Brand registration form 2." lightbox="./media/apply-for-brand-registration/brand-registration-2.png":::
+:::image type="content" source="./media/apply-for-brand-registration/brand-registration-3.png" alt-text="Screenshot showing Brand registration form 3." lightbox="./media/apply-for-brand-registration/brand-registration-3.png":::
 
 > [Important!]
 > Providing incorrect or incomplete information may result in brand verification failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
