@@ -20,7 +20,7 @@ Cross-region transfers are currently supported between the following countries a
 | Source Country |  Destination Region |
 |----------------|---------------------|
 | Brazil         |  US<sup>1</sup>     |
-| Australia<br>Singapore<br>Hong Kong<br>India<br>Japan<br>Korea | US<sup>1</sup>, EU<sup>2</sup> |
+| Australia<br>Singapore<br>Hong Kong SAR<br>India<br>Japan<br>Korea | US<sup>1</sup>, EU<sup>2</sup> |
 | UAE            | US<sup>1</sup>, EU<sup>2</sup> |
 | US<sup>1</sup> | EU<sup>2</sup>      |
 | EU<sup>2</sup> | US<sup>1</sup>      |
