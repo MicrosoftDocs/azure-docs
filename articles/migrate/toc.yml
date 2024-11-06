@@ -131,7 +131,7 @@ items:
       - name: Azure VM assessment
         items:
         - name: Create an Azure VM assessment
-          href: how-to how-to-create-assessment.md
+          href: how-to-create-assessment.md
         - name: Customize assessment settings
           href: vm-assessment-properties.md
         - name: Azure VM Readiness criteria
@@ -176,7 +176,7 @@ items:
           href: assessment-properties.md
         - name: SAP Readiness criteria
         - name: Review assessment report
-          href: how-to-create-azure-sap-systems-assessment.md
+          href: concepts-azure-sap-systems-assessment
   - name: Software recommendations
     items:
     - name: Prerequisites
