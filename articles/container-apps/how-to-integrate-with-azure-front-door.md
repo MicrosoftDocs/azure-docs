@@ -12,14 +12,14 @@ ms.author: cshoe
 
 # Create a private link to an Azure Container App with Azure Front Door (preview)
 
-In this article, you learn how to create an Azure Front Door (AFD) using the Azure CLI. You then connect the Front Door to an Azure Container App in a private VNet using [Azure Private Link](/azure/private-link/private-link-overview). This lets you securely access your container app without exposing it to the public Internet. You then verify connectivity to your container app using the AFD endpoint.
+In this article, you learn how to connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. In this tutorial, you create an Azure Container Apps workload profiles environment, an Azure Front Door, and connect them securely through a private link. You then verify the connectivity between your container app and the Azure Front Door.
 
 ## Prerequisites
 
 - Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 
-- The latest version of the [Azure CLI](/cli/azure/install-azure-cli). To ensure you're running the latest version, run the following command.
+- This feature is only available with the [Azure CLI](/cli/azure/install-azure-cli). To ensure you're running the latest version of the Azure CLI, run the following command.
 
     ```azurecli
     az upgrade
@@ -33,6 +33,8 @@ In this article, you learn how to create an Azure Front Door (AFD) using the Azu
 
     > [!NOTE]
     > Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](./whats-new.md), install the Container Apps extension with `--allow-preview true`.
+
+- This feature is only supported for workload profile environments.
 
 For more information about prerequisites and setup, see [Quickstart: Deploy your first container app with containerapp up](get-started.md?tabs=bash).
 
