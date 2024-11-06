@@ -8,7 +8,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/30/2024
+ms.date: 11/06/2024
 
 #CustomerIntent: As an operator, I want understand options to secure MQTT communications for my IoT Operations solution.
 ---
@@ -20,7 +20,7 @@ To customize the network access and security use the *BrokerListener* resource. 
 Each listener port can have its own authentication and authorization rules that define who can connect to the listener and what actions they can perform on the broker. You can use *BrokerAuthentication* and *BrokerAuthorization* resources to specify the access control policies for each listener. This flexibility allows you to fine-tune the permissions and roles of your MQTT clients, based on their needs and use cases.
 
 > [!TIP]
-> You can only access the default MQTT broker deployment by using the cluster IP, TLS, and a service account token. Clients connecting from outside the cluster need extra configuration before they can connect.
+> You can only access the default MQTT broker deployment by using the cluster IP, TLS, and a service account token. Clients connecting from outside the cluster [need extra configuration](./howto-test-connection.md) before they can connect.
 
 Listeners have the following characteristics:
 
@@ -35,9 +35,12 @@ For a list of the available settings, see the [Broker Listener](/rest/api/iotope
 
 ## Default BrokerListener
 
-When you deploy Azure IoT Operations, the deployment also creates a *BrokerListener* resource named `default` in the `azure-iot-operations` namespace. This listener is linked to the default *Broker* resource named `default` that's also created during deployment. The default listener exposes the broker on port 18883 with TLS and SAT authentication enabled. The TLS certificate is [automatically managed](#configure-tls-with-automatic-certificate-management) by cert-manager. Authorization is disabled by default.
+When you deploy Azure IoT Operations, the deployment also creates a *BrokerListener* resource named `default`. This listener is used to for encrypted internal communication between Azure IoT Operations components. The default listener is part of the [default *Broker*](./overview-broker.md#default-broker-resource), exposes a [ClusterIp service](https://kubernetes.io/docs/concepts/services-networking/service/#type-clusterip) on port 18883, uses [Kubernetes service account authentication](./howto-configure-authentication.md#enable-service-account-token-sat-authentication), has an [automatically managed](#configure-tls-with-automatic-certificate-management) TLS certificate, and doesn't use any authorization.
 
-To view or edit the listener:
+> [!CAUTION]
+> To avoid disrupting internal Azure IoT Operations communication, keep the default listener unchanged and dedicated for internal use. For external communication, [create a new listener](#create-new-broker-listeners). If you need to use the ClusterIp service, add more ports to the default listener without changing any of the existing settings.
+
+To view or edit the default listener:
 
 # [Portal](#tab/portal)
 
@@ -50,11 +53,72 @@ To view or edit the listener:
 
     :::image type="content" source="media/howto-configure-brokerlistener/default-broker-listener.png" alt-text="Screenshot using Azure portal to view or edit the default broker listener.":::
 
-1. Review the listener settings and make any changes as needed.
+1. Review the listener settings, but avoid modifying any of the existing settings. Instead, create a new port and configure it as needed.
 
 # [Bicep](#tab/bicep)
 
-You shouldn't modify the default listener using Bicep. Instead, create a new listener and configure it as needed.
+You shouldn't modify the default listener using Bicep.
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: 'default'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    // Don't change the service name or service type
+    serviceType: 'ClusterIp'
+    serviceName: 'aio-broker'
+    ports: [
+      // Don't modify the default port 18883 settings
+      {
+        port: 18883
+        authenticationRef: 'default'
+        protocol: 'Mqtt'
+        tls: {
+          mode: 'Automatic'
+          certManagerCertificateSpec: {
+            issuerRef: {
+              name: 'azure-iot-operations-aio-certificate-issuer'
+              kind: 'ClusterIssuer'
+              group: 'cert-manager.io'
+            }
+            privateKey: {
+              algorithm: 'Ec256'
+              rotationPolicy: 'Always'
+            }
+          }
+        }
+      }
+    // Add more ports here
+    ]
+  }
+}
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -67,26 +131,32 @@ kubectl get brokerlistener default -n azure-iot-operations -o yaml
 The output should look similar to this, with most metadata removed for brevity:
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta2
 kind: BrokerListener
 metadata:
   name: default
   namespace: azure-iot-operations
+  ownerReferences:
+  - apiVersion: mqttbroker.iotoperations.azure.com/v1beta2
+    kind: Broker
+    name: default
 spec:
-  brokerRef: default
-  serviceName: aio-broker
   serviceType: ClusterIp
+  serviceName: aio-broker
   ports:
-  - authenticationRef: default
-    port: 18883
+  - port: 18883
+    authenticationRef: default
     protocol: Mqtt
     tls:
+      mode: Automatic
       certManagerCertificateSpec:
         issuerRef:
+          name: azure-iot-operations-aio-certificate-issuer
+          kind: ClusterIssuer
           group: cert-manager.io
-          kind: Issuer
-          name: mq-dmqtt-frontend
-      mode: Automatic
+        privateKey:
+          algorithm: Ec256
+          rotationPolicy: Always
 ```
 
 To learn more about the default BrokerAuthentication resource linked to this listener, see [Default BrokerAuthentication resource](howto-configure-authentication.md#default-brokerauthentication-resource).
@@ -96,37 +166,72 @@ To learn more about the default BrokerAuthentication resource linked to this lis
 The default *BrokerListener* uses the service type *ClusterIp*. You can have only one listener per service type. If you want to add more ports to service type *ClusterIp*, you can update the default listener to add more ports. For example, you could add a new port 1883 with no TLS and authentication off with the following kubectl patch command:
 
 ```bash
-kubectl patch brokerlistener default -n azure-iot-operations --type='json' -p='[{"op": "add", "path": "/spec/ports/", "value": {"port": 1883, "protocol": "Mqtt"}}]'
+kubectl patch brokerlistener default -n azure-iot-operations --type='json' -p='[{"op": "add", "path": "/spec/ports/-", "value": {"port": 1883, "protocol": "Mqtt"}}]'
 ```
 
 ---
 
 ## Create new broker listeners
 
-This example shows how to create a new *BrokerListener* resource named *loadbalancer-listener* for a *Broker* resource. The *BrokerListener* resource defines a two ports that accept MQTT connections from clients.
+To create a new listener, you need to specify the following settings:
 
-- The first port listens on port 1883 with no TLS and authentication off. Clients can connect to the broker without encryption or authentication.
-- The second port listens on port 18883 with TLS and authentication enabled. Only authenticated clients can connect to the broker with TLS encryption. TLS is set to `automatic`, which means that the listener uses cert-manager to get and renew its server certificate.
+- **Name**: Name of the *BrokerListener* resource. The name must be unique within the namespace.
+- **Service name**: Name of the Kubernetes service that exposes the broker. If left empty, the listener name is used as the service name.
+- **Service type**: Type of the Kubernetes service. Can be `LoadBalancer`, `ClusterIp`, or `NodePort`.
+- **Ports**: List of ports that the listener listens on. Each port can have its own authentication, authorization, and TLS settings.
+  - To use your own authentication or authorization setting for a port, you must create the corresponding resources before creating the *BrokerListener* resource. For more information, see [Configure MQTT broker authentication](howto-configure-authentication.md) and [Configure MQTT broker authorization](howto-configure-authorization.md).
+  - To use TLS, see [Configure TLS with automatic certificate management](#configure-tls-with-automatic-certificate-management) or [Configure TLS with manual certificate management](#configure-tls-with-manual-certificate-management) sections.
+
+This example shows how to create a new listener with load balancer service type. The *BrokerListener* resource defines a two ports that accept MQTT connections from clients.
+
+- The first port listens on port 1883 without TLS and authentication. Clients can connect to the broker without encryption or authentication. This setup is suitable for testing only. [Don't use this configuration in production](./howto-test-connection.md#only-turn-off-tls-and-authentication-for-testing).
+- The second port listens on port 8883 with TLS and authentication enabled. Only [authenticated clients with a Kubernetes service account token](./howto-configure-authentication.md#default-brokerauthentication-resource) can connect. TLS is set to [automatic mode](#enable-tls-automatic-certificate-management-for-a-port), using cert-manager to manage the server certificate from the [default issuer](../secure-iot-ops/concept-default-root-ca.md#default-self-signed-issuer-and-root-ca-certificate-for-tls-server-certificates). This setup is closer to a production configuration.
 
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
 1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
-1. Select **MQTT broker listener for LoadBalancer** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
-
-    :::image type="content" source="media/howto-configure-brokerlistener/create-loadbalancer.png" alt-text="Screenshot using Azure portal to create MQTT broker for load balancer listener.":::
+1. Select **MQTT broker listener for LoadBalancer** > **Create**.
 
     Enter the following settings:
 
     | Setting        | Description                                                                                   |
     | -------------- | --------------------------------------------------------------------------------------------- |
     | Name           | Name of the BrokerListener resource.                                                          |
-    | Service name   | Name of the Kubernetes service associated with the BrokerListener.                            |
-    | Service type   | Type of broker service, such as *LoadBalancer*, *NodePort*, or *ClusterIP*.                   |
-    | Port           | Port number on which the BrokerListener listens for MQTT connections.                         |
-    | Authentication | The [authentication resource reference](howto-configure-authentication.md).                   |
-    | Authorization  | The [authorization resource reference](howto-configure-authorization.md).                     |
-    | TLS            | Indicates whether TLS is enabled for secure communication. Can be set to [automatic](#configure-tls-with-automatic-certificate-management) or [manual](#configure-tls-with-manual-certificate-management). |
+    | Service name   | Name of the Kubernetes service. Leave empty to use the listener name as service name.         |
+    | Service type   | **LoadBalancer** already selected.                                                            |
+
+1. Under **Ports**, enter the following settings for the first port:
+
+    | Setting        | Description           |
+    | -------------- | --------------------- |
+    | Port           | Enter 1883            |
+    | Authentication | Choose **None**       |
+    | Authorization  | Choose **None**       |
+    | Protocol       | Choose **MQTT**       |
+    | TLS            | Don't add             |
+
+1. Select **Add port entry** to add a second port and enter the following settings:
+
+    | Setting        | Description           |
+    | -------------- | --------------------- |
+    | Port           | Enter 8883            |
+    | Authentication | Choose **default**    |
+    | Authorization  | Choose **None**       |
+    | Protocol       | Choose **MQTT**       |
+    | TLS            | Select **Add**        |
+
+1. In the **TLS configuration** pane, enter the following settings:
+
+    | Setting        | Description           |
+    | -------------- | --------------------- |
+    | TLS Mode       | Choose **Automatic**  |
+    | Issuer name    | Enter `azure-iot-operations-aio-certificate-issuer` |
+    | Issuer kind    | Choose **ClusterIssuer** |
+
+    Leave other settings as default, and select **Apply**.
+
+    :::image type="content" source="media/howto-configure-brokerlistener/create-loadbalancer.png" alt-text="Screenshot using Azure portal to create MQTT broker for load balancer listener.":::
 
 1. Select **Create listener**.
 
@@ -135,7 +240,6 @@ This example shows how to create a new *BrokerListener* resource named *loadbala
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param listenerServiceName string = '<LISTENER_SERVICE_NAME>'
 param listenerName string = '<LISTENER_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
@@ -160,22 +264,25 @@ resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listene
   }
 
   properties: {
-    serviceName: listenerServiceName
     serviceType: 'LoadBalancer'
     ports: [
       {
+        port: 1883
+        protocol: 'Mqtt'
+      }
+      {
         authenticationRef: 'default'
-        port: 18883
+        port: 8883
         protocol: 'Mqtt'
         tls: {
+          mode: 'Automatic'
           certManagerCertificateSpec: {
             issuerRef: {
+              name: 'azure-iot-operations-aio-certificate-issuer'
+              kind: 'ClusterIssuer'
               group: 'cert-manager.io'
-              kind: 'Issuer'
-              name: 'mq-dmqtt-frontend'
             }
           }
-          mode: 'Automatic'
         }
       }
     ]
@@ -191,36 +298,56 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 
 # [Kubernetes](#tab/kubernetes)
 
-To create these *BrokerListener* resources, apply this YAML manifest to your Kubernetes cluster:
-
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
-  name: loadbalancer-listener
+  name: <LISTENER_NAME>
   namespace: azure-iot-operations
 spec:
   brokerRef: default
   serviceType: LoadBalancer
-  serviceName: aio-broker-loadbalancer
   ports:
   - port: 1883
     protocol: Mqtt
-  - port: 18883
+  - port: 8883
     authenticationRef: default
     protocol: Mqtt
     tls:
       mode: Automatic
       certManagerCertificateSpec:
         issuerRef:
-            name: e2e-cert-issuer
-            kind: Issuer
+            name: azure-iot-operations-aio-certificate-issuer
+            kind: ClusterIssuer
             group: cert-manager.io
 ```
 
-For more information about authentication, see [Configure MQTT broker authentication](howto-configure-authentication.md). For more information about authorization, see [Configure MQTT broker authorization](howto-configure-authorization.md). For more information about TLS, see [Configure TLS with automatic certificate management](#configure-tls-with-automatic-certificate-management) or [Configure TLS with manual certificate management](#configure-tls-with-manual-certificate-management) sections.
-
 ---
+
+## Service type
+
+Each BrokerListener maps to a [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/).. The service type determines how the broker is exposed to the network. The three service types are:
+
+- **ClusterIp**: Exposes the broker on a cluster-internal IP. Clients can connect to the broker from within the cluster. This is the default service type for the default listener.
+- **NodePort**: Exposes the broker on each node's IP at a static port. Clients can connect to the broker from outside the cluster. This service type is useful for development and testing.
+- **LoadBalancer**: Exposes the broker externally. The service is assigned an external IP address that clients can use to connect to the broker. This is the most common service type for production deployments.
+
+Only one listener per service type is allowed. If you need more connectivity of the same service type, add more ports to the existing listener.
+
+## Service name
+
+The service name is the name of the Kubernetes service that exposes the broker. If left empty, the broker listener name is used as the service name. The service name must be unique within the namespace.
+
+> [!TIP]
+> To prevent management overhead, we recommend leaving the service name empty. The listener name is unique and can be used to identify the service. Use the service name as an override only when you can't name the service after the listener.
+
+## Ports
+
+Each listener can have multiple ports, but each port number must be unique within the Azure IoT Operations MQTT broker. For example, if you have a NodePort listener using port 1883, you can't create another LoadBalancer listener with port 1883. Similarly, the default listener uses port 18883, so you can't create another listener with port 18883.
+
+## WebSockets support
+
+Azure IoT Operations MQTT broker supports MQTT over WebSockets. To enable WebSockets, set the protocol to `WebSockets` in the port settings.
 
 ## Configure TLS with automatic certificate management
 
