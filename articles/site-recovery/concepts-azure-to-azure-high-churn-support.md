@@ -32,13 +32,13 @@ Azure Site Recovery supports churn (data change rate) up to 100 MB/s per virtual
 
 The following table summarizes Site Recovery limits: 
 
-|Target Disk Type|Avg I/O Size|Avg Churn Supported|
+|Replica Disk type  |Avg I/O Size|Avg Churn Supported|
 |---|---|---|
-|Standard or P10 or P15 |8 KB|2 MB/s|
-|Standard or P10 or P15|16 KB|4 MB/s|
-|Standard or P10 or P15|24 KB|6 MB/s|
-|Standard or P10 or P15|32 KB and later |10 MB/s|
-|P20|8 KB|10 MB/s|
+|Standard  |8 KB|2 MB/s|
+|Standard |16 KB|4 MB/s|
+|Standard |24 KB|6 MB/s|
+|Standard |32 KB and later |8 MB/s|
+|Premium SSD with disk size 128 GiB or more |8 KB|10 MB/s|
 |P20 |16 KB|20 MB/s|
 |P20|24 KB and later|30 MB/s|
 |P30 and later|8 KB|20 MB/s|
