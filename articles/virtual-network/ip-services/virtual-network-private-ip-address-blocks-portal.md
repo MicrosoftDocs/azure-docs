@@ -3,7 +3,7 @@ title: Assign private IP address prefixes to VMs - Azure portal
 description: Learn how to assign private IP address prefixes to a virtual machine using the Azure portal.
 services: virtual-network
 ms.date: 11/05/2024
-ms.author: rdhillon
+ms.author: ramandhillon84
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
