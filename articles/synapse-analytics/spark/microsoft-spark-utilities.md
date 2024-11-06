@@ -537,6 +537,9 @@ mssparkutils.fs.append("file path", "content to append", True) # Set the last pa
 ```
 ::: zone-end
 
+> [!NOTE]
+> ```mssparkutils.fs.append()``` and ```mssparkutils.fs.put()``` do not support concurrent writing to the same file due to lack of atomicity guarantees.
+
 ### Delete file or directory
 
 Removes a file or a directory.
