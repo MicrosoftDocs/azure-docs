@@ -32,25 +32,14 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 1. Select **Container Apps** in the search results.
 1. Select the **Create** button.
 
-### Basics tab
+1. In the *Create Container App* page on the *Basics* tab, enter the following values.
 
-In the *Create Container App* page on the *Basics* tab, enter the following values.
-
-| Setting | Action |
-|---|---|
-| Subscription | Select your Azure subscription. |
-| Resource group | Select **Create new** and enter **my-container-apps**. |
-| Container app name |  Enter **my-container-app**. |
-| Deployment source | Select **Container image**. |
-
-#### Create an environment
-
-Next, create an environment for your container app.
-
-1. Select the appropriate region.
-
-    | Setting | Value |
-    |--|--|
+    | Setting | Action |
+    |---|---|
+    | Subscription | Select your Azure subscription. |
+    | Resource group | Select **Create new** and enter **my-container-apps**. |
+    | Container app name |  Enter **my-container-app**. |
+    | Deployment source | Select **Container image**. |
     | Region | Select **Central US**. |
 
 1. In the *Create Container Apps Environment* field, select the **Create new** link.
@@ -87,14 +76,19 @@ Next, create an environment for your container app.
 
 1. In the *Create Container App* page on the *Basics* tab, select **Next : Container >**.
 
-### Container tab
+1. In the *Create Container App* page on the *Container* tab, select **Use quickstart image**.
 
-In the *Create Container App* page on the *Container* tab, select **Use quickstart image**.
+1. Select **Review and create** at the bottom of the page.  
 
-<!-- Deploy -->
-[!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
+    If no errors are found, the *Create* button is enabled.  
 
-When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because your container app environment has public access disabled. Instead, you access your container app using your private endpoint.
+    If there are errors, any tab containing errors is marked with a red dot.  Navigate to the appropriate tab.  Fields containing an error are highlighted in red.  Once all errors are fixed, select **Review and create** again.
+
+1. Select **Create**.
+
+    A page with the message *Deployment is in progress* is displayed.  Once the deployment is successfully completed, you see the message: *Your deployment is complete*.
+
+    When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because your container app environment has public access disabled. Instead, you access your container app using your private endpoint.
 
 ::: zone-end
 
@@ -299,7 +293,7 @@ az containerapp up \
 
 ::: zone-end
 
-## Test the private endpoint connection
+## Verify the private endpoint connection
 
 In this section, you create a virtual machine associated to your VNet so you can access the container app you defined using your private endpoint.
 
@@ -313,36 +307,30 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 1. Select **Virtual machines** in the search results.
 1. Select **Create**.
 
-### Basics tab
+1. In the *Create a virtual machine* page on the *Basics* tab, enter the following values.
 
-In the *Create a virtual machine* page on the *Basics* tab, enter the following values.
+    | Setting | Action |
+    |---|---|
+    | Subscription | Select your Azure subscription. |
+    | Resource group | Select **my-container-apps**. |
+    | Virtual machine name | Enter **azurevm**. |
+    | Region | Select **Central US**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Windows Server 2022 Datacenter : Azure Edition - x64 Gen2**. |
+    | Username | Enter **azureuser**. |
+    | Password | Enter a password. |
+    | Confirm password | Enter the password again. |
+    | Public inbound ports | Select **None**. |
 
-| Setting | Action |
-|---|---|
-| Subscription | Select your Azure subscription. |
-| Resource group | Select **my-container-apps**. |
-| Virtual machine name | Enter **azurevm**. |
-| Region | Select **Central US**. |
-| Availability options | Select **No infrastructure redundancy required**. |
-| Security type | Select **Standard**. |
-| Image | Select **Windows Server 2022 Datacenter : Azure Edition - x64 Gen2**. |
-| Username | Enter **azureuser**. |
-| Password | Enter a password. |
-| Confirm password | Enter the password again. |
-| Public inbound ports | Select **None**. |
+1. In the *Networking* tab, enter the following values.
 
-### Networking tab
-
-In the *Networking* tab, enter the following values.
-
-| Setting | Action |
-|---|---|
-| Virtual network | Select **my-private-endpoint-vnet**. |
-| Subnet | Select **my-private-endpoint-vnet-subnet (10.0.0.0/23)**. |
-| Public IP | Select **None**. |
-| NIC network security group | Select **Advanced**. |
-
-### Create the VM
+    | Setting | Action |
+    |---|---|
+    | Virtual network | Select **my-private-endpoint-vnet**. |
+    | Subnet | Select **my-private-endpoint-vnet-subnet (10.0.0.0/23)**. |
+    | Public IP | Select **None**. |
+    | NIC network security group | Select **Advanced**. |
 
 1. Select **Review + Create**.
 
@@ -386,7 +374,7 @@ The administrator password has the following requirements:
 
 ::: zone-end
 
-### Test the connection in the virtual machine
+### Test the connection
 
 1. Begin by signing in to the [Azure portal](https://portal.azure.com).
 
@@ -416,6 +404,7 @@ The administrator password has the following requirements:
 
     Non-authoritative answer:
     Name:    <ENVIRONMENT_DEFAULT_DOMAIN>.privatelink.<LOCATION>.azurecontainerapps.io
+
     Address:  10.0.0.4
     Aliases:  <CONTAINER_APP_ENDPOINT>
     ```
