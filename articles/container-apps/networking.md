@@ -117,7 +117,7 @@ IP addresses are broken down into the following types:
 |--|--|
 | Public inbound IP address | Used for application traffic in an external deployment, and management traffic in both internal and external deployments. |
 | Outbound public IP | Used as the "from" IP for outbound connections that leave the virtual network. These connections aren't routed down a VPN. Outbound IPs may change over time. Using a NAT gateway or other proxy for outbound traffic from a Container Apps environment is only supported in a [workload profiles environment](workload-profiles-overview.md). |
-| Internal load balancer IP address | This address only exists in an [internal environment](#accessibility-levels). |
+| Internal load balancer IP address | This address only exists in an [internal environment](#virtual-ip). |
 
 ## Subnet
 
@@ -294,7 +294,7 @@ This feature is supported for both Consumption and Dedicated plans in workload p
 
 #### Considerations
 - Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic is not supported.
-- When using private endpoints with custom domains, you must configure a Private DNS Zone. When configuring an *Apex domain* as the *Hostname record type*, the setup is also slightly different as you must use your private endpoint's Private IP instead of the container app environment's IP address. When configuring your custom domain with CNAME, the setup is unchanged. [See the tutorial](/custom-domain-certificates.md).
+- When using private endpoints with custom domains, you must configure a Private DNS Zone. When configuring an *Apex domain* as the *Hostname record type*, the setup is also slightly different as you must use your private endpoint's Private IP instead of the container app environment's IP address. When configuring your custom domain with CNAME, the setup is unchanged. [See the tutorial](custom-domain-certificates.md).
 - Your private endpoint's virtual network can be separate from the virtual network your integrated with your container app.
 - You can add a private endpoint to both new and existing workload profile environments.
 
