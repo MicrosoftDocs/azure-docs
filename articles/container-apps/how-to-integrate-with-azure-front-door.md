@@ -28,7 +28,7 @@ In this article, you learn how to create an Azure Front Door (AFD) using the Azu
 - The latest version of the Azure Container Apps extension for the Azure CLI. To ensure you're running the latest version, run the following command.
 
     ```azurecli
-	az extension add --name containerapp --upgrade --allow-preview true
+    az extension add --name containerapp --upgrade --allow-preview true
     ```
 
     > [!NOTE]
@@ -58,8 +58,8 @@ Create a resource group to organize the services related to your container app d
 
 ```azurecli
 az group create \
-  --name $RESOURCE_GROUP \
-  --location $LOCATION
+    --name $RESOURCE_GROUP \
+    --location $LOCATION
 ```
 
 ## Create an environment
@@ -68,23 +68,27 @@ Create the Container Apps environment.
 
 ```azurecli
 az containerapp env create \
-  --name $ENVIRONMENT_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION
+    --name $ENVIRONMENT_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --location $LOCATION
 ```
 
 Retrieve the environment ID. You use this to configure the environment.
 
 ```azurecli
-ENVIRONMENT_ID=`az containerapp env show --resource-group ${RESOURCE_GROUP} --name ${ENVIRONMENT_NAME} --query "id" --output tsv`
+ENVIRONMENT_ID=`az containerapp env show \
+    --resource-group ${RESOURCE_GROUP} \
+    --name ${ENVIRONMENT_NAME} \
+    --query "id" \
+    --output tsv`
 ```
 
 Disable public network access for the environment.
 
 ```azurecli
 az containerapp env update \
-  --id $ENVIRONMENT_ID \
-  --public-network-access Disabled
+    --id $ENVIRONMENT_ID \
+    --public-network-access Disabled
 ```
 
 ## Deploy a container app
@@ -93,20 +97,24 @@ Run the following command to deploy a container app in your environment.
 
 ```azurecli
 az containerapp up \
-  --name $CONTAINERAPP_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION \
-  --environment $ENVIRONMENT_NAME \
-  --image mcr.microsoft.com/k8se/quickstart:latest \
-  --target-port 80 \
-  --ingress external \
-  --query properties.configuration.ingress.fqdn
+    --name $CONTAINERAPP_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --location $LOCATION \
+    --environment $ENVIRONMENT_NAME \
+    --image mcr.microsoft.com/k8se/quickstart:latest \
+    --target-port 80 \
+    --ingress external \
+    --query properties.configuration.ingress.fqdn
 ```
 
 Retrieve your container app endpoint.
 
 ```azurecli
-ACA_ENDPOINT=`az containerapp show --name ${CONTAINERAPP_NAME} --resource-group ${RESOURCE_GROUP} --query properties.configuration.ingress.fqdn --output tsv`
+ACA_ENDPOINT=`az containerapp show \
+    --name ${CONTAINERAPP_NAME} \
+    --resource-group ${RESOURCE_GROUP} \
+    --query properties.configuration.ingress.fqdn \
+    --output tsv`
 ```
 
 When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because the container app environment has public access disabled.
@@ -212,15 +220,15 @@ Run the following command to map the endpoint you created earlier to the origin 
 
 ```azurecli
 az afd route create \
-  --resource-group $RESOURCE_GROUP \
-  --profile-name $AFD_PROFILE \
-  --endpoint-name $AFD_ENDPOINT \
-  --forwarding-protocol MatchRequest \
-  --route-name $AFD_ROUTE \
-  --https-redirect Enabled \
-  --origin-group $AFD_ORIGIN_GROUP \
-  --supported-protocols Http Https \
-  --link-to-default-domain Enabled
+    --resource-group $RESOURCE_GROUP \
+    --profile-name $AFD_PROFILE \
+    --endpoint-name $AFD_ENDPOINT \
+    --forwarding-protocol MatchRequest \
+    --route-name $AFD_ROUTE \
+    --https-redirect Enabled \
+    --origin-group $AFD_ORIGIN_GROUP \
+    --supported-protocols Http Https \
+    --link-to-default-domain Enabled
 ```
 
 ## Access your container app from Azure Front Door
@@ -229,11 +237,11 @@ Run the following command to retrieve the hostname of your AFD endpoint.
 
 ```azurecli
 az afd endpoint show \
-  --resource-group $RESOURCE_GROUP \
-  --profile-name $AFD_PROFILE \
-  --endpoint-name $AFD_ENDPOINT \
-  --query hostName \
-  --output tsv
+    --resource-group $RESOURCE_GROUP \
+    --profile-name $AFD_PROFILE \
+    --endpoint-name $AFD_ENDPOINT \
+    --query hostName \
+    --output tsv
 ```
 
 Your hostname looks like the following example.
