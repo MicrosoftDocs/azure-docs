@@ -34,7 +34,7 @@ The following table compares essential details about each method for creating cu
 > [!TIP]
 > For comparisons of using Logic Apps and Azure Functions for the same connector, see:
 >
-> - [Ingest Fastly Web Application Firewall logs into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/ba-p/1238804)
+> - [Ingest Fastly Web Application Firewall logs into Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/1238804)
 > - Office 365 (Microsoft Sentinel GitHub community): [Logic App connector](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Get-O365Data) | [Azure Function connector](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)
 >
 
@@ -62,7 +62,7 @@ With the Microsoft Sentinel Logstash Output plugin, you can use any Logstash inp
 
 For examples of using Logstash as a custom connector, see:
 
-- [Hunting for Capital One Breach TTPs in AWS logs using Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure/ba-p/1019767) (blog)
+- [Hunting for Capital One Breach TTPs in AWS logs using Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure-sentinel---part-i/1014258) (blog)
 - [Radware Microsoft Sentinel implementation guide](https://support.radware.com/ci/okcsFattach/get/1025459_3)
 
 For examples of useful Logstash plugins, see:
@@ -73,7 +73,7 @@ For examples of useful Logstash plugins, see:
 - [Google_pubsub input plugin](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-google_pubsub.html)
 
 > [!TIP]
-> Logstash also enables scaled data collection using a cluster. For more information, see [Using a load-balanced Logstash VM at scale](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854).
+> Logstash also enables scaled data collection using a cluster. For more information, see [Using a load-balanced Logstash VM at scale](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/scaling-up-syslog-cef-collection/1185854).
 >
 
 ## Connect with Logic Apps
@@ -119,8 +119,8 @@ For examples of how you can create a custom connector for Microsoft Sentinel usi
 
 - [Create a data pipeline with the Data Collector API](/connectors/azureloganalyticsdatacollector/)
 - [Palo Alto Prisma Logic App connector using a webhook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Ingest-Prisma) (Microsoft Sentinel GitHub community)
-- [Secure your Microsoft Teams calls with scheduled activation](https://techcommunity.microsoft.com/t5/azure-sentinel/secure-your-calls-monitoring-microsoft-teams-callrecords/ba-p/1574600) (blog)
-- [Ingesting AlienVault OTX threat indicators into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) (blog)
+- [Secure your Microsoft Teams calls with scheduled activation](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/secure-your-calls--monitoring-microsoft-teams-callrecords-activity-logs-using-az/1574600) (blog)
+- [Ingesting AlienVault OTX threat indicators into Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/1086566) (blog)
 
 ## Connect with the Log Ingestion API
 
@@ -143,7 +143,7 @@ For examples of this method, see:
 - [Connect your Proofpoint TAP to Microsoft Sentinel with Azure Function](./data-connectors/proofpoint-tap-using-azure-functions.md)
 - [Connect your Qualys VM to Microsoft Sentinel with Azure Function](data-connectors/qualys-vulnerability-management-using-azure-functions.md)
 - [Ingesting XML, CSV, or other formats of data](/azure/azure-monitor/logs/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
-- [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
+- [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/monitoring-zoom-with-azure-sentinel/1341516) (blog)
 - [Deploy a Function App for getting Office 365 Management API data into Microsoft Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (Microsoft Sentinel GitHub community)
 
 ## Parse your custom connector data
@@ -166,5 +166,3 @@ Use the data ingested into Microsoft Sentinel to secure your environment with an
 - [Detect threats](threat-detection.md)
 - [Automate threat prevention](tutorial-respond-threats-playbook.md)
 - [Hunt for threats](hunting.md)
-
-Also, learn about one example of creating a custom connector to monitor Zoom: [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516).
