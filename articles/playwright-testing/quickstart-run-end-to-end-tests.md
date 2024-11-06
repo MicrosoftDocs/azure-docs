@@ -146,7 +146,7 @@ You can generate an access token from your Playwright Testing workspace and use 
 > We strongly recommend using Microsoft Entra ID for authentication to the service. If you are using access tokens, see [How to Manage Access Tokens](./how-to-manage-access-tokens.md)
 
 
-## Enable artifacts in Playwright configuration 
+## Enable artifacts in your Playwright setup 
 ::: zone pivot="playwright-test-runner"
 
 In the `playwright.config.ts` file of your project, make sure you are collecting all the required artifacts.
