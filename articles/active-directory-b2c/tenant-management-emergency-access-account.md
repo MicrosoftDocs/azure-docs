@@ -85,7 +85,7 @@ Use the following steps to create an emergency access account:
 
 Once you create your emergency accounts, you need to do the following: 
 
-- Make sure you [exclude at least one account from phone-based multifactor authentication](../active-directory/roles/security-emergency-access.md#exclude-at-least-one-account-from-phone-based-multi-factor-authentication)
+################# as per MSFT requirement in effect on 15-1-2025 you cannot exclude any account that logs in to Azure Management Portals anymore from MFA, so this sentence can be ditched ######################
 
 - If you use [Conditional Access](conditional-access-user-flow.md), at least one emergency access account needs to be excluded from all conditional access policies.
 
