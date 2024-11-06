@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 10/22/2024
+ms.date: 11/04/2024
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -69,7 +69,7 @@ Follow these steps to check your work so far, and make sure data is flowing into
     :::image type="content" source="media/tutorial-get-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
 
 >[!TIP]
->If data has not arrived in your eventstream, you may want to check your event hub activity to verify that it's receiving messages. This will help you isolate which section of the flow to debug.
+>If data has not arrived in your eventstream, you may want to check your event hub activity to [verify that it's receiving messages](tutorial-upload-telemetry-to-cloud.md#verify-data-is-flowing). This will help you isolate which section of the flow to debug.
 
 ### Prepare KQL resources
 
@@ -284,4 +284,4 @@ If you're continuing on to the next tutorial, keep all of your resources.
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this tutorial.
 
-You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this tutorial, including the eventstream, Eventhouse, and Real-Time Dashboard.
+You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this tutorial, including the eventstream, eventhouse, and Real-Time Dashboard.
