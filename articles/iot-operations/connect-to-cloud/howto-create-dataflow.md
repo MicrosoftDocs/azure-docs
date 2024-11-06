@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/01/2024
+ms.date: 11/06/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
@@ -521,7 +521,7 @@ You can rename a datapoint using the **Rename** transform. This operation is use
 
 1. Under **Add Transform (optional)**, select **Rename** > **Add**. 
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-enrich.png" alt-text="Screenshot using operations experience to rename a datapoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-rename.png" alt-text="Screenshot using operations experience to rename a datapoint.":::
 
     Enter the required settings.
 
@@ -678,7 +678,7 @@ In the operations experience, mapping is currently supported using **Compute** t
     | Output             | Specify the output display name for the result.                          |
     | Formula            | Enter the formula to be applied to the source data.                                               |
     | Description        | Provide a description for the transformation.                                                     |
-    | Last known value   | Optionally, use the last known value if the current value is not available.                       |
+    | Last known value   | Optionally, use the last known value if the current value isn't available.                       |
 
 
     You can enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Type `@` or select **Ctrl + Space** to select datapoints from a dropdown. You can also enter $metadata headers using the format `@$metadata.<header>`.
@@ -935,7 +935,7 @@ destinationSettings:
 
 ## Example
 
-The following example is a dataflow configuration that uses the MQTT endpoint for the source and destination. The source filters the data from the MQTT topic `azure-iot-operations/data/thermostat`. The transformation converts the temperature to Fahrenheit and filters the data where the temperature multiplied by the humiditiy is less than 100000. The destination sends the data to the MQTT topic `factory`.
+The following example is a dataflow configuration that uses the MQTT endpoint for the source and destination. The source filters the data from the MQTT topic `azure-iot-operations/data/thermostat`. The transformation converts the temperature to Fahrenheit and filters the data where the temperature multiplied by the humidity is less than 100000. The destination sends the data to the MQTT topic `factory`.
 
 # [Portal](#tab/portal)
 
