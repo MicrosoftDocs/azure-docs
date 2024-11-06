@@ -157,11 +157,11 @@ The visuals should populate with the data from your KQL database.
 Now you have a dashboard that displays different types of visuals for the asset data in these quickstarts. Here are the visuals included with the template:
 * Parameters for your dashboard that allow all visuals to be filtered by timestamp (included by default) and asset ID.
 * A line chart tile showing temperature and its spikes over time.
+* A stat tile showing a real-time spike indicator for temperature. The tile displays the most recent temperature value, and if that value is a spike, conditional formatting will display it as a warning.
+* A stat tile showing max temperature.
+* A stat tile showing the number of spikes in the selected time frame.
 * A line chart tile showing temperature versus fill weight over time.
 * A line chart tile showing temperature versus energy use over time.
-* A stat tile showing a real-time spike indicator for temperature. The tile displays the most recent temperature value, and if that value is a spike, conditional formatting will display it as a warning.
-* A stat tiles showing max temperature.
-* A stat tile showing the number of spikes in the selected time frame.
 
 From here, you can experiment with the filters and adding other tile types to see how a dashboard can enable you to do more with your data.
 
