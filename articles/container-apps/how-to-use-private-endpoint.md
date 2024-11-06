@@ -13,7 +13,7 @@ zone_pivot_groups: azure-cli-or-portal
 
 # Use a private endpoint with an Azure Container Apps environment
 
-A private endpoint is a network interface that uses a private IP address from your virtual network (VNet). This network interface connects you privately and securely to a service that's powered by [Azure Private Link](https://learn.microsoft.com/en-us/azure/private-link/private-link-overview). The following example shows you how to use a private endpoint to securely access your Container Apps environment without exposing it to the public Internet.
+A private endpoint is a network interface that uses a private IP address from your virtual network (VNet). This network interface connects you privately and securely to a service that's powered by [Azure Private Link](/azure/private-link/private-link-overview). The following example shows you how to use a private endpoint to securely access your Container Apps environment without exposing it to the public Internet.
 
 ::: zone pivot="azure-portal"
 
@@ -115,7 +115,7 @@ In the *Create Container App* page on the *Container* tab, select **Use quicksta
     > [!NOTE]
     > Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](./whats-new.md), install the Container Apps extension with `--allow-preview true`.
 
-For more information about prerequisites and setup, see [Quickstart: Deploy your first container app with containerapp up](./get-started?tabs=bash)
+For more information about prerequisites and setup, see [Quickstart: Deploy your first container app with containerapp up](get-started.md?tabs=bash)
 
 ## Set environment variables
 
