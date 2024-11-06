@@ -73,7 +73,7 @@ In this tutorial, you:
         print("False Variant!")
     ```
 
-1. Track your own events in your application. When `track_event` is called, a custom event is publish to Azure Monitor with the provided user.
+1. Track your own events in your application. When `track_event` is called, a custom event is published to Azure Monitor with the provided user.
 
     ```python
     from featuremanagement import track_event
