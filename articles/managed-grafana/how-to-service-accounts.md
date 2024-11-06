@@ -38,6 +38,7 @@ If your existing Grafana workspace doesn't have service accounts enabled, enable
   1. In the Azure portal, under **Settings**, select **Configuration**, and then under **API keys and service accounts**, select **Enable**.
 
       :::image type="content" source="media/service-accounts/enable.png" alt-text="Screenshot of the Azure platform. Enable service accounts.":::
+
   1. Select **Save** to confirm that you want to enable API keys and service accounts in Azure Managed Grafana.
 
 ### [Azure CLI](#tab/azure-cli)
@@ -56,7 +57,8 @@ Follow the steps below to create a new Grafana service account and list existing
 
 ### [Grafana UI](#tab/grafana-ui)
 
-1. Go to your Grafana instance endpoint. Select **Users and access** > **Service accounts** from the left menu, then **Add service account*
+1. Go to your Grafana instance endpoint. Select **Users and access** > **Service accounts** from the left menu, then **Add service account**.
+
     :::image type="content" source="media/service-accounts/service-accounts.png" alt-text="Screenshot of Grafana. Add service account page.":::
 
 1. Enter a **Display name** and a **Role** for your new Grafana service account among *No basic role*, *Viewer*, *Editor* or *Admin*, and select **Create**. No role is assigned by default.
