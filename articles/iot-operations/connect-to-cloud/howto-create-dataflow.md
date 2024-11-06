@@ -519,7 +519,7 @@ In the operations experience, the *Enrich* stage is currently supported using th
 
 You can rename a datapoint using the **Rename** transform. This operation is used to rename a datapoint in the source data to a new name. The new name can be used in the subsequent stages of the dataflow.
 
-1. Under **Add Transform (optional)**, select **Rename** > **Add**. 
+1. Under **Transform (optional)**, select **Rename** > **Add**. 
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-rename.png" alt-text="Screenshot using operations experience to rename a datapoint.":::
 
@@ -537,7 +537,7 @@ You can rename a datapoint using the **Rename** transform. This operation is use
 
 You can add a new property to the source data using the **New property** transform. This operation is used to add a new property to the source data. The new property can be used in the subsequent stages of the dataflow.
 
-1. Under **Add Transform (optional)**, select **New property** > **Add**. 
+1. Under **Transform (optional)**, select **New property** > **Add**. 
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-new-property.png" alt-text="Screenshot using operations experience to add a new property.":::
 
@@ -606,7 +606,7 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 
 # [Portal](#tab/portal)
 
-1. Under **Add Transform (optional)**, select **Filter** > **Add**.
+1. Under **Transform (optional)**, select **Filter** > **Add**.
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-filter.png" alt-text="Screenshot using operations experience to add a filter transform.":::
 
@@ -666,7 +666,7 @@ To map the data to another field with optional conversion, you can use the `map`
 
 In the operations experience, mapping is currently supported using **Compute** transforms.
 
-1. Under **Add Transform (optional)**, select **Compute** > **Add**.
+1. Under **Transform (optional)**, select **Compute** > **Add**.
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-compute.png" alt-text="Screenshot using operations experience to add a compute transform.":::
 
