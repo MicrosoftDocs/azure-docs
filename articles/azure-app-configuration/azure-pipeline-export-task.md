@@ -11,7 +11,7 @@ ms.author: malev
 
 # Export settings from App Configuration with Azure Pipelines
 
-The Azure App Configuration Export task exports key-values from your App Configuration store and sets them as Azure pipeline variables, which subsequent tasks can consume. This task complements the Azure App Configuration Import task that imports key-values from a configuration file into your App Configuration store. For more information, see [Import settings to App Configuration with Azure Pipelines](import-kv-devops-pipeline.md).
+The Azure App Configuration Export task exports key-values from your App Configuration store and sets them as Azure pipeline variables, which subsequent tasks can consume. This task complements the Azure App Configuration Import task that imports key-values from a configuration file into your App Configuration store. For more information, see [Import settings to App Configuration with Azure Pipelines](azure-pipeline-import-task.md).
 
 ## Prerequisites
 
@@ -123,10 +123,10 @@ For a complete reference of the parameters or to use this pipeline task in YAML 
 To learn how to import key-values from a configuration file into your App Configuration store, continue to the following document.
 
 > [!div class="nextstepaction"]
-> [Import settings to App Configuration with Azure pipelines](./import-kv-devops-pipeline.md)
+> [Import settings to App Configuration with Azure pipelines](./azure-pipeline-import-task.md)
 
 To learn how to create snapshot in an App Configuration store, continue to the following document.
 
 > [!div class="nextstepaction"]
-> [Create snapshots in App Configuration with Azure Pipelines](./create-snapshot-devops-pipeline.md)
+> [Create snapshots in App Configuration with Azure Pipelines](./azure-pipeline-snapshot-task.md)
 

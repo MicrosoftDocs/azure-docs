@@ -133,9 +133,9 @@ For a complete reference of the parameters or to use this pipeline task in YAML 
 To learn how to export key-values from your App Configuration store and set them as Azure pipeline variables, continue to the following document.
 
 > [!div class="nextstepaction"]
-> [Export settings from App Configuration with Azure pipelines](./export-key-value-devops-pipeline.md)
+> [Export settings from App Configuration with Azure pipelines](./azure-pipeline-export-task.md)
 
 To learn how to create snapshot in an App Configuration store, continue to the following document.
 
 > [!div class="nextstepaction"]
-> [Create snapshots in App Configuration with Azure Pipelines](./create-snapshot-devops-pipeline.md)
+> [Create snapshots in App Configuration with Azure Pipelines](./azure-pipeline-snapshot-task.md)

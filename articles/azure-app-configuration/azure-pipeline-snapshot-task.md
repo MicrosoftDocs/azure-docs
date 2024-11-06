@@ -110,9 +110,9 @@ For a complete reference of the parameters or to use this pipeline task in YAML 
 To learn how to export key-values from your App Configuration store and set them as Azure pipeline variables, continue to the following document.
 
 > [!div class="nextstepaction"]
-> [Export settings from App Configuration with Azure pipelines](./export-key-value-devops-pipeline.md)
+> [Export settings from App Configuration with Azure pipelines](./azure-pipeline-export-task.md)
 
 To learn how to import key-values from a configuration file into your App Configuration store, continue to the following document.
 
 > [!div class="nextstepaction"]
-> [Import settings to App Configuration with Azure pipelines](./import-kv-devops-pipeline.md)
+> [Import settings to App Configuration with Azure pipelines](./azure-pipeline-import-task.md)

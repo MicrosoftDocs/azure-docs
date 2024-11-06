@@ -109,9 +109,9 @@ landingContent:
       - linkListType: tutorial
         links:
         - text: Import data using Azure Pipelines
-          url: import-kv-devops-pipeline.md
+          url: azure-pipeline-import-task.md
         - text: Export data using Azure Pipelines
-          url: export-key-value-devops-pipeline.md
+          url: azure-pipeline-export-task.md
         - text: Push data using GitHub Actions
           url: push-kv-github-action.md
         - text: Export to project configuration file

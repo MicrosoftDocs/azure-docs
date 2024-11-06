@@ -113,11 +113,11 @@
   - name: Build, deploy, and CI/CD
     items:
     - name: Import using Azure Pipelines
-      href: import-kv-devops-pipeline.md
+      href: azure-pipeline-import-task.md
     - name: Export using Azure Pipelines
-      href: export-key-value-devops-pipeline.md
+      href: azure-pipeline-export-task.md
     - name: Create snapshots using Azure Pipelines
-      href: create-snapshot-devops-pipeline.md
+      href: azure-pipeline-snapshot-task.md
     - name: Push using GitHub Actions
       href: push-kv-github-action.md
     - name: Build project using exported configuration

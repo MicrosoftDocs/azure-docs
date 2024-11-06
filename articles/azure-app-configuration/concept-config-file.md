@@ -118,7 +118,7 @@ az appconfig kv import --profile appconfig/kvset --name <your store name> --sour
 > [!NOTE]
 > The KVSet file content profile is currently supported in
 > - Azure CLI version 2.30.0 or later
-> - [Azure App Configuration Import Task](./import-kv-devops-pipeline.md) version 10.0.0 or later
+> - [Azure App Configuration Import Task](./azure-pipeline-import-task.md) version 10.0.0 or later
 
 The following table shows all the imported data in your App Configuration store.
 
