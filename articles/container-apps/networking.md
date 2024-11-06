@@ -294,7 +294,7 @@ This feature is supported for both Consumption and Dedicated plans in workload p
 
 #### Considerations
 - Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic is not supported.
-- When using private endpoints with custom domains, the setup is slightly different when configuring an *Apex domain* as the *Hostname record type* as you use your private endpoint's IP address instead of the container app environment's IP address. When configuring your custom domain with CNAME, the setup is unchanged. [See the tutorial](/custom-domain-certificates.md).
+- When using private endpoints with custom domains, you must configure a Private DNS Zone. When configuring an *Apex domain* as the *Hostname record type*, the setup is also slightly different as you must use your private endpoint's Private IP instead of the container app environment's IP address. When configuring your custom domain with CNAME, the setup is unchanged. [See the tutorial](/custom-domain-certificates.md).
 - Your private endpoint's virtual network can be separate from the virtual network your integrated with your container app.
 - You can add a private endpoint to both new and existing workload profile environments.
 

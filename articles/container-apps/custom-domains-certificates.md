@@ -82,8 +82,10 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
         | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code. |
     
     # [Private endpoint](#tab/private-endpoint)
-    
-    - If you selected *A record*, you need to [create a private DNS zone](how-to-use-private-endpoint.md#configure-the-private-dns-zone) and create the following DNS records:
+
+    When using a private endpoint for your incoming traffic, you need to [create a private DNS zone](how-to-use-private-endpoint.md#configure-the-private-dns-zone).    
+
+    - If you selected *A record*, create the following DNS records:
 
         | Record type | Host | Value |
         |--|--|--|
