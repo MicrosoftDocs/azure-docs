@@ -29,7 +29,7 @@
 |**requester / upn** | The User Principal Name (UPN) of requestor. <br> For example: `someone@contoso.com`. |
 |**requester / userName** | This field is reserved for internal use only.|
 |**requester / uniqueName** | The unique name of the requester. For example: `someone@example.com`. |
-|**delegatedResource / tenantId**| The Microsoft Entra tenant ID of the Azure resource ID which accesses storage on-behalf-of the storage resource owner (For example: `aaaabbbb-0000-cccc-1111-dddd2222eeee`). |
-|**delegatedResource / resourceId**|The Azure resource ID which accesses storage on behalf of the storage resource owner (For example: `/subscriptions/<sub>/resourcegroups/<rg>/providers/Microsoft.Compute/virtualMachines/<vm-name>`)|
-|**delegatedResource / objectId**|The Microsoft Entra object ID of the Azure resource ID which accesses storage on behalf of the storage resource owner (For example: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`).|
+|**delegatedResource / tenantId**| The Microsoft Entra tenant ID of the Azure resource ID which accesses storage on-behalf-of the storage resource owner (for example: `aaaabbbb-0000-cccc-1111-dddd2222eeee`). |
+|**delegatedResource / resourceId**|The Azure resource ID which accesses storage on behalf of the storage resource owner (for example: `/subscriptions/<sub>/resourcegroups/<rg>/providers/Microsoft.Compute/virtualMachines/<vm-name>`)|
+|**delegatedResource / objectId**|The Microsoft Entra object ID of the Azure resource ID which accesses storage on behalf of the storage resource owner (for example: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`).|
 
