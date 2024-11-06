@@ -146,7 +146,7 @@ items:
           href: virtual-network-multiple-ip-addresses-powershell.md
         - name: Azure CLI
           href: virtual-network-multiple-ip-addresses-cli.md
-      - name: Assign private IP address prefixes to virtual machines using the Azure portal
+      - name: Assign private IP address prefixes to VM
         href: virtual-network-private-ip-address-blocks-portal.md
       - name: Virtual machine scale set with IPv6
         href: ipv6-virtual-machine-scale-set.md
