@@ -162,6 +162,9 @@ public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher
 }
 ```
 
+> [!NOTE]
+> Durable Entities for the Isolated worker process is not currently supported when using the [MSSQL state provider](./durable-functions-storage-providers.md#mssql).
+
 ### [Isolated worker process](#tab/isolated-process/class-based)
 
 The following example shows the implementation of the `Counter` entity using classes and methods. 
@@ -217,6 +220,10 @@ public static Task RunEntityStaticAsync([EntityTrigger] TaskEntityDispatcher dis
     return dispatcher.DispatchAsync<Counter>();
 }
 ```
+
+> [!NOTE]
+> Durable Entities for the Isolated worker process is not currently supported when using the [MSSQL state provider](./durable-functions-storage-providers.md#mssql).
+
 --- 
 ::: zone-end
 ::: zone pivot="javascript"
