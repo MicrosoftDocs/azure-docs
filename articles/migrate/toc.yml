@@ -69,6 +69,7 @@ items:
     - name: Discovered metadata
       href: discovered-metadata.md
     - name: Review discovered workloads
+      href: 
     - name: Tags 
       items:
         - name: Overview
@@ -90,8 +91,10 @@ items:
   - name: Prerequisites
   - name: Overview
   - name: Build a business case
+    href: how-to-build-a-business-case.md
   - name: Customize on-premises benchmarks 
   - name: Review business case
+    href: how-to-view-a-business-case.md
   - name: Best Practices and limitations
 - name: Plan migrations
   items:
@@ -128,6 +131,7 @@ items:
       - name: Azure VM assessment
         items:
         - name: Create an Azure VM assessment
+          href: how-to how-to-create-assessment.md
         - name: Customize assessment settings
           href: vm-assessment-properties.md
         - name: Azure VM Readiness criteria
@@ -139,30 +143,40 @@ items:
         items:
         - name: Prerequisites
         - name: Create an Azure SQL assessment
+          href: tutorial-assess-sql.md
         - name: Customize assessment settings
+          href: assessment-properties.md
         - name: Azure SQL Readiness criteria
         - name: Review assessment report
       - name: Webapp assessment
         items:
         - name: Prerequisites
         - name: Create a Webapp assessment
+          href: tutorial-assess-webapps.md
         - name: Customize assessment settings
+          href: assessment-properties.md
         - name: Azure Webapp Readiness criteria
         - name: Review assessment report
       - name: AVS assessment
         items:
         - name: Prerequisites
         - name: Create an AVS assessment
+          href: tutorial-assess-vmware-azure-vmware-solution.md
         - name: Customize assessment settings
+          href: assessment-properties.md
         - name: Azure AVS Readiness criteria
         - name: Review assessment report
+          href: how-to-create-azure-vmware-solution-assessment.md
       - name: SAP assessment
         items:
         - name: Prerequisites
-        - name: Create an AVS assessment
+        - name: Create a SAP assessment
+          href: tutorial-assess-sap-systems.md
         - name: Customize assessment settings
-        - name: Azure AVS Readiness criteria
+          href: assessment-properties.md
+        - name: SAP Readiness criteria
         - name: Review assessment report
+          href: how-to-create-azure-sap-systems-assessment.md
   - name: Software recommendations
     items:
     - name: Prerequisites
@@ -192,13 +206,18 @@ items:
     items: 
     - name: Prerequisites
     - name: Agentless migration
+      href: tutorial-migrate-vmware.md
     - name: Agent-based migration
+      href: tutorial-migrate-vmware-agent.md
     - name: Webapp migration
+      href: tutorial-assess-aspnet-aks.md
     - name: Limitations
 - name: Modernize applications
   items:
   - name: Application containerization 
+    href: tutorial-app-containerization-aspnet-kubernetes.md
   - name: Modernization to App service code
+    href: tutorial-modernize-asp-net-appservice-code.md
   - name: Replatform Webapps
   - name: Best practices
 - name: Tutorials 
@@ -208,24 +227,31 @@ items:
     - name: Migrate servers hosted on VMware
       items:
         - name: Discover inventory
+          href: tutorial-discover-vmware.md
         - name: Create Business case and assessment
+          href: tutorial-discover-import.md
         - name: Migrate
+          href: tutorial-migrate-vmware.md
     - name: Migrate servers hosted in Hyper-V
       items:
         - name: Discover inventory
+          href: tutorial-discover-hyper-v.md
         - name: Create Business case and assessment
         - name: Migrate
+          href: tutorial-migrate-hyper-v.md
     - name: Migrate physical servers
       items:
         - name: Discover inventory
+          href: tutorial-discover-physical.md
         - name: Create Business case and assessment
         - name: Migrate
+          href: tutorial-migrate-physical-virtual-machines.md
     - name: Migrate servers hosted on public cloud
       items:
         - name: Discover inventory
         - name: Create Business case and assessment
         - name: Migrate
-    - name: Migrate spring-boot applications
+    - name: Migrate Spring boot applications
       items:
       - name: Discover Spring Boot apps
         href: tutorial-discover-spring-boot.md
