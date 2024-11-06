@@ -266,7 +266,7 @@ You can use NAT Gateway to simplify outbound connectivity for your outbound inte
 
 When you configure a NAT Gateway on your subnet, the NAT Gateway provides a static public IP address for your environment. All outbound traffic from your container app is routed through the NAT Gateway's static public IP address.
 
-### Public network access (preview)
+### <a name="public-network-access"></a>Public network access (preview)
 
 The public network access setting determines whether your container app is accesible from the public internet. Depending on the virtual IP configuration you create your container app environment with, the setting is modifiable post-create. The following table shows valid values for public network access depending on your environment's virtual IP configuration.
 
@@ -279,7 +279,7 @@ In order to create private endpoints on your Azure Container App environment, pu
 
 Azure networking policies are supported with the public network access flag.
 
-### Private endpoint (preview)
+### <a name="private-endpoint"></a>Private endpoint (preview)
 
 > [!NOTE]
 > This feature is supported for all public regions. Government and China regions are not supported.
