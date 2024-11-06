@@ -66,6 +66,15 @@ In this tutorial you:
 
 1. In the *Container* window, enter the following values:
 
+    # [Preconfigured image](#tab/preconfigured)
+
+    | Setting | Value |
+    |---|---|
+    | Use quickstart image | Select the checkbox. |
+    | Quickstart image | Select **GPU hello world container**. |
+
+    # [Manual entry](#tab/manual)
+
     | Setting | Value |
     |---|---|
     | Name | Enter **my-gpu-demo-container**. |
@@ -76,6 +85,8 @@ In this tutorial you:
     | Workload profile | Select the option that begins with **Consumption - Up to 4**... |
     | GPU | Select the checkbox. |
     | GPU Type | Select **Conumption-GPU-NC24-A100** and select the link to add the profile to your environment. |
+
+    ---
 
     Select **Next: Ingress >**.
 
