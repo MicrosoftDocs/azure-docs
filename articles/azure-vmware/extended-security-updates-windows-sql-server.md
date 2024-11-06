@@ -37,7 +37,7 @@ To find the SQL Server configuration from the Azure portal:
 
 1. In the Azure VMware Solution portal, go to **vCenter Server Inventory** and **Virtual Machines** by clicking through one of the Azure Arc-enabled VMs. The **Machine-Azure Arc (AVS)** page appears.
 1. On the left pane, under **Operations**, select **SQL Server Configuration**.
-1. Follow the steps in the section [Configure SQL Server enabled by Azure Arc - Modify SQL Server configuration](/sql/sql-server/azure-arc/manage-configuration?view=sql-server-ver16&tabs=azure#modify-sql-server-configuration). This section also provides syntax to configure by using Azure PowerShell or the Azure CLI.
+1. Follow the steps in the section [Configure SQL Server enabled by Azure Arc - Modify SQL Server configuration](/sql/sql-server/azure-arc/manage-configuration?tabs=azure#modify-sql-server-configuration). This section also provides syntax to configure by using Azure PowerShell or the Azure CLI.
 
 #### View ESU subscription status
 
@@ -52,7 +52,7 @@ For machines that run SQL Server where guest management is enabled, the Azure Ex
 
 - Use Azure Resource Graph queries:
 
-  - You can use the query [List Arc-enabled SQL Server instances subscribed to ESU](/sql/sql-server/azure-arc/manage-configuration?view=sql-server-ver16&tabs=azure&branch=main#list-arc-enabled-sql-server-instances-subscribed-to-esu) as an example to show how you can view eligible SQL Server ESU instances and their ESU subscription status.
+  - You can use the query [List Arc-enabled SQL Server instances subscribed to ESU](/sql/sql-server/azure-arc/manage-configuration&tabs=azure&branch=main#list-arc-enabled-sql-server-instances-subscribed-to-esu) as an example to show how you can view eligible SQL Server ESU instances and their ESU subscription status.
     
 ### Windows Server
 
