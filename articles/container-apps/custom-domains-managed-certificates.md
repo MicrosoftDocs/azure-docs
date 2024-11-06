@@ -171,7 +171,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
 
     Replace `<CONTAINER_APP_NAME>` with the name of your container app, and `<RESOURCE_GROUP_NAME>` with the name of the resource group that contains your container app.
 
-1. Using the DNS provider that is hosting your domain, create DNS records based on the record type you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. Depending on whether you are using custom domains with the preview private endpoint feature, the setup is a bit different:
+1. Using the DNS provider that is hosting your domain, create DNS records based on the record type you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you are using custom domains with the private endpoint (preview) feature:
 
     # [General](#tab/general)
     
