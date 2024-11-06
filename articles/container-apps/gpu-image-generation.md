@@ -83,7 +83,7 @@ In this tutorial you:
     | Name | Enter **my-gpu-demo-container**. |
     | Image source | Select **Docker Hub or other registries**.  |
     | Image type | Select **public**. |
-    | Registry login server | Enter **mcr.microsoft.com/k8se**. |
+    | Registry login server | Enter **mcr.microsoft.com**. |
     | Image and tag | Enter **k8se/gpu-quickstart:latest**. |
     | Workload profile | Select the option that begins with **Consumption - Up to 4**... |
     | GPU | Select the checkbox. |
