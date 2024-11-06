@@ -101,7 +101,7 @@ You can improve cold start on your GPU-enabled containers by enabling artifact s
 
 Use the following steps to enable image streaming:
 
-1. Open your Azure Container Registry in the Azure portal
+1. Open your Azure Container Registry in the Azure portal.
 
 1. Search for **Repositories**, and select **Repository**.
 
