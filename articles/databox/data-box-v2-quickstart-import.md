@@ -1,6 +1,6 @@
 ---
-title: Quickstart for Microsoft Azure Data Box V2| Microsoft Docs
-description: In this quickstart, learn how to deploy Azure Data Box V2 using the Azure portal for an import order. Configure Azure Data Box V2 and copy data to upload to Azure.
+title: Quickstart for Microsoft Azure Data Box Microsoft Docs
+description: In this quickstart, learn how to deploy Azure Data Box V2 using the Azure portal for an import order. Configure Azure Data Box next gen device and copy data to upload to Azure.
 services: databox
 author: stevenmatthew
 ms.service: azure-databox
@@ -11,7 +11,7 @@ ms.custom: mode-other
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 
-# Get started with Azure Data Box V2 to import data into Azure
+# Get started with Azure Data Box to import data into Azure
 
 ::: zone target="docs"
 
@@ -39,12 +39,13 @@ Before you begin:
     - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Ensure that you have owner or contributor access to the subscription to create a Data Box order.
+- You have [registered the Microsoft.DataBox resource provider](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) against this subscription in the Azure portal. 
 - Review the [safety guidelines for your Data Box](data-box-safety.md).
 - You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to high-speed network. We recommend that you have at least one 100-GbE connection. If a 100-GbE connection isn't available,  10-GbE or 1-GbE data link can be used but the copy speeds are impacted. 
 - You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
-- You have procured the following cables to connect your Data Box to the host computer.
+- You have procured the following cables to connect your Data Box to the host computer. These are recommended, however, the next generation devices will work with 10G cables too.
     - 2 x 10G-BaseT RJ-45 cables (CAT-5e or CAT6)
     - 2 x 100-GbE QSFP28 passive direct attached cable (use with DATA 1, DATA 2 network interfaces)  
 
@@ -59,7 +60,7 @@ Before you begin, make sure that you've:
 1. Completed the [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 2. Received your Data Box and the order status in the portal is **Delivered**. 
 3. Reviewed the [Data Box safety guidelines](data-box-safety.md).
-4. Received one grounded power cord to use with your 125-TB/ 525-TB storage device.
+4. Received one grounded power cord to use with your 120 TB or 525 TB storage device.
 5. Access to a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to high-speed network. We recommend that you have at least one 100-GbE connection. If a 100-GbE connection isn't available,  10-GbE or 1-GbE data link can be used but the copy speeds are impacted. 
@@ -123,20 +124,20 @@ This step takes about 5-7 minutes to complete.
 ## Copy data
 
 The time to complete this operation depends upon your data size and network speed.
- 
-1. Copy speeds of approx. 7 GigaBytes/s can be achieved using SMB Direct on RDMA (100-GbE connection ) for medium to large files. 
-2. If using a Windows host, use an SMB compatible file copy tool such as Robocopy. For NFS host, use `cp` command or `rsync` to copy the data. Connect the tool to your device and begin copying data to the shares. For more information on how to use Robocopy to copy data, go to [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
-3. Connect to the shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
-4. Make sure that the share and folder names, and the data follow guidelines described in the [Azure Storage and Data Box service limits](data-box-limits.md).
+  
+1. If using a Windows host, use an SMB compatible file copy tool such as Robocopy. For NFS host, use `cp` command or `rsync` to copy the data. Connect the tool to your device and begin copying data to the shares. For more information on how to use Robocopy to copy data, go to [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
+2. Connect to the shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
+3. Make sure that the share and folder names, and the data follow guidelines described in the [Azure Storage and Data Box service limits](data-box-limits.md).
 
 ## Ship to Azure 
 
 This operation takes about 10-15 minutes to complete.
 
 1. Go to **Prepare to ship** page in the local web UI and start the ship preparation. 
-2. Turn off the device from the local web UI. Remove the cables from the device. 
-3. The return shipping label should be visible on the E-ink display. If the E-ink display is not displaying the label, download shipping label from the local UI and insert in the clear sleeve attached to the device.
-4. Lock the case and ship to Microsoft. 
+2. After prepare to ship completes successfully with no critical errors, download and print the return shipping label.
+3. Turn off the device from the local web UI. Remove the cables from the device. 
+4. Pack the device in the original box and secure firmly. Paste the return shipping label on the box and remove any previous labels and barcode stickers from the external packaging.
+5. Follow local return shipping instructions and ship the device back to Microsoft. 
 
 ## Verify data
 
