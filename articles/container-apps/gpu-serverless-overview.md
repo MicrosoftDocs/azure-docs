@@ -90,9 +90,9 @@ In the *Container* tab of the create process, set the following settings:
 
 ## Manage serverless GPU workload profile
 
-You manage a serverless GPU workload profile in the same manner as any other workload profile. You can manage your workload profile using the [CLI](workload-profiles-manage-cli.md) or the [Azure portal](workload-profiles-manage-portal.md).
+Serverless GPUs are run on consumption GPU workload profiles. You manage a consumption GPU workload profile in the same manner as any other workload profile. You can manage your workload profile using the [CLI](workload-profiles-manage-cli.md) or the [Azure portal](workload-profiles-manage-portal.md).
 
-## Reduce GPU cold start
+## Improve GPU cold start
 
 You can improve cold start on your GPU-enabled containers by enabling artifact streaming on your Azure Container Registry.
 
