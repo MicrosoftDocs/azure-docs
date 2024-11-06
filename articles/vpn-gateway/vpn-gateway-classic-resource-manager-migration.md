@@ -25,6 +25,13 @@ Once the VNet migration is completed, Azure will attempt to complete the remaind
 
 The Resource Manager model is different from the classic model and is composed of virtual network gateways, local network gateways and connection resources. These represent the VPN gateway itself, the local-site representing on premises address space and connectivity between the two respectively. Once migration is completed, your gateways won't be available in the classic model and all management operations on virtual network gateways, local network gateways, and connection objects must be performed using the Resource Manager model.
 
+## Locating a classic VPN gateway 
+To locate a calssic VPN gateway via powershell, you will need to install the Azure Powershell Service Management module. Start here: [Installing the Azure PowerShell Service Management module](https://learn.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps). To view classic resources, you will need co-admin or owner permissions. You cannot use Az cmdlets to access classic resources. 
+
+
+To locate a classic VPN gateway via Azure portal, open the portal and search for "Virtual network(classic)" . Select you classic virtual network and navigate to the gateway blade to find your classic virutal network gateway. 
+
+
 ## Supported scenarios
 
 Most common VPN connectivity scenarios are covered by classic to Resource Manager migration. The supported scenarios include:
