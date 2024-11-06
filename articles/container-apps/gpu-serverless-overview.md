@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 11/05/2024
+ms.date: 11/06/2024
 ms.author: cshoe
 ---
 
@@ -17,6 +17,24 @@ Serverless GPUs work exclusively with both dedicated and consumption workload pr
 
 > [!NOTE]
 > Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+## Benefits
+
+Serverless GPUs accelerate AI development by allowing you to focus on your core AI code and less on managing infrastructure when using GPUs. This feature provides a middle layer option between the Azure AI model catalog's serverless APIs and hosting models on managed compute.
+
+The Container Apps serverless GPU support provides full data governance as your data never leaves the boundaries of your container while still providing a managed, serverless platform from which to build your applications.
+
+When you use serverless GPUs in Container Apps, your apps get:
+
+- **Scale-to zero GPUs**: Support for serverless scaling of NVIDIA A100 and T4 GPUs.
+
+- **Per-second billing**: Fine-grained cost calculations reduced down to the second.
+
+- **Built-in data governance**: Your data never leave the container boundary.
+
+- **Flexible compute options**: You can choose between the NVIDIA A100 or T4 compute profiles.
+
+- **Middle-layer for AI development**: Bring your own AI model on a managed, serverless compute platform.
 
 ## Common scenarios
 
@@ -35,35 +53,19 @@ The following scenarios, while not comprehensive, describe common use cases for 
 
 - **Big Data Analytics**: GPUs can accelerate data processing and analysis among massive datasets.
 
-## Benefits
-
-Serverless GPUs accelerate AI development by allowing you to focus on your core AI code and less on managing infrastructure when using GPUs. This feature provides a middle layer option between the Azure AI model catalog's serverless APIs and hosting models on managed compute.
-
-The Container Apps serverless GPU support provides full data governance as your data never leaves the boundaries of your container while still providing a managed, serverless platform from which to build your applications.
-
-When you use serverless GPUs in Container Apps, your apps get:
-
-- **Scale-to zero GPUs**: Support for serverless scaling of NVIDIA A100 and T4 GPUs.
-
-- **Per-second billing**: Fine-grained cost calculations reduced down to the second.
-
-- **Built-in data governance**: Your data never leave the container boundary.
-
-- **Flexible compute options**: You can choose between the NVIDIA A100 or T4 compute profiles.
-
-- **Middle-layer for AI development**: Use any AI model of your choice on a compute platform that requires no setup.
-
 ## Considerations
 
 Keep in mind the following items as you use serverless GPUs:
 
 - **CUDA version**: Serverless GPUs support the latest CUDA version
 
-- **Single container**: Only one container in an app can use the GPU at a time. Multiple apps can share the same GPU workload profile but each requires their own replica.
+- **Single container**: Only one container in an app can use the GPU at a time. Multiple apps can share the same GPU workload profile but each requires their own replica. Multi and fractional GPU replicas not supported. The first container in the list gets access to the GPU resources.
 
-## Request Serverless GPU quota
+- **IP addresses**: When integrating with your own virtual network, consumption GPUs use one IP address per replica.
 
-Access to this feature is only available after you have Serverless GPU quota. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+## Request serverless GPU quota
+
+Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 > [!NOTE]
 > Customers with enterprise agreements have a single T4 GPU quota enabled by default.
@@ -82,7 +84,7 @@ In the *Container* tab of the create process, set the following settings:
 
 1. For the *GPU Type**, select either the A100 or T4 option.
 
-## Reduce cold start
+## Reduce GPU cold start
 
 You can improve cold start on your GPU-enabled containers by enabling artifact streaming on your Azure Container Registry.
 
@@ -93,12 +95,14 @@ Use the following steps to enable image streaming:
 
 1. Open your Azure Container Registry in the Azure portal
 
-1. Search for **Repositories**, and then select your repository name.
+1. Search for **Repositories**, and select **Repository**.
+
+1. Select your repository name.
 
 1. From the *Repository* window, select **Start artifact streaming** and save your changes.
 
-1. Click on the image tag that you want to stream.
-1. In the window that pops up, select `Create streaming artifact`
+1. Select the image tag that you want to stream.
+1. In the window that pops up, select **Create streaming artifact**.
 
 ## Feedback
 
