@@ -17,7 +17,7 @@ This article helps you add secondary IP configurations on a virtual machine NIC 
 * A private IP address assignment and (optionally) a public IP address assignment, OR
 * A CIDR block of private IP addresses (IP address prefix).
 
-All the IP addresses can be statically or dynamically assigned from the available IP address ranges. For more information, see [IP addresses in Azure](ip-services/public-ip-addresses.md). All IP configurations on a single NIC must be associated to the same subnet. If multiple IPs on different subnets are desired, multiple NICs on a VM can be used. For more information, see [Create VM with Multiple NICs](/azure/virtual-machines/windows/multiple-nics).
+All the IP addresses can be statically or dynamically assigned from the available IP address ranges. For more information, see [IP addresses in Azure](public-ip-addresses.md). All IP configurations on a single NIC must be associated to the same subnet. If multiple IPs on different subnets are desired, multiple NICs on a VM can be used. For more information, see [Create VM with Multiple NICs](/azure/virtual-machines/windows/multiple-nics).
 
 There's a limit to how many IP configurations can be assigned to a NIC. For more information, see the [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
 
