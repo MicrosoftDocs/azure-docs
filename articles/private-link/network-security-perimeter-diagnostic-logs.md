@@ -21,36 +21,27 @@ Access logs categories for a network security perimeter are based on the results
 
 | **Log category** | **Description** | **Applicable to Modes** |
 | --- | --- | --- |
-| **nspPublicInboundPerimeterRulesAllowed** | Inbound access is allowed based on network security perimeter access rules. | Learning/Enforced |
-| **nspPublicInboundPerimeterRulesDenied** | Public inbound access denied by network security perimeter. | Enforced |
-| **nspPublicOutboundPerimeterRulesAllowed** | Outbound access is allowed based on network security perimeter access rules. | Learning/Enforced |
-| **nspPublicOutboundPerimeterRulesDenied** | Public outbound access denied by network security perimeter. | Enforced |
+| **NspPublicInboundPerimeterRulesAllowed** | Inbound access is allowed based on network security perimeter access rules. | Learning/Enforced |
+| **NspPublicInboundPerimeterRulesDenied** | Public inbound access denied by network security perimeter. | Enforced |
+| **NspPublicOutboundPerimeterRulesAllowed** | Outbound access is allowed based on network security perimeter access rules. | Learning/Enforced |
+| **NspPublicOutboundPerimeterRulesDenied** | Public outbound access denied by network security perimeter. | Enforced |
 | **nspOutboundAttempt** | Outbound attempt within network security perimeter. | Learning/Enforced |
 | **nspIntraPerimeterInboundAllowed** | Inbound access within perimeter is allowed. | Learning/Enforced |
-| **nspPublicInboundResourceRulesAllowed** | When network security perimeter rules deny, inbound access is allowed based on PaaS resource rules. | Learning |
-| **nspPublicInboundResourceRulesDenied** | When network security perimeter rules deny, inbound access denied by PaaS resource rules. | Learning |
-| **nspPublicOutboundResourceRulesAllowed** | When network security perimeter rules deny, outbound access allowed based on PaaS resource rules. | Learning |
-| **nspPublicOutboundResourceRulesDenied** | When network security perimeter rules deny, outbound access denied by PaaS resource rules. | Learning |
-| **nspPrivateInboundAllowed** | Private endpoint traffic is allowed. | Learning/Enforced |
+| **NspPublicInboundResourceRulesAllowed** | When network security perimeter rules deny, inbound access is allowed based on PaaS resource rules. | Learning |
+| **NspPublicInboundResourceRulesDenied** | When network security perimeter rules deny, inbound access denied by PaaS resource rules. | Learning |
+| **NspPublicOutboundResourceRulesAllowed** | When network security perimeter rules deny, outbound access allowed based on PaaS resource rules. | Learning |
+| **NspPublicOutboundResourceRulesDenied** | When network security perimeter rules deny, outbound access denied by PaaS resource rules. | Learning |
+| **NspPrivateInboundAllowed** | Private endpoint traffic is allowed. | Learning/Enforced |
 
 ## Logging destination options for access logs  
 
-You can store the diagnostic logs in the following locations:
-
-| **Service** | **Description** |
-| --- | --- |
-| **Log Analytic workspace** | Log Analytic workspaces are recommended since they allow you to use the predefined queries, visualizations, and set alerts based on specific log conditions. |
-|**Azure Storage account** | Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed. |
-| **Azure Event Hubs** | Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources. |
+The destinations for storing diagnostic logs for a network security perimeter include services like Log Analytic workspace, Azure Storage account, and Azure Event Hubs. For the full list and details of supported destinations, see [Supported destinations for diagnostic logs](/azure/azure-monitor/essentials/diagnostic-settings).
 
 ## Enable logging through the Azure portal
 
-You can enable diagnostic logging for a network security perimeter by using the Azure portal under **Diagnostic settings**. When adding a diagnostic setting, you can choose the log categories you want to collect and the destination where you want to store the logs.
+You can enable diagnostic logging for a network security perimeter by using the Azure portal under Diagnostic settings. When adding a diagnostic setting, you can choose the log categories you want to collect and the destination where you want to deliver the logs.
 
 :::image type="content" source="media/network-security-perimeter-diagnostic-logs/network-security-perimeter-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings options for a network security perimeter.":::
-  
-> [!NOTE]
-> The Diagnostics settings page provides the settings for the diagnostic logs. You can use Log Analytics, a storage account and/or event hubs to save the diagnostic logs. 
 
 ## Next steps
 

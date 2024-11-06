@@ -51,12 +51,12 @@ When creating a network security perimeter, you can specify the following proper
 | **Property** | **Description** |
 |------------------|-------------|
 | **Name** | A unique name within the resource group. |
-| **Location** | Supported regions. |
+| **Location** | A supported Azure region where the resource is located. |
 | **Resource group name** | Name of the resource group where the network security perimeter should be present. |
 
 ## Access modes in network security perimeter
 
-Administrators add PaaS resources to a perimeter by creating resource associations. These associations offer different access modes for PaaS resources. The access modes are:
+Administrators add PaaS resources to a perimeter by creating resource associations. These associations can be made in two access modes. The access modes are:
 
 | **Mode** | **Description** |
 |----------------|--------|
@@ -64,7 +64,7 @@ Administrators add PaaS resources to a perimeter by creating resource associatio
 | **Enforced mode**  | - Must be set by the administrator.</br>- By default, all traffic except intra perimeter traffic is denied in this mode unless an *Allow* access rule exists. |
 
 
-Learn more on transitioning from learning mode to enforced mode in [transitioning to a network security perimeter](network-security-perimeter-transition.md) article.
+Learn more on transitioning from learning mode to enforced mode in [Transitioning to a network security perimeter](network-security-perimeter-transition.md) article.
 
 ## Why use Network Security Perimeter?
 
@@ -85,7 +85,6 @@ When a network security perimeter is created and the PaaS resources are associat
 Access rules can be used to approve public inbound and outbound traffic outside the perimeter. Public inbound access can be approved using network and identity attributes of the client such as source IP addresses and subscriptions. Public outbound access can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations.
 
 For example, when creating a network security perimeter and associating a set of PaaS resources, like Azure Key Vault and SQL DB, with the perimeter, all incoming and outgoing public traffic is denied to these PaaS resources by default. To allow any access outside the perimeter, necessary access rules can be created. Within the same perimeter, profiles can also be created to group PaaS resources with similar set of inbound and outbound access requirements.
-
 
 ## Onboarded private link resources
 A network security perimeter-aware private link resource is a PaaS resource that can be associated with a network security perimeter. Currently the list of onboarded private link resources are as follows:
