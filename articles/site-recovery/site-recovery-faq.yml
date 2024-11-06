@@ -161,7 +161,7 @@ sections:
               >The modernized experience uses TLS 1.2 for all the communication and enforces it by default. 
 
       - question: |
-         How can I enforce TLS 1.2 on HyperV-to-Azure Site Recovery scenarios?
+         How can I enforce TLS 1.2 on Hyper-V-to-Azure Site Recovery scenarios?
         answer: |
              All communication between the microservices of Azure Site Recovery happens on TLS 1.2 protocol. Site Recovery uses security providers configured in the system (OS) and uses the latest available TLS protocol. One needs to explicitly enable the TLS 1.2 in the Registry and then Site Recovery will start using TLS 1.2 for communication with services.
 
@@ -179,6 +179,10 @@ sections:
               - Classic storage accounts:
                 - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
                 - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
+
+               Cache storage account is not supported for managed identity.
+
+
 
       - question: |
          Can Azure Site Recovery track source virtual machine changes outside the Source OS?
