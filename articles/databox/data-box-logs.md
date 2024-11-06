@@ -4,9 +4,8 @@ description: Describes how to track and log events at the various stages of your
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
-ms.topic: article
+ms.service: azure-databox
+ms.topic: how-to
 ms.date: 08/24/2021
 ms.author: shaas
 ---

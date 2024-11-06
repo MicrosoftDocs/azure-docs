@@ -1,14 +1,11 @@
 ---
 title: include file
 description: include file
-services: service-bus-messaging, event-hubs
 author: clemensv
-ms.service: service-bus-messaging, event-hubs
+ms.service: azure-service-bus
 ms.topic: include
 ms.date: 11/24/2020
 ms.author: clemensv
-ms.custom: "include file"
-
 ---
 
 | Language | Library |

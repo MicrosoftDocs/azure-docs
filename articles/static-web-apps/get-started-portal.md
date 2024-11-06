@@ -4,9 +4,9 @@ description: Learn to deploy a static site to Azure Static Web Apps with the Azu
 services: static-web-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.date: 05/17/2024
+ms.date: 09/18/2024
 ms.topic: quickstart
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 zone_pivot_groups: devops-or-github
 ---
 
@@ -237,6 +237,10 @@ If you're not going to continue to use this application, you can delete the Azur
 1. Select the app name.
 1. Select **Delete**.
 1. Select **Yes** to confirm the delete action (this action may take a few moments to complete).
+
+## Related content
+
+* [Video series: Deploy websites to the cloud with Azure Static Web Apps](https://aka.ms/azure/beginnervideos/learn/swa)
 
 ## Next steps
 

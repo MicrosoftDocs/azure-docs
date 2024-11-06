@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure IoT documentation
   description: The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud and edge services that connect, monitor, and control billions of IoT assets.
-  ms.service: iot
+  ms.service: azure-iot
   ms.topic: hub-page
   author: dominicbetts
   ms.author: dobett

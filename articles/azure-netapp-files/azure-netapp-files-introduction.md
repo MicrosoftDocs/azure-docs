@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: overview
-ms.date: 01/11/2024
+ms.date: 08/20/2024
 ms.author: anfdocs
 ---
 
@@ -38,14 +38,15 @@ Azure NetApp Files is designed to provide high-performance file storage for ente
 | Multi-protocol support | Supports multiple protocols, including NFSv3, NFSv4.1, SMB 3.0, SMB 3.1.1, and simultaneous dual-protocol. | Seamlessly integrate with existing infrastructure and workflows without compatibility issues or complex configurations. |
 | Four adaptable performance tiers (Standard, Premium, Ultra, Flexible) | Four performance tiers with dynamic service-level change capability based on workload needs, including cool access for cold data. | Choose the right performance level for workloads and dynamically adjust performance without overspending on resources.
 | Small-to-large volumes | Easily resize file volumes from 100 GiB up to 100 TiB without downtime. | Scale storage as business needs grow without over-provisioning, avoiding upfront cost.
+| Small-to-large volumes | Easily resize file volumes from 50 GiB up to 100 TiB without downtime. | Scale storage as business needs grow without over-provisioning, avoiding upfront cost.
 | 1-TiB minimum capacity pool size | 1-TiB capacity pool is a reduced-size storage pool compared to the initial 4-TiB minimum. | Save money by starting with a smaller storage footprint and lower entry point, without sacrificing performance or availability. Scale storage based on growth without high upfront costs.
 | 2,048-TiB maximum capacity pool | 2048-TiB capacity pool is an increased storage pool compared to the initial 500-TiB maximum. | Reduce waste by creating larger, pooled capacity and performance budget, and share and distribute across volumes.
-| 50-500 TiB large volumes | Store large volumes of data up to 500 TiB in a single volume. | Manage large datasets and high-performance workloads with ease.
+| 50-1,024 TiB large volumes | Store large volumes of data up to 1,024 TiB in a single volume. | Manage large datasets and high-performance workloads with ease.
 | User and group quotas | Set quotas on storage usage for individual users and groups. | Control storage usage and optimize resource allocation.
 | Virtual machine (VM) networked storage performance | Higher VM network throughput compared to disk IO limits enable more demanding workloads on smaller Azure VMs. | Improve application performance at a smaller VM footprint, improving overall efficiency and lowering application license cost.
 | Deep workload readiness | Seamless deployment and migration of any-size workload with well-documented deployment guides. | Easily migrate any workload of any size to the platform. Enjoy a seamless, cost-effective deployment and migration experience.
 | Datastores for Azure VMware Solution | Use Azure NetApp Files as a storage solution for VMware workloads in Azure, reducing the need for superfluous compute nodes normally included with Azure VMware Solution expansions. | Save money by eliminating the need for unnecessary compute nodes when you expand storage, resulting in significant cost savings.
-| Standard storage with cool access | Use the cool access option of Azure NetApp Files Standard service level to move inactive data transparently from Azure NetApp Files Standard service-level storage (the hot tier) to an Azure Storage account (the cool tier). | Save money by transitioning data that resides within Azure NetApp Files volumes (the hot tier) by moving blocks to the lower-cost storage (the cool tier). |
+| Cool access | Use the cool access option of Azure NetApp Files Standard service level to move inactive data transparently from Azure NetApp Files Standard service-level storage (the hot tier) to an Azure Storage account (the cool tier). | Save money by transitioning data that resides within Azure NetApp Files volumes (the hot tier) by moving blocks to the lower-cost storage (the cool tier). |
 
 These features work together to provide a high-performance file storage solution for the demands of enterprise workloads. They help to ensure that your workloads experience optimal (low) storage latency, cost, and scale.
 

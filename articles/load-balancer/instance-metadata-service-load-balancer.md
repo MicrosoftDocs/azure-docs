@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Get started learning about using Azure Instance Metadata Service to retrieve load balancer information.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 06/26/2024
 ms.author: mbender
@@ -36,7 +36,7 @@ For more information on common error codes and their mitigation methods, see [Tr
 If you're unable to retrieve a metadata response after multiple attempts, create a support issue in the Azure portal.
 
 ## Next steps
-Learn more about [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md)
+Learn more about [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service)
 
 [Deploy a standard load balancer](quickstart-load-balancer-standard-public-portal.md)
 

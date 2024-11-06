@@ -3,7 +3,7 @@ title: 'Add or remove site-to-site connections'
 description: Learn how to add or remove site-to-site connections from a VPN gateway.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 07/08/2024
 ms.author: cherylmc

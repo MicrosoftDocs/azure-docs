@@ -4,7 +4,7 @@ metadata:
   description: Answers to frequently asked questions about the Azure Load Balancer. 
   services: load-balancer
   author: mbender-ms
-  ms.service: load-balancer
+  ms.service: azure-load-balancer
   ms.topic: faq
   ms.date: 04/10/2024
   ms.author: mbender

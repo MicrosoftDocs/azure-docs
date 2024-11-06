@@ -4,7 +4,7 @@ description: This article covers using Network Watcher and Virtual Network Flow 
 author: mbender-ms
 ms.author: mbender
 ms.topic: conceptual
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.date: 08/11/2023
 ---
 

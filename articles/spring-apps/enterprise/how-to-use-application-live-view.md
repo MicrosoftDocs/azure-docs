@@ -3,7 +3,7 @@ title: Use Application Live View with the Azure Spring Apps Enterprise plan
 description: Learn how to use Application Live View for VMware Tanzu.
 author: KarlErickson
 ms.author: yuwzho
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -11,8 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # Use Application Live View with the Azure Spring Apps Enterprise plan
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 

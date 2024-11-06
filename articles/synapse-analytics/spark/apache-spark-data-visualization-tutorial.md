@@ -2,7 +2,7 @@
 title: Visualize data with Apache Spark 
 description: Create rich data visualizations by using Apache Spark and Azure Synapse Analytics notebooks
 author: midesa
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 02/29/2024

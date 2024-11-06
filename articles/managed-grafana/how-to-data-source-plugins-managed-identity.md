@@ -3,7 +3,7 @@ title: How to manage data sources for Azure Managed Grafana
 description: In this how-to guide, discover how you can add, configure and remove data sources for Azure Managed Grafana.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: how-to
 ms.date: 12/08/2023
 ---
@@ -141,11 +141,9 @@ The Azure Monitor data source is automatically added to all new Managed Grafana 
    :::image type="content" source="media/data-sources/configuration.png" alt-text="Screenshot of the Add data sources page.":::
 
 1. Azure Monitor is listed as a built-in data source for your Managed Grafana instance. Select **Azure Monitor**.
-1. In the **Settings** tab, authenticate through **Managed Identity** and select your subscription from the dropdown list or enter your **App Registration** details
+1. In the **Settings** tab, authenticate through **Managed Identity** and select your subscription from the dropdown list, or alternatively enter your **App Registration** details. When you select **Managed identity**, the authentication and authorization are made through the system-assigned or the user-assigned managed identity you [configured in your Azure Managed Grafana workspace](how-to-authentication-permissions.md). Using a managed identity lets you assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Microsoft Entra ID.
 
    :::image type="content" source="media/data-sources/configure-Azure-Monitor.png" alt-text="Screenshot of the Azure Monitor page in data sources.":::
-
-Authentication and authorization are made through the provided managed identity. Using managed identity, lets you assign permissions for your Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Microsoft Entra ID.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -186,9 +184,6 @@ az grafana data-source update --data-source 'Azure Monitor' --name <instance-nam
 ```
 
 ---
-
-> [!NOTE]
-> User-assigned managed identity isn't currently supported.
 
 ### Azure Data Explorer
 

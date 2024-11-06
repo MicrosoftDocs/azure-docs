@@ -1,14 +1,17 @@
 ---
 title: Sharded SQL connector
 description: How to configure and use sharded sql connector.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 02/06/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Sharded SQL connector
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 The sharded SQL connector allows queries to be executed over data distributed across any number of SQL servers. 
 

@@ -3,7 +3,6 @@ title: Configure performance for the Azure-SSIS Integration Runtime
 description: Learn how to configure the properties of the Azure-SSIS Integration Runtime for high performance
 ms.date: 01/05/2024
 ms.topic: conceptual
-ms.service: data-factory
 ms.subservice: integration-services
 author: chugugrace
 ms.author: chugu
@@ -113,7 +112,7 @@ The y-axis is the number of packages that completed execution in one hour. Pleas
 
 ## AzureSSISMaxParallelExecutionsPerNode
 
-When you're already using a powerful worker node to run packages, increasing **AzureSSISMaxParallelExecutionsPerNode** may increase the overall throughput of the integration runtime. If you want to increase max value, you need use Azure PowerShell to update **AzureSSISMaxParallelExecutionsPerNode**. You can estimate the appropriate value based on the cost of your package and the following configurations for the worker nodes. For more information, see [General-purpose virtual machine sizes](../virtual-machines/sizes-general.md).
+When you're already using a powerful worker node to run packages, increasing **AzureSSISMaxParallelExecutionsPerNode** may increase the overall throughput of the integration runtime. If you want to increase max value, you need use Azure PowerShell to update **AzureSSISMaxParallelExecutionsPerNode**. You can estimate the appropriate value based on the cost of your package and the following configurations for the worker nodes. For more information, see [General-purpose virtual machine sizes](/azure/virtual-machines/sizes-general).
 
 | Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network performance (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|

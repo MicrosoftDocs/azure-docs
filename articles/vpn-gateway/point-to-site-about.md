@@ -3,17 +3,15 @@ title: 'About Azure Point-to-Site VPN connections'
 titleSuffix: Azure VPN Gateway
 description: Learn about Point-to-Site VPN.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 09/18/2024
 ms.author: cherylmc
 ---
 # About Point-to-Site VPN
 
-A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect to Azure VNets from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect to a VNet. Point-to-site configurations require a **route-based** VPN type.
-
-This article applies to the current deployment model. See [P2S - Classic](vpn-gateway-howto-point-to-site-classic-azure-portal.md) for legacy deployments.
+A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect to Azure virtual networks from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of site-to-site (S2S) VPN when you have only a few clients that need to connect to a virtual network. Point-to-site configurations require a **route-based** VPN type.
 
 ## <a name="protocol"></a>What protocol does P2S use?
 
@@ -29,9 +27,9 @@ Point-to-site VPN can use one of the following protocols:
 
 Before Azure accepts a P2S VPN connection, the user has to be authenticated first. There are three authentication types that you can select when you configure your P2S gateway. The options are:
 
-* Azure certificate
-* Microsoft Entra ID
-* RADIUS and Active Directory Domain Server
+* [Certificate](#certificate)
+* [Microsoft Entra ID](#entra-id)
+* [RADIUS and Active Directory Domain Server](#active-directory)
 
 You can select multiple authentication types for your P2S gateway configuration. If you select multiple authentication types, the VPN client you use must be supported by at least one authentication type and corresponding tunnel type. For example, if you select "IKEv2 and OpenVPN" for tunnel types, and "Microsoft Entra ID and Radius" or "Microsoft Entra ID and Azure Certificate" for authentication type, Microsoft Entra ID will only use the OpenVPN tunnel type since it's not supported by IKEv2.
 
@@ -39,13 +37,13 @@ The following table shows authentication mechanisms that are compatible with sel
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-multiauth-tunnel-mapping.md)]
 
-### Certificate authentication
+### <a name="certificate"></a>Certificate authentication
 
 When you configure your P2S gateway for certificate authentication, you upload the trusted root certificate public key to the Azure gateway. You can use a root certificate that was generated using an Enterprise solution, or you can generate a self-signed certificate.
 
 To authenticate, each client that connects must have an installed client certificate that's generated from the trusted root certificate. This is in addition to VPN client software. The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection.
 
-#### <a name='certificate-workflow'></a>Certificate Workflow
+#### <a name='certificate-workflow'></a>Certificate authentication workflow
 
 At a high level, you need to perform the following steps to configure Certificate authentication:
 
@@ -61,21 +59,21 @@ You can configure your P2S gateway to allow VPN users to authenticate using Micr
 
 [!INCLUDE [entra app id descriptions](../../includes/vpn-gateway-entra-app-id-descriptions.md)]
 
-#### <a name='entra-workflow'></a>Microsoft Entra ID Workflow
+#### <a name='entra-workflow'></a>Microsoft Entra ID authentication workflow
 
 At a high level, you need to perform the following steps to configure Microsoft Entra ID authentication:
 
-1. If using manual app registration, perform the necessary steps on the Entra tenant.
+1. If using manual app registration, perform the necessary steps on the Microsoft Entra tenant.
 1. Enable Microsoft Entra ID authentication on the P2S gateway, along with the additional required settings (client address pool, etc.).
 1. Generate and download VPN client profile configuration files (profile configuration package).
 1. Download, install, and configure the Azure VPN Client on the client computer.
 1. Connect.
 
-### Active Directory (AD) Domain Server
+### <a name='active-directory'></a>RADIUS - Active Directory (AD) Domain Server authentication
 
 AD Domain authentication allows users to connect to Azure using their organization domain credentials. It requires a RADIUS server that integrates with the AD server. Organizations can also use their existing RADIUS deployment.
 
-The RADIUS server could be deployed on-premises or in your Azure VNet. During authentication, the Azure VPN Gateway acts as a pass through and forwards authentication messages back and forth between the RADIUS server and the connecting device. So Gateway reachability to the RADIUS server is important. If the RADIUS server is present on-premises, then a VPN S2S connection from Azure to the on-premises site is required for reachability.
+The RADIUS server could be deployed on-premises or in your Azure virtual network. During authentication, the Azure VPN Gateway acts as a pass through and forwards authentication messages back and forth between the RADIUS server and the connecting device. So Gateway reachability to the RADIUS server is important. If the RADIUS server is present on-premises, then a VPN S2S connection from Azure to the on-premises site is required for reachability.
 
 The RADIUS server can also integrate with AD certificate services. This lets you use the RADIUS server and your enterprise certificate deployment for P2S certificate authentication as an alternative to the Azure certificate authentication. The advantage is that you don’t need to upload root certificates and revoked certificates to Azure.
 
@@ -90,6 +88,10 @@ For P2S gateway configuration steps, see [Configure P2S - RADIUS](point-to-site-
 The client configuration requirements vary, based on the VPN client that you use, the authentication type, and the protocol. The following table shows the available clients and the corresponding articles for each configuration.
 
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
+
+## What versions of the Azure VPN Client are available?
+
+For information about available Azure VPN Client versions, release dates, and what's new in each release, see  [Azure VPN Client versions](azure-vpn-client-versions.md).
 
 ## <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
@@ -145,28 +147,14 @@ The tables in this section show the values for the default policies. However, th
 
 ## <a name="TLS policies"></a>What TLS policies are configured on VPN gateways for P2S?
 
-**TLS**
+[!INCLUDE [TLS policies table](../../includes/vpn-gateway-tls-policies.md)]
 
-|**Policies** |
-|---| 
-|TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 |
-|TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 |
-|TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 |
-|TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 |
-|TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 |
-|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 |
-|TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 |
-|TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 |
-|TLS_RSA_WITH_AES_128_GCM_SHA256 |
-|TLS_RSA_WITH_AES_256_GCM_SHA384 |
-|TLS_RSA_WITH_AES_128_CBC_SHA256 |
-|TLS_RSA_WITH_AES_256_CBC_SHA256 |
 
 ## <a name="configure"></a>How do I configure a P2S connection?
 
 A P2S configuration requires quite a few specific steps. The following articles contain the steps to walk you through common P2S configuration steps.
 
-* [Certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Certificate authentication](point-to-site-certificate-gateway.md)
 * [Microsoft Entra ID authentication](point-to-site-entra-gateway.md)
 * [RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
@@ -187,6 +175,7 @@ There are multiple FAQ entries for point-to-site. See the [VPN Gateway FAQ](vpn-
 
 ## Next Steps
 
-* [Configure a P2S connection - Azure certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Configure a P2S connection - Azure certificate authentication](point-to-site-certificate-gateway.md)
 * [Configure a P2S connection - Microsoft Entra ID authentication](point-to-site-entra-gateway.md)
+
 **"OpenVPN" is a trademark of OpenVPN Inc.**

@@ -3,7 +3,7 @@ title: Azure Web Application Firewall JavaScript challenge (preview) overview
 description: This article is an overview of the Azure Web Application Firewall JavaScript challenge feature.
 services: web-application-firewall
 author: sowmyam2019
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.custom: devx-track-js
 ms.date: 06/12/2024
 ms.author: victorh
@@ -47,3 +47,7 @@ The WAF policy setting defines the JavaScript challenge cookie validity lifetime
 - If the first call that receives a JavaScript challenge has a POST body size greater than 128 KB, it blocks it. Additionally, challenges for non-HTML resources embedded in a page aren't supported. For example images, css, js, and so on. However, if there's a prior successful JavaScript challenge request, then the previous limitations are removed.
 - The challenge isn't supported on Microsoft Internet Explorer. The challenge is supported on the latest versions of the Microsoft Edge, Chrome, Firefox, and Safari web browsers.
 - The JavaScript challenge action on Web Application Firewall on Application Gateway isn't supported for *Rate Limit* type custom rules during the public preview.
+
+## Related content
+
+- [Azure WAF’s Bot Manager 1.1 and JavaScript Challenge (Preview): Navigating the Bot Threat Terrain](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-waf-s-bot-manager-1-1-and-javascript-challenge-preview/ba-p/4249652)

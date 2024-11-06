@@ -3,9 +3,9 @@ title: 'Create a mesh network topology with Azure Virtual Network Manager'
 description: Learn how to create a mesh network topology with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 10/23/2024
 ms.custom: engagement-fy23
 ---
 
@@ -43,7 +43,8 @@ To manually add the desired virtual networks for your Mesh configuration to your
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks.png" alt-text="Screenshot of add virtual networks to network group page.":::
 
 1. To review the network group membership manually added, select **Group Members** on the *Network Group* page under **Settings**.
-    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
+
+    :::image type="content" source="./media/how-to-create-hub-and-spoke/group-members-list.png" alt-text="Screenshot that shows a list of group members.":::
 
 ## Create a mesh connectivity configuration
 
@@ -53,11 +54,7 @@ This section guides you through how to create a mesh configuration with the netw
 
 1. Select **Connectivity configuration** from the drop-down menu to begin creating a connectivity configuration.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration-dropdown.png" alt-text="Screenshot of configuration drop-down menu.":::
-
 1. On the **Basics** page, enter the following information, and select **Next: Topology >**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration.png" alt-text="Screenshot of add a connectivity configuration page.":::
 
     | Setting | Value |
     | ------- | ----- |

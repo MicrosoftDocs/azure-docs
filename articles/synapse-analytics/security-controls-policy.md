@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: reference
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.custom: subject-policy-compliancecontrols
 ---

@@ -1,9 +1,9 @@
 ---
 title: Automation in Azure Backup support matrix
 description: This article summarizes automation tasks related to Azure Backup support.
-ms.date: 05/30/2024
-ms.topic: conceptual
-ms.service: backup
+ms.date: 09/11/2024
+ms.topic: reference
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.custom: engagement-fy24
@@ -44,8 +44,8 @@ You  can automate most backup related tasks using programmatic methods in Azure 
 | Restore | Restore to a point in time | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#original-restore-with-log-point-in-time). | Supported | Supported | N/A | N/A | N/A | N/A |
 | Restore | Cross-region restore | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#alternate-workload-restore-to-a-vault-in-secondary-region). | Supported | Supported | N/A | N/A | N/A | N/A |
 | Manage | Monitor jobs | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#track-azure-backup-jobs). | Supported | Supported | N/A | N/A | N/A | N/A |
-| Manage | Manage Azure Monitor Alerts (preview) | Supported    <br><br> [See the examples](../azure-monitor/powershell-samples.md). | Supported | Supported | N/A | N/A | N/A | N/A |
-| Manage | Manage Azure Monitor Metrics (preview) | Supported    <br><br> [See the examples](../azure-monitor/powershell-samples.md). | Supported | Supported | N/A | N/A | N/A | N/A |
+| Manage | Manage Azure Monitor Alerts (preview) | Supported    <br><br> [See the examples](/azure/azure-monitor/powershell-samples). | Supported | Supported | N/A | N/A | N/A | N/A |
+| Manage | Manage Azure Monitor Metrics (preview) | Supported    <br><br> [See the examples](/azure/azure-monitor/powershell-samples). | Supported | Supported | N/A | N/A | N/A | N/A |
 | Manage | Modify backup policy | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#change-policy-for-backup-items). | Supported | Supported | N/A | N/A | N/A | N/A |
 | Manage | Stop protection and retain backup data | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#retain-data). | Supported | Supported | N/A | N/A | N/A | N/A |
 | Manage | Stop protection and delete backup data | Supported    <br><br> [See the examples](./backup-azure-sql-automation.md#delete-backup-data). | Supported | Supported | N/A | N/A | N/A | N/A |

@@ -4,7 +4,6 @@ description: Learn how to configure diagnostic settings and a Log Analytics work
 author: ukchrist
 ms.author: ulrichchrist
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 06/21/2024

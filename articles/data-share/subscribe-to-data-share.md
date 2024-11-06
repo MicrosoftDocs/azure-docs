@@ -3,7 +3,7 @@ title: 'Tutorial: Accept & receive data - Azure Data Share'
 description: Tutorial - Accept and receive data using Azure Data Share 
 author: sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 12/19/2023
@@ -244,7 +244,7 @@ Use these commands to configure where you want to receive data.
 
    ```azurecli
    az role assignment create --role "Contributor" \
-     --assignee-object-id 6789abcd-ef01-2345-6789-abcdef012345 
+     --assignee-object-id aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb 
      --assignee-principal-type ServicePrincipal --scope "your\storage\account\id\path"
    ```
 
@@ -332,7 +332,7 @@ Use these commands to configure where you want to receive data.
 1. Use the data set ID from the first step, then run the [New-AzDataShareDataSetMapping](/powershell/module/az.datashare/new-azdatasharedatasetmapping) command to create the dataset mapping:
 
    ```azurepowershell
-   New-AzDataShareDataSetMapping -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions" -Name "Fabrikam Solutions" -StorageAccountResourceId "6789abcd-ef01-2345-6789-abcdef012345"  -DataSetId "0123abcd-ef01-2345-6789-abcdef012345"  -Container "StorageContainer"
+   New-AzDataShareDataSetMapping -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions" -Name "Fabrikam Solutions" -StorageAccountResourceId "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"  -DataSetId "0123abcd-ef01-2345-6789-abcdef012345"  -Container "StorageContainer"
    ```
 
 1. Run the [Start-AzDataShareSubscriptionSynchronization](/powershell/module/az.datashare/start-azdatasharesubscriptionsynchronization) command to start dataset synchronization.

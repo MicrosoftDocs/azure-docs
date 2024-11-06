@@ -1,7 +1,7 @@
 ---
 title: Create rules engine project with Visual Studio Code
 description: Create and implement a rules engine project with Visual Studio Code, Microsoft Rules Composer, and the Azure Logic Apps Rules Engine.
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos

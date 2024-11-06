@@ -3,7 +3,7 @@ title: 'Tutorial: Share outside your org - Azure Data Share'
 description: Tutorial - Share data with customers and partners using Azure Data Share  
 author:  sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 12/19/2023

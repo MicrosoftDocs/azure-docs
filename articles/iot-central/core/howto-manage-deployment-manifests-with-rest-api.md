@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 03/04/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 ---
@@ -19,8 +19,6 @@ To learn more about IoT Edge and IoT Central, see [Connect Azure IoT Edge device
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
-
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 To learn how to manage deployment manifests by using the IoT Central UI, see [Manage IoT Edge deployment manifests in your IoT Central application](howto-manage-deployment-manifests.md).
 

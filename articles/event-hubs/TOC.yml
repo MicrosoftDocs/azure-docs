@@ -55,8 +55,6 @@
           items:
           - name: Java
             href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-        - name: Send events using Data Generator
-          href: send-and-receive-events-using-data-generator.md
           displayName: No Code, Sample data
         - name: Stream large messages
           href: event-hubs-quickstart-stream-large-messages.md
@@ -93,6 +91,8 @@
     - name: Stream data into Azure Databricks using Event Hubs
       href: /azure/databricks/scenarios/databricks-stream-from-eventhubs
       maintainContext: true
+    - name: Use Event Hubs Data Explorer to run data operations on Azure Event Hubs
+      href: event-hubs-data-explorer.md
 - name: Samples
   items:
     - name: Code samples
@@ -112,7 +112,11 @@
     - name: Application groups
       href: resource-governance-overview.md  
     - name: Local emulator
-      href: overview-emulator.md
+      items:
+      - name: Overview of Event Hubs emulator
+        href: overview-emulator.md
+      - name: What's new with Event Hubs emulator
+        href: event-hubs-emulator-whats-new.md
     - name: Tiers 
       items: 
       - name: Premium tier
@@ -236,6 +240,10 @@
           href: apache-kafka-migration-guide.md
         - name: Kafka troubleshooting guide for Event Hubs
           href: apache-kafka-troubleshooting-guide.md
+        - name: Transactions in Apache Kafka for Azure Event Hubs
+          href: apache-kafka-transactions.md
+        - name: Kafka Streams for Azure Event Hubs
+          href: apache-kafka-streams.md
         - name: Replicate data from a Kafka cluster to Event Hubs
           items:
           - name: Using Apache Kafka Mirror Maker 2
@@ -315,10 +323,10 @@
 
     - name: Monitor
       items:
-        - name: Monitor Azure Event Hubs
+        - name: Monitor Event Hubs
           href: monitor-event-hubs.md
         - name: Stream Azure Diagnostics data using Event Hubs
-          href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md       
+          href: /azure/azure-monitor/agents/diagnostics-extension-stream-event-hubs       
     - name: Secure
       items:
         - name: Allow access from specific IP addresses
@@ -361,7 +369,7 @@
         href: ../operational-excellence/relocation-event-hub-cluster.md?toc=/azure/event-hubs/TOC.json
 - name: Reference
   items:
-    - name: Monitor data Reference
+    - name: Monitor data reference
       href: monitor-event-hubs-reference.md
     - name: SDKs
       href: sdks.md

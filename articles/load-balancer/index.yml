@@ -6,7 +6,7 @@ summary: Learn how to use Azure Load Balancer to efficiently distribute traffic 
 metadata:
   title: Load Balancer
   description: Learn how to use Azure Load Balancer to efficiently distribute traffic and improve application scalability. Explore quickstarts, tutorials, and how-to guides for deploying load balancers in virtual machines, cloud resources, and cross-premises networks.
-  ms.service: load-balancer
+  ms.service: azure-load-balancer
   ms.topic: landing-page
   author: mbender-ms
   ms.author: mbender
@@ -138,7 +138,7 @@ landingContent:
           - text: Configure TCP reset and idle timeout for Azure Load Balancer
             url: load-balancer-tcp-idle-timeout.md
           - text: Upgrade from Basic to Standard
-            url: upgrade-basic-standard.md
+            url: upgrade-basic-standard-with-powershell.md
       - linkListType: video
         links:
           - text: Deep dive into cross region load balancing

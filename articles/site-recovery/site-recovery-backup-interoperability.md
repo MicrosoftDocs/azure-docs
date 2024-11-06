@@ -2,8 +2,8 @@
 title: Support for using Azure Site Recovery with Azure Backup 
 description: Provides an overview of how Azure Site Recovery and Azure Backup can be used together.
 author: ankitaduttaMSFT
-ms.service: site-recovery
-ms.topic: conceptual
+ms.service: azure-site-recovery
+ms.topic: overview
 ms.date: 05/24/2024
 ms.author: ankitadutta
 

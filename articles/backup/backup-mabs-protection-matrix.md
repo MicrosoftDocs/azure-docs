@@ -1,9 +1,9 @@
 ---
 title: MABS (Azure Backup Server) V4 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server v4 protects.
-ms.date: 07/05/2024
-ms.topic: conceptual
-ms.service: backup
+ms.date: 09/11/2024
+ms.topic: reference
+ms.service: azure-backup
 ms.custom: linux-related-content, engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -58,7 +58,7 @@ The following sections details the protection support matrix for MABS:
 
 | **Workload** | **Version**                               | **Azure  Backup Server   installation**                      | **Supported  Azure Backup Server** | **Protection  and recovery**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | Linux running as [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) or [VMware](backup-azure-backup-server-vmware.md) or [Stack](backup-mabs-install-azure-stack.md) guest | Physical  server,    On-premises Hyper-V VM, Stack VM or VMware VM running Windows Server. | V4                             | Hyper-V  must be running on Windows Server 2016, Windows Server 2019, or Windows Server 2022. Protect:  Entire virtual machine   <br><br>   Recover: Entire virtual machine   <br><br>    Only file-consistent snapshots are supported.    <br><br>   For a complete list of supported Linux distributions and versions, see the  article, [Linux on distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md). |
+| Linux        | Linux running as [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) or [VMware](backup-azure-backup-server-vmware.md) or [Stack](backup-mabs-install-azure-stack.md) guest | Physical  server,    On-premises Hyper-V VM, Stack VM or VMware VM running Windows Server. | V4                             | Hyper-V  must be running on Windows Server 2016, Windows Server 2019, or Windows Server 2022. Protect:  Entire virtual machine   <br><br>   Recover: Entire virtual machine   <br><br>    Only file-consistent snapshots are supported.    <br><br>   For a complete list of supported Linux distributions and versions, see the  article, [Linux on distributions endorsed by Azure](/azure/virtual-machines/linux/endorsed-distros). |
 
 ## Operating systems and applications at end of support
 

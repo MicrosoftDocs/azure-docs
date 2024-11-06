@@ -4,8 +4,7 @@ description: Learn how to configure compute role on Azure Stack Edge Pro GPU dev
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 01/05/2021
 ms.author: alkohli

@@ -2,7 +2,7 @@
 title: Azure API Management Diagnose and solve problems
 description: Learn how to troubleshoot issues with your API in Azure API Management with the Diagnose and Solve tool in the Azure portal. 
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: danlep
@@ -82,5 +82,5 @@ In additional to the Diagnose and solve problems tools, you can search for troub
 
 * Also use [API analytics](howto-use-analytics.md) to analyze the usage and performance of the APIs. 
 * Want to troubleshoot Web Apps issues with Diagnostics? Read it [here](../app-service/overview-diagnostics.md)
-* Leverage Diagnostics to check Azure Kubernetes Services issues. See [Diagnostics on AKS](../aks/concepts-diagnostics.md)
+* Leverage Diagnostics to check Azure Kubernetes Services issues. See [Diagnostics on AKS](/azure/aks/concepts-diagnostics)
 * Post your questions or feedback at [UserVoice](https://feedback.azure.com/d365community/forum/e808a70c-ff24-ec11-b6e6-000d3a4f0858) by adding "[Diag]" in the title.

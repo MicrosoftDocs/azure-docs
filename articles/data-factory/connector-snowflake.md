@@ -4,11 +4,11 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Snowflake using Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/24/2024
+ms.date: 10/22/2024
+ai-usage: ai-assisted
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -18,7 +18,7 @@ ms.date: 06/24/2024
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information, see the introductory article for [Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!IMPORTANT]
->The new Snowflake connector provides improved native Snowflake support. If you are using the legacy Snowflake connector in your solution, please [upgrade your Snowflake connector](#upgrade-the-snowflake-linked-service) before **October 31, 2024**. Refer to this [section](#differences-between-snowflake-and-snowflake-legacy) for details on the difference between the legacy and latest version. 
+>The new Snowflake connector provides improved native Snowflake support. If you are using the legacy Snowflake connector in your solution, you are recommended to [upgrade your Snowflake connector](#upgrade-the-snowflake-linked-service) at your earliest convenience. Refer to this [section](#differences-between-snowflake-and-snowflake-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
@@ -404,6 +404,27 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
 ]
 ```
 
+When performing a staged copy from Snowflake, it is crucial to set the Sink Copy Behavior to **Merge Files**. This setting ensures that all partitioned files are correctly handled and merged, preventing the issue where only the last partitioned file is copied. 
+
+**Example Configuration**
+
+```json
+{
+    "type": "Copy",
+    "source": {
+        "type": "SnowflakeSource",
+        "query": "SELECT * FROM my_table"
+    },
+    "sink": {
+        "type": "AzureBlobStorage",
+        "copyBehavior": "MergeFiles"
+    }
+}
+```
+
+>[!NOTE]
+>Failing to set the Sink Copy Behavior to **Merge Files** may result in only the last partitioned file being copied.
+
 ### Snowflake as sink
 
 Snowflake connector utilizes Snowflake’s [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports writing data to Snowflake on Azure.
@@ -661,9 +682,77 @@ By setting the pipeline Logging Level to None, we exclude the transmission of in
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Snowflake linked service
+## <a name="upgrade-the-snowflake-linked-service"></a> Upgrade the Snowflake connector
 
-To upgrade the Snowflake linked service, create a new Snowflake linked service and configure it by referring to [Linked service properties](#linked-service-properties). 
+To upgrade the Snowflake connector, you can do a side-by-side upgrade, or an in-place upgrade.
+
+### Side-by-side upgrade
+
+To perform a side-by-side upgrade, complete the following steps:
+
+1. Create a new Snowflake linked service and configure it by referring to the linked service properties.  
+1. Create a dataset based on the newly created Snowflake linked service.
+1. Replace the new linked service and dataset with the existing ones in the pipelines that targets the legacy objects. 
+
+### In-place upgrade
+
+To perform an in-place upgrade, you need to edit the existing linked service payload and update dataset to use the new linked service.
+
+1. Update the type from **Snowflake** to **SnowflakeV2**.
+1. Modify the linked service payload from its legacy format to the new pattern. You can either fill in each field from the user interface after changing the type mentioned above, or update the payload directly through the JSON Editor. Refer to the [Linked service properties](#linked-service-properties) section in this article for the supported connection properties. The following examples show the differences in payload for the legacy and new Snowflake linked services:
+
+   **Legacy Snowflake linked service JSON payload:**
+   ```json
+     {
+        "name": "Snowflake1",
+        "type": "Microsoft.DataFactory/factories/linkedservices",
+        "properties": {
+            "annotations": [],
+            "type": "Snowflake",
+            "typeProperties": {
+                "authenticationType": "Basic",
+                "connectionString": "jdbc:snowflake://<fake_account>.snowflakecomputing.com/?user=FAKE_USER&db=FAKE_DB&warehouse=FAKE_DW&schema=PUBLIC",
+                "encryptedCredential": "<your_encrypted_credential_value>"
+            },
+            "connectVia": {
+                "referenceName": "AzureIntegrationRuntime",
+                "type": "IntegrationRuntimeReference"
+            }
+        }
+    }
+   ```
+
+   **New Snowflake linked service JSON payload:**
+   ```json
+    {
+        "name": "Snowflake2",
+        "type": "Microsoft.DataFactory/factories/linkedservices",
+        "properties": {
+            "parameters": {
+                "schema": {
+                    "type": "string",
+                    "defaultValue": "PUBLIC"
+                }
+            },
+            "annotations": [],
+            "type": "SnowflakeV2",
+            "typeProperties": {
+                "authenticationType": "Basic",
+                "accountIdentifier": "<FAKE_Account>",
+                "user": "FAKE_USER",
+                "database": "FAKE_DB",
+                "warehouse": "FAKE_DW",
+                "encryptedCredential": "<placeholder>"
+            },
+            "connectVia": {
+                "referenceName": "AutoResolveIntegrationRuntime",
+                "type": "IntegrationRuntimeReference"
+            }
+        }
+    }
+   ```
+
+1. Update dataset to use the new linked service. You can either create a new dataset based on the newly created linked service, or update an existing dataset's type property from **SnowflakeTable** to **SnowflakeV2Table**. 
 
 ## Differences between Snowflake and Snowflake (legacy)
 
@@ -674,6 +763,7 @@ The Snowflake connector offers new functionalities and is compatible with most f
 | Support Basic and Key pair authentication. | Support Basic authentication. | 
 | Script parameters are not supported in Script activity currently. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md). | Support script parameters in Script activity. | 
 | Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. | BigDecimal is not supported in Lookup activity.  | 
+| Legacy ```connectionstring``` property is deprecated in favor of required parameters **Account**, **Warehouse**, **Database**, **Schema**, and **Role** | In the legacy Snowflake connector, the `connectionstring` property was used to establish a connection. |
 
 ## Related content
 

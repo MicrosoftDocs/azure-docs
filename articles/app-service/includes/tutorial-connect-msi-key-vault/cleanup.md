@@ -34,7 +34,7 @@ At the moment, connection secrets are stored as app settings in your App Service
     az keyvault create --resource-group $groupName --name $vaultName --location $region --sku standard --enable-rbac-authorization
     ```
 
-    The `--enable-rbac-authorization` parameter [sets Azure role-based access control (RBAC) as the permission model](../../../key-vault/general/rbac-guide.md#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault). This setting by default invalidates all access policies permissions.
+    The `--enable-rbac-authorization` parameter [sets Azure role-based access control (RBAC) as the permission model](/azure/key-vault/general/rbac-guide#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault). This setting by default invalidates all access policies permissions.
 
 1. Give yourself the *Key Vault Secrets Officer* RBAC role for the vault.
     

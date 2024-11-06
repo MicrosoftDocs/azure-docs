@@ -1,9 +1,9 @@
 ---
-title: What's new in Azure Backup
+title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
-ms.topic: conceptual
-ms.date: 07/02/2024
-ms.service: backup
+ms.topic: release-notes
+ms.date: 10/17/2024
+ms.service: azure-backup
 ms.custom:
   - ignite-2023
 author: AbhishekMallick-MS
@@ -17,7 +17,11 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
+- October 2024
+    - [GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.](#grs-and-crr-support-for-azure-vms-using-premium-ssd-v2-and-ultra-disk-is-now-generally-available)
+    - [Back up Azure VMs with Extended Zones](#back-up-azure-vms-with-extended-zones-preview)
 - July 2024
+  - [Azure Blob vaulted backup is now generally available](#azure-blob-vaulted-backup-is-now-generally-available)
   - [Backup and restore of virtual machines with private endpoint enabled disks is now Generally Available](#backup-and-restore-of-virtual-machines-with-private-endpoint-enabled-disks-is-now-generally-available)
 - May 2024
   - [Migration of Azure VM backups from standard to enhanced policy (preview)](#migration-of-azure-vm-backups-from-standard-to-enhanced-policy-preview)
@@ -88,6 +92,33 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+
+## GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.
+
+Azure Backup now supports backup of Azure VMs using Premium SSD v2 and Ultra disk on GRS vaults and performs Cross-Region Restore (CRR). With Geo-redundant storage (GRS) and cross-region restore support, you can protect your virtual machines from data loss during a disaster and perform periodic audits by restoring data on demand in the secondary region.
+
+>[!Note]
+>Premium SSD v2 offering provides the most advanced block storage solution designed for a broad range of IO-intensive enterprise production workloads that require sub-millisecond disk latencies as well as high IOPS and throughput — at a low cost.
+
+For more information, see the [VM backup support matrix for the supported features and region availability](backup-support-matrix-iaas.md#vm-storage-support).
+
+
+## Back up Azure VMs with Extended Zones (preview)
+
+Azure Backup now enables you to back up your Azure virtual machines in the [Azure Extended Zones](../extended-zones/overview.md). Azure Extended Zones offer enhanced resiliency by distributing resources across multiple physical locations within an Azure region. You can back up multiple Azure virtual machines in Azure Extended Zones.
+
+For more information, see [Back up an Azure Virtual Machine in Azure Extended Zones](./backup-azure-vms-enhanced-policy.md).
+
+## Azure Blob vaulted backup is now generally available
+
+Azure Backup now enables you to perform a vaulted backup of block blob data in *general-purpose v2 storage accounts* to protect data against ransomware attacks or source data loss due to malicious or rogue admin. You can define the backup schedule to create recovery points and the retention settings that determine how long backups will be retained in the vault. You can configure and manage the vaulted and operational backups using a single backup policy. 
+
+Under vaulted backups, the data is copied and stored in the Backup vault. So, you get an offsite copy of data that can be retained for up to *10 years*. If any data loss happens on the source account, you can trigger a restore to an alternate account and get access to your data. The vaulted backups can be managed at scale via the Backup center, and monitored via the rich alerting and reporting capabilities offered by the Azure Backup service.
+
+If you're currently using operational backups, we recommend you to switch to vaulted backups for complete protection against different data loss scenarios.
+
+For more information, see [Azure Blob backup overview](blob-backup-overview.md?tabs=vaulted-backup).
 
 ## Backup and restore of virtual machines with private endpoint enabled disks is now Generally Available
 
@@ -410,7 +441,7 @@ For more information, see [how to configure multiple backups per day via backup 
 
 ## Azure Backup metrics and metrics alerts (in preview)
 
-Azure Backup now provides a set of built-in metrics via [Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md) that allows you to monitor the health of your backups. You can also configure alert rules that trigger alerts when metrics exceed the defined thresholds.
+Azure Backup now provides a set of built-in metrics via [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics) that allows you to monitor the health of your backups. You can also configure alert rules that trigger alerts when metrics exceed the defined thresholds.
 
 Azure Backup offers the following key capabilities:
  

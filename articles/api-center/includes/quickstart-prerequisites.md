@@ -4,7 +4,7 @@ description: Include file
 services: api-center
 author: dlepow
 
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: include
 ms.date: 04/19/2024
 ms.author: danlep

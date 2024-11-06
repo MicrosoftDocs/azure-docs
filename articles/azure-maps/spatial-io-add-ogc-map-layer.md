@@ -7,6 +7,7 @@ ms.author: sipa
 ms.date: 06/16/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Add a map layer from the Open Geospatial Consortium (OGC)

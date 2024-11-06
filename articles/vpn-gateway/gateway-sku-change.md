@@ -3,9 +3,9 @@ title: 'Change a gateway SKU'
 titleSuffix: Azure VPN Gateway
 description: Learn how to change a gateway SKU.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 08/06/2024
 ms.author: cherylmc
 
 ---

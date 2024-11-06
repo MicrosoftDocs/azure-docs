@@ -4,7 +4,7 @@ description: Learn about ways to improve performance and throughput for premium 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/08/2024
+ms.date: 11/04/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -28,8 +28,8 @@ The following tips might help you optimize performance:
 - Ensure that your storage account and your client are co-located in the same Azure region to reduce network latency.
 - Use multi-threaded applications and spread load across multiple files.
 - Performance benefits of SMB Multichannel increase with the number of files distributing load.
-- Premium share performance is bound by provisioned share size (IOPS/egress/ingress) and single file limits. For details, see [Understanding provisioning for premium file shares](understanding-billing.md#provisioned-model).
-- Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) can support a maximum bandwidth of 16,000 MBps (or 2GBps), egress from the VM (writes to storage) is metered, ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, as well as other factors.
+- Premium share performance is bound by provisioned share size (IOPS/egress/ingress) and single file limits. For details, see [Understanding provisioning for premium file shares](understanding-billing.md#provisioned-v1-model).
+- Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) can support a maximum bandwidth of 16,000 MBps (or 2GBps), egress from the VM (writes to storage) is metered, ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, as well as other factors.
 - The initial test is usually a warm-up. Discard the results and repeat the test.
 - If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading load over multiple clients.
 
@@ -41,15 +41,7 @@ Higher I/O sizes drive higher throughput and will have higher latencies, resulti
 
 ## SMB Multichannel
 
-SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares (file shares in the FileStorage storage account kind) for Windows clients. On the service side, SMB Multichannel is disabled by default in Azure Files, but there's no additional cost for enabling it.
-
-Beginning in July 2024, SMB Multichannel will be enabled by default for all newly created Azure storage accounts in the following regions:
-
-- Central India (Jio)
-- West India (Jio)
-- West India
-- Korea South
-- Norway West
+SMB Multichannel enables an SMB client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares for Windows clients. On the service side, SMB Multichannel is now enabled by default for all newly created storage accounts in all Azure regions. There's no additional cost for enabling SMB Multichannel.
 
 ### Benefits
 
@@ -106,8 +98,6 @@ In most scenarios, particularly multi-threaded workloads, clients should see imp
 `Get-SmbMultichannelConnection |fl`
 1. Look for **MaxChannels** and **CurrentChannels** properties.
 
-:::image type="content" source="media/smb-performance/files-smb-multi-channel-connection.PNG" alt-text="Screenshot of Get-SMBMultichannelConnection results." lightbox="media/smb-performance/files-smb-multi-channel-connection.PNG":::
-
 ### Performance comparison
 
 There are two categories of read/write workload patterns: single-threaded and multi-threaded. Most workloads use multiple files, but there could be specific use cases where the workload works with a single file in a share. This section covers different use cases and the performance impact for each of them. In general, most workloads are multi-threaded and distribute workload over multiple files so they should observe significant performance improvements with SMB Multichannel.
@@ -125,9 +115,7 @@ For the charts in this article, the following configuration was used: A single S
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) | 32 | 128 | 256 | 32 | 64000/512 (800)    | 51200/768  | 8|16000 |
-
-:::image type="content" source="media/smb-performance/files-smb-multi-channel-nic-settings-all-nics.PNG" alt-text="Screenshot that shows the performance test configuration." lightbox="media/smb-performance/files-smb-multi-channel-nic-settings-all-nics.PNG":::
+| [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) | 32 | 128 | 256 | 32 | 64000/512 (800)    | 51200/768  | 8|16000 |
 
 ### Multi-threaded/multiple files with SMB Multichannel
 
@@ -160,27 +148,87 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 
 ## Metadata caching for premium SMB file shares
 
-Metadata caching is an enhancement for SMB Azure premium file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. This preview feature improves the following metadata APIs and can be used from both Windows and Linux clients:
+Metadata caching is an enhancement for premium SMB Azure file shares aimed to improve the following:
+
+- Reduce metadata latency
+- Raised metadata scale limits
+- Increase latency consistency, available IOPS, and boost network throughput
+
+This preview feature improves the following metadata APIs and can be used from both Windows and Linux clients:
 
 - Create
 - Open
 - Close
 - Delete
 
-To onboard, [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview) and we'll provide you with additional details. Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
+Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
+
+### Register for the feature
+
+To get started, register for the feature using the Azure portal or Azure PowerShell.
+
+# [Azure portal](#tab/portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
+2. Search for and select **Preview features**.
+3. Select the **Type** filter and select **Microsoft.Storage**.
+4. Select **Azure Premium Files Metadata Cache Preview** and then select **Register**.
+
+# [Azure PowerShell](#tab/powershell)
+
+To register your subscription using Azure PowerShell, run the following commands. Replace `<your-subscription-id>` and `<your-tenant-id>` with your own values. 
+
+```azurepowershell-interactive
+Connect-AzAccount -SubscriptionId <your-subscription-id> -TenantId <your-tenant-id> 
+Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -ProviderNamespace Microsoft.Storage 
+```
+---
+
+> [!IMPORTANT]
+> Allow 1-2 days for accounts to be onboarded once registration is complete.
 
 ### Regional availability
 
-Currently the metadata caching preview is only available in the following Azure regions.
+Currently the metadata caching preview is only available in the following Azure regions. To request additional region support, [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview).
 
+- Asia East
+- Australia Central
 - Australia East
-- Brazil South East
-- France South
+- Australia Southeast
+- Brazil South
+- Canada Central
+- Canada East
+- Europe North
+- France Central
 - Germany West Central
+- Japan East
+- Japan West
+- Jio India West
+- India Central
+- India South
+- India West
+- Israel Central
+- Italy North
+- Korea Central
+- Korea South
+- Mexico Central
+- Norway East
+- Poland Central
+- Qatar Central
+- Spain Central
+- Sweden Central
 - Switzerland North
-- UAE Central
 - UAE North
+- UK West
+- UK South
+- US North Central
+- US South Central
 - US West Central
+- US West 2
+- US West 3
+
+> [!TIP]
+> As we extend region support for the Metadata Cache feature, premium file storage accounts in those regions will be automatically onboarded for all subscriptions registered with the Metadata Caching feature.
 
 ### Performance improvements with metadata caching
 

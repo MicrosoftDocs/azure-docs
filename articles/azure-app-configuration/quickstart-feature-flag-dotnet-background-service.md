@@ -1,7 +1,7 @@
 ---
 title: Quickstart for adding feature flags to .NET background service
 titleSuffix: Azure App Configuration
-description: A quickstart for adding feature flags to .NET background services and managing them in Azure App Configuration
+description: Learn to implement feature flags in your .NET background service using feature management and Azure App Configuration. Dynamically manage feature rollouts, conduct A/B testing, and control feature visibility without redeploying the app.
 services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.service: azure-app-configuration

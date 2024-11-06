@@ -1,5 +1,5 @@
 ---
-title: Use Azure CLI to manage data (Azure Data Lake Storage Gen2)
+title: Use Azure CLI to manage data (Azure Data Lake Storage)
 titleSuffix: Azure Storage
 description: Use the Azure CLI to manage directories and files in storage accounts that have a hierarchical namespace.
 services: storage
@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
 
-# Manage directories and files in Azure Data Lake Storage Gen2 via the Azure CLI
+# Manage directories and files in Azure Data Lake Storage via the Azure CLI
 
 This article shows you how to use the [Azure CLI](/cli/azure/) to create and manage directories and files in storage accounts that have a hierarchical namespace.
 
-To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md).
+To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use Azure CLI to manage ACLs in Azure Data Lake Storage](data-lake-storage-acl-cli.md).
 
 [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -222,4 +222,4 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 - [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 - [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)
+- [Use Azure CLI to manage ACLs in Azure Data Lake Storage](data-lake-storage-acl-cli.md)

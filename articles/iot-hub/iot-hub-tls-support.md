@@ -3,7 +3,7 @@
  description: Learn about using secure TLS connections for devices and services communicating with IoT Hub
  services: iot-hub
  author: kgremban
- ms.service: iot-hub
+ ms.service: azure-iot-hub
  ms.topic: conceptual
  ms.date: 01/05/2024
  ms.author: kgremban
@@ -58,7 +58,7 @@ For added security, configure your IoT Hubs to *only* allow client connections t
 * US Gov Arizona
 * US Gov Virginia (TLS 1.0/1.1 support isn't available in this region - TLS 1.2 enforcement must be enabled or IoT hub creation fails)
 
-To enable TLS 1.2 enforcement, follow the steps in [Create IoT hub in Azure portal](iot-hub-create-through-portal.md), except
+To enable TLS 1.2 enforcement, follow the steps in [Create an IoT hub in Azure portal](create-hub.md), except
 
 - Choose a **Region** from one in the list above.
 - Under **Management -> Advanced -> Transport Layer Security (TLS) -> Minimum TLS version**, select **1.2**. This setting only appears for IoT hub created in supported region.

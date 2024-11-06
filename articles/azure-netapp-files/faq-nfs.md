@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/15/2023
+ms.date: 05/21/2024
 ---
 # NFS FAQs for Azure NetApp Files
 
@@ -123,7 +123,7 @@ When using NFSv4.1, dNFS won't work with multiple paths. If you need multiple pa
 
 - [Microsoft Azure ExpressRoute FAQs](../expressroute/expressroute-faqs.md)
 - [Microsoft Azure Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Azure Data Box](../databox/index.yml)
 - [FAQs about SMB performance for Azure NetApp Files](azure-netapp-files-smb-performance.md)
 - [Networking FAQs](faq-networking.md)

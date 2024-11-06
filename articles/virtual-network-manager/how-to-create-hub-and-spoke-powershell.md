@@ -3,7 +3,7 @@ title: 'Create a hub and spoke topology in Azure - PowerShell'
 description: Learn how to create a hub and spoke network topology for multiple virtual networks with Azure Virtual Network Manager using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 05/07/2024
 ms.custom: template-concept, engagement-fy23, devx-track-azurepowershell
@@ -76,7 +76,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
     [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerHub]]$hubList = @()
     
     $hub = @{
-        ResourceId = '/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA'
+        ResourceId = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA'
         ResourceType = 'Microsoft.Network/virtualNetworks'
     } 
     $hubvnet = New-AzNetworkManagerHub @hub

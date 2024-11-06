@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: In this how-to guide, learn how to configure SUPI concealment. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 02/01/2024
 ms.custom: template-how-to
@@ -79,7 +79,7 @@ The home network private keys are stored in Azure Key Vault.
 > [!IMPORTANT]
 > You must use the Azure command line to upload the keys because the portal doesn't support multi-line entries.
 
-1. Either [create an Azure Key Vault](../key-vault/general/quick-create-portal.md) or choose an existing one to host your private keys. Ensure that the Key Vault uses role based access control (RBAC) for authorization. The user will need the Key Vault Secrets Officer role.
+1. Either [create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) or choose an existing one to host your private keys. Ensure that the Key Vault uses role based access control (RBAC) for authorization. The user will need the Key Vault Secrets Officer role.
 
 1. Upload the private key to the Key Vault as a secret, specifying a name to identify it:
 

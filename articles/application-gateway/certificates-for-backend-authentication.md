@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: This article provides examples of how a TLS/SSL certificate can be converted to authentication certificate and trusted root certificate that are required to allow backend instances in Azure Application Gateway
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.author: greglin

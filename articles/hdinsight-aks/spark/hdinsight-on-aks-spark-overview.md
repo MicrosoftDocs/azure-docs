@@ -1,14 +1,17 @@
 ---
 title: What is Apache Spark™ in HDInsight on AKS? (Preview)
 description: An introduction to Apache Spark™ in HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 10/27/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # What is Apache Spark™ in HDInsight on AKS? (Preview)
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Apache Spark™ is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. 
 

@@ -1,7 +1,7 @@
 ---
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
-ms.date: 06/27/2024
+ms.date: 08/08/2024
 ms.topic: conceptual
 ---
 
@@ -31,6 +31,10 @@ with the Batch service. Due to the reduced scope of inbound/outbound connections
 outbound access for baseline operation, the recommendation is to use the simplified node communication model. The classic
 node communication model will be
 [retired on March 31, 2026](batch-pools-to-simplified-compute-node-communication-model-migration-guide.md).
+
+Pools should also be configured with enhanced security settings, including
+[Trusted Launch](/azure/virtual-machines/trusted-launch) (requires Gen2 VM images and a compatible VM size),
+enabling secure boot, vTPM, and encryption at host (requires a compatible VM size).
 
 ### Batch account authentication
 
@@ -76,7 +80,7 @@ publisher.
 It's recommended to enable [Auto OS upgrade for Batch pools](batch-upgrade-policy.md), which allows the underlying
 Azure infrastructure to coordinate updates across the pool. This option can be configured to be nondisrupting for task
 execution. Automatic OS upgrade doesn't support all operating systems that Batch supports. For more information, see the
-[Virtual Machine Scale Sets Auto OS upgrade Support Matrix](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#supported-os-images).
+[Virtual Machine Scale Sets Auto OS upgrade Support Matrix](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade#supported-os-images).
 For Windows operating systems, ensure that you aren't enabling the property
 `virtualMachineConfiguration.windowsConfiguration.enableAutomaticUpdates` when using Auto OS upgrade on the Batch pool.
 
@@ -175,7 +179,7 @@ Clients communicating with the Batch service should be configured to use Transpo
 
 Some of the information specified in Batch APIs, such as account certificates, job and task metadata, and task command lines, is automatically encrypted when stored by the Batch service. By default, this data is encrypted using Azure Batch platform-managed keys unique to each Batch account.
 
-You can also encrypt this data using [customer-managed keys](batch-customer-managed-key.md). [Azure Key Vault](../key-vault/general/overview.md) is used to generate and store the key, with the key identifier registered with your Batch account.
+You can also encrypt this data using [customer-managed keys](batch-customer-managed-key.md). [Azure Key Vault](/azure/key-vault/general/overview) is used to generate and store the key, with the key identifier registered with your Batch account.
 
 ### Encrypt compute node disks
 
@@ -183,8 +187,8 @@ Batch compute nodes have two disks by default: an OS disk and the local temporar
 
 For extra security, encrypt these disks using one of these Azure disk encryption capabilities:
 
-- [Managed disk encryption at rest with platform-managed keys](../virtual-machines/disk-encryption.md#platform-managed-keys)
-- [Encryption at host using a platform-managed key](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Managed disk encryption at rest with platform-managed keys](/azure/virtual-machines/disk-encryption#platform-managed-keys)
+- [Encryption at host using a platform-managed key](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure Disk Encryption](disk-encryption.md)
 
 ## Securely access services from compute nodes

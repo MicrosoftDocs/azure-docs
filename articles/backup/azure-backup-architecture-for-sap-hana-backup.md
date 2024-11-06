@@ -1,9 +1,9 @@
 ---
 title: Azure Backup architecture for SAP HANA Backup
 description: Learn about Azure Backup architecture for SAP HANA backup.
-ms.topic: conceptual
-ms.date: 11/02/2023
-ms.service: backup
+ms.topic: overview
+ms.date: 10/14/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -76,7 +76,7 @@ This section provides you with an understanding about the backup process of an H
 
    If you aren’t using firewall/NVA  in your setup, then the backup stream is transferred over the Azure network to the Recovery Services vault / Azure Storage. Also, you can set up [Virtual Network Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) or [Private Endpoint](../private-link/private-endpoint-overview.md) to allow SAP HANA to send backup traffic directly to Recovery Services Vault / Azure Storage, skipping NVA/Azure Firewall. Additionally, when you use firewall/NVA, the traffic to Microsoft Entra ID and Azure Backup Service will pass through the firewall/NVA and it doesn’t affect the overall backup performance. 
 
-1. Azure Backup attempts to achieve speeds up to 420 MB/sec for non-log backups and up to 100 MB/sec for log backups. [Learn more](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) about backup and restore throughput performance.
+1. Azure Backup attempts to achieve speeds up to 420 MB/sec for non-log backups and up to 100 MB/sec for log backups. [Learn more](./tutorial-backup-sap-hana-db.md#understanding-the-backup-and-restore-throughput-performance) about backup and restore throughput performance.
 
 1. Detailed logs are written to the *backup.log* and *backint.log* files on the SAP HANA instance.
 

@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
@@ -74,6 +74,8 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 
 [!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
 
-## See also
+### See also
 
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

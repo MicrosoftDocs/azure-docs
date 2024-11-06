@@ -166,7 +166,7 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 
 ### applicationInsights.samplingSettings
 
-For more information about these settings, see [Sampling in Application Insights](../azure-monitor/app/sampling.md). 
+For more information about these settings, see [Sampling in Application Insights](/azure/azure-monitor/app/sampling). 
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
@@ -194,11 +194,11 @@ For more information about these settings, see [Sampling in Application Insights
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
-| enableSqlCommandTextInstrumentation | false | Enables collection of the full text of SQL queries, which is disabled by default. For more information on collecting SQL query text, see [Advanced SQL tracking to get full SQL query](../azure-monitor/app/asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query). |
+| enableSqlCommandTextInstrumentation | false | Enables collection of the full text of SQL queries, which is disabled by default. For more information on collecting SQL query text, see [Advanced SQL tracking to get full SQL query](/azure/azure-monitor/app/asp-net-dependencies#advanced-sql-tracking-to-get-full-sql-query). |
 
 ### applicationInsights.snapshotConfiguration
 
-For more information on snapshots, see [Debug snapshots on exceptions in .NET apps](../azure-monitor/app/snapshot-debugger.md) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot).
+For more information on snapshots, see [Debug snapshots on exceptions in .NET apps](/azure/azure-monitor/app/snapshot-debugger) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot).
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 

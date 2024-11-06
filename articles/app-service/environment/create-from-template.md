@@ -14,20 +14,24 @@ ms.custom: devx-track-arm-template
 ## Overview
 
 > [!IMPORTANT]
-> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-4/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+> This article is about App Service Environment v2, which is used with Isolated App Service plans. [App Service Environment v1 and v2 are retired as of 31 August 2024](https://aka.ms/postEOL/ASE). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
 >
-> As of 29 January 2024, you can no longer create new App Service Environment v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
+> As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
+>
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+>
+> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
 >
 > For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
 
-Azure App Service environments (ASEs) can be created with an internet-accessible endpoint or an endpoint on an internal address in an Azure Virtual Network. When created with an internal endpoint, that endpoint is provided by an Azure component called an internal load balancer (ILB). The ASE on an internal IP address is called an ILB ASE. The ASE with a public endpoint is called an External ASE. 
+Azure App Service environments (ASEs) can be created with an internet-accessible endpoint or an endpoint on an internal address in an Azure Virtual Network. When created with an internal endpoint, that endpoint is provided by an Azure component called an internal load balancer (ILB). The ASE on an internal IP address is called an ILB ASE. The ASE with a public endpoint is called an External ASE.
 
 An ASE can be created by using the Azure portal or an Azure Resource Manager template. This article walks through the steps and syntax you need to create an External ASE or ILB ASE with Resource Manager templates. To learn how to create an ASEv2 in the Azure portal, see [Make an External ASE][MakeExternalASE] or [Make an ILB ASE][MakeILBASE].
 
-When you create an ASE in the Azure portal, you can create your virtual network at the same time or choose a pre-existing virtual network to deploy into. 
+When you create an ASE in the Azure portal, you can create your virtual network at the same time or choose a pre-existing virtual network to deploy into.
 
-When you create an ASE from a template, you must start with: 
+When you create an ASE from a template, you must start with:
 
 * An Azure Virtual Network.
 * A subnet in that virtual network. We recommend an ASE subnet size of `/24` with 256 addresses to accommodate future growth and scaling needs. After the ASE is created, you can't change the size.
@@ -40,13 +44,14 @@ To automate your ASE creation, follow they guidelines in the following sections.
 
 2. The uploaded TLS/SSL certificate is assigned to the ILB ASE as its "default" TLS/SSL certificate.  This certificate is used for TLS/SSL traffic to apps on the ILB ASE when they use the common root domain that's assigned to the ASE (for example, `https://someapp.internal.contoso.com`).
 
-
 ## Create the ASE
+
 A Resource Manager template that creates an ASE and its associated parameters file is available on GitHub for [ASEv2][quickstartasev2create].
 
 If you want to make an ASE, use this Resource Manager template [ASEv2][quickstartilbasecreate] example. Most of the parameters in the *azuredeploy.parameters.json* file are common to the creation of ILB ASEs and External ASEs. The following list calls out parameters of special note, or that's unique, when you create an ILB ASE with an existing subnet.
 
 ### Parameters
+
 * *aseName*: This parameter defines a unique ASE name.
 * *location*: This parameter defines the location of the App Service Environment.
 * *existingVirtualNetworkName*: This parameter defines the virtual network name of the existing virtual network and subnet where ASE will reside.
@@ -68,12 +73,13 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 It takes about two hours for the ASE to be created. Then the ASE shows up in the portal in the list of ASEs for the subscription that triggered the deployment.
 
 ## Upload and configure the "default" TLS/SSL certificate
-A TLS/SSL certificate must be associated with the ASE as the "default" TLS/SSL certificate that's used to establish TLS connections to apps. If the ASE's default DNS suffix is *internal.contoso.com*, a connection to `https://some-random-app.internal.contoso.com` requires an TLS/SSL certificate that's valid for **.internal.contoso.com*. 
+
+A TLS/SSL certificate must be associated with the ASE as the "default" TLS/SSL certificate that's used to establish TLS connections to apps. If the ASE's default DNS suffix is *internal.contoso.com*, a connection to `https://some-random-app.internal.contoso.com` requires an TLS/SSL certificate that's valid for **.internal.contoso.com*.
 
 Obtain a valid TLS/SSL certificate by using internal certificate authorities, purchasing a certificate from an external issuer, or using a self-signed certificate. Regardless of the source of the TLS/SSL certificate, the following certificate attributes must be configured properly:
 
 * **Subject**: This attribute must be set to **.your-root-domain-here.com*.
-* **Subject Alternative Name**: This attribute must include both **.your-root-domain-here.com* and **.scm.your-root-domain-here.com*. TLS connections to the SCM/Kudu site associated with each app use an address of the form *your-app-name.scm.your-root-domain-here.com*.
+* **Subject Alternative Name**: This attribute must include both **.your-root-domain-here.com* and**.scm.your-root-domain-here.com*. TLS connections to the SCM/Kudu site associated with each app use an address of the form *your-app-name.scm.your-root-domain-here.com*.
 
 With a valid TLS/SSL certificate in hand, two more preparatory steps are needed. Convert/save the TLS/SSL certificate as a .pfx file. Remember that the .pfx file must include all intermediate and root certificates. Secure it with a password.
 
@@ -84,7 +90,7 @@ Use the following PowerShell code snippet to:
 * Generate a self-signed certificate.
 * Export the certificate as a .pfx file.
 * Convert the .pfx file into a base64-encoded string.
-* Save the base64-encoded string to a separate file. 
+* Save the base64-encoded string to a separate file.
 
 This PowerShell code for base64 encoding was adapted from the [PowerShell scripts blog][examplebase64encoding]:
 
@@ -102,7 +108,7 @@ $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 $fileContentEncoded | set-content ($fileName + ".b64")
 ```
 
-After the TLS/SSL certificate is successfully generated and converted to a base64-encoded string, use the example Resource Manager template [Configure the default SSL certificate][quickstartconfiguressl] on GitHub. 
+After the TLS/SSL certificate is successfully generated and converted to a base64-encoded string, use the example Resource Manager template [Configure the default SSL certificate][quickstartconfiguressl] on GitHub.
 
 The parameters in the *azuredeploy.parameters.json* file are listed here:
 
@@ -161,16 +167,5 @@ However, just like apps that run on the public multitenant service, developers c
 [quickstartilbasecreate]: https://azure.microsoft.com/resources/templates/web-app-asev2-ilb-create
 [quickstartasev2create]: https://azure.microsoft.com/resources/templates/web-app-asev2-create
 [quickstartconfiguressl]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-configure-default-ssl
-[quickstartwebapponasev2create]: https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev2-create
-[examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
-[configuringDefaultSSLCertificate]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-configure-default-ssl/
-[Intro]: ./intro.md
-[MakeASEfromTemplate]: ./create-from-template.md
+[examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html
 [MakeILBASE]: ./create-ilb-ase.md
-[ASENetwork]: ./network-info.md
-[UsingASE]: ./using-an-ase.md
-[ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
-[ASEv1Intro]: app-service-app-service-environment-intro.md
-[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/management/overview.md
-[ConfigureSSL]: ../../app-service/configure-ssl-certificate.md

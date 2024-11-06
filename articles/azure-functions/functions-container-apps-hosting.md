@@ -1,7 +1,7 @@
 ---
 title: Azure Container Apps hosting of Azure Functions 
 description: Learn about how you can use Azure Functions on Azure Container Apps to host and manage containerized function apps in Azure.
-ms.date: 07/04/2024
+ms.date: 11/05/2024
 ms.topic: conceptual
 ms.custom: build-2024, linux-related-content
 # Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers managed by Azure Container Apps.
@@ -78,7 +78,7 @@ az functionapp config container set --name <APP_NAME> --resource-group <MY_RESOU
 
 ## Managed resource groups
 
-Azure Functions on Container Apps runs your containerized function app resources in specially managed resource groups. These managed resource groups help protect the consistency of your apps by preventing unintended or unauthorized modification or deletion of resources in the managed group, even by service principles. 
+Azure Functions on Container Apps runs your containerized function app resources in specially managed resource groups. These managed resource groups help protect the consistency of your apps by preventing unintended or unauthorized modification or deletion of resources in the managed group, even by service principals. 
 
 A managed resource group is created for you the first time you create function app resources in a Container Apps environment. Container Apps resources required by your containerized function app run in this managed resource group. Any other function apps that you create in the same environment use this existing group. 
 
@@ -91,18 +91,23 @@ If you run into any issues with these managed resource groups, you should contac
 Keep in mind the following considerations when deploying your function app containers to Container Apps:
  
 + While all triggers can be used, only the following triggers can dynamically scale (from zero instances) when running in a Container Apps environment:
-    + HTTP 
+    + Azure Event Grid 
+    + Azure Event Hubs 
+    + Azure Blob storage (event-based)
     + Azure Queue Storage 
     + Azure Service Bus 
-    + Azure Event Hubs 
+    + Durable Functions (MSSQL storage provider)
+    + HTTP 
     + Kafka  
     + Timer  
 + These limitations apply to Kafka triggers:
     + The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes). 
     + For a Kafka trigger to dynamically scale when connected to Event Hubs, the `username` property must resolve to an application setting that contains the actual username value. When the default `$ConnectionString` value is used, the Kafka trigger won't be able to cause the app to scale dynamically.  
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
-+ You can use managed identities both for [trigger and binding connections](functions-reference.md#configure-an-identity-based-connection) and for [deployments from an Azure Container Registry](https://azure.github.io/AppService/2021/07/03/Linux-container-from-ACR-with-private-endpoint.html#using-user-assigned-managed-identity). 
-+ When either your function app and Azure Container Registry-based deployment use managed identity-based connections, you can't modify the CPU and memory allocation settings in the portal. You must instead [use the Azure CLI](functions-how-to-custom-container.md?tabs=acr%2Cazure-cli2%2Cazure-cli&pivots=container-apps#container-apps-workload-profiles).
++ You can use managed identities for these connections:
+    + [Deployment from an Azure Container Registry](functions-deploy-container-apps.md?tabs=acr#create-and-configure-a-function-app-on-azure-with-the-image)
+    + [Triggers and bindings](functions-reference.md#configure-an-identity-based-connection)
+    + [Required host storage connection](functions-identity-based-connections-tutorial.md) 
 + You currently can't move a Container Apps hosted function app deployment between resource groups or between subscriptions. Instead, you would have to recreate the existing containerized app deployment in a new resource group, subscription, or region. 
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
 + The `containerapp` extension conflicts with the `appservice-kube` extension in Azure CLI. If you have previously published apps to Azure Arc, run `az extension list` and make sure that `appservice-kube` isn't installed. If it is, you can remove it by running `az extension remove -n appservice-kube`.  
@@ -110,3 +115,4 @@ Keep in mind the following considerations when deploying your function app conta
 ## Next steps
 
 + [Hosting and scale](./functions-scale.md)
++ [Create your first containerized functions on Container Apps](./functions-deploy-container-apps.md)

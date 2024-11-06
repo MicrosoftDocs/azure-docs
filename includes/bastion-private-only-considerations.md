@@ -2,7 +2,7 @@
 author: cherylmc
 ms.author: cherylmc
 ms.date: 05/06/2024
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: include
 
 ---

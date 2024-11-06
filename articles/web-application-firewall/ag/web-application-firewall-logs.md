@@ -3,8 +3,8 @@ title: Monitor logs for Azure Web Application Firewall
 description: Learn how to enable and manage logs and for Azure Web Application Firewall
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
-ms.topic: article
+ms.service: azure-web-application-firewall
+ms.topic: how-to
 ms.date: 08/24/2023
 ms.author: victorh 
 ---
@@ -18,7 +18,7 @@ You can monitor Web Application Firewall resources using logs. You can save perf
 
 You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
-* **Activity log**: You can use [Azure activity logs](../../azure-monitor/essentials/activity-log.md) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
+* **Activity log**: You can use [Azure activity logs](/azure/azure-monitor/essentials/activity-log) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
 * **Access Resource log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. This log contains individual records for each request and associates that request to the unique Application Gateway that processed the request. Unique Application Gateway instances can be identified by the property instanceId.
 * **Performance Resource log**: You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](../../application-gateway/application-gateway-metrics.md) for performance data.
 * **Firewall Resource log**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall.
@@ -74,7 +74,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
 ## Activity log
 
-Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../../azure-monitor/essentials/activity-log.md) article.
+Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](/azure/azure-monitor/essentials/activity-log) article.
 
 ## Access log
 
@@ -105,11 +105,11 @@ The access log is generated only if you've enabled it on each Application Gatewa
     "category": "ApplicationGatewayAccessLog",
     "properties": {
         "instanceId": "ApplicationGatewayRole_IN_0",
-        "clientIP": "191.96.249.97",
+        "clientIP": "203.0.113.97",
         "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
-        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e&SERVER-STATUS=404",
         "userAgent": "-",
         "httpStatus": 404,
         "httpVersion": "HTTP/1.0",
@@ -152,7 +152,7 @@ For Application Gateway and WAF v2, the logs show a little more information:
     "category": "ApplicationGatewayAccessLog",
     "properties": {
         "instanceId": "appgw_1",
-        "clientIP": "191.96.249.97",
+        "clientIP": "203.0.113.97",
         "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
@@ -219,7 +219,6 @@ The firewall log is generated only if you have enabled it for each application g
 |---------|---------|
 |instanceId     | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there is one row per instance.         |
 |clientIp     |   Originating IP for the request.      |
-|clientPort     |  Originating port for the request.       |
 |requestUri     | URL of the received request.       |
 |ruleSetType     | Rule set type. The available value is OWASP.        |
 |ruleSetVersion     | Rule set version used. Available values are 2.2.9 and 3.0.     |
@@ -246,8 +245,7 @@ The firewall log is generated only if you have enabled it for each application g
   "category": "ApplicationGatewayFirewallLog",
   "properties": {
       "instanceId": "ApplicationGatewayRole_IN_0",
-      "clientIp": "52.161.109.147",
-      "clientPort": "0",
+      "clientIp": "203.0.113.147",
       "requestUri": "/",
       "ruleSetType": "OWASP",
       "ruleSetVersion": "3.0",
@@ -264,7 +262,7 @@ The firewall log is generated only if you have enabled it for each application g
       },
       "hostname": "127.0.0.1",
       "transactionId": "16861477007022634343",
-      "policyId": "/subscriptions/1496a758-b2ff-43ef-b738-8e9eb5161a86/resourceGroups/drewRG/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/perListener",
+      "policyId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/drewRG/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/perListener",
       "policyScope": "Listener",
       "policyScopeName": "httpListener1"
     }
@@ -277,7 +275,7 @@ The firewall log is generated only if you have enabled it for each application g
 
 You can view and analyze activity log data by using any of the following methods:
 
-* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../../azure-monitor/essentials/activity-log.md) article.
+* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](/azure/azure-monitor/essentials/activity-log) article.
 * **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Power BI template apps](/power-bi/service-template-apps-overview), you can analyze your data.
 
 ## View and analyze the access, performance, and firewall logs

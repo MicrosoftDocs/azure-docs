@@ -5,10 +5,9 @@ description: The If Condition activity allows you to control the processing flow
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ms.custom: devx-track-azurepowershell, synapse
 ---
 

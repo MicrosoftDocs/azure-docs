@@ -5,7 +5,7 @@ description: Frequently asked questions about the developer portal in API Manage
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: troubleshooting
 ms.date: 04/01/2024
 ms.author: danlep 

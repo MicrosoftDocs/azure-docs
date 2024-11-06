@@ -1,9 +1,9 @@
 ---
 title: Check for Azure Communications Gateway upgrades and maintenance
 description: Learn how to use Azure Service Health to check for upgrades and maintenance notifications for Azure Communications Gateway.
-author: rcdun
-ms.author: rdunstan
-ms.service: communications-gateway
+author: GemmaWakeford
+ms.author: gwakeford
+ms.service: azure-communications-gateway
 ms.topic: concept-article
 ms.date: 04/10/2024
 

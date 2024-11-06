@@ -83,7 +83,7 @@ If you still have an issue with your duplicated and customized built-in policy d
 
 #### Issue
 
-A resource that you expect Azure Policy to act on isn't being acted on, and there's no entry in the [Azure Activity log](../../../azure-monitor/data-sources.md#azure-resources).
+A resource that you expect Azure Policy to act on isn't being acted on, and there's no entry in the [Azure Activity log](/azure/azure-monitor/data-sources#azure-resources).
 
 #### Cause
 
@@ -100,7 +100,7 @@ Troubleshoot your policy assignment's enforcement by doing the following steps:
    - The mode should be `all` for all resource types.
    - The mode should be `indexed` if the policy definition checks for tags or location.
 1. Ensure that the scope of the resource isn't [excluded](../concepts/assignment-structure.md#excluded-scopes) or [exempt](../concepts/exemption-structure.md).
-1. Verify that the resource payload matches the policy logic. This verification can be done by [capturing an HTTP Archive (HAR) trace](../../../azure-portal/capture-browser-trace.md) or reviewing the Azure Resource Manager template (ARM template) properties.
+1. Verify that the resource payload matches the policy logic. This verification can be done by [capturing an HTTP Archive (HAR) trace](/azure/azure-portal/capture-browser-trace) or reviewing the Azure Resource Manager template (ARM template) properties.
 1. For other common issues and solutions, see [Troubleshoot: Compliance not as expected](#scenario-compliance-isnt-as-expected).
 
 If you still have an issue with your duplicated and customized built-in policy definition or custom definition, create a support ticket under **Authoring a policy** to route the issue correctly.
@@ -117,7 +117,7 @@ A policy assignment to the scope of your new or updated resource meets the crite
 
 #### Resolution
 
-The error message from a deny policy assignment includes the policy definition and policy assignment IDs. If the error information in the message is missed, it's also available in the [Activity log](../../../azure-monitor/essentials/activity-log-insights.md#view-the-activity-log). Use this information to get more details to understand the resource restrictions and adjust the resource properties in your request to match allowed values.
+The error message from a deny policy assignment includes the policy definition and policy assignment IDs. If the error information in the message is missed, it's also available in the [Activity log](/azure/azure-monitor/essentials/activity-log-insights#view-the-activity-log). Use this information to get more details to understand the resource restrictions and adjust the resource properties in your request to match allowed values.
 
 ### Scenario: Definition targets multiple resource types
 
@@ -237,7 +237,7 @@ This issue occurs when a cluster egress is locked down.
 
 Ensure that the domains and ports mentioned in the following article are open:
 
-- [Required outbound network rules and fully qualified domain names (FQDNs) for AKS clusters](../../../aks/outbound-rules-control-egress.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
+- [Required outbound network rules and fully qualified domain names (FQDNs) for AKS clusters](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters)
 
 ### Scenario: The add-on is unable to reach the Azure Policy service endpoint because of the aad-pod-identity configuration
 
@@ -362,5 +362,5 @@ Regardless of the scenario, Azure policy retains the last known policy on the cl
 If your problem isn't listed in this article or you can't resolve it, get support by visiting one of the following channels:
 
 - Get answers from experts through [Microsoft Q&A](/answers/topics/azure-policy.html).
-- Connect with [@AzureSupport](https://twitter.com/azuresupport). This official Microsoft Azure resource on Twitter helps improve the customer experience by connecting the Azure community to the right answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport). This official Microsoft Azure resource on X helps improve the customer experience by connecting the Azure community to the right answers, support, and experts.
 - If you still need help, go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Submit a support ticket**.

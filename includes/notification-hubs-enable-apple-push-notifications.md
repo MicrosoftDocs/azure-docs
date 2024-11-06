@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: notification-hubs
 author: sethmanheim
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm

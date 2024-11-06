@@ -1,7 +1,6 @@
 ---
 title: Create an Airflow environment in Workflow Orchestration Manager
 description: Learn how to create an Airflow environment in Workflow Orchestration Manager.
-ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain

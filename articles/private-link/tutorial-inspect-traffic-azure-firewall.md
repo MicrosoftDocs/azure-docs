@@ -3,7 +3,7 @@ title: 'Tutorial: Inspect private endpoint traffic with Azure Firewall'
 description: Learn how to inspect private endpoint traffic with Azure Firewall.
 author: abell
 ms.author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: tutorial
 ms.custom: mvc, linux-related-content
 ms.date: 10/13/2023
@@ -41,7 +41,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure account with an active subscription.
 
-- A Log Analytics workspace. For more information about the creation of a log analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+- A Log Analytics workspace. For more information about the creation of a log analytics workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 ## Sign in to the Azure portal
 

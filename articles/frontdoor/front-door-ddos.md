@@ -3,7 +3,7 @@ title: DDoS protection on Azure Front Door
 description: This page provides information about how Azure Front Door helps to protect against DDoS attacks.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 10/23/2023
 ms.author: duau

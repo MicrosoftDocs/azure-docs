@@ -1,13 +1,13 @@
 ---
 title:  Use Python and DICOMweb Standard APIs in Azure Health Data Services
 description: Use Python and DICOMweb Standard APIs to store, retrieve, search, and delete DICOM files in the DICOM service.  
-author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+author: varunbms
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 02/15/2022
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Use DICOMweb Standard APIs with Python
@@ -30,7 +30,7 @@ The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are
 |blue-circle.dcm|1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420|1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207|1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114|
 
 > [!NOTE]
-> Each of these files represents a single instance and is part of the same study. Also,the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
+> Each of these files represents a single instance and is part of the same study. Also, the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
 
 ## Prerequisites
 
@@ -82,10 +82,10 @@ instance_uid = "1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395
 
 ### Authenticate to Azure and get a token
 
-`DefaultAzureCredential` allows us to use various ways to get tokens to log into the service. In this example, use the `AzureCliCredential` to get a token to log into the service. There are other credential providers such as `ManagedIdentityCredential` and `EnvironmentCredential` that are also possible to use. To use the AzureCliCredential, you need to sign in to Azure from the CLI before running this code. For more information, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). Alternatively, copy and paste the token retrieved while signing in from the CLI.
+`DefaultAzureCredential` allows us to use various ways to get tokens to log into the service. In this example, use the `AzureCliCredential` to get a token to log into the service. There are other credential providers such as `ManagedIdentityCredential` and `EnvironmentCredential` that you may use. To use the AzureCliCredential, you need to sign in to Azure from the CLI before running this code. For more information, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). Alternatively, copy and paste the token retrieved while signing in from the CLI.
 
 > [!NOTE]
-> `DefaultAzureCredential` returns several different Credential objects. We reference the `AzureCliCredential` as the 5th item in the returned collection. This may not be consistent. If so, uncomment the `print(credential.credential)` line. This will list all the items. Find the correct index, recalling that Python uses zero-based indexing.
+> `DefaultAzureCredential` returns several different Credential objects. We reference the `AzureCliCredential` as the 5th item in the returned collection. This may not always be the case. If not, uncomment the `print(credential.credential)` line. This will list all the items. Find the correct index, recalling that Python uses zero-based indexing.
 
 > [!NOTE]
 > If you have not logged into Azure using the CLI, this will fail. You must be logged into Azure from the CLI for this to work. 
@@ -103,7 +103,7 @@ bearer_token = f'Bearer {token.token}'
 
 The `Requests` libraries (and most Python libraries) don't work with `multipart\related` in a way that supports DICOMweb. Because of these libraries, we must add a few methods to support working with DICOM files.
 
-`encode_multipart_related` takes a set of fields (in the DICOM case, these libraries are generally Part 10 dam files) and an optional user-defined boundary. It returns both the full body, along with the content_type, which it can be used.
+`encode_multipart_related` takes a set of fields (in the DICOM case, these libraries are generally Part 10 dam files) and an optional user-defined boundary. It returns both the full body, along with the content_type, which can be used.
 
 ```python
 def encode_multipart_related(fields, boundary=None):
@@ -144,7 +144,7 @@ The following examples highlight persisting DICOM files.
 
 ### Store instances using `multipart/related`
 
-This example demonstrates how to upload a single DICOM file, and it uses a bit of a Python to preload the DICOM file (as bytes) into memory. When an array of files is passed to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload several instances inside a complete series or study.
+This example demonstrates how to upload a single DICOM file, and it uses Python to preload the DICOM file into memory as bytes. When an array of files is passed to the fields parameter `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload several instances inside a complete series or study.
 
 _Details:_
 
@@ -183,9 +183,9 @@ response = client.post(url, body, headers=headers, verify=False)
 
 ### Store instances for a specific study
 
-This example demonstrates how to upload multiple DICOM files into the specified study. It uses a bit of a Python to preload the DICOM file (as bytes) into memory.  
+This example demonstrates how to upload multiple DICOM files into the specified study. It uses Python to preload the DICOM file into memory as bytes.  
 
-When an array of files is passed to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload a complete series or study. 
+When an array of files is passed to the fields parameter `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload a complete series or study. 
 
 _Details:_
 * Path: ../studies/{study}
@@ -264,7 +264,7 @@ _Details:_
    * Accept: multipart/related; type="application/dicom"; transfer-syntax=*
    * Authorization: Bearer $token"
 
-All three of the dcm files that we uploaded previously are part of the same study so the response should return all three instances. Validate that the response has a status code of OK and that all three instances are returned.
+All three of the dcm files that uploaded previously are part of the same study, so the response should return all three instances. Validate that the response has a status code of OK and that all three instances are returned.
 
 ```python
 url = f'{base_url}/studies/{study_uid}'
@@ -275,7 +275,7 @@ response = client.get(url, headers=headers) #, verify=False)
 
 ### Use the retrieved instances
 
-The instances are retrieved as binary bytes. You can loop through the returned items and convert the bytes into a file that `pydicom` can read.
+The instances are retrieved as binary bytes. You can loop through the returned items and convert the bytes into a file that `pydicom` can read as follows.
 
 
 ```python
@@ -345,7 +345,7 @@ _Details:_
    * Accept: application/dicom+json
    * Authorization: Bearer $token"
 
-This series has two instances (green-square and red-triangle), so the response should return for both instances. Validate that the response has a status code of OK and that both instances metadata are returned.
+This series has two instances (green-square and red-triangle), so the response should return for both instances. Validate that the response has a status code of OK and that the metadata of both instances are returned.
 
 ```python
 url = f'{base_url}/studies/{study_uid}/series/{series_uid}/metadata'
@@ -420,7 +420,7 @@ response = client.get(url, headers=headers) #, verify=False)
 
 In the following examples, we search for items using their unique identifiers. You can also search for other attributes, such as PatientName.
 
-Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md#supported-search-parameters) document for supported DICOM attributes.
+Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md#supported-search-parameters) for supported DICOM attributes.
 
 ### Search for studies
 
@@ -553,7 +553,7 @@ response = client.get(url, headers=headers, params=params) #, verify=False)
 > [!NOTE]
 > Delete is not part of the DICOM standard, but it has been added for convenience.
 
-A 204 response code is returned when the deletion is successful. A 404 response code is returned if the item(s) never existed or are already deleted.
+A 204 response code is returned when the deletion is successful. A 404 response code is returned if the items never existed or are already deleted.
 
 ### Delete a specific instance within a study and series
 
@@ -565,7 +565,7 @@ _Details:_
 * Headers:
    * Authorization: Bearer $token
 
-This request deletes the red-triangle instance from the server. If it's successful, the response status code contains no content.
+This request deletes the red-triangle instance from the server. If successful, the response status code contains no content.
 
 ```python
 headers = {"Authorization":bearer_token}
@@ -583,7 +583,7 @@ _Details:_
 * Headers:
    * Authorization: Bearer $token
 
-This code example deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code doesn't delete content.
+This code example deletes the green-square instance from the server (it's the only element left in the series). If successful, the response status code doesn't delete content.
 
 ```python
 headers = {"Authorization":bearer_token}

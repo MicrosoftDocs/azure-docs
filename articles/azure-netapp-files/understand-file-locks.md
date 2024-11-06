@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 06/12/2023
+ms.date: 08/20/2024
 ms.author: anfdocs
 ---
 # Understand file locking and lock types in Azure NetApp Files
@@ -20,7 +20,7 @@ There are several types of NFS locks, which include:
 Shared locks can be used by multiple processes at the same time and can only be issued if there are no exclusive locks on a file. These locks are intended for read-only work but can be used for writes (such as with a database).
 
 **Exclusive locks:**
-Exclusive locks operate the same as exclusive locks in CIFS/SMB: only one process can use the file when there is an exclusive lock. If any other processes have locked the file, an exclusive lock can't be issued unless that process was [forked](http://linux.die.net/man/2/fork).
+Exclusive locks operate the same as exclusive locks in SMB: only one process can use the file when there is an exclusive lock. If any other processes have locked the file, an exclusive lock can't be issued unless that process was [forked](http://linux.die.net/man/2/fork).
 
 **Delegations:**
 Delegations are used only with NFSv4.x and are assigned when the NFS server options are enabled and the client supports NFSv4.x delegations. Delegations provide a way to cache operations on the client side by creating a “soft” lock to the file being used by a client. This improves the performance of specific workloads by reducing the number of calls between the client and server and are similar to SMB opportunistic locks. Azure NetApp Files currently doesn't support NFSv4.x delegations.

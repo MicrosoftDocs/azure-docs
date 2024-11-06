@@ -7,7 +7,7 @@ author: EliotSeattle
 ms.author: eliotgra
 ms.custom: references_regions
 recommendations: false
-ms.date: 07/05/2024
+ms.date: 07/12/2024
 ---
 
 # Compare Azure Government and global Azure
@@ -69,12 +69,12 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Custom Vision|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
 ||Content Moderator|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Face API|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
+||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Azure AI Language](/azure/ai-services/language-service/)|
 ||Personalizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
-||Speech service|See [STT API docs](../ai-services/speech-service/rest-speech-to-text-short.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../ai-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
-||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
-||Translator|See [Translator API docs](../ai-services/translator/reference/v3-0-reference.md#base-urls)|cognitiveservices.azure.us||
+||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](/azure/ai-services/language-service/)|
+||Speech service|See [STT API docs](/azure/ai-services/speech-service/rest-speech-to-text-short#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](/azure/ai-services/speech-service/sovereign-clouds)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
+||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](/azure/ai-services/language-service/)|
+||Translator|See [Translator API docs](/azure/ai-services/translator/reference/v3-0-reference#base-urls)|cognitiveservices.azure.us||
 |**Analytics**|Azure HDInsight|azurehdinsight.net|azurehdinsight.us||
 ||Event Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
@@ -97,7 +97,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Notification Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
 |**Management and governance**|Azure Automation|azure-automation.net|azure-automation.us||
 ||Azure Monitor|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
-|||ods.opinsights.azure.com|ods.opinsights.azure.us|[Data collector API](../azure-monitor/logs/data-collector-api.md)|
+|||ods.opinsights.azure.com|ods.opinsights.azure.us|[Data collector API](/azure/azure-monitor/logs/data-collector-api)|
 |||oms.opinsights.azure.com|oms.opinsights.azure.us||
 |||portal.loganalytics.io|portal.loganalytics.us||
 |||api.loganalytics.io|api.loganalytics.us||
@@ -126,7 +126,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||API Management Portal|portal.azure-api.net|portal.azure-api.us||
 ||App Configuration|azconfig.io|azconfig.azure.us||
 ||App Service|azurewebsites.net|azurewebsites.us||
-||Azure AI Search|search.windows.net|search.windows.us||
+||Azure AI Search|search.windows.net|search.azure.us||
 ||Azure Functions|azurewebsites.net|azurewebsites.us||
 
 ## Service availability
@@ -152,13 +152,13 @@ The following Azure Bot Service **features aren't currently available** in Azure
 
 For information on how to deploy Bot Framework and Azure Bot Service bots to Azure Government, see [Configure Bot Framework bots for US Government customers](/azure/bot-service/how-to-deploy-gov-cloud-high).
 
-### [Azure Machine Learning](../machine-learning/index.yml)
+### [Azure Machine Learning](/azure/machine-learning/)
 
-For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md).
+For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](/azure/machine-learning/reference-machine-learning-cloud-parity).
 
 <a name='cognitive-services-content-moderator'></a>
 
-### [Azure AI services: Content Moderator](../ai-services/content-moderator/index.yml)
+### [Azure AI services: Content Moderator](/azure/ai-services/content-moderator/)
 
 The following Content Moderator **features aren't currently available** in Azure Government:
 
@@ -166,46 +166,30 @@ The following Content Moderator **features aren't currently available** in Azure
 
 <a name='cognitive-services-language-understanding-luis'></a>
 
-### [Azure AI Language Understanding (LUIS)](../ai-services/luis/index.yml)
+### [Azure AI Language Understanding (LUIS)](/azure/ai-services/luis/)
 
 The following Language Understanding **features aren't currently available** in Azure Government:
 
 - Speech Requests
 - Prebuilt Domains
 
-Azure AI Language Understanding (LUIS) is part of [Azure AI Language](../ai-services/language-service/index.yml).
+Azure AI Language Understanding (LUIS) is part of [Azure AI Language](/azure/ai-services/language-service/).
 
 <a name='cognitive-services-speech'></a>
 
-### [Azure AI Speech](../ai-services/speech-service/index.yml)
+### [Azure AI Speech](/azure/ai-services/speech-service/)
 
-For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](../ai-services/speech-service/sovereign-clouds.md).
+For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](/azure/ai-services/speech-service/sovereign-clouds).
 
 <a name='cognitive-services-translator'></a>
 
-### [Azure AI services: OpenAI Service](../ai-services/openai/overview.md)
+### [Azure AI services: OpenAI Service](/azure/ai-services/openai/overview)
 
-The following features of Azure OpenAI are available in Azure Government:
+For feature variations and limitations see [Azure OpenAI in Azure Gov](/azure/ai-services/openai/azure-government).
 
-|Feature|Azure OpenAI|
-|--------|--------|
-|Models available|US Gov Arizona:<br>&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (1106)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>US Gov Virginia:<br>&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>Learn more in [Azure OpenAI Service models](../ai-services/openai/concepts/models.md)|
-|Virtual network support & private link support| Yes. |
-| Connect your data | Available in US Gov Virginia. Virtual network and private links are supported. Deployment to a web app or a copilot in Copilot Studio is not supported. |
-|Managed Identity|Yes, via Microsoft Entra ID|
-|UI experience|**Azure portal** for account & resource management<br>**Azure OpenAI Studio** for model exploration|
-|Abuse Monitoring|Not all features of Abuse Monitoring are enabled for AOAI in Azure Government. You will be responsible for implementing reasonable technical and operational measures to detect and mitigate any use of the service in violation of the Product Terms. [Automated Content Classification and Filtering](../ai-services/openai/concepts/content-filter.md) remains enabled by default for Azure Government.|
-|Data Storage|In AOAI, customer data is only stored at rest as part of our Finetuning solution. Since Finetuning is not enabled within Azure Gov, there is no customer data stored at rest in Azure Gov associated with AOAI. However, Customer Managed Keys (CMK) can still be enabled in Azure Gov to support use of the same policies in Azure Gov as in Public cloud. Note also that if Finetuning is enabled in Azure Gov in the future, any existing CMK deployment would be applied to that data at that time.|
+### [Azure AI services: Translator](/azure/ai-services/translator/)
 
-**Next steps**
-* Get started by requesting access to Azure OpenAI Service in Azure Government at [https://aka.ms/AOAIgovaccess](https://aka.ms/AOAIgovaccess)
-* Request quota increases for the pay-as-you-go consumption model, please fill out a separate form at [https://aka.ms/AOAIGovQuota](https://aka.ms/AOAIGovQuota)
-* If modified content filters are required, apply at [https://aka.ms/AOAIGovModifyContentFilter](https://aka.ms/AOAIGovModifyContentFilter)
-
-
-### [Azure AI services: Translator](../ai-services/translator/index.yml)
-
-For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../ai-services/translator/sovereign-clouds.md).
+For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](/azure/ai-services/translator/sovereign-clouds).
 
 ## Analytics
 
@@ -237,19 +221,19 @@ To learn how to embed analytical content within your business process applicatio
 
 This section outlines variations and considerations when using Databases services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir,data-factory,sql-server-stretch-database,redis-cache,database-migration,synapse-analytics,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
-### [Azure Database for MySQL](../mysql/index.yml)
+### [Azure Database for MySQL](/azure/mysql/)
 
 The following Azure Database for MySQL **features aren't currently available** in Azure Government:
 
 - Advanced Threat Protection
 
-### [Azure Database for PostgreSQL](../postgresql/index.yml)
+### [Azure Database for PostgreSQL](/azure/postgresql/)
 
-For Flexible Server availability in Azure Government regions, see [Azure Database for PostgreSQL – Flexible Server](../postgresql/flexible-server/overview.md#azure-regions).
+For Flexible Server availability in Azure Government regions, see [Azure Database for PostgreSQL – Flexible Server](/azure/postgresql/flexible-server/overview#azure-regions).
 
 The following Azure Database for PostgreSQL **features aren't currently available** in Azure Government:
 
-- Azure Cosmos DB for PostgreSQL, formerly Azure Database for PostgreSQL – Hyperscale (Citus). For more information about supported regions, see [Regional availability for Azure Cosmos DB for PostgreSQL](../cosmos-db/postgresql/resources-regions.md).
+- Azure Cosmos DB for PostgreSQL, formerly Azure Database for PostgreSQL – Hyperscale (Citus). For more information about supported regions, see [Regional availability for Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/resources-regions).
 - The following features of the Single Server deployment option
   - Advanced Threat Protection
   - Backup with long-term retention
@@ -300,11 +284,11 @@ The following Automation **features aren't currently available** in Azure Govern
 
 - Automation analytics solution
 
-### [Azure Advisor](../advisor/index.yml)
+### [Azure Advisor](/azure/advisor/)
 
-For feature variations and limitations, see [Azure Advisor in sovereign clouds](../advisor/advisor-sovereign-clouds.md).
+For feature variations and limitations, see [Azure Advisor in sovereign clouds](/azure/advisor/advisor-sovereign-clouds).
 
-### [Azure Lighthouse](../lighthouse/index.yml)
+### [Azure Lighthouse](/azure/lighthouse/)
 
 The following Azure Lighthouse **features aren't currently available** in Azure Government:
 
@@ -316,7 +300,7 @@ The following Azure Lighthouse **features aren't currently available** in Azure 
 
 The following document contains information about Azure Managed Grafana feature availability in Azure Government: [Azure Managed Grafana: Feature availability in sovereign clouds](../managed-grafana/known-limitations.md?#feature-availability-in-sovereign-clouds).
 
-### [Azure Monitor](../azure-monitor/index.yml)
+### [Azure Monitor](/azure/azure-monitor/)
 
 Azure Monitor enables the same features in both Azure and Azure Government.
 
@@ -327,7 +311,7 @@ The following options are available for previous versions of System Center Opera
 - Integrating System Center Operations Manager 2016 with Azure Government requires an updated Advisor management pack that is included with Update Rollup 2 or later.
 - System Center Operations Manager 2012 R2 requires an updated Advisor management pack included with Update Rollup 3 or later.
 
-For more information, see [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md).
+For more information, see [Connect Operations Manager to Azure Monitor](/azure/azure-monitor/agents/om-agents).
 
 **Frequently asked questions**
 
@@ -336,15 +320,15 @@ For more information, see [Connect Operations Manager to Azure Monitor](../azure
 - Can I switch between Azure and Azure Government workspaces from the Operations Management Suite portal?
   - No. The portals for Azure and Azure Government are separate and don't share information.
 
-#### [Application Insights](../azure-monitor/app/app-insights-overview.md)
+#### [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 
 Application Insights (part of Azure Monitor) enables the same features in both Azure and Azure Government. This section describes the supplemental configuration that is required to use Application Insights in Azure Government.
 
-**Visual Studio** – In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](../azure-monitor/app/azure-web-apps.md). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
+**Visual Studio** – In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
 
 **SDK endpoint modifications** – In order to send data from Application Insights to an Azure Government region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](/previous-versions/azure/azure-monitor/app/create-new-resource#override-default-endpoints).
 
-**Firewall exceptions** – Application Insights uses several IP addresses. You might need to know these addresses if the app that you're monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](../azure-monitor/ip-addresses.md) from where you can download Azure Government IP addresses.
+**Firewall exceptions** – Application Insights uses several IP addresses. You might need to know these addresses if the app that you're monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](/azure/azure-monitor/ip-addresses) from where you can download Azure Government IP addresses.
 
 >[!NOTE]
 >Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic except for availability monitoring and webhooks, which require inbound firewall rules.
@@ -425,7 +409,7 @@ For feature variations and limitations, see [Cloud feature availability for US G
 
 Azure Information Protection Premium is part of the [Enterprise Mobility + Security](/enterprise-mobility-security) suite. For details on this service and how to use it, see [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
-### [Microsoft Defender for Cloud](../defender-for-cloud/index.yml)
+### [Microsoft Defender for Cloud](/azure/defender-for-cloud/)
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud).
 

@@ -29,29 +29,40 @@
         - name: Network Fabric read-only commands
           href: concepts-network-fabric-read-only-commands.md
         - name: Network Fabric read write commands
-          href: concepts-network-fabric-read-write-commands.md   
+          href: concepts-network-fabric-read-write-commands.md
         - name: Disable Border Gateway Protocol neighbors
           href: concepts-disable-border-gateway-protocol-neighbors.md
-    - name: Isolation Domains
+        - name: Network Packet Broker
+          href: concepts-nexus-network-packet-broker.md
+        - name: Route Policy
+          expanded: false
+          items:
+          - name: Route Policy Overview
+            href: concepts-nexus-route-policies-overview.md
+          - name: IP Prefixes Overview
+            href: concepts-nexus-ip-prefix.md
+        - name: Isolation Domains
+          expanded: false
+          items:
+          - name: Isolation Domains overview
+            href: concepts-isolation-domain.md
+          - name: Isolation Domain configuration
+            href: reference-isolation-domain-configuration.md
+          - name: Technical requirements for Isolation Domains
+            href: reference-isolation-domain-technical-requirements.md
+        - name: Access Control Lists
+          href: concepts-access-control-lists.md
+    - name: Nexus Kubernetes Cluster
       expanded: false
       items:
-        - name: Isolation Domains overview
-          href: concepts-isolation-domain.md
-        - name: Isolation Domain configuration
-          href: reference-isolation-domain-configuration.md
-        - name: Technical requirements for Isolation Domains
-          href: reference-isolation-domain-technical-requirements.md
-    - name: Access Control Lists
-      href: concepts-access-control-lists.md
-    - name: Nexus Kubernetes
-      expanded: false
-      items:
-      - name: Overview
-        href: concepts-nexus-kubernetes-cluster.md
-      - name: Resource Placement
-        href: concepts-nexus-kubernetes-placement.md
-      - name: Nexus Workload Network
-        href: concepts-nexus-network.md
+        - name: Overview
+          href: concepts-nexus-kubernetes-cluster.md
+        - name: Resource Placement
+          href: concepts-nexus-kubernetes-placement.md
+        - name: Networking
+          href: concepts-nexus-networking.md
+        - name: Workload Network Types
+          href: concepts-nexus-workload-network-types.md
     - name: Observability
       expanded: false
       items:
@@ -69,17 +80,8 @@
       href: concepts-rack-resiliency.md
     - name: Access and Identity
       href: concepts-security-access-identity.md
-    - name: Route Policy
-      expanded: false
-      items:
-        - name: Route Policy Overview
-          href: concepts-nexus-route-policies-overview.md
-        - name: IP Prefixes Overview
-          href: concepts-nexus-ip-prefix.md
     - name: Availability
       href: concepts-nexus-availability.md
-    - name: Network Packet Broker
-      href: concepts-nexus-network-packet-broker.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
@@ -144,45 +146,51 @@
                   href: howto-run-instance-readiness-testing.md
                 - name: Cluster Upgrades
                   href: howto-cluster-runtime-upgrade.md
+                - name: Cluster Upgrades With PauseRack Startegy
+                  href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md  
                 - name: Credential Rotation
                   href: howto-credential-rotation.md
                 - name: Credential Manager Key Vault
                   href: how-to-credential-manager-key-vault.md
-        - name: Network Fabric
-          expanded: false
-          items:
-            - name: Isolation Domain
-              href: howto-configure-isolation-domain.md
-            - name: Isolation Domain Configuration Examples
-              href: reference-isolation-domain-configuration-examples.md
-            - name: Network Fabric Route Policy
-              href: how-to-route-policy.md
-            - name: IP Prefixes
-              href: how-to-ip-prefixes.md
-            - name: Network Packet Broker
-              href: howto-configure-network-packet-broker.md
-            - name: Validate cables for Nexus Network Fabric
-              href: how-to-validate-cables.md
-            - name: Creating Access Control Lists (ACLs)
-              href: howto-create-access-control-list-for-network-to-network-interconnects.md
-            - name: Apply ACLs to Network-to-Network Interconnects (NNI)
-              href: howto-apply-access-control-list-to-network-to-network-interconnects.md
-            - name: Updating ACL on Network-for-Network Interconnects (NNI)
-              href: howto-update-access-control-list-for-network-to-network-interconnects.md
-            - name: Delete ACLs associated with Network-to-Network Interconnects (NNI)
-              href: howto-delete-access-control-list-network-to-network-interconnect.md
-            - name: How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
-              href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
-            - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
-              href: howto-delete-layer-3-isolation-domains.md
-            - name: How to monitor interface In and Out packet rate for network fabric devices
-              href: howto-monitor-interface-packet-rate.md
-            - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
-              href: howto-delete-layer-3-isolation-domains.md
-            - name: How to put a device into maintenance mode
-              href: howto-put-device-in-maintenance-mode.md
-            - name: How to upgrade Network Fabric
-              href: howto-upgrade-nexus-fabric.md
+    - name: Network Fabric
+      expanded: false
+      items:
+          - name: Isolation Domain
+            href: howto-configure-isolation-domain.md
+          - name: Isolation Domain Configuration Examples
+            href: reference-isolation-domain-configuration-examples.md
+          - name: Network Fabric Route Policy
+            href: how-to-route-policy.md
+          - name: IP Prefixes
+            href: how-to-ip-prefixes.md
+          - name: Network Packet Broker
+            href: howto-configure-network-packet-broker.md
+          - name: Validate cables for Nexus Network Fabric
+            href: how-to-validate-cables.md
+          - name: Creating Access Control Lists (ACLs)
+            href: howto-create-access-control-list-for-network-to-network-interconnects.md
+          - name: Apply ACLs to Network-to-Network Interconnects (NNI)
+            href: howto-apply-access-control-list-to-network-to-network-interconnects.md
+          - name: Updating ACL on Network-for-Network Interconnects (NNI)
+            href: howto-update-access-control-list-for-network-to-network-interconnects.md
+          - name: Delete ACLs associated with Network-to-Network Interconnects (NNI)
+            href: howto-delete-access-control-list-network-to-network-interconnect.md
+          - name: How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
+            href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
+          - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
+            href: howto-delete-layer-3-isolation-domains.md
+          - name: How to monitor interface In and Out packet rate for network fabric devices
+            href: howto-monitor-interface-packet-rate.md
+          - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
+            href: howto-delete-layer-3-isolation-domains.md
+          - name: Cross-subscription deployments and required RBAC for Network Fabric
+            href: concepts-cross-subscription-deployments-required-rbac-for-network-fabric.md
+          - name: How to replace network devices in Azure Operator Nexus Network Fabric
+            href: howto-replace-network-devices.md
+          - name: How to put a device into maintenance mode
+            href: howto-put-device-in-maintenance-mode.md
+          - name: How to upgrade Network Fabric
+            href: howto-upgrade-nexus-fabric.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
@@ -212,6 +220,10 @@
           href: howto-kubernetes-cluster-log-collector-script.md
         - name: Manage SSH keys
           href: howto-kubernetes-cluster-manage-ssh-key.md
+        - name: Install Microsoft Defender for Containers on a Nexus Kubernetes Cluster
+          href: howto-kubernetes-cluster-install-microsoft-defender.md
+        - name: Kubernetes cluster features
+          href: howto-kubernetes-cluster-features.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -252,38 +264,59 @@
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting
+  expanded: true
   items:
-    - name: Troubleshoot Bare Metal Machine
-      href: troubleshoot-reboot-reimage-replace.md
-    - name: Troubleshoot Isolation Domain
-      href: troubleshoot-isolation-domain.md
-    - name: Troubleshoot Internet host virtual machine
-      href: troubleshoot-internet-host-virtual-machine.md
-    - name: Troubleshooting dual-stack configuration issues for Nexus Kubernetes cluster
-      href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
-    - name: Troubleshoot BMM reboot issues
-      href: troubleshoot-bmm-node-reboot.md
-    - name: Troubleshoot Resolve CSN storage pod stuck in ContainerCreating
-      href: troubleshoot-csn-storage-pod-container-stuck-in-creating.md
-    - name: Troubleshoot Hardware Validation Failure
-      href: troubleshoot-hardware-validation-failure.md
-    - name: Enable node down cleaner
-      href: troubleshoot-enable-node-down-cleaner.md
-    - name: BareMetal Actions
+    - name: Network Fabric
       expanded: false
       items:
-        - name: BareMetal BMM Access Setup
-          href: howto-baremetal-bmm-ssh.md
-        - name: BareMetal BMC Access Setup
-          href: howto-baremetal-bmc-ssh.md
-        - name: BareMetal Functions
-          href: howto-baremetal-functions.md
-        - name: BareMetal Run-Read Execution
-          href: howto-baremetal-run-read.md
-        - name: BareMetal Run-Data-Extract Execution
-          href: howto-baremetal-run-data-extract.md
-    - name: Troubleshoot Control Plane Quorum
-      href: troubleshoot-control-plane-quorum.md
+        - name: Troubleshoot Isolation Domain
+          href: troubleshoot-isolation-domain.md
+    - name: Cluster or BMM
+      expanded: false
+      items:
+        - name: Troubleshoot Bare Metal Machine
+          href: troubleshoot-reboot-reimage-replace.md
+        - name: Troubleshoot Bare Metal Machine Provisioning
+          href: troubleshoot-bare-metal-machine-provisioning.md
+        - name: Troubleshoot Hardware Validation Failure
+          href: troubleshoot-hardware-validation-failure.md
+        - name: Troubleshoot Control Plane Quorum
+          href: troubleshoot-control-plane-quorum.md
+        - name: Troubleshoot Accepted Cluster Resource
+          href: troubleshoot-accepted-cluster-hydration.md
+        - name: Troubleshoot Out of Memory Pods
+          href: troubleshoot-memory-limits.md
+        - name: BareMetal Actions
+          expanded: false
+          items:
+              - name: BareMetal BMM Access Setup
+                href: howto-baremetal-bmm-ssh.md
+              - name: BareMetal BMC Access Setup
+                href: howto-baremetal-bmc-ssh.md
+              - name: BareMetal Functions
+                href: howto-baremetal-functions.md
+              - name: BareMetal Run-Read Execution
+                href: howto-baremetal-run-read.md
+              - name: BareMetal Run-Data-Extract Execution
+                href: howto-baremetal-run-data-extract.md
+              - name: Running BareMetal actions directly with nexusctl
+                href: howto-baremetal-nexusctl.md
+    - name: Storage Array
+      expanded: false
+      items:
+    - name: Tenant Workload
+      expanded: false
+      items:
+        - name: Troubleshoot Nexus Kubernetes Cluster pods
+          href: troubleshoot-nexus-kubernetes-cluster-pods.md
+        - name: Troubleshoot Resolve CSN storage pod stuck in ContainerCreating
+          href: troubleshoot-csn-storage-pod-container-stuck-in-creating.md
+        - name: Troubleshoot Internet host virtual machine
+          href: troubleshoot-internet-host-virtual-machine.md
+        - name: Troubleshoot VM errors after BMM restart
+          href: troubleshoot-vm-error-after-reboot.md
+        - name: Troubleshooting dual-stack configuration issues for Nexus Kubernetes cluster
+          href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference
@@ -336,8 +369,8 @@
           href: reference-acl-configuration.md
         - name: Access Control List configuration examples
           href: reference-acl-examples.md
-    - name: Operator Nexus Network Fabric SKUs
-      href: reference-operator-nexus-fabric-skus.md
+    - name: Operator Nexus SKUs
+      href: reference-operator-nexus-skus.md
 - name: Release Notes
   items:
     - name: 2024
@@ -345,4 +378,3 @@
       items:
         - name: 2404.2
           href: release-notes-2404.2.md
-        

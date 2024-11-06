@@ -2,7 +2,7 @@
 title: Security best practices
 description: Security best practices for building, deploying, and operating your IoT solution. Includes recommendations for devices, data, and infrastructure
 author: dominicbetts
-ms.service: iot
+ms.service: azure-iot
 services: iot
 ms.topic: conceptual
 ms.date: 06/20/2024
@@ -67,7 +67,7 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
 
 ## Connection security
 
-- **Use X.509 certificates to authenticate your devices to IoT Hub or IoT Central**: IoT Hub and IoT Central support both X509 certificate-based authentication and security tokens as methods for a device to authenticate. If possible, use X509-based authentication in production environments as it provides greater security. To learn more, see [Authenticating a device to IoT Hub](../iot-hub/iot-hub-dev-guide-sas.md#authenticating-a-device-to-iot-hub) and [Device authentication concepts in IoT Central](../iot-central/core/concepts-device-authentication.md).
+- **Use X.509 certificates to authenticate your devices to IoT Hub or IoT Central**: IoT Hub and IoT Central support both X509 certificate-based authentication and security tokens as methods for a device to authenticate. If possible, use X509-based authentication in production environments as it provides greater security. To learn more, see [Authenticating a device to IoT Hub](../iot-hub/authenticate-authorize-x509.md) and [Device authentication concepts in IoT Central](../iot-central/core/concepts-device-authentication.md).
 
 - **Use Transport Layer Security (TLS) 1.2 to secure connections from devices**: IoT Hub and IoT Central use TLS to secure connections from IoT devices and services. Three versions of the TLS protocol are currently supported: 1.0, 1.1, and 1.2. TLS 1.0 and 1.1 are considered legacy. To learn more, see [Authentication and authorization](iot-overview-device-connectivity.md#authentication).
 
@@ -85,7 +85,7 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
 
 - **Protect cloud credentials**: An attacker can use the cloud authentication credentials you use to configure and operate your IoT deployment to gain access to and compromise your IoT system. Protect the credentials by changing the password frequently, and don't use these credentials on public machines.
 
-- **Define access controls for your IoT hub**: Understand and define the type of access that each component in your IoT Hub solution needs based on the required functionality. There are two ways you can grant permissions for the service APIs to connect to your IoT hub: [Microsoft Entra ID](../iot-hub/iot-hub-dev-guide-azure-ad-rbac.md) or [Shared Access signatures](../iot-hub/iot-hub-dev-guide-sas.md).
+- **Define access controls for your IoT hub**: Understand and define the type of access that each component in your IoT Hub solution needs based on the required functionality. There are two ways you can grant permissions for the service APIs to connect to your IoT hub: [Microsoft Entra ID](../iot-hub/authenticate-authorize-azure-ad.md) or [Shared Access signatures](../iot-hub/authenticate-authorize-sas.md). If possible, use Microsoft Entra ID in production environments as it provides greater security.
 
 - **Define access controls for your IoT Central application**: Understand and define the type of access that you enable for your IoT Central application. To learn more, see:
 

@@ -1,7 +1,7 @@
 ---
 title: "Beyond Teradata migration, implement a modern data warehouse in Microsoft Azure"
 description: Learn how a Teradata migration to Azure Synapse Analytics lets you integrate your data warehouse with the Microsoft Azure analytical ecosystem.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 author: ajagadish-24
@@ -241,7 +241,7 @@ Azure Machine Learning provides an SDK and services for Python that supports can
 >[!TIP]
 >Azure Machine Learning provides an SDK for developing machine learning models using several open-source frameworks.
 
-You can also use Azure Machine Learning to build machine learning pipelines that manage end-to-end workflow, programmatically scale in the cloud, and deploy models both to the cloud and the edge. Azure Machine Learning contains [workspaces](../../../machine-learning/concept-workspace.md), which are logical spaces that you can programmatically or manually create in the Azure portal. These workspaces keep compute targets, experiments, data stores, trained machine learning models, Docker images, and deployed services all in one place to enable teams to work together. You can use Azure Machine Learning in Visual Studio with the Visual Studio for AI extension.
+You can also use Azure Machine Learning to build machine learning pipelines that manage end-to-end workflow, programmatically scale in the cloud, and deploy models both to the cloud and the edge. Azure Machine Learning contains [workspaces](/azure/machine-learning/concept-workspace), which are logical spaces that you can programmatically or manually create in the Azure portal. These workspaces keep compute targets, experiments, data stores, trained machine learning models, Docker images, and deployed services all in one place to enable teams to work together. You can use Azure Machine Learning in Visual Studio with the Visual Studio for AI extension.
 
 >[!TIP]
 >Organize and manage related data stores, experiments, trained models, Docker images, and deployed services in workspaces.

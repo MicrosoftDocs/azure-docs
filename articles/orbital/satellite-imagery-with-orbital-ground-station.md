@@ -1,7 +1,7 @@
 ---
 title: Process Aqua satellite data using NASA-provided tools - Azure Orbital
 description: An end-to-end walk-through of using the Azure Orbital Ground Station (AOGS) to capture and process Aqua satellite imagery.
-ms.service: orbital
+ms.service: azure-orbital
 author: EliotSeattle
 ms.author: eliotgra
 ms.topic: tutorial 

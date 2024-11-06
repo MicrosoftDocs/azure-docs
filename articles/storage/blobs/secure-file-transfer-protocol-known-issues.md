@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 06/24/2024
+ms.date: 09/03/2024
 ms.author: normesta
 
 ---
@@ -16,15 +16,13 @@ ms.author: normesta
 This article describes limitations and known issues of SFTP support for Azure Blob Storage.
 
 > [!IMPORTANT]
-> Because you must enable hierarchical namespace for your account to use SFTP, all of the known issues that are described in the Known issues with [Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md) article also apply to your account.
+> Because you must enable hierarchical namespace for your account to use SFTP, all of the known issues that are described in the Known issues with [Azure Data Lake Storage](data-lake-storage-known-issues.md) article also apply to your account.
 
 ## Known unsupported clients
 
 The following clients are known to be incompatible with SFTP for Azure Blob Storage. For more information, see [Supported algorithms](secure-file-transfer-protocol-support.md#supported-algorithms).
 
-- Five9
 - Kemp
-- Mule
 - paramiko 1.16.0
 - SSH.NET 2016.1.0
 
@@ -50,9 +48,10 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 | Capacity Information | `df` - usage info for filesystem |
 | Extensions | Unsupported extensions include but aren't limited to: fsync@openssh.com, limits@openssh.com, lsetstat@openssh.com, statvfs@openssh.com |
 | SSH Commands | SFTP is the only supported subsystem. Shell requests after the completion of key exchange will fail. |
-| Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  aren't allowed from other protocols (NFS, Blob REST, Data Lake Storage Gen2 REST) on blobs that are created by using SFTP. Full overwrites are allowed.|
+| Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  aren't allowed from other protocols (NFS, Blob REST, Data Lake Storage REST) on blobs that are created by using SFTP. Full overwrites are allowed.|
 | Rename Operations | Rename operations where the target file name already exists is a protocol violation. Attempting such an operation returns an error. See [Removing and Renaming Files](https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer-02#section-6.5) for more information.|
 | Cross Container Operations | Traversing between containers or performing operations on multiple containers from the same connection are unsupported.
+| Undelete | There is no way to restore a soft-deleted blob with SFTP. The `Undelete` REST API must be used.|
 
 ## Authentication and authorization
   
@@ -60,7 +59,7 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 
 - Microsoft Entra ID isn't supported for the SFTP endpoint.
 
-To learn more, see [SFTP permission model](secure-file-transfer-protocol-support.md#sftp-permission-model) and see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+To learn more, see [SFTP permission model](secure-file-transfer-protocol-support.md#sftp-permission-model) and see [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md).
 
 ## Networking
 
@@ -80,7 +79,7 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
   
 - Maximum file upload size via the SFTP endpoint is 500 GB.
 
-- Customer-managed account failover is supported at the preview level in select regions. For more information, see [Azure storage disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#azure-data-lake-storage-gen2).
+- Customer-managed account failover is supported at the preview level in select regions. For more information, see [Azure storage disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#hierarchical-namespace-hns).
 
 - To change the storage account's redundancy/replication settings, SFTP must be disabled. SFTP may be re-enabled once the conversion has completed.
 
@@ -95,6 +94,8 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 - TLS and SSL aren't related to SFTP.
 
 - Only SSH version 2 is supported.
+
+- Avoid blob or directory names that end with a dot (.), a forward slash (/), a backslash (\), or a sequence or combination of the two. No path segments should end with a dot (.). For more information, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ## Blob Storage features
 

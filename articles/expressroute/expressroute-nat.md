@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: NAT requirements for circuits'
 description: This page provides detailed requirements for configuring and managing NAT for ExpressRoute circuits.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 06/14/2024
 ms.author: duau

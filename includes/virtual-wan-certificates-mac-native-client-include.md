@@ -1,6 +1,6 @@
 ---
  author: cherylmc
- ms.service: virtual-wan
+ ms.service: azure-virtual-wan
  ms.topic: include
  ms.date: 04/28/2023
  ms.author: cherylmc

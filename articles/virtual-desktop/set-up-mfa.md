@@ -1,10 +1,11 @@
 ---
 title: Enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access - Azure
 description: How to enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access to help make it more secure.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
-ms.date: 03/05/2024
-ms.author: helohr
+ms.date: 07/26/2024
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 
 # Enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access
@@ -107,7 +108,7 @@ Here's how to create a Conditional Access policy that requires multifactor authe
 
 ## Configure sign-in frequency
 
-Sign-in frequency policies let you set the time period after which a user must prove their identity again when accessing Microsoft Entra-based resources. This can help secure your environment and is especially important for personal devices, where the local OS may not require MFA or may not lock automatically after inactivity.
+Sign-in frequency policies let you configure how often users are required to sign-in when accessing Microsoft Entra-based resources. This can help secure your environment and is especially important for personal devices, where the local OS may not require MFA or may not lock automatically after inactivity. Users are prompted to authenticate only when a new access token is requested from Microsoft Entra ID when accessing a resource.
 
 Sign-in frequency policies result in different behavior based on the Microsoft Entra app selected:
 
@@ -122,13 +123,14 @@ To configure the time period after which a user is asked to sign-in again:
 1. Under **Access controls** > **Session**, select **0 controls selected**.
 1. In the **Session** pane, select **Sign-in frequency**.
 1. Select **Periodic reauthentication** or **Every time**.
-    - If you select **Periodic reauthentication**, set the value for the time period after which a user is asked to sign-in again, and then select **Select**. For example, setting the value to **1** and the unit to **Hours**, requires multifactor authentication if a connection is launched more than an hour after the last one.
-    - The **Every time** option is currently available in preview and is only supported when applied to the **Microsoft Remote Desktop** and **Windows Cloud Login** apps when single sign-on is enabled for your host pool. If you select **Every time**, users are prompted to reauthenticate after a period of 5 to 15 minutes after the last time they authenticated for the Microsoft Remote Desktop and Windows Cloud Login apps.
+    - If you select **Periodic reauthentication**, set the value for the time period after which a user is asked to sign-in again when performing an action that requires a new access token, and then select **Select**. For example, setting the value to **1** and the unit to **Hours**, requires multifactor authentication if a connection is launched more than an hour after the last user authentication.
+    - The **Every time** option is currently available in preview and is only supported when applied to the **Microsoft Remote Desktop** and **Windows Cloud Login** apps when single sign-on is enabled for your host pool. If you select **Every time**, users are prompted to reauthenticate when launching a new connection after a period of 5 to 10 minutes since their last authentication.
 1. At the bottom of the page, select **Save**.
 
 > [!NOTE]
-> - Reauthentication only happens when a user must authenticate to a resource. Once a connection is established, users aren't prompted even if the connection lasts longer than the sign-in frequency you've configured.
-> - Users need to reauthenticate if there is a network disruption that forces the session to be re-established after the sign-in frequency you've configured. This can lead to more frequent authentication requests on unstable networks.
+>
+> - Reauthentication only happens when a user must authenticate to a resource and a new access token is needed. After a connection is established, users aren't prompted even if the connection lasts longer than the sign-in frequency you've configured.
+> - Users must reauthenticate if there is a network disruption that forces the session to be re-established after the sign-in frequency you've configured. This can lead to more frequent authentication requests on unstable networks.
 
 <a name='azure-ad-joined-session-host-vms'></a>
 

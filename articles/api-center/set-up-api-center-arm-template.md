@@ -2,7 +2,7 @@
 title: Quickstart - Create your Azure API center - ARM template
 description: In this quickstart, use an Azure Resource Manager template to set up an API center for API discovery, reuse, and governance. 
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ms.topic: quickstart
 ms.date: 05/13/2024

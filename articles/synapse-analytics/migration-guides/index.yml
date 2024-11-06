@@ -5,7 +5,7 @@ summary: Azure Synapse migration guides tell the story of bringing existing ente
 metadata:
   title: Azure Synapse Analytics Migration Guides
   description: Azure Synapse migration guides tell the story of bringing existing enterprise analytics solutions to the limitless analytics in Azure Synapse.
-  ms.service: synapse-analytics
+  ms.service: azure-synapse-analytics
   ms.subservice: overview 
   ms.topic: landing-page
 

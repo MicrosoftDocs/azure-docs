@@ -3,10 +3,11 @@ metadata:
   title: Frequently asked questions for confidential nodes support on Azure Kubernetes Service (AKS)
   description: Find answers to some of the common questions about Azure Kubernetes Service (AKS) & Azure Confidential Computing (ACC) nodes support.
   author: angarg05
-  ms.service: confidential-computing
+  ms.service: azure
   ms.topic: faq
   ms.date: 05/10/2022
   ms.author: ananyagarg
+  ms.subservice: confidential-computing
 title: Frequently asked questions about Confidential Computing Nodes on Azure Kubernetes Service (AKS)
 summary: |
   This article addresses frequent questions about Intel SGX based confidential computing nodes on Azure Kubernetes Service (AKS). If you have any further questions, email **acconaks@microsoft.com**.
@@ -43,7 +44,7 @@ sections:
 
       - question: What is the VM SKU I should be choosing for confidential computing nodes?
         answer: |
-          DCSv2/DCsv3 SKUs. More about [DCSv2](../virtual-machines/dcv2-series.md) and [DCSv3](../virtual-machines/dcv3-series.md) are available in the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all)      
+          DCSv2/DCsv3 SKUs. More about [DCSv2](/azure/virtual-machines/dcv2-series) and [DCSv3](/azure/virtual-machines/dcv3-series) are available in the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all)      
       - question: Can I provision AKS with DCSv2 Node Pools through Azure portal? 
         answer: |
           Yes. Azure CLI could also be used as an alternative as documented [here](confidential-enclave-nodes-aks-get-started.md).
@@ -89,7 +90,7 @@ sections:
           To better manage the EPC memory in the worker nodes, consider the EPC memory-based limits management through Kubernetes. Follow the example below as reference.
           
           > [!NOTE] 
-          > The following example pulls a public container image from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the image in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
+          > The following example pulls a public container image from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the image in a private Azure container registry. [Learn more about working with public images.](/azure/container-registry/buffer-gate-public-content)
 
           ```yaml
           apiVersion: batch/v1
@@ -134,7 +135,7 @@ sections:
 
       - question: Will only signed and trusted images be loaded in the enclave for confidential computing?
         answer: |
-          Not natively during enclave initialization but yes through attestation process signature can be validated. Ref [here](../attestation/basic-concepts.md#benefits-of-policy-signing). 
+          Not natively during enclave initialization but yes through attestation process signature can be validated. Ref [here](/azure/attestation/basic-concepts#benefits-of-policy-signing). 
 
       - question: Is container signing possible to bring code integrity protection to confidential containers?
         answer: |

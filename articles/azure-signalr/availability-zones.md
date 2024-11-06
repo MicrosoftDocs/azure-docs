@@ -2,7 +2,7 @@
 title: Availability zones support in Azure SignalR Service
 description: Azure availability zones and zone redundancy in Azure SignalR Service 
 author: ArchangelSDY
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.date: 03/22/2022
 ms.author: dayshen

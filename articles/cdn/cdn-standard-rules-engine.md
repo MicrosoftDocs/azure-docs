@@ -11,6 +11,8 @@ ms.author: duau
 
 # Set up the Standard rules engine for Azure Content Delivery Network
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 This article describes how to set up and use the Standard rules engine for Azure Content Delivery Network.
 
 ## Standard rules engine

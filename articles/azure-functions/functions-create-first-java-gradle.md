@@ -94,7 +94,7 @@ Hello, AzureFunctions
 </pre>
 
 > [!NOTE]
-> If you set authLevel to `FUNCTION` or `ADMIN`, the [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) isn't required when running locally.  
+> If you set authLevel to `FUNCTION` or `ADMIN`, the [access key](function-keys-how-to.md) isn't required when running locally.  
 
 Use `Ctrl+C` in the terminal to stop the function code.
 

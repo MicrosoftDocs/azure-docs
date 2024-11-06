@@ -41,4 +41,4 @@ App Spaces only requires information that's needed during the development proces
 
 - [Deploy an App Spaces starter app](quickstart-deploy-starter-app.md)
 - [Compare Container Apps with other Azure contain options](../container-apps/compare-options.md)
-- [About Azure Cosmos DB](../cosmos-db/introduction.md)
+- [About Azure Cosmos DB](/azure/cosmos-db/introduction)

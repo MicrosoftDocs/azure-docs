@@ -5,11 +5,11 @@ description: Configure Akamai Web Application Protector with Azure AD B2C
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm an IT admin, and I want to configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access. I want to enable Azure AD B2C authentication for end users accessing private applications secured by Akamai Enterprise Application Access.
 ---

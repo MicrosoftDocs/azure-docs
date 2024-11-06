@@ -35,7 +35,7 @@ For a 1:1 call to a PSTN number, use the following code:
 ```js
 const pstnCallee = { phoneNumber: '<ACS_USER_ID>' }
 const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
-const oneToOneCall = callAgent.startCall([pstnCallee], {alternateCallerId});
+const oneToOneCall = callAgent.startCall([pstnCallee], { alternateCallerId });
 ```
 
 For a 1:n call to a user and a PSTN number, use the following code:
@@ -44,7 +44,7 @@ For a 1:n call to a user and a PSTN number, use the following code:
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
 const pstnCallee = { phoneNumber: '<PHONE_NUMBER>'};
 const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
-const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCallerId});
+const groupCall = callAgent.startCall([userCallee, pstnCallee], { alternateCallerId });
 ```
 
 ### Join a room call
@@ -160,22 +160,6 @@ await call.unmuteIncomingAudio();
 
 When incoming audio is muted, the participant client SDK still receives the call audio (remote participant's audio). The call audio isn't heard in the speaker and the participant isn't able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio. 
 
-## Mute other participants
-> [!NOTE]
-> To use this API please use Azure Communication Services Calling Web SDK version 1.26.1 or higher. 
-
-To mute all other participants or mute a specific participant who are connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
-
- *Note: The scenarios to mute PSTN (phone number) participants or 1:1 call participants are not supported.* 
-
-```js
-//mute all participants except yourself
-await call.muteAllRemoteParticipants();
-
-//mute a specific participant
-await call.remoteParticipants[0].mute();
-```
-
 ## Manage remote participants
 
 All remote participants are detailed in  the `RemoteParticipant` object and available through the `remoteParticipants` collection on a call instance. The `remoteParticipants` is accessible from a `Call` instance.
@@ -196,7 +180,8 @@ To add a participant (either a user or a phone number) to a call, you can use th
 const userIdentifier = { communicationUserId: '<ACS_USER_ID>' };
 const pstnIdentifier = { phoneNumber: '<PHONE_NUMBER>' }
 const remoteParticipant = call.addParticipant(userIdentifier);
-const remoteParticipant = call.addParticipant(pstnIdentifier, {alternateCallerId: '<ALTERNATE_CALLER_ID>'});
+const alternateCallerId = {  phoneNumber: '<ALTERNATE_CALLER_ID>' };
+const remoteParticipant = call.addParticipant(pstnIdentifier, { alternateCallerId });
 ```
 
 ### Remove a participant from a call
@@ -276,6 +261,21 @@ const state = remoteParticipant.state;
     ```
     *Note: A remote participant could be in the call from many endpoints, and each endpoint has its own unique `participantId`. `participantId` is different from the RemoteParticipant.identifier's raw ID.*
 
+### Mute other participants
+> [!NOTE]
+> To use this API please use Azure Communication Services Calling Web SDK version 1.26.1 or higher. 
+
+To mute all other participants or mute a specific participant who are connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
+
+ *Note: The scenarios to mute PSTN (phone number) participants or 1:1 call participants are not supported.* 
+
+```js
+//mute all participants except yourself
+await call.muteAllRemoteParticipants();
+
+//mute a specific participant
+await call.remoteParticipants[0].mute();
+```
 ## Check call properties
 
 Get the unique ID (string) for a call:
@@ -335,6 +335,7 @@ Find out why a call ended by inspecting the `callEndReason` property:
 
 ```js
 const callEndReason = call.callEndReason;
+const callEndReasonMessage = callEndReason.message // (string) user friendly message
 const callEndReasonCode = callEndReason.code // (number) code associated with the reason
 const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
 ```

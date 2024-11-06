@@ -4,7 +4,7 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to create an environment in an Azure Deployment Environments project by using the Azure Developer CLI.
 author: RoseHJM
 ms.author: rosemalcolm
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.custom: ignite-2023
 ms.topic: how-to
 ms.date: 05/30/2024
@@ -33,9 +33,7 @@ You should:
 
 When you work with AZD for the first time, there are some one-time setup tasks you need to complete. These tasks include installing the Azure Developer CLI, signing in to your Azure account, and enabling AZD support for Azure Deployment Environments.
 
-Use the following instructions to [Install the Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows).
-
-### Install the Azure Developer CLI extension for Visual Studio Code
+### Install the Azure Developer CLI
 
 When you install azd, the azd tools are installed within azd scope rather than globally, and are removed if azd is uninstalled. To use azd tools in Visual Studio Code, install the extension.
 

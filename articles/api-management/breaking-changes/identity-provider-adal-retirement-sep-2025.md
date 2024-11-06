@@ -3,7 +3,7 @@ title: Azure API Management identity providers configuration change (September 2
 description: Azure API Management is updating the library used for user authentication in the developer portal. If you use Microsoft Entra ID or Azure AD B2C identity providers, you need to update application settings and identity provider configuration to use the Microsoft Authentication Library (MSAL).
 services: api-management
 author: mikebudzynski
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 09/06/2022
 ms.author: mibudz

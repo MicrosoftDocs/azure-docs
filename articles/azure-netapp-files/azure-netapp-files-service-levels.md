@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 09/05/2024
 ms.author: anfdocs
 ---
 # Service levels for Azure NetApp Files
@@ -17,9 +17,6 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
 
 * <a name="Standard"></a>Standard storage:   
     The Standard service level provides up to 16 MiB/s of throughput per 1 TiB of capacity provisioned.   
-
-    * Standard storage with cool access:      
-        The throughput experience for this service level is the same as the Standard service level for data that is in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [Standard storage with cool access in Azure NetApp Files](cool-access-introduction.md#effects-of-cool-access-on-data). 
 
 * <a name="Premium"></a>Premium storage:   
     The Premium service level provides up to 64 MiB/s of throughput per 1 TiB of capacity provisioned. 
@@ -34,6 +31,9 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
 
     >[!IMPORTANT]
     >The Flexible service level is only supported for _manual QoS_ capacity pools. 
+
+* Storage with cool access:      
+    Cool access storage is available with the Standard, Premium, and Ultra service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md). 
 
 ## Throughput limits
 
@@ -50,7 +50,7 @@ The following diagram shows throughput limit examples of volumes in an auto QoS 
 
 * In Example 1, a volume from an auto QoS capacity pool with the Premium storage tier that is assigned 2 TiB of quota will be assigned a throughput limit of 128 MiB/s (2 TiB * 64 MiB/s). This scenario applies regardless of the capacity pool size or the actual volume consumption.
 
-* In Example 2, a volume from an auto QoS capacity pool with the Premium storage tier that is assigned 100 GiB of quota will be assigned a throughput limit of 6.25 MiB/s (0.09765625 TiB * 64 MiB/s). This scenario applies regardless of the capacity pool size or the actual volume consumption.
+* In Example 2, a volume from an auto QoS capacity pool with the Premium storage tier that is assigned 100 GiB of quota is assigned a throughput limit of 6.25 MiB/s (0.09765625 TiB * 64 MiB/s). This scenario applies regardless of the capacity pool size or the actual volume consumption.
 
 ### Throughput limit examples of volumes in a manual QoS capacity pool 
 

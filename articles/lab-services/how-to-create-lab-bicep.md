@@ -9,6 +9,8 @@ ms.custom: mode-api, devx-track-bicep
 
 # Create a lab in Azure Lab Services using a Bicep file
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to create a lab using a Bicep file.  For a detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
@@ -25,11 +27,15 @@ In this article, you learn how to create a lab using a Bicep file.  For a detail
 
 # [Bicep](#tab/bicep)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 The Bicep file used in this article is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/lab/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.labservices/lab/main.bicep":::
 
 # [ARM](#tab/arm)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 The template used in this article is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/lab/).
 
@@ -46,6 +52,8 @@ More Azure Lab Services template samples can be found in [Azure Quickstart Templ
 ## Deploy the resources
 
 # [Bicep](#tab/bicep)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
@@ -72,6 +80,8 @@ More Azure Lab Services template samples can be found in [Azure Quickstart Templ
   When the deployment finishes, you should see a messaged indicating the deployment succeeded.
 
 # [ARM](#tab/arm)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 1. Select the following link to sign in to Azure and open a template. The template creates a lab.
 
@@ -102,11 +112,15 @@ To use Azure PowerShell, first verify the Az.LabServices module is installed. Th
 
 # [CLI](#tab/CLI)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 ```azurecli-interactive
 az resource list --resource-group exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceGroupName exampleRG
@@ -120,11 +134,15 @@ When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to d
 
 # [CLI](#tab/CLI)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 ```azurecli-interactive
 az group delete --name exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name exampleRG

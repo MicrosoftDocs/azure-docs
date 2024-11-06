@@ -3,7 +3,7 @@ title: 'Deploy and configure Azure Firewall using Azure PowerShell'
 description: In this article, you learn how to deploy and configure Azure Firewall using the Azure PowerShell. 
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.date: 02/20/2024
 ms.author: victorh
 ms.topic: how-to 

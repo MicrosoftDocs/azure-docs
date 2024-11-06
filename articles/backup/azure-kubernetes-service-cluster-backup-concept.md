@@ -1,11 +1,11 @@
 ---
 title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites
 description: This article explains the prerequisites for Azure Kubernetes Service (AKS) backup.
-ms.topic: conceptual
-ms.service: backup
+ms.topic: overview
+ms.service: azure-backup
 ms.custom:
   - ignite-2023
-ms.date: 03/28/2024
+ms.date: 09/09/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -50,9 +50,7 @@ Your Azure resources access AKS clusters through the AKS regional gateway using 
 
 For AKS backup, the Backup vault accesses your AKS clusters via Trusted Access to configure backups and restores. The Backup vault is assigned a predefined role **Microsoft.DataProtection/backupVaults/backup-operator** in the AKS cluster, allowing it to only perform specific backup operations. 
 
-To enable Trusted Access between a Backup vault and an AKS cluster, you must register the `TrustedAccessPreview`  feature flag on `Microsoft.ContainerService` at the subscription level. Learn more [to register the resource provider](azure-kubernetes-service-cluster-manage-backups.md#enable-the-feature-flag).
-
-Learn [how to enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#register-the-trusted-access).
+To enable Trusted Access between a Backup vault and an AKS cluster. Learn [how to enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#trusted-access-related-operations)
 
 >[!Note]
 >- You can install the Backup Extension on your AKS cluster directly from the Azure portal under the *Backup* section in AKS portal.
@@ -67,13 +65,13 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
   >[!Note]
   >- Currently, AKS backup only supports backup of Azure Disk-based persistent volumes (enabled by CSI driver). If you're using Azure File Share and Azure Blob type persistent volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions available for [Azure File Share](azure-file-share-backup-overview.md) and [Azure Blob](blob-backup-overview.md).
-  >- In Tree, volumes aren't supported by AKS backup; only CSI driver based volumes can be backed up. You can [migrate from tree volumes to CSI driver based Persistent Volumes](../aks/csi-migrate-in-tree-volumes.md).
+  >- In Tree, volumes aren't supported by AKS backup; only CSI driver based volumes can be backed up. You can [migrate from tree volumes to CSI driver based Persistent Volumes](/azure/aks/csi-migrate-in-tree-volumes).
 
-- Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
+- Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](/azure/aks/csi-storage-drivers#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- Azure Backup for AKS supports AKS clusters using either a system-assigned managed identity or a user-assigned managed identity for backup operations. Although clusters using a service principal aren't supported, you can update an existing AKS cluster to use a [system-assigned managed identity](../aks/use-managed-identity.md#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](../aks/use-managed-identity.md#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
+- Azure Backup for AKS supports AKS clusters using either a system-assigned managed identity or a user-assigned managed identity for backup operations. Although clusters using a service principal aren't supported, you can update an existing AKS cluster to use a [system-assigned managed identity](/azure/aks/use-managed-identity#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](/azure/aks/use-managed-identity#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
 
-- The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](../container-registry/container-registry-firewall-access-rules.md#configure-client-firewall-rules-for-mcr).
+- The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](/azure/container-registry/container-registry-firewall-access-rules#configure-client-firewall-rules-for-mcr).
 
 - In case you have the cluster in a Private Virtual Network and Firewall, apply the following FQDN/application rules: `*.microsoft.com`, `*.azure.com`, `*.core.windows.net`, `*.azmk8s.io`, `*.digicert.com`, `*.digicert.cn`, `*.geotrust.com`, `*.msocsp.com`. Learn [how to apply FQDN rules](../firewall/dns-settings.md).
 
@@ -102,7 +100,7 @@ Also, as part of the backup and restore operations, the following roles are assi
 | Reader                         | Backup vault       | Snapshot resource group | Allows the Backup vault to perform _List_ and _Read_ operations on snapshot resource group. |
 | Contributor                    | AKS cluster        | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group.              |
 | Storage Blob Data Contributor    | Extension Identity | Storage account         | Allows Backup Extension to store cluster resource backups in the blob container.            |
-| Data Operator for Managed Disk | Backup vault       | Snapshot Resource Group | Allows Backup Vault service to move incremental snapshot data to the Vault.                  |
+| Data Operator for Managed Disks | Backup vault       | Snapshot Resource Group | Allows Backup Vault service to move incremental snapshot data to the Vault.                  |
 | Disk Snapshot Contributor      | Backup vault       | Snapshot Resource Group | Allows Backup Vault to access Disks snapshots and perform Vaulting operation.                |
 | Storage Blob Data Reader       | Backup vault       | Storage Account         | Allow Backup Vault to access Blob Container with backup data stored to move to Vault.        |
 | Contributor                    | Backup vault       | Staging Resource Group  | Allows Backup Vault to hydrate backups as Disks stored in Vault Tier.                        |

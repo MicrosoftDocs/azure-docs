@@ -12,7 +12,7 @@ ms.custom: vmware-scenario-422, engagement-fy23
 
 # Set up an appliance for servers in a VMware environment
 
-This article describes how to set up the Azure Migrate appliance for assessment by using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool.
+This article describes how to set up the Azure Migrate appliance for assessment by using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md) tool.
 
 The [Azure Migrate appliance](../migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in vCenter Server and to send server configuration and performance metadata to Azure.
 
@@ -33,7 +33,7 @@ After you create the appliance, check if the appliance can connect to Azure Migr
 To set up the appliance by using an OVA template, you'll complete these steps, which are described in detail in this section:
 
 > [!NOTE]
-> OVA templates are not available for soverign clouds.
+> OVA templates are not available for sovereign clouds.
 
 > [!NOTE]
 > Do not clone or create a VM template out of an appliance deployed using OVA template. This scenario is unsupported and may result in deployment failures within the Migrate Service.
@@ -76,16 +76,14 @@ Before you deploy the OVA file, verify that the file is secure:
 1. Verify the latest appliance versions and hash values:
 
     - For the Azure public cloud:
-
-        **Algorithm** | **Download** | **SHA256**
-        --- | --- | ---
-        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954) | 06256F9C6FB3F011152D861DA43FFA1C5C8FF966931D5CE00F1F252D3A2F4723
+    
+      [!INCLUDE [public-cloud-vmware.md](../includes/public-cloud-vmware.md)]
 
     - For Azure Government:
 
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](../includes/security-hash-value.md)]
 
 #### Create the appliance server
 

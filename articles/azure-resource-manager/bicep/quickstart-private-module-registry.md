@@ -17,7 +17,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To work with module registries, you must have [Bicep CLI](./install.md) version **0.4.1008** or later. To use with [Azure CLI](/cli/azure/install-azure-cli), you must also have Azure CLI version **2.31.0** or later; to use with [Azure PowerShell](/powershell/azure/install-azure-powershell), you must also have Azure PowerShell version **7.0.0** or later.
 
-A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md). To create one, see [Quickstart: Create a container registry by using a Bicep file](../../container-registry/container-registry-get-started-bicep.md).
+A Bicep registry is hosted on [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro). To create one, see [Quickstart: Create a container registry by using a Bicep file](/azure/container-registry/container-registry-get-started-bicep).
 
 To set up your environment for Bicep development, see [Install Bicep tools](install.md). After completing those steps, you'll have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep), or [Visual Studio](https://visualstudio.microsoft.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
 
@@ -45,7 +45,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {

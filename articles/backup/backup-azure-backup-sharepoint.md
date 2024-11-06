@@ -3,7 +3,7 @@ title: Back up a SharePoint farm to Azure with DPM
 description: This article provides an overview of DPM/Azure Backup server protection of a SharePoint farm to Azure
 ms.topic: how-to
 ms.date: 07/08/2024
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

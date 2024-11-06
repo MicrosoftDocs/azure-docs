@@ -3,7 +3,7 @@ title: 'Install a Point-to-Site client certificate'
 titleSuffix: Azure VPN Gateway
 description: Learn how to install client certificates for P2S certificate authentication - Windows, Mac, Linux.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 05/15/2024
@@ -13,16 +13,13 @@ ms.author: cherylmc
 
 When a P2S VPN gateway is configured to require certificate authentication, each client computer must have a client certificate installed locally. This article helps you install a client certificate locally on a client computer. You can also use [Intune](/mem/intune/configuration/vpn-settings-configure) to install certain VPN client profiles and certificates.
 
-For information about generating certificates, see the [Generate certificates](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert) section of the Point-to-site configuration article.
+For information about generating certificates, see the [Generate certificates](point-to-site-certificate-gateway.md#generatecert) section of the Point-to-site configuration article.
 
 ## <a name="installwin"></a>Windows
 
 [!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
 ## <a name="installmac"></a>macOS
-
->[!NOTE]
->macOS VPN clients are supported for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not supported for the classic deployment model.
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 

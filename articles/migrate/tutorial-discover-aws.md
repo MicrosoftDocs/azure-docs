@@ -5,9 +5,9 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 04/05/2024
+ms.date: 08/08/2024
 ms.service: azure-migrate
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
+ms.custom: mvc, subject-rbac-steps, engagement-fy25
 #Customer intent: As a server admin I want to discover my AWS instances.
 ---
 
@@ -68,7 +68,7 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of Add role assignment page in Azure portal.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of Add role assignment page in Azure portal.":::
 
 1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.**
 
@@ -157,13 +157,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
 
     - For Azure Government:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
  
 
 ### 3. Run the Azure Migrate installer script
@@ -307,5 +307,5 @@ After discovery finishes, you can verify that the servers appear in the portal.
 
 ## Next steps
 
-- [Assess physical servers](tutorial-migrate-aws-virtual-machines.md) for migration to Azure VMs.
+- [Assess AWS VMs](tutorial-migrate-aws-virtual-machines.md) for migration to Azure.
 - [Review the data](discovered-metadata.md#collected-data-for-physical-servers) that the appliance collects during discovery.

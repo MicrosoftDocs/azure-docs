@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create an Azure Network Watcher connection monitor using Azure PowerShell.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 01/07/2021
 ms.custom: devx-track-azurepowershell

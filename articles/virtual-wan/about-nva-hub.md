@@ -3,7 +3,7 @@ title: 'About Network Virtual Appliances - Virtual WAN hub'
 titleSuffix: Azure Virtual WAN
 description: Learn about Network Virtual Appliances in a Virtual WAN hub.
 author: wtnlee
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 11/02/2023
 ms.author: wellee

@@ -3,7 +3,7 @@ title: 'Configure P2S VPN clients - certificate authentication -OpenVPN - Linux'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure a Linux VPN client solution for VPN Gateway P2S configurations that use certificate authentication and an OpenVPN client.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 06/24/2024
@@ -24,8 +24,8 @@ Verify that you are on the correct article. The following table shows the config
 
 This article assumes that you've already performed the following prerequisites:
 
-* You created and configured your VPN gateway for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md) for steps.
-* You generated and downloaded the VPN client configuration files. See [Generate VPN client profile configuration files](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) for steps.
+* You created and configured your VPN gateway for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-certificate-gateway.md) for steps.
+* You generated and downloaded the VPN client configuration files. See [Generate VPN client profile configuration files](point-to-site-certificate-gateway.md#profile-files) for steps.
 * You can either generate client certificates, or acquire the appropriate client certificates necessary for authentication.
 
 ### Connection requirements
@@ -58,4 +58,4 @@ This section helps you configure Linux clients for certificate authentication th
 
 ## Next steps
 
-For additional steps, return to the [P2S Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) article.
+For additional steps, return to the [P2S Azure portal](point-to-site-certificate-gateway.md) article.

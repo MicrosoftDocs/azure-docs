@@ -729,7 +729,7 @@ In this mode, the extension requires the following properties:
 More properties can be used to customize the connection. See [Common properties for identity-based connections](functions-reference.md#common-properties-for-identity-based-connections).
 
 > [!NOTE]
-> When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for managed identity-based connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](/azure/key-vault/general/overview) to provide settings for managed identity-based connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
 > 
 > For example, `<CONNECTION_NAME_PREFIX>:topicEndpointUri`.
 

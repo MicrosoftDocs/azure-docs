@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 07/02/2024
+ms.date: 11/04/2024
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
@@ -39,8 +39,8 @@ Requirement | Details
 --- | ---
 **vCenter Server/ESXi host** | You need a server running vCenter Server version 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Servers must be hosted on an ESXi host running version 5.5 or later.<br /><br /> On the vCenter Server, allow inbound connections on TCP port 443 so that the appliance can collect configuration and performance metadata.<br /><br /> The appliance connects to vCenter Server on port 443 by default. If the server running vCenter Server listens on a different port, you can modify the port when you provide the vCenter Server details in the appliance configuration manager.<br /><br /> On the ESXi hosts, make sure that inbound access is allowed on TCP port 443 for discovery of installed applications and for agentless dependency analysis on servers.
 **Azure Migrate appliance** | vCenter Server must have these resources to allocate to a server that hosts the Azure Migrate appliance:<br /><br /> - 32 GB of RAM, 8 vCPUs, and approximately 80 GB of disk storage.<br /><br /> - An external virtual switch and internet access on the appliance server, directly or via a proxy.
-**Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).<br /><br /> For discovery of installed applications and for agentless dependency analysis, VMware Tools (version 10.2.1 or later) must be installed and running on servers. Windows servers must have PowerShell version 2.0 or later installed.<br /><br /> To discover SQL Server instances and databases, check [supported SQL Server and Windows OS versions and editions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) and Windows authentication mechanisms.<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements).<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
-**SQL Server access** | To discover SQL Server instances and databases, the Windows account, or SQL Server account [requires these permissions](migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. You can use the [account provisioning utility](../least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
+**Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](/azure/migrate/vmware/migrate-support-matrix-vmware?pivots=dependency-analysis-agentless-requirements&tabs=businesscase).<br /><br /> For discovery of installed applications and for agentless dependency analysis, VMware Tools (version 10.2.1 or later) must be installed and running on servers. Windows servers must have PowerShell version 2.0 or later installed.<br /><br /> To discover SQL Server instances and databases, check [supported SQL Server and Windows OS versions and editions](/azure/migrate/vmware/migrate-support-matrix-vmware?pivots=sql-server-instance-database-discovery-requirements&tabs=businesscase) and Windows authentication mechanisms.<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](/azure/migrate/vmware/migrate-support-matrix-vmware?pivots=web-apps-discovery&tabs=businesscase).<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](/azure/migrate/vmware/migrate-support-matrix-vmware?pivots=web-apps-discovery&tabs=businesscase). 
+**SQL Server access** | To discover SQL Server instances and databases, the Windows account, or SQL Server account [requires these permissions](/azure/migrate/vmware/migrate-support-matrix-vmware?pivots=sql-server-instance-database-discovery-requirements&tabs=businesscase) for each SQL Server instance. You can use the [account provisioning utility](../least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 
 ## Prepare an Azure user account
 
@@ -74,7 +74,7 @@ To set Contributor or Owner permissions in the Azure subscription:
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
 
 To give the account the required permissions to register Microsoft Entra apps:
 
@@ -114,7 +114,7 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 
 Your user account on your servers must have the required permissions to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can provide the user account information in the appliance configuration manager. The appliance doesn't install agents on the servers.
 
-* For **Windows servers** and web apps discovery, create an account (local or domain) that has administrator permissions on the servers. Sentence should be - To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](./migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. Learn how to [assign the required role to the user account](/sql/relational-databases/security/authentication-access/server-level-roles).
+* To perform software inventory and agentless dependency analysis, create a guest user account (local or domain) on the servers. To perform web app discovery, you need an account with administrative permissions on the servers. To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](./migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. Learn how to [assign the required role to the user account](/sql/relational-databases/security/authentication-access/server-level-roles).
 * For **Linux servers**, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
 
 > [!NOTE]
@@ -191,15 +191,13 @@ Before you deploy the OVA file, verify that the file is secure:
 
     - For the Azure public cloud:
     
-        **Algorithm** | **Download** | **SHA256**
-        --- | --- | ---
-        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954) | 06256f9c6fb3f011152d861da43ffa1c5c8ff966931d5ce00f1f252d3a2f4723
+        [!INCLUDE [public-cloud-vmware.md](../includes/public-cloud-vmware.md)]
 
     - For Azure Government:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](../includes/security-hash-value.md)]
 
 #### Create the appliance server
 

@@ -2,7 +2,7 @@
  author: normesta
  ms.service: storage
  ms.topic: include
- ms.date: 05/26/2023
+ ms.date: 11/05/2024
  ms.author: normesta
 ---
 
@@ -14,17 +14,22 @@
 |**authorization / denyAssignmentId** | The date in GUID format when access was denied by a deny assignment. <br> The deny assignment might be from Azure Blueprints or a managed application. <br> For more information on deny assignments, see [Understand Azure deny assignments](../articles/role-based-access-control/deny-assignments.md) |
 |**authorization / reason** | The reason for the authorization result of the request. <br> For example: `Policy`, `NoApplicablePolicy`, or `MissingAttributes` |
 |**authorization / result** | The authorization result of the request. <br> For example: `Granted` or `Denied` |
-|**authorization / roleAssignmentId** | The role assignment ID. <br> For example: `4e2521b7-13be-4363-aeda-111111111111`.|
-|**authorization / roleDefinitionId** | The role definition ID. <br> For example: `ba92f5b4-2d11-453d-a403-111111111111`.|
+|**authorization / roleAssignmentId** | The role assignment ID. <br> For example: `11bb11bb-cc22-dd33-ee44-55ff55ff55ff`.|
+|**authorization / roleDefinitionId** | The role definition ID. <br> For example: `00aa00aa-bb11-cc22-dd33-44ee44ee44ee`.|
 |**authorization / type** | The source of the authorization result for the request. <br> For example: `RBAC` or `ABAC` |
 |**principals / id** | The ID of the security principal. <br> For example: `a4711f3a-254f-4cfb-8a2d-111111111111`.|
 |**principals / type** | The type of security principal. <br> For example: `ServicePrincipal`. |
 |**properties / metricResponseType** | The response from the metrics transaction. <br> For examples, see the ResponseType metrics dimension for your storage service: <br> [blobs](../articles/storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) <br> [files](../articles/storage/files/storage-files-monitoring-reference.md#metrics-dimensions) <br> [queues](../articles/storage/queues/monitor-queue-storage-reference.md#metrics-dimensions) <br> [tables](../articles/storage/tables/monitor-table-storage-reference.md#metrics-dimensions) |
 |**properties / objectKey** | The path to the object being accessed. <br> For example: `samplestorageaccount/container1/blob.png`. |
-|**requester / appID** | The Open Authorization (OAuth) application ID that is used as the requester. <br> For example: `d3f7d5fe-e64a-4e4e-871d-333333333333`.|
+|**requester / appID** | The Open Authorization (OAuth) application ID that is used as the requester. <br> For example: `00001111-aaaa-2222-bbbb-3333cccc4444`.|
 |**requester / audience** | The OAuth audience of the request. <br> For example: `https://storage.azure.com`. |
-|**requester / objectId** | The OAuth object ID of the requester. In case of Kerberos authentication, represents the object identifier of Kerberos authenticated user. <br> For example: `0e0bf547-55e5-465c-91b7-2873712b249c`. |
-|**requester / tenantId** | The OAuth tenant ID of identity. <br> For example: `72f988bf-86f1-41af-91ab-222222222222`.|
+|**requester / objectId** | The OAuth object ID of the requester. In case of Kerberos authentication, represents the object identifier of Kerberos authenticated user. <br> For example: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`. |
+|**requester / tenantId** | The OAuth tenant ID of identity. <br> For example: `aaaabbbb-0000-cccc-1111-dddd2222eeee`.|
 |**requester / tokenIssuer** | The OAuth token issuer. <br> For example: `https://sts.windows.net/72f988bf-86f1-41af-91ab-222222222222/`.|
 |**requester / upn** | The User Principal Name (UPN) of requestor. <br> For example: `someone@contoso.com`. |
 |**requester / userName** | This field is reserved for internal use only.|
+|**requester / uniqueName** | The unique name of the requester. For example: `someone@example.com`. |
+|**delegatedResource / tenantId**| The Microsoft Entra tenant ID of the Azure resource ID which accesses storage on-behalf-of the storage resource owner (for example: `aaaabbbb-0000-cccc-1111-dddd2222eeee`). |
+|**delegatedResource / resourceId**|The Azure resource ID which accesses storage on behalf of the storage resource owner (for example: `/subscriptions/<sub>/resourcegroups/<rg>/providers/Microsoft.Compute/virtualMachines/<vm-name>`)|
+|**delegatedResource / objectId**|The Microsoft Entra object ID of the Azure resource ID which accesses storage on behalf of the storage resource owner (for example: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`).|
+

@@ -3,7 +3,7 @@ title: Set up an apex domain with Azure DNS in Azure Static Web Apps
 description: Configure the root domain with Azure DNS in Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 02/11/2022
 ms.author: cshoe

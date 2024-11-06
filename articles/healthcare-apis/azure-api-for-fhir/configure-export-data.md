@@ -2,7 +2,7 @@
 title: Configure export settings in Azure API for FHIR
 description: Learn how to configure export settings in Azure API for FHIR.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 09/27/2023
@@ -11,9 +11,9 @@ ms.author: kesheth
 
 # Configure export settings in Azure API for FHIR
 
-[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-Azure API for FHIR supports the $export command, which allows you to export the data out of an Azure API for FHIR instance to a storage account.
+Azure API for FHIR&reg; supports the `$export` command, which allows you to export the data out of an Azure API for FHIR instance to a storage account.
 
 The steps are:
 
@@ -41,9 +41,9 @@ For more information, see [Azure built-in roles](../../role-based-access-control
 
 It's here that you add the role [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) to the service name, and then select **Save**.
 
-:::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot showing RBAC assignment page." lightbox="../../../includes/role-based-access-control/media/add-role-assignment-page.png":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot showing RBAC assignment page." lightbox="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png":::
 
-Next, select the storage account in Azure API for FHIR as a default storage account for $export.
+Next, select the storage account in Azure API for FHIR as a default storage account for `$export`.
 
 ## Select the storage account for $export
 
@@ -51,13 +51,13 @@ The final step is to assign the Azure storage account to export the data to. Go 
 
 :::image type="content" source="media/export-data/fhir-export-storage.png" alt-text="Screenshot showing selection of the storage account for export." lightbox="media/export-data/fhir-export-storage.png":::
 
-After you complete this final step, you’re ready to export the data by using the $export command.
+After you complete this final step, you’re ready to export the data by using the `$export` command.
 
 > [!Note]
-> Only storage accounts in the same subscription as Azure API for FHIR can be registered as the destination for $export operations.
+> Only storage accounts in the same subscription as Azure API for FHIR can be registered as the destination for `$export` operations.
 
 ## Next steps
 
 [Additional settings](azure-api-for-fhir-additional-settings.md)
 
-[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

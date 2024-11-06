@@ -3,9 +3,9 @@ title: 'Scenario: Route traffic through a Network Virtual Appliance (NVA)'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN routing scenarios to route traffic through a Network Virtual Appliance (NVA).
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 10/25/2024
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
@@ -29,7 +29,7 @@ In this scenario we'll use the following naming convention:
 * "Non-NVA VNets" for virtual networks connected to Virtual WAN that don't have an NVA or other VNets peered with them (VNet 1 and VNet 3 in the **Figure 2** further down in the article).
 * "Hubs" for Microsoft-managed Virtual WAN Hubs, where NVA VNets are connected to. NVA spoke VNets don't need to be connected to Virtual WAN hubs, only to NVA VNets.
 
-The following connectivity matrix, summarizes the flows supported in this scenario:
+The following connectivity matrix summarizes the flows supported in this scenario:
 
 **Connectivity matrix**
 
@@ -40,7 +40,7 @@ The following connectivity matrix, summarizes the flows supported in this scenar
 | **Non-NVA VNets**| &#8594; | Over NVA VNet | Direct | Direct | Direct |
 | **Branches**     | &#8594; | Over NVA VNet | Direct | Direct | Direct |
 
-Each of the cells in the connectivity matrix describes how a VNet or branch (the "From" side of the flow, the row headers in the table) communicates with a destination VNet or branch (the "To" side of the flow, the column headers in italics in the table). "Direct" means that connectivity is provided natively by Virtual WAN, "Peering" means that connectivity is provided by a User-Defined Route in the VNet, "Over NVA VNet" means that the connectivity traverses the NVA deployed in the NVA VNet. Consider the following:
+Each of the cells in the connectivity matrix describes how a VNet or branch (the "From" side of the flow, the row headers in the table) communicates with a destination VNet or branch (the "To" side of the flow, the column headers in italics in the table). "Direct" means that connectivity is provided natively by Virtual WAN, "Peering" means that connectivity is provided by a User-Defined Route in the VNet, "Over NVA VNet" means that the connectivity traverses the NVA deployed in the NVA VNet. Consider the following items:
 
 * NVA Spokes aren't managed by Virtual WAN. As a result, the mechanisms with which they'll communicate to other VNets or branches are maintained by the user. Connectivity to the NVA VNet is provided by a VNet peering, and a Default route to 0.0.0.0/0 pointing to the NVA as next hop should cover connectivity to the Internet, to other spokes, and to branches
 * NVA VNets knows about their own NVA spokes, but not about NVA spokes connected to other NVA VNets. For example, in the Figure 2 further down in this article, VNet 2 knows about VNet 5 and VNet 6, but not about other spokes such as VNet 7 and VNet 8. A static route is required to inject other spokes' prefixes into NVA VNets

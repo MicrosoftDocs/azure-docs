@@ -362,7 +362,7 @@ The connection string is now set in your app in Azure.
 
 ## Enable Application Insights logging
 
-When the WebJob runs in Azure, you can't monitor function execution by viewing console output. To be able to monitor your WebJob, you should create an associated [Application Insights](../azure-monitor/app/app-insights-overview.md) instance when you publish your project.
+When the WebJob runs in Azure, you can't monitor function execution by viewing console output. To be able to monitor your WebJob, you should create an associated [Application Insights](/azure/azure-monitor/app/app-insights-overview) instance when you publish your project.
 
 ### Create an Application Insights instance
 
@@ -374,7 +374,7 @@ When the WebJob runs in Azure, you can't monitor function execution by viewing c
 
 1. Under **Settings**, choose **Configuration** and verify that a new `APPINSIGHTS_INSTRUMENTATIONKEY` was created. This key is used to connect your WebJob instance to Application Insights.   
 
-To take advantage of [Application Insights](../azure-monitor/app/app-insights-overview.md) logging, you need to update your logging code as well.
+To take advantage of [Application Insights](/azure/azure-monitor/app/app-insights-overview) logging, you need to update your logging code as well.
 
 ### Install the Application Insights extension
 

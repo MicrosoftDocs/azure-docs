@@ -2,7 +2,7 @@
 title: Troubleshoot Azure VM replication in Azure Site Recovery
 description: Troubleshoot errors when replicating Azure virtual machines for disaster recovery.
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: troubleshooting
 ms.date: 03/07/2024
 ms.author: ankitadutta
@@ -10,9 +10,6 @@ ms.custom: engagement-fy23
 ---
 
 # Troubleshoot Azure-to-Azure VM replication errors
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of [Azure virtual machines](azure-to-azure-tutorial-enable-replication.md) (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
 
@@ -34,7 +31,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### Fix the problem
 
-Contact [Azure billing support](../azure-portal/supportability/regional-quota-requests.md) to enable your subscription to create VMs of the required sizes in the target location. Then retry the failed operation.
+Contact [Azure billing support](/azure/azure-portal/supportability/regional-quota-requests) to enable your subscription to create VMs of the required sizes in the target location. Then retry the failed operation.
 
 If the target location has a capacity constraint, disable replication to that location. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
@@ -261,8 +258,8 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Make sure that the data disks are initialized, and then retry the operation.
 
-- **Windows**: [Attach and initialize a new disk](../virtual-machines/windows/attach-managed-disk-portal.yml).
-- **Linux**: [Initialize a new data disk in Linux](../virtual-machines/linux/add-disk.md).
+- **Windows**: [Attach and initialize a new disk](/azure/virtual-machines/windows/attach-managed-disk-portal).
+- **Linux**: [Initialize a new data disk in Linux](/azure/virtual-machines/linux/add-disk).
 
 If the problem persists, contact support.
 
@@ -548,7 +545,7 @@ The installer is unable to find the root disk that hosts the root file-system.
 
 Perform the following steps to fix this issue.
 
-1. Find the agent bits under the directory _/var/lib/waagent_ on RHEL and CentOS machines using the below command: <br>
+1. Find the agent bits under the directory _/var/lib/waagent_ on RHEL machines using the below command: <br>
 
 	`# find /var/lib/ -name Micro\*.gz`
 

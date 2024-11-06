@@ -2,13 +2,12 @@
 title: Transform data with Synapse Notebook 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to process or transform data by running a Synapse notebook in Azure Data Factory and Synapse Analytics pipelines.
-ms.service: data-factory
-ms.subservice: tutorials
 ms.custom: synapse
 author: nabhishek
 ms.author: jejiang
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 01/05/2024
 ---
 
 # Transform data by running a Synapse Notebook

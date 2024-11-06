@@ -3,9 +3,9 @@ title: 'Tutorial: Create an application gateway with URL path-based routing rule
 description: In this tutorial, you learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure portal.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: tutorial
-ms.date: 07/08/2022
+ms.date: 09/03/2024
 ms.author: greglin
 ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
@@ -73,7 +73,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 1. Open the interactive shell and make sure that it's set to **PowerShell**.
 
-    ![Install custom extension](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
+    ![Screenshot of install custom extension](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
 
 2. Run the following command to install IIS on the virtual machine: 
 
@@ -188,23 +188,23 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
 1. Select **All resources**, and then select **myAppGateway**.
 
-    ![Record application gateway public IP address](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
+    ![Screenshot of record application gateway public IP address.](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http:\//52.188.72.175:8080.
+2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http:\//203.0.113.10:8080.
 
-    ![Test base URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
+    ![Screenshot of test base URL in application gateway.](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
    The listener on port 8080 routes this request to the default backend pool.
 
 3. Change the URL to *http://&lt;ip-address&gt;:8080/images/test.htm*, replacing &lt;ip-address&gt; with the public IP address of **myAppGateway**, and you should see something like the following example:
 
-    ![Test images URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+    ![Screenshow of test images URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
    The listener on port 8080 routes this request to the *Images* backend pool.
 
 4. Change the URL to *http://&lt;ip-address&gt;:8080/video/test.htm*, replacing &lt;ip-address&gt; with the public IP address of **myAppGateway**, and you should see something like the following example:
 
-    ![Test video URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
+    ![Screenshot of test video URL in application gateway.](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
    The listener on port 8080 routes this request to the *Video* backend pool.
 
