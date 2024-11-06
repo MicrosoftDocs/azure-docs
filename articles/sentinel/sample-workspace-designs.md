@@ -147,7 +147,7 @@ Fabrikam's solution includes the following considerations:
 
 The resulting workspace design for Fabrikam is illustrated in the following image, including only key log sources for the sake of design simplicity:
 
-:::image type="content" source="media/best-practices/fabrikam-solution.png" alt-text="Diagram of Fabrikam's solution, with a separate workspace for the Ops team." border="false"  lightbox="media/best-practices/fabrikam-solution.png":::
+:::image type="content" source="media/best-practices/fabrikam-solution.png" alt-text="Diagram of Fabrikam's solution, with a separate workspace for the Ops team." border="false" lightbox="media/best-practices/fabrikam-solution.png":::
 
 The suggested solution includes:
 
@@ -209,7 +209,7 @@ The Adventure Works solution includes the following considerations:
 
 The resulting workspace design for Adventure Works is illustrated in the following image, including only key log sources for the sake of design simplicity:
 
-:::image type="content" source="media/best-practices/adventure-works-solution.png" alt-text="Diagram of Adventure Works's solution, with separate workspaces for each Azure AD tenant." border="false"  lightbox="media/best-practices/adventure-works-solution.png":::
+:::image type="content" source="media/best-practices/adventure-works-solution.png" alt-text="Diagram of Adventure Works's solution, with separate workspaces for each Azure AD tenant." border="false" lightbox="media/best-practices/adventure-works-solution.png":::
 
 The suggested solution includes:
 
