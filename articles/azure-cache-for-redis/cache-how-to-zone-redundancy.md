@@ -5,7 +5,7 @@ description: Learn how to set up zone redundancy for your Premium and Enterprise
 
 
 ms.topic: conceptual
-ms.date: 08/05/2024
+ms.date: 11/05/2024
 
 ---
 
