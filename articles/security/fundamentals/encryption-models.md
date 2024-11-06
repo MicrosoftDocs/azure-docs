@@ -82,7 +82,7 @@ For scenarios where the requirement is to encrypt the data at rest and control t
 Loss of key encryption keys means loss of data. For this reason, keys should not be deleted. Keys should be backed up whenever created or rotated. [Soft-Delete and purge protection](/azure/key-vault/general/soft-delete-overview) must be enabled on any vault storing key encryption keys to protect against accidental or malicious cryptographic erasure. Instead of deleting a key, it is recommended to set enabled to false on the key encryption key. Use access controls to revoke access to individual users or services in [Azure Key Vault](/azure/key-vault/general/security-features#access-model-overview) or [Managed HSM](/azure/key-vault/managed-hsm/secure-your-managed-hsm).
 
 > [!NOTE]
-> For a list of services that support customer-managed keys in Azure Key Vault and Azure Managed HSM, see [Services that support CMKs in Azure Key Vault and Azure Managed HSM](encryption-cmk-support.md).
+> For a list of services that support customer-managed keys in Azure Key Vault and Azure Managed HSM, see [Services that support CMKs in Azure Key Vault and Azure Managed HSM](encryption-customer-managed-keys-support.md).
 
 ### Key Access
 
@@ -133,6 +133,6 @@ When server-side encryption using customer-managed keys in customer-controlled h
 
 ## Related content
 
-- [Services that support CMKs in Azure Key Vault and Azure Managed HSM](encryption-cmk-support.md)
+- [Services that support CMKs in Azure Key Vault and Azure Managed HSM](encryption-customer-managed-keys-support.md)
 - [How encryption is used in Azure](encryption-overview.md)
 - [Double encryption](double-encryption.md)

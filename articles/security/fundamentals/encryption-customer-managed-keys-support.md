@@ -13,7 +13,7 @@ ms.topic: article
 
 The following services support server-side encryption with customer managed keys in [Azure Key Vault](/azure/key-vault/) and [Azure Managed HSM](/azure/key-vault/managed-hsm/). For implementation details, see the service-specific documentation or the service's [Microsoft Cloud Security Benchmark: security baseline](/security/benchmark/azure/security-baselines-overview) (section DP-5).
 
-## AI and Machine Learning
+## AI and machine learning
 
 | Product, Feature, or Service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
@@ -94,7 +94,7 @@ The following services support server-side encryption with customer managed keys
 | [SQL Server Stretch Database](/azure/sql-server-stretch-database/) | Yes (RSA 3072-bit) | | |
 | [Table Storage](/azure/storage/tables/) | Yes | | [Customer-managed keys for Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview) |
 
-## Hybrid + Multicloud
+## Hybrid + multicloud
 
 | Product, Feature, or Service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
@@ -109,14 +109,14 @@ The following services support server-side encryption with customer managed keys
 | [Logic Apps](/azure/logic-apps/) | Yes | |  |
 | [Service Bus](/azure/service-bus-messaging/) | Yes | | [Configure customer-managed keys for encryption](/azure/service-bus-messaging/configure-customer-managed-key) |
 
-## IoT Services
+## IoT services
 
 | Product, Feature, or Service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
 | [Device Update for IoT Hub](/azure/iot-hub-device-update/) | Yes | Yes | [Data encryption for Device Update for IoT Hub](/azure/iot-hub-device-update/device-update-data-encryption) |
 | [IoT Hub Device Provisioning](/azure/iot-dps/) | Yes | |  |
 
-## Management and Governance
+## Management and governance
 
 | Product, Feature, or Service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
