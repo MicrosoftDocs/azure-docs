@@ -36,9 +36,9 @@ If you get the error **Error: SessionHostConfiguration does not exist** when usi
 
 When you update session hosts using session host update, it's possible that an individual session host fails to update. In this case, session host update attempts to roll back the update on that session host. The intention for the rollback is to maintain the capacity of the entire host pool, even though this session host is rolled back to a previous version of the session host configuration, rather than forcing the session host to be unavailable and reducing the capacity of the host pool. Other session hosts in the host pool that successfully updated aren't rolled back. Session hosts that didn't start updating aren't updated.
 
-Once a session host fails to update, session host update completes updating the current batch of session hosts, then marks the update as failed. In this scenario, the only options are to retry the update or cancel it. If you retry the update, session host update again attempts to update the session that failed, plus the remaining session hosts not previously attempted. The existing batch size is used. If a session host fails to update a second time, it goes into an error state marked **Rollback-failed skipped** and is ignored for updates.
+Once a session host fails to update, session host update completes updating the current batch of session hosts, then marks the update as failed. In this scenario, the only options are to retry the update or cancel it. If you retry the update, session host update again attempts to update the session hosts that failed, plus the remaining session hosts not previously attempted. The existing batch size is used. 
 
-If a session host fails to roll back successfully, it isn't available to host session and capacity is reduced. The session host isn't the same as the other session hosts in the host pool and it match the session host configuration. You should investigate why the update of the session host failed and resolve the issue before scheduling a new update. Once you schedule a new update, session host update attempts to update the session host that failed so they all match, plus any session hosts that weren't started in the previous update attempt.
+If a session host fails to roll back successfully, it isn't available to host session and capacity is reduced. The session host isn't the same as the other session hosts in the host pool and it match the session host configuration. You should investigate why the update of the session host failed and resolve the issue before scheduling a new update. Once you schedule a new update, session host update attempts to update the session hosts that failed so they all match, plus any session hosts that weren't started in the previous update attempt.
 
 An update can fail with the following status:
 
@@ -46,7 +46,7 @@ An update can fail with the following status:
 |--|--|
 | Update failed to initiate | The update flow is incorrect. For example, an image that's incompatible with the virtual machine SKU. You can't retry the update; you need to cancel it and schedule a new update. |
 | Update failed | The update failed while it was in progress. If you retry the update, it continues with the session host it stopped at previously. |
-| Session host rollback failed | If a session host fails to update, session host update tries to roll back the update on that session host. If the rollback fails and you retry the update, the session host is ignored and the update continues with the rest. |
+| Session host rollback failed | If a session host fails to update, session host update tries to roll back the update on that session host. If the rollback fails and you retry the update, it continues with the session host it stopped at previously. |
 
 You can get any errors for an update by following the steps to [Monitor the progress of an update](session-host-update-configure.md?tabs=powershell#monitor-the-progress-of-an-update). When you use Azure PowerShell, the variable `$updateProgress` contains error details in the following properties:
 
@@ -58,7 +58,7 @@ Once you identify the issue, you can either [retry the update, or cancel it and 
 
 ### An update failed to initiate
 
-When a session host update is initiated, the service validates whether it will be able to successfully complete the update. When a session host update fails prior to starting, the update ends and changes can be made to the session host configuration to retry the update. As the Azure resources are stored in your subscription, they can be modified by other processes; session host creation can still fail using the session host configuration even after this validation check is completed.
+When a session host update is initiated, the service validates whether it will be able to successfully complete the update. When a session host update fails prior to starting, the update ends and changes can be made to the session host configuration. As the Azure resources are stored in your subscription, they can be modified by other processes; session host creation can still fail using the session host configuration even after this validation check is completed.
 
 Here are some example failures that prevent an update from starting:
 
@@ -69,12 +69,13 @@ Here are some example failures that prevent an update from starting:
 - **Parameter consistency with current session hosts**: session host update doesn't support changing the region, subscription, resource group, or domain join type for a session host. If the session host configuration contains properties in these fields that differ from the session hosts in the host pool, the update fails to start. You should remove the session hosts that are inconsistent with the configuration.
 
 ### Failures during an update
+Session host update will start with an initial batch size of 1 to validate that the provided session host configuration will result in healthy session hosts. Failures that occur during the first validation batch will most often be due to parameters within the Session Host Configuration and are typically not resolvable by retrying the update. Failures that occur after the validation batch are often intermittent and can be resolved by attempting to [retry the update](session-host-update-configure.md#pause-resume-cancel-or-retry-an-update).
 
-Here are some example failures that can happen during an update:
+Here are some example failures that can occur during an update:
 
 - **VM creation failures**: VM creation can fail for a variety of reasons not specific to Azure Virtual Desktop, for example the exhaustion of subscription capacity, or issues with the provided image. You should review the error message provided to determine the appropriate remediation. Open a support case with Azure support if you need further assistance.
 
-- **Agent installation, domain join, and session host health errors or timeout**: in most cases, agent, domain join, and other session host health errors can be resolved by reviewing guidance for addressing deployment and domain join failures for Azure Virtual Desktop. In addition, you should ensure that your image doesn't have the PowerShell DSC extension installed in the image. If it is installed, remove the folder `C:\packages\plugin folder` from the image.
+- **Agent installation, domain join, and session host health errors or timeout**: Agent, domain join, and other session host health errors that occur in the first validation batch can often be resolved by reviewing guidance for addressing deployment and domain join failures for Azure Virtual Desktop and by ensuring your image doesn't have the Powershell DSC extension installed. If the extension is installed on the image, remove the folder `C:\packages\plugin` from the image. If the failure is intermittent, with some session hosts successfully updating and others encountering an error such as `AgentRegistrationFailureGeneric`, [retrying the update](session-host-update-configure.md#pause-resume-cancel-or-retry-an-update) can often resolve the issue.
 
 - **Resource modification and access errors**: modifying resources that are impacted in the update can result in errors during an update. Some of the errors that can result include deletion of resources and resource groups, changes to permissions, changes to power state, and changes to drain mode. In addition, if your Azure resources are locked and/or Azure policy limits the Azure Virtual Desktop service from modifying your session hosts, the update fails. Review Azure activity logs if you encounter related errors. Open a support case with Azure support if you need further assistance.
 
