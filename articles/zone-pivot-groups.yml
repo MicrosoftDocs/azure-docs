@@ -1024,15 +1024,6 @@ groups:
   - id: azure-pipelines
     title: Azure Pipelines
 # Owner: cshoe
-- id: container-apps-gpu-container-source
-  title: Container source
-  prompt: Select a container source
-  pivots:
-  - id: preconfigured
-    title: Preconfigured quickstart image
-  - id: manual
-    title: Manual entry image
-# Owner: cshoe
 - id: static-web-apps-api-protocols
   title: API protocol
   prompt: Select an API protocol

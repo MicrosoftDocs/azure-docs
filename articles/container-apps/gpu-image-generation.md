@@ -7,7 +7,6 @@ ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 11/06/2024
 ms.author: cshoe
-zone_pivot_groups: container-apps-gpu-container-source
 ---
 
 # Tutorial: Generate images using serverless GPUs in Azure Container Apps (preview)
@@ -67,17 +66,6 @@ In this tutorial you:
 
 1. In the *Container* window, enter the following values:
 
-    ::: zone pivot="preconfigured"
-
-    | Setting | Value |
-    |---|---|
-    | Use quickstart image | Select the checkbox. |
-    | Quickstart image | Select **GPU hello world container**. |
-
-    ::: zone-end
-
-    ::: zone pivot="manual"
-
     | Setting | Value |
     |---|---|
     | Name | Enter **my-gpu-demo-container**. |
@@ -88,8 +76,6 @@ In this tutorial you:
     | Workload profile | Select the option that begins with **Consumption - Up to 4**... |
     | GPU | Select the checkbox. |
     | GPU Type | Select the **T4** option and select the link to add the profile to your environment. |
-
-    ::: zone-end
 
     Select **Next: Ingress >**.
 
@@ -131,84 +117,6 @@ Once you generate an image, use the following steps to view results of the GPU p
 
 1. Once the shell is set up, enter the command **nvidia-smi** to review the status and output of your GPU.
 
-## Optional: Improve GPU cold start
-
-For best cold start performance of your Serverless GPUs, use Azure Container Registry with artifact streaming enabled. The following steps show you how to take the GPU image from the previous steps, add it to Azure Container Registry, and enable artifact streaming
-
-Use the following steps to set up the container in your own container registry and enable artifact streaming to reduce cold start times.
-
-### Use your container registry
-
-1. Create a variable for your registry name.
-
-    Before you run the following command, make sure to replace `<ACR_NAME>` with your registry name.
-
-    ```bash
-    ACR_NAME=<ACR_NAME>
-    ```
-
-1. Sign in to your Azure Container Registry.
-
-    ```azurecli
-    az acr login --name $ACR_NAME
-    ```
-
-1. Pull the image from Microsoft Container Registry.
-
-    ::: zone pivot="preconfigured"
-
-    ```bash
-    docker pull TODO:
-    ```
-
-    ::: zone-end
-
-    ::: zone pivot="manual"
-
-    ```bash
-    docker pull mcr.microsoft.com/k8se/gpu-quickstart:latest
-    ```
-
-    ::: zone-end
-
-1. Tag the image for ACR.
-
-    ::: zone pivot="preconfigured"
-
-    ```bash
-    docker tag TODO: $ACR_NAME.azurecr.io/gpu-quickstart:latest
-    ```
-
-    ::: zone-end
-
-    ::: zone pivot="manual"
-
-    ```bash
-    docker tag mcr.microsoft.com/k8se/gpu-quickstart:latest $ACR_NAME.azurecr.io/gpu-quickstart:latest
-    ```
-
-    ::: zone-end
-
-1. Push the image your container registry.
-
-    ```bash
-    docker push $ACR_NAME.azurecr.io/gpu-quickstart:latest
-    ```
-
-Now that the container image is available inside your own container registry, you can enable artifact streaming.
-
-### Enable artifact streaming
-
-Use the following steps to enable image streaming and significantly reduce cold start times.
-
-1. Open your repository in the Azure portal.
-
-1. From the *Repository* window, select **Start artifact streaming** and save your changes.
-
-1. Select the image tag that you want to stream.
-
-1. In the window that pops up, select **Create streaming artifact**.
-
 ## Clean up resources
 
 The resources created in this tutorial have an effect on your Azure bill.
@@ -227,4 +135,4 @@ If you aren't going to use these services long-term, use the steps to remove eve
 
 ## Related content
 
-* [Using serverless GPUs in Azure Container Apps](./gpu-serverless-overview.md)
+* [Improve cold start for your serverless GPUs](gpu-serverless-overview.md#improve-gpu-cold-start)
