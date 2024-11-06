@@ -59,7 +59,11 @@ Keep in mind the following items as you use serverless GPUs:
 
 - **CUDA version**: Serverless GPUs support the latest CUDA version
 
-- **Single container**: Only one container in an app can use the GPU at a time. Multiple apps can share the same GPU workload profile but each requires their own replica. Multi and fractional GPU replicas not supported. The first container in the list gets access to the GPU resources.
+- **Support limitations**:
+  - Only one container in an app can use the GPU at a time.
+  - Multiple apps can share the same GPU workload profile but each requires their own replica.
+  - Multi and fractional GPU replicas aren't supported.
+  - The first container in your application gets access to the GPU.
 
 - **IP addresses**: Consumption GPUs use one IP address per replica when you set up integration with your own virtual network.
 
@@ -102,6 +106,7 @@ Use the following steps to enable image streaming:
 1. From the *Repository* window, select **Start artifact streaming** and save your changes.
 
 1. Select the image tag that you want to stream.
+
 1. In the window that pops up, select **Create streaming artifact**.
 
 ## Feedback
