@@ -1,7 +1,7 @@
 ---
 title: Azure Container Apps hosting of Azure Functions 
 description: Learn about how you can use Azure Functions on Azure Container Apps to host and manage containerized function apps in Azure.
-ms.date: 10/18/2024
+ms.date: 11/05/2024
 ms.topic: conceptual
 ms.custom: build-2024, linux-related-content
 # Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers managed by Azure Container Apps.
@@ -108,7 +108,6 @@ Keep in mind the following considerations when deploying your function app conta
     + [Deployment from an Azure Container Registry](functions-deploy-container-apps.md?tabs=acr#create-and-configure-a-function-app-on-azure-with-the-image)
     + [Triggers and bindings](functions-reference.md#configure-an-identity-based-connection)
     + [Required host storage connection](functions-identity-based-connections-tutorial.md) 
-+ When either your function app and Azure Container Registry-based deployment use managed identity-based connections, you can't modify the CPU and memory allocation settings in the portal. You must instead [use the Azure CLI](functions-how-to-custom-container.md?tabs=acr%2Cazure-cli2%2Cazure-cli&pivots=container-apps#container-apps-workload-profiles).
 + You currently can't move a Container Apps hosted function app deployment between resource groups or between subscriptions. Instead, you would have to recreate the existing containerized app deployment in a new resource group, subscription, or region. 
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
 + The `containerapp` extension conflicts with the `appservice-kube` extension in Azure CLI. If you have previously published apps to Azure Arc, run `az extension list` and make sure that `appservice-kube` isn't installed. If it is, you can remove it by running `az extension remove -n appservice-kube`.  
