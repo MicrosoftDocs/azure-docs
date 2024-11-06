@@ -105,36 +105,51 @@ A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subne
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *test-rg* for all resources created in this article.
 
 ```azurepowershell-interactive
-New-AzResourceGroup -ResourceGroupName test-rg -Location EastUS
+$rg = @{
+    ResourceGroupName = "test-rg"
+    Location = "EastUS2"
+}
+
+New-AzResourceGroup @rg
 ```
 
 Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *vnet-1* with the address prefix *10.0.0.0/16*.
 
 ```azurepowershell-interactive
-$virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName test-rg `
-  -Location EastUS `
-  -Name vnet-1 `
-  -AddressPrefix 10.0.0.0/16
+$vnet = @{
+    ResourceGroupName = "test-rg"
+    Location = "EastUS2"
+    Name = "vnet-1"
+    AddressPrefix = "10.0.0.0/16"
+}
+
+$virtualNetwork = New-AzVirtualNetwork @vnet
 ```
 
 Create three subnets by creating three subnet configurations with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). The following example creates three subnet configurations for *Public*, *Private*, and *DMZ* subnets:
 
 ```azurepowershell-interactive
-$subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
-  -Name subnet-public `
-  -AddressPrefix 10.0.0.0/24 `
-  -VirtualNetwork $virtualNetwork
+$subnetConfigPublicParams = @{
+    Name = "subnet-1"
+    AddressPrefix = "10.0.0.0/24"
+    VirtualNetwork = $virtualNetwork
+}
 
-$subnetConfigPrivate = Add-AzVirtualNetworkSubnetConfig `
-  -Name subnet-private `
-  -AddressPrefix 10.0.1.0/24 `
-  -VirtualNetwork $virtualNetwork
+$subnetConfigPrivateParams = @{
+    Name = "subnet-private"
+    AddressPrefix = "10.0.1.0/24"
+    VirtualNetwork = $virtualNetwork
+}
 
-$subnetConfigDmz = Add-AzVirtualNetworkSubnetConfig `
-  -Name subnet-dmz `
-  -AddressPrefix 10.0.2.0/24 `
-  -VirtualNetwork $virtualNetwork
+$subnetConfigDmzParams = @{
+    Name = "subnet-dmz"
+    AddressPrefix = "10.0.2.0/24"
+    VirtualNetwork = $virtualNetwork
+}
+
+$subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig @subnetConfigPublicParams
+$subnetConfigPrivate = Add-AzVirtualNetworkSubnetConfig @subnetConfigPrivateParams
+$subnetConfigDmz = Add-AzVirtualNetworkSubnetConfig @subnetConfigDmzParams
 ```
 
 Write the subnet configurations to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), which creates the subnets in the virtual network:
@@ -201,26 +216,31 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
 
 ### Create a network interface
 
-Before creating a network interface, you have to retrieve the virtual network Id with [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), then the subnet Id with [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig). Create a network interface with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) in the *DMZ* subnet with IP forwarding enabled:
+Before creating a network interface, you have to retrieve the virtual network Id with [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), then the subnet Id with [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig). Create a network interface with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) in the *DMZ* subnet:
 
 ```azurepowershell-interactive
 # Retrieve the virtual network object into a variable.
-$virtualNetwork=Get-AzVirtualNetwork `
-  -Name vnet-1 `
-  -ResourceGroupName test-rg
+$vnetParams = @{
+  Name = "vnet-1"
+  ResourceGroupName = "test-rg"
+}
+$virtualNetwork = Get-AzVirtualNetwork @vnetParams
 
 # Retrieve the subnet configuration into a variable.
-$subnetConfigDmz = Get-AzVirtualNetworkSubnetConfig `
-  -Name subnet-dmz `
-  -VirtualNetwork $virtualNetwork
+$subnetConfigParams = @{
+  Name = "subnet-dmz"
+  VirtualNetwork = $virtualNetwork
+}
+$subnetConfigDmz = Get-AzVirtualNetworkSubnetConfig @subnetConfigParams
 
 # Create the network interface.
-$nic = New-AzNetworkInterface `
-  -ResourceGroupName test-rg `
-  -Location eastus2 `
-  -Name 'vm-nva' `
-  -SubnetId $subnetConfigDmz.Id `
-  -EnableIPForwarding
+$nicParams = @{
+  ResourceGroupName = "test-rg"
+  Location = "eastus2"
+  Name = "vm-nva"
+  SubnetId = $subnetConfigDmz.Id
+}
+$nic = New-AzNetworkInterface @nicParams
 ```
 
 ### Create a VM
@@ -229,31 +249,48 @@ To create a VM and attach an existing network interface to it, you must first cr
 
 ```azurepowershell-interactive
 # Create a credential object.
-$cred = Get-Credential -Message "Enter a username and password for the VM."
+$credParams = @{
+  Message = "Enter a username and password for the VM."
+}
+$cred = Get-Credential @credParams
 
 # Create a VM configuration.
-$vmConfig = New-AzVMConfig `
-  -VMName 'vm-nva' `
-  -VMSize Standard_DS2 | `
-  Set-AzVMOperatingSystem -Windows `
-    -ComputerName 'vm-nva' `
-    -Credential $cred | `
-  Set-AzVMSourceImage `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter `
-    -Version latest | `
-  Add-AzVMNetworkInterface -Id $nic.Id
+$vmConfigParams = @{
+  VMName = 'vm-nva'
+  VMSize = 'Standard_DS2'
+}
+$vmConfig = New-AzVMConfig @vmConfigParams
+
+$osParams = @{
+  Windows = $true
+  ComputerName = 'vm-nva'
+  Credential = $cred
+}
+$vmConfig = $vmConfig | Set-AzVMOperatingSystem @osParams
+
+$imageParams = @{
+  PublisherName = 'Canonical'
+  Offer = '0001-com-ubuntu-server-focal'
+  Skus = '24_04-lts'
+  Version = 'latest'
+}
+$vmConfig = $vmConfig | Set-AzVMSourceImage @imageParams
+
+$nicParams = @{
+  Id = $nic.Id
+}
+$vmConfig = $vmConfig | Add-AzVMNetworkInterface @nicParams
 ```
 
 Create the VM using the VM configuration with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *vm-nva*.
 
 ```azurepowershell-interactive
-$vmNva = New-AzVM `
-  -ResourceGroupName test-rg `
-  -Location eastus2 `
-  -VM $vmConfig `
-  -AsJob
+$vmNvaParams = @{
+  ResourceGroupName = "test-rg"
+  Location = "eastus2"
+  VM = $vmConfig
+}
+$vmNva = New-AzVM @vmNvaParams -AsJob
 ```
 
 The `-AsJob` option creates the VM in the background, so you can continue to the next step.
@@ -365,26 +402,30 @@ The public virtual machine is used to simulate a machine in the public internet.
 Create a VM in the *subnet-public* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVmPublic* in the *subnet-public* subnet of the *vnet-1* virtual network.
 
 ```azurepowershell-interactive
-New-AzVm `
-  -ResourceGroupName "test-rg" `
-  -Location "eastus2" `
-  -VirtualNetworkName "vnet-1" `
-  -SubnetName "subnet-public" `
-  -ImageName "Win2016Datacenter" `
-  -Name "vm-public `
-  -AsJob
+$vmPublicParams = @{
+  ResourceGroupName = "test-rg"
+  Location = "eastus2"
+  VirtualNetworkName = "vnet-1"
+  SubnetName = "subnet-public"
+  ImageName = "Canonical:0001-com-ubuntu-server-focal:24_04-lts:latest"
+  Name = "vm-public"
+  AsJob = $true
+}
+New-AzVm @vmPublicParams
 ```
 
 Create a VM in the *subnet-private* subnet.
 
 ```azurepowershell-interactive
-New-AzVm `
-  -ResourceGroupName "test-rg" `
-  -Location "eastus2" `
-  -VirtualNetworkName "vnet-1" `
-  -SubnetName "subnet-private" `
-  -ImageName "Win2016Datacenter" `
-  -Name "vm-private"
+$vmPrivateParams = @{
+  ResourceGroupName = "test-rg"
+  Location = "eastus2"
+  VirtualNetworkName = "vnet-1"
+  SubnetName = "subnet-private"
+  ImageName = "Canonical:0001-com-ubuntu-server-focal:24_04-lts:latest"
+  Name = "vm-private"
+}
+New-AzVm @vmPrivateParams
 ```
 
 The VM takes a few minutes to create. Don't continue with the next step until the VM is created and Azure returns output to PowerShell.
@@ -422,6 +463,24 @@ In this section, you turn on IP forwarding for the network interface of the **vm
 1. Select **Apply**.
 
 ### [PowerShell](#tab/powershell)
+
+Enable IP forwarding for the network interface of the **vm-nva** virtual machine with [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface). The following example enables IP forwarding for the network interface named *vm-nva313*.
+
+```azurepowershell-interactive
+$nicParams = @{
+  Name = "vm-nva313"
+  ResourceGroupName = "test-rg"
+}
+
+$nic = Get-AzNetworkInterface @nicParams
+$nic.EnableIPForwarding = $true
+
+$setNicParams = @{
+  InputObject = $nic
+}
+
+Set-AzNetworkInterface @setNicParams
+```
 
 ### [CLI](#tab/cli)
 
@@ -510,7 +569,7 @@ In this section, create a route in the route table that you created in the previ
     | Destination type | Select **IP Addresses**. |
     | Destination IP addresses/CIDR ranges | Enter **10.0.2.0/24**. |
     | Next hop type | Select **Virtual appliance**. |
-    | Next hop address | Enter **10.0.3.4**. </br> **_This is the IP address you of vm-nva you created in the earlier steps._**. |
+    | Next hop address | Enter **10.0.3.4**. </br> **_This is the IP address of the vm-nva you created in the earlier steps._**. |
 
     :::image type="content" source="./media/tutorial-create-route-table-portal/add-route.png" alt-text="Screenshot of route creation in route table.":::
 
@@ -534,24 +593,31 @@ In this section, create a route in the route table that you created in the previ
 Create a route table with [New-AzRouteTable](/powershell/module/az.network/new-azroutetable). The following example creates a route table named *route-table-public*.
 
 ```azurepowershell-interactive
-$routeTablePublic = New-AzRouteTable `
-  -Name 'route-table-public' `
-  -ResourceGroupName test-rg `
-  -location eastus2
+$routeTableParams = @{
+  Name = 'route-table-public'
+  ResourceGroupName = 'test-rg'
+  Location = 'eastus2'
+}
+$routeTablePublic = New-AzRouteTable @routeTableParams
 ```
 
 Create a route by retrieving the route table object with [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable), create a route with [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig), then write the route configuration to the route table with [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable).
 
 ```azurepowershell-interactive
-Get-AzRouteTable `
-  -ResourceGroupName "test-rg" `
-  -Name "route-table-public" `
-  | Add-AzRouteConfig `
-  -Name "to-private-subnet" `
-  -AddressPrefix 10.0.1.0/24 `
-  -NextHopType "VirtualAppliance" `
-  -NextHopIpAddress 10.0.2.4 `
- | Set-AzRouteTable
+$routeTableParams = @{
+  ResourceGroupName = "test-rg"
+  Name = "route-table-public"
+}
+
+$routeConfigParams = @{
+  Name = "to-private-subnet"
+  AddressPrefix = "10.0.1.0/24"
+  NextHopType = "VirtualAppliance"
+  NextHopIpAddress = "10.0.2.4"
+}
+
+$routeTable = Get-AzRouteTable @routeTableParams
+$routeTable | Add-AzRouteConfig @routeConfigParams | Set-AzRouteTable
 ```
 
 ### [CLI](#tab/cli)
@@ -641,7 +707,10 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
 When no longer needed, use [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains.
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name test-rg -Force
+$rgParams = @{
+  Name = "test-rg"
+}
+Remove-AzResourceGroup @rgParams -Force
 ```
 
 ### [CLI](#tab/cli)
