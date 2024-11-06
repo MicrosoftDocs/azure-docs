@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 10/16/2024
+ms.date: 11/06/2024
 ---
 
 # Upgrade plan for Azure Data Factory connectors
