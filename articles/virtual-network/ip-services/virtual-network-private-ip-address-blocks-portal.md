@@ -22,7 +22,7 @@ All the IP addresses can be statically or dynamically assigned from the availabl
 There's a limit to how many IP configurations can be assigned to a NIC. For more information, see the [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
 
 > [!IMPORTANT]
-> This capability to add private IP address prefixes to NIC is currently in PREVIEW.
+> The capability to add private IP address prefixes to NIC is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/block-ipconfigs.png" alt-text="Diagram of network configuration resources created in article.":::
