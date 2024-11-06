@@ -4,8 +4,8 @@ description: Learn how to use continuous integration and continuous delivery (CI
 author: liudan66
 ms.service: azure-synapse-analytics
 ms.subservice: ci-cd
-ms.topic: concept-article
-ms.date: 01/25/2024
+ms.topic: how-to
+ms.date: 11/06/2024
 ms.author: liud 
 ms.reviewer: pimorano
 ---
@@ -29,7 +29,7 @@ If you're using Azure DevOps:
 - Prepare an Azure DevOps project for running the release pipeline.
 - [Grant any users who will check in code Basic access at the organization level](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true), so they can see the repository.
 - Grant Owner permission to the Azure Synapse repository.
-- Make sure that you've created a self-hosted Azure DevOps VM agent or use an Azure DevOps hosted agent. 
+- Make sure that you've created a self-hosted Azure DevOps VM agent or use an Azure DevOps hosted agent.
 - Grant permissions to [create an Azure Resource Manager service connection for the resource group](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true).
 - A Microsoft Entra administrator must [install the Azure DevOps Synapse Workspace Deployment Agent extension in the Azure DevOps organization](/azure/devops/marketplace/install-extension).
 - Create or nominate an existing service account for the pipeline to run as. You can use a personal access token instead of a service account, but your pipelines won't work after the user account is deleted.
@@ -38,14 +38,14 @@ If you're using Azure DevOps:
 
 If you're using GitHub:
 
-- Create a GitHub repository that contains the Azure Synapse workspace artifacts and the workspace template. 
+- Create a GitHub repository that contains the Azure Synapse workspace artifacts and the workspace template.
 - Make sure that you've created a self-hosted runner or use a GitHub-hosted runner.
 
 <a name='azure-active-directory'></a>
 
 ### Microsoft Entra ID
 
-- If you're using a service principal, in Microsoft Entra ID, create a service principal to use for deployment. 
+- If you're using a service principal, in Microsoft Entra ID, create a service principal to use for deployment.
 - If you're using a managed identity, enable the system-assigned managed identity on your VM in Azure as the agent or runner, and then add it to Azure Synapse Studio as Synapse admin.
 - Use the Microsoft Entra admin role to complete these actions.
 
@@ -59,33 +59,32 @@ If you're using GitHub:
 - Set up a blank workspace to deploy to:
 
   1. Create a new Azure Synapse workspace.
-  2. Grant the service principal the following permissions to the new Synapse workspace:
+  1. Grant the service principal the following permissions to the new Synapse workspace:
      - Microsoft.Synapse/workspaces/integrationruntimes/write
      - Microsoft.Synapse/workspaces/operationResults/read
      - Microsoft.Synapse/workspaces/read
-  3. In the workspace, don't configure the Git repository connection.
-  4. In the Azure Synapse workspace, go to **Studio** > **Manage** > **Access Control**. 4.	In the Azure Synapse workspace, go to Studio > Manage > Access Control. Assign the “Synapse Artifact Publisher” to the service principal. If the deployment pipeline will need to deploy managed private endpoints, then assign the “Synapse Administrator” instead.
-  5. When you use linked services whose connection information is stored in Azure Key Vault, it's recommended to keep separate key vaults for different environments. You can also configure separate permission levels for each key vault. For example, you might not want your team members to have permissions to production secrets. If you follow this approach, we recommend that you to keep the same secret names across all stages. If you keep the same secret names, you don't need to parameterize each connection string across CI/CD environments because the only thing that changes is the key vault name, which is a separate parameter.
+  1. In the workspace, don't configure the Git repository connection.
+  1. In the Azure Synapse workspace, go to **Studio** > **Manage** > **Access Control**. Assign the “Synapse Artifact Publisher” to the service principal. If the deployment pipeline will need to deploy managed private endpoints, then assign the “Synapse Administrator” instead.
+  1. When you use linked services whose connection information is stored in Azure Key Vault, it's recommended to keep separate key vaults for different environments. You can also configure separate permission levels for each key vault. For example, you might not want your team members to have permissions to production secrets. If you follow this approach, we recommend that you to keep the same secret names across all stages. If you keep the same secret names, you don't need to parameterize each connection string across CI/CD environments because the only thing that changes is the key vault name, which is a separate parameter.
 
 ### Other prerequisites
- 
+
 - Spark pools and self-hosted integration runtimes aren't created in a workspace deployment task. If you have a linked service that uses a self-hosted integration runtime, manually create the runtime in the new workspace.
 - If the items in the development workspace are attached with the specific pools, make sure that you create or parameterize the same names for the pools in the target workspace in the parameter file.  
 - If your provisioned SQL pools are paused when you attempt to deploy, the deployment might fail.
 
-For more information, see [CI/CD in Azure Synapse Analytics Part 4 - The release pipeline](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434). 
-
+For more information, see [CI/CD in Azure Synapse Analytics Part 4 - The release pipeline](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434).
 
 ## Set up a release pipeline in Azure DevOps
 
-In this section, you'll learn how to deploy an Azure Synapse workspace in Azure DevOps. 
+In this section, you'll learn how to deploy an Azure Synapse workspace in Azure DevOps.
 
 1. In [Azure DevOps](https://dev.azure.com/), open the project you created for the release.
 
 1. On the left menu, select **Pipelines** > **Releases**.
 
-    :::image type="content" source="media/create-release-pipeline.png" alt-text="Screenshot that shows selecting Pipelines and then Releases on the Azure DevOps menu.":::        
- 
+    :::image type="content" source="media/create-release-pipeline.png" alt-text="Screenshot that shows selecting Pipelines and then Releases on the Azure DevOps menu.":::
+
 1. Select **New pipeline**. If you have existing pipelines, select **New** > **New release pipeline**.
 
 1. Select the **Empty job** template.
@@ -106,7 +105,7 @@ In this section, you'll learn how to deploy an Azure Synapse workspace in Azure 
 
     :::image type="content" source="media/release-creation-publish-branch.png" alt-text="Screenshot that shows setting the artifacts branch.":::
 
-### Set up a stage task for an ARM template to create and update a resource 
+### Set up a stage task for an ARM template to create and update a resource
 
 If you have an ARM template that deploys a resource, such as an Azure Synapse workspace, a Spark and SQL pool, or a key vault, add an Azure Resource Manager deployment task to create or update those resources:
 
@@ -126,38 +125,38 @@ If you have an ARM template that deploys a resource, such as an Azure Synapse wo
 
     :::image type="content" source="media/pools-resource-deploy.png" lightbox="media/pools-resource-deploy.png" alt-text="Screenshot that shows the: workspace and pools deploy.":::
 
-1. For **Override template parameters**, select **…**, and then enter the parameter values you want to use for the workspace. 
+1. For **Override template parameters**, select **…**, and then enter the parameter values you want to use for the workspace.
 
 1. For **Deployment mode**, select **Incremental**.
 
-1. (Optional) Add **Azure PowerShell** for the grant and update the workspace role assignment. If you use a release pipeline to create an Azure Synapse workspace, the pipeline’s service principal is added as the default workspace admin. You can run PowerShell to grant other accounts access to the workspace. 
+1. (Optional) Add **Azure PowerShell** for the grant and update the workspace role assignment. If you use a release pipeline to create an Azure Synapse workspace, the pipeline’s service principal is added as the default workspace admin. You can run PowerShell to grant other accounts access to the workspace.
 
     :::image type="content" source="media/release-creation-grant-permission.png" lightbox="media/release-creation-grant-permission.png" alt-text="Screenshot that demonstrates running a PowerShell script to grant permissions.":::
 
 > [!WARNING]
 > In complete deployment mode, resources in the resource group that aren't specified in the new ARM template are *deleted*. For more information, see [Azure Resource Manager deployment modes](../../azure-resource-manager/templates/deployment-modes.md).
 
-### Set up a stage task for Azure Synapse artifacts deployment 
+### Set up a stage task for Azure Synapse artifacts deployment
 
-Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) extension to deploy other items in your Azure Synapse workspace. Items that you can deploy include datasets, SQL scripts and notebooks, spark job definitions, integration runtime, data flow, credentials, and other artifacts in workspace. 
+Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) extension to deploy other items in your Azure Synapse workspace. Items that you can deploy include datasets, SQL scripts and notebooks, spark job definitions, integration runtime, data flow, credentials, and other artifacts in workspace.
 
-#### Install and add deployment extension 
+#### Install and add deployment extension
 
 1. Search for and get the extension from [Visual Studio Marketplace](https://marketplace.visualstudio.com/azuredevops).
 
     :::image type="content" source="media/get-extension-marketplace.png" alt-text="Screenshot that shows the Synapse workspace deployment extension as it appears in Visual Studio Marketplace.":::
 
-1. Select the Azure DevOps organization in which you want to install the extension. 
+1. Select the Azure DevOps organization in which you want to install the extension.
 
     :::image type="content" source="media/install-extension.png" alt-text="Screenshot that shows selecting an organization in which to install the Synapse workspace deployment extension.":::
 
-1. Make sure that the Azure DevOps pipeline’s service principal has been granted the Subscription permission and is assigned as the Synapse workspace admin for the workspace. 
+1. Make sure that the Azure DevOps pipeline’s service principal has been granted the Subscription permission and is assigned as the Synapse workspace admin for the workspace.
 
 1. To create a new task, search for **Synapse workspace deployment**, and then select **Add**.
 
     :::image type="content" source="media/add-extension-task.png" alt-text="Screenshot that shows searching for Synapse workspace deployment to create a task.":::
 
-#### Configure the deployment task 
+#### Configure the deployment task
 
 The deployment task supports three types of operations,  validate only, deploy and validate and deploy.
 
@@ -219,9 +218,9 @@ The validate and deploy operation works in both classic and YAML pipeline. Here'
           OverrideArmParameters: >
             -key1 value1
             -key2 value2
-``` 
+```
 
-**Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It's same as the version 1.x. 
+**Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It's same as the version 1.x.
 
 You can choose the operation types based on the use case. Following part is an example of the deploy.
 
@@ -233,7 +232,7 @@ You can choose the operation types based on the use case. Following part is an e
 
 1. Next to **Template parameters**, select **…**  to choose the parameters file.
 
-1. Select a connection, resource group, and name for the workspace. 
+1. Select a connection, resource group, and name for the workspace.
 
 1. Next to **Override template parameters**, select **…** . Enter the parameter values you want to use for the workspace, including connection strings and account keys that are used in your linked services. For more information, see [CI/CD in Azure Synapse Analytics](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434).
 
@@ -243,20 +242,20 @@ You can choose the operation types based on the use case. Following part is an e
 
     :::image type="content" source="media/deploy-private-endpoints.png" alt-text="Screenshot that shows selecting version 2.x to deploy private endpoints with synapse deployment task.":::
 
-1. To manage triggers, you can use trigger toggle to stop the triggers before deployment. And you can also add a task to restart the triggers after the deployment task. 
+1. To manage triggers, you can use trigger toggle to stop the triggers before deployment. And you can also add a task to restart the triggers after the deployment task.
 
     :::image type="content" source="media/toggle-trigger.png" alt-text="Screenshot that shows managing triggers before and after deployment.":::
 
 > [!IMPORTANT]
 > In CI/CD scenarios, the integration runtime type in different environments must be the same. For example, if you have a self-hosted integration runtime in the development environment, the same integration runtime must be self-hosted in other environments, such as in test and production. Similarly, if you're sharing integration runtimes across multiple stages, the integration runtimes must be linked and self-hosted in all environments, such as in development, test, and production.
 
-### Create a release for deployment 
+### Create a release for deployment
 
 After you save all changes, you can select **Create release** to manually create a release. To learn how to automate release creation, see [Azure DevOps release triggers](/azure/devops/pipelines/release/triggers).
 
 :::image type="content" source="media/release-creation-manually.png" lightbox="media/release-creation-manually.png" alt-text="Screenshot that shows the New release pipeline pane, with Create release highlighted.":::
 
-## Set up a release in GitHub Actions 
+## Set up a release in GitHub Actions
 
 In this section, you'll learn how to create GitHub workflows by using GitHub Actions for Azure Synapse workspace deployment.
 
@@ -270,7 +269,7 @@ The .yml file has two sections:
 
 |Section  |Tasks  |
 |---------|---------|
-|**Authentication** | 1. Define a service principal. <br /> 2. Create a GitHub secret. |
+|**Authentication** | 1. Define a service principal. </br> 2. Create a GitHub secret. |
 |**Deploy** | Deploy the workspace artifacts. |
 
 ### Configure GitHub Actions secrets
@@ -281,14 +280,14 @@ GitHub Actions secrets are environment variables that are encrypted. Anyone who 
 
     :::image type="content" source="media/create-secret-new.png" lightbox="media/create-secret-new.png" alt-text="Screenshot that shows the GitHub elements to select to create a new repository secret.":::
 
-1. Add a new secret for the client ID, and add a new client secret if you use the service principal for deployment. You can also choose to save the subscription ID and tenant ID as secrets. 
+1. Add a new secret for the client ID, and add a new client secret if you use the service principal for deployment. You can also choose to save the subscription ID and tenant ID as secrets.
 
 ### Add your workflow
 
-In your GitHub repository, go to **Actions**. 
+In your GitHub repository, go to **Actions**.
 
 1. Select **Set up your workflow yourself**.
-1. In the workflow file, delete everything after the `on:` section. For example, your remaining workflow might look like this example: 
+1. In the workflow file, delete everything after the `on:` section. For example, your remaining workflow might look like this example:
 
     ```yaml
     name: CI
@@ -300,7 +299,7 @@ In your GitHub repository, go to **Actions**.
         branches: [ master ]
     ```
 
-1. Rename your workflow. On the **Marketplace** tab, search for the Synapse workspace deployment action, and then add the action. 
+1. Rename your workflow. On the **Marketplace** tab, search for the Synapse workspace deployment action, and then add the action.
 
     :::image type="content" source="media/search-action.png" lightbox="media/search-action.png" alt-text="Screenshot that shows searching for the Synapse workspace deployment task on the Marketplace tab.":::
 
@@ -333,7 +332,7 @@ In your GitHub repository, go to **Actions**.
               tenantId: 'tenantId'
               DeleteArtifactsNotInTemplate: 'true'
               managedIdentity: 'False'
-    ``` 
+    ```
 
 1. You're ready to commit your changes. Select **Start commit**, enter the title, and then add a description (optional). Then, select **Commit new file**.
 
@@ -351,7 +350,7 @@ In your GitHub repository, go to **Actions**.
 
     :::image type="content" source="media/review-deploy-status.png" lightbox="media/review-deploy-status.png" alt-text="Screenshot that shows selecting the workspace deployment sign in the repository Actions in GitHub.":::
 
-## Create custom parameters in the workspace template 
+## Create custom parameters in the workspace template
 
 If you use automated CI/CD and want to change some properties during deployment, but the properties aren't parameterized by default, you can override the default parameter template.
 
@@ -361,20 +360,20 @@ To override the default parameter template, create a custom parameter template n
 
 You can use the following guidelines to create a custom parameters file:
 
-* Enter the property path under the relevant entity type.
-* Setting a property name to `*` indicates that you want to parameterize all properties under the property (only down to the first level, not recursively). You can set exceptions to this configuration.
-* Setting the value of a property as a string indicates that you want to parameterize the property. Use the format `<action>:<name>:<stype>`.
-   *  `<action>` can be one of these characters:
-      * `=` means keep the current value as the default value for the parameter.
-      * `-` means don't keep the default value for the parameter.
-      * `|` is a special case for secrets from Azure Key Vault for connection strings or keys.
-   * `<name>` is the name of the parameter. If it's blank, it takes the name of the property. If the value starts with a `-` character, the name is shortened. For example, `AzureStorage1_properties_typeProperties_connectionString` would be shortened to `AzureStorage1_connectionString`.
-   * `<stype>` is the type of parameter. If `<stype>` is blank, the default type is `string`. Supported values: `string`, `securestring`, `int`, `bool`, `object`, `secureobject` and `array`.
-* Specifying an array in the file indicates that the matching property in the template is an array. Azure Synapse iterates through all the objects in the array by using the definition that's specified. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
-* A definition can't be specific to a resource instance. Any definition applies to all resources of that type.
-* By default, all secure strings (such as Key Vault secrets) and secure strings (such as connection strings, keys, and tokens) are parameterized.
+- Enter the property path under the relevant entity type.
+- Setting a property name to `*` indicates that you want to parameterize all properties under the property (only down to the first level, not recursively). You can set exceptions to this configuration.
+- Setting the value of a property as a string indicates that you want to parameterize the property. Use the format `<action>:<name>:<stype>`.
+  - `<action>` can be one of these characters:
+    - `=` means keep the current value as the default value for the parameter.
+    - `-` means don't keep the default value for the parameter.
+    - `|` is a special case for secrets from Azure Key Vault for connection strings or keys.
+  - `<name>` is the name of the parameter. If it's blank, it takes the name of the property. If the value starts with a `-` character, the name is shortened. For example, `AzureStorage1_properties_typeProperties_connectionString` would be shortened to `AzureStorage1_connectionString`.
+  - `<stype>` is the type of parameter. If `<stype>` is blank, the default type is `string`. Supported values: `string`, `securestring`, `int`, `bool`, `object`, `secureobject` and `array`.
+- Specifying an array in the file indicates that the matching property in the template is an array. Azure Synapse iterates through all the objects in the array by using the definition that's specified. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
+- A definition can't be specific to a resource instance. Any definition applies to all resources of that type.
+- By default, all secure strings (such as Key Vault secrets) and secure strings (such as connection strings, keys, and tokens) are parameterized.
 
-### Parameter template definition example 
+### Parameter template definition example
 
 Here's an example of what a parameter template definition looks like:
 
@@ -488,11 +487,11 @@ Here's an explanation of how the preceding template is constructed, by resource 
 
 **`notebooks`**
 
-- Any property in the `properties/bigDataPool/referenceName` path is parameterized with its default value. You can parameterize an attached Spark pool for each notebook file. 
+- Any property in the `properties/bigDataPool/referenceName` path is parameterized with its default value. You can parameterize an attached Spark pool for each notebook file.
 
 **`sqlscripts`**
 
-- In the `properties/content/currentConnection` path, both the `poolName` and the `databaseName` properties are parameterized as strings without the default values in the template. 
+- In the `properties/content/currentConnection` path, both the `poolName` and the `databaseName` properties are parameterized as strings without the default values in the template.
 
 **`pipelines`**
 
@@ -526,10 +525,10 @@ Here's an explanation of how the preceding template is constructed, by resource 
 
 If you're using Git integration with your Azure Synapse workspace and you have a CI/CD pipeline that moves your changes from development to test, and then to production, we recommend these best practices:
 
--   **Integrate only the development workspace with Git**. If you use Git integration, integrate only your *development* Azure Synapse workspace with Git. Changes to test and production workspaces are deployed via CI/CD and don't need Git integration.
--   **Prepare pools before you migrate artifacts**. If you have a SQL script or notebook attached to pools in the development workspace, use the same name for pools in different environments. 
--   **Sync versioning in infrastructure as code scenarios**. To manage infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, use the same versioning that the DevOps team uses for source code. 
--   **Review Azure Data Factory best practices**. If you use Data Factory, see the [best practices for Data Factory artifacts](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd).
+- **Integrate only the development workspace with Git**. If you use Git integration, integrate only your *development* Azure Synapse workspace with Git. Changes to test and production workspaces are deployed via CI/CD and don't need Git integration.
+- **Prepare pools before you migrate artifacts**. If you have a SQL script or notebook attached to pools in the development workspace, use the same name for pools in different environments.
+- **Sync versioning in infrastructure as code scenarios**. To manage infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, use the same versioning that the DevOps team uses for source code.
+- **Review Azure Data Factory best practices**. If you use Data Factory, see the [best practices for Data Factory artifacts](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd).
 
 ## Troubleshoot artifacts deployment
 
@@ -537,38 +536,38 @@ If you're using Git integration with your Azure Synapse workspace and you have a
 
 In Azure Synapse, unlike in Data Factory, artifacts aren't Resource Manager resources. You can't use the ARM template deployment task to deploy Azure Synapse artifacts. Instead, use the Synapse workspace deployment task to deploy the artifacts, and use ARM deployment task for ARM resources (pools and workspace) deployment. Meanwhile this task only supports Synapse templates where resources have type Microsoft.Synapse. And with this task, users can deploy changes from any branches automatically without manual clicking the publish in Synapse studio. The following are some frequently raised issues.
 
-#### 1. Publish failed: workspace arm file is more than 20 MB
+### 1. Publish failed: workspace arm file is more than 20 MB
 
 There's a file size limitation in git provider, for example, in Azure DevOps the maximum file size is 20 Mb. Once the workspace template file size exceeds 20 Mb, this error happens when you publish changes in Synapse studio, in which the workspace template file is generated and synced to git. To solve the issue, you can use the Synapse deployment task with **validate** or **validate and deploy** operation to save the workspace template file directly into the pipeline agent and without manual publish in synapse studio.  
 
-#### 2. Unexpected token error in release
+### 2. Unexpected token error in release
 
 If your parameter file has parameter values that aren't escaped, the release pipeline fails to parse the file and generates an `unexpected token` error. We suggest that you override parameters or use Key Vault to retrieve parameter values. You also can use double escape characters to resolve the issue.
 
-#### 3. Integration runtime deployment failed
+### 3. Integration runtime deployment failed
 
-If you have the workspace template generated from a managed virtual network enabled workspace and try to deploy to a regular workspace or vice versa, this error happens. 
- 
-#### 4. Unexpected character encountered while parsing value
+If you have the workspace template generated from a managed virtual network enabled workspace and try to deploy to a regular workspace or vice versa, this error happens.
+
+### 4. Unexpected character encountered while parsing value
 
 The template can't be parsed the template file. Try by escaping the back slashes, for example, \\\\Test01\\Test
 
-#### 5. Failed to fetch workspace info, Not found
+### 5. Failed to fetch workspace info, Not found
 
 The target workspace info isn't correctly configured. Make sure the service connection which you have created, is scoped to the resource group which has the workspace.
 
-#### 6. Artifact deletion failed
+### 6. Artifact deletion failed
 
 The extension will compare the artifacts present in the publish branch with the template and based on the difference it will delete them. Make sure you aren't trying to delete any artifact which is present in publish branch and some other artifact has a reference or dependency on it.
 
-#### 8. Deployment failed with error: json position 0 
+### 7. Deployment failed with error: json position 0
 
 If you were trying to manually update the template, this error would happen. Make sure that you haven't manually edited the template.
 
-#### 9. The document creation or update failed because of invalid reference
+### 8. The document creation or update failed because of invalid reference
 
 The artifact in synapse can be referenced by another one. If you have parameterized an attribute which is a referenced in an artifact, make sure to provide correct and non null value to it
 
-####  10. Failed to fetch the deployment status in notebook deployment 
+### 9. Failed to fetch the deployment status in notebook deployment
 
-The notebook you're trying to deploy is attached to a spark pool in the workspace template file, while in the deployment the pool doesn't exist in the target workspace. If you don't parameterize the pool name, make sure that having the same name for the pools between environments. 
+The notebook you're trying to deploy is attached to a spark pool in the workspace template file, while in the deployment the pool doesn't exist in the target workspace. If you don't parameterize the pool name, make sure that having the same name for the pools between environments.
