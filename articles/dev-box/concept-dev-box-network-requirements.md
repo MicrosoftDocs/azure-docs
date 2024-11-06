@@ -35,8 +35,6 @@ To use your own network and provision [Microsoft Entra hybrid joined](/azure/dev
 -    The Azure virtual network must be able to resolve Domain Name Services (DNS) entries for your Active Directory Domain Services (AD DS) environment. To support this resolution, define your AD DS DNS servers as the DNS servers for the virtual network.
 -    The Azure virtual network must have network access to an enterprise domain controller, either in Azure or on-premises.
 
-When connecting to resources on-premises through Microsoft Entra hybrid joins, work with your Azure network topology expert. Best practice is to implement a [hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology). The hub is the central point that connects to your on-premises network; you can use an Express Route, a site-to-site VPN, or a point-to-site VPN. The spoke is the virtual network that contains the dev boxes. You peer the dev box virtual network to the on-premises connected virtual network to provide access to on-premises resources. Hub and spoke topology can help you manage network traffic and security. 
-
 > [!IMPORTANT]
 > When using your own network, Microsoft Dev Box currently does not support moving network interfaces to a different virtual network or a different subnet. 
 
@@ -102,7 +100,7 @@ The following URLs and ports are required for the provisioning of dev boxes and 
 |---------------------------------|--------------------------------|-------------------------------------|
 | **Dev box communication endpoints** | *.agentmanagement.dc.azure.com<br>*.cmdagent.trafficmanager.net | N/A |
 | **Windows 365 service and registration endpoints** | For current Windows 365 registration endpoints, see [Windows 365 network requirements](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#windows-365-service). | FQDN tag: *Windows365* | 
-| **Azure Virtual Desktop service endpoints** | For current AVD service endpoints, see [Session host virtual machines](/azure/virtual-desktop/required-fqdn-endpoint?tabs=azure#session-host-virtual-machines). | FQDN tags: *WindowsVirtualDesktop*, *AzureMonitor*, *AzureFrontDoor.Frontend*, *AzureCloud*, *Internet* |
+| **Azure Virtual Desktop service endpoints** | For current AVD service endpoints, see [Session host virtual machines](/azure/virtual-desktop/required-fqdn-endpoint?tabs=azure#session-host-virtual-machines). | FQDN tag: *WindowsVirtualDesktop* |
 | **Microsoft Entra ID** | FQDNs and endpoints for Microsoft Entra ID can be found under ID 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online). | Service tag: *AzureActiveDirectory* |
 | **Microsoft Intune** | For current FQDNs and endpoints for Microsoft Entra ID, see [Intune core service](/mem/intune/fundamentals/intune-endpoints?tabs=north-america#intune-core-service).| FQDN tag: *MicrosoftIntune* |
 
@@ -153,7 +151,7 @@ This list doesn't include FQDNs and endpoints for other services such as Microso
 
 ## Remote Desktop Protocol (RDP) broker service endpoints
 
-Direct connectivity to Azure Virtual Desktop RDP broker service endpoints is critical for remote performance to a dev box. These endpoints affect both connectivity and latency. To align with the Microsoft 365 network connectivity principles, you should categorize these endpoints as *Optimize* endpoints, and use a [Remote Desktop Protocol (RDP) Shortpath](/windows-365/enterprise/rdp-shortpath-public-networks) from your Azure virtual network to those endpoints. RDP Shortpath  can provide another connection path for improved dev box connectivity, especially in suboptimal network conditions.
+Direct connectivity to Azure Virtual Desktop RDP broker service endpoints is critical for remote performance to a dev box. These endpoints affect both connectivity and latency. To align with the Microsoft 365 network connectivity principles, you should categorize these endpoints as *Optimize* endpoints, and use a [Remote Desktop Protocol (RDP) Shortpath](/windows-365/enterprise/rdp-shortpath-public-networks) from your Azure virtual network to those endpoints. RDP Shortpath can provide another connection path for improved dev box connectivity, especially in suboptimal network conditions.
 
 To make it easier to configure network security controls, use Azure Virtual Desktop service tags to identify those endpoints for direct routing using an Azure Networking User Defined Route (UDR). A UDR results in direct routing between your virtual network and the RDP broker for lowest latency. 
 
@@ -178,7 +176,7 @@ You can allow dev boxes to connect to on-premises resources through a hybrid con
 
 ## Traffic interception technologies
 
-Some enterprise customers use traffic interception, TLS decryption, deep packet inspection, and other similar technologies for security teams to monitor network traffic. Dev box provisioning might need direct access to the virtual machine. These traffic interception technologies can cause issues with running Azure network connection checks or dev box provisioning. Make sure no network interception is enforced for dev boxes provisioned within Microsoft Dev Box.
+Some enterprise customers use traffic interception, TLS decryption, deep packet inspection, and other similar technologies for security teams to monitor network traffic.  These traffic interception technologies can cause issues with running Azure network connection checks or dev box provisioning. Make sure no network interception is enforced for dev boxes provisioned within Microsoft Dev Box.
 
 Traffic interception technologies can exacerbate latency issues. You can use a [Remote Desktop Protocol (RDP) Shortpath](/windows-365/enterprise/rdp-shortpath-public-networks) to help minimize latency issues.
 
@@ -208,7 +206,7 @@ For more information, see [Virtual Network service endpoints](/azure/virtual-net
 
 ### Updating dev box definition image issues
 
-When you update the image used in a dev box definition, you must ensure that you have sufficient IP addresses available in your virtual network. More free IP addresses are necessary for the Azure Network connection health check. If the health check fails the dev box definition won't update. You need one additional IP address per dev box, and two IP addresses for the health check and Dev Box infrastructure.
+When you update the image used in a dev box definition, you must ensure that you have sufficient IP addresses available in your virtual network. More free IP addresses are necessary for the Azure Network connection health check. If the health check fails, the dev box definition doesn't update. You need one extra IP address per dev box, and one IP addresses for the health check and Dev Box infrastructure.
 
 For more information about updating dev box definition images, see [Update a dev box definition](how-to-manage-dev-box-definitions.md#update-a-dev-box-definition).
 
