@@ -6,14 +6,16 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic:  how-to
-ms.date: 11/5/2024
+ms.date: 11/6/2024
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
 # Use a private endpoint with an Azure Container Apps environment
 
-A private endpoint is a network interface that uses a private IP address from your virtual network (VNet). This network interface connects you privately and securely to a service that's powered by [Azure Private Link](/azure/private-link/private-link-overview). The following example shows you how to use a private endpoint to securely access your Container Apps environment without exposing it to the public Internet.
+In this article, you learn how to use a private endpoint to securely access your Azure Container App without exposing it to the public Internet.
+
+A private endpoint uses a private IP address from your virtual network (VNet). This endpoint connects you privately and securely to a service powered by [Azure Private Link](/azure/private-link/private-link-overview).
 
 ::: zone pivot="azure-portal"
 
@@ -51,7 +53,7 @@ Next, create an environment for your container app.
     |--|--|
     | Region | Select **Central US**. |
 
-1. In the *Create Container Apps environment* field, select the **Create new** link.
+1. In the *Create Container Apps Environment* field, select the **Create new** link.
 
 1. In the *Create Container Apps Environment* page on the *Basics* tab, enter the following values:
 
@@ -64,7 +66,8 @@ Next, create an environment for your container app.
 
 1. Disable public network access.
 
-1. Leave **Use your own virtual network** set to **No**. You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+1. Leave **Use your own virtual network** set to **No**.
+    You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
 1. Set *Enable private endpoints* to **Yes**.
 
@@ -90,6 +93,8 @@ In the *Create Container App* page on the *Container* tab, select **Use quicksta
 
 <!-- Deploy -->
 [!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
+
+When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because your container app environment has public access disabled. Instead, you access your container app using your private endpoint.
 
 ::: zone-end
 
@@ -148,7 +153,8 @@ az group create \
 
 An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
-Now create an Azure virtual network (VNet) to associate with the Container Apps environment. The VNet must have a subnet available for the environment deployment. You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+1. Create an Azure virtual network (VNet) to associate with the Container Apps environment. The VNet must have a subnet available for the environment deployment.
+    You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
 ```azurecli
 az network vnet create \
@@ -158,7 +164,7 @@ az network vnet create \
     --address-prefix 10.0.0.0/16
 ```
 
-Create a subnet to associate with the VNet and to contain the private endpoint.
+1. Create a subnet to associate with the VNet and to contain the private endpoint.
 
 ```azurecli
 az network vnet subnet create \
@@ -168,7 +174,7 @@ az network vnet subnet create \
     --address-prefixes 10.0.0.0/21
 ```
 
-Retrieve the subnet ID. You use this to create the private endpoint.
+1. Retrieve the subnet ID. You use this to create the private endpoint.
 
 ```azurecli
 SUBNET_ID=`az network vnet subnet show \
@@ -181,7 +187,7 @@ SUBNET_ID=`az network vnet subnet show \
 
 ## Create an environment
 
-Create the Container Apps environment using the VNet deployed in the preceding steps. Private endpoints are only supported by workload profiles environments, which is the default type for new environments.
+1. Create the Container Apps environment using the VNet deployed in the preceding steps. Private endpoints are only supported by workload profiles environments, which is the default type for new environments.
 
 ```azurecli
 az containerapp env create \
@@ -190,7 +196,7 @@ az containerapp env create \
     --location $LOCATION
 ```
 
-Retrieve the environment ID. You use this to configure the environment.
+1. Retrieve the environment ID. You use this to configure the environment.
 
 ```azurecli
 ENVIRONMENT_ID=`az containerapp env show \
@@ -200,7 +206,7 @@ ENVIRONMENT_ID=`az containerapp env show \
     --output tsv`
 ```
 
-Disable public network access for the environment. This is needed to enable private endpoints.
+1. Disable public network access for the environment. This is needed to enable private endpoints.
 
 ```azurecli
 az containerapp env update \
@@ -225,17 +231,17 @@ az network private-endpoint create \
 
 ### Configure the private DNS zone
 
-Retrieve the private endpoint IP address. You use this to add a DNS record to your private DNS zone.
+1. Retrieve the private endpoint IP address. You use this to add a DNS record to your private DNS zone.
 
 ```azurecli
 PRIVATE_ENDPOINT_IP_ADDRESS=`az network private-endpoint show \
-    --name $PRIVATE_ENDPOINT \
-    --resource-group $RESOURCE_GROUP \
+    --name ${PRIVATE_ENDPOINT} \
+    --resource-group ${RESOURCE_GROUP} \
     --query 'customDnsConfigs[0].ipAddresses[0]' \
     --output tsv`
 ```
 
-Retrieve the environment default domain. You use this to add a DNS record to your private DNS zone.
+1. Retrieve the environment default domain. You use this to add a DNS record to your private DNS zone.
 
 ```azurecli
 DNS_RECORD_NAME=`az containerapp env show \
@@ -244,7 +250,7 @@ DNS_RECORD_NAME=`az containerapp env show \
     --output tsv | sed 's/\..*//'`
 ```
 
-Create a private DNS zone.
+1. Create a private DNS zone.
 
 ```azurecli
 az network private-dns zone create \
@@ -252,7 +258,7 @@ az network private-dns zone create \
     --name $PRIVATE_DNS_ZONE
 ```
 
-Create a link between your VNet and your private DNS zone.
+1. Create a link between your VNet and your private DNS zone.
 
 ```azurecli
 az network private-dns link vnet create \
@@ -263,7 +269,7 @@ az network private-dns link vnet create \
     --registration-enabled false
 ```
 
-Add a record for your private endpoint to your private DNS zone.
+1. Add a record for your private endpoint to your private DNS zone.
 
 ```azurecli
 az network private-dns record-set a add-record \
@@ -277,6 +283,8 @@ az network private-dns record-set a add-record \
 
 Deploy a container app in your environment. This container app simply uses the quickstart image.
 
+When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because your container app environment has public access disabled. Instead, you access your container app using your private endpoint.
+
 ```azurecli
 az containerapp up \
     --name $CONTAINERAPP_NAME \
@@ -288,8 +296,6 @@ az containerapp up \
     --ingress external \
     --query properties.configuration.ingress.fqdn
 ```
-
-When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because the container app environment has public access disabled.
 
 ::: zone-end
 
@@ -370,6 +376,14 @@ az vm create \
     --admin-username $VM_ADMIN_USERNAME
 ```
 
+After you run this command, you're prompted for an administrator password for your VM.
+
+The administrator username must be between 1 and 20 characters long.
+
+The administrator password has the following requirements:
+- Must be between 12 and 123 characters long.
+- Must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character.
+
 ::: zone-end
 
 ### Test the connection in the virtual machine
@@ -379,6 +393,8 @@ az vm create \
 1. Search for the VM you created in the top search bar and select it from the search results.
 
 1. In the *Overview* page for the VM, select **Connect**, then select **Connect via Bastion**.
+
+1. In the *Bastion* page, select **Deploy Bastion**.
 
 1. Set **Username** and **VM Password** to the username and password you used when you created the VM.
 
@@ -423,7 +439,7 @@ az group delete --name $RESOURCE_GROUP
 
 ::: zone-end
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Managing autoscaling behavior](scale-app.md)
+- [Azure Private Link](/azure/private-link/private-link-overview)
+- [Azure private endpoint overview](/azure/private-link/private-endpoint-overview)
