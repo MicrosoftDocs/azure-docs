@@ -13,7 +13,15 @@ This article is a list of definitions for key terms and concepts related to the 
 
 ## Autoscale
 
-Autoscale is Azure Virtual Desktop’s native scaling service that turns VMs on and off based on the capacity of the host pools and the [scaling plan](#scaling-plan) [schedule](#schedule) you define.
+Autoscale is Azure Virtual Desktop’s native scaling service that scales VMs up and down based on the capacity of the host pools and the [scaling plan](#scaling-plan) [schedule](#schedule) you define.
+
+## Scaling method
+
+The scaling method you choose will define how the scaling service will manage the available capacity. There are two scaling methods you can choose from:
+
+- **Power management autoscaling**: This is the existing autoscaling method that turns on/off session host VMs to adjust to the available capacity in the host pool. If you want to apply a scaling plan to a standard host pool, this is the option that you should use. 
+
+- **Dynamic autoscaling (preview)**: This autoscaling method adjusts the available capacity in the host pool by turning on/off and creating/deleting session host VMs. Dynamic autoscaling can only be used for pooled host pools with session host configuration.
 
 ## Scaling tool
 
@@ -53,8 +61,8 @@ The capacity threshold is the percentage of a [host pool's capacity](#available-
 
 For example:
 
-- If the [used host pool capacity](#used-host-pool-capacity) is below the capacity threshold and autoscale can turn off virtual machines (VMs) without going over the capacity threshold, then the feature will turn off the VMs.
-- If the used host pool capacity goes over the capacity threshold, then autoscale will turn on more VMs until the used host pool capacity goes below the capacity threshold.
+- If the [used host pool capacity](#used-host-pool-capacity) is below the capacity threshold and autoscale can turn off or delete virtual machines (VMs) without going over the capacity threshold, then the feature will turn off or delete the VMs.
+- If the used host pool capacity goes over the capacity threshold, then autoscale will turn on or create more VMs until the used host pool capacity goes below the capacity threshold.
 
 ## Available host pool capacity
 

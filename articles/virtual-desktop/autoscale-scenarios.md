@@ -16,11 +16,7 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 > - You can't use autoscale and [scale session hosts using Azure Automation](set-up-scaling-script.md) on the same host pool. You must use one or the other.
 > - Power management autoscaling is available in Azure and Azure Government in the same regions you can [create host pools](create-host-pools-azure-marketplace.md) in.
 > - Dynamic autoscaling is only available in Azure and is not supported in Azure Government.
->
-> The following features are currently in PREVIEW:
-> - Dynamic autoscaling for automated pooled host pools with session host configuration.
-> - Autoscale support for Azure Stack HCI with Azure Virtual Desktop.
-> - See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Dynamic autoscaling for pooled host pools with session host configuration is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager (ARM) templates or first-party tools from Microsoft.
 
@@ -30,7 +26,7 @@ A scaling plan is an Azure Virtual Desktop Azure Resource Manager object that de
 
 - **Power management autoscaling**: This is the existing autoscaling method that turns on/off session host VMs to adjust to the available capacity in the host pool. If you want to apply a scaling plan to a standard host pool, this is the option that you should use. 
 
-- **Dynamic autoscaling** (preview): This autoscaling method adjusts the available capacity in the host pool by turning on/off and creating/deleting session host VMs. Dynamic autoscaling can only be used for pooled host pools with session host configuration.
+- **Dynamic autoscaling (preview)**: This autoscaling method adjusts the available capacity in the host pool by turning on/off and creating/deleting session host VMs. Dynamic autoscaling can only be used for pooled host pools with session host configuration.
 
 Before you create your plan, keep the following things in mind:
 

@@ -12,10 +12,7 @@ ms.custom: references_regions, devx-track-azurepowershell, docs_inherited
 # Create and assign an autoscale scaling plan for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> The following features are currently in PREVIEW:
-> - Autoscale support for Azure Stack HCI with Azure Virtual Desktop 
-> - Dynamic autoscaling for automated pooled host pools with session host configuration.
-> - See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Dynamic autoscaling for pooled host pools with session host configuration is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs. You can't use autoscale and [scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md) on the same host pool. You must use one or the other.
 
@@ -390,7 +387,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
 
 1. For **Scaling method**, select **Dynamic autoscaling**.
 
-1. Select **Next**, which should take you to the **Schedules** tab. Schedules let you define when autoscale turns VMs on and off throughout the day. 
+1. Select **Next**, which should take you to the **Schedules** tab. Schedules let you define when to scale up and down VMs throughout the day. 
 
 1. Select **Add schedule**.
     
@@ -414,8 +411,8 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
 
     - For **Load balancing algorithm**, we recommend selecting **breadth-first algorithm**. Breadth-first load balancing will distribute users across existing VMs to keep access times fast.
             
-            >[!NOTE]
-            >The load balancing preference you select here will override the one you selected for your original host pool settings.
+        >[!NOTE]
+        >The load balancing preference you select here will override the one you selected for your original host pool settings.
             
     - For **Capacity threshold**, enter the percentage of available host pool capacity that will trigger a scaling action to take place. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
 
@@ -436,14 +433,16 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
     - Load-balancing algorithm
     - Capacity threshold (%)
     - Force logoff users
-    - Minimum percentage of hosts (%)
+    - Minimum percentage of active hosts (%)
+    - Minimum host pool size
+    - Maximum host pool size
     
-        > [!IMPORTANT]
-        > - If you've enabled autoscale to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions (active and disconnected) to shut down. Autoscale will put the session host in drain mode, send those user sessions a notification telling them they'll be signed out, and then sign out those users after the specified wait time is over. After autoscale signs out those user sessions, it then deallocates the VM.
-        >    
-        > - If you haven't enabled forced sign out during ramp-down, you then need to choose whether you want to shut down ‘VMs have no active or disconnected sessions’ or ‘VMs have no active sessions’ during ramp-down.
-        >
-        > - Whether you’ve enabled autoscale to force users to sign out during ramp-down or not, the [capacity threshold](autoscale-glossary.md#capacity-threshold) and the [minimum percentage of hosts](autoscale-glossary.md#minimum-percentage-of-hosts) are still respected, autoscale will only shut down VMs if all existing user sessions (active and disconnected) in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
+    > [!IMPORTANT]
+    > - If you've enabled autoscale to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions (active and disconnected) to shut down. Autoscale will put the session host in drain mode, send those user sessions a notification telling them they'll be signed out, and then sign out those users after the specified wait time is over. After autoscale signs out those user sessions, it then deallocates the VM.
+    >    
+    > - If you haven't enabled forced sign out during ramp-down, you then need to choose whether you want to shut down ‘VMs have no active or disconnected sessions’ or ‘VMs have no active sessions’ during ramp-down.
+    >
+    > - Whether you’ve enabled autoscale to force users to sign out during ramp-down or not, the [capacity threshold](autoscale-glossary.md#capacity-threshold) and the [minimum percentage of hosts](autoscale-glossary.md#minimum-percentage-of-hosts) are still respected, autoscale will only shut down VMs if all existing user sessions (active and disconnected) in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
     
 1. Likewise, **Off-peak hours** works the same way as **Peak hours**:
     
@@ -451,7 +450,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
     - Load-balancing algorithm. We recommend choosing **depth-first** to gradually reduce the number of session hosts based on sessions on each VM.
     - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** will carry over.
     
-1. Select **Next** to take you to the **Host pool assignments** tab. Select the check box next to each host pool you want to include. If you don't want to enable autoscale, unselect all check boxes. You can always return to this setting later and change it. You can only assign the dynamic scaling plan to automated host pool(s) with session host configuration.
+1. Select **Next** to take you to the **Host pool assignments** tab. Select the check box next to each host pool you want to include. If you don't want to enable autoscale, unselect all check boxes. You can always return to this setting later and change it. You can only assign the dynamic scaling plan to pooled host pool(s) with session host configuration.
 
     > [!NOTE]
     > - When you create or update a scaling plan that's already assigned to host pools, its changes will be applied immediately.
