@@ -9,7 +9,7 @@ ms.author: cherylmc
 
 ---
 
-# Deploy Bastion as private-only (Preview)
+# Deploy Bastion as private-only
 
 This article helps you deploy Bastion as a private-only deployment. [!INCLUDE [private-only bastion description](../../includes/bastion-private-only-description.md)] 
 
