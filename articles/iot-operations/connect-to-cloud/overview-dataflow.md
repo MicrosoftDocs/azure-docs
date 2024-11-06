@@ -3,6 +3,7 @@ title: Process and route data with dataflows
 description: Learn about dataflows and how to process and route data in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
+ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: conceptual
 ms.date: 08/03/2024
@@ -69,6 +70,6 @@ For more information, see [Understand message schemas](./concept-schema-registry
 
 ## Related content
 
-- [Quickstart: Send asset telemetry to the cloud by using a dataflow](../get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md)
+- [Tutorial: Send asset telemetry to the cloud by using a dataflow](../end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md)
 - [Create a dataflow](howto-create-dataflow.md)
 - [Create a dataflow endpoint](howto-configure-dataflow-endpoint.md)

@@ -3,7 +3,7 @@ title: "Microsoft Azure Data Manager for Energy - How to enable External Data So
 description: "This article describes how to enable external data sources in Azure Data Manager for Energy."
 author: bharathim
 ms.author: bselvaraj
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to #Don't change
 ms.date: 03/14/2024
 

@@ -23,6 +23,7 @@ This section lists the Azure resource types that Azure Load Testing supports for
 * Azure API Management
 * Azure App Service
 * Azure App Service plan
+* Azure Application Gateway
 * Azure Application Insights
 * Azure Application Gateway
 * Azure Batch Service

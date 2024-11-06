@@ -3,7 +3,7 @@ title: Overview - Azure Files identity-based authentication
 description: Azure Files supports identity-based authentication over SMB (Server Message Block) with Active Directory Domain Services (AD DS), Microsoft Entra Domain Services, and Microsoft Entra Kerberos for hybrid identities.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 10/03/2024
 ms.author: kendownie
 ---
@@ -55,7 +55,7 @@ Azure Files supports identity-based authentication over SMB through the followin
 
 ## Restrictions
 
-- None of the authentication methods support assigning share-level permissions to computer accounts (machine accounts) using Azure RBAC, because computer accounts can't be synced to an identity in Microsoft Entra ID. If you want to allow a computer account to access Azure file shares using identity-based authentication, [use a default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities) or consider using a service logon account instead.
+- None of the authentication methods support assigning share-level permissions to computer accounts (machine accounts) using Azure RBAC, because computer accounts can't be synced to an identity in Microsoft Entra ID. If you want to allow a computer account to access Azure file shares using identity-based authentication, [use a default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities) or consider using a service logon account instead.
 - Identity-based authentication isn't supported with Network File System (NFS) shares.
 
 ## Common use cases
@@ -101,7 +101,7 @@ The following diagram depicts on-premises AD DS authentication to Azure file sha
 
 :::image type="content" source="media/storage-files-active-directory-overview/files-ad-ds-auth-diagram.png" alt-text="Diagram that depicts on-premises AD DS authentication to Azure file shares over SMB.":::
 
-To learn how to enable AD DS authentication, first read [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md) and then see [Enable AD DS authentication for Azure file shares](storage-files-identity-ad-ds-enable.md).
+To learn how to enable AD DS authentication, first read [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-ad-ds-overview.md) and then see [Enable AD DS authentication for Azure file shares](storage-files-identity-ad-ds-enable.md).
 
 <a name='azure-ad-ds'></a>
 
@@ -171,8 +171,7 @@ There's no additional service charge to enable identity-based authentication ove
 
 For more information about Azure Files and identity-based authentication over SMB, see these resources:
 
-- [Planning for an Azure Files deployment](storage-files-planning.md)
-- [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md)
+- [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-ad-ds-overview.md)
 - [Enable Microsoft Entra Domain Services authentication on Azure Files](storage-files-identity-auth-domain-services-enable.md)
 - [Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files](storage-files-identity-auth-hybrid-identities-enable.md)
 - [Enable AD Kerberos authentication for Linux clients](storage-files-identity-auth-linux-kerberos-enable.md)

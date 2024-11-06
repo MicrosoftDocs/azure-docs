@@ -66,7 +66,7 @@ You can create a similar workflow with a Standard logic app resource. However, t
 
    The **Create Logic App** page appears and shows the following options:
 
-   [!INCLUDE [logic-apps-host-plans](../../includes/logic-apps-host-plans.md)]
+   [!INCLUDE [logic-apps-host-plans](includes/logic-apps-host-plans.md)]
 
 1. On the **Create Logic App** page, select **Consumption (Multi-tenant)**.
 

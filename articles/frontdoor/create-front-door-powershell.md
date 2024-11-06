@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an Azure Front Door Standard/Premium - Azure PowerShell'
-description: Learn how to create an Azure Front Door Standard/Premium using Azure PowerShell. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
+title: 'Quickstart: Create an Azure Front Door using Azure PowerShell'
+description: Learn how to create an Azure Front Door using Azure PowerShell. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
 services: front-door
 author: duongau
 ms.author: duau
@@ -11,9 +11,9 @@ ms.service: azure-frontdoor
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
-# Quickstart: Create an Azure Front Door Standard/Premium - Azure PowerShell
+# Quickstart: Create an Azure Front Door using Azure PowerShell
 
-In this quickstart, you'll learn how to create an Azure Front Door Standard/Premium profile using Azure PowerShell. You'll create this profile using two Web Apps as your origin. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
+In this quickstart, you'll learn how to create an Azure Front Door  profile using Azure PowerShell. You'll create this profile using two Web Apps as your origin. You can then verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
 
 :::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure PowerShell." border="false":::
 

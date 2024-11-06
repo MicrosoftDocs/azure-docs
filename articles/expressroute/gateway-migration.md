@@ -39,6 +39,9 @@ Historically, users had to use the Resize-AzVirtualNetworkGateway PowerShell com
 
 With the guided gateway migration experience you can deploy a second virtual network gateway in the same GatewaySubnet and Azure automatically transfers the control plane and data path configuration from the old gateway to the new one. During the migration process, there will be two virtual network gateways in operation within the same GatewaySubnet. This feature is designed to support migrations without downtime. However, users may experience brief connectivity issues or interruptions during the migration process.
 
+> [!NOTE]
+> The total time required for the migration to complete can take up to one hour. During this period, the gateway will remain locked, and no changes will be permitted.
+
 Gateway migration is recommended if you have a non-Az enabled Gateway SKU or a non-Az enabled Gateway Basic IP Gateway SKU.
 
 | Migrate from Non-Az enabled Gateway SKU     | Migrate to Az-enabled Gateway SKU              |
@@ -71,10 +74,7 @@ In the gateway migration experience, you need to validate if your resource is ca
 
 ### Virtual network 
 
-* Gateway Subnet needs two or more prefixes for migration.
-* MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
-
- You must create a second prefix in your Gateway Subnet for migration.
+MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
 
 ## Next steps
 

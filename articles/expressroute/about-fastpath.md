@@ -82,13 +82,14 @@ FastPath Private endpoint/Private Link connectivity is supported for the followi
 - Third Party Private Link Services
 
 > [!NOTE]
-> * Enabling FastPath Private endpoint/Link support for limited GA scenarios may take upwards of 4 weeks to complete. Please plan your deployment(s) in advance.
+> * Plan your deployment(s) in advance, enabling FastPath Private Link and Private endpoint support for limited GA scenarios may take upwards of 4-6 weeks to complete.
 > * Connections associated to ExpressRoute partner circuits aren't eligible for this preview. Both IPv4 and IPv6 connectivity is supported.
-> * FastPath connectivity to a Private endpoint/Link service deployed to a spoke Virtual Network, peered to the Hub Virtual Network (where the ExpressRoute Virtual Network Gateway is deployed), is supported. 
-> * Private Link pricing will not apply to traffic sent over ExpressRoute FastPath. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
-> * FastPath supports a max of 100Gbps connectivity to a single Availability Zone (Az).
+> * FastPath connectivity to Azure Private Link service and Private endpoint deployed to a spoke Virtual Network, peered to the Hub Virtual Network (where the ExpressRoute Virtual Network Gateway is deployed), is supported. 
+> * Azure Private Link pricing won't apply to traffic sent over ExpressRoute FastPath. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
+> * FastPath supports a max of 100Gbps connectivity to a single Availability Zone.
 
-For more information about supported scenarios and to enroll in the limited GA offering, complete this [Microsoft Form](https://aka.ms/FastPathLimitedGA).
+> [!IMPORTANT]
+> For more information about supported scenarios and to enroll in the limited GA offering, complete this [Microsoft Form](https://aka.ms/FPlimitedga). Once Microsoft has reached out to you, [enable Private Link over FastPath](expressroute-howto-linkvnet-arm.md#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections) by running the commands in Step 2.
 
 ## Next steps
 

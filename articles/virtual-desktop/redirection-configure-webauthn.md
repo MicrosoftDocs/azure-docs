@@ -148,9 +148,9 @@ To allow or disable WebAuthn redirection using Microsoft Intune:
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Do not allow WebAuthn redirection** to **Enabled** or **Disabled**, depending on your requirements:
 
-   - To allow WebAuthn redirection, toggle the switch to **Disabled**, then select **OK**.
+   - To allow WebAuthn redirection, toggle the switch to **Disabled**.
 
-   - To disable WebAuthn redirection, toggle the switch to **Enabled**, then select **OK**.
+   - To disable WebAuthn redirection, toggle the switch to **Enabled**.
 
 1. Select **Next**.
 

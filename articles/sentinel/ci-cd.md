@@ -10,7 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: As a SOC collaborator or MSSP analyst, I want to know how to connect my source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to know how to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
+
+
+#Customer intent: As a security administrator or MSSP analyst, I want to manage dynamic Microsoft Sentinel content as code based on source control repositories using CI/CD pipelines. I want to automate updates and ensure consistent configurations across workspaces in my security monitoring environment. As an MSSP content manager, I want to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
+
 ---
 
 # Deploy custom content from your repository (Public preview)

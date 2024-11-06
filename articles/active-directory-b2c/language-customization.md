@@ -3,11 +3,11 @@ title: Language customization in Azure Active Directory B2C
 description: Learn how to customize the language experience in your user flows in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 03/22/2024
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As a developer integrating Azure Active Directory B2C into my application, I want to customize the language of a user flow, so that I can provide a localized experience for my customers in different locales.
@@ -436,7 +436,7 @@ In the following example, English (en) and Spanish (es) custom strings are added
 1. Switch your browser default language to Spanish. Or you can add the query string parameter, `ui_locales` to the authorization request. For example: 
 
 ```http
-https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=00001111-aaaa-2222-bbbb-3333cccc4444&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
 ```
 
 ::: zone-end

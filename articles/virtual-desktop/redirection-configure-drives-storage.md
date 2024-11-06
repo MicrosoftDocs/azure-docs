@@ -158,9 +158,9 @@ To enable or disable drive redirection using Microsoft Intune:
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Do not allow drive redirection** to **Enabled** or **Disabled**, depending on your requirements:
 
-   - To allow drive redirection, toggle the switch to **Disabled**, then select **OK**.
+   - To allow drive redirection, toggle the switch to **Disabled**.
 
-   - To disable drive redirection, toggle the switch to **Enabled**, then select **OK**.
+   - To disable drive redirection, toggle the switch to **Enabled**.
 
 1. Select **Next**.
 

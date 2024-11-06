@@ -3,7 +3,7 @@ title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: reference
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 07/11/2024
+ms.date: 10/23/2024
 ---
 
 # Bicep CLI commands
@@ -15,6 +15,13 @@ This article shows how to run the commands in Azure CLI. When running through Az
 ## build
 
 The `build` command converts a Bicep file to an Azure Resource Manager template (ARM template). Typically, you don't need to run this command because it runs automatically when you deploy a Bicep file. Run it manually when you want to see the ARM template JSON that is created from your Bicep file.
+
+Using any of following Bicep features automatically enables language version 2.0 code generation:
+
+* [user-defined types](../bicep/user-defined-data-types.md)
+* [user-defined functions](../bicep/user-defined-functions.md)
+* [compile-time imports](../bicep/bicep-import.md)
+* [experimental features](../bicep/bicep-config.md#enable-experimental-features)
 
 The following example converts a Bicep file named _main.bicep_ to an ARM template named _main.json_. The new file is created in the same directory as the Bicep file.
 

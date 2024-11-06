@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 10/2/2024
+ms.date: 10/25/2024
 ms.custom:  references_regions
 #customer intent: As a network administrator, I want to learn how to manage IP addresses with Azure Virtual Network Manager so that I can create and assign IP address pools to my virtual networks.
 ---
@@ -72,7 +72,7 @@ In this step, you associate an existing virtual network with an IP address pool 
 
 ## Create static CIDR blocks for a pool
 
-In this step, you create a static CIDR block for a pool. This is helpful for allocating a space that is outside of Azure or Azure resources not supported by IPAM. For example, you can allocate a CIDR in the pool to the address space in your on-premises environment. Likewise, you can also use this for a space that is used by a Virtual WAN hub or Azure VMware Private Cloud.
+In this step, you create a static CIDR block for a pool. This is helpful for allocating a space that is outside of Azure or Azure resources not supported by IP address manager. For example, you can allocate a CIDR in the pool to the address space in your on-premises environment. Likewise, you can also use this for a space that is used by a Virtual WAN hub or Azure VMware Private Cloud.
 
 1. Browse to your IP address pool.
 2. Select **Allocate** or **Allocations** under **Settings**.
@@ -119,7 +119,7 @@ In this step, you review the allocation usage of the IP address pool. This helps
     
     :::image type="content" source="media/how-to-manage-ip-addresses/review-ip-address-pool-allocations-by-resource.png" alt-text="Screenshot of ip address pool allocations highlighting individual resource information.":::
 
-## Delegating permissions for IP address management
+## Delegating permissions for IP address management (IPAM)
 
 In this step, you delegate permissions to other users to manage IP address pools in your network manager using [Azure role-based access control (RBAC)](../role-based-access-control/check-access.md). This allows you to control access to the IP address pools and ensure that only authorized users can manage the pools.
 
@@ -137,7 +137,9 @@ In this step, you delegate permissions to other users to manage IP address pools
 
 ## Create a virtual network with a nonoverlapping CIDR range
 
-In this step, you create a virtual network with a nonoverlapping CIDR range by allowing IPAM to automatically provide a nonoverlapping CIDR.
+In this step, you create a virtual network with a nonoverlapping CIDR range by allowing IP address manager to automatically provide a nonoverlapping CIDR.
+
+# [Azure Portal](#tab/azureportal)
 
 1. In the Azure portal, search for and select **Virtual networks**.
 2. Select **+ Create**.
@@ -166,8 +168,93 @@ In this step, you create a virtual network with a nonoverlapping CIDR range by a
 8. Optionally create subnets referring to the selected pool.
 9.  Select **Review + create** and then **Create** to create the virtual network.
 
+# [Azure Resource Manager Template](#tab/armtemplate)
+
+In this step, you create a virtual network with a nonoverlapping CIDR range using an Azure Resource Manager template. 
+
+1. Sign in to Azure and search for **Deploy a custom template**.
+2. In the **Custom deployment** window, select **Build your own template in the editor**.
+3. Copy the following template into the editor:
+
+    ```json
+       {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "virtualNetworkName": {
+                "defaultValue": "virtual-network",
+                "type": "String",
+                "metadata": {
+                    "description": "VNet name"
+                }
+            },
+            "location": {
+                "defaultValue": "[resourceGroup().location]",
+                "type": "String",
+                "metadata": {
+                    "description": "Location for all resources."
+                }
+            },
+            "poolResourceID": {
+                "defaultValue": "/subscriptions/<subscriptionId>/resourceGroups/resourceGroupName/providers/Microsoft.Network/networkManagers/<networkManagerName>/ipamPools/<ipAddressPoolName>",
+                "type": "String",
+                "metadata": {
+                    "description": "Enter the Resource ID for your IP Address Pool. You can find this in the JSON View in the resource's overview window."
+                }
+            },
+            "numberOfIPAddresses": {
+                "defaultValue": "256",
+                "type": "String",
+                "metadata": {
+                    "description": "Enter the number of IP addresses for the virtual network."
+                }
+            }
+        },
+        "resources": [
+            {
+                "type": "Microsoft.Network/virtualNetworks",
+                "apiVersion": "2024-01-01",
+                "name": "[parameters('virtualNetworkName')]",
+                "location": "[parameters('location')]",
+                "properties": {
+                    "addressSpace": {
+                        "ipamPoolPrefixAllocations": [
+                            {
+                                "pool": {
+                                    "id": "[parameters('poolResourceID')]"
+                                },
+                                "numberOfIpAddresses": "[parameters('numberOfIPAddresses')]"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+      }
+    
+    ```
+
+4. In the **Custom deployment** windows, enter or select the following information:
+
+    | **Field** | **Description** |
+    | --- | --- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select the resource group for the virtual network. In this case, the example uses **resource-group**. |
+    | **Instance details** |   |
+    | Region | Select the region for the virtual network. IP address pools must be in the same region as your virtual network in order to be associated. |
+    | Virtual network name | Enter a name for the virtual network. The template will default to **virtual-network**. |
+    | Location | Select the location for the virtual network. This will be the same as the region except all lower case and no spaces.</br>For example, if the region is **(US)westus2**, the location will be **westus2**. |
+    
+    :::image type="content" source="media/how-to-manage-ip-addresses/custom-deployment-template.png" alt-text="Screenshot of custom deployment page with values.":::
+    
+    > [!NOTE]
+    > The **poolResourceID** parameter is the Resource ID for your IP Address Pool. You can find this in the JSON View in the resource's overview window.
+
+5. Select **Review + create** and then **Create** to create the virtual network.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What is IP address management in Azure Virtual Network Manager](./concept-ip-address-management.md)
+> [What is IP address management (IPAM) in Azure Virtual Network Manager](./concept-ip-address-management.md)
 

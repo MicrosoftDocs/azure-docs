@@ -6,7 +6,7 @@ summary: Azure Orbital Ground Station is a cloud-based Ground Station as a Servi
 metadata:
   title: Azure Orbital Ground Station Documentation
   description: Azure Orbital Ground Station is a cloud-based Ground Station as a Service that allows you to streamline your satellite operations by ingesting space data directly into Azure.
-  ms.service: orbital
+  ms.service: azure-orbital
   ms.topic: landing-page
   author: wamota
   ms.author: mosagie

@@ -5,6 +5,10 @@ author: cwatson
 ms.author: cwatson
 ms.topic: conceptual
 ms.date: 03/05/2024
+
+
+#Customer intent: As a security administrator, I want to understand the prerequisites for deploying Microsoft Sentinel so that I can ensure my environment is properly configured and compliant.
+
 ---
 
 # Prerequisites to deploy Microsoft Sentinel

@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to use advanced threat hunting tools and queries so that I can proactively identify and mitigate security threats across my organization's data sources.
+
 ---
 
 # Threat hunting in Microsoft Sentinel
