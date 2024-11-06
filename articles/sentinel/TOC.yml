@@ -954,6 +954,8 @@
       href: /defender-xdr/incidents-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Alerts, incidents, and correlation
       href: /defender-xdr/alerts-incidents-correlation?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Manage incidents
+      href: /defender-xdr/manage-incidents?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Entities
     items:
     - name: Overview
