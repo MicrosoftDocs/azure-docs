@@ -489,6 +489,76 @@ You don't need to incrementally add instances (scaling out), you can add multipl
 JBoss EAP is available in the following pricing tiers: **F1**,
 **P0v3**, **P1mv3**, **P2mv3**, **P3mv3**, **P4mv3**, and **P5mv3**.
 
+## JBoss server lifecycle
+
+There are a number of steps run during startup of a JBoss webapp before actually launching the Server. This document gives a detailed view of these steps grouped in logical phases and some of the App Settings that can be used to configure it further.
+
+- [1. Environment setup phase](#1-environment-setup-phase)
+- [2. Server launch phase](#2-server-launch-phase)
+- [3. Server configuration phase](#3-server-configuration-phase)
+- [4. App deployment phase](#4-app-deployment-phase)
+- [5. Server reload phase](#5-server-reload-phase)
+
+### 1. Environment setup phase
+
+- The SSH service is started to enable [secure SSH sessions](configure-linux-open-ssh-session.md) with the container. 
+- The Keystore of the Java runtime is updated with any public and private certificates defined in Azure portal. 
+    - Public certificates are provided by the platform in the */var/ssl/certs* directory, and they are loaded to *$JRE_HOME/lib/security/cacerts*.
+    - Private certificates are provided by the platform in the */var/ssl/private* directory, and they are loaded to *$JRE_HOME/lib/security/client.jks*.
+- If any certs are loaded in the Java keystore in this step, the properties `javax.net.ssl.keyStore`, `javax.net.ssl.keyStorePassword` and `javax.net.ssl.keyStoreType` are added to the `JAVA_TOOL_OPTIONS` environment variable.
+- Some initial JVM configuration is determined such as logging directories and Java memory heap parameters: 
+    - If you provide the `–Xms` or `–Xmx` flags for memory in the app setting `JAVA_OPTS`, these values override the ones provided by the platform.
+    - If you configure the app setting `WEBSITES_CONTAINER_STOP_TIME_LIMIT`, the value is passed to the runtime property `org.wildfly.sigterm.suspend.timeout`, which controls the maximum shutdown wait time (in seconds) when JBoss is being stopped.
+- If the app is integrated with a virtual network, the App Service runtime passes a list of ports to be used for inter-server communication in the environment variable `WEBSITE_PRIVATE_PORTS` and launch JBoss using the `clustering` configuration. Otherwise, the `standalone` configuration is used.
+    - For the `clustering` configuration, the server configuration file *standalone-azure-full-ha.xml* is used.
+    - For the `standalone` configuration, the server configuration file *standalone-full.xml* is used.
+
+### 2. Server launch phase
+
+- If JBoss is launched in the `clustering` configuration:
+    - Each JBoss instance receives an internal identifier between 0 and the number of instances that the app is scaled out to.
+    - If some files are found in the transaction store path for this server instance (by using its internal identifier), it means this server instance is taking the place of an identical service instance that crashed previously and left uncommitted transactions behind. The server is configured to resume the work on these transactions.
+- Regardless of JBoss starting in the `clustering` or `standalone` configuration, if the server version is 7.4 or above, and the runtime uses Java 17, then the configuration is updated to enable the Elytron subsystem for security. <!-- using the JBoss CLI commands provided in the file docs/examples/enable-elytron-se17.cli  -->
+- If you configure the app setting `WEBSITE_JBOSS_OPTS`, the value is passed to the JBoss launcher script. This setting can be used to provide paths to property files and more flags that influence the startup of JBoss.
+
+### 3. Server configuration phase 
+
+- At the start of this phase, the startup script first waits for both the JBoss server and the admin interface to be ready to receive requests before continuing. This can take a few more seconds if App Insights is enabled.
+- When both JBoss Server and the admin interface are ready, it runs a JBoss CLI script to do the following: 
+    - Add the JBoss module `azure.appservice`, which provides utility classes for logging and integration with App Service.
+    - Update the console logger to use a colorless mode so that log files are not full of color escaping sequences.
+    - Set up the integration with Azure Monitor logs.
+    - Update the binding IP addresses of the WSDL and management interfaces.
+    - Add the JBoss module `azure.appservice.easyauth` for integration with [App Service authentication](overview-authentication-authorization.md) and Entra ID.
+    - Update the logging configuration of access logs and the name and rotation of the main server log file.
+- Unless the app setting `WEBSITE_SKIP_AUTOCONFIGURE_DATABASE` is defined, the startup script performs autodetection of JDBC URLs in the App Service app settings. If valid JDBC URLs exist for PostgreSQL, MySQL, MariaDB, Oracle or SQL Server, the startup script adds the corresponding driver(s) to the server and adds a data source for each of the JDBC URL. The JNDI name for each data source is `java:jboss/env/jdbc/<app-setting-name>_DS`, where `<app-setting-name>` is the name of the app setting.
+- If the `clustering` configuration is enabled, the startup script checks for the console logger to be configured. <!-- JBoss script /usr/local/appservice/lib/azure.appservice.clustering.cli will be run. At this time, the script only checks for the console logger to be configured. In the future some extra configuration specific for clustering could be added. -->
+- If there are JAR files deployed to the */home/site/libs* directory, a new global module is created adding all these JAR files.
+- Run the custom startup script, if one is provided. The script to use is determined, in order of precedence: 
+    - If you configured a startup command, run it.
+    - If the path */home/site/scripts/startup.sh* exists, run it.
+    - If the path */home/startup.sh* exists, run it.
+
+The custom startup command or script runs as the root user (no need for `sudo`), so they can install Linux packages or launch the JBoss CLI to perform more JBoss install/customization commands (creating datasources, installing resource adapters), etc. For a information on Ubuntu package management commands, see the [Ubuntu Server documentation](https://documentation.ubuntu.com/server/how-to/software/package-management/). ForJBoss CLI commands, see the [JBoss Management CLI Guide](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index#how_to_cli).
+
+### 4. App deployment phase 
+
+The startup script deploys apps to JBoss by looking in the following locations, in order of precedence:
+
+- If you configured the app setting `WEBSITE_JAVA_WAR_FILE_NAME`, deploy the file designated by it.
+- If */home/site/wwwroot/app.war* exists, deploy it.
+- If any other EAR and WAR files exist in */home/site/wwwroot*, deploy them.
+- If */home/site/wwwroot/webapps* exists, deploy the files and directories in it. WAR files are deployed as applications themselves, and directories are deployed as "exploded" (uncompressed) web apps. 
+- If any standalone JSP pages exist in */home/site/wwwroot*, copy them to the web server root and deploy them as one web app.
+- If no deployable files are found yet, deploy the default welcome page (parking page) in the root context.
+
+### 5. Server reload phase 
+
+- Once the deployment steps are complete, the JBoss server is reloaded to apply any changes that require a server reload.
+- After the server reloads, the application(s) deployed to JBoss EAP server should be ready to respond to requests.
+- The server runs until the App Service app is stopped or restarted. You can manually stop or restart the App Service app, or you trigger a restart when you deploy files or make configuration changes to the App Service app. 
+- If the JBoss server exits abnormally in the `clustering` configuration, a final function called `emit_alert_tx_store_not_empty` is executed. The function checks if the JBoss process left a non-empty transaction store file in disk; if so, an error is logged in the console: `Error: finishing server with non-empty store for node XXXX`. When a new server instance is started, it looks for these non-empty transaction store files to resume the work (see [2. Server launch phase](#2-server-launch-phase)). 
+
 ::: zone-end
 
 ::: zone pivot="java-tomcat"
