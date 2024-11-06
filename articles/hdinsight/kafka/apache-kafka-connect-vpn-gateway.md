@@ -364,7 +364,7 @@ For more information on using HDInsight with a virtual network, see the [Plan a 
 
 For more information on creating an Azure Virtual Network with Point-to-Site VPN gateway, see the following documents:
 
-* [Configure a Point-to-Site connection using the Azure portal](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Configure a Point-to-Site connection using the Azure portal](../../vpn-gateway/point-to-site-certificate-gateway.md)
 
 * [Configure a Point-to-Site connection using Azure PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 

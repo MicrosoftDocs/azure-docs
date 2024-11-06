@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 10/18/2024
+ms.date: 11/01/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ms.service: azure-iot-operations
@@ -28,7 +28,7 @@ For a list of the available settings, see the [Broker](/rest/api/iotoperationsmq
 > [!IMPORTANT]
 > At this time, the *Broker* resource can only be configured at initial deployment time using the Azure CLI, Portal or GitHub Action. A new deployment is required if *Broker* configuration changes are needed. 
 
-To configure the scaling settings MQTT broker, you need to specify the `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
+To configure the scaling settings MQTT broker, you need to specify the `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create).
 
 ### Automatic deployment cardinality
 
@@ -55,7 +55,7 @@ When you increase these values, the broker's capacity to handle more connections
 > [!IMPORTANT]
 > At this time, the *Broker* resource can only be configured at initial deployment time using the Azure CLI, Portal or GitHub Action. A new deployment is required if *Broker* configuration changes are needed.
 
-To configure the memory profile settings MQTT broker, specify the `memoryProfile` fields in the spec of the *Broker* custom resource. For more information on setting the memory profile setting using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
+To configure the memory profile settings MQTT broker, specify the `memoryProfile` fields in the spec of the *Broker* custom resource. For more information on setting the memory profile setting using Azure CLI, see [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create).
 
 `memoryProfile`: This subfield defines the settings for the memory profile. There are a few profiles for the memory usage you can choose:
 
@@ -151,7 +151,7 @@ Here's an example of a *Broker* custom resource with metrics and tracing enabled
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
-  name: broker
+  name: default
   namespace: azure-iot-operations
 spec:
   diagnostics:

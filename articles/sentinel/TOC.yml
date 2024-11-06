@@ -259,8 +259,6 @@
     href: forward-syslog-monitor-agent.md
   - name: Connect data sources
     href: configure-data-connector.md
-  - name: Classifying data with entities
-    href: entities.md
   - name: Ingestion-time data transformation
     href: data-transformation.md
   - name: AMA migration for Microsoft Sentinel
@@ -679,11 +677,11 @@
       items: 
       - name: Connect Microsoft Sentinel to Microsoft connectors
         href: connect-azure-windows-microsoft-services.md
-      - name: API-based connection
+      - name: Connect via API-based connectors
         href: connect-services-api-based.md
-      - name: Diagnostic settings-based connection
+      - name: Connect via diagnostic settings-based connectors
         href: connect-services-diagnostic-setting-based.md
-      - name: Windows agent-based connection
+      - name: Connect via Windows agent-based connectors
         href: connect-services-windows-based.md
     - name: Azure Functions API connection
       href: connect-azure-functions-template.md    
@@ -849,8 +847,17 @@
     href: tutorial-log4j-detection.md
   - name: MITRE ATT&CK coverage
     href: mitre-coverage.md
-  - name: User and entity behavior analytics (UEBA)
-    href: identify-threats-with-entity-behavior-analytics.md
+  - name: Data classification with entities
+    items:
+    - name: Overview
+      displayName: data classification, entities
+      href: entities.md
+    - name: Entity pages
+      href: entity-pages.md
+    - name: User and entity behavior analytics (UEBA)
+      href: identify-threats-with-entity-behavior-analytics.md
+    - name: Create custom entity activities
+      href: customize-entity-activities.md
   - name: Watchlists
     items:
     - name: Overview
@@ -965,7 +972,7 @@
     items: 
     - name: Overview
       href: sentinel-security-copilot.md
-    - name: Microsoft Copilot in Microsoft Defender ## Need to verify all these feature work for Sentinel only
+    - name: Microsoft Copilot in Microsoft Defender
       items:
       - name: Overview
         href: /defender-xdr/security-copilot-in-microsoft-365-defender?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
