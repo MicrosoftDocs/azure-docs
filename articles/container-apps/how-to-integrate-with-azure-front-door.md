@@ -6,61 +6,35 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic:  how-to
-ms.date: 11/1/2024
+ms.date: 11/5/2024
 ms.author: cshoe
 ---
 
-# Connect a private endpoint to an Azure Front Door
+# Create a private link with Azure Front Door
 
-The following example shows you how to connect a private endpoint to an Azure Front Door.
+In this article, you learn how to create an Azure Front Door (AFD) using the Azure CLI. You then connect the Front Door to an Azure Container App in a private VNet using [Azure Private Link](/azure/private-link/private-link-overview). This lets you securely access your container app without exposing it to the public Internet. You then verify connectivity to your container app using the AFD endpoint.
 
 ## Prerequisites
 
 - Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
-- Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.28.0 or higher.
 
-## Setup
-
-1. To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
-
-    ```azurecli
-    az login
-    ```
-
-1. To ensure you're running the latest version of the CLI, run the upgrade command.
+- The latest version of the [Azure CLI](/cli/azure/install-azure-cli). To ensure you're running the latest version, run the following command.
 
     ```azurecli
     az upgrade
     ```
 
-1. Install or update the Azure Container Apps extension for the CLI.
-
-    If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI or cmdlets from the `Az.App` module in Azure PowerShell, be sure you have the latest version of the Azure Container Apps extension installed.
+- The latest version of the Azure Container Apps extension for the Azure CLI. To ensure you're running the latest version, run the following command.
 
     ```azurecli
-    az extension add --name containerapp --upgrade
+	az extension add --name containerapp --upgrade --allow-preview true
     ```
 
     > [!NOTE]
     > Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](./whats-new.md), install the Container Apps extension with `--allow-preview true`.
-    > ```azurecli
-    > az extension add --name containerapp --upgrade --allow-preview true
-    > ```
 
-1. Register the `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.ContainerService` namespaces.
-
-    ```azurecli
-    az provider register --namespace Microsoft.App
-    ```
-
-    ```azurecli
-    az provider register --namespace Microsoft.OperationalInsights
-    ```
-
-    ```azurecli
-    az provider register --namespace Microsoft.ContainerService
-    ```
+For more information about prerequisites and setup, see [Quickstart: Deploy your first container app with containerapp up](get-started.md?tabs=bash).
 
 ## Set environment variables
 
@@ -102,10 +76,10 @@ az containerapp env create \
 Retrieve the environment ID. You use this to configure the environment.
 
 ```azurecli
-ENVIRONMENT_ID=`az containerapp env show --resource-group ${RESOURCE_GROUP} --name ${ENVIRONMENT_NAME} --query "id"`
+ENVIRONMENT_ID=`az containerapp env show --resource-group ${RESOURCE_GROUP} --name ${ENVIRONMENT_NAME} --query "id" --output tsv`
 ```
 
-Disable public network access for the environment. This is needed to enable private endpoints.
+Disable public network access for the environment.
 
 ```azurecli
 az containerapp env update \
@@ -132,12 +106,14 @@ az containerapp up \
 Retrieve your container app endpoint.
 
 ```azurecli
-ACA_ENDPOINT=`az containerapp show --name ${CONTAINERAPP_NAME} --resource-group ${RESOURCE_GROUP} --query properties.configuration.ingress.fqdn`
+ACA_ENDPOINT=`az containerapp show --name ${CONTAINERAPP_NAME} --resource-group ${RESOURCE_GROUP} --query properties.configuration.ingress.fqdn --output tsv`
 ```
+
+When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because the container app environment has public access disabled.
 
 ## Create an Azure Front Door profile
 
-Run the following command to create an Azure Front Door profile.
+Run the following command to create an AFD profile.
 
 ```azurecli
 az afd profile create \
@@ -146,13 +122,11 @@ az afd profile create \
     --sku Premium_AzureFrontDoor
 ```
 
-TODO1 Replace Azure Front Door (AFD).
-
 Private link is not supported for origins in an AFD profile with SKU `Standard_AzureFrontDoor`.
 
 ## Create an Azure Front Door endpoint
 
-Run the following command to add an endpoint to your Azure Front Door profile.
+Run the following command to add an endpoint to your AFD profile.
 
 ```azurecli
 az afd endpoint create \
@@ -164,7 +138,7 @@ az afd endpoint create \
 
 ## Create an Azure Front Door origin group
 
-Run the following command to create an Azure Front Door origin group.
+Run the following command to create an AFD origin group.
 
 ```azurecli
 az afd origin-group create \
@@ -182,7 +156,7 @@ az afd origin-group create \
 
 ## Create an Azure Front Door origin
 
-Run the following command to add an Azure Front Door origin to your origin group.
+Run the following command to add an AFD origin to your origin group.
 
 ```azurecli
 az afd origin create \
@@ -196,7 +170,7 @@ az afd origin create \
     --weight 500 \
     --enable-private-link true \
     --private-link-location $LOCATION \
-    --private-link-request-message "please approve" \
+    --private-link-request-message "AFD Private Link Request" \
     --private-link-resource $ENVIRONMENT_ID \
     --private-link-sub-resource-type managedEnvironments
 ```
@@ -212,7 +186,7 @@ az network private-endpoint-connection list \
     --type Microsoft.App/managedEnvironments
 ```
 
-Record the private endpoint connection resource ID from the response. The private endpoint connection has a `properties.privateLinkServiceConnectionState.description` value of `please approve`. The private endpoint connection resource ID looks like the following.
+Record the private endpoint connection resource ID from the response. The private endpoint connection has a `properties.privateLinkServiceConnectionState.description` value of `AFD Private Link Request`. The private endpoint connection resource ID looks like the following.
 
 ```
 /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/managedEnvironments/my-environment/privateEndpointConnections/<PRIVATE_ENDPOINT_CONNECTION_ID>
@@ -229,7 +203,7 @@ Don't confuse this with the private endpoint ID, which looks like the following.
 Run the following command to approve the connection. Replace the \<PLACEHOLDER\> with the private endpoint connection resource ID you recorded in the previous section.
 
 ```azurecli
-az network private-endpoint-connection approve --id "<PRIVATE_ENDPOINT_CONNECTION_RESOURCE_ID>"
+az network private-endpoint-connection approve --id <PRIVATE_ENDPOINT_CONNECTION_RESOURCE_ID>
 ```
 
 ## Add a route
@@ -251,14 +225,15 @@ az afd route create \
 
 ## Access your container app from Azure Front Door
 
-Run the following command to retrieve the hostname of your endpoint.
+Run the following command to retrieve the hostname of your AFD endpoint.
 
 ```azurecli
 az afd endpoint show \
   --resource-group $RESOURCE_GROUP \
   --profile-name $AFD_PROFILE \
   --endpoint-name $AFD_ENDPOINT \
-  --query hostName
+  --query hostName \
+  --output tsv
 ```
 
 Your hostname looks like the following example.
@@ -269,7 +244,7 @@ my-afd-endpoint.<HASH>.b01.azurefd.net
 
 Browse to the hostname. You see the output for the quickstart container app image.
 
-It takes a few minutes for your Azure Front Door profile to be deployed globally, so if you do not see the expected output at first, wait a few minutes and then refresh.
+It takes a few minutes for your AFD profile to be deployed globally, so if you do not see the expected output at first, wait a few minutes and then refresh.
 
 ## Clean up resources
 
