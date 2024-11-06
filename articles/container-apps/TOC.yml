@@ -67,8 +67,6 @@
         href: sessions-custom-container.md
     - name: Microservices
       href: microservices.md
-    - name: Planned maintenance
-      href: planned-maintenance.md
     - name: Build and deliver apps with Container Apps (video)
       href: https://www.youtube.com/watch?v=b3dopSTnSRg
 - name: Develop & deploy
