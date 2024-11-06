@@ -99,7 +99,7 @@ Excessive requests to App Configuration can result in throttling or overage char
 
 ## Importing configuration data into App Configuration
 
-App Configuration offers the option to bulk [import](./howto-import-export-data.md) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export key-values from App Configuration, for example between related stores. If you have adopted Configuration as Code and manage your configurations in GitHub or Azure DevOps, you can set up ongoing configuration file import using [GitHub Actions](./push-kv-github-action.md) or [Azure Pipeline Import Task](./azure-pipeline-import-task.md).
+App Configuration offers the option to bulk [import](./howto-import-export-data.md) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export key-values from App Configuration, for example between related stores. If you have adopted Configuration as Code and manage your configurations in GitHub or Azure DevOps, you can set up ongoing configuration file import using [GitHub Actions](./push-kv-github-action.md) or [Azure Pipeline Import Task](./azure-pipeline-import-task.md). 
 
 ## Multi-region deployment in App Configuration
 
