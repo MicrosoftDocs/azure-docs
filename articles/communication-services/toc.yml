@@ -657,6 +657,10 @@ items:
       href: samples/chat-hero-sample.md
     - name: Authentication service hero sample
       href: samples/trusted-auth-sample.md
+  - name: Email
+    items:
+    - name: Azure AI to detect sensitive data example
+      href: samples/email-detect-sensitive-content.md
   - name: Call Automation
     items:
     - name: Call Automation AI sample
