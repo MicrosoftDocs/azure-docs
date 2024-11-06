@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting in Azure Communication Services
-description: Learn how to gather the information you need to troubleshoot your Communication Services solution.
+description: Learn how to gather the information you need to troubleshoot your Azure Communication Services solution.
 author: manoskow
 manager: chpalm
 services: azure-communication-services
@@ -14,32 +14,32 @@ ms.service: azure-communication-services
 # Troubleshooting in Azure Communication Services
 <a name="calling-sdk-error-codes"></a>
 
-This document helps you troubleshoot issues that you might experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
+This article helps you troubleshoot issues that you might experience within your Azure Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Azure Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
 
-## Getting help
+## Get help
 
-We encourage developers to submit questions, suggest features, and report problems as issues. For more information, see the [dedicated support and help options page](../support.md). 
+We encourage developers to submit questions, suggest features, and report problems as issues. For more information, see the [dedicated support and help options page](../support.md).
 
 To help you troubleshoot certain issues, you might need one or more of the following pieces of information:
 
 * **MS-CV ID**: Troubleshoot calls and messages.
-* **Call ID**: Identify Communication Services calls.
+* **Call ID**: Identify Azure Communication Services calls.
 * **SMS message ID**: Identify SMS messages.
-* **Short Code Program Brief ID**: Identify a short code program brief application.
+* **Short code program brief ID**: Identify a short code program brief application.
 * **Toll-free verification campaign brief ID**: Identify a toll-free verification campaign brief application.
 * **Email message ID**: Identify Send Email requests.
-* **Correlation ID**: Identify requests made using Call Automation. 
-* **Call logs**: Contain detailed information can be used to troubleshoot calling and network issues.
+* **Correlation ID**: Identify requests made by using Call Automation.
+* **Call logs**: Use the detailed information to troubleshoot calling and network issues.
 
 For more information about throttling and limitations, see [Service limits](service-limits.md).
 
 ## Access your MS-CV ID
 
-You can access the MS-CV ID by configuring diagnostics in the `clientOptions` object instance when initializing your SDKs. You can configure diagnostics for any Azure SDK including Chat, Identity, and VoIP calling.
+You can access the MS-CV ID by configuring diagnostics in the `clientOptions` object instance when you initialize your SDKs. You can configure diagnostics for any Azure SDK, including Chat, Identity, and VoIP calling.
 
 ### Client options example
 
-The following code snippets demonstrate diagnostics configuration. When you enable diagnostics for SDKs, diagnostics details can be emitted to the configured event listener:
+The following code snippets demonstrate diagnostics configuration. When you enable diagnostics for SDKs, diagnostics details are emitted to the configured event listener.
 
 # [C#](#tab/csharp)
 ```
@@ -79,22 +79,23 @@ chat_client = ChatClient(
 ```
 ---
 
-## Access IDs required for Call Automation
-When troubleshooting issues with the Call Automation SDK, such as call management or recording problems, you need to collect the IDs that help identify the failing call or operation. You can provide either of the following two IDs.
+## Access IDs are required for Call Automation
 
-- From the header of API response, locate the field `X-Ms-Skype-Chain-Id`.
+When you troubleshoot issues with the Call Automation SDK, such as call management or recording problems, you need to collect the IDs that help identify the failing call or operation. You can provide either of the following two IDs:
+
+- From the header of the API response, locate the field `X-Ms-Skype-Chain-Id`.
  
-    ![Screenshot of response header showing X-Ms-Skype-Chain-Id.](media/troubleshooting/response-header.png)
+    ![Screenshot that shows the response header with the X-Ms-Skype-Chain-Id.](media/troubleshooting/response-header.png)
 
-- From the callback events, your application receives after executing an action. For example `CallConnected` or `PlayFailed`, locate the correlationID.
+- From the callback events that your application receives after running an action. For example, use `CallConnected` or `PlayFailed` to locate the correlation ID.
 
-    ![Screenshot of call disconnected event showing correlation ID.](media/troubleshooting/correlation-id-in-callback-event.png)
+    ![Screenshot that shows a call disconnected event with the correlation ID](media/troubleshooting/correlation-id-in-callback-event.png).
 
 In addition to one of these IDs, you need to provide details about the failing use case and the timestamp when the failure occurred.
 
 ## Access your client call ID
 
-When troubleshooting voice or video calls, you might need to provide a `call ID`. Access this value via the `id` property of the `call` object:
+When you troubleshoot voice or video calls, you might need to provide a `call ID`. Access this value via the `id` property of the `call` object.
 
 # [JavaScript](#tab/javascript)
 ```javascript
@@ -138,20 +139,23 @@ console.log(result); // your message ID is in the result
 ```
 ---
 ## Access your short code program brief ID
-Find the program brief ID on the [Azure portal](https://portal.azure.com) in the Short Codes section. 
 
-:::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot showing a short code program brief ID.":::
+Find the program brief ID in the [Azure portal](https://portal.azure.com) in the **Short Codes** section.
+
+:::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot that shows a short code program brief ID.":::
 
 ---
 ## Access your toll-free verification campaign brief ID
-Find the program brief ID on the [Azure portal](https://portal.azure.com) in the Regulatory Documents section. 
 
-:::image type="content" source="./media/toll-free-troubleshooting.png" alt-text="Screenshot showing a toll free verification campaign brief ID.":::
+Find the program brief ID in the [Azure portal](https://portal.azure.com) in the **Regulatory Documents** section.
+
+:::image type="content" source="./media/toll-free-troubleshooting.png" alt-text="Screenshot that shows a toll-free verification campaign brief ID.":::
 
 ---
 
 ## Access your email operation ID
-When troubleshooting send email or email message status requests, you might need to provide an `operation ID`. You can access this value in the response:
+
+When you troubleshoot email send status or email message status requests, you might need to provide an operation ID. You can access this value in the response.
 
 # [.NET](#tab/dotnet)
 ```csharp
@@ -167,17 +171,19 @@ Console.WriteLine($"Email operation id = {emailSendOperation.Id}");
 ```
 ---
 
-## Accessing Support Files in the Calling SDK
+## Access support files in the Calling SDK
 
-Calling SDK provides convenient methods to access to the Log Files. These files can serve valuable to Microsoft support specialists and engineers. We recommend that you collect these logs when you detect an issue.
+The Calling SDK provides convenient methods to access the log files. These files can help Microsoft support specialists and engineers. We recommend that you collect these logs when you detect an issue.
 
-## Enable and Access Call Logs
+## Enable and access call logs
 
-### [JavaScript]
+Learn how to enable and access call logs.
 
-The Azure Communication Services Calling SDK relies internally on [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging.
+### JavaScript
 
-Use the `setLogLevel` method from the `@azure/logger` package to configure the log output level. Create a logger and pass it into the `CallClient` constructor as follows:
+The Azure Communication Services Calling SDK relies internally on the [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging.
+
+Use the `setLogLevel` method from the `@azure/logger` package to configure the log output level. Create a logger and pass it into the `CallClient` constructor.
 
 ```javascript
 import { setLogLevel, createClientLogger, AzureLogger } from '@azure/logger';
@@ -186,9 +192,9 @@ let logger = createClientLogger('ACS');
 const callClient = new CallClient({ logger });
 ```
 
-You can use AzureLogger to redirect the logging output from Azure SDKs by overriding the `AzureLogger.log` method:
+You can use `AzureLogger` to redirect the logging output from Azure SDKs by overriding the `AzureLogger.log` method.
 
-You can log to the browser console, a file, buffer, send to our own service, and so on. If you're going to send logs over the network to your own service, don't send a request per log line because this adversely affects browser performance. Instead, accumulate logs lines and send them in batches.
+You can log to the browser console, a file, or a buffer. You can also send to your own service. If you're going to send logs over the network to your own service, don't send a request per log line because this method adversely affects browser performance. Instead, accumulate logs lines and send them in batches.
 
 ```javascript
 // Redirect log output
@@ -202,103 +208,112 @@ AzureLogger.log = (...args) => {
 
 For Android, iOS, and Windows, the Azure Communication Services Calling SDK offers access to log files.
 
-For Calling Native SDKs, see the [Log file access tutorials](../tutorials/log-file-retrieval-tutorial.md)
+For Calling Native SDKs, see the [Log file access tutorial](../tutorials/log-file-retrieval-tutorial.md).
 
 ### UI Libraries (Android, iOS)
 
-If you're using the Azure Communication Services UI Libraries for Android or iOS, you can solicit user feedback through the built-in support form.
+If you use the Azure Communication Services UI Libraries for Android or iOS, you can solicit user feedback through the built-in support form.
 
-For more information about the support functions of the Calling UI Support form, see the [Support Form integration tutorial](../tutorials/collecting-user-feedback/collecting-user-feedback.md). This document guides you through adding the necessary event handler, and creating a basic client/server implementation for centralized storage of support information. This guide describes the path for integrating with the support services used by your organization.
+For more information about the support functions of the Calling UI support form, see the [Support form integration tutorial](../tutorials/collecting-user-feedback/collecting-user-feedback.md). This article shows you how to add the necessary event handler and create a basic client/server implementation for centralized storage of support information. This article describes the path for integrating with the support services used by your organization.
 
-## Building end to end Support Flows in your ACS Integrations
+## Build end-to-end support flows in your ACS integrations
 
-Whether you're using Calling SDK or Calling UI SDK, providing support to your customers is a key component of any robust integration. The following document highlights the key considerations at each point of the Support feedback loop, and provides jumping off points to learn more.
+Whether you use the Calling SDK or the Calling UI SDK, providing support to your customers is a key component of any robust integration.
 
-[Providing User Support](../concepts/voice-video-calling/retrieve-support-files.md)
+The article [Providing user support](../concepts/voice-video-calling/retrieve-support-files.md) highlights the key considerations at each point of the support feedback loop and provides jumping-off points to learn more.
 
 ---
 <a name='finding-azure-active-directory-information'></a>
 
-## Finding Microsoft Entra information
+## Find Microsoft Entra information
 
-* **Getting Directory ID**
-* **Getting Application ID**
-* **Getting User ID**
+Use the following procedures to find Microsoft Entra information.
 
-## Getting Directory ID 
-To find your Directory (tenant) ID, follow these steps:
+## Get a directory ID
 
-1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. From the left-pane, select Microsoft Entra ID.
-1. From **Overview** page in Microsoft Entra ID, copy the Directory (tenant) ID and store it in your application code.
+To find your directory (tenant) ID, follow these steps:
 
-    ![Screenshot of how to copy Microsoft Entra tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. On the service menu, select **Microsoft Entra ID**.
+1. On the **Overview** page in Microsoft Entra ID, copy the directory ID (**Tenant ID**) and store it in your application code.
 
-## Getting Application ID 
-To find your Application ID, follow these steps:
+    ![Screenshot that shows how to copy the Microsoft Entra tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
 
-1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. From the left-pane, select Microsoft Entra ID.
+## Get an application ID
+
+To find your application ID, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. On the service menu, select **Microsoft Entra ID**.
 1. From **App registrations** in Microsoft Entra ID, select your application.
-1. Copy the **Application ID** and store it in your application code.
+1. Copy the **Application (client) ID** and store it in your application code.
 
-   ![Screenshot of how to copy Microsoft Entra application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
+   ![Screenshot that shows how to copy the Microsoft Entra application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
 
-   The directory (tenant) ID can also be found in the application overview page.
+   The directory (tenant) ID can also be found on the application **Overview** page.
 
-## Getting User ID
-To find your User ID, follow these steps:
+## Get a user ID
 
-1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. From the left-pane, select Microsoft Entra ID.
+To find your user ID, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. On the service menu, select **Microsoft Entra ID**.
 1. From **Users** in Microsoft Entra ID, select your user.
-1. From **Profile** page in Microsoft Entra users, copy the **Object ID** and store it in your application code.
+1. On the **Profile** page for Microsoft Entra users, copy the **Object ID** and store it in your application code.
 
-   ![Screenshot of how to copy Microsoft Entra user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
+   ![Screenshot that shows how to copy the Microsoft Entra user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
 
-## Getting immutable resource ID 
-Sometimes you also need to provide immutable resource ID of your Communication Service resource. To find it, follow these steps:
+## Get an immutable resource ID
 
-1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
-1. Open your Communication Service resource.
-1. From the left-pane, select **Overview**, and switch to a **JSON view**
-    :::image type="content" source="./media/troubleshooting/switch-communication-resource-to-json.png" alt-text="Screenshot of how to switch Communication Resource overview to a JSON view.":::
-1. From **Resource JSON** page, copy the `immutableResourceId` value, and provide it to your support team.
-    :::image type="content" source="./media/troubleshooting/communication-resource-id-json.png" alt-text="Screenshot of Resource JSON.":::
+Sometimes you also need to provide the immutable resource ID of your Azure Communication Services resource. To find it, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open your Azure Communication Services resource.
+1. On the service menu, select **Overview**, and switch to a **JSON view**.
+
+    :::image type="content" source="./media/troubleshooting/switch-communication-resource-to-json.png" alt-text="Screenshot that shows how to switch an Azure Communication Services resource overview to a JSON view.":::
+
+1. On the **Resource JSON** page, copy the `immutableResourceId` value, and provide it to your support team.
+
+    :::image type="content" source="./media/troubleshooting/communication-resource-id-json.png" alt-text="Screenshot that shows the Resource JSON page.":::
 
 ## Verification of Teams license eligibility to use Azure Communication Services support for Teams users
 
-There are two ways to verify your Teams License eligibility to use Azure Communication Services support for Teams users:
+There are two ways to verify your Teams License eligibility to use Azure Communication Services support for Teams users.
 
-* **Verification via Teams web client**
-* **Checking your current Teams license via Microsoft Graph API**
+#### Verification via Teams web client
 
-#### Verification via Teams web client 
 To verify your Teams License eligibility via Teams web client, follow these steps:
 
-1. Open your browser and navigate to [Teams web client](https://teams.microsoft.com/).
-1. Sign in with credentials that have a valid Teams license. 
-1. If the authentication is successful and you remain in the https://teams.microsoft.com/ domain, then your Teams License is eligible. If authentication fails or you're redirected to the https://teams.live.com/v2/ domain, then your Teams License isn't eligible to use Azure Communication Services support for Teams users. 
+1. Open your browser and go to [Teams web client](https://teams.microsoft.com/).
+1. Sign in with credentials that have a valid Teams license.
+1. If the authentication is successful and you remain in the `https://teams.microsoft.com/` domain, your Teams License is eligible. If authentication fails or you're redirected to the `https://teams.live.com/v2/` domain, your Teams License isn't eligible to use Azure Communication Services support for Teams users.
 
-#### Checking your current Teams license via Microsoft Graph API
-You can find your current Teams license using [licenseDetails](/graph/api/resources/licensedetails) Microsoft Graph API that returns the licenses assigned to a user. Follow these steps to use the Graph Explorer tool to view licenses assigned to a user:
+#### Check your current Teams license via the Microsoft Graph API
 
-1. Open your browser and navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
-1. Sign in to Graph Explorer using the credentials.
-    :::image type="content" source="./media/troubleshooting/graph-explorer-sign-in.png" alt-text="Screenshot of how to sign in to Graph Explorer.":::
-1. In the query box, enter the following API and click **Run Query** :
+You can find your current Teams license by using [licenseDetails](/graph/api/resources/licensedetails). The Microsoft Graph API returns the licenses assigned to a user. Follow these steps to use the Graph Explorer tool to view licenses assigned to a user.
+
+1. Open your browser and go to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1. Sign in to Graph Explorer by using credentials.
+
+    :::image type="content" source="./media/troubleshooting/graph-explorer-sign-in.png" alt-text="Screenshot that shows how to sign in to Graph Explorer.":::
+1. In the query box, enter the following API and select **Run Query**.
+
     <!-- { "blockType": "request" } -->
     ```http
     https://graph.microsoft.com/v1.0/me/licenseDetails
     ```
-    :::image type="content" source="./media/troubleshooting/graph-explorer-query-box.png" alt-text="Screenshot of how to enter API in Graph Explorer.":::
 
-    Or you can query for a particular user by providing the user ID using the following API:
+    :::image type="content" source="./media/troubleshooting/graph-explorer-query-box.png" alt-text="Screenshot that shows how to enter an API in Graph Explorer.":::
+
+    Or you can query for a particular user by providing the user ID by using the following API:
+
     <!-- { "blockType": "request" } -->
     ```http
     https://graph.microsoft.com/v1.0/users/{id}/licenseDetails
     ```
-1.  The **Response preview**  pane displays output as follows:
+
+1. The **Response preview** pane shows output.
 
     The response object shown here might be shortened for readability.
     <!-- {
@@ -324,11 +339,13 @@ You can find your current Teams license using [licenseDetails](/graph/api/resour
         ]
     }
     ```
-1. Find license detail where property `servicePlanName` has one of the values in the [Eligible Teams Licenses table](../quickstarts/eligible-teams-licenses.md)
 
-## Related articles
+1. Find license details where the `servicePlanName` property has one of the values in the [Eligible Teams Licenses table](../quickstarts/eligible-teams-licenses.md)
+
+## Related content
+
 - [Troubleshooting Azure Communication Services PSTN call failures](./telephony/troubleshooting-pstn-call-failures.md).
-- [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK](../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md)(./troubleshooting-codes.md).
-- Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
+- [Troubleshooting call end response codes for the Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK](../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md)(./troubleshooting-codes.md).
+- Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md), and [call automation](./analytics/logs/call-automation-logs.md).
 - [Metrics](metrics.md).
 - [Service limits](service-limits.md).
