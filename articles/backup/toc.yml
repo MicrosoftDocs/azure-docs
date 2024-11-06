@@ -188,6 +188,8 @@
       href: backup-azure-recovery-services-vault-overview.md
     - name: Backup vault
       href: backup-vault-overview.md
+  - name: Azure Business Continuity center
+    href: ../business-continuity-center/business-continuity-center-overview.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json    
   - name: Backup center
     href: backup-center-overview.md
   - name: Azure VM backup
