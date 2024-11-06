@@ -835,6 +835,17 @@
             - name: Output
               href: functions-bindings-azure-data-explorer-output.md
               displayName: Azure Data Explorer
+        - name: Azure Database for MySQL
+          items:
+            - name: Overview
+              href: functions-bindings-azure-mysql.md
+              displayName: Azure Database for MySQL
+            - name: Input
+              href: functions-bindings-azure-mysql-input.md
+              displayName: Azure Database for MySQL
+            - name: Output
+              href: functions-bindings-azure-mysql-output.md
+              displayName: Azure Database for MySQL
         - name: Azure OpenAI
           items:
             - name: Overview
