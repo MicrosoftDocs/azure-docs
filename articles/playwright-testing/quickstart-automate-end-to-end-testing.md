@@ -240,59 +240,59 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
     # [GitHub Actions](#tab/github)
 
     ```yml
-  on:
-    push:
-      branches: [ main, master ]
-    pull_request:
-      branches: [ main, master ]
-  permissions: # Required when using AuthType as EntraId
-    id-token: write
-    contents: read
-  jobs:
-    test:
-      timeout-minutes: 60
-      runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v4
-      # This step is to sign-in to Azure to run tests from GitHub Action workflow. 
-      # Choose how to set up authentication to Azure from GitHub Actions. This is one example. 
-        
-        - name: Login to Azure with AzPowershell (enableAzPSSession true) 
-          uses: azure/login@v2 
-          with: 
-            client-id: ${{ secrets.AZURE_CLIENT_ID }} 
-            tenant-id: ${{ secrets.AZURE_TENANT_ID }}  
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}  
-            enable-AzPSSession: true 
-        
-        - name: Setup .NET
-          uses: actions/setup-dotnet@v4
-          with:
-            dotnet-version: 8.0.x
-        
-        - name: Restore dependencies
-          run: dotnet restore
-          working-directory: path/to/playwright/folder # update accordingly
-        
-        - name: Build
-          run: dotnet build --no-restore
-          working-directory: path/to/playwright/folder # update accordingly
-
-        - name: Run Playwright tests
+    on:
+      push:
+        branches: [ main, master ]
+      pull_request:
+        branches: [ main, master ]
+    permissions: # Required when using AuthType as EntraId
+      id-token: write
+      contents: read
+    jobs:
+      test:
+        timeout-minutes: 60
+        runs-on: ubuntu-latest
+          steps:
+          - uses: actions/checkout@v4
+        # This step is to sign-in to Azure to run tests from GitHub Action workflow. 
+        # Choose how to set up authentication to Azure from GitHub Actions. This is one example. 
+          
+          - name: Login to Azure with AzPowershell (enableAzPSSession true) 
+            uses: azure/login@v2 
+            with: 
+              client-id: ${{ secrets.AZURE_CLIENT_ID }} 
+              tenant-id: ${{ secrets.AZURE_TENANT_ID }}  
+              subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}  
+              enable-AzPSSession: true 
+          
+          - name: Setup .NET
+            uses: actions/setup-dotnet@v4
+            with:
+              dotnet-version: 8.0.x
+          
+          - name: Restore dependencies
+            run: dotnet restore
             working-directory: path/to/playwright/folder # update accordingly
-          env:
-            # Regional endpoint for Microsoft Playwright Testing
-            PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
-            PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
-          run: dotnet test --settings:.runsettings --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
+          
+          - name: Build
+            run: dotnet build --no-restore
+            working-directory: path/to/playwright/folder # update accordingly
 
-        - name: Upload Playwright report
-          uses: actions/upload-artifact@v3
-          if: always()
-          with:
-            name: playwright-report
-            path: path/to/playwright/folder/playwright-report/ # update accordingly
-            retention-days: 10
+          - name: Run Playwright tests
+              working-directory: path/to/playwright/folder # update accordingly
+            env:
+              # Regional endpoint for Microsoft Playwright Testing
+              PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
+              PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
+            run: dotnet test --settings:.runsettings --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
+
+          - name: Upload Playwright report
+            uses: actions/upload-artifact@v3
+            if: always()
+            with:
+              name: playwright-report
+              path: path/to/playwright/folder/playwright-report/ # update accordingly
+              retention-days: 10
     ```
 
     # [Azure Pipelines](#tab/pipelines)
