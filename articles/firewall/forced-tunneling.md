@@ -13,7 +13,7 @@ ms.author: victorh
 
 When you configure a new Azure Firewall, you can route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you could have a default route advertised via BGP or using User Defined Routes (UDRs) to force traffic to an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet. To support this configuration, you must create an Azure Firewall with the Firewall Management NIC enabled.
 
-:::image type="content" source="media/forced-tunneling/forced-tunneling-configuration.png" lightbox="media/forced-tunneling/forced-tunneling-configuration.png" alt-text="Screenshot showing configure forced tunneling"::: 
+:::image type="content" source="media/forced-tunneling/forced-tunneling-configuration.png" lightbox="media/forced-tunneling/forced-tunneling-configuration.png" alt-text="Screenshot showing configure forced tunneling."::: 
 
 You might prefer not to expose a public IP address directly to the Internet. In this case, you can deploy Azure Firewall with the Management NIC enabled without a public IP address. When the Management NIC is enabled, it creates a management interface with a public IP address that is used by Azure Firewall for its operations. The public IP address is used exclusively by the Azure platform and can't be used for any other purpose. The tenant data path network can be configured without a public IP address, and Internet traffic can be forced tunneled to another firewall or blocked.
 
