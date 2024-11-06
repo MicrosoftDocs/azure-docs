@@ -8,15 +8,15 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-Get the sample iOS application for this [quickstart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-chat) in the open source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
+Get the sample iOS application for this [quickstart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-chat) in the open-source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
 
 ## Prerequisites
 
 - An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532) 13 or later and a valid developer certificate installed in your keychain. [CocoaPods](https://cocoapods.org/) must also be installed to fetch dependencies.
-- A deployed [Azure Communication Services resource](../../../create-communication-resource.md), note the endpoint URL.
+- A deployed [Azure Communication Services resource](../../../create-communication-resource.md). Note the endpoint URL.
 - An Azure Communication Services [access token](../../../identity/quick-create-identity.md) and user identifier.
-- An Azure Communication Services [chat thread](../../../chat/get-started.md) and now add the user you created in the last step to this chat thread.
+- An Azure Communication Services [chat thread](../../../chat/get-started.md). Add the user you created in the previous step to this chat thread.
 
 ## Set up the project
 
@@ -24,15 +24,15 @@ Complete the following sections to set up the quickstart project.
 
 ### Create a new Xcode project
 
-In Xcode, create a new project:
+In Xcode, create a new project.
 
-1. In the **File** menu, select **New** > **Project**.
+1. On the **File** menu, select **New** > **Project**.
 
-1. In **Choose a template for your new project**, select the **iOS** platform and select the **App** application template. The quickstart uses the UIKit storyboards.
+1. On **Choose a template for your new project**, select the **iOS** platform and select the **App** application template. The quickstart uses the UIKit storyboards.
 
    :::image type="content" source="../../media/xcode-new-project-template-select.png" alt-text="Screenshot that shows the Xcode new project dialog, with iOS and the App template selected.":::
 
-1. In **Choose options for your new project**, for the product name, enter **UILibraryQuickStart**. For the interface, select **Storyboard**. The quickstart doesn't create tests, so you can clear the **Include Tests** checkbox.
+1. On **Choose options for your new project**, for the product name, enter **UILibraryQuickStart**. For the interface, select **Storyboard**. The quickstart doesn't create tests, so you can clear the **Include Tests** checkbox.
 
    :::image type="content" source="../../media/xcode-new-project-details.png" alt-text="Screenshot that shows setting new project options in Xcode.":::
 
@@ -69,7 +69,7 @@ To initialize the composite:
 
 1. Go to `ViewController`.
 
-2. Add the following code to initialize your composite components for a chat. Replace `<USER_ID>` with user identifier. Replace `<USER_ACCESS_TOKEN>` with your access token. Replace `<ENDPOINT_URL>` with your endpoint URL. Replace `<THREAD_ID>` with your chat thread ID. Replace `<DISPLAY_NAME>` with your name. (The string length limit for `<DISPLAY_NAME>` is 256 characters). 
+1. Add the following code to initialize your composite components for a chat. Replace `<USER_ID>` with user identifier. Replace `<USER_ACCESS_TOKEN>` with your access token. Replace `<ENDPOINT_URL>` with your endpoint URL. Replace `<THREAD_ID>` with your chat thread ID. Replace `<DISPLAY_NAME>` with your name. (The string length limit for `<DISPLAY_NAME>` is 256 characters).
 
     ```swift
     import UIKit
@@ -149,14 +149,14 @@ To initialize the composite:
 
     ```
 
-3. If you choose to put chat view in a frame that is smaller than the screen size, the recommended minimum width is 250 and the recommended minimum height is 300.
+1. If you choose to put chat view in a frame that's smaller than the screen size, we recommend the minimum width of 250 and the minimum height of 300.
 
 ## Run the code
 
-To build and run your app on the iOS simulator, select **Product** > **Run** or use the (&#8984;-R) keyboard shortcut. Then, try out the chat experience on the simulator:
+To build and run your app on the iOS simulator, select **Product** > **Run**. You can also use the (&#8984;-R) keyboard shortcut. Then, try out the chat experience on the simulator.
 
 1. Select **Start Experience**.
-2. The chat client will join the chat thread and you can start typing and sending messages.
-3. If the client isn't able to join the thread, and you see `chatJoin` failed errors, verify that your user's access token is valid and that the user has been added to the chat thread by REST API call, or by using the az command line interface.
+1. The chat client joins the chat thread, and you can start typing and sending messages.
+1. If the client can't join the thread and you see `chatJoin` failed errors, verify that your user's access token is valid and that the user was added to the chat thread by REST API call or by using the az command-line interface.
 
 :::image type="content" source="../../media/quick-start-chat-composite-running-ios.gif" alt-text="GIF animation that demonstrates the final look and feel of the quickstart iOS app.":::
