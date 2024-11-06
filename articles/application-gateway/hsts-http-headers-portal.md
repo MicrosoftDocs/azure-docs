@@ -49,7 +49,7 @@ In this example, we will add the Strict Transport Security (STS) response header
 
 3. Select **Rewrite set**:
 
-    :::image type="content" source="./media/hsts-http-headers-portal/add-rewrite-set.png" alt-text="Add a rewrite set." lightbox="./media/hsts-http-headers-portal/add-rewrite-set.png":::
+    :::image type="content" source="./media/hsts-http-headers-portal/add-rewrite-set.png" alt-text="Screenshot that shows how to add a rewrite set." lightbox="./media/hsts-http-headers-portal/add-rewrite-set.png":::
 
 4. Provide a name for the rewrite set and associate it with a routing rule:
 
@@ -57,17 +57,17 @@ In this example, we will add the Strict Transport Security (STS) response header
    - Select one or more of the rules listed in the **Associated routing rules** list. You can select only rules that haven't been associated with other rewrite sets. The rules that have already been associated with other rewrite sets are dimmed.
    - Select **Next**.
    
-     :::image type="content" source="./media/hsts-http-headers-portal/name-and-association.png" alt-text="Name and Association.":::
+     :::image type="content" source="./media/hsts-http-headers-portal/name-and-association.png" alt-text="Screenshot that shows how to add the name and association for a rewrite set.":::
 
 5. Create a rewrite rule:
 
    - Select **Add rewrite rule**.
 
-     :::image type="content" source="./media/hsts-http-headers-portal/add-rewrite-rule.png" alt-text="Add Rewrite Rule.":::
+     :::image type="content" source="./media/hsts-http-headers-portal/add-rewrite-rule.png" alt-text="Screenshot that shows how to add a rewrite rule.":::
 
    - Enter a name for the rewrite rule in the **Rewrite rule name** box. Enter a number in the **Rule sequence** box.
 
-     :::image type="content" source="./media/hsts-http-headers-portal/rule-name.png" alt-text="Add Rewrite Rule Name.":::
+     :::image type="content" source="./media/hsts-http-headers-portal/rule-name.png" alt-text="Screenshot that shows how to add a rewrite rule name.":::
 
 6. Add an action to rewrite the response header:
 
@@ -83,11 +83,11 @@ In this example, we will add the Strict Transport Security (STS) response header
 
    - Select **OK**.
 
-     :::image type="content" source="./media/hsts-http-headers-portal/action.png" alt-text="Add an Action.":::
+     :::image type="content" source="./media/hsts-http-headers-portal/action.png" alt-text="Screenshot that shows how to add an action.":::
 
 7. Select **Create** to create the rewrite set:
 
-    :::image type="content" source="./media/hsts-http-headers-portal/create-rewrite-set.png" alt-text="Select Create." lightbox="./media/hsts-http-headers-portal/create-rewrite-set.png":::
+    :::image type="content" source="./media/hsts-http-headers-portal/create-rewrite-set.png" alt-text="Screenshot that shows how to click "create"." lightbox="./media/hsts-http-headers-portal/create-rewrite-set.png":::
 
 ## Limitations and Recommendations
 
