@@ -246,7 +246,7 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 EmailClient emailClient = new EmailClient(connectionString);
 ```
 
-## Add Sample Content
+## Add sample content
 
 Add the sample email content into the Main function, following the lines that create the email client.
 
