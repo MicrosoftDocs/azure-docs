@@ -54,7 +54,7 @@ In this tutorial, you:
     ```python
     from azure.appconfiguration.provider import load
     from azure.identity import DefaultAzureCredential
-    from azure.featuremanagement import FeatureManager
+    from featuremanagement import FeatureManager
     from featuremanagement.azuremonitor import publish_telemetry
 
     config = load(endpoint=os.getenv("APPCONFIGURATION_ENDPOINT")), credential=DefaultAzureCredential(),feature_flag_refresh_enabled=True)
@@ -62,7 +62,7 @@ In this tutorial, you:
     feature_manager = FeatureManager(config, on_feature_evaluated=publish_telemetry)
     ```
 
-1. Use the feature variant in your application. When `get_variant` is called, telemetry is published to Azure Monitor using the callback function `publish_telemetry`.
+1. Use the feature variant in your application. When `get_variant` is called, telemetry (preview) is published to Azure Monitor using the callback function `publish_telemetry`.
 
     ```python
     from featuremanagement import TargetingContext

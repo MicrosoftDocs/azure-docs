@@ -25,7 +25,7 @@ In this tutorial, you:
 - A variant feature flag. If you don't have a feature flag, see [Create a feature flag](./manage-feature-flags.md).
 - An Application Insights resource. If you don't have an Application Insights resource, see [Create an Application Insights resource](/azure/azure-monitor/app/create-workspace-resource).
 
-## Connect your App Configuration store to Application Insights
+## Connect your App Configuration store to Application Insights (preview)
 
 1. Open your App Configuration store in the Azure portal.
 1. In the **Telemetry** section, select the **Application Insights (preview)** button.
