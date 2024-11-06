@@ -88,6 +88,10 @@ In the *Container* tab of the create process, set the following settings:
 
 1. For the *GPU Type**, select either the A100 or T4 option.
 
+## Manage serverless GPU workload profile
+
+You manage a serverless GPU workload profile in the same manner as any other workload profile. You can manage your workload profile using the [CLI](workload-profiles-manage-cli.md) or the [Azure portal](workload-profiles-manage-portal.md).
+
 ## Reduce GPU cold start
 
 You can improve cold start on your GPU-enabled containers by enabling artifact streaming on your Azure Container Registry.
