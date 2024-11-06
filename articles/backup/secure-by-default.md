@@ -16,7 +16,7 @@ Secure by default with soft delete for Azure Backup enables you to recover your 
 
 - Backup data is maliciously deleted by ransomware or bad actors.
 
-*Soft delete* and *Enhanced Soft delete* are Generally available for Recovery Services vaults for a while; with enabling soft delete at vault level, we are now providing secure by default promise for all customers where all the backup data will be recoverable by default for 14 days. 
+*Soft delete* and *Enhanced Soft delete* are Generally available for Recovery Services vaults for a while; with enabling soft delete at vault level, we're now providing secure by default promise for all customers where all the backup data will be recoverable by default for 14 days. 
 
 >[!Note]
 > Secure by default and soft delete for vaults is currently in limited public preview in the following regions: East Asia<br>
@@ -38,7 +38,7 @@ The key benefits of secure by default with vault soft delete are:
 
 - **Data recoverability**: Azure Backup promises to keep your data recoverable for up to 14 days by default at no extra cost. You need not take any action to configure secure by default state for your backup data.
 
-- **Configurable soft delete retention**: You can specify the retention duration for deleted backup data, ranging from *14 to 180 days*. By default, the retention duration is set to 14 days for the vault, and you can extend it as required. You will not incur additional costs for *14 days*; however, you will be charged for the period beyond 14 days. [Learn more](backup-azure-enhanced-soft-delete-about.md#pricing).
+- **Configurable soft delete retention**: You can specify the retention duration for deleted backup data, ranging from *14 to 180 days*. By default, the retention duration is set to 14 days for the vault, and you can extend it as required. You won't incur additional costs for *14 days*; however, you will be charged for the period beyond 14 days. [Learn more](backup-azure-enhanced-soft-delete-about.md#pricing).
 
 >[!Note]
 > - Soft delete for vaults: You can now move vaults with soft deleted items into a soft delete state. And also recover soft-deleted vaults by undeleting them. This feature is currently in preview for RSV vaults in limited regions.<br>
@@ -49,9 +49,9 @@ The key benefits of secure by default with vault soft delete are:
 
 ## Supported scenarios
 
-- Secure by default and soft delete for vaults is currently supported for Recovery Services vaults and is in limited public preview. It is also supported for new and existing vaults.
+- Secure by default and soft delete for vaults is currently supported for Recovery Services vaults and is in limited public preview. It's also supported for new and existing vaults.
 
-- Secure by default is applicable to the following workload backups: Azure Virtual Machines, SQL in IaasVM, HANA in IaaSVM, Azure Files. It is currently not applicable for Hybrid workloads: Azure Backup Server, Azure Backup Agent, DPM.
+- Secure by default is applicable to the following workload backups: Azure Virtual Machines, SQL in IaasVM, HANA in IaaSVM, Azure Files. It's currently not applicable for Hybrid workloads: Azure Backup Server, Azure Backup Agent, DPM.
 
 ## Soft delete for vaults
 
@@ -59,7 +59,7 @@ When a Recovery Services vault is deleted, it will also move into a soft deleted
 
 ## Soft delete retention
 
-Soft delete retention is the retention period (in days) of a deleted item in soft deleted state. Once the soft delete retention period elapses (from the date of deletion), the item is permanently deleted, and you can't undelete. You can choose the soft delete retention period between *14 and 180 days*. Longer durations allow you to recover data from threats that may take time to identify (for example, Advanced Persistent Threats).
+Soft delete retention is the retention period (in days) of a deleted item in soft deleted state. Once the soft delete retention period elapses (from the date of deletion), the item is permanently deleted, and you can't undelete. You can choose the soft delete retention period between *14 and 180 days*. Longer durations allow you to recover data from threats that can take time to identify (for example, Advanced Persistent Threats).
 
 >[!Note]
 > Soft delete retention for *14 days* involves no cost. However, [regular backup charges apply for additional retention days](backup-azure-enhanced-soft-delete-about.md#pricing).<br>
@@ -85,7 +85,7 @@ This feature helps to retain these recovery points for an additional duration, a
 
 ## Pricing
 
-There is no retention cost for the default soft delete duration of *14 days* for vaulted backup, after which, it incurs regular backup charges. For soft delete retention >14 days, the default period applies to the *last 14 days* of the continuous retention configured in soft delete, and then backups are permanently deleted.
+There's no retention cost for the default soft delete duration of *14 days* for vaulted backup, after which, it incurs regular backup charges. For soft delete retention >14 days, the default period applies to the *last 14 days* of the continuous retention configured in soft delete, and then backups are permanently deleted.
 
 For example, you've deleted backups for one of the instances in the vault that has soft delete retention of 60 days. If you want to recover the soft deleted data after 52 days of deletion, the pricing is:
 
