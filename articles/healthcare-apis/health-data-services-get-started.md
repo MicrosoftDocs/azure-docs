@@ -6,7 +6,7 @@ ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/10/2024
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Introduction to Azure Health Data Services
