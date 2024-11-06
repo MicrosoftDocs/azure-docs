@@ -83,7 +83,7 @@ The identifier must be a string that is 4 to 128 characters long and can contain
 
 #### Protecting session identifiers
 
-The session identifier is sensitive information which must be managed securely. Your application must ensure each user or tenant only has access to their own sessions.
+The session identifier is sensitive information which you must manage securely. Your application needs to ensure each user or tenant only has access to their own sessions.
 
 The specific strategies that prevent misuse of session identifiers differ depending on the design and architecture of your app. However, your app must always have complete control over the creation and use of session identifiers so that a malicious user can't access another user's session.
 

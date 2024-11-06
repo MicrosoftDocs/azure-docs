@@ -216,7 +216,7 @@ This template creates a session pool with the following settings:
 
 #### Image caching
 
-When a session pool is created or updated, Azure Container Apps caches the container image in the pool. This caching helps to speed up the process of creating new sessions.
+When a session pool is created or updated, Azure Container Apps caches the container image in the pool. This caching helps speed up the process of creating new sessions.
 
 Because the image is cached, any changes to the image aren't automatically reflected in the sessions. To update the image in the sessions, you must update the session pool with a new image tag. Use a unique tag for each image update to ensure that the new image is pulled.
 
@@ -285,7 +285,7 @@ There are two ways to use managed identities with custom container session pools
 * **Resource access**: Use the session pool's managed identity in a session to access other Microsoft Entra protected resources. Due to its security implications, this capability is disabled by default.
 
     > [!IMPORTANT]
-    > If you enable access to managed identity in a session, any code or programs running in the session can create Entra tokens for the pool's managed identity. Because sessions typically run untrusted code, it's recommended to use this feature with caution.
+    > If you enable access to managed identity in a session, any code or programs running in the session can create Entra tokens for the pool's managed identity. Since sessions typically run untrusted code, use this feature with caution.
 
 # [Azure CLI](#tab/azure-cli)
 
