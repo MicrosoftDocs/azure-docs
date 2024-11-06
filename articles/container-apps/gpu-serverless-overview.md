@@ -103,11 +103,11 @@ Use the following steps to enable image streaming:
 
 1. Open your Azure Container Registry in the Azure portal.
 
-1. Search for **Repositories**, and select **Repository**.
+1. Search for **Repositories**, and select **Repositories**.
 
 1. Select your repository name.
 
-1. From the *Repository* window, select **Start artifact streaming** and save your changes.
+1. From the *Repository* window, select **Start artifact streaming**.
 
 1. Select the image tag that you want to stream.
 

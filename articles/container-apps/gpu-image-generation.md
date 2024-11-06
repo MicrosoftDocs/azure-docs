@@ -12,7 +12,7 @@ zone_pivot_groups: container-apps-gpu-container-source
 
 # Tutorial: Generate images using serverless GPUs in Azure Container Apps (preview)
 
-In this article, you learn how to create a container app that uses [serverless GPUs](gpu-serverless-overview.md) to power an AI image generation model.
+In this article, you learn how to create a container app that uses [serverless GPUs](gpu-serverless-overview.md) to power an AI application.
 
 With serverless GPUs, you have direct access to GPU compute resources without having to do any manual server configuration. The AI model is packaged in the provided container image, and all you have to do is configure and deploy the application.
 
@@ -99,9 +99,9 @@ In this tutorial you:
     |---|---|
     | Ingress | Select the **Enabled** checkbox. |
     | Ingress traffic | Select the **Accepting traffic from anywhere** radio button. |
-    | Target port | Enter **8080**. |
+    | Target port | Enter **80**. |
 
-1. Select **Preview + create**.
+1. Select **Review + create**.
 
 1. Select **Create**.
 
@@ -133,7 +133,7 @@ Once you generate an image, use the following steps to view results of the GPU p
 
 ## Optional: Improve GPU cold start
 
-While the GPU application created in this tutorial works, the associate cold start is significant.
+For best cold start performance of your Serverless GPUs, use Azure Container Registry with artifact streaming enabled. The following steps show you how to take the GPU image from the previous steps, add it to Azure Container Registry, and enable artifact streaming
 
 Use the following steps to set up the container in your own container registry and enable artifact streaming to reduce cold start times.
 
