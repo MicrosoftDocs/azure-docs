@@ -4,17 +4,19 @@ description: This article explains about the concept of Immutable vault for Azur
 ms.topic: overview
 ms.service: azure-backup
 ms.custom: references_regions, engagement-fy24
-ms.date: 09/09/2024
+ms.date: 11/11/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Immutable vault for Azure Backup
 
-Immutable vault can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible to prevent any malicious actors from disabling immutability and deleting backups.
+Immutable vault can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible and use WORM storage for backups to prevent any malicious actors from disabling immutability and deleting backups.
 
 ## Before you start
 
+- Use of WORM storage for immutable vaults in locked state is currently in GA for Recovery Services Vaults in the following regions: West Central US, West Europe, East US, North Europe, Australia East.
+- Use of WORM storage for immutable vaults in locked state is applicable for the following workloads: Azure Virtual machines, SQL in Azure VM, SAP HANA in Azure VM, Azure Backup Server, Azure Backup Agent, DPM.
 - Immutable vault is available in all Azure public and US Government regions.
 - Immutable vault is supported for Recovery Services vaults and Backup vaults.
 - Enabling Immutable vault blocks you from performing specific operations on the vault and its protected items. See the [restricted operations](#restricted-operations).
@@ -28,13 +30,13 @@ While Azure Backup stores data in isolation from production workloads, it allows
 
 ## Making immutability irreversible
 
-The immutability of a vault is a reversible setting that allows you to disable the immutability (which would allow deletion of backup data) if needed. However, we recommend you, after being satisfied with the impact of immutability, lock the vault to make the Immutable vault settings irreversible, so that any bad actors can’t disable it. Therefore, the Immutable vault settings accept following three states.
+The immutability of a vault is a reversible setting that allows you to disable the immutability (which would allow deletion of backup data) if needed. However, we recommend you, after being satisfied with the impact of immutability, lock the vault to make the Immutable vault settings irreversible and enable WORM storage for backups, so that any bad actors can’t disable it. Therefore, the Immutable vault settings accept following three states.
 
 | State of Immutable vault setting | Description |
 | --- | --- |
 | **Disabled** | The vault doesn't have immutability enabled and no operations are blocked. |
 | **Enabled**  | The vault has immutability enabled and doesn't allow operations that could result in loss of backups. <br><br> However, the setting can be disabled. |
-| **Enabled and locked** | The vault has immutability enabled and doesn't allow operations that could result in loss of backups. <br><br> As the Immutable vault setting is now locked, it can't be disabled. <br><br> Note that immutability locking is irreversible, so ensure that you take a well-informed decision when opting to lock. |
+| **Enabled and locked** | The vault has immutability with WORM storage enabled and doesn't allow operations that could result in loss of backups. <br><br> As the Immutable vault setting is now locked, it can't be disabled. <br><br> Note that immutability locking is irreversible, so ensure that you take a well-informed decision when opting to lock. |
 
 ## Restricted operations
 
