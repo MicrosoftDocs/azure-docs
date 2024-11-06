@@ -3,7 +3,7 @@ title: Resources for creating Microsoft Sentinel custom connectors
 description: Learn about available resources for creating custom connectors for Microsoft Sentinel. Methods include the Log Analytics API, Logstash, Logic Apps, PowerShell, and Azure Functions.
 author: austinmccollum
 ms.topic: conceptual
-ms.date: 10/01/2024
+ms.date: 11/06/2024
 ms.author: austinmc
 #Customer intent: As a security engineer, I want to know which Microsoft Sentinel custom data connector would be most appropriate to build for ingesting data from sources with no out-of-the-box solution.
 
@@ -27,8 +27,7 @@ The following table compares essential details about each method for creating cu
 |**[Azure Monitor Agent](#connect-with-the-azure-monitor-agent)** <br>Best for collecting files from on-premises and IaaS sources   | File collection, data transformation  |   No      | Low         |
 |**[Logstash](#connect-with-logstash)** <br>Best for on-premises and IaaS sources, any source for which a plugin is available, and organizations already familiar with Logstash  | Supports all capabilities of the Azure Monitor Agent  |   No; requires a VM or VM cluster to run           |   Low; supports many scenarios with plugins      |
 |**[Logic Apps](#connect-with-logic-apps)** <br>High cost; avoid for high-volume data <br>Best for low-volume cloud sources  | Codeless programming allows for limited flexibility, without support for implementing algorithms.<br><br> If no available action already supports your requirements, creating a custom action may add complexity.    |    Yes         |   Low; simple, codeless development      |
-|**[PowerShell](#connect-with-powershell)** <br>Best for prototyping and periodic file uploads | Direct support for file collection. <br><br>PowerShell can be used to collect more sources, but will require coding and configuring the script as a service.      |No               |  Low       |
-|**[Log Analytics API](#connect-with-the-log-analytics-api)** <br>Best for ISVs implementing integration, and for unique collection requirements   | Supports all capabilities available with the code.  | Depends on the implementation           |     High    |
+|**[Log Ingestion API in Azure Monitor](#connect-with-the-log-ingestion-api)** <br>Best for ISVs implementing integration, and for unique collection requirements   | Supports all capabilities available with the code.  | Depends on the implementation           |     High    |
 |**[Azure Functions](#connect-with-azure-functions)** <br>Best for high-volume cloud sources, and for unique collection requirements  | Supports all capabilities available with the code.  |  Yes             |     High; requires programming knowledge    |
 
 
@@ -41,7 +40,7 @@ The following table compares essential details about each method for creating cu
 
 ## Connect with the Codeless Connector Platform
 
-The Codeless Connector Platform (CCP) provides a configuration file that can be used by both customers and partners, and then deployed to your own workspace, or as a solution to Microsoft Sentinel's solution's gallery.
+The Codeless Connector Platform (CCP) provides a configuration file that can be used by both customers and partners, and then deployed to your own workspace, or as a solution to Microsoft Sentinel's content hub.
 
 Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
 
@@ -123,56 +122,15 @@ For examples of how you can create a custom connector for Microsoft Sentinel usi
 - [Secure your Microsoft Teams calls with scheduled activation](https://techcommunity.microsoft.com/t5/azure-sentinel/secure-your-calls-monitoring-microsoft-teams-callrecords/ba-p/1574600) (blog)
 - [Ingesting AlienVault OTX threat indicators into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) (blog)
 
-## Connect with PowerShell
-
-The [Upload-AzMonitorLog PowerShell script](https://www.powershellgallery.com/packages/Upload-AzMonitorLog/) enables you to use PowerShell to stream events or context information to Microsoft Sentinel from the command line. This streaming effectively creates a custom connector between your data source and Microsoft Sentinel.
-
-For example, the following script uploads a CSV file to Microsoft Sentinel:
-
-``` PowerShell
-Import-Csv .\testcsv.csv
-| .\Upload-AzMonitorLog.ps1
--WorkspaceId '69f7ec3e-cae3-458d-b4ea-6975385-6e426'
--WorkspaceKey $WSKey
--LogTypeName 'MyNewCSV'
--AddComputerName
--AdditionalDataTaggingName "MyAdditionalField"
--AdditionalDataTaggingValue "Foo"
-```
-
-The [Upload-AzMonitorLog PowerShell script](https://www.powershellgallery.com/packages/Upload-AzMonitorLog/) script uses the following parameters:
-
-|Parameter  |Description  |
-|---------|---------|
-|**WorkspaceId**     |   Your Microsoft Sentinel workspace ID, where you'll be storing your data.  [Find your workspace ID and key](#find-your-workspace-id-and-key).  |
-|**WorkspaceKey**     |   The primary or secondary key for the Microsoft Sentinel workspace where you'll be storing your data. [Find your workspace ID and key](#find-your-workspace-id-and-key).  |
-|**LogTypeName**     |    The name of the custom log table where you want to store the data. A suffix of **_CL** will automatically be added to the end of your table name.  |
-|**AddComputerName**     |   When this parameter exists, the script adds the current computer name to every log record, in a field named **Computer**.      |
-|**TaggedAzureResourceId**     | When this parameter exists, the script associates all uploaded log records with the specified Azure resource. <br><br>This association enables the uploaded log records for resource-context queries, and adheres to resource-centric, role-based access control.       |
-|**AdditionalDataTaggingName**     |      When this parameter exists, the script adds another field to every log record, with the configured name, and the value that's configured for the **AdditionalDataTaggingValue** parameter. <br><br>In this case, **AdditionalDataTaggingValue** must not be empty. |
-|**AdditionalDataTaggingValue**     |   When this parameter exists, the script adds another field to every log record, with the configured value, and the field name configured for the **AdditionalDataTaggingName** parameter. <br><br>If the **AdditionalDataTaggingName** parameter is empty, but a value is configured, the default field name is **DataTagging**.       |
-
-
-### Find your workspace ID and key
-
-Find the details for the **WorkspaceID** and **WorkspaceKey** parameters in Microsoft Sentinel:
-
-1. In Microsoft Sentinel, select **Settings** on the left, and then select the **Workspace settings** tab.
-
-1. Under **Get started with Log Analytics** > **1 Connect a data source**, select **Windows and Linux agents management**.
-
-1. Find your workspace ID, primary key, and secondary key on the **Windows servers** tabs.
-
-## Connect with the Log Analytics API
+## Connect with the Log Ingestion API
 
 You can stream events to Microsoft Sentinel by using the Log Analytics Data Collector API to call a RESTful endpoint directly.
 
 While calling a RESTful endpoint directly requires more programming, it also provides more flexibility.
 
-For more information, see the [Log Analytics Data collector API](/azure/azure-monitor/logs/data-collector-api), especially the following examples:
-
-- [C#](/azure/azure-monitor/logs/data-collector-api#sample-requests)
-- [Python](/azure/azure-monitor/logs/data-collector-api#sample-requests)
+For more information, see the following articles:
+- [Log Ingestion API in Azure Monitor](/azure/azure-monitor/logs/logs-ingestion-api-overview).
+- [Sample code to send data to Azure Monitor using Logs ingestion API](/azure/azure-monitor/logs/tutorial-logs-ingestion-code).
 
 ## Connect with Azure Functions
 
