@@ -380,6 +380,10 @@ This template contains the following additional settings for managed identity:
 
 ---
 
+## Logging
+
+Console logs from custom container sessions are available in the Azure Log Analytics workspace associated with the Azure Container Apps environment in a table named `AppEnvSessionConsoleLogs_CL`.
+
 ## Billing
 
 Custom container sessions are billed based on the resources consumed by the session pool. For more information, see [Azure Container Apps billing](billing.md#custom-container).
