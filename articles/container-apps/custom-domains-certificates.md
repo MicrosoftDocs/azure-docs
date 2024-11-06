@@ -71,31 +71,31 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 
         | Record type | Host | Value |
         |--|--|--|
-        | A | `@` | The IP address of your Container Apps environment |
-        | TXT | `asuid` | The domain verification code |
+        | A | `@` | The IP address of your Container Apps environment. |
+        | TXT | `asuid` | The domain verification code. |
 
     - If you selected *CNAME*, create the following DNS records:
 
         | Record type | Host | Value |
         |--|--|--|
-        | CNAME | The subdomain (for example, `www`) | The automatically generated domain of your container app |
-        | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code |
+        | CNAME | The subdomain (for example, `www`) | The generated domain of your container app. |
+        | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code. |
     
     # [Private endpoint](#tab/private-endpoint)
     
-    - If you selected *A record*, you will need to [create a private DNS zone](how-to-use-private-endpoint.md#configure-the-private-dns-zone) and create the following DNS records:
+    - If you selected *A record*, you need to [create a private DNS zone](how-to-use-private-endpoint.md#configure-the-private-dns-zone) and create the following DNS records:
 
         | Record type | Host | Value |
         |--|--|--|
-        | A | `@` | The Private IP of your private endpoint on your container apps environment |
-        | TXT | `asuid` | The domain verification code |
+        | A | `@` | The Private IP of your private endpoint on your container apps environment. |
+        | TXT | `asuid` | The domain verification code. |
 
     - If you selected *CNAME*, create the following DNS records:
 
         | Record type | Host | Value |
         |--|--|--|
-        | CNAME | The subdomain (for example, `www`) | The automatically generated domain of your container app |
-        | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code |
+        | CNAME | The subdomain (for example, `www`) | The generated domain of your container app. |
+        | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code. |
 
     ---
 
