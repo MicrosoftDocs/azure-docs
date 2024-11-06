@@ -54,7 +54,7 @@ In the SAP workload documentation space, you can find the following areas:
 - **Azure Monitor for SAP solutions**: Microsoft developed monitoring solutions specifically for SAP supported OS and DBMS, as well as S/4HANA and NetWeaver. This section documents the deployment and usage of the service
 
 ## Change Log
-- November 1, 2024: Add missing step to start HANA [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md).
+- November 5, 2024: Add missing step to start HANA [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md).
 - November 1, 2024: Adding HANA high-availability hook ChkSrv for [dying indexserver for RHEL based cluster setups](./sap-hana-high-availability-rhel.md#implement-sap-hana-system-replication-hooks).
 - October 29, 2024: some changes on disk caching and smaller updates in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md). Plus fixing some typoes in HANA storage configuration documents
 - October 28, 2024: Added information on RedHat support and the configuration of Azure fence agents for VMs in the Azure Government cloud to the document [Set up Pacemaker on Red Hat Enterprise Linux in Azure](./high-availability-guide-rhel-pacemaker.md).
