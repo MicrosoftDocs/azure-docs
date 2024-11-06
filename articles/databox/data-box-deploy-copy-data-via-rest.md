@@ -15,13 +15,6 @@ ms.author: shaas
 
 # Tutorial: Use REST APIs to Copy data to Azure Data Box Blob storage
 
-> [!IMPORTANT]
-> Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs. 
->
->For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section. Follow the steps containined within the [Copy data to Data Box](#copy-data-to-data-box) section to copy your data to the appropriate access tier.
->
-> The information contained within this section applies to orders placed after April 1, 2024.
-
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
