@@ -2,7 +2,7 @@
 title: SAP ASE Backup support matrix
 description: In this article, learn about the supported scenarios and limitations when you use Azure Backup to back up SAP ASE databases on Azure VMs.
 ms.topic: reference
-ms.date: 11/12/2024
+ms.date: 11/19/2024
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS

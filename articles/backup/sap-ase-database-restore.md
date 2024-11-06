@@ -2,7 +2,7 @@
 title: Restore SAP ASE databases on Azure VMs
 description: In this article, learn how to restore SAP ASE databases that are running on Azure virtual machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: how-to
-ms.date: 11/12/2024
+ms.date: 11/19/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

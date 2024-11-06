@@ -2,7 +2,7 @@
 title: About the SAP ASE (Sybase) database backup on Azure VMs
 description: In this article, learn about backing up SAP ASE (Sybase) databases that are running on Azure virtual machines.
 ms.topic: overview
-ms.date: 11/12/2024
+ms.date: 11/19/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

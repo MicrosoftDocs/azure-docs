@@ -2,7 +2,7 @@
 title: Configure SAP ASE (Sybase) database backup on Azure VMs using Azure Backup
 description: In this article, learn how to configure backup for SAP ASE (Sybase) databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 11/12/2024 
+ms.date: 11/19/2024 
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
