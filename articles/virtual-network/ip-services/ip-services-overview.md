@@ -1,6 +1,6 @@
 ---
-title: What is Azure Virtual Network IP Services?
-description: Overview of Azure Virtual Network IP Services. Learn how IP services work and how to use IP resources in Azure.
+title: What is Azure virtual network IP Services?
+description: Overview of Azure virtual network IP Services. Learn how IP services work and how to use IP resources in Azure.
 author: mbender-ms
 ms.author: mbender
 ms.date: 11/05/2024
@@ -10,9 +10,9 @@ ms.topic: overview
 ms.custom: template-overview
 ---
 
-# What is Azure Virtual Network IP Services?
+# What is Azure Virtual network IP Services?
 
-IP services are a collection of IP address related services that enable communication in an Azure Virtual Network. Public and private IP addresses are used in Azure for communication between resources. The communication with resources can occur in a private Azure Virtual Network and the public Internet.
+IP services are a collection of IP address related services that enable communication in an Azure virtual network. Public and private IP addresses are used in Azure for communication between resources. The communication with resources can occur in a private Azure virtual network and the public Internet.
 
 IP services consist of:
 
