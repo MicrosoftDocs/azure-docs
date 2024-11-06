@@ -177,12 +177,12 @@ az network vnet subnet create \
 1. Retrieve the subnet ID. You use this to create the private endpoint.
 
 ```azurecli
-SUBNET_ID=`az network vnet subnet show \
-    --resource-group ${RESOURCE_GROUP} \
+SUBNET_ID=$(az network vnet subnet show \
+    --resource-group $RESOURCE_GROUP \
     --vnet-name $VNET_NAME \
     --name $SUBNET_NAME \
     --query "id" \
-    --output tsv`
+    --output tsv)
 ```
 
 ## Create an environment
@@ -199,18 +199,18 @@ az containerapp env create \
 1. Retrieve the environment ID. You use this to configure the environment.
 
 ```azurecli
-ENVIRONMENT_ID=`az containerapp env show \
-    --resource-group ${RESOURCE_GROUP} \
-    --name ${ENVIRONMENT_NAME} \
+ENVIRONMENT_ID=$(az containerapp env show \
+    --resource-group $RESOURCE_GROUP \
+    --name $ENVIRONMENT_NAME \
     --query "id" \
-    --output tsv`
+    --output tsv)
 ```
 
 1. Disable public network access for the environment. This is needed to enable private endpoints.
 
 ```azurecli
 az containerapp env update \
-    --id ${ENVIRONMENT_ID} \
+    --id $ENVIRONMENT_ID \
     --public-network-access Disabled
 ```
 
@@ -234,20 +234,20 @@ az network private-endpoint create \
 1. Retrieve the private endpoint IP address. You use this to add a DNS record to your private DNS zone.
 
 ```azurecli
-PRIVATE_ENDPOINT_IP_ADDRESS=`az network private-endpoint show \
-    --name ${PRIVATE_ENDPOINT} \
-    --resource-group ${RESOURCE_GROUP} \
+PRIVATE_ENDPOINT_IP_ADDRESS=$(az network private-endpoint show \
+    --name $PRIVATE_ENDPOINT \
+    --resource-group $RESOURCE_GROUP \
     --query 'customDnsConfigs[0].ipAddresses[0]' \
-    --output tsv`
+    --output tsv)
 ```
 
 1. Retrieve the environment default domain. You use this to add a DNS record to your private DNS zone.
 
 ```azurecli
-DNS_RECORD_NAME=`az containerapp env show \
-    --id ${ENVIRONMENT_ID} \
+DNS_RECORD_NAME=$(az containerapp env show \
+    --id $ENVIRONMENT_ID \
     --query 'properties.defaultDomain' \
-    --output tsv | sed 's/\..*//'`
+    --output tsv | sed 's/\..*//')
 ```
 
 1. Create a private DNS zone.
