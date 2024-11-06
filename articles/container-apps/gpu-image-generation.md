@@ -128,7 +128,7 @@ Once you generate an image, use the following steps to view results of the GPU p
 
 1. Once the shell is set up, enter the command **nvidia-smi** to review the status and output of your GPU.
 
-## Optional: Reduce GPU cold start
+## Optional: Improve GPU cold start
 
 While the GPU application created in this tutorial works, the associate cold start is significant.
 
