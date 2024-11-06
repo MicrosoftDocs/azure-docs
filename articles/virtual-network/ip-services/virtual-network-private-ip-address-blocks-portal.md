@@ -40,7 +40,7 @@ This article explains how to add secondary IP configurations on a virtual machin
     
     - The example used in this article is named **myVM**. Replace this value with your virtual machine name.
 
-- Registration for the managed preview for this capability, by filling the onboarding form [available here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_xLgBUz_2ZBtJfUwMlxYKJUN1BPNVhMRzhPTk9DSjBIT1FPRFEzRkZEWi4u).
+- Registration for the managed preview for this capability, by filling the onboarding form [available here](https://forms.office.com/r/v1ys2F1xjT).
 
 
 :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/block-ipconfigs.png" alt-text="Diagram of network configuration resources created in How-to article.":::
