@@ -25,7 +25,7 @@ There's a limit to how many IP configurations can be assigned to a NIC. For more
 > The capability to add private IP address prefixes to NIC is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-:::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/block-ipconfigs.png" alt-text="Diagram of network configuration resources created in article.":::
+:::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/block-ipconfigs.png" alt-text="Diagram of network configuration resources created in article." lightbox=./media/virtual-network-private-ip-addresses-blocks-portal/block-ipconfigs-expand.png":::
 
   *Figure: Diagram of network configuration resources created in this article.*
 
@@ -73,7 +73,7 @@ You can add a dynamic private IP address prefix to an Azure network interface by
 
 9. Select **OK**.
 
-   :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/add-dynamic-ip-prefix-config.png" alt-text="Screenshot of Add IP configuration.":::
+   :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/add-dynamic-ip-prefix-config.png" alt-text="Screenshot of Add IP configuration." lightbox=./media/virtual-network-private-ip-addresses-blocks-portal/add-dynamic-ip-prefix-config-expand.png":::
 
    > [!NOTE]
    > Public IP address association is not available for configuration when IP address prefix option is selected.
@@ -112,7 +112,7 @@ You can add a static private IP address prefix to a virtual machine by completin
 
 9. Select **OK**.
 
-   :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/add-static-ip-prefix-config.png" alt-text="Screenshot of Add static IP configuration for a private IP address block.":::
+   :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/add-static-ip-prefix-config.png" alt-text="Screenshot of Add static IP configuration for a private IP address block." lightbox=./media/virtual-network-private-ip-addresses-blocks-portal/add-static-ip-prefix-config-expand.png":::
 
    > [!NOTE]
    > When adding a static IP address, you must specify an unused, valid private IP address CIDR from the subnet the NIC is connected to.
