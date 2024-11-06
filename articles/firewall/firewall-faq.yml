@@ -81,7 +81,7 @@ sections:
         answer: |
           You can use Azure PowerShell *deallocate* and *allocate* methods. For a firewall configured for forced tunneling, the procedure is slightly different.
 
-          For example, for a firewall configured with the Management NIC NOT enabled::
+          For example, for a firewall configured with the Management NIC NOT enabled:
 
           ```azurepowershell
           # Stop an existing firewall
