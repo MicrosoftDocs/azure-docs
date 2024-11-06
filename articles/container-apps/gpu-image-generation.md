@@ -84,7 +84,7 @@ In this tutorial you:
     | Image and tag | Enter **gpu-quickstart:latest**. |
     | Workload profile | Select the option that begins with **Consumption - Up to 4**... |
     | GPU | Select the checkbox. |
-    | GPU Type | Select **Conumption-GPU-NC24-A100** and select the link to add the profile to your environment. |
+    | GPU Type | Select the **T4** option and select the link to add the profile to your environment. |
 
     ---
 
