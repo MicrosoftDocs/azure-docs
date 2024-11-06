@@ -29,7 +29,7 @@ To provision a direct peering:
    Then, you complete these steps:
 
     1. Complete wiring according to the LOA.
-    1. (Optionally) Complete a link test by using the IP address range 169.254.0.0/16.
+    1. (Optional) Complete a link test by using the IP address range 169.254.0.0/16.
     1. Configure a Border Gateway Protocol (BGP) session.
     1. Notify Microsoft.
 

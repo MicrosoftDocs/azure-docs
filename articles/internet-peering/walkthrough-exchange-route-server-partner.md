@@ -1,5 +1,5 @@
 ---
-title: Set up an interconnect for exchange with route server
+title: Set up an interconnect for peering with exchange route server
 titleSuffix: Internet peering
 description: Learn how to set up an interconnect for a peering with exchange route server in Azure Peering Service. Learn the requirements, the steps to establish a direct interconnect, and how to register your ASN.
 author: halkazwini
@@ -9,41 +9,45 @@ ms.topic: how-to
 ms.date: 10/24/2024
 ---
 
-# Set up an interconnect for a peering with exchange route server
+# Set up an interconnect for peering with exchange route server
 
 In this article, you learn how to establish an interconnect for a peering with exchange route server in Azure Peering Service.
 
-Internet peering in Azure Peering Service supports direct interconnects with Microsoft at any of its edge sites (POP locations) for internet exchange partners (IXPs). The list of all the public edge sites is available in [PeeringDB](https://www.peeringdb.com/net/694).
+Internet peering in Azure Peering Service supports direct interconnects with Microsoft at any of its point-of-presence (PoP) edge sites for internet exchange partners (IXPs). The list of all the public edge sites is available on [PeeringDB](https://www.peeringdb.com/net/694).
 
-Internet peering provides highly reliable and QoS (Quality of Service)-enabled interconnect for IXPs to ensure high quality and performance-centric services.
+Internet peering provides highly reliable and Quality of Service (QoS)-enabled interconnect for IXPs to ensure high-quality, performance-centric services.
 
-The following flowchart summarizes the process to onboard to Peering Service exchange with route server:
+The following flowchart summarizes the process to onboard to Peering Service with exchange route server:
 
-:::image type="content" source="media/walkthrough-exchange-route-server-partner/peering-services-partner-onboarding-flowchart.png"  border="false" alt-text="Diagram shows a flowchart of the onboarding process for Exchange with Route Server partners." lightbox="media/walkthrough-exchange-route-server-partner/peering-services-partner-onboarding-flowchart.png":::
+:::image type="content" source="media/walkthrough-exchange-route-server-partner/peering-services-partner-onboarding-flowchart.png"  border="false" alt-text="Diagram that shows a flowchart of the onboarding process for Exchange with Route Server partners." lightbox="media/walkthrough-exchange-route-server-partner/peering-services-partner-onboarding-flowchart.png":::
 
 ## Technical requirements
 
-To establish a Peering Service peering with exchange route server, follow these requirements:
+To establish Peering Service with exchange route server, follow these requirements:
 
-- The peer *must* provide its own Autonomous System Number (ASN), which *must* be public.
-- The peer *must* have a redundant Private Network Interconnect (PNI) at each interconnect location to ensure local redundancy.
-- The peer *must* supply and advertise its own publicly routable IPv4 address space that's used by the peer's endpoints. For example, it uses a Session Border Controller (SBC).
-- The peer *must not* terminate the peering on a device running a stateful firewall.
-- The peer *can't* have two local connections configured on the same router. Diversity is required.
-- The peer *can't* apply rate limiting to its connection.
-- The peer *can't* configure a local redundant connection as a backup connection. Backup connections must be in a different location than the primary connection.
-- Primary, backup, and redundant sessions all must have the same bandwidth.
+- The peer must provide its own autonomous system number (ASN), which must be public.
+- The peer must have a redundant Private Network Interconnect (PNI) at each interconnect location to ensure local redundancy.
+- The peer must supply and advertise its own publicly routable IPv4 address space that's used by the peer's endpoints (for example, by an SBC).
+- The peer must not terminate the peering on a device running a stateful firewall.
+- The peer can't have two local connections configured on the same router. Diversity is required.
+- The peer can't apply rate limiting to its connection.
+- The peer can't configure a local redundant connection as a backup connection. Backup connections must be in a different location than the primary connection.
+- Primary sessions, backup sessions, and redundant sessions must all have the same bandwidth.
 - We recommend that you create Peering Service peerings in multiple locations to achieve geo-redundancy.
-- All infrastructure prefixes are registered in the Azure portal and advertised with the community string `8075:8007`.
-- The peer *must* support Link Aggregation Control Protocol (LACP) on the interconnect links. Microsoft configures all interconnect links as link aggregation groups (LAGs) by default.
+- All infrastructure prefixes are registered in the Azure portal and advertised by using the community string `8075:8007`.
+- The peer must support Link Aggregation Control Protocol (LACP) on the interconnect links. Microsoft configures all interconnect links as link aggregation groups (LAGs) by default.
 
-## Establish a direct interconnect for Peering Service exchange with route server
+## Establish a direct interconnect for a peering with exchange route server
 
-To establish a Peering Service exchange with route server interconnect with Microsoft, complete the steps described in the following sections.
+To establish a Peering Service with exchange route server interconnect with Microsoft, complete the steps described in the following sections.
 
 ### Associate your public ASN with your Azure subscription
 
-For more information, see [Associate a peer ASN to an Azure subscription](./howto-subscription-association-portal.md). If the ASN is already associated with your Azure subscription, go to the next step.
+The first step is to associate your public ASN with your Azure subscription.
+
+For more information, see [Associate a peer ASN with an Azure subscription](./howto-subscription-association-portal.md).
+
+If the ASN is already associated with your Azure subscription, go to the next step.
 
 ### Create a Peering Service peering with exchange route server
 
@@ -57,33 +61,35 @@ For more information, see [Associate a peer ASN to an Azure subscription](./howt
 
 1. On the **Basics** tab, enter or select your Azure subscription, the resource group, a peering name, and the ASN of the peering.
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/create-peering-basics.png":::
+   :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/create-peering-basics.png":::
 
-    > [!WARNING]
-    > You can't change these options after the peering is created. Confirm that your selections are correct before you create the peering.
+   > [!WARNING]
+   > You can't change these options after the peering is created. Confirm that your selections are correct before you create the peering.
 
-1. On the **Configuration** tab, select the following required configurations to create a peering for Peering Service exchange with route server:
+1. On the **Configuration** tab, select the following required configurations to create a peering for Peering Service with exchange route server:
 
-    - **Peering type**: **Direct**
-    - **Microsoft network**: **AS8075 (with exchange route server)**
-    - **SKU**: **Premium Free**
+   1. For **Peering type**, select **Direct**.
 
-1. For **Metro**, select the relevant value. Then select **Create new** to add a connection to your peering.
+   1. For **Microsoft network**, select **AS8075 (with exchange route server)**.
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-peering-configuration.png" alt-text="Screenshot that shows the Configuration tab of creating a peering in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/create-peering-configuration.png":::
+   1. For **SKU**, select **Premium Free**.
 
-1. For **Direct Peering Connection**, enter or select your peering facility details. Then select **Save**.
+   1. For **Metro**, select the relevant value. Then select **Create new** to add a connection to your peering.
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/direct-peering-connection.png" alt-text="Screenshot that shows creating a direct peering connection." lightbox="./media/walkthrough-exchange-route-server-partner/direct-peering-connection.png":::
+      :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-peering-configuration.png" alt-text="Screenshot that shows the Configuration tab of creating a peering in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/create-peering-configuration.png":::
 
-    Peering connections for Peering Service exchange with route server *must* have **Peer** selected for **Session Address Provider**, and **Use for Peering Service** must be enabled. These options are set automatically.
+   1. For **Direct Peering Connection**, enter or select your peering facility details. Then select **Save**.
 
-    Before you finalize your peering, make sure that the peering has at least one connection.
+      :::image type="content" source="./media/walkthrough-exchange-route-server-partner/direct-peering-connection.png" alt-text="Screenshot that shows creating a direct peering connection." lightbox="./media/walkthrough-exchange-route-server-partner/direct-peering-connection.png":::
 
-    > [!NOTE]
-    > A peering with exchange route server is configured with a Border Gateway Protocol (BGP) mesh. You provide one peer IP and one Microsoft IP. The BGP mesh is then automatically created. Because of this delay, the number of connections that are shown in the peering is not equal to the number of sessions that are configured.
+      Peering connections for Peering Service with exchange route server *must* have **Peer** selected for **Session Address Provider**, and **Use for Peering Service** must be enabled. These options are set automatically.
+
+      Before you finalize your peering, make sure that the peering has at least one connection.
+
+   > [!NOTE]
+   > A peering with exchange route server is configured with a Border Gateway Protocol (BGP) mesh. You provide one peer IP and one Microsoft IP. The BGP mesh is then automatically created. Because of this delay, the number of connections that are shown in the peering is not equal to the number of sessions that are configured.
   
-1. Select **Review + create**. Review the summary, and then select **Create** after validation passes.
+1. Select **Review + create**. Review the summary, and then select **Create** when validation passes.
 
     Allow time for the resource to finish deploying. When deployment is successful, your peering is created and provisioning begins.
 
@@ -96,9 +102,9 @@ To get optimized routing for your prefixes with your Peering Service peering wit
 Before prefixes can be optimized for a customer, the customer ASN must be registered.
 
 > [!NOTE]
-> The value for **Connection State** for your peering connections must be **Active** before you can register an ASN.
+> The connection state of your peering connections must be **Active** before you can register an ASN.
 
-1. In the Azure portal, go to your peering with exchange route server.
+1. In the Azure portal, go to your peering with exchange route server resource.
 
 1. On the service menu under **Settings**, select **Registered ASNs**.
 
@@ -119,15 +125,17 @@ When your customers onboard to Peering Service, they must follow the steps descr
 
 ## FAQ
 
+Get answers to frequently asked questions.
+
 **Q.** When will my BGP mesh be available?
 
 **A.** When LAG is running, our automated process provisions the BGP mesh. The peer must configure BGP.
 
 **Q.** When are peering IP addresses allocated and shown in the Azure portal?
 
-**A.** Our automated process allocates addresses and sends the information via email after the port is configured on our side.
+**A.** Our automated process allocates IP addresses and sends the information via email after the port is configured on the Microsoft side.
 
-**Q.** I have smaller subnets (\<\/24) for my voice services. Are smaller subnets also routed?
+**Q.** I have smaller subnets (\<\/24) for my voice services. Are smaller subnets routed?
 
 **A.** Yes, Peering Service supports smaller prefix routing. Ensure that you register the smaller prefixes for routing. Then, they're announced over the interconnects.
 
@@ -137,11 +145,11 @@ When your customers onboard to Peering Service, they must follow the steps descr
 
 **Q.** Do I need to be aware of any AS path constraints?
 
-**A.** Yes. A private ASN can't be in the AS path. For registered prefixes smaller than \/24, the AS path must be less than four.
+**A.** Yes. A private ASN can't be in the AS path. For registered prefixes smaller than \/24, the AS path must be less than 4.
 
 **Q.** I need to set the prefix limit. How many routes will Microsoft announce?
 
-**A.** Microsoft announces roughly 280 prefixes on the internet. The number might increase by 10% to 15% in the future. A limit of 400 to 500 is safe to set as the value for **Max prefix count**.
+**A.** Microsoft announces roughly 280 prefixes on the internet. The number might increase by 10% to 15%. A limit of 400 to 500 is safe to set as the value for **Max prefix count**.
 
 **Q.** Will Microsoft readvertise peer prefixes to the internet?
 

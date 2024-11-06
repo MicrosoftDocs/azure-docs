@@ -22,7 +22,7 @@ In this article, you learn how to set up and manage an exchange peering in Azure
 To provision an exchange peering:
 
 1. Review the Microsoft [peering policy](policy.md) to understand the requirements for exchange peering.
-1. Find a Microsoft peering location and peering facility ID in [PeeringDB](https://www.peeringdb.com/net/694).
+1. Find a Microsoft peering location and peering facility ID on [PeeringDB](https://www.peeringdb.com/net/694).
 1. Request exchange peering for a peering location by using the instructions in [Create and modify an exchange peering](howto-exchange-portal.md).
 1. After you submit a peering request, Microsoft reviews the request and contacts you if necessary.
 1. When the peering request is approved, the connection state changes to **Approved**.

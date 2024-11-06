@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/25/2024
 ---
 
-# View and monitor internet peering maintenance events
+# View and monitor device maintenance events
 
 In this article, you learn how to view active maintenance events in Azure Peering Service, and how to create alerts for future events. Internet peering partners and Peering Service customers can create alerts to receive notifications by email, voice, SMS, or the Azure mobile app.
 
@@ -17,9 +17,7 @@ In this article, you learn how to view active maintenance events in Azure Peerin
 
 If you're a partner who has internet peering or Peering Service resources in Azure, you receive notifications on the Azure Service Health pane. In this section, you learn how to view active maintenance events on the Service Health pane.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box at the top of the portal, enter ***service health***. In the search results, select **Service Health**.
+1. In the [Azure portal](https://portal.azure.com), search for and then select **Service Health**.
 
     :::image type="content" source="./media/walkthrough-device-maintenance-notification/service-health-portal-search.png" alt-text="Screenshot that shows how to search for Service Health in the Azure portal." lightbox="./media/walkthrough-device-maintenance-notification/service-health-portal-search.png":::
 
@@ -27,16 +25,16 @@ If you're a partner who has internet peering or Peering Service resources in Azu
 
     :::image type="content" source="./media/walkthrough-device-maintenance-notification/planned-maintenance.png" alt-text="Screenshot that shows planned maintenance events for Azure Peering Service in the Service Health pane in the Azure portal." lightbox="./media/walkthrough-device-maintenance-notification/service-health-portal-search.png":::
 
-    The summary tab displays information about the resource that's affected by a maintenance event, including the Azure subscription, the Azure region, and the peering location.
+    The Summary tab displays information about the resource that's affected by a maintenance event. It includes the Azure subscription, the Azure region, and the peering location.
 
-    When maintenance is completed, a status update is sent. You can view and review the maintenance event on the **Health history** pane after it's complete.
+    When maintenance is completed, a status update is sent. You can view and review the maintenance event on the **Health history** pane when the event is finished.
 
 1. To see past maintenance events, select **Health history**.
 
     :::image type="content" source="./media/walkthrough-device-maintenance-notification/health-history.png" alt-text="Screenshot that shows how to view past maintenance events in the Azure portal." lightbox="./media/walkthrough-device-maintenance-notification/health-history.png":::
 
 > [!NOTE]
-> The end time that's listed for the maintenance is an estimate. Many maintenance events will complete before the end time that is shown in Service Health, but this is not guaranteed. Future developments to our maintenance notification service will allow for more accurate maintenance end times.
+> The end time that's listed for the maintenance is an estimate. Many maintenance events finish before the end time that's shown in Service Health.
 
 ## Create alerts
 
@@ -64,17 +62,17 @@ Service Health supports forwarding rules, so you can set up your own alerts when
 
 1. Select the **Actions** tab or select the **Next: Actions** button.
 
-1. Select **Create action group** to create a new action group. If you previously created an action group, you can use it by selecting **Select action groups**.
+1. Select **Create action group** to create a new action group. If you previously created an action group, you can use it by choosing **Select action groups**.
 
     :::image type="content" source="./media/walkthrough-device-maintenance-notification/create-alert-rule-actions.png" alt-text="Screenshot that shows the Actions tab before creating a new action group.":::
 
-1. On **Basics** tab, enter or select the following information:
+1. On the **Basics** tab, enter or select the following information:
 
     | Setting | Action |
     | --- | --- |
     | *Project details* |  |
     | **Subscription** | Select the Azure subscription that you want to use for the action group. |
-    | **Resource group** | Select **Create new**. </br> For **Name**, enter **myResourceGroup**. </br> Select **OK**. </br> If you have an existing resource group that you want to use, select it instead of creating a new one. |
+    | **Resource group** | 1. Select **Create new**. </br> 2. For **Name**, enter **myResourceGroup**. </br> 3. Select **OK**. </br> If you have an existing resource group that you want to use, select it instead of creating a new one. |
     | **Regions** | Select **Global**. |
     | *Instance details* |  |
     | **Action group name** | Enter a name for the action group. |
@@ -98,7 +96,7 @@ Service Health supports forwarding rules, so you can set up your own alerts when
 
     :::image type="content" source="./media/walkthrough-device-maintenance-notification/edit-action-group.png" alt-text="Screenshot that shows how to edit an action group in the Azure portal.":::
 
-1. On **Test PeeringMaintenance**, for **Select sample type**, select **Resource health alert** and then select **Test**. Select **Done** after you successfully test the notifications.
+1. On **Test PeeringMaintenance**, for **Select sample type**, select **Resource health alert** and select **Test**. Select **Done** after you successfully test the notifications.
 
     :::image type="content" source="./media/walkthrough-device-maintenance-notification/test-notifications.png" alt-text="Screenshot that shows how to send test notifications.":::
 

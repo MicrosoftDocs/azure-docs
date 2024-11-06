@@ -19,7 +19,7 @@ A direct peering type conversion for a peering connection can be requested only 
 
 - The peering must have at least two connections.
 - The redundant connections must be of equal bandwidth.
-- All connections in the peering must be fully provisioned (with the property 'ConnectionState' = 'Active') that is, none of the connections must be undergoing provisioning, decommission, or an internal device migration.
+- All connections in the peering must be fully provisioned (with the property `ConnectionState` = `Active`). That is, none of the connections can be undergoing provisioning, decommission, or an internal device migration.
 - The peering must be represented as an Azure resource with a valid subscription. To onboard your peering as a resource, see [Convert a legacy direct peering to an Azure resource by using the Azure portal](howto-legacy-direct-portal.md).
 - Bandwidth updates can't be requested to other connections in the peering during the conversion.
 - No adding or removing of connections can occur during the conversion.
@@ -87,6 +87,8 @@ If a conversion to voice peering is requested and the connections have IP addres
 When the conversion is completed, its state returns to **Active**.
 
 ## FAQ
+
+Get answers to frequently asked questions.
 
 **Q.** Will there be an interruption to my connection?
 
