@@ -6,11 +6,11 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic:  how-to
-ms.date: 11/5/2024
+ms.date: 11/6/2024
 ms.author: cshoe
 ---
 
-# Create a private link with Azure Front Door
+# Create a private link to an Azure Container App with Azure Front Door (preview)
 
 In this article, you learn how to create an Azure Front Door (AFD) using the Azure CLI. You then connect the Front Door to an Azure Container App in a private VNet using [Azure Private Link](/azure/private-link/private-link-overview). This lets you securely access your container app without exposing it to the public Internet. You then verify connectivity to your container app using the AFD endpoint.
 
@@ -64,7 +64,7 @@ az group create \
 
 ## Create an environment
 
-Create the Container Apps environment.
+1. Create the Container Apps environment.
 
 ```azurecli
 az containerapp env create \
@@ -73,17 +73,17 @@ az containerapp env create \
     --location $LOCATION
 ```
 
-Retrieve the environment ID. You use this to configure the environment.
+1. Retrieve the environment ID. You use this to configure the environment.
 
 ```azurecli
-ENVIRONMENT_ID=`az containerapp env show \
-    --resource-group ${RESOURCE_GROUP} \
-    --name ${ENVIRONMENT_NAME} \
+ENVIRONMENT_ID=$(az containerapp env show \
+    --resource-group $RESOURCE_GROUP \
+    --name $ENVIRONMENT_NAME \
     --query "id" \
-    --output tsv`
+    --output tsv)
 ```
 
-Disable public network access for the environment.
+1. Disable public network access for the environment.
 
 ```azurecli
 az containerapp env update \
@@ -110,18 +110,18 @@ az containerapp up \
 Retrieve your container app endpoint.
 
 ```azurecli
-ACA_ENDPOINT=`az containerapp show \
-    --name ${CONTAINERAPP_NAME} \
-    --resource-group ${RESOURCE_GROUP} \
+ACA_ENDPOINT=$(az containerapp show \
+    --name $CONTAINERAPP_NAME \
+    --resource-group $RESOURCE_GROUP \
     --query properties.configuration.ingress.fqdn \
-    --output tsv`
+    --output tsv)
 ```
 
-When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because the container app environment has public access disabled.
+If you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because the container app environment has public access disabled. Instead, you use an AFD endpoint to access your container app.
 
 ## Create an Azure Front Door profile
 
-Run the following command to create an AFD profile.
+Create an AFD profile. Private link is not supported for origins in an AFD profile with SKU `Standard_AzureFrontDoor`.
 
 ```azurecli
 az afd profile create \
@@ -130,11 +130,9 @@ az afd profile create \
     --sku Premium_AzureFrontDoor
 ```
 
-Private link is not supported for origins in an AFD profile with SKU `Standard_AzureFrontDoor`.
-
 ## Create an Azure Front Door endpoint
 
-Run the following command to add an endpoint to your AFD profile.
+Add an endpoint to your AFD profile.
 
 ```azurecli
 az afd endpoint create \
@@ -146,7 +144,7 @@ az afd endpoint create \
 
 ## Create an Azure Front Door origin group
 
-Run the following command to create an AFD origin group.
+Create an AFD origin group.
 
 ```azurecli
 az afd origin-group create \
@@ -164,7 +162,7 @@ az afd origin-group create \
 
 ## Create an Azure Front Door origin
 
-Run the following command to add an AFD origin to your origin group.
+Add an AFD origin to your origin group.
 
 ```azurecli
 az afd origin create \
@@ -185,7 +183,7 @@ az afd origin create \
 
 ## List private endpoint connections
 
-Run the following command to list the private endpoint connections for your environment.
+1. Run the following command to list the private endpoint connections for your environment.
 
 ```azurecli
 az network private-endpoint-connection list \
@@ -194,17 +192,17 @@ az network private-endpoint-connection list \
     --type Microsoft.App/managedEnvironments
 ```
 
-Record the private endpoint connection resource ID from the response. The private endpoint connection has a `properties.privateLinkServiceConnectionState.description` value of `AFD Private Link Request`. The private endpoint connection resource ID looks like the following.
+1. Record the private endpoint connection resource ID from the response. The private endpoint connection has a `properties.privateLinkServiceConnectionState.description` value of `AFD Private Link Request`. The private endpoint connection resource ID looks like the following.
 
-```
-/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/managedEnvironments/my-environment/privateEndpointConnections/<PRIVATE_ENDPOINT_CONNECTION_ID>
-```
+    ```
+    /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/managedEnvironments/my-environment/privateEndpointConnections/<PRIVATE_ENDPOINT_CONNECTION_ID>
+    ```
 
-Don't confuse this with the private endpoint ID, which looks like the following.
+    Don't confuse this with the private endpoint ID, which looks like the following.
 
-```
-/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/eafd-Prod-centralus/providers/Microsoft.Network/privateEndpoints/<PRIVATE_ENDPOINT_ID>
-```
+    ```
+    /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/eafd-Prod-centralus/providers/Microsoft.Network/privateEndpoints/<PRIVATE_ENDPOINT_ID>
+    ```
 
 ## Approve the private endpoint connection
 
@@ -233,7 +231,7 @@ az afd route create \
 
 ## Access your container app from Azure Front Door
 
-Run the following command to retrieve the hostname of your AFD endpoint.
+1. Retrieve the hostname of your AFD endpoint.
 
 ```azurecli
 az afd endpoint show \
@@ -244,15 +242,15 @@ az afd endpoint show \
     --output tsv
 ```
 
-Your hostname looks like the following example.
+    Your hostname looks like the following example.
 
-```
-my-afd-endpoint.<HASH>.b01.azurefd.net
-```
+    ```
+    my-afd-endpoint.<HASH>.b01.azurefd.net
+    ```
 
-Browse to the hostname. You see the output for the quickstart container app image.
+1. Browse to the hostname. You see the output for the quickstart container app image.
 
-It takes a few minutes for your AFD profile to be deployed globally, so if you do not see the expected output at first, wait a few minutes and then refresh.
+    It takes a few minutes for your AFD profile to be deployed globally, so if you do not see the expected output at first, wait a few minutes and then refresh.
 
 ## Clean up resources
 
@@ -265,7 +263,7 @@ If you're not going to continue to use this application, you can remove the **my
 az group delete --name $RESOURCE_GROUP
 ```
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Managing autoscaling behavior](scale-app.md)
+- [Azure Private Link](/azure/private-link/private-link-overview)
+- [Azure Front Door](/azure/frontdoor/)

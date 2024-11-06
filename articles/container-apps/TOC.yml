@@ -294,7 +294,7 @@
           href: vnet-custom.md
         - name: Deploy with an internal environment
           href: vnet-custom-internal.md
-        - name: Integrate with Azure Front Door (preview)
+        - name: Integrate with Azure Front Door
           href: how-to-integrate-with-azure-front-door.md
     - name: Ingress
       items:
