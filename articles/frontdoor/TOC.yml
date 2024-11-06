@@ -155,7 +155,7 @@
         - name: URL redirect
           href: front-door-url-redirect.md?pivots=front-door-standard-premium
       - name: WebSocket
-        href: websocket.md
+        href: standard-premium/websocket.md
       - name: Sensitive data protection
         href: standard-premium/sensitive-data-protection.md
       - name: Understand billing
