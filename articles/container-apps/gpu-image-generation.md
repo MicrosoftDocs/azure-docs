@@ -96,7 +96,7 @@ In this tutorial you:
 
 ## Use your GPU app
 
-From the *Overview* window, select the **Application Url** link to open the web app front end in your browser and generate an image.
+From the *Overview* window, select the **Application Url** link to open the web app front end in your browser and use the GPU application.
 
 Once you've generated an image, use the following steps to view results of the GPU processing:
 

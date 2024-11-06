@@ -63,7 +63,7 @@ Keep in mind the following items as you use serverless GPUs:
 
 ## Request Serverless GPU quota
 
-Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Access to this feature is only available after you have Serverless GPU quota. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 > [!NOTE]
 > Customers with enterprise agreements have a single T4 GPU quota enabled by default.
@@ -97,7 +97,8 @@ Use the following steps to enable image streaming:
 
 1. From the *Repository* window, select **Start artifact streaming** and save your changes.
 
-1. Select the image tag that you want to stream and select **Create streaming artifact**.
+1. Click on the image tag that you want to stream.
+1. In the window that pops up, select `Create streaming artifact`
 
 ## Feedback
 
