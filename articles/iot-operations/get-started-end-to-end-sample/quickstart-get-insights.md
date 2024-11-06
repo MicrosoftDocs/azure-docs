@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 11/04/2024
+ms.date: 11/05/2024
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -21,13 +21,13 @@ These operations are the last steps in the sample end-to-end quickstart experien
 
 Before you begin this quickstart, you must complete the previous Azure IoT Operations quickstarts.
 
-You also need a Microsoft Fabric subscription. In your subscription, you need access to a workspace with **Contributor** or above permissions.
-
-Additionally, your Fabric tenant must allow the creation of Real-Time Dashboards. This is a setting that can be enabled by your tenant administrator. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
+You also need to meet the following Fabric requirements:
+* Have a Microsoft Fabric subscription. In your subscription, you need access to a workspace with **Contributor** or above permissions.
+* Your Fabric tenant must allow the creation of Real-Time Dashboards. This is a setting that can be enabled by your tenant administrator. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
 
 ## What problem will we solve?
 
-Once your OPC UA data has arrived in the cloud, you'll have a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how you can connect that data to Real-Time Intelligence and build a Real-Time Dashboard.
+Once your OPC UA data has arrived in the cloud, you'll have a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how you can connect that data to Real-Time Intelligence and create a Real-Time Dashboard.
 
 ## Ingest data into Real-Time Intelligence
 
@@ -125,176 +125,55 @@ If you want, you can also view and query this data in your KQL database directly
 
 ## Create a Real-Time Dashboard
 
-In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data. The dashboard will allow filtering by asset ID and timestamp, and will display visual summaries of temperature and other data.
+In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data, and import a set of tiles from a sample dashboard template. The dashboard will allow filtering by asset ID and timestamp, and will display visual summaries of temperature, spike frequency, and other data.
 
 >[!NOTE]
 >You can only create Real-Time Dashboards if your tenant admin has enabled the creation of Real-Time Dashboards in your Fabric tenant. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
 
-### Create dashboard and connect data source
+### Create dashboard
 
 Follow the steps in the [Create a new dashboard](/fabric/real-time-intelligence/dashboard-real-time-create#create-a-new-dashboard) section to create a new Real-Time Dashboard from the Real-Time Intelligence capabilities.
 
-Then, follow the steps in the [Add data source](/fabric/real-time-intelligence/dashboard-real-time-create#add-data-source) section to add your database as a data source. Keep the following note in mind:
+### Upload template and connect data source
 
-- In the **Data sources** pane, your database will be under **OneLake data hub**.
+Download the sample dashboard template from this location in GitHub: [dashboard-AIOquickstart.json](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/dashboard/dashboard-AIOquickstart.json).
 
-### Configure parameters
+Then, follow the steps below to upload the dashboard template and connect it to your data.
+1. In your Real-Time Dashboard, switch to the **Manage** tab and select **Replace with file**.
+    :::image type="content" source="media/quickstart-get-insights/dashboard-upload-replace.png" alt-text="Screenshot of the buttons to upload a file template.":::
+1. Select the template file that you downloaded to your machine.
+1. The template file populates the dashboard with multiple tiles, although the tiles can't get data since you haven't yet connected your data source.
+    :::image type="content" source="media/quickstart-get-insights/dashboard-upload-errors.png" alt-text="Screenshot of the dashboard with erroring visuals.":::
+1. From the **Manage** tab, select **Data sources**. This opens the **Data sources** pane with a sample source for your AIO data. Select the pencil icon to edit the *AIOdata* data source.
+    :::image type="content" source="media/quickstart-get-insights/dashboard-data-sources.png" alt-text="Screenshot of the buttons to connect a data source.":::
+1. Choose your database (it will be under **OneLake data hub**). When you're finished selecting your data source, select **Apply** and close the **Data sources** pane.
 
-Next, configure some parameters for your dashboard so that the visuals can be filtered by asset ID and timestamp. The dashboard comes with a default parameter to filter by time range, so you only need to create one that can filter by asset ID.
+The visuals should populate with the data from your KQL database.
 
-1. Switch to the **Manage** tab, and select **Parameters**. Select **+ Add** to add a new parameter.
+:::image type="content" source="media/quickstart-get-insights/dashboard.png" alt-text="Screenshot of the dashboard.":::
 
-    :::image type="content" source="media/quickstart-get-insights/add-parameter.png" alt-text="Screenshot of adding a parameter to a dashboard.":::
+### Explore dashboard
 
-1. Create a new parameter with the following characteristics:
-    * **Label**: *Asset*
-    * **Parameter type**: *Single selection* (already selected by default)
-    * **Variable name**: *_asset*
-    * **Data type**: *string* (already selected by default)
-    * **Source**: *Query*
-        * **Data source**: Your database (already selected by default)
-        * Select **Edit query** and add the following KQL query.
+Now you have a dashboard that displays different types of visuals for the asset data in these quickstarts. Here are the visuals included with the template:
+* Parameters for your dashboard that allow all visuals to be filtered by timestamp (included by default) and asset ID.
+* A line chart tile showing temperature and its spikes over time.
+* A stat tile showing a real-time spike indicator for temperature. The tile displays the most recent temperature value, and if that value is a spike, conditional formatting will display it as a warning.
+* A stat tile showing max temperature.
+* A stat tile showing the number of spikes in the selected time frame.
+* A line chart tile showing temperature versus fill weight over time.
+* A line chart tile showing temperature versus energy use over time.
 
-            ```kql
-            OPCUA
-            | summarize by AssetId
-            ```
-    * **Value column**: *AssetId (string)*
-    * **Default value**: *Select first value of query*
-
-1. Select **Done** to save your parameter.
-
-### Create line chart tile
-
-Next, add a tile to your dashboard to show a line chart of temperature and its spikes over time for the selected asset and time range.
-
-1. Select either **+ Add tile** or **New tile** to add a new tile.
-
-    :::image type="content" source="media/quickstart-get-insights/add-tile.png" alt-text="Screenshot of adding a tile to a dashboard.":::
-
-1. Enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and pulls the timestamp, temperature and spike value from the resulting records with their timestamp. It then adds a column for a spike marker that will be added to the line chart. 
-
-    ```kql
-    OPCUA 
-    | where Timestamp between (_startTime .. _endTime)
-    | where AssetId == _asset
-    | project Timestamp, Temperature, Spike
-    | extend SpikeMarker = iff(Spike == true, Temperature, decimal(null))
-    ```
-
-    **Run** the query to verify that data can be found.
-
-    :::image type="content" source="media/quickstart-get-insights/chart-query.png" alt-text="Screenshot of adding a tile query.":::
-
-1. Select **+ Add visual** next to the query results to add a visual for this data. Create a visual with the following characteristics:
-
-    - **Tile name**: *Temperature with spikes over time*
-    - **Visual type**: *Line chart*
-    - **Data**:
-        - **Y columns**: *Temperature (decimal)*, *Spike (boolean)* (already inferred by default)
-        - **X columns**: *Timestamp (datetime)* (already inferred by default)
-        - **Series columns**: Leave the default inferred value.
-    - **Y Axis**:
-        - **Label**: *Temperature (°F)*
-    - **X Axis**:
-        - **Label**: *Timestamp*
-
-    Select **Apply changes** to create the tile.
-
-    :::image type="content" source="media/quickstart-get-insights/chart-visual.png" alt-text="Screenshot of adding a tile visual.":::
-
-View the finished tile on your dashboard.
-
-:::image type="content" source="media/quickstart-get-insights/dashboard-1.png" alt-text="Screenshot of the dashboard with the line chart tile.":::
-
-### Create max value tile
-
-Next, create a tile to display a real-time spike indicator for temperature.
-
-1. Select **New tile** to create a new tile.
-
-1. Enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and takes the timestamp, temperature, and spike value from the resulting records.
-
-    ```kql
-    OPCUA
-    | where Timestamp between (_startTime .. _endTime)
-    | where AssetId == _asset
-    | project Timestamp, Temperature, Spike
-    ```
-
-    **Run** the query to verify that data can be found.
-
-1. Select **+ Add visual** to add a visual for this data. Create a visual with the following characteristics:
-    - **Tile name**: *Spike indicator*
-    - **Visual type**: *Stat*
-    - **Data**:
-        - **Value column**: *Temperature (decimal)* (already inferred by default)
-    - **Conditional formatting**: Select **+ Add rule** and select the pencil icon to edit the rule.
-        - **Conditions**: Use the entry form to enter the condition *Spike == true*.
-        - **Color**: Select *Red* and choose the warning icon.
-
-        :::image type="content" source="media/quickstart-get-insights/conditional-formatting.png" alt-text="Screenshot of the conditional formatting options.":::
-        
-        **Save** the conditional formatting.
-
-    Select **Apply changes** to create the tile.
-
-1. View the finished tile on your dashboard (you may want to resize the tile so the full text is visible). The tile will always display the most recent temperature value, but the conditional formatting will only be triggered if that value is a spike.
-
-    :::image type="content" source="media/quickstart-get-insights/dashboard-2.png" alt-text="Screenshot of the dashboard with the stat tile.":::
-
-1. **Save** your completed dashboard.
-
-Now you have a dashboard that displays different types of visuals for the asset data in these quickstarts. From here, you can experiment with the filters and adding other tile types to see how a dashboard can enable you to do more with your data.
-
-### Experiment with dashboard queries
-
-Below are some more queries that you can use to add additional tiles to your dashboard and visualize your data differently. Try using them to create your own tiles.
-
-* Query for a line chart tile, *Temperature (F) vs. Fill Weight*:
-    ```kql
-    OPCUA 
-    | where Timestamp between (_startTime.._endTime)
-    | where AssetId == _asset
-    | project Timestamp, Temperature, FillWeight
-    ```
-* Query for a line chart tile, *Temperature (F) vs. Energy Use*:
-    ```kql
-    OPCUA 
-    | where Timestamp between (_startTime.._endTime)
-    | where AssetId == _asset
-    | project Timestamp, Temperature, EnergyUse
-    ```
-* Query for a stat tile, *Max temperature*:
-    ```kql
-    OPCUA
-    | where Timestamp between (_startTime.._endTime)
-    | where AssetId == _asset
-    | top 1 by Temperature desc
-    | summarize by Temperature
-    ```
-* Query for a stat tile, *Number of spikes in time frame*:
-    ```kql
-    OPCUA
-    | where Timestamp between (_startTime .. _endTime)
-    | where AssetId == _asset
-    | where Spike == true
-    | summarize SpikeCount = count()
-    ```
-
-## How did we solve the problem?
-
-In this quickstart, you used an eventstream to ingest your Event Hubs data into a KQL database in Microsoft Fabric Real-Time Intelligence. Then, you created a Real-Time Dashboard powered by that data, which visually tracks changing values over time. By relating edge data from various sources together in Microsoft Fabric, you can create reports with visualizations and interactive features that offer deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
+From here, you can experiment with the filters and adding other tile types to see how a dashboard can enable you to do more with your data.
 
 This completes the final step in the quickstart flow for using Azure IoT Operations to manage device data from deployment through analysis in the cloud.
 
 ## Clean up resources
 
-If you're continuing on to the next quickstart, keep all of your resources.
+Now that you're finished with the quickstart experience, this section contains instructions to delete your sample resources.
 
 [!INCLUDE [tidy-resources](../includes/tidy-resources.md)]
 
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this quickstart.
 
-You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this quickstart, including the eventstream, eventhouse, and Real-Time Dashboard.
+You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this quickstart, including the eventstream, eventhouse, and Real-Time Dashboard. Additionally, you may want to delete the dashboard template file that you downloaded to your computer.
