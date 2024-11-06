@@ -9,16 +9,21 @@ ms.service: azure-operator-service-manager
 ---
 
 # Get started with cluster registry
+Improve resiliency for cloud native network functions with Azure Operator Service Manager (AOSM) cluster registry (CR)
+
+## Document history
 * Created & First Published: July 26, 2024
 * Updated for HA: October 16, 2024
+* Updated for GC: November 5, 2024
 
-## Overview
-Improve resiliency for cloud native network functions with Azure Operator Service Manager (AOSM) cluster registry (CR). This feature requires the following minimum environment:
+## Feature dependencies
+This feature requires the following minimum environment:
 * Minimum AOSM ARM API Version: 2023-09-01
 * First version, no high availability (HA) for Network Function (NF) kubernetes extension: 1.0.2711-7
 * First version, with HA for NF kubernetes extension: 2.0.2810-144
+* First version, with GC for NF kubernetes extension: 2.0.2810-144
 
-## Introduction
+## Overview
 Azure Operator Service Manager (AOSM) cluster registry (CR) enables a local copy of container images in the Nexus K8s cluster. When the containerized network function (CNF) is installed with cluster registry enabled, the container images are pulled from the remote AOSM artifact store and saved to this local cluster registry. Using a mutating webhook, cluster registry automatically intercepts image requests and substitutes the local registry path, to avoid publisher packaging changes. With cluster register, CNF access to container images survives loss of connectivity to the remote artifact store.
 
 ### Key use cases and benefits
@@ -81,7 +86,7 @@ The cluster registry feature deploys helper pods on the target edge cluster to a
 * This pod stores and retrieves container images for CNF.
 
 ### Cluster registry garbage collection
-AOSM cluster extension runs a background job to regularly clean up container images. The job schedule and conditions are configured by end-user, but by default the job runs once per days at a 0% utilization threshold. This job will check if the cluster registry usage has reached the specified threshold, and if so, it will initiate the garbage collection process.
+AOSM cluster extension runs a background garbage collection (GC) job to regularly clean up container images. This job will run based on a schedule, check if the cluster registry usage has reached the specified threshold, and if so, initiate the garbage collection process. The job schedule and threshold is configured by the end-user, but by default the job runs once per day at a 0% utilization threshold. 
 
 #### Clean up garbage image manifests
 AOSM maintains references between pod owner resource and consuming images in cluster registry. Upon initiating the images cleanup process, images will be identified which are not linked to any pods, issuing a soft delete to remove them from cluster registry. This type of soft delete doesn't immediately free cluster registry storage space. Actual image files removal depends on the CNCF distribution registry garbage collection outlined below.
@@ -96,10 +101,10 @@ AOSM sets up the cluster registry using open source [CNCF distribution registry]
 > This process requires the cluster registry in read-only mode. If images are uploaded when registry not in read-only mode, there is the risk that images layers are mistakenly deleted leading to a corrupted image. Registry requires lock in read-only mode for a duration of up to 1 minute. Consequently, AOSM will defer other NF deployment when cluster registry in read-only mode.
 
 #### Garbage collection configuration parameters
-Customers can adjust the following settings to configure the schedule and conditions for the garbage collection job.
+The following parameters configure the schedule and threshold for the garbage collection job.
 * global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence
 * global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold
-* For more configuration details, please refer to the [Network function extension installation instructions](manage-network-function-operator.md)
+* For more configuration details, please refer to the latest [Network function extension installation instructions](manage-network-function-operator.md)
 
 ## High availability and resiliency considerations 
 The AOSM NF extension relies uses a mutating webhook and edge registry to support key features. 
@@ -159,7 +164,18 @@ All AOSM operator containers are configured with appropriate request, limit for 
 * Pod Anti affinity only deals with the initial placement of pods, subsequent pod scaling, and repair, follows standard K8s scheduling logic.
 
 ## Frequently Asked Questions
-* Can I use AOSM cluster registry with a CNF application previously deployed?
-  * If there's a CNF application already deployed without cluster registry, the container images are not available automatically. The cluster registry must be enabled before deploying the network function with AOSM.
-* Can I change the storage size after a deployment?
-  * Storage size can't be modified after the initial deployment. We recommend configuring the volume size by 3x to 4x of the starting size.
+#### Can I use AOSM cluster registry with a CNF application previously deployed?
+If there's a CNF application already deployed without cluster registry, the container images are not available automatically. The cluster registry must be enabled before deploying the network function with AOSM.
+
+#### Can I change the storage size after a deployment?
+Storage size can't be modified after the initial deployment. We recommend configuring the volume size by 3x to 4x of the starting size.
+
+#### Can I list the files presently stored in the cluster repository?
+The following command can be used to list files in a human readable format:
+```bash
+ kubectl get artifacts -A -o jsonpath='{range .items[*]}{.spec.sourceArtifact}'
+```
+This command should produce output similar to the following:
+```bash
+ ppleltestpublisheras2f88b55037.azurecr.io/nginx:1.0.0
+```
