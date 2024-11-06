@@ -28,7 +28,7 @@ This article provides step-by-step instructions on how to configure Grafana sett
 
 :::image type="content" source="media/grafana-settings/grafana-settings-tab.png" alt-text="Screenshot of the Azure platform showing the Grafana settings tab." lightbox="media/grafana-settings/grafana-settings-tab.png":::
 
-## Enable or disable Viewers Can Edit
+## Viewers Can Edit
 
 The **Viewers Can Edit** setting allows users with the Grafana Viewer role to edit dashboards without saving changes permanently. This feature is designed to enable Grafana Viewers to run tests and interact with dashboards without making permanent changes.
 
@@ -39,7 +39,7 @@ With this setting enabled, Grafana Viewers can:
 1. In the **Grafana Settings (Preview)** tab, locate the **Viewers can edit** option.
 1. This option is disabled by default. Toggle the switch to enable this setting.
 
-## Enable or disable External Enabled
+## External Enabled
 
 The **External Enabled** setting controls the public sharing of snapshots.
 
@@ -48,7 +48,7 @@ With this setting enabled, users can publish snapshots of dashboards to an exter
 1. In the **Grafana Settings (Preview)** tab, locate the **External Enabled** option.
 1. This option is enabled by default, allowing users to publicly share snapshots of their dashboards. To restrict the public sharing of snapshots, toggle off the switch to disable this setting.
 
-## Enable or disable CSRF Always Check
+## CSRF Always Check
 
 The **CSRF Always Check** setting enhances security by rejecting requests that have an origin header that does not match the origin of the Grafana instance. This setting helps to prevent Cross-Site Request Forgery (CSRF) attacks. This option is disabled by default.
 
