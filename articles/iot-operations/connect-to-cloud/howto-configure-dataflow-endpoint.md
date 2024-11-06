@@ -58,7 +58,7 @@ For example, you can use the default MQTT broker dataflow endpoint. You can use 
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-09-15-preview' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
   parent: <DEFAULT_PROFILE_RESOURCE>
   name: 'broker-to-broker'
   extendedLocation: {
@@ -122,7 +122,7 @@ Similarly, you can create multiple dataflows that use the same MQTT endpoint for
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-09-15-preview' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
   parent: <DEFAULT_PROFILE_RESOURCE>
   name: 'broker-to-eh'
   extendedLocation: {
