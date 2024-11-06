@@ -152,10 +152,6 @@
         href: howto-targetingfilter.md
       - name: ASP.NET Core
         href: howto-targetingfilter-aspnet-core.md
-    - name: Telemetry
-      items:
-      - name: Overview
-        href: howto-telemetry.md
     - name: Run experiments with variant feature flags
       items:
       - name: ASP.NET Core
@@ -334,6 +330,10 @@
         href: ./feature-management-python-reference.md
       - name: API reference
         href: https://microsoft.github.io/FeatureManagement-Python/html/index.html
+    - name: Telemetry
+      items:
+      - name: Feature flags telemetry reference
+        href: feature-flag-telemetry-reference.md
   - name: Deployment
     items:
     - name: ARM template
