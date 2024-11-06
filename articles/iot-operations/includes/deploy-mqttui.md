@@ -36,4 +36,4 @@ Verify data is flowing to the MQTT broker by using the **mosquitto_sub** tool. I
     mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/#" -v --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
     ```
 
-    This command continues to run and displays messages as they arrive on the `data/thermostat` topic until you press **Ctrl+C** to stop it.
+    This command continues to run and displays messages as they arrive on the `data/thermostat` topic until you press **Ctrl+C** to stop it. To exit the shell environment, type `exit`.

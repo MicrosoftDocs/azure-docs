@@ -27,11 +27,9 @@ This article lists the known issues for Azure IoT Operations.
 
   As a workaround, when deploying Azure IoT Operations with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md).
 
-- Even though the MQTT broker's [diagnostics](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-mqtt-broker-diagnostic-settings) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
+- Even though the MQTT broker's [diagnostics](../manage-mqtt-broker/howto-broker-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
 
 - Deployment might fail if the **cardinality** and **memory profile** values are set to be too large for the cluster. To resolve this issue, set the replicas count to `1` and use a smaller memory profile, like `low`.
-
-- If you configured the MQTT broker to use disk backed message buffer with persistent volume option, the broker creates a persistent volume claim (PVC) in the same namespace as the broker. If you uninstall Azure IoT Operations, the PVC isn't deleted automatically. To delete the PVC, run the following command `kubectl delete pvc -n <namespace> <pvc-name>`.
 
 ## Azure IoT Layered Network Management (preview)
 
@@ -88,14 +86,4 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 - You can't use anonymous authentication for MQTT and Kafka endpoints when you deploy dataflow endpoints from the operations experience UI. The current workaround is to use a YAML configuration file and apply it by using `kubectl`.
 
-- Changing the instance count in a dataflow profile on an active dataflow might result in new messages being discarded or in messages being duplicated on the destination.
-
-- When you create a dataflow, if you set the `dataSources` field as an empty list, the dataflow crashes. The current workaround is to always enter at least one value in the data sources.
-
 - Dataflow custom resources created in your cluster aren't visible in the operations experience UI. This is expected because synchronizing dataflow resources from the edge to the cloud isn't currently supported.
-
-- If you have a dataflow that uses a Fabric OneLake endpoint and you disconnect the cluster from the internet for a duration between 24 and 72 hours, the dataflow might stop working with error "Authentication Failed with Access token validation failed." To resolve this issue, manually restart the dataflow pod by running the following command:
-
-  ```bash
-  kubectl delete pod -n azure-iot-operations $(kubectl get pod -n azure-iot-operations | grep dataflow | awk '{print $1}')
-  ```

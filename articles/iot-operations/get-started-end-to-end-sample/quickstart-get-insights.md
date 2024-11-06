@@ -165,10 +165,6 @@ Now you have a dashboard that displays different types of visuals for the asset 
 
 From here, you can experiment with the filters and adding other tile types to see how a dashboard can enable you to do more with your data.
 
-## How did we solve the problem?
-
-In this quickstart, you used an eventstream to ingest your Event Hubs data into a KQL database in Microsoft Fabric Real-Time Intelligence. Then, you created a Real-Time Dashboard powered by that data, which visually tracks changing values over time. By relating edge data from various sources together in Microsoft Fabric, you can create reports with visualizations and interactive features that offer deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
-
 This completes the final step in the quickstart flow for using Azure IoT Operations to manage device data from deployment through analysis in the cloud.
 
 ## Clean up resources

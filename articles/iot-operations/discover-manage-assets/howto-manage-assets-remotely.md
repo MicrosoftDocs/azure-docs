@@ -54,7 +54,7 @@ To sign in to the operations experience, go to the [operations experience](https
 
 ## Select your site
 
-After you sign in, the web UI displays a list of sites. Each site is a collection of Azure IoT Operations instances where you can configure and manage your assets. A site typically represents a physical location where you have physical assets deployed. Sites make it easier for you to locate and manage assets. Your [IT administrator is responsible for grouping instances in to sites](/azure/azure-arc/site-manager/overview). Any Azure IoT Operations instances that aren't assigned to a site appear in the **Unassigned instances** node. Select the site that you want to use:
+After you sign in, the operations experience displays a list of sites. Each site is a collection of Azure IoT Operations instances where you can configure and manage your assets. A site typically represents a physical location where you have physical assets deployed. Sites make it easier for you to locate and manage assets. Your [IT administrator is responsible for grouping instances in to sites](/azure/azure-arc/site-manager/overview). Any Azure IoT Operations instances that aren't assigned to a site appear in the **Unassigned instances** node. Select the site that you want to use:
 
 :::image type="content" source="media/howto-manage-assets-remotely/site-list.png" alt-text="Screenshot that shows a list of sites in the operations experience.":::
 
@@ -114,7 +114,7 @@ An Azure IoT Operations deployment can include an optional built-in OPC PLC simu
 Run the following command:
 
 ```azurecli
-az iot ops asset endpoint create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --cluster {your cluster name} 
+az iot ops asset endpoint opcua create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --instance {your instance name} 
 ```
 
 > [!TIP]
@@ -151,7 +151,7 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 1. Use a command like the following example to create your asset endpoint:
 
     ```azurecli
-    az iot ops asset endpoint create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --cluster {your cluster name} --username-ref "aio-opc-ua-broker-user-authentication/username" --password-ref "aio-opc-ua-broker-user-authentication/password"
+    az iot ops asset endpoint opcua create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --instance {your instance name} --username-ref "aio-opc-ua-broker-user-authentication/username" --password-ref "aio-opc-ua-broker-user-authentication/password"
     ```
 
 ---
@@ -259,15 +259,23 @@ You can import up to 1000 OPC UA tags at a time from a CSV file:
 
 # [Azure CLI](#tab/cli)
 
-Use the following command to add a "thermostat" asset by using the Azure CLI. The command adds two tags to the asset by using the `--data` parameter:
+Use the following commands to add a "thermostat" asset by using the Azure CLI. The commands add two tags/datapoints to the asset by using the `point add` command:
 
 ```azurecli
-az iot ops asset create --name thermostat -g {your resource group name} --cluster {your cluster name} --endpoint opc-ua-connector-0 --description 'A simulated thermostat asset' --data  data_source='ns=3;s=FastUInt10', name=temperature --data data_source='ns=3;s=FastUInt100', name='Tag 10'
+# Create the asset
+az iot ops asset create --name thermostat -g {your resource group name} --instance {your instance name} --endpoint opc-ua-connector-0 --description 'A simulated thermostat asset'
+
+# Add the datapoints
+az iot ops asset dataset point add --asset thermostat -g {your resource group name} --dataset default --data-source 'ns=3;s=FastUInt10' --name temperature
+az iot ops asset dataset point add --asset thermostat -g {your resource group name} --dataset default --data-source 'ns=3;s=FastUInt100' --name 'Tag 10'
+
+# Show the datapoints
+az iot ops asset dataset show --asset thermostat -n default -g {your resource group name}
 ```
 
 When you create an asset by using the Azure CLI, you can define:
 
-- Multiple tags by using the `--data` parameter multiple times.
+- Multiple datapoints/tags by using the `point add` command multiple times.
 - Multiple events by using the `--event` parameter multiple times.
 - Optional information for the asset such as:
   - Manufacturer
@@ -279,7 +287,7 @@ When you create an asset by using the Azure CLI, you can define:
   - Serial number
   - Documentation URI
 - Default values for sampling interval, publishing interval, and queue size.
-- Tag specific values for sampling interval, publishing interval, and queue size.
+- Datapoint specific values for sampling interval, publishing interval, and queue size.
 - Event specific values for sampling publishing interval, and queue size.
 - The observability mode for each tag and event
 
@@ -328,7 +336,7 @@ Review your asset and OPC UA tag and event details and make any adjustments you 
 
 # [Azure CLI](#tab/cli)
 
-When you create an asset by using the Azure CLI, you can define multiple events by using the `--event` parameter multiple times. The syntax for the `--event` parameter is similar to the `--data` parameter:
+When you create an asset by using the Azure CLI, you can define multiple events by using the `--event` parameter multiple times:
 
 ```azurecli
 az iot ops asset create --name thermostat -g {your resource group name} --cluster {your cluster name} --endpoint opc-ua-connector-0 --description 'A simulated thermostat asset' --event event_notifier='ns=3;s=FastUInt12', name=warning
@@ -340,6 +348,8 @@ For each event that you define, you can specify the:
 - Event name. This value is the friendly name that you want to use for the event. If you don't specify an event name, the event notifier is used as the event name.
 - Observability mode.
 - Queue size.
+
+You can also use the a[z iot ops asset event](/cli/azure/iot/ops/asset/event) commands to add and remove events from an asset.
 
 ---
 
@@ -391,7 +401,7 @@ az iot ops asset update --name thermostat --description 'A simulated thermostat 
 To list the thermostat asset's tags, use the following command:
 
 ```azurecli
-az iot ops asset data-point list --asset thermostat -g {your resource group}
+az iot ops asset dataset show --asset thermostat --name default -g {your resource group}
 ```
 
 To list the thermostat asset's events, use the following command:
@@ -403,10 +413,10 @@ az iot ops asset event list --asset thermostat -g {your resource group}
 To add a new tag to the thermostat asset, use a command like the following example:
 
 ```azurecli
-az iot ops asset data-point add --asset thermostat -g {your resource group} --data-source 'ns=3;s=FastUInt1002' --name 'humidity'
+az iot ops asset dataset point add --asset thermostat -g {your resource group name} --dataset default --data-source 'ns=3;s=FastUInt1002' --name 'humidity'
 ```
 
-To delete a tag, use the `az iot ops asset data-point remove` command.
+To delete a tag, use the `az iot ops asset dataset point remove` command.
 
 You can manage an asset's events by using the `az iot ops asset event` commands.
 

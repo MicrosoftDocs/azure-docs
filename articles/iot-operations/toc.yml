@@ -57,16 +57,24 @@ items:
           href: discover-manage-assets/howto-configure-opcua-authentication-options.md
     - name: Manage MQTT broker
       items:
-      - name: MQTT broker overview
-        href: manage-mqtt-broker/overview-iot-mq.md
-      - name: Configure core MQTT broker settings
-        href: manage-mqtt-broker/howto-configure-availability-scale.md
-      - name: Configure MQTT broker listener
+      - name: Broker overview
+        href: manage-mqtt-broker/overview-broker.md
+      - name: Listener
         href: manage-mqtt-broker/howto-configure-brokerlistener.md
-      - name: Configure authentication
+      - name: Authentication
         href: manage-mqtt-broker/howto-configure-authentication.md
-      - name: Configure authorization
+      - name: Authorization
         href: manage-mqtt-broker/howto-configure-authorization.md
+      - name: Scale and availability
+        href: manage-mqtt-broker/howto-configure-availability-scale.md
+      - name: Disk-backed message buffer
+        href: manage-mqtt-broker/howto-disk-backed-message-buffer.md
+      - name: Diagnostic settings
+        href: manage-mqtt-broker/howto-broker-diagnostics.md
+      - name: MQTT client options
+        href: manage-mqtt-broker/howto-broker-mqtt-client-options.md
+      - name: Encrypt internal traffic
+        href: manage-mqtt-broker/howto-encrypt-internal-traffic.md
       - name: Test connection
         href: manage-mqtt-broker/howto-test-connection.md
     - name: Process and route data

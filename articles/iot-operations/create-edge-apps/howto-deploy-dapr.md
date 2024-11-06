@@ -14,7 +14,7 @@ ms.service: azure-iot-operations
 
 The Distributed Application Runtime (Dapr) is a portable, serverless, event-driven runtime that simplifies the process of building distributed applications. Dapr lets you build stateful or stateless apps without worrying about how the building blocks function. Dapr provides several [building blocks](https://docs.dapr.io/developing-applications/building-blocks/): pub/sub, state management, service invocation, actors, and more.  
 
-Azure IoT Operations supports two of these building blocks, powered by [MQTT broker](../manage-mqtt-broker/overview-iot-mq.md):
+Azure IoT Operations supports two of these building blocks, powered by [MQTT broker](../manage-mqtt-broker/overview-broker.md):
 
 - Publish and subscribe
 - State management

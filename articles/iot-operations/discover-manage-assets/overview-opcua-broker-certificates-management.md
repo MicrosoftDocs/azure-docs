@@ -47,8 +47,6 @@ You need to maintain a trusted certificate list that contains the certificates o
 - The OPC UA server validates the connector's certificate against its trusted certificates list.
 - The connector validates the OPC UA server's certificate against its trusted certificates list.
 
-By default, the connector for OPC UA stores its trusted certificate list in Azure Key Vault and uses the [Secrets Store CSI Driver](https://secrets-store-csi-driver.sigs.k8s.io/) to project the trusted certificates into the connector for OPC UA pods. Azure Key Vault stores the certificates encoded in DER or PEM format.
-
 If the connector for OPC UA trusts a certificate authority, it automatically trusts any server that has a valid application instance certificate signed by the certificate authority.
 
 To learn how to project the trusted certificates from Azure Key Vault into the Kubernetes cluster, see [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
