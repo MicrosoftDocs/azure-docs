@@ -101,7 +101,7 @@ We recommend that you use the `dotenv` module to manage your environment. With `
 ::: zone pivot="nunit-test-runner"
 ## Set up service configuration 
 
-Create a file `PlaywrightServiceSetup.cs` in the root directory with the following content. 
+Create a file `PlaywrightServiceSetup.cs` in your project with the following content. 
 
 ```csharp
 using Azure.Developer.MicrosoftPlaywrightTesting.NUnit;
