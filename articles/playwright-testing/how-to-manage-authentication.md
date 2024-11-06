@@ -75,7 +75,7 @@ To enable authentication using access tokens:
     ```
 ::: zone-end
 
-1. Create access token 
+2. Create access token 
 
     Follow the steps to [create an access token](./how-to-manage-access-tokens.md#generate-a-workspace-access-token). Copy the value of the access token generated.
 
@@ -105,7 +105,7 @@ To enable authentication using access tokens:
 
 ::: zone pivot="nunit-test-runner"
 
-1. Set up your environment
+3. Set up your environment
 
     To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Make sure this environment variable is available in your setup where you are running tests.
 
