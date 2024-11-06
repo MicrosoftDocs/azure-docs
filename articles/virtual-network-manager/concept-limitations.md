@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: conceptual
-ms.date: 10/30/2024
+ms.date: 11/06/2024
 ms.custom: template-concept
 #CustomerIntent: As a network admin, I want understand the limitations in Azure Virtual Network Manager so that I can properly deploy it my environment.
 ---
@@ -25,25 +25,21 @@ This article provides an overview of the current limitations when you're using [
 * Azure Virtual Network Manager policies don't support the standard evaluation cycle for policy compliance. For more information, see [Evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 * The move of the subscription where the Azure Virtual Network Manager instance exists to another tenant is not supported.
 
-## Limitations for connected groups
+## Limitations and limits for peering and connected groups 
 
-* A connected group can have up to 250 virtual networks. Virtual networks in a [mesh topology](concept-connectivity-configuration.md#mesh-network-topology) are in a [connected group](concept-connectivity-configuration.md#connected-group), so a mesh configuration has a limit of 250 virtual networks.
-* BareMetal Infastructures are not supported. This includes the following BareMetal Infrastructures:
+* A virtual network can be peered up to 1000 virtual networks using Azure Virtual Network Manager's hub and spoke topology. This means that you can peer up to 1000 spoke virtual networks to a hub virtual network.
+* By default, a [connected group](concept-connectivity-configuration.md) can have up to 250 virtual networks. This is a soft limit and can be increased up to 1000 virtual networks by submitting a request using [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRzeHatNxLHpJshECDnD5QidURTM2OERMQlYxWkE1UTNBMlRNUkJUNkhDTy4u&route=shorturl).
+* By default, a virtual network can be part of up to two connected groups. For example, a virtual network:
+  * Can be part of two mesh configurations.
+  * Can be part of a mesh topology and a network group that has direct connectivity enabled in a hub-and-spoke topology.
+  * Can be part of two network groups with direct connectivity enabled in the same or a different hub-and-spoke configuration. 
+* The following BareMetal Infrastructures are not supported:
   * [Azure NetApp Files](../azure-netapp-files/index.yml)
   * [Azure VMware Solution](../azure-vmware/index.yml)
   * [Nutanix Cloud Clusters on Azure](../baremetal-infrastructure/workloads/nc2-on-azure/about-nc2-on-azure.md)
   * [Oracle Database@Azure](../oracle/oracle-db/oracle-database-what-is-new.md)
   * [Azure Payment HSM](/azure/payment-hsm/solution-design)
-* Maximum number of private endpoints per connected group is 1000.
-* You can have network groups with or without [direct connectivity](concept-connectivity-configuration.md#direct-connectivity) enabled in the same [hub-and-spoke configuration](concept-connectivity-configuration.md#hub-and-spoke-topology), as long as the total number of virtual networks peered to the hub doesn't exceed 500 virtual networks.
-  * If the network group peered to the hub *has direct connectivity enabled*, these virtual networks are in a connected group, so the network group has a limit of 250 virtual networks.
-  * If the network group peered to the hub *doesn't have direct connectivity enabled*, the network group can have up to the total limit for a hub-and-spoke topology.
-* A virtual network can be part of up to two connected groups. For example, a virtual network:
-
-  * Can be part of two mesh configurations.
-  * Can be part of a mesh topology and a network group that has direct connectivity enabled in a hub-and-spoke topology.
-  * Can be part of two network groups with direct connectivity enabled in the same or a different hub-and-spoke configuration.
-
+* The maximum number of private endpoints per connected group is 1000.
 * You can have virtual networks with overlapping IP spaces in the same connected group. However, communication to an overlapped IP address is dropped.
 
 ## Limitations for security admin rules
