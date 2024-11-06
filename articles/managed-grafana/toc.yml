@@ -28,8 +28,6 @@ items:
     href: high-availability.md
   - name: Encryption
     href: encryption.md
-  - name: Grafana settings
-    href: grafana-settings.md
   - name: Azure RBAC  
     href: concept-role-based-access-control.md
 - name: How-to guides
@@ -100,6 +98,8 @@ items:
       href: how-to-monitor-managed-grafana-workspace.md
   - name: Migrate to Azure Managed Grafana
     href: how-to-migrate.md
+  - name: Configure Grafana settings
+    href: grafana-settings.md
   - name: Transition to grafana.azure.com domain
     href: how-to-transition-domain.md
   - name: Upgrade to Grafana 10

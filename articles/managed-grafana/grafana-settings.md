@@ -5,7 +5,7 @@ description: Learn how to configure Grafana settings in Azure Managed Grafana, i
 author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
-ms.topic: how-to-article
+ms.topic: how-to
 ms.date: 11/06/2024
 #customer intent: In this document, learn how to configure the custom Grafana options available in the Grafana settings tab, in Azure Managed Grafana.
 
