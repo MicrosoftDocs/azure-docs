@@ -34,10 +34,6 @@ The service provides a built-in driver to enable connectivity, therefore you don
 
 The connector supports the Couchbase version higher than 6.0. 
 
-The connector now uses the following precision. The previous precision is compatible.
-   - Double values use 17 significant digits (previously 15 significant digits)
-   - Float values use 9 significant digits (previously 7 significant digits)
-
 ## Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]

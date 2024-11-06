@@ -37,6 +37,9 @@ Specifically, this Xero connector supports:
 - All Xero tables (API endpoints) except "Reports".
 - Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
+>[!NOTE]
+>Due to the [sunset of OAuth 1.0 authentication in Xero](https://devblog.xero.com/an-update-on-why-we-are-saying-goodbye-oauth-1-0a-hello-oauth-2-0-6a839230908f), please [upgrade to OAuth 2.0 authentication type](#linked-service-properties) if you are currently using OAuth 1.0 authentication type. 
+
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]

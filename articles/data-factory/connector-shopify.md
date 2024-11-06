@@ -35,9 +35,7 @@ The service provides a built-in driver to enable connectivity, therefore you don
 
 The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
-The billing_on column property was removed from the following tables. For more information, see this [article](https://shopify.dev/docs/api/admin-rest/2024-07/resources/usagecharge).
-   - Recurring_Application_Charges
-   - UsageCharge
+Following Shopify's official deprecation, the billing_on column property was removed from the Recurring_Application_Charges and UsageCharge tables. 
 
 ## Getting started
 
