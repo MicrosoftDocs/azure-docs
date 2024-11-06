@@ -77,9 +77,9 @@ To enable authentication using access tokens:
 
     Follow the steps to [create an access token](./how-to-manage-access-tokens.md#generate-a-workspace-access-token). Copy the value of the access token generated.
 
-
-1. Set up your environment
 ::: zone pivot="playwright-test-runner"
+1. Set up your environment
+
     To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Make sure this environment variable is available in your setup where you are running tests.
 
     We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
@@ -101,7 +101,11 @@ To enable authentication using access tokens:
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
-To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Make sure this environment variable is available in your setup where you are running tests.
+
+1. Set up your environment
+
+    To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Make sure this environment variable is available in your setup where you are running tests.
+
 ::: zone-end
 
 ## Run tests on the service and publish results
