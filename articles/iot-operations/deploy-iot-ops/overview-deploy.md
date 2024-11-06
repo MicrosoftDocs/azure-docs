@@ -48,7 +48,7 @@ At any point, you can upgrade an Azure IoT Operations instance to use secure set
 
 A deployment with secure settings:
 
-* Enables secrets and user-assignment managed identity, which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow endpoint.
+* Enables secrets and user-assignment managed identity, both of which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow endpoint.
 
 To deploy Azure IoT Operations with secure settings, follow these articles:
 
@@ -86,7 +86,7 @@ Azure IoT Operations is a suite of data services that run on Azure Arc-enabled e
 * Installed dependencies
   * [Azure Device Registry](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
   * [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview)
-  * Secret Sync Controller
+  * [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension)
 
 ## Organize instances by using sites
 
