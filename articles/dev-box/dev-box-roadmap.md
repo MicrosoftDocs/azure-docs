@@ -5,7 +5,7 @@ ms.service: dev-box
 ms.topic: concept-article
 author: Taysser-Gherfal
 ms.author: tagherfa
-ms.date: 08/26/2024
+ms.date: 11/06/2024
 
 #customer intent: As a customer, I want to understand upcoming features and enhancements in Microsoft Dev Box so that I can plan and optimize development and deployment strategies.
 
