@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 11/05/2024
+ms.date: 11/06/2024
 ms.author: cshoe
 ---
 
@@ -97,6 +97,13 @@ In this tutorial you:
 ## Use your GPU app
 
 From the *Overview* window, select the **Application Url** link to open the web app front end in your browser and generate an image.
+
+Once you've generated an image, use the following steps to view results of the GPU processing:
+
+1. Open your container app in the Azure portal
+1. From the *Monitoring* section select **Console**.
+1. Select your container app.
+1. TODO:
 
 ## Clean up resources
 
