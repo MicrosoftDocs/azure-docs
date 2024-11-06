@@ -140,7 +140,7 @@ The following sections show you how to set up Azure Database for MySQL - Flexibl
 The sample is a Java application backed by a MySQL database, and is deployed to the OpenShift cluster using Source-to-Image (S2I). For more information about S2I, see the [S2I Documentation](http://red.ht/eap-aro-s2i).
 
 > [!NOTE]
-> Since Azure Workload Identity is not supported by Azure OpenShift yet, instead of using passwordless database connections, we will still use username/password pair for database authentication.
+> Because Azure Workload Identity is not yet supported by Azure OpenShift, this article still uses username and password for database authentication instead of using passwordless database connections.
 
 Open a shell and set the following environment variables. Replace the substitutions as appropriate.
 
