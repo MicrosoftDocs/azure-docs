@@ -25,15 +25,15 @@ In this tutorial, you:
 - A variant feature flag. If you don't have a feature flag, see [Create a feature flag](./manage-feature-flags.md).
 - An Application Insights resource. If you don't have an Application Insights resource, see [Create an Application Insights resource](/azure/azure-monitor/app/create-workspace-resource).
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, connecting application insights.](./media/how-to-telemetry/connect-to-app-insights.png)
-
 ## Connect your App Configuration store to Application Insights
 
 1. Open your App Configuration store in the Azure portal.
 1. In the **Telemetry** section, select the **Application Insights (preview)** button.
 1. Select the subscription, resource group, and the Application Insights resource you want to connect to your App Configuration store.
 1. Select the **Connect** button.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, connecting application insights.](./media/how-to-telemetry/connect-to-app-insights.png)
 
 ## Add telemetry to a feature flag (preview)
 
@@ -58,3 +58,7 @@ In this tutorial, you:
 ## Next steps
 
 In this tutorial, you learned how to enable telemetry for feature flags in Azure App Configuration. To learn about how to use the telemetry data in your applications, continue to the following tutorial for your language or platform.
+
+> [!div class="nextstepaction"]
+> [Python](.howto-telemetry-python.md)
+>
