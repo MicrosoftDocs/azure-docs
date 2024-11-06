@@ -7,6 +7,7 @@ ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 11/06/2024
 ms.author: cshoe
+zone_pivot_groups: container-apps-gpu-container-source
 ---
 
 # Tutorial: Generate images using serverless GPUs in Azure Container Apps (preview)
@@ -66,14 +67,16 @@ In this tutorial you:
 
 1. In the *Container* window, enter the following values:
 
-    # [Preconfigured image](#tab/preconfigured)
+    ::: zone pivot="preconfigured"
 
     | Setting | Value |
     |---|---|
     | Use quickstart image | Select the checkbox. |
     | Quickstart image | Select **GPU hello world container**. |
 
-    # [Manual entry](#tab/manual)
+    ::: zone-end
+
+    ::: zone pivot="manual"
 
     | Setting | Value |
     |---|---|
@@ -86,7 +89,7 @@ In this tutorial you:
     | GPU | Select the checkbox. |
     | GPU Type | Select the **T4** option and select the link to add the profile to your environment. |
 
-    ---
+    ::: zone-end
 
     Select **Next: Ingress >**.
 
@@ -136,9 +139,6 @@ Use the following steps to set up the container in your own container registry a
 
 ### Use your container registry
 
-To pull an image from Microsoft's container registry (MCR) and then push it to Azure Container Registry (ACR), you can follow these steps:
-Log in to ACR
-
 1. Create a variable for your registry name.
 
     Before you run the following command, make sure to replace `<ACR_NAME>` with your registry name.
@@ -155,15 +155,39 @@ Log in to ACR
 
 1. Pull the image from Microsoft Container Registry.
 
+    ::: zone pivot="preconfigured"
+
+    ```bash
+    docker pull TODO:
+    ```
+
+    ::: zone-end
+
+    ::: zone pivot="manual"
+
     ```bash
     docker pull mcr.microsoft.com/k8se/gpu-quickstart:latest
     ```
 
+    ::: zone-end
+
 1. Tag the image for ACR.
+
+    ::: zone pivot="preconfigured"
+
+    ```bash
+    docker tag TODO: $ACR_NAME.azurecr.io/gpu-quickstart:latest
+    ```
+
+    ::: zone-end
+
+    ::: zone pivot="manual"
 
     ```bash
     docker tag mcr.microsoft.com/k8se/gpu-quickstart:latest $ACR_NAME.azurecr.io/gpu-quickstart:latest
     ```
+
+    ::: zone-end
 
 1. Push the image your container registry.
 
