@@ -43,7 +43,6 @@ Microsoft Dev Box can significantly enhance developer productivity by minimizing
 - [Cross clients multi-monitor settings](): as a developer, your multi-monitor settings will be shared consistently across RDP clients.
 - [Notification center for Developer Portal](): as a developer, you will get service notifications and updates right in the Developer Portal.
 - [Pin Dev Box to task view from Developer Portal](https://developercommunity.visualstudio.com/t/Ping-to-task-view-is-not-quite-working-f/10719957): as a developer, you can quickly access your Developer Box by pinning it to your Windows task view.
-- [GPU support](https://developercommunity.visualstudio.com/t/Siemens-Healthineers-When-Dev-Box-will/10282265): as a developer, you will be able to utilize GPU resources on supported Dev Box SKUs. 
 
 ## Enterprise management
 
@@ -54,7 +53,6 @@ Microsoft Dev Box aims to deliver centralized governance based on organizational
 - [In product prerequisites](): as a dev center admin, you will get a dynamic prerequisites page that highlights any missing requirements and helps you track the progress you are making in setting up the Dev Box service.
 - [New Supported Regions](): as a dev center admin, you will be able to enable your development team to create dev boxes in new regions including [UAE North](https://developercommunity.visualstudio.com/t/Support-for-Dev-Box-in-UAE-North/10781448) and [Spain Central](https://developercommunity.visualstudio.com/t/Dev-Box-support-in-Spain-Central/10781449).
 - [Expand IPs within existing subnets](https://developercommunity.visualstudio.com/t/Expand-IPs-within-existing-Subnets-in-a/10781464): as a dev center admin, you will be able to expand IP ranges in subnets that are running out of IP addresses.
-- [Guest Account](https://developercommunity.visualstudio.com/t/Enable-Guest-accountsVendors-to-access-/10290470): as a dev center admin, securely onboard and support external teams and contractors to your Dev Box service.
 - [RRS Integration into QMS](https://developercommunity.visualstudio.com/t/Automatically-approve-higher-amounts-of/10781465): as a dev center admin for a trusted customer, you will be able to request and get larger amount of quota automatically approved through QMS.
 
 **Enhanced monitoring and cost controls capabilities**
@@ -78,7 +76,6 @@ Microsoft Dev Box aims to provide a "like-local" developer experience that is as
 - [Single Sign On (SSO)](https://developercommunity.visualstudio.com/t/Enable-single-sign-on-for-dev-boxes/10720478): as a developer, you no longer need to provide your sign-in credentials every time you access your Dev Box.
 - [Visual Studio 2022 RDP optimizations](https://developercommunity.microsoft.com/t/VS-and-VS-Code-optimizations-for-Dev-Box/10720946): as a developer, type and navigate your code without any noticeable latency.
 - [Auto network repair](https://developercommunity.visualstudio.com/t/Enable-Network-Adapter-after-wrongly-dis/10656306): as a developer, if you lose connectivity to your Dev Box due to miss configuring your Dev Box network adapter, Dev Box will automatically reset your network connection.
-- [Simple Multiple Independent Links Evaluation & Switching](https://developercommunity.microsoft.com/t/Reliable-Connectivity-to-Dev-Box/10720996) [(SMILES):](https://developercommunity.microsoft.com/t/Reliable-Connectivity-to-Dev-Box/10720996) as a developer, you get an uninterrupted reliable Dev Box connection by automatically switching to backup links as needed without disconnecting your active session.
 - [Azure region optimizations based on user locations:](https://developercommunity.visualstudio.com/t/Move-VM-to-different-poolregion/10277787) as a developer, easily create your new Dev Box in an optimal region based on your location. As a dev center admin, optimize the location of existing Dev Boxes based on end user location and available capacity. 
 
 **Service health & reliability**
