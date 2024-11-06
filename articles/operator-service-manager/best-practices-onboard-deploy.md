@@ -274,18 +274,20 @@ The component name is defined in the NFDV:
 
 ## Cleanup considerations
 
-Delete operator resources in the following order to make sure no orphaned resources are left behind:
-
+### Operator Resources
+As the first step towards cleaning up a deployed environment, start by deleting operator resources in the following order.
 - SNS
 - Site
 - CGV
 
+Only once these operator resources are succesfully deleted, should a user proceed to delete other environment resources, such as the NAKS cluster.
+
 > [!IMPORTANT]
-> Make sure SNS is deleted before you delete the NFDV.
+> Deleting resources out of order can result in orphaned resources are left behind.
 
-Delete publisher resources in the following order to make sure no orphaned resources are left behind:
+### Publisher Resources
+As the first step towards cleaning up an onboarded environment, start by deleting publisher resources in the following.
 
-- CGS
 - NSDV
 - NSDG
 - NFDV
@@ -293,6 +295,10 @@ Delete publisher resources in the following order to make sure no orphaned resou
 - Artifact Manifest
 - Artifact Store
 - Publisher
+
+> [!IMPORTANT]
+> Deleting resources out of order can result in orphaned resources are left behind.
+> Make sure SNS is deleted before you delete the NFDV.
 
 ## Considerations if your NF runs cert-manager
 
