@@ -114,10 +114,11 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Storage Static Website
 * Application Gateway (Preview only in PowerShell and CLI. Don't use in production environments)
 * API Management (Preview only in PowerShell and CLI. Don't use in production environments)
+* Azure Container Apps (Preview only in Powershell and CLI. Don't use in production environments)
 
 > [!NOTE]
 > * This feature isn't supported with Azure App Service Slots or Functions.
-> * Azure Application Gateway and APIM Management integrations are currently not supported using the Azure portal.
+> * Azure Application Gateway, APIM Management, and Azure Container Apps integrations are currently not supported using the Azure portal.
 
 The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint.
 
@@ -128,4 +129,5 @@ The Azure Front Door Private Link feature is region agnostic but for the best la
 * Learn how to [connect Azure Front Door Premium to an internal load balancer origin with Private Link](standard-premium/how-to-enable-private-link-internal-load-balancer.md).
 * Learn how to [connect Azure Front Door Premium to a storage static website origin with Private Link](how-to-enable-private-link-storage-static-website.md).
 * Learn how to [connect Azure Front Door Premium to an application gateway origin with Private Link](how-to-enable-private-link-application-gateway.md).
-* Learn how to [connect Azure Front Door Premium to an API Management origin with Private Link](standard-premium/how-to-enable-private-link-apim.md)
+* Learn how to [connect Azure Front Door Premium to an API Management origin with Private Link](standard-premium/how-to-enable-private-link-apim.md).
+* Learn how to [connect Azure Front Door Premium to an Azure Container Apps origin with Private Link](JasonsTutorial.md).

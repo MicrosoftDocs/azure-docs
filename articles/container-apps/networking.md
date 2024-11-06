@@ -37,18 +37,18 @@ The available VNet features depend on your environment selection.
 
 Container Apps has two different [environment types](environment.md#types), which share many of the same networking characteristics with some key differences.
 
-| Environment type | Description | Supported plan types |
+| Environment type | Supported plan types | Description | 
 |---|---|---|
-| Workload profiles | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is `/27`. | Consumption, Dedicated |
-| Consumption only | Doesn't support user defined routes (UDR), egress through NAT Gateway, peering through a remote gateway, or other custom egress. The minimum required subnet size is `/23`. | Consumption |
+| Workload profiles | Consumption, Dedicated | Supports user defined routes (UDR), egress through NAT Gateway, and creating private endpoints on the container app environment. The minimum required subnet size is `/27`. | 
+| Consumption only | Consumption | Doesn't support user defined routes (UDR), egress through NAT Gateway, peering through a remote gateway, or other custom egress. The minimum required subnet size is `/23`. | 
 
-## Accessibility levels
+## Virtual IP
 
-You can configure whether your container app allows public ingress or ingress only from within your VNet at the environment level.
+Depending on your virtual IP configuration, you can control whether your container app environment allows public ingress or ingress only from within your VNet at the environment level. This configuration is not modifiable after your environment is created.
 
 | Accessibility level | Description |
 |---|---|
-| [External](vnet-custom.md) | Allows your container app to accept public requests. External environments are deployed with a virtual IP on an external, public facing IP address. |
+| [External](vnet-custom.md) | Allows your container app to accept public requests. External environments are deployed with a virtual IP on an external, internet-accessible IP address. |
 | [Internal](vnet-custom-internal.md) | Internal environments have no public endpoints and are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNet's list of private IP addresses. |
 
 ## Custom VNet configuration
@@ -266,7 +266,49 @@ You can use NAT Gateway to simplify outbound connectivity for your outbound inte
 
 When you configure a NAT Gateway on your subnet, the NAT Gateway provides a static public IP address for your environment. All outbound traffic from your container app is routed through the NAT Gateway's static public IP address.
 
+### Public network access (preview)
+
+The public network access setting determines whether your container app is accesible from the public internet, and it is modifiable post-create depending on your environment's virtual IP configuration on create. 
+
+| Virtual IP | Supported public network access | Description |
+|--|--|--|
+| External | `Enabled`, `Disabled`  | The container app environment was created with an internet-accessible endpoint, and the public network access configuration determines whether or not traffic can be accepted through the public endpoint or only through private endpoints. |
+| Internal | `Disabled` | The container app environment was created without an internet-accessible endpoint, so the public network access configuration cannot be modified to accept traffic from the internet. |
+
+In order to create private endpoints on your Azure Container App environment, public network access must be set to `Disabled`.
+
+Azure networking policies are supported with the public network access flag.
+
+### Private endpoint (preview)
+
+> [!NOTE]
+> This feature is supported for all public regions. Government and China regions are not supported.
+
+Azure Private Endpoint enables clients located in your private network to connect to your Azure Container Apps environment through Azure Private Link, eliminating exposure to the public internet and securing access to your applications. Private Endpoints use a private IP address in your Azure virtual network address space. 
+
+This feature is supported for both Consumption and Dedicated plans in workload profile environments.
+
+Tutorials:
+- To learn more about how to configure private endpoints in Azure Container Apps, see the [tutorial on using private endpoitns with an Azure Container Apps Environment](JasonsPEtutorial).
+- Private link connectivity with Azure Front Door is supported for Azure Container Apps. [Follow the tutorial to learn more](/JasonsLink).
+
+Considerations:
+- Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic is not supported.
+- Private link with Azure Front Door is supported for Azure Container Apps. For instructions, see here.
+- When using private endpoints and using custom domains, the setup is slightly different when configuring using *Apex domain* as the *Hostname record type*. When configuring your custom domain with CNAME, the setup is unchanged. [See the tutorial](/custom-domain-certificates.md).
+- The virtual network the private endpoint is created in can be separate from the virtual network your app is integrated with.
+- You can add a private endpoint to both new and existing workload profile environments.
+
+In order to successfully connect to your container apps through a private endpoint, it is important to correctly configure your private DNS zone. The following is important information for setting up your private DNS zone:
+
+| Service | subresource | Private DNS zone name |
+|--|--|--|
+| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | privatelink.{regionName}.azurecontainerapps.io |
+
 ### Environment security
+
+> [!NOTE]
+> For controlling ingress traffic, you can alternatively use private endpoints with a private connection to AFD in place of Application Gateway. For instructions, see the tuorial here.
 
 :::image type="content" source="media/networking/locked-down-network.png" alt-text="Diagram of how to fully lock down your network for Container Apps.":::
 
