@@ -52,7 +52,7 @@ For machines that run SQL Server where guest management is enabled, the Azure Ex
 
 - Use Azure Resource Graph queries:
 
-  - You can use the query [List Arc-enabled SQL Server instances subscribed to ESU](/sql/sql-server/azure-arc/manage-configuration&tabs=azure&branch=main#list-arc-enabled-sql-server-instances-subscribed-to-esu) as an example to show how you can view eligible SQL Server ESU instances and their ESU subscription status.
+  - You can use the query [List Arc-enabled SQL Server instances subscribed to ESU](/sql/sql-server/azure-arc/manage-configuration?tabs=azure&branch=main#list-arc-enabled-sql-server-instances-subscribed-to-esu) as an example to show how you can view eligible SQL Server ESU instances and their ESU subscription status.
     
 ### Windows Server
 
