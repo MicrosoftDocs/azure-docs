@@ -13,7 +13,7 @@ ms.author: cshoe
 
 Azure Container Apps is a fully managed service where platform and infrastructure updates are regularly and automatically applied to both components and environments. The Container Apps update system is designed to minimize the effect on performance of your apps during updates. By defining maintenance windows, you can designate the most advantageous times for your application.
 
-Defining a maintenance window allow you to decide the range of time when noncritical updates are applied to your Container Apps environment.
+Defining a maintenance window allows you to decide the range of time when noncritical updates are applied to your Container Apps environment.
 
 The following table describes the difference between the timing in how *critical* and *noncritical* updates are applied to your environment.
 
@@ -109,6 +109,7 @@ If you have a maintenance window configured, you can see the results of maintena
 Use the following steps to review the maintenance history in the Azure portal.
 
 1. Open your Container Apps environment in the Azure portal.
+
 1. Select **Diagnose and solve problems**.
 
 In the *Diagnose and solve problems* window, you can view the configured maintenance window and upgrade events that occurred in the last month. As you hover your mouse over the bars in the chart, you can see the start time for each upgrade event.
