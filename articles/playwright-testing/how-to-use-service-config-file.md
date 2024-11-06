@@ -93,7 +93,7 @@ export default defineConfig(
       ```
 
 * **`runId`**:
-    - **Description**: This setting allows you to set a unique ID for every test run to distinguish them in the service portal.
+    - **Description**: This setting allows you to set a unique ID for every test run to distinguish them in the service portal. Using the same runId for multiple test runs results in error. 
     - **Example**:
       ```typescript
       runId: new Date().toISOString()
@@ -236,7 +236,7 @@ Here's version of the `.runsettings` file with all the available options:
       ```
 
 * **`runId`**:
-    - **Description**: This setting allows you to set a unique ID for every test run to distinguish them in the service portal.
+    - **Description**: This setting allows you to set a unique ID for every test run to distinguish them in the service portal. Using the same runId for multiple test runs results in error. If you don't set it, the service package will generate a unique ID every time you trigger a test run.
     - **Example**:
       ```xml
       <Parameter name="RunId" value="sample-run-id1" />
@@ -258,7 +258,7 @@ Here's version of the `.runsettings` file with all the available options:
       ```   
 
 * **`reporter`**
-    - **Description**: You can publish your test results and artifacts to the service using `microsoft-playwright-testing` logger. You can disable reporting by removing this from your `.runsettings`
+    - **Description**: You can publish your test results and artifacts to the service using `microsoft-playwright-testing` logger. You can disable reporting by removing this from your `.runsettings` or by setting it to false. 
     - **Default Value**: true
     - **Example**:
       ```xml

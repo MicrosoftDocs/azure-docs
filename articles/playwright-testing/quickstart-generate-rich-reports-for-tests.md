@@ -4,6 +4,8 @@ description: 'This quickstart shows how to troubleshoot your test runs using Mic
 ms.topic: quickstart
 ms.date: 09/23/2024
 ms.custom: playwright-testing-preview
+zone_pivot_group_filename: playwright-testing/ZonePivotGroups.json
+zone_pivot_groups: microsoft-playwright-testing
 ---
 
 # Quickstart: Troubleshoot tests with Microsoft Playwright Testing Preview
@@ -44,12 +46,15 @@ To get started with publishing test results on Playwright Testing service, first
 When the workspace creation finishes, you're redirected to the setup guide.
 
 ## Install Microsoft Playwright Testing package 
+::: zone pivot="playwright-test-runner"
 
 To use the service, install the Microsoft Playwright Testing package. 
 
 ```npm
 npm init @azure/microsoft-playwright-testing
 ```
+> [!NOTE]
+> Make sure your project uses `@playwright/test` version 1.47 or above.
 
 This command generates `playwright.service.config.ts` file which serves to:
 
@@ -75,6 +80,47 @@ export default defineConfig(
 ```
 Setting the value as `false` ensures that cloud-hosted browsers aren't used to run the tests. The tests run on your local machine but the results and artifacts are published on the service. 
 
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+To use the service, install Microsoft Playwright Testing package. 
+
+```PowerShell
+dotnet add package Azure.Developer.MicrosoftPlaywrightTesting.NUnit --prerelease
+```
+
+> [!NOTE]
+> Make sure your project uses `Microsoft.Playwright.NUnit` version 1.47 or above.
+
+To use only reporting feature, update the following in the `.runsettings` file of your project:
+1. Disable cloud-hosted browsers by setting `useCloudHostedBrowsers` as false. 
+2. Add Microsoft Playwright Testing logger in `Loggers' section. 
+
+```xml
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+    <TestRunParameters>        
+        <!--Select if you want to use cloud-hosted browsers to run your Playwright tests.-->
+        <Parameter name="UseCloudHostedBrowsers" value="true" />
+        <!--Select the authentication method you want to use with Entra-->
+    </TestRunParameters> 
+ .
+ .
+ .
+    <LoggerRunSettings>
+        <Loggers>
+            <!--Microsoft Playwright Testing service logger for reporting -->
+            <Logger friendlyName="microsoft-playwright-testing" enabled="True" />
+            <!--could enable any logger additionally -->
+            <Logger friendlyName="trx" enabled="false" />
+        </Loggers>
+    </LoggerRunSettings>
+</RunSettings>
+
+```
+::: zone-end
+
 > [!TIP]
 > If you wish to accelerate your test run using cloud-hosted browser, you can set `useCloudHostedBrowsers` as true. This will run your tests on the service managed browsers.
 
@@ -82,13 +128,15 @@ Setting the value as `false` ensures that cloud-hosted browsers aren't used to r
 
 In your setup, you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
 
-To get the service endpoint URL:
+To get the service endpoint URL, perform the following steps:
 
 1. In **Add region endpoint in your setup**, copy the region endpoint for your workspace.
 
-    The endpoint URL matches the Azure region that you selected when creating the workspace.
+    The endpoint URL matches the Azure region that you selected when creating the workspace. Make sure this URL is available in `PLAYWRIGHT_SERVICE_URL` environment variable.
 
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png" alt-text="Screenshot that shows how to copy the workspace region endpoint in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png":::
+
+::: zone pivot="playwright-test-runner"
 
 ## Set up your environment
 
@@ -110,6 +158,26 @@ We recommend that you use the `dotenv` module to manage your environment. With `
 
     Make sure to replace the `{MY-REGION-ENDPOINT}` text placeholder with the value you copied earlier.
 
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+## Set up service configuration 
+
+Create a file `PlaywrightServiceSetup.cs` in the root directory with the following content. 
+
+```csharp
+using Azure.Developer.MicrosoftPlaywrightTesting.NUnit;
+
+namespace PlaywrightTests; // Remember to change this as per your project namespace
+
+[SetUpFixture]
+public class PlaywrightServiceSetup : PlaywrightServiceNUnit {};
+```
+
+> [!NOTE]
+> Make sure your project uses `Microsoft.Playwright.NUnit` version 1.47 or above.
+
+::: zone-end
 
 ## Set up authentication
 
@@ -141,17 +209,32 @@ You can generate an access token from your Playwright Testing workspace and use 
 > We strongly recommend using Microsoft Entra ID for authentication to the service. If you are using access tokens, see [How to Manage Access Tokens](./how-to-manage-access-tokens.md)
 
 ## Enable artifacts in Playwright configuration 
-In the `playwright.config.ts` file of your project, make sure you're collecting all the required artifacts.
+::: zone pivot="playwright-test-runner"
+
+In the `playwright.config.ts` file of your project, make sure you are collecting all the required artifacts.
 ```typescript
   use: {
     trace: 'on-first-retry',
     video:'retain-on-failure',
     screenshot:'on'
-  },
+  }
 ```
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+Enable artifacts such as screenshot, videos and traces to be captured by Playwright. 
+- For screenshots, see [capture screenshots](https://playwright.dev/dotnet/docs/screenshots#introduction)
+- For videos, see [record videos for your tests](https://playwright.dev/dotnet/docs/videos#introduction)
+- For traces, see [recording a trace](https://playwright.dev/dotnet/docs/trace-viewer-intro#recording-a-trace)
+
+Once you collect these artifacts, make sure you attach them to the test path. For more information and example, see [sample configuration for NUnit](https://aka.ms/mpt/nunit-sample)
+
+::: zone-end
 
 ## Run your tests and publish results on Microsoft Playwright Testing
 
+::: zone pivot="playwright-test-runner"
 You've now prepared the configuration for publishing test results and artifacts with Microsoft Playwright Testing. Run tests using the newly created `playwright.service.config.ts` file and publish test results and artifacts to the service.
 
  ```bash
@@ -168,6 +251,37 @@ Running 6 test using 2 worker
     
 Test report: https://playwright.microsoft.com/workspaces/<workspace-id>/runs/<run-id>
 ```
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+You've now prepared the configuration for publishing test results and artifacts with Microsoft Playwright Testing. Run tests using the `.runsettings` file and publish test results and artifacts to the service.
+
+```bash
+dotnet test --settings:.runsettings
+```
+
+The settings for your test run is defined in `.runsettings` file. See [how to use service package options](./how-to-use-service-config-file.md#options-in-runsettings-file)
+
+> [!NOTE]
+> For the Reporting feature of Microsoft Playwright Testing, you get charged based on the number test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with publishing single test result instead of your full test suite to avoid exhausting your free trial limits.
+
+After the test run completes, you can view the test status in the terminal.
+
+```output
+Starting test execution, please wait...
+
+Initializing reporting for this test run. You can view the results at: https://playwright.microsoft.com/workspaces/<workspace-id>/runs/<run-id>
+
+A total of 100 test files matched the specified pattern.
+
+Test Report: https://playwright.microsoft.com/workspaces/<workspace-id>/runs/<run-id>
+
+Passed!  - Failed:     0, Passed:     100, Skipped:     0, Total:     100, Duration: 10 m - PlaywrightTestsNUnit.dll (net7.0)
+
+Workload updates are available. Run `dotnet workload list` for more information.
+```
+::: zone-end
 
 > [!CAUTION]
 > Depending on the size of your test suite, you might incur additional charges for the test results beyond your allotted free test results.

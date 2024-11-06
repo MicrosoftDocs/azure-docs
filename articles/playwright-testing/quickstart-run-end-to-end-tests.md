@@ -165,6 +165,9 @@ Enable artifacts such as screenshot, videos and traces to be captured by Playwri
 - For screenshots, see [capture screenshots](https://playwright.dev/dotnet/docs/screenshots#introduction)
 - For videos, see [record videos for your tests](https://playwright.dev/dotnet/docs/videos#introduction)
 - For traces, see [recording a trace](https://playwright.dev/dotnet/docs/trace-viewer-intro#recording-a-trace)
+
+Once you collect these artifacts, make sure you attach them to the test path. For more information, see our [sample](https://aka.ms/mpt/nunit-sample)
+
 ::: zone-end
 
 ## Run your tests at scale and troubleshoot easily with Microsoft Playwright Testing
@@ -307,9 +310,13 @@ To run your Playwright test suite in Visual Studio Code with Microsoft Playwrigh
 Run Playwright tests against browsers managed by the service and see the results in the unified portal using the configuration you created above. 
 
 ```bash
-dotnet test --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
+dotnet test --settings:.runsettings --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
 ```
+
+The settings for your test run is defined in `.runsettings` file. See [how to use service package options](./how-to-use-service-config-file.md#options-in-runsettings-file)
+
 After the test run completes, you can view the test status in the terminal.
+
 
 ```output
 Starting test execution, please wait...
@@ -345,7 +352,13 @@ Once your tests are running smoothly with the service, experiment with varying t
 
 With Microsoft Playwright Testing, you can run with up to 50 parallel workers. Several factors influence the best configuration for your project, such as the CPU, memory, and network resources of your client machine, the target application's load-handling capacity, and the type of actions carried out in your tests.
 
+::: zone pivot="playwright-test-runner"
 You can specify the number of parallel workers on the Playwright CLI command-line, or configure the `workers` property in the Playwright service configuration file.
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+You can specify the number of parallel workers on the Playwright CLI command-line, or configure the `NumberOfTestWorkers` property in the `.runsettings` file.
+::: zone-end
 
 Learn more about how to [determine the optimal configuration for optimizing test suite completion](./concept-determine-optimal-configuration.md).
 
