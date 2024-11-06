@@ -294,8 +294,6 @@
           href: vnet-custom.md
         - name: Deploy with an internal environment
           href: vnet-custom-internal.md
-        - name: Use a private endpoint (preview)
-          href: how-to-use-private-endpoint.md
     - name: Ingress
       items:
         - name: Overview
@@ -325,6 +323,8 @@
           href: user-defined-routes.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
+        - name: Use a private endpoint
+          href: how-to-use-private-endpoint.md
     - name: Use a custom VNET
       href: vnet-custom.md
 - name: Languages and runtimes

@@ -13,7 +13,7 @@ zone_pivot_groups: azure-cli-or-portal
 
 # Use a private endpoint with an Azure Container Apps environment
 
-The following example shows you how to use a private endpoint with a Container Apps environment.
+A private endpoint is a network interface that uses a private IP address from your virtual network (VNet). This network interface connects you privately and securely to a service that's powered by [Azure Private Link](https://learn.microsoft.com/en-us/azure/private-link/private-link-overview). The following example shows you how to use a private endpoint to securely access your Container Apps environment without exposing it to the public Internet.
 
 ::: zone pivot="azure-portal"
 
@@ -62,20 +62,11 @@ Next, create an environment for your container app.
 
 1. Select the **Networking** tab to create a virtual network (VNet). By default, public network access is enabled, which means private endpoints are disabled.
 
-   :::image type="content" source="media/private-endpoints/private-endpoint-create-environment-1.png" alt-text="By default, public network access is enabled.":::
-
-   :::image type="content" source="media/private-endpoints/private-endpoint-create-environment-2.png" alt-text="If public network access is enabled, private endpoints are disabled.":::
-
 1. Disable public network access.
 
-   :::image type="content" source="media/private-endpoints/private-endpoint-create-environment-3.png" alt-text="Disable public network access.":::
+1. Leave **Use your own virtual network** set to **No**. You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
-1. Leave **Use your own virtual network** set to **No**.
-
-    > [!NOTE]
-    > You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps when using the Consumption only Architecture. When using a workload profiles environment, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet). To learn more about using an existing virtual network, see [Deploy with an external environment](./vnet-custom.md) or [Deploy with an internal environment](./vnet-custom-internal.md).
-
-1. Enable private endpoints.
+1. Set *Enable private endpoints* to **Yes**.
 
 1. Set **Private endpoint name** to **my-private-endpoint**.
 
@@ -88,8 +79,6 @@ Next, create an environment for your container app.
 1. In the *Create Subnet* page, set **Subnet Name** to **my-private-endpoint-vnet-subnet**. Select **OK**.
 
 1. Leave *DNS* set to **Azure Private DNS Zone**.
-
-   :::image type="content" source="media/private-endpoints/private-endpoint-create-environment-4.png" alt-text="Enable private endpoints.":::
 
 1. Select **Create**.
 
@@ -110,25 +99,14 @@ In the *Create Container App* page on the *Container* tab, select **Use quicksta
 
 - Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
-- The latest version of the [Azure CLI](/cli/azure/install-azure-cli).
 
-## Setup
-
-1. To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
-
-    ```azurecli
-    az login
-    ```
-
-1. To ensure you're running the latest version of the CLI, run the upgrade command.
+- The latest version of the [Azure CLI](/cli/azure/install-azure-cli). To ensure you're running the latest version, run the following command.
 
     ```azurecli
     az upgrade
     ```
 
-1. Install or update the Azure Container Apps extension for the CLI.
-
-    If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI, be sure you have the latest version of the Azure Container Apps extension installed.
+- The latest version of the Azure Container Apps extension for the Azure CLI. To ensure you're running the latest version, run the following command.
 
     ```azurecli
 	az extension add --name containerapp --upgrade --allow-preview true
@@ -137,19 +115,7 @@ In the *Create Container App* page on the *Container* tab, select **Use quicksta
     > [!NOTE]
     > Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](./whats-new.md), install the Container Apps extension with `--allow-preview true`.
 
-1. Register the `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.ContainerService` namespaces.
-
-    ```azurecli
-    az provider register --namespace Microsoft.App
-    ```
-
-    ```azurecli
-    az provider register --namespace Microsoft.OperationalInsights
-    ```
-
-    ```azurecli
-    az provider register --namespace Microsoft.ContainerService
-    ```
+For more information about prerequisites and setup, see [Quickstart: Deploy your first container app with containerapp up](./get-started?tabs=bash)
 
 ## Set environment variables
 
@@ -182,10 +148,7 @@ az group create \
 
 An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
-Now create an Azure virtual network (VNet) to associate with the Container Apps environment. The VNet must have a subnet available for the environment deployment.
-
-> [!NOTE]
-> Network subnet address prefix requires a minimum CIDR range of `/23` for use with Container Apps when using the Consumption only Architecture. When using the Workload Profiles Architecture, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+Now create an Azure virtual network (VNet) to associate with the Container Apps environment. The VNet must have a subnet available for the environment deployment. You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
 ```azurecli
 az network vnet create \
@@ -208,12 +171,12 @@ az network vnet subnet create \
 Retrieve the subnet ID. You use this to create the private endpoint.
 
 ```azurecli
-SUBNET_ID=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id"`
+SUBNET_ID=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" --output tsv`
 ```
 
 ## Create an environment
 
-Create the Container Apps environment using the VNet deployed in the preceding steps.
+Create the Container Apps environment using the VNet deployed in the preceding steps. Private endpoints are only supported by workload profiles environments, which is the default type for new environments.
 
 ```azurecli
 az containerapp env create \
@@ -225,13 +188,19 @@ az containerapp env create \
 Retrieve the environment ID. You use this to configure the environment.
 
 ```azurecli
-ENVIRONMENT_ID=`az containerapp env show --resource-group ${RESOURCE_GROUP} --name ${ENVIRONMENT_NAME} --query "id"`
+ENVIRONMENT_ID=`az containerapp env show \
+    --resource-group ${RESOURCE_GROUP}
+    --name ${ENVIRONMENT_NAME} \
+    --query "id" \
+    --output tsv`
 ```
 
 Disable public network access for the environment. This is needed to enable private endpoints.
 
 ```azurecli
-az containerapp env update --id ${ENVIRONMENT_ID} --public-network-access Disabled
+az containerapp env update \
+    --id ${ENVIRONMENT_ID} \
+    --public-network-access Disabled
 ```
 
 ## Create a private endpoint
@@ -264,7 +233,7 @@ PRIVATE_ENDPOINT_IP_ADDRESS=`az network private-endpoint show \
 Retrieve the environment default domain. You use this to add a DNS record to your private DNS zone.
 
 ```azurecli
-DNS_RECORD_NAME=`az containerapp env show --id ${ENVIRONMENT_ID} --query 'properties.defaultDomain' | sed 's/\..*//'`
+DNS_RECORD_NAME=`az containerapp env show --id ${ENVIRONMENT_ID} --query 'properties.defaultDomain' --output tsv | sed 's/\..*//'`
 ```
 
 Create a private DNS zone.
@@ -292,7 +261,7 @@ Add a record for your private endpoint to your private DNS zone.
 az network private-dns record-set a add-record \
     --resource-group $RESOURCE_GROUP \
     --zone-name $PRIVATE_DNS_ZONE \
-    --record-set-name $RECORD_NAME \
+    --record-set-name $DNS_RECORD_NAME \
     --ipv4-address $PRIVATE_ENDPOINT_IP_ADDRESS
 ```
 
@@ -338,11 +307,11 @@ In the *Create a virtual machine* page on the *Basics* tab, enter the following 
 |---|---|
 | Subscription | Select your Azure subscription. |
 | Resource group | Select **my-container-apps**. |
-| Virtual machine name | Enter **my-virtual-machine**. |
+| Virtual machine name | Enter **azurevm**. |
 | Region | Select **Central US**. |
 | Availability options | Select **No infrastructure redundancy required**. |
 | Security type | Select **Standard**. |
-| Image | Select **Windows Server 2022 Datacenter : Azure Edition - x64 Gen2 **. |
+| Image | Select **Windows Server 2022 Datacenter : Azure Edition - x64 Gen2**. |
 | Username | Enter **azureuser**. |
 | Password | Enter a password. |
 | Confirm password | Enter the password again. |
@@ -374,7 +343,7 @@ In the *Networking* tab, enter the following values.
 Set the following environment variables.
 
 ```azurecli
-VM_NAME="my-virtual-machine"
+VM_NAME="azurevm"
 VM_ADMIN_USERNAME="azureuser"
 ```
 
