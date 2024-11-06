@@ -1,6 +1,6 @@
 ---
 title: Export data for Microsoft Azure Data Box V2
-description: Learn how to quickly export your Azure Data Box V2 data in Azure portal
+description: Learn how to quickly export data to your Azure Data Box next gen device in Azure portal
 services: databox
 author: stevenmatthew
 ms.service: azure-databox
@@ -11,7 +11,7 @@ ms.custom: mode-other
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 
-# Quickstart: Get started with Azure Data Box V2 to export data from Azure
+# Quickstart: Get started with Azure Data Box to export data from Azure
 
 This quickstart describes how to export data out of Azure into your location using the Azure portal. The steps include how to cable, configure, and copy data from Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
@@ -27,12 +27,13 @@ Before you begin:
   * Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/).
 
 * Ensure that you have owner or contributor access to the subscription to create a Data Box order.
+* You have [registered the Microsoft.DataBox resource provider](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) against this subscription in the Azure portal. 
 * Review the [safety guidelines for your Data Box](data-box-safety.md).
 * You have an Azure Data Box device to move data to your location. Your host computer must
   * Run a [Supported operating system](data-box-system-requirements.md).
   * Be connected to high-speed network. We recommend that you have at least one 100-GbE connection. If a 100-GbE connection isn't available,  10-GbE or 1-GbE data link can be used but the copy speeds are impacted.   
 * You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
-* You've procured the following cables to connect your Data Box to the host computer.
+* You've procured the following cables to connect your Data Box to the host computer. These are recommended, however, the next generation devices will work with 10G cables too.
   * 2 x 10G-BaseT RJ-45 cables (CAT-5e or CAT6)
   * 2 x 100-GbE QSFP28 passive direct attached cable (use with DATA 1, DATA 2 network interfaces)  
 
@@ -46,7 +47,7 @@ This step takes roughly 10 minutes.
 
 1. Create a new Azure Data Box resource in Azure portal.
 2. Select an existing subscription enabled for this service and choose transfer type as **Export to Azure**. Provide the **Source Azure region** where the data resides and **Destination country** for the data transfer.
-3. Select **Data Box**. The maximum usable capacity is 120/525 TB and you can create multiple orders for larger data sizes.
+3. Select **Data Box**. The maximum usable capacity is 120 TB or 525 TB and you can create multiple orders for larger data sizes.
 4. Select **Add storage account and export type** and then **Select Export option**.
 5. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
@@ -97,11 +98,12 @@ The time to complete this operation depends upon your data size and network spee
 This operation takes about 10-15 minutes to complete.
 
 1. Go to **Prepare to ship** page in the local web UI and start the ship preparation.
-2. Turn off the device from the local web UI. Remove the cables from the device.
-3. Spool and securely place the power cord that was provided with device in the back of the device.
-4. The return shipping label should be visible on the E-ink display. If the E-ink display isn't displaying the label, download the shipping label from the Local UI and affix on the device.
-5. Schedule a pickup with your regional carrier if returning the device.
-6. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
+2. Download and print the return shipping label when preparation is complete.
+3. Turn off the device from the local web UI. Remove the cables from the device.
+4. Spool and securely place the power cord that was provided with device in the back of the device.
+5. Pack the device in the original box and secure firmly. Paste the return shipping label on the box and remove any previous labels and barcode stickers from the external packaging.
+6. Follow local return shipping instructions and ship the device back to Microsoft. 
+7. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
 ## Clean up resources
 
