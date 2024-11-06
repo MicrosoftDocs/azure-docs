@@ -97,6 +97,8 @@
       href: private-dns-privatednszone.md
     - name: Private DNS records
       href: dns-private-records.md
+    - name: DNS security policy
+      href: dns-security-policy.md
     - name: Virtual network links
       href: private-dns-virtual-network-links.md
     - name: Autoregistration
@@ -173,6 +175,8 @@
       href: dns-custom-domain.md
   - name: Private DNS
     items:
+    - name: Filter and view DNS traffic
+      href: dns-traffic-log-how-to.md
     - name: Protect private DNS zones and records
       href: dns-protect-private-zones-recordsets.md
     - name: Import and export a DNS zone file
