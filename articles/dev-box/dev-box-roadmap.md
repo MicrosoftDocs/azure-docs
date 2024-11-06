@@ -34,7 +34,6 @@ Microsoft Dev Box can significantly enhance developer productivity by minimizing
 **Enhanced user provided customizations**
 
 - [Native support for WinGet & DSC](https://developercommunity.visualstudio.com/t/I-would-like-my-Dev-Box-to-run-Winget-an/10719983): all Dev Boxes will be able to use WinGet and DSC to install packages and apply configurations, without requiring a catalog to be attached.
-- [VS Code extension enhancements](https://developercommunity.visualstudio.com/t/I-would-like-to-use-Dev-Box-customizatio/10719976): as a project lead, a dev center admin or a developer, you will get Copilot assistance when creating and validating your Dev Box customizations.
 
 **Developer onboarding & experience**
 
