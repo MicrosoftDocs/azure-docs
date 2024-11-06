@@ -118,7 +118,7 @@ export default defineConfig(
 
 ```
 
-* **`useCloudHostedBrowsers`**
+* **`UseCloudHostedBrowsers`**
     - **Description**: This setting allows you to choose whether to use cloud-hosted browsers or the browsers on your client machine to run your Playwright tests. If you disable this option, your tests run on the browsers of your client machine instead of cloud-hosted browsers, and you don't incur any charges.
     - **Default Value**: true
     - **Example**:

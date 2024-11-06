@@ -68,19 +68,20 @@ To enable authentication using access tokens:
     ```xml
     <TestRunParameters>
         <!-- Use this option when you want to authenticate using access tokens. This mode of auth should be enabled for the workspace. -->
-         <Parameter name="ServiceAuthType" value="EntraId" />
+         <Parameter name="ServiceAuthType" value="AccessToken" />
     </TestRunParameters>
     ```
 ::: zone-end
 
 1. Create access token 
 
-    Follow the steps to [create an access token](./how-to-manage-access-tokens.md#generate-a-workspace-access-token)
+    Follow the steps to [create an access token](./how-to-manage-access-tokens.md#generate-a-workspace-access-token). Copy the value of the access token generated.
 
 
 1. Set up your environment
 
-    To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps.
+    To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Make sure this environment variable is available in your setup where you are running tests.
+
 ::: zone pivot="playwright-test-runner"
     We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
 
@@ -100,9 +101,6 @@ To enable authentication using access tokens:
 
 ::: zone-end
 
-::: zone pivot="nunit-test-runner"
-    Make sure this environment variable is available in your setup where you are running tests. 
-::: zone-end
 ## Run tests on the service and publish results
 
 Run Playwright tests against cloud-hosted browsers and publish the results to the service using the configuration you created above.

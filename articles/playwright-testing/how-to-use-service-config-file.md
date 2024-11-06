@@ -215,9 +215,9 @@ Here's version of the `.runsettings` file with all the available options:
 * **`serviceAuthType`**:
     - **Description**: This setting allows you to choose the authentication method you want to use for your test run. 
     - **Available Options**:
-        - `ACCESS_TOKEN` to use access tokens. You need to enable authentication using access tokens if you want to use this option, see [manage authentication](./how-to-manage-authentication.md).
-        - `ENTRA_ID` to use Microsoft Entra ID for authentication. It's the default mode. 
-    - **Default Value**: `ENTRA_ID`
+        - `AccessToken` to use access tokens. You need to enable authentication using access tokens if you want to use this option, see [manage authentication](./how-to-manage-authentication.md).
+        - `EntraId` to use Microsoft Entra ID for authentication. It's the default mode. 
+    - **Default Value**: `EntraId`
     - **Example**:
       ```xml
       <Parameter name="ServiceAuthType" value="EntraId" />
@@ -235,7 +235,7 @@ Here's version of the `.runsettings` file with all the available options:
       <Parameter name="Os" value="linux" />
       ```
 
-* **`runId`**:
+* **`RunId`**:
     - **Description**: This setting allows you to set a unique ID for every test run to distinguish them in the service portal. Using the same runId for multiple test runs results in error. If you don't set it, the service package will generate a unique ID every time you trigger a test run.
     - **Example**:
       ```xml
@@ -249,7 +249,7 @@ Here's version of the `.runsettings` file with all the available options:
       <Parameter name="AzureTokenCredentialType" value="DefaultAzureCredential" />
       ```
 
-* **`useCloudHostedBrowsers`**
+* **`UseCloudHostedBrowsers`**
     - **Description**: This setting allows you to choose whether to use cloud-hosted browsers or the browsers on your client machine to run your Playwright tests. If you disable this option, your tests run on the browsers of your client machine instead of cloud-hosted browsers, and you don't incur any charges.
     - **Default Value**: true
     - **Example**:
@@ -264,7 +264,7 @@ Here's version of the `.runsettings` file with all the available options:
       ```xml
       <Logger friendlyName="microsoft-playwright-testing" enabled="True" />
       ```
-* **`enableGitHubSummary`**:
+* **`EnableGitHubSummary`**:
     - **Description**: This setting allows you to configure the Microsoft Playwright Testing service reporter. You can choose whether to include the test run summary in the GitHub summary when running in GitHub Actions.
     - **Default Value**: true
     - **Example**:
