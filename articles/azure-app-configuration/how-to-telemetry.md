@@ -23,7 +23,7 @@ In this tutorial, you:
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - An App Configuration store. If you don't have an App Configuration store, see [Create an App Configuration store](./quickstart-azure-app-configuration-create.md).
 - A variant feature flag. If you don't have a feature flag, see [Create a feature flag](./manage-feature-flags.md).
-- A Application Insights resource. If you don't have an Application Insights resource, see [Create an Application Insights resource](./azure-monitor/app/create-workspace-resource).
+- An Application Insights resource. If you don't have an Application Insights resource, see [Create an Application Insights resource](/azure-monitor/app/create-workspace-resource).
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, connecting application insights.](./media/how-to-telemetry/connect-to-app-insights.png)
