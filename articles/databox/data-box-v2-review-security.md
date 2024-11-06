@@ -2,11 +2,11 @@
 title: Microsoft Azure Data Box next gen security overview | Microsoft Docs in data 
 description: Describes Azure Data Box next gen security features in the device, service, and data that resides on Data Box.
 services: databox
-author: deeptitakyar
+author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: overview
-ms.date: 04/13/2022
+ms.date: 11/06/2024
 ms.author: shaas
 ---
 # Azure Data Box next generation security and data protection

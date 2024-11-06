@@ -5,7 +5,7 @@ services: databox
 author: stevenmatthew
 ms.service: azure-databox
 ms.topic: quickstart
-ms.date: 10/23/2024
+ms.date: 11/06/2024
 ms.author: shaas
 ms.custom: mode-other
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.

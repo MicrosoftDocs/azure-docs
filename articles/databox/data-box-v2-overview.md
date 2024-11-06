@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: overview
-ms.date: 10/23/2024
+ms.date: 11/06/2024
 ms.author: shaas
 ms.custom: references_regions
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
@@ -19,7 +19,7 @@ You can order the Data Box device via the Azure portal to import or export data 
 
 ## Use cases
 
-Data Box is ideally suited to transfer data sizes larger than 40 TBs in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers. 
+Data Box is ideally suited to transfer data sizes larger than 40 TBs in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers.
 
 Here are the various scenarios where Data Box can be used to import data to Azure.
 
