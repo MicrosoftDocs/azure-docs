@@ -29,8 +29,6 @@ Common use cases include:
 
 ## Enable service accounts
 
-Service accounts need to be enabled in your Grafana workspace to allow automated operations and application authentication. 
-
 If your existing Grafana workspace doesn't have service accounts enabled, enable them by updating the preference settings of your Grafana instance using the Azure portal or the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
@@ -57,11 +55,11 @@ Follow the steps below to create a new Grafana service account and list existing
 
 ### [Grafana UI](#tab/grafana-ui)
 
-1. Go to your Grafana instance endpoint. Select **Users and access** > **Service accounts** from the left menu, then **Add service account**.
+1. Go to your Grafana instance endpoint, then select **Users and access** > **Service accounts** from the left menu, and **Add service account**.
 
     :::image type="content" source="media/service-accounts/service-accounts.png" alt-text="Screenshot of Grafana. Add service account page.":::
 
-1. Enter a **Display name** and a **Role** for your new Grafana service account among *No basic role*, *Viewer*, *Editor* or *Admin*, and select **Create**. No role is assigned by default.
+1. Enter a **Display name** and a **Role** for your new Grafana service account from the options *No basic role*, *Viewer*, *Editor* or *Admin*, and select **Create**. No role is assigned by default.
 
 1. Once the service account is created, Grafana displays information about the new service account, including its creation date, existing tokens and permissions associated with it. You will create a first token in a next step.
 
@@ -100,7 +98,7 @@ Follow the steps below to create a new Grafana service account and list existing
 
 ## Add a service account token
 
-Once you've created a service account, add one or more access tokens. Access tokens are generated strings used to authenticate with the Grafana API without using your username and password. Each token is associated with specific permissions, allowing you to control the level of access granted to different users or applications. Tokens can be created, managed, and revoked as needed.
+Once you've created a service account, add one or more access tokens. Access tokens are generated strings used to authenticate with the Grafana API without using a username and password. Each token is associated with specific permissions, allowing you to control the level of access granted to different users or applications. Tokens can be created, managed, and revoked as needed.
 
 ### [Grafana UI](#tab/grafana-ui)
 
