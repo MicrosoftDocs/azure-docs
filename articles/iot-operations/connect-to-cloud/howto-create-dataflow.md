@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/01/2024
+ms.date: 11/06/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
@@ -515,10 +515,41 @@ You can load sample data into the DSS by using the [DSS set tool sample](https:/
 
 In the operations experience, the *Enrich* stage is currently supported using the **Rename** and **New property** transforms.
 
-1. In the operations experience, select a dataflow then **Add transform (optional)**.
-1. Choose **Rename** or **New property** transforms then select **Add**.
+#### Rename
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-enrich.png" alt-text="Screenshot using operations experience to rename a datapoint and add a new property.":::
+You can rename a datapoint using the **Rename** transform. This operation is used to rename a datapoint in the source data to a new name. The new name can be used in the subsequent stages of the dataflow.
+
+1. Under **Transform (optional)**, select **Rename** > **Add**. 
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-rename.png" alt-text="Screenshot using operations experience to rename a datapoint.":::
+
+1.  Enter the required settings.
+
+    | Setting            | Description                                                                                             |
+    |--------------------|---------------------------------------------------------------------------------------------------------|
+    | Datapoint          | Select a datapoint from the dropdown or enter a $metadata header using the format `$metadata.<header>.` |
+    | New datapoint name | Enter the new name for the datapoint.                                                                   |
+    | Description        | Provide a description for the transformation.                                                           |
+
+1. Select **Apply**.
+
+#### New property
+
+You can add a new property to the source data using the **New property** transform. This operation is used to add a new property to the source data. The new property can be used in the subsequent stages of the dataflow.
+
+1. Under **Transform (optional)**, select **New property** > **Add**. 
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-new-property.png" alt-text="Screenshot using operations experience to add a new property.":::
+
+1.  Enter the required settings.
+
+    | Setting            | Description                                                                                         |
+    |--------------------|-----------------------------------------------------------------------------------------------------|
+    | Property key       | Enter the key for the new property.                                                                 |
+    | Property value     | Enter the value for the new property.                                                               |
+    | Description        | Provide a description for the new property.                                                         |
+
+1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
 
@@ -576,14 +607,21 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 # [Portal](#tab/portal)
 
 1. Under **Transform (optional)**, select **Filter** > **Add**.
-1. Choose the datapoints to include in the dataset.
-1. Add a filter condition and description.
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-filter.png" alt-text="Screenshot using operations experience to add a filter transform.":::
 
-1. Select **Apply**.
+1.  Enter the required settings.
 
-For example, you could use a filter condition like `temperature > 20` to filter data less than or equal to 20 based on the temperature field.
+    | Setting            | Description                                                                                       |
+    |--------------------|---------------------------------------------------------------------------------------------------|
+    | Filter condition   | The condition to filter the data based on a field in the source data.                               |
+    | Description        | Provide a description for the filter condition.                                                     |
+
+    In the filter condition field, type `@` or select **Ctrl + Space** to select datapoints from a dropdown. You can also enter $metadata headers using the format `@$metadata.<header>`.
+
+    The condition can use the fields in the source data. For example, you could use a filter condition like `temperature > 20` to filter data less than or equal to 20 based on the temperature field.
+
+1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
 
@@ -629,10 +667,24 @@ To map the data to another field with optional conversion, you can use the `map`
 In the operations experience, mapping is currently supported using **Compute** transforms.
 
 1. Under **Transform (optional)**, select **Compute** > **Add**.
-1. Enter the required fields and expressions.
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-compute.png" alt-text="Screenshot using operations experience to add a compute transform.":::
 
+1.  Enter the required settings.
+
+    | Setting            | Description                                                                                       |
+    |--------------------|---------------------------------------------------------------------------------------------------|
+    | Select formula     | Choose an existing formula from the dropdown or select **Custom** to enter a formula manually.     |
+    | Output             | Specify the output display name for the result.                          |
+    | Formula            | Enter the formula to be applied to the source data.                                               |
+    | Description        | Provide a description for the transformation.                                                     |
+    | Last known value   | Optionally, use the last known value if the current value isn't available.                       |
+
+
+    You can enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Type `@` or select **Ctrl + Space** to select datapoints from a dropdown. You can also enter $metadata headers using the format `@$metadata.<header>`.
+    
+    The formula can use the fields in the source data. For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` output field. 
+    
 1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
@@ -883,7 +935,7 @@ destinationSettings:
 
 ## Example
 
-The following example is a dataflow configuration that uses the MQTT endpoint for the source and destination. The source filters the data from the MQTT topic `azure-iot-operations/data/thermostat`. The transformation converts the temperature to Fahrenheit and filters the data where the temperature multiplied by the humiditiy is less than 100000. The destination sends the data to the MQTT topic `factory`.
+The following example is a dataflow configuration that uses the MQTT endpoint for the source and destination. The source filters the data from the MQTT topic `azure-iot-operations/data/thermostat`. The transformation converts the temperature to Fahrenheit and filters the data where the temperature multiplied by the humidity is less than 100000. The destination sends the data to the MQTT topic `factory`.
 
 # [Portal](#tab/portal)
 
