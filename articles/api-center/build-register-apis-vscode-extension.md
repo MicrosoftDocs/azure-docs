@@ -16,7 +16,7 @@ ms.custom:
 API developers in your organization can build and register APIs in your [API center](overview.md) inventory by using the Azure API Center extension for Visual Studio Code. API developers can:
 
 * Add an existing API to an API center as a one-time operation, or integrate a development pipeline to register APIs as part of a CI/CD workflow.
-* Generate new OpenAPI specification files from API code using GitHub Copilot, or using natural language prompts with GitHub Copilot for Azure (the `@azure` extension). Then, register new APIs to an API center.
+* Generate new OpenAPI specs from API code using GitHub Copilot, or from natural language prompts using GitHub Copilot for Azure. Then, register new APIs to an API center.
 
 API developers can also take advantage of features in the extension to [discover and consume APIs](discover-apis-vscode-extension.md) in the API center and ensure [API governance](govern-apis-vscode-extension.md).
 
@@ -76,7 +76,7 @@ GitHub Copilot for Azure combined with the Azure API Center extension for Visual
 1. In the chat panel, make a request in natural language to the `@azure` agent to describe what the API does. Example:
 
     ```vscode
-    @azure Generate OpenAPI spec: Generate OpenAPI spec: An API that allows customers to pay for an order using various payment methods such as cash, checks, credit cards, and debit cards.
+    @azure Generate OpenAPI spec: Generate OpenAPI spec: An API that allows customers to pay for an order using various payment methods such as cash, checks, credit cards, and debit cards    .
     ```  
 
     The agent responds with an OpenAPI specification document.
