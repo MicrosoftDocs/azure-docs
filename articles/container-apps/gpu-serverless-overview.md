@@ -9,7 +9,7 @@ ms.date: 11/06/2024
 ms.author: cshoe
 ---
 
-## Using serverless GPUs in Azure Container Apps (preview)
+# Using serverless GPUs in Azure Container Apps (preview)
 
 Azure Container Apps provides access to GPUs on-demand without you having to manage the underlying infrastructure. As a serverless feature, you only pay for GPUs in use. When enabled, the number of GPUs used for your app rises and falls to meet the load demands of your application. Serverless GPUs enable you to seamlessly run your workloads with automatic scaling, optimized cold start, per-second billing with scale down to zero when not in use, and reduced operational overhead. 
 
@@ -109,7 +109,7 @@ Use the following steps to enable image streaming:
 
 1. In the window that pops up, select **Create streaming artifact**.
 
-## Feedback
+## Submit feedback
 
 Submit issue to the [Azure Container Apps GitHub repo](https://github.com/microsoft/azure-container-apps).
 
