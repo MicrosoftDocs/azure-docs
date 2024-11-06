@@ -66,58 +66,58 @@ az group create \
 
 1. Create the Container Apps environment.
 
-```azurecli
-az containerapp env create \
-    --name $ENVIRONMENT_NAME \
-    --resource-group $RESOURCE_GROUP \
-    --location $LOCATION
-```
+    ```azurecli
+    az containerapp env create \
+        --name $ENVIRONMENT_NAME \
+        --resource-group $RESOURCE_GROUP \
+        --location $LOCATION
+    ```
 
 1. Retrieve the environment ID. You use this to configure the environment.
 
-```azurecli
-ENVIRONMENT_ID=$(az containerapp env show \
-    --resource-group $RESOURCE_GROUP \
-    --name $ENVIRONMENT_NAME \
-    --query "id" \
-    --output tsv)
-```
+    ```azurecli
+    ENVIRONMENT_ID=$(az containerapp env show \
+        --resource-group $RESOURCE_GROUP \
+        --name $ENVIRONMENT_NAME \
+        --query "id" \
+        --output tsv)
+    ```
 
 1. Disable public network access for the environment.
 
-```azurecli
-az containerapp env update \
-    --id $ENVIRONMENT_ID \
-    --public-network-access Disabled
-```
+    ```azurecli
+    az containerapp env update \
+        --id $ENVIRONMENT_ID \
+        --public-network-access Disabled
+    ```
 
 ## Deploy a container app
 
-Run the following command to deploy a container app in your environment.
+1. Run the following command to deploy a container app in your environment.
 
-```azurecli
-az containerapp up \
-    --name $CONTAINERAPP_NAME \
-    --resource-group $RESOURCE_GROUP \
-    --location $LOCATION \
-    --environment $ENVIRONMENT_NAME \
-    --image mcr.microsoft.com/k8se/quickstart:latest \
-    --target-port 80 \
-    --ingress external \
-    --query properties.configuration.ingress.fqdn
-```
+    ```azurecli
+    az containerapp up \
+        --name $CONTAINERAPP_NAME \
+        --resource-group $RESOURCE_GROUP \
+        --location $LOCATION \
+        --environment $ENVIRONMENT_NAME \
+        --image mcr.microsoft.com/k8se/quickstart:latest \
+        --target-port 80 \
+        --ingress external \
+        --query properties.configuration.ingress.fqdn
+    ```
 
-Retrieve your container app endpoint.
+1. Retrieve your container app endpoint.
 
-```azurecli
-ACA_ENDPOINT=$(az containerapp show \
-    --name $CONTAINERAPP_NAME \
-    --resource-group $RESOURCE_GROUP \
-    --query properties.configuration.ingress.fqdn \
-    --output tsv)
-```
+    ```azurecli
+    ACA_ENDPOINT=$(az containerapp show \
+        --name $CONTAINERAPP_NAME \
+        --resource-group $RESOURCE_GROUP \
+        --query properties.configuration.ingress.fqdn \
+        --output tsv)
+    ```
 
-If you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because the container app environment has public access disabled. Instead, you use an AFD endpoint to access your container app.
+    If you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because the container app environment has public access disabled. Instead, you use an AFD endpoint to access your container app.
 
 ## Create an Azure Front Door profile
 
@@ -185,12 +185,12 @@ az afd origin create \
 
 1. Run the following command to list the private endpoint connections for your environment.
 
-```azurecli
-az network private-endpoint-connection list \
-    --name $ENVIRONMENT_NAME \
-    --resource-group $RESOURCE_GROUP \
-    --type Microsoft.App/managedEnvironments
-```
+    ```azurecli
+    az network private-endpoint-connection list \
+        --name $ENVIRONMENT_NAME \
+        --resource-group $RESOURCE_GROUP \
+        --type Microsoft.App/managedEnvironments
+    ```
 
 1. Record the private endpoint connection resource ID from the response. The private endpoint connection has a `properties.privateLinkServiceConnectionState.description` value of `AFD Private Link Request`. The private endpoint connection resource ID looks like the following.
 
@@ -233,14 +233,14 @@ az afd route create \
 
 1. Retrieve the hostname of your AFD endpoint.
 
-```azurecli
-az afd endpoint show \
-    --resource-group $RESOURCE_GROUP \
-    --profile-name $AFD_PROFILE \
-    --endpoint-name $AFD_ENDPOINT \
-    --query hostName \
-    --output tsv
-```
+    ```azurecli
+    az afd endpoint show \
+        --resource-group $RESOURCE_GROUP \
+        --profile-name $AFD_PROFILE \
+        --endpoint-name $AFD_ENDPOINT \
+        --query hostName \
+        --output tsv
+    ```
 
     Your hostname looks like the following example.
 
