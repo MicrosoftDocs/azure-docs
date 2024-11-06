@@ -5,8 +5,8 @@ description: Learn how App Configuration allows for telemetry viewing for featur
 ms.service: azure-app-configuration
 author: mrm9084
 ms.author: mametcal
-ms.topic: how-to
-ms.date: 10/31/2024
+ms.topic: reference
+ms.date: 11/06/2024
 ---
 
 # Tutorial: Feature flag telemetry reference (preview)
@@ -21,7 +21,7 @@ In this tutorial, you:
 
 ## Viewing telemetry data (Preview)
 
-With telemetry (preview) enabled no other properties are added to the feature flag besides the setting enabling telemetry. The additional use of one of the Azure App Configuration provider libraries along with the Feature Management libraries is required to start collecting telemetry data.
+With telemetry (preview) enabled no other properties are added to the feature flag besides the setting enabling telemetry. The use of one of the Azure App Configuration provider libraries along with the Feature Management libraries is required to start collecting telemetry data.
 
 ### Azure App Configuration provider libraries
 
@@ -36,7 +36,7 @@ The full schema can be found [here](https://github.com/microsoft/FeatureManageme
 
 ### Feature Management libraries
 
-When feature flags with telemetry enabled are used with the Feature Management libraries in addition to the provider libraries, more properties are added to the telemetry data and be sent to location to be viewed, such as Azure Monitor. When using our provided connections to Azure Monitor a **custom_event** is published to Open Telemetry with the following properties whenever a telemetry enabled feature flag is evaluated:
+When the Feature Management libraries and the provider libraries are used together, more properties are added to the telemetry data. This data can then be sent to locations to be viewed, such as Azure Monitor. When using our provided connections to Azure Monitor, a **custom_event** is published to Open Telemetry with the following properties whenever a telemetry enabled feature flag is evaluated:
 
 - **Feature_Name**: The name of the feature flag.
 - **Enabled**: A boolean value indicating if the feature flag is enabled.
