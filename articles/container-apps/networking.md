@@ -44,7 +44,7 @@ Container Apps has two different [environment types](environment.md#types), whic
 
 ## Virtual IP
 
-Depending on your virtual IP configuration, you can control whether your container app environment allows public ingress or ingress only from within your VNet at the environment level. This configuration is not modifiable after your environment is created.
+Depending on your virtual IP configuration, you can control whether your container app environment allows public ingress or ingress only from within your VNet at the environment level. This configuration cannot be changed after your environment is created.
 
 | Accessibility level | Description |
 |---|---|
@@ -268,12 +268,12 @@ When you configure a NAT Gateway on your subnet, the NAT Gateway provides a stat
 
 ### <a name="public-network-access"></a>Public network access (preview)
 
-The public network access setting determines whether your container app is accesible from the public internet. Depending on the virtual IP configuration you create your container app environment with, the setting is modifiable post-create. The following table shows valid values for public network access depending on your environment's virtual IP configuration.
+The public network access setting determines whether your container apps environment is accesible from the public Internet. Whether you can change this setting after creating your environment depends on the environment's virtual IP configuration. The following table shows valid values for public network access, depending on your environment's virtual IP configuration.
 
 | Virtual IP | Supported public network access | Description |
 |--|--|--|
-| External | `Enabled`, `Disabled`  | The container app environment was created with an internet-accessible endpoint, and the public network access configuration determines whether traffic is accepted through the public endpoint or only through private endpoints. |
-| Internal | `Disabled` | With this configuration, the container app environment was created without an internet-accessible endpoint, so the public network access configuration can't be modified to accept traffic from the internet. |
+| External | `Enabled`, `Disabled`  | The container apps environment was created with an Internet-accessible endpoint. The public network access setting determines whether traffic is accepted through the public endpoint or only through private endpoints, and the public network access setting can be changed after creating the environment. |
+| Internal | `Disabled` | The container apps environment was created without an Internet-accessible endpoint. The public network access setting cannot be changed to accept traffic from the Internet. |
 
 In order to create private endpoints on your Azure Container App environment, public network access must be set to `Disabled`.
 
@@ -289,16 +289,16 @@ Azure private endpoint enables clients located in your private network to secure
 This feature is supported for both Consumption and Dedicated plans in workload profile environments.
 
 #### Tutorials
-- To learn more about how to configure private endpoints in Azure Container Apps, see the [use a private endpoint with an Azure Container Apps environment](JasonsPEtutorial) tutorial.
-- Private link connectivity with Azure Front Door is supported for Azure Container Apps. Refer to [create a private link with Azure Front Door](/JasonsLink) for more information.
+- To learn more about how to configure private endpoints in Azure Container Apps, see the [Use a private endpoint with an Azure Container Apps environment](how-to-use-private-endpoint.md) tutorial.
+- Private link connectivity with Azure Front Door is supported for Azure Container Apps. Refer to [create a private link with Azure Front Door](how-to-integrate-with-azure-front-door.md) for more information.
 
 #### Considerations
 - Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic is not supported.
-- When using private endpoints with custom domains, you must configure a Private DNS Zone. When configuring an *Apex domain* as the *Hostname record type*, the setup is also slightly different as you must use your private endpoint's Private IP instead of the container app environment's IP address. When configuring your custom domain with CNAME, the setup is unchanged. [See the tutorial](custom-domain-certificates.md).
-- Your private endpoint's virtual network can be separate from the virtual network your integrated with your container app.
+- To use a private endpoint with a custom domain, you must configure a private DNS zone. When configuring an *Apex domain* as the *Hostname record type*, you must use your private endpoint's Private IP address instead of the container apps environment's IP address. When configuring your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
+- Your private endpoint's VNet can be separate from the VNet integrated with your container app.
 - You can add a private endpoint to both new and existing workload profile environments.
 
-In order to connect to your container apps through a private endpoint, you need to configure your private DNS zone. 
+In order to connect to your container apps through a private endpoint, you must configure a private DNS zone.
 
 | Service | subresource | Private DNS zone name |
 |--|--|--|
@@ -307,7 +307,7 @@ In order to connect to your container apps through a private endpoint, you need 
 ### Environment security
 
 > [!NOTE]
-> For controlling ingress traffic, you can alternatively use private endpoints with a private connection to Azure Front Door in place of Application Gateway. See [create a private link with Azure Front Door](/JasonsLink) for more information.
+> To control ingress traffic, you can also [use private endpoints with a private connection to Azure Front Door](how-to-integrate-with-azure-front-door.md) in place of Application Gateway.
 
 :::image type="content" source="media/networking/locked-down-network.png" alt-text="Diagram of how to fully lock down your network for Container Apps.":::
 
