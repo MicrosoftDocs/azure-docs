@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: quickstart
-ms.date: 11/04/2024
+ms.date: 11/05/2024
 
 #customer intent: As a dev center administrator or Project Admin, I want to create an image definition file so that I can create a customized dev box as a proof of concept.  
 
@@ -13,7 +13,7 @@ ms.date: 11/04/2024
   
 # Quickstart: Create a Dev Box with Team Customizations
   
-In this quickstart, you create a dev box by using team customizations. Team customizations uses an image defintion file to allow you to create consistently customized dev boxes for your development team, providing a tailored environment for your projects.
+In this quickstart, you create a dev box by using team customizations. Team customizations uses an image definition file to allow you to create consistently customized dev boxes for your development team, providing a tailored environment for your projects.
 
 [!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
   
@@ -25,7 +25,7 @@ To complete the steps in this article, you must have a dev center configured wit
   
 [!INCLUDE [permissions-for-customizations](includes/permissions-for-customizations.md)]
   
-## Create an image defintion
+## Create an image definition
   
 1. Download the [example YAML customization file](https://azure.github.io/dev-box/reference/definition.yaml).  
 1. Open the file and examine the tasks.  
@@ -51,7 +51,7 @@ tasks:
   
 ## Create a dev box pool for the image definition  
 
-To make the customization file, *imagedefintion.yaml*, accessible when creating dev boxes, you specify it as the definition for a pool. When a developer selects that pool to create a dev box from, the image defintion is used. 
+To make the customization file, *imagedefintion.yaml*, accessible when creating dev boxes, you specify it as the definition for a pool. When a developer selects that pool to create a dev box from, the image definition is used. 
   
 To create a dev box pool associated with a project:
 

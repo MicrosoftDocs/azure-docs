@@ -5,14 +5,14 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: how-to
-ms.date: 10/26/2024
+ms.date: 11/05/2024
 
 #customer intent: As a dev center administrator or Project Admin, I want to create additional tasks in a catlog so that I can create a specific customization in a customization or image definition file.
 ---
 
 # Create Tasks for Dev Box Team Customizations
 
-Creating tasks for Dev Box Team Customizations allows you to define specific actions for your dev boxes, ensuring a consistent and efficient development environment. Creating new tasks in a catalog allows you to create customizations tailored to your development teams and add guardrails around the configurations that are possible. This article guides you through creating a catalog for customization tasks, adding tasks, and attaching the catalog to a dev center or project.
+Creating tasks for Dev Box Team Customizations allows you to define specific actions for your dev boxes, ensuring a consistent and efficient development environment. Creating new tasks in a catalog allows you to create reusable components tailored to your development teams and add guardrails around the configurations that are possible. This article guides you through creating a catalog for customization tasks, adding tasks, and attaching the catalog to a dev center or project.
 
 [!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
 
@@ -28,6 +28,8 @@ To complete the steps in this article, you must have:
 ## What are tasks?
 A task performs a specific action, like installing software. Each task consists of one or more PowerShell scripts, along with a task.yaml file that provides parameters and defines how the scripts run. You can also include a PowerShell command in the task.yaml file. You can store a collection of curated tasks in a catalog attached to your dev center, with each task in a separate folder. Dev Box supports using a GitHub repository or an Azure Repos repository as a catalog and scans a specified folder of the catalog recursively to find task definitions.
 
+WinGet and PowerShell are available from any dev center without requiring a catalog. If your customizations use only Winget or PowerShell, you can create tasks that use them in a customization file. If you need to use other tools or scripts, you can create tasks in a catalog.
+
 Microsoft provides a quick start catalog to help you get started with customizations. It includes a default set of tasks that define common tasks:
 
 - Install software with WinGet package manager
@@ -38,7 +40,7 @@ Microsoft provides a quick start catalog to help you get started with customizat
 
 ## Create tasks in a catalog
 
-Tasks, such as installing software or running scripts, are organized into a catalog. You create and manage tasks in a catalog, define new tasks, and attach your catalog to a dev center. With Microsoft's quick start catalog, you can get started with common tasks like installing software with WinGet, deploying desired state configurations, cloning repositories, configuring applications, and running PowerShell scripts. 
+Tasks, such as installing software or running scripts, are organized into a catalog. You create and manage tasks in a catalog, define new tasks, and attach your catalog to a dev center. With Microsoft's quick start catalog, you can get started with common tasks like installing software, deploying desired state configurations, cloning repositories, and configuring applications. 
 
 ### Define new tasks
 To create and manage tasks for Dev Box Team Customizations, follow these steps:
@@ -50,19 +52,6 @@ To create and manage tasks for Dev Box Team Customizations, follow these steps:
 1. Attach your repository to your dev center as a catalog.
 
 1. Create a configuration file for those tasks by following the steps in [Write a customization file](./how-to-write-customization-file.md).
-
-### Customize your dev box by using existing WinGet Configuration files
-WinGet Configuration takes a config-as-code approach to defining the unique sets of software and configuration settings needed to get your Windows environment in a ready-to-code state. These configuration files can also be used to set up a Dev Box, by using a WinGet task included in the Microsoft provided quickstart catalog mentioned earlier.
-The following example shows a dev box customization file that calls an existing WinGet DSC file.
-
-```yml
-tasks:
-    - name: winget
-      parameters:
-          configure: "projectConfiguration.dsc.yaml"
-```
-
-To learn more about WinGet Configuration, see [WinGet Configuration](https://aka.ms/winget-configuration).
 
 ### Use secrets from an Azure Key Vault
 You can use secrets from your Azure Key Vault in your yaml configurations to clone private repositories, or with any custom task you author that requires an access token.
