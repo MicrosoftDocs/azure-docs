@@ -11,10 +11,10 @@ ms.author: v-abhmallick
 
 # Support matrix for backup of SAP ASE databases on Azure VMs (preview)
 
-Azure Backup supports the backup of SAP Adaptive Server Enterprise (ASE) (Sybase) databases to Azure. This article summarizes the scenarios supported and limitations present when you use Azure Backup to back up SAP ASE (Sybase) databases on Azure VMs.
+This article summarizes the scenarios supported and limitations present when you use Azure Backup to back up SAP Adaptive Server Enterprise (ASE) (Sybase) databases on Azure VMs.
 
 > [!NOTE]
-> The frequency of log backup can now be set to a minimum of 15 minutes. Log backups only begin to flow after a successful full backup for the database has completed.
+> The frequency of log backup can now be set to a minimum of 15 minutes. Log backups only begin to flow after a successful full backup for the database.
 
 ## Scenario support for SAP ASE (Sybase) databases on Azure VMs (preview)
 
@@ -57,7 +57,7 @@ Azure Backup supports the backup of SAP Adaptive Server Enterprise (ASE) (Sybase
 - **VM configuration applicable for multistreaming**: To utilize the benefits of multistreaming, the VM needs to have a minimum configuration of *16 vCPUs* and *128 GB* of RAM.
 - **Limiting factors**: Throughput of *total disk LVM striping* and *VM network*, whichever hits first. 
 
-Learn more about SAP ASE (Sybase) Azure Virtual Machine storage and SAP ASE (Sybase) Azure virtual machine Premium SSD storage configurations. To configure multistreaming data backups, see the [SAP documentation](https://help.sap.com/docs/SAP_ASE_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/18db704959a24809be8d01cc0a409681.html).
+Learn more [about SAP ASE (Sybase) Azure Virtual Machine storage and SAP ASE (Sybase) Azure virtual machine Premium SSD storage configurations](sap-ase-database-backup.md). To configure multistreaming data backups, see the [SAP documentation](https://help.sap.com/docs/SAP_ASE_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/18db704959a24809be8d01cc0a409681.html).
 
 
 ## Next steps

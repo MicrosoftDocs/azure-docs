@@ -41,7 +41,7 @@ If no data sync occurs to the Azure Backup service for more than *2 hours*, Az
 
 ## Change Backup policy
 
-You can change the underlying policy for an SAP ASE backup items > View details > Backup policy > Change Backup Policy.
+You can change the underlying policy for an SAP ASE backup items > **View details** > **Backup policy** > **Change Backup Policy**.
 
 Making policy modifications affects all the associated backup items and triggers corresponding configure protection jobs.
 
@@ -55,25 +55,23 @@ To modify the policy to change backup types, frequencies, and retention range, f
 
 1. On the **Recovery Services Vault**, go to **Backup Policies**, and then select the policy you want to edit.
 
-  :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png" alt-text="Screenshot showing how to edit backup policy." lightbox="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png":::
+    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png" alt-text="Screenshot showing how to edit backup policy." lightbox="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png":::
 
 Modifying the backup policy affects all the associated backup items and triggers the corresponding configure protection jobs.
 
 ## Stop protection for an SAP ASE database or ASE instance
 
-You can stop protecting an SAP ASE database in a couple of ways:
+There are two ways to stop protection of an SAP ASE database:
 
 - Delete backup data -Stop all future backup jobs and delete all recovery points.
 
 - Retain backup data -Stop all future backup jobs and leave the recovery points intact.
 
-If you choose to leave recovery points, keep these details in mind:
-
-- All recovery points remain intact forever, and all pruning jobs stop at stop protection with retain data.
-
-- You incur charges for the protected instance and the consumed storage. For more information, see Azure Backup pricing.
-
-- If you delete a data source without stopping backups, new backups fail.
+>[!Note]
+>If you choose to leave recovery points:
+>- All recovery points remain intact forever, and all pruning jobs stop at stop protection with retain data.
+>- You incur charges for the protected instance and the consumed storage. 
+>- If you delete a data source without stopping backups, new backups fail.
 
    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/stop-backup.png" alt-text="Screenshot showing how to stop backup." lightbox="media/sap-adaptive-server-enterprise-db-manage/stop-backup.png":::
 
@@ -83,7 +81,7 @@ If you choose to leave recovery points, keep these details in mind:
 
 When you stop protection for an SAP ASE database, if you select the Retain Backup Data option, you can later resume protection. If you don't retain the backed-up data, you can't resume protection.
 
-To resume protection for an SAP ASE database:
+To resume protection for an SAP ASE database, follow these steps:
 
 1.	Open the backup item, and then select **Resume backup**.
 2.	On the **Backup policy** menu, select a policy, and then select **Save**.
@@ -100,7 +98,7 @@ To unregister an SAP ASE instance, follow these steps:
 
      :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/backup-infrastructure.png" alt-text="Screenshot showing how to backup infrastructure." lightbox="media/sap-adaptive-server-enterprise-db-manage/backup-infrastructure.png":::
 
-2. On the **Backup Infrastructure** blade, for **Backup Management type**, select **Workload in Azure VM**.
+2. On the **Backup Infrastructure** blade, for **Backup Management Type**, select **Workload in Azure VM**.
 
    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/select-workload.png" alt-text="Screenshot showing how to select workload in Azure VM." lightbox="media/sap-adaptive-server-enterprise-db-manage/select-workload.png":::
 
@@ -110,7 +108,7 @@ To unregister an SAP ASE instance, follow these steps:
 
 ## Configure striping for higher backup throughput for SAP ASE databases
 
-Striping is designed to enhance backup efficiency further by allowing data to be streamed through multiple backup channels simultaneously. This operation is beneficial for large databases, where the time required to complete a backup can be significant. If you distribute the data across multiple stripes, striping significantly reduces backup time, allowing for more efficient use of both storage and network resources. Based on our internal testing we saw 30-40% increase in throughput performance and we highly recommend testing the striping configuration before making changes on production.
+Striping is designed to enhance backup efficiency further by allowing data to be streamed through multiple backup channels simultaneously. This operation is beneficial for large databases, where the time required to complete a backup can be significant. If you distribute the data across multiple stripes, striping significantly reduces backup time, allowing for more efficient use of both storage and network resources. The striping process provides 30-40% increase in throughput performance and we recommend you testing the striping configuration before making changes on production.
 
 ### Enable striping for SAP ASE databases
 
@@ -122,7 +120,7 @@ For databases smaller than 4 TB, we suggest using a stripe count of 4. This conf
 
 ### Change the database stripe count
 
-You have two ways to modify the stripe count:
+There're two ways to modify the stripe count:
 
 - **Pre-registration script**: Run the preregistration script and specify your preferred value using the stripes-count parameter.
 
@@ -131,7 +129,7 @@ You have two ways to modify the stripe count:
 
 - **Configuration file**: Manually update the stripesCount value in the configuration file at the following path: */opt/msawb/etc/config/SAPAse/config.json*
 
-For more information, refer to the [official documentation](/azure/sap/workloads/dbms-guide-sapase).
+Learn more [about the SAP database deployment](/azure/sap/workloads/dbms-guide-sapase).
 
 >[!Note]
 >Setting the above ASE parameters will lead to increased memory and CPU utilization. We recommend that you monitor the memory consumption and CPU utilization, as overutilization can  impact the backup and other ASE operations negatively.
@@ -140,7 +138,7 @@ For more information, refer to the [official documentation](/azure/sap/workloads
 
 Data compression in SAP ASE reduces storage consumption, accelerates backup and restore times, and enhances overall performance. It is supported for full, differential, and log backups, offering multiple compression levels to balance between performance and storage savings based on your priorities.
 
-### Manage compression feature for SAP ASE databases
+### Manage database compression
 
 You can enable or disable compression in the following scenarios:
 
