@@ -61,7 +61,7 @@ Keep in mind the following items as you use serverless GPUs:
 
 - **Single container**: Only one container in an app can use the GPU at a time. Multiple apps can share the same GPU workload profile but each requires their own replica. Multi and fractional GPU replicas not supported. The first container in the list gets access to the GPU resources.
 
-- **IP addresses**: When integrating with your own virtual network, consumption GPUs use one IP address per replica.
+- **IP addresses**: Consumption GPUs use one IP address per replica when you set up integration with your own virtual network.
 
 ## Request serverless GPU quota
 
