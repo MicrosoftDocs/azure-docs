@@ -80,7 +80,7 @@ This step takes roughly 5 minutes.
 
 1. Create a new Azure Data Box resource in Azure portal.
 2. Select an existing subscription enabled for this service and choose transfer type as **Import**. Provide the **Source country** where the data resides and **Azure destination region** for the data transfer.
-3. Select **Data Box**. The maximum usable capacity is 120 TB/ 525TB and you can create multiple orders for larger data sizes.
+3. Select **Data Box**. The maximum usable capacity is 120 TB or 525TB and you can create multiple orders for larger data sizes.
 4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
 Once the order is created, the device is prepared for shipment.
