@@ -1,25 +1,25 @@
 ---
 title: Use header rewrite to add HSTS header in portal - Azure Application Gateway
-description: Learn how to use the Azure portal to configure an Azure Application Gateway to rewrite the HTTP header in the requests and responses passing through the gateway
+description: Learn how to use the Azure portal to configure an Azure Application Gateway with HSTS Policy
 services: application-gateway
 author: reyjordi
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 10/09/2024
+ms.date: 11/06/2024
 ms.author: reyjordi
 ms.custom: mvc
 ---
 # Add HSTS headers with Azure Application Gateway - Azure portal
 
-This article describes how to use the Azure portal to configure an [Application Gateway v2 SKU](./application-gateway-autoscaling-zone-redundant.md) instance to rewrite HSTS headers to better secure traffic to your application through HSTS policy. 
+This article describes how to use the [Header Rewrite](./rewrite-http-headers-url.md) in [Application Gateway v2 SKU](./application-gateway-autoscaling-zone-redundant.md) to add HTTP Strict-Transport-Security (HSTS) response header to better secure traffic through Application Gateway.
 
-HSTS policy helps protect your sites against man-in-the-middle attacks. When redirecting HTTP traffic to HTTPS, a man-in-the-middle attack can incercept the initial HTTP request and exploit visitors through the non-encrypted version of the site. Adding the HTTP Strict Transport Security header ensures that a user will always connect with HTTPS instead of HTTP.
+HSTS policy helps protect or minimize your sites against man-in-the-middle, cookie-hijacking, and protocol downgrade attacks. After a client has established the first successful HTTPS connection with your HSTS-enabled website, HSTS header ensures going forward the client can access only through HTTPS.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you begin
 
-You need to have an Application Gateway v2 SKU instance to complete the steps in this article. Rewriting headers isn't supported in the v1 SKU. If you don't have the v2 SKU, create an [Application Gateway v2 SKU](./tutorial-autoscale-ps.md) instance before you begin.
+You need to have an Application Gateway v2 SKU deployment to complete the steps in this article. Rewriting headers isn't supported in the v1 SKU. If you don't have the v2 SKU, create an [Application Gateway v2 SKU](./tutorial-autoscale-ps.md) deployment before you begin.
 
 ## Sign in to Azure
 
@@ -71,9 +71,9 @@ In this example, we will add the Strict Transport Security (STS) response header
 
 6. Add an action to rewrite the response header:
 
-   - In the **Action type** list, select **Set**.
+   - In the **Rewrite type** list, select **Response Header**.
 
-   - In the **Header type** list, select **Response**.
+   - In the **Action type** list, select **Set**.
 
    - Under **Header name**, select **Common header**.
 
@@ -93,7 +93,7 @@ In this example, we will add the Strict Transport Security (STS) response header
 
    - In order to maximize security, you must show HSTS policy as soon as possible when users begin an HTTPS session. In order to enforce HTTPS for a given domain, the browser only needs to observe the STS header once. Hence, it should be added to home pages and critical pages of a site. However, that is not sufficient, it is best practice to cover as much of the URL space as possible and prioritize non-cacheable content.
 
-   - In this example, the response header Strict Transport Security is set to `max-age=31536000; includeSubdomains; preload`. However, users can also set the header to equal `max-age=31536000; includeSubdomains`, removing the preload. Preloading helps strengthen HSTS by ensuring clients always access the site using HTTPS, even if it is their first time accessing it. You must submit your domain and subdomains to https://hstspreload.org/ in order to ensure that users will never access the site using HTTP. Although the preload list is hosted by Google, all major browsers use this list. 
+   - In this example, the response header Strict-Transport-Security is set to `max-age=31536000; includeSubdomains; preload`. However, users can also set the header to equal `max-age=31536000; includeSubdomains`, removing the preload. Preloading helps strengthen HSTS by ensuring clients always access the site using HTTPS, even if it is their first time accessing it. You must submit your domain and subdomains to https://hstspreload.org/ in order to ensure that users will never access the site using HTTP. Although the preload list is hosted by Google, all major browsers use this list. 
    
    - HSTS Policy will not prevent attacks against TLS itself or attacks on the servers. 
 
