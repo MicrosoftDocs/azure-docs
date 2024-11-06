@@ -99,6 +99,8 @@ In this tutorial you:
 
 From the *Overview* window, select the **Application Url** link to open the web app front end in your browser and use the GPU application.
 
+## Monitor your GPU
+
 Once you generate an image, use the following steps to view results of the GPU processing:
 
 1. Open your container app in the Azure portal.
