@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/12/2024
+ms.date: 11/05/2024
 ---
 
 # Copy data from Shopify using Azure Data Factory or Synapse Analytics (Preview)

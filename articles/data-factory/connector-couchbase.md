@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/12/2024
+ms.date: 11/05/2024
 ms.author: jianleishen
 ---
 # Copy data from Couchbase using Azure Data Factory (Preview)
