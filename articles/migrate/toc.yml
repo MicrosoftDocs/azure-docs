@@ -69,7 +69,6 @@ items:
     - name: Discovered metadata
       href: discovered-metadata.md
     - name: Review discovered workloads
-      href: 
     - name: Tags 
       items:
         - name: Overview
@@ -176,7 +175,7 @@ items:
           href: assessment-properties.md
         - name: SAP Readiness criteria
         - name: Review assessment report
-          href: concepts-azure-sap-systems-assessment
+          href: concepts-azure-sap-systems-assessment.md
   - name: Software recommendations
     items:
     - name: Prerequisites
@@ -251,7 +250,7 @@ items:
         - name: Discover inventory
         - name: Create Business case and assessment
         - name: Migrate
-    - name: Migrate Spring boot applications
+    - name: Migrate Spring Boot applications
       items:
       - name: Discover Spring Boot apps
         href: tutorial-discover-spring-boot.md
