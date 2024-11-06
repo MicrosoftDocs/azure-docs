@@ -218,7 +218,7 @@ This template creates a session pool with the following settings:
 
 When a session pool is created or updated, Azure Container Apps caches the container image in the pool. This caching helps speed up the process of creating new sessions.
 
-Because the image is cached, any changes to the image aren't automatically reflected in the sessions. To update the image in the sessions, you must update the session pool with a new image tag. Use a unique tag for each image update to ensure that the new image is pulled.
+Any changes to the image aren't automatically reflected in the sessions. To update the image, update the session pool with a new image tag. Use a unique tag for each image update to ensure that the new image is pulled.
 
 ### Working with sessions
 
