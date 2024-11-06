@@ -73,9 +73,9 @@ This section includes questions related to billing and commerce for Oracle Datab
 
 Oracle Database@Azure is at parity with the Exadata Cloud costs in OCI. For prices, see the [OCI cloud cost estimator](https://www.oracle.com/cloud/costestimator.html). For specific costs for your scenario and environment, contact your Oracle sales team.
 
-### Is Oracle Database@Azure eligible for Microsoft Azure Commit to Consume benefits?
+### Is Oracle Database@Azure eligible for Microsoft Azure Commit to Consume (MACC) and/or Azure Credit Offers (ACO)?
 
-Yes, the Oracle Database@Azure offering is Azure eligible for benefits and therefore eligible for Microsoft Azure Commit to Consume (MACC) decrement.
+Oracle Database@Azure offering is eligible for Microsoft Azure Commit to Consume (MACC) decrement. However, Azure credits (ACO) cannot be used to procure Oracle Database@Azure.
 
 ### What licensing options are available to deploy Oracle databases by using Oracle Database@Azure?
 
