@@ -258,6 +258,8 @@
       href: multi-user-authorization-concept.md
     - name: Immutable vault
       href: backup-azure-immutable-vault-concept.md
+    - name: Secure by Default with Azure Backup (Preview)
+      href: secure-by-default.md
     - name: Private endpoints
       items:
       - name: V1 experience
