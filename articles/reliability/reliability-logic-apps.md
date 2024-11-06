@@ -33,33 +33,18 @@ Azure Logic Apps simplifies the way that you connect legacy, modern, and cutting
 -->
 
 ## Transient faults 
-<!-- 4. Transient faults  ---------------------------------------------------------
-
-    The content should be:
--->    
 
 Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests.
 
-<!--   
-    When application code interacts with an Azure service, it's common to retry failed requests to allow for transient faults. If your service has an SDK, it likely already supports this capability.
-    
-    Use the following text or something similar:
--->    
-
->All cloud-hosted applications should follow Azure transient-fault handling guidance to communicate with any cloud-hosted APIs, databases, and other components. Microsoft-provided SDKs usually handle transient faults transparently. For more information, see [Recommendations for handling transient faults].
-
-<!--
-    If your service hosts the customer's code or applications, it might also be capable of causing or propagating transient faults. If you have guidance to help to avoid these situations, provide it here. For example, App Service supports deployment slots, which avoid application downtime during deployments. 
--->
 
 ## Availability zone support
 
-You can configure Azure Bastion to be *zone redundant* so that your resources are spread across multiple [availability zones](../reliability/availability-zones-overview.md). When you spread resources across availability zones, you can achieve resiliency and reliability for your production logic app workloads.
+You can configure Azure Logic Apps to be *zone redundant* so that your resources are spread across multiple [availability zones](../reliability/availability-zones-overview.md). When you spread logic app workload resources across availability zones, you can achieve resiliency and reliability for your production logic app workloads.
 
 
 Zone-redundancy is available in the following logic app workflows:
 
-- **Consumption logic app workflows**, which run in multitenant Azure Logic Apps. Zone-redundancy is automatically enabled for new and existing Consumption logic app workflows in [Azure regions that support availability zones](availability-zones-service-support#azure-regions-with-availability-zone-support).
+- **Consumption logic app workflows**, which run in multitenant Azure Logic Apps. Zone-redundancy is automatically enabled for new and existing Consumption logic app workflows.
 
 - **Standard logic app workflows**, which run in single-tenant Azure Logic Apps and are powered by Azure Functions extensibility. For more information, see [Reliability in Azure Functions](reliability-functions?tabs=azure-portal#availability-zone-support)
 
@@ -68,50 +53,11 @@ Zone-redundancy is available in the following logic app workflows:
     - Zone-redundancy is only supported for built-in connector operations, which directly run with the Azure Logic Apps runtime, not connector operations that are hosted and run in Azure.
     
 
-
-
-
 ### Requirements
 
+To enable zone redundancy for your logic app, you must use make sure that you meet the following requirements:
 
-
-###  Region support 
-
-TODO:   Region support 
-
-<!-- 5B. Region support -----------------------------------------------------------------
-
-
-If you support availability zones in all AZ-capable regions, state that here.
--->
-
->Zone-redundant [service-name] resources can be deployed into any region that supports availability zones.
-
-<!--
-  
-If you support all but a small number of AZ-capable regions, list the exceptions but not the full region list.
--->
-
->Zone-redundant [service-name]  resources can be deployed into any region that supports availability zones, except: 
->
->- *XYZ*
->- *ABC* 
-
-<!--
-If you support a subset of AZ-capable regions, list the regions using the following format with leading text and table: 
--->
-
-| Americas         | Europe               | Middle East   | Africa             | Asia Pacific   |
-|------------------|----------------------|---------------|--------------------|----------------|
-| Brazil South     | France Central       | Qatar Central |                    | Australia East |
-| Canada Central   | Germany West Central |               |                    | Central India  |
-| Central US       | North Europe         |               |                    | China North 3  |
-| East US          | Sweden Central       |               |                    | East Asia      |
-| East US 2        | UK South             |               |                    | Japan East     |
-| South Central US | West Europe          |               |                    | Southeast Asia |
-| West US 2        |                      |               |                    |                |
-| West US 3        |                      |               |                    |                | 
-
+- The region must support availability zones. To see which regions support availability zones, see [Azure regions that support availability zones](availability-zones-service-support#azure-regions-with-availability-zone-support).
 
 
 ###  Considerations 
@@ -121,61 +67,34 @@ TODO:   Considerations
 <!-- 5C.  Considerations   --------------------------------------------------------------
     Describe any workflows or scenarios that aren't supported, as well as any gotchas. For example, some zone-redundant services only replicate parts of the solution across availability zones but not others. Provide links to any relevant information. 
 -->
-**Example:**
 
-> During an availability zone outage, your application continues to run and serve traffic. However, you might not be able to use feature X or Y until the availability zone recovers.
 
 ### Cost
-TODO: Add your cost information
 
-<!-- 5D. Cost ------------------------------
+For *Consumption and Standard (Workflow service plan) hosting plans*, there's no additional cost to use zone redundancy for Azure Logic Apps, as zone-redundancy is automatically enabled for new and existing Consumption logic app workflows.
 
-    Give an idea of what this does to the service’s billing meters. For example, is there an additional charge for zone redundancy? Do you need to deploy additional instances of your service to achieve zone redundancy? 
-
-    Don't specify prices. Link to the Azure pricing information if needed. 
-
-    If there is no cost difference between zone-redundant and zonal services, state that here.
-
--->
-
-**Example:**
-
-> When you enable zone redundancy, you're charged a different rate. For more information, see [service pricing information].
+For Standard hosting plans with App Service Environment v3, see [Reliability in App Service](./reliability-app-service.md).
 
 
 ### Configure availability zone support 
 
+**Create a new workflow with zone-redundancy.** When you deploy a new Azure Logic App workflow in a region that supports availability zones, you can choose whether you'd like to enable zone-redundancy. To learn how to enable zone-redundancy for your logic app, see [Enable zone redundancy for your logic app](../logic-apps/set-up-zone-redundancy-availability-zones.md).
 
-<!-- 5E. Configure availability zone support  --------------------------------------------------------
+**Migration.** It's not possible to enable zone-redundancy to an existing workflow after it's created. Instead, you need to create the Azure Logic App workflow in the new region and delete the old one.
 
+<!-- is this true? -->
+**Disable zone redundancy.** If you need to disable zone redundancy for a logic app, you can't do this after the logic app is created. Instead, you need to create a new logic app in the same region without zone redundancy enabled.
 
-In this section, link to deployment or migration guides. If you don't have the required guide, you'll need to create one.
-
-DO NOT provide detailed how-to guidance in this article.
-
-Provide links to documents that show how to create a resource or instance with availability zone enabled. Ideally, the documents should contain examples using the Azure portal, Azure CLI, Azure PowerShell, and Bicep. Here are some examples of relevant link topics:
-
-- Create a [service-name] resource that uses availability zones
-- Disable availability zones for existing [service-name] resources
-- Migrate existing [service-name] resources to availability zone support
-
-If your service does NOT support enabling availability zone support after deployment, add an explicit statement to indicate that. 
-
--->
-
-**Example:**
-
-Zone redundancy can be configured only when a new [service-name] resource is created. If you have an existing [service-name] resource that isn't zone-redundant, replace it with a new zone-redundant [service-name] resource. You can't convert an existing [service-name] resource to use availability zones.
 
 ### Capacity planning and management 
-TODO: Optional. Add your capacity planning and management 
+
 
 <!-- 5F. Capacity planning and management  ---------------------------------------------------------------
     Optional section. In some services, a zone failover can cause instances in the surviving zones to become overloaded with requests. If that's a risk for your service's customers, explain that here, and whether they can mitigate that risk by overprovisioning capacity. 
 -->
 
 ### Traffic routing between zones
-TODO: Optional. Add your traffic routing between zones
+
 
 
 <!-- 5G. Traffic routing between zones ----------------------------------------------------------

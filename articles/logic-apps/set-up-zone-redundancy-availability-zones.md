@@ -10,7 +10,7 @@ ms.custom: references_regions
 #Customer intent: As a developer, I want to protect logic apps from zonal failures by setting up availability zones and zone redundancy.
 ---
 
-# How to enable zone-redundancy support for Azure Logic Apps
+# Enable zone-redundancy for your logic app
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
