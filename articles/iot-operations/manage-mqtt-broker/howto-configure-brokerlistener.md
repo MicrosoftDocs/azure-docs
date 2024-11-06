@@ -15,27 +15,27 @@ ms.date: 11/06/2024
 
 # Secure MQTT broker communication using BrokerListener
 
-To customize the network access and security use the *BrokerListener* resource. A listener corresponds to a network endpoint that exposes the broker to the network. You can have one or more *BrokerListener* resources for each *Broker* resource, and thus multiple ports with different access control each.
+To customize the network access and security use the BrokerListener resource. A listener corresponds to a network endpoint that exposes the broker to the network. You can have one or more BrokerListener resources for each *Broker* resource, and thus multiple ports with different access control each.
 
-Each listener port can have its own authentication and authorization rules that define who can connect to the listener and what actions they can perform on the broker. You can use *BrokerAuthentication* and *BrokerAuthorization* resources to specify the access control policies for each listener. This flexibility allows you to fine-tune the permissions and roles of your MQTT clients, based on their needs and use cases.
+Each listener port can have its own authentication and authorization rules that define who can connect to the listener and what actions they can perform on the broker. You can use [BrokerAuthentication](./howto-configure-authentication.md) and [BrokerAuthorization](./howto-configure-authorization.md) resources to specify the access control policies for each listener. This flexibility allows you to fine-tune the permissions and roles of your MQTT clients, based on their needs and use cases.
 
 > [!TIP]
 > You can only access the default MQTT broker deployment by using the cluster IP, TLS, and a service account token. Clients connecting from outside the cluster [need extra configuration](./howto-test-connection.md) before they can connect.
 
-Listeners have the following characteristics:
+Broker listeners have the following characteristics:
 
-- You can have up to three listeners. One listener per service type of `loadBalancer`, `clusterIp`, or `nodePort`. The default *BrokerListener* named *default* is service type `clusterIp`.
-- Each listener supports multiple ports
-- BrokerAuthentication and BrokerAuthorization references are per port
-- TLS configuration is per port
-- Service names must be unique
-- Ports can't conflict over different listeners
+- **Name**: Name of the listener. This name is also the Kubernetes service name [unless overridden](#service-name).
+- **Service type**: You can have up to three listeners, one per [service type](#service-type). The [default listener](#default-brokerlistener) is service type `ClusterIp`.
+- **Ports**: Each listener supports [multiple ports](#ports). Ports [can't conflict over different listeners](#using-same-port-across-listeners).
+- **Authentication and Authorization**: [BrokerAuthentication](./howto-configure-authentication.md) and [BrokerAuthorization](./howto-configure-authorization.md) are configured per port.
+- **TLS**: [Manual](#enable-tls-manual-certificate-management-for-a-port) or [automatic](#enable-tls-automatic-certificate-management-for-a-port) TLS configuration is applied per port.
+- **WebSockets**: [MQTT over WebSockets](#websockets-support) can be enabled per port.
 
-For a list of the available settings, see the [Broker Listener](/rest/api/iotoperationsmq/broker-listener) API reference.
+For a list of all available settings, see the [Broker Listener API reference](/rest/api/iotoperationsmq/broker-listener).
 
 ## Default BrokerListener
 
-When you deploy Azure IoT Operations, the deployment also creates a *BrokerListener* resource named `default`. This listener is used to for encrypted internal communication between Azure IoT Operations components. The default listener is part of the [default *Broker*](./overview-broker.md#default-broker-resource), exposes a [ClusterIp service](https://kubernetes.io/docs/concepts/services-networking/service/#type-clusterip) on port 18883, uses [Kubernetes service account authentication](./howto-configure-authentication.md#enable-service-account-token-sat-authentication), has an [automatically managed](#configure-tls-with-automatic-certificate-management) TLS certificate, and doesn't use any authorization.
+When you deploy Azure IoT Operations, the deployment also creates a BrokerListener resource named `default`. This listener is used to for encrypted internal communication between Azure IoT Operations components. The default listener is part of the [default *Broker*](./overview-broker.md#default-broker-resource), exposes a [ClusterIp service](https://kubernetes.io/docs/concepts/services-networking/service/#type-clusterip) on port 18883, uses [Kubernetes service account authentication](./howto-configure-authentication.md#enable-service-account-token-sat-authentication), has an [automatically managed](#configure-tls-with-automatic-certificate-management) TLS certificate, and doesn't use any authorization.
 
 > [!CAUTION]
 > To avoid disrupting internal Azure IoT Operations communication, keep the default listener unchanged and dedicated for internal use. For external communication, [create a new listener](#create-new-broker-listeners). If you need to use the ClusterIp service, add more ports to the default listener without changing any of the existing settings.
@@ -126,7 +126,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 
 # [Kubernetes](#tab/kubernetes)
 
-To view the default *BrokerListener* resource, use the following command:
+To view the default BrokerListener resource, use the following command:
 
 ```bash
 kubectl get brokerlistener default -n azure-iot-operations -o yaml
@@ -171,24 +171,22 @@ kubectl patch brokerlistener default -n azure-iot-operations --type='json' -p='[
 
 ---
 
-### Update the default broker listener
+### Avoid modifying default broker listener
 
-To avoid disrupting internal Azure IoT Operations communication, keep the default listener unchanged and dedicated for internal use. For external communication, [create a new listener](#create-new-broker-listeners).
+To prevent disrupting internal Azure IoT Operations communication, keep the default listener unchanged and dedicated for internal use. For external communication, [create a new listener](#create-new-broker-listeners).
 
-Since the default *BrokerListener* uses the service type *ClusterIp*, and you can have [only one listener per service type](#service-type), add more ports to the default listener without changing any of the existing settings if you need to use the *ClusterIp* service.
+Since the default broker listener uses the service type ClusterIp, and you can have [only one listener per service type](#service-type), add more ports to the default listener without changing any of the existing settings if you need to use the ClusterIp service.
 
 ## Create new broker listeners
 
-To create a new listener, you need to specify the following settings:
+To create a new listener, specify the following settings:
 
-- **Name**: Name of the *BrokerListener* resource. The name must be unique within the namespace.
-- **Service name**: Name of the Kubernetes service that exposes the broker. If left empty, the listener name is used as the service name.
-- **Service type**: Type of the Kubernetes service. Can be `LoadBalancer`, `ClusterIp`, or `NodePort`.
-- **Ports**: List of ports that the listener listens on. Each port can have its own authentication, authorization, and TLS settings.
-  - To use your own authentication or authorization setting for a port, you must create the corresponding resources before creating the *BrokerListener* resource. For more information, see [Configure MQTT broker authentication](howto-configure-authentication.md) and [Configure MQTT broker authorization](howto-configure-authorization.md).
-  - To use TLS, see [Configure TLS with automatic certificate management](#configure-tls-with-automatic-certificate-management) or [Configure TLS with manual certificate management](#configure-tls-with-manual-certificate-management) sections.
+- **Name**: Name of the listener. This name is also the Kubernetes service name [unless overridden](#service-name).
+- **Service type**: Type of the Kubernetes service. See [Service type](#service-type).
+- **Ports**: List of ports that to listen on. See [Ports](#ports).
+- (Optional) **Service name**: override the Kubernetes service name. See [Service name](#service-name).
 
-This example shows how to create a new listener with load balancer service type. The *BrokerListener* resource defines a two ports that accept MQTT connections from clients.
+This example shows how to create a new listener with load balancer service type. The BrokerListener resource defines a two ports that accept MQTT connections from clients.
 
 - The first port listens on port 1883 without TLS and authentication. Clients can connect to the broker without encryption or authentication. This setup is suitable for testing only. [Don't use this configuration in production](./howto-test-connection.md#only-turn-off-tls-and-authentication-for-testing).
 - The second port listens on port 8883 with TLS and authentication enabled. Only [authenticated clients with a Kubernetes service account token](./howto-configure-authentication.md#default-brokerauthentication-resource) can connect. TLS is set to [automatic mode](#enable-tls-automatic-certificate-management-for-a-port), using cert-manager to manage the server certificate from the [default issuer](../secure-iot-ops/concept-default-root-ca.md#default-self-signed-issuer-and-root-ca-certificate-for-tls-server-certificates). This setup is closer to a production configuration.
@@ -237,9 +235,10 @@ This example shows how to create a new listener with load balancer service type.
 
     Leave other settings as default, and select **Apply**.
 
+1. Select **Create listener**.
+
     :::image type="content" source="media/howto-configure-brokerlistener/create-loadbalancer.png" alt-text="Screenshot using Azure portal to create MQTT broker for load balancer listener.":::
 
-1. Select **Create listener**.
 
 # [Bicep](#tab/bicep)
 
@@ -332,28 +331,40 @@ spec:
 
 ## Service type
 
-Each BrokerListener maps to a [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/).. The service type determines how the broker is exposed to the network. The three service types are:
+Each BrokerListener maps to a [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/). The service type determines how the broker is exposed to the network. The supported service types are:
 
 - **ClusterIp**: Exposes the broker on a cluster-internal IP. Clients can connect to the broker from within the cluster. This is the default service type for the default listener.
 - **NodePort**: Exposes the broker on each node's IP at a static port. Clients can connect to the broker from outside the cluster. This service type is useful for development and testing.
 - **LoadBalancer**: Exposes the broker externally. The service is assigned an external IP address that clients can use to connect to the broker. This is the most common service type for production deployments.
 
-Only one listener per service type is allowed. If you need more connectivity of the same service type, add more ports to the existing listener.
+### Only one listener per service type
+
+Only one listener per service type is allowed. If you need more connectivity of the same service type, add more ports to the existing listener of that service type.
 
 ## Service name
 
-The service name is the name of the Kubernetes service that exposes the broker. If left empty, the broker listener name is used as the service name. The service name must be unique within the namespace.
+The service name is the name of the Kubernetes service that exposes the broker. If not specified, the broker listener name is used as the service name. The service name must be unique within the namespace.
 
 > [!TIP]
 > To prevent management overhead, we recommend leaving the service name empty. The listener name is unique and can be used to identify the service. Use the service name as an override only when you can't name the service after the listener.
 
 ## Ports
 
-Each listener can have multiple ports, but each port number must be unique within the Azure IoT Operations MQTT broker. For example, if you have a NodePort listener using port 1883, you can't create another LoadBalancer listener with port 1883. Similarly, the default listener uses port 18883, so you can't create another listener with port 18883.
+Each listener can have multiple ports, and each port can have its own settings for authentication, authorization, websockets, and TLS. 
+
+To use your own authentication or authorization setting for a port, you must create the corresponding resources before using it with a listener. For more information, see [Configure MQTT broker authentication](howto-configure-authentication.md) and [Configure MQTT broker authorization](howto-configure-authorization.md).
+
+To use TLS, see [Configure TLS with automatic certificate management](#configure-tls-with-automatic-certificate-management) or [Configure TLS with manual certificate management](#configure-tls-with-manual-certificate-management) sections.
+
+### Using same port across listeners
+
+Using the same port number across different listeners isn't supported. Each port number must be unique within the Azure IoT Operations MQTT broker. 
+
+For example, if you have a listener using port 1883, you can't create another listener with port 1883. Similarly, the default listener uses port 18883, so you can't create another listener with port 18883.
 
 ## WebSockets support
 
-Azure IoT Operations MQTT broker supports MQTT over WebSockets. To enable WebSockets, set the protocol to `WebSockets` in the port settings.
+Azure IoT Operations MQTT broker supports MQTT over WebSockets. To enable WebSockets, set the protocol to `WebSockets` for the port.
 
 ## Configure TLS with automatic certificate management
 
@@ -896,7 +907,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 
 # [Kubernetes](#tab/kubernetes)
 
-Modify the `tls` setting in a *BrokerListener* resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`server-cert-secret` in the example previously).
+Modify the `tls` setting in a BrokerListener resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`server-cert-secret` in the example previously).
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
@@ -916,7 +927,7 @@ spec:
         secretRef: server-cert-secret
 ```
 
-Once the *BrokerListener* resource is created, the operator automatically creates a Kubernetes service and deploys the listener. You can check the status of the service by running `kubectl get svc`.
+Once the BrokerListener resource is created, the operator automatically creates a Kubernetes service and deploys the listener. You can check the status of the service by running `kubectl get svc`.
 
 ---
 
