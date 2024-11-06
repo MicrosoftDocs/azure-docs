@@ -11,7 +11,7 @@ ms.author: shaas
 ms.custom: references_regions
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
 ---
-# What is Azure Data Box V2?
+# What is Azure Data Box?
 
 The Microsoft Azure Data Box cloud solution lets you send terabytes of data into and out of Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary Data Box storage device. These storage devices come in two variations having a maximum usable storage capacity of 120 TB and 525 TB respectively. These are transported to your data center through a regional carrier. These devices have a rugged casing to protect and secure data during the transit. 
 
@@ -61,11 +61,11 @@ You can use your Data Box data with many non-Azure service providers. For instan
 
 Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solution has the following benefits:
 
-- **Speed** - Data Box uses 100Gbps network interfaces to move up to 120 TB /525 TB of data into and out of Azure. 
+- **Speed** - Data Box uses up to 100Gbps network interfaces to move data into and out of Azure. 
 
 - **Secure** - Data Box has built-in security protections for the device, data, and the service.
   - The device has a rugged casing secured by tamper-resistant screws and tamper-evident stickers. 
-  - The data on the device is secured with an AES 256-bit encryption at all times enhanced by hardware-based RAID controller encryption.  
+  - The data on the device is secured with AES 256-bit encryption at all times.  
   - The device can only be unlocked with a password provided in the Azure portal.
   - The service is protected by the Azure security features.
   - Once the data from your import order is uploaded to Azure, the disks on the device are wiped clean in accordance with NIST 800-88r1 standards. For an export order, the disks are erased once the device reaches the Azure datacenter.
@@ -117,6 +117,14 @@ The Data Box device has the following features in this release.
 | Security                                                | Rugged device casing with tamper-proof custom screws <br> Intrusion detection system in device <br> Secure boot <br>Hardware Root of Trust <br> TPM 2.0  |
 | Data transfer rate                                      | Approx. 7 GB/s using SMB Direct on RDMA (100-GbE) for large files.. Both data ports can be used, though not required. Performance might differ depending on the source and size of your files.      |
 | Management                                              | Local web UI - one-time initial setup and configuration <br> Azure portal - day-to-day device management        |
+
+## Next generation Data Box performance improvements
+The new version offers enhanced performance for data ingestion and upload, making it easier and faster for enterprise customers to migrate large-scale data to Azure without needing extensive on-premises network infrastructure. Key advancements include-
+ - NVMe devices offer faster data transfer rates, with copy speeds up to 7GBps via SMB Direct on RDMA (100-GbE) for medium to large files, a 10x improvement in device transfers as compared to previous generation devices.
+ - When using the data copy service, there is significant performance improvement ranging from 2x for small sized files (64K-512K), to up to 7x for large files (8 MB to 128 MB). The data copy service runs locally on the Data Box, connects to the user’s network-attached storage (NAS) device via the Server Message Block (SMB) protocol, and copies data to Data Box. This eliminates the need for an intermediate host to ingest data.
+ -	High-speed transfers to Azure with data upload up to 5x faster for medium to large files, minimizing the lead time for your data to become accessible in the Azure cloud. 
+ -	These improvements are achieved through optimized hardware and software stacks, including the use of RDMA for SMB, which collectively reduce CPU usage and enhance overall efficiency.
+
 
 ## Data Box components
 
