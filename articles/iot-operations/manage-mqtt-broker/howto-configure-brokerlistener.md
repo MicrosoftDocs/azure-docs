@@ -57,7 +57,7 @@ To view or edit the default listener:
 
 # [Bicep](#tab/bicep)
 
-You shouldn't modify the default listener using Bicep.
+Be careful when modifying the default listener using Bicep. Don't change the existing settings. Instead, add more ports to the default listener. The following example shows how to add a new port to the default listener.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -76,7 +76,7 @@ resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-pre
   name: 'default'
 }
 
-resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-09-15-preview' = {
+resource defaultListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-09-15-preview' = {
   parent: defaultBroker
   name: 'default'
   extendedLocation: {
@@ -108,7 +108,11 @@ resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2
           }
         }
       }
-    // Add more ports here
+      // Add more ports here, like the following example
+      {
+        port: 1884
+        protocol: 'Mqtt'
+      }
     ]
   }
 }
@@ -159,17 +163,19 @@ spec:
           rotationPolicy: Always
 ```
 
-To learn more about the default BrokerAuthentication resource linked to this listener, see [Default BrokerAuthentication resource](howto-configure-authentication.md#default-brokerauthentication-resource).
-
-### Update the default broker listener
-
-The default *BrokerListener* uses the service type *ClusterIp*. You can have only one listener per service type. If you want to add more ports to service type *ClusterIp*, you can update the default listener to add more ports. For example, you could add a new port 1883 with no TLS and authentication off with the following kubectl patch command:
+To add a new port 1883 with no TLS and authentication off to the default listener, use the `kubectl patch` command:
 
 ```bash
 kubectl patch brokerlistener default -n azure-iot-operations --type='json' -p='[{"op": "add", "path": "/spec/ports/-", "value": {"port": 1883, "protocol": "Mqtt"}}]'
 ```
 
 ---
+
+### Update the default broker listener
+
+To avoid disrupting internal Azure IoT Operations communication, keep the default listener unchanged and dedicated for internal use. For external communication, [create a new listener](#create-new-broker-listeners).
+
+Since the default *BrokerListener* uses the service type *ClusterIp*, and you can have [only one listener per service type](#service-type), add more ports to the default listener without changing any of the existing settings if you need to use the *ClusterIp* service.
 
 ## Create new broker listeners
 
