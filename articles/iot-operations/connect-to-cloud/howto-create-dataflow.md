@@ -523,7 +523,7 @@ You can rename a datapoint using the **Rename** transform. This operation is use
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-rename.png" alt-text="Screenshot using operations experience to rename a datapoint.":::
 
-    Enter the required settings.
+1.  Enter the required settings.
 
     | Setting            | Description                                                                                             |
     |--------------------|---------------------------------------------------------------------------------------------------------|
@@ -541,7 +541,7 @@ You can add a new property to the source data using the **New property** transfo
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-new-property.png" alt-text="Screenshot using operations experience to add a new property.":::
 
-    Enter the required settings.
+1.  Enter the required settings.
 
     | Setting            | Description                                                                                         |
     |--------------------|-----------------------------------------------------------------------------------------------------|
@@ -610,7 +610,7 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-filter.png" alt-text="Screenshot using operations experience to add a filter transform.":::
 
-    Enter the required settings.
+1.  Enter the required settings.
 
     | Setting            | Description                                                                                       |
     |--------------------|---------------------------------------------------------------------------------------------------|
@@ -670,7 +670,7 @@ In the operations experience, mapping is currently supported using **Compute** t
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-compute.png" alt-text="Screenshot using operations experience to add a compute transform.":::
 
-    Enter the required settings.
+1.  Enter the required settings.
 
     | Setting            | Description                                                                                       |
     |--------------------|---------------------------------------------------------------------------------------------------|
