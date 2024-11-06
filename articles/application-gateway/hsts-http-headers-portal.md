@@ -87,7 +87,7 @@ In this example, we will add the Strict Transport Security (STS) response header
 
 7. Select **Create** to create the rewrite set:
 
-    :::image type="content" source="./media/hsts-http-headers-portal/create-rewrite-set.png" alt-text="Screenshot that shows how to click "create"." lightbox="./media/hsts-http-headers-portal/create-rewrite-set.png":::
+    :::image type="content" source="./media/hsts-http-headers-portal/create-rewrite-set.png" alt-text="Screenshot that shows how to click create." lightbox="./media/hsts-http-headers-portal/create-rewrite-set.png":::
 
 ## Limitations and Recommendations
 
