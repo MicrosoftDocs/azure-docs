@@ -156,63 +156,63 @@ An environment in Azure Container Apps creates a secure boundary around a group 
 1. Create an Azure virtual network (VNet) to associate with the Container Apps environment. The VNet must have a subnet available for the environment deployment.
     You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
-```azurecli
-az network vnet create \
-    --resource-group $RESOURCE_GROUP \
-    --name $VNET_NAME \
-    --location $LOCATION \
-    --address-prefix 10.0.0.0/16
-```
+    ```azurecli
+    az network vnet create \
+        --resource-group $RESOURCE_GROUP \
+        --name $VNET_NAME \
+        --location $LOCATION \
+        --address-prefix 10.0.0.0/16
+    ```
 
 1. Create a subnet to associate with the VNet and to contain the private endpoint.
 
-```azurecli
-az network vnet subnet create \
-    --resource-group $RESOURCE_GROUP \
-    --vnet-name $VNET_NAME \
-    --name $SUBNET_NAME \
-    --address-prefixes 10.0.0.0/21
-```
+    ```azurecli
+    az network vnet subnet create \
+        --resource-group $RESOURCE_GROUP \
+        --vnet-name $VNET_NAME \
+        --name $SUBNET_NAME \
+        --address-prefixes 10.0.0.0/21
+    ```
 
 1. Retrieve the subnet ID. You use this to create the private endpoint.
 
-```azurecli
-SUBNET_ID=$(az network vnet subnet show \
-    --resource-group $RESOURCE_GROUP \
-    --vnet-name $VNET_NAME \
-    --name $SUBNET_NAME \
-    --query "id" \
-    --output tsv)
-```
+    ```azurecli
+    SUBNET_ID=$(az network vnet subnet show \
+        --resource-group $RESOURCE_GROUP \
+        --vnet-name $VNET_NAME \
+        --name $SUBNET_NAME \
+        --query "id" \
+        --output tsv)
+    ```
 
 ## Create an environment
 
 1. Create the Container Apps environment using the VNet deployed in the preceding steps. Private endpoints are only supported by workload profiles environments, which is the default type for new environments.
 
-```azurecli
-az containerapp env create \
-    --name $ENVIRONMENT_NAME \
-    --resource-group $RESOURCE_GROUP \
-    --location $LOCATION
-```
+    ```azurecli
+    az containerapp env create \
+        --name $ENVIRONMENT_NAME \
+        --resource-group $RESOURCE_GROUP \
+        --location $LOCATION
+    ```
 
 1. Retrieve the environment ID. You use this to configure the environment.
 
-```azurecli
-ENVIRONMENT_ID=$(az containerapp env show \
-    --resource-group $RESOURCE_GROUP \
-    --name $ENVIRONMENT_NAME \
-    --query "id" \
-    --output tsv)
-```
+    ```azurecli
+    ENVIRONMENT_ID=$(az containerapp env show \
+        --resource-group $RESOURCE_GROUP \
+        --name $ENVIRONMENT_NAME \
+        --query "id" \
+        --output tsv)
+    ```
 
 1. Disable public network access for the environment. This is needed to enable private endpoints.
 
-```azurecli
-az containerapp env update \
-    --id $ENVIRONMENT_ID \
-    --public-network-access Disabled
-```
+    ```azurecli
+    az containerapp env update \
+        --id $ENVIRONMENT_ID \
+        --public-network-access Disabled
+    ```
 
 ## Create a private endpoint
 
@@ -233,51 +233,51 @@ az network private-endpoint create \
 
 1. Retrieve the private endpoint IP address. You use this to add a DNS record to your private DNS zone.
 
-```azurecli
-PRIVATE_ENDPOINT_IP_ADDRESS=$(az network private-endpoint show \
-    --name $PRIVATE_ENDPOINT \
-    --resource-group $RESOURCE_GROUP \
-    --query 'customDnsConfigs[0].ipAddresses[0]' \
-    --output tsv)
-```
+    ```azurecli
+    PRIVATE_ENDPOINT_IP_ADDRESS=$(az network private-endpoint show \
+        --name $PRIVATE_ENDPOINT \
+        --resource-group $RESOURCE_GROUP \
+        --query 'customDnsConfigs[0].ipAddresses[0]' \
+        --output tsv)
+    ```
 
 1. Retrieve the environment default domain. You use this to add a DNS record to your private DNS zone.
 
-```azurecli
-DNS_RECORD_NAME=$(az containerapp env show \
-    --id $ENVIRONMENT_ID \
-    --query 'properties.defaultDomain' \
-    --output tsv | sed 's/\..*//')
-```
+    ```azurecli
+    DNS_RECORD_NAME=$(az containerapp env show \
+        --id $ENVIRONMENT_ID \
+        --query 'properties.defaultDomain' \
+        --output tsv | sed 's/\..*//')
+    ```
 
 1. Create a private DNS zone.
 
-```azurecli
-az network private-dns zone create \
-    --resource-group $RESOURCE_GROUP \
-    --name $PRIVATE_DNS_ZONE
-```
+    ```azurecli
+    az network private-dns zone create \
+        --resource-group $RESOURCE_GROUP \
+        --name $PRIVATE_DNS_ZONE
+    ```
 
 1. Create a link between your VNet and your private DNS zone.
 
-```azurecli
-az network private-dns link vnet create \
-    --resource-group $RESOURCE_GROUP \
-    --zone-name $PRIVATE_DNS_ZONE \
-    --name $DNS_LINK \
-    --virtual-network $VNET_NAME \
-    --registration-enabled false
-```
+    ```azurecli
+    az network private-dns link vnet create \
+        --resource-group $RESOURCE_GROUP \
+        --zone-name $PRIVATE_DNS_ZONE \
+        --name $DNS_LINK \
+        --virtual-network $VNET_NAME \
+        --registration-enabled false
+    ```
 
 1. Add a record for your private endpoint to your private DNS zone.
 
-```azurecli
-az network private-dns record-set a add-record \
-    --resource-group $RESOURCE_GROUP \
-    --zone-name $PRIVATE_DNS_ZONE \
-    --record-set-name $DNS_RECORD_NAME \
-    --ipv4-address $PRIVATE_ENDPOINT_IP_ADDRESS
-```
+    ```azurecli
+    az network private-dns record-set a add-record \
+        --resource-group $RESOURCE_GROUP \
+        --zone-name $PRIVATE_DNS_ZONE \
+        --record-set-name $DNS_RECORD_NAME \
+        --ipv4-address $PRIVATE_ENDPOINT_IP_ADDRESS
+    ```
 
 ## Deploy a container app
 
@@ -404,21 +404,21 @@ The administrator password has the following requirements:
 
 1. In PowerShell, run the following command. Replace the \<PLACEHOLDERS\> with your values.
 
-```powershell
-nslookup <CONTAINER_APP_ENDPOINT>
-```
+    ```powershell
+    nslookup <CONTAINER_APP_ENDPOINT>
+    ```
 
-The output is similar to the following example, with your values replacing the \<PLACEHOLDERS\>.
+    The output is similar to the following example, with your values replacing the \<PLACEHOLDERS\>.
 
-```
-Server:  UnKnown
-Address:  168.63.129.16
+    ```
+    Server:  UnKnown
+    Address:  168.63.129.16
 
-Non-authoritative answer:
-Name:    <ENVIRONMENT_DEFAULT_DOMAIN>.privatelink.<LOCATION>.azurecontainerapps.io
-Address:  10.0.0.4
-Aliases:  <CONTAINER_APP_ENDPOINT>
-```
+    Non-authoritative answer:
+    Name:    <ENVIRONMENT_DEFAULT_DOMAIN>.privatelink.<LOCATION>.azurecontainerapps.io
+    Address:  10.0.0.4
+    Aliases:  <CONTAINER_APP_ENDPOINT>
+    ```
 
 1. Open a browser in the VM.
 
