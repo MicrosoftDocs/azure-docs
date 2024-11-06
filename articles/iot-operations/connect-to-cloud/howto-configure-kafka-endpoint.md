@@ -71,13 +71,13 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
 param hostName string = '<NAMESPACE>.servicebus.windows.net:9093'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -234,7 +234,7 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
  parent: aioInstance
   name: '<ENDPOINT NAME>'
   extendedLocation: {

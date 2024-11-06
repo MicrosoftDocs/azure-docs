@@ -28,7 +28,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
 // Pointer to the Azure IoT Operations instance
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
   name: aioInstanceName
 }
 
@@ -38,7 +38,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 }
 
 // Pointer to the default dataflow profile
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-09-15-preview' = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
   parent: aioInstance
   name: 'default'
   extendedLocation: {
@@ -74,7 +74,7 @@ To create a new dataflow profile, specify the name of the profile and the instan
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-09-15-preview' = {
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
   parent: aioInstance
   name: '<NAME>'
   properties: {
@@ -108,7 +108,7 @@ To manually scale the dataflow profile, specify the maximum number of instances 
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-09-15-preview' = {
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
   parent: aioInstance
   name: '<NAME>'
   properties: {
@@ -143,7 +143,7 @@ For example, to set the log level to debug:
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-09-15-preview' = {
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
   parent: aioInstance
   name: '<NAME>'
   properties: {
