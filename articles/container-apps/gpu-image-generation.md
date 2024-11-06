@@ -84,7 +84,7 @@ In this tutorial you:
     | Image source | Select **Docker Hub or other registries**.  |
     | Image type | Select **public**. |
     | Registry login server | Enter **mcr.microsoft.com/k8se**. |
-    | Image and tag | Enter **gpu-quickstart:latest**. |
+    | Image and tag | Enter **k8se/gpu-quickstart:latest**. |
     | Workload profile | Select the option that begins with **Consumption - Up to 4**... |
     | GPU | Select the checkbox. |
     | GPU Type | Select the **T4** option and select the link to add the profile to your environment. |
