@@ -44,11 +44,11 @@ Microsoft provides [strong customer commitments](https://www.microsoft.com/trust
 
 ## Tenant separation
 
-Azure is a hyperscale public multi-tenant cloud services platform that provides you with access to a feature-rich environment incorporating the latest cloud innovations such as artificial intelligence, machine learning, IoT services, big-data analytics, intelligent edge, and many more to help you increase efficiency and unlock insights into your operations and performance.
+Azure is a hyperscale public multitenant cloud services platform that provides you with access to a feature-rich environment incorporating the latest cloud innovations such as artificial intelligence, machine learning, IoT services, big-data analytics, intelligent edge, and many more to help you increase efficiency and unlock insights into your operations and performance.
 
-A multi-tenant cloud platform implies that multiple customer applications and data are stored on the same physical hardware. Azure uses logical isolation to segregate your applications and data from other customers. This approach provides the scale and economic benefits of multi-tenant cloud services while rigorously helping prevent other customers from accessing your data or applications.
+A multitenant cloud platform implies that multiple customer applications and data are stored on the same physical hardware. Azure uses logical isolation to segregate your applications and data from other customers. This approach provides the scale and economic benefits of multitenant cloud services while rigorously helping prevent other customers from accessing your data or applications.
 
-Azure addresses the perceived risk of resource sharing by providing a trustworthy foundation for assuring multi-tenant, cryptographically certain, logically isolated cloud services using a common set of principles:
+Azure addresses the perceived risk of resource sharing by providing a trustworthy foundation for assuring multitenant, cryptographically certain, logically isolated cloud services using a common set of principles:
 
 - User access controls with authentication and identity separation
 - Compute isolation for processing

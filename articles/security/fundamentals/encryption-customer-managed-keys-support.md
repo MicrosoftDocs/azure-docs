@@ -11,7 +11,7 @@ ms.topic: article
 
 # Services that support customer managed keys (CMKs) in Azure Key Vault and Azure Managed HSM
 
-The following services support server-side encryption with customer managed keys in [Azure Key Vault](/azure/key-vault/) and [Azure Managed HSM](/azure/key-vault/managed-hsm/). For implementation details, see the service-specific documentation or the service's [Microsofr Cloud Security Benchmark: security baseline](/security/benchmark/azure/security-baselines-overview) (section DP-5).
+The following services support server-side encryption with customer managed keys in [Azure Key Vault](/azure/key-vault/) and [Azure Managed HSM](/azure/key-vault/managed-hsm/). For implementation details, see the service-specific documentation or the service's [Microsoft Cloud Security Benchmark: security baseline](/security/benchmark/azure/security-baselines-overview) (section DP-5).
 
 ## AI and Machine Learning
 

@@ -146,7 +146,7 @@
   - name: Choosing a key management solution
     href: key-management-choose.md
   - name: Services supporting CMKs
-    href: encryption-cmk-support.md
+    href: encryption-customer-mnaged-keys-support.md
   - name: Double encryption
     href: double-encryption.md
   - name: Azure Certificate Authorities
