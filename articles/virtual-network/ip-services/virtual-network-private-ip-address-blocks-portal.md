@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 # Assign private IP address prefixes to virtual machines using the Azure portal - Preview
 
-This article helps you add secondary IP configurations on a virtual machine NIC with a CIDR block of private IP addresses using the Azure portal. An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. All the NICs have one primary IP configuration and zero or more secondary IP configurations assigned to them. The primary IP configuration has a private IP Address assigned to it and can optionally have a public IP address assignment as well. Each secondary IP configuration can have the following items:
+This article helps you add secondary IP configurations on a virtual machine NIC with a CIDR block of private IP addresses using the Azure portal. An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. All the NICs have one primary IP configuration and zero or more secondary IP configurations assigned to them. The primary IP configuration has a single private IP Address assigned to it and can optionally have a public IP address assignment as well. Each secondary IP configuration can have the following items:
 
 * A private IP address assignment and (optionally) a public IP address assignment, OR
 * A CIDR block of private IP addresses (IP address prefix).
@@ -22,7 +22,7 @@ All the IP addresses can be statically or dynamically assigned from the availabl
 There's a limit to how many IP configurations can be assigned to a NIC. For more information, see the [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
 
 > [!IMPORTANT]
-> Private IP address prefixes is currently in PREVIEW.
+> This capability to add private IP address prefixes to NIC is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/block-ipconfigs.png" alt-text="Diagram of network configuration resources created in article.":::
