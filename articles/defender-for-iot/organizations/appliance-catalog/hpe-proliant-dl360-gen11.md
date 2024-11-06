@@ -105,6 +105,7 @@ If any of the steps below are missing in the BIOS, make sure that the hardware m
 HPE BIOS iLO is a system management software designed to give administrators control of HPE hardware remotely. It allows administrators to monitor system performance, configure settings, and troubleshoot hardware issues from a web browser. It can also be used to update system BIOS and firmware. The BIOS can be set up locally or remotely. To set up the BIOS remotely from a management computer, you need to define the HPE IP address and the management computer's IP address on the same subnet.
 
 **To configure the HPE BIOS**:
+
 > [!IMPORTANT]
 > Please make sure your server is using the HPE SPP 2022.03.1 (BIOS version U32 v2.6.2) or later.
 
