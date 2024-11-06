@@ -50,6 +50,7 @@ To enable authentication using access tokens:
 > Authentication using access tokens is less secure. [Learn how to manage access tokens](./how-to-manage-access-tokens.md)
 
 ## Set up authentication using access-tokens
+
 ::: zone pivot="playwright-test-runner"
 
 1. While running the tests, enable access token auth in the `playwright.service.config.ts` file in your setup. 
@@ -63,6 +64,7 @@ To enable authentication using access tokens:
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
+
 1. While running the tests, enable access token auth in the `.runsettings` file in your setup. 
 
     ```xml
@@ -78,6 +80,7 @@ To enable authentication using access tokens:
     Follow the steps to [create an access token](./how-to-manage-access-tokens.md#generate-a-workspace-access-token). Copy the value of the access token generated.
 
 ::: zone pivot="playwright-test-runner"
+
 1. Set up your environment
 
     To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Make sure this environment variable is available in your setup where you are running tests.
