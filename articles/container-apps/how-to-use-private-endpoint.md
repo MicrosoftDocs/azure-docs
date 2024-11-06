@@ -109,13 +109,13 @@ In the *Create Container App* page on the *Container* tab, select **Use quicksta
 - The latest version of the Azure Container Apps extension for the Azure CLI. To ensure you're running the latest version, run the following command.
 
     ```azurecli
-	az extension add --name containerapp --upgrade --allow-preview true
+    az extension add --name containerapp --upgrade --allow-preview true
     ```
 
     > [!NOTE]
     > Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](./whats-new.md), install the Container Apps extension with `--allow-preview true`.
 
-For more information about prerequisites and setup, see [Quickstart: Deploy your first container app with containerapp up](get-started.md?tabs=bash)
+For more information about prerequisites and setup, see [Quickstart: Deploy your first container app with containerapp up](get-started.md?tabs=bash).
 
 ## Set environment variables
 
@@ -140,8 +140,8 @@ Create a resource group to organize the services related to your container app d
 
 ```azurecli
 az group create \
-  --name $RESOURCE_GROUP \
-  --location $LOCATION
+    --name $RESOURCE_GROUP \
+    --location $LOCATION
 ```
 
 ## Create a virtual network
@@ -152,26 +152,31 @@ Now create an Azure virtual network (VNet) to associate with the Container Apps 
 
 ```azurecli
 az network vnet create \
-  --resource-group $RESOURCE_GROUP \
-  --name $VNET_NAME \
-  --location $LOCATION \
-  --address-prefix 10.0.0.0/16
+    --resource-group $RESOURCE_GROUP \
+    --name $VNET_NAME \
+    --location $LOCATION \
+    --address-prefix 10.0.0.0/16
 ```
 
 Create a subnet to associate with the VNet and to contain the private endpoint.
 
 ```azurecli
 az network vnet subnet create \
-  --resource-group $RESOURCE_GROUP \
-  --vnet-name $VNET_NAME \
-  --name $SUBNET_NAME \
-  --address-prefixes 10.0.0.0/21
+    --resource-group $RESOURCE_GROUP \
+    --vnet-name $VNET_NAME \
+    --name $SUBNET_NAME \
+    --address-prefixes 10.0.0.0/21
 ```
 
 Retrieve the subnet ID. You use this to create the private endpoint.
 
 ```azurecli
-SUBNET_ID=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" --output tsv`
+SUBNET_ID=`az network vnet subnet show \
+    --resource-group ${RESOURCE_GROUP} \
+    --vnet-name $VNET_NAME \
+    --name $SUBNET_NAME \
+    --query "id" \
+    --output tsv`
 ```
 
 ## Create an environment
@@ -180,16 +185,16 @@ Create the Container Apps environment using the VNet deployed in the preceding s
 
 ```azurecli
 az containerapp env create \
-  --name $ENVIRONMENT_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION
+    --name $ENVIRONMENT_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --location $LOCATION
 ```
 
 Retrieve the environment ID. You use this to configure the environment.
 
 ```azurecli
 ENVIRONMENT_ID=`az containerapp env show \
-    --resource-group ${RESOURCE_GROUP}
+    --resource-group ${RESOURCE_GROUP} \
     --name ${ENVIRONMENT_NAME} \
     --query "id" \
     --output tsv`
@@ -233,7 +238,10 @@ PRIVATE_ENDPOINT_IP_ADDRESS=`az network private-endpoint show \
 Retrieve the environment default domain. You use this to add a DNS record to your private DNS zone.
 
 ```azurecli
-DNS_RECORD_NAME=`az containerapp env show --id ${ENVIRONMENT_ID} --query 'properties.defaultDomain' --output tsv | sed 's/\..*//'`
+DNS_RECORD_NAME=`az containerapp env show \
+    --id ${ENVIRONMENT_ID} \
+    --query 'properties.defaultDomain' \
+    --output tsv | sed 's/\..*//'`
 ```
 
 Create a private DNS zone.
@@ -271,14 +279,14 @@ Deploy a container app in your environment. This container app simply uses the q
 
 ```azurecli
 az containerapp up \
-  --name $CONTAINERAPP_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION \
-  --environment $ENVIRONMENT_NAME \
-  --image mcr.microsoft.com/k8se/quickstart:latest \
-  --target-port 80 \
-  --ingress external \
-  --query properties.configuration.ingress.fqdn
+    --name $CONTAINERAPP_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --location $LOCATION \
+    --environment $ENVIRONMENT_NAME \
+    --image mcr.microsoft.com/k8se/quickstart:latest \
+    --target-port 80 \
+    --ingress external \
+    --query properties.configuration.ingress.fqdn
 ```
 
 When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because the container app environment has public access disabled.
