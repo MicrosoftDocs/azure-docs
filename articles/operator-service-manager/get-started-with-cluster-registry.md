@@ -23,7 +23,7 @@ This feature requires the following minimum environment:
 * First version, with HA for NF kubernetes extension: 2.0.2810-144
 * First version, with GC for NF kubernetes extension: 2.0.2810-144
 
-## Overview
+## Cluster registry overview
 Azure Operator Service Manager (AOSM) cluster registry (CR) enables a local copy of container images in the Nexus K8s cluster. When the containerized network function (CNF) is installed with cluster registry enabled, the container images are pulled from the remote AOSM artifact store and saved to this local cluster registry. Using a mutating webhook, cluster registry automatically intercepts image requests and substitutes the local registry path, to avoid publisher packaging changes. With cluster register, CNF access to container images survives loss of connectivity to the remote artifact store.
 
 ### Key use cases and benefits
