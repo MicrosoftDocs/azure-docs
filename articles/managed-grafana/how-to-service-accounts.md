@@ -98,7 +98,7 @@ Follow the steps below to create a new Grafana service account and list existing
 
 ## Add a service account token
 
-Once you've created a service account, add one or more access tokens. Access tokens are generated strings used to authenticate with the Grafana API. They are a way to grant access to the API without sharing your username and password. Each token is associated with specific permissions, allowing you to control the level of access granted to different users or applications. Tokens can be created, managed, and revoked as needed.
+Once you've created a service account, add one or more access tokens. Access tokens are generated strings used to authenticate with the Grafana API without using your username and password. Each token is associated with specific permissions, allowing you to control the level of access granted to different users or applications. Tokens can be created, managed, and revoked as needed.
 
 ### [Grafana UI](#tab/grafana-ui)
 
@@ -143,19 +143,13 @@ In the Azure CLI:
     Created               Expiration            HasExpired    Name    SecondsUntilExpiration
     --------------------  --------------------  ------------  ------  ------------------------
     2024-11-05T15:09:24Z  2024-11-06T14:48:51Z  False         token1  84388.80530215
-    2022-12-07T11:42:35Z  2022-12-22T11:42:35Z  False         token2  0
     ```
 
 ---
 
 ## Edit a service account
 
-In this section, learn how to update a Grafana service account in the following ways:
-
-- Edit the name of a service account
-- Edit the role of a service account
-- Disable a service account
-- Enable a service account
+In this section, you learn how to update a Grafana service account.
 
 ### [Grafana UI](#tab/grafana-ui)
 
@@ -196,8 +190,6 @@ az grafana update --service-account Disabled --name <service-account-name>
 ### [Grafana UI](#tab/grafana-ui)
 
 To delete a Grafana service account, select a service account and at the top of the page select **Delete service account**, then select **Delete service account** to confirm. Deleting a service account is final and a service account can't be recovered once deleted.
-
-:::image type="content" source="media/service-accounts/delete.png" alt-text="Screenshot of the Azure platform. Deleting service account page.":::
 
 ### [Azure CLI](#tab/cli)
 
