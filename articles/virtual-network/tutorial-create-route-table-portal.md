@@ -185,10 +185,10 @@ Create an Azure Bastion host with [New-AzBastion](/powershell/module/az.network/
 $bastionParams = @{
     ResourceGroupName = "test-rg"
     Name = "bastion"
-    Location = "EastUS"
     VirtualNetworkName = "vnet-1"
-    SubnetName = "AzureBastionSubnet"
     PublicIpAddressName = "public-ip-bastion"
+    PublicIpAddressRgName = "test-rg"
+    VirtualNetworkRgName = "test-rg"
 }
 New-AzBastion @bastionParams -AsJob
 ```
@@ -249,83 +249,29 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
 
 ### [PowerShell](#tab/powershell)
 
-### Create a network interface
+### Create a virtual machine
 
-Before creating a network interface, you have to retrieve the virtual network Id with [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), then the subnet Id with [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig). Create a network interface with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) in the *DMZ* subnet:
-
-```azurepowershell-interactive
-# Retrieve the virtual network object into a variable.
-$vnetParams = @{
-  Name = "vnet-1"
-  ResourceGroupName = "test-rg"
-}
-$virtualNetwork = Get-AzVirtualNetwork @vnetParams
-
-# Retrieve the subnet configuration into a variable.
-$subnetConfigParams = @{
-  Name = "subnet-dmz"
-  VirtualNetwork = $virtualNetwork
-}
-$subnetConfigDmz = Get-AzVirtualNetworkSubnetConfig @subnetConfigParams
-
-# Create the network interface.
-$nicParams = @{
-  ResourceGroupName = "test-rg"
-  Location = "eastus2"
-  Name = "vm-nva"
-  SubnetId = $subnetConfigDmz.Id
-}
-$nic = New-AzNetworkInterface @nicParams
-```
-
-### Create a VM
-
-To create a VM and attach an existing network interface to it, you must first create a VM configuration with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). The configuration includes the network interface created in the previous step. When prompted for a username and password, select the user name and password you want to log into the VM with.
+Create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *vm-nva*.
 
 ```azurepowershell-interactive
-# Create a credential object.
-$credParams = @{
-  Message = "Enter a username and password for the VM."
-}
-$cred = Get-Credential @credParams
+# Create a credential object
+$cred = Get-Credential
 
-# Create a VM configuration.
-$vmConfigParams = @{
-  VMName = 'vm-nva'
-  VMSize = 'Standard_DS2'
+# Define the VM parameters
+$vmParams = @{
+    ResourceGroupName = "test-rg"
+    Location = "EastUS2"
+    Name = "vm-nva"
+    ImageName = "Canonical:ubuntu-24_04-lts:server-gen1:latest"
+    Size = "Standard_DS1_v2"
+    Credential = $cred
+    VirtualNetworkName = "vnet-1"
+    SubnetName = "subnet-dmz"
+    PublicIpAddressName = $null  # No public IP address
 }
-$vmConfig = New-AzVMConfig @vmConfigParams
 
-$osParams = @{
-  Windows = $true
-  ComputerName = 'vm-nva'
-  Credential = $cred
-}
-$vmConfig = $vmConfig | Set-AzVMOperatingSystem @osParams
-
-$imageParams = @{
-  PublisherName = 'Canonical'
-  Offer = '0001-com-ubuntu-server-focal'
-  Skus = '24_04-lts'
-  Version = 'latest'
-}
-$vmConfig = $vmConfig | Set-AzVMSourceImage @imageParams
-
-$nicParams = @{
-  Id = $nic.Id
-}
-$vmConfig = $vmConfig | Add-AzVMNetworkInterface @nicParams
-```
-
-Create the VM using the VM configuration with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *vm-nva*.
-
-```azurepowershell-interactive
-$vmNvaParams = @{
-  ResourceGroupName = "test-rg"
-  Location = "eastus2"
-  VM = $vmConfig
-}
-$vmNva = New-AzVM @vmNvaParams -AsJob
+# Create the VM
+New-AzVM @vmParams -AsJob
 ```
 
 The `-AsJob` option creates the VM in the background, so you can continue to the next step.
@@ -434,33 +380,50 @@ The public virtual machine is used to simulate a machine in the public internet.
 
 ### [PowerShell](#tab/powershell)
 
-Create a VM in the *subnet-public* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVmPublic* in the *subnet-public* subnet of the *vnet-1* virtual network.
+Create a VM in the *subnet-1* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *vm-public* in the *subnet-public* subnet of the *vnet-1* virtual network.
 
 ```azurepowershell-interactive
-$vmPublicParams = @{
-  ResourceGroupName = "test-rg"
-  Location = "eastus2"
-  VirtualNetworkName = "vnet-1"
-  SubnetName = "subnet-public"
-  ImageName = "Canonical:0001-com-ubuntu-server-focal:24_04-lts:latest"
-  Name = "vm-public"
-  AsJob = $true
+# Create a credential object
+$cred = Get-Credential
+
+# Define the VM parameters
+$vmParams = @{
+    ResourceGroupName = "test-rg"
+    Location = "EastUS2"
+    Name = "vm-public"
+    ImageName = "Canonical:ubuntu-24_04-lts:server-gen1:latest"
+    Size = "Standard_DS1_v2"
+    Credential = $cred
+    VirtualNetworkName = "vnet-1"
+    SubnetName = "subnet-1"
+    PublicIpAddressName = $null  # No public IP address
 }
-New-AzVm @vmPublicParams
+
+# Create the VM
+New-AzVM @vmParams
 ```
 
 Create a VM in the *subnet-private* subnet.
 
 ```azurepowershell-interactive
-$vmPrivateParams = @{
-  ResourceGroupName = "test-rg"
-  Location = "eastus2"
-  VirtualNetworkName = "vnet-1"
-  SubnetName = "subnet-private"
-  ImageName = "Canonical:0001-com-ubuntu-server-focal:24_04-lts:latest"
-  Name = "vm-private"
+# Create a credential object
+$cred = Get-Credential
+
+# Define the VM parameters
+$vmParams = @{
+    ResourceGroupName = "test-rg"
+    Location = "EastUS2"
+    Name = "vm-private"
+    ImageName = "Canonical:ubuntu-24_04-lts:server-gen1:latest"
+    Size = "Standard_DS1_v2"
+    Credential = $cred
+    VirtualNetworkName = "vnet-1"
+    SubnetName = "subnet-private"
+    PublicIpAddressName = $null  # No public IP address
 }
-New-AzVm @vmPrivateParams
+
+# Create the VM
+New-AzVM @vmParams
 ```
 
 The VM takes a few minutes to create. Don't continue with the next step until the VM is created and Azure returns output to PowerShell.
@@ -503,18 +466,14 @@ Enable IP forwarding for the network interface of the **vm-nva** virtual machine
 
 ```azurepowershell-interactive
 $nicParams = @{
-  Name = "vm-nva313"
+  Name = "vm-nva"
   ResourceGroupName = "test-rg"
 }
-
 $nic = Get-AzNetworkInterface @nicParams
+
 $nic.EnableIPForwarding = $true
 
-$setNicParams = @{
-  InputObject = $nic
-}
-
-Set-AzNetworkInterface @setNicParams
+Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
 ### [CLI](#tab/cli)
@@ -646,13 +605,31 @@ $routeTableParams = @{
 
 $routeConfigParams = @{
   Name = "to-private-subnet"
-  AddressPrefix = "10.0.1.0/24"
+  AddressPrefix = "10.0.2.0/24"
   NextHopType = "VirtualAppliance"
-  NextHopIpAddress = "10.0.2.4"
+  NextHopIpAddress = "10.0.3.4"
 }
 
 $routeTable = Get-AzRouteTable @routeTableParams
 $routeTable | Add-AzRouteConfig @routeConfigParams | Set-AzRouteTable
+```
+
+Associate the route table with the **subnet-1** subnet with [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig). The following example associates the *route-table-public* route table with the *subnet-1* subnet.
+
+```azurepowershell-interactive
+$vnetParams = @{
+	Name = 'vnet-1'
+	ResourceGroupName = 'test-rg'
+}
+$virtualNetwork = Get-AzVirtualNetwork @vnetParams
+
+$subnetParams = @{
+	VirtualNetwork = $virtualNetwork
+	Name = 'subnet-1'
+	AddressPrefix = '10.0.0.0/24'
+	RouteTable = $routeTablePublic
+}
+Set-AzVirtualNetworkSubnetConfig @subnetParams | Set-AzVirtualNetwork
 ```
 
 ### [CLI](#tab/cli)
