@@ -4,7 +4,7 @@ description: Learn how to configure networking and connect your Windows Server t
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/05/2024
+ms.date: 11/06/2024
 ms.author: kendownie
 ---
 
