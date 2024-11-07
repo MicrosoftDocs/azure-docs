@@ -4,7 +4,7 @@ description: Learn how to create a resource for  Neon Serverless Postgres (previ
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
-ms.date: 10/29/2024
+ms.date: 11/07/2024
 
 ---
 # Quickstart: Create a Neon Serverless Postgres (preview) resource
@@ -73,7 +73,7 @@ There are required fields in each section that you need to fill out.
 
 ### Tag tab (optional)
 
-If you wish, you have the option to create a tag for your resources. 
+If you wish, you can optionally create a tag for your resource. 
 
 ### Review and create tab
 
