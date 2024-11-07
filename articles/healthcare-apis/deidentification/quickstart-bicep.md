@@ -24,7 +24,8 @@ If your environment meets the prerequisites and you're familiar with using Bicep
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [include](~/reusable-content//azure-powershell/azure-powershell-requirements-no-header.md)]
 
 ## Review the Bicep file
 
@@ -37,104 +38,66 @@ The following Azure resources are defined in the Bicep file:
 
 - [Microsoft.HealthDataAIServices/deidServices](/azure/templates)
 
-<!-- 5. Deploy the Bicep file ----------------------------------------------------------
-Required: Explain how to use the Azure CLI and Azure PowerShell to deploy the Bicep file:
-
-- Tell users to save the Bicep file locally with the file name `main.bicep`.
-- Provide Azure CLI and Azure PowerShell deployment commands in code blocks. To include
-  **Try it** buttons, use `azurecli-interactive` and `azurepowershell-interactive` as
-  language indicators.
-- If your Azure CLI code block uses the `az deployment group create` command, state that
-  it requires Azure CLI version 2.6 or later. Tell readers to enter `az --version` to
-  check the version.
-
---->
-
 ## Deploy the Bicep file
 
 1. Save the Bicep file as `main.bicep` to your local computer.
 
-1. Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
+1. Deploy the Bicep file by using either Azure CLI or Azure PowerShell, replacing `<deid-service-name>` with a name for your de-identification service.
 
-   [Azure CLI commands]
-   [Azure PowerShell commands]
+    # [Azure CLI](#tab/azure-cli)
 
-TODO: Add your commands
+    This command requires Azure CLI version 2.6 or later. You can check the currently installed version by running `az --version`.
 
-<!-- 6. Review deployed resources ------------------------------------------------------
-Required: Provide instructions for using Azure CLI or Azure PowerShell commands to
-display the deployed resources:
-
-- Give this section an H2 header of *Review deployed resources* or *Validate the
-  deployment*.
-- Provide Azure CLI and Azure PowerShell commands in code blocks. To include **Try it**
-  buttons, use `azurecli-interactive` and `azurepowershell-interactive` as
-  language indicators.
-
---->
+    ```azurecli
+    az group create --name exampleRG --location eastus
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters deidServiceName=<deid-service-name>
+    ```
+    
+    # [Azure PowerShell](#tab/azure-powershell)
+    
+    ```azurepowershell
+    New-AzResourceGroup -Name exampleRG -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -deidServiceName "<deid-service-name>"
+    ```
+---
 
 ## Review deployed resources
 
-[Azure CLI commands]
-[Azure PowerShell commands]
-TODO: Add your commands
+Use the Azure portal, the Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
 
-<!-- 7. Clean up resources -------------------------------------------------------------
-Required: Explain how to delete unneeded resources.
+# [Azure CLI](#tab/azure-cli)
 
-Consider including the following Azure CLI commands for deleting a resource group:
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
+```azurecli
+az resource list --resource-group exampleRG
 ```
 
-Consider including the following Azure PowerShell commands for deleting a resource group:
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
+```azurepowershell
+Get-AzResource -ResourceGroupName exampleRG
 ```
--->
+
+---
 
 ## Clean up resources
 
-[Instructions for cleaning up resources]
-[Azure CLI commands]
-[Azure PowerShell commands]
-TODO: Add your instructions and commands
+When you no longer need the resources, use the Azure portal, the Azure CLI, or Azure PowerShell to delete the resource group.
 
-<!-- 8. Next steps ---------------------------------------------------------------------
+# [Azure CLI](#tab/azure-cli)
 
-Required: Provide links in this section that lead to related information.
+```azurecli
+az group delete --name exampleRG
+```
 
-Include a link to the next logical quickstart. Possibilities include:
+# [Azure PowerShell](#tab/azure-powershell)
 
-- The next article for your service.
-- A quickstart about creating a Bicep file: [Quickstart: Create Bicep files with Visual
-  Studio Code](/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code).
+```azurepowershell
+Remove-AzResourceGroup -Name exampleRG
+```
 
-Use a blue box for the quickstart link by using the following Markdown code:
-
-> [!div class="nextstepaction"]
-> [Quickstart: <quickstart-title>](<quickstart-url>)
-
-If you include links to information about the service, use a paragraph or bullet points.
-
--->
+---
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: <quickstart-title>](<quickstart-url>)
-
-- [Links to related information]
-TODO: Add your quickstart or related information links
-
-<!--
-Remove all comments in this template before you sign off or merge to the main branch.
-
--->
+> [Quickstart: Azure Health De-identification client library for .NET](quickstart-sdk-net.md)

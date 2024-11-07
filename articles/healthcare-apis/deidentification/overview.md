@@ -62,10 +62,10 @@ When you choose to store documents in Azure Blob Storage, you are charged based 
 
 An AI system includes the technology, the people who use it, the people affected by it, and the environment where you deploy it. Read the transparency note for the de-identification service (preview) to learn about responsible AI use and deployment in your systems.
 
-## Related content
+## Next steps
 
-[De-identification quickstart](quickstart.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Deploy the de-identification service (preview)](quickstart.md)
 
-[Integration and responsible use](/legal/cognitive-services/language-service/guidance-integration-responsible-use?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)
-
-[Data, privacy, and security](/legal/cognitive-services/language-service/data-privacy?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)
+- [Integration and responsible use](/legal/cognitive-services/language-service/guidance-integration-responsible-use?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)
+- [Data, privacy, and security](/legal/cognitive-services/language-service/data-privacy?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)

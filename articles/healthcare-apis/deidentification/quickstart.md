@@ -67,6 +67,7 @@ After you complete the configuration, you can deploy the de-identification servi
 
 If you no longer need them, delete the resource group and de-identification service (preview). To do so, select the resource group and select **Delete**.
 
-## Related content
+## Next steps
 
-[De-identification service overview](overview.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Azure Health De-identification client library for .NET](quickstart-sdk-net.md)
