@@ -109,7 +109,6 @@ $rg = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS2"
 }
-
 New-AzResourceGroup @rg
 ```
 
@@ -126,7 +125,7 @@ $vnet = @{
 $virtualNetwork = New-AzVirtualNetwork @vnet
 ```
 
-Create three subnets by creating three subnet configurations with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). The following example creates three subnet configurations for *Public*, *Private*, and *DMZ* subnets:
+Create four subnets by creating four subnet configurations with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). The following example creates four subnet configurations for *Public*, *Private*, *DMZ*, and Azure Bastion subnets.
 
 ```azurepowershell-interactive
 $subnetConfigPublicParams = @{
@@ -135,19 +134,26 @@ $subnetConfigPublicParams = @{
     VirtualNetwork = $virtualNetwork
 }
 
+$subnetConfigBastionParams = @{
+    Name = "AzureBastionSubnet"
+    AddressPrefix = "10.0.1.0/24"
+    VirtualNetwork = $virtualNetwork
+}
+
 $subnetConfigPrivateParams = @{
     Name = "subnet-private"
-    AddressPrefix = "10.0.1.0/24"
+    AddressPrefix = "10.0.2.0/24"
     VirtualNetwork = $virtualNetwork
 }
 
 $subnetConfigDmzParams = @{
     Name = "subnet-dmz"
-    AddressPrefix = "10.0.2.0/24"
+    AddressPrefix = "10.0.3.0/24"
     VirtualNetwork = $virtualNetwork
 }
 
 $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig @subnetConfigPublicParams
+$subnetConfigBastion = Add-AzVirtualNetworkSubnetConfig @subnetConfigBastionParams
 $subnetConfigPrivate = Add-AzVirtualNetworkSubnetConfig @subnetConfigPrivateParams
 $subnetConfigDmz = Add-AzVirtualNetworkSubnetConfig @subnetConfigDmzParams
 ```
@@ -156,6 +162,35 @@ Write the subnet configurations to the virtual network with [Set-AzVirtualNetwor
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
+```
+
+### Create Azure Bastion
+
+Create a public IP address for the Azure Bastion host with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). The following example creates a public IP address named *public-ip-bastion* in the *vnet-1* virtual network.
+
+```azurepowershell-interactive
+$publicIpParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "public-ip-bastion"
+    Location = "EastUS2"
+    AllocationMethod = "Static"
+    Sku = "Standard"
+}
+New-AzPublicIpAddress @publicIpParams
+```
+
+Create an Azure Bastion host with [New-AzBastion](/powershell/module/az.network/new-azbastion). The following example creates an Azure Bastion host named *bastion* in the *AzureBastionSubnet* subnet of the *vnet-1* virtual network. Azure Bastion is used to securely connect Azure virtual machines without exposing them to the public internet.
+
+```azurepowershell-interactive
+$bastionParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "bastion"
+    Location = "EastUS"
+    VirtualNetworkName = "vnet-1"
+    SubnetName = "AzureBastionSubnet"
+    PublicIpAddressName = "public-ip-bastion"
+}
+New-AzBastion @bastionParams -AsJob
 ```
 
 ### [CLI](#tab/cli)
