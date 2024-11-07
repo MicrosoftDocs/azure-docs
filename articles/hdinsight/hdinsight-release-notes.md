@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 11/05/2024
+ms.date: 11/07/2024
 ---
 
 # Azure HDInsight release notes
@@ -63,7 +63,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
     > [!NOTE]
     > When using your own Virtual Network (custom VNet) during cluster creation, please be advised that the cluster creation will not succeed once this change is enabled. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
-    > For any assistance, kindly contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+    > For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
