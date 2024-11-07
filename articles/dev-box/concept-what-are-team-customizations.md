@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: concept-article
-ms.date: 11/05/2024
+ms.date: 11/06/2024
 
 #customer intent: As a Project Admin or Dev Center Admin, I want to understand how to use Dev Box Team Customizations so that I can create efficient, ready-to-code configurations for my development teams.
 ---
@@ -32,9 +32,9 @@ When you configure Dev Box Team Customizations for your organization, careful pl
     - Add tasks.
     - Attach to dev center or project.
 - **Create a team customizations file:**
-  - Create a team customizations file called definition.yaml.
+  - Create a team customizations file called imagedefinition.yaml.
 - **Specify image in a dev box pool:**
-  - Create or modify a dev box pool and specify definition.yaml as the image definition.
+  - Create or modify a dev box pool and specify imagedefinition.yaml as the image definition.
 - **Choose how you'll use the image definition:**
     - Optimize for team customization.
     - Build each time you create a dev box.
@@ -47,10 +47,12 @@ Dev Box customizations use a yaml formatted file to specify a list of tasks to a
 You can use secrets from your Azure Key Vault in your customization file to clone private repositories, or with any custom task you author that requires an access token.
 
 ## What are tasks?
-Dev Box customization tasks are wrappers for PowerShell scripts, allowing you as a platform team to define reusable components that your teams can use in their customizations. WinGet and PowerShell are available as primitive tasks out of the box
+Dev Box customization tasks are wrappers for PowerShell scripts, allowing you as a platform team to define reusable components that your teams can use in their customizations. WinGet and PowerShell are available as primitive tasks out of the box.
+
+When creating tasks, determine which need to run in a SYSTEM context and which can run after sign-in, in a user context. Team customizations can be run in a SYSTEM context and in a user context (after sign-in). Individual customizations can only run in a user context. 
 
 ## Differences Between Team and Individual Customizations
-Individual developers can attach a yaml-based customization file when creating their Dev Box to control the development environment on their Dev Box. An individual customization file should be used only for personal settings and apps. While teams of developers can share common yaml files, this approach can be inefficient and error-prone, and against compliance policies. Dev Box Team Customizations provides a workflow for developer team leaders, Project Admins, and dev center administrators to preconfigure customization files on Dev Box pools. This way, a developer creating a dev box doesn't need to find and upload a customization file for themselves.
+Individual developers can attach a yaml-based customization file when creating their Dev Box to control the development environment on their Dev Box. Individual customizations should be used only for personal settings and apps. Tasks specified in the individual customization file run only in the user context, after sign-in. While teams of developers can share common yaml files, this approach can be inefficient and error-prone, and against compliance policies. Dev Box Team Customizations provides a workflow for developer team leaders, Project Admins, and dev center administrators to preconfigure customization files on Dev Box pools. This way, a developer creating a dev box doesn't need to find and upload a customization file for themselves.
 
 ## Key terms
 When working with Dev Box Team Customizations, you should be familiar with the following key terms:
@@ -64,7 +66,7 @@ When working with Dev Box Team Customizations, you should be familiar with the f
     - Consist of one or more PowerShell scripts and a task.yaml file.
 - **Customization file**
     - Yaml-based file defining tasks for dev boxes.
-    - When shared across a team, it's called an *image definition* and specifies OS, compute, and storage.
+    - When shared across a team, it's an *image definition* and specifies the base dev box image, along with its customization options.
 
 ## Related content
 - [Quickstart: Create Dev Box Team Customizations](quickstart-team-customizations.md)

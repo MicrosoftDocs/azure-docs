@@ -69,11 +69,11 @@ On the Image definition page, you see the image definitions accessible to your p
 
 :::image type="content" source="media/how-to-configure-customization-imaging/team-customizations-image-definitions-small.png" alt-text="Screenshot of the Image definition pane in the Azure portal, showing accessible image definitions for a project." lightbox="media/how-to-configure-customization-imaging/team-customizations-image-definitions.png":::
 
-
+For more information about attaching catalogs, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
 
 ## Configure a dev box pool to use an image definition
 
-Make customizations available to your development teams by configuring a dev box pool to use a customization file (*definition.yaml*). Store the customization file in a repository linked to a catalog in your dev center or project. Specify this file as the image definition for the pool, and the customizations are applied to new dev boxes.
+Make customizations available to your development teams by configuring a dev box pool to use a customization file (*imagedefinition.yaml*). Store the customization file in a repository linked to a catalog in your dev center or project. Specify this file as the image definition for the pool, and the customizations are applied to new dev boxes.
 
 The following steps show you how to create a dev box pool and specify an image definition. 
 

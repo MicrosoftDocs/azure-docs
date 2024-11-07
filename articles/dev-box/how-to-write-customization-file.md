@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: how-to
-ms.date: 11/05/2024
+ms.date: 11/06/2024
 
 #customer intent: As a dev center administrator or DevCenter Project Admin I want to create image definition files so that my development teams can create customized dev boxes.
 ---
@@ -57,7 +57,7 @@ There are two ways to use a customization file: team customizations which apply 
 - Contain tasks that are applied when a dev box is created.
 - Are shared across a team or project.
 - Include a field that specifies the base image.
-- Are named *definition.yaml*.
+- Are named *imagedefinition.yaml*.
 - Are uploaded to the repository that hosts your catalog.
 - Are automatically used when you create a dev box from a configured pool. 
 
@@ -67,7 +67,7 @@ There are two ways to use a customization file: team customizations which apply 
 
 ## Create a customization file
 
-You can create and manage customization files with Visual Studio Code. You can use a Visual Studio Code extension to discover the tasks in the attached catalog, and test the customization file in Visual Studio Code.
+You can create and manage customization files with Visual Studio Code. You can use the [Microsoft Dev Box Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=DevCenter.ms-devbox) to discover the tasks in the attached catalog, and test the customization file in Visual Studio Code.
 
 1. Create a Dev Box (or use an existing Dev Box) for testing.
 1. On the test dev box, install Visual Studio Code and then install the [Dev Box VS Code extension](https://aka.ms/devbox/preview/customizations/vsc-extension).
@@ -122,7 +122,8 @@ To invoke the Dev Box chat agent:
 
 ## Use secrets from an Azure Key Vault
 You can use secrets from your Azure Key Vault in your yaml customizations to clone private repositories, or with any custom task you author that requires an access token.
-To configure your Key Vault secrets for use in your yaml customizations,
+
+To configure your Key Vault secrets for use in your yaml customizations:
 1. Ensure that your dev center project's managed identity has the Key Vault Reader role and Key Vault Secrets User role on your key vault.
 2. Grant the Secrets User role for the Key Vault secret to each user or user group who should be able to consume the secret during the customization of a dev box. The user or group granted the role must include the managed identity for the dev center, your own user account, and any user or group who needs the secret during the customization of a dev box.
 
@@ -155,7 +156,7 @@ tasks:
          pat: '{{ado://YOUR_ADO_ORG}}'
 ```
 
-If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule.
+Your dev center needs access to your key vault. DevCenter does not support service tags, so if your key vault is kept private you must allow trusted Microsoft services to bypass the firewall. 
 
 :::image type="content" source="media/how-to-write-customization-file/trusted-services-bypass-firewall.png" alt-text="text":::
  
@@ -175,7 +176,7 @@ tasks:
 To learn more about WinGet Configuration, see [WinGet Configuration](https://aka.ms/winget-configuration).
 
 ## Share a customization file from a code repository
-Make your customization file available to dev box pools by naming it *definition.yaml* and uploading it to the repository that hosts your catalog. When you create a dev box pool, you can select the customization file from the catalog to apply to the dev boxes in the pool.
+Make your customization file available to dev box pools by naming it *imagedefinition.yaml* and uploading it to the repository that hosts your catalog. When you create a dev box pool, you can select the customization file from the catalog to apply to the dev boxes in the pool.
 
 ## Related content
 - [Microsoft Dev Box Team Customizations](concept-what-are-team-customizations.md)

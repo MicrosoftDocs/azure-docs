@@ -54,7 +54,7 @@ To create and manage tasks for Dev Box Team Customizations, follow these steps:
 1. Create a configuration file for those tasks by following the steps in [Write a customization file](./how-to-write-customization-file.md).
 
 ### Use secrets from an Azure Key Vault
-You can use secrets from your Azure Key Vault in your yaml configurations to clone private repositories, or with any custom task you author that requires an access token.
+You can use secrets from your Azure Key Vault in your yaml configurations to clone private repositories, or with any custom task you author that requires an access token. Your dev center needs access to your key vault. DevCenter does not support service tags, so if your key vault is kept private you must allow trusted Microsoft services to bypass the firewall.
 
 To configure your Key Vault secrets for use in your yaml configurations,
 
