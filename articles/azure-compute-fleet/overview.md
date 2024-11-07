@@ -132,7 +132,7 @@ Azure Compute Fleet has applicable Standard and Spot VMs quotas.
 - Compute Fleet launches a combination of VM types that have their own considerations. For more information, see [Spot VMs](../virtual-machines/spot-vms.md) and [Virtual Machines](../virtual-machines/overview.md) for details. 
 - Compute Fleet is only available through [ARM template](quickstart-create-rest-api.md) and in [Azure portal](quickstart-create-portal.md).
 - Compute Fleet can't span across Azure regions. You have to create a separate Compute Fleet for each region.
-- Compute Fleet is available in the following regions: East US, East US2, West US, and West US2.
+- Compute Fleet is available in all Azure Public regions.
 
 
 ## Next steps
