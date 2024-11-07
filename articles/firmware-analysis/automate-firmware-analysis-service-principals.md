@@ -45,7 +45,7 @@ Many users of the firmware analysis service may need to automate their workflow.
 
 6.	Once logged in, refer to the following Quickstarts for scripts to interact with the Firmware analysis service via Azure PowerShell, Azure CLI, or Python:
     - [Upload firmware using Azure CLI](quickstart-upload-firmware-using-azure-command-line-interface.md)
-    - [Upload firmware using Azure PowerShell](quickstart-upload-firmware-using-azure-powershell.md)
+    - [Upload firmware using Azure PowerShell](quickstart-upload-firmware-using-powershell.md)
     - [Upload firmware using Python](quickstart-upload-firmware-using-python.md)
 
 

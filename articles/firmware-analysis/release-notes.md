@@ -1,11 +1,13 @@
 ---
 title: What's new in Firmware analysis
+author: karengu0
+ms.author: karenguo
 description: Learn about the latest updates for Firmware analysis.
 ms.topic: conceptual
 ms.date: 11/04/2024
 ---
 
-# What's new
+# What's new in Firmware analysis
 
 This article lists new features and feature enhancements in the Firmware analysis service.
 
