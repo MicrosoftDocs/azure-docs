@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: quickstart
-ms.date: 11/06/2024
+ms.date: 11/07/2024
 ms.author: cshoe
 ---
 
@@ -66,7 +66,6 @@ az upgrade
 
 Next, install or update the Azure Container Apps extension for the CLI.
 
-If you receive errors about missing parameters when you run `az containerapp` commands in Azure CLI, be sure you have the latest version of the Azure Container Apps extension installed.
 
 # [Bash](#tab/bash)
 
@@ -102,7 +101,7 @@ az provider register --namespace Microsoft.OperationalInsights
 
 ## Create environment variables
 
-Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
+Now that your CLI setup is complete, you can define the environment variables that are used throughout this article.
 
 # [Bash](#tab/bash)
 
