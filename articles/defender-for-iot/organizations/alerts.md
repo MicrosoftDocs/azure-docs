@@ -5,7 +5,7 @@ ms.date: 08/06/2023
 ms.topic: how-to
 ms.custom: enterprise-iot
 ---
-
+<!-- should we reassess the order of this article, does it make sesne? Could the flow be better? -->
 # Microsoft Defender for IoT alerts
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
@@ -49,6 +49,13 @@ For more information, see:
 - [Plan OT sites and zones](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones)
 
 Alert options also differ depending on your location and user role. For more information, see [Azure user roles and permissions](roles-azure.md) and [On-premises users and roles](roles-on-premises.md).
+
+<!-- placing here for initial ease and finding - where should this really go?-->
+## Alert grouping
+
+Multiple alerts, from the same alert category, that have the same parameters, ie. the same source and destination IP addresses, are aggregated into one alert report, instead of each alert being displayed individually.
+
+The alert has a violations parameter added to show how many alerts of this type are generated. They can all be remediated simaltaneously using the Learn and Actions recommended, which will apply to all versions of this alert. The alerts can be viewed individually within their respective devices.
 
 ## Focused alerts in OT/IT environments
 
