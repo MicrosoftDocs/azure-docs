@@ -125,7 +125,7 @@ To deploy a new zone-redundant Azure App Service plan, select the *Zone redundan
 
 ::: zone pivot="isolated"
 
-To deploy a new zone-redundant Azure App Service plan, see [Create an App Service Environment](/azure/app-service/environment/creation).
+To deploy a new zone-redundant Azure App Service Environment, see [Create an App Service Environment](/azure/app-service/environment/creation).
 
 ::: zone-end
 
@@ -154,7 +154,7 @@ During normal operations, traffic is routed between all of your available App Se
 If you have [autoscale](../app-service/manage-scale-up.md) configured, and if it decides more instances are needed, autoscale also issues a request to App Service to add more instances. 
 
 >[!NOTE] 
-[Autoscale behavior is independent of App Service platform behavior](/azure/azure-monitor/autoscale/autoscale-overview). Your autoscale instance count specification doesn't need to be a multiple of three. 
+> [Autoscale behavior is independent of App Service platform behavior](/azure/azure-monitor/autoscale/autoscale-overview). Your autoscale instance count specification doesn't need to be a multiple of three. 
 
 > [!IMPORTANT] 
 > There's no guarantee that requests for additional instances in a zone-down scenario succeed. The back filling of lost instances occurs on a best-effort basis. If you need guaranteed capacity when an availability zone is lost, you should create and configure your App Service plans to account for losing a zone. You can do that by [overprovisioning the capacity of your App Service plan](#capacity-planning-and-management).
