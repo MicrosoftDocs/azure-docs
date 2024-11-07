@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/05/2024
+ms.date: 11/05/2024
 ms.author: glenga
 ms.custom:
   - include file
@@ -51,7 +51,7 @@ For more information, see [Develop C# class library functions using Azure Functi
 | .NET 9 | Preview | [See policy][dotnet-policy] |
 | .NET 8 | GA | [November 10, 2026][dotnet-policy] |
 | .NET 6 | GA | [November 12, 2024][dotnet-policy] |
-| .NET Framework 4.8 | GA | [See policy][dotnet-framework-policy] |
+| .NET Framework 4.8.1 | GA | [See policy][dotnet-framework-policy] |
 
 [dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 [dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
