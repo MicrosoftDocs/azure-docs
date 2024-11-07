@@ -46,7 +46,7 @@ Zone-redundancy is available in the following logic app workflows:
 
 - **Consumption logic app workflows**, which run in multitenant Azure Logic Apps. Zone-redundancy is automatically enabled for new and existing Consumption logic app workflows.
 
-- **Standard logic app workflows**, which run in single-tenant Azure Logic Apps and are powered by Azure Functions extensibility. For more information, see [Reliability in Azure Functions](reliability-functions?tabs=azure-portal#availability-zone-support)
+- **Standard**: Run in single-tenant Azure Logic Apps and powered by Azure Functions extensibility. For more information, see [Reliability in Azure Functions](reliability-functions?tabs=azure-portal#availability-zone-support).
 
     - You can enable zone-redundancy only when you create a Standard logic app in a supported Azure region or in an [App Service Environment v3 (ASE v3) - Windows plans only](reliability-app-service?tabs=cli). No programmatic tool support, such as Azure PowerShell or Azure CLI, currently exists to enable zone-redundancy after creation.
     
