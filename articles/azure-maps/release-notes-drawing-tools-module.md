@@ -52,7 +52,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
-
+[1.0.5]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.5
 [1.0.4]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.4
 [1.0.3]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.3
 [1.0.2]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.2
