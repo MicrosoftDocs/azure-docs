@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/15/2024
+ms.date: 10/31/2024
 ms.author: phjensen
 ---
 
@@ -16,6 +16,18 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 Download the latest release of the binary for [Linux](https://aka.ms/azacsnap-linux) or [Windows](https://aka.ms/azacsnap-windows) and review how to [get started](azacsnap-get-started.md).  
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+
+## Oct-2024
+
+### AzAcSnap 10a (Build: 1B79BA*)
+
+AzAcSnap 10a is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - Allow AzAcSnap to have Microsoft SQL Server wait timeout for SQL commands increased for slow responding systems (default and minimum value is 30 seconds).
+    - Added a global override variable `MSSQL_CMD_TIMEOUT_SECS` to be used in either the `.azacsnaprc` file or as an environment variable set to the required wait timeout in seconds. For details on configuration refer to the [global override settings to control AzAcSnap behavior](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
+
+Download the binary of [AzAcSnap 10a for Linux](https://aka.ms/azacsnap-10a-linux)([signature file](https://aka.ms/azacsnap-10a-linux-signature)) or [AzAcSnap 10a for Windows](https://aka.ms/azacsnap-10a-windows).
 
 ## Jul-2024
 
