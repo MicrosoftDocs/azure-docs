@@ -275,7 +275,7 @@ executorService.submit(() -> {
     poller.subscribe(
         response -> {
             if (response.getStatus() == LongRunningOperationStatus.SUCCESSFULLY_COMPLETED) {
-                System.out.printf("Successfully sent the email (operation id: %s)%n", response.getValue().getId());
+                System.out.printf("Successfully sent the email (operation id: %s)\n", response.getValue().getId());
             }
             else {
                 // The operation ID can be retrieved as soon as the first response is recieved from the PollerFlux.
