@@ -109,7 +109,7 @@ We recommend you don't enable Network Security Perimeter if you need to use any 
 
 To associate a Network Security Perimeter with a storage account, follow these instructions.
 
-1. Sign in to the the Azure portal and navigate to the storage account.
+1. Sign in to the Azure portal and navigate to the storage account.
 1. In the service menu, under **Security + networking**, select **Networking**.
 1. Under **Network Security Perimeter**, select **Associate**.
 
