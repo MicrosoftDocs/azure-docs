@@ -38,10 +38,10 @@ Microsoft Dev Box can significantly enhance developer productivity by minimizing
 **Developer onboarding & experience**
 
 - [Developer Portal landing page and welcome tour](https://developercommunity.microsoft.com/t/Developer-Portal-landing-page-and-welcom/10720999): as a developer getting onboarded to Dev Box, you get to learn about how to use the product and discover features.
-- [Region Selection Optimization for Dev Box Creation](): as a developer, easily create your new Dev Box in an optimal region based on your location. As a dev center admin, optimize the location of existing Dev Boxes based on end user location and available capacity.
-- [Direct launch via the Windows App](): as a developer, quickly launch Dev Box from the developer portal on the Windows App RDP client.
-- [Cross clients multi-monitor settings](): as a developer, your multi-monitor settings will be shared consistently across RDP clients.
-- [Notification center for Developer Portal](): as a developer, you will get service notifications and updates right in the Developer Portal.
+- [Region Selection Optimization for Dev Box Creation](https://developercommunity.visualstudio.com/t/Move-VM-to-different-poolregion/10277787): as a developer, easily create your new Dev Box in an optimal region based on your location. As a dev center admin, optimize the location of existing Dev Boxes based on end user location and available capacity.
+- [Direct launch via the Windows App](https://developercommunity.visualstudio.com/t/Direct-launch-via-the-Windows-App/10784545): as a developer, quickly launch Dev Box from the developer portal on the Windows App RDP client.
+- [Cross clients multi-monitor settings](https://developercommunity.visualstudio.com/t/Dual-Screen-Settings-adjustment-setting-/10770153): as a developer, your multi-monitor settings will be shared consistently across RDP clients.
+- [Notification center for Developer Portal](https://developercommunity.visualstudio.com/t/Outage-notifications-for-Dev-Box/10720453?q=notifications): as a developer, you will get service notifications and updates right in the Developer Portal.
 - [Pin Dev Box to task view from Developer Portal](https://developercommunity.visualstudio.com/t/Ping-to-task-view-is-not-quite-working-f/10719957): as a developer, you can quickly access your Developer Box by pinning it to your Windows task view.
 
 ## Enterprise management
@@ -50,8 +50,8 @@ Microsoft Dev Box aims to deliver centralized governance based on organizational
 
 **Streamlined and flexible onboarding for enterprises**
 
-- [In product prerequisites](): as a dev center admin, you will get a dynamic prerequisites page that highlights any missing requirements and helps you track the progress you are making in setting up the Dev Box service.
-- [New Supported Regions](): as a dev center admin, you will be able to enable your development team to create dev boxes in new regions including [UAE North](https://developercommunity.visualstudio.com/t/Support-for-Dev-Box-in-UAE-North/10781448) and [Spain Central](https://developercommunity.visualstudio.com/t/Dev-Box-support-in-Spain-Central/10781449).
+- [In product prerequisites](https://developercommunity.visualstudio.com/t/User-License-Assignment-as-Pre-requisite/10523902?q=pre-requisits): as a dev center admin, you will get a dynamic prerequisites page that highlights any missing requirements and helps you track the progress you are making in setting up the Dev Box service.
+- New Supported Regions: as a dev center admin, you will be able to enable your development team to create dev boxes in new regions including [UAE North](https://developercommunity.visualstudio.com/t/Support-for-Dev-Box-in-UAE-North/10781448) and [Spain Central](https://developercommunity.visualstudio.com/t/Dev-Box-support-in-Spain-Central/10781449).
 - [Expand IPs within existing subnets](https://developercommunity.visualstudio.com/t/Expand-IPs-within-existing-Subnets-in-a/10781464): as a dev center admin, you will be able to expand IP ranges in subnets that are running out of IP addresses.
 - [RRS Integration into QMS](https://developercommunity.visualstudio.com/t/Automatically-approve-higher-amounts-of/10781465): as a dev center admin for a trusted customer, you will be able to request and get larger amount of quota automatically approved through QMS.
 
