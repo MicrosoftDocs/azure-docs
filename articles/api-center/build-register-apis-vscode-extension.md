@@ -16,7 +16,8 @@ ms.custom:
 API developers in your organization can build and register APIs in your [API center](overview.md) inventory by using the Azure API Center extension for Visual Studio Code. API developers can:
 
 * Add an existing API to an API center as a one-time operation, or integrate a development pipeline to register APIs as part of a CI/CD workflow.
-* Generate new OpenAPI specs from API code using GitHub Copilot, or from natural language prompts using GitHub Copilot for Azure. Then, register new APIs to an API center.
+* Use GitHub Copilot to generate new OpenAPI specs from API code.
+* Use natural language prompts with the API Center plugin for GitHub Copilot for Azure to create new OpenAPI specs.
 
 API developers can also take advantage of features in the extension to [discover and consume APIs](discover-apis-vscode-extension.md) in the API center and ensure [API governance](govern-apis-vscode-extension.md).
 
@@ -27,7 +28,7 @@ The following Visual Studio Code extensions are needed for the specified scenari
 * [GitHub Actions](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions) - to register APIs using a CI/CD pipeline with GitHub Actions
 * [Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines) - to register APIs using a CI/CD pipeline with Azure Pipelines
 * [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) - to generate OpenAPI specification files from API code
-* [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) - to generate OpenAPI specification files using natural language prompts
+* [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) - to generate OpenAPI specification files using the Azure API Center Plugin for GitHub Copilot for Azure
    
 [!INCLUDE [vscode-extension-setup](includes/vscode-extension-setup.md)]  
 
@@ -52,7 +53,7 @@ The following steps register an API in your API center with a CI/CD pipeline. Wi
 
 Learn more about setting up a [GitHub Actions workflow](register-apis-github-actions.md) to register APIs with your API center.
 
-## Generate OpenAPI specification file from API code 
+## Generate OpenAPI spec from API code 
  
 Use the power of GitHub Copilot with the Azure API Center extension for Visual Studio Code to create an OpenAPI specification file from your API code. Right-click on the API code, select **Copilot** from the options, and select **Generate API documentation**. GitHub Copilot creates an OpenAPI specification file.
 
@@ -63,9 +64,9 @@ Use the power of GitHub Copilot with the Azure API Center extension for Visual S
 
 After generating the OpenAPI specification file and checking for accuracy, you can register the API with your API center using the **Azure API Center: Register API** command.
 
-## Generate OpenAPI specification file using natural language prompts
+## Generate OpenAPI spec using natural language prompts
 
-GitHub Copilot for Azure combined with the Azure API Center extension for Visual Studio Code helps you design new APIs starting from natural language prompts. With AI assistance, quickly generate an OpenAPI specification file that you describe and complies with your organization's API governance standards.
+The API Center plugin for GitHub Copilot for Azure helps you design new APIs starting from natural language prompts. With AI assistance, quickly generate an OpenAPI spec that for API development and comply with your organization's governance standards.
 
 > [!NOTE]
 > This feature is available in the pre-release version of the API Center extension.
@@ -76,7 +77,7 @@ GitHub Copilot for Azure combined with the Azure API Center extension for Visual
 1. In the chat panel, make a request in natural language to the `@azure` agent to describe what the API does. Example:
 
     ```vscode
-    @azure Generate OpenAPI spec: Generate OpenAPI spec: An API that allows customers to pay for an order using various payment methods such as cash, checks, credit cards, and debit cards    .
+    @azure Generate OpenAPI spec: Generate OpenAPI spec: An API that allows customers to pay for an order using various payment methods such as cash, checks, credit cards, and debit cards.
     ```  
 
     The agent responds with an OpenAPI specification document.
