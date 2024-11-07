@@ -331,6 +331,8 @@
           href: user-defined-routes.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
+        - name: Use a private endpoint
+          href: how-to-use-private-endpoint.md
     - name: Use a custom VNET
       href: vnet-custom.md
 - name: Languages and runtimes
