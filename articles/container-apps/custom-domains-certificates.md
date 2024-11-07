@@ -83,9 +83,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
     
     # [Private endpoint](#tab/private-endpoint)
 
-    When using a private endpoint for your incoming traffic, you need to [create a private DNS zone](how-to-use-private-endpoint.md#configure-the-private-dns-zone).    
-
-    - If you selected *A record*, create the following DNS records:
+    - If you selected *A record*, you need to have a private DNS zone which has the same DNS zone name as your public DNS. Create the following DNS records on your private DNS zone:
 
         | Record type | Host | Value |
         |--|--|--|
