@@ -33,10 +33,8 @@ Data used by the service, including customer data, might be stored and processed
 |Data type  |Location  |
 |---------|---------|
 |**Raw data**     |  Stored in the same region as the Azure Log Analytics workspace associated with Microsoft Sentinel. For more information, see [Supported regions](#supported-regions).  <br><br>Raw data is processed in one of the following locations: <br>- For Log Analytics workspaces located in Europe, customer data is processed in Europe. <br>- For Log Analytics workspaces located in Israel, customer data is processed in Israel. <br>- For Log Analytics workspaces located in any of the China 21Vianet regions, customer data is processed in China 21Vianet. <br>- For workspaces located in any other location, customer data is processed in a US region.     |
-|**Processed data and configuration data**     |   - For workspaces onboarded to Microsoft's unified security operation's platform, processed data and configuration data might be stored and processed in Microsoft Defender XDR regions. For more information, see [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy).   <br><br>- For workspaces not onboarded to Microsoft's unified security operations platform, and until the end of the notice period, processed data and configuration data is stored and processed using the same methodology as raw data.    |
+|**Processed data and configuration data**     |   - For workspaces onboarded to Microsoft's unified security operation's platform, processed data and configuration data might be stored and processed in Microsoft Defender XDR regions. For more information, see [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy).   <br><br>- For workspaces not onboarded to Microsoft's unified security operations platform, processed data and configuration data is stored and processed using the same methodology as raw data.    |
  
-<!--what notice period?-->
-
 ### Supported regions
 
 Regions supported for Microsoft Sentinel raw data, and for processed and configuration data in workspaces not onboarded to Microsoft's unified security operations platform, include:
