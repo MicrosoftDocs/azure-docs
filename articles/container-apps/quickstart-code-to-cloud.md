@@ -222,6 +222,9 @@ az containerapp up `
 
 ---
 
+> [!NOTE]
+> If the command returns an error with the message "AADSTS50158: External security challenge not satisfied", run `az login --scope https://graph.microsoft.com//.default` to log in again with the required permissions and then run the `az containerapp up` command again.
+
 ## Verify deployment
 
 Locate the container app's URL in the output of the `az containerapp up` command. Navigate to the URL in your browser. Add `/albums` to the end of the URL to see the response from the API.
