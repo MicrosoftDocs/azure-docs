@@ -408,7 +408,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
 5. On the **Retention Range**, define the retention range for the full backup.
    >[!Note]
-   >- By default all options are selected. Clear any retention range limits you don't want to use, and set those that you want to retain.
+   >- By default all options are selected. Clear any retention range limits you don't want to use, and set those that you want.
    >- The minimum retention period for any type of backup (full/differential/log) is seven days.
    >- Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day.
    >- The backup for a specific day is tagged and retained based on the weekly retention range and setting.
