@@ -257,6 +257,14 @@ Authorization: Bearer <TOKEN>
 }
 ```
 
+## Logging
+
+Code interpreter sessions don't support logging directly. Your application that's interacting with the sessions can log requests to the session pool management API and its responses.
+
+## Billing
+
+Code interpreter sessions are billed based on the duration of each session. See [Billing](billing.md#dynamic-sessions) for more information.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

@@ -20,7 +20,9 @@ In this article, you learn how to deploy [User-Defined Routes (UDRs)](concept-us
 - Routing configuration to create UDRs for the network group
 
 > [!IMPORTANT]
-> User-defined routes management with Azure Virtual Network Manager is in public preview. Public previews are made available to you on the condition that you agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some features might not be supported or might have constrained capabilities. This preview version is provided without a service level agreement, and it's not recommended for production workloads. 
+> User-defined routes management with Azure Virtual Network Manager is generally available in select regions. For more information and a list of regions, see [General availability](./concept-user-defined-route.md#general-availability).
+>
+> Regions that aren't listed in the previous link are in public preview. Public previews are made available to you on the condition that you agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some features might not be supported or might have constrained capabilities. This preview version is provided without a service level agreement, and it's not recommended for production workloads.
 
 ## Prerequisites
 
@@ -216,7 +218,7 @@ In this step, you deploy the routing configuration to create the UDRs for the ne
     | **Include user defined routing configurations in your goal state** | Select checkbox. |
     | **User defined routing configurations** | Select **routing-configuration**. |
     | **Region** |  |
-    | **Target regions** | Select **(US) West US 2)**. |
+    | **Target regions** | Select **(US) West US 2**. |
 
 1. Select **Next** and then **Deploy** to deploy the routing configuration.
 
@@ -227,6 +229,3 @@ In this step, you deploy the routing configuration to create the UDRs for the ne
 
 > [!div class="nextstepaction"]
 > [Learn more about User-Defined Routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md)
-
-
-
