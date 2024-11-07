@@ -127,9 +127,6 @@ spec:
 
 ---
 
-> [!IMPORTANT]
-> Currently, adjusting the instance count may result in message loss. At this time, it's recommended to not adjust the instance count for a profile with active dataflows.
-
 ## Diagnostic settings
 
 You can configure other diagnostics settings for a dataflow profile such as log level and metrics interval. 
@@ -147,7 +144,7 @@ resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@202
   parent: aioInstance
   name: '<NAME>'
   properties: {
-    instanceCount: <COUNT>
+    instanceCount: 1
     diagnostics: {
       {
         logs: {
@@ -168,7 +165,7 @@ metadata:
   name: '<NAME>'
   namespace: azure-iot-operations
 spec:
-  instanceCount: <COUNT>
+  instanceCount: 1
   diagnostics:
     logs:
       level: debug

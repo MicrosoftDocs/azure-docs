@@ -23,7 +23,7 @@ When you hit service limitations, you receive an HTTP status code 429 (Too many 
 - Reduce the frequency of calls.
 - Avoid immediate retries because all requests accrue against your usage limits.
 
-You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling). Throttling limits can be increased through a request to Azure Support.
+You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling). To increase throttling limits you need to make a request to [Azure Support](../support.md).
 
 1. Open the [Azure portal](https://ms.portal.azure.com/) and sign in.
 2. Select [Help+Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
@@ -61,8 +61,6 @@ Number purchase limits can be increased through a request to Azure Support.
 8. Add **Additional details** as needed, then click **Next**.
 9. At **Review + create** check the information, make changes as needed, then click **Create**.
 
-
-
 ## Identity
 
 | Operation | Timeframes (seconds) | Limit (number of requests) |
@@ -83,7 +81,7 @@ For more information, see the [identity concept overview](./authentication.md) p
 
 When sending or receiving a high volume of messages, you might receive a ```429``` error. This error indicates you're hitting the service limitations, and your messages are queued to be sent once the number of requests is below the threshold.
 
-### Rate Limits for SMS
+Rate Limits for SMS:
 
 |Operation|Number Type |Scope|Timeframe (s)| Limit (request #) | Message units per minute|
 |---------|---|--|-------------|-------------------|-------------------------|
@@ -100,39 +98,13 @@ For more information on the SMS SDK and service, see the [SMS SDK overview](./sm
 
 ## Email
 
-You can send a limited number of email messages. If you exceed the [email rate limits](#rate-limits-for-email) for your subscription, your requests are rejected. You can attempt these requests again, after the Retry-After time passes. Take action before reaching the limit by requesting to raise your sending volume limits if needed.
+You can send a limited number of email messages. If you exceed the following limits for your subscription, your requests are rejected. You can attempt these requests again, after the Retry-After time passes. Take action before reaching the limit by requesting to raise your sending volume limits if needed.
 
-The Azure Communication Services email service is designed to support high throughput. However, the service imposes initial rate limits to help customers onboard smoothly and avoid some of the issues that can occur when switching to a new email service.
-
-We recommend gradually increasing your email volume using Azure Communication Services Email over a period of two to four weeks, while closely monitoring the delivery status of your emails. This gradual increase enables third-party email service providers to adapt to the change in IP for your domain's email traffic. The gradual change gives you time to protect your sender reputation and maintain the reliability of your email delivery.
-
-Azure Communication Services email service supports high volume up to 1-2 million messages per hour. High throughput can be enabled based on several factors, including:
-- Customer peak traffic
-- Business needs
-- Ability to manage failure rates
-- Domain reputation
-
-### Failure Rate Requirements
-
-To enable a high email quota, your email failure rate must be less than one percent (1%). If your failure rate is high, you must resolve the issues before requesting a quota increase.
-Customers are expected to actively monitor their failure rates.
-
-If the failure rate increases after a quota increase, Azure Communication Services will contact the customer for immediate action and a resolution timeline. In extreme cases, if the failure rate isn't managed within the specified timeline, Azure Communication Services may reduce or suspend service until the issue is resolved.
-
-#### Related articles
-
-Azure Communication Services provides rich logs and analytics to help monitor and manage failure rates. For more information, see the following articles:
-
-- [Improve sender reputation in Azure Communication Services email](./email/sender-reputation-managed-suppression-list.md)
-- [Email Insights](./analytics/insights/email-insights.md)
-- [Enable logs via Diagnostic Settings in Azure Monitor](./analytics/enable-logging.md)
-- [Quickstart: Handle Email events](../quickstarts/email/handle-email-events.md)
-- [Quickstart: Manage domain suppression lists in Azure Communication Services using the management client libraries](../quickstarts/email/manage-suppression-list-management-sdks.md)
-
-> [!NOTE]
-> To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are only available for verified custom domains, not Azure-managed domains.
+The Azure Communication Services email service is designed to support high throughput. However, the service imposes initial rate limits to help customers onboard smoothly and avoid some of the issues that can occur when switching to a new email service. We recommend gradually increasing your email volume using Azure Communication Services Email over a period of two to four weeks, while closely monitoring the delivery status of your emails. This gradual increase enables third-party email service providers to adapt to the change in IP for your domain's email traffic. The gradual change gives you time to protect your sender reputation and maintain the reliability of your email delivery.
 
 ### Rate Limits for Email
+
+We approve higher limits for customers based on use case requirements, domain reputation, traffic patterns, and failure rates. To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are only available for verified custom domains, not Azure-managed domains.
 
 [Custom Domains](../quickstarts/email/add-custom-verified-domains.md)
 
@@ -221,7 +193,7 @@ To increase your email quota, follow the instructions at [Quota increase for ema
 | Send typing indicator | per Chat thread | 10 | 30 |
 
 > [!NOTE] 
-> \* Read receipts and typing indicators are not supported on chat threads with more than 20 participants.
+> \* Read receipts and typing indicators are not supported on chat threads with more than 20 participants. 
 
 ### Chat storage
 
@@ -286,7 +258,7 @@ For more information about the voice and video calling SDK and service, see the 
 
 When sending or receiving a high volume of requests, you might receive a ```ThrottleLimitExceededException``` error. This error indicates you're hitting the service limitations, and your requests fail until the token of bucket to handle requests is replenished after a certain time.
 
-### Rate Limits for Job Router
+Rate Limits for Job Router:
 
 | Operation | Scope | Timeframe (seconds) | Limit (number of requests) | Timeout in seconds |
 | --- | --- | --- | --- | --- |
@@ -298,7 +270,7 @@ If you need to send a volume of messages that exceeds the rate limits, email us 
 
 ## Teams Interoperability and Microsoft Graph
 
-Using a Teams interoperability scenario, you often use Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings).  
+Using a Teams interoperability scenario, you'll likely use some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings).  
 
 Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](/graph/throttling) in more detail.
 

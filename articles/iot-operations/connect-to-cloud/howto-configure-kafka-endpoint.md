@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 11/06/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Kafka in Azure IoT Operations so that I can send data to and from Kafka endpoints.
@@ -25,7 +25,7 @@ To set up bi-directional communication between Azure IoT Operations and Apache K
 
 [Azure Event Hubs is compatible with the Kafka protocol](../../event-hubs/azure-event-hubs-kafka-overview.md) and can be used with dataflows with some limitations.
 
-### Create an Azure Event Hubs namespace and event hub in it
+### Create an Azure Event Hubs namespace and event hub
 
 First, [create a Kafka-enabled Azure Event Hubs namespace](../../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md)
 
@@ -218,13 +218,11 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
     | Host                 | The hostname of the Kafka broker in the format `<Kafa-broker-host>:xxxx`. Include port number in the host setting. |
-    | Authentication method| The method used for authentication. Choose *SASL* or *X509 certificate*. |
+    | Authentication method| The method used for authentication. Choose *SASL*. |
     | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
-    | Synced secret name   | The name of the secret. Required if using *SASL* or *X509*. |
+    | Synced secret name   | The name of the secret. Required if using *SASL*. |
     | Username reference of token secret | The reference to the username in the SASL token secret. Required if using *SASL*. |
-    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509*. |
-    | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509*. |
-    | X509 client key | The private key corresponding to the X.509 client certificate. Required if using *X509*. |
+
 
 1. Select **Apply** to provision the endpoint.
 
@@ -349,57 +347,6 @@ The secret must be in the same namespace as the Kafka dataflow endpoint. The sec
 
 
 <!-- TODO: double check! -->
-
-### X.509
-
-To use X.509 for authentication, update the authentication section of the Kafka settings to use the X509Certificate method and specify reference to the secret that holds the X.509 certificate.
-
-# [Portal](#tab/portal)
-
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
-
-Enter the following settings for the endpoint:
-
-| Setting               | Description                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------------- |
-| Synced secret name   | The name of the secret. |
-| X509 client certificate | The X.509 client certificate used for authentication. |
-| X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain.  |
-| X509 client key       | The private key corresponding to the X.509 client certificate. |
-
-# [Bicep](#tab/bicep)
-
-
-```bicep
-kafkaSettings: {
-  authentication: {
-    method: 'X509Certificate'
-    x509CertificateSettings: {
-        secretRef: '<SECRET_NAME>'
-    }
-  }
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
-
-The secret must be in the same namespace as the Kafka dataflow endpoint. Use Kubernetes TLS secret containing the public certificate and private key. For example:
-
-```bash
-kubectl create secret tls my-tls-secret -n azure-iot-operations \
-  --cert=path/to/cert/file \
-  --key=path/to/key/file
-```
-
-```yaml
-kafkaSettings:
-  authentication:
-    method: X509Certificate
-    x509CertificateSettings:
-      secretRef: <SECRET_NAME>
-```
-
----
 
 
 ### System-assigned managed identity
