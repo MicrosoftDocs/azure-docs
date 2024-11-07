@@ -153,10 +153,17 @@ Before you can configure redirection settings on a client device using Microsoft
    - Remote Desktop app:
       - Android: 10.0.19.1279 or later.
 
+- The latest version of:
+   - iOS/iPadOS: Microsoft Authenticator app
+   - Android: Company Portal app, installed in the same profile as Windows App for personal devices.  Both app either in personal profile OR both apps in work profile.
+
 - There are more Intune prerequisites for configuring app configuration policies, app protection policies, and Conditional Access policies. For more information, see:
    - [App configuration policies for Microsoft Intune](/mem/intune/apps/app-configuration-policies-overview).
    - [How to create and assign app protection policies](/mem/intune/apps/app-protection-policies).
    - [Use app-based Conditional Access policies with Intune](/mem/intune/protect/app-based-conditional-access-intune).
+   
+> [!IMPORTANT]
+> Intune mobile application management (MAM) functionality isn't currently supported on Android 15 by Remote Desktop or Windows App (preview). MAM runs on older versions of Android. Support for MAM on Android 15 for Windows App (preview) will be supported in an upcoming release.
 
 ## Create a managed app filter
 
@@ -284,4 +291,6 @@ Now that you configure Intune to manage device redirection on personal devices, 
 
 ## Known issues
 
-When creating an app configuration policy or an app protection policy for Android, Remote Desktop is listed twice. Add both apps. This will be updated soon so Remote Desktop is only shown once.
+- When creating an app configuration policy or an app protection policy for Android, Remote Desktop is listed twice. Add both apps. This will be updated soon so Remote Desktop is only shown once.
+
+- Windows App (Preview) will exit without warning if Company Portal and Windows App are not installed in the same profile. The solution is to install both apps either in personal profile OR both apps in work profile.
