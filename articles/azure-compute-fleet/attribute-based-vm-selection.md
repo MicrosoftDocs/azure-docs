@@ -43,22 +43,22 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
 
 # List of VM attributes supported
 
-vCpuCount
-memoryInGiB
-memoryInGiBPerVCpu
-localStorageInGiB
-localStorageDiskTypes
-dataDiskCount
-networkInterfaceCount
-networkBandwidthInMbps
-rdmaNetworkInterfaceCount
-acceleratorManufacturers
-acceleratorCount
-acceleratorTypes	
-vmCategories
-architectureTypes
-cpuManufacturers
-excludedVMSizes
+-	vCpuCount
+-	memoryInGiB
+-	memoryInGiBPerVCpu
+-	localStorageInGiB
+-	localStorageDiskTypes
+-	dataDiskCount
+-	networkInterfaceCount
+-	networkBandwidthInMbps
+-	rdmaNetworkInterfaceCount
+-	acceleratorManufacturers
+-	acceleratorCount
+-	acceleratorTypes	
+-	vmCategories
+-	architectureTypes
+-	cpuManufacturers
+-	excludedVMSizes
 
 # Learn more and get started
  
