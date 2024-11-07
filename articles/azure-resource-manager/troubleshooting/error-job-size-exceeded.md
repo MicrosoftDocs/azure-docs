@@ -3,7 +3,7 @@ title: Job size exceeded error
 description: Describes how to troubleshoot errors for job size exceeded or if the template is too large for deployments using a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 06/20/2024
+ms.date: 11/07/2024
 ---
 
 # Resolve errors for job size exceeded
@@ -16,11 +16,11 @@ When deploying a template, you receive an error stating the deployment has excee
 
 ## Cause
 
-You get this error when the deployment exceeds an allowed limit. Typically, you see this error when either your template or the job that runs the deployment is too large.
+This error occurs when the deployment exceeds the allowed size limits. It usually appears when the template or the deployment job is too large. Note that templates are compressed before their sizes are verified for deployment, so the effective limits may be larger than the template's actual size.
 
-The deployment job can't exceed 1 MB and that includes metadata about the request. For large templates, the metadata combined with the template might exceed a job's allowed size.
+The deployment job size limit is 1 MB after compression, including metadata about the request. For large templates, the combined size of metadata and the template may surpass this limit.
 
-The template can't exceed 4 MB, and each resource definition can't exceed 1 MB. The limits apply to the final state of the template after it has been expanded for resource definitions that use loops to create many instances. The final state also includes the resolved values for variables and parameters.
+The compressed template size itself can’t exceed 4 MB, and each individual resource definition can’t exceed 1 MB after compression. These limits apply to the template's final state after expansion for any resource definitions that use loops to create multiple instances, which includes resolved values for all variables and parameters.
 
 Other template limits are:
 
@@ -54,6 +54,10 @@ dependsOn: [
 
 ---
 
+Complex dependencies (a loop of n resources depending on a loop of n resources leads to us storing O(n * n) data rather each resource in a loop depending on its counterpart in the previous loop (O(n)). This one is surprising, but it adds up extremely fast.
+
+Complex dependencies can quickly consume the data limits. For example, if a loop of *n* resources depends on another loop of *n* resources, it results in storing *O(n²)* data. By contrast, if each resource in one loop only depends on its counterpart in the other loop, it results in *O(n)* data. This difference may seem subtle, but the storage impact grows very quickly.
+
 ## Solution 2: Simplify template
 
 # [Bicep](#tab/bicep)
@@ -61,7 +65,6 @@ dependsOn: [
 When your file deploys lots of different resource types, consider dividing it into [modules](../bicep/modules.md). Divide your resource types into logical groups and add a module for each group. For example, if you need to deploy lots of networking resources, you can move those resources to a module.
 
 You can set other resources as implicit dependencies, and [get values from the output of modules](../bicep/outputs.md#outputs-from-modules).
-
 
 # [JSON](#tab/json)
 
@@ -82,3 +85,19 @@ Try to shorten the length of the names you use for [parameters](../bicep/paramet
 Try to shorten the length of the names you use for [parameters](../templates/parameters.md), [variables](../templates/variables.md), and [outputs](../templates/outputs.md). When these values are repeated through copy loops, a long name gets multiplied many times.
 
 ---
+
+## Solution 4: Use template specs
+
+# [Bicep](#tab/bicep)
+
+Use [template specs](../bicep/template-specs.md) rather than [Bicep modules](../bicep/modules.md). Bicep modules are converted into a single ARM template with nested templates.
+
+# [JSON](#tab/json)
+
+Use [template specs](../templates/linked-templates.md#template-specs) rather than [nested templates](../templates/templates/linked-templates.md#nested-template).
+
+---
+
+## Solution 5: Reduce incompressible data
+
+Including large amounts of incompressible data, such as certificates or binaries, or data with a low compression ratio in a template or parameters will quickly consume the size limit.
