@@ -149,17 +149,32 @@ After the steps are successful, you can find the containers running in Docker.
 ## Interact with the emulator
 
 You can use the following connection string to connect to the Event Hubs emulator:
+ - When the emulator container and interacting application are running natively on local machine, use following connection string:
+```
 
+  "Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
 ```
-"Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+  - Applications (Containerized/Non-containerized) on the different machine and same local network can interact with Emulator using the IPv4 address of the machine. Use following connection string:
 ```
+  "Endpoint=sb://192.168.y.z;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+```
+  - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes the name of Emulator has default value i.e."eventhubs-emulator":
+```
+  "Endpoint=sb://eventhubs-emulator;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+```
+  - Application containers on the different bridge network can interact with Emulator using the "host.docker.internal" as host. Use following connection string:
+```
+  "Endpoint=sb://host.docker.internal;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+```
+By default, emulator uses [config.json](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EventHub-Emulator/Config/Config.json) configuration file. You can configure entities (Event Hubs/ Kafka topics) by making changes to configuration file. To know more, visit [make configuration changes](./overview-emulator#quota-configuration-changes)
+
 ### [Using Kafka](#tab/using-kafka)
 
 While interacting with Kafka, ensure to set the Producer and consumer config as below:
 
 ```
-•	“security.protocol”: "SASL_PLAINTEXT"
-•	“sasl.mechanism”: "PLAIN"
+“security.protocol”: "SASL_PLAINTEXT"
+“sasl.mechanism”: "PLAIN"
 
 ```
 > [!IMPORTANT]
