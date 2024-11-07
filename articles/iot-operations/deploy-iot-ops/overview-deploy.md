@@ -110,10 +110,11 @@ If you use enterprise firewalls or proxies to manage outbound traffic, add the f
 
 
 1. To push data to the cloud, you will need to enable the following endpoints based on your choice of data platform.
+    - To enable endpoints for Microsoft Fabric OneLake, see [Add Fabric URLs to your allowlist](/fabric/security/fabric-allow-list-urls#onelake).
+    - To enable endpoints for Event Hubs, see [Troubleshoot connectivity issues - Azure Event Hubs](/azure/event-hubs/troubleshooting-guide).
+    - To enable endpoints for Event Grid, see [Troubleshoot connectivity issues - Azure Event Grid](/azure/event-grid/troubleshoot-network-connectivity).
+    - To enable endpoints for Azure Data Lake Storage Gen 2, see [Set up your connection](https://learn.microsoft.com/en-us/fabric/data-factory/connector-azure-data-lake-storage-gen2#set-up-your-connection).
 
-    |Endpoints (DNS) | Description |
-    |-|-|
-    | `*.pbidedicated.windows.net` | Endpoint for pushing data to [Microsoft Fabric OneLake](https://learn.microsoft.com/en-us/fabric/security/fabric-allow-list-urls#onelake). |
 
 ## Next steps
 
