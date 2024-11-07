@@ -31,11 +31,12 @@ Capacity resiliency: Experience automatic failover across regions to protect aga
 
 Dynamic availability: Automatically deploys compute capacity from regions that best meets your demand from a customized SKU list tailored to your workload requirements
 
-Simplified Deployment: Focus on building great products—without worrying about region-specific infrastructure.
+Simplified Deployment: Focus on building great products, without worrying about region-specific infrastructure.
 
 Cost-Effective Scaling: Tap into cost-efficient resources like Spot instances and take advantage of regional pricing
 
-Multi-region Compute Fleet is now available in all Azure Public Regions as part of a gated preview. We invite you to be among the first to access this exclusive preview.
+#Region Availability
+Multi-region Compute Fleet is now available in all Azure Public Regions.
 
 # Learn more and get started
  
