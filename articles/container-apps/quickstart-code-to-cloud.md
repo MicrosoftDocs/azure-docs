@@ -171,6 +171,22 @@ cd containerapps-albumapi-go/src
 
 ## Build and deploy the container app
 
+First, run the following command to create the resource group that will contain the resources you create in this quickstart.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az group create --name $RESOURCE_GROUP --location $LOCATION
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az group create --name $RESOURCE_GROUP --location $LOCATION
+```
+
+---
+
 Build and deploy your first container app with the `containerapp up` command. This command will:
 
 - Create the resource group
