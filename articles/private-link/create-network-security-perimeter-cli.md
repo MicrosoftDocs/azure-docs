@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 10/30/2024
+ms.date: 11/06/2024
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource using Azure CLI, so that I can control the network traffic to and from the resource.
 ---
 
@@ -18,19 +18,16 @@ Get started with network security perimeter by creating a network security perim
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  
+[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
+
 - The [latest Azure CLI](/cli/azure/install-azure-cli), or you can use Azure Cloud Shell in the portal.
   - This article **requires version 2.38.0 or later** of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - After upgrading to the latest version of Azure CLI, import the network security perimeter commands using `az extension add --name nsp`.
-- Re-register the `Microsoft.Network` resource provider with the following command:
-    
-    ```azure
-    az provider register --namespace Microsoft.Network 
-    ```
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
-[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
 
 
 ## Connect to your Azure account and select your subscription
@@ -49,7 +46,7 @@ To get started, connect to [Azure Cloud Shell](https://shell.azure.com) or use y
 
     ```azurecli-interactive
     # List all subscriptions
-    az account set --subscription "Azure Subscription"
+    az account set --subscription <Azure Subscription>
 
     # Re-register the Microsoft.Network resource provider
     az provider register --namespace Microsoft.Network    
@@ -58,11 +55,11 @@ To get started, connect to [Azure Cloud Shell](https://shell.azure.com) or use y
 ## Create a resource group and key vault
 
 Before you can create a network security perimeter, you have to create a resource group and a key vault resource.  
-This example creates a resource group named **test-rg** in the WestCentralUS location and a key vault named **key-vault-YYYYDDMM** in the resource group with the following commands:
+This example creates a resource group named **resource-group** in the WestCentralUS location and a key vault named **key-vault-YYYYDDMM** in the resource group with the following commands:
 
 ```azurecli-interactive
 az group create \
-    --name test-rg \
+    --name resource-group \
     --location westcentralus
 
 # Create a key vault using a datetime value to ensure a unique name
@@ -70,11 +67,10 @@ az group create \
 key_vault_name="key-vault-$(date +%s)"
 az keyvault create \
     --name $key_vault_name \
-    --resource-group test-rg \
+    --resource-group resource-group \
     --location westcentralus \
     --query 'id' \
     --output tsv
-
 ```
  
 ## Create a network security perimeter
@@ -87,7 +83,7 @@ In this step, create a network security perimeter with the `az network perimeter
 ```azurecli-interactive
 az network perimeter create\
     --name network-security-perimeter \
-    --resource-group test-rg \
+    --resource-group resource-group \
     -l westcentralus
 ```
 
@@ -104,7 +100,7 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
     # Create a new profile
     az network perimeter profile create \
         --name network-perimeter-profile \
-        --resource-group test-rg \
+        --resource-group resource-group \
         --perimeter-name network-security-perimeter
 
     ```
@@ -115,13 +111,13 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
     # Get key vault id
     az keyvault show \
         --name $key_vault_name \
-        --resource-group test-rg \
+        --resource-group resource-group \
         --query 'id'
         
     # Get the profile id
     az network perimeter profile show \
         --name network-perimeter-profile \
-        --resource-group test-rg \
+        --resource-group resource-group \
         --perimeter-name network-security-perimeter
     
     # Associate the Azure Key Vault with the network security perimeter profile
@@ -129,7 +125,7 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
     az network perimeter association create \
         --name network-perimeter-association \
         --perimeter-name network-security-perimeter \
-        --resource-group test-rg \
+        --resource-group resource-group \
         --access-mode Learning  \
         --private-link-resource "{id:<PaaSArmId>}" \
         --profile "{id:<networkSecurityPerimeterProfileId>}"
@@ -142,15 +138,15 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
     az network perimeter association create \
         --name network-perimeter-association \
         --perimeter-name network-security-perimeter \
-        --resource-group test-rg \
+        --resource-group resource-group \
         --access-mode Enforced  \
         --private-link-resource "{id:<PaaSArmId>}" \
         --profile "{id:<networkSecurityPerimeterProfileId>}"
     ```
+    
+## Manage network security perimeter access rules
 
-## Create and update network security perimeter access rules
-
-In this step, you create and update network security perimeter access rules with public IP address prefixes using the `az network perimeter profile access-rule create` command.
+In this step, you create, update, and delete a network security perimeter access rules with public IP address prefixes using the `az network perimeter profile access-rule` command.
 
 1. Create an inbound access rule with a public IP address prefix for the profile created with the following command:
 
@@ -161,7 +157,7 @@ In this step, you create and update network security perimeter access rules with
         --name access-rule \
         --profile-name network-perimeter-profile \
         --perimeter-name network-security-perimeter \
-        --resource-group test-rg \
+        --resource-group resource-group \
         --address-prefixes "[192.0.2.0/24]"
 
     ```
@@ -175,12 +171,22 @@ In this step, you create and update network security perimeter access rules with
         --name access-rule \
         --profile-name network-perimeter-profile \
         --perimeter-name network-security-perimeter \
-        --resource-group test-rg \
+        --resource-group resource-group \
         --address-prefixes "['198.51.100.0/24', '192.0.2.0/24']"
 
     ```
 
-    [!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
+1. If you need to delete an access rule, use the following command:
+
+    ```azurepowershell-interactive
+    # Delete the access rule
+    az network perimeter profile access-rule delete \
+        --Name network-perimeter-association \
+        --profile-name network-perimeter-profile \
+        --perimeter-name network-security-perimeter \
+        --resource-group resource-group
+
+[!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
 
 ## Delete all resources
 
@@ -191,26 +197,28 @@ To delete a network security perimeter and other resources in this quickstart, u
     # Delete the network security perimeter association
     az network perimeter association delete \
         --name network-perimeter-association \
-        --resource-group test-rg \
+        --resource-group resource-group \
         --perimeter-name network-security-perimeter
 
     # Delete the network security perimeter
     az network perimeter delete \
-        --resource-group test-rg \
+        --resource-group resource-group \
         --name network-security-perimeter --yes
     
     # Delete the key vault
     az keyvault delete \
         --name $key_vault_name \
-        --resource-group test-rg
+        --resource-group resource-group
     
     # Delete the resource group
     az group delete \
-        --name test-rg \
+        --name resource-group \
         --yes \
         --no-wait
 
 ```
+
+[!INCLUDE [network-security-perimeter-delete-resources](../../includes/network-security-perimeter-delete-resources.md)]
 
 ## Next steps
 
