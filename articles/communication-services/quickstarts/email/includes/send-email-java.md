@@ -289,7 +289,7 @@ executorService.submit(() -> {
 });
 
 // In a real application, you might have a mechanism to keep the main thread alive.
-// For this sample we will keep the main thread alive for 30 seconds.
+// For this sample we will keep the main thread alive for 30 seconds to make sure the child thread has time to recieve the SUCCESSFULLY_COMPLETED status.
 try {
     Thread.sleep(MAIN_THREAD_WAIT_TIME.toMillis());
 } catch (InterruptedException e) {
