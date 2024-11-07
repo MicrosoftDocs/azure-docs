@@ -241,7 +241,6 @@ In this tutorial, you learned about Azure Data Box topics such as:
 >
 > * Prerequisites for copy data to Azure Data Box Blob storage using REST APIs
 > * Connecting to Data Box Blob storage via *http* or *https*
-> * Determining appropriate access tiers for block blobs
 > * Copy data to Data Box
 
 Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
