@@ -44,7 +44,7 @@ You can configure Azure Logic Apps to be *zone redundant* so that your resources
 
 Zone-redundancy is available in the following logic app workflows:
 
-- **Consumption logic app workflows**, which run in multitenant Azure Logic Apps. Zone-redundancy is automatically enabled for new and existing Consumption logic app workflows.
+- **Consumption**: Run in multitenant Azure Logic Apps. Zone redundancy is automatically enabled for new and existing Consumption logic app workflows in [Azure zones with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
 
 - **Standard**: Run in single-tenant Azure Logic Apps and powered by Azure Functions extensibility. For more information, see [Reliability in Azure Functions](reliability-functions?tabs=azure-portal#availability-zone-support).
 
