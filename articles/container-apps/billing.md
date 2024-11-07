@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/02/2024
+ms.date: 11/05/2024
 ms.author: cshoe
 ---
 
@@ -42,6 +42,10 @@ Free usage doesn't appear on your bill. You're only charged as your resource usa
 
 > [!NOTE]
 > If you use Container Apps with [your own virtual network](networking.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
+
+### Serverless GPU
+
+Serverless GPU compute is calculated on a per-second billing rate.
 
 ### Resource consumption charges
 
