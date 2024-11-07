@@ -373,3 +373,30 @@ As of today, if dependsOnProfile provided in the NFDV is invalid, the NF operati
   }
 }
 ```
+## injectArtifactStoreDetails considerations
+In some cases, third-party helm charts maynot be fully compliant with AOSM requirements for registryURL. In this case, the injectArtifactStoreDetails feature can be used to avoid making changes to helm packages.
+
+### How to enable
+To use injectArtifactStoreDetails, set the installOptions parameter in the NF resource roleOrverrides section to true, then use whatever registryURL value is needed to keep the registry URL valid. See following example of injectArtifactStoreDetails parameter enabled.
+
+```bash
+resource networkFunction 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = {
+  name: nfName
+  location: location
+  properties: {
+    nfviType: 'AzureArcKubernetes'
+    networkFunctionDefinitionVersionResourceReference: {
+      id: nfdvId
+      idType: 'Open'
+    }
+    allowSoftwareUpdate: true
+    nfviId: nfviId
+    deploymentValues: deploymentValues
+    configurationType: 'Open'
+    roleOverrideValues: [
+      // Use inject artifact store details feature on test app 1
+      '{"name":"testapp1", "deployParametersMappingRuleProfile":{"helmMappingRuleProfile":{"options":{"installOptions":{"atomic":"false","wait":"false","timeout":"60","injectArtifactStoreDetails":"true"},"upgradeOptions": {"atomic": "false", "wait": "true", "timeout": "100", "injectArtifactStoreDetails": "true"}}}}}'
+    ]
+  }
+}
+```
