@@ -18,7 +18,7 @@ Entity functions define operations for reading and updating small pieces of stat
 Entities provide a means for scaling out applications by distributing the work across many entities, each with a modestly sized state.
 ::: zone pivot="csharp,javascript,python"
 > [!NOTE]
-> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET in-proc, .NET isolated worker, JavaScript, and Python, but not in PowerShell or Java.
+> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET in-proc, .NET isolated worker, JavaScript, and Python, but not in PowerShell or Java. Furthermore, entity functions for .NET Isolated are supported when using the Azure Storage or Netherite state providers, but not when using the MSSQL state provider.
 ::: zone-end  
 ::: zone pivot="powershell,java"  
 >[!IMPORTANT]
@@ -162,9 +162,6 @@ public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher
 }
 ```
 
-> [!NOTE]
-> Durable Entities for the Isolated worker process is not currently supported when using the [MSSQL state provider](./durable-functions-storage-providers.md#mssql).
-
 ### [Isolated worker process](#tab/isolated-process/class-based)
 
 The following example shows the implementation of the `Counter` entity using classes and methods. 
@@ -220,10 +217,6 @@ public static Task RunEntityStaticAsync([EntityTrigger] TaskEntityDispatcher dis
     return dispatcher.DispatchAsync<Counter>();
 }
 ```
-
-> [!NOTE]
-> Durable Entities for the Isolated worker process is not currently supported when using the [MSSQL state provider](./durable-functions-storage-providers.md#mssql).
-
 --- 
 ::: zone-end
 ::: zone pivot="javascript"
