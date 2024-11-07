@@ -56,25 +56,27 @@ For machines that run SQL Server where guest management is enabled, the Azure Ex
     
 ### Windows Server
 
-To enable ESUs for Windows Server environments that run in VMs in Azure VMware Solution, contact [Microsoft Support](https://portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) for configuration assistance. 
+To enable ESUs for Windows Server environments that run in VMs in Azure VMware Solution, follow these steps
 
-1. When you contact Support, select the following categories:
+1. Contact [Microsoft Support](https://portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) in the Azure portal for configuration assistance. 
+
+2. On the **Problem description** page, select the following categories:
 
    - Select **Issue type** as **Technical**.
    - Select your subscription name.
    - Select **Service type** as **Azure VMware Solution** service.
    - Provide a brief summary of the request, such as "ESU request"
    - Select **Problem type** as **Security**.
-   - Select **Problem subtype** as **Extended Security update for windows**.
+   - Select **Problem subtype** as **Extended Security Update for Windows**.
    - Select **Next**.
 
-2. Skip the recommended solutions by selecting **Return to support request**. Select **Next**.
+3. Skip the **Recommended solution** page after it loads by selecting **Return to support request**. Select **Next**.
 
-3. Add the following details to the support request **Additional details** :
+4. Add the following details to the support request **Additional details** :
    - Your name and tenant ID
    - Number of VMs you want to register
    - OS versions
-   - ESU year of coverage (for example, Year 1, Year 2, or Year 3). See [ESU Availability and End Dates](/lifecycle/faq/extended-security-updates?msclkid=65927660d02011ecb3792e8849989799#esu-availability-and-end-dates) for ESU End Date and Year. The support ticket provides you  with ESU keys for one year. You'll need to raise a new support request for other years. It's recommended to raise a new request as your current ESU End Date Year date is approaching.
+   - ESU year of coverage (for example, Year 1, Year 2, or Year 3). See [ESU Availability and End Dates](/lifecycle/faq/extended-security-updates?msclkid=65927660d02011ecb3792e8849989799#esu-availability-and-end-dates) for ESU End Date and Year. The support ticket provides you with ESU keys for one year. You'll need to create a new support request for other years. It's recommended to create a new request before your current ESU End Date Year date approaches.
 
 > [!WARNING]
 > If you create ESU licenses for Windows through Azure Arc, you're charged for the ESUs.
