@@ -35,6 +35,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
 - Fixed an issue for [CVE-2024-43533](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43533).
+- Multimedia redirection call redirection is now generally available.
 
 ## Updates for version 1.2.5704 
 
