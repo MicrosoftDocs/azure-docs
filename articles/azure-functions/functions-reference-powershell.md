@@ -458,40 +458,40 @@ The function app restarts after the change is made to the configuration.
 
 Managing modules in Azure Functions written in PowerShell can be approached in two ways: using the Managed Dependencies feature or including the modules directly in your app content. Each method has its own advantages, and choosing the right one depends on your specific needs.
 
-### Choosing the Right Module Management Approach
+### Choosing the right module management approach
 
-**Managed Dependencies Feature**
+**Why use the Managed Dependencies feature?**
 - **Simplified initial installation**: Automatically handles module installation based on your `requirements.psd1` file.
 - **Auto-upgrades**: Modules are updated automatically, including security fixes, without requiring manual intervention.
 
-**Including Modules in App Content**
+**Why include modules in app content?**
 - **No dependency on the PowerShell Gallery**: Modules are bundled with your app, eliminating external dependencies.
 - **More control**: Avoids the risk of auto-upgrade regressions, giving you full control over which module versions are used.
 - **Compatibility**: Works on Flex Consumption and is recommended for other Linux SKUs.
 
-### Managed Dependencies Feature
+### Managed Dependencies feature
 
 The Managed Dependencies feature allows Azure Functions to automatically download and manage PowerShell modules specified in the `requirements.psd1` file. This is enabled by default in new PowerShell function apps.
 
 #### Configuring requirements.psd1
 
-Content Here
+To leverage Managed Dependencies in Azure Functions with PowerShell, you need to configure a `requirements.psd1` file. This file specifies the modules your function requires, and Azure Functions automatically downloads and updates these modules to ensure that your environment stays up-to-date.
 
-#### Dependency Management App Settings
+Here is how to set up and configure the `requirements.psd1` file:
 
-You can configure how managed dependencies are downloaded and installed using the following app settings:
+1. Create a `requirements.psd1` file in the root directory of your Azure Function if one does not already exist.
+2. Define the modules and their versions in a PowerShell data structure.
 
-| Setting                     | Default Value             | Description  |
-|-----------------------------|---------------------------|--------------|
-| **MDMaxBackgroundUpgradePeriod** | `7.00:00:00` (seven days) | Controls the background update period for PowerShell function apps. |
-| **MDNewSnapshotCheckPeriod** | `01:00:00` (one hour)     | Specifies how often the PowerShell worker checks for updates. |
-| **MDMinBackgroundUpgradePeriod** | `1.00:00:00` (one day)   | Minimum time between upgrade checks. |
+Example `requirements.psd1` file:
+```powershell
+@{
+    'Az' = '9.*'  # Specifies the Az module and will use the latest version with major version 9
+}
+```
 
-### Including Modules in App Content
+### Including modules in app content
 
 For more control over your module versions and to avoid dependencies on external resources, you can include modules directly in your function app’s content.
-
-#### Function App-Level Modules Folder
 
 To include custom modules:
 
@@ -553,7 +553,7 @@ In order for Managed Dependencies to function, the feature must be enabled in ho
 }
 ```
 
-#### Target Specific Versions
+#### Target specific versions
 
 When targeting specific module versions, it’s important to follow both steps below to ensure the correct module version is loaded:
 
@@ -573,11 +573,21 @@ When targeting specific module versions, it’s important to follow both steps b
 
 This ensures the specified version is loaded when your function starts. 
 
-#### Dependency Management Considerations
+#### Configure specific Managed Dependency interval settings
 
-- **Internet Access**: Managed dependencies require access to `https://www.powershellgallery.com` to download modules. Ensure that your environment allows this access.
-- **License Acceptance**: Modules that require license acceptance are not supported by managed dependencies.
-- **Flex Consumption Plan**: Managed dependencies are not supported in the Flex Consumption plan. Use custom modules instead.
+You can configure how Managed Dependencies are downloaded and installed using the following app settings:
+
+| Setting                     | Default Value             | Description  |
+|-----------------------------|---------------------------|--------------|
+| **MDMaxBackgroundUpgradePeriod** | `7.00:00:00` (seven days) | Controls the background update period for PowerShell function apps. |
+| **MDNewSnapshotCheckPeriod** | `01:00:00` (one hour)     | Specifies how often the PowerShell worker checks for updates. |
+| **MDMinBackgroundUpgradePeriod** | `1.00:00:00` (one day)   | Minimum time between upgrade checks. |
+
+#### Dependency management considerations
+
+- **Internet Access**: Managed Dependencies require access to `https://www.powershellgallery.com` to download modules. Ensure that your environment allows this access, including modifying firewall/VNet rules as needed.
+- **License Acceptance**: Modules that require license acceptance are not supported by Managed Dependencies.
+- **Flex Consumption Plan**: Managed Dependencies are not supported in the Flex Consumption plan. Use custom modules instead.
 
 ## Concurrency
 
@@ -685,7 +695,7 @@ When you work with PowerShell functions, be aware of the considerations in the f
 
 When developing Azure Functions in the [serverless hosting model](consumption-plan.md), cold starts are a reality. *Cold start* refers to period of time it takes for your function app to start running to process a request. Cold start happens more frequently in the Consumption plan because your function app gets shut down during periods of inactivity.
 
-#### Avoid Using Install-Module
+#### Avoid using Install-Module
 
 Running `Install-Module` in your function script on each invocation can cause performance issues. Instead, use `Save-Module` or `Save-PSResource` before publishing your function app to bundle the necessary modules.
 
