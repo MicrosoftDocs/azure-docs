@@ -39,7 +39,7 @@ This guide shows how to enable zone redundancy for your logic apps.
 >[!NOTE]
 >With HTTP-based actions, certificates exported or created with AES256 encryption won't work when used for client certificate authentication. The same certificates also won't work when used for OAuth authentication.
 
-## Enable zone redundancy for your logic app
+## Set up zone redundancy for your logic app
 
 For Standard logic apps only, follow these steps:
 
