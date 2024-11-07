@@ -39,7 +39,7 @@ Transient faults are short, intermittent failures in components. They occur freq
 
 ## Availability zone support
 
-You can configure Azure Logic Apps to be *zone redundant* so that your resources are spread across multiple [availability zones](../reliability/availability-zones-overview.md). When you spread logic app workload resources across availability zones, you can achieve resiliency and reliability for your production logic app workloads.
+You can set up zone redundancy for Azure Logic Apps to spread resources across multiple [availability zones](../reliability/availability-zones-overview.md). When you distribute logic app workload resources across availability zones, you improve resiliency and reliability for your production logic app workloads.
 
 
 The following logic app workflows support zone redundancy:
