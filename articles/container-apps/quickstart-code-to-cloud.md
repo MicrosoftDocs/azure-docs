@@ -130,7 +130,7 @@ $API_NAME="album-api"
 
 ## Get the sample code
 
-Run the folling command to clone the sample application in the language of your choice and change into the project source folder.
+Run the following command to clone the sample application in the language of your choice and change into the project source folder.
 
 # [C#](#tab/csharp)
 
