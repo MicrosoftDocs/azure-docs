@@ -1,3 +1,4 @@
+
 ---
 title: Number Lookup API concepts in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
@@ -27,7 +28,7 @@ Key features of Azure Communication Services Number Lookup include:
 - **High Accuracy** We gather data from the most reliable suppliers to ensure that you receive accurate data. Our data is updated regularly to guarantee the highest quality possible.
 - **High Velocity** Our API is designed to deliver fast and accurate data, even when dealing with high volumes of data. It is optimized for speed and performance to ensure you always receive the information you need quickly and reliably.
 - **Number Capability Check** Our API provides the associated number type that generally can help determine if an SMS can be sent to a particular number. This helps to avoid frustrating attempts to send messages to non-SMS-capable numbers.
-- **Carrier Details** We provide information about the country of destination and carrier information which helps to estimate potential costs and find alternative messaging methods (e.g., sending an email).
+- **Carrier Details** We provide information about the country or region of destination and carrier information which helps to estimate potential costs and find alternative messaging methods (e.g., sending an email).
 
 ## Value Proposition
 
