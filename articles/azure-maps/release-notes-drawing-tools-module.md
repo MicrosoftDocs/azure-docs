@@ -14,7 +14,7 @@ ms.subservice: web-sdk
 
 This document contains information about new features and other changes to the Azure Maps Drawing Tools Module.
 
-## [1.0.5] (CDN: November 4, 2024, npm: TBA)
+## [1.0.5] (CDN: November 4, 2024, npm: November 7)
 
 ### Bug fixes
 
