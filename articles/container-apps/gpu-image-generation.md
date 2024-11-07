@@ -133,6 +133,7 @@ If you aren't going to use these services long-term, use the steps to remove eve
 
 1. Select **Delete**.
 
-## Related content
+## Next steps
 
-* [Improve cold start for your serverless GPUs](gpu-serverless-overview.md#improve-gpu-cold-start)
+> [!div class="nextstepaction"]
+> [Improve cold start for your serverless GPUs](gpu-serverless-overview.md#improve-gpu-cold-start)
