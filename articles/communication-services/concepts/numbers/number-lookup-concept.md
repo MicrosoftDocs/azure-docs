@@ -1,4 +1,3 @@
-
 ---
 title: Number Lookup API concepts in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
@@ -6,7 +5,6 @@ description: Learn about Communication Services Number Lookup API concepts.
 author: henikaraa
 manager: rcole
 services: azure-communication-services
-
 ms.author: henikaraa
 ms.date: 05/02/2023
 ms.topic: conceptual
