@@ -208,14 +208,6 @@ For instructions on running the script, see [Configure an AKS Edge Essentials cl
 
 ---
 
-## Verify your cluster
-
-To verify that your cluster is ready for Azure IoT Operations deployment, you can use the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) helper command in the Azure IoT Operations extension for Azure CLI. When run on the cluster host, this helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints.
-
-```azurecli
-az iot ops verify-host
-```
-
 ## Advanced configuration
 
 At this point, when you have an Azure Arc-enabled Kubernetes cluster but before you deploy Azure IoT Operations to it, you might want to configure your cluster for advanced scenarios.
