@@ -55,11 +55,13 @@ You can create custom feature filters that enable features based on your specifi
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, applying new custom filter.](./media/feature-filters/feature-flag-edit-apply-filter.png)
 
-You have successfully added a custom filter to a feature flag. Continue to the following instructions to implement the feature filter into your application for the language or platform you are using.
+    You have successfully added a custom filter to a feature flag. 
 
-- [ASP.NET Core](./howto-feature-filters-aspnet-core.md)
-- [Node.js](./howto-feature-filters-javascript.md)
-- [Python](./howto-feature-filters-python.md)
+1. Continue to the following instructions to implement the feature filter into your application for the language or platform you are using.
+
+    - [ASP.NET Core](./howto-feature-filters-aspnet-core.md)
+    - [Node.js](./howto-feature-filters-javascript.md)
+    - [Python](./howto-feature-filters-python.md)
 
 ## Next steps
 

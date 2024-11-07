@@ -12,7 +12,7 @@ ms.custom: quickstart, mode-other, devx-track-js
 #Customer intent: As a JavaScript developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 
-# Quickstart: Add feature flags to a Node.js app
+# Quickstart: Add feature flags to a Node.js console app
 
 In this quickstart, you incorporate Azure App Configuration into a Node.js console app to create an end-to-end implementation of feature management. You can use App Configuration to centrally store all your feature flags and control their states.
 
@@ -32,32 +32,9 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 > ![Enable feature flag named Beta](media/quickstart-feature-flag-javascript/add-beta-feature-flag.png)
 
 
-## Create a Node.js console app
-
-In this tutorial, you create a Node.js console app and load the feature flag from your App Configuration store.
-
-1. Create a new directory for the project named *feature-management-quickstart*.
-
-    ```console
-    mkdir feature-management-quickstart
-    ```
-
-1. Switch to the newly created *feature-management-quickstart* directory.
-
-    ```console
-    cd app-configuration-quickstart
-    ```
-
-1. Install the Azure App Configuration provider and feature management by using the `npm install` command.
-
-    ```console
-    npm install @azure/app-configuration-provider
-    npm install @microsoft/feature-management
-    ```
-
 ## Use the feature flag
 
-1. Create a file named *app.js* in the *feature-management-quickstart* directory and copy the following code.
+1. Create a file named *app.js* and add the following code.
 
     ``` javascript
     const sleepInMs = require("util").promisify(setTimeout);
