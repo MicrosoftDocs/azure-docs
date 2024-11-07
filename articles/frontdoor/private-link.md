@@ -130,4 +130,4 @@ The Azure Front Door Private Link feature is region agnostic but for the best la
 * Learn how to [connect Azure Front Door Premium to a storage static website origin with Private Link](how-to-enable-private-link-storage-static-website.md).
 * Learn how to [connect Azure Front Door Premium to an application gateway origin with Private Link](how-to-enable-private-link-application-gateway.md).
 * Learn how to [connect Azure Front Door Premium to an API Management origin with Private Link](standard-premium/how-to-enable-private-link-apim.md).
-* Learn how to [connect Azure Front Door Premium to an Azure Container Apps origin with Private Link](JasonsTutorial.md).
+* Learn how to [connect Azure Front Door Premium to an Azure Container Apps origin with Private Link](../container-apps/how-to-use-private-endpoint.md).
