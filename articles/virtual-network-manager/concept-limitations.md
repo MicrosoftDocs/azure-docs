@@ -32,7 +32,8 @@ This article provides an overview of the current limitations when you're using [
 * By default, a virtual network can be part of up to two connected groups. For example, a virtual network:
   * Can be part of two mesh configurations.
   * Can be part of a mesh topology and a network group that has direct connectivity enabled in a hub-and-spoke topology.
-  * Can be part of two network groups with direct connectivity enabled in the same or a different hub-and-spoke configuration. 
+  * Can be part of two network groups with direct connectivity enabled in the same or a different hub-and-spoke configuration.
+  * This is a soft limit and can be adjusted by submitting a request using [this form](https://forms.office.com/r/xXxYrQt0NQ).  
 * The following BareMetal Infrastructures are not supported:
   * [Azure NetApp Files](../azure-netapp-files/index.yml)
   * [Azure VMware Solution](../azure-vmware/index.yml)
