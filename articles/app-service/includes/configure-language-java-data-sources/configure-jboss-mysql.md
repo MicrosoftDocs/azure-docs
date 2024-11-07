@@ -10,7 +10,6 @@ ms.author: cephalin
 1. Put your JBoss CLI commands into a file named *jboss-cli-commands.cli*. The JBoss commands must add the module and register it as a data source. The following example shows the JBoss CLI commands for creating a MySQL data source with the JNDI name `java:jboss/datasources/mysqlDS`.
 
     ```bash
-    #!/bin/bash
     module add --name=com.mysql.mysql-connector-j --resources=/home/site/libs/mysql-connector-j-9.1.0.jar
     /subsystem=datasources/jdbc-driver=mysql:add(driver-name="mysql",driver-module-name="com.mysql.mysql-connector-j",driver-class-name="com.mysql.cj.jdbc.Driver",driver-xa-datasource-class-name="com.mysql.cj.jdbc.MysqlXADataSource")
     data-source add --name=mysql --driver-name="mysql" --jndi-name="java:jboss/datasources/mysqlDS" --connection-url="jdbc:mysql://\${env.DB_HOST}:5432/mysql?serverTimezone=UTC" --user-name="\${env.DB_USERNAME}" --password="\${env.DB_PASSWORD}" --enabled=true --use-java-context=true
@@ -77,6 +76,6 @@ ms.author: cephalin
 
     ---
 
-To confirm that the datasource was added to the JBoss server, SSH into your webapp and run `$JBOSS_HOME/bin/jboss-cli.sh --connect`. Once you're connected to JBoss, run the `/subsystem=datasources:read-resource` to print a list of the data sources.
+To confirm that the data source was added to the JBoss server, SSH into your webapp and run `$JBOSS_HOME/bin/jboss-cli.sh --connect`. Once you're connected to JBoss, run the `/subsystem=datasources:read-resource` to print a list of the data sources.
 
 As defined by *jboss-cli-commands.cli* previously, you can access the MySQL connection using the JNDI name `java:jboss/datasources/mysqlDS`.

@@ -120,8 +120,19 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
 ---
 
+::: zone pivot="java-javase,java-jboss"
+
 > [!NOTE]
-> If you already have an environment variable for `JAVA_OPTS` or `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
+> If you already have an environment variable for `JAVA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
+
+::: zone-end
+
+::: zone pivot="java-tomcat"
+
+> [!NOTE]
+> If you already have an environment variable for `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
+
+::: zone-end
 
 ## Configure AppDynamics
 
@@ -176,20 +187,20 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 ## Configure Datadog
 
 # [Linux](#tab/linux)
-* The configuration options are different depending on which Datadog site your organization is using. See the official [Datadog Integration for Azure Documentation](https://docs.datadoghq.com/integrations/azure/)
+The configuration options are different depending on which Datadog site your organization is using. See the official [Datadog Integration for Azure Documentation](https://docs.datadoghq.com/integrations/azure/)
 
 # [Windows](#tab/windows)
-* The configuration options are different depending on which Datadog site your organization is using. See the official [Datadog Integration for Azure Documentation](https://docs.datadoghq.com/integrations/azure/)
+The configuration options are different depending on which Datadog site your organization is using. See the official [Datadog Integration for Azure Documentation](https://docs.datadoghq.com/integrations/azure/)
 
 ---
 
 ## Configure Dynatrace
 
 # [Linux](#tab/linux)
-* Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com/monitoring/technologies/azure-monitoring/). To monitor Azure App Services using Dynatrace, see the official [Dynatrace for Azure documentation](https://docs.datadoghq.com/integrations/azure/)
+Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com/monitoring/technologies/azure-monitoring/). To monitor Azure App Services using Dynatrace, see the official [Dynatrace for Azure documentation](https://docs.datadoghq.com/integrations/azure/)
 
 # [Windows](#tab/windows)
-* Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com/monitoring/technologies/azure-monitoring/). To monitor Azure App Services using Dynatrace, see the official [Dynatrace for Azure documentation](https://docs.datadoghq.com/integrations/azure/)
+Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com/monitoring/technologies/azure-monitoring/). To monitor Azure App Services using Dynatrace, see the official [Dynatrace for Azure documentation](https://docs.datadoghq.com/integrations/azure/)
 
 ---
 

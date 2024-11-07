@@ -444,9 +444,9 @@ In your JBoss app's SSH session, you can run the JBoss CLI with the following co
 $JBOSS_HOME/bin/jboss-cli.sh --connect
 ```
 
-Depending on where JBoss is in the server lifecycle, you might not be able to connect. Wait a few minutes and try again. Note also that changes you make to the server with JBoss CLI doesn't persist after the app restarts. This approach is useful for quick checks of your current server state (for example, to see if a data source is properly configured).
+Depending on where JBoss is in the server lifecycle, you might not be able to connect. Wait a few minutes and try again. This approach is useful for quick checks of your current server state (for example, to see if a data source is properly configured).
 
-The most reliable way to run JBoss CLI and persist your server changes is running it inside a startup script or a startup command. To do this, upload a file directly as a startup script. For an end-to-end example, see [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md?pivots=java-jboss).
+Also, changes you make to the server with JBoss CLI in the SSH session doesn't persist after the app restarts. Each time the app starts, the JBoss EAP server begins with a clean installation. During the [startup lifecycle](#jboss-server-lifecycle), App Service makes the necessary server configurations and deploys the app. To make any persistent changes in the JBoss server, use a [custom startup script or a startup command](#3-server-configuration-phase). For an end-to-end example, see [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md?pivots=java-jboss).
 
 Alternatively, you can manually configure App Service to run any file on startup. For example:
 
@@ -454,7 +454,10 @@ Alternatively, you can manually configure App Service to run any file on startup
 az webapp config set --resource-group <group-name> --name <app-name> --startup-file /home/site/scripts/foo.sh
 ```
 
-For more information about the CLI commands you can run, see the [Red Hat JBoss EAP documentation](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/8.0/html-single/getting_started_with_red_hat_jboss_enterprise_application_platform/index#management-cli-overview_assembly-jboss-eap-management).
+For more information about the CLI commands you can run, see:
+
+- [Red Hat JBoss EAP documentation](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/8.0/html-single/getting_started_with_red_hat_jboss_enterprise_application_platform/index#management-cli-overview_assembly-jboss-eap-management)
+- [WildFly CLI Recipes](https://docs.jboss.org/author/display/WFLY/CLI%20Recipes.html)
 
 ## Clustering
 
@@ -520,28 +523,28 @@ See respective sections below for details as well as opportunities to customize 
 - If JBoss is launched in the `clustering` configuration:
     - Each JBoss instance receives an internal identifier between 0 and the number of instances that the app is scaled out to.
     - If some files are found in the transaction store path for this server instance (by using its internal identifier), it means this server instance is taking the place of an identical service instance that crashed previously and left uncommitted transactions behind. The server is configured to resume the work on these transactions.
-- Regardless of JBoss starting in the `clustering` or `standalone` configuration, if the server version is 7.4 or above, and the runtime uses Java 17, then the configuration is updated to enable the Elytron subsystem for security. <!-- using the JBoss CLI commands provided in the file docs/examples/enable-elytron-se17.cli  -->
+- Regardless if JBoss starting in the `clustering` or `standalone` configuration, if the server version is 7.4 or above and the runtime uses Java 17, then the configuration is updated to enable the Elytron subsystem for security.
 - If you configure the app setting `WEBSITE_JBOSS_OPTS`, the value is passed to the JBoss launcher script. This setting can be used to provide paths to property files and more flags that influence the startup of JBoss.
 
 ### 3. Server configuration phase 
 
-- At the start of this phase, the startup script first waits for both the JBoss server and the admin interface to be ready to receive requests before continuing. This can take a few more seconds if App Insights is enabled.
-- When both JBoss Server and the admin interface are ready, it runs a JBoss CLI script to do the following: 
-    - Add the JBoss module `azure.appservice`, which provides utility classes for logging and integration with App Service.
-    - Update the console logger to use a colorless mode so that log files aren't full of color escaping sequences.
-    - Set up the integration with Azure Monitor logs.
-    - Update the binding IP addresses of the WSDL and management interfaces.
-    - Add the JBoss module `azure.appservice.easyauth` for integration with [App Service authentication](overview-authentication-authorization.md) and Microsoft Entra ID.
-    - Update the logging configuration of access logs and the name and rotation of the main server log file.
-- Unless the app setting `WEBSITE_SKIP_AUTOCONFIGURE_DATABASE` is defined, the startup script performs autodetection of JDBC URLs in the App Service app settings. If valid JDBC URLs exist for PostgreSQL, MySQL, MariaDB, Oracle, or SQL Server, the startup script adds the corresponding driver(s) to the server and adds a data source for each of the JDBC URL. The JNDI name for each data source is `java:jboss/env/jdbc/<app-setting-name>_DS`, where `<app-setting-name>` is the name of the app setting.
-- If the `clustering` configuration is enabled, the startup script checks for the console logger to be configured. <!-- JBoss script /usr/local/appservice/lib/azure.appservice.clustering.cli will be run. At this time, the script only checks for the console logger to be configured. In the future some extra configuration specific for clustering could be added. -->
-- If there are JAR files deployed to the */home/site/libs* directory, a new global module is created adding all these JAR files.
-- Run the custom startup script, if one is provided. The script to use is determined, in order of precedence: 
-    - If you configured a startup command, run it.
-    - If the path */home/site/scripts/startup.sh* exists, run it.
-    - If the path */home/startup.sh* exists, run it.
+- At the start of this phase, App Service first waits for both the JBoss server and the admin interface to be ready to receive requests before continuing. This can take a few more seconds if Application Insights is enabled.
+- When both JBoss Server and the admin interface are ready, App Service does the following: 
+    - Adds the JBoss module `azure.appservice`, which provides utility classes for logging and integration with App Service.
+    - Updates the console logger to use a colorless mode so that log files aren't full of color escaping sequences.
+    - Sets up the integration with Azure Monitor logs.
+    - Updates the binding IP addresses of the WSDL and management interfaces.
+    - Adds the JBoss module `azure.appservice.easyauth` for integration with [App Service authentication](overview-authentication-authorization.md) and Microsoft Entra ID.
+    - Updates the logging configuration of access logs and the name and rotation of the main server log file.
+- Unless the app setting `WEBSITE_SKIP_AUTOCONFIGURE_DATABASE` is defined, App Service autodetects JDBC URLs in the App Service app settings. If valid JDBC URLs exist for PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, or Azure SQL Database, it adds the corresponding driver(s) to the server and adds a data source for each of the JDBC URL and sets the JNDI name for each data source to `java:jboss/env/jdbc/<app-setting-name>_DS`, where `<app-setting-name>` is the name of the app setting.
+- If the `clustering` configuration is enabled, the console logger to be configured is checked. 
+- If there are JAR files deployed to the */home/site/libs* directory, a new global module is created with all of these JAR files.
+- At the end of the phase, App Service runs the custom startup script, if one exists. The search logic for the custom startup script as follows:
+    - If you configured a startup command (in the Azure portal, with Azure CLI, etc.), run it; otherwise,
+    - If the path */home/site/scripts/startup.sh* exists, use it; otherwise,
+    - If the path */home/startup.sh* exists, use it.
 
-The custom startup command or script runs as the root user (no need for `sudo`), so they can install Linux packages or launch the JBoss CLI to perform more JBoss install/customization commands (creating datasources, installing resource adapters), etc. For information on Ubuntu package management commands, see the [Ubuntu Server documentation](https://documentation.ubuntu.com/server/how-to/software/package-management/). ForJBoss CLI commands, see the [JBoss Management CLI Guide](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index#how_to_cli).
+The custom startup command or script runs as the root user (no need for `sudo`), so they can install Linux packages or launch the JBoss CLI to perform more JBoss install/customization commands (creating datasources, installing resource adapters), etc. For information on Ubuntu package management commands, see the [Ubuntu Server documentation](https://documentation.ubuntu.com/server/how-to/software/package-management/). For JBoss CLI commands, see the [JBoss Management CLI Guide](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index#how_to_cli).
 
 ### 4. App deployment phase 
 

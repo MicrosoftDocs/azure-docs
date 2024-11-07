@@ -386,7 +386,7 @@ There are three core steps when [registering a data source with JBoss EAP](https
 1. Add the JDBC driver as a module.
 1. Add a data source with the module. 
 
-App Service is a stateless hosting service, so you must put these steps into a startup script and run it each time the JBoss container starts. Using PostgreSQL and MySQL as an examples:
+App Service is a stateless hosting service, so you must put these steps into a startup script and run it each time the JBoss container starts. Using PostgreSQL, MySQL, and SQL Database as an examples:
 
 # [PostgreSQL](#tab/postgresql)
 
@@ -395,6 +395,10 @@ App Service is a stateless hosting service, so you must put these steps into a s
 # [MySQL](#tab/mysql)
 
 [!INCLUDE [configure-jboss-mysql](includes/configure-language-java-data-sources/configure-jboss-mysql.md)]
+
+# [SQL Database](#tab/sqldatabase)
+
+[!INCLUDE [configure-jboss-sqldatabase](includes/configure-language-java-data-sources/configure-jboss-sql-database.md)]
 
 ---
 
