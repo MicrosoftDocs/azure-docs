@@ -62,7 +62,7 @@ Ensure that you have the following permissions to restore a database:
 
 To restore a user database, follow these steps:
 
-1. Go to the **Recovery Services vault**, select **Backup items** > **SAP ASE (Sybase) in Azure VM (Preview)** under the **Backup Management Type**. 
+1. Go to the **Recovery Services vault**, select **Backup items** > **SAP ASE (Sybase) in Azure VM (preview)** under the **Backup Management Type**. 
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-backup-items.png" alt-text="Screenshot showing how to select backup items." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-backup-items.png":::
 
@@ -97,7 +97,7 @@ To restore the SAP ASE database to an alternate location, follow these steps:
 
 ## Restore to Original Location
 
-For an in-place restore, if the database is corrupted and you want to restore it to the original location (source), select **Original Location**.
+For an in-place restore, if the database is corrupted and you want to restore it to the original location (source), select **Original location**.
 
 :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/restore-original-location.png" alt-text="Screenshot showing how to restore to original location." lightbox="media/sap-adaptive-server-enterprise-db-restore/restore-original-location.png":::
 

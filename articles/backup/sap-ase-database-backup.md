@@ -242,7 +242,7 @@ The following table lists the various alternatives you can use for establishing 
 | [Virtual Network Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) | Used for Azure Storage. <br><br> Provides large benefit to optimize performance of data plane traffic. | Can't be used for Microsoft Entra ID, Azure Backup service. |
 | Network Virtual Appliance | Used for Azure Storage, Microsoft Entra ID, Azure Backup service. <br><br> **Data plane** <br> - Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net` <br><br> **Management plane** <br> - Microsoft Entra ID: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). <br> - Azure Backup service: `.backup.windowsazure.com` <br><br> Learn more [about Azure Firewall service tags](/azure/firewall/fqdn-tags). | Adds overhead to data plane traffic and decrease throughput/performance. |
 
-To learn about the usage of the connectivity options, see the following sections.
+The following sections detail about the usage of the connectivity options.
 
 ### Private endpoints
 
@@ -346,7 +346,7 @@ To discover the SAP ASE databases, follow these steps:
 
    :::image type="content" source="./media/sap-ase-database-backup/initiate-database-backup.png" alt-text="Screenshot shows how to start the SAP database backup." lightbox="./media/sap-ase-database-backup/initiate-database-backup.png"::: 
 
-2. On the **Backup Goal**, select **SAP ASE (Sybase) in Azure VM (Preview)** as the datasource type.
+2. On the **Backup Goal**, select **SAP ASE (Sybase) in Azure VM (preview)** as the datasource type.
 
    :::image type="content" source="./media/sap-ase-database-backup/select-data-source-type.png" alt-text="Screenshot shows the selection of the data source type." lightbox="./media/sap-ase-database-backup/select-data-source-type.png":::
  
