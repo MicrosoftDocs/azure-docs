@@ -17,7 +17,7 @@ ms.custom: references_regions
 [!INCLUDE [reliability-az-description](../reliability/includes/reliability-availability-zone-description-include.md)]
 
 
-This article shows you how to enable zone-redundancy for your logic apps.  Azure Logic Apps platform distributes logic app workloads across all availability zones within a region. 
+This guide shows how to enable zone redundancy for your logic apps.
 
 ## Prerequisites
 
