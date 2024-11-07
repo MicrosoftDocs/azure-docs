@@ -40,10 +40,9 @@ For Azure Storage accounts:
 - Your Azure storage account must be configured for blob or file storage.
 - Don't configure exports to a storage container that is configured as a destination in an [object replication rule](../../storage/blobs/object-replication-overview.md#object-replication-policies-and-rules).
 - To export to storage accounts with configured firewalls, you need other privileges on the storage account. The other privileges are only required during export creation or modification. They are:
-  - Owner role on the storage account.  
-  Or
-  - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.  
-  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
+  - **Owner** role or any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.
+  
+  - Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.  
     :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
 
@@ -211,9 +210,25 @@ You can retrieve up to 13 months of historical data through the portal UI for al
 - All available prices:
 
   - MCA/MPA: Up to 13 months.
-  
+    
   - EA: Up to 25 months (starting from December 2022).
-  
+    
+#### Why do I get the 'Unauthorized' error while trying to create an Export? 
+
+When attempting to create an Export to a storage account with a firewall, the user must have the Owner role or a custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions. If these permissions are missing, you will encounter an error like:
+
+
+```json
+{
+	"error":{
+	"code":"Unauthorized",
+	"message":"The user does not have authorization to perform 'Microsoft.Authorization/roleAssignments/write' action on specified storage account, please use a storage account with sufficient permissions. If the permissions have changed recently then retry after some time."
+	}
+}
+```
+
+You can check for the permissions on the storage account by referring to the steps in [Check access for a user to a single Azure resource](https://https://learn.microsoft.com/en-us/azure/role-based-access-control/check-access). 
+
 ## Next steps
 
 - Learn more about exports at [Tutorial: Create and manage exported data](tutorial-export-acm-data.md).
