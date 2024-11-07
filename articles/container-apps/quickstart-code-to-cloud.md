@@ -36,7 +36,7 @@ To sign in to Azure from the CLI, run the following command and follow the promp
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az login
 ```
 
@@ -52,7 +52,7 @@ To ensure you're running the latest version of the CLI, run the upgrade command.
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az upgrade
 ```
 
@@ -69,7 +69,7 @@ Next, install or update the Azure Container Apps extension for the CLI.
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az extension add --name containerapp --upgrade --allow-preview true
 ```
 
@@ -85,7 +85,7 @@ Now that the current extension is installed, register the `Microsoft.App` and `M
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az provider register --namespace Microsoft.App
 az provider register --namespace Microsoft.OperationalInsights
 ```
@@ -107,7 +107,7 @@ Now that your CLI setup is complete, you can define the environment variables th
 
 Define the following variables in your bash shell.
 
-```azurecli
+```bash
 export RESOURCE_GROUP="album-containerapps"
 export LOCATION="canadacentral"
 export ENVIRONMENT="env-album-containerapps"
@@ -174,7 +174,7 @@ First, run the following command to create the resource group that will contain 
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az group create --name $RESOURCE_GROUP --location $LOCATION
 ```
 
@@ -200,7 +200,7 @@ In the following code example, the `.` (dot) tells `containerapp up` to run in t
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az containerapp up \
   --name $API_NAME \
   --resource-group $RESOURCE_GROUP \
@@ -228,7 +228,7 @@ To open the web API service in a web browser, run the following command.
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az containerapp browse --name $API_NAME --resource-group $RESOURCE_GROUP
 ```
 
@@ -257,7 +257,7 @@ If you're not going to continue on to the [Deploy a frontend](communicate-betwee
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az group delete --name $RESOURCE_GROUP
 ```
 
