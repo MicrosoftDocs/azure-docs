@@ -16,7 +16,7 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
-### [3.5.0] (CDN: November 4, 2024, npm: TBA)
+### [3.5.0] (CDN: November 4, 2024, npm: November 7)
 
 #### New features
 - Add support for fullscreen control.
