@@ -9,7 +9,7 @@ ms.date: 11/07/2024
 ms.custom: engagement-fy24
 ---
 
-# Review an assessment
+# Review a Web app assessment
 
 This article describes the process to review an assessment that you created.
 

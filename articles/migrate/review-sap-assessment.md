@@ -9,7 +9,7 @@ ms.date: 11/07/2024
 ms.custom: engagement-fy24
 ---
 
-# Review an assessment
+# Review a SAP assessment
 
 To review an assessment, follow these steps:
 
