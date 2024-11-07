@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: azure-health-data-services
 ms.topic: reference
 ms.date: 12/15/2022
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Frequently asked questions about Azure Health Data Services
