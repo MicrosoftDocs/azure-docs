@@ -55,7 +55,7 @@ Learn more about setting up a [GitHub Actions workflow](register-apis-github-act
 
 ## Generate OpenAPI spec from API code 
  
-Use the power of GitHub Copilot with the Azure API Center extension for Visual Studio Code to create an OpenAPI specification file from your API code. Right-click on the API code, select **Copilot** from the options, and select **Generate API documentation**. GitHub Copilot creates an OpenAPI specification file.
+Use the power of [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) with the Azure API Center extension for Visual Studio Code to create an OpenAPI specification file from your API code. Right-click on the API code, select **Copilot** from the options, and select **Generate API documentation**. GitHub Copilot creates an OpenAPI specification file.
 
 > [!NOTE]
 > This feature is available in the pre-release version of the API Center extension.
@@ -66,14 +66,14 @@ After generating the OpenAPI specification file and checking for accuracy, you c
 
 ## Generate OpenAPI spec using natural language prompts
 
-The API Center plugin for GitHub Copilot for Azure helps you design new APIs starting from natural language prompts. With AI assistance, quickly generate an OpenAPI spec for API development that complies with your organization's standards.
+The API Center plugin for [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) helps you design new APIs starting from natural language prompts. With AI assistance, quickly generate an OpenAPI spec for API development that complies with your organization's standards.
 
 > [!NOTE]
 > This feature is available in the pre-release version of the API Center extension.
 
 1. If desired, set an active API style guide. Use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. Type **Azure API Center: Set API Style Guide**, make a selection, and hit **Enter**. 
 
-    If no style guide is set, the default `spectral: oas` ruleset is used.
+    If no style guide is set, the default `spectral:oas` ruleset is used.
 1. In the chat panel, make a request in natural language to the `@azure` agent to describe what the API does. Example:
 
     ```vscode
