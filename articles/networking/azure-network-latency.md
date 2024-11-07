@@ -87,7 +87,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 156     | 152       |
 | Norway East         | 172     | 171       |
 | Norway West         | 167     | 167       |
-| Poland Centra       | 175     | 177       |
+| Poland Central       | 175     | 177       |
 | Qatar Central       | 264     | 254       |
 | South Africa North  | 294     | 291       |
 | South Africa West   | 278     | 275       |
@@ -702,7 +702,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 229       | 198            |
 | Norway East         | 240       | 208            |
 | Norway West         | 236       | 204            |
-| Poland Centra       | 237       | 205            |
+| Poland Central       | 237       | 205            |
 | Qatar Central       | 121       | 90             |
 | South Africa North  | 218       | 188            |
 | South Africa West   | 233       | 203            |
@@ -752,7 +752,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 70             | 139           | 127         | 129       |
 | Norway East         | 83             | 150           | 138         | 140       |
 | Norway West         | 81             | 146           | 134         | 136       |
-| Poland Centra       | 69             | 146           | 134         | 136       |
+| Poland Central       | 69             | 146           | 134         | 136       |
 | Qatar Central       | 153            |               | 16          | 17        |
 | South Africa North  | 195            | 117           | 105         | 102       |
 | South Africa West   | 183            | 132           | 121         | 118       |
@@ -803,7 +803,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 172                | 155              |
 | Norway East         | 184                | 167              |
 | Norway West         | 177                | 160              |
-| Poland Centra       | 180                | 163              |
+| Poland Central       | 180                | 163              |
 | Qatar Central       | 118                | 131              |
 | South Africa North  |                    | 20               |
 | South Africa West   | 21                 |                  |
