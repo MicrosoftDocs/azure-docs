@@ -142,3 +142,20 @@ sections:
          What happens if I opt for personal desktops to get hibernated in my scaling plan, but my personal desktops don't have hibernate enabled?
         answer: |
          If you opt to have personal desktops hibernated in your personal scaling plan schedule, but the personal desktops don't have hibernate enabled, autoscale won't do anything to your session hosts (won't hibernate them and won't deallocate them).
+   
+  - name: Dynamic scaling (preview)
+    questions:
+      - question: |
+         Will the minimum host pool size defined in the scaling plan override the settings in the host pool? 
+        answer: |
+         Yes. The minimum host pool size will override the number of VMs you defined in the host pool. 
+
+      - question: |
+         Do I need to specify whether to turn on or create VMs in each phase?  
+        answer: |
+         No. You only need to define the virtual machine limit with the minimum host pool size, the maximum host pool size, and the minimum percentage of active hosts (%). When the actual number of VMs needed isn't larger than the minimum host pool size, autoscale will turn on VMs if the used host pool capacity exceeds your defined capacity threshold. When the actual number of VMs needed is larger than the minimum host pool size, autoscale will turn on the stopped VMs and create additional VMs given the total number of active VMs won’t exceed the maximum host pool size defined in the scaling plan if the used host pool capacity exceeds your defined capacity threshold. 
+
+      - question: |
+         test 
+        answer: |
+         test
