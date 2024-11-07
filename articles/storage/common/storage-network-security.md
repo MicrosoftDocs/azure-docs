@@ -88,7 +88,7 @@ After you apply network rules, they're enforced for all requests. SAS tokens tha
 
 ### Network Security Perimeter (preview)
 
-[Network Security Perimeter](../azure/private-link/network-security-perimeter-concepts.md) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Blob Storage and SQL Database) that are deployed outside their virtual networks. The feature restricts public network access to PaaS resources outside the perimeter. However, you can exempt access by using explicit access rules for public inbound and outbound traffic. By design, access to a storage account from within a Network Security Perimeter takes the highest precedence over other network access restrictions. Currently, Network Security Perimeter is in public preview for Azure Blobs, Azure Files (SMB only), Azure Tables, and Azure Queues.
+[Network Security Perimeter](../../private-link/network-security-perimeter-concepts.md) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Blob Storage and SQL Database) that are deployed outside their virtual networks. The feature restricts public network access to PaaS resources outside the perimeter. However, you can exempt access by using explicit access rules for public inbound and outbound traffic. By design, access to a storage account from within a Network Security Perimeter takes the highest precedence over other network access restrictions. Currently, Network Security Perimeter is in public preview for Azure Blobs, Azure Files (SMB only), Azure Tables, and Azure Queues.
 
 #### Limitations
 

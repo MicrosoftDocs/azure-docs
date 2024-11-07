@@ -97,7 +97,7 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | Event Hubs                | Microsoft.EventHub/namespaces | - |
 | Key Vault                 | Microsoft.KeyVault/vaults | - |
 | SQL DB                    | Microsoft.Sql/servers | - |
-| Storage                   | Microsoft.Storage/storageAccounts | - |
+| [Storage](/azure/storage/common/storage-network-security)               | Microsoft.Storage/storageAccounts | - |
 | Event Grid | Microsoft.EventGrid/topics</br>Microsoft.EventGrid/domains |	- |
 
 ## Limitations of network security perimeter
