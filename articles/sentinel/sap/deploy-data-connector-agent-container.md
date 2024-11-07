@@ -5,7 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 09/15/2024
+ms.date: 10/28/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -363,13 +363,13 @@ While deployment is also supported from the command line, we recommend that you 
 
     :::image type="content" source="media/deploy-data-connector-agent-container/logs-page.png" alt-text="Screenshot of the Logs tab in the Add new system side pane.":::
 
+1. (Optional) For optimal results in monitoring the SAP PAHI table, select **Configuration History**. For more information, see [Verify that the PAHI table is updated at regular intervals](preparing-sap.md#verify-that-the-pahi-table-is-updated-at-regular-intervals).
+
 1. Review the settings you defined. Select **Previous** to modify any settings, or select **Deploy** to deploy the system.
 
-The system configuration you defined is deployed into Azure Key Vault. You can now see the system details in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the portal or otherwise.
+The system configuration you defined is deployed into the Azure key vault you defined during the deployment. You can now see the system details in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the portal or otherwise.
 
 At this stage, the system's **Health** status is **Pending**. If the agent is updated successfully, it pulls the configuration from Azure Key vault, and the status changes to **System healthy**. This update can take up to 10 minutes.
-
-The deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. For more information, see [SAP data connector agent configuration file](deployment-overview.md#sap-data-connector-agent-configuration-file).
 
 ## Check connectivity and health
 
