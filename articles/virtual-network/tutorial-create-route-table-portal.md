@@ -271,10 +271,8 @@ $vmParams = @{
 }
 
 # Create the VM
-New-AzVM @vmParams -AsJob
+New-AzVM @vmParams
 ```
-
-The `-AsJob` option creates the VM in the background, so you can continue to the next step.
 
 ### [CLI](#tab/cli)
 
