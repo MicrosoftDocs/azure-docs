@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 01/06/2022
+
+
+#Customer intent: As a security analyst, I want to learn and use Kusto Query Language so that I can effectively analyze and manipulate data in Microsoft Sentinel for threat detection and incident response.
+
 ---
 
 # Kusto Query Language in Microsoft Sentinel

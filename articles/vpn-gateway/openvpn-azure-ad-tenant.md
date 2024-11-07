@@ -5,7 +5,7 @@ description: Learn how to set up a Microsoft Entra tenant and P2S gateway for P2
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/14/2024
+ms.date: 10/08/2024
 ms.author: cherylmc
 
 #Note that Audience values are not sensitive data. 
@@ -50,7 +50,7 @@ If you already have an existing P2S gateway, the steps in this article help you 
 
 1. Locate the tenant ID of the directory that you want to use for authentication. It's listed in the properties section of the Active Directory page. For help with finding your tenant ID, see [How to find your Microsoft Entra tenant ID](../active-directory/fundamentals/how-to-find-tenant.md).
 
-1. If you don't already have a functioning point-to-site environment, follow the instruction to create one. See [Create a point-to-site VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) to create and configure a point-to-site VPN gateway. When you create a VPN gateway, the Basic SKU isn't supported for OpenVPN.
+1. If you don't already have a functioning point-to-site environment, follow the instruction to create one. See [Create a point-to-site VPN](point-to-site-certificate-gateway.md) to create and configure a point-to-site VPN gateway. When you create a VPN gateway, the Basic SKU isn't supported for OpenVPN.
 
 1. Go to the virtual network gateway. In the left pane, click **Point-to-site configuration**.
 

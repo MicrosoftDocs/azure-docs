@@ -73,7 +73,7 @@ sections:
           On confidential VMs with a temp disk, the pagefile.sys file can be moved to the encrypted OS [Tips for moving pagefile.sys to the c:\ drive](/azure/virtual-machines/windows/change-drive-letter).
 
       - question: | 
-          Can I generate a memory dump from within my confidential VM?
+          Can I generate a host memory dump from within my confidential VM?
         answer: | 
           No, this capability doesn't exist for confidential VMs.
                   
@@ -84,6 +84,7 @@ sections:
              - [Deploy from the Azure portal](quick-create-confidential-vm-portal.md)
              - [Deploy from the Azure Command-Line Interface (Azure CLI)](quick-create-confidential-vm-arm.md)
              - [Deploy using an ARM Template](quick-create-confidential-vm-arm.md)
+             - [Deploy using VMSS and Confidential Disk Encryption](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vmss-cvm-fde#readme)
 
       - question: |
           Can I perform attestation for my AMD-based confidential VMs?

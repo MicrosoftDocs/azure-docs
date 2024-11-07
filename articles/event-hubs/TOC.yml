@@ -112,7 +112,11 @@
     - name: Application groups
       href: resource-governance-overview.md  
     - name: Local emulator
-      href: overview-emulator.md
+      items:
+      - name: Overview of Event Hubs emulator
+        href: overview-emulator.md
+      - name: What's new with Event Hubs emulator
+        href: event-hubs-emulator-whats-new.md
     - name: Tiers 
       items: 
       - name: Premium tier

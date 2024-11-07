@@ -255,12 +255,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "azure-reference-other-repo",
-            "url": "https://github.com/MicrosoftDocs/azure-reference-other-pr",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "azure-sdk-for-go-samples",
             "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
             "branch": "main",
@@ -593,6 +587,12 @@
         {
             "path_to_root": "msdocs-tomcat-mysql-sample-app",
             "url": "https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "msdocs-jboss-mysql-sample-app",
+            "url": "https://github.com/Azure-Samples/msdocs-jboss-mysql-sample-app",
             "branch": "main",
             "branch_mapping": {}
         },

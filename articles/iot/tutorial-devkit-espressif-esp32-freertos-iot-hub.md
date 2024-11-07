@@ -3,7 +3,7 @@ title: Connect an ESPRESSIF ESP-32 to Azure IoT Hub tutorial
 description: Use Azure IoT middleware for FreeRTOS to connect an ESPRESSIF ESP32-Azure IoT Kit device to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
-ms.service: iot
+ms.service: azure-iot
 ms.devlang: c
 ms.topic: tutorial
 ms.date: 06/11/2024

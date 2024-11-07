@@ -14,6 +14,9 @@ ms.custom: has-adal-ref, devx-track-csharp, devx-track-dotnet
 
 # Get started with the Azure CDN Library for .NET
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
+
 > [!div class="op_single_selector"]
 > - [Node.js](cdn-app-dev-node.md)
 > - [.NET](cdn-app-dev-net.md)

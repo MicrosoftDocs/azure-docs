@@ -12,6 +12,8 @@ ms.custom: mvc
 
 # What are the comparisons between Azure Content Delivery Network product features?
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 Azure Content Delivery Network includes three products:
 
 - **Azure CDN Standard from Microsoft**
@@ -60,7 +62,7 @@ The following table compares the features available with each product.
 | [Real-time alerts](cdn-real-time-alerts.md)  |  | |**&#x2713;** |
 ||||
 | **Ease of use** | **Standard Microsoft** | **Standard Edgio** | **Premium Edgio** |
-| Easy integration with Azure services, such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md), and [Media Services](/azure/media-services/previous/media-services-portal-manage-streaming-endpoints)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Easy integration with Azure services, such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md), and Media Services | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Management via [REST API](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), or [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Compression MIME types](./cdn-improve-performance.md)  |Configurable |Configurable  |Configurable  |
 | Compression encodings  |gzip, brotli |gzip, deflate, bzip2, brotli  |gzip, deflate, bzip2, brotli  |

@@ -5,7 +5,7 @@ author: pennyzhou-msft
 ms.author: xupzhou
 ms.topic: overview
 ms.custom: references_regions
-ms.date: 08/11/2023
+ms.date: 09/25/2024
 ---
 # What's new archive for Azure Data Factory
 

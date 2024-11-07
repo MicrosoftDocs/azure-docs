@@ -6,12 +6,12 @@ description: Learn how to define a CAPTCHA display controls custom policy in Azu
 author: kengaderdus
 manager: mwongerapk
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/17/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer intent: As a developer integrating customer-facing apps with Azure AD B2C, I want to learn how to define a CAPTCHA display control for Azure AD B2C's custom policies so that I can protect my authentication flows from automated attacks. 
 ---

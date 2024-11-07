@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 10/28/2024
 ms.custom: generated
 ---
 
@@ -20,16 +20,23 @@ This article lists the Azure built-in roles. If you are looking for administrato
 The following table provides a brief description of each built-in role. Click the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role. For information about what these actions mean and how they apply to the control and data planes, see [Understand Azure role definitions](/azure/role-based-access-control/role-definitions).
 
 
+## Privileged
+
+> [!div class="mx-tableFixed"]
+> | Built-in role | Description | ID |
+> | --- | --- | --- |
+> | <a name='contributor'></a>[Contributor](./built-in-roles/privileged.md#contributor) | Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. | b24988ac-6180-42a0-ab88-20f7382dd24c |
+> | <a name='owner'></a>[Owner](./built-in-roles/privileged.md#owner) | Grants full access to manage all resources, including the ability to assign roles in Azure RBAC. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
+> | <a name='reservations-administrator'></a>[Reservations Administrator](./built-in-roles/privileged.md#reservations-administrator) | Lets one read and manage all the reservations in a tenant | a8889054-8d42-49c9-bc1c-52486c10e7cd |
+> | <a name='role-based-access-control-administrator'></a>[Role Based Access Control Administrator](./built-in-roles/privileged.md#role-based-access-control-administrator) | Manage access to Azure resources by assigning roles using Azure RBAC. This role does not allow you to manage access using other ways, such as Azure Policy. | f58310d9-a9f6-439a-9e8d-f62e7b41a168 |
+> | <a name='user-access-administrator'></a>[User Access Administrator](./built-in-roles/privileged.md#user-access-administrator) | Lets you manage user access to Azure resources. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
+
 ## General
 
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
-> | <a name='contributor'></a>[Contributor](./built-in-roles/general.md#contributor) | Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. | b24988ac-6180-42a0-ab88-20f7382dd24c |
-> | <a name='owner'></a>[Owner](./built-in-roles/general.md#owner) | Grants full access to manage all resources, including the ability to assign roles in Azure RBAC. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | <a name='reader'></a>[Reader](./built-in-roles/general.md#reader) | View all resources, but does not allow you to make any changes. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
-> | <a name='role-based-access-control-administrator'></a>[Role Based Access Control Administrator](./built-in-roles/general.md#role-based-access-control-administrator) | Manage access to Azure resources by assigning roles using Azure RBAC. This role does not allow you to manage access using other ways, such as Azure Policy. | f58310d9-a9f6-439a-9e8d-f62e7b41a168 |
-> | <a name='user-access-administrator'></a>[User Access Administrator](./built-in-roles/general.md#user-access-administrator) | Lets you manage user access to Azure resources. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
 
 ## Compute
 
@@ -204,6 +211,8 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='kubernetes-agentless-operator'></a>[Kubernetes Agentless Operator](./built-in-roles/containers.md#kubernetes-agentless-operator) | Grants Microsoft Defender for Cloud access to Azure Kubernetes Services | d5a2ae44-610b-4500-93be-660a0c5f5ca6 |
 > | <a name='kubernetes-cluster---azure-arc-onboarding'></a>[Kubernetes Cluster - Azure Arc Onboarding](./built-in-roles/containers.md#kubernetes-cluster---azure-arc-onboarding) | Role definition to authorize any user/service to create connectedClusters resource | 34e09817-6cbe-4d01-b1a2-e0eac5743d41 |
 > | <a name='kubernetes-extension-contributor'></a>[Kubernetes Extension Contributor](./built-in-roles/containers.md#kubernetes-extension-contributor) | Can create, update, get, list and delete Kubernetes Extensions, and get extension async operations | 85cb6faf-e071-4c9b-8136-154b5a04f717 |
+> | <a name='service-fabric-cluster-contributor'></a>[Service Fabric Cluster Contributor](./built-in-roles/containers.md#service-fabric-cluster-contributor) | Manage your Service Fabric Cluster resources. Includes clusters, application types, application type versions, applications, and services. You will need additional permissions to deploy and manage the cluster's underlying resources such as virtual machine scale sets, storage accounts, networks, etc. | b6efc156-f0da-4e90-a50a-8c000140b017 |
+> | <a name='service-fabric-managed-cluster-contributor'></a>[Service Fabric Managed Cluster Contributor](./built-in-roles/containers.md#service-fabric-managed-cluster-contributor) | Deploy and manage your Service Fabric Managed Cluster resources. Includes managed clusters, node types, application types, application type versions, applications, and services. | 83f80186-3729-438c-ad2d-39e94d718838 |
 
 ## Databases
 
@@ -265,7 +274,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='cognitive-services-custom-vision-labeler'></a>[Cognitive Services Custom Vision Labeler](./built-in-roles/ai-machine-learning.md#cognitive-services-custom-vision-labeler) | View, edit training images and create, add, remove, or delete the image tags. Labelers can view the project but can't update anything other than training images and tags. | 88424f51-ebe7-446f-bc41-7fa16989e96c |
 > | <a name='cognitive-services-custom-vision-reader'></a>[Cognitive Services Custom Vision Reader](./built-in-roles/ai-machine-learning.md#cognitive-services-custom-vision-reader) | Read-only actions in the project. Readers can't create or update the project. | 93586559-c37d-4a6b-ba08-b9f0940c2d73 |
 > | <a name='cognitive-services-custom-vision-trainer'></a>[Cognitive Services Custom Vision Trainer](./built-in-roles/ai-machine-learning.md#cognitive-services-custom-vision-trainer) | View, edit projects and train the models, including the ability to publish, unpublish, export the models. Trainers can't create or delete the project. | 0a5ae4ab-0d65-4eeb-be61-29fc9b54394b |
-> | <a name='cognitive-services-data-reader-preview'></a>[Cognitive Services Data Reader (Preview)](./built-in-roles/ai-machine-learning.md#cognitive-services-data-reader-preview) | Lets you read Cognitive Services data. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | <a name='cognitive-services-data-reader'></a>[Cognitive Services Data Reader](./built-in-roles/ai-machine-learning.md#cognitive-services-data-reader) | Lets you read Cognitive Services data. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | <a name='cognitive-services-face-recognizer'></a>[Cognitive Services Face Recognizer](./built-in-roles/ai-machine-learning.md#cognitive-services-face-recognizer) | Lets you perform detect, verify, identify, group, and find similar operations on Face API. This role does not allow create or delete operations, which makes it well suited for endpoints that only need inferencing capabilities, following 'least privilege' best practices. | 9894cab4-e18a-44aa-828b-cb588cd6f2d7 |
 > | <a name='cognitive-services-immersive-reader-user'></a>[Cognitive Services Immersive Reader User](./built-in-roles/ai-machine-learning.md#cognitive-services-immersive-reader-user) | Provides access to create Immersive Reader sessions and call APIs | b2de6794-95db-4659-8781-7e080d3f2b9d |
 > | <a name='cognitive-services-language-owner'></a>[Cognitive Services Language Owner](./built-in-roles/ai-machine-learning.md#cognitive-services-language-owner) | Has access to all Read, Test, Write, Deploy and Delete functions under Language portal | f07febfe-79bc-46b1-8b37-790e26e6e498 |
@@ -502,7 +511,6 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='policy-insights-data-writer-preview'></a>[Policy Insights Data Writer (Preview)](./built-in-roles/management-and-governance.md#policy-insights-data-writer-preview) | Allows read access to resource policies and write access to resource component policy events. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
 > | <a name='quota-request-operator'></a>[Quota Request Operator](./built-in-roles/management-and-governance.md#quota-request-operator) | Read and create quota requests, get quota request status, and create support tickets. | 0e5f05e5-9ab9-446b-b98d-1e2157c94125 |
 > | <a name='reservation-purchaser'></a>[Reservation Purchaser](./built-in-roles/management-and-governance.md#reservation-purchaser) | Lets you purchase reservations | f7b75c60-3036-4b75-91c3-6b41c27c1689 |
-> | <a name='reservations-administrator'></a>[Reservations Administrator](./built-in-roles/management-and-governance.md#reservations-administrator) | Lets one read and manage all the reservations in a tenant | a8889054-8d42-49c9-bc1c-52486c10e7cd |
 > | <a name='reservations-reader'></a>[Reservations Reader](./built-in-roles/management-and-governance.md#reservations-reader) | Lets one read all the reservations in a tenant | 582fc458-8989-419f-a480-75249bc5db7e |
 > | <a name='resource-policy-contributor'></a>[Resource Policy Contributor](./built-in-roles/management-and-governance.md#resource-policy-contributor) | Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | <a name='savings-plan-purchaser'></a>[Savings plan Purchaser](./built-in-roles/management-and-governance.md#savings-plan-purchaser) | Lets you purchase savings plans | 3d24a3a0-c154-4f6f-a5ed-adc8e01ddb74 |

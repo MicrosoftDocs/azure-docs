@@ -17,7 +17,20 @@ This tutorial shows how to build, configure, and deploy a secure Tomcat applicat
 
 :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Tomcat application storing data in MySQL.":::
 
-**To complete this tutorial, you'll need:**
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a secure-by-default architecture for Azure App Service and Azure Database for MySQL.
+> * Secure connection secrets using a managed identity and Key Vault references.
+> * Deploy a Tomcat sample app to App Service from a GitHub repository.
+> * Acces App Service app settings in the application code.
+> * Make updates and redeploy the application code.
+> * Stream diagnostic logs from App Service.
+> * Manage the app in the Azure portal.
+> * Provision the same architecture and deploy by using Azure Developer CLI.
+> * Optimize your development workflow with GitHub Codespaces and GitHub Copilot.
+
+## Prerequisites
 
 ::: zone pivot="azure-portal"  
 
@@ -126,11 +139,11 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
         1. *Resource Group*: Select **Create new** and use a name of **msdocs-tomcat-mysql-tutorial**.
         1. *Region*: Any Azure region near you.
-        1. *Name*: **msdocs-tomcat-mysql-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
+        1. *Name*: **msdocs-tomcat-mysql-XYZ**, where *XYZ* is any three random characters.
         1. *Runtime stack*: **Java 17**.
         1. *Java web server stack*: **Apache Tomcat 10.1**.
         1. **MySQL - Flexible Server** is selected for you by default as the database engine. If not, select it. Azure Database for MySQL is a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
-        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
+        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -158,7 +171,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Secure connection secrets
 
-The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
+The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
@@ -249,7 +262,7 @@ The creation wizard generated the connectivity string for you already as an [app
     :::column span="2":::
         **Step 7:** To verify your changes: 
         1. From the left menu, select **Environment variables > Connection strings** again.
-        1. Next to **AZURE_MYSQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
+        1. Next to **AZURE_MYSQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to see the value of the MySQL environment variable in Azure." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-7.png":::
@@ -333,7 +346,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
         1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured. 
         1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in Tomcat but I want to do it dynamically.*". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the [ContextListener](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app/blob/starter-no-infra/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java) class. 
         1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer and add the code suggestion in the `contextInitialized` method.
-        GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+        GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-java-tomcat-mysql-app/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-java-tomcat-mysql-app/github-copilot-1.png":::
@@ -523,6 +536,8 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
     - **Key vault**: Used to keep your database password the same when you redeploy with AZD.
 
+    Once the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet because you must make small changes to make it connect to the database in Azure.
+
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Verify connection strings
@@ -571,7 +586,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [With GitHub Copilot](#tab/copilot)
 
-1. Back in the GitHub codespace of your sample fork, start a new chat session by clicking the **Chat** view, then clicking **+**. 
+1. In the GitHub codespace, start a new chat session by clicking the **Chat** view, then clicking **+**. 
 
 1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured.
 
@@ -579,9 +594,9 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer and add the code suggestion in the `contextInitialized` method.
 
-    GitHub Copilot doesn't give you the same response every time, you might need to ask other questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+    GitHub Copilot doesn't give you the same response every time, you might need to ask other questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
 
-1. Back in the codespace terminal, run `azd deploy`.
+1. In the codespace terminal, run `azd deploy`.
  
     ```bash
     azd deploy
@@ -589,7 +604,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [Without GitHub Copilot](#tab/nocopilot)
 
-1. Back in the GitHub codespace of your sample fork, from the explorer, open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java*. When the application starts, this class loads the database settings in *src/main/resources/META-INF/persistence.xml*.
+1. From the explorer, open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java*. When the application starts, this class loads the database settings in *src/main/resources/META-INF/persistence.xml*.
 
 1. In the `contextIntialized()` method, find the commented code (lines 29-33) and uncomment it. 
 
@@ -698,6 +713,7 @@ Make sure that you made the code changes to use the `java:comp/env/jdbc/AZURE_MY
 - [How do I connect to the MySQL server behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-server-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [I don't have permissions to create a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity)
+- [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
 #### How much does this setup cost?
 
@@ -740,7 +756,7 @@ A few tips for you when you talk to GitHub Copilot:
 - To let GitHub Copilot have access to all of the files in the repository when preparing its answers, begin your question with `@workspace`. For more information, see [Use the @workspace agent](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/#10-use-the-workspace-agent).
 - In the chat session, GitHub Copilot can suggest changes and (with `@workspace`) even where to make the changes, but it's not allowed to make the changes for you. It's up to you to add the suggested changes and test it.
 
-Here are some other things you can say to fine-tune the answer you get.
+Here are some other things you can say to fine-tune the answer you get:
 
 * Change this code to use the data source jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.
 * Some imports in your code are using javax but I have a Jakarta app.

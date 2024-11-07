@@ -18,8 +18,7 @@ In this tutorial, you download and use a remote desktop (RDP) client application
 
 Remote desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose to download the Remote Desktop client for Windows Desktop or Microsoft Remote Desktop for Mac. You can also download a remote desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android. 
 
-> [!TIP]
-> Many remote desktops apps allow you to [use multiple monitors](tutorial-configure-multiple-monitors.md) when you connect to your dev box.
+[!INCLUDE [note-windows-app](includes/note-windows-app.md)]
 
 Alternately, you can access your dev box through the browser from the Microsoft Dev Box developer portal.
 

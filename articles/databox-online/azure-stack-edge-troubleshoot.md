@@ -4,8 +4,7 @@ description: Learn how to troubleshoot issues on your Azure Stack Edge Pro FPGA.
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 02/24/2024
 ms.author: alkohli

@@ -2,7 +2,7 @@
 title: Set up preview features in Azure subscription
 description: Describes how to list, register, or unregister preview features in your Azure subscription for a resource provider.
 ms.topic: how-to
-ms.date: 03/19/2024
+ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to use preview features in my subscription so that I can expose a resource provider's preview functionality.
 ---
@@ -64,7 +64,7 @@ az feature list
 
 ```json
 {
-  "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Features/providers/
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Features/providers/
     Microsoft.Compute/features/InGuestPatchVMPreview",
   "name": "Microsoft.Compute/InGuestPatchVMPreview",
   "properties": {
@@ -185,7 +185,7 @@ az feature register --name InGuestPatchVMPreview --namespace Microsoft.Compute
 
 ```json
 {
-  "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Features/providers/
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Features/providers/
     Microsoft.Compute/features/InGuestPatchVMPreview",
   "name": "Microsoft.Compute/InGuestPatchVMPreview",
   "properties": {
@@ -267,7 +267,7 @@ az feature unregister --name InGuestPatchVMPreview --namespace Microsoft.Compute
 
 ```json
 {
-  "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Features/providers/
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Features/providers/
     Microsoft.Compute/features/InGuestPatchVMPreview",
   "name": "Microsoft.Compute/InGuestPatchVMPreview",
   "properties": {
@@ -345,6 +345,7 @@ InGuestPatchVMPreview   Microsoft.Compute   Unregistered
 ```
 
 ---
+
 ## Configuring preview features using Azure Policy
 
 Subscriptions can be remediated to register to a preview feature if not already registered using a [built-in](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe624c84f-2923-4437-9fd9-4115c6da3888) policy definition. Note that new subscriptions added to an existing tenant won't be automatically registered.

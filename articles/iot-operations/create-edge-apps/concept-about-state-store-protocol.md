@@ -5,10 +5,11 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
-ms.date: 07/02/2024
+ms.date: 10/30/2024
 
 # CustomerIntent: As a developer, I want understand what the MQTT broker state store protocol is, so
 # that I can implement a client app to interact with the MQ state store.
+ms.service: azure-iot-operations
 ---
 
 # MQTT broker state store protocol
@@ -49,11 +50,11 @@ To communicate with the state store, clients must meet the following requirement
 - Use QoS 1 (Quality of Service level 1). QoS 1 is described in the [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901236).
 - Have a clock that is within one minute of the MQTT broker's clock.
 
-To communicate with the state store, clients must `PUBLISH` requests to the system topic `statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`. Because the state store is part of Azure IoT Operations, it does an implicit `SUBSCRIBE` to this topic on startup.
+To communicate with the state store, clients must `PUBLISH` requests to the system topic `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`. Because the state store is part of Azure IoT Operations, it does an implicit `SUBSCRIBE` to this topic on startup.
 
 To build a request, the following MQTT5 properties are required. If these properties aren't present or the request isn't of type QoS 1, the request fails.
 
-- [Response Topic](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Request_/_Response). The state store responds to the initial request using this value. As a best practice, format the response topic as `clients/{clientId}/services/statestore/_any_/command/invoke/response`. Setting the response topic as `statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke` or as one that begins with `clients/statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8` is not permitted on a state store request. The state store disconnects MQTT clients that use an invalid response topic.
+- [Response Topic](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Request_/_Response). The state store responds to the initial request using this value. As a best practice, format the response topic as `clients/{clientId}/services/statestore/_any_/command/invoke/response`. Setting the response topic as `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke` or as one that begins with `clients/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8` is not permitted on a state store request. The state store disconnects MQTT clients that use an invalid response topic.
 - [Correlation Data](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Correlation_Data). When the state store sends a response, it includes the correlation data of the initial request.
 
 The following diagram shows an expanded view of the request and response:
@@ -61,7 +62,7 @@ The following diagram shows an expanded view of the request and response:
 <!--
 sequenceDiagram
 
-      Client->>+State Store:Request<BR>PUBLISH statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke<BR>Response Topic:client-defined-response-topic<BR>Correlation Data:1234<BR>Payload(RESP3)
+      Client->>+State Store:Request<BR>PUBLISH statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke<BR>Response Topic:client-defined-response-topic<BR>Correlation Data:1234<BR>Payload(RESP3)
       Note over State Store,Client: State Store Processes Request
       State Store->>+Client: Response<BR>PUBLISH client-defined-response-topic<br>Correlation Data:1234<BR>Payload(RESP3)
 -->
@@ -144,6 +145,12 @@ When a `SET` request succeeds, the state store returns the following payload:
 +OK<CR><LF>
 ```
 
+If a SET request fails because a condition check as specified in the NX or NEX set options that means the key cannot be set, the state store returns the following payload:
+
+```console
+-1<CR><LF>
+```
+
 #### `GET` response
 
 When a `GET` request is made on a nonexistent key, the state store returns the following payload:
@@ -178,6 +185,31 @@ The following output is an example of a successful `DEL` command:
 ```console
 :1<CR><LF>
 ```
+
+If a VDEL request fails because the value specified does not match the value associated with the key, the state store returns the following payload:
+
+```console
+-1<CR><LF>
+```
+
+#### `-ERR` responses
+
+The following is the current list of error strings. Your client application should handle *unknown error* strings to support updates to the state store.
+
+| Error string returned from state store | Explanation                                                                                                 |
+|----------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| the request timestamp is too far in the future; ensure that the client and broker system clocks are synchronized | Unexpected request timestamp caused by the state store and client clocks are not in sync. |
+| a fencing token is required for this request                                                                       | Error occurs if a key is marked with a fencing token, but the client doesn't specify the fencing token. |
+| the request fencing token timestamp is too far in the future; ensure that the client and broker system clocks are synchronized | Unexpected fencing token timestamp caused by the state store and client clocks are not in sync. |
+| the request fencing token is a lower version that the fencing token protecting the resource             | Incorrect request fencing token version. For more information, see [Versioning and hybrid logical clocks].(#versioning-and-hybrid-logical-clocks) |
+| the quota has been exceeded                                                                               | The state store has a quota of how many keys it can store, which is based on the memory profile of the MQTT broker that's specified. |
+| syntax error                                                                                              | The payload sent doesn't conform to state store's definition.                                               |
+| not authorized                                                                                            | Authorization error                                                                                          |
+| unknown command                                                                                           | Command isn't recognized.                                                                                   |
+| wrong number of arguments                                                                                 | Incorrect number of expected arguments.                                                                      |
+| missing timestamp                                                                                         | When clients do a SET, they must set the MQTT5 user property __ts as an HLC representing its timestamp.      |
+| malformed timestamp                                                                                       | The timestamp in the __ts or the fencing token isn't legal.                                                 |
+| the key length is zero                                                                                    | Keys can't be zero length in state store.                                                                   |
 
 ## Versioning and hybrid logical clocks
 
@@ -332,7 +364,7 @@ Clients can register with the state store to receive notifications of keys being
 
 ### KEYNOTIFY request messages
 
-State store clients request the state store monitor a given `keyName` for changes by sending a `KEYNOTIFY` message. Just like all state store requests, clients PUBLISH a QoS1 message with this message via MQTT5 to the state store system topic `statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
+State store clients request the state store monitor a given `keyName` for changes by sending a `KEYNOTIFY` message. Just like all state store requests, clients PUBLISH a QoS1 message with this message via MQTT5 to the state store system topic `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
 
 The request payload has the following form:
 
@@ -385,16 +417,16 @@ Any other failure follows the state store's general error reporting pattern:
 
 When a `keyName` being monitored via `KEYNOTIFY` is modified or deleted, the state store sends a notification to the client. The topic is determined by convention - the client doesn't specify the topic during the `KEYNOTIFY` process.
 
-The topic is defined in the following example. The `clientId` is an upper-case hex encoded representation of the MQTT ClientId of the client that initiated the `KEYNOTIFY` request and `keyName` is a hex encoded representation of the key that changed.
+The topic is defined in the following example. The `clientId` is an upper-case hex encoded representation of the MQTT ClientId of the client that initiated the `KEYNOTIFY` request and `keyName` is a hex encoded representation of the key that changed. The state store follows the Base 16 encoding rules of [RFC 4648 - The Base16, Base32, and Base64 Data Encodings](https://datatracker.ietf.org/doc/html/rfc4648#section-8) for this encoding.
 
 ```console
-clients/statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/{clientId}/command/notify/{keyName}
+clients/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/{clientId}/command/notify/{keyName}
 ```
 
 As an example, MQ publishes a `NOTIFY` message sent to `client-id1` with the modified key name `SOMEKEY` to the topic:
 
 ```console
-clients/statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/636C69656E742D696431/command/notify/534F4D454B4559`
+clients/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/636C69656E742D696431/command/notify/534F4D454B4559`
 ```
 
 A client using notifications should `SUBSCRIBE` to this topic and wait for the `SUBACK` to be received *before* sending any `KEYNOTIFY` requests so that no messages are lost.
@@ -418,7 +450,7 @@ The following details are included in the message:
   * `SET` the value was modified. This operation can only occur as the result of a `SET` command from a state store client.
   * `DEL` the value was deleted. This operation can occur because of a `DEL` or `VDEL` command from a state store client.
 * `optionalFields`
-  * `VALUE` and `{MODIFIED-VALUE}`. `VALUE` is a string literal indicating that the next field, `{MODIFIED-VALUE}`, contains the value the key was changed to. This value is only sent in response to keys being modified because of a `SET` and is only included if the `KEYNOTIFY` request included the optional `GET` flag.
+  * `VALUE` and `{MODIFIED-VALUE}`. `VALUE` is a string literal indicating that the next field, `{MODIFIED-VALUE}`, contains the value the key was changed to. This value is only sent in response to keys being modified because of a `SET`.
 
 The following example output shows a notification message sent when the key `SOMEKEY` is modified to the value `abc`, with the `VALUE` included because the initial request specified the `GET` option:
 
