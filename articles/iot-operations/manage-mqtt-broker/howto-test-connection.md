@@ -156,7 +156,7 @@ For example, to create a new broker listener with node port service type, servic
 1. Select **MQTT broker listener for NodePort** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 
     > [!CAUTION]
-    > Setting authentication to **None** and not configuring TLS [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing).
+    > Setting authentication to **None** and not configuring TLS [turns off authentication and TLS for testing purposes only](#only-turn-off-tls-and-authentication-for-testing).
 
     Enter the following settings:
 
