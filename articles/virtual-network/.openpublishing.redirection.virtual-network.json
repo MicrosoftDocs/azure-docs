@@ -24,12 +24,12 @@
             "source_path_from_root": "/articles/virtual-network/deploy-container-networking-docker-windows.md",
             "redirect_url": "/previous-versions/azure/virtual-network/deploy-container-networking-docker-windows",
             "redirect_document_id": false
-          },
-          {
+        },
+        {
             "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-cli.md",
             "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-service-endpoint-policies-cli",
             "redirect_document_id": false
-          },
+        },
         {
             "source_path_from_root": "/articles/virtual-network/ddos-protection-overview.md",
             "redirect_url": "/azure/ddos-protection/ddos-protection-overview",
@@ -114,12 +114,12 @@
             "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-peer-two-virtual-networks.md",
             "redirect_url": "/previous-versions/azure/virtual-network/scripts/virtual-network-cli-sample-peer-two-virtual-networks",
             "redirect_document_id": false
-          },
-          {
+        },
+        {
             "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md",
             "redirect_url": "/previous-versions/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks",
             "redirect_document_id": false
-          },
+        },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnet-arm-cli.md",
             "redirect_url": "/azure/virtual-network/quick-create-cli",
@@ -1018,22 +1018,22 @@
         {
             "source_path_from_root": "/articles/virtual-network/move-across-regions-vnet-portal.md",
             "redirect_url": "/azure/operational-excellence/relocation-virtual-network",
-            "redirect_document_id": false  
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/move-across-regions-vnet-powershell.md",
             "redirect_url": "/azure/operational-excellence/relocation-virtual-network",
-            "redirect_document_id": false  
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-portal.md",
             "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
-            "redirect_document_id": false  
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/move-across-regions-publicip-powershell.md",
             "redirect_url": "/azure/resource-mover/move-region-within-resource-group",
-            "redirect_document_id": false 
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-multi-tier-application.md",
@@ -1098,6 +1098,106 @@
         {
             "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md",
             "redirect_url": "/azure/virtual-machines/windows/multiple-nics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/add-dual-stack-ipv6-vm-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-vm-dual-stack-ipv6-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-vm-dual-stack-ipv6-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/routing-preference-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/routing-preference-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/template-samples.md",
+            "redirect_url": "/samples/browse/?expanded=azure&products=azure-resource-manager&terms=virtual%20network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/tutorial-restrict-network-access-to-resources-cli.md",
+            "redirect_url": "/azure/virtual-network/tutorial-restrict-network-access-to-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/tutorial-restrict-network-access-to-resources-powershell.md",
+            "redirect_url": "/azure/virtual-network/tutorial-restrict-network-access-to-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/how-to-create-encryption-portal.md",
+            "redirect_url": "/azure/virtual-network/how-to-create-encryption",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/how-to-create-encryption-powershell.md",
+            "redirect_url": "/azure/virtual-network/how-to-create-encryption",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/how-to-create-encryption-cli.md",
+            "redirect_url": "/azure/virtual-network/how-to-create-encryption",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/tutorial-filter-network-traffic-powershell.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/tutorial-filter-network-traffic-cli.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-portal.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-service-endpoint-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-powershell.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-service-endpoint-policies",
             "redirect_document_id": false
         }
     ]

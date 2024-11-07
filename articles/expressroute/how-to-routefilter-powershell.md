@@ -96,7 +96,8 @@ Run the following command to attach the route filter to the ExpressRoute circuit
 
 ```azurepowershell-interactive
 $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "MyResourceGroup"
-$ckt.Peerings[0].RouteFilter = $routefilter 
+$index = [array]::IndexOf(@($ckt.Peerings.PeeringType), "MicrosoftPeering")
+$ckt.Peerings[$index].RouteFilter = $routefilter
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 

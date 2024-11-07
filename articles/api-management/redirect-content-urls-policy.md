@@ -14,7 +14,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `redirect-content-urls` policy rewrites (masks) links in the response body so that they point to the equivalent link via the gateway. Use in the outbound section to rewrite response body links to the backend service to make them point to the gateway. Use in the inbound section for an opposite effect.
+The `redirect-content-urls` policy rewrites (masks) links in the response body. Use in the outbound section to rewrite response body links to the backend service to make them point to the gateway instead. For example, you might do this to hide URLs of the original backend service when they appear in the response. Use in the inbound section for an opposite effect.
 
 > [!NOTE]
 >  This policy does not change any header values such as `Location` headers. To change header values, use the [set-header](set-header-policy.md) policy.
@@ -43,6 +43,14 @@ The `redirect-content-urls` policy rewrites (masks) links in the response body s
 ```xml
 <redirect-content-urls />
 ```
+
+For example, consider the following image, which shows an API response body that includes the original backend service URLs.
+
+:::image type="content" source="media/redirect-content-urls-policy/original-response.png" alt-text="Screenshot showing original outbound response in test console in the portal.":::
+
+After the `redirect-content-urls` policy is configured in the outbound section, the response body is rewritten to point to the gateway, in this case, `https://apim-hello-world.azure-api.net`.
+
+:::image type="content" source="media/redirect-content-urls-policy/test-replaced-url.png" alt-text="Screenshot showing replaced URLs in test console in the portal.":::
 
 ## Related policies
 

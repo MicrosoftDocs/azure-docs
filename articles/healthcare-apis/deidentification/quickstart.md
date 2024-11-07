@@ -70,4 +70,4 @@ If you no longer need them, delete the resource group and de-identification serv
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Azure Health De-identification client library for .NET](quickstart-sdk-net.md)
+> [Tutorial: Configure Azure Storage to de-identify documents](configure-storage.md)

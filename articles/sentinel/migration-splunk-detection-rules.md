@@ -6,7 +6,10 @@ author: austinmccollum
 ms.author: austinmc
 ms.topic: conceptual
 ms.date: 09/23/2024
-#customer intent: As a SOC administrator, I want to migrate Splunk detection rules to KQL so I can migrate to Microsoft Sentinel.
+
+
+#Customer intent: As a security engineer, I want to migrate Splunk detection rules to KQL so that I can leverage advanced machine learning analytics and improve incident detection and response with Microsoft Sentinel.
+
 ---
 
 # Migrate Splunk detection rules to Microsoft Sentinel

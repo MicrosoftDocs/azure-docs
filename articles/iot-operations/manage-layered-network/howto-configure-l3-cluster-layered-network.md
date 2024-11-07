@@ -9,6 +9,7 @@ ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
+ms.service: azure-iot-operations
 ---
 
 # Configure level 3 cluster in an isolated network with Azure IoT Layered Network Management Preview
@@ -245,6 +246,7 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     az provider register -n "Microsoft.KubernetesConfiguration"
     az provider register -n "Microsoft.IoTOperations"
     az provider register -n "Microsoft.DeviceRegistry"
+    az provider register -n "Microsoft.SecretSyncController"
     ```
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
     ```bash
@@ -256,7 +258,7 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     ```
     > [!TIP]
     > If the `connectedk8s` commands fail, try using the cmdlets in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
-1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses. The command you use depends on your version of Azure CLI:
+1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses.  Run the following command exactly as written, without changing the GUID value. The command you use depends on your version of Azure CLI:
     ```powershell
     # If you're using an Azure CLI version lower than 2.37.0, use the following command:
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv

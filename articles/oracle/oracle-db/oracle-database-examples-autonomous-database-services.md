@@ -1,6 +1,6 @@
 ---
 title: Terraform/OpenTofu examples for Oracle Database@Azure services
-description: Learn about Terraform/OpenTofu examples for Oracle Database@Azure services.
+description: Learn about Terraform/OpenTofu examples for Oracle Database@Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
@@ -8,24 +8,27 @@ ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ---
 
-# Terraform/OpenTofu examples for Oracle Database@Azure services
+# Terraform/OpenTofu examples for Oracle Database@Azure
 
-Using HashiCorp Terraform, you can provision and manage resources for Oracle Database@Azure using the Terraform tool that enables you to provision and manage infrastructure in Oracle Cloud Infrastructure (OCI).
+You can use Terraform by HashiCorp to provision and manage resources for Oracle Database@Azure. Terraform offers the AzAPI provider as a tool to provision and manage infrastructure in Oracle Cloud Infrastructure (OCI).
 
-For more information on reference implementations for Terraform or OpenTofu modules, sees the following links:
+For more information on reference implementations for Terraform or OpenTofu modules, see the following resources:
 
-* [QuickStart Oracle Database@Azure with Terraform or OpenTofu Modules](https://docs.oracle.com/en/learn/dbazure-terraform/index.html)
-* [OCI Landing Zones](https://github.com/oci-landing-zones/)
+* [Quickstart Oracle Database@Azure by using Terraform or OpenTofu modules](https://docs.oracle.com/en/learn/dbazure-terraform/index.html)
+* [OCI landing zones](https://github.com/oci-landing-zones/)
 * [Azure Verified Modules](https://aka.ms/avm)
 
->[!NOTE]
->This document describes examples of provisioning and management of Oracle Database@Azure resources through Terraform provider `AzAPI`. For detailed AzAPI provider resources and data sources documentation, see [https://registry.terraform.io/providers/Azure/azapi/latest/docs](https://registry.terraform.io/providers/Azure/azapi/latest/docs)
-The samples use example values for illustration purposes. You must replace them with your own settings.
-The samples use [AzAPI Dynamic Properties](https://techcommunity.microsoft.com/t5/azure-tools-blog/announcing-azapi-dynamic-properties/ba-p/4121855) instead of `JSONEncode` for more native Terraform behavior.
+> [!NOTE]
+> This article provides example code to demonstrate provisioning and managing Oracle Database@Azure resources by using the Terraform provider AzAPI. For detailed AzAPI provider resources and data sources documentation, see [AzAPI provider](https://registry.terraform.io/providers/Azure/azapi/latest/docs) in the Terraform registry.
 
-## Create delegated subnet for Oracle Database@Azure
+The samples use example values for illustration. Replace the placeholder example values with values from your scenario.
 
-```resource "azurerm_resource_group" "resource_group" {
+The samples use [AzAPI dynamic properties](https://techcommunity.microsoft.com/t5/azure-tools-blog/announcing-azapi-dynamic-properties/ba-p/4121855) instead of JSONEncode for more native Terraform behavior.
+
+## Create a delegated subnet for Oracle Database@Azure
+
+```terraform
+resource "azurerm_resource_group" "resource_group" {
   location = "eastus"
   name     = "ExampleRG"
 }
@@ -57,9 +60,10 @@ module "avm_odbas_network" {
 }
 ```
 
-## Create an Oracle Autonomous Database
+## Create an instance of Oracle Exadata Database@Azure
 
-```terraform {
+```terraform
+{
   required_providers {
     azapi = {
       source = "Azure/azapi"

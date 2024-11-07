@@ -14,9 +14,6 @@ ms.topic: conceptual
 
 This article summarizes the new features and improvements in the recent releases of [dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-overview-what-is.md) in Azure Synapse Analytics. The article also lists notable content updates that aren't directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
-> [!NOTE]
-> For the newest release updates on Azure Synapse Analytics, including dedicated SQL pools, please refer to the [Azure Synapse Analytics blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/bg-p/AzureSynapseAnalyticsBlog/label-name/Monthly%20Update), [What's new in Azure Synapse Analytics?](../whats-new.md), or the Synapse Studio homepage in the Azure portal.
-
 ## Check your dedicated SQL pool (formerly SQL DW) version
 
 As new features are rolled out to all regions, check the version deployed to your instance and the latest release notes for feature availability. To check the version, connect to your dedicated SQL pool (formerly SQL DW) via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION;` to return the current version. Use this version to confirm which release has been applied to your dedicated SQL pool (formerly SQL DW). The date in the output identifies the month for the release applied to your dedicated SQL pool (formerly SQL DW). This only applies to service-level improvements. 

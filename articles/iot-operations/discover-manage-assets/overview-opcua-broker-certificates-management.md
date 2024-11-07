@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 09/16/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand how the OPC UA industrial edge Kubernetes environment should be configured to enable mutual trust between the connector for OPC UA and the downstream OPC UA servers.
+ms.service: azure-iot-operations
 ---
 
 # OPC UA certificates infrastructure for the connector for OPC UA
@@ -52,7 +53,7 @@ By default, the connector for OPC UA stores its trusted certificate list in Azur
 
 If the connector for OPC UA trusts a certificate authority, it automatically trusts any server that has a valid application instance certificate signed by the certificate authority.
 
-To learn how to project the trusted certificates from Azure Key Vault into the Kubernetes cluster, see [Manage secrets for your Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-manage-secrets.md).
+To learn how to project the trusted certificates from Azure Key Vault into the Kubernetes cluster, see [Manage secrets for your Azure IoT Operations Preview deployment](../secure-iot-ops/howto-manage-secrets.md).
 
 The default name for the `SecretProviderClass` custom resource that handles the trusted certificates list is *aio-opc-ua-broker-trust-list*.
 

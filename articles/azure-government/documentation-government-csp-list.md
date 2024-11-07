@@ -51,7 +51,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Anautics](https://anautics.com)|
 |[Anika Systems Inc.](https://www.anikasystems.com)|
 |[APEX TECHNOLOGY MANAGEMENT INC](https://www.apex.com)|
-|Applied Information Sciences, Inc.|
+|[Applied Information Sciences, Inc.](https://www.ais.com)|
 |[Apollo Information Systems Corp.](https://www.apollo-is.com/)|
 |[Approved Contact, LLC](https://approvedcontact.com)|
 |[Apps4Rent](https://www.apps4rent.com)|
@@ -151,7 +151,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Diffeo, Inc.](https://diffeo.com)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
-|[DOT Personable Inc](http://solutions.personable.com/)|
+|[DOT Personable Inc](https://cloud.personable.com/1/login.htm)|
 |Doublehorn, LLC|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
@@ -160,6 +160,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Edafio Technology Partners](https://edafio.com)|
 |[eMazzanti Technologies](https://www.emazzanti.net/)|
 |[Enabling Technologies Corp.](https://www.enablingtechcorp.com/)|
+|[Enavate](https://www.enavate.com)|
 |[Enlighten IT Consulting](https://www.eitccorp.com)|
 |[Ensono](https://www.ensono.com)|
 |[Enterprise Computing Services](https://thinkecs.com/)|
@@ -187,7 +188,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[General Dynamics Information Technology](https://gdit.com/)|
 |[Giga-Green Technologies](https://giga-green.com)|
 |[Gimmal](https://www.gimmal.com/)|
-|[Global Justice Solutions, LLC](https://www.globaljusticesolutions.us/)|
 |[Global Tech Inc.](https://www.eglobaltech.com)|
 |[Globalscape, Inc.](https://www.globalscape.com)|
 |[Go Full Cloud](https://www.gofullcloud.com/)|
@@ -214,7 +214,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |I10 Inc|
 |[I2, Inc. (IBM)](https://www.ibm.com/security/intelligence-analysis/i2)|
 |[i3 Business Solutions, LLC](https://www.i3businesssolutions.com/)|
-|[i3 LLC](http://i3llc.net/)|
+|[i3 LLC](https://i3llc.us/)|
 |[IBM Corporation](https://www.ibm.com/industries/federal)|
 |[Illuminative Strategies Inc](https://illum-strat.com)|
 |[ImageSource](https://imagesourceinc.com/)|
@@ -255,7 +255,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Kosh Solutions, LLC](https://www.koshsolutions.com)|
 |[KTL Solutions, Inc.](https://www.ktlsolutions.com)|
 |[Ladlas Prince LLC](https://www.ladlasprince.com)|
-|[Lear360.com](https://www.lear360.com)|
 |[Leidos](https://www.leidos.com)|
 |[Leslie Digital Imaging LLC.](https://www.myldi.com)|
 |[LiftOff, LLC](https://www.liftoffonline.com)|

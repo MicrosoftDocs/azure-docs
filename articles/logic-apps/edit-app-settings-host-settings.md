@@ -42,7 +42,7 @@ For more information about setting up your logic apps for deployment, see the fo
 
 ## Visual Studio Code project structure
 
-[!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
+[!INCLUDE [Visual Studio Code - logic app project structure](includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
 <a name="reference-local-settings-json"></a>
 
@@ -432,19 +432,7 @@ To review the host settings for your single-tenant based logic app in the Azure 
 
 1. In the [Azure portal](https://portal.azure.com/) search box, find and open your logic app.
 
-1. On your logic app menu, under **Development Tools**, select **Advanced Tools**.
-
-1. On the **Advanced Tools** page, select **Go**, which opens the **Kudu** environment for your logic app.
-
-1. On the Kudu toolbar, from the **Debug console** menu, select **CMD**.
-
-1. In the Azure portal, stop your logic app.
-
-   1. On your logic app menu, select **Overview**.
-
-   1. On the **Overview** pane's toolbar, select **Stop**.
-
-1. On your logic app menu, under **Development Tools**, select **Advanced Tools**.
+1. On the resource menu, under **Development Tools**, select **Advanced Tools**.
 
 1. On the **Advanced Tools** pane, select **Go**, which opens the Kudu environment for your logic app.
 
@@ -464,10 +452,13 @@ To add a setting, follow these steps:
 
 1. Before you add or edit settings, stop your logic app in the Azure portal.
 
-   1. On your logic app menu, select **Overview**.
+   1. On the resource menu, select **Overview**.
+
    1. On the **Overview** pane's toolbar, select **Stop**.
 
-1. Return to the **host.json** file. Under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `settings` objects, for example:
+1. If the **host.json** file is already open, return to the **host.json** file. Otherwise, follow the preceding steps to open the **host.json** file.
+
+1. Under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `settings` objects, for example:
 
    ```json
    {

@@ -3,8 +3,7 @@ title: URL Rewrite for Azure Application Gateway for Containers - Gateway API
 description: Learn how to rewrite URLs in Gateway API for Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: conceptual
 ms.date: 09/16/2024
 ms.author: greglin

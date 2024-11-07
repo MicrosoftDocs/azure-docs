@@ -4,8 +4,7 @@ description: Learn about the system requirements for your Azure Stack Edge Pro 2
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
 ms.date: 06/26/2024
