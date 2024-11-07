@@ -46,15 +46,17 @@ You may choose this preference when:
 Not enabling this preference stops your Compute Fleet from goal seeking to replace evicted Spot VMs even if the target capacity isn't met.
 
 
-## Compute Fleet strategies 
+## Compute Fleet Allocation strategies 
 
-### Standard Compute Fleet allocation strategies 
+### Standard Fleet allocation strategies 
 
 **Lowest price (default):** The Compute Fleet launches the lowest price pay-as-you-go VM from the list of VM types and sizes you specified. It attempts to fulfill the pay-as-you-go capacity, followed by the second and third lowest in price VMs until the desired capacity is fulfilled. 
 
+**Prioritized:** The Compute Fleet utilizes the priority you assign to each VM types and sizes, initiating VM sizes in descending order of priority. This approach prioritizes the highest-ranked VM types and sizes for launching first. Note that this strategy is not compatible with attribute-based VM selection.
+
 ### Spot Fleet allocation strategies 
 
-**Price capacity optimized (recommended):** The Compute Fleet launches qualifying VMs from your selected list of VM types and sizes to fullfil the target capacity. It prioritizes the highest available Spot capacity at the lowest price on Spot VMs in the region. 
+**Price capacity optimized (recommended):** The Compute Fleet launches qualifying VMs from your selected list of VM types and sizes to fullfil the target capacity. It prioritizes the highest available Spot capacity at the lowest price on Spot VMs in the region. Note that this strategy is not compatible with attribute-based VM selection.
 
 If you select multiple VMs that happen to offer the ideal capacity to meet your target, then Compute Fleet prioritizes deploying VMs that offer the lowest price first. Followed by the second and third lowest price if sufficient capacity isn't available with the first lowest price VMs. Compute Fleet considers both price and capacity while configuring this strategy.
 
