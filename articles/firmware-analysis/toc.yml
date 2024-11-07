@@ -1,4 +1,4 @@
-- name: Overview
+- name: "Overview"
   items:
   - name: Overview of Firmware analysis
     href: overview-firmware-analysis.md
