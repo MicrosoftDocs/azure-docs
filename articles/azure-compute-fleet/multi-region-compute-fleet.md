@@ -35,7 +35,7 @@ Simplified Deployment: Focus on building great products, without worrying about 
 
 Cost-Effective Scaling: Tap into cost-efficient resources like Spot instances and take advantage of regional pricing
 
-#Region Availability
+# Region Availability
 Multi-region Compute Fleet is now available in all Azure Public Regions.
 
 # Learn more and get started
