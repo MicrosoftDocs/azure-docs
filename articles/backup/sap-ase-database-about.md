@@ -28,7 +28,7 @@ By using the Azure Backup service to back up and restore SAP ASE (Sybase) databa
 * **Recovery Services Vault**: All backups are streamed directly to the Azure Backup managed recovery services vault that provides security capabilities like Immutability, Soft Delete and Multiuser Auth. The vaulted backup data is stored in Microsoft-managed Azure subscription and is isolated from customer’s environment. These features ensure that the SAP ASE backup data is always secure and tamper-proof. You can also recover the data safely even when the source machines are compromised. 
 * **Multiple Database Restore options**: Support of Alternate Location Restore (System refresh), Original Location Restore, and Restore as Files. 
 
-To learn about the backup and restore scenarios that we support today, see the [SAP ASE scenario support matrix](sap-ase-backup-support-matrix.md).
+To learn about the supported backup and restore scenarios, see the [SAP ASE scenario support matrix](sap-ase-backup-support-matrix.md).
 
 ## Backup architecture for SAP ASE (Sybase) databases (preview)
 
@@ -68,7 +68,7 @@ You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up th
 1. Restore a VM that's running SAP ASE using one of the following:
 
    * [Restore a new VM from the Azure VM backup](backup-azure-arm-restore-vms.md) from the latest recovery point. 
-   * Create a new empty VM and attach the disks from the latest recovery point.
+   * [Create a new empty VM](/azure/virtual-machines/windows/quick-create-portal) and attach the disks from the latest recovery point.
 
 2. If Write Accelerator disks are excluded, they aren’t restored. In this case, create empty Write Accelerator disks and a log area.
 
@@ -84,7 +84,7 @@ SAP ASE (Sybase) backup pricing has two components:
 
 - **Backup Storage cost**: Cost based on the storage  space consumption for the backed-up data.
 
-For example, if you're protecting 1.2 TB of ASE database in one instance running in the East US2 region, you are charged the Protection Instance cost as per the East US 2 region per month and cost for the storage consumed.
+For example, if you're protecting 1.2 TB of ASE database in one instance running in the East US2 region, you are charged for the Protection Instance cost as per the East US 2 region per month and cost for the storage consumed.
 
 ## Next steps
 
