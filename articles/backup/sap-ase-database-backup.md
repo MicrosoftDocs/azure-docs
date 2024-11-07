@@ -328,7 +328,7 @@ Create the following outbound rule and allow the domain name to back up the data
 - **Destination**: Service Tag.
 - **Destination Service Tag**: AzureResourceManager
 
-:::image type="content" source="./media/sap-ase-database-backup/use-outbound-rules.png" alt-text="Screenshot shows the database outbound rules settings." lightbox="./media/sap-ase-database-backup/use-outbound-rules.png":::
+  :::image type="content" source="./media/sap-ase-database-backup/use-outbound-rules.png" alt-text="Screenshot shows the database outbound rules settings." lightbox="./media/sap-ase-database-backup/use-outbound-rules.png":::
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
