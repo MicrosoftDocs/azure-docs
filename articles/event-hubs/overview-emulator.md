@@ -30,14 +30,14 @@ The emulator provides these features:
 - **Containerized deployment**: It runs as a Docker container (Linux based).
 - **Cross-platform compatibility**: You can use it on any platform, including Windows, macOS, and Linux.
 - **Configurability**: You can manage the number of event hubs, partitions, and other entities by using the JSON supplied configuration.
-- **Streaming support**: It supports streaming messages by using the Advanced Message Queuing Protocol (AMQP).
+- **Streaming support**: It supports streaming events using Kafka and Advanced Message Queuing Protocol (AMQP).
 - **Observability**: It provides observability features, including console and file logging.
 
 ## Known limitations
 
 The current version of the emulator has the following limitations:
 
-- It can't stream messages by using the Kafka protocol.  
+- When using Kafka, only producer and consumer APIs are compatible with Event Hubs emulator.   
 - It doesn't support on-the-fly management operations through a client-side SDK.
 
 > [!NOTE]
