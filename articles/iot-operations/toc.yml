@@ -91,6 +91,8 @@ items:
           href: connect-to-cloud/howto-configure-kafka-endpoint.md
         - name: ADLSv2 Blob Storage
           href: connect-to-cloud/howto-configure-adlsv2-endpoint.md
+        - name: Microsoft Fabric Real-Time Intelligence
+          href: connect-to-cloud/howto-configure-fabric-rti.md
         - name: Microsoft Fabric OneLake
           href: connect-to-cloud/howto-configure-fabric-endpoint.md
         - name: Azure Data Explorer
