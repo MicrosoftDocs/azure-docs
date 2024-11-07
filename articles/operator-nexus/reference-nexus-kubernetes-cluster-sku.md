@@ -57,7 +57,6 @@ The general purpose and performance optimized VM SKUs can be used for both worke
 |---------------|----------------|------------|------------------|
 | NC_E110_448_v1 | 110             | 448        | 300              |
 | NC_E94_448_v1 | 94             | 448        | 300              |
-| NC_E82_448_v1 | 82             | 448        | 300              |
 | NC_E70_336_v1 | 70             | 336        | 300              |
 
 ## Next steps
