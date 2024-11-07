@@ -95,10 +95,12 @@ The render coverage tables below list the countries/regions that support Azure M
 | New Zealand    |    ✓     |
 | Philippines    |    ✓     |
 | Singapore      |    ✓     |
-| South Korea    |    ◑     |
+| South Korea<sup>1</sup>  |    ◑     |
 | Taiwan         |    ✓     |
 | Thailand       |    ✓     |
 | Vietnam        |    ✓     |
+
+<sup>1</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Enable South Korea addresses in Azure Maps](how-to-manage-consent.md)
 
 ## Europe
 

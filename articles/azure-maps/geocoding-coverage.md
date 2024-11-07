@@ -133,7 +133,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Samoa                                               |                 |                |              |      ✓     |       ✓        |
 | Singapore                                           |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Solomon Islands                                     |                 |                |              |      ✓     |       ✓        |
-| South Korea                                         |                 |                |              |      ✓     |       ✓        |
+| South Korea<sup>1</sup>                             |                 |                |              |      ✓     |       ✓        |
 | Sri Lanka                                           |                 |                |              |      ✓     |       ✓        |
 | Taiwan                                              |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Thailand                                            |        ✓        |                |       ✓     |      ✓     |       ✓        |
@@ -145,6 +145,8 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Vanuatu                                             |                 |                |              |      ✓     |       ✓        |
 | Vietnam                                             |        ✓        |                |       ✓     |      ✓     |       ✓        |
 | Wallis & Futuna                                     |                 |                |              |      ✓     |       ✓        |
+
+<sup>1</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Enable South Korea addresses in Azure Maps](how-to-manage-consent.md)
 
 ## Europe
 
