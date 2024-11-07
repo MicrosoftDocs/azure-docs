@@ -512,7 +512,7 @@ The `keys` field specifies the keys to match. The keys can be specified as *Glob
     - `usernames/{principal.username}/*`
     - `rooms/{principal.attributes.room}/*`
 
-Here's a snippet of how one might author their state store resources:
+Here's an example of how you might author your state store resources:
 
 ``` yaml
 stateStoreResources:
