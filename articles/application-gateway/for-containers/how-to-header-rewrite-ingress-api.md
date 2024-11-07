@@ -4,8 +4,8 @@ description: Learn how to rewrite headers in Ingress API for Application Gateway
 services: application gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
-ms.date: 5/9/2024
+ms.topic: how-to
+ms.date: 11/5/2024
 ms.author: greglin
 ---
 
@@ -33,7 +33,7 @@ The following figure illustrates an example of a request with a specific user ag
    Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate the header rewrite.
 
    ```bash
-   kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+   kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
    ```
   
    This command creates the following on your cluster:

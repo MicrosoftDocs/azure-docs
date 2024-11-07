@@ -1,0 +1,99 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-infra
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: https-app
+  name: https-app
+  namespace: test-infra
+spec:
+  ports:
+  - port: 443
+    protocol: TCP
+    targetPort: 8443
+  selector:
+    app: https-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: https-app
+  namespace: test-infra
+spec:
+  selector:
+    matchLabels:
+      app: https-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: https-app
+    spec:
+      containers:
+        - name: https-app
+          imagePullPolicy: Always
+          image: nginx:1.23.2
+          ports:
+            - containerPort: 8443
+          volumeMounts:
+          - mountPath: /etc/nginx/ssl
+            name: secret-volume
+          - mountPath: /etc/nginx/conf.d
+            name: configmap-volume
+          resources:
+            limits:
+              cpu: 700m
+              memory: 300Mi
+            requests:
+              cpu: 100m
+              memory: 20Mi
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: contoso.xyz
+      - name: configmap-volume
+        configMap:
+          name: https-app-cm
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: https-app-cm
+  namespace: test-infra
+data:
+  default.conf: |-
+    server {
+        listen 8443 ssl;
+        server_name contoso.xyz;
+        root /usr/share/nginx/html;
+        index index.html;
+        ssl_certificate /etc/nginx/ssl/tls.crt;
+        ssl_certificate_key /etc/nginx/ssl/tls.key;
+        location / {
+          return 200 "Hello World!";
+        }
+    }
+---
+apiVersion: v1
+data:
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUIrekNDQWFHZ0F3SUJBZ0lVTkxLSUNDQTJBcWdRWjVNbDFLQ1kvOGVUL0Njd0NnWUlLb1pJemowRUF3UXcKRGpFTU1Bb0dBMVVFQXd3RFptOXZNQjRYRFRJek1ERXdOREl5TVRFd01sb1hEVEkxTVRBeU5ESXlNVEV3TWxvdwpGakVVTUJJR0ExVUVBd3dMWW1GamEyVnVaQzVqYjIwd1dUQVRCZ2NxaGtqT1BRSUJCZ2dxaGtqT1BRTUJCd05DCkFBU0ZnWkU2d2NSek1adzNRZFgxdTBkekJpdmpsRUNpSFBEZFY5OWhHeUJ4dEVQekVhYXFBK3RCb2kxQ2FrbmMKS1FHSHZTbGF1SXdlNDJiUm81ZFE3cng0bzRIVU1JSFJNQWtHQTFVZEV3UUNNQUF3RVFZSllJWklBWWI0UWdFQgpCQVFEQWdaQU1DTUdDV0NHU0FHRytFSUJEUVFXRmhSTmVTQkdhWEp6ZENCRFpYSjBhV1pwWTJGMFpUQWRCZ05WCkhRNEVGZ1FVOEw2bGQ4VHh3Qmt4NXU2WkhGN3lFMDBpcUc0d013WURWUjBqQkN3d0txRVNwQkF3RGpFTU1Bb0cKQTFVRUF3d0RabTl2Z2hRbVpVaElVSGk2MVpoSkxuTEYwT0R3VWhSMXdqQUxCZ05WSFE4RUJBTUNCZUF3RXdZRApWUjBsQkF3d0NnWUlLd1lCQlFVSEF3RXdGZ1lEVlIwUkJBOHdEWUlMWW1GamEyVnVaQzVqYjIwd0NnWUlLb1pJCnpqMEVBd1FEU0FBd1JRSWhBTUZkWkdudkYyN09ScFdqN2d0UW10SXAwb0hsa2Q3Si83MFFXRUdWblR6dkFpQlcKdTRmNURENzMyTVRlMzh3aHFPZndwRXU4WnlNeTgxWTJ5OTBrVktZMUFnPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+  tls.key: LS0tLS1CRUdJTiBFQyBQQVJBTUVURVJTLS0tLS0KQmdncWhrak9QUU1CQnc9PQotLS0tLUVORCBFQyBQQVJBTUVURVJTLS0tLS0KLS0tLS1CRUdJTiBFQyBQUklWQVRFIEtFWS0tLS0tCk1IY0NBUUVFSUs3cGxVS3dJVEFuTzh3ZXFWYk9uNkhhYmpjVWltQU5CcHdPNnRUMTdzL29vQW9HQ0NxR1NNNDkKQXdFSG9VUURRZ0FFaFlHUk9zSEVjekdjTjBIVjlidEhjd1lyNDVSQW9oenczVmZmWVJzZ2NiUkQ4eEdtcWdQcgpRYUl0UW1wSjNDa0JoNzBwV3JpTUh1Tm0wYU9YVU82OGVBPT0KLS0tLS1FTkQgRUMgUFJJVkFURSBLRVktLS0tLQo=
+kind: Secret
+metadata:
+  name: contoso.xyz
+  namespace: test-infra
+type: kubernetes.io/tls
+---
+apiVersion: v1
+data:
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUIvVENDQWFPZ0F3SUJBZ0lVTkxLSUNDQTJBcWdRWjVNbDFLQ1kvOGVUL0Nnd0NnWUlLb1pJemowRUF3UXcKRGpFTU1Bb0dBMVVFQXd3RFptOXZNQjRYRFRJek1ERXdOREl5TVRFeE5Wb1hEVEkxTVRBeU5ESXlNVEV4TlZvdwpGekVWTUJNR0ExVUVBd3dNWm5KdmJuUmxibVF1WTI5dE1Ga3dFd1lIS29aSXpqMENBUVlJS29aSXpqMERBUWNEClFnQUUvb1NUSGVKTy92S095WXNQS3pmR09Ec1J1c3NlLzhOOWxZcVE2TmdzZUdlaXlJNzV0UHJxUWpZNzhIa2IKL3gxWTIrcXY4YnAzbzhlR1ExVXEyV2VvamFPQjFUQ0IwakFKQmdOVkhSTUVBakFBTUJFR0NXQ0dTQUdHK0VJQgpBUVFFQXdJR1FEQWpCZ2xnaGtnQmh2aENBUTBFRmhZVVRYa2dSbWx5YzNRZ1EyVnlkR2xtYVdOaGRHVXdIUVlEClZSME9CQllFRkRmWFFXQzMxbDFGbEJUMEp1QWhhU3VUa2Jic01ETUdBMVVkSXdRc01DcWhFcVFRTUE0eEREQUsKQmdOVkJBTU1BMlp2YjRJVUptVklTRkI0dXRXWVNTNXl4ZERnOEZJVWRjSXdDd1lEVlIwUEJBUURBZ1hnTUJNRwpBMVVkSlFRTU1Bb0dDQ3NHQVFVRkJ3TUJNQmNHQTFVZEVRUVFNQTZDREdaeWIyNTBaVzVrTG1OdmJUQUtCZ2dxCmhrak9QUVFEQkFOSUFEQkZBaUVBbTYvaS9oUlQ2OEh4VTdLRmF3WElDSHhTSi9ic3gxalFUS1hEakgxbjFja0MKSUhlN3lBcm0rWFdCTFF1WEFhbzJQNmNzNHA3bW9CNXFGRGQ3M2RDZEFWSzQKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+  tls.key: LS0tLS1CRUdJTiBFQyBQQVJBTUVURVJTLS0tLS0KQmdncWhrak9QUU1CQnc9PQotLS0tLUVORCBFQyBQQVJBTUVURVJTLS0tLS0KLS0tLS1CRUdJTiBFQyBQUklWQVRFIEtFWS0tLS0tCk1IY0NBUUVFSUhOOGl1R2hIb25ReHhJUWV1a0VVTllXYnRhWGFtSDFseTBCcmtNTXI1eVFvQW9HQ0NxR1NNNDkKQXdFSG9VUURRZ0FFL29TVEhlSk8vdktPeVlzUEt6ZkdPRHNSdXNzZS84TjlsWXFRNk5nc2VHZWl5STc1dFBycQpRalk3OEhrYi94MVkyK3F2OGJwM284ZUdRMVVxMldlb2pRPT0KLS0tLS1FTkQgRUMgUFJJVkFURSBLRVktLS0tLQo=
+kind: Secret
+metadata:
+  name: contoso.com
+  namespace: test-infra
+type: kubernetes.io/tls

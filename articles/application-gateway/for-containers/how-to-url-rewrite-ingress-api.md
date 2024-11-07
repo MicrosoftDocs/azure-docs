@@ -4,8 +4,8 @@ description: Learn how to rewrite URLs in Ingress API for Application Gateway fo
 services: application gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
-ms.date: 02/27/2024
+ms.topic: how-to
+ms.date: 11/5/2024
 ms.author: greglin
 ---
 
@@ -23,7 +23,7 @@ URL rewrite enables you to translate an incoming request to a different URL when
 
 The following figure illustrates a request destined for _contoso.com/shop_ being rewritten to _contoso.com/ecommerce_ when the request is initiated to the backend target by Application Gateway for Containers:
 
-[ ![A diagram showing the Application Gateway for Containers rewriting a URL to the backend.](./media/how-to-url-rewrite-gateway-api/url-rewrite.png) ](./media/how-to-url-rewrite-gateway-api/url-rewrite.png#lightbox)
+[![A diagram showing the Application Gateway for Containers rewriting a URL to the backend.](./media/how-to-url-rewrite-gateway-api/url-rewrite.png)](./media/how-to-url-rewrite-gateway-api/url-rewrite.png#lightbox)
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ The following figure illustrates a request destined for _contoso.com/shop_ being
 3. Deploy sample HTTP application:<br>
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.  
   ```bash
-  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+  kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
   ```
   
   This command creates the following on your cluster:
