@@ -157,7 +157,7 @@ items:
           href: assessment-properties.md
         - name: Azure Webapp Readiness criteria
         - name: Review assessment report
-          href: review-webapp-assessment.md
+          href: review-web-app-assessment.md
       - name: AVS assessment
         items:
         - name: Prerequisites
@@ -167,7 +167,7 @@ items:
           href: assessment-properties.md
         - name: Azure AVS Readiness criteria
         - name: Review assessment report
-          href: review-avs-assessment.md
+          href: review-azure-vmware-solution-assessment.md
       - name: SAP assessment
         items:
         - name: Prerequisites

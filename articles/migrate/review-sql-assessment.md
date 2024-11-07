@@ -32,7 +32,7 @@ This indicates the number of SQL servers, instances, and databases that were ass
 
 This indicates the different migration strategies that you can consider for your SQL deployments. You can review the readiness for target deployment types and the cost estimates for SQL Servers/Instances/Databases that are marked ready or ready with conditions: 
 
-1. **Recommended deployment**: 
+- **Recommended deployment**: 
 This is a strategy where an Azure SQL deployment type that is the most compatible with your SQL instance. It is the most cost-effective and is recommended. Migrating to a Microsoft-recommended target reduces your overall migration effort. If your instance is ready for SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database, the target deployment type, which has the least migration readiness issues and is the most cost-effective is recommended.
 You can see the SQL Server instance readiness for different recommended deployment targets and monthly cost estimates for SQL instances marked *Ready* and *Ready with conditions*.
 
@@ -44,17 +44,17 @@ You can see the SQL Server instance readiness for different recommended deployme
    > [!NOTE]
    > In the recommended deployment strategy, migrating instances to SQL Server on Azure VM is the recommended strategy for migrating SQL Server instances. When the SQL Server credentials are not available, the Azure SQL assessment provides right-sized lift-and-shift, that is, *Server to SQL Server on Azure VM* recommendations.
 
-1. **Migrate all instances to Azure SQL MI**: 
+- **Migrate all instances to Azure SQL MI**: 
 In this strategy, you can see the readiness and cost estimates for migrating all SQL Server instances to Azure SQL Managed Instance. 
 
-1. **Migrate all instances to SQL Server on Azure VM**: 
+- **Migrate all instances to SQL Server on Azure VM**: 
 In this strategy, you can see the readiness and cost estimates for migrating all SQL Server instances to SQL Server on Azure VM.
 
-1. **Migrate all servers to SQL Server on Azure VM**: 
+- **Migrate all servers to SQL Server on Azure VM**: 
 In this strategy, you can see how you can rehost the servers running SQL Server to SQL Server on Azure VM and review the readiness and cost estimates.
 Even when SQL Server credentials are not available, this report will provide right-sized lift-and-shift, that is, "Server to SQL Server on Azure VM" recommendations. The readiness and sizing logic is similar to Azure VM assessment type.
 
-1. **Migrate all SQL databases to Azure SQL Database**
+- **Migrate all SQL databases to Azure SQL Database**
 In this strategy, you can see how you can migrate individual databases to Azure SQL Database and review the readiness and cost estimates.
 
 ### Review support status
@@ -74,7 +74,7 @@ You can review readiness reports for different migration strategies:
 
 1. Select the **Readiness** report for any of the migration strategies.
 
-    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-readiness-inline.png" alt-text="Screenshot with Details of Azure SQL readiness" lightbox="./media/tutorial-assess-sql/assessment-sql-readiness-expanded.png":::
+    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-readiness-inline.png" alt-text="Screenshot with Details of Azure SQL readiness." lightbox="./media/tutorial-assess-sql/assessment-sql-readiness-expanded.png":::
 
 1. Review the readiness columns in the respective reports:
     

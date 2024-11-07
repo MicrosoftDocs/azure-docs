@@ -11,6 +11,10 @@ ms.custom: engagement-fy24
 
 # Review a SAP assessment
 
+This tutorial explains how to review assessments created for your on-premises SAP systems.
+
+## View an assessment 
+ 
 To review an assessment, follow these steps:
 
 1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
