@@ -102,7 +102,7 @@ az provider register --namespace Microsoft.OperationalInsights
 ## Create environment variables
 
 Now that your CLI setup is complete, you can define the environment variables that are used throughout this article.
-
+Now that your CLI setup is complete, you can define the environment variables that are used throughout this article.
 # [Bash](#tab/bash)
 
 Define the following variables in your bash shell.
