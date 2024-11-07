@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Configure backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via PowerShell
+title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via PowerShell
 description: Learn how to quickly configure backup for a Kubernetes cluster using PowerShell.
 ms.service: azure-backup
 ms.topic: quickstart
@@ -11,13 +11,15 @@ author: AbhishekMallick-MS
 
 ---
 
-# Quickstart: Configure backup for an Azure Kubernetes Service (AKS) cluster using PowerShell
+# Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using PowerShell
 
-This quickstart describes how to configure backup for an Azure Kubernetes Service (AKS) cluster using PowerShell.
+This quickstart describes how to configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using PowerShell.
 
 Azure Backup for AKS is a cloud-native, enterprise-ready, application-centric backup service that lets you quickly configure backup for AKS clusters.
 
 ## Before you start
+
+Before you configure vaulted backup for AKS cluster, ensure the following prerequisites are met:
 
 - Currently, AKS backup supports Azure Disk-based persistent volumes (enabled by CSI driver) only. The backups are stored only in operational datastore (in your tenant) and aren't moved to a vault. The Backup vault and AKS cluster should be in the same region.
 
@@ -55,7 +57,7 @@ Retrieve the policy template using the command `Get-AzDataProtectionPolicyTempla
 $policyDefn = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureKubernetesService
 ```
 
-The policy template consists of a trigger criteria (which decides the factors to trigger the backup job) and a lifecycle (which decides when to delete, copy, or move the backups). In AKS backup, the default value for trigger is a scheduled hourly trigger is *every 4 hours (PT4H)* and retention of each backup is *seven days*.
+The policy template consists of a trigger criteria (which decides the factors to trigger the backup job) and a lifecycle (which decides when to delete, copy, or move the backups). In AKS backup, the default value for trigger is a scheduled hourly trigger is *every 4 hours (PT4H)* and retention of each backup is *seven days*. For vaulted backups add retention for vault datastore.
 
 ```azurepowershell
 New-AzDataProtectionBackupPolicy -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Name aksBkpPolicy -Policy $policyDefn
