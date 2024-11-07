@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Ingress in Azure Container Apps
 
-Azure Container Apps allows you to expose your container app to the public web, your virtual network (VNET), and other container apps within your environment by enabling ingress. Ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app.  When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTP requests or TCP traffic.
+Azure Container Apps allows you to expose your container app to the public web, your virtual network (VNET), and other container apps within your environment by enabling ingress. Ingress settings are enforced through a set of rules that control the routing of external and internal traffic to your container app. When you enable ingress, you don't need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTP requests or TCP traffic.
 
 Ingress supports:
 
@@ -36,7 +36,7 @@ When you enable ingress, you can choose between two types of ingress:
 - External: Accepts traffic from both the public internet and your container app's internal environment.
 - Internal: Allows only internal access from within your container app's environment.
 
-Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you might have a single container app that receives public requests and passes the requests to a background service.  In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
+Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you might have a single container app that receives public requests and passes the requests to a background service. In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
 
 ## Protocol types
 
@@ -76,7 +76,7 @@ Container Apps supports TCP-based protocols other than HTTP or HTTPS. For exampl
 With TCP ingress enabled, your container app:
 
 - Is accessible to other container apps in the same environment via its name (defined by the `name` property in the Container Apps resource) and exposed port number.
-- Is accessible externally via its fully qualified domain name (FQDN) and exposed port number if the ingress is set to "external".
+- Is accessible externally via its fully qualified domain name (FQDN) and exposed port number if the ingress is set to `external`.
 
 ## <a name="additional-tcp-ports"></a>Additional TCP ports
 
@@ -90,7 +90,7 @@ The following apply to additional TCP ports:
 - Any externally exposed additional TCP ports must be unique across the entire Container Apps environment. This includes all external additional TCP ports, external main TCP ports, and 80/443 ports used by built-in HTTP ingress. If the additional ports are internal, the same port can be shared by multiple apps.
 - If an exposed port isn't provided, the exposed port will default to match the target port.
 - Each target port must be unique, and the same target port can't be exposed on different exposed ports.
-- There's a maximum of 5 additional ports per app. If additional ports are required, please open a support request.
+- There's a maximum of five additional ports per app. If additional ports are required, please open a support request.
 - Only the main ingress port supports built-in HTTP features such as CORS and session affinity. When running HTTP on top of the additional TCP ports, these built-in features aren't supported.
 
 Visit the [how to article on ingress](ingress-how-to.md#use-additional-tcp-ports) for more information on how to enable additional ports for your container apps.
@@ -100,7 +100,7 @@ Visit the [how to article on ingress](ingress-how-to.md#use-additional-tcp-ports
 You can access your app in the following ways:
 
 - The default fully qualified domain name (FQDN):  Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
-- A custom domain name:  You can configure a custom DNS domain for your Container Apps environment.  For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
+- A custom domain name:  You can configure a custom DNS domain for your Container Apps environment. For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
 - The app name: You can use the app name for communication between apps in the same environment.
 
 To get the FQDN for your app, see [Location](connect-apps.md#location).
@@ -111,7 +111,7 @@ Container Apps supports IP restrictions for ingress. You can create rules to eit
 
 ## Authentication
 
-Azure Container Apps provides built-in authentication and authorization features to secure your external ingress-enabled container app.  For more information, see [Authentication and authorization in Azure Container Apps](authentication.md).
+Azure Container Apps provides built-in authentication and authorization features to secure your external ingress-enabled container app. For more information, see [Authentication and authorization in Azure Container Apps](authentication.md).
 
 You can configure your app to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificate-authorization.md). 
 
@@ -119,7 +119,7 @@ For details on how to use peer-to-peer environment level network encryption, see
 
 ## Traffic splitting
 
-Containers Apps allows you to split incoming traffic between active revisions.  When you define a splitting rule, you assign the percentage of inbound traffic to go to different revisions.  For more information, see [Traffic splitting](traffic-splitting.md).
+Containers Apps allows you to split incoming traffic between active revisions. When you define a splitting rule, you assign the percentage of inbound traffic to go to different revisions. For more information, see [Traffic splitting](traffic-splitting.md).
 
 ## Session affinity
 
