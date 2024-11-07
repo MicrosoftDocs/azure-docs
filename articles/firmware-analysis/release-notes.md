@@ -41,7 +41,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
     :::image type="content" source="media/whats-new-firmware-analysis/firmware-inventory-tab.png" alt-text="Screenshot that shows the firmware inventory in the new UI." lightbox="media/whats-new-firmware-analysis/firmware-inventory-tab.png":::
 
-- **Enhanced documentation**: Updates to [Tutorial: Analyze an IoT/OT firmware image](../../../azure-docs-pr/articles/firmware-analysis/tutorial-analyze-firmware.md) documentation addressing the new onboarding experience.
+- **Enhanced documentation**: Updates to [Tutorial: Analyze an IoT/OT firmware image](tutorial-analyze-firmware.md) documentation addressing the new onboarding experience.
 
 ## January 2024
 
