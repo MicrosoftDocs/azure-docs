@@ -72,7 +72,7 @@ To enable ESUs for Windows Server environments that run in VMs in Azure VMware S
 
 3. Skip the **Recommended solution** page after it loads by selecting **Return to support request**. Select **Next**.
 
-4. Add the following details to the support request **Additional details** :
+4. Add the following **Additional details** to the support request:
    - Your name and tenant ID
    - Number of VMs you want to register
    - OS versions
