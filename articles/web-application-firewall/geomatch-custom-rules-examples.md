@@ -28,9 +28,9 @@ This article introduces Azure WAF geomatch custom rules and shows you how to cre
 
 Geomatch custom rules enable you to meet diverse security goals, such as blocking requests from high-risk areas and permitting requests from trusted locations. They're particularly effective in mitigating distributed denial-of-service (DDoS) attacks, which seek to inundate your web application with a multitude of requests from various sources. With geomatch custom rules, you can promptly pinpoint and block regions generating the most DDoS traffic, while still granting access to legitimate users. In this article, you learn about various custom rule patterns that you can employ to optimize your Azure WAF using geomatch custom rules.
 
-## Scenario 1 - Block traffic from all countries except "x"
+## Scenario 1 - Block traffic from all countries or regions except "x"
 
-Geomatch custom rules prove useful when you aim to block traffic from all countries, barring one. For instance, if your web application caters exclusively to users in the United States, you can formulate a geomatch custom rule that obstructs all requests not originating from the US. This strategy effectively minimizes your web application’s attack surface and deters unauthorized access from other regions. This specific technique employs a negating condition to facilitate this traffic pattern. For creating a geomatch custom rule that obstructs traffic from all countries except the US, refer to the following portal, Bicep, and PowerShell examples:
+Geomatch custom rules prove useful when you aim to block traffic from all countries or regions, barring one. For instance, if your web application caters exclusively to users in the United States, you can formulate a geomatch custom rule that obstructs all requests not originating from the US. This strategy effectively minimizes your web application’s attack surface and deters unauthorized access from other regions. This specific technique employs a negating condition to facilitate this traffic pattern. For creating a geomatch custom rule that obstructs traffic from all countries or regions except the US, refer to the following portal, Bicep, and PowerShell examples:
 
 ### Portal example - Application Gateway
 
@@ -120,15 +120,15 @@ $customRuleObject = New-AzFrontDoorWafCustomRuleObject -Name "GeoRule1" -RuleTyp
 $afdWAFPolicy= Get-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $RGname
 Update-AzFrontDoorWafPolicy -InputObject $afdWAFPolicy -Customrule $customRuleObject
 ```
-## Scenario 2 - Block traffic from all countries except "x" and "y" that target the URI "foo" or "bar"
+## Scenario 2 - Block traffic from all countries or regions except "x" and "y" that target the URI "foo" or "bar"
 
-Consider a scenario where you need to use geomatch custom rules to block traffic from all countries, except for two or more specific ones, targeting a specific URI. Suppose your web application has specific URI paths intended only for users in the US and Canada. In this case, you create a geomatch custom rule that blocks all requests not originating from these countries.
+Consider a scenario where you need to use geomatch custom rules to block traffic from all countries or regions, except for two or more specific ones, targeting a specific URI. Suppose your web application has specific URI paths intended only for users in the US and Canada. In this case, you create a geomatch custom rule that blocks all requests not originating from these countries or regions.
 
-This pattern processes request payloads from the US and Canada through the managed rulesets, catching any malicious attacks, while blocking requests from all other countries. This approach ensures that only your target audience can access your web application, avoiding unwanted traffic from other regions.
+This pattern processes request payloads from the US and Canada through the managed rulesets, catching any malicious attacks, while blocking requests from all other countries or regions. This approach ensures that only your target audience can access your web application, avoiding unwanted traffic from other regions.
 
-To minimize potential false positives, include the country code **ZZ** in the list to capture IP addresses not yet mapped to a country in Azure’s dataset. This technique uses a negate condition for the Geolocation type and a non-negate condition for the URI match.
+To minimize potential false positives, include the country code **ZZ** in the list to capture IP addresses not yet mapped to a country or region in Azure’s dataset. This technique uses a negate condition for the Geolocation type and a non-negate condition for the URI match.
 
-To create a geomatch custom rule that blocks traffic from all countries except the US and Canada to a specified URI, refer to the portal, Bicep, and Azure PowerShell examples provided.
+To create a geomatch custom rule that blocks traffic from all countries or regions except the US and Canada to a specified URI, refer to the portal, Bicep, and Azure PowerShell examples provided.
 
 ### Portal example - Application Gateway
 
@@ -246,9 +246,9 @@ $afdWAFPolicy= Get-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $RG
 Update-AzFrontDoorWafPolicy -InputObject $afdWAFPolicy -Customrule $customRuleObject1
 ```
 
-## Scenario 3 - Block traffic specifically from country "x"
+## Scenario 3 - Block traffic specifically from country or region "x"
 
-You can use geomatch custom rules to block traffic from specific countries. For instance, if your web application receives many malicious requests from country "x", create a geomatch custom rule to block all requests from that country. This protects your web application from potential attacks and reduces resource load. Apply this pattern to block multiple malicious or hostile countries. This technique requires a match condition for the traffic pattern. To block traffic from country "x", see the following portal, Bicep, and Azure PowerShell examples.
+You can use geomatch custom rules to block traffic from specific countries or regions. For instance, if your web application receives many malicious requests from country or region "x", create a geomatch custom rule to block all requests from that country or region. This protects your web application from potential attacks and reduces resource load. Apply this pattern to block multiple malicious or hostile countries or regions. This technique requires a match condition for the traffic pattern. To block traffic from country or region "x", see the following portal, Bicep, and Azure PowerShell examples.
 
 ### Portal example - Application Gateway
 
@@ -341,18 +341,18 @@ Update-AzFrontDoorWafPolicy -InputObject $afdWAFPolicy -Customrule $customRuleOb
 
 Avoid anti-patterns when using geomatch custom rules, such as setting the custom rule action to `allow` instead of `block`. This can have unintended consequences, like allowing traffic to bypass the WAF and potentially exposing your web application to other threats. 
 
-Instead of using an `allow` action, use a `block` action with a negate condition, as shown in previous patterns. This ensures only traffic from desired countries is allowed and the WAF blocks all other traffic.
+Instead of using an `allow` action, use a `block` action with a negate condition, as shown in previous patterns. This ensures only traffic from desired countries or regions is allowed and the WAF blocks all other traffic.
 
-### Scenario 4 - allow traffic from country "x"
+### Scenario 4 - allow traffic from country or region "x"
 
-Avoid setting the geomatch custom rule to allow traffic from a specific country. For example, if you want to allow traffic from the United States because of a large customer base, creating a custom rule with the action `allow` and the value `United States` might seem like the solution. However, this rule allows all traffic from the United States, regardless of whether it has a malicious payload or not, as the `allow` action bypasses further rule processing of managed rulesets. Additionally, the WAF still processes traffic from all other countries, consuming resources. This exposes your web application to malicious requests from the United States that the WAF would otherwise block.
+Avoid setting the geomatch custom rule to allow traffic from a specific country or region. For example, if you want to allow traffic from the United States because of a large customer base, creating a custom rule with the action `allow` and the value `United States` might seem like the solution. However, this rule allows all traffic from the United States, regardless of whether it has a malicious payload or not, as the `allow` action bypasses further rule processing of managed rulesets. Additionally, the WAF still processes traffic from all other countries or regions, consuming resources. This exposes your web application to malicious requests from the United States that the WAF would otherwise block.
 
 
 ### Scenario 5 - Allow traffic from all counties except "x"
 
-Avoid setting the rule action to `allow` and specifying a list of countries to exclude when using geomatch custom rules. For example, if you want to allow traffic from all countries except the United States, where you suspect malicious activity, this approach can have unintended consequences. It might allow traffic from unverified or unsafe countries or countries with low or no security standards, exposing your web application to potential vulnerabilities or attacks. Using the `allow` action for all countries except the US indicates to the WAF to stop processing request payloads against managed rulesets. All rule evaluation ceases once the custom rule with `allow` is processed, exposing the application to unwanted malicious attacks.
+Avoid setting the rule action to `allow` and specifying a list of countries or regions to exclude when using geomatch custom rules. For example, if you want to allow traffic from all countries or regions except the United States, where you suspect malicious activity, this approach can have unintended consequences. It might allow traffic from unverified or unsafe countries/regions or countries/regions with low or no security standards, exposing your web application to potential vulnerabilities or attacks. Using the `allow` action for all countries or regions except the US indicates to the WAF to stop processing request payloads against managed rulesets. All rule evaluation ceases once the custom rule with `allow` is processed, exposing the application to unwanted malicious attacks.
 
-Instead, use a more restrictive and specific rule action, such as block, and specify a list of countries to allow with a negate condition. This ensures only traffic from trusted and verified sources can access your web application while blocking any suspicious or unwanted traffic.
+Instead, use a more restrictive and specific rule action, such as block, and specify a list of countries or regions to allow with a negate condition. This ensures only traffic from trusted and verified sources can access your web application while blocking any suspicious or unwanted traffic.
 
 
 ## Next steps
