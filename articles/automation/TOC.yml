@@ -252,16 +252,14 @@
               href: automation-dsc-extension-history.md
             - name: Troubleshoot State Configuration issues
               href: troubleshoot/desired-state-configuration.md
-    - name: Change tracking and inventory 
+    - name: Change Tracking and Inventory using AMA
       items:
-        - name: Use Azure Monitoring Agent (AMA)
+        - name: Overview
           items:
-            - name: Overview
-              items:
-                - name: About Change tracking and inventory
-                  href: change-tracking/overview-monitoring-agent.md
-                - name: Change tracking extension version
-                  href: change-tracking/extension-version-details.md
+            - name: About Change tracking and inventory
+              href: change-tracking/overview-monitoring-agent.md
+            - name: Change tracking extension version
+              href: change-tracking/extension-version-details.md
             - name: Supported regions
               href: change-tracking/region-mappings-monitoring-agent.md
             - name: Enable change tracking and inventory
@@ -270,28 +268,28 @@
               href: change-tracking/manage-change-tracking-monitoring-agent.md
             - name: Configure alerts
               href: change-tracking/configure-alerts.md
-        - name: Migration guidance
+    - name: Migration from Change Tracking and Inventory using AMA to Change Tracking using LA (Retired)
+      items:
+        - name: Migration from Log Analytics to Azure Monitoring Agent version
+          href: change-tracking/guidance-migration-log-analytics-monitoring-agent.md
+    - name: Change Tracking and Inventory using Log Analytics (Retired)
+      items:
+        - name: Overview
+          href: change-tracking/overview.md
+        - name: Support regions for linked Log Analytics workspace
+          href: how-to/region-mappings.md
+        - name: Discover the software installed on your VMs
+          href: automation-tutorial-installed-software.md
+        - name: Enable
           items:
-            - name: Migration from Log Analytics to Azure Monitoring Agent version
-              href: change-tracking/guidance-migration-log-analytics-monitoring-agent.md
-        - name: Use Log Analytics (Retired)
-          items:
-            - name: Overview
-              href: change-tracking/overview.md
-            - name: Support regions for linked Log Analytics workspace
-              href: how-to/region-mappings.md
-            - name: Discover the software installed on your VMs
-              href: automation-tutorial-installed-software.md
-            - name: Enable
-              items:
-                - name: Enable from the Azure portal
-                  href: change-tracking/enable-from-portal.md
-                - name: Enable from an Azure VM
-                  href: change-tracking/enable-from-vm.md
-                - name: Enable from an Automation account
-                  href: change-tracking/enable-from-automation-account.md
-                - name: Enable from a runbook
-                  href: change-tracking/enable-from-runbook.md
+            - name: Enable from the Azure portal
+              href: change-tracking/enable-from-portal.md
+            - name: Enable from an Azure VM
+              href: change-tracking/enable-from-vm.md
+            - name: Enable from an Automation account
+              href: change-tracking/enable-from-automation-account.md
+            - name: Enable from a runbook
+              href: change-tracking/enable-from-runbook.md
             - name: Manage change tracking and inventory
               href: change-tracking/manage-change-tracking.md
             - name: Manage inventory collection from VMs
@@ -300,18 +298,18 @@
               href: change-tracking/manage-scope-configurations.md
             - name: Configure alerts
               href: change-tracking/configure-alerts.md
-            - name: Disable
-              items:
-                - name: Remove Change Tracking and Inventory
-                  href: change-tracking/remove-feature.md
-                - name: Remove machines
-                  href: change-tracking/remove-vms-from-change-tracking.md
-            - name: Troubleshoot
-              items:
-                - name: Troubleshoot feature deployment issues
-                  href: troubleshoot/onboarding.md
-                - name: Troubleshoot Change Tracking and Inventory issues
-                  href: troubleshoot/change-tracking.md      
+        - name: Disable
+          items:
+            - name: Remove Change Tracking and Inventory
+              href: change-tracking/remove-feature.md
+            - name: Remove machines
+              href: change-tracking/remove-vms-from-change-tracking.md
+        - name: Troubleshoot
+          items:
+            - name: Troubleshoot feature deployment issues
+              href: troubleshoot/onboarding.md
+            - name: Troubleshoot Change Tracking and Inventory issues
+              href: troubleshoot/change-tracking.md      
     - name: Update Management (Retired)
       items:
         - name: Overview
