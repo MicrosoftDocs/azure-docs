@@ -23,7 +23,7 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 To create your Neon Serverless Postgres resource, start at the Azure portal home page.
 
-1. Search for the Neon Serverless Postgres resource provider by typing **Azure Native Neon Serverless Postgres Service** the header search bar.
+1. Search for the Neon Serverless Postgres resource provider by typing **Neon Serverless Postgres** the header search bar.
 
 1. Choose **Azure Native Neon Serverless Postgres Service** from the *Services* search results.
 
