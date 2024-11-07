@@ -37,6 +37,7 @@ The process involves two main steps:
 **Allocation Strategy Application**: The Compute Fleet applies the selected allocation strategy to the generated list.
 
 For Azure Spot Virtual Machines, Attribute-Based Selection supports both capacity-optimized and lowest-price allocation strategies. For Standard VMs, ABS supports the lowest-price allocation strategy. The Compute Fleet resolves attribute configurations into a list of suitable VM types and initially launches the lowest-priced VM to meet the On-Demand portion of the capacity request, proceeding to the next lowest-priced VM if necessary.
+
 This feature enables more flexible VM type configurations, eliminating the need for extensive instance-type lists. This way, you can automatically leverage newer VM generations when they are introduced in your selected Region. Additionally, Attribute-Based VM Selection enhances the ability to access more capacity through Spot requests efficiently.
 With Attribute-Based VM Selection, managing VM size configurations becomes easier and more scalable, ensuring that your workloads run smoothly with optimized cost and performance.
 
