@@ -247,6 +247,14 @@
           href: workload-profiles-manage-cli.md
         - name: Portal
           href: workload-profiles-manage-portal.md
+- name: GPUs
+  items:
+    - name: Serverless GPUs
+      href: gpu-serverless-overview.md
+    - name: Tutorials
+      items:
+      - name: Generate images with serverless GPUs
+        href: gpu-image-generation.md
 - name: Microservices
   items:
     - name: Developing with Dapr
