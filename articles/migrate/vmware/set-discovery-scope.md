@@ -5,7 +5,7 @@ author: v-sreedevank
 ms.author: v-sreedevank
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 12/12/2022
+ms.date: 11/07/2024
 ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
@@ -30,12 +30,9 @@ You can assign permissions on VMware vSphere inventory objects using one of two 
 - On the account used by the appliance, assign a role with the required permissions on the objects you want to scope.
 - Alternatively, assign a role to the account at the data center level, and propagate to the child objects. Then give the account a **No access** role, for every object that you don't want in scope. We don't recommend this approach since it's cumbersome, and might expose access controls, because every new child object is automatically granted access inherited from the parent.
 
-You can't scope inventory discovery at the vCenter Server folder level. If you need to scope discover to servers in a folder, create a user and grant access individually to each required server. Host and cluster folders are supported.
-
-
 ### Assign a role for assessment
 
-1. On the appliance vCenter Server account you're using for discovery, apply the **Read-only** role for all parent objects that host servers you want to discover and assess (host, cluster, hosts folder, clusters folder, up to datacenter).
+1. On the appliance vCenter Server account that you're using for discovery, apply the **Read-only** role for all parent objects that host servers that you want to discover and assess (host, cluster, hosts folder, clusters folder, up to datacenter).
 2. Propagate these permissions  to child objects in the hierarchy.
 
     ![Assign permissions](../media/tutorial-assess-vmware/assign-perms.png)
@@ -45,17 +42,15 @@ You can't scope inventory discovery at the vCenter Server folder level. If you n
 1. On the appliance vCenter Server account you're using for migration, apply a user-defined role that has the [permissions needed](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless), to all parent objects that host servers you want to discover and migrate.
 2. You can name the role with something that's easier to identify. For example, <em>Azure_Migrate</em>.
 
-## Work around for server folder restriction
+### Scoped discovery of VMs
 
-Currently, the Azure Migrate: Discovery and assessment tool can't discover servers if access is granted at the vCenter Server folder level. If you do want to scope your discovery and assessment by server folders, use this workaround.
+1. To discover selective VMs, assign read permissions to the individual VMs. To discover all VMs from a folder, assign read permissions at the folder level and enable **Propagate to children** option.
+1. Grant read-only access to all the parent objects that host the virtual machines including host, cluster, hosts folder, clusters folder, up to data center. You don't need to propagate the permissions to all child objects.
+1. From vSphere client, make sure that the read permissions are applied to the parent objects both from the Hosts and Clusters view and from the VMs & templates view.
 
-1. Assign read-only permissions on all servers located in the folders you want to scope for discovery and assessment.
-2. Grant read-only access to all the parent objects that host the servers host, cluster, hosts folder, clusters folder, up to data center). You don't need to propagate the permissions to all child objects.
-3. To use the credentials for discovery, select the datacenter as **Collection Scope**.
+   ![Add permissions](../media/tutorial-assess-vmware/add-permissions.png)
 
-
-The role-based access control setup ensures that the corresponding vCenter user account has access to only tenant-specific servers.
-
+1. The role-based access control setup ensures that the corresponding vCenter user account has access to only tenant-specific servers. 
 
 ## Next steps
 
