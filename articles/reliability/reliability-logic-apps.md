@@ -50,7 +50,7 @@ Zone-redundancy is available in the following logic app workflows:
 
     - You can enable zone-redundancy only when you create a Standard logic app in a supported Azure region or in an [App Service Environment v3 (ASE v3) - Windows plans only](reliability-app-service?tabs=cli). No programmatic tool support, such as Azure PowerShell or Azure CLI, currently exists to enable zone-redundancy after creation.
     
-    - Zone-redundancy is only supported for built-in connector operations, which directly run with the Azure Logic Apps runtime, not connector operations that are hosted and run in Azure.
+    - Zone redundancy is available only for built-in operations, which directly run with the Azure Logic Apps runtime. Support isn't available for managed Azure-hosted connector operations.
     
 
 ### Requirements
