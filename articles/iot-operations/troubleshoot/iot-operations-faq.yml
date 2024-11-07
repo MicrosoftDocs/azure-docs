@@ -23,7 +23,7 @@ sections:
       answer: Currently, message persistence isn't supported in the preview version of Azure IoT Operations.
     - question: |
          Does Azure IoT Operations offer high availability and zero data loss features?
-      answer: Currently, zero data loss features aren't available in the preview version of Azure IoT Operations.
+      answer: Yes, Azure IoT Operations workloads on K3s and HCI/AKS-Arc multi-node clusters support distributed deployment across multiple nodes. The AIO MQTT Broker automatically replicates states across nodes, as configured by the Broker's cardinality setting. This setup ensures data resilience. Replicas are distributed across various nodes in a multi-node cluster, and data remains intact as long as one set of replicas is running and healthy.
     - question: |
          Does Azure IoT Operations offer high availability across multi-node setups?
       answer: Yes, Azure IoT Operations workloads on K3s and HCI/AKS-Arc multi-node clusters support distribution of Azure IoT Operations workloads across multi-nodes setups in the preview version.
