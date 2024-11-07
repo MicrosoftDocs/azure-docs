@@ -98,51 +98,22 @@ For more information, see [What is Azure Arc site manager (preview)?](/azure/azu
 
 If you use enterprise firewalls or proxies to manage outbound traffic, add the following endpoints to your domain allowlist before deploying Azure IoT Operations.
 
-Additionally, review the [Azure Arc-enabled Kubernetes endpoints](/azure/azure-arc/network-requirements-consolidated#azure-arc-enabled-kubernetes-endpoints).
+1. Endpoints in the [Azure Arc-enabled Kubernetes endpoints](/azure/azure-arc/network-requirements-consolidated#azure-arc-enabled-kubernetes-endpoints).
+    - You will need all the endpoints in this section for running Azure IoT Operations.
+1. Endpoints in [Azure CLI endpoints](/azure/azure-cli-endpoints?tabs=azure-cloud#endpoints).
+    - You will need `graph.windows.net`, `*.azurecr.io`, `*.blob.core.windows.net`, `*.vault.azure.net` from this endpoint list.
+1. The following endpoints are required specifically for Azure IoT Operations:
 
-```text
-nw-umwatson.events.data.microsoft.com 
-dc.services.visualstudio.com 
-github.com 
-self.events.data.microsoft.com 
-mirror.enzu.com 
-ppa.launchpadcontent.net 
-msit-onelake.pbidedicated.windows.net 
-gcr.io 
-adhs.events.data.microsoft.com 
-gbl.his.arc.azure.cn 
-onegetcdn.azureedge.net 
-graph.windows.net 
-pas.windows.net 
-agentserviceapi.guestconfiguration.azure.com 
-aka.ms 
-api.segment.io 
-download.microsoft.com 
-raw.githubusercontent.com 
-go.microsoft.com 
-global.metrics.azure.eaglex.ic.gov 
-gbl.his.arc.azure.us 
-packages.microsoft.com 
-global.metrics.azure.microsoft.scloud 
-www.powershellgallery.com
-k8s.io 
-guestconfiguration.azure.com 
-ods.opinsights.azure.com 
-vault.azure.net 
-googleapis.com 
-quay.io 
-handler.control.monitor.azure.com 
-pkg.dev 
-docker.io 
-prod.hot.ingestion.msftcloudes.com 
-docker.com 
-prod.microsoftmetrics.com 
-oms.opinsights.azure.com 
-azureedge.net 
-monitoring.azure.com
-blob.core.windows.net 
-azurecr.io
-```
+    |Endpoints (DNS) | Description |
+    |-|-|
+    | `<customer-specific>.blob.storage.azure.net` | Storage for schema registry. Use a wildcard or refer to [storage account endpoints](/azure/storage/common/storage-account-overview#storage-account-endpoints) for identifying the customer specific subdomain of your endpoint. |
+
+
+1. To push data to the cloud, you will need to enable the following endpoints based on your choice of data platform.
+
+    |Endpoints (DNS) | Description |
+    |-|-|
+    | `*.pbidedicated.windows.net` | Endpoint for pushing data to [Microsoft Fabric OneLake](https://learn.microsoft.com/en-us/fabric/security/fabric-allow-list-urls#onelake). |
 
 ## Next steps
 
