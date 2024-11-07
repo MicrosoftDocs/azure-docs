@@ -224,23 +224,7 @@ az containerapp up `
 
 ## Verify deployment
 
-To open the web API service in a web browser, run the following command.
-
-# [Bash](#tab/bash)
-
-```bash
-az containerapp browse --name $API_NAME --resource-group $RESOURCE_GROUP
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az containerapp browse --name $API_NAME --resource-group $RESOURCE_GROUP
-```
-
----
-
-In the browser, add `/albums` to the end of the URL to see the response from the API.
+Locate the container app's URL in the output of the `az containerapp up` command. Navigate to the URL in your browser. Add `/albums` to the end of the URL to see the response from the API.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
 
