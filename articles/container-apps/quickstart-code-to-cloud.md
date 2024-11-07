@@ -223,7 +223,7 @@ az containerapp up `
 ---
 
 > [!NOTE]
-> If the command returns an error with the message "AADSTS50158: External security challenge not satisfied", run `az login --scope https://graph.microsoft.com//.default` to log in again with the required permissions and then run the `az containerapp up` command again.
+> If the command returns an error with the message "AADSTS50158: External security challenge not satisfied", run `az login --scope https://graph.microsoft.com//.default` to log in with the required permissions and then run the `az containerapp up` command again.
 
 ## Verify deployment
 
