@@ -71,7 +71,12 @@ TODO:   Considerations
 
 ### Cost
 
-For *Consumption and Standard (Workflow service plan) hosting plans*, there's no additional cost to use zone redundancy for Azure Logic Apps, as zone-redundancy is automatically enabled for new and existing Consumption logic app workflows.
+| Logic app | Hosting option | Description |
+|-----------|----------------|-------------|
+| Consumption | Multitenant | No additional cost applies to use zone redundancy, which is automatically enabled for new and existing Consumption workflows. |
+| Standard | Workflow Service Plan | No additional cost applies to use zone redundancy. |
+| Standard | App Service Environment V3 | See [Reliability in App Service](./reliability-app-service.md). |
+
 
 For Standard hosting plans with App Service Environment v3, see [Reliability in App Service](./reliability-app-service.md).
 
