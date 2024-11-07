@@ -33,7 +33,7 @@ If you can't find an answer to your problem by searching, you can submit a new q
 
 You can also try asking your question on Stack Overflow, which has a large developer community and ecosystem. Azure Communication Services has a [dedicated tag](https://stackoverflow.com/questions/tagged/azure-communication-services) there too.
 
-## Tech community
+## Tech Community
 
 [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-communication-services/bd-p/AzureCommunicationServices) is another place where you can ask product or technical questions. The Azure Communication Services team regularly posts [blogs](https://techcommunity.microsoft.com/t5/azure-communication-services/bg-p/AzureCommunicationServicesBlog) and hosts "Ask Me Anything" events on this forum.
 

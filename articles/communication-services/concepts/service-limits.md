@@ -265,7 +265,7 @@ For more information about the voice and video calling SDK and service, see [Cal
 
 When you send or receive a high volume of requests, you might receive a ```ThrottleLimitExceededException``` error. This error indicates that you're reaching the service limitations. Your requests fail until the token bucket that's used to handle requests is replenished after a certain time.
 
-Rate limits for Job Router
+### Rate limits for Job Router
 
 | Operation | Scope | Time frame (seconds) | Limit (number of requests) | Timeout in seconds |
 | --- | --- | --- | --- | --- |
