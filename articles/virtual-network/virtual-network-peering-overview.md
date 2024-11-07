@@ -13,7 +13,7 @@ ms.author: allensu
 
 # Virtual network peering
 
-Virtual network peering enables you to seamlessly connect two or more [Virtual Networks](virtual-networks-overview.md) in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's *private* network only.
+Virtual network peering enables you to seamlessly connect two or more [Virtual Networks](virtual-networks-overview.md) in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's *private* network only. By default, a virtual network can be peered with up to 500 other virtual networks. Using [Azure Virtual Network Manager's connectivity configuration](../../virtual-network-manager/concept-connectivity-configuration.md), you can increase this limit to peer up to 1,000 virtual networks to a single virtual network. This allows you to, for instance, create a hub-and-spoke topology with 1,000 spoke virtual networks and create a mesh of 1000 spokes virtual networks where all spoke virtual networks are directly interconnected.
 
 Azure supports the following types of peering:
 
