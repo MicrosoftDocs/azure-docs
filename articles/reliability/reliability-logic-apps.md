@@ -16,9 +16,9 @@ ms.date: 11/06/2024
 # Reliability in Azure Logic Apps
 
 
-This article describes reliability support in Azure Logic Apps. It covers intra-regional resiliency via [availability zones](#availability-zone-support). It also covers [multi-region deployments](#multi-region-support).
+This article describes reliability support in Azure Logic Apps, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Because resiliency is a shared responsibility between you and Microsoft, this article also covers ways for you to create a resilient solution that meets your needs.
+Resiliency is a shared responsibility between you and Microsoft and so this article also covers ways for you to create a resilient solution that meets your needs.
 
 Azure Logic Apps is a cloud platform where you can create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, you can quickly build a workflow that integrates and manages your apps, data, services, and systems.
 
@@ -44,13 +44,14 @@ You can set up zone redundancy for Azure Logic Apps to spread resources across m
 
 The following logic app workflows support zone redundancy:
 
-- **Consumption**: Run in multitenant Azure Logic Apps. Zone redundancy is automatically enabled for new and existing Consumption logic app workflows in [Azure zones with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
+| Logic app workflow | Hosting option | Description |
+|-----------|----------------|-------------|
+| Consumption | Multitenant | Zone redundancy is automatically enabled for new and existing Consumption logic app workflows. |
+| Standard | Workflow Service Plan | See [Reliability in Azure Functions](reliability-functions?tabs=azure-portal#availability-zone-support).|
+| Standard | App Service Environment V3 | See [Reliability in App Service](./reliability-app-service.md). |
 
-- **Standard**: Run in single-tenant Azure Logic Apps and powered by Azure Functions extensibility. For more information, see [Reliability in Azure Functions](reliability-functions?tabs=azure-portal#availability-zone-support).
 
-    - You can enable zone-redundancy only when you create a Standard logic app in a supported Azure region or in an [App Service Environment v3 (ASE v3) - Windows plans only](reliability-app-service?tabs=cli). No programmatic tool support, such as Azure PowerShell or Azure CLI, currently exists to enable zone-redundancy after creation.
-    
-    - Zone redundancy is available only for built-in operations, which directly run with the Azure Logic Apps runtime. Support isn't available for managed Azure-hosted connector operations.
+Zone redundancy is available only for built-in operations, which directly run with the Azure Logic Apps runtime. Zone redundancy isn't available for managed Azure-hosted connector operations.
     
 
 ### Requirements
@@ -71,7 +72,7 @@ TODO:   Considerations
 
 ### Cost
 
-| Logic app | Hosting option | Description |
+| Logic app workflow | Hosting option | Description |
 |-----------|----------------|-------------|
 | Consumption | Multitenant | No additional cost applies to use zone redundancy, which is automatically enabled for new and existing Consumption workflows. |
 | Standard | Workflow Service Plan | No additional cost applies to use zone redundancy. |
@@ -83,7 +84,7 @@ For Standard hosting plans with App Service Environment v3, see [Reliability in 
 
 ### Configure availability zone support 
 
-**Create a new workflow with zone-redundancy.** When you deploy a new Azure Logic App workflow in a region that supports availability zones, you can choose whether you'd like to enable zone-redundancy. To learn how to enable zone-redundancy for your logic app, see [Enable zone redundancy for your logic app](../logic-apps/set-up-zone-redundancy-availability-zones.md).
+**Create a new workflow with zone-redundancy.** When you deploy a new Azure Logic App workflow in a region that supports availability zones, you can choose whether you'd like to enable zone redundancy. To learn how to enable zone redundancy for your logic app, see [Enable zone redundancy for your logic app](../logic-apps/set-up-zone-redundancy-availability-zones.md).
 
 **Migration.** It's not possible to enable zone-redundancy to an existing workflow after it's created. Instead, you need to create the Azure Logic App workflow in the new region and delete the old one.
 
@@ -259,66 +260,35 @@ For zone-redundant services, is there a way for the customer to test a zone fail
 
 
 ## Multi-region support 
-TODO: Add your multi-region support.
-
-<!-- 6. Multi-region support ---------------------------------------
-
-    This section ONLY describes native product features for multi-region support.  Don’t talk about patterns or approaches to create multiple instances in different regions – that’s in the “Alternative multi-region approaches” section. 
-
-    If the service has built-in multi-region support that supports resiliency requirements, describe it here. 
-
--->
-
-**Example:**
-
->[service-name] can be configured to use multiple Azure regions. When you configure multi-region support, you select which region should be the primary region, and [service-name] automatically replicates changes in your data to each selected secondary region.
-
-<!--
-
-For a single-region service, which means it’s regionally deployed and has no direct multi-region support, use wording like the following: 
-
--->
-
-**Example:**
-
->[service-name] is a single-region service. If the region is unavailable, your [service-name] resource is also unavailable.
 
 
->[!IMPORTANT]
->For a single-region service, don't include the H3 headings in this section. Skip to “Alternative multi-region approaches”. 
+Each logic app is deployed into a single Azure region. If the region becomes unavailable, your logic app is also unavailable.
+
+For higher resiliency, you can setup your primary logic app to failover to either a standby or backup logic app in an another (secondary) region.
+
 
 ### Requirements 
 
-<!-- 6A. Requirements ----------------------
-    List any requirements that must be met to use multiple regions with this service. Most commonly, specific SKUs are required. If multiple regions are supported in all SKUs, or if the service has only one default SKU, mention this. Also mention any other requirements that must be met. 
--->
+- The secondary logic app instance has access to the same apps, services, and systems as the primary logic app instance.
 
-**Example:**
+- Both logic app instances must have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For best practices and more information about paired regions for BCDR, see [Cross-region replication in Azure: Business continuity and disaster recovery](cross-region-replication-azure.md).
 
-> You must use the Premium tier to enable multi-region support.
+
+>[!NOTE]
+>If your logic app also works with B2B artifacts, such as trading partners, agreements, schemas, maps, and certificates, which are stored in an integration account, both your integration account and logic apps must use the same location.
+
 
 ### Region support 
 
-<!-- 6B. Region support ----------------------
-    Make it clear if multi-region support relies on Azure region pairs, or if it works across any combination of regions. Also, explain any other regional requirements, such as requiring all regions to be within the same geography, or within a defined latency perimeter. 
--->
-
-**Example:**
-
-> You can select any Azure region for your secondary instances.
+The secondary region must support Azure Logic Apps service, as well as the same features and services that your primary logic app uses. To see if your secondary region supports Logic Apps service, see [Azure product availability by region](https://azure.microsoft.comexplore/global-infrastructure/products-by-region).
 
 ### Considerations
 
-<!-- 6C. Considerations ----------------------
-    Describe any workflows or scenarios that aren't supported, as well as any gotchas. For example, some services only replicate parts of the solution across regions but not others. 
+- When your logic app is triggered and starts running, the app's state is stored in the same region where the app started and is non-transferable to another region. If a regional failure or disruption happens, any in-progress workflow instances are abandoned. When you have primary and secondary region set up, new workflow instances start running at the secondary location.
 
-    Include information about any expected downtime or effects if you enable multi-region support after deployment. Provide links to any relevant information. 
+    To minimize the number of abandoned in-progress workflow instances, you can choose to implement one of the various message patterns. For more information, see [Reduce abandoned in-progress instances](/azure/logic-apps/business-continuity-disaster-recovery-guidance#reduce-abandoned-in-progress-instances).
 
--->
-
-**Example:**
-
-> When you enable multi-region support, component Z is replicated across regions, but other components aren't replicated. After a region failover, your resource continues to work, but feature A might be unavailable until the region recovers and full service is restored.
+- A logic app's execution history is stored in the same region where that logic app ran, which means you can't migrate this history to a different region. If your primary instance fails over to a secondary instance, you can only access each instance's trigger and runs history in the respective regions where those instances ran. However, you can get region-agnostic information about your logic app's history by setting up your logic apps to send diagnostic events to an Azure Log Analytics workspace. You can then review the health and history across logic apps that run in multiple regions. For more information on how to set up trigger and runs history in the secondary region, see [Trigger type guidance](/azure/logic-apps/business-continuity-disaster-recovery-guidance#trigger-type-guidance).
 
 
 ### Cost
@@ -337,90 +307,7 @@ For a single-region service, which means it’s regionally deployed and has no d
 > When you enable multi-region support, you're billed for each region that you select. For more information, see [service pricing information].
 
 
-### Configure multi-region support 
-
-<!-- 6E. Configure multi-region support  ----------------------
-
-    In this section, link to deployment or migration guides. If you don't have the required guide, you'll need to create one.
-
-    DO NOT provide detailed how-to guidance in this article.
-    
-    Provide links to documents that show how to create a resource or instance with multi-region support. Ideally, the documents should contain examples using the Azure portal, Azure CLI, Azure PowerShell, and Bicep. 
--->   
-
-**Example:**
-
-> To deploy a new multi-region [service-name] resource, see [Create an [service-name] resource with multi-region support].
->
-> To enable multi-region support for an existing [service-name] resource, see [Enable multi-region support in an [service-name] resource]. 
-
-<!--   
-    If your service does NOT support enabling multi-region support after deployment, add an explicit statement to indicate that. 
-    
-    If your service supports disabling multi-region support, provide links to the relevant how-to guides for that scenario. 
--->
-
-### Capacity planning and management 
-<!-- 6F. Capacity planning and management  ----------------------
-    Optional section. 
-
-    In some services, a region failover can cause instances in the surviving regions to become overloaded with requests. If that's a risk for your service's customers, explain that here, and whether they can mitigate that risk by overprovisioning capacity. 
--->
-
-### Traffic routing between regions 
-<!-- 6G. Traffic routing between regions  ----------------------
-    
-    This section explains how work is divided up between instances in multiple regions, during regular day-to-day operations - NOT during a region failure. 
-
-    Common approaches are:
-    
-    - **Active/active.**  Requests are spread across instances in every region, maybe using Traffic Manager or Azure Front Door behind the scenes.
-    
-    - **Active/passive.** Requests always goes to the primary region.
--->   
-
-**Example:**
-
-> When you configure multi-region support, all requests are routed to an instance in the primary region. The secondary regions are used only in the event of a failover.
-
-### Data replication between regions 
-
-<!-- 6H. Data replication between regions  ----------------------
-    
-
-    Optional section. 
-
-    This section is only required for services that perform data replication across regions. 
-    
-    This section explains how data is replicated: synchronously, asynchronously, or some combination between the two.
-    
-    This section should describe how data replication is performed during regular day-to-day operations - NOT during a region failure. 
--->   
-    
->[!IMPORTANT]
-> The data replication approach across regions is usually different from the approach used across availability zones.
-
-<!-- 
-    Most Azure services replicate the data across regions asynchronously, where changes are applied in a single region and then propagated after some time to the other regions. Use wording similar to this to explain this approach and its tradeoffs:
--->      
-
-**Example:**
-
-> When a client changes any data in your [service-name] resource, that change is applied to the primary region. At that point, the write is considered to be complete. Later, the X resource in the secondary region is automatically updated with the change. This approach is called *asynchronous replication.* Asynchronous replication ensures high performance and throughput. However, any data that wasn't replicated between regions could be lost if the primary region experiences a failure.
-
-<!--     
-    Alternatively, some services replicate their data synchronously which means that changes are applied to multiple (or all) regions simultaneously, and the change isn’t considered to be completed until multiple/all regions have acknowledged the change. Use wording similar to the following to explain this approach and its tradeoffs:
--->    
-
-**Example:**
-    
-> When a client changes any data in your [service-name] resource, that change is applied to all instances in all regions simultaneously. This approach is called *synchronous replication.* Synchronous replication ensures a high level of data consistency, which reduces the likelihood of data loss during a region failure. However, because all changes have to be replicated across regions that might be geographically distant, you might experience lower throughput or performance.
-
-<!--     
-    Your service might behave differently to the examples provided above, so adjust or rewrite as much as you need. The accuracy and clarity of this information is critical to our customers, so please make sure you understand and explain the replication process thoroughly. 
--->   
-
-
+ 
 ### Region-down experience 
 
 <!-- 6I. Region down experience   ----------------------
@@ -510,22 +397,7 @@ Explain what happens when a region is down. Be precise and clear. Avoid ambiguit
 
 ### Alternative multi-region approaches 
 
-<!-- 6K. Alternative multi-region approaches    ----------------------
-    
-Optional section. 
-
-If the service does NOT have built-in multi-region support, are there approaches or patterns we can recommend that provide multi-region failover? These must be documented in the Azure Architecture Center. You can also provide multiple approaches if required. At least one of the approaches must work in non-paired regions. 
-
-
-If you need to use [service-name] in multiple regions, you need to deploy separate resources in each region. If you create an identical deployment in a secondary Azure region using a multi-region geography architecture, your application becomes less susceptible to a single-region disaster. When you follow this approach, you need to configure load balancing and failover policies. You also need to replicate your data across the regions so that you can recover your last application state. 
-
-For example approaches that illustrates this architecture, see:
-
-- [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](https://learn.microsoft.com/azure/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)
-- [Highly available multi-region web application](https://learn.microsoft.com/azure/architecture/web-apps/app-service/architectures/multi-region)
-- [Deploy Azure Spring Apps to multiple regions](https://learn.microsoft.com/azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region)
--->   
-
+To ensure that your logic app becomes less susceptible to a single-region failure, you'll need to deploy your logic app to a secondary region. To learn how to deploy your logic app to a secondary region, see [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance#deploy-your-logic-app-to-a-secondary-region).
 
 ## Backups
 
