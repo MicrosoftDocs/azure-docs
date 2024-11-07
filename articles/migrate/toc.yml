@@ -147,6 +147,7 @@ items:
           href: assessment-properties.md
         - name: Azure SQL Readiness criteria
         - name: Review assessment report
+          href: review-sql-assessment.md
       - name: Webapp assessment
         items:
         - name: Prerequisites
@@ -156,6 +157,7 @@ items:
           href: assessment-properties.md
         - name: Azure Webapp Readiness criteria
         - name: Review assessment report
+          href: review-webapp-assessment.md
       - name: AVS assessment
         items:
         - name: Prerequisites
@@ -165,7 +167,7 @@ items:
           href: assessment-properties.md
         - name: Azure AVS Readiness criteria
         - name: Review assessment report
-          href: how-to-create-azure-vmware-solution-assessment.md
+          href: review-avs-assessment.md
       - name: SAP assessment
         items:
         - name: Prerequisites
@@ -175,7 +177,7 @@ items:
           href: assessment-properties.md
         - name: SAP Readiness criteria
         - name: Review assessment report
-          href: concepts-azure-sap-systems-assessment.md
+          href: review-sap-assessment.md
   - name: Software recommendations
     items:
     - name: Prerequisites
