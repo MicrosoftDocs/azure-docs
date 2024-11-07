@@ -10,7 +10,7 @@ ms.author: v-abhmallick
 
 # Quickstart: Configure backup for an AKS cluster
 
-In this quickstart, you configure backup for an Azure Kubernetes Service (AKS) cluster, and then use the Azure Backup configuration to back up specific items in the cluster.
+In this quickstart, you configure vaulted backup for an Azure Kubernetes Service (AKS) cluster, and then use the Azure Backup configuration to back up specific items in the cluster.
 
 You can use Azure Backup to back up AKS clusters by installing the Backup extension. The extension must be installed in the cluster. An AKS cluster backup includes cluster resources and persistent volumes that are attached to the cluster.
 
@@ -18,10 +18,12 @@ The Backup vault communicates with the cluster via the Backup extension to compl
 
 ## Prerequisites
 
+Before you configure vaulted backup for AKS cluster, ensure the following prerequisites are met:
+
 - Identify or [create a Backup vault](create-manage-backup-vault.md) in the same region where you want to back up an AKS cluster.
 - [Install the Backup extension](quick-install-backup-extension.md) in the AKS cluster that you want to back up.
 
-## Configure backup for an AKS cluster
+## Configure vaulted backup for an AKS cluster
 
 1. In the Azure portal, go to the AKS cluster that you want to back up.
 
@@ -35,7 +37,7 @@ The Backup vault communicates with the cluster via the Backup extension to compl
 
     :::image type="content" source="./media/quick-backup-aks/backup-vault-review.png" alt-text="Screenshot that shows the review page for Configure Backup." lightbox="./media/quick-backup-aks/backup-vault-review.png":::
 
-1. Select a backup policy, which defines the schedule for backups and their retention period. Then select **Next**.
+1. Select a backup policy, which defines the schedule for backups and their retention period in both Operation and Vault-standard. Then select **Next**.
 
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png" alt-text="Screenshot that shows the Backup policy tab." lightbox="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png":::
 

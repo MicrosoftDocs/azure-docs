@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Configure backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via Azure CLI
+title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via Azure CLI
 description: Learn how to quickly configure backup for a Kubernetes cluster using Azure CLI.
 ms.service: azure-backup
 ms.topic: quickstart
@@ -11,13 +11,15 @@ author: AbhishekMallick-MS
 
 ---
 
-# Quickstart: Configure backup for an Azure Kubernetes Service (AKS) cluster using Azure CLI
+# Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure CLI
 
-This quickstart describes how to configure backup for an Azure Kubernetes Service (AKS) cluster using Azure CLI.
+This quickstart describes how to configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure CLI.
 
 Azure Backup for AKS is a cloud-native, enterprise-ready, application-centric backup service that lets you quickly configure backup for AKS clusters.
 
 ## Before you start
+
+Before you configure vaulted backup for AKS cluster, ensure the following prerequisites are met:
 
 - Currently, AKS backup supports Azure Disk-based persistent volumes (enabled by CSI driver) only. The backups are stored only in operational datastore (in your tenant) and aren't moved to a vault. The Backup vault and AKS cluster should be in the same region.
 
@@ -112,7 +114,7 @@ Once the vault and policy creation are complete, you need to perform the followi
    az aks trustedaccess rolebinding create --cluster-name $akscluster --name backuprolebinding --resource-group $aksclusterresourcegroup --roles Microsoft.DataProtection/backupVaults/backup-operator --source-resource-id /subscriptions/$subscriptionId/resourceGroups/$backupvaultresourcegroup/providers/Microsoft.DataProtection/BackupVaults/$backupvault
    ```
 
-## Configure backups
+## Configure vaulted backups for AKS cluster
 
 With the created Backup vault and backup policy, and the AKS cluster in *ready-to-be-backed-up* state, you can now start to back up your AKS cluster.
 
