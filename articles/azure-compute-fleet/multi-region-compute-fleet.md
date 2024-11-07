@@ -26,9 +26,13 @@ You can now simply specify your required target capacity by specifying up to 3 r
 
 # Benefits of using Multi region Compute Fleet
 Global Flexibility: Effortlessly distribute capacity across regions to improve reliability and reach.
+
 Capacity resiliency: Experience automatic failover across regions to protect against unexpected regional outages.
+
 Dynamic availability: Automatically deploys compute capacity from regions that best meets your demand from a customized SKU list tailored to your workload requirements
+
 Simplified Deployment: Focus on building great products—without worrying about region-specific infrastructure.
+
 Cost-Effective Scaling: Tap into cost-efficient resources like Spot instances and take advantage of regional pricing
 
 Multi-region Compute Fleet is now available in all Azure Public Regions as part of a gated preview. We invite you to be among the first to access this exclusive preview.
