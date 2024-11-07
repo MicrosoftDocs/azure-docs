@@ -217,7 +217,7 @@ To implement the Terraform code for AKS backup flow, run the following scripts:
     #Assign Role to Extension Identity over Storage Account
     resource "azurerm_role_assignment" "extensionrole" {
       scope                = azurerm_storage_account.backupsa.id
-      role_definition_name = "Storage Blob Data Contributor"
+      role_definition_name = "Storage AccountContributor"
       principal_id         = azurerm_kubernetes_cluster_extension.dataprotection.aks_assigned_identity[0].principal_id
       depends_on = [azurerm_kubernetes_cluster_extension.dataprotection]
     }

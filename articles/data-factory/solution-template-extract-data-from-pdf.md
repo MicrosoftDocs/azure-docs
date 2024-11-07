@@ -4,7 +4,8 @@ description: Learn how to use a solution template to extract data from a PDF sou
 author: n0elleli
 ms.author: noelleli
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-flows
 ---
 
 # Extract data from PDF

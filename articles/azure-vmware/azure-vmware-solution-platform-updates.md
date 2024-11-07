@@ -4,16 +4,26 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 8/20/2024
+ms.date: 11/6/2024
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
 
+## November 2024
+
+Azure VMware Solution is now ready to update all existing Azure Commercial customers from vSphere 7 to vSphere 8 (Stretched Clusters & Azure Government still pending). Over the coming months, all customers will receive a scheduling notice for this upgrade. If you want to prioritize your vSphere 8 upgrade, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft requesting a "Priority vSphere 8 upgrade" for your private cloud. [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in [Microsoft Azure Government](https://azure.microsoft.com/explore/global-infrastructure/government/#why-azure). [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+## October 2024
+
+The VMware Cloud Foundations (VCF) license portability feature on Azure VMware Solution allows you to bring your VCF entitlement to Azure VMware Solution and take advantage of potential cost savings.
+
 ## August 2024
 
-All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in Azure Commercial. [Learn more](architecture-private-clouds.md#vmware-software-versions)
+All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in Azure Commercial (Stretched Clusters excluded). [Learn more](architecture-private-clouds.md#vmware-software-versions)
 
 Azure VMware Solution was approved to be added as a service within the [DoD SRG Impact Level 4 (IL4)](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope#azure-government-services-by-audit-scope) Provisional Authorization (PA) in [Microsoft Azure Government](https://azure.microsoft.com/explore/global-infrastructure/government/#why-azure).
 

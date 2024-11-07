@@ -492,6 +492,8 @@ items:
       displayName: timeout
     - name: HubSpot
       href: connector-hubspot.md
+    - name: Iceberg format
+      href: format-iceberg.md      
     - name: Impala
       href: connector-impala.md
     - name: Informix
@@ -1306,6 +1308,9 @@ items:
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
       displayName: timeout, troubleshooting
+    - name: Azure Data Factory known issues
+      href: known-issues-troubleshoot-guide.md
+      displayName: troubleshooting
 - name: SAP knowledge center
   items:
   - name: Overview
@@ -1400,6 +1405,8 @@ items:
     items: 
     - name: Connector upgrade and deprecations
       href: connector-deprecation-plan.md
+    - name: Connector deprecation FAQ
+      href: connector-deprecation-frequently-asked-questions.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ

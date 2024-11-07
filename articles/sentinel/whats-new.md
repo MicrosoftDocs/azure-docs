@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
 ms.date: 09/09/2024
+
+
+#Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
+
 ---
 
 # What's new in Microsoft Sentinel
@@ -20,11 +24,26 @@ The listed features were released in the last three months. For information abou
 
 ## September 2024
 
+- [Schema mapping added to the SIEM migration experience](#schema-mapping-added-to-the-siem-migration-experience)
 - [Third-party enrichment widgets to be retired in February 2025](#third-party-enrichment-widgets-to-be-retired-in-february-2025)
 - [Azure reservations now have pre-purchase plans available for Microsoft Sentinel](#pre-purchase-plans-now-available-for-microsoft-sentinel)
 - [Import/export of automation rules now generally available (GA)](#importexport-of-automation-rules-now-generally-available-ga)
 - [Google Cloud Platform data connectors are now generally available (GA)](#google-cloud-platform-data-connectors-are-now-generally-available-ga)
 - [Microsoft Sentinel now generally available (GA) in Azure Israel Central](#microsoft-sentinel-now-generally-available-ga-in-azure-israel-central)
+
+### Schema mapping added to the SIEM migration experience
+
+Since the SIEM migration experience became generally available in May 2024, steady improvements have been made to help migrate your security monitoring from Splunk. The following new features let customers provide more contextual details about their Splunk environment and usage to the Microsoft Sentinel SIEM Migration translation engine:
+
+- Schema Mapping
+- Support for Splunk Macros in translation
+- Support for Splunk Lookups in translation
+
+To learn more about these updates, see [SIEM migration experience](siem-migration.md).
+
+For more information about the SIEM migration experience, see the following articles:
+- [Become a Microsoft Sentinel ninja - migration section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310#toc-hId-111398316)
+- [SIEM migration update - Microsoft Sentinel blog](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/siem-migration-update-now-migrate-with-contextual-depth-in/ba-p/4241234)
 
 ### Third-party enrichment widgets to be retired in February 2025
 
@@ -148,7 +167,7 @@ Microsoft Sentinel now provides the ability to create dynamic summaries using [A
 
 - Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
 - Run high performance Kusto Query Language (KQL) queries on summarized data.
-- Use summary rule results for longer in investigations, hunting, and compliance activities.
+- Use summary rule results for longer periods in investigations, hunting, and compliance activities.
 
 For more information, see [Aggregate Microsoft Sentinel data with summary rules](summary-rules.md).
 

@@ -5,13 +5,13 @@ description: Learn how to manage emergency access accounts in Azure AD B2C tenan
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: tutorial
 ms.date: 09/11/2024
 ms.custom: b2c-docs-improvements
 ms.reviewer: yoelh
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to create emergency access accounts with strong authentication and exclude them from conditional access policies, so that I can prevent accidental lockouts and ensure administrative access to the organization in case of emergencies.

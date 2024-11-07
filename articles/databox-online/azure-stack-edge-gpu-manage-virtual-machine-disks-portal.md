@@ -4,8 +4,7 @@ description: Learn how to manage disks including add, resize, detach, and delete
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/02/2021
 ms.author: alkohli

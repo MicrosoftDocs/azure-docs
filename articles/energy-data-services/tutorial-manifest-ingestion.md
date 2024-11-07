@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Data Manager for Energy
 description: This tutorial shows you sample steps for performing manifest ingestion.
 author: bharathim
 ms.author: bselvaraj
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: tutorial
 ms.date: 08/18/2022
 ms.custom: template-tutorial

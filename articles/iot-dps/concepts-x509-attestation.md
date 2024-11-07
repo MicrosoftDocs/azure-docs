@@ -7,7 +7,8 @@ author: kgremban
 ms.author: kgremban
 ms.date: 04/30/2024
 ms.topic: concept-article
-ms.service: iot-dps
+ms.service: azure-iot-hub
+ms.subservice: azure-iot-hub-dps
 ---
 
 # X.509 certificate attestation
@@ -68,7 +69,7 @@ The Device Provisioning Service only accepts X.509 certificates that use either 
 If you use ECC methods to generate X.509 certificates for device attestation, we recommend the following elliptic curves:
 
 * nistP256
-* nistP284
+* nistP384
 * nistP521
 
 ### DPS certificate naming requirements

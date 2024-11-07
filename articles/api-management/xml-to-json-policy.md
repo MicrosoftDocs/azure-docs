@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 07/23/2024
+ms.date: 09/06/2024
 ms.author: danlep
 ---
 
@@ -21,7 +21,7 @@ The `xml-to-json` policy converts a request or response body from XML to JSON. T
 ## Policy statement
 
 ```xml
-<xml-to-json kind="javascript-friendly | direct" apply="always | content-type-xml" consider-accept-header="true | false"/>
+<xml-to-json kind="javascript-friendly | direct" apply="always | content-type-xml" consider-accept-header="true | false" always-array-child-elements="true | false"/>
 ```
 
 
@@ -32,6 +32,7 @@ The `xml-to-json` policy converts a request or response body from XML to JSON. T
 |kind|The attribute must be set to one of the following values.<br /><br /> -   `javascript-friendly` - the converted JSON has a form friendly to JavaScript developers.<br />-   `direct` - the converted JSON reflects the original XML document's structure.<br/><br/>Policy expressions are allowed.|Yes|N/A|
 |apply|The attribute must be set to one of the following values.<br /><br /> -   `always` - convert always.<br />-   `content-type-xml` - convert only if response Content-Type header indicates presence of XML.<br/><br/>Policy expressions are allowed.|Yes|N/A|
 |consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   `true` - apply conversion if JSON is requested in request Accept header.<br />-   `false` -always apply conversion.<br/><br/>Policy expressions are allowed.|No|`true`|
+|always-array-child-elements|The attribute must be set to one of the following values.<br /><br /> -   `true` - Always convert child elements into a JSON array.<br />-   `false` - Only convert multiple child elements into a JSON array. Convert a single child element into a JSON object.<br/><br/>Policy expressions are allowed.|No|`false`|
 
 ## Usage
 

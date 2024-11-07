@@ -6,7 +6,8 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 09/25/2024
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Transform data by using the Script activity in Azure Data Factory or Synapse Analytics 

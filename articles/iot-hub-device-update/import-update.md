@@ -5,7 +5,8 @@ author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 10/31/2022
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Import an update to Device Update for IoT Hub
@@ -15,6 +16,10 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub. I
 ## Prerequisites
 
 * Access to [an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md).
+* An Azure Storage container *without* Private Endpoint enabled.
+
+  - If you're not sure if Private Endpoint is enabled, go to [Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview), select "Private endpoints" on the left, then look for your Azure Storage account name in the "Resources" column. 
+    
 * An IoT device (or simulator) [provisioned for Device Update](device-update-agent-provisioning.md) within IoT Hub.
 * Follow the steps in [Prepare an update to import into Device Update for IoT Hub](create-update.md) to create the import manifest for your update files.
 

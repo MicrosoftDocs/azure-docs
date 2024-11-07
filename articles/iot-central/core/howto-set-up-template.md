@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 07/12/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: device-developer
 # This article applies to solution builders and device developers.

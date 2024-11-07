@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to customize activity tracking on entity timelines so that I can monitor specific events and behaviors relevant to my organization's security needs.
+
 ---
 
 # Customize activities on entity page timelines

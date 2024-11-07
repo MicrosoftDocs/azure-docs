@@ -6,9 +6,10 @@ author: kgremban
 ms.author: kgremban
 ms.date: 04/30/2024
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 manager: lizross
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Manage device enrollments in the Azure portal

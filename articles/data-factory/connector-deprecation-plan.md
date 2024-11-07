@@ -1,18 +1,18 @@
 ---
-title: Planned connector deprecations for Azure Data Factory
-description: This page describes future deprecations for some connectors of Azure Data Factory.
+title: Upgrade plan for Azure Data Factory connectors
+description: This article describes future upgrades for some connectors of Azure Data Factory.
 author: jianleishen
 ms.author: jianleishen
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 09/27/2024
+ms.date: 11/06/2024
 ---
 
-# Planned connector deprecations for Azure Data Factory
+# Upgrade plan for Azure Data Factory connectors
 
-This article describes future deprecations for some connectors of Azure Data Factory.
+This article describes future upgrades for some connectors of Azure Data Factory.
 
 > [!NOTE]
 > "Deprecated" means we intend to remove the connector from a future release. Unless they are in *Preview*, connectors remain fully supported until they are officially deprecated. This deprecation notification can span a few months or longer. After removal, the connector will no longer work. This notice is to allow you sufficient time to plan and update your code before the connector is deprecated.
@@ -21,13 +21,14 @@ This article describes future deprecations for some connectors of Azure Data Fac
 
 | Connector|Upgrade Guidance|Release stage |End of Support Date  |Disabled Date  | 
 |:-- |:-- |:-- |:-- | :-- | 
-| [Google BigQuery (legacy)](connector-google-bigquery-legacy.md)  | [Link](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) |End of support announced and new version available | October 31, 2024 | January 10, 2025 | 
-| [MariaDB (legacy driver version)](connector-mariadb.md)  | [Link](connector-mariadb.md#upgrade-the-mariadb-driver-version) | End of support announced and new version available | October 31, 2024 | January 10, 2025 | 
-| [MySQL (legacy driver version)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) | End of support announced and new version available | October 31, 2024| January 10, 2025| 
-| [Salesforce (legacy)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | End of support announced and new version available | October 11, 2024 | January 10, 2025| 
-| [Salesforce Service Cloud (legacy)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | End of support announced and new version available | October 11, 2024 |January 10, 2025 | 
-| [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support announced and new version available |October 31, 2024 | January 10, 2025  | 
-| [Snowflake (legacy)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | End of support announced and new version available | October 31, 2024 | January 10, 2025  | 
+| [Google BigQuery (legacy)](connector-google-bigquery-legacy.md)  | [Link](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) |End of support announced and new version available | October 31, 2024 | / | 
+| [MariaDB (legacy driver version)](connector-mariadb.md)  | [Link](connector-mariadb.md#upgrade-the-mariadb-driver-version) | End of support announced and new version available | October 31, 2024 | /| 
+| [MySQL (legacy driver version)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) | End of support announced and new version available | October 31, 2024| /| 
+| [Salesforce (legacy)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | End of support announced and new version available | To be determined | /| 
+| [Salesforce Service Cloud (legacy)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | End of support announced and new version available | To be determined |/ | 
+| [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support announced and new version available |October 31, 2024 | /  | 
+| [ServiceNow (legacy)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | End of support announced and new version available | To be determined | / | 
+| [Snowflake (legacy)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | End of support announced and new version available | To be determined | /  | 
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support announced |December 31, 2024 | December 31, 2024 | 
 | [Concur (Preview)](connector-concur.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
 | [Couchbase (Preview)](connector-couchbase.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
@@ -52,7 +53,7 @@ This section describes the different release stages and support for each stage.
 | Release stage |Notes  | 
 |:--  |:-- | 
 | End of Support announcement | Before the end of the lifecycle at any stage, an end of support announcement is performed.<br><br>Support Service Level Agreements (SLAs) are applicable for End of Support announced connectors, but all customers must upgrade to a new version of the connector no later than the End of Support date.<br><br>During this stage, the existing connectors function as expected, but objects such as linked service can be created only on the new version of the connector.  | 
-| End of Support | At this stage, the connector is considered as deprecated, and no longer supported.<br>&nbsp;&nbsp;• No plan to fix bugs. <br>&nbsp;&nbsp;• No plan to add any new features. <br><br> If necessary due to outstanding security issues, or other factors, **Microsoft might expedite moving into the final disabled stage at any time, at Microsoft's discretion**.| 
+| End of Support | At this stage, the connector is considered as deprecated, and no longer supported. Your pipeline will not fail due to the deprecation but with below cautions:<br>&nbsp;&nbsp;• No plan to fix bugs. <br>&nbsp;&nbsp;• No plan to add any new features. <br><br> If necessary due to outstanding security issues, or other factors, **Microsoft might expedite moving into the final disabled stage at any time, at Microsoft's discretion**.| 
 |Disabled |All pipelines that are running on legacy version connectors will no longer be able to execute.| 
 
 ## Legacy connectors with updated connectors or drivers available now
@@ -98,6 +99,18 @@ The following connector was deprecated.
 
 If legacy connectors are deprecated with no updated connectors available, you can still use the
 [ODBC Connector](connector-odbc.md) which enables you to continue using these data sources with their native ODBC drivers, or other alternatives. This can enable you to continue using them indefinitely into the future.
+
+## How to find your impacted objects in your data factory
+
+Here's the steps to get your objects which still rely on the deprecated connectors or connectors that have a precise end of support date. It is recommended to take action to upgrade those object to the new connector version before the end of the support date.
+
+1. Open your Azure Data Factory.
+2. Go to Manage – Linked services page.
+3. You should see the Linked Service that is still on legacy version with alert behind it.
+4. Click on the number under the 'Related' column will show you the related objects that utilize this particular Linked service.
+5. To learn more about the upgrade guidance and the comparison between the legacy and the new version, you can navigate to the connector upgrade section within each connector page. 
+
+:::image type="content" source="media/connector-deprecation-plan/linked-services-page.png" alt-text="Screenshot of the linked services page." lightbox="media/connector-deprecation-plan/linked-services-page.png":::
 
 ## Related content
 

@@ -4,13 +4,10 @@ description: Learn how to enable or disable Start VM on Connect for Azure Virtua
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 06/04/2024
+ms.date: 10/07/2024
 ---
 
 # Configure Start VM on Connect
-
-> [!IMPORTANT]
-> Start VM on Connect for Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Start VM on Connect lets you reduce costs by enabling end users to power on the virtual machines (VMs) used as session hosts only when they're needed. You can then power off VMs when they're not needed.
 
@@ -40,7 +37,7 @@ To configure Start VM on Connect, you need to assign the *Desktop Virtualization
 
 You need to add each Azure subscription that contains host pools and session host VMs you want to use with Start VM on Connect as an assignable scope. This role assignment allows Azure Virtual Desktop to power on VMs, check their status, and report diagnostic information for those subscriptions.
 
-To learn how to assign the *Desktop Virtualization Power On Contributor* role to the Azure Virtual Desktop service principal, see [Assign RBAC roles to the Azure Virtual Desktop service principal](service-principal-assign-roles.md).
+To learn how to assign the *Desktop Virtualization Power On Contributor* role to the Azure Virtual Desktop service principal, see [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
 
 ## Enable or disable Start VM on Connect
 

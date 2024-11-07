@@ -42,7 +42,7 @@ To resume your dev box through the Microsoft Dev Box developer portal:
  
 1. On the dev box you want to resume, on the more options menu, select **Resume**. 
 
-In addition, you can also double select on your dev box  in the list of VMs you see in the "Remote Desktop" app. Your dev box automatically starts up and resumes from a hibernating state. 
+In addition, you can also double select on your dev box  in the list of VMs you see in the Windows App. Your dev box automatically starts up and resumes from a hibernating state. 
 
 ## Hibernate your dev box using the Azure CLI
 

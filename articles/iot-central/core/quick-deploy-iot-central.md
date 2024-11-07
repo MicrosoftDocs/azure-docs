@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 03/01/2024
 ms.topic: quickstart
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: mode-other, iot-central-frontdoor
 # Customer intent: As a new user of IoT Central, I want to learn how to get started with an IoT Central application and an IoT device.

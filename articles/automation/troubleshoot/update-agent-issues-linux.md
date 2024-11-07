@@ -260,7 +260,7 @@ Debug: omsadmin.conf file contents:
         URL_TLD=opinsights.azure.com
         DSC_ENDPOINT=https://scus-agentservice-prod-1.azure-automation.net/Accou            nts/00000000-0000-0000-0000-000000000000/Nodes\(AgentId='00000000-0000-0000-0000-000000000000'\)
         OMS_ENDPOINT=https://00000000-0000-0000-0000-000000000000.ods.opinsights            .azure.com/OperationalData.svc/PostJsonDataItems
-        AZURE_RESOURCE_ID=/subscriptions/00000000-0000-0000-0000-000000000000/re            sourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/linuxvm            2
+        AZURE_RESOURCE_ID=/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/re            sourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/linuxvm            2
         OMSCLOUD_ID=0000-0000-0000-0000-0000-0000-00
         UUID=00000000-0000-0000-0000-000000000000
 

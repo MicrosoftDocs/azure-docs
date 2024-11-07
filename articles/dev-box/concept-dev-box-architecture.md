@@ -36,7 +36,7 @@ The network connection that is associated with a dev box pool determines where t
 
 Developers can create a dev box from a dev box pool by using the developer portal. They might choose from a specific pool based on the VM image, compute resources, or the location where the dev box is hosted.
 
-Once the dev box is running, dev box users can [remotely connect](#user-connectivity) to it by using a remote desktop client or directly from the browser. Dev box users have full control over the dev boxes they created, and can manage them from the developer portal. 
+Once the dev box is running, dev box users can [remotely connect](#user-connectivity) to it by using a Remote Desktop client like Windows App, or directly from the browser. Dev box users have full control over the dev boxes they created, and can manage them from the developer portal. 
 
 ## Microsoft Dev Box architecture
 
@@ -46,7 +46,7 @@ Microsoft Dev Box uses the *hosted on-behalf* architecture, which means that the
 
 Microsoft Dev Box manages the capacity and in-region availability in the Microsoft Dev Box subscriptions. Microsoft Dev Box determines the Azure region to host your dev boxes based on the network connection you select when creating a dev box pool.
 
-Microsoft Dev Box encrypts the disk by default to protect your data. You don't need to enable BitLocker, and doing so can prevent you from accessing your dev box.
+To protect your data, Microsoft Dev Box encrypts the disk by default using a platform-managed key. You don't need to enable BitLocker and doing so can prevent you from accessing your dev box.
 
 For more information about data storage and protection in Azure services see: [Azure customer data protection](/azure/security/fundamentals/protection-customer-data). 
 
@@ -102,7 +102,7 @@ When you configure dev boxes to use [Microsoft Entra join](/azure/active-directo
 
 ### User connectivity
 
-When a dev box is running, developers can connect to the dev box by using a Remote Desktop client or directly from within the browser.
+When a dev box is running, developers can connect to the dev box by using a Remote Desktop client like Windows App, or directly from within the browser.
 
 Dev box connectivity is provided by Azure Virtual Desktop. No inbound connections direct from the Internet are made to the dev box. Instead, the following connections are made:
 

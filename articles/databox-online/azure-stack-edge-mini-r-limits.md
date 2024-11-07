@@ -4,8 +4,7 @@ description: Describes system limits and recommended sizes for the Azure Stack E
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: alkohli
