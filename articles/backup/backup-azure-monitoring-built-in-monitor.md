@@ -15,13 +15,11 @@ Azure Backup provides multiple backup solutions based on the backup requirement 
 
 ## Protected and protectable items in Azure Business Continuity Center
 
-You can monitor all your protected and protectable items via Azure Business Continuity Center. Go to the **Protected Items** blade on Azure Business Continuity Center to view your resources protected by one or more solutions and perform actions on them. To view your resources that aren't currently protected by any solution, go to the **Protectable resources** on Azure Business Continuity Center . Learn more about [protected](../business-continuity-center/tutorial-view-protected-items-and-perform-actions.md) and [protectable items](../business-continuity-center/tutorial-view-protectable-resources.md) in Azure Business Continuity Center]
+You can monitor all your protected and protectable items via Azure Business Continuity Center. Go to the **[Protected Items](../business-continuity-center/tutorial-view-protected-items-and-perform-actions.md)** blade in Azure Business Continuity Center to view your resources protected by one or more solutions and perform actions on them. Go to the **[Protectable resources](../business-continuity-center/tutorial-view-protectable-resources.md)** in Azure Business Continuity Center to view your resources that are not currently protected by any solution.
 
 ## Backup Items in Recovery Services vault
 
 You can monitor all your backup items via a Recovery Services vault. Navigating to the **Backup Instances** section in **Backup center** opens a view that provides a detailed list of all backup items of the given workload type, with information on the last backup status for each item, latest restore point available, and so on.
-
-:::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-instances-inline.png" alt-text="Screenshot showing to view Recovery Services vault backup items." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-instances-expanded.png":::
 
 >[!NOTE]
 >For items backed-up to Azure using DPM, the list will show all the data sources protected (both disk and online) using the DPM server. If the protection is stopped for the datasource with backup data retained, the datasource will be still listed in the portal. You can go to the details of the data source to see if the recovery points are present in disk, online or both. Also, datasources for which the online protection is stopped but data is retained,  billing for the online recovery points continue until the data is completely deleted.
