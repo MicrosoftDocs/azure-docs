@@ -307,7 +307,7 @@ deployment has more CPU cores than if you downsized the VM SKU.
 ## Memory-optimized VM SKUs
 
 `NC_E110_448_v1` (running on top of Sapphire Rapids Hardware nodes) or `NC_E94_448_v1` consume all the customer-available resources of the physical
-machine. `NC_E82_448_v1` (running on top of Sapphire Rapids Hardware nodes) or `NC_E70_336_v1` consume 75% of customer-available resources, however,
+machine. `NC_E70_336_v1` consume 75% of customer-available resources, however,
 it is not guarenteed that this will be exactly one-full and one-half NUMA cells.
 This means that an `NC_G24_112_v1` may or may not be able to schedule on a machine
 running an `NC_E70_336_v1` depending on how the `NC_E70_336_v1` VM is scheduled
