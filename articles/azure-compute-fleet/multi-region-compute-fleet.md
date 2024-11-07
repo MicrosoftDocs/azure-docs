@@ -39,7 +39,7 @@ Multi-region Compute Fleet is now available in all Azure Public Regions as part 
 
 # Learn more and get started
  
-Sign up here: Compute Fleet - Preview features Sign up
+Sign up here: [Compute Fleet - Preview features Sign up](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRyYHv8J_khRKqQeYhVEgwSVUMFU1V0M0WU9ZNlA3UFA1SzdIUVY0TEVYSS4u&origin=lprLink&route=shorturl)
 
 After we receive your completed sign-up form, we will contact you with the next steps and onboarding details.
 
