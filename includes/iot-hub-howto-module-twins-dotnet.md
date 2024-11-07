@@ -175,32 +175,7 @@ registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 
 #### Connect using Microsoft Entra
 
-Use [DefaultAzureCredential](https://learn.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential) to use Microsoft Entra to authenticate a connection to IoT Hub. `DefaultAzureCredential` supports different authentication mechanisms and determines the appropriate credential type based of the environment it is executing in. It attempts to use multiple credential types in an order until it finds a working credential. For more information on setting up Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/iot-hub/authenticate-authorize-azure-ad).
-
-To supply parameters to `DefaultAzureCredential`, first create an Entra app registration that contains the Azure client secret, client ID, and tenant ID. An Entra profile requires [IoT Hub Twin Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/internet-of-things#iot-hub-twin-contributor) to enable read and write access to all IoT Hub device and module twins.
-
-In this example, the Entra app registration client secret, client ID, and tenant ID are added to environment variables. These environment variables are used by `DefaultAzureCredential` to authenticate the application.
-
-```csharp
-string clientSecretValue = "xxxxxxxxxxxxxxx";
-string clientID = "xxxxxxxxxxxxxx";
-string tenantID = "xxxxxxxxxxxxx";
-
-Environment.SetEnvironmentVariable("AZURE_CLIENT_SECRET", clientSecretValue);
-Environment.SetEnvironmentVariable("AZURE_CLIENT_ID", clientID);
-Environment.SetEnvironmentVariable("AZURE_TENANT_ID", tenantID);
-
-TokenCredential tokenCredential = new DefaultAzureCredential();
-```
-
-The [TokenCredential](/dotnet/api/azure.core.tokencredential) can then be passed to [ServiceClient.Create](https://review.learn.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.serviceclient.create?#microsoft-azure-devices-serviceclient-create(system-string-azure-core-tokencredential-microsoft-azure-devices-transporttype-microsoft-azure-devices-serviceclienttransportsettings-microsoft-azure-devices-serviceclientoptions)) to create a [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) connection object.
-
-For example:
-
-```csharp
-string hostname = "xxxxxxxxxx.azure-devices.net";
-using var serviceClient = ServiceClient.Create(hostname, tokenCredential, TransportType.Amqp);
-```
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-dotnet](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
 
 ### Read and update module identity fields
 
