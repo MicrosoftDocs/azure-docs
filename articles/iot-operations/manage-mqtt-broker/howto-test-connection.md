@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/30/2024
+ms.date: 11/06/2024
 
 #CustomerIntent: As an operator or developer, I want to test MQTT connectivity with tools that I'm already familiar with to know that I set up my MQTT broker correctly.
 ms.service: azure-iot-operations
@@ -147,7 +147,7 @@ Since the [default broker listener](howto-configure-brokerlistener.md#default-br
 
 The easiest way to test connectivity is to use the *NodePort* service type in the listener. With that, you can use `<nodeExternalIP>:<NodePort>` to connect like in [Kubernetes documentation](https://kubernetes.io/docs/tutorials/services/connect-applications-service/#exposing-the-service).
 
-For example, create a new broker listener with node port service type listening on port 1883: 
+For example, to create a new broker listener with node port service type, service name `aio-broker-nodeport`, and listening on port 1884 (node port 31884): 
 
 # [Portal](#tab/portal)
 
@@ -156,38 +156,21 @@ For example, create a new broker listener with node port service type listening 
 1. Select **MQTT broker listener for NodePort** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 
     > [!CAUTION]
-    > Setting authentication to **None** and not configuring TLS [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
+    > Setting authentication to **None** and not configuring TLS [turns off authentication and TLS for testing purposes only](#only-turn-off-tls-and-authentication-for-testing).
 
     Enter the following settings:
 
     | Setting        | Value                                            |
     | -------------- | ------------------------------------------------ |
-    | Name           | nodeport                                         |
-    | Service name   | aio-broker-nodeport                              |
-    | Port           | 1883                                             |
-    | Authentication | Choose **default** or **None**                   |
-    | Authorization  | Choose **default**                               |
+    | Name           | `aio-broker-nodeport`                            |
+    | Service name   | Leave empty or `aio-broker-nodeport`             |
+    | Port           | 1884                                             |
+    | Authentication | Choose from existing or **None**                 |
+    | Authorization  | Choose from existing or **None**                 |
     | Protocol       | Choose **MQTT**                                  |
-    | Node port      | 31883                                            |
+    | Node port      | 31884                                            |
 
-1. Add TLS settings to the listener by selecting **TLS** on the port.
-
-    | Setting        | Description                                                                                   |
-    | -------------- | --------------------------------------------------------------------------------------------- |
-    | TLS            | Select the *Add* button.                                                                      |
-    | TLS mode       | Choose **Manual** or **Automatic**.                                                           |
-    | Issuer name    | Name of the cert-manager issuer. Required.                                                    |
-    | Issuer kind    | Kind of the cert-manager issuer. Required.                                                    |
-    | Issuer group   | Group of the cert-manager issuer. Required.                                                   |
-    | Private key algorithm | Algorithm for the private key.                                                         |
-    | Private key rotation policy | Policy for rotating the private key.                                             |
-    | DNS names      | DNS subject alternate names for the certificate.                                              |
-    | IP addresses   | IP addresses of the subject alternate names for the certificate.                              |
-    | Secret name    | Kubernetes secret containing an X.509 client certificate.                                     |
-    | Duration       | Total lifetime of the TLS server certificate Defaults to 90 days.                             |
-    | Renew before   | When to begin renewing the certificate.                                                       |
-
-1. Select **Apply** to save the TLS settings.
+1. Add TLS settings to the listener by selecting **TLS** > **Add** on the port. This step isn't required if you don't need TLS for testing. For more information, see [BrokerListener](howto-configure-brokerlistener.md).
 1. Select **Create** to create the listener.
 
 # [Bicep](#tab/bicep)
@@ -198,8 +181,7 @@ For example, create a new broker listener with node port service type listening 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param listenerServiceName string = 'aio-broker-nodeport'
-param listenerName string = 'nodeport'
+param listenerName string = 'aio-broker-nodeport'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
   name: aioInstanceName
@@ -221,26 +203,21 @@ resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2
     name: customLocation.id
     type: 'CustomLocation'
   }
-
   properties: {
-    serviceName: listenerServiceName
     serviceType: 'NodePort'
     ports: [
       {
-        authenticationRef: 'default'
-        port: 1883
-        nodePort: 31883
+        port: 1884
+        nodePort: 31884 // Must be in the range 30000-32767
+        authenticationRef: 'default' // Add BrokerAuthentication reference, omit setting turns off authentication for testing only
         tls: {
-          mode: 'Manual'
-          manual: {
-            secretRef: 'server-cert-secret'
-          }
+          // Add TLS settings
+          // Omitting section turns off TLS for testing only
         }
       }
     ]
   }
 }
-
 ```
 
 Deploy the Bicep file using Azure CLI.
@@ -260,17 +237,18 @@ Create a file named `broker-nodeport.yaml` with the following configuration. Rep
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
-  name: nodeport
+  name: aio-broker-nodeport
   namespace: azure-iot-operations
 spec:
   brokerRef: default
   serviceType: NodePort
-  serviceName: aio-broker-nodeport
   ports:
     - port: 1883
-      nodePort: 31883 # Must be in the range 30000-32767
-      authenticationRef: default # Add BrokerAuthentication reference
-      tls:  # Add TLS settings
+      nodePort: 31884 # Must be in the range 30000-32767
+      authenticationRef: default # Add BrokerAuthentication reference, omit setting turns off authentication for testing only
+      tls:
+        # Add TLS settings
+        # Omitting section turns off TLS for testing only
 ```
 
 Then, use `kubectl` to deploy the configuration:
@@ -280,6 +258,9 @@ kubectl apply -f broker-nodeport.yaml
 ```
 
 ---
+
+> [!NOTE]
+> By Kubernetes default, the node port number [must be in the range 30000-32767](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
 
 Get the node's external IP address:
 
@@ -303,7 +284,7 @@ The output should look similar to the following:
 Use the external IP address and the node port to connect to the broker. For example, to publish a message to the broker:
 
 ```bash
-mosquitto_pub --host <EXTERNAL_IP> --port 31883 --message "hello" --topic "world" --debug # Add authentication and TLS options matching listener settings
+mosquitto_pub --host <EXTERNAL_IP> --port 31884 --message "hello" --topic "world" --debug # Add authentication and TLS options matching listener settings
 ```
 
 If there's no external IP in the output, you might be using a Kubernetes setup that doesn't expose the node's external IP address by default, like many setups of k3s, k3d, or minikube. In that case, you can access the broker with the internal IP along with the node port from machines on the same network. For example, to get the internal IP address of the node:
@@ -326,7 +307,7 @@ Then, use the internal IP address and the node port to connect to the broker fro
 
 Another way to expose the broker to the internet is to use the *LoadBalancer* service type. This method is more complex and might require additional configuration, like setting up port forwarding. 
 
-For example, to create a new broker listener with load balancer service type listening on port 1883:
+For example, to create a new broker listener with load balancer service type, service name `aio-broker-loadbalancer`, and listening on port 1883:
 
 # [Portal](#tab/portal)
 
@@ -341,31 +322,15 @@ For example, to create a new broker listener with load balancer service type lis
 
     | Setting        | Value                                            |
     | -------------- | ------------------------------------------------ |
-    | Name           | loadbalancer                                     |
-    | Service name   | aio-broker-loadbalancer                          |
+    | Name           | `aio-broker-loadbalancer`                        |
+    | Service name   | Leave empty or `aio-broker-loadbalancer`         |
     | Port           | 1883                                             |
-    | Authentication | Choose **default**                               |
-    | Authorization  | Choose **default** or **None**                   |
+    | Authentication | Choose from existing or **None**                 |
+    | Authorization  | Choose from existing or **None**                 |
     | Protocol       | Choose **MQTT**                                  |
 
-1. You can add TLS settings to the listener by selecting **TLS** on the port.
-
-    | Setting        | Description                                                                                   |
-    | -------------- | --------------------------------------------------------------------------------------------- |
-    | TLS            | Select the *Add* button.                                                                      |
-    | TLS mode       | Choose **Manual** or **Automatic**.                                                           |
-    | Issuer name    | Name of the cert-manager issuer. Required.                                                    |
-    | Issuer kind    | Kind of the cert-manager issuer. Required.                                                    |
-    | Issuer group   | Group of the cert-manager issuer. Required.                                                   |
-    | Private key algorithm | Algorithm for the private key.                                                         |
-    | Private key rotation policy | Policy for rotating the private key.                                             |
-    | DNS names      | DNS subject alternate names for the certificate.                                              |
-    | IP addresses   | IP addresses of the subject alternate names for the certificate.                              |
-    | Secret name    | Kubernetes secret containing an X.509 client certificate.                                     |
-    | Duration       | Total lifetime of the TLS server certificate Defaults to 90 days.                             |
-    | Renew before   | When to begin renewing the certificate.                                                       |
-
-1. Select **Apply** to save the TLS settings.
+1. Add TLS settings to the listener by selecting **TLS** > **Add** on the port. This step isn't required if you don't need TLS for testing. For more information, see [BrokerListener](howto-configure-brokerlistener.md).
+1. Select **Create** to create the listener.
 1. Select **Create** to create the listener.
 
 # [Bicep](#tab/bicep)
@@ -376,8 +341,7 @@ For example, to create a new broker listener with load balancer service type lis
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param listenerServiceName string = 'aio-broker-loadbalancer'
-param listenerName string = 'loadbalancer'
+param listenerName string = 'aio-broker-loadbalancer'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
   name: aioInstanceName
@@ -401,17 +365,14 @@ resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listene
   }
 
   properties: {
-    serviceName: listenerServiceName
     serviceType: 'LoadBalancer'
     ports: [
       {
-        authenticationRef: 'default'
         port: 1883
+        authenticationRef: 'default' // Add BrokerAuthentication reference, omit setting turns off authentication for testing only
         tls: {
-          mode: 'Manual'
-          manual: {
-            secretRef: 'server-cert-secret'
-          }
+          // Add TLS settings
+          // Omitting section turns off TLS for testing only
         }
       }
     ]
@@ -437,16 +398,17 @@ Create a file named `broker-loadbalancer.yaml` with configuration like the follo
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
-  name: loadbalancer
+  name: aio-broker-loadbalancer
   namespace: azure-iot-operations
 spec:
   brokerRef: default
   serviceType: LoadBalancer
-  serviceName: aio-broker-loadbalancer
   ports:
     - port: 1883
-      authenticationRef: default # Add BrokerAuthentication reference
-      tls:  # Add TLS settings
+      authenticationRef: default # Add BrokerAuthentication reference, omit setting turns off authentication for testing only
+      tls:
+        # Add TLS settings
+        # Omitting section turns off TLS for testing only
 ```
 
 Use `kubectl` to deploy the configuration:
@@ -558,22 +520,22 @@ The reason that MQTT broker uses TLS and service accounts authentication by defa
 
 1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
-1. Select **MQTT broker listener for NodePort** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
+1. Select **MQTT broker listener for NodePort** or **MQTT broker listener for LoadBalancer** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 
     > [!CAUTION]
     > Setting authentication to **None** and not configuring TLS [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
 
     Enter the following settings:
 
-    | Setting        | Value                                            |
-    | -------------- | ------------------------------------------------ |
-    | Name           | Enter a name for the listener                    |
-    | Service name   | Enter a service name                             |
-    | Port           | 1883                                             |
-    | Authentication | Choose **None**                                  |
-    | Authorization  | Choose **None**                                  |
-    | Protocol       | Choose **MQTT**                                  |
-    | Node port      | 31883 if using node port                         |
+    | Setting        | Value                                                 |
+    | -------------- | ----------------------------------------------------- |
+    | Name           | Enter a name for the listener                         |
+    | Service name   | Enter a service name                                  |
+    | Port           | Enter a port number                                   |
+    | Authentication | Choose **None**                                       |
+    | Authorization  | Choose **None**                                       |
+    | Protocol       | Choose **MQTT**                                       |
+    | Node port      | Enter a number between 30000-32767 if using node port |
 
 1. Select **Create** to create the listener.
 
@@ -585,7 +547,6 @@ The reason that MQTT broker uses TLS and service accounts authentication by defa
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param listenerServiceName string = '<SERVICE_NAME>'
 param listenerName string = '<LISTENER_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
@@ -610,12 +571,11 @@ resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2
   }
 
   properties: {
-    serviceName: listenerServiceName
     serviceType: <SERVICE_TYPE> // 'LoadBalancer' or 'NodePort'
     ports: [
       {
-        port: 1883
-        nodePort: 31883 //If using NodePort
+        port: <PORT_NUMBER>
+        nodePort: <PORT_NUMBER_BETWEEN_30000_32767> // If using NodePort
         // Omitting authenticationRef and tls for testing only
       }
     ]
@@ -641,10 +601,9 @@ metadata:
 spec:
   brokerRef: default
   serviceType: <SERVICE_TYPE> # LoadBalancer or NodePort
-  serviceName: <SERVICE_NAME>
   ports:
-    - port: 1883
-      nodePort: 31883 # If using NodePort
+    - port: <PORT_NUMBER>
+      nodePort: <PORT_NUMBER_BETWEEN_30000_32767> # If using NodePort
       # Omitting authenticationRef and tls for testing only
 ```
 

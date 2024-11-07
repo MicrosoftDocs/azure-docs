@@ -28,7 +28,7 @@ To link a BrokerListener to a *BrokerAuthentication* resource, specify the `auth
 
 ## Default BrokerAuthentication resource
 
-Azure IoT Operations deploys a default *BrokerAuthentication* resource named `default` linked with the *default* listener in the `azure-iot-operations` namespace. It's configured to only use Kubernetes Service Account Tokens (SATs) for authentication.
+Azure IoT Operations deploys a default *BrokerAuthentication* resource named `default` linked with the *default* listener in the `azure-iot-operations` namespace. It's configured to only use [Kubernetes Service Account Tokens (SATs)](#kubernetes-service-account-tokens) for authentication.
 
 > [!IMPORTANT]
 > The service account token (SAT) authentication method in the default *BrokerAuthentication* resource is required for components in the Azure IoT Operations to function correctly. Avoid updating or deleting the default *BrokerAuthentication* resource. 
