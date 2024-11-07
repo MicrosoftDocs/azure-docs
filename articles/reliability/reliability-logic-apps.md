@@ -8,7 +8,7 @@ ms.custom: subject-reliability, references_regions
 services: logic-apps
 ms.service: azure-logic-apps
 ms.date: 11/06/2024
-#Customer intent: As an engineer responsible for business continuity, I want to understand who need to understand the details of how Azure Logic Apps works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations. 
+#Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Logic Apps works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different situations.
 
 ---
 
