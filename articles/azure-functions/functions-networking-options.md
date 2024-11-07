@@ -5,7 +5,7 @@ author: ggailey777
 ms.topic: conceptual
 ms.custom:
   - build-2024
-ms.date: 4/6/2023
+ms.date: 11/7/2023
 ms.author: cachai
 ---
 
@@ -76,17 +76,16 @@ You can't use service endpoints to restrict access to apps that run in an App Se
 
 To learn how to set up service endpoints, see [Establish Azure Functions private site access](functions-create-private-site-access.md).
 
-## Virtual network integration
+## Outbound networking features
 
-Virtual network integration allows your function app to access resources inside a virtual network.
+### Virtual network integration
+
+Virtual network integration gives your function app access to resources in your virtual network. Once integrated, your function app will make outbound calls using a source IP address from the subnet you've integrated it with. This allows your app to access private endpoints in the virtual network or to access resources with rules allowing traffic from only select subnets. 
+
 Azure Functions supports two kinds of virtual network integration:
 
-[!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
-
-Virtual network integration in Azure Functions uses shared infrastructure with App Service web apps. To learn more about the two types of virtual network integration, see:
-
-* [Regional virtual network integration](../app-service/overview-vnet-integration.md#regional-virtual-network-integration)
-* [Gateway-required virtual network integration](../app-service/configure-gateway-required-vnet-integration.md)
+* [Regional virtual network integration](#regional-virtual-network-integration) for apps running on the Flex Consumption, Premium, Dedicated (App Service), and Container Apps hosting plans
+* [Gateway-required virtual network integration](../app-service/configure-gateway-required-vnet-integration.md) for apps running on the Dedicated (App Service) hosting plan
 
 To learn how to set up virtual network integration, see [Enable virtual network integration](#enable-virtual-network-integration).
 
