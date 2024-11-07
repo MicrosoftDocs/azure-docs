@@ -202,4 +202,4 @@ If you're not going to continue to use this application or go to the next tutori
 After you configure a site-to-site connection, you can add a point-to-site connection to the same gateway.
 
 > [!div class="nextstepaction"]
-> [Point-to-site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> [Point-to-site VPN connections](point-to-site-certificate-gateway.md)
