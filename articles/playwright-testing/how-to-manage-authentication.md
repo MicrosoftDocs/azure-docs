@@ -81,9 +81,9 @@ To enable authentication using access tokens:
 
 ::: zone pivot="playwright-test-runner"
 
-1. Set up your environment
+3. Set up your environment
 
-    To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Make sure this environment variable is available in your setup where you are running tests.
+    To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
 
     We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
 
@@ -93,7 +93,7 @@ To enable authentication using access tokens:
         npm i --save-dev dotenv
         ```
 
-    1. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
+    2. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
         
         ```
         PLAYWRIGHT_SERVICE_ACCESS_TOKEN={MY-ACCESS-TOKEN}
@@ -107,7 +107,7 @@ To enable authentication using access tokens:
 
 3. Set up your environment
 
-    To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Make sure this environment variable is available in your setup where you are running tests.
+    To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
 
 ::: zone-end
 

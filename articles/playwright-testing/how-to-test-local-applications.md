@@ -1,12 +1,14 @@
 ---
-title: Use remote browsers for local applications
+title: Use remote browsers for local or private applications
 description: Learn how to run end-to-end for locally deployed applications with Microsoft Playwright Testing Preview. Use cloud-hosted browsers to test apps on localhost or private networks.
 ms.topic: how-to
 ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
+zone_pivot_group_filename: playwright-testing/ZonePivotGroups.json
+zone_pivot_groups: microsoft-playwright-testing
 ---
 
-# Use cloud-hosted browsers for locally deployed apps with Microsoft Playwright Testing Preview
+# Use cloud-hosted browsers for locally deployed or privately hosted apps with Microsoft Playwright Testing Preview
 
 Learn how to use Microsoft Playwright Testing Preview to run end-to-end tests for locally deployed applications. Microsoft Playwright Testing uses cloud-hosted, remote browsers for running Playwright tests at scale. You can use the service to run tests for apps on localhost, or that you host on your infrastructure.
 
@@ -21,7 +23,9 @@ To expose local networks and resources to remote browsers, you can use the `expo
 
 You can specify one or multiple networks by using a list of rules. For example, to expose test/staging deployments and [localhost](https://en.wikipedia.org/wiki/Localhost): `*.test.internal-domain,*.staging.internal-domain,<loopback>`.
 
-You can configure the `exposeNetwork` option in `playwright.service.config.ts`. The following example shows how to expose the `localhost` network by using the [`<loopback>`](https://en.wikipedia.org/wiki/Loopback) rule:
+::: zone pivot="playwright-test-runner"
+
+You can configure the `exposeNetwork` option in `playwright.service.config.ts`. The following example shows how to expose the `localhost` network by using the [`<loopback>`](https://en.wikipedia.org/wiki/Loopback) rule. You can also replace `localhost` with a domain that you want to enable for the service.
 
 ```typescript
 import { getServiceConfig, ServiceOS } from "@azure/microsoft-playwright-testing";
@@ -43,6 +47,27 @@ You can now reference `localhost` in the Playwright test code, and run the tests
 ```bash
 npx playwright test --config=playwright.service.config.ts --workers=20
 ```
+::: zone-end
+
+
+::: zone pivot="nunit-test-runner"
+
+You can configure the `ExposeNetwork` option in `.runsettings`. The following example shows how to expose the `localhost` network by using the [`<loopback>`](https://en.wikipedia.org/wiki/Loopback) rule. You can also replace `localhost` with a domain that you want to enable for the service. 
+
+```xml
+    <TestRunParameters>
+        <!--Use this option to connect to local resources from your Playwright test code without having to configure additional firewall-->
+        <Parameter name="ExposeNetwork" value="loopback" />
+    </TestRunParameters>
+```
+
+You can now reference `localhost` in the Playwright test code, and run the tests on cloud-hosted browsers with Microsoft Playwright Testing:
+
+```bash
+dotnet test --settings:.runsettings --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
+```
+
+::: zone-end
 
 ## Related content
 

@@ -13,14 +13,14 @@ zone_pivot_groups: microsoft-playwright-testing
 ::: zone pivot="playwright-test-runner"
 
 This article shows you how to use the options available in the `playwright.service.config.ts` file that was generated for you. 
-If you don't have this file in your code, follow the QuickStart guide, see [Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview](./quickstart-run-end-to-end-tests.md) 
+If you don't have this file in your code, follow [Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview](./quickstart-run-end-to-end-tests.md) 
 
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
 
 This article shows you how to use the options available in the `.runsettings` file. 
-If you don't have this file in your code, follow the QuickStart guide, see [Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview](./quickstart-run-end-to-end-tests.md) 
+If you don't have this file in your code, follow [Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview](./quickstart-run-end-to-end-tests.md) 
 
 ::: zone-end
 
@@ -171,6 +171,8 @@ Here's version of the `.runsettings` file with all the available options:
         <Parameter name="RunId" value="sample-run-id1" />
         <!--Select if you want to use cloud-hosted browsers to run your Playwright tests.-->
         <Parameter name="UseCloudHostedBrowsers" value="true" />
+        <!--Use this option to connect to local resources from your Playwright test code without having to configure additional firewall-->
+        <Parameter name="ExposeNetwork" value="loopback" />
         <!--Select the authentication method you want to use with Entra-->
         <Parameter name="AzureTokenCredentialType" value="DefaultAzureCredential" />
         <!--Enable/disable GitHub summary in GitHub Actions workflow.-->
@@ -223,7 +225,6 @@ Here's version of the `.runsettings` file with all the available options:
       <Parameter name="ServiceAuthType" value="EntraId" />
       ```
 
-
 * **`os`**:
     - **Description**: This setting allows you to choose the operating system where the browsers running Playwright tests are hosted.
     - **Available Options**:
@@ -256,6 +257,12 @@ Here's version of the `.runsettings` file with all the available options:
       ```xml
       <Parameter name="UseCloudHostedBrowsers" value="true" />
       ```   
+* **`ExposeNetwork`**
+    - **Description**: This setting allows you to connect to local resources from your Playwright test code without having to configure another firewall settings. To learn more, see [how to test local applications](./how-to-test-local-applications.md)
+    - **Example**:
+      ```xml
+      <Parameter name="ExposeNetwork" value="loopback" />
+      ```
 
 * **`reporter`**
     - **Description**: You can publish your test results and artifacts to the service using `microsoft-playwright-testing` logger. You can disable reporting by removing this from your `.runsettings` or by setting it to false. 
@@ -264,6 +271,7 @@ Here's version of the `.runsettings` file with all the available options:
       ```xml
       <Logger friendlyName="microsoft-playwright-testing" enabled="True" />
       ```
+
 * **`EnableGitHubSummary`**:
     - **Description**: This setting allows you to configure the Microsoft Playwright Testing service reporter. You can choose whether to include the test run summary in the GitHub summary when running in GitHub Actions.
     - **Default Value**: true

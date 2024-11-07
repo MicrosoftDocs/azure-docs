@@ -195,7 +195,7 @@ Microsoft Entra ID is the default and recommended authentication for the service
 az login
 ```
 > [!NOTE]
-> If you're a part of multiple Microsoft Entra tenants, make sure you sign in to the tenant where your workspace belongs. You can get the tenant ID from Azure portal. See [Find your Microsoft Entra Tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant). Once you get the ID, sign-in using the command `az login --tenant <TenantID>`
+> If you're a part of multiple Microsoft Entra tenants, make sure you sign in to the tenant where your workspace belongs. You can get the tenant ID from Azure portal. For more information, see [Find your Microsoft Entra Tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant). Once you get the ID, sign-in using the command `az login --tenant <TenantID>`
 
 ##### Set up authentication using access tokens
 
@@ -228,7 +228,7 @@ Enable artifacts such as screenshot, videos and traces to be captured by Playwri
 - For videos, see [record videos for your tests](https://playwright.dev/dotnet/docs/videos#introduction)
 - For traces, see [recording a trace](https://playwright.dev/dotnet/docs/trace-viewer-intro#recording-a-trace)
 
-Once you collect these artifacts, make sure you attach them to the test path. For more information and example, see [sample configuration for NUnit](https://aka.ms/mpt/nunit-sample)
+Once you collect these artifacts, make sure you attach them to the test path. For more information, see [sample configuration for NUnit](https://aka.ms/mpt/nunit-sample)
 
 ::: zone-end
 
@@ -261,7 +261,7 @@ You've now prepared the configuration for publishing test results and artifacts 
 dotnet test --settings:.runsettings
 ```
 
-The settings for your test run is defined in `.runsettings` file. See [how to use service package options](./how-to-use-service-config-file.md#options-in-runsettings-file)
+The settings for your test run is defined in `.runsettings` file. For more information, see [how to use service package options](./how-to-use-service-config-file.md#options-in-runsettings-file)
 
 > [!NOTE]
 > For the Reporting feature of Microsoft Playwright Testing, you get charged based on the number test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with publishing single test result instead of your full test suite to avoid exhausting your free trial limits.

@@ -153,7 +153,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
         branches: [ main, master ]
       pull_request:
         branches: [ main, master ]
-    permissions: # Required when using Micosoft Entra ID to authenticate
+    permissions: # Required when using Microsoft Entra ID to authenticate
       id-token: write
       contents: read
     jobs:
@@ -231,7 +231,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
 Update the CI workflow definition to run your Playwright tests with the Playwright NUnit CLI. Pass the `.runsettings` file as an input parameter for the Playwright CLI. You configure your environment by specifying environment variables.
 
-1. Open the CI workflow definition
+1. Open the CI workflow definition.
 
 1. Add the following steps to run your Playwright tests in Microsoft Playwright Testing.
 
@@ -340,12 +340,12 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
 ::: zone-end
 
-1. Save and commit your changes.
+3. Save and commit your changes.
 
     When the CI workflow is triggered, your Playwright tests run in your Microsoft Playwright Testing workspace on cloud-hosted browsers, across 20 parallel workers. The results and artifacts collected are published to the service and can be viewed on service portal.
 
 > [!NOTE]
-> Reporting feature is enabled by default for existing workspaces. This is being rolled out in stages and will take a few days. To avoid failures, confirm that `Rich diagnostics using reporting` setting is ON for your workspace before proceeding. See, [Enable reporting for workspace](./how-to-use-service-features.md#manage-feature-for-the-workspace).
+> Reporting feature is enabled by default for existing workspaces. This is being rolled out in stages and will take a few days. To avoid failures, confirm that `Rich diagnostics using reporting` setting is ON for your workspace before proceeding. For more information, see, [Enable reporting for workspace](./how-to-use-service-features.md#manage-feature-for-the-workspace).
 
 > [!CAUTION]
 > With Microsoft Playwright Testing, you get charged based on the number of total test minutes consumed and test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free test minutes and test results.
