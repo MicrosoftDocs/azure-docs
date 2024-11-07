@@ -63,6 +63,23 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 |**Australia** | **Australia**| • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|
 |**Africa** | **South Africa**| • South Africa North |
 
+## Data retention
+
+Data from Microsoft Sentinel is retained until the earliest of the following dates:
+
+- The customer [removes Microsoft Sentinel from their workspace](offboard.md)
+- As per a retention policy set by the customer
+
+Until that time, customers can always delete their data.
+
+Customer data is kept and is available while the license is under a grace period or in suspended mode. At the end of this period, and no later than 90 days from contract termination or expiration, the data is erased from Microsoft's systems to make it unrecoverable.
+
+## Data sharing for Microsoft Sentinel
+
+Microsoft Sentinel may share data, including customer data, among the following Microsoft products:
+
+- Microsoft Defender XDR / Microsoft's unified security operations platform
+- Azure Log Analytics
 ## Related content
 
 For more information, see details about [Azure regions](/azure/azure-monitor/logs/workspace-design#azure-regions?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) when designing your workspace architecture.
