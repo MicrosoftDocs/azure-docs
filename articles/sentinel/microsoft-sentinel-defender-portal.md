@@ -4,7 +4,7 @@ description: Learn about the Microsoft Sentinel experience when you onboard Micr
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 10/31/2024
+ms.date: 11/07/2024
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -21,6 +21,7 @@ This article describes the Microsoft Sentinel experience in the Microsoft Defend
 - Blog post: [General availability of the Microsoft unified security operations platform](https://aka.ms/unified-soc-announcement)
 - Blog post: [Frequently asked questions about the unified security operations platform](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/frequently-asked-questions-about-the-unified-security-operations/ba-p/4212048)
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
+- [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md)
 
 For preview, Microsoft Sentinel is available in the Defender portal without Microsoft Defender XDR or an E5 license.
 
@@ -34,7 +35,7 @@ The following table describes the new or improved capabilities available in the 
 |SOC optimizations   | Get high-fidelity and actionable recommendations to help you identify areas to:<br>- Reduce costs <br>- Add security controls<br>- Add missing data<br>SOC optimizations are available in the Defender and Azure portals, are tailored to your environment, and are based on your current coverage and threat landscape.  <br><br>For more information, see the following articles:<br>- [Optimize your security operations](soc-optimization/soc-optimization-access.md) <br>- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)  |
 |Microsoft Copilot in Microsoft Defender| When investigating incidents in the Defender portal, <br>- [Summarize incidents](/defender-xdr/security-copilot-m365d-incident-summary) <br>- [Analyze scripts](/defender-xdr/security-copilot-m365d-script-analysis)<br>- [Analyse files](/defender-xdr/copilot-in-defender-file-analysis)<br>- [Create incident reports](/defender-xdr/security-copilot-m365d-create-incident-report) <br><br>When hunting for threats in advanced hunting, create ready-to-run KQL queries by using the query assistant. For more information, see [Microsoft Copilot for Security in advanced hunting](/defender-xdr/advanced-hunting-security-copilot).|
 
-The following table describes the additional capabilities available in the Defender portal with the integration of Microsoft Sentinel and Microsoft Defender XDR as part of Microsoft's unified security operations platform.
+The following table describes the additional capabilities available in the Defender portal with the integration of Microsoft Sentinel and Microsoft Defender XDR as part of Microsoft's unified security operations platform. 
 
 | Capabilities      | Description              |
 | ----------------- | ------------------------ |
