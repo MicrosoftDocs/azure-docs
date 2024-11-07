@@ -90,9 +90,9 @@ Azure Update Manager allows you to create and manage pre and post events on sche
 ### Alerting (preview)
 Azure Update Manager allows you to enable alerts to address events as captured in updates data. [Learn more](manage-alerts.md).
 
-### Azure Stack HCI patching
+### Azure Local patching
 
-Azure Update Manager allows you to patch Azure Stack HCI cluster. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
+Azure Update Manager allows you to patch Azure local instance. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
 
 ## October 2023
 
