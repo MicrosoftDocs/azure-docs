@@ -155,8 +155,15 @@ You can use the following connection string to connect to the Event Hubs emulato
 ```
 ### [Using Kafka](#tab/using-kafka)
 
-This section would talk about Interacting with EH emulator using Kafka. 
+While interacting with Kafka, ensure to set the Producer and consumer config as below:
 
+```
+•	“security.protocol”: "SASL_PLAINTEXT"
+•	“sasl.mechanism”: "PLAIN"
+
+```
+> [!IMPORTANT]
+> When using Kafka, only Producer and consumer APIs are compatible with Event Hubs emulator. 
 
 ### [Using AMQP](#tab/using-amqp)
 
