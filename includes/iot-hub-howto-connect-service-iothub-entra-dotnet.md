@@ -14,7 +14,7 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 
 Use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to use Microsoft Entra to authenticate a connection to IoT Hub. `DefaultAzureCredential` supports different authentication mechanisms and determines the appropriate credential type based of the environment it is executing in. It attempts to use multiple credential types in an order until it finds a working credential. For more information on setting up Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/authenticate-authorize-azure-ad).
 
-To create required Entra app parameters to `DefaultAzureCredential`, create an Entra app registration that contains the Azure client secret, client ID, and tenant ID. For more information, see [](/entra/identity-platform/quickstart-register-app).
+To create required Entra app parameters to `DefaultAzureCredential`, create an Entra app registration that contains the Azure client secret, client ID, and tenant ID. For more information, see [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
 
 Entra apps require permissions depending on operations performed:
 
@@ -39,7 +39,7 @@ The resulting [TokenCredential](/dotnet/api/azure.core.tokencredential) can then
 * [JobClient](/dotnet/api/microsoft.azure.devices.jobclient.create?#microsoft-azure-devices-jobclient-create(system-string-azure-core-tokencredential-microsoft-azure-devices-httptransportsettings))
 * [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager.create?#microsoft-azure-devices-registrymanager-create(system-string-azure-core-tokencredential-microsoft-azure-devices-httptransportsettings))
 * [DigitalTwinClient](/dotnet/api/microsoft.azure.devices.digitaltwinclient)
-* [ServiceClient]((/dotnet/api/microsoft.azure.devices.serviceclient.create?#microsoft-azure-devices-serviceclient-create(system-string-azure-core-tokencredential-microsoft-azure-devices-transporttype-microsoft-azure-devices-serviceclienttransportsettings-microsoft-azure-devices-serviceclientoptions)))
+* [ServiceClient](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.serviceclient.create?view=azure-dotnet#microsoft-azure-devices-serviceclient-create(system-string-azure-core-tokencredential-microsoft-azure-devices-transporttype-microsoft-azure-devices-serviceclienttransportsettings-microsoft-azure-devices-serviceclientoptions))
 
 In this example, the `TokenCredential` is passed to `ServiceClient.Create` to create a [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) connection object.
 
