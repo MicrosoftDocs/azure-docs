@@ -18,7 +18,7 @@ This article shows how to create a function that runs based on events raised whe
 > * Create an event-based Blob Storage triggered function in a new project.
 > * Validate locally within Visual Studio Code using the Azurite emulator.
 > * Create a blob storage container in a new storage account in Azure.
-> * Create a function app in the Flex Consumption plan (preview).
+> * Create a function app in the Flex Consumption plan.
 > * Create an event subscription to the new blob container.
 > * Deploy and validate your function code in Azure.
 

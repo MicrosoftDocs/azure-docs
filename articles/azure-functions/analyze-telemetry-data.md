@@ -161,8 +161,6 @@ traces
 
 ## Query Flex Consumption code deployment logs
 
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
-
 The following query can be used to search for all code deployment logs for the current function app within the specified time period:
 
 ```kusto
