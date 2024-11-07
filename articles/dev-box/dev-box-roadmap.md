@@ -76,7 +76,7 @@ Microsoft Dev Box aims to provide a "like-local" developer experience that is as
 - [Single Sign On (SSO)](https://developercommunity.visualstudio.com/t/Enable-single-sign-on-for-dev-boxes/10720478): as a developer, you no longer need to provide your sign-in credentials every time you access your Dev Box.
 - [Visual Studio 2022 RDP optimizations](https://developercommunity.microsoft.com/t/VS-and-VS-Code-optimizations-for-Dev-Box/10720946): as a developer, type and navigate your code without any noticeable latency.
 - [Auto network repair](https://developercommunity.visualstudio.com/t/Enable-Network-Adapter-after-wrongly-dis/10656306): as a developer, if you lose connectivity to your Dev Box due to miss configuring your Dev Box network adapter, Dev Box will automatically reset your network connection.
-- [Azure region optimizations based on user locations:](https://developercommunity.visualstudio.com/t/Move-VM-to-different-poolregion/10277787) as a developer, easily create your new Dev Box in an optimal region based on your location. As a dev center admin, optimize the location of existing Dev Boxes based on end user location and available capacity. 
+- [Azure region optimizations based on user locations:](https://developercommunity.visualstudio.com/t/Move-VM-to-different-poolregion/10277787) as a dev center admin, optimize the location of existing Dev Boxes based on end user location and available capacity. 
 
 **Service health & reliability**
 
