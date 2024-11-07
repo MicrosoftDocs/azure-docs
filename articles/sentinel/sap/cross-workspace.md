@@ -66,7 +66,7 @@ To do this, use the following steps:
 
 - **Use Log Analytics in Azure Monitor to manage access to data by resource**. For more information, see [Manage access to Microsoft Sentinel data by resource](../resource-context-rbac.md).
 
-- **Associate SAP resources with an Azure resource ID**. Specify the required `azure_resource_id` field in the connector configuration section on the data collector that you use to ingest data from the SAP system into Microsoft Sentinel. For more information, see [Connector configuration](reference-systemconfig-json.md#connector-configuration).
+- **Associate SAP resources with an Azure resource ID**. This option is supported only for a data connector agent deployed via CLI. Specify the required `azure_resource_id` field in the connector configuration section on the data collector that you use to ingest data from the SAP system into Microsoft Sentinel. For more information, see [Deploy an SAP data connector agent from the command line](deploy-command-line.md) and [Connector configuration](reference-systemconfig-json.md#connector-configuration).
 
 :::image type="content" source="media/cross-workspace/sap-cross-workspace-combined.png" alt-text="Diagram that shows how to work with the Microsoft Sentinel solution for SAP applications by using the same workspace for SAP and SOC data." border="false":::
 

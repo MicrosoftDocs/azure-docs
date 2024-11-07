@@ -83,7 +83,7 @@ A RADIUS server can also integrate with other external identity systems. This op
 
 For P2S gateway configuration steps, see [Configure P2S - RADIUS](point-to-site-how-to-radius-ps.md).
 
-## What are the client configuration requirements?
+## <a name="client"></a>What are the client configuration requirements?
 
 The client configuration requirements vary, based on the VPN client that you use, the authentication type, and the protocol. The following table shows the available clients and the corresponding articles for each configuration.
 
