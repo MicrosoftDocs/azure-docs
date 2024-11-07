@@ -78,6 +78,30 @@ Application Gateway is deployed into your virtual network. Configure a network s
 
 Use a custom WAF rule to check the `X-Azure-FDID` header value.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
 
+# [Application Gateway for Containers](#tab/agc)
+
+To configure traffic routing in Azure Kubernetes Service (AKS) with Application Gateway for Containers, set up an HTTPRoute rule to match incoming traffic from Azure Front Door using the X-Azure-FDID header.
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: http-route
+  namespace: {namespace}
+spec:
+  parentRefs:
+  - name: {gateway-name}
+  rules:
+  - matches:
+    - headers:
+      - type: Exact
+        name: X-Azure-FDID
+        value: "xxxxxxxx-xxxx-xxxx-xxxx-xxx"
+    backendRefs:
+    - name: {backend-name}
+      port: {port}
+```
+
 # [IIS](#tab/iis)
 
 When you run [Microsoft Internet Information Services (IIS)](https://www.iis.net/) on an Azure-hosted virtual machine, you should create a network security group in the virtual network that hosts the virtual machine. Configure a network security group rule to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, and disallow inbound traffic on ports 80 and 443 from the *Internet* service tag.
