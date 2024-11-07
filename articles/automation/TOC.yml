@@ -254,20 +254,18 @@
               href: troubleshoot/desired-state-configuration.md
     - name: Change Tracking and Inventory using AMA
       items:
-        - name: Overview
-          items:
-            - name: About Change tracking and inventory
-              href: change-tracking/overview-monitoring-agent.md
-            - name: Change tracking extension version
-              href: change-tracking/extension-version-details.md
-            - name: Supported regions
-              href: change-tracking/region-mappings-monitoring-agent.md
-            - name: Enable change tracking and inventory
-              href: change-tracking/enable-vms-monitoring-agent.md
-            - name: Manage change tracking and inventory
-              href: change-tracking/manage-change-tracking-monitoring-agent.md
-            - name: Configure alerts
-              href: change-tracking/configure-alerts.md
+        - name: About Change tracking and inventory
+          href: change-tracking/overview-monitoring-agent.md
+        - name: Change tracking extension version
+          href: change-tracking/extension-version-details.md
+        - name: Supported regions
+          href: change-tracking/region-mappings-monitoring-agent.md
+        - name: Enable change tracking and inventory
+          href: change-tracking/enable-vms-monitoring-agent.md
+        - name: Manage change tracking and inventory
+          href: change-tracking/manage-change-tracking-monitoring-agent.md
+        - name: Configure alerts
+          href: change-tracking/configure-alerts.md
     - name: Migration from Change Tracking and Inventory using AMA to Change Tracking using LA (Retired)
       items:
         - name: Migration from Log Analytics to Azure Monitoring Agent version
