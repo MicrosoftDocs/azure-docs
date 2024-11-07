@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: conceptual
-ms.date: 10/03/2024
+ms.date: 11/07/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -104,7 +104,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** | &check; | &check; | Taipei |
 | **[Fastweb](https://www.fastweb.it/grandi-aziende/dati-voce/scheda-prodotto/fast-company/)** | &check; |&check; | Milan |
 | **[Fibrenoire](https://fibrenoire.ca/en/services/cloudextn-2/)** | &check; | &check; | Montreal<br/>Quebec City<br/>Toronto2 |
-| **[Flo Networks](https://flo.net/)** | &check; | &check; | Dallas<br/>Los Angeles<br/>Miami<br/>Queretaro(Mexico City)<br/>Sao Paulo<br/>Washington DC<br/>**Locations are listed under Neutrona (company name is Neutrona Networks) Networks and Transtelco as providers for circuit creation* |
+| **[Flo Networks](https://flo.net/microsoft)** | &check; | &check; | Dallas<br/>Los Angeles<br/>Miami<br/>Queretaro(Mexico City)<br/>Sao Paulo<br/>Washington DC<br/>**Locations are listed under Neutrona (company name is Neutrona Networks) Networks and Transtelco as providers for circuit creation* |
 | **[GBI](https://www.gbiinc.com/microsoft-azure/)** | &check; | &check; | Dubai2<br/>Frankfurt |
 | **[GÉANT](https://www.geant.org/Networks)** | &check; | &check; | Amsterdam<br/>Amsterdam2<br/>Dublin<br/>Frankfurt<br/>Madrid2<br/>Marseille |
 | **[GlobalConnect](https://www.globalconnect.no/)** | &check; | &check; | Amsterdam<br/>Copenhagen<br/>Oslo<br/>Stavanger<br/>Stockholm | 
