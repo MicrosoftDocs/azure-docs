@@ -26,7 +26,7 @@ To create a Neon Serverless Postgres resource, you must register the `Neon Serve
 1. Under Azure services, choose **Subscriptions**.
 1. Choose the subscription you plan to use. 
 1. From your subscription, select **Settings** > **Resource providers**.
-1. In the Filter by name search box, type **ADD NEON NAME HERE**.
+1. In the Filter by name search box, type **Neon Serverless Postgres**.
 1. Select the ellipse next to `Neon Serverless Postgres` and choose **Register**. 
 
 ## Create a Neon Serverless Postgres resource
