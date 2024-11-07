@@ -227,7 +227,7 @@ When attempting to create an Export to a storage account with a firewall, the us
 }
 ```
 
-You can check for the permissions on the storage account by referring to the steps in [Check access for a user to a single Azure resource](https://https://learn.microsoft.com/en-us/azure/role-based-access-control/check-access). 
+You can check for the permissions on the storage account by referring to the steps in [Check access for a user to a single Azure resource](../../role-based-access-control/check-access.md). 
 
 ## Next steps
 
