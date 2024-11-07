@@ -16,14 +16,10 @@ ms.collection: usx-security
 
 # Microsoft Sentinel solution for SAP applications `systemconfig.ini` file reference
 
-The *systemconfig.ini* file is used to configure the behavior of the Microsoft Sentinel for SAP applications data connector agent. This article describes the options available in each section of the configuration file.
+The *systemconfig.ini* file is the legacy file used to configure the behavior of the Microsoft Sentinel for SAP applications data connector agent in versions earlier than June 22, 2023. This article describes the options available in each section of the configuration file.
 
-Content in this article is intended for your **SAP BASIS** teams.
+Content in this article is intended for your **SAP BASIS** teams. This article is not relevant if you've used the [recommended deployment procedure](deploy-data-connector-agent-container.md) from the portal. If you've installed a newer version of the agent from the command line, use the [Microsoft Sentinel solution for SAP applications `systemconfig.json` file reference](reference-systemconfig-json.md) instead.
 
-> [!IMPORTANT]
-> Microsoft Sentinel solution for SAP applications uses the *[systemconfig.json file](reference-systemconfig-json.md)* for agent versions released on or after June 22, 2023. For previous agent versions, you must still use the *systemconfig.ini* file.
->
-> If you update the agent version, the configuration file is automatically migrated.
 
 ## Systemconfig configuration file sections
 
@@ -249,4 +245,3 @@ For more information, see:
 
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Troubleshoot your Microsoft Sentinel solution for SAP applications solution deployment](sap-deploy-troubleshoot.md)
-- [Systemconfig.json file reference](reference-systemconfig-json.md)
