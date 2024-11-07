@@ -6,7 +6,7 @@ ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
-ms.date: 09/30/2024
+ms.date: 11/07/2024
 
 
 #Customer intent: As a security operations manager, I want to understand the Microsoft Sentinel's feature availability across different Azure environments so that I can effectively plan and manage our security operations.
@@ -17,11 +17,17 @@ ms.date: 09/30/2024
 
 This article describes the features available in Microsoft Sentinel across different Azure environments. Features are listed as GA (generally available), public preview, or shown as not available. 
 
-While Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md), this article only covers Azure environments. Microsoft Sentinel within the Microsoft unified security operations platform is currently supported only in the Azure commercial cloud.
-
 > [!NOTE]
 > These lists and tables do not include feature or bundle availability in the Azure Government Secret or Azure Government Top Secret clouds. 
 > For more information about specific availability for air-gapped clouds, please contact your account team.
+
+## Experience in the Defender portal
+
+Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md) as Microsoft's unified security operations (SecOps) platform. In the Defender portal, all features in general availability are available in both commercial and GCC High clouds. Features still in preview are available only in the commercial cloud.
+
+While [attack disruption in the Defender portal](/defender-xdr/automatic-attack-disruption) is generally available, [SAP support for attack disruption](/defender-xdr/automatic-attack-disruption#automated-response-actions-for-sap-with-microsoft-sentinel) with Microsoft's unified SecOps platform is available only in the commercial cloud.
+
+For more information, see [Microsoft Defender XDR for US Government customers](/defender-xdr/usgov).
 
 ## Analytics		
 
