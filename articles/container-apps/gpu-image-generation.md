@@ -136,4 +136,4 @@ If you aren't going to use these services long-term, use the steps to remove eve
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Improve cold start for your serverless GPUs](gpu-serverless-overview.md#improve-gpu-cold-start)
+> [Improve cold start for your serverless GPUs](gpu-serverless-overview.md#improve-gpu-cold-start)
