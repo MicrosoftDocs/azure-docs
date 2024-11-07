@@ -7,7 +7,7 @@ ms.topic: overview
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 06/19/2024
+ms.date: 11/7/2024
 ms.reviewer: jushiman
 ---
 
