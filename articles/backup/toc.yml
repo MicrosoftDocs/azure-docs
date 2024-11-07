@@ -704,9 +704,11 @@
     items:
     - name: Configure Azure Backup reports
       items:
-      - name: Configure Azure Backup reports
+      - name: Configure Report
         href: configure-reports.md
-      - name: Email Azure Backup reports
+      - name: Vire  Report
+        href: view-reports.md  
+      - name: Email Report
         href: backup-reports-email.md
     - name: Configure Diagnostics settings
       items:
