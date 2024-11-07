@@ -66,7 +66,7 @@ After generating the OpenAPI specification file and checking for accuracy, you c
 
 ## Generate OpenAPI spec using natural language prompts
 
-The API Center plugin for GitHub Copilot for Azure helps you design new APIs starting from natural language prompts. With AI assistance, quickly generate an OpenAPI spec that for API development and comply with your organization's governance standards.
+The API Center plugin for GitHub Copilot for Azure helps you design new APIs starting from natural language prompts. With AI assistance, quickly generate an OpenAPI spec for API development that complies with your organization's standards.
 
 > [!NOTE]
 > This feature is available in the pre-release version of the API Center extension.
