@@ -435,6 +435,8 @@ items:
     href: how-to-use-feedback-tool.md
   - name: Show right attribution
     href: how-to-show-attribution.md
+  - name: Manage consent
+    href: how-to-manage-consent.md
 - name: Reference
   items:
   - name: Creator Indoor Maps
