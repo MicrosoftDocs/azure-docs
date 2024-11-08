@@ -13,7 +13,7 @@ When working with Azure Bastion, you can use network security groups (NSGs). For
 
 :::image type="content" source="./media/bastion-nsg/figure-1.png" alt-text="NSG":::
 
-In this diagram:    
+In this diagram:
 
 * The Bastion host is deployed to the virtual network.
 * The user connects to the Azure portal using any HTML5 browser.
