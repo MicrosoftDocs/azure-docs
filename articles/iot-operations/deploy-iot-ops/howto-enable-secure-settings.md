@@ -165,7 +165,7 @@ Some Azure IoT Operations components, like dataflow endpoints, use a user-assign
 1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) that's used for cloud connections.
 
    > [!NOTE]
-   > You'll need to grant the identity permission to whichever cloud resource you'll use the manage identity for.
+   > You'll need to grant the identity permission to whichever cloud resource you'll use the managed identity for.
 
 1. Use the [az iot ops identity assign](/cli/azure/iot/ops) command to assign the identity to the Azure IoT Operations instance. This command also creates a federated identity credential by using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
 
