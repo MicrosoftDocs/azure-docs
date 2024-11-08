@@ -218,7 +218,7 @@ Vaulted snapshot history is managed automatically by the applied snapshot policy
 
 * [Manage snapshots by using Azure NetApp Files](azure-netapp-files-manage-snapshots.md)
 * [Monitor volume and snapshot metrics](azure-netapp-files-metrics.md#volumes)
-* [Recommendations for using availability zones and regions](/well-architected/reliability/regions-availability-zones)
+* [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
 * [Azure Well-Architected Framework perspective on Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files)
 * [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
 * [Restore a file from a snapshot using a client](snapshots-restore-file-client.md)
