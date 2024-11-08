@@ -96,7 +96,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
     
     * Specify a unique **share name** for the volume. This share name is used when you create mount targets. The requirements for the share name are as follows:   
         - For volumes not in an availability zone or volumes in the same availability zone, it must be unique within each subnet in the region.  
-        - For volumes in availability zones, it must be unique within each availability zone. You must register the feature. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
+        - For volumes in availability zones, it must be unique within each availability zone. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.   
     
