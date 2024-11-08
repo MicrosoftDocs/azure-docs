@@ -23,14 +23,13 @@ Media quality statistics is an extended feature of the core `Call` API. You firs
 const mediaStatsFeature = call.feature(Features.MediaStats);
 ```
 
-To receive the media statistics data, you can subscribe `sampleReported` event or `summaryReported` event.
+To receive the media statistics data, you can subscribe to the `sampleReported` event or the `summaryReported` event.
 
-`sampleReported` event triggers every second. It's suitable as a data source for UI display or your own data pipeline.
+The `sampleReported` event triggers every second. It's suitable as a data source for UI display or your own data pipeline.
 
-`summaryReported` event contains the aggregated values of the data over intervals, which is useful when you just need a summary.
+The `summaryReported` event contains the aggregated values of the data over intervals, which is useful when you just need a summary.
 
-If you want control over the interval of the `summaryReported` event, you need to define `mediaStatsCollectorOptions` of type `MediaStatsCollectorOptions`.
-Otherwise, the SDK uses default values.
+If you want control over the interval of the `summaryReported` event, you need to define `mediaStatsCollectorOptions` of type `MediaStatsCollectorOptions`. Otherwise, the SDK uses default values.
 
 
 ```js
@@ -50,12 +49,13 @@ mediaStatsCollector.on('summaryReported', (summary) => {
 });
 ```
 
-In case you don't need to use the media statistics collector, you can call `dispose` method of `mediaStatsCollector`.
+If you don't need to use the media statistics collector, you can call `dispose` method of `mediaStatsCollector`.
 
 ```js
 mediaStatsCollector.dispose();
 ```
-It's not necessary to call `dispose` method of `mediaStatsCollector` every time when the call ends, as the collectorsare reclaimed internally when the call ends.
+
+You don't need to call `dispose` method of `mediaStatsCollector` every time when the call ends, because the collectors are reclaimed internally when the call ends.
 
 ### MediaStatsCollectorOptions
 
@@ -86,9 +86,9 @@ The `summaryReported` event is raised every 60 seconds and contains 1 unique uni
 
 If you want to collect the data for offline inspection, we recommend that you collect the data and send it to your pipeline ingestion after your call ends. If you transmit the data during a call, it could use internet bandwidth needed to continue an Azure Communication Services call (especially when available bandwidth is low).
 
-In either `sampleReported` event or `summaryReported` event, the media statistics data are not just a simple key-value mapping.
+In either `sampleReported` event or `summaryReported` event, the media statistics data aren't just a simple key-value mapping.
 
-Here is the type declaration of the event data reported by `sampleReported` event.
+Here's the type declaration of the event data reported by `sampleReported` event.
 
 ```typescript
 export interface MediaStatsReportSample {
@@ -106,11 +106,11 @@ export interface MediaStatsReportSample {
     };
     transports: TransportMediaStats<number>[];
 }
-
 ```
+
 The event data provide the statistics data for each media stream in the call, including both send and receive directions.
 
-It's recommended that you print the event using the `console.log` to observe its layout and value changes, so you can find a proper way to display or process the data according to your usage scenario.
+We recommended that you print the event using the `console.log` to observe its layout and value changes, so you can find a proper way to display or process the data according to your usage scenario.
 
 ### Audio send metrics
 
@@ -130,7 +130,7 @@ It's recommended that you print the event using the `console.log` to observe its
 
 ### Audio receive metrics
 
-In the SDK versions ealier than 1.20.1, `jitterBufferDelayInMs` existed as `jitterBufferInMs`.
+In the SDK versions earlier than 1.20.1, `jitterBufferDelayInMs` existed as `jitterBufferInMs`.
 
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
@@ -149,7 +149,7 @@ In the SDK versions ealier than 1.20.1, `jitterBufferDelayInMs` existed as `jitt
 
 ### Video send metrics
 
-Starting from SDK version 1.20.1, the video send metrics included the `altLayouts` metric field, which allows for a better representation of simulcast stream statistics.
+Starting from SDK version 1.20.1, the video send metrics included the `altLayouts` metric field, which enable a better representation of simulcast stream statistics.
 
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
@@ -234,11 +234,10 @@ In earlier versions, `rttInMs` existed as `pairRttInMs` in the stats for audio, 
 We now support MediaStats feature API in 1.20.1 (GA).
 Compared to the previous beta versions, we also made some minor changes to the API interface in this GA version.
 
-In the previous beta versions, `pairRttInMs`, `availableBitrate` were included in audio, video, and screenShare statistics.
-Now, these metrics have been separated into transport metrics.
+In the previous beta versions, `pairRttInMs`, `availableBitrate` were included in audio, video, and screenShare statistics. Now these metrics are separated into transport metrics.
 
-We introduced `packets`, `packetsLost` metric fields in audio, video, screenShare statistics. These metrics are useful for calculating the total number of packets sent or recieved between two different time points.
+We introduced `packets` and `packetsLost` metric fields in audio, video, screenShare statistics. These metrics are useful for calculating the total number of packets sent or recieved between two different time points.
 
 The `frameRateOutput` in video and screenShare statistics is removed. You can use `frameRateDecoded` instead.
 
-The metric field `jitterBufferInMs` has been renamed to `jitterBufferDelayInMs` to provide a clearer description, as this metric indicates the duration of a packet stay in the jitter buffer.
+The metric field `jitterBufferInMs` has been renamed to `jitterBufferDelayInMs` to provide a clearer description, because this metric indicates the duration of a packet stay in the jitter buffer.
