@@ -109,6 +109,8 @@
       items:
         - name: General performance considerations for Azure NetApp Files
           href: azure-netapp-files-performance-considerations.md  
+        - name: Understand workload types
+          href: workload-types.md
         - name: Linux direct I/O best practices
           href: performance-linux-direct-io.md
         - name: Linux filesystem cache best practices
@@ -133,6 +135,8 @@
       items:
       - name: Performance benchmark test recommendations for Azure NetApp Files
         href: azure-netapp-files-performance-metrics-volumes.md 
+      - name: Testing methodology
+        href: testing-methodology.md
       - name: Regular volume performance benchmarks for Linux
         href: performance-benchmarks-linux.md
       - name: Large volume performance benchmarks for Linux
