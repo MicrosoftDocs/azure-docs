@@ -27,8 +27,6 @@ There's a limit to how many IP configurations can be assigned to a NIC. For more
 
 :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/block-ipconfigs.png" alt-text="Diagram of network configuration resources created in article." lightbox="./media/virtual-network-private-ip-addresses-blocks-portal/block-ipconfigs-expand.png":::
 
-  *Figure: Diagram of network configuration resources created in this article.*
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -56,7 +54,7 @@ You can add a dynamic private IP address prefix to an Azure network interface by
 
 5. Select the name of the network interface of the virtual machine. In this example, it's named **myvm237_z1**.
 
-   :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/select-nic.png" alt-text="Screenshot of myVM networking and network interface selection.":::
+   :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/select-network-interface.png" alt-text="Screenshot of myVM networking and network interface selection.":::
 
 6. In the network interface, select **IP configurations** in **Settings**.
 
@@ -94,7 +92,7 @@ You can add a static private IP address prefix to a virtual machine by completin
 
 5. Select the name of the network interface of the virtual machine. In this example, it's named **myvm237_z1**.
 
-   :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/select-nic.png" alt-text="Screenshot of myVM networking and network interface selection.":::
+   :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/select-network-interface.png" alt-text="Screenshot of myVM networking and network interface selection.":::
 
 6. In the network interface, select **IP configurations** in **Settings**.
 
