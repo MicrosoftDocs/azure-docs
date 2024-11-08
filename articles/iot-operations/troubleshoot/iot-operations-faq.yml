@@ -40,9 +40,6 @@ sections:
          Can I migrate my IoT Edge workloads to Azure IoT Operations?
       answer: Currently, there's no documented migration path from IoT Edge to Azure IoT Operations. If you have any feature asks for Azure IoT Operations as part of your migration plans, share your requests on the [Azure IoT Operations public feedback forum](https://feedback.azure.com/d365community/forum/20152d6e-6a76-ee11-8179-000d3a1abe9e).
     - question: |
-         Can I just upgrade my preview version to the general availability version?
-      answer: You can't upgrade from the preview to the general availability version directly. You need to redeploy.
-    - question: |
          For IoT Operations, which device communication protocols supported.
       answer: Currently, Azure IoT Operations supports OPC-UA and MQTT for device communication.
     - question: |
