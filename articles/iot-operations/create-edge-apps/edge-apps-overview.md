@@ -21,7 +21,7 @@ The following sections explain the settings and features that contribute to a ro
 
 ## Quality of service (QoS)
 
-Both publishers and subscribers should use [QoS-1](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901236) to guarantee message delivery at least once. The broker stores and retransmits messages until it receives an acknowledgment (ACK) from the recipient, ensuring no messages are lost during transmission.
+Both publishers and subscribers should use [QoS-1](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901236) to guarantee message delivery at least once. The MQTT broker stores and retransmits messages until it receives an acknowledgment (ACK) from the recipient, ensuring no messages are lost during transmission.
 
 ## Session type and Clean-Session flag
 
@@ -55,13 +55,13 @@ MQTT subscriptions with QoS-1 ensure eventual consistency across identical appli
 
 [Shared subscriptions](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901250) enable load balancing across multiple instances of a highly available application. Instead of each subscriber receiving a copy of every message, the messages are distributed evenly among the subscribers. MQTT broker currently only supports a round robin algorithm to distribute messages allowing an application to scale out. A typical use case is to deploy multiple pods using Kubernetes ReplicaSet that all subscribe to MQTT broker using the same topic filter in shared subscription.
 
-## Use MQTT broker's built-in key-value store (distributed HashMap)
+## Distributed state store (DSS)
 
-MQTT broker's built-in key-value store is a simple, replicated in-memory *HashMap* for managing application processing state. Unlike *etcd*, for example, MQTT broker prioritizes high-velocity throughput, horizontal scaling, and low latency through in-memory data structures, partitioning, and chain-replication. It allows applications to use the broker's distributed nature and fault tolerance while accessing a consistent state quickly across instances. To use the built-in key-value store provided by the distributed broker:
+The Distributed state store (DSS) is a replicated in-memory *HashMap* for managing application processing state. Unlike *etcd*, for example, DSS prioritizes high-velocity throughput, horizontal scaling, and low latency through in-memory data structures, partitioning, and chain-replication. It allows applications to use the the state stores distributed nature and fault tolerance while accessing a consistent state quickly across instances. To use the built-in key-value store provided by the distributed broker:
 
 * Implement ephemeral storage and retrieval operations using the broker's key-value store API, ensuring proper error handling and data consistency. Ephemeral state is a short-lived data storage used in stateful processing for fast access to intermediate results or metadata during real-time computations. In the context of HA application, an ephemeral state helps recover application states between crashes. It can be written to disk but remains temporary, as opposed to cold storage that's designed for long-term storage of infrequently accessed data.
 
-* Use the key-value store for sharing state, caching, configuration, or other essential data among multiple instances of the application, allowing them to keep a consistent view of the data.
+* Use the state store for sharing state, caching, configuration, or other essential data among multiple instances of the application, allowing them to keep a consistent view of the data.
 
 ## Use MQTT broker's built-in Dapr integration
 
@@ -75,25 +75,15 @@ For simpler use cases an application might utilize [Dapr](https://dapr.io) (Dist
 
 ## Checklist to develop a highly available application
 
-  - Choose an appropriate MQTT client library for your programming language. The client should support MQTT v5. Use a C or Rust based library if your application is sensitive to latency.
-  - Configure the client library to connect to MQTT broker with *clean-session* flag set to false and the desired QoS level (QoS-1).
-  - Decide a suitable value for session expiry, message expiry, and keep-alive intervals.
-  - Implement the message processing logic for the subscriber application, including sending an acknowledgment when the message has been successfully delivered or processed.
-  - For multithreaded applications, configure the *max-receive* parameter to enable parallel message processing.
-  - Utilize retained messages for keeping temporary application state.
-  - Utilize MQTT broker's built-in key-value store to manage ephemeral application state.
-  - Evaluate Dapr to develop your application if your use case is simple and doesn't require detailed control over the MQTT connection or message handling.
-  - Implement shared subscriptions to distribute messages evenly among multiple instances of the application, allowing for efficient scaling.
-
-## Example
-
-The following example implements contextualization and normalization of data with a highly available northbound connector
-
-A northbound application consists of input and output stages, and an optional processing stage. The input stage subscribes to a distributed MQTT broker to receive data, while the output stage ingests messages into a cloud data-lake. The processing stage executes contextualization and normalization logic on the received data.
-
-![Diagram of a highly available app architecture.](./media/edge-apps-overview/highly-available-app.png)
-
-To ensure high availability, the input stage connects to MQTT broker and sets the *clean-session* flag to false for persistent sessions, using QoS-1 for reliable message delivery, acknowledging messages post-processing by the output stage. Additionally, the application might use the built-in *HashMap* key-value store for temporary state management and the round robin algorithm to load-balance multiple instances using shared subscriptions.
+* Choose an appropriate MQTT client library for your programming language. The client should support MQTT v5. Use a C or Rust based library if your application is sensitive to latency.
+* Configure the client library to connect to MQTT broker with *clean-session* flag set to `false` and the desired QoS level (QoS-1).
+* Decide a suitable value for session expiry, message expiry, and keep-alive intervals.
+* Implement the message processing logic for the subscriber application, including sending an acknowledgment when the message has been successfully delivered or processed.
+* For multithreaded applications, configure the *max-receive* parameter to enable parallel message processing.
+* Utilize retained messages for keeping temporary application state.
+* Utilize the distributed state store to manage ephemeral application state.
+* Evaluate Dapr to develop your application if your use case is simple and doesn't require detailed control over the MQTT connection or message handling.
+* Implement shared subscriptions to distribute messages evenly among multiple instances of the application, allowing for efficient scaling.
 
 ## Related content
 
