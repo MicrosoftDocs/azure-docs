@@ -25,7 +25,7 @@ To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operation
 - [Add a Custom Endpoint as a source](/fabric/real-time-intelligence/event-streams/add-source-custom-app#add-custom-endpoint-data-as-a-source)
 
 > [!NOTE]
-> Event Streams supports multiple input sources including Azure Event Hubs. If you have an existing dataflow to Azure Event Hubs, you can bring that into Fabric as shown in the [Quickstart](../get-started-end-to-end-sample/quickstart-get-insights.md#ingest-data-into-real-time-intelligence). However, this article shows you how to flow real-time data directly into Microsoft Fabric without any other hops in between.
+> Event Stream supports multiple input sources including Azure Event Hubs. If you have an existing dataflow to Azure Event Hubs, you can bring that into Fabric as shown in the [Quickstart](../get-started-end-to-end-sample/quickstart-get-insights.md#ingest-data-into-real-time-intelligence). This article shows you how to flow real-time data directly into Microsoft Fabric without any other hops in between.
 
 ## Retrieve connection details
 Note the [Kafka-compatible connection details for the Custom Endpoint](/fabric/real-time-intelligence/event-streams/add-source-custom-app#kafka). You will need:
@@ -40,7 +40,9 @@ The Event Hub name is used as the Kafka topic and is of the form *es_xxxxxxx*.
 
 ## Create a Microsoft Fabric Real-Time Intelligence dataflow endpoint
 
-To configure a dataflow endpoint for Microsoft Fabric Real-Time Intelligence, you will need to use SASL connection string based authentication. Managed identity support will be added in the future. Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can referenced in the dataflow. 
+To configure a dataflow endpoint for Microsoft Fabric Real-Time Intelligence, you will need to use SASL connection string based authentication. Managed identity support will be added in the future. 
+
+Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can referenced in the dataflow. Secure settings must be enabled to configure this endpoint using the operations experience Portal.
 
 # [Portal](#tab/portal)
 
