@@ -5,14 +5,14 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 06/03/2024
+ms.date: 11/08/2024
 ms.author: anfdocs
 ---
 # How Azure NetApp Files snapshots work
 
-This article explains how Azure NetApp Files snapshots work. Azure NetApp Files snapshot technology delivers stability, scalability, and faster recoverability, with no impact to performance. It provides the foundation for data protection solutions, including single-file restores, volume restores and clones, cross-region replication, and long-term retention. 
+This article explains how Azure NetApp Files snapshots work. Azure NetApp Files snapshot technology delivers stability, scalability, and faster recoverability, with no impact to performance. Snapshots provide the foundation for data protection solutions, including single-file restores, volume restores and clones, cross-region replication, cross-zone replication, and long-term retention. 
 
-For steps about using volume snapshots, see [Manage snapshots by using Azure NetApp Files](azure-netapp-files-manage-snapshots.md). For considerations about snapshot management in cross-region replication, see [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).
+To create volume snapshots, see [Manage snapshots using Azure NetApp Files](azure-netapp-files-manage-snapshots.md). For considerations about snapshot management in cross-region replication, see [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md). For cross-zone replication, see [Requirements and considerations for using cross-zone replication](cross-zone-replication-requirements-considerations.md).
 
 ## What volume snapshots are  
 
@@ -81,13 +81,13 @@ You can use several methods to create and maintain snapshots:
     * Snapshot policies, via the [Azure portal](snapshots-manage-policy.md), [REST API](/rest/api/netapp/snapshotpolicies), [Azure CLI](/cli/azure/netappfiles/snapshot/policy), or [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshotpolicy) tools
     * Application consistent snapshot tooling, like [AzAcSnap](azacsnap-introduction.md)
 
-## How volumes and snapshots are replicated cross-region for DR  
+## How volumes and snapshots are replicated cross-region for disaster recovery  
 
-Azure NetApp Files supports [cross-region replication](cross-region-replication-introduction.md) for disaster-recovery (DR) purposes. Azure NetApp Files cross-region replication uses SnapMirror technology. Only changed blocks are sent over the network in a compressed, efficient format. After a cross-region replication is initiated between volumes, the entire volume contents (that is, the actual stored data blocks) are transferred only once. This operation is called a *baseline transfer*. After the initial transfer, only changed blocks (as captured in snapshots) are transferred. The result is an asynchronous 1:1 replica of the source volume, including all snapshots. This behavior follows a full and incremental-forever replication mechanism. This technology minimizes the amount of data required to replicate across the regions, therefore saving data transfer costs. It also shortens the replication time. You can achieve a smaller Recovery Point Objective (RPO), because more snapshots can be created and transferred more frequently with minimal data transfers. Further, it takes away the need for host-based replication mechanisms, avoiding virtual machine and software license cost.
+Azure NetApp Files supports [cross-region replication](cross-region-replication-introduction.md) for disaster-recovery (DR) purposes and [cross-zone replication](cross-zone-replication-introduction.md) for business continuity. Azure NetApp Files cross-region replication and cross-zone replication both use SnapMirror technology. Only changed blocks are sent over the network in a compressed, efficient format. After replication is initiated between volumes, the entire volume contents (that is, the actual stored data blocks) are transferred only once. This operation is called a *baseline transfer*. After the initial transfer, only changed blocks (as captured in snapshots) are transferred. The result is an asynchronous 1:1 replica of the source volume, including all snapshots. This behavior follows a full and incremental-forever replication mechanism. This technology minimizes the amount of data required for replication, therefore saving data transfer costs. It also shortens the replication time. You can achieve a smaller Recovery Point Objective (RPO), because more snapshots can be created and transferred more frequently with minimal data transfers. Further, it takes away the need for host-based replication mechanisms, avoiding virtual machine and software license cost.
 
-The following diagram shows snapshot traffic in cross-region replication scenarios: 
+The following diagram shows snapshot traffic in replication scenarios: 
 
-[ ![Diagram that shows snapshot traffic in cross-region replication scenarios](./media/snapshots-introduction/snapshot-traffic-cross-region-replication.png)](./media/snapshots-introduction/snapshot-traffic-cross-region-replication.png#lightbox)
+[ ![Diagram that shows snapshot traffic in replication scenarios.](./media/snapshots-introduction/snapshot-traffic-replication.png)](./media/snapshots-introduction/snapshot-traffic-replication.png#lightbox)
 
 ## How snapshots can be vaulted for long-term retention and cost savings
 
@@ -218,6 +218,8 @@ Vaulted snapshot history is managed automatically by the applied snapshot policy
 
 * [Manage snapshots by using Azure NetApp Files](azure-netapp-files-manage-snapshots.md)
 * [Monitor volume and snapshot metrics](azure-netapp-files-metrics.md#volumes)
+* [Recommendations for using availability zones and regions](/well-architected/reliability/regions-availability-zones)
+* [Azure Well-Architected Framework perspective on Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files)
 * [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
 * [Restore a file from a snapshot using a client](snapshots-restore-file-client.md)
 * [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
