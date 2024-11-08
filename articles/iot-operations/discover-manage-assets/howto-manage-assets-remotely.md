@@ -151,7 +151,7 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 1. Use a command like the following example to create your asset endpoint:
 
     ```azurecli
-    az iot ops asset endpoint opcua create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --instance {your instance name} --username-ref "aio-opc-ua-broker-user-authentication/username" --password-ref "aio-opc-ua-broker-user-authentication/password"
+    az iot ops asset endpoint create opcua --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --instance {your instance name} --username-ref "aio-opc-ua-broker-user-authentication/username" --password-ref "aio-opc-ua-broker-user-authentication/password"
     ```
 
 ---
