@@ -58,7 +58,8 @@ This section covers how to use the Azure App Configuration Export task in an Azu
       - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
       - Set the **App Configuration Endpoint** to the endpoint of your App Configuration store.
       - Leave the default values for the remaining parameters.
-      > ![Screenshot shows the app configuration task parameters.](./media/azure-app-configuration-export-parameters.png)
+        > [!div class="mx-imgBorder"]
+        > ![Screenshot shows the app configuration task parameters.](./media/azure-app-configuration-export-parameters.png)
 1. Save and queue a build. The build log displays any failures that occurred during the execution of the task.
 
 ## Use in releases
