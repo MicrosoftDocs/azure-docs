@@ -15,7 +15,12 @@ ms.reviewer: whhender
 
 In this tutorial, you learn how to perform exploratory data analysis using existing open datasets, with no storage setup required. You combine different Azure Open Datasets using serverless SQL pool. You then visualize the results in Synapse Studio for Azure Synapse Analytics.
 
-The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `[OPENROWSET](develop-openrowset.md)` reads content of a remote data source, such as a file, and returns the content as a set of rows.
+In this tutorial, you:
+
+> [!div class="checklist"]
+> * Access the built-in serverless SQL pool
+> * Access Azure Open Datasets to use tutorial data
+> * Perform basic data analysis using SQL
 
 ## Access the serverless SQL pool
 
@@ -26,6 +31,8 @@ Every workspace comes with a preconfigured serverless SQL pool for you to use ca
 1. Select SQL script.
 
 You can use this script to explore your data without having to reserve SQL capacity.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Access the tutorial data
 
@@ -40,6 +47,8 @@ This tutorial uses a dataset about [New York City (NYC) Taxi](https://azure.micr
 - Rate types
 - Payment types
 - Driver-reported passenger counts
+
+The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `[OPENROWSET](develop-openrowset.md)` reads content of a remote data source, such as a file, and returns the content as a set of rows.
 
 To get familiar with the NYC Taxi data, run the following query:
 
@@ -236,7 +245,7 @@ The results of the query indicate that the drop in the number of taxi rides occu
 
 This tutorial has shown how a data analyst can quickly perform exploratory data analysis. You can combine different datasets by using serverless SQL pool and visualize the results by using Azure Synapse Studio.
 
-## Next steps
+## Related content
 
 To learn how to connect serverless SQL pool to Power BI Desktop and create reports, see [Connect serverless SQL pool to Power BI Desktop and create reports](tutorial-connect-power-bi-desktop.md).
 
