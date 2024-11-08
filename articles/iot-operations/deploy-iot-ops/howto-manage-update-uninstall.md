@@ -193,6 +193,9 @@ Azure IoT Operations supports upgrading instances to new versions as they're rel
 
 You can't upgrade from a preview installation to a GA version.
 
+> [!NOTE]
+> There's a known issue with upgrading Azure IoT Operations if the MQTT broker only has one backend replica. Only upgrade Azure IoT Operations if the Broker has more than one backend replica.
+
 ### [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
