@@ -6,14 +6,16 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 10/24/2024
+ms.date: 11/08/2024
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
- 
+
+* [Volume enhancement: creating volumes with the same file path, share name, or volume path in different availability zones](manage-availability-zone-volume-placement.md#file-path-uniqueness) is now generally available (GA)
+
 ## October 2024
 
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)

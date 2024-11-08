@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/17/2024
+ms.date: 11/08/2024
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -130,7 +130,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     * Specify a unique **Volume Path**. This path is used when you create mount targets. The requirements for the path are as follows:  
 
         - For volumes not in an availability zone or volumes in the same availability zone, the volume path must be unique within each subnet in the region. 
-        - For volumes in availability zones, the volume path must be unique within each availability zone. This feature is currently in **preview** and requires you to register the feature. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
+        - For volumes in availability zones, the volume path must be unique within each availability zone. You must register the feature. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
         - It must start with an alphabetical character.
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.
