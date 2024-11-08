@@ -73,10 +73,3 @@ IoT Central provides a rich set of features that you can use to analyze and visu
 
 - [How to use IoT Central data explorer to analyze device data](../iot-central/core/howto-create-analytics.md)
 - [Create and manage IoT Central dashboards](../iot-central/core/howto-manage-dashboards.md)
-
-## Next steps
-
-Now that you've seen an overview of the analysis and visualization options available to your IoT solution, some suggested next steps include:
-
-- [Manage your IoT solution](./iot-overview-solution-management.md)
-- [IoT solution options](iot-introduction.md#solution-options)
