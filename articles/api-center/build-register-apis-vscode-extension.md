@@ -4,7 +4,7 @@ description: API developers can use the Azure API Center extension for Visual St
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 11/08/2024
 ms.author: danlep 
 ms.collection: ce-skilling-ai-copilot
 ms.custom: 
@@ -77,7 +77,7 @@ The API Center plugin for [GitHub Copilot for Azure](https://marketplace.visuals
 1. In the chat panel, make a request in natural language to the `@azure` agent to describe what the API does. Example:
 
     ```vscode
-    @azure Generate OpenAPI spec: Generate OpenAPI spec: An API that allows customers to pay for an order using various payment methods such as cash, checks, credit cards, and debit cards.
+    @azure Generate OpenAPI spec: An API that allows customers to pay for an order using various payment methods such as cash, checks, credit cards, and debit cards.
     ```  
 
     The agent responds with an OpenAPI specification document.
