@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up Azure Database for PostgreSQL Flexible server with long-term retention
+# Back up Azure Database for PostgreSQL Flexible server with long-term retention (preview)
 
 This article describes how to back up Azure Database for PostgreSQL Flexible Server. 
 
