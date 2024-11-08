@@ -1,12 +1,12 @@
 ---
-title: "Quickstart: Transform data using Apache Spark job definition"
+title: 'Quickstart: Transform data using Apache Spark job definition'
 description:  This tutorial provides step-by-step instructions for using Azure Synapse Analytics to transform data with Apache Spark job definition.
 author: juluczni
 ms.author: juluczni
 ms.reviewer: makromer
 ms.service: azure-synapse-analytics
 ms.subservice: pipeline
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 02/15/2022
 ---
 
@@ -19,7 +19,6 @@ In this quickstart, you'll use Azure Synapse Analytics to create a pipeline usin
 * **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure Synapse workspace**: Create a Synapse workspace using the Azure portal following the instructions in [Quickstart: Create a Synapse workspace](quickstart-create-workspace.md).
 * **Apache Spark job definition**: Create an Apache Spark job definition in the Synapse workspace following the instructions in [Tutorial: Create Apache Spark job definition in Synapse Studio](spark/apache-spark-job-definitions.md).
-
 
 ### Navigate to the Synapse Studio
 
@@ -93,7 +92,7 @@ On this panel, you can reference to the Spark job definition to run.
      |Max executors| Max number of executors to be allocated in the specified Spark pool for the job.|
      |Driver size| Number of cores and memory to be used for driver given in the specified Apache Spark pool for the job.|
      |Spark configuration| Specify values for Spark configuration properties listed in the topic: Spark Configuration - Application properties. Users can use default configuration and customized configuration. |
-     
+
      ![spark job definition pipline settings](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-pipline-settings.png)
 
 * You can add dynamic content by clicking the **Add Dynamic Content** button or by pressing the shortcut key <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>. In the **Add Dynamic Content** page, you can use any combination of expressions, functions, and system variables to add to dynamic content.
@@ -106,7 +105,7 @@ You can add properties for Apache Spark job definition activity in this panel.
 
 ![user properties](media/quickstart-transform-data-using-spark-job-definition/user-properties.png)
 
-## Next steps
+## Related content
 
 Advance to the following articles to learn about Azure Synapse Analytics support:
 
