@@ -157,7 +157,6 @@ You can connect a backend service to IoT Hub using the following methods:
 
 * Shared access policy
 * Microsoft Entra
-* X.509 certificate
 
 #### Connect using a shared access policy
 

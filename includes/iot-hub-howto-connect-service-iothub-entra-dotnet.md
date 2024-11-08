@@ -12,15 +12,31 @@ ms.date: 11/06/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
-Use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to use Microsoft Entra to authenticate a connection to IoT Hub. `DefaultAzureCredential` supports different authentication mechanisms and determines the appropriate credential type based of the environment it is executing in. It attempts to use multiple credential types in an order until it finds a working credential. For more information on setting up Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/authenticate-authorize-azure-ad).
+Use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to use Microsoft Entra to authenticate a connection to IoT Hub. `DefaultAzureCredential` supports different authentication mechanisms and determines the appropriate credential type based of the environment it's executing in. It attempts to use multiple credential types in an order until it finds a working credential. For more information on setting up Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/authenticate-authorize-azure-ad).
 
-To create required Entra app parameters to `DefaultAzureCredential`, create an Entra app registration that contains the Azure client secret, client ID, and tenant ID. For more information, see [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
+To create required Microsoft Entra app parameters for `DefaultAzureCredential`, create a Microsoft Entra app registration that contains your preferred authentication mechanism such as:
 
-Entra apps require permissions depending on operations performed:
+* Client secret, client ID, and tenant ID
+* Certificate
 
-* Add [IoT Hub Twin Contributor](/azure/role-based-access-control/built-in-roles/internet-of-things#iot-hub-twin-contributor) to enable read and write access to all IoT Hub device and module twins.
+For more information, see [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
 
-In this example, the Entra app registration client secret, client ID, and tenant ID are added to environment variables. These environment variables are used by `DefaultAzureCredential` to authenticate the application.
+Microsoft Entra apps may require permissions depending on operations performed. For example, [IoT Hub Twin Contributor](/azure/role-based-access-control/built-in-roles/internet-of-things#iot-hub-twin-contributor) is required to enable read and write access to a IoT Hub device and module twins. For more information, see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#internet-of-things).
+
+Add these packages and statements to your code to use the Microsoft Entra library.
+
+Packages:
+ * Azure.Core
+ * Azure.Identity
+
+ Statements:
+
+```csharp
+using Azure.Core;
+using Azure.Identity;
+```
+
+In this example, Microsoft Entra app registration client secret, client ID, and tenant ID are added to environment variables. These environment variables are used by `DefaultAzureCredential` to authenticate the application.
 
 ```csharp
 string clientSecretValue = "xxxxxxxxxxxxxxx";
@@ -34,12 +50,12 @@ Environment.SetEnvironmentVariable("AZURE_TENANT_ID", tenantID);
 TokenCredential tokenCredential = new DefaultAzureCredential();
 ```
 
-The resulting [TokenCredential](/dotnet/api/azure.core.tokencredential) can then be passed to an authentication method for any SDK client that accepts Microsft Entra/AAD credentials:
+The resulting [TokenCredential](/dotnet/api/azure.core.tokencredential) can then be passed to an authentication method for any SDK client that accepts Microsoft Entra/AAD credentials:
 
 * [JobClient](/dotnet/api/microsoft.azure.devices.jobclient.create?#microsoft-azure-devices-jobclient-create(system-string-azure-core-tokencredential-microsoft-azure-devices-httptransportsettings))
 * [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager.create?#microsoft-azure-devices-registrymanager-create(system-string-azure-core-tokencredential-microsoft-azure-devices-httptransportsettings))
 * [DigitalTwinClient](/dotnet/api/microsoft.azure.devices.digitaltwinclient)
-* [ServiceClient](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.serviceclient.create?view=azure-dotnet#microsoft-azure-devices-serviceclient-create(system-string-azure-core-tokencredential-microsoft-azure-devices-transporttype-microsoft-azure-devices-serviceclienttransportsettings-microsoft-azure-devices-serviceclientoptions))
+* [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient.create?#microsoft-azure-devices-serviceclient-create(system-string-azure-core-tokencredential-microsoft-azure-devices-transporttype-microsoft-azure-devices-serviceclienttransportsettings-microsoft-azure-devices-serviceclientoptions))
 
 In this example, the `TokenCredential` is passed to `ServiceClient.Create` to create a [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) connection object.
 
