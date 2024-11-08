@@ -26,7 +26,7 @@ sections:
       answer: To achieve zero message loss in a minimum 3-node cluster is required. This configuration allows for one node to reboot or go offline without data loss. However, if the entire cluster goes down or enough nodes are lost to disrupt quorum, message loss may occur.
     - question: |
          Is MQTT with QoS 2 supported in Azure IoT Operations?
-      answer: Currently, MQTT with QoS-2 is not supported. QoS 2 provides strict message guarantees (Exactly Once) and requires complex state management and synchronization which can impact performance and scalability. QoS-0 (At most once) and QoS-1 (At least once) provide sufficient message delivery guarantees for Azure IoT Operations operations, where a balance between availability, throughput, latency, and reliable message delivery is desired.
+      answer: Currently, MQTT with QoS-2 is not supported. QoS 2 provides strict message guarantees (Exactly Once) and requires complex state management and synchronization which can impact performance and scalability. QoS-0 (At most once) and QoS-1 (At least once) provide sufficient message delivery guarantees for Azure IoT Operations applications, where a balance between availability, throughput, latency, and reliable message delivery is desired.
     - question: |
           Is message persistence supported in Azure IoT Operations?
       answer:  Full message persistence is on the roadmap, however, Azure IoT Operations supports in-memory message persistence with optional spillover to disk. This setup allows messages to remain available in memory, with overflow messages stored temporarily on disk to prevent data loss during high message volumes. However, if a pod restarts, any messages that were written to disk cannot be restored. 
