@@ -4,7 +4,7 @@ description: Learn which services offer availability zone support and understand
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 04/15/2024
+ms.date: 11/08/2024
 ms.author: anaharris
 author: anaharris
 ms.reviewer: asinghal
@@ -36,7 +36,7 @@ The following regions currently support availability zones:
 | South Central US | UK South | | | East Asia |
 | US Gov Virginia | West Europe  | | | China North 3 |
 | West US 2 | Sweden Central | | |Korea Central  | 
-| West US 3 | Switzerland North | | | *New Zealand North |
+| West US 3 | Switzerland North | | | New Zealand North |
 | Mexico Central | Poland Central ||||
 ||Spain Central ||||
 
