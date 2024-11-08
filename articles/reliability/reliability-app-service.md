@@ -93,7 +93,7 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ### Considerations
 
-Applications that are deployed in a zone-redundant App Service plan continues to run and serve traffic even if multiple zones in the region suffer an outage. However it's possible that non-runtime behaviors including App Service plan scaling, application creation, application configuration, and application publishing may still be impacted during an availability zone outage. Zone redundancy for App Service plans only ensures continued uptime for deployed applications.
+Applications that are deployed in a zone-redundant App Service plan continue to run and serve traffic even if multiple zones in the region suffer an outage. However it's possible that non-runtime behaviors including App Service plan scaling, application creation, application configuration, and application publishing may still be impacted during an availability zone outage. Zone redundancy for App Service plans only ensures continued uptime for deployed applications.
 
 ### Cost
 
@@ -149,7 +149,7 @@ During normal operations, traffic is routed between all of your available App Se
 
 **Active requests:** When an availability zone is unavailable, any requests in progress that are connected to an App Service plan instance in the faulty availability zone are terminated and need to be retried.
 
-**Traffic rerouting:** When a zone is unavailable, Azure App Service detects the lost instances from that zone. It automatically attempt to find new replacement instances. Then, it spreads traffic across the new instances as needed.
+**Traffic rerouting:** When a zone is unavailable, Azure App Service detects the lost instances from that zone. It automatically attempts to find new replacement instances. Then, it spreads traffic across the new instances as needed.
 
 If you have [autoscale](../app-service/manage-scale-up.md) configured, and if it decides more instances are needed, autoscale also issues a request to App Service to add more instances. 
 
