@@ -46,10 +46,6 @@ sections:
          For IoT Operations, which device communication protocols supported.
       answer: Currently, Azure IoT Operations supports OPC-UA and MQTT for device communication.
     - question: |
-         Is there a non-Dapr Azure IoT Operations state store code example?
-      answer: |
-        Currently, we don't have an example/asset for external use. However, the StateStore documentation can help you understand how it can be used. For more information, see [MQTT broker state store protocol](../create-edge-apps/concept-about-state-store-protocol.md).
-    - question: |
          Which Azure regions is Azure IoT Operations currently available in?
       answer: Azure IoT Operations is available in East US2, West US 3, West Europe, East US, West US, West US 2, North Europe regions.
 additionalContent: |
