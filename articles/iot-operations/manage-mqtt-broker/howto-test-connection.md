@@ -234,7 +234,7 @@ Create a file named `broker-nodeport.yaml` with the following configuration. Rep
 > Removing `authenticationRef` and `tls` settings from the configuration [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: aio-broker-nodeport
@@ -395,7 +395,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 Create a file named `broker-loadbalancer.yaml` with configuration like the following, replacing placeholders with your own values, including your own authentication and TLS settings.
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: aio-broker-loadbalancer
@@ -593,7 +593,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: <LISTENER_NAME>

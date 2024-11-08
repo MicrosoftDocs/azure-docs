@@ -122,7 +122,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
@@ -277,7 +277,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
@@ -440,7 +440,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"

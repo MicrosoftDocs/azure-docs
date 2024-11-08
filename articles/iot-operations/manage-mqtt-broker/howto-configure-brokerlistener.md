@@ -135,13 +135,13 @@ kubectl get brokerlistener default -n azure-iot-operations -o yaml
 The output should look similar to this, with most metadata removed for brevity:
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta2
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: default
   namespace: azure-iot-operations
   ownerReferences:
-  - apiVersion: mqttbroker.iotoperations.azure.com/v1beta2
+  - apiVersion: mqttbroker.iotoperations.azure.com/v1
     kind: Broker
     name: default
 spec:
@@ -306,7 +306,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: <LISTENER_NAME>
@@ -620,7 +620,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 Modify the `tls` setting in a BrokerListener resource to specify a TLS port and *Issuer* for the frontends.
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: aio-broker-loadbalancer-tls # Avoid conflicts with default service name 'aio-broker'
@@ -825,7 +825,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 Modify the `tls` setting in a BrokerListener resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`server-cert-secret` in the example previously).
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: loadbalancer-tls

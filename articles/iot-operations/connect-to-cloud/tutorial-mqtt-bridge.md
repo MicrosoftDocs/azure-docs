@@ -203,7 +203,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowEndpoint
 metadata:
   name: eventgrid
@@ -311,7 +311,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: Dataflow
 metadata:
   name: local-to-remote
@@ -329,7 +329,7 @@ spec:
       endpointRef: eventgrid
       dataDestination: telemetry/aio
 ---
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: Dataflow
 metadata:
   name: remote-to-local

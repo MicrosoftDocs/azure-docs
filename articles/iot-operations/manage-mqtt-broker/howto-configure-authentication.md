@@ -105,7 +105,7 @@ kubectl get brokerauthentication default -n azure-iot-operations -o yaml
 The output shows the default *BrokerAuthentication* resource, with metadata removed for brevity:
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerAuthentication
 metadata:
   name: default
@@ -141,7 +141,7 @@ The authentication flow ends when:
 With multiple authentication methods, MQTT broker has a fallback mechanism. For example:
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerAuthentication
 metadata: 
   name: default
@@ -280,7 +280,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 Modify the *BrokerAuthentication* resource for an authentication policy by adding new methods to the `authenticationMethods` section. The following example shows multiple authentication methods for a *BrokerAuthentication* resource:
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerAuthentication
 metadata:
   name: my-policy
