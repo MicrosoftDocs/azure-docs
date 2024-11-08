@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Transform data using a mapping data flow
+title: 'Quickstart: Transform data using a mapping data flow'
 description:  This tutorial provides step-by-step instructions for using Azure Synapse Analytics to transform data with mapping data flow.
 author: kromerm
 ms.author: makromer
