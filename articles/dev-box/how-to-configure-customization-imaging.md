@@ -13,14 +13,7 @@ ms.date: 11/05/2024
 # Create a shared Customization
 Using a customization file simplifies the creation of dev boxes for your team. With dev box customizations, you can create a shared team customization by creating a customization file called an *image definition*. Creating a reusable image from this image definition optimizes customizations and saves time during dev box creation. In this article, you learn how to configure a pool to use an image definition and build reusable images for your development teams.
 
-To configure imaging for Dev Box Team Customizations, follow these steps:
-1. Enable project-level catalogs.
-1. Configure catalog sync settings for the project.
-1. Attach a catalog that contains a definition file.
-1. Configure a dev box pool to use an image definition.
-1. Create a dev box in that pool.
-1. Test the dev box to verify that the customizations are applied.
-1. Build a reusable image.
+To configure imaging for Dev Box Team Customizations, enable project-level catalogs and configure catalog sync settings for the project. Then, attach a catalog that contains a definition file to your project, configure a dev box pool to use an image definition, and verify that the customizations apply to a new dev box. When the customizations apply correctly, you can choose to build a reusable image, which makes the creation of new dev boxes quicker.
 
 [!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
 
@@ -128,8 +121,8 @@ To build an image from a customization file, follow these steps:
    :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-image-build-progress-small.png" alt-text="Screenshot of the Image definition page, with the image status Progressing highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-image-build-progress.png":::  
 
 > [!IMPORTANT]
-> When optimizing your image definition into an image, a dev box is created to run your customization file and generate an image. During this process, this Dev Box is connected to a virtual network managed by Microsoft, and tasks that require access to on premise resources might fail. Support for specifying a custom network for an image build is coming soon. 
- 
+> When optimizing your image definition into an image, a dev box is created to run your customization file and generate an image. During this process, this Dev Box is connected to a virtual network managed by Microsoft, and tasks that require access to on premise resources might fail.
+
 When the build completes successfully, the dev box pool automatically uses the image for new dev boxes. You don't need to do any extra configuration to assign the image to the pool. You can now create dev boxes from the pool, and the customizations are applied to each dev box.
 
 ## Related content
