@@ -75,6 +75,9 @@ In this section, you will create a web application that allows users to sign in 
     // ... ...
     ```
 
+    > [!NOTE]
+        > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
+    
 1. Enable configuration and feature flag refresh from Azure App Configuration with the App Configuration middleware.
 
     Update Program.cs withe the following code.
@@ -154,70 +157,8 @@ builder.Services.AddFeatureManagement()
 // ... ...
 ```
 
-### Custom Targeting Accessor
-
-You can instead define your `ITargetingContextAccessor`, where you control how `UserId` and `Groups` are constructed. To do this:
-
-1. Add an *ExampleTargetingContextAccessor.cs* file with the following code. This implements the `ITargetingContextAccessor` interface to provide the targeting context for the signed-in user of the current request.
-
-    ``` C#
-    using Microsoft.FeatureManagement.FeatureFilters;
-
-    namespace TestFeatureFlags
-    {
-        public class ExampleTargetingContextAccessor : ITargetingContextAccessor
-        {
-            private const string TargetingContextLookup = "ExampleTargetingContextAccessor.TargetingContext";
-            private readonly IHttpContextAccessor _httpContextAccessor;
-
-            public ExampleTargetingContextAccessor(IHttpContextAccessor httpContextAccessor)
-            {
-                _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
-            }
-
-            public ValueTask<TargetingContext> GetContextAsync()
-            {
-                HttpContext httpContext = _httpContextAccessor.HttpContext;
-                if (httpContext.Items.TryGetValue(TargetingContextLookup, out object value))
-                {
-                    return new ValueTask<TargetingContext>((TargetingContext)value);
-                }
-                List<string> groups = new List<string>();
-                if (httpContext.User.Identity.Name != null)
-                {
-                    groups.Add(httpContext.User.Identity.Name.Split("@", StringSplitOptions.None)[1]);
-                }
-                TargetingContext targetingContext = new TargetingContext
-                {
-                    UserId = httpContext.User.Identity.Name,
-                    Groups = groups
-                };
-                httpContext.Items[TargetingContextLookup] = targetingContext;
-                return new ValueTask<TargetingContext>(targetingContext);
-            }
-        }
-    }
-    ```
-
-1. Open the *Program.cs* file and enable the targeting filter by calling the `.WithTargeting<T>()` method, where `T` is your custom implementation of `ITargetingContextAccessor`. In this example, it is `.WithTargeting<ExampleTargetingContextAccessor>()`.
-
-    ```csharp
-    // Existing code in Program.cs
-    // ... ...
-
-    // Add feature management to the container of services
-    builder.Services.AddFeatureManagement()
-                    .WithTargeting<ExampleTargetingContextAccessor>();
-
-    // Add HttpContextAccessor to the container of services.
-    builder.Services.AddHttpContextAccessor();
-
-    // The rest of existing code in Program.cs
-    // ... ...
-    ```
-    
-    > [!NOTE]
-    > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
+> [!NOTE]
+    > For more control over how username and groups are extracted for targeting, see the [feature reference for targeting](https://learn.microsoft.com/en-us/azure/azure-app-configuration/feature-management-dotnet-reference#itargetingcontextaccessor).
 
 ## Targeting filter in action
 
