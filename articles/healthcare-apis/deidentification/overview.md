@@ -42,7 +42,7 @@ The de-identification service (preview) offers two ways to interact with the RES
 
 ## Input requirements and service limits
 
-The de-identification service (preview) is designed to receive unstructured text. To de-identify data stored in the FHIR&reg; service, see [Export deidentified data](/azure/healthcare-apis/fhir/deidentified-export).
+The de-identification service (preview) is designed to receive unstructured text. To de-identify data stored in the FHIR&reg; service, see [Export de-identified data](/azure/healthcare-apis/fhir/deidentified-export).
 
 The following service limits are applicable during preview:
 - Requests can't exceed 50 KB.
