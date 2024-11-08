@@ -8,16 +8,17 @@ ms.topic: concept-article
 ms.date: 10/30/2024
 
 # CustomerIntent: As a developer, I want understand what the MQTT broker state store protocol is, so
-# that I can implement a client app to interact with the MQ state store.
+# that I can implement a client app to interact with the state store.
 ms.service: azure-iot-operations
 ---
 
-# MQTT broker state store protocol
+# State store protocol
 
-The MQ state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in MQTT broker. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the MQ state store. This article provides protocol guidance for developers who need to implement their own MQTT broker state store clients. 
+The state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in MQTT broker. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the state store. This article provides protocol guidance for developers who need to implement their own MQTT broker state store clients. 
 
-## State store protocol overview
-The MQ state store supports the following commands:
+## Overview
+
+The state store supports the following commands:
 
 - `SET` \<keyName\> \<keyValue\> \<setOptions\>
 - `GET` \<keyName\>
@@ -71,7 +72,7 @@ sequenceDiagram
 
 The commands `SET`, `GET`, and `DEL` behave as expected.
 
-The values that the `SET` command sets, and the `GET` command retrieves, are arbitrary binary data. The size of the values is only limited by the maximum MQTT payload size, and resource limitations of MQ and the client.
+The values that the `SET` command sets, and the `GET` command retrieves, are arbitrary binary data. The size of the values is only limited by the maximum MQTT payload size, and resource limitations of MQTT broker and the client.
 
 ### `SET` options
 
@@ -421,7 +422,7 @@ The topic is defined in the following example. The `clientId` is an upper-case h
 clients/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/{clientId}/command/notify/{keyName}
 ```
 
-As an example, MQ publishes a `NOTIFY` message sent to `client-id1` with the modified key name `SOMEKEY` to the topic:
+As an example, MQTT broker publishes a `NOTIFY` message sent to `client-id1` with the modified key name `SOMEKEY` to the topic:
 
 ```console
 clients/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/636C69656E742D696431/command/notify/534F4D454B4559`

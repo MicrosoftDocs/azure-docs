@@ -145,6 +145,12 @@ items:
       items:
       - name: Edge apps overview
         href: create-edge-apps/edge-apps-overview.md
+      - name: State store
+        items:
+        - name: State store overview
+          href: create-edge-apps/overview-state-store.md
+        - name: About the state store protocol 
+          href: create-edge-apps/concept-about-state-store-protocol.md
       - name: Dapr apps
         items:
         - name: Deploy Dapr
@@ -153,8 +159,6 @@ items:
           href: create-edge-apps/howto-develop-dapr-apps.md
         - name: Build an event-driven app with Dapr
           href: create-edge-apps/tutorial-event-driven-with-dapr.md
-      - name: About the MQ state store protocol 
-        href: create-edge-apps/concept-about-state-store-protocol.md
       - name: Develop MQTTnet apps
         href: create-edge-apps/howto-develop-mqttnet-apps.md
     - name: Tutorials

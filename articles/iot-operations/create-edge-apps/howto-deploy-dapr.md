@@ -31,7 +31,7 @@ To install the Dapr runtime, use the following Helm command:
 ```bash
 helm repo add dapr https://dapr.github.io/helm-charts/
 helm repo update
-helm upgrade --install dapr dapr/dapr --version=1.13 --namespace dapr-system --create-namespace --wait
+helm upgrade --install dapr dapr/dapr --version=1.14 --namespace dapr-system --create-namespace --wait
 ```
 
 ## Register MQTT broker pluggable components
@@ -112,7 +112,7 @@ To create the yaml file, use the following component definitions:
         value: /var/run/secrets/tokens/mqtt-client-token    
     ```
 
-1. Apply the component yaml to your cluster by running the following command:
+1. Apply the Component to your cluster by running the following command:
 
     ```bash
     kubectl apply -f components.yaml
