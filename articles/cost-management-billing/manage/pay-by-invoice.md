@@ -41,7 +41,7 @@ To qualify for wire transfer payments, you must:
 
 > [!IMPORTANT]
 > - You must pay all outstanding charges before switching to payment by wire transfer.
-> - If you switch to payment by wire transfer, you can't switch back to paying by credit or debit card, except for one-time payments.
+> - If you switch to payment by wire transfer, you can't switch back to paying by credit or debit card as your recurring form of payment. However, you can make manual, one-time (non-recurring) payments with a credit or debit card.
 > - As of September 30, 2023, Microsoft no longer accepts checks as a payment method.
 
 ## Submit a request to set up payment by wire transfer

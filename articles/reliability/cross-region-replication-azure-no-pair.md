@@ -2,12 +2,12 @@
 title: Cross-region replication for nonpaired regions
 description: Learn about cross-region replication for nonpaired regions
 author: anaharris-ms
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 09/10/2024
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Cross-region replication solutions for nonpaired regions

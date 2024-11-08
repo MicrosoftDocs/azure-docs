@@ -11,7 +11,7 @@ ms.author: cherylmc
 ---
 # Azure VPN Client versions
 
-This article helps you view each of the versions of the Azure VPN Client. As new client versions become available, they're added to this article. To view the version number of an installed Azure VPN Client, launch the client and select **Help**.
+This article helps you view each of the versions of the Azure VPN Client. As new client versions become available, they're added to this article. To view the version number of an installed Azure VPN Client, launch the client and select **Help**. For the list of Azure VPN Client instructions, including how to download the Azure VPN Client, see the table in [VPN Client configuration requirements](point-to-site-about.md#client).
 
 ## Azure VPN Client - Windows
 

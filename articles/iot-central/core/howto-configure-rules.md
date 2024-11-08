@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 04/16/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 # This article applies to operators, builders, and administrators.

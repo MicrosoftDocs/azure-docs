@@ -156,5 +156,5 @@ To get answers to the most frequently asked questions about traffic analytics, s
 
 ## Related content
 
-- To learn how to use traffic analytics, see [Usage scenarios](usage-scenarios-traffic-analytics.md).
+- To learn how to use traffic analytics, see [Usage scenarios](traffic-analytics-usage-scenarios.md).
 - To understand the schema and processing details of traffic analytics, see [Schema and data aggregation in Traffic Analytics](traffic-analytics-schema.md).

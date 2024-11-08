@@ -246,6 +246,8 @@
       href: ../cdn/classic-cdn-retirement-faq.md
     - name: Akamai retirement FAQ
       href: ../cdn/akamai-retirement-faq.md?toc=/azure/frontdoor/TOC.json
+    - name: Edgio retirement FAQ
+      href: ../cdn/edgio-retirement-faq.md?toc=/azure/frontdoor/TOC.json
     - name: Security baseline
       href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/frontdoor/TOC.json
     - name: DDoS protection
@@ -310,23 +312,23 @@
         items:
         - name: Connect to an internal load balancer
           href: standard-premium/how-to-enable-private-link-internal-load-balancer.md
-        - name: Connect to a storage account
+        - name: Connect to Azure Storage Account
           items:
           - name: Azure portal
             href: standard-premium/how-to-enable-private-link-storage-account.md
           - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-storage-account-cli.md
-        - name: Connect to a storage static website
+        - name: Connect to Azure Storage static website
           href: how-to-enable-private-link-storage-static-website.md
-        - name: Connect to an App service
+        - name: Connect to Azure App Service
           items:
           - name: Azure portal
             href: standard-premium/how-to-enable-private-link-web-app.md
           - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-web-app-cli.md
-        - name: Connect to an application gateway
+        - name: Connect to Azure Application Gateway
           href: how-to-enable-private-link-application-gateway.md
-        - name: Connect to an API management
+        - name: Connect to Azure API Management
           href: standard-premium/how-to-enable-private-link-apim.md
       - name: Monitor and reports
         items:
@@ -454,6 +456,8 @@
           href: ../cdn/cdn-app-dev-node.md?toc=/azure/frontdoor/TOC.json
     - name: Edgio
       items:
+      - name: Migrate to Azure Front Door
+        href: migrate-cdn-to-front-door.md
       - name: Standard
         items:
         - name: Optimize content

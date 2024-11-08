@@ -3,7 +3,7 @@
 title: Deploy the Azure IoT Central device bridge
 description: Deploy the IoT Central device bridge to connect other IoT clouds such as Sigfox, Particle Device Cloud, and The Things Network to your application.
 services: iot-central
-ms.service: iot-central
+ms.service: azure-iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/14/2024

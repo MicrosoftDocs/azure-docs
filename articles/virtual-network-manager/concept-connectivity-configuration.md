@@ -44,6 +44,8 @@ A hub-and-spoke is a network topology in which you have a virtual network select
 
 In this configuration, you have settings you can enable such as *direct connectivity* between spoke virtual networks. By default, this connectivity is only for virtual networks in the same region. To allow connectivity across different Azure regions, you need to enable *Global mesh*. You can also enable *Gateway* transit to allow spoke virtual networks to use the VPN or ExpressRoute gateway deployed in the hub.
 
+If checked, any peerings that do not match the contents of this configuration can by removed, even if these peerings were manually created after this configuration is deployed. If you remove a VNet from a network group used in the configuration, your virtual manager removes only peerings it created.
+
 ### Direct connectivity
 
 Enabling *Direct connectivity* creates an overlay of a [*connected group*](#connected-group) on top of your hub and spoke topology, which contains spoke virtual networks of a given group. Direct connectivity allows a spoke VNet to talk directly to other VNets in its spoke group, but not to VNets in other spokes.

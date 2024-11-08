@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, references_regions
 ms.topic: how-to
-ms.date: 10/14/2024
+ms.date: 10/23/2024
 ms.author: kendownie
 ---
 
@@ -100,7 +100,7 @@ The following mount options are recommended or required when mounting NFS Azure 
 | `sec` | sys | Required. Specifies the type of security to use when authenticating an NFS connection. Setting `sec=sys` uses the local UNIX UIDs and GIDs that use AUTH_SYS to authenticate NFS operations. |
 | `rsize` | 1048576 | Recommended. Sets the maximum number of bytes to be transferred in a single NFS read operation. Specifying the maximum level of 1048576 bytes will usually result in the best performance. |
 | `wsize` | 1048576 | Recommended. Sets the maximum number of bytes to be transferred in a single NFS write operation. Specifying the maximum level of 1048576 bytes will usually result in the best performance. |
-| `noresvport` | n/a | Recommended. Tells the NFS client to use a non-privileged source port when communicating with an NFS server for the mount point. Using the `noresvport` mount option helps ensure that your NFS share has uninterrupted availability after a reconnection. Using this option is strongly recommended for achieving high availability. |
+| `noresvport` | n/a | Recommended for kernels below 5.18. Tells the NFS client to use a non-privileged source port when communicating with an NFS server for the mount point. Using the `noresvport` mount option helps ensure that your NFS share has uninterrupted availability after a reconnection. Using this option is strongly recommended for achieving high availability. |
 | `actimeo` | 30-60 | Recommended. Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. Using a value lower than 30 seconds can cause performance degradation because attribute caches for files and directories expire too quickly. We recommend setting `actimeo` between 30 and 60 seconds. |
 
 ## Step 4: Validate connectivity
@@ -109,181 +109,7 @@ If your mount fails, it's possible that your private endpoint wasn't set up corr
 
 ## NFS file share snapshots
 
-Customers using NFS Azure file shares can create, list, and delete NFS Azure file share snapshots. This capability allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted.
-
-> [!IMPORTANT]
-> You should mount your file share before creating snapshots. If you create a new NFS file share and take snapshots before mounting the share, attempting to list the snapshots for the share will return an empty list. We recommend deleting any snapshots taken before the first mount and re-creating them after you've mounted the share.
-
-### Limitations
-
-Only file management APIs (`AzRmStorageShare`) are supported for NFS Azure file share snapshots. File data plane APIs (`AzStorageShare`) aren't supported.
-
-Azure Backup isn't currently supported for NFS file shares.
-
-AzCopy isn't currently supported for NFS file shares. To copy data from an NFS Azure file share or share snapshot, use file system copy tools such as rsync or fpsync.
-
-NFS Azure file share snapshots are available in all Azure public cloud regions.
-
-### Create a snapshot
-
-You can create a snapshot of an NFS Azure file share using the Azure portal, Azure PowerShell, or Azure CLI. A share can support the creation of up to 200 share snapshots.
-
-# [Azure portal](#tab/portal)
-
-To create a snapshot of an existing file share, sign in to the Azure portal and follow these steps.
-
-1. In the search box at the top of the Azure portal, type and select *storage accounts*.
-
-1. Select the FileStorage storage account that contains the NFS Azure file share that you want to take a snapshot of.
-
-1. Select **Data storage** > **File shares**.
-
-1. Select the file share that you want to snapshot, then select **Operations** > **Snapshots**.
-
-1. Select **+ Add snapshot**. Add an optional comment, and select **OK**.
-
-  :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/add-file-share-snapshot.png" alt-text="Screenshot of adding a file share snapshot.":::
-
-# [Azure PowerShell](#tab/powershell)
-
-To create a snapshot of an existing file share, run the following PowerShell command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
-
-```azurepowershell
-New-AzRmStorageShare -ResourceGroupName "<resource-group-name>" -StorageAccountName "<storage-account-name>" -Name "<file-share-name>" -Snapshot
-```
-
-# [Azure CLI](#tab/cli)
-To create a snapshot of an existing file share, run the following Azure CLI command. Replace `<file-share-name>` and `<storage-account-name>` with your own values.
-
-```azurecli
-az storage share snapshot --name <file-share-name> --account-name <storage-account-name>
-```
----
-
-### List file share snapshots
-
-You can list all the snapshots for a file share using the Azure portal, Azure PowerShell, or Azure CLI.
-
-# [Azure portal](#tab/portal)
-
-To list all the snapshots for an existing file share, sign in to the Azure portal and follow these steps.
-
-1. In the search box at the top of the Azure portal, type and select *storage accounts*.
-
-1. Select the FileStorage storage account that contains the NFS Azure file share that you want to list the snapshots of.
-
-1. Select **Data storage** > **File shares**.
-
-1. Select the file share for which you want to list the snapshots.
-
-1. Select **Operations** > **Snapshots**, and any existing snapshots for the file share will be listed.
-
-# [Azure PowerShell](#tab/powershell)
-
-To list all file shares and snapshots in a storage account, run the following PowerShell command. Replace `<resource-group-name>` and `<storage-account-name>` with your own values.
-
-```azurepowershell
-Get-AzRmStorageShare -ResourceGroupName "<resource-group-name>" -StorageAccountName "<storage-account-name>" -IncludeSnapshot
-```
-
-# [Azure CLI](#tab/cli)
-To list all file shares and snapshots in a storage account, run the following Azure CLI command. Replace `<storage-account-name>` with your own value.
-
-```azurecli
-az storage share list --account-name <storage-account-name> --include-snapshots
-```
----
-
-### Delete snapshots
-
-Existing share snapshots are never overwritten. They must be deleted explicitly. You can delete share snapshots using the Azure portal, Azure PowerShell, or Azure CLI.
-
-# [Azure portal](#tab/portal)
-
-To delete a snapshot of an existing file share, sign in to the Azure portal and follow these steps.
-
-1. In the search box at the top of the Azure portal, type and select *storage accounts*.
-
-1. Select the FileStorage storage account that contains the NFS Azure file share for which you want to delete snapshots.
-
-1. Select **Data storage** > **File shares**.
-
-1. Select the file share for which you want to delete one or more snapshots, then select **Operations** > **Snapshots**. Any existing snapshots for the file share will be listed.
-
-1. Select the snapshot(s) that you want to delete, and then select **Delete**.
-
-  :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/delete-file-share-snapshot.png" alt-text="Screenshot of deleting file share snapshots.":::
-
-# [Azure PowerShell](#tab/powershell)
-
-To delete a file share snapshot, run the following PowerShell command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values. The `SnapshotTime` parameter must follow the correct name format, such as `2021-05-10T08:04:08Z`.
-
-```azurepowershell
-Remove-AzRmStorageShare -ResourceGroupName "<resource-group-name>" -StorageAccountName "<storage-account-name>" -Name "<file-share-name>" -SnapshotTime "<snapshot-time>"
-```
-
-To delete a file share and all its snapshots, run the following PowerShell command. Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with your own values.
-
-```azurepowershell
-Remove-AzRmStorageShare "<resource-group-name>" -StorageAccountName "<storage-account-name>" -Name "<file-share-name>" -Include Snapshots
-```
-
-# [Azure CLI](#tab/cli)
-
-To delete a file share snapshot, run the following Azure CLI command. Replace `<storage-account-name>` and `<file-share-name>` with your own values. The `--snapshot` parameter must follow the correct name format, such as `2021-05-10T08:04:08Z`.
-
-```azurecli
-az storage share delete --account-name <storage-account-name> --name <file-share-name> --snapshot <snapshot-time>
-```
-
-To delete a file share and all its snapshots, run the following Azure CLI command. Replace `<storage-account-name>` and `<file-share-name>` with your own values.
-
-```azurecli
-az storage share delete --account-name <storage-account-name> --name <file-share-name> --delete-snapshots include
-```
----
-
-### Mount an NFS Azure file share snapshot
-
-To mount an NFS Azure file share snapshot to a Linux VM (NFS client) and restore files, follow these steps.
-
-1. Run the following command in a console. See [Mount options](#mount-options) for other recommended mount options. To improve copy performance, mount the snapshot with [nconnect](nfs-performance.md#nconnect) to use multiple TCP channels.
-   
-   ```bash
-   sudo mount -o vers=4,minorversion=1,proto=tcp,sec=sys $server:/nfs4account/share /media/nfs
-   ```
-   
-1. Change the directory to `/media/nfs/.snapshots` so you can view the available snapshots. The `.snapshots` directory is hidden by default, but you can access and read from it like any directory.
-   
-   ```bash
-   cd /media/nfs/.snapshots
-   ```
-   
-1. List the contents of the `.snapshots` folder.
-   
-   ```bash
-   ls
-   ```
-   
-1. Each snapshot has its own directory that serves as a recovery point. Change to the snapshot directory for which you want to restore files.
-   
-   ```bash
-   cd <snapshot-name>
-   ```
-   
-1. List the contents of the directory to view a list of files and directories that can be recovered.
-   
-   ```bash
-   ls
-   ```
-   
-1. Copy all files and directories from the snapshot to a *restore* directory to complete the restore.
-   
-   ```bash
-   cp -r <snapshot-name> ../restore
-   ```
-   
-The files and directories from the snapshot should now be available in the `/media/nfs/restore` directory.
+Customers using NFS Azure file shares can take file share snapshots. This capability allows users to roll back entire file systems or recover files that were accidentally deleted or corrupted. See [Use share snapshots with Azure Files](storage-snapshots-files.md#nfs-file-share-snapshots).
 
 ## Next step
 
