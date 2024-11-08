@@ -10,7 +10,7 @@ ms.date: 11/06/2024
 #customer intent: As a dev center administrator or DevCenter Project Admin I want to create image definition files so that my development teams can create customized dev boxes.
 ---
 
-# Write a Team Customization file for Dev Box
+# Write a customization file for Dev Box
 In this article, you learn how to create and test a customization file for your dev box using Visual Studio Code and Dev Home. 
 
 There are two ways to use a customization file: team customizations which apply automatically once configured on a pool, and individual customizations which are applied when a user creates a dev box.
@@ -120,8 +120,11 @@ To invoke the Dev Box chat agent:
 
     You can select **Generate Workload.yaml File** to create a file with the custom task. You can then rename the *workload.yaml* file to *imagedefintion.yaml*for use in your team customizations.
 
-## Use secrets from an Azure Key Vault
-You can use secrets from your Azure Key Vault in your yaml customizations to clone private repositories, or with any custom task you author that requires an access token.
+## Clone a private repository using a customization file
+You can use secrets from your Azure Key Vault in your yaml customizations to clone private repositories, or with any custom task you author that requires an access token. In a team customization file, you can use a personal access token (PAT) sotred in a key vault to access a private repository. In an individual customization file, you can also use the `{{ado}}` or `{{ado://your-ado-organization-name}}` parameter to fetch an access token on your behalf when creating a dev box.
+
+### Use Key Vault secrets in team customization files
+ To clone a private repository, store your PAT as an Azure KeyVault secret, and use it when invoking the git-clone task in your customization.
 
 To configure your Key Vault secrets for use in your yaml customizations:
 1. Ensure that your dev center project's managed identity has the Key Vault Reader role and Key Vault Secrets User role on your key vault.
@@ -143,8 +146,8 @@ tasks:
          directory: C:\Workspaces
          pat: '{{KEY_VAULT_SECRET_URI}}'
 ```
-
-If you wish to clone a private Azure Repos repository, you don't need to configure a secret in Key Vault. Instead, you can use `{{ado}}`, or `{{ado://your-ado-organization-name}}` as a parameter. This fetches an access token on your behalf when creating a dev box, which has read-only permission to your repository. The git-clone task in the quickstart catalog uses the access token to clone your repository. Here's an example:
+### Use Key Vault secrets in individual customization files
+If you wish to clone a private Azure Repos repository from an individual customization file, you don't need to configure a secret in Key Vault. Instead, you can use `{{ado}}`, or `{{ado://your-ado-organization-name}}` as a parameter. This fetches an access token on your behalf when creating a dev box, which has read-only permission to your repository. The git-clone task in the quickstart catalog uses the access token to clone your repository. Here's an example:
 
 ```yml
 tasks:
