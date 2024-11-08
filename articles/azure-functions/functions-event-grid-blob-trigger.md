@@ -63,6 +63,13 @@ This article creates a C# app that runs in isolated worker mode, which supports 
 
 When you create a Blob Storage trigger function using Visual Studio Code, you also create a new project. You need to edit the function to consume an event subscription as the source, rather than use the regular polled container.
 
+::: zone pivot="programming-language-java"
+> [!TIP] 
+> Use the `@BlobTrigger` annotation with `source=EventGrid` to handle Blob storage events. Using the `@EventGrid` annotation instead will result in an error.
+::: zone-end
+
+> For details about differences between the two implementations of the Blob storage trigger, as well as other triggering options, see [Working with blobs](./storage-considerations.md#working-with-blobs).
+
 1. In Visual Studio Code, open your function app.
 
 1. Press F1 to open the command palette, enter `Azure Functions: Create Function...`, and select **Create new project**.  
