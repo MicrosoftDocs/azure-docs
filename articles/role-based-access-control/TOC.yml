@@ -99,9 +99,9 @@
     - name: ARM template
       displayName: Resource Manager
       href: role-assignments-template.md
-  - name: Integration with PIM
+  - name: Eligible and time-bound
     items:
-    - name: Integration with PIM
+    - name: Eligible and time-bound role assignments
       href: pim-integration.md
     - name: Activate eligible roles
       href: role-assignments-eligible-activate.md

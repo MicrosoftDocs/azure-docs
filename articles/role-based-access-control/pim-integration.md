@@ -1,6 +1,6 @@
 ---
-title: Azure role assignment integration with Privileged Identity Management - Azure RBAC
-description: Learn about the integration of Azure role assignments in Azure role-based access control (Azure RBAC) with Microsoft Entra Privileged Identity Management (PIM).
+title: Eligible and time-bound role assignments in Azure RBAC
+description: Learn about the integration of Azure role-based access control (Azure RBAC) and Microsoft Entra Privileged Identity Management (PIM) to create eligible and time-bound role assignments.
 author: rolyon
 ms.service: role-based-access-control
 ms.topic: conceptual
@@ -8,19 +8,23 @@ ms.date: 11/11/2024
 ms.author: rolyon
 ---
 
-# Azure role assignment integration with Privileged Identity Management
+# Eligible and time-bound role assignments in Azure RBAC
 
 If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) is integrated into role assignment steps. For example, you can assign roles to users for a limited period of time. You can also make users eligible for role assignments so that they must activate to use the role, such as request approval. Eligible role assignments provide just-in-time access to a role for a limited period of time.
 
+This article describes the integration of Azure role-based access control (Azure RBAC) and Microsoft Entra Privileged Identity Management (PIM) to create eligible and time-bound role assignments.
+
 ## PIM functionality
 
-You can create eligible role assignments for users, but you can't creat eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps. You can create eligible role assignments at management group, subscription, and resource group scope, but not at resource scope. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
+If you have PIM, you create eligible and time-bound role assignments using the role assignments steps on the **Access control (IAM)** page in the Azure portal. You can create eligible role assignments for users, but you can't create eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps. You can create eligible role assignments at management group, subscription, and resource group scope, but not at resource scope.
+
+Here's an example of the **Assignment type** tab when adding a role assignment on the **Access control (IAM)** page. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
+
+:::image type="content" source="./media/shared/assignment-type-eligible.png" alt-text="Screenshot of Add role assignment with Assignment type options displayed." lightbox="./media/shared/assignment-type-eligible.png":::
 
 The assignment type options available to you might vary depending or your PIM policy. For example, PIM policy defines whether permanent assignments can be created, maximum duration for time-bound assignments, roles activations requirements (approval, multifactor authentication, or Conditional Access authentication context), and other settings. For more information, see [Configure Azure resource role settings in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-configure-role-settings).
 
 If you don't want to use the PIM functionality, select the **Active** assignment type and **Permanent** assignment duration options. These settings create a role assignment where the principal always has permissions in the role. 
-
-:::image type="content" source="./media/shared/assignment-type-eligible.png" alt-text="Screenshot of Add role assignment with Assignment type options displayed." lightbox="./media/shared/assignment-type-eligible.png":::
 
 To better understand PIM, you should review the following terms.
 
@@ -38,60 +42,85 @@ To better understand PIM, you should review the following terms.
 
 For more information, see [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure).
 
-## How do I list all my PIM role assignments through PowerShell? 
+## How to list eligible and time-bound role assignments
 
-There is no single PowerShell cmdlet that would list both the eligible and active timebound role assignments which are both supported by PIM.
-To list your eligible role assignments, use the [Get-AzRoleEligibilitySchedule](/powershell/module/az.resources/get-azroleeligibilityschedule) command. 
-To list your active role assignments, use the [Get-AzRoleAssignmentSchedule](/powershell/module/az.resources/get-azroleassignmentschedule) command
-For information about how scopes are constructed, see [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
+Here are options for how to list eligible and time-bound role assignments.
 
-See this example to list role assignments that are supported by PIM functionalities in a subscription and it's child scopes, which includes role assignments of type active timebound, eligible permanent, and eligible timebound, use the following commands. The `Where-Object` condition filters out active permanent role assignments that are available with Azure RBAC functionality today without PIM.
+### Option 1: List using the Azure portal
 
-Pre-requisites to using PowerShell: [Azure PowerShell](/powershell/azure/install-azure-powershell). 
-[Sign in to Azure PowerShell interactively](/powershell/azure/authenticate-interactive).
+1. Sign in to the Azure portal, open the **Access control (IAM)** page, and select the **Role assignments** tab.
+
+1. Filter the eligble and time-bound role assignments.
+
+    You can group and sort by **State**, and look for role assignments that are not of the type **Active permanent**.
+
+    :::image type="content" source="./media/role-assignments-list-portal/rg-access-control-role-assignments.png" alt-text="Screenshot of Access control and Role assignments tab." lightbox="./media/role-assignments-list-portal/rg-access-control-role-assignments.png":::
+
+### Option 2: List using PowerShell
+
+There isn't single PowerShell command that can list both the eligible and active time-bound role assignments. To list your eligible role assignments, use the [Get-AzRoleEligibilitySchedule](/powershell/module/az.resources/get-azroleeligibilityschedule) command. To list your active role assignments, use the [Get-AzRoleAssignmentSchedule](/powershell/module/az.resources/get-azroleassignmentschedule) command.
+
+This example shows how to list eligible and time-bound role assignments in a subscription and it's child scopes, which includes these role assignment types:
+
+- Eligible permanent
+- Eligible time-bound
+- Active time-bound
+
+The `Where-Object` condition filters out active permanent role assignments that are available with Azure RBAC functionality today without PIM.
 
 ```powershell
 Get-AzRoleAssignmentSchedule -Scope /subscriptions/<subscriptionId> | Where-Object {$_.EndDateTime -ne $null }
 Get-AzRoleEligibilitySchedule -Scope /subscriptions/<subscriptionId> 
 ```
 
-## How do I convert all my role assignments supported by PIM to be supported by Azure RBAC system only? 
+For information about how scopes are constructed, see [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
 
-### Option 1 - Conversion through UI
+## How to convert eligible and time-bound role assignments to active permanent
 
-1. Filter for PIM role assignments:
-In the Role assignment tab in the Access control (IAM) blade, you can group and sort by State, and look for role assignments that are not of the type "Active Permanent"
+Depending on your organization, eligible or time-bound role assignments might have been inadvertently created. Here are options for how to convert these role assignments to active permanent.
 
-2. For each role assignment that is not of the State "Active Permanent", you can click on the State hyperlink to edit their Assignment type and Assignment duration. See details here https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal#edit-assignment-(preview)
-If you don't want to leverage PIM capability, convert the role assignment by selecting Assignment type as Active and Assignment duration as Permanent and click save. This conversion may take a few moments. You cannot make conversions for role assignments at higher scopes. 
+### Option 1: Convert using the Azure portal
 
-3. Do this for all the scopes you wish to convert PIM role assignments for.
+1. On the **Role assignments** tab and **State** column, select the **Eligile permanent**, **Eligible time-bound**, and **Active time-bound** links for each role assignment you want to convert.
 
-### Option 2 - Conversion through PowerShell
+1. In the **Edit assignment** pane, select **Active** for the assignment type and **Permanent** for the assignment duration.
 
-There is no API or cmdlet to directly convert role assignments to a different state or type, so instead you can do the following steps:
+    :::image type="content" source="./media/role-assignments-portal/assignment-type-edit.png" alt-text="Screenshot of Edit assignment pane with Assignment type options displayed." lightbox="./media/role-assignments-portal/assignment-type-edit.png":::
 
-1. Retrieve and save the list of all of your PIM role assignment in a secure location. See list all your PIM role assignment in the section above.
-Note - this is important because this conversion requires for deletion of the PIM role assignment first before creating the same role assignment copy in the Azure RBAC system, so make sure the list of all of your PIM role assignments are saved in a secure location first before the deletion to prevent any data loss
+    This conversion might take a few moments. For more information, see [Edit assignment](role-assignments-portal.yml#edit-assignment-(preview)).
 
-2. Remove your eligible role assignments
-The follow example shows how you can remove an eligible role assignment
+1. Repeat these steps for all role assignments ate management group, subscription, and resource group scopes that you want to convert.
+
+### Option 2: Convert using PowerShell
+
+There isn't a command or API to directly convert role assignments to a different state or type, so instead you can follow these steps.
+
+1. Retrieve and save the list of all of your eligible and time-bound role assignment in a secure location to prevent data loss.
+
+> [!NOTE]
+> It is important that you save the list of eligible and time-bound role assignments because these steps require you to remove these role assignments before you create the same role assignments as active permanent.
+
+2. Remove your eligible role assignments.
+
+    The follow example shows how you can remove an eligible role assignment
 
     ```powershell
     $guid = New-guid
     New-AzRoleEligibilityScheduleRequest -Name $guid -Scope <Scope> -PrincipalId <PrincipalId> -RoleDefinitionId <RoleDefinitionId> -RequestType AdminRemove
     ```
   
-3. Remove your active timebound role assignments
-The follow example shsows how you can remove an active timebound role assignment
+3. Remove your active time-bound role assignments.
+
+    The follow example shsows how you can remove an active timebound role assignment
 
     ```powershell
     $guid = New-guid
     New-AzRoleAssignmentScheduleRequest -Name $guid -Scope <Scope> -PrincipalId <PrincipalId> -RoleDefinitionId <RoleDefinitionId> -RequestType AdminRemove
     ```
 
-4. Create Active Permanent role assignments with Azure RBAC for every eligile role assignment
-The following example shows how to create an active permanent role assignment with Azure RBAC
+4. Create active permanent role assignments with Azure RBAC for every eligible and time-bound role assignment.
+
+    The following example shows how to create an active permanent role assignment with Azure RBAC.
 
     ```powershell
     foreach($RA in $RAs)
@@ -103,13 +132,11 @@ The following example shows how to create an active permanent role assignment wi
     }
     ```
 
-## How do I stop my users from creating PIM role assignments?
+## How to stop users from creating eligible or time-bound role assignments?
 
-You can use Azure Policy to block creation of PIM role assignments. For more information, see [What is Azure Policy?](/azure/governance/policy/overview).
+You can use Azure Policy to block creation of eligible or time-bound role assignments. For more information, see [What is Azure Policy?](/azure/governance/policy/overview).
 
-Here is an example policy that blocks the creation of PIM role assignments except for a specific list of identities to can receive them. Additional parameters and checks can be added for other allow lists. See PIM resource properties:
-[RoleEligibilityScheduleRequest](https://learn.microsoft.com/en-us/rest/api/authorization/role-eligibility-schedule-requests/get?view=rest-authorization-2020-10-01&tabs=HTTP)
-[RoleAssignmentScheduleRequest](https://learn.microsoft.com/en-us/rest/api/authorization/role-assignment-schedule-requests/get?view=rest-authorization-2020-10-01&tabs=HTTP)
+Here is an example policy that blocks the creation of eligible and time-bound role assignments except for a specific list of identities to can receive them. Additional parameters and checks can be added for other allow lists.
 
 ```json
 {
@@ -189,9 +216,14 @@ Here is an example policy that blocks the creation of PIM role assignments excep
 }
 ```
 
+For information about PIM resource properties, see these REST API docs:
+
+- [RoleEligibilityScheduleRequest](/rest/api/authorization/role-eligibility-schedule-requests/get)
+- [RoleAssignmentScheduleRequest](/rest/api/authorization/role-assignment-schedule-requests/get)
+
 For information about how to assign an Azure Policy with parameters, see [Tutorial: Create and manage policies to enforce compliance](/azure/governance/policy/tutorials/create-and-manage#assign-a-policy).
 
 ## Next steps
 
-- [Delegate Azure access management to others](delegate-role-assignments-overview.md)
 - [Steps to assign an Azure role](role-assignments-steps.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
