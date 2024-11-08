@@ -25,8 +25,17 @@ sections:
          Does Azure IoT Operations offer high availability across multi-node setup?
       answer: Yes, Azure IoT Operations workloads on K3s and HCI/AKS-Arc multi-node clusters support distribution of Azure IoT Operations workloads across multi-nodes setups in the preview version. The AIO MQTT Broker does automatically replicates states across multiple nodes governed by the Broker's 'cardinality' setting. Replicas are distributed across different nodes in a multi-node cluster and data is not lost if there is one set of replicas running and healthy. 
     - question: |
+         Is MQTT with QoS 2 supported in Azure IoT Operations?
+      answer: Currently, MQTT with QOS 2 is not supported. QoS 2 provides "exactly once" message delivery, but it requires additional processing and storage overhead, which can impact performance and scalability, particularly in high-throughput IoT environments. Azure IoT Operations prioritizes QoS levels 0 and 1 for efficient message handling, balancing reliability and resource management.
+    - question: |
+          Is message persistence supported in Azure IoT Operations?
+      answer: At AIO GA1, full message persistence is not going to be supported - the capability will be added post-GA. Currently, messages are held in memory with optional spill over to disk. However, if there is pod restart for any reason, messages that were written to disk cannot be restored. 	
+    - question: |
          Does Azure Device Registry Preview offer high availability across availability zones and regions?
       answer: For information on high availability across availability zones and regions for ADR, see [Reliability in Azure Device Registry](../../reliability/reliability-device-registry.md).
+    - question: |
+         What Kubernetes distributions are compatible with Azure IoT Operations?
+      answer: Azure IoT Operations is only officially supported on two platforms now Ubuntu using K3s, Windows IoT using AKS Edge Essentials. For more information, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
     - question: |
          Can I migrate my IoT Edge workloads to Azure IoT Operations?
       answer: Currently, there's no documented migration path from IoT Edge to Azure IoT Operations. If you have any feature asks for Azure IoT Operations as part of your migration plans, share your requests on the [Azure IoT Operations public feedback forum](https://feedback.azure.com/d365community/forum/20152d6e-6a76-ee11-8179-000d3a1abe9e).
@@ -34,35 +43,15 @@ sections:
          Can I just upgrade my preview version to the general availability version?
       answer: You can't upgrade from the preview to the general availability version directly. You need to redeploy.
     - question: |
-         What Kubernetes distributions are compatible with Azure IoT Operations?
-      answer: Azure IoT Operations is only officially supported on two platforms now Ubuntu using K3s, Windows IoT using AKS Edge Essentials. For more information, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
-    - question: |
          For IoT Operations, which device communication protocols supported.
-      answer: Currently, OPC-UA and MQTT are supported in the GA version.
+      answer: Currently, Azure IoT Operations supports OPC-UA and MQTT for device communication.
     - question: |
          Is there a non-Dapr Azure IoT Operations state store code example?
       answer: |
         Currently, we don't have an example/asset for external use. However, the StateStore documentation can help you understand how it can be used. For more information, see [MQTT broker state store protocol](../create-edge-apps/concept-about-state-store-protocol.md).
     - question: |
-         Is MQTT with QoS 2 supported in Azure IoT Operations?
-      answer: Currently, MQTT with QOS 2 is not supported. QoS 2 provides "exactly once" message delivery, but it requires additional processing and storage overhead, which can impact performance and scalability, particularly in high-throughput IoT environments. Azure IoT Operations prioritizes QoS levels 0 and 1 for efficient message handling, balancing reliability and resource management.
-    - question: |
          Which Azure regions is Azure IoT Operations currently available in?
       answer: Azure IoT Operations is available in East US2, West US 3, West Europe, East US, West US, West US 2, North Europe regions.
-    - question: |
-         Is there a way to gracefully fail over between two redundant OPC UA servers in case one of them fails? 
-      answer: Currently, fail over between two redundant OPC UA servers isn't supported in the preview version of Azure IoT Operations.
-    - question: |
-         Is there a hard limit on the sampling intervals for OPC UA tags for minimum and maximum sampling interval?
-      answer: The minimum is 1 ms, however there's no upper restriction imposed at the connector level.
-  - name: Pricing
-    questions:
-    - question: |
-         Does Azure IoT Operations offer a free trial?
-      answer: Currently, there's no charge for the preview version.
-    - question: |
-         What is the cost involved in using Azure IoT Operations?
-      answer: We're currently working on pricing. The General Availability pricing isn't available yet.
 additionalContent: |
     ## Related content
 
