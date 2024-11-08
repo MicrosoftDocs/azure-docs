@@ -40,7 +40,7 @@ On the **Basics** tab, provide the essential information for your storage task. 
 |--|--|--|--|
 | Project details | Subscription | Required | Select the subscription for the new storage task. |
 | Project details | Resource group | Required | Create a new resource group for this storage task, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
-| Instance details | Storage task name | Required | Choose a unique name for your storage task. storage task names must be between 3 and 18 characters in length and might contain only lowercase letters and numbers. |
+| Instance details | Storage task name | Required | Choose a unique name for your storage task. Storage task names must be between 3 and 18 characters in length and might contain only lowercase letters and numbers. |
 | Instance details | Region | Required | Select the appropriate region for your storage task. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md). |
 
 The following image shows an example of the **Basics** tab.
@@ -59,18 +59,16 @@ The following table describes the fields on the **Conditions** tab.
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
 | If | And/Or | Required | An operator that combines two or more predicates to form a logical-AND or logical-OR expression. |
-| If | Blob property | Required | The blob or container property that you like to use in the clause. See [Supported blob properties](storage-task-properties-operators-operations.md#supported-properties-in-a-clause)|
-| If | Operator | Required | The operator that defines how each property in the clause must relate to the corresponding value. See [Supported operators](storage-task-properties-operators-operations.md#supported-operators-in-a-clause)|
+| If | Blob property | Required | The blob or container property that you like to use in the clause. See [Supported blob properties](storage-task-conditions.md#supported-properties)|
+| If | Operator | Required | The operator that defines how each property in the clause must relate to the corresponding value. See [Supported operators](storage-task-conditions.md#supported-operators)|
 | If| Property value | Required | The value that relates to the corresponding property.  |
-| Then | Operations | Required | The action to perform when objects meet the conditions defined in this task. See [Supported operations](storage-task-properties-operators-operations.md#supported-operations)|
+| Then | Operations | Required | The action to perform when objects meet the conditions defined in this task. See [Supported operations](storage-task-operations.md#supported-operations)|
 | Then | Parameter | Required | A value used by the operation. |
 
 The following image shows an example of the **Conditions** tab.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of conditions tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-conditions-tab.png)
-
-To learn more about supported properties and operators in conditions, see [Storage task conditions and operations](storage-task-properties-operators-operations.md).
 
 ## Assignments tab
 

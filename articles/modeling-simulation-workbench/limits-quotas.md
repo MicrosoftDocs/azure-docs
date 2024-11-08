@@ -3,7 +3,7 @@ title: "Limits and quotas: Azure Modeling and Simulation Workbench"
 description: "Learn about limits and quotas in the Azure Modeling and Simulation Workbench."
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: limits-and-quotas
 ms.date: 10/15/2024
 

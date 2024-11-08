@@ -7,7 +7,7 @@ manager: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/27/2023
+ms.date: 01/13/2024
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 

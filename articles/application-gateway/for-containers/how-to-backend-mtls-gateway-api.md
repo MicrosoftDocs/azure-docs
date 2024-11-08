@@ -5,7 +5,7 @@ services: application-gateway
 author: greglin
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 11/5/2024
 ms.author: greglin
 ---
 
@@ -34,7 +34,7 @@ See the following figure:
    Apply the following deployment.yaml file on your cluster to create a sample web application and deploy sample secrets to demonstrate backend mutual authentication (mTLS).
 
    ```bash
-   kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
+   kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
    ```
   
    This command creates the following on your cluster:

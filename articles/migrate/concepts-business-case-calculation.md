@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 07/03/2024
+ms.date: 10/29/2024
 ms.custom: engagement-fy25
 ---
 
@@ -19,6 +19,8 @@ This article provides an overview of assessments in the [Azure Migrate: Discover
 The Business case capability helps you build a business proposal to understand how Azure can bring the most value to your business. It highlights:
 
 - On-premises vs Azure total cost of ownership.
+- Current on-premises vs On-premises with Arc total cost of ownership.
+- Cost savings and other benefits of using Azure security (Microsoft Defender for Cloud) and management (Azure Monitor and Update Management) via Arc, as well as ESUs enabled by Arc for your on-premises servers.
 - Year on year cashflow analysis.
 - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
 - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
@@ -27,7 +29,7 @@ The Business case capability helps you build a business proposal to understand h
 Other key features:
 
 - Helps remove guess work in your cost planning process and adds data insights driven calculations.
-- It can be generated in just a few clicks after you have performed discovery using the Azure Migrate appliance.
+- It can be generated almost instantly after you have performed discovery using the Azure Migrate appliance.
 - The feature is automatically enabled for existing Azure Migrate projects.
 
 This capability can only be used to create Business cases in public cloud regions. For Azure Government, you can use the existing assessment capability.
@@ -114,7 +116,8 @@ There are four major reports that you need to review:
     - Savings from unique Azure benefits like Azure Hybrid Benefit.
     - Savings from Security and Management capabilities.
     - Discovery insights covering the scope of the Business case.
-- **On-premises vs Azure**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
+- **Current on-premises vs Future**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
+- **On-premises with Azure Arc**: This report covers the breakdown of the total cost of ownership for your on-premises estate with and without Arc.
 - **Azure IaaS**: This report covers the Azure and on-premises footprint of the servers and workloads recommended for migrating to Azure IaaS.
 - **Azure PaaS**: This report covers the Azure and on-premises footprint of the workloads recommended for migrating to Azure PaaS.
 
@@ -148,7 +151,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
 | Management | Management Software licensing | System center Management software | Used for cost of the System center management software that includes monitoring, hardware and virtual machine provisioning, automation, backup and configuration management capabilities. Cost of Microsoft system center management software is added when the system center agents are identified on any of the discovered resources. This is applicable only for windows servers and SQL servers related scenarios and includes Software assurance. |
 |     |    | VMware Vcenter Management software | This is the cost associated with VMware management software i.e. Management software cost for vSphere Standard + production support cost of management software. Not included- other hypervisor software cost or Antivirus/Monitoring Agents. |
-|     |    | Other Management software | This is the cost of the management software for third party management products. |
+|     |    | Other Management software | This is the cost of the management software for Partner management products. |
 |     | Management cost other than software | Monitoring cost | Specify costs other than monitoring software. Default is USD 430 per year per server. This is multiplied with the number of servers. The default used is the cost associated with a monitoring administrator. |
 |     |    | Patch Management cost | Specify costs other than patch management software. Default is USD 430 per year per server. This is multiplied with the number of servers. Default is the cost associated with a patch management administrator. |
 |     |    | Backup cost | Specify costs other than backup software. Default is USD 580 per year per server. This is multiplied with the number of servers. Default used includes the cost per server for a backup administrator and storage required locally for backup. |
@@ -172,6 +175,19 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
 | Management | Azure Management Services | Azure Monitor, Azure Backup and Azure Update Manager | Azure Monitor costs for each server as per listed price in the region assuming collection of logs ingestion for the guest operating system and one custom application is enabled for the server, totaling logs data of 3GB/month. <br/><br/> Azure Backup cost for each server/month is dynamically estimated based on the [Azure Backup Pricing](/azure/backup/azure-backup-pricing), which includes a protected instance fee, snapshot storage and recovery services vault storage. <br/><br/> Azure Update Manager is free for Azure servers. |
+| Azure Arc setting  |  | |For your on-premises servers, this setting assumes that you have Arc-enabled all your servers at the beginning of the migration journey and will migrate them to Azure over time. Azure Arc helps you manage your Azure estate and remaining on-premises estate through a single pane during migration and post-migration. |
+
+#### On-premises with Azure Arc cost
+
+| **Cost heads** | **Category** | **Component** | **Logic**|
+|--|--|--|--|
+| Compute and Licensing  | Hardware and Licenses | Server Hardware (Host machines) and Licenses | Estimated as a sum of total server hardware acquisition cost + software cost (Windows license + SQL license + Virtualization software cost) + maintenance cost </br> Total hardware acquisition cost is calculated using a cost per core linear regression formula. </br> SQL license cost is assumed to be using the pay-as-you-go model via Arc enabled SQL Server. ESU licenses for Windows Server and SQL Server are also assumed to be paid via Azure through ESUs enabled by Azure Arc. |
+| Storage  | Storage Hardware |      | Estimated as a sum of total storage hardware acquisition cost + software maintenance cost. <br> Total storage hardware acquisition cost = Total volume of storage attached to VMs (across all machines) * Cost per GB per month * 12. Cost per GB can be customized in the assumptions similar to the current On-premises storage cost. |
+| Network | Network Hardware and software   | Network equipment (Cabinets, switches, routers, load balancers etc.) and software  | Estimated as a sum of total network hardware and software cost + network maintenance cost  Total network hardware and software cost is defaulted to 10%* (compute and licensing +storage cost) and can be customized in the assumptions. Network maintenance cost is defaulted to 15%*(Total network hardware and software cost) and can be customized in the assumptions Same as current On-premises networking cost. |
+| Security | General Servers  | Server security cost | Estimated as sum of total protection cost for general servers and SQL workloads using MDC via Azure Arc. MDC Servers plan 2 is assumed for servers. Microsoft Defender for SQL on Azure-connected databases is assumed for SQL Server |
+| Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Based on user input. Same as current On-premises facilities cost. |
+| Labor | Labor  | IT admin | Same as current On-premises labor cost.|
+| Management | Management Software licensing | System center or other management software | Estimated as sum of total management cost for general servers. This includes monitoring and patching. Patching is assumed to be free via Azure Update Manager as it is included in MDC Servers plan 2. Monitoring cost is calculated per day based on log storage and alerts and multiplied*365 Estimated as 70% of on-premises management labor cost by default as it is assumed that 30% of labor effects could be redirected to other high impact projects for the company due to productivity improvements.  Labor costs can be customized in Azure Arc setting under Azure cost assumptions.|
 
 ### Year on Year costs
 
@@ -199,28 +215,30 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | Security | Per year |  Per server annual security/protection cost.  |  |
 | Datacenter Admin cost | Number of people * hourly cost * 730 hours | Cost per hour based on location. |     |
 
-#### Future state (on-premises + Azure)
+#### Future state (on-premises with Arc + Azure)*
 
-It assumes that the customer does a phased migration to Azure with following % of servers migrated every year:
+When you create a business case, by default, servers remaining on-premises are assumed to be Arc-enabled. You can disable Arc calculation by editing Azure cost assumptions.
 
-| **Year 0** | **Year 1** | **Year 2** | **Year 3** |
- --- | --- | --- | --- |
-| 0%  | 20% | 50% | 100% |
+| | **Year 0** | **Year 1** | **Year 2** | **Year 3** |**Methodology**|
+|-|--- | --- | --- | --- |--|
+| Estate migrated per year| 0%  | 20% | 50% | 100% | User input|
+ 
+*Servers remaining on-premises are assumed to be Azure Arc-enabled. When you create a business case, by default, servers remaining on-premises are assumed to be Arc-enabled. You can disable Arc calculation by editing Azure cost assumptions. 
 
-You can override the above values in the assumptions section of the Business case.
+**CAPEX & OPEX**
 
- In Azure, there's no CAPEX, the yearly Azure cost is an OPEX
-
-|  **Component**  | **Year 0** | **Year 1** | **Year 2** | **Year 3** | **Year 4** |
---- | --- | --- | --- | --- | --- |
-| CAPEX | Total CAPEX (A) | Y1 CAPEX Azure =80%* (Y1 CAPEX On-premises) | Y2 CAPEX Azure =50%* (Y2 CAPEX On-premises) | Y3 CAPEX Azure =0%* (Y3 CAPEX On-premises) | Y4 CAPEX = 0%* (Y4 CAPEX On-premises) |
-| OPEX | Total OPEX (B) | Y1 OPEX Azure = 80%* (Y1 OPEX On-premises)+20%* (Azure Yearly cost) * (1+server growth rate%) | Y2 OPEX Azure = 50%* (Y2 OPEX On-premises)+50%* (Azure Yearly cost) * (1+server growth rate%) | Y3 OPEX Azure = 100%* (Azure Yearly cost) * (1+server growth rate%) | Y4 OPEX Azure = 100%* (Azure Yearly cost) * (1+server growth rate%) |
-| Future state Cash Flow | Y0 Cash Flow= Total CAPEX (A) + Total OPEX (B) | Y1 Cash Flow= Y1 CAPEX + Y1 OPEX | Y2 Cash Flow= Y2 CAPEX + Y2 OPEX | Y3 Cash Flow= Y3 CAPEX + Y3 OPEX | Y4 Cash Flow= Y4 CAPEX + Y4 OPEX |
+|	| Methodology|
+|---|----|
+|CAPEX | Year n CAPEX = (100- estimated migration % that year)* Year n CAPEX in current state|
+|OPEX | Year n OPEX = (estimated migration % that year) * Total Azure TCO * (1+ infrastructure growth rate%) + (100- estimated migration % that year)* Year n OPEX in current state|
+|Future state Cash Flow	| Sum of CAPEX and OPEX per year|
+|Annual NPV	| NPV per year = (Year n Cashflow)/ (1+WACC)^n <br> WACC is defaulted to 7% and can be customized in the assumptions.|
+|Future State NPV | Sum of annual NPV|
 
 ## Glossary
 
-|   Term  |   Details  |
---- | --- |
+| Term  |  Details  |
+| --- | --- |
 | **Business case** | A Business case provides justification for a go/no go for a project. It evaluates the benefit, cost and risk of alternative options and provides a rationale for the preferred solution. |
 | **Total cost of ownership (TCO)** | TCO (Total cost of ownership) is a financial estimate to help companies calculate precisely, the economic impact during the whole life cycle of IT projects. |
 | **Return on Investment (ROI)** | A project’s expected return in percentage terms. ROI is calculated by dividing net benefits (benefits less costs) by costs. |

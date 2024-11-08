@@ -441,6 +441,9 @@ If you see rule ID 949110 during the process of tuning your WAF, its presence in
 
 Review the other WAF log entries for the same request by searching for the log entries with the same tracking reference. Look at each of the rules that were triggered. Tune each rule by following the guidance in this article.
 
+   > [!WARNING]
+   > When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules and policy settings will remain unaffected during the new ruleset assignment.
+
 ## Next steps
 
 - Learn about [Azure Web Application Firewall](../overview.md).

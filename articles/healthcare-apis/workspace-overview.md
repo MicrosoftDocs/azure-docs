@@ -6,7 +6,7 @@ ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 1/5/2023
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # What is Azure Health Data Services workspace?
