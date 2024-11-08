@@ -36,6 +36,8 @@ Before you update session hosts using session host update, you need:
 
 - Assign the Azure Virtual Desktop service principal the [**Desktop Virtualization Virtual Machine Contributor**](rbac.md#desktop-virtualization-virtual-machine-contributor) role-based access control (RBAC) role on the resource group or subscription with the host pools and session hosts you want to use with session host update. For more information, see [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
 
+- Assign the Azure Virtual Desktop Service Principal the [**Network Contributor**](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/networking#network-contributor) role-based access control (RBAC) role on the virtual network, resource group, or subscription with the Virtual Network which the session hosts will be deployed to. For more information, see [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
+
 - An Azure account you use to configure session host update with the following Azure RBAC roles to update the following resource types. You can also use another built-in role that includes the same permissions, or create a custom role.
 
    | Resource type | Built-in Azure RBAC role | Scope |
