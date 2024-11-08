@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Troubleshoot Azure Database for PostgreSQL - Flexible server backup
+# Troubleshoot Azure Database for PostgreSQL - Flexible server backup (preview)
 
 This article provides the recommended actions to troubleshoot the issues you might encounter during the backup or restore of Azure Database for PostgreSQL - Flexible server.
 
