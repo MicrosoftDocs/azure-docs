@@ -305,7 +305,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `time` |`TimeSpan` |`TimeSpan` |
 | `timestamp` |`Datetime` |`Datetime` |
 | `tinyblob` |`Byte[]` |`Byte[]` |
-| `tinyint` |`SByte` <br/> (tinyint(1) is mapped to Boolean) |`Int16` |
+| `tinyint` |`SByte` <br/> (`tinyint(1)` is mapped to `Boolean`) |`Int16` |
 | `tinyint unsigned` |`Int16` |`Int16` |
 | `tinytext` |`String` |`String` |
 | `varchar` |`String` |`String` |
@@ -332,7 +332,9 @@ This section introduces best practices for MySQL connector recommended version.
 #### Cannot load SSL key
 
 - **Symptoms**: If you are using MySQL connector recommended version with SSL Key as a connection property, you may meet the following error message: `Could not load the client key from your_pem_file: Unrecognized PEM header: -----BEGIN PRIVATE KEY-----`
+
 - **Cause**: The recommended version cannot decrypt the PCKS#8 format.
+
 - **Recommendation**: Convert the PEM format to PCKS#1.
 
 ## Differences between the recommended and the legacy driver version
