@@ -14,6 +14,8 @@ ms.service: azure-iot-operations
 
 # Map data by using dataflows
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 Use the dataflow mapping language to transform data in Azure IoT Operations. The syntax is a simple, yet powerful, way to define mappings that transform data from one format to another. This article provides an overview of the dataflow mapping language and key concepts.
 
 Mapping allows you to transform data from one format to another. Consider the following input record:

@@ -13,6 +13,8 @@ ms.date: 10/22/2024
 
 # Tutorial: Bi-directional MQTT bridge to Azure Event Grid
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 In this tutorial, you set up a bi-directional MQTT bridge between an Azure IoT Operations MQTT broker and Azure Event Grid. To keep the tutorial simple, use the default settings for the Azure IoT Operations MQTT broker and Azure Event Grid endpoints, and no transformation is applied.
 
 ## Prerequisites

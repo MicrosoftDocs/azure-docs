@@ -15,6 +15,8 @@ ms.service: azure-iot-operations
 
 # Configure MQTT broker authorization
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure MQTT broker to use one or multiple authorization policies with the *BrokerAuthorization* resource. Each *BrokerAuthorization* resource contains a list of rules that specify the principals and resources for the authorization policies.
 
 ## Link BrokerAuthorization to BrokerListener

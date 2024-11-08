@@ -14,6 +14,8 @@ ai-usage: ai-assisted
 
 # Configure dataflow endpoints for Azure Data Explorer
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 To send data to Azure Data Explorer in Azure IoT Operations, you can configure a dataflow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
 
 ## Prerequisites

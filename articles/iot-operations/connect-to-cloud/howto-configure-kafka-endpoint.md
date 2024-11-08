@@ -14,6 +14,8 @@ ai-usage: ai-assisted
 
 # Configure Azure Event Hubs and Kafka dataflow endpoints
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 To set up bi-directional communication between Azure IoT Operations and Apache Kafka brokers, you can configure a dataflow endpoint. This configuration allows you to specify the endpoint, Transport Layer Security (TLS), authentication, and other settings.
 
 ## Prerequisites

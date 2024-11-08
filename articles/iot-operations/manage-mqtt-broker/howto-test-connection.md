@@ -15,6 +15,8 @@ ms.service: azure-iot-operations
 
 # Test connectivity to MQTT broker with MQTT clients
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 This article shows different ways to test connectivity to MQTT broker with MQTT clients in a nonproduction environment.
 
 By default, MQTT broker:

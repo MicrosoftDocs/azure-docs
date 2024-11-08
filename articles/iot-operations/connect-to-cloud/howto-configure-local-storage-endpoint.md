@@ -14,6 +14,8 @@ ai-usage: ai-assisted
 
 # Configure dataflow endpoints for local storage
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 To send data to local storage in Azure IoT Operations, you can configure a dataflow endpoint. This configuration allows you to specify the endpoint, authentication, table, and other settings.
 
 ## Prerequisites

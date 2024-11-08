@@ -15,6 +15,8 @@ ms.service: azure-iot-operations
 
 # Azure IoT Operations built-in local MQTT broker
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 Azure IoT Operations features an enterprise-grade, standards-compliant MQTT broker that is scalable, highly available, and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 ## MQTT compliance

@@ -129,6 +129,20 @@ az iot ops update --name <INSTANCE_NAME> --resource-group --tags ""
 
 ---
 
+### Manage components
+
+Each Azure IoT Operations instance includes several components, like the MQTT broker, OPC UA connector, and dataflows. To learn more about managing these components, see their respective articles. For example, to manage the MQTT broker, start with [Broker overview](../manage-mqtt-broker/overview-broker.md).
+
+### (Preview) Manage components using Kubernetes deployment manifests
+
+In general, Azure IoT Operations uses the Azure Arc platform to provide a hybrid cloud experience where you can manage the configuration through Azure Resource Manager (ARM) and front-end tools like the Azure portal, Bicep, and the Azure CLI.
+
+However, you can also manage the components of Azure IoT Operations using YAML Kubernetes deployment manifests. This means you can use tools like `kubectl` to manage some components of Azure IoT Operations. This feature is in preview and has some limitations:
+
+- Only some components support using Kubernetes deployment manifests. These components are the [MQTT broker](../manage-mqtt-broker/overview-broker.md) and [dataflows](../connect-to-cloud/overview-dataflow.md). Other components like the the OPC UA connector and Akri don't support this feature.
+- Unless Azure IoT Operations is [deployed with resource sync enabled using `az iot ops create --enable-rsync`](/cli/azure/iot/ops#az-iot-ops-create), changes made to the resources using Kubernetes deployment manifests are not synced to Azure. To learn more about resource sync, see [Resource sync](/azure/azure-arc/data/resource-sync).
+- Even if resource sync is enabled, brand new resources created using Kubernetes deployment manifests are not synced to Azure. Only changes to existing resources are synced.
+
 ## Uninstall
 
 The Azure CLI and Azure portal offer different options for uninstalling Azure IoT Operations.

@@ -15,6 +15,8 @@ ms.date: 11/06/2024
 
 # Secure MQTT broker communication using BrokerListener
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 To customize the network access and security use the BrokerListener resource. A listener corresponds to a network endpoint that exposes the broker to the network. You can have one or more BrokerListener resources for each Broker, and thus multiple ports with different access control each.
 
 Each listener port can have its own authentication and authorization rules that define who can connect to the listener and what actions they can perform on the broker. You can use [BrokerAuthentication](./howto-configure-authentication.md) and [BrokerAuthorization](./howto-configure-authorization.md) resources to specify the access control policies for each listener. This flexibility allows you to fine-tune the permissions and roles of your MQTT clients, based on their needs and use cases.
