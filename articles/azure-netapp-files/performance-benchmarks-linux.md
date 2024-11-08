@@ -185,7 +185,7 @@ The following results show a scale-up test’s results when reading and writing 
 
 The following graphs show a side-by-side comparison of 64-KiB sequential reads and writes with and without `nconnect` to highlight the performance improvements seen when using `nconnect`: higher overall throughput, lower latency. 
 
-:::image type="content" source="./media/performance-benchmarks-linux/64K-sequential-read-nconnect-compare.png" alt-text="Diagram of comparring 64-KiB sequential reads and writes." lightbox="./media/performance-benchmarks-linux/64K-sequential-read-nconnect-compare.png":::
+:::image type="content" source="./media/performance-benchmarks-linux/64K-sequential-read-nconnect-compare.png" alt-text="Diagram of comparing 64-KiB sequential reads and writes." lightbox="./media/performance-benchmarks-linux/64K-sequential-read-nconnect-compare.png":::
 
 ## More information
 
