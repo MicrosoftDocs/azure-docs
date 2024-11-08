@@ -7,7 +7,13 @@ ms.service: azure-virtual-network
 ms.date: 10/31/2024
 ms.author: allensu
 ms.topic: tutorial
-ms.custom: template-tutorial
+ms.custom: 
+  - template-tutorial
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+content_well_notification: 
+  - AI-contribution
+ai-usage: ai-assisted
 # Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ---
 
@@ -194,6 +200,15 @@ New-AzBastion @bastionParams -AsJob
 ```
 
 ### [CLI](#tab/cli)
+
+Create a resource group with [az group create](/cli/azure/group) for all resources created in this article.
+
+```azurecli-interactive
+# Create a resource group.
+az group create \
+  --name test-rg \
+  --location eastus2
+```
 
 ---
 
@@ -586,9 +601,9 @@ Create a route table with [New-AzRouteTable](/powershell/module/az.network/new-a
 
 ```azurepowershell-interactive
 $routeTableParams = @{
-  Name = 'route-table-public'
-  ResourceGroupName = 'test-rg'
-  Location = 'eastus2'
+    Name = 'route-table-public'
+    ResourceGroupName = 'test-rg'
+    Location = 'eastus2'
 }
 $routeTablePublic = New-AzRouteTable @routeTableParams
 ```
@@ -597,15 +612,15 @@ Create a route by retrieving the route table object with [Get-AzRouteTable](/pow
 
 ```azurepowershell-interactive
 $routeTableParams = @{
-  ResourceGroupName = "test-rg"
-  Name = "route-table-public"
+    ResourceGroupName = "test-rg"
+    Name = "route-table-public"
 }
 
 $routeConfigParams = @{
-  Name = "to-private-subnet"
-  AddressPrefix = "10.0.2.0/24"
-  NextHopType = "VirtualAppliance"
-  NextHopIpAddress = "10.0.3.4"
+    Name = "to-private-subnet"
+    AddressPrefix = "10.0.2.0/24"
+    NextHopType = "VirtualAppliance"
+    NextHopIpAddress = "10.0.3.4"
 }
 
 $routeTable = Get-AzRouteTable @routeTableParams
@@ -616,16 +631,16 @@ Associate the route table with the **subnet-1** subnet with [Set-AzVirtualNetwor
 
 ```azurepowershell-interactive
 $vnetParams = @{
-	Name = 'vnet-1'
-	ResourceGroupName = 'test-rg'
+    Name = 'vnet-1'
+    ResourceGroupName = 'test-rg'
 }
 $virtualNetwork = Get-AzVirtualNetwork @vnetParams
 
 $subnetParams = @{
-	VirtualNetwork = $virtualNetwork
-	Name = 'subnet-1'
-	AddressPrefix = '10.0.0.0/24'
-	RouteTable = $routeTablePublic
+    VirtualNetwork = $virtualNetwork
+    Name = 'subnet-1'
+    AddressPrefix = '10.0.0.0/24'
+    RouteTable = $routeTablePublic
 }
 Set-AzVirtualNetworkSubnetConfig @subnetParams | Set-AzVirtualNetwork
 ```
@@ -718,7 +733,7 @@ When no longer needed, use [Remove-AzResourcegroup](/powershell/module/az.resour
 
 ```azurepowershell-interactive
 $rgParams = @{
-  Name = "test-rg"
+    Name = "test-rg"
 }
 Remove-AzResourceGroup @rgParams -Force
 ```
