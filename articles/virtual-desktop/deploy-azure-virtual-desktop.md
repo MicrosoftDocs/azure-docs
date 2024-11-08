@@ -155,7 +155,7 @@ In addition to the general prerequisites, you need:
 
   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see [Request access to an Azure Extended Zone](../extended-zones/request-access.md).
 
-  - An existing [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network where you're deploying the session hosts.
+  - An [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) with an outbound rule on the virtual network to which you're deploying session hosts. You can use an existing load balancer or you create a new one when adding session hosts.
 
 # [Azure PowerShell](#tab/powershell-standard)
 
@@ -514,14 +514,12 @@ Here's how to create a host pool by using the Azure portal:
       | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
       | **Virtual machine type** | Select **Azure virtual machine**. |
-      | **Virtual machine location** | Select the Azure region where you want to deploy your session hosts. This value must be the same region that contains your virtual network. Then select **Deploy to an Azure Extended Zone**. |
-      | **Azure Extended Zones** |  |
-      | **Azure Extended Zone** | Select **Los Angeles**. |
-      | **Place the session host(s) behind an existing load balancing solution?** | Select the box. This action shows options for selecting a load balancer and a back-end pool.|
-      | **Select a load balancer** | Select an existing load balancer on the virtual network where you're deploying the session hosts. |
-      | **Select a backend pool** | Select a back-end pool on the load balancer where you want to place the session hosts. |
-      | **Availability options** | Select from [availability zones](/azure/reliability/availability-zones-overview), [availability set](/azure/virtual-machines/availability-set-overview), or **No infrastructure dependency required**. If you select **availability zones** or **availability set**, complete the extra parameters that appear.  |
-      | **Security type** | Select from **Standard**, [Trusted launch virtual machines](/azure/virtual-machines/trusted-launch), or [Confidential virtual machines](/azure/confidential-computing/confidential-vm-overview).<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
+      | **Virtual machine location** | Select **Deploy to an Azure Extended Zone**. |
+      | **Azure Extended Zone** | Select the Extended Zone you require. |
+      | **Network and security** |  |
+      | **Select a load balancer** | Select an existing Azure load balancer on the same virtual network you want to use for your session hosts, or select **Create a load balancer** to create a new load balancer.|
+      | **Select a backend pool** | Select a backend pool on the load balancer you want to use for your session hosts. If you're creating a new load balancer, select **Create new** to create a new backend pool for the new load balancer. |
+      | **Add outbound rule** | If you're creating a new load balancer, select **Create new** to create a new outbound rule for it. |
 
    </details>
 
