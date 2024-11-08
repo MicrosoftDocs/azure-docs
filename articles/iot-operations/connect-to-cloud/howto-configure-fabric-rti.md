@@ -20,8 +20,20 @@ To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operation
 
 - An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
-- A [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md)
-- A pre-created storage container in the storage account
+- [Create a Fabric workspace](/fabric/get-started/create-workspaces). The default *my workspace* isn't supported.
+- [Create an Event Stream](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstreams#create-an-eventstream)
+- [Add a Custom Endpoint as a source](/fabric/real-time-intelligence/event-streams/add-source-custom-apps#add-custom-endpoint-data-as-a-source)
+
+## Retrieve connection details
+Note the [Kafka-compatible connection details for the Custom Endpoint](/fabric/real-time-intelligence/event-streams/add-source-custom-app#kafka). Specifically, you will need - 
+
+### Custom Endpoint connection string
+The connection string looks like:
+> *Endpoint=sb://eventstream-xxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=key_xxxxxxxx;SharedAccessKey=xxxxxxxx;EntityPath=es_xxxxxxx*
+
+### Event Hub name
+The Event Hub name is used as the Kafka topic and is of the form *es_<GUID>*.
+
 
 ## Create an Azure Data Lake Storage Gen2 dataflow endpoint
 
