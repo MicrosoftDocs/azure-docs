@@ -34,6 +34,12 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ## Use the feature flag
 
+1. Install the Feature Management by using the `npm install` command.
+
+    ``` console
+    npm install @microsoft/feature-management
+    ```
+
 1. Create a file named *app.js* and add the following code.
 
     ``` javascript

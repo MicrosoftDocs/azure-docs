@@ -17,7 +17,7 @@ Feature flags can use feature filters to enable features conditionally. To learn
 
 The example used in this tutorial is based on the Node.js application introduced in the feature management [quickstart](./quickstart-feature-flag-javascript.md). Before proceeding further, complete the quickstart to create a Node.js application with a *Beta* feature flag. Once completed, you must [add a custom feature filter](./howto-feature-filters.md) to the *Beta* feature flag in your App Configuration store. 
 
-In this tutorial, you'll learn how to implement a custom feature filter and use the feature filter to enable features conditionally. We are using the Node.js console app you created in the [quickstart](./quickstart-feature-flag-javascript.md) as an example in the content.
+In this tutorial, you'll learn how to implement a custom feature filter and use the feature filter to enable features conditionally. We are using the Node.js console app as an example, but you can also use the custom feature filter in other JavaScript applications.
 
 ## Prerequisites
 

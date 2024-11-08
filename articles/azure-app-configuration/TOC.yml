@@ -140,7 +140,7 @@
         href: howto-feature-filters.md
       - name: ASP.NET Core
         href: howto-feature-filters-aspnet-core.md
-      - name: Node.js
+      - name: JavaScript
         href: howto-feature-filters-javascript.md
       - name: Python
         href: howto-feature-filters-python.md
@@ -150,7 +150,7 @@
         href: howto-timewindow-filter.md
       - name: ASP.NET Core
         href: howto-timewindow-filter-aspnet-core.md
-      - name: Node.js
+      - name: JavaScipt
         href: howto-timewindow-filter-javascript.md
     - name: Roll out features to targeted audience
       items:
