@@ -98,23 +98,27 @@ For more information, see [What is Azure Arc site manager (preview)?](/azure/azu
 
 If you use enterprise firewalls or proxies to manage outbound traffic, configure the following endpoints before deploying Azure IoT Operations.
 
-1. Endpoints in the [Azure Arc-enabled Kubernetes endpoints](/azure/azure-arc/network-requirements-consolidated#azure-arc-enabled-kubernetes-endpoints).
-    >[!NOTE]
-    >If you use *Azure Arc Gateway* to connect your cluster to Arc, you can bypass a smaller set of endpoints based on the [Arc Gateway guidance](/azure/azure-arc/servers/arc-gateway#step-3-ensure-the-required-urls-are-allowed-in-your-environment).
-1. Endpoints in [Azure CLI endpoints](/azure/azure-cli-endpoints?tabs=azure-cloud#endpoints).
-    - You need `graph.windows.net`, `*.azurecr.io`, `*.blob.core.windows.net`, `*.vault.azure.net` from this endpoint list.
-1. The following endpoints are required specifically for Azure IoT Operations:
+* Endpoints in the [Azure Arc-enabled Kubernetes endpoints](/azure/azure-arc/network-requirements-consolidated#azure-arc-enabled-kubernetes-endpoints).
 
-    |Endpoints (DNS) | Description |
-    |-|-|
-    | `<customer-specific>.blob.storage.azure.net` | Storage for schema registry. Refer to [storage account endpoints](/azure/storage/common/storage-account-overview#storage-account-endpoints) for identifying the customer specific subdomain of your endpoint. |
+  >[!NOTE]
+  >If you use *Azure Arc Gateway* to connect your cluster to Arc, you can configure a smaller set of endpoints based on the [Arc Gateway guidance](/azure/azure-arc/servers/arc-gateway#step-3-ensure-the-required-urls-are-allowed-in-your-environment).
 
+* Endpoints in [Azure CLI endpoints](/cli/azure/azure-cli-endpoints?tabs=azure-cloud#endpoints).
 
-1. To push data to the cloud, you need to enable the following endpoints based on your choice of data platform.
-    - To enable endpoints for Microsoft Fabric OneLake, see [Add Fabric URLs to your allowlist](/fabric/security/fabric-allow-list-urls#onelake).
-    - To enable endpoints for Event Hubs, see [Troubleshoot connectivity issues - Azure Event Hubs](/azure/event-hubs/troubleshooting-guide).
-    - To enable endpoints for Event Grid, see [Troubleshoot connectivity issues - Azure Event Grid](/azure/event-grid/troubleshoot-network-connectivity).
-    - To enable endpoints for Azure Data Lake Storage Gen 2, see [standard endpoints](/azure/storage/common/storage-account-overview#standard-endpoints).
+  You need `graph.windows.net`, `*.azurecr.io`, `*.blob.core.windows.net`, `*.vault.azure.net` from this endpoint list.
+
+* The following endpoints are required specifically for Azure IoT Operations:
+
+  |Endpoints (DNS) | Description |
+  |-|-|
+  | `<customer-specific>.blob.storage.azure.net` | Storage for schema registry. Refer to [storage account endpoints](/azure/storage/common/storage-account-overview#storage-account-endpoints) for identifying the customer specific subdomain of your endpoint. |
+
+* To push data to the cloud, enable the following endpoints based on your choice of data platform.
+
+  * Microsoft Fabric OneLake: [Add Fabric URLs to your allowlist](/fabric/security/fabric-allow-list-urls#onelake).
+  * Event Hubs: [Troubleshoot connectivity issues - Azure Event Hubs](/azure/event-hubs/troubleshooting-guide).
+  * Event Grid: [Troubleshoot connectivity issues - Azure Event Grid](/azure/event-grid/troubleshoot-network-connectivity).
+  * Azure Data Lake Storage Gen 2: [Storage account standard endpoints](/azure/storage/common/storage-account-overview#standard-endpoints).
 
 
 ## Next steps
