@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: azure-iot
 ms.topic: conceptual
-ms.date: 04/04/2024
+ms.date: 11/08/2024
 ---
 # IoT device selection list
 

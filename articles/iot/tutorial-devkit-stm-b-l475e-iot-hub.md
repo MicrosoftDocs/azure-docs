@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: azure-iot
 ms.devlang: c
 ms.topic: tutorial
-ms.date: 06/11/2024
+ms.date: 11/08/2024
 
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to. 
 ---
