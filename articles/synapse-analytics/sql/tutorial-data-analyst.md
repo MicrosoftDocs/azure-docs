@@ -5,7 +5,7 @@ author: azaricstefan
 ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 05/25/2022
+ms.date: 11/08/2024
 ms.custom: kr2b-contr-experiment
 ms.author: stefanazaric
 ms.reviewer: whhender 
