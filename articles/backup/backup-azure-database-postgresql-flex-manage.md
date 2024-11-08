@@ -9,7 +9,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 ---
 
-# Manage Azure Backup for Azure PostgreSQL - Flexible servers
+# Manage Azure Backup for Azure PostgreSQL - Flexible servers (preview)
 
 This article explains how to manage backup for the Azure PostgreSQL - Flexible servers from the Azure portal.
 

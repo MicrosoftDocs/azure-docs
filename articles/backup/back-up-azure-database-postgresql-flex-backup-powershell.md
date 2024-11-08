@@ -9,7 +9,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up Azure Database for PostgreSQL - flexible server using Azure PowerShell
+# Back up Azure Database for PostgreSQL - flexible server using Azure PowerShell (preview)
 
 This article explains how to back up **Azure PostgreSQL database** using Azure PowerShell.
 

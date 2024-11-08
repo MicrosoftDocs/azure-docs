@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Restore Azure Database for PostgreSQL Flexible backups
+# Restore Azure Database for PostgreSQL Flexible backups (preview)
 
 This article explains how to restore an Azure PostgreSQL -flex server backed up by Azure Backup.
 
