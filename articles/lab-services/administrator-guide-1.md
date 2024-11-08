@@ -2,7 +2,7 @@
 title: Administrator guide using lab accounts | Microsoft Docs
 description: This guide helps administrators who create and manage lab accounts by using Azure Lab Services.
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 11/08/2024
 ---
 
 # Azure Lab Services - Administrator guide when using lab accounts
@@ -181,18 +181,21 @@ A general rule is to set a resource's region to one that's closest to its users.
 
 When administrators or Lab Creators create a lab, they can choose from various VM sizes, depending on the needs of their classroom. Remember that the size availability depends on the region that your lab account is located in.
 
-In the following table, notice that several of the VM sizes map to more than one VM series. Depending on capacity availability, Lab Services can use any of the VM series that are listed for a VM size. For example, the *Small* VM size maps to using either the [Standard_A2_v2](/azure/virtual-machines/av2-series) or the [Standard_A2](/azure/virtual-machines/sizes-previous-gen#a-series) VM series. When you choose *Small* as the VM size for your lab, Lab Services first attempts to use the *Standard_A2_v2* series. However, when there isn't sufficient capacity available, Lab Services uses the *Standard_A2* series. The pricing is determined by the VM size and is the same regardless of which VM series Lab Services uses for that specific size. For more information on pricing for each VM size, read the [Lab Services pricing guide](https://azure.microsoft.com/pricing/details/lab-services/).
-
-| Size | Minimum vCPUs | Minimum RAM | Series | Suggested use |
+| Size | vCPUs | Memory (GB) | Series | Suggested use |
 | ---- | ----- |  ----- | ------ | ------------- |
-| Small| 2 vCPUs | 3.5 GB RAM | [Standard_A2_v2](/azure/virtual-machines/av2-series), [Standard_A2](/azure/virtual-machines/sizes-previous-gen#a-series) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
-| Medium | 4 vCPUs | 7 GB RAM | [Standard_A4_v2](/azure/virtual-machines/av2-series), [Standard_A3](/azure/virtual-machines/sizes-previous-gen#a-series) | Best suited for relational databases, in-memory caching, and analytics. |
-| Medium (nested virtualization) | 4 vCPUs  | 16 GBs RAM | [Standard_D4s_v3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series) | Best suited for relational databases, in-memory caching, and analytics. This size also supports nested virtualization. |
-| Large | 8 vCPUs | 16 GB RAM  | [Standard_A8_v2](/azure/virtual-machines/av2-series), [Standard_A7](/azure/virtual-machines/sizes-previous-gen#a-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
-| Large (nested virtualization) | 8 vCPUs | 32 GB RAM | [Standard_D8s_v3](/azure/virtual-machines/dv3-dsv3-series#dsv3-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size also supports nested virtualization. |
-| Small GPU (visualization) | 6 vCPUs | 56 GB RAM  | [Standard_NV6](/azure/virtual-machines/nv-series) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
-| Small GPU (Compute) | 6 vCPUs | 56 GB RAM | [Standard_NC6](/azure/virtual-machines/nc-series), [Standard_NC6s_v3](/azure/virtual-machines/ncv3-series) |Best suited for computer-intensive applications such as AI and deep learning. |
-| Medium GPU (visualization) | 12 vCPUs | 112 GB RAM  | [Standard_NV12](/azure/virtual-machines/nv-series), [Standard_NV12s_v3](/azure/virtual-machines/nvv3-series), [Standard_NV12s_v2](/azure/virtual-machines/sizes-previous-gen#nvv2-series)  | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Small | 2 | 4 | [A2_v2](/azure/virtual-machines/av2-series) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
+| Medium | 4 | 8 | [A4_v2](/azure/virtual-machines/av2-series) | Best suited for relational databases, in-memory caching, and analytics. |
+| Large | 8 | 16  | [A8_v2](/azure/virtual-machines/av2-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
+| Medium (Nested virtualization) | 4  | 16 | [D4s_v3](/azure/virtual-machines/dv3-dsv3-series) | Best suited for relational databases, in-memory caching, and analytics. This size supports nested virtualization. |
+| Large (Nested virtualization) | 8 | 32 | [D8s_v3](/azure/virtual-machines/dv3-dsv3-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size supports nested virtualization. |
+
+#### GPU sizes
+
+| Size | vCPUs | Memory (GB) | Series | Suggested use | GPU/Accelerator | Accelerator Memory (GB) |
+| - | - | - | - | - | - | - |
+| Small GPU (Compute) | 6 | 56 | [NC8asT4_v3](/azure/virtual-machines/sizes/gpu-accelerated/ncast4v3-series) | Best suited for computer-intensive applications such as AI and deep learning. | NVIDIA Tesla T4 | 16 |
+| Small GPU (Visualization) | 6 | 56 | [NV12ads_A10_v5](/azure/virtual-machines/sizes/gpu-accelerated/nvadsa10v5-series) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. | NVIDIA A10 (1/3) | 8 |
+| Medium GPU (Visualization) | 12 | 112 | [NV18ads_A10_v5]/(azure/virtual-machines/sizes/gpu-accelerated/nvadsa10v5-series) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. | NVIDIA A10 (1/2) | 12 |
 
 ## Manage identity
 
@@ -320,7 +323,6 @@ Don't delete replication to specific regions as a way to reduce the costs, thoug
 
 For more information about setting up and managing labs, see:
 
-- [Lab account setup guide](account-setup-guide.md)  
 - [Lab setup guide](setup-guide.md)  
 - [Cost management for labs](cost-management-guide.md)  
 - [Use Azure Lab Services in Teams](lab-services-within-teams-overview.md)
