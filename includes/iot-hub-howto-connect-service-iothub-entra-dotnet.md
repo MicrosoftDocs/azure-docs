@@ -52,7 +52,7 @@ Environment.SetEnvironmentVariable("AZURE_TENANT_ID", tenantID);
 TokenCredential tokenCredential = new DefaultAzureCredential();
 ```
 
-The resulting [TokenCredential](/dotnet/api/azure.core.tokencredential) can then be passed to an authentication method for any SDK client that accepts Microsoft Entra/AAD credentials:
+The resulting [TokenCredential](/dotnet/api/azure.core.tokencredential) can then be passed to a connect to IoT Hub method for any SDK client that accepts Microsoft Entra/AAD credentials:
 
 * [JobClient](/dotnet/api/microsoft.azure.devices.jobclient.create?#microsoft-azure-devices-jobclient-create(system-string-azure-core-tokencredential-microsoft-azure-devices-httptransportsettings))
 * [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager.create?#microsoft-azure-devices-registrymanager-create(system-string-azure-core-tokencredential-microsoft-azure-devices-httptransportsettings))
