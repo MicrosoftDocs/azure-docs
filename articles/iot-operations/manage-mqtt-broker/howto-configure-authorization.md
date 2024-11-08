@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/07/2024
+ms.date: 11/08/2024
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -43,7 +43,7 @@ The following example shows how to create a *BrokerAuthorization* resource using
 
 # [Bicep](#tab/bicep)
 
-To edit the default endpoint, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+To edit an authorization policy, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -482,13 +482,58 @@ Since clients have access to the topic, you can specify keys and access levels u
 
 The `stateStoreResources` section format consists of access level, a pattern indicator, and the pattern.
 
+# [Portal](#tab/portal)
+
+Include the `stateStoreResources` section in the rules for your authorization policy.
+
+```json
+"stateStoreResources": [
+  {
+    "method": "", // Values: read, write, readwrite 
+    "keyType": "", //Values: string, pattern, binary. Default is pattern
+    "keys": [
+      // List of patterns to match
+    ]
+  },
+]
+```
+
+# [Bicep](#tab/bicep)
+
+In Bicep, include the `stateStoreResources` section in your authorization policy.
+
+```bicep
+stateStoreResources: [
+  {
+    method: '' // Values: read, write, readwrite 
+    keyType: '' //Values: string, pattern, binary. Default is pattern
+    keys: [
+      // List of patterns to match
+    ]
+  }
+  {
+    method: 'ReadWrite'
+    keyType: 'Binary'
+    keys: [
+      'xxxxxxxxxxxxxxxxxxxx'
+    ]
+  }
+]
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+In your custom resource definition, include the `stateStoreResources` section in your authorization policy.
+
 ``` yaml
 stateStoreResources:
   - method:  # Values: read, write, readwrite 
     keyType: # Values: string, pattern, binary. Default is pattern
     keys:
-      - # List of patterns to match.
+      - # List of patterns to match
 ```
+
+---
 
 The `method` field specifies the access level.
 - Read access is specified with `read`, write access with `write`, and both with `readwrite`.
@@ -514,6 +559,172 @@ The `keys` field specifies the keys to match. The keys can be specified as *Glob
 
 Here's an example of how you might author your state store resources:
 
+# [Portal](#tab/portal)
+
+1. In the Azure portal, navigate to your IoT Operations instance.
+1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Select the **Authorization** tab.
+1. Choose an existing authentication policy or create a new one by selecting **Create authorization policy**.
+1. In the **Rules** field, add a configuration similar to the following:
+
+    :::image type="content" source="media/howto-configure-authorization/state-store-resources.png" alt-text="Screenshot using the Azure portal to configure a broker policy with state store resources.":::
+
+    ```json
+    [
+      {
+        "brokerResources": [
+          {
+            "clientIds": [
+              "{principal.attributes.building}*"
+            ],
+            "method": "Connect"
+          },
+          {
+            "method": "Publish",
+            "topics": [
+              "sensors/{principal.attributes.building}/{principal.clientId}/telemetry/*"
+            ]
+          },
+          {
+            "method": "Subscribe",
+            "topics": [
+              "commands/{principal.attributes.organization}"
+            ]
+          }
+        ],
+        "principals": {
+          "attributes": [
+            {
+              "building": "17",
+              "organization": "contoso"
+            }
+          ],
+          "usernames": [
+            "temperature-sensor",
+            "humidity-sensor"
+          ]
+        },
+        "stateStoreResources": [
+          {
+            "method": "Read",
+            "keyType": "Pattern",
+            "keys": [
+              "myreadkey",
+              "myotherkey?",
+              "mynumerickeysuffix[0-9]",
+              "clients/{principal.clientId}/*"
+            ]
+          },
+          {
+            "method": "ReadWrite",
+            "keyType": "Binary",
+            "keys": [
+              "xxxxxxxxxxxxxxxxxxxx"
+            ]
+          }
+        ]
+      }
+    ]
+    ```
+    
+# [Bicep](#tab/bicep)
+
+To edit an authorization policy, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param policyName string = '<POLICY_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-11-01' = {
+  parent: defaultBroker
+  name: policyName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    authorizationPolicies: {
+      cache: 'Enabled'
+      rules: [
+        {
+          principals: {
+            usernames: [
+              'temperature-sensor'
+              'humidity-sensor'
+            ]
+            attributes: [
+              {
+                city: 'seattle'
+                organization: 'contoso'
+              }
+            ]
+          }
+          brokerResources: [
+            {
+              method: 'Connect'
+            }
+            {
+              method: 'Publish'
+              topics: [
+                '/telemetry/{principal.username}'
+                '/telemetry/{principal.attributes.organization}'
+              ]
+            }
+            {
+              method: 'Subscribe'
+              topics: [
+                '/commands/{principal.attributes.organization}'
+              ]
+            }
+          ]
+          stateStoreResources: [
+            {
+              method: 'Read'
+              keyType: 'Pattern'
+              keys: [
+                'myreadkey'
+                'myotherkey?'
+                'mynumerickeysuffix[0-9]'
+                'clients/{principal.clientId}/*'
+              ]
+            }
+            {
+              method: 'ReadWrite'
+              keyType: 'Binary'
+              keys: [
+                'xxxxxxxxxxxxxxxxxxxx'
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ``` yaml
 stateStoreResources:
   - method: Read # Read includes Get, Notify
@@ -528,6 +739,7 @@ stateStoreResources:
     keys:
       - "xxxxxxxxxxxxxxxxxxxx"  # base-64 encoded binary key.
 ```
+---
 
 ## Update authorization
 
