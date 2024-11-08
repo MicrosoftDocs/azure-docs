@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 11/07/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Kafka in Azure IoT Operations so that I can send data to and from Kafka endpoints.
@@ -142,6 +142,9 @@ kubectl apply -f <FILE>.yaml
 
 # [Portal](#tab/portal)
 
+> [!IMPORTANT]
+> To use the operations experience portal to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+
 In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **SASL**.
 
 Enter the following settings for the endpoint:
@@ -149,9 +152,20 @@ Enter the following settings for the endpoint:
 | Setting                        | Description                                                                                       |
 | ------------------------------ | ------------------------------------------------------------------------------------------------- |
 | SASL type                      | Choose `Plain`. |
-| Synced secret name             | The name of the Kubernetes secret that contains the connection string.                                   |
-| Username reference or token secret | The reference to the username or token secret used for SASL authentication.                     |
-| Password reference of token secret | The reference to the password or token secret used for SASL authentication.                     |
+| Synced secret name             | Enter a name of the Kubernetes secret that contains the connection string.                                   |
+| Username reference or token secret | The reference to the username or token secret used for SASL authentication. Either pick it from the Key Vault list or create a new one. The value must be `$ConnectionString`. |
+| Password reference of token secret | The reference to the password or token secret used for SASL authentication. Either pick it from the Key Vault list or create a new one. The value must be in the format of `Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY-NAME>;SharedAccessKey=<KEY>`. |
+
+After you select **Add reference**, if you select **Create new**, enter the following settings:
+
+| Setting | Description |
+| ------- | ----------- |
+| Secret name | The name of the secret in Azure Key Vault. Pick a name that is easy to remember to select the secret later from the list. |
+| Secret value | For the username, enter `$ConnectionString`. For the password, enter the connection string in the format `Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY-NAME>;SharedAccessKey=<KEY>`. |
+| Set activation date | If turned on, the date when the secret becomes active. |
+| Set expiration date | If turned on, the date when the secret expires. |
+
+To learn more about secrets, see [Create and manage secrets in Azure IoT Operations Preview](../secure-iot-ops/howto-manage-secrets.md).
 
 # [Bicep](#tab/bicep)
 
@@ -469,11 +483,17 @@ To use anonymous authentication, update the authentication section of the Kafka 
 
 # [Portal](#tab/portal)
 
-Not yet supported in the operations experience. See [known issues](../troubleshoot/known-issues.md).
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **None**.
 
 # [Bicep](#tab/bicep)
 
-Not yet supported with Bicep. See [known issues](../troubleshoot/known-issues.md).
+```bicep
+kafkaSettings: {
+  authentication: {
+    method: 'Anonymous'
+  }
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
