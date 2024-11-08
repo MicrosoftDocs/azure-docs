@@ -148,7 +148,7 @@ After the steps are successful, you can find the containers running in Docker.
 
 ## Interact with the emulator
 
-By default, emulator uses [config.json](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EventHub-Emulator/Config/Config.json) configuration file. You can configure entities (Event Hubs/ Kafka topics) by making changes to configuration file. To know more, visit [make configuration changes](./overview-emulator#quota-configuration-changes)
+By default, emulator uses [config.json](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EventHub-Emulator/Config/Config.json) configuration file. You can configure entities (Event Hubs/ Kafka topics) by making changes to configuration file. To know more, visit [make configuration changes](overview-emulator#quota-configuration-changes)
 
 You can use the following connection string to connect to the Event Hubs emulator:
 
