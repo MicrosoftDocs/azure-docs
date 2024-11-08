@@ -126,19 +126,7 @@ Then, create the *DataflowEndpoint* resource and specify the access token authen
 
 # [Portal](#tab/portal)
 
-1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
-1. Under **Create new dataflow endpoint**, select **Azure Data Lake Storage (2nd generation)** > **New**.
-1. Enter the following settings for the endpoint:
-
-    | Setting               | Description                                                                                       |
-    | --------------------- | ------------------------------------------------------------------------------------------------- |
-    | Name                  | The name of the dataflow endpoint.                                                              |
-    | Host                  | The hostname of the Azure Data Lake Storage Gen2 endpoint in the format `<account>.blob.core.windows.net`. Replace the account placeholder with the endpoint account name. |
-    | Authentication method | The method used for authentication. Choose *Access token*.     |
-    | Synced secret name       | The name of the Kubernetes secret that is synchronized with the ADLSv2 endpoint.              |
-    | Access token secret name | The name of the Kubernetes secret containing the SAS token. |
-
-1. Select **Apply** to provision the endpoint.
+See the [access token](#access-token) section for steps to create a secret in the operations experience portal.
 
 # [Bicep](#tab/bicep)
 
