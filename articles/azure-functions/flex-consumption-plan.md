@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 08/22/2024
+ms.date: 11/01/2024
 ms.custom: references_regions, build-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
@@ -131,8 +131,8 @@ In Flex Consumption, many of the standard application settings and site configur
 
 Keep these other considerations in mind when using Flex Consumption plan:
 
-+ **Host**: There is a 30 seconds timeout for the app initialization. If your function app takes longer than 30 seconds to start you will see gRPC related System.TimeoutException entries. This timeout will be configurable and a clearer exception will be implemented as part of [this host work item](https://github.com/Azure/azure-functions-host/issues/10482).
-+ **Durable Functions**: Due to the per function scaling nature of Flex Consumption, to ensure the best performance for Durable Functions we recommend setting the [Always Ready instance count](./flex-consumption-how-to.md#set-always-ready-instance-counts) for the `durable` group to `1`. Also, with the Azure Storage provider, consider reducing the [queue polling interval](./durable/durable-functions-azure-storage-provider.md#queue-polling) to 10 seconds or less. Only Azure Storage is supported as a backend storage providers for Flex Consumption hosted durable functions.
++ **Host**: There is a 30 seconds timeout for the app initialization. If your function app takes longer than 30 seconds to start you will see gRPC related `System.TimeoutException` entries. This timeout is currently not configurable. For more information, see [this host work item](https://github.com/Azure/azure-functions-host/issues/10482).
++ **Durable Functions**: Azure Storage is currently the only supported [storage provider](./durable/durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan. See [recommendations](./durable/durable-functions-azure-storage-provider.md#flex-consumption-plan) when hosting Durable Functions in the Flex Consumption plan.
 + **Virtual network integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
 + **Triggers**: All triggers are fully supported except for Kafka and Azure SQL triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
 + **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).

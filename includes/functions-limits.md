@@ -34,7 +34,7 @@ Notes on service limits:
 4. The actual number of function apps that you can host depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
 5. The storage limit is the total content size in temporary storage across all apps in the same App Service plan. For Consumption plans on Linux, the storage is currently 1.5 GB.
 6. Consumption plan uses an Azure Files share for persisted storage. When you provide your own Azure Files share, the specific share size limits depend on the storage account you set for [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](/azure/azure-functions/functions-app-settings#website_contentazurefileconnectionstring). 
-7. On Linux, you must [explicitly mount your own Azure Files share](/azure/azure-functions/storage-considerations#mount-file-shares).
+7. On Linux, you must [mount your own Azure Files share](/azure/azure-functions/storage-considerations#mount-file-shares) to get persisted storage for your app.
 8. When your function app is hosted in a [Consumption plan](/azure/azure-functions/consumption-plan), only the CNAME option is supported. For function apps in a [Premium plan](/azure/azure-functions/functions-premium-plan) or an [App Service plan](/azure/azure-functions/dedicated-plan), you can map a custom domain using either a CNAME or an A record.  
 9. There is no maximum execution timeout duration enforced. However, the grace period given to a function execution is 60 minutes [during scale in](../articles/azure-functions/event-driven-scaling.md#scale-in-behaviors) and 10 minutes during platform updates.
 10. Workers are roles that host customer apps. Workers are available in three fixed sizes: One vCPU/3.5 GB RAM; Two vCPU/7 GB RAM; Four vCPU/14 GB RAM.   

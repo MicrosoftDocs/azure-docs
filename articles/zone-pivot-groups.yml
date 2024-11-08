@@ -211,16 +211,16 @@ groups:
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
   pivots:
-  - id: consumption-plan
-    title: Consumption plan
   - id: flex-consumption-plan
-    title: Flex Consumption plan (preview)
+    title: Flex Consumption plan
   - id: premium-plan
     title: Premium plan
   - id: dedicated-plan
     title: Dedicated plan
   - id: container-apps
     title: Container Apps
+  - id: consumption-plan
+    title: Consumption plan
   - id: azure-arc
     title: Azure Arc
 ### end azure-functions
