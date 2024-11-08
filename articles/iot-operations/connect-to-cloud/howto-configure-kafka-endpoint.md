@@ -106,7 +106,7 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
@@ -184,7 +184,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 To use connection string for authentication to Event Hubs, use the SASL authentication method and configure with SASL type as "Plain" and configure name of the secret that contains the connection string.
 
@@ -272,7 +272,7 @@ resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -333,7 +333,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```bash
 kubectl create secret generic sasl-secret -n azure-iot-operations \
@@ -388,7 +388,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -419,7 +419,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -459,7 +459,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -495,7 +495,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -542,7 +542,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Under `kafkaSettings`, you can configure additional settings for the Kafka endpoint.
 
@@ -586,7 +586,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -616,7 +616,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -654,7 +654,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 spec:
@@ -691,7 +691,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -734,7 +734,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -781,7 +781,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -820,7 +820,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -847,7 +847,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -993,7 +993,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:

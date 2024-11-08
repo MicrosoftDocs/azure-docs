@@ -89,7 +89,7 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
@@ -172,7 +172,7 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
@@ -235,7 +235,7 @@ dataLakeStorageSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 dataLakeStorageSettings:
@@ -265,7 +265,7 @@ dataLakeStorageSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 dataLakeStorageSettings:
@@ -326,7 +326,7 @@ dataLakeStorageSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Create a Kubernetes secret with the SAS token.
 
@@ -373,7 +373,7 @@ dataLakeStorageSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 dataLakeStorageSettings:
@@ -420,7 +420,7 @@ dataLakeStorageSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 dataLakeStorageSettings:

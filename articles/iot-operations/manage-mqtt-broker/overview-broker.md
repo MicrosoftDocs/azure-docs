@@ -199,7 +199,7 @@ To configure settings like disk-backed message buffer and advanced MQTT client o
 
 Use Azure portal or Azure CLI to customize the default Broker resource.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Use Azure portal or Azure CLI to customize the default Broker resource.
 
@@ -224,7 +224,7 @@ az iot ops broker show --name default --instance <INSTANCE_NAME> --resource-grou
 
 Use Azure portal, Azure CLI, or Kubernetes to view the default Broker resource.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```bash
 kubectl get broker default -n azure-iot-operations -o yaml

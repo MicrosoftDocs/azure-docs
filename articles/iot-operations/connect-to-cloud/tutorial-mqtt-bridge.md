@@ -200,7 +200,7 @@ Next, execute the following command in your terminal. Replace `<FILE>` with the 
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -307,7 +307,7 @@ Like the dataflow endpoint, execute the following command in your terminal:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 
 ```yaml
@@ -372,7 +372,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the same namespac
 
 Currently, bicep doesn't apply to deploy MQTT client.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: v1

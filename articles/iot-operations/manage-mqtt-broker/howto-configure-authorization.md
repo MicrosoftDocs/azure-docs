@@ -119,7 +119,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -274,7 +274,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -437,7 +437,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -498,7 +498,7 @@ kubectl edit brokerauthorization my-authz-policies
 
 To disable authorization, omit `authorizationRef` in the `ports` setting of your *BrokerListener* resource.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 To disable authorization, omit `authorizationRef` in the `ports` setting of your *BrokerListener* resource.
 

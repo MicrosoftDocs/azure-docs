@@ -47,7 +47,7 @@ datasets: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 datasets:
@@ -84,7 +84,7 @@ When a new record is being processed, the mapper performs the following steps:
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -127,7 +127,7 @@ datasets: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 datasets:
@@ -157,7 +157,7 @@ inputs: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -184,7 +184,7 @@ datasets: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 datasets:

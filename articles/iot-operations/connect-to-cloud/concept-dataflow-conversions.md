@@ -28,7 +28,7 @@ output: 'ColorProperties.*'
 expression: '($1 + $2) / 2'
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -64,7 +64,7 @@ output: 'ColorProperties.*'
 expression: '($1, $2, $3, $4)'
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -171,7 +171,7 @@ output: 'Measurement'
 expression: 'min($1)'
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -196,7 +196,7 @@ output: 'Measurements'
 expression: 'take($1, 10)'  // taking at max 10 items
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -222,7 +222,7 @@ output: 'stats'
 expression: '($1, $2, $3, $4)'
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -280,7 +280,7 @@ output: 'BaseSalary'
 expression: 'if($1 == (), $2, $1)'
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:

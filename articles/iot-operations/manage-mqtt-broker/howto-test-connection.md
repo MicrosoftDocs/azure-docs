@@ -226,7 +226,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Create a file named `broker-nodeport.yaml` with the following configuration. Replace placeholders with your own values, including your own authentication and TLS settings.
 
@@ -387,7 +387,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 > [!CAUTION]
 > Removing `authenticationRef` and `tls` settings from the configuration [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
@@ -590,7 +590,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1

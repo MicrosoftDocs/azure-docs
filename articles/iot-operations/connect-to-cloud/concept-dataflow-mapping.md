@@ -86,7 +86,7 @@ The following mapping is an example:
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -131,7 +131,7 @@ inputs: [
 output: 'origin_topic'
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 inputs:
@@ -152,7 +152,7 @@ inputs: [
 output: '$metadata.user_property.origin_topic'
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 inputs:
@@ -182,7 +182,7 @@ inputs: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -201,7 +201,7 @@ inputs: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -220,7 +220,7 @@ inputs: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -242,7 +242,7 @@ Any other characters are treated as part of the field name. This flexibility is 
 
 In Bicep, all strings are enclosed in single quotation marks (`'`). The examples about proper quoting in YAML for Kubernetes use don't apply.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 The path definition must also adhere to the rules of YAML. When a character with special meaning is included in the path, proper quoting is required in the configuration. Consult the YAML documentation for precise rules. Here are some examples that demonstrate the need for careful formatting:
 
@@ -266,7 +266,7 @@ inputs: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -291,7 +291,7 @@ In this example, the path consists of three segments: `Payload`, `Tag.10`, and `
   ]
   ```
 
-  # [Kubernetes](#tab/kubernetes)
+  # [Kubernetes (preview)](#tab/kubernetes)
   
   ```yaml
   - inputs:
@@ -310,7 +310,7 @@ In this example, the path consists of three segments: `Payload`, `Tag.10`, and `
   ]
   ```
 
-  # [Kubernetes](#tab/kubernetes)
+  # [Kubernetes (preview)](#tab/kubernetes)
   
   ```yaml
   - inputs:
@@ -329,7 +329,7 @@ In this example, the path consists of three segments: `Payload`, `Tag.10`, and `
   ]
   ```
 
-  # [Kubernetes](#tab/kubernetes)
+  # [Kubernetes (preview)](#tab/kubernetes)
   
   ```yaml
   - inputs:
@@ -360,7 +360,7 @@ inputs: [
 output: '*'
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -419,7 +419,7 @@ Mapping configuration that uses wildcards:
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -494,7 +494,7 @@ output: 'ColorProperties.*'
 expression: '($1 + $2) / 2'
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -566,7 +566,7 @@ inputs: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -604,7 +604,7 @@ inputs: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -645,7 +645,7 @@ When you use the previous example from multi-input wildcards, consider the follo
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -709,7 +709,7 @@ Now, consider a scenario where a specific field needs a different calculation:
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -753,7 +753,7 @@ Consider a special case for the same fields to help decide the right action:
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -805,7 +805,7 @@ inputs: [
 output: 'Employment.BaseSalary'
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -826,7 +826,7 @@ inputs: [
 output: 'Employment.*'
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -863,7 +863,7 @@ inputs: [
 output: 'Thermostat.Temperature'
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:

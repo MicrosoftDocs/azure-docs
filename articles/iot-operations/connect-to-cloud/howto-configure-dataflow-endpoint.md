@@ -89,7 +89,7 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -154,7 +154,7 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1

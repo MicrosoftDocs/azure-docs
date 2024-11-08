@@ -94,7 +94,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 To inspect the default broker authentication resource, run:
 
@@ -275,7 +275,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Modify the *BrokerAuthentication* resource for an authentication policy by adding new methods to the `authenticationMethods` section. The following example shows multiple authentication methods for a *BrokerAuthentication* resource:
 
@@ -443,7 +443,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 spec:
@@ -602,7 +602,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 spec:
@@ -744,7 +744,7 @@ For testing, you can disable authentication for a broker listener port. Disablin
 
 To disable authentication, omit the `authenticationRef` in the `ports` setting of your *BrokerListener* resource.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 To disable authentication, omit the `authenticationRef` in the `ports` setting of your *BrokerListener* resource.
 

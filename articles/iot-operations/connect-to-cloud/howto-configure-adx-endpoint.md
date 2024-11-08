@@ -119,7 +119,7 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
@@ -176,7 +176,7 @@ dataExplorerSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 dataExplorerSettings:
@@ -207,7 +207,7 @@ dataExplorerSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 dataExplorerSettings:
@@ -247,7 +247,7 @@ dataExplorerSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 dataExplorerSettings:
@@ -294,7 +294,7 @@ dataExplorerSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 dataExplorerSettings:

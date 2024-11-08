@@ -51,7 +51,7 @@ resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfi
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -83,7 +83,7 @@ resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@202
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -118,7 +118,7 @@ resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@202
 ```
 
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 spec:
@@ -156,7 +156,7 @@ resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@202
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1

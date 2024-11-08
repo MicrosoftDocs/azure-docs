@@ -124,7 +124,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 To view the default BrokerListener resource, use the following command:
 
@@ -303,7 +303,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -615,7 +615,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Modify the `tls` setting in a BrokerListener resource to specify a TLS port and *Issuer* for the frontends.
 
@@ -820,7 +820,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Modify the `tls` setting in a BrokerListener resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`server-cert-secret` in the example previously).
 
