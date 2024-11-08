@@ -25,7 +25,7 @@ Before you configure vaulted backup for AKS cluster, ensure the following prereq
 
 ## Configure vaulted backup for an AKS cluster
 
-1. In the Azure portal, go to the AKS cluster that you want to back up.
+1. In the [Azure portal](https://portal.azure.com), go to the AKS cluster that you want to back up.
 
 1. In the resource menu, select **Backup**, and then select **Configure Backup**.
   
@@ -53,9 +53,8 @@ Before you configure vaulted backup for AKS cluster, ensure the following prereq
 
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png" alt-text="Screenshot that shows the Snapshot resource group dropdown." lightbox="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png":::
 
-1. When validation is finished, if required roles aren't assigned to the vault in the snapshot resource group, an error appears.
-
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validation-error-permissions-not-assigned.png" alt-text="Screenshot that shows a validation error." lightbox="./media/azure-kubernetes-service-cluster-backup/validation-error-permissions-not-assigned.png":::  
+When validation is finished, if required roles aren't assigned to the vault in the snapshot resource group, an error appears.
+     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validation-error-permissions-not-assigned.png" alt-text="Screenshot that shows a validation error." lightbox="./media/azure-kubernetes-service-cluster-backup/validation-error-permissions-not-assigned.png":::  
 
 1. To resolve the error, under **Datasource name**, select the datasource, and then select **Assign missing roles**.
 
