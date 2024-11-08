@@ -37,13 +37,13 @@ The Azure Firewall integration in Security Copilot helps analysts perform detail
 
 You can use this integration in the [Security Copilot portal](https://securitycopilot.microsoft.com) (also called the standalone experience):
 
-:::image type="content" source="media/firewall-copilot/security-copilot-overview-image.png" alt-text="Screenshot of the Security Copilot portal with a prompt relevant to Firewall.":::
+:::image type="content" source="media/firewall-copilot/security-copilot-overview-image.jpg" alt-text="Screenshot of the Security Copilot portal with a prompt relevant to Firewall." lightbox="media/firewall-copilot/security-copilot-overview-image.jpg":::
 
 and via the [Copilot in Azure](/azure/copilot/overview) experience on the [Azure portal](https://portal.azure.com/) (also called the embedded experience):
 
-:::image type="content" source="media/firewall-copilot/azure-copilot-overview-image.png" alt-text="Screenshot of the Azure portal with a prompt relevant to Firewall."::: 
+:::image type="content" source="media/firewall-copilot/azure-copilot-overview-image-new.png" alt-text="Screenshot of the Azure portal with a prompt relevant to Firewall." lightbox="media/firewall-copilot/azure-copilot-overview-image-new.png"::: 
 
-For more information, see  [Microsoft Security Copilot experiences](/security-copilot/experiences-security-copilot).
+For more information, see  [Microsoft Security Copilot experiences](/security-copilot/experiences-security-copilot) and [Microsoft Copilot in Azure capabilities](/azure/copilot/capabilities).
 
 ## Key features
 Security Copilot has built-in system features that can get data from the different plugins that are turned on.
@@ -81,10 +81,10 @@ To view the list of built-in system capabilities for Azure Firewall, use the fol
 
 4. Enter your prompt in the prompt bar on either the [Security Copilot portal](https://securitycopilot.microsoft.com) or via the [Copilot in Azure](/azure/copilot/overview) experience on the [Azure portal](https://portal.azure.com/).
 
-> [!NOTE]
+> [!IMPORTANT]
 > Use of Copilot in Azure to query Azure Firewall is included with Security Copilot and requires [security compute units (SCUs)](copilot/security/get-started-security-copilot#security-compute-units). You can provision SCUs and increase or decrease them at any time. For more information on SCUs, see [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot).
-> If you do not have Security Copilot properly configured but ask a question relavent to the Azure Firewall capabilities via the Copilot in Azure experience then you will see the following error message:
-> :::image type="content" source="media/firewall-copilot/azure-copilot-error-message.png" alt-text="Screenshot showing the Copilot in Azure error message when Security Copilot is not properly configured.":::
+> If you do not have Security Copilot properly configured but ask a question relavent to the Azure Firewall capabilities via the Copilot in Azure experience then you will see an error message:
+> :::image type="content" source="media/firewall-copilot/azure-copilot-error-message-new.png" alt-text="Screenshot showing the Copilot in Azure error message when Security Copilot is not properly configured." lightbox="media/firewall-copilot/azure-copilot-error-message-new.png":::
 
 ## Sample Azure Firewall prompts
 
@@ -101,7 +101,7 @@ Get **log information** about the traffic intercepted by the IDPS feature instea
 - What are the top 20 IDPS hits from the last seven days for Firewall _\<Firewall name\>_ in resource group _\<resource group name\>_?
 - Show me in tabular form the top 50 attacks that targeted Firewall _\<Firewall name\>_ in subscription _\<subscription name\>_ in the past month.
 
-:::image type="content" source="media/firewall-copilot/copilot-capability-1-embedded.png" alt-text="Screenshot showing the Retrieve the top IDPS signature hits for an Azure Firewall capability.":::
+:::image type="content" source="media/firewall-copilot/copilot-capability-1-embedded.png" alt-text="Screenshot showing the Retrieve the top IDPS signature hits for an Azure Firewall capability." lightbox="media/firewall-copilot/copilot-capability-1-embedded.png":::
 
 ### Enrich the threat profile of an IDPS signature beyond log information
 
@@ -113,7 +113,7 @@ Get **additional details** to enrich the threat information/profile of an IDPS s
 - What can you tell me about this attack? What are the other attacks this attacker is known for?
 - I see that the third signature ID is associated with CVE _\<CVE number\>_, tell me more about this CVE.
 
-:::image type="content" source="media/firewall-copilot/copilot-capability-2-embedded.png" alt-text="Screenshot showing the Enrich the threat profile of an IDPS signature beyond log information capability.":::
+:::image type="content" source="media/firewall-copilot/copilot-capability-2-embedded.png" alt-text="Screenshot showing the Enrich the threat profile of an IDPS signature beyond log information capability." lightbox="media/firewall-copilot/copilot-capability-2-embedded.png":::
 
 > [!NOTE]
 >The Microsoft Threat Intelligence plugin is another source that Security Copilot may use to provide threat intelligence for IDPS signatures.
@@ -129,7 +129,7 @@ Perform a **fleet-wide search** (over any scope) for a threat across all your Fi
 - Was the top hit seen by any other Firewall in the subscription _\<subscription name\>_?
 - Over the past week did any Firewall in resource group _\<resource group name\>_ see signature ID _\<ID number\>_?
 
-:::image type="content" source="media/firewall-copilot/copilot-capability-3-embedded.png" alt-text="Screenshot showing the Look for a given IDPS signature across your tenant, subscription, or resource group capability.":::
+:::image type="content" source="media/firewall-copilot/copilot-capability-3-embedded.png" alt-text="Screenshot showing the Look for a given IDPS signature across your tenant, subscription, or resource group capability." lightbox="media/firewall-copilot/copilot-capability-3-embedded.png":::
 
 ### Generate recommendations to secure your environment using Azure Firewall's IDPS feature
 
@@ -141,7 +141,7 @@ Get **information from documentation** about using Azure Firewall's IDPS feature
 - If I want to make sure all my Firewalls are protected against attacks from signature ID _\<ID number\>_, how do I do this?
 - What is the difference in risk between alert only and alert and block modes for IDPS?
 
-:::image type="content" source="media/firewall-copilot/copilot-capability-4-embedded.png" alt-text="Screenshot showing the Generate recommendations to secure your environment using Azure Firewall's IDPS feature capability.":::
+:::image type="content" source="media/firewall-copilot/copilot-capability-4-embedded.png" alt-text="Screenshot showing the Generate recommendations to secure your environment using Azure Firewall's IDPS feature capability." lightbox="media/firewall-copilot/copilot-capability-4-embedded.png":::
 
 > [!NOTE]
 >Security Copilot may also use the *Ask Microsoft Documentation* capability to provide this information and when using this capability via the Copilot in Azure experience, the *Get Information* capability may be used to provide this information.
