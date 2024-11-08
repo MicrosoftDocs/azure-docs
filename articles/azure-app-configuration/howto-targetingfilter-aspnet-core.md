@@ -158,7 +158,7 @@ builder.Services.AddFeatureManagement()
 ```
 
 > [!NOTE]
-> For more control over how username and groups are extracted for targeting, see the [feature reference for targeting](./feature-management-dotnet-reference#itargetingcontextaccessor).
+> For more control over how username and groups are extracted for targeting, see the [feature reference for targeting](./feature-management-dotnet-reference.md#itargetingcontextaccessor).
 
 ## Targeting filter in action
 
