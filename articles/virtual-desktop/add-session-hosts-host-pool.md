@@ -13,7 +13,7 @@ ms.date: 10/01/2024
 > [!IMPORTANT]
 > The following features are currently in preview:
 >
-> - Azure Virtual Desktop on Azure Stack HCI for Azure Government and for Azure operated by 21Vianet (Azure in China).
+> - Azure Virtual Desktop on Azure Local for Azure Government and for Azure operated by 21Vianet (Azure in China).
 >
 > - Azure Virtual Desktop on Azure Extended Zones.
 >
@@ -29,7 +29,7 @@ When you add session hosts to a host pool, the method you use depends on your [h
 
 - For a host pool using standard management, you can create new virtual machines (VMs) to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. Alternatively, you can create VMs outside the Azure Virtual Desktop service, such as using an automated pipeline, the Azure CLI, or Azure PowerShell, and then add them as session hosts to a host pool separately.
 
-   For Azure Stack HCI, you can create new VMs to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. If you want to create the VMs outside the Azure Virtual Desktop service, follow the steps in [Create Azure Arc virtual machines on Azure Stack HCI](/azure-stack/hci/manage/create-arc-virtual-machines), and then add the VMs as session hosts to a host pool separately.
+   For Azure Local, you can create new VMs to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. If you want to create the VMs outside the Azure Virtual Desktop service, follow the steps in [Create Azure Arc virtual machines on Azure Local](/azure-stack/hci/manage/create-arc-virtual-machines), and then add the VMs as session hosts to a host pool separately.
 
 > [!TIP]
 > Select a button at the top of this article to choose between host pools using standard management or host pools using session host configuration to see the relevant documentation.
@@ -51,7 +51,7 @@ For a general idea of what's required, such as supported operating systems, virt
 ::: zone-end
 
 ::: zone pivot="host-pool-standard"
-- You need an existing host pool with standard management. Each host pool must only contain session hosts on Azure or on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.
+- You need an existing host pool with standard management. Each host pool must only contain session hosts on Azure or on Azure Local. You can't mix session hosts on Azure and on Azure Local in the same host pool.
 ::: zone-end
 
 - If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that you used. All session hosts in a host pool should have the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Microsoft Entra ID and some session hosts joined to an Active Directory domain.
@@ -72,21 +72,21 @@ For a general idea of what's required, such as supported operating systems, virt
    |--|--|
    | Generate a registration key for the host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
    | Create and add session hosts by using the Azure portal (Azure and Azure Extended Zones) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
-   | Create and add session hosts by using the Azure portal (Azure Stack HCI) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
+   | Create and add session hosts by using the Azure portal (Azure Local) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Azure Local VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
 
 - Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when you're creating and adding session hosts by using the Azure portal. [PowerShell DSC](/powershell/dsc/overview) requires it.
 
-- To add session hosts on Azure Stack HCI, you also need:
+- To add session hosts on Azure Local, you also need:
 
-  - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Stack HCI clusters need to be running a minimum of version 23H2. For more information, see [About Azure Stack HCI, version 23H2 deployment](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
+  - An [Azure Local cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Local clusters need to be running a minimum of version 23H2. For more information, see [About Azure Local, version 23H2 deployment](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
 
   - A stable connection to Azure from your on-premises network.
 
   - At least one Windows OS image available on the cluster. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in an Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
-  - The [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) on Azure Stack HCI VMs created outside the Azure Virtual Desktop service, such as with an automated pipeline. The virtual machines use the agent to communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
+  - The [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) on Azure Local VMs created outside the Azure Virtual Desktop service, such as with an automated pipeline. The virtual machines use the agent to communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
 
-  - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
+  - A logical network that you created on your Azure Local cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Local](/azure-stack/hci/manage/create-logical-networks).
 
 - To deploy session hosts to [Azure Extended Zones](/azure/virtual-desktop/azure-extended-zones), you also need:
 
@@ -218,7 +218,7 @@ Here's how to create session hosts and register them to a host pool by using the
 
 1. The **Basics** tab is unavailable because you're using the existing host pool. Select **Next: Virtual Machines**.
 
-1. On the **Virtual machines** tab, expand one of the following sections and complete the information, depending on whether you want to create session hosts on Azure or on Azure Stack HCI. For guidance on sizing session host virtual machines, see [Session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs).<br /><br />
+1. On the **Virtual machines** tab, expand one of the following sections and complete the information, depending on whether you want to create session hosts on Azure or on Azure Local. For guidance on sizing session host virtual machines, see [Session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs).<br /><br />
 
    <details>
        <summary>To add session hosts on <b>Azure</b>, expand this section.</summary>
@@ -254,14 +254,14 @@ Here's how to create session hosts and register them to a host pool by using the
    </details>
 
    <details>
-       <summary>To add session hosts on <b>Azure Stack HCI</b>, expand this section.</summary>
+       <summary>To add session hosts on <b>Azure Local</b>, expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
       | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
-      | **Virtual machine type** | Select **Azure Stack HCI virtual machine**. |
-      | **Custom location** | In the dropdown list, select the Azure Stack HCI cluster where you want to deploy your session hosts. |
+      | **Virtual machine type** | Select **Azure Local virtual machine**. |
+      | **Custom location** | In the dropdown list, select the Azure Local cluster where you want to deploy your session hosts. |
       | **Images** | Select the OS image that you want to use from the list, or select **Manage VM images** to manage the images available on the cluster that you selected. |
       | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can add more later. |
       | **Virtual processor count** | Enter the number of virtual processors that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
