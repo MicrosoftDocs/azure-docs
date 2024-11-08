@@ -123,7 +123,7 @@ The frontend subfield defines the settings for the frontend pods. The two main s
 - **Workers**: The number of logical frontend workers per replica. Each worker can consume up to one CPU core at most.
 #### Backend chain
 
-The backend chain subfield defines the settings for the backend partitionss. The three main settings are:
+The backend chain subfield defines the settings for the backend partitions. The three main settings are:
 
 - **Partitions**: The number of partitions to deploy. Through a process called *sharding*, each partition is responsible for a portion of the messages, divided by topic ID and session ID. The frontend pods distribute message traffic across the partitions. Increasing the number of partitions increases the number of messages that the broker can handle.
 
@@ -133,7 +133,7 @@ The backend chain subfield defines the settings for the backend partitionss. The
 
 #### Considerations
 
-When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability if there are pod or node failures. However, this also leads to higher resource consumption. So, when adjusting cardinality values, consider the memory profile settings and broker's [CPU resource requests](#cardinality-and-kubernetes-resource-limits). Increasing the number of workers per frontend replica can help increase CPU core utilization if you discover that frontend CPU utilization is a bottleneck. Increasing the number of backend workers can help with the message throughput if backend CPU is a bottleneck.
+When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability if there are pod or node failures. However, this also leads to higher resource consumption. So, when adjusting cardinality values, consider the [memory profile settings](#configure-memory-profile) and broker's [CPU resource requests](#cardinality-and-kubernetes-resource-limits). Increasing the number of workers per frontend replica can help increase CPU core utilization if you discover that frontend CPU utilization is a bottleneck. Increasing the number of backend workers can help with the message throughput if backend CPU is a bottleneck.
 
 For example, if your cluster has three nodes, each with eight CPU cores, then set the number of frontend replicas to match the number of nodes (3) and set number of workers to 1. Set the number of backend partitions to match the number of nodes (3), and backend workers to 1. Set redundancy factor as desired (2 or 3). Increase the number of frontend workers if you discover that frontend CPU is a bottleneck. Remember that backend and frontend workers may compete for CPU resources with each other and other pods. 
 
@@ -209,8 +209,8 @@ To prevent resource starvation in the cluster, the broker is configured by defau
 MQTT broker currently requests one (1.0) CPU unit per frontend worker and two (2.0) CPU units per backend worker. See [Kubernetes CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details. 
 
 For example, the below cardinality would request the following CPU resources:
-- for frontends: 2 CPU units per frontend pod, totalling 6 CPU units.
-- for backends: 4 CPU units per backend pod (for two backend workers), times 2 (redundancy factor), times 3 (number of partitions), totalling 24 CPU units.
+- For frontends: 2 CPU units per frontend pod, totalling 6 CPU units.
+- For backends: 4 CPU units per backend pod (for two backend workers), times 2 (redundancy factor), times 3 (number of partitions), totalling 24 CPU units.
 
 ```json
 {
