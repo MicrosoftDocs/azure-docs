@@ -65,7 +65,7 @@ landingContent:
         links:
           - text: SAP ASE (Sybase) database backup support (preview)
             url: sap-ase-database-about.md
-          - text: Azure Database for PostgreSQL - Flexible Server backup support
+          - text: Azure Database for PostgreSQL - Flexible Server backup support (preview)
             url: backup-azure-database-postgresql-flex-overview.md
           - text: Azure Blob vaulted backup
             url: blob-backup-overview.md?tabs=vaulted-backup
