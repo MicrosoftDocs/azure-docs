@@ -6,7 +6,7 @@ ms.author: juluczni
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
-ms.date: 12/06/2022
+ms.date: 11/08/2024
 ms.reviewer: euang
 ms.custom: kr2b-contr-experiment
 ---
