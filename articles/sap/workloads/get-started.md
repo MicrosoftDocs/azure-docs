@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 10/29/2024
+ms.date: 11/05/2024
 ms.author: juergent
 ---
 
@@ -54,6 +54,8 @@ In the SAP workload documentation space, you can find the following areas:
 - **Azure Monitor for SAP solutions**: Microsoft developed monitoring solutions specifically for SAP supported OS and DBMS, as well as S/4HANA and NetWeaver. This section documents the deployment and usage of the service
 
 ## Change Log
+- November 5, 2024: Add missing step to start HANA [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md).
+- November 1, 2024: Adding HANA high-availability hook ChkSrv for [dying indexserver for RHEL based cluster setups](./sap-hana-high-availability-rhel.md#implement-sap-hana-system-replication-hooks).
 - October 29, 2024: some changes on disk caching and smaller updates in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md). Plus fixing some typoes in HANA storage configuration documents
 - October 28, 2024: Added information on RedHat support and the configuration of Azure fence agents for VMs in the Azure Government cloud to the document [Set up Pacemaker on Red Hat Enterprise Linux in Azure](./high-availability-guide-rhel-pacemaker.md).
 - October 25, 2024: Adding documentation link to [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms-guide-sqlserver.md) that describes how to disable SMT to be able to use some Mv3 SKUs where SQL Server would have a problem with too large NUMA nodes.
