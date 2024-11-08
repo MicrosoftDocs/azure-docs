@@ -170,7 +170,7 @@ Because the `principals` field is a logical OR, you can further restrict access 
 
 # [Portal](#tab/portal)
 
-In the **Broker authorization details** for your authorization policy, use the following configuration:
+In the broker authorization rules for your authorization policy, use the following configuration:
 
 ```json
 [
@@ -206,6 +206,8 @@ In the **Broker authorization details** for your authorization policy, use the f
 ```
 
 # [Bicep](#tab/bicep)
+
+To edit an authorization policy, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -331,7 +333,7 @@ As the application has an authorization attribute called `authz-sat`, there's no
 
 # [Portal](#tab/portal)
 
-In the **Broker authorization details** for your authorization policy, use the following configuration:
+In the Broker authorization rules for your authorization policy, use the following configuration:
 
 ```json
 [
@@ -369,6 +371,8 @@ In the **Broker authorization details** for your authorization policy, use the f
 ```
 
 # [Bicep](#tab/bicep)
+
+To edit an authorization policy, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -543,7 +547,7 @@ The `method` field specifies the access level.
 
 The `keyType` field specifies the type of key matching.
 - `pattern` to use *glob* style pattern matching
-- `string`  to do exact match, for example when a key contains characters that might be otherwise matched as a pettern (`*`, `?`, `[0-9]`)
+- `string`  to do exact match, for example when a key contains characters that might be otherwise matched as a pattern (`*`, `?`, `[0-9]`)
 - `binary`  to match a binary key
 
 The `keys` field specifies the keys to match. The keys can be specified as *Glob* style patterns, token substitutions, or exact strings. 
@@ -561,72 +565,66 @@ Here's an example of how you might author your state store resources:
 
 # [Portal](#tab/portal)
 
-1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
-1. Select the **Authorization** tab.
-1. Choose an existing authentication policy or create a new one by selecting **Create authorization policy**.
-1. In the **Rules** field, add a configuration similar to the following:
+In the Broker authorization rules for your authorization policy, add a similar configuration:
 
-    :::image type="content" source="media/howto-configure-authorization/state-store-resources.png" alt-text="Screenshot using the Azure portal to configure a broker policy with state store resources.":::
-
-    ```json
-    [
+```json
+[
+  {
+    "brokerResources": [
       {
-        "brokerResources": [
-          {
-            "clientIds": [
-              "{principal.attributes.building}*"
-            ],
-            "method": "Connect"
-          },
-          {
-            "method": "Publish",
-            "topics": [
-              "sensors/{principal.attributes.building}/{principal.clientId}/telemetry/*"
-            ]
-          },
-          {
-            "method": "Subscribe",
-            "topics": [
-              "commands/{principal.attributes.organization}"
-            ]
-          }
+        "clientIds": [
+          "{principal.attributes.building}*"
         ],
-        "principals": {
-          "attributes": [
-            {
-              "building": "17",
-              "organization": "contoso"
-            }
-          ],
-          "usernames": [
-            "temperature-sensor",
-            "humidity-sensor"
-          ]
-        },
-        "stateStoreResources": [
-          {
-            "method": "Read",
-            "keyType": "Pattern",
-            "keys": [
-              "myreadkey",
-              "myotherkey?",
-              "mynumerickeysuffix[0-9]",
-              "clients/{principal.clientId}/*"
-            ]
-          },
-          {
-            "method": "ReadWrite",
-            "keyType": "Binary",
-            "keys": [
-              "xxxxxxxxxxxxxxxxxxxx"
-            ]
-          }
+        "method": "Connect"
+      },
+      {
+        "method": "Publish",
+        "topics": [
+          "sensors/{principal.attributes.building}/{principal.clientId}/telemetry/*"
+        ]
+      },
+      {
+        "method": "Subscribe",
+        "topics": [
+          "commands/{principal.attributes.organization}"
+        ]
+      }
+    ],
+    "principals": {
+      "attributes": [
+        {
+          "building": "17",
+          "organization": "contoso"
+        }
+      ],
+      "usernames": [
+        "temperature-sensor",
+        "humidity-sensor"
+      ]
+    },
+    "stateStoreResources": [
+      {
+        "method": "Read",
+        "keyType": "Pattern",
+        "keys": [
+          "myreadkey",
+          "myotherkey?",
+          "mynumerickeysuffix[0-9]",
+          "clients/{principal.clientId}/*"
+        ]
+      },
+      {
+        "method": "ReadWrite",
+        "keyType": "Binary",
+        "keys": [
+          "xxxxxxxxxxxxxxxxxxxx"
         ]
       }
     ]
-    ```
-    
+  }
+]
+```
+
 # [Bicep](#tab/bicep)
 
 To edit an authorization policy, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
