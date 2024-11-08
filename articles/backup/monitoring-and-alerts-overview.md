@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Monitoring and Reporting solutions for Azure Backup
+# Monitoring, Alerting, and Reporting solutions for Azure Backup
 
 This article provides an overview of different monitoring and reporting solutions provided by Azure Backup.
 
