@@ -2,7 +2,7 @@
 title: Configure SAP ASE (Sybase) database backup on Azure VMs using Azure Backup
 description: In this article, learn how to configure backup for SAP ASE (Sybase) databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 11/12/2024 
+ms.date: 11/19/2024 
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -20,10 +20,10 @@ This article describes how to configure backup for SAP Adaptive Server Enterpris
 Before you set up the SAP ASE database for backup, review the following prerequisites:
 - Identify or create a Recovery Services vault in the same region and subscription as the VM running SAP ASE.
 - Allow connectivity from the VM to the internet, so that it can reach Azure.
-- The combined length of the SAP ASE Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM_ VMs (and 77 characters for classic VMs). This limitation is because the service reserves some characters. 
-- VM has python >= 3.6.15 (recommended- Python3.10) and python's requests module should be installed. Default sudo python3 should run python 3.6.15 or newer version. Please validate by running python3 and ‘sudo python3’ in your system and check which python version it runs by default. It should run the required version. You can change the version by linking python3 to python 3.6.15 or higher.
-- Run the SAP ASE backup configuration script (pre-registration script) in the virtual machine where ASE is installed, as the root user. This script gets the ASE system ready for backup. Learn more [about the pre-registration script  workflow](#preregistration-script-workflow).
-- Run the pre-registration script with the -sn or --skip-network-checks parameter, if your ASE setup uses Private Endpoints. Learn [how to run the pre-registration script](#run-the-pre-registration-script).
+- The combined length of the SAP ASE Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM) VMs (and 77 characters for classic VMs). This limitation is because the service reserves some characters. 
+- VM has python >= 3.6.15 (recommended- Python3.10) and python's requests module should be installed. Default sudo python3 should run python 3.6.15 or newer version. Validate by running python3 and **sudo python3** in your system and check which python version it runs by default. It should run the required version. You can change the version by linking python3 to python 3.6.15 or higher.
+- Run the SAP ASE backup configuration script (preregistration script) in the virtual machine where ASE is installed, as the root user. This script gets the ASE system ready for backup. Learn more [about the preregistration script  workflow](#preregistration-script-workflow).
+- Run the pre-registration script with the -sn or --skip-network-checks parameter, if your ASE setup uses Private Endpoints. Learn [how to run the preregistration script](#run-the-pre-registration-script).
 - Assign the following privileges and settings for the backup operation:
   
   | Privilege/ Setting | Description |
@@ -48,7 +48,7 @@ The preregistration script is a Python script that you run on the VM where the S
 3. Verifies the status of waagent, checks `wireserver` and `IMDS connectivity`, and tests **TCP connectivity** to  Microsoft Entra ID.
 4. Confirms if the geographic region is supported.
 5. Checks for available free space for logs, in the `waagent` directory, and `/opt` directory.
-6. Validates if the Adaptive Server Enterprise (ASE)) version is supported.
+6. Validates if the Adaptive Server Enterprise (ASE) version is supported.
 7. Logs in the SAP instance using the provided username and password, enabling dump history, which is necessary for backup and restore operations.
 8. Ensures that the OS version is supported.
 9. Installs and updates required Python modules such as requests and cryptography.
@@ -82,7 +82,7 @@ To execute the pre-registration script for SAP ASE database backup, run the foll
     sudo chmod -R 777 /path/to/script/file
    ```
 
-5. Update the script.
+5. Update the script name.
 
    ```bash
     sudo ./<script name> -us
@@ -123,6 +123,9 @@ To execute the pre-registration script for SAP ASE database backup, run the foll
 
 To create a custom role for Azure Backup, run the following bash commands:
 
+>[!Note]
+>After each of these commands, ensure that you run the command *`go`* to execute the statement.
+
 1. Sign in to the database using the SSO role user.
 
    ```bash
@@ -159,7 +162,7 @@ To create a custom role for Azure Backup, run the following bash commands:
     use master
    ```
 
-7. Grant "map external file" privilege to the new role.
+7. Grant **map external file** privilege to the new role.
 
    ```bash
     grant map external file to azurebackup_role
@@ -189,7 +192,7 @@ To create a custom role for Azure Backup, run the following bash commands:
      sp_modifylogin backupuser, "add default role", azurebackup_role
     ```
 
-12. Grant "own any database" privilege to the custom role as **SA** user.
+12. Grant **own any database** privilege to the custom role as **SA** user.
 
     ```bash
      grant own any database to azurebackup_role
@@ -224,43 +227,40 @@ To create a custom role for Azure Backup, run the following bash commands:
      go
     ```
 
->[!Note]
->After each of these commands, ensure that you run the command *`go`* to execute the statement.
-
 ## Establish network connectivity
 
-For all operations, an SAP ASE database running on an Azure VM requires connectivity to the Azure Backup service, Azure Storage, and Microsoft Entra ID. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services might lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data.
+For all operations, an SAP ASE database running on an Azure VM requires connectivity to the Azure Backup service, Azure Storage, and Microsoft Entra ID. This connectivity can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services might lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data.
 
 The following table lists the various alternatives you can use for establishing connectivity:
 
 | Option | Advantages | Disadvantages |
 | --- | --- | --- |
 | Private endpoints | Allow backups over private IPs in the virtual network. <br><br> Provide granular control on the network and vault side. | 	Incurs [standard private endpoint costs](https://azure.microsoft.com/pricing/details/private-link/). |
-| NSG service tags | Easier to manage as range changes are automatically merged. <br><br> No additional costs. | Used with NSGs only. <br><br> Provides access to the entire service. |
+| Network Security Group (NSG) service tags | Easier to manage because the range changes are automatically merged. <br><br> No additional costs. | Used with NSGs only. <br><br> Provides access to the entire service. |
 | Azure Firewall FQDN tags | Easier to manage since the required FQDNs are automatically managed. | Used with Azure Firewall only. |
 | Allow access to service FQDNs/IPs | No additional costs. <br><br> Works with all network security appliances and firewalls. <br><br> You can also use service endpoints for Storage. However, for Azure Backup and Microsoft Entra ID, you need to assign the access to the corresponding IPs/FQDNs. | A broad set of IPs or FQDNs might be required to be accessed. |
 | [Virtual Network Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) | Used for Azure Storage. <br><br> Provides large benefit to optimize performance of data plane traffic. | Can't be used for Microsoft Entra ID, Azure Backup service. |
 | Network Virtual Appliance | Used for Azure Storage, Microsoft Entra ID, Azure Backup service. <br><br> **Data plane** <br> - Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net` <br><br> **Management plane** <br> - Microsoft Entra ID: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). <br> - Azure Backup service: `.backup.windowsazure.com` <br><br> Learn more [about Azure Firewall service tags](/azure/firewall/fqdn-tags). | Adds overhead to data plane traffic and decrease throughput/performance. |
 
-To learn about the usage of the connectivity options, see the following sections.
+The following sections detail about the usage of the connectivity options.
 
 ### Private endpoints
 
 Private endpoints allow you to connect securely from servers in a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources in the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Learn  more on [private endpoints for Azure Backup](private-endpoints.md).
 
 >[!Note]
->Private endpoints are supported for Azure Backup and Azure storage. Microsoft Entra ID has support private end-points in private preview. Until they are generally available, Azure backup supports setting up proxy for Microsoft Entra ID so that no outbound connectivity is required for ASE VMs. For more information, see the [proxy support section](backup-azure-sap-hana-database.md#use-an-http-proxy-server-to-route-traffic).
+>Private endpoints are supported for Azure Backup and Azure storage. Microsoft Entra ID has support for private end-points in this preview. Until they are generally available, Azure backup supports setting up proxy for Microsoft Entra ID so that no outbound connectivity is required for ASE VMs. For more information, see the [proxy support section](backup-azure-sap-hana-database.md#use-an-http-proxy-server-to-route-traffic).
 
-### NSG tags
+### Network Security Group tags
 
-If you use Network Security Groups (NSG), use the AzureBackup service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](/azure/virtual-network/network-security-groups-overview#service-tags) for Microsoft Entra ID (AzureActiveDirectory) and Azure Storage(Storage). 
+If you use Network Security Groups (NSG), use the AzureBackup service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](/azure/virtual-network/network-security-groups-overview#service-tags) for Microsoft Entra ID and Azure Storage (Storage). 
 
 To create a rule for the Azure Backup tag, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Network security groups** and select **the network security group**.
-2. On **Settings**, select **Outbound security rules**.
+2. On the **Settings** blade, select **Outbound security rules**.
 3. Select **Add**.
-4. [Enter all the required details for creating a new rule](/azure/virtual-network/manage-network-security-group#security-rule-settings). Ensure the **Destination** is set to **Service Tag** and **Destination service tag** is set to `AzureBackup`.
+4. Enter all the required details for [creating a new rule](/azure/virtual-network/manage-network-security-group#security-rule-settings). Ensure the **Destination** is set to **Service Tag** and **Destination service tag** is set to `AzureBackup`.
 5.	Select **Add** to save the newly created outbound security rule.
 
 You can similarly create NSG outbound security rules for Azure Storage and Microsoft Entra ID. Learn more [about service tags](/azure/virtual-network/service-tags-overview).
@@ -284,16 +284,16 @@ You can also use the following FQDNs to allow access to the required services fr
 | --- | --- | --- |
 | Azure Backup | `*.backup.windowsazure.com` | 443 |
 | Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` | 443 |
-| Azure AD | `*.login.microsoft.com` <br><br> Allow access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | 443 <br><br> As applicable. |
+| Microsoft Entra ID | `*.login.microsoft.com` <br><br> Allow access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online). | 443 <br><br> As applicable. |
 
-#### Use an HTTP proxy server to route traffic.
+#### Use an HTTP proxy server to route traffic
 
 >[!Note]
->Currently, the HTTP Proxy for Microsoft Entra traffic is only supported for the SAP ASE database. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in ASE VMs, use other options, such as private endpoints.
+>Currently, the HTTP Proxy for Microsoft Entra ID traffic is only supported for the SAP ASE database. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in ASE VMs, use other options, such as private endpoints.
 
-#### Use an HTTP proxy server for Microsoft Entra traffic
+#### Use an HTTP proxy server for Microsoft Entra ID traffic
 
-To use an HTTP proxy server to route traffic for Microsoft Entra, follow these steps:
+To use an HTTP proxy server to route traffic for Microsoft Entra ID, follow these steps:
 
 1. In the database, go to the `opt/msawb/bin` folder.
 2. Create a new JSON file named `ExtensionSettingsOverrides.json`.
@@ -316,7 +316,7 @@ To use an HTTP proxy server to route traffic for Microsoft Entra, follow these s
       ```
 
 >[!Note]
->No restart of any service is required. The Azure Backup service will attempt to route the Microsoft Entra traffic via the proxy server mentioned in the JSON file.
+>No restart of any service is required. The Azure Backup service will attempt to route the Microsoft Entra ID traffic via the proxy server mentioned in the JSON file.
 
 #### Use outbound rules
 
@@ -328,7 +328,7 @@ Create the following outbound rule and allow the domain name to back up the data
 - **Destination**: Service Tag.
 - **Destination Service Tag**: AzureResourceManager
 
-:::image type="content" source="./media/sap-ase-database-backup/use-outbound-rules.png" alt-text="Screenshot shows the database outbound rules settings." lightbox="./media/sap-ase-database-backup/use-outbound-rules.png":::
+  :::image type="content" source="./media/sap-ase-database-backup/use-outbound-rules.png" alt-text="Screenshot shows the database outbound rules settings." lightbox="./media/sap-ase-database-backup/use-outbound-rules.png":::
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -342,11 +342,11 @@ In the Recovery Services vault, you can enable [Cross Region Restore](backup-azu
 
 To discover the SAP ASE databases, follow these steps:
 
-1. Goto the **Recovery Services Vault**, and then select **+ Backup**.
+1. Go to the **Recovery Services Vault**, and then select **+ Backup**.
 
    :::image type="content" source="./media/sap-ase-database-backup/initiate-database-backup.png" alt-text="Screenshot shows how to start the SAP database backup." lightbox="./media/sap-ase-database-backup/initiate-database-backup.png"::: 
 
-2. On the **Backup Goal**, select **SAP ASE (Sybase) in Azure VM (Preview)** as the datasource type.
+2. On the **Backup Goal**, select **SAP ASE (Sybase) in Azure VM (preview)** as the datasource type.
 
    :::image type="content" source="./media/sap-ase-database-backup/select-data-source-type.png" alt-text="Screenshot shows the selection of the data source type." lightbox="./media/sap-ase-database-backup/select-data-source-type.png":::
  
@@ -359,7 +359,7 @@ To discover the SAP ASE databases, follow these steps:
    >- If a VM isn't listed as expected, check if it's already backed up in a vault.
    >- Multiple VMs can have the same name but they belong to different resource groups.
  
-4. On the **Select Virtual Machines** blade, select the *link to download the script* that provides permissions for the Azure Backup service to access the SAP ASE VMs for database discovery.
+4. On the **Select Virtual Machines** blade, download the pre-post script that provides permissions for the Azure Backup service to access the SAP ASE VMs for database discovery.
 5. Run the script on each VM hosting SAP ASE databases that you want to back up.
 6. After you run the script on the VMs, on the **Select Virtual Machines** blade, select the *VMs*, and then select **Discover DBs**.
 
@@ -372,11 +372,11 @@ To discover the SAP ASE databases, follow these steps:
 To configure the backup operation for the SAP ASE database, follow these steps:
 
 
-1.	On the **Backup Goal**, under **Step 2**, select **Configure Backup**.
+1.	On the **Backup Goal** blade, under **Step 2**, select **Configure Backup**.
  
      :::image type="content" source="./media/sap-ase-database-backup/configure-backup.png" alt-text="Screenshot shows how to start the backup configuration." lightbox="./media/sap-ase-database-backup/configure-backup.png":::
 
-2. On the **Backup Policy**, under **Choose backup policy**, select **Create a new policy** for the databases. 
+2.Under the **Backup Policy**, select **Create a new policy** for the databases. 
 
    :::image type="content" source="./media/sap-ase-database-backup/create-backup-policy.png" alt-text="Screenshot shows how to start creating the backup policy." lightbox="./media/sap-ase-database-backup/create-backup-policy.png":::
 
@@ -396,17 +396,19 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
      >[!Note]
      >- You must run a full backup. You can't turn off this option.
-     >- Select Full Backup to view the policy.
+     >- Go to Full Backup policy to view the policy settings.
      >- You can't create differential backups for daily full backups.
 
    - **Weekly**: Select the **day of the week**, **hour**, and **time zone** in which the backup job runs.
+
+   The following screenshot shows the backup schedule for full backups.
 
      :::image type="content" source="./media/sap-ase-database-backup/set-backup-rules.png" alt-text="Screenshot shows the configuration of backup rules." lightbox="./media/sap-ase-database-backup/set-backup-rules.png":::
 
 
 5. On the **Retention Range**, define the retention range for the full backup.
    >[!Note]
-   >- By default all options are selected. Clear any retention range limits you don't want to use, and set those that you do.
+   >- By default all options are selected. Clear any retention range limits you don't want to use, and set those that you want.
    >- The minimum retention period for any type of backup (full/differential/log) is seven days.
    >- Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day.
    >- The backup for a specific day is tagged and retained based on the weekly retention range and setting.
@@ -448,21 +450,21 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
 To run on-demand backups, follow these steps:
 
-1.	On the left pane of the Recovery Services vault, select **Backup items**.
+1.	Go to the **Recovery Services vault** and select **Backup items**.
 2.	On the Backup Items blade, select the **Backup Management Type** as **SAP ASE (Sybase) in Azure VM**.
 3.	Select **view details** of Database for on-demand backup.
 
-  :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/view-details.png" alt-text="Screenshot showing how to view details." lightbox="media/sap-adaptive-server-enterprise-db-manage/view-details.png":::
+    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/view-details.png" alt-text="Screenshot showing how to view details." lightbox="media/sap-adaptive-server-enterprise-db-manage/view-details.png":::
 
 4.	Select **Backup now** for taking on-demand backup.
 
-   :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/take-on-demand-backup.png" alt-text="Screenshot showing how to take on-demand backup." lightbox="media/sap-adaptive-server-enterprise-db-manage/take-on-demand-backup.png":::
+     :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/take-on-demand-backup.png" alt-text="Screenshot showing how to take on-demand backup." lightbox="media/sap-adaptive-server-enterprise-db-manage/take-on-demand-backup.png":::
 
 5. On the **Backup Now** pane, choose the type of backup that you want to perform, and then select **OK**. The retention period of this backup is determined by the type of on-demand backup you want to run.
-- *On-demand full backups* are retained for a minimum of 45 days and a maximum of 99 years.
-- *On-demand differential* backups are retained as per the *log retention* set in the policy.
+   - *On-demand full backups* are retained for a minimum of 45 days and a maximum of 99 years.
+   - *On-demand differential* backups are retained as per the *log retention* set in the policy.
 
-   :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/choose-backup.png" alt-text="Screenshot showing how to choose the type of backup you want to perform." lightbox="media/sap-adaptive-server-enterprise-db-manage/choose-backup.png":::
+    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/choose-backup.png" alt-text="Screenshot showing how to choose the type of backup you want to perform." lightbox="media/sap-adaptive-server-enterprise-db-manage/choose-backup.png":::
 
 
 ## Next step
