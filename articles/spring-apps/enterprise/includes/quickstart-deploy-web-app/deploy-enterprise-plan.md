@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: xiada
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 07/11/2023
@@ -242,7 +242,7 @@ Now that the cloud environment is prepared, the application is ready to deploy. 
 az spring app deploy \
     --service ${AZURE_SPRING_APPS_NAME} \
     --name ${APP_NAME} \
-    --artifact-path web/target/simple-todo-web-0.0.3-SNAPSHOT.jar
+    --artifact-path web/target/simple-todo-web.jar
 ```
 
 ---

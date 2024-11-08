@@ -294,7 +294,7 @@ The following DNS zones were created in this tutorial:
 - privatelink.servicebus.windows.net
 - privatelink.azurewebsites.net
 
-[!INCLUDE [clean-up-section-portal](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 

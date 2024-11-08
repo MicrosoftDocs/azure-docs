@@ -3,7 +3,6 @@ title: Copy data from OData sources
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from OData sources to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
@@ -358,21 +357,23 @@ Project Online requires user-based OAuth, which is not supported by Azure Data F
 
 1. Use **Postman** to get the access token:
 
-   1. Navigate to **Authorization** tab on the Postman Website.
-   1. In the **Type** box, select **OAuth 2.0**, and in the **Add authorization data to** box, select **Request Headers**.
-   1. Fill the following information in the **Configure New Token** page to get a new access token: 
-      - **Grant type**: Select **Authorization Code**.
-      - **Callback URL**: Enter `https://www.localhost.com/`. 
-      - **Auth URL**: Enter `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com`. Replace `<your tenant name>` with your own tenant name. 
-      - **Access Token URL**: Enter `https://login.microsoftonline.com/common/oauth2/token`.
-      - **Client ID**: Enter your Microsoft Entra service principal ID.
-      - **Client Secret**: Enter your service principal secret.
-      - **Client Authentication**: Select **Send as Basic Auth header**.
-     
-   1. You will be asked to sign in with your username and password.
-   1. Once you get your access token, please copy and save it for the next step.
-   
-    :::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-inline.png" alt-text="Screenshot of using Postman to get the access token." lightbox="./media/connector-odata/odata-project-online-postman-access-token-expanded.png":::        
+    > [!NOTE]
+    > Postman is a used by some developers for testing remote web APIs. However, there are some security and privacy risks associated with its usage. This article does not endorse the use of Postman for production environments. Please use it at your own risk.
+
+    1. Navigate to **Authorization** tab on the Postman Website.
+    1. In the **Type** box, select **OAuth 2.0**, and in the **Add authorization data to** box, select **Request Headers**.
+    1. Fill the following information in the **Configure New Token** page to get a new access token: 
+       - **Grant type**: Select **Authorization Code**.
+       - **Callback URL**: Enter `https://www.localhost.com/`.
+       - **Auth URL**: Enter `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com`. Replace `<your tenant name>` with your own tenant name. 
+       - **Access Token URL**: Enter `https://login.microsoftonline.com/common/oauth2/token`.
+       - **Client ID**: Enter your Microsoft Entra service principal ID.
+       - **Client Secret**: Enter your service principal secret.
+       - **Client Authentication**: Select **Send as Basic Auth header**.
+    1. You will be asked to sign in with your username and password.
+    1. Once you get your access token, please copy and save it for the next step.
+
+    :::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-inline.png" alt-text="Screenshot of using Postman to get the access token." lightbox="./media/connector-odata/odata-project-online-postman-access-token-expanded.png":::
 
 1. Create the OData linked service:
     - **Service URL**: Enter `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Replace `<your tenant name>` with your own tenant name. 

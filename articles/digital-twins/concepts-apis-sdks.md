@@ -7,7 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 11/01/2023
 ms.topic: conceptual
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: engagement-fy23
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -18,7 +18,7 @@ ms.custom: engagement-fy23
 
 # Azure Digital Twins APIs and SDKs
 
-This article gives an overview of the Azure Digital Twins APIs available, and the methods for interacting with them. You can either use the REST APIs directly with their associated Swaggers (through a tool like [Postman](how-to-use-postman-with-digital-twins.md)), or through an SDK.
+This article gives an overview of the Azure Digital Twins APIs available, and the methods for interacting with them. You can either use the REST APIs directly with their associated Swaggers, or through an SDK.
 
 Azure Digital Twins comes equipped with control plane APIs, data plane APIs, and SDKs for managing your instance and its elements. 
 * The control plane APIs are [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) APIs, and cover resource management operations like creating and deleting your instance. 
@@ -27,13 +27,13 @@ Azure Digital Twins comes equipped with control plane APIs, data plane APIs, and
 
 ## Control plane APIs
 
-[!INCLUDE [digital-twins-sdks-control-plane](~/reusable-content/ce-skilling/azure/includes/digital-twins-sdks-control-plane.md)]
+[!INCLUDE [digital-twins-sdks-control-plane](../../includes/digital-twins-sdks-control-plane.md)]
 
 You can also exercise the control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](/cli/azure/dt).
 
 ## Data plane APIs
 
-[!INCLUDE [digital-twins-sdks-data-plane](~/reusable-content/ce-skilling/azure/includes/digital-twins-sdks-data-plane.md)]
+[!INCLUDE [digital-twins-sdks-data-plane](../../includes/digital-twins-sdks-data-plane.md)]
 
 You can also exercise the data plane APIs by interacting with Azure Digital Twins through the [CLI](/cli/azure/dt).
 
@@ -44,11 +44,11 @@ This section contains more detailed information about using the APIs and SDKs.
 ### API notes
 
 Here's some general information for calling the Azure Digital Twins APIs directly.
-* You can use an HTTP REST-testing tool like Postman to make direct calls to the Azure Digital Twins APIs. For more information about this process, see [Call the Azure Digital Twins APIs with Postman](how-to-use-postman-with-digital-twins.md).
+* You can use an HTTP REST-testing tool to make direct calls to the Azure Digital Twins APIs. For more information about this process, see [Call the Azure Digital Twins APIs](how-to-use-apis.md).
 * Azure Digital Twins doesn't currently support Cross-Origin Resource Sharing (CORS). For more info about the impact and resolution strategies, see [Cross-Origin Resource Sharing (CORS) for Azure Digital Twins](concepts-security.md#cross-origin-resource-sharing-cors).
 
 Here's some more information about authentication for API requests.
-* One way to generate a bearer token for Azure Digital Twins API requests is with the [az account get-access-token](/cli/azure/account#az-account-get-access-token()) CLI command. For detailed instructions, see [Get bearer token](how-to-use-postman-with-digital-twins.md#get-bearer-token).
+* One way to generate a bearer token for Azure Digital Twins API requests is with the [az account get-access-token](/cli/azure/account#az-account-get-access-token()) CLI command. For detailed instructions, see [Add bearer token](how-to-use-apis.md#add-bearer-token).
 * Requests to the Azure Digital Twins APIs require a user or service principal that is a part of the same [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md)  tenant where the Azure Digital Twins instance exists. To prevent malicious scanning of Azure Digital Twins endpoints, requests with access tokens from outside the originating tenant will be returned a "404 Sub-Domain not found" error message. This error will be returned even if the user or service principal was given an Azure Digital Twins Data Owner or Azure Digital Twins Data Reader role through [Microsoft Entra B2B](../active-directory/external-identities/what-is-b2b.md) collaboration. For information on how to achieve access across multiple tenants, see [Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
 
 ### SDK notes
@@ -101,7 +101,7 @@ You'll also need to grant the following **RBAC permissions** to the system-assig
 * [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) for the Azure Storage input blob container
 * [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) for the Azure Storage output blob container
 
-Finally, generate a bearer token that can be used in your requests to the Jobs API. For instructions, see [Get bearer token](how-to-use-postman-with-digital-twins.md#get-bearer-token).
+Finally, generate a bearer token that can be used in your requests to the Jobs API. For instructions, see [Add bearer token](how-to-use-apis.md#add-bearer-token).
 
 ### Format data 
 
@@ -164,7 +164,7 @@ Keep the following considerations in mind while working with the Import Jobs API
 The [Delete Jobs API](/rest/api/digital-twins/dataplane/jobs) is a data plane API that allows you to delete all models, twins, and relationships in an instance with a single API call. Delete Jobs API operations are also available as [CLI commands](/cli/azure/dt/job/deletion). Visit the API documentation to see the request details for creating a delete job and checking its status.
 
 To make sure all elements are deleted, follow these recommendations while using the Delete Jobs API:
-* For instructions on how to generate a bearer token to authenticate API requests, see [Get bearer token](how-to-use-postman-with-digital-twins.md#get-bearer-token).
+* For instructions on how to generate a bearer token to authenticate API requests, see [Add bearer token](how-to-use-apis.md#add-bearer-token).
 * If you recently imported a large number of entities to your graph, wait for some time and verify that all elements are synchronized in your graph before beginning the delete job.
 * Stop all operations on the instance, especially upload operations, until the delete job is complete.
 
@@ -186,8 +186,8 @@ For information about viewing and managing Azure Digital Twins metrics, see [Mon
 
 ## Next steps
 
-See how to make direct requests to the Azure Digital Twins APIs using Postman:
-* [Call the Azure Digital Twins APIs with Postman](how-to-use-postman-with-digital-twins.md)
+See how to make direct requests to the Azure Digital Twins APIs:
+* [Call the Azure Digital Twins APIs](how-to-use-apis.md)
 
 Or, practice using the .NET SDK by creating a client app with this tutorial:
 * [Code a client app](tutorial-code.md)

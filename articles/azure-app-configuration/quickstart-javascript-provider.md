@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: quickstart
 ms.custom: quickstart, mode-other, devx-track-js
-ms.date: 10/12/2023
+ms.date: 04/18/2024
 ms.author: yanzh
 #Customer intent: As a JavaScript developer, I want to manage all my app settings in one place.
 ---
@@ -134,8 +134,8 @@ async function run() {
     const config = settings.constructConfigurationObject({ separator: "." });
     // Use dot-notation to access configuration
     console.log("config.message:", config.message);         // config.message: undefined
-    console.log("config.app.greeting:", config.greeting);   // config.app.greeting: Hello World
-    console.log("config.app.json:", config.json);           // config.app.json: { myKey: 'myValue' }
+    console.log("config.app.greeting:", config.app.greeting);   // config.app.greeting: Hello World
+    console.log("config.app.json:", config.app.json);           // config.app.json: { myKey: 'myValue' }
 }
 
 run().catch(console.error);
@@ -307,9 +307,7 @@ run().catch(console.error);
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and learned how to access key-values using the App Configuration JavaScript provider in a Node.js app.
-
-For more code samples, visit:
+In this quickstart, you created a new App Configuration store and learned how to access key-values using the App Configuration JavaScript provider in a Node.js app. To learn how to configure your app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Azure App Configuration JavaScript provider](https://github.com/Azure/AppConfiguration-JavaScriptProvider/tree/main/examples)
+> [Enable dynamic configuration](./enable-dynamic-configuration-javascript.md)

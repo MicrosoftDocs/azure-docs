@@ -1,11 +1,15 @@
 ---
 title: Stream and filter Windows DNS logs with the AMA connector 
 description: Use the AMA connector to upload and filter data from your Windows DNS server logs. You can then dive into your logs to protect your DNS servers from threats and attacks.
-author: limwainstein
+author: yelevin
 ms.topic: how-to
 ms.date: 01/05/2022
-ms.author: lwainstein
+ms.author: yelevin
 #Customer intent: As a security operator, I want to proactively monitor Windows DNS activities so that I can prevent threats and attacks on DNS servers.
+
+
+#Customer intent: As a security engineer, I want to stream and filter DNS server logs using a cloud-based monitoring agent so that analysts can detect and mitigate potential threats efficiently.
+
 ---
 
 # Stream and filter data from Windows DNS servers with the AMA connector
@@ -78,7 +82,7 @@ Before you begin, verify that you have:
 - A defined Microsoft Sentinel workspace.
 - Windows Server 2012 R2 with auditing hotfix and later.
 - A Windows DNS Server. 
-- To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed. Install and enable Azure Arc before you enable the Azure Monitor Agent-based connector. This requirement includes:
+- To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](/azure/azure-monitor/agents/azure-monitor-agent-manage) is installed. Install and enable Azure Arc before you enable the Azure Monitor Agent-based connector. This requirement includes:
     - Windows servers installed on physical machines
     - Windows servers installed on on-premises virtual machines
     - Windows servers installed on virtual machines in non-Azure clouds 

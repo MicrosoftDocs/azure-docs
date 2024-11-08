@@ -6,7 +6,7 @@ manager: alkohli
 ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.topic: article
-ms.date: 07/10/2023
+ms.date: 11/07/2024
 ms.author: alkohli
 ROBOTS: NOINDEX
 ---
@@ -30,7 +30,7 @@ Use the following steps to copy data to your environment and then decommission y
 
 **Step 1: Copy backup files or live data to your own environment.**
 
-- **Backup files.** If you have backup files, use the Azure StorSimple 8000 Series Copy Utility to migrate backup files to your environment. For more information, see [Copy Utility documentation](https://aka.ms/storsimple-copy-utility-docs).
+- **Backup files.** If you have backup files, use the Azure StorSimple 8000 Series Copy Utility to migrate backup files to your environment.
 - **Live data.** If you have live data to copy, you can access and copy live data to your environment via iSCSI.
 
 **Step 2: Decommission your device.**
@@ -152,7 +152,3 @@ Use the following steps to create a support ticket for StorSimple data copy, dat
     ![Screenshot of the Review and create support request page in Azure portal.](./media/storsimple-overview/storsimple-support-review-details-6.png)
 
 Microsoft Support will use this information to reach out to you for additional details and diagnosis. A Support engineer will contact you as soon as possible to proceed with your request.
-
-## Next steps
-
-- [StorSimple 8000 series copy utility documentation](https://aka.ms/storsimple-copy-utility-docs).

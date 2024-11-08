@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a template spec with Bicep
 description: Learn how to use Bicep to create and deploy a template spec to a resource group in your Azure subscription. Then, use a template spec to deploy Azure resources.
-ms.date: 06/23/2023
+ms.date: 09/26/2024
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create and share deployment templates so that other people in my organization can deploy Microsoft Azure resources.
@@ -21,7 +21,7 @@ When you create a template spec, the Bicep file is transpiled into JavaScript Ob
 
 ## Create Bicep file
 
-You create a template spec from a local Bicep file. Copy the following sample and save it to your computer as _main.bicep_. The examples use the path _C:\templates\main.bicep_. You can use a different path, but you'll need to change the commands.
+You create a template spec from a local Bicep file. Copy the following sample and save it to your computer as _main.bicep_. The examples use the path _C:\templates\main.bicep_. You can use a different path, but you need to change the commands.
 
 The following Bicep file is used in the **PowerShell** and **CLI** tabs. The **Bicep file** tab uses a different template that combines Bicep and JSON to create and deploy a template spec.
 
@@ -44,7 +44,7 @@ param location string = resourceGroup().location
 
 var storageAccountName = 'storage${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -61,7 +61,7 @@ output storageAccountNameOutput string = storageAccount.name
 
 The template spec is a resource type named [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs). To create a template spec, use Azure CLI, Azure PowerShell, or a Bicep file.
 
-This example uses the resource group name `templateSpecRG`. You can use a different name, but you'll need to change the commands.
+This example uses the resource group name `templateSpecRG`. You can use a different name, but you need to change the commands.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -165,7 +165,7 @@ You can create a template spec with a Bicep file but the `mainTemplate` must be 
           'resources': [
             {
               'type': 'Microsoft.Storage/storageAccounts'
-              'apiVersion': '2022-09-01'
+              'apiVersion': '2023-04-01'
               'name': '[variables(\'storageAccountName\')]'
               'location': '[parameters(\'location\')]'
               'sku': {
@@ -218,7 +218,7 @@ You can create a template spec with a Bicep file but the `mainTemplate` must be 
 
 ## Deploy template spec
 
-Use the template spec to deploy a storage account. This example uses the resource group name `storageRG`. You can use a different name, but you'll need to change the commands.
+Use the template spec to deploy a storage account. This example uses the resource group name `storageRG`. You can use a different name, but you need to change the commands.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -526,7 +526,7 @@ Rather than create a new template spec for the revised template, add a new versi
           'resources': [
             {
               'type': 'Microsoft.Storage/storageAccounts'
-              'apiVersion': '2022-09-01'
+              'apiVersion': '2023-04-01'
               'name': '[variables(\'storageAccountName\')]'
               'location': '[parameters(\'location\')]'
               'sku': {

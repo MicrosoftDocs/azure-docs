@@ -3,7 +3,7 @@
  description: include file that contains code for creating a backend ASP .NET WebAPI project.
  services: notification-hubs
  author: spelluru
- ms.service: notification-hubs
+ ms.service: azure-notification-hubs
  ms.topic: include
  ms.date: 09/11/2019
  ms.author: spelluru

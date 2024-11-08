@@ -6,6 +6,8 @@ items:
 - name: Overview
   expanded: true
   items:
+  - name: Retirement announcement
+    href: ../basic-standard/retirement-announcement.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
   - name: What is Azure Spring Apps?
     href: overview.md
   - name: What's new
@@ -16,10 +18,6 @@ items:
     href: cost-management.md
   - name: Compare Java application hosting options on Azure
     href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
-  - name: Migrate Spring Boot to Azure Spring Apps
-    href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
-  - name: Migrate Spring Cloud to Azure Spring Apps
-    href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -82,8 +80,6 @@ items:
     href: concept-app-status.md
   - name: Memory
     items:
-    - name: Java memory management
-      href: concepts-for-java-memory-management.md
     - name: Tools to troubleshoot memory issues
       href: tools-to-troubleshoot-memory-issues.md
     - name: Fix app restart issues caused by OOM
@@ -334,12 +330,6 @@ items:
     items:
     - name: Migrate Standard and Basic to Enterprise
       href: how-to-migrate-standard-tier-to-enterprise-tier.md
-    - name: Spring Cloud
-      href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
-    - name: Spring Boot
-      href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
-    - name: Tomcat
-      href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
 - name: Architecture
   items:
   - name: Architecture design

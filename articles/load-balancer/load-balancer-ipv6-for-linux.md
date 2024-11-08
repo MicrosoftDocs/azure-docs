@@ -5,17 +5,14 @@ description: In this article, learn how to configure DHCPv6 for Linux VMs.
 services: load-balancer
 author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 04/21/2023
+ms.date: 09/17/2024
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23, doc-a-thon, linux-related-content
 ---
 
 # Configure DHCPv6 for Linux VMs
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Some of the Linux virtual-machine images in the Azure Marketplace don't have Dynamic Host Configuration Protocol version 6 (DHCPv6) configured by default. To support IPv6, DHCPv6 must be configured in the Linux OS distribution that you're using. The various Linux distributions configure DHCPv6 in various ways because they use different packages.
 
@@ -27,9 +24,9 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 > [!WARNING]
 > By improperly editing network configuration files, you can lose network access to your VM. We recommended that you test your configuration changes on non-production systems. The instructions in this article have been tested on the latest versions of the Linux images in the Azure Marketplace. For more detailed instructions, consult the documentation for your own version of Linux.
 
-# [RHEL/CentOS/Oracle](#tab/redhat)
+# [RHEL/Oracle](#tab/redhat)
 
-For RHEL, CentOS, and Oracle Linux versions 7.4 or higher, follow these steps:
+For RHEL and Oracle Linux versions 7.4 or higher, follow these steps:
 
 1. Edit the */etc/sysconfig/network* file, and add the following parameter:
 
@@ -134,6 +131,8 @@ For Ubuntu versions 17.10 or higher, follow these steps:
     :::image type="content" source="./media/load-balancer-ipv6-for-linux/ipv6-ip-address-ifconfig.png" alt-text="Screenshot of ifconfig showing IPv6 IP address.":::
 
 # [Debian](#tab/debian)
+
+All supported Debian images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM based on an older or custom Debian image, follow these steps:
 
 1. Edit the */etc/dhcp/dhclient6.conf* file, and add the following line:
 

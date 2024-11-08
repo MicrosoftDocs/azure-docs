@@ -2,7 +2,7 @@
 author: cherylmc
 ms.author: cherylmc
 ms.date: 07/30/2021
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: include
 ---
 1. Navigate to the virtual WAN that you created. 

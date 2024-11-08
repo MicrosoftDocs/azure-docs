@@ -5,10 +5,11 @@ author: kgremban
 ms.author: kgremban
 ms.date: 03/12/2024
 ms.topic: overview
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 manager: lizross
 ms.custom:  [amqp, mqtt]
+ms.subservice: azure-iot-hub-dps
 ---
 
 # What is Azure IoT Hub Device Provisioning Service?
@@ -126,7 +127,7 @@ Each Azure subscription has default quota limits in place that could impact the 
 
 For more information about quota limits, see [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-[!INCLUDE [azure-iotdps-limits](~/reusable-content/ce-skilling/azure/includes/iot-dps-limits.md)]
+[!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
 ## Billable service operations and pricing
 

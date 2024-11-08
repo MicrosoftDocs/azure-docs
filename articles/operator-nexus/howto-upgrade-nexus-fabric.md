@@ -6,7 +6,7 @@ ms.author: sushrao
 ms.date: 06/11/2023
 ms.topic: how-to
 ms.service: azure-operator-nexus
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Network Fabric upgrade guide
@@ -79,6 +79,8 @@ Follow the recommended sequence for device upgrades, addressing any failures man
 
 - Verify all devices are configured and synchronized.
 
+- Ensure that there is at least **3GB of available disk space** within the directory `/mnt` to proceed with NNF device upgrade .
+
 Upgrade individual devices with the following command:
 
 ```Azure CLI
@@ -128,4 +130,6 @@ Check the version status of all devices and the fabric with AZCLI commands.
 
 ### **Known issues**
 
-Create the EOS image directory manually at `/mnt/nvram/nexus/eosimages` if it's missing. This is especially important for environments built from older NF versions. A fix is forthcoming in a future release.
+1. Create the EOS image directory manually at `/mnt/nvram/nexus/eosimages` if it is missing. This is especially important for environments built from older NF versions.
+2. NNF device upgrades fail when the available disk space within the directory `/mnt` is less than 3GB. Perform a manual clean up to free up disk space within the NNF device and then retry the upgrade operation.
+

@@ -1,0 +1,94 @@
+---
+title: Azure API Management policy reference - llm-token-limit
+description: Reference for the llm-token-limit policy available for use in Azure API Management. Provides policy usage, settings, and examples.
+services: api-management
+author: dlepow
+
+ms.service: azure-api-management
+ms.collection: ce-skilling-ai-copilot
+ms.custom:
+ms.topic: article
+ms.date: 08/08/2024
+ms.author: danlep
+---
+
+# Limit large language model API token usage
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
+The `llm-token-limit` policy prevents large language model (LLM) API usage spikes on a per key basis by limiting consumption of LLM tokens to a specified number per minute. When the token usage is exceeded, the caller receives a `429 Too Many Requests` response status code.
+
+By relying on token usage metrics returned from the LLM endpoint, the policy can accurately monitor and enforce limits in real time. The policy also enables precalculation of prompt tokens by API Management, minimizing unnecessary requests to the LLM backend if the limit is already exceeded.
+
+> [!NOTE]
+> Currently, this policy is in preview.
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+[!INCLUDE [api-management-llm-models](../../includes/api-management-llm-models.md)]
+
+## Policy statement
+
+```xml
+<llm-token-limit counter-key="key value"
+        tokens-per-minute="number"
+        estimate-prompt-tokens="true | false"    
+        retry-after-header-name="custom header name, replaces default 'Retry-After'" 
+        retry-after-variable-name="policy expression variable name"
+        remaining-tokens-header-name="header name"  
+        remaining-tokens-variable-name="policy expression variable name"
+        tokens-consumed-header-name="header name"
+        tokens-consumed-variable-name="policy expression variable name" />
+```
+## Attributes
+
+| Attribute           | Description                                                                                           | Required | Default |
+| -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
+| counter-key          | The key to use for the token limit policy. For each key value, a single counter is used for all scopes at which the policy is configured. Policy expressions are allowed.| Yes      | N/A     |
+| tokens-per-minute | The maximum number of tokens consumed by prompt and completion per minute.         | Yes      | N/A     |
+| estimate-prompt-tokens | Boolean value that determines whether to estimate the number of tokens required for a prompt: <br> - `true`: estimate the number of tokens based on prompt schema in API; may reduce performance. <br> - `false`: don't estimate prompt tokens. <br><br>When set to `false`, the remaining tokens per `counter-key` are calculated using the actual token usage from the response of the model. This could result in prompts being sent to the model that exceed the token limit. In such case, this will be detected in the response, and all succeeding requests will be blocked by the policy until the token limit frees up again.  | Yes       | N/A     |
+| retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified `tokens-per-minute` is exceeded. Policy expressions aren't allowed. |  No | `Retry-After`  |
+| retry-after-variable-name    | The name of a variable that stores the recommended retry interval in seconds after the specified `tokens-per-minute` is exceeded. Policy expressions aren't allowed. |  No | N/A  |
+| remaining-tokens-header-name    | The name of a response header whose value after each policy execution is the number of remaining tokens allowed for the time interval. Policy expressions aren't allowed.|  No | N/A  |
+| remaining-tokens-variable-name    | The name of a variable that after each policy execution stores the number of remaining tokens allowed for the time interval. Policy expressions aren't allowed.|  No | N/A  |
+| tokens-consumed-header-name    | The name of a response header whose value is the number of tokens consumed by both prompt and completion. The header is added to response only after the response is received from backend. Policy expressions aren't allowed.|  No | N/A  |
+| tokens-consumed-variable-name    | The name of a variable initialized to the estimated number of tokens in the prompt in `backend` section of pipeline if `estimate-prompt-tokens` is `true` and zero otherwise. The variable is updated with the reported count upon receiving the response in `outbound` section.|  No | N/A  |
+
+## Usage
+
+- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+- [**Gateways:**](api-management-gateways-overview.md) classic, v2, self-hosted, workspace
+
+### Usage notes
+
+* This policy can be used multiple times per policy definition.
+* Where available when `estimate-prompt-tokens` is set to `false`, values in the usage section of the response from the LLM API are used to determine token usage.
+* Certain LLM endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute.
+* [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
+
+## Example
+
+In the following example, the token limit of 5000 per minute is keyed by the caller IP address. The policy doesn't estimate the number of tokens required for a prompt. After each policy execution, the remaining tokens allowed for that caller IP address in the time period are stored in the variable `remainingTokens`.
+
+```xml
+<policies>
+    <inbound>
+        <base />
+        <llm-token-limit
+            counter-key="@(context.Request.IpAddress)"
+            tokens-per-minute="5000" estimate-prompt-tokens="false" remaining-tokens-variable-name="remainingTokens" />
+    </inbound>
+    <outbound>
+        <base />
+    </outbound>
+</policies>
+```
+
+## Related policies
+
+* [Rate limiting and quotas](api-management-policies.md#rate-limiting-and-quotas)
+* [azure-openai-token-limit](azure-openai-token-limit-policy.md) policy
+* [llm-emit-token-metric](llm-emit-token-metric-policy.md) policy
+
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -10,7 +10,7 @@ ms.date: 06/12/2024
 
 # Connect to Oracle Database from Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 In Azure Logic Apps, you can insert or manage data in your Oracle Database from within your workflow. You can use the Oracle Database connector to access an on-premises Oracle Database or an Azure virtual machine with Oracle Database installed.
 

@@ -12,7 +12,7 @@ ms.date: 01/04/2024
 
 # B2B errors and solutions for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 This article helps you troubleshoot errors that might happen in Azure Logic Apps B2B 
 scenarios and suggests appropriate actions for correcting those errors.

@@ -3,7 +3,7 @@ title: What is Azure Route Server?
 description: Learn how Azure Route Server can simplify routing between your network virtual appliance (NVA) and your virtual network.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: overview
 ms.date: 12/12/2023
 
@@ -40,7 +40,7 @@ Azure Route Server simplifies configuration, management, and deployment of your 
 
 Azure Route Server has the following limits (per deployment).
 
-[!INCLUDE [route server limits](~/reusable-content/ce-skilling/azure/includes/route-server-limits.md)]
+[!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
 ## Pricing
 
@@ -56,7 +56,7 @@ For frequently asked questions about Azure Route Server, see [Azure Route Server
 
 ## Related content
 
-- To learn how to create and configure Azure Route Server, see [Quickstart: Create and configure Route Server using the Azure portal](quickstart-configure-route-server-powershell.md).
-- To learn how Azure Route Server works with Azure ExpressRoute and Azure VPN, see [Azure Route Server support for ExpressRoute and Azure VPN](expressroute-vpn-support.md).
+- [Quickstart: Create an Azure Route Server using the Azure portal](quickstart-create-route-server-powershell.md).
+- [Tutorial: Configure BGP peering between Azure Route Server and network virtual appliance (NVA)](peer-route-server-with-virtual-appliance.md).
 - Training module: [Introduction to Azure Route Server](/training/modules/intro-to-azure-route-server).
 - Azure Architecture Center: [Update route tables by using Azure Route Server](/azure/architecture/example-scenario/networking/manage-routing-azure-route-server).

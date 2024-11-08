@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article explains how to ensure that your origins receive traffic only from Azure Front Door.
 services: front-door
 author: johndowns
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 10/02/2023
 ms.author: jodowns
@@ -105,7 +105,7 @@ Use an IIS configuration file like in the following example to inspect the `X-Az
 
 # [AKS NGINX controller](#tab/aks-nginx)
 
-When you run [AKS with an NGINX ingress controller](../aks/ingress-basic.md), you should create a network security group in the virtual network that hosts the AKS cluster. Configure a network security group rule to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, and disallow inbound traffic on ports 80 and 443 from the *Internet* service tag.
+When you run [AKS with an NGINX ingress controller](/azure/aks/ingress-basic), you should create a network security group in the virtual network that hosts the AKS cluster. Configure a network security group rule to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, and disallow inbound traffic on ports 80 and 443 from the *Internet* service tag.
 
 Use a Kubernetes ingress configuration file like in the following example to inspect the `X-Azure-FDID` header on your incoming requests:
 

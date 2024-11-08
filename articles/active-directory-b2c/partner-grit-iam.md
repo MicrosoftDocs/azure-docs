@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with the Grit IAM B2B2C solution
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer, and I want to integrate Azure Active Directory B2C authentication with the Grit IAM B2B2C solution. I need to provide secure and user-friendly identity and access management for my customers.
 ---

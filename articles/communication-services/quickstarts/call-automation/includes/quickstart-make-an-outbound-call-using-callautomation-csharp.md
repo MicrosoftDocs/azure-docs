@@ -18,7 +18,7 @@ ms.custom: mode-other
 - A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
 - Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started).
 - Create and connect [a Multi-service Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
-- Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
+- Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource. 
 - (Optional) A Microsoft Teams user with a phone license that is `voice` enabled. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options).  Learn about enabling phone system with `voice` [here](/microsoftteams/setting-up-your-phone-system).
 
 ## Sample code
@@ -36,6 +36,7 @@ devtunnel create --allow-anonymous
 devtunnel port create -p 8080
 devtunnel host
 ```
+Alternatively, follow instructions to set up your Azure DevTunnel in [Visual Studio](/aspnet/core/test/dev-tunnels)
 
 ## Update your application configuration
 
@@ -233,7 +234,7 @@ To run the application with VS Code, open a Terminal window and run the followin
 ```bash
 dotnet run
 ```
-
+Open `http://localhost:8080/swagger/index.html` or your dev tunnel URL in browser. The tunnel URL looks like: `<YOUR DEV TUNNEL ENDPOINT>/swagger/index.html`
 # [Visual Studio](#tab/visual-studio)
 
-Press Ctrl+F5 to run without the debugger.
+Press Ctrl+F5 to run the web application without the debugger. The web browser automatically opens to a tunnel URL. The tunnel URL looks like: `<YOUR DEV TUNNEL ENDPOINT>/swagger/index.html`

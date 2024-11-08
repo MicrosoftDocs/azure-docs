@@ -3,9 +3,9 @@ title: Evaluate the resiliency of multi-site redundant ExpressRoute circuits
 description: This article shows you how to evaluate the resiliency of your ExpressRoute circuit deployment by manually testing the failover of your ExpressRoute circuits.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 06/24/2024
 ms.author: duau
 ms.custom: ai-usage
 ---
@@ -30,7 +30,7 @@ Circuits configured for maximum resiliency provide both site (peering location) 
 
     :::image type="content" source=".\media\evaluate-circuit-resiliency\route-table.png" alt-text="Screenshot of the route table for an ExpressRoute private peering.":::
 
-## Initiate a manual failover for an ExpressRoute circuit
+## Initiate ExpressRoute circuit manual failover
 
 > [!NOTE]
 > The following procedure outlined will result in the disconnection of both redundant connections of the ExpressRoute circuit. Therefore, it's important that you do this test during scheduled maintenance windows or during off-peak hours. You should also ensure that a redundant circuit is available to provide connectivity to your on-premises network.

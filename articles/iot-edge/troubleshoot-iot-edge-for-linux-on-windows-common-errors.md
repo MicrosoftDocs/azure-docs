@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 06/06/2024
 ms.topic: troubleshooting-general
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, linux-related-content
 ---

@@ -17,7 +17,7 @@ ms.author: akashdubey
 
 ## Scale targets for Table storage
 
-[!INCLUDE [storage-table-scale-targets](~/reusable-content/ce-skilling/azure/includes/storage-tables-scale-targets.md)]
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## See also
 

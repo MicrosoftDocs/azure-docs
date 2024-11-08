@@ -2,7 +2,7 @@
 title: Introduction to Microsoft Spark utilities
 description: "Tutorial: MSSparkutils in Azure Synapse Analytics notebooks"
 author: JeneZhang
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 09/10/2020
@@ -536,6 +536,9 @@ FS.Append("file path", "content to append", true) // Set the last parameter as T
 mssparkutils.fs.append("file path", "content to append", True) # Set the last parameter as True to create the file if it does not exist
 ```
 ::: zone-end
+
+> [!NOTE]
+> ```mssparkutils.fs.append()``` and ```mssparkutils.fs.put()``` do not support concurrent writing to the same file due to lack of atomicity guarantees.
 
 ### Delete file or directory
 

@@ -3,7 +3,7 @@ title: Create and publish Azure Managed Application in service catalog
 description: Describes how to create and publish an Azure Managed Application in your service catalog using Azure PowerShell, Azure CLI, or Azure portal.
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm, devx-track-arm-template, engagement-fy23
-ms.date: 05/29/2024
+ms.date: 09/22/2024
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition
@@ -37,7 +37,7 @@ Every managed application definition includes a file named _mainTemplate.json_. 
 
 Open Visual Studio Code, create a file with the case-sensitive name _mainTemplate.json_ and save it.
 
-Add the following JSON and save the file. It defines the resources to deploy an App Service, App Service plan, and storage account for the application. This storage account isn't used to store the managed application definition.
+Add the following JSON and save the file. It defines the resources to deploy an App Service and App Service plan. The template uses the App Service Basic plan (B1) that has pay-as-you-go costs. For more information, see [Azure App Service on Linux pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 
 ```json
 {
@@ -61,79 +61,48 @@ Add the following JSON and save the file. It defines the resources to deploy an 
       "metadata": {
         "description": "App Service name prefix."
       }
-    },
-    "storageAccountNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "metadata": {
-        "description": "Storage account name prefix."
-      }
-    },
-    "storageAccountType": {
-      "type": "string",
-      "allowedValues": [
-        "Premium_LRS",
-        "Standard_LRS",
-        "Standard_GRS"
-      ],
-      "metadata": {
-        "description": "Storage account type allowed values"
-      }
     }
   },
   "variables": {
-    "appServicePlanSku": "F1",
+    "appServicePlanSku": "B1",
     "appServicePlanCapacity": 1,
     "appServiceName": "[format('{0}{1}', parameters('appServiceNamePrefix'), uniqueString(resourceGroup().id))]",
-    "storageAccountName": "[format('{0}{1}', parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
+    "linuxFxVersion": "DOTNETCORE|8.0"
   },
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2023-01-01",
       "name": "[parameters('appServicePlanName')]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "[variables('appServicePlanSku')]",
         "capacity": "[variables('appServicePlanCapacity')]"
+      },
+      "kind": "linux",
+      "properties": {
+        "zoneRedundant": false,
+        "reserved": true
       }
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2023-01-01",
       "name": "[variables('appServiceName')]",
       "location": "[parameters('location')]",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
         "httpsOnly": true,
+        "redundancyMode": "None",
         "siteConfig": {
-          "appSettings": [
-            {
-              "name": "AppServiceStorageConnectionString",
-              "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};Key={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value)]"
-            }
-          ]
+          "linuxFxVersion": "[variables('linuxFxVersion')]",
+          "minTlsVersion": "1.2",
+          "ftpsState": "Disabled"
         }
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
       ]
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-01-01",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "StorageV2",
-      "properties": {
-        "accessTier": "Hot",
-        "allowSharedKeyAccess": false,
-        "minimumTlsVersion": "TLS1_2"
-      }
     }
   ],
   "outputs": {
@@ -143,11 +112,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
     },
     "appServiceApp": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.Web/sites', variables('appServiceName')), '2022-09-01').defaultHostName]"
-    },
-    "storageAccount": {
-      "type": "string",
-      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').primaryEndpoints.blob]"
+      "value": "[reference(resourceId('Microsoft.Web/sites', variables('appServiceName')), '2023-01-01').defaultHostName]"
     }
   }
 }
@@ -157,7 +122,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
 
 As a publisher, you define the portal experience to create the managed application. The _createUiDefinition.json_ file generates the portal's user interface. You define how users provide input for each parameter using [control elements](create-uidefinition-elements.md) like drop-downs and text boxes.
 
-In this example, the user interface prompts you to input the App Service name prefix, App Service plan's name, storage account prefix, and storage account type. During deployment, the variables in _mainTemplate.json_ use the `uniqueString` function to append a 13-character string to the name prefixes so the names are globally unique across Azure.
+In this example, the user interface prompts you to input the App Service name prefix and App Service plan's name. During deployment of _mainTemplate.json_ the `appServiceName` variables uses the `uniqueString` function to append a 13-character string to the name prefix so the name is globally unique across Azure.
 
 Open Visual Studio Code, create a file with the case-sensitive name _createUiDefinition.json_ and save it.
 
@@ -210,47 +175,12 @@ Add the following JSON code to the file and save it.
             "visible": true
           }
         ]
-      },
-      {
-        "name": "storageConfig",
-        "label": "Storage settings",
-        "subLabel": {
-          "preValidation": "Configure the storage settings",
-          "postValidation": "Completed"
-        },
-        "elements": [
-          {
-            "name": "storageAccounts",
-            "type": "Microsoft.Storage.MultiStorageAccountCombo",
-            "label": {
-              "prefix": "Storage account name prefix",
-              "type": "Storage account type"
-            },
-            "toolTip": {
-              "prefix": "Enter maximum of 11 lowercase letters or numbers.",
-              "type": "Available choices are Standard_LRS, Standard_GRS, and Premium_LRS."
-            },
-            "defaultValue": {
-              "type": "Standard_LRS"
-            },
-            "constraints": {
-              "allowedTypes": [
-                "Premium_LRS",
-                "Standard_LRS",
-                "Standard_GRS"
-              ]
-            },
-            "visible": true
-          }
-        ]
       }
     ],
     "outputs": {
       "location": "[location()]",
       "appServicePlanName": "[steps('webAppSettings').appServicePlanName]",
-      "appServiceNamePrefix": "[steps('webAppSettings').appServiceName]",
-      "storageAccountNamePrefix": "[steps('storageConfig').storageAccounts.prefix]",
-      "storageAccountType": "[steps('storageConfig').storageAccounts.type]"
+      "appServiceNamePrefix": "[steps('webAppSettings').appServiceName]"
     }
   }
 }
@@ -264,7 +194,7 @@ Add the two files to a package file named _app.zip_. The two files must be at th
 
 Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the command, replace the placeholder `<pkgstorageaccountname>` including the angle brackets (`<>`), with your unique storage account name.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 In Visual Studio Code, open a new PowerShell terminal and sign in to your Azure subscription.
 
@@ -293,7 +223,7 @@ $pkgstorageaccount = New-AzStorageAccount @pkgstorageparms
 
 The `$pkgstorageparms` variable uses PowerShell [splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) to improve readability for the parameter values used in the command to create the new storage account. Splatting is used in other PowerShell commands that use multiple parameter values.
 
-After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Microsoft Entra user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md).
+After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Microsoft Entra user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md) and [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 After you add the role to the storage account, it takes a few minutes to become active in Azure. You can then create the context needed to create the container and upload the file.
 
@@ -385,7 +315,7 @@ Create a storage account in a new resource group:
 
    - **Resource group**: Select **Create new** to create the _packageStorageGroup_ resource group.
    - **Storage account name**: Enter a unique storage account name. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers.
-   - **Region**: _West US3_
+   - **Region**: _West US_
    - **Performance**: _Standard_
    - **Redundancy**: _Locally-redundant storage (LRS)_.
 
@@ -440,7 +370,7 @@ In this section, you get identity information from Microsoft Entra ID, create a 
 The next step is to select a user, security group, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the assigned role. The role can be any Azure built-in role like Owner or Contributor.
 
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 This example uses a security group, and your Microsoft Entra account should be a member of the group. To get the group's object ID, replace the placeholder `<managedAppDemo>` including the angle brackets (`<>`), with your group's name. You use this variable's value when you deploy the managed application definition.
 
@@ -480,7 +410,7 @@ In the portal, the group ID and role ID are configured when you publish the mana
 
 ### Publish the managed application definition
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Create a resource group for your managed application definition.
 
@@ -576,7 +506,7 @@ To publish a managed application definition from the Azure portal, use the follo
      - Create a new resource group named _appDefinitionGroup_.
    - **Instance details**:
       - **Name**: Enter a name like _instance-name_. The name isn't used in the definition but the form requires an entry.
-      - **Region**: _West US3_
+      - **Region**: _West US_
    - **Application details**:
       - **Name**: _sampleManagedApplication_
       - **Display name**: _Sample managed application_
@@ -593,7 +523,7 @@ To publish a managed application definition from the Azure portal, use the follo
      - **Roles**: Select _Owner_.
      - **Select principals**: Select your group's name like _managedAppDemo_.
 
-     The **Lock level** on the managed resource group prevents the customer from performing undesirable operations on this resource group. Currently, `Read Only` is the only supported lock level. `Read Only` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
+     The **Lock level** on the managed resource group prevents the customer from performing undesirable operations on this resource group. `Read Only` specifies that the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock level.
 
 1. After **Validation Passed** is displayed, select **Create**.
 
@@ -613,7 +543,7 @@ If you're going to deploy the definition, continue with the **Next steps** secti
 
 If you're finished with the managed application definition, you can delete the resource groups you created named _packageStorageGroup_ and _appDefinitionGroup_.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 The command prompts you to confirm that you want to remove the resource group.
 

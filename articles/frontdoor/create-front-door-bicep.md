@@ -1,21 +1,21 @@
 ---
-title: 'Quickstart: Create an Azure Front Door Standard/Premium - Bicep'
-description: This quickstart describes how to create an Azure Front Door Standard/Premium using Bicep.
+title: 'Quickstart: Create an Azure Front Door using Bicep'
+description: This quickstart describes how to create an Azure Front Door using Bicep.
 services: front-door
 author: duongau
 ms.author: duau
 ms.date: 12/29/2023
 ms.topic: quickstart
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
-# Quickstart: Create a Front Door Standard/Premium using Bicep
+# Quickstart: Create a Front Door using Bicep
 
-This quickstart describes how to use Bicep to create an Azure Front Door Standard/Premium with a Web App as origin.
+This quickstart describes how to use Bicep to create an Azure Front Door with a Web App as origin.
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -28,7 +28,7 @@ This quickstart describes how to use Bicep to create an Azure Front Door Standar
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/front-door-standard-premium-app-service-public/).
 
-In this quickstart, you create a Front Door Standard/Premium, an App Service, and configure the App Service to validate that traffic comes through the Front Door origin.
+In this quickstart, you create an Azure Front Door profile, an Azure App Service, and configure the app service to validate that traffic comes through the Azure Front Door origin.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cdn/front-door-standard-premium-app-service-public/main.bicep":::
 

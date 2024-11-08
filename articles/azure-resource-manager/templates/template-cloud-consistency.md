@@ -10,7 +10,7 @@ ms.custom: devx-track-arm-template, devx-track-azurecli
 
 # Develop ARM templates for cloud consistency
 
-[!INCLUDE [requires-azurerm](~/reusable-content/ce-skilling/azure/includes/requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 A key benefit of Azure is consistency. Development investments for one location are reusable in another. An Azure Resource Manager template (ARM template) makes your deployments consistent and repeatable across environments, including the global Azure, Azure sovereign clouds, and Azure Stack. To reuse templates across clouds, however, you need to consider cloud-specific dependencies as this guide explains.
 
@@ -565,11 +565,11 @@ In contrast, to specify a managed disk configuration in a template, remove the `
 }
 ```
 
-The same changes also apply [data disks](../../virtual-machines/using-managed-disks-template-deployments.md).
+The same changes also apply [data disks](/azure/virtual-machines/using-managed-disks-template-deployments).
 
 ### Verify that VM extensions are available in Azure Stack
 
-Another consideration for cloud consistency is the use of [virtual machine extensions](../../virtual-machines/extensions/features-windows.md) to configure the resources inside a VM. Not all VM extensions are available in Azure Stack. A template can specify the resources dedicated to the VM extension, creating dependencies and conditions within the template.
+Another consideration for cloud consistency is the use of [virtual machine extensions](/azure/virtual-machines/extensions/features-windows) to configure the resources inside a VM. Not all VM extensions are available in Azure Stack. A template can specify the resources dedicated to the VM extension, creating dependencies and conditions within the template.
 
 For example, if you want to configure a VM running Microsoft SQL Server, the VM extension can configure SQL Server as part the template deployment. Consider what happens if the deployment template also contains an application server configured to create a database on the VM running SQL Server. Besides also using a VM extension for the application servers, you can configure the dependency of the application server on the successful return of the SQL Server VM extension resource. This approach ensures the VM running SQL Server is configured and available when the application server is instructed to create the database.
 

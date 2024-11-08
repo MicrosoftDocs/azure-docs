@@ -4,7 +4,7 @@ description: This article lists Microsoft POP locations, sorted by POP abbreviat
 services: cdn
 author: duongau
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2024
 ms.author: duau
 ms.custom: references_regions
@@ -21,7 +21,7 @@ This article lists Microsoft POP locations, sorted by POP abbreviation, for **Az
 
 ## Microsoft POP locations
 
-[!INCLUDE [front-door-edge-locations-by-abbreviation](~/reusable-content/ce-skilling/azure/includes/front-door-edge-locations-by-abbreviation.md)]
+[!INCLUDE [front-door-edge-locations-by-abbreviation](../../includes/front-door-edge-locations-by-abbreviation.md)]
 
 ## Next steps
 

@@ -3,9 +3,9 @@ title: 'Connect a VNet to a VNet using a VNet-to-VNet connection: Azure CLI'
 description: Learn how to connect virtual networks together by using a VNet-to-VNet connection and Azure CLI.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 12/11/2023
+ms.date: 07/11/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurecli
 
@@ -16,12 +16,9 @@ This article helps you connect virtual networks by using the VNet-to-VNet connec
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png":::
 
-The steps in this article apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and use Azure CLI. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+In this exercise, you create the required virtual networks (VNets) and VPN gateways. We have steps to connect VNets within the same subscription, as well as steps and commands for the more complicated scenario to connect VNets in different subscriptions.
 
-> [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+The Azure CLI command to create a connection is [az network vpn-connection](/cli/azure/network/vpn-connection). If you're connecting VNets from different subscriptions, use the steps in this article or in the [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) article. If you already have VNets that you want to connect and they're in the same subscription, you might want to use the [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) steps instead because the process is less complicated. Note that you can't connect VNets from different subscriptions using the Azure portal.
 
 ## <a name="about"></a>About connecting VNets
 
@@ -508,7 +505,7 @@ This step is split into two CLI sessions marked as **[Subscription 1]**, and **[
 
 ## <a name="verify"></a>Verify the connections
 
-[!INCLUDE [vpn-gateway-no-nsg-include](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 

@@ -5,7 +5,7 @@ author: pimorano
 ms.author: pimorano
 ms.reviewer: wiassaf
 ms.date: 02/21/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: quickstart
 ms.custom:
@@ -199,7 +199,7 @@ Follow these steps to clean up resources you no longer need.
 
 Want to optimize and save on your cloud spending?
 
-[!INCLUDE [cost-management-horizontal](~/reusable-content/ce-skilling/azure/includes/cost-management-horizontal.md)]
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Next steps
 

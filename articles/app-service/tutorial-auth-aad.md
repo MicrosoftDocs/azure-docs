@@ -35,7 +35,6 @@ In the tutorial, you learn:
 > * Access a remote app on behalf of the signed-in user
 > * Secure service-to-service calls with token authentication
 > * Use access tokens from server code
-> * Use access tokens from client (browser) code
 
 > [!TIP]
 > After completing this scenario, continue to the next procedure to learn how to connect to Azure services as an authenticated user. Common scenarios include accessing Azure Storage or a database as the user who has specific abilities or access to specific tables or files. 
@@ -403,6 +402,9 @@ Because the frontend app calls the backend app from server source code, this isn
 
 Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
+### If I have a browser-based app on the front-end app, can it talk to the back end directly?
+
+This approach requires the server code to pass the access token to the JavaScript code running in the client browser. Because there's no way to safeguard the access token in the browser, it's not a recommended approach. Currently, the [Backend-for-Frontend pattern](https://auth0.com/blog/the-backend-for-frontend-pattern-bff/) is recommended. If applied to the example in this tutorial, the browser code on the front-end app would make API calls in an authenticated session to its server code as an intermediary, and the server code on the front-end app would in-turn make the API calls to the back-end app by using the `x-ms-token-aad-access-token` header value as the bearer token. All calls from your browser code to the server code would be protected by the authenticated session already.
 
 <a name="next"></a>
 ## Next steps
@@ -416,7 +418,6 @@ What you learned:
 > * Access a remote app on behalf of the signed-in user
 > * Secure service-to-service calls with token authentication
 > * Use access tokens from server code
-> * Use access tokens from client (browser) code
 
 Advance to the next tutorial to learn how to use this user's identity to access an Azure service.
 

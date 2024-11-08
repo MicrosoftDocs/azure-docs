@@ -6,7 +6,7 @@ metadata:
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 01/10/2023
-  ms.service: static-web-apps
+  ms.service: azure-static-web-apps
   ms.topic: how-to
   ms.custom:
     - engagement-fy23
@@ -77,12 +77,12 @@ procedureSection:
       
       1. Open your static web app.
       
-      1. Select **Configuration** in the sidebar.
+      1. Select **Environment variables** in the sidebar.
       
-      1. Select the environment to which you want to apply the application settings. You can configure application settings per environment. When you create a pull request, staging environments are automatically created, and then promoted into production when you merge the pull request. 
+      1. Select the environment to which you want to create environment variables. You can create variables per environment. When you create a pull request, staging environments are automatically created, and then promoted into production when you merge the pull request. 
       
-      1. Select **+ Add** to add a new app setting.
-          :::image type="content" source="media/application-settings/configuration.png" alt-text="Screenshot of Azure Static Web Apps configuration view":::
+      1. Select **+ Add** to add a new environment variable.
+          :::image type="content" source="media/application-settings/configuration.png" alt-text="Screenshot of Azure Static Web Apps environment variables view":::
       
       1. Enter a **Name** and **Value**.
       

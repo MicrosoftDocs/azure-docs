@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Azure Tables input bindings for Azure Functions
 
-Use the Azure Tables input binding to read a table in [Azure Cosmos DB for Table](../cosmos-db/table/introduction.md) or [Azure Table Storage](../storage/tables/table-storage-overview.md).
+Use the Azure Tables input binding to read a table in [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction) or [Azure Table Storage](../storage/tables/table-storage-overview.md).
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-table.md).
 
@@ -31,7 +31,7 @@ An [isolated worker process class library](dotnet-isolated-process-guide.md) com
    
 # [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
  
@@ -183,7 +183,7 @@ namespace FunctionAppCloudTable2
 }
 ```
 
-For more information about how to use CloudTable, see [Get started with Azure Table storage](../cosmos-db/tutorial-develop-table-dotnet.md).
+For more information about how to use CloudTable, see [Get started with Azure Table storage](/azure/cosmos-db/tutorial-develop-table-dotnet).
 
 If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 

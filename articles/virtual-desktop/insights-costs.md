@@ -1,10 +1,11 @@
 ---
 title: Estimate Azure Virtual Desktop Insights monitoring costs - Azure
 description: How to estimate costs and pricing for using Azure Virtual Desktop Insights.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 09/12/2023
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 
 # Estimate Azure Virtual Desktop monitoring costs
@@ -125,9 +126,9 @@ These are the default Windows Events for Azure Virtual Desktop Insights:
 
 Windows Events sends events whenever the environment meets the terms of the event. Machines in healthy states will send fewer events than machines in unhealthy states. Since event count is unpredictable, we use a range of 1,000 to 10,000 events per VM per day based on examples from healthy environments for this estimate. For example, if we estimate each event record size in this example to be 1,500 bytes, this comes out to roughly 2 to 15 megabytes of event data per day for the specified environment.
 
-To learn more about configuring Windows event log data collection with the Azure Monitor Agent, see [How to collect events and performance counters from virtual machines with Azure Monitor Agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
+To learn more about configuring Windows event log data collection with the Azure Monitor Agent, see [How to collect events and performance counters from virtual machines with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent).
 
-To learn more about Windows events, see [Windows event records properties](../azure-monitor/agents/data-sources-windows-events.md).
+To learn more about Windows events, see [Windows event records properties](/azure/azure-monitor/agents/data-sources-windows-events).
 
 ## Estimating diagnostics ingestion
 
@@ -150,7 +151,7 @@ To learn more about the activity log categories, see [Azure Virtual Desktop diag
 
 ## Measure and manage your performance counter data 
 
-Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Analyze usage in Log Analytics workspace](../azure-monitor/logs/analyze-usage.md).
+Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Analyze usage in Log Analytics workspace](/azure/azure-monitor/logs/analyze-usage).
 
 The performance counters the session hosts use is among the largest source of ingested data for Azure Virtual Desktop Insights.  This query will show all performance counters you've enabled in the environment, not just the default ones for Azure Virtual Desktop Insights. This information can help you understand which areas to target to reduce costs.
 
@@ -188,7 +189,7 @@ Using the default Pay-as-you-go model for [Log Analytics pricing](https://azure.
 
 This section will explain how to measure and manage data ingestion to reduce costs.
 
-To learn about managing rights and permissions to the workbook, see [Access control](../azure-monitor/visualize/workbooks-overview.md#access-control).
+To learn about managing rights and permissions to the workbook, see [Access control](/azure/azure-monitor/visualize/workbooks-overview#access-control).
 
 >[!NOTE]
 >Removing data points will impact their corresponding visuals in Azure Virtual Desktop Insights.
@@ -198,7 +199,7 @@ To learn about managing rights and permissions to the workbook, see [Access cont
 Here are some suggestions to optimize your Log Analytics settings to manage data ingestion:
 
 - Use a designated Log Analytics workspace for your Azure Virtual Desktop resources to ensure that Log Analytics only collects performance counters and events for the virtual machines in your Azure Virtual Desktop deployment.
-- Adjust your Log Analytics storage settings to manage costs. You can reduce the retention period, evaluate whether a fixed storage pricing tier would be more cost-effective, or set boundaries on how much data you can ingest to limit impact of an unhealthy deployment. To learn more, see [Azure Monitor Logs pricing details](../azure-monitor/logs/cost-logs.md).
+- Adjust your Log Analytics storage settings to manage costs. You can reduce the retention period, evaluate whether a fixed storage pricing tier would be more cost-effective, or set boundaries on how much data you can ingest to limit impact of an unhealthy deployment. To learn more, see [Azure Monitor Logs pricing details](/azure/azure-monitor/logs/cost-logs).
 
 ### Remove excess data
 
@@ -206,7 +207,7 @@ Our default configuration is the only set of data we recommend for Azure Virtual
 
 ### Measure and manage your performance counter data
 
-Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Analyze usage in Log Analytics workspace](../azure-monitor/logs/analyze-usage.md).
+Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Analyze usage in Log Analytics workspace](/azure/azure-monitor/logs/analyze-usage).
 
 The performance counters the session hosts use will probably be your largest source of ingested data for Azure Virtual Desktop Insights. The following custom query template for a Log Analytics workspace can track frequency and megabytes ingested per performance counter over the last day:
 
@@ -226,11 +227,11 @@ Perf
 
 This query will show all performance counters you have enabled on the environment, not just the default ones for Azure Virtual Desktop Insights. This information can help you understand which areas to target to reduce costs, like reducing a counter’s frequency or removing it altogether.
 
-You can also reduce costs by removing performance counters. To learn how to remove performance counters or edit existing counters to reduce their frequency, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configure-performance-counters).
+You can also reduce costs by removing performance counters. To learn how to remove performance counters or edit existing counters to reduce their frequency, see [Configuring performance counters](/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters).
 
 ### Manage Windows Event Logs
 
-Windows Events are unlikely to cause a spike in data ingestion when all hosts are healthy. An unhealthy host can increase the number of events sent to the log, but the information can be critical to fixing the host's issues. We recommend keeping them. To learn more about how to manage Windows Event Logs, see [Configuring Windows Event logs](../azure-monitor/agents/data-sources-windows-events.md#configure-windows-event-logs).
+Windows Events are unlikely to cause a spike in data ingestion when all hosts are healthy. An unhealthy host can increase the number of events sent to the log, but the information can be critical to fixing the host's issues. We recommend keeping them. To learn more about how to manage Windows Event Logs, see [Configuring Windows Event logs](/azure/azure-monitor/agents/data-sources-windows-events#configure-windows-event-logs).
 
 ### Manage diagnostics
 
@@ -243,4 +244,4 @@ Learn more about Azure Virtual Desktop Insights at these articles:
 - [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
 - Use the [glossary](insights-glossary.md) to learn more about terms and concepts.
 - If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help.
-- Check out [Azure Monitor cost and usage](../azure-monitor/cost-usage.md) to learn more about managing your monitoring costs.
+- Check out [Azure Monitor cost and usage](/azure/azure-monitor/cost-usage) to learn more about managing your monitoring costs.

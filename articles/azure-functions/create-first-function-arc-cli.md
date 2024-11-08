@@ -9,7 +9,7 @@ ms.devlang: azurecli
 
 # Create your first function on Azure Arc (preview)
 
-In this quickstart, you create an Azure Functions project and deploy it to a function app running on an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md). This scenario only supports function apps running on Linux.   
+In this quickstart, you create an Azure Functions project and deploy it to a function app running on an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview). To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md). This scenario only supports function apps running on Linux.   
 
 > [!NOTE]
 > Support for running functions on an Azure Arc-enabled Kubernetes cluster is currently in preview.  
@@ -48,7 +48,7 @@ On your local computer:
 
 [!INCLUDE [functions-arc-create-environment](../../includes/functions-arc-create-environment.md)]
 
-[!INCLUDE [app-service-arc-cli-install-extensions](~/reusable-content/ce-skilling/azure/includes/app-service-arc-cli-install-extensions.md)]
+[!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 
 ## Create the local function project
 

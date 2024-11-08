@@ -1,14 +1,19 @@
 ---
 title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
-author: Heidilohr
+author: sipastak
 ms.topic: release-notes
-ms.date: 05/21/2024
-ms.author: helohr
+ms.date: 10/18/2024
+ms.author: sipastak
 ms.custom: references_regions
 ---
 # What's new in the Azure Virtual Desktop Agent?
 
+The Azure Virtual Desktop agent links your session hosts with the Azure Virtual Desktop service. It acts as the intermediate communicator between the service and the virtual machines, enabling connectivity. 
+
+The Azure Virtual Desktop Agent is updated regularly. New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they're rolled out progressively to session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout in [validation environments](create-validation-host-pool.md) first.
+
+A rollout might take several weeks before the agent is available in all environments. Some agent versions might not reach nonvalidation environments, so you might see multiple versions of the agent deployed across your environments.
 The Azure Virtual Desktop Agent updates regularly. This article is where you'll find out about:
 
 - The latest updates
@@ -20,19 +25,58 @@ Make sure to check back here often to keep up with new updates.
 
 ## Latest available versions
 
-New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they're rolled out progressively to session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout in [validation environments](create-validation-host-pool.md) first.
-
-A rollout may take several weeks before the agent is available in all environments. Some agent versions may not reach non-validation environments, so you may see multiple versions of the agent deployed across your environments.
+Here's information about the Azure Virtual Desktop Agent.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.8431.2300 |
-| Validation | 1.0.9103.1000 |
+| Production | 1.0.9742.2500 |
+| Validation | 1.0.9103.2900 |
 
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
 
-## Version 1.0.9103.1000 (validation)
+## Version 1.0.9742.2500
+
+*Published: October 2024*
+
+In this update, we've made the following changes:
+
+- Fixed an issue relating to app attach expansion from the portal.
+- General improvements and bug fixes. 
+
+## Version 1.0.9103.3800 
+
+*Published: June 2024* 
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.9103.3700  
+
+*Published: June 2024* 
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.9103.2900 (validation) 
+
+*Published: June 2024*
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes. 
+
+## Version 1.0.9103.2300 
+
+*Published: June 2024*  
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.9103.1000 
 
 *Published: May 2024*
 
@@ -312,7 +356,7 @@ In this release, we've made the following changes:
 - Fixed broker URL cache to address Agent Telemetry calls.
 - Fixed some network-related issues. 
 - Created two new mechanisms to trigger health checks.
-- Additional general bug fixes and agent upgrades.
+- Other general bug fixes and agent upgrades.
 
 ## Version 1.0.4230.1600
 

@@ -4,9 +4,9 @@ description: Reference for the quota-by-key policy available for use in Azure AP
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 09/16/2024
 ms.author: danlep
 ---
 # Set usage quota by key
@@ -29,6 +29,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
               bandwidth="kilobytes"
               renewal-period="seconds"
               increment-condition="condition"
+              increment-count="number"
               counter-key="key value"
               first-period-start="date-time" />
 ```
@@ -41,6 +42,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expressions aren't allowed.    | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | counter-key         | The key to use for the `quota policy`. For each key value, a single counter is used for all scopes at which the policy is configured. Policy expressions are allowed.             | Yes                                                              | N/A     |
 | increment-condition | The Boolean expression specifying if the request should be counted towards the quota (`true`). Policy expressions are allowed.             | No                                                               | N/A     |
+| increment-count | The number by which the counter is increased per request. Policy expressions are allowed. | No | 1 |
 | renewal-period      | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to `first-period-start`. Minimum period: 300 seconds. When `renewal-period` is set to 0, the period is set to infinite. Policy expressions aren't allowed.                                                  | Yes                                                              | N/A     |
 | first-period-start      | The starting date and time for quota renewal periods, in the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard. Policy expressions aren't allowed.   | No                                                              | `0001-01-01T00:00:00Z`     |
 
@@ -49,7 +51,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
-- [**Gateways:**](api-management-gateways-overview.md) classic, self-hosted
+- [**Gateways:**](api-management-gateways-overview.md) classic, self-hosted, workspace
 
 ### Usage notes
 

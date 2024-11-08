@@ -24,7 +24,7 @@ The preview sample script requires the Event Grid module. To install, run
 
 ## Sample script - preview module
 
-[!INCLUDE [requires-azurerm](~/reusable-content/ce-skilling/azure/includes/requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-custom-topic-preview/subscribe-to-custom-topic-preview.ps1 "Subscribe to custom topic")]
 

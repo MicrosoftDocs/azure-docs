@@ -1,7 +1,7 @@
 ---
 title: Secure Spark and Kafka – Spark streaming integration scenario - Azure HDInsight
 description: Learn how to secure Spark and Kafka streaming integration.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.author: piyushgupta
 author: piyush-gupta1999

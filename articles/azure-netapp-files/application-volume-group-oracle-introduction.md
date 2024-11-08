@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 04/19/2024
 ms.author: anfdocs
 ---
 # Understand Azure NetApp Files application volume group for Oracle 

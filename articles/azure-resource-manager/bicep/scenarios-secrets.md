@@ -5,7 +5,7 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/20/2022
+ms.date: 06/20/2024
 ---
 # Manage secrets by using Bicep
 
@@ -33,7 +33,74 @@ For example, you might have created a storage account in another deployment, and
 
 > The following example is part of a larger example. For a Bicep file that you can deploy, see the [complete file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/scenarios-secrets/function-app.bicep).
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-secrets/function-app.bicep" range="8-46" highlight="1-3, 5, 22, 34" :::
+```bicep
+param location string = resourceGroup().location
+param storageAccountName string
+param functionAppName string = 'fn-${uniqueString(resourceGroup().id)}'
+
+var appServicePlanName = 'MyPlan'
+var applicationInsightsName = 'MyApplicationInsights'
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' existing = {
+  name: storageAccountName
+}
+
+var storageAccountConnectionString = 'DefaultEndpointsProtocol=https;AccountName=${storageAccount.name};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccount.id, storageAccount.apiVersion).keys[0].value}'
+
+resource functionApp 'Microsoft.Web/sites@2023-12-01' = {
+  name: functionAppName
+  location: location
+  kind: 'functionapp'
+  properties: {
+    httpsOnly: true
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      appSettings: [
+        {
+          name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
+          value: applicationInsights.properties.InstrumentationKey
+        }
+        {
+          name: 'AzureWebJobsStorage'
+          value: storageAccountConnectionString
+        }
+        {
+          name: 'FUNCTIONS_EXTENSION_VERSION'
+          value: '~3'
+        }
+        {
+          name: 'FUNCTIONS_WORKER_RUNTIME'
+          value: 'dotnet'
+        }
+        {
+          name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
+          value: storageAccountConnectionString
+        }
+      ]
+    }
+  }
+}
+
+resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
+  name: appServicePlanName
+  location: location
+  sku: {
+    name: 'Y1' 
+    tier: 'Dynamic'
+  }
+}
+
+resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
+  name: applicationInsightsName
+  location: location
+  kind: 'web'
+  properties: { 
+    Application_Type: 'web'
+    publicNetworkAccessForIngestion: 'Enabled'
+    publicNetworkAccessForQuery: 'Enabled'
+  }
+}
+```
 
 By using this approach, you avoid passing secrets into or out of your Bicep file.
 
@@ -41,7 +108,7 @@ You can also use this approach to store secrets in a key vault.
 
 ## Use Key Vault
 
-[Azure Key Vault](../../key-vault/general/overview.md) is designed to store and manage secure data. Use a key vault to manage your secrets, certificates, keys, and other data that needs to be protected and shared.
+[Azure Key Vault](/azure/key-vault/general/overview) is designed to store and manage secure data. Use a key vault to manage your secrets, certificates, keys, and other data that needs to be protected and shared.
 
 You can create and manage vaults and secrets by using Bicep. Define your vaults by creating a resource with the type [`Microsoft.KeyVault/vaults`](/azure/templates/microsoft.keyvault/vaults?tabs=bicep).
 
@@ -53,7 +120,33 @@ Secrets are a [child resource](child-resource-name-type.md) and can be created b
 
 > The following example is part of a larger example. For a Bicep file that you can deploy, see the [complete file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/scenarios-secrets/key-vault-secret.bicep).
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-secrets/key-vault-secret.bicep" range="4-25" :::
+```bicep
+param location string = resourceGroup().location
+param keyVaultName string = 'mykv${uniqueString(resourceGroup().id)}'
+
+resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' = {
+  name: keyVaultName
+  location: location
+  properties: {
+    enabledForTemplateDeployment: true
+    tenantId: tenant().tenantId
+    accessPolicies: [
+    ]
+    sku: {
+      name: 'standard'
+      family: 'A'
+    }
+  }
+}
+
+resource keyVaultSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
+  parent: keyVault
+  name: 'MySecretName'
+  properties: {
+    value: 'MyVerySecretValue'
+  }
+}
+```
 
 > [!TIP]
 > When you use automated deployment pipelines, it can sometimes be challenging to determine how to bootstrap key vault secrets for your deployments. For example, if you've been provided with an API key to use when communicating with an external API, then the secret needs to be added to a vault before it can be used in your deployments.
@@ -67,7 +160,7 @@ When you use Bicep modules, you can provide secure parameters by using [the `get
 You can also reference a key vault defined in another resource group by using the `existing` and `scope` keywords together. In the following example, the Bicep file is deployed to a resource group named *Networking*. The value for the module's parameter *mySecret* is defined in a key vault named *contosonetworkingsecrets* located in the *Secrets* resource group:
 
 ```bicep
-resource networkingSecretsKeyVault 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+resource networkingSecretsKeyVault 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
   scope: resourceGroup('Secrets')
   name: 'contosonetworkingsecrets'
 }
@@ -108,7 +201,7 @@ When you deploy your Azure resources by using a pipeline, you need to take care 
   - [`Microsoft.KeyVault/vaults/secrets`](/azure/templates/microsoft.keyvault/vaults/secrets?tabs=bicep)
 - Azure features
   - [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md)
-  - [Azure Key Vault](../../key-vault/general/overview.md)
+  - [Azure Key Vault](/azure/key-vault/general/overview)
 - Bicep features
   - [Secure parameters](parameters.md#secure-parameters)
   - [Referencing existing resources](existing-resource.md)

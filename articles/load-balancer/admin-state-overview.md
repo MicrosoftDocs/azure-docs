@@ -4,9 +4,9 @@ titleSuffix: Azure Load Balancer
 description: Overview of Administrative State (Admin State) in Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
-ms.date: 05/29/2024
+ms.date: 10/17/2024
 ms.author: mbender
 ms.custom: template-concept, references_regions
 ---
@@ -14,9 +14,6 @@ ms.custom: template-concept, references_regions
 # Administrative State (Admin State) in Azure Load Balancer
 
 Administrative state (Admin state) is a feature of Azure Load Balancer that allows you to override the Load Balancer’s health probe behavior on a per backend pool instance basis. This feature is useful in scenarios where you would like to take down your backend instance for maintenance, patching, or testing.
-
-[!INCLUDE [load-balancer-admin-state-preview](../../includes/load-balancer-admin-state-preview.md)]
-
 
 ## Why use admin state? 
 
@@ -52,7 +49,7 @@ When deploying a load balancer with admin state, consider the following limitati
 
 - Admin state isn't supported with inbound NAT rule. 
 - Admin state isn't supported for nonprobed load balancing rules.
-- Admin state can't be set as part of the NIC-based Load Balancer backend pool Create experiences. 
+- Admin state can't be configured during the creation of a NIC-based Load Balancer backend pool. 
 
 
 ## Next steps

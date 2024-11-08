@@ -1,69 +1,44 @@
 ---
-title: Monitoring your Azure Communications Gateway
-description: Start here to learn how to monitor Azure Communications Gateway.
-author: rcdun
-ms.author: rdunstan
-ms.service: communications-gateway
+title: Monitor Azure Communications Gateway
+description: Start here to learn how to monitor Azure Communications Gateway. Use Azure Monitor and Azure Resource Health to monitor your Azure Communications Gateway.
+ms.date: 09/24/2024
+ms.custom: horz-monitor
 ms.topic: conceptual
-ms.custom: subject-monitoring
-ms.date: 01/25/2024
+author: GemmaWakeford
+ms.author: gwakeford
+ms.service: azure-communications-gateway
 ---
 
-# Monitoring Azure Communications Gateway
+# Monitor Azure Communications Gateway
 
-When you have critical applications and business processes relying on Azure resources, you want to monitor those resources for their availability, performance, and operation. This article describes how you can use Azure Monitor and Azure Resource Health to monitor your Azure Communications Gateway.
+You can use Azure Resource Health and Azure Monitor to monitor the health and performance of Azure Communications Gateway.
 
-If you notice any concerning resource health indicators or metrics, you can [raise a support ticket](request-changes.md).
+Azure Monitor allows you to collect, analyze, and act on telemetry from cloud and on-premises environments to ensure optimal application and service performance.
 
-## What is Azure Monitor?
+[!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-Azure Communications Gateway creates monitoring data using [Azure Monitor](../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources. It can also monitor resources in other clouds and on-premises.
+This article also describes how to use Azure Resource Health to monitor your Azure Communications Gateway.
 
-Start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md), which describes the following concepts:
-
-- What is Azure Monitor?
-- Costs associated with monitoring
-- Monitoring data collected in Azure
-- Configuring data collection
-- Standard tools in Azure for analyzing and alerting on monitoring data
-
-The following sections build on this article by describing the specific data gathered for Azure Communications Gateway. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
+The following sections describe the specific data gathered for Azure Communications Gateway. These sections also discuss how to configure data collection and analyze this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md).
-
-## Azure Monitor data for Azure Communications Gateway
-
-Azure Communications Gateway collects metrics. See [Monitoring Azure Communications Gateway data reference](monitoring-azure-communications-gateway-data-reference.md) for detailed information on the metrics created by Azure Communications Gateway. Azure Communications Gateway doesn't collect logs.
-
- For clarification on the different types of metrics available in Azure Monitor, see [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources).
-
-## Analyzing, filtering and splitting metrics in Azure Monitor
-
-You can analyze metrics for Azure Communications Gateway, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
-
-Azure Communications Gateway metrics support the **Region** dimension, allowing you to filter any metric by the Service Locations defined in your Azure Communications Gateway resource. Connectivity metrics also support the **OPTIONS or INVITE** dimension.
-
-You can also split a metric by these dimensions to visualize how different segments of the metric compare with each other.
-
-For more information on filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
-
-## Alerts in Azure Monitor
-
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/alerts/alerts-metric-overview) and the [activity log](/azure/azure-monitor/alerts/activity-log-alerts). Different types of alerts have benefits and drawbacks.
+> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](/azure/azure-monitor/cost-usage).
 
 ## What is Azure Resource Health?
 
 Azure Resource Health provides a personalized dashboard of the health of your resources. This dashboard helps you diagnose and get support for service problems that affect your Azure resources. It reports on the current and past health of your resources.
+
+> [!NOTE]
+> If you notice any concerning resource health indicators or metrics, you can [raise a support ticket](request-changes.md).
 
 Resource Health reports one of the following statuses for each resource.
 
 - *Available*: there are no known problems with your resource.
 - *Degraded*: a problem with your resource is reducing its performance.
 - *Unavailable*: there's a significant problem with your resource or with the Azure platform. For Azure Communications Gateway, this status usually means that calls can't be handled.
-- *Unknown*: Resource Health hasn't received information about the resource for more than 10 minutes.
+- *Unknown*: Resource Health doesn't receive information about the resource for more than 10 minutes.
 
-For more information, see [Resource Health overview](../service-health/resource-health-overview.md).
+For more information, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
 ## Using Azure Resource Health
 
@@ -74,10 +49,44 @@ To access Resource Health for Azure Communications Gateway:
 1. Select your Communications Gateway resource.
 1. In the menu in the left pane, select **Resource health**.
 
-You can also [configure Resource Health alerts in the Azure portal](../service-health/resource-health-alert-monitor-guide.md). These alerts can notify you in near real-time when these resources have a change in their health status. 
+You can also [configure Resource Health alerts in the Azure portal](/azure/service-health/resource-health-alert-monitor-guide). These alerts can notify you in near real-time when these resources have a change in their health status.
 
-## Next steps
+Azure Communications Gateway supports the following [resource health checks](/azure/service-health/resource-health-checks-resource-types#microsoftvoiceservicescommunicationsgateway).
 
-- See [Monitoring Azure Communications Gateway data reference](monitoring-azure-communications-gateway-data-reference.md) for a reference of the metrics, logs, and other important values created by Azure Communications Gateway.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for an overview of monitoring Azure resources.
-- See [Resource Health overview](../service-health/resource-health-overview.md) for an overview of Resource Health.
+[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
+
+For more information about the resource types for Azure Communications Gateway, see [Azure Communications Gateway monitoring data reference](monitoring-azure-communications-gateway-data-reference.md).
+
+[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
+
+[!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
+
+For a list of available metrics for Azure Communications Gateway, see [Azure Communications Gateway monitoring data reference](monitoring-azure-communications-gateway-data-reference.md#metrics).
+
+## Analyzing, filtering and splitting metrics in Azure Monitor
+
+You can analyze metrics for Azure Communications Gateway, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool.
+
+Azure Communications Gateway metrics support the **Region** dimension, allowing you to filter any metric by the Service Locations defined in your Azure Communications Gateway resource. Connectivity metrics also support the **OPTIONS** or **INVITE** dimension.
+
+You can also split a metric by these dimensions to visualize how different segments of the metric compare with each other.
+
+For more information on filtering and splitting, see [Advanced features of Azure Monitor](/azure/azure-monitor/essentials/metrics-charts).
+
+[!INCLUDE [horz-monitor-no-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
+
+[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+
+[!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
+
+[!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
+
+[!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
+
+[!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
+
+## Related content
+
+- See [Azure Communications Gateway monitoring data reference](monitoring-azure-communications-gateway-data-reference.md) for a reference of the metrics, logs, and other important values created for Azure Communications Gateway.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
+- See [Resource Health overview](/azure/service-health/resource-health-overview) for an overview of Resource Health.

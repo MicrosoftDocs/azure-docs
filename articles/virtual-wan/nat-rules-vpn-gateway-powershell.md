@@ -1,13 +1,13 @@
 ---
 title: 'Configure VPN NAT rules for your gateway using PowerShell'
 titleSuffix: Azure Virtual WAN
-description: Learn how to configure NAT rules for your VWAN VPN gateway using PowerShell.
+description: Learn how to configure NAT rules for your Virtual WAN VPN gateway using PowerShell.
 services: virtual-wan
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 08/14/2024
 ms.author: cherylmc
 ---
 
@@ -24,11 +24,11 @@ This configuration uses a flow table to route traffic from an external (host) IP
 
 ### Azure PowerShell
 
-[!INCLUDE [PowerShell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="signin"></a>Sign in
 
-[!INCLUDE [sign in](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## <a name="rules"></a>Configure NAT rules
 

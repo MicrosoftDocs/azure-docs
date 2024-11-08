@@ -2,13 +2,12 @@
 title: Manage packet captures in virtual machine scale sets - Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: Learn how to manage packet captures in virtual machine scale sets with the packet capture feature of Network Watcher using PowerShell.
-services: network-watcher
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 06/07/2022
 ms.author: halkazwini
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage packet captures in Virtual machine scale set with Azure Network Watcher using PowerShell
@@ -34,7 +33,7 @@ This article assumes you have the following resources:
 * An instance of Network Watcher in the region you want to create a packet capture
 
 > [!IMPORTANT]
-> Packet capture requires a virtual machine scale set extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
+> Packet capture requires a virtual machine scale set extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](network-watcher-agent-windows.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](network-watcher-agent-linux.md).
 
 ## Install virtual machine scale set extension
 
@@ -125,16 +124,16 @@ Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCapture
 The following example is the output from the `Get-AzNetworkWatcherPacketCapture` cmdlet. The following example is after the capture is complete. The PacketCaptureStatus value is Stopped, with a StopReason of TimeExceeded. This value shows that the packet capture was successful and ran its time.
 ```
 Name                    : PacketCaptureTest
-Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatcher
+Id                      : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatcher
                           s/NetworkWatcher_westcentralus/packetCaptures/PacketCaptureTest
 Etag                    : W/"4b9a81ed-dc63-472e-869e-96d7166ccb9b"
 ProvisioningState       : Succeeded
-Target                  : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm1
+Target                  : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm1
 BytesToCapturePerPacket : 0
 TotalBytesPerSession    : 1073741824
 TimeLimitInSeconds      : 60
 StorageLocation         : {
-                            "StorageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Storage/storageA
+                            "StorageId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Storage/storageA
                           ccounts/examplestorage",
                             "StoragePath": "https://examplestorage.blob.core.windows.net/network-watcher-logs/subscriptions/00000000-0000-0000-0000-00000
                           0000000/resourcegroups/testrg/providers/microsoft.compute/virtualmachines/testvm1/2017/02/01/packetcapture_22_42_48_238.cap"

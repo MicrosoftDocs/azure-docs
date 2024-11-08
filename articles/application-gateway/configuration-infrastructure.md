@@ -3,7 +3,7 @@ title: Azure Application Gateway infrastructure configuration
 description: This article describes how to configure the Azure Application Gateway infrastructure.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual
 ms.date: 05/01/2024
 ms.author: greglin
@@ -133,7 +133,7 @@ After you configure *active public and private listeners* (with rules) *with the
 
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
-|`<as per need>`|Any|`<Public and Private<br/>frontend IPs>`|`<listener ports>`|TCP|Allow|
+|`<as per need>`|Any|`<Public and Private frontend IPs>`|`<listener ports>`|TCP|Allow|
 
 **Infrastructure ports**: Allow incoming requests from the source as the **GatewayManager** service tag and **Any** destination. The destination port range differs based on SKU and is required for communicating the status of the backend health. These ports are protected/locked down by Azure certificates. External entities can't initiate changes on those endpoints without appropriate certificates in place.
 

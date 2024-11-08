@@ -3,7 +3,7 @@ title: "HYAS Protect (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector HYAS Protect (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
@@ -109,3 +109,9 @@ If you're already signed in, go to the next step.
 		WorkspaceID
 		WorkspaceKey
 . Once all application settings have been entered, click **Save**.
+
+
+
+## Next steps
+
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/hyas.microsoft-sentinel-solution-hyas-protect?tab=Overview) in the Azure Marketplace.

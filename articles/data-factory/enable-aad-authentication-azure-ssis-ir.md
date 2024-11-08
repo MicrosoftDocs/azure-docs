@@ -1,7 +1,6 @@
 ---
 title: Enable Microsoft Entra authentication for Azure SSIS integration runtime
 description: This article describes how to enable Microsoft Entra authentication with the specified system/user-assigned managed identity for Azure Data Factory to create Azure-SSIS integration runtime.
-ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
@@ -67,10 +66,10 @@ You can use an existing Microsoft Entra group or create a new one using Azure AD
    6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
    ```
 
-3. Add the specified system/user-assigned managed identity for your ADF to the group. You can follow the [Managed identity for Data Factory or Azure Synapse](./data-factory-service-identity.md) article to get the Object ID of specified system/user-assigned managed identity for your ADF (e.g. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, but do not use the Application ID for this purpose).
+3. Add the specified system/user-assigned managed identity for your ADF to the group. You can follow the [Managed identity for Data Factory or Azure Synapse](./data-factory-service-identity.md) article to get the Object ID of specified system/user-assigned managed identity for your ADF (e.g. aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, but do not use the Application ID for this purpose).
 
    ```powershell
-   Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+   Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
    ```
 
    You can also check the group membership afterwards.

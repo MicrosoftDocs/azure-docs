@@ -3,7 +3,7 @@ title: How to set up access control on synchronized objects in serverless SQL po
 description: Authorize shared databases access to non-privileged Microsoft Entra users in serverless SQL pool.
 author: Stralle
 reviewer: vvasic-msft, jovanpop-msft, WilliamDAssafMSFT
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: how-to
 ms.date: 12/30/2021

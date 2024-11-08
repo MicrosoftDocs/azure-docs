@@ -440,6 +440,31 @@
             "source_path_from_root": "/articles/communication-services/quickstarts/media-composition/get-started-media-composition.md",
             "redirect_url": "/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/media-streaming.md",
+            "redirect_url": "/azure/communication-services/how-tos/call-automation/audio-streaming-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/media-streaming.md",
+            "redirect_url": "/azure/communication-services/concepts/call-automation/audio-streaming-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/troubleshooting-codes.md",
+            "redirect_url": "/azure/communication-services/resources/troubleshooting/voice-video-calling/troubleshooting-codes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/advanced-messaging/message-analysis.md",
+            "redirect_url": "/articles/communication-services/concepts/advanced-messaging/message-analysis/message-analysis.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony/outbound-calling.md",
+            "redirect_url": "/azure/communication-services/concepts/telephony/toll-free-calling",
+            "redirect_document_id": false
         }
     ]
 }

@@ -46,7 +46,7 @@ There are three options to transfer products:
     1. [Confirm that the customer has accepted the Microsoft Customer Agreement](/partner-center/confirm-customer-agreement).
 1. Set up an [Azure plan](/partner-center/purchase-azure-plan) for the customer. If the customer is purchasing through multiple resellers, you need to set up an Azure plan for each combination of a customer and a reseller.
 
-When there's is a currency change during or after an EA enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly, not up front, reservation purchases. For more information, see [Transfer Azure Enterprise enrollment accounts and subscriptions](ea-transfers.md#prerequisites-1).
+When there's a currency change during or after an EA enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly, not up front, reservation purchases. For more information, see [Transfer Azure Enterprise enrollment accounts and subscriptions](ea-transfers.md#prerequisites-1).
 
 Before you begin, make sure that the people involved in the product transfer have the required permissions. 
 
@@ -187,7 +187,7 @@ Azure Marketplace products, which are available for subscriptions that are manag
 
 Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC role)](../../role-based-access-control/overview.md) isn't affected during the transition. The partner won’t get any new Azure RBAC role access to the subscriptions.
 
-The partners should work with the customer to get access to subscriptions. The partners need to get either Admin on Behalf Of - AOBO or [Azure Lighthouse](../../lighthouse/concepts/cloud-solution-provider.md) access open support tickets.
+The partners should work with the customer to get access to subscriptions. The partners need to get either Admin on Behalf Of - AOBO or [Azure Lighthouse](/azure/lighthouse/concepts/cloud-solution-provider) access open support tickets.
 
 ### Power BI connectivity
 

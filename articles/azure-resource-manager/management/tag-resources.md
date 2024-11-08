@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Describes the conditions and limitations for using tags with Azure resources.
 ms.topic: conceptual
-ms.date: 01/04/2024
+ms.date: 09/26/2024
 ---
 
 # Use tags to organize your Azure resources and management hierarchy
@@ -20,7 +20,7 @@ This article describes the conditions and limitations for using tags. For steps 
 
 ## Tag usage and recommendations
 
-You can apply tags to your Azure resources, resource groups, and subscriptions.
+You can apply tags to your Azure resources, resource groups, and subscriptions, but not to management groups.
 
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
@@ -43,9 +43,9 @@ Resource tags support all cost-accruing services. To ensure that cost-accruing s
 
 There are two ways to get the required access to tag resources.
 
-- You can have write access to the `Microsoft.Resources/tags` resource type. This access lets you tag any resource, even if you don't have access to the resource itself. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role grants this access. The tag contributor role, for example, can't apply tags to resources or resource groups through the portal. It can, however, apply tags to subscriptions through the portal. It supports all tag operations through Azure PowerShell and REST API.
+* You can have write access to the `Microsoft.Resources/tags` resource type. This access lets you tag any resource, even if you don't have access to the resource itself. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role grants this access. The tag contributor role, for example, can't apply tags to resources or resource groups through the portal. It can, however, apply tags to subscriptions through the portal. It supports all tag operations through Azure PowerShell and REST API.
 
-- You can have write access to the resource itself. The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. To apply tags to virtual machines, for example, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+* You can have write access to the resource itself. The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. To apply tags to virtual machines, for example, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## Inherit tags
 
@@ -61,6 +61,12 @@ You can retrieve information about tags by downloading the usage file available 
 
 For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 
+## Unique tags pagination
+
+When calling the [Unique Tags API](/rest/api/resources/tags/list) there's a limit to the size of each API response page that is returned. A tag that has a large set of unique values will require the API to fetch the next page to retrieve the remaining set of values. When this happens the tag key is shown again to indicate that the values are still under this key.  
+
+This can result in some tools, like the Azure portal, to show the tag key twice.  
+
 ## Limitations
 
 The following limitations apply to tags:
@@ -73,7 +79,7 @@ The following limitations apply to tags:
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > * Azure Domain Name System (DNS) zones don't support the use of spaces in the tag or a tag that starts with a number. Azure DNS tag names don't support special and unicode characters. The value can contain all characters.
+   > * Azure Domain Name System (DNS) zones don't support the use of spaces or parentheses in the tag or a tag that starts with a number. Azure DNS tag names don't support special and unicode characters. The value can contain all characters.
    >
    > * Traffic Manager doesn't support the use of spaces, `#` or `:` in the tag name. The tag name can't start with a number.
    >

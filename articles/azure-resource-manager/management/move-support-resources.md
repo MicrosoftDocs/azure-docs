@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 09/24/2024
 ---
 
 # Move operation support for resources
@@ -69,7 +69,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | actionrules | **Yes** | **Yes** | No |
+> | alertprocessingrules | No | Yes | No |
 > | alerts | No | No | No |
 > | alertslist | No | No | No |
 > | alertsmetadata | No | No | No |
@@ -418,7 +418,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | **Yes** | **Yes** | No |
-> | Cognitive Search | **Yes** | **Yes** | Supported with manual steps.<br/><br/> Learn about [moving your Azure AI Search service to another region](../../search/search-howto-move-across-regions.md) |
+> | Cognitive Search | **Yes** | **Yes** | Supported with manual steps.<br/><br/> Learn about [moving your Azure AI Search service to another region](/azure/search/search-howto-move-across-regions) |
 
 ## Microsoft.Commerce
 
@@ -714,7 +714,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recovery-from-an-azure-regional-datacenter-outage).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](/azure/postgresql/howto-move-regions-portal).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](/azure/mariadb/concepts-business-continuity#recovery-from-an-azure-regional-datacenter-outage).
 
 ## Microsoft.DBforMySQL
 
@@ -722,7 +722,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | flexibleServers | **Yes** | **Yes** | No |
-> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../mysql/howto-move-regions-portal.md).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](/azure/mysql/howto-move-regions-portal).
 
 ## Microsoft.DBforPostgreSQL
 
@@ -731,7 +731,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | flexibleServers | **Yes** | **Yes** | No |
 > | servergroups | No | No | No |
-> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](/azure/postgresql/howto-move-regions-portal).
 > | serversv2 | **Yes** | **Yes** | No |
 
 ## Microsoft.DeploymentManager
@@ -806,7 +806,12 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | databaseaccounts | **Yes** | **Yes** | No |
+> | databaseaccounts | **Yes** | Partial | No |
+
+Moves between subscriptions are supported for APIs that use the RU architecture (Microsoft.DocumentDB/databaseAccounts), but not for those based on the vCore architecture, such as:
+
+- MongoDB vCore (Microsoft.DocumentDB/mongoClusters)
+- Azure Managed Instance for Apache Cassandra (Microsoft.DocumentDB/cassandraClusters)
 
 ## Microsoft.DomainRegistration
 
@@ -991,8 +996,8 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/app/create-workspace-resource.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
-> | actiongroups | **Yes** | **Yes** | No |
+> | accounts | **Yes** | **Yes** | No. [Learn more](/azure/azure-monitor/app/create-workspace-resource#how-do-i-move-an-application-insights-resource-to-a-new-region). |
+> | actiongroups | No | No | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
 > | autoscalesettings | **Yes** | **Yes** | No |
@@ -1378,7 +1383,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | trafficmanagerusermetricskeys | No | No | No |
 > | virtualhubs | No | No | No |
 > | virtualnetworkgateways | No| No | No |
-> | virtualnetworks | **Yes** | **Yes** | No |
+> | virtualnetworks | **Yes** | **Yes** | **Yes** |
 > | virtualnetworktaps | No | No | No |
 > | virtualrouters | **Yes** | **Yes** | No |
 > | virtualwans | No | No |
@@ -1486,6 +1491,19 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | capacities | **Yes** | **Yes** | No |
+
+## Microsoft.ProgrammableConnectivity
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | gateways | No | No | No |
+> | openApiGatewayOfferings | No | No | No |
+> | openApiGateways | No | No | No |
+> | operatorApiConnections | No | No | No |
+> | operatorApiPlans | No | No | No |
+> | OperatorConnections | No | No | No |
+> | OperatorOfferings | No | No | No |
 
 ## Microsoft.ProjectBabylon
 

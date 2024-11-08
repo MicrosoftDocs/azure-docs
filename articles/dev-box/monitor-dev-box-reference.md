@@ -30,13 +30,13 @@ The following table lists the properties of resource logs in a Microsoft Dev Box
 | **resultType** | **OperationResult** | Indicates whether the operation failed or succeeded. |
 | **correlationId** | **CorrelationId** | The unique correlation ID for the operation that can be shared with the app team to support further investigation. |
 
-For a list of all Azure Monitor log categories and links to associated schemas, see [Common and service-specific schemas for Azure resource logs](../azure-monitor/essentials/resource-logs-schema.md). 
+For a list of all Azure Monitor log categories and links to associated schemas, see [Common and service-specific schemas for Azure resource logs](/azure/azure-monitor/essentials/resource-logs-schema). 
 
 ## Azure Monitor Logs tables
 
-A dev center uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables that a dev center uses, see the [Azure Monitor Logs table reference organized by resource type](/azure/azure-monitor/reference/tables/tables-resourcetype#dev-centers).
+A dev center uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables that a dev center uses, see the [Azure Monitor Logs table reference organized by resource type](/azure/azure-monitor/logs/manage-logs-tables).
 
 ## Related content
 
 - [Monitor Dev Box](monitor-dev-box.md)
-- [Monitor Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)
+- [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)

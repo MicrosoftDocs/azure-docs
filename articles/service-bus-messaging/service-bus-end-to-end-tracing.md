@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 One of the common problems in micro services development is the ability to trace operation from a client through all the services that are involved in processing. It's useful for debugging, performance analysis, A/B testing, and other typical diagnostics scenarios.
 One part of this problem is tracking logical pieces of work. It includes message processing result and latency and external dependency calls. Another part is correlation of these diagnostics events beyond process boundaries.
 
-When a producer sends a message through a queue, it typically happens in the scope of some other logical operation, initiated by some other client or service. The same operation is continued by consumer once it receives a message. Both producer and consumer (and other services that process the operation), presumably emit telemetry events to trace the operation flow and result. In order to correlate such events and trace operation end-to-end, each service that reports telemetry has to stamp every event with a trace context.
+When a producer sends a message through a queue, it typically happens in the scope of some other logical operation, initiated by some other client or service. The same operation is continued by consumer once it receives a message. Both producer and consumer (and other services that process the operation), presumably emit telemetry events to trace the operation flow and result. In order to correlate such events and trace operation end-to-end, each service that reports telemetry has to stamp every event with a trace context. One library that can help developers have all of this telemetry emitted by default is [NServiceBus](https://docs.particular.net/nservicebus/operations/opentelemetry).
 
 Microsoft Azure Service Bus messaging has defined payload properties that producers and consumers should use to pass such trace context.
 The protocol is based on the [W3C Trace-Context](https://www.w3.org/TR/trace-context/).
@@ -30,9 +30,9 @@ The `ServiceBusProcessor` class of [Azure Messaging Service Bus client for .NET]
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) provides rich performance monitoring capabilities including automagical request and dependency tracking.
 
 Depending on your project type, install Application Insights SDK:
-- [ASP.NET](../azure-monitor/app/asp-net.md) - install version 2.5-beta2 or higher
-- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) - install version 2.2.0-beta2 or higher.
-These links provide details on installing SDK, creating resources, and configuring SDK (if needed). For non-ASP.NET applications, refer to [Azure Application Insights for Console Applications](../azure-monitor/app/console.md) article.
+- [ASP.NET](/azure/azure-monitor/app/asp-net) - install version 2.5-beta2 or higher
+- [ASP.NET Core](/azure/azure-monitor/app/asp-net-core) - install version 2.2.0-beta2 or higher.
+These links provide details on installing SDK, creating resources, and configuring SDK (if needed). For non-ASP.NET applications, refer to [Azure Application Insights for Console Applications](/azure/azure-monitor/app/console) article.
 
 If you use [`ProcessMessageAsync` of `ServiceBusProcessor`](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) (message handler pattern) to process messages, the message processing is also instrumented. All Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. Otherwise refer to the following example for manual message processing tracking.
 
@@ -69,7 +69,7 @@ async Task ProcessAsync(ProcessMessageEventArgs args)
 
 In this example, request telemetry is reported for each processed message, having a timestamp, duration, and result (success). The telemetry also has a set of correlation properties. Nested traces and exceptions reported during message processing are also stamped with correlation properties representing them as 'children' of the `RequestTelemetry`.
 
-In case you make calls to supported external components during message processing, they're also automatically tracked and correlated. Refer to [Track custom operations with Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md) for manual tracking and correlation.
+In case you make calls to supported external components during message processing, they're also automatically tracked and correlated. Refer to [Track custom operations with Application Insights .NET SDK](/azure/azure-monitor/app/custom-operations-tracking) for manual tracking and correlation.
 
 If you're running any external code in addition to the Application Insights SDK, expect to see longer **duration** when viewing Application Insights logs. 
 
@@ -194,7 +194,7 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 | Property Name        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
@@ -211,9 +211,9 @@ The instrumentation allows tracking all calls to the Service Bus messaging servi
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) provides rich performance monitoring capabilities including automagical request and dependency tracking.
 
 Depending on your project type, install Application Insights SDK:
-- [ASP.NET](../azure-monitor/app/asp-net.md) - install version 2.5-beta2 or higher
-- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) - install version 2.2.0-beta2 or higher.
-These links provide details on installing SDK, creating resources, and configuring SDK (if needed). For non-ASP.NET applications, refer to [Azure Application Insights for Console Applications](../azure-monitor/app/console.md) article.
+- [ASP.NET](/azure/azure-monitor/app/asp-net) - install version 2.5-beta2 or higher
+- [ASP.NET Core](/azure/azure-monitor/app/asp-net-core) - install version 2.2.0-beta2 or higher.
+These links provide details on installing SDK, creating resources, and configuring SDK (if needed). For non-ASP.NET applications, refer to [Azure Application Insights for Console Applications](/azure/azure-monitor/app/console) article.
 
 If you use [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) to process messages, you're done: all Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. Otherwise refer to the following example for manual message processing tracking.
 
@@ -249,7 +249,7 @@ async Task ProcessAsync(Message message)
 In this example, `RequestTelemetry` is reported for each processed message, having a timestamp, duration, and result (success). The telemetry also has a set of correlation properties.
 Nested traces and exceptions reported during message processing are also stamped with correlation properties representing them as 'children' of the `RequestTelemetry`.
 
-In case you make calls to supported external components during message processing, they're also automatically tracked and correlated. Refer to [Track custom operations with Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md) for manual tracking and correlation.
+In case you make calls to supported external components during message processing, they're also automatically tracked and correlated. Refer to [Track custom operations with Application Insights .NET SDK](/azure/azure-monitor/app/custom-operations-tracking) for manual tracking and correlation.
 
 If you're running any external code in addition to the Application Insights SDK, expect to see longer **duration** when viewing Application Insights logs. 
 
@@ -402,6 +402,6 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 
 ## Next steps
 
-* [Application Insights Correlation](../azure-monitor/app/distributed-tracing-telemetry-correlation.md)
-* [Application Insights Monitor Dependencies](../azure-monitor/app/asp-net-dependencies.md) to see if REST, SQL, or other external resources are slowing you down.
-* [Track custom operations with Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md)
+* [Application Insights Correlation](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
+* [Application Insights Monitor Dependencies](/azure/azure-monitor/app/asp-net-dependencies) to see if REST, SQL, or other external resources are slowing you down.
+* [Track custom operations with Application Insights .NET SDK](/azure/azure-monitor/app/custom-operations-tracking)

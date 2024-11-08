@@ -3,7 +3,7 @@ title: Managed identity
 titleSuffix: Azure Synapse
 description: Learn about using managed identities in Azure Synapse. 
 author: meenalsri
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 01/27/2022
@@ -19,7 +19,7 @@ This article helps you understand managed identity (formerly known as Managed Se
 
 ## Overview
 
-Managed identities eliminate the need to manage credentials. Managed identities provide an identity for the service instance when connecting to resources that support Microsoft Entra authentication. For example, the service can use a managed identity to access resources like [Azure Key Vault](../key-vault/general/overview.md), where data admins can securely store credentials or access storage accounts. The service uses the managed identity to obtain Microsoft Entra tokens.
+Managed identities eliminate the need to manage credentials. Managed identities provide an identity for the service instance when connecting to resources that support Microsoft Entra authentication. For example, the service can use a managed identity to access resources like [Azure Key Vault](/azure/key-vault/general/overview), where data admins can securely store credentials or access storage accounts. The service uses the managed identity to obtain Microsoft Entra tokens.
 
 There are two types of supported managed identities: 
 
@@ -125,8 +125,8 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
     },
     "identity": {
         "type": "SystemAssigned",
-        "principalId": "765ad4ab-XXXX-XXXX-XXXX-51ed985819dc",
-        "tenantId": "72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
+        "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
     },
     "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Synapse/workspaces/<workspaceName>",
     "type": "Microsoft.Synapse/workspaces",
@@ -217,18 +217,18 @@ PS C:\> (Get-AzSynapseWorkspace -ResourceGroupName <resourceGroupName> -Name <wo
 
 IdentityType   PrincipalId                          TenantId                            
 ------------   -----------                          --------                            
-SystemAssigned cadadb30-XXXX-XXXX-XXXX-ef3500e2ff05 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
+SystemAssigned aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb aaaabbbb-0000-cccc-1111-dddd2222eeee
 ```
 
 You can get the application ID by copying above principal ID, then running below Microsoft Entra ID command with principal ID as parameter.
 
 ```powershell
-PS C:\> Get-AzADServicePrincipal -ObjectId cadadb30-XXXX-XXXX-XXXX-ef3500e2ff05
+PS C:\> Get-AzADServicePrincipal -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 
-ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
-ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02
+ServicePrincipalNames : {00001111-aaaa-2222-bbbb-3333cccc4444, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
+ApplicationId         : 00001111-aaaa-2222-bbbb-3333cccc4444
 DisplayName           : <workspaceName>
-Id                    : cadadb30-XXXX-XXXX-XXXX-ef3500e2ff05
+Id                    : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 Type                  : ServicePrincipal
 ```
 
@@ -281,8 +281,8 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
   "name": "{workspaceName}",
   "identity": {
     "type": "SystemAssigned",
-    "tenantId": "72f988bf-XXXX-XXXX-XXXX-2d7cd011db47",
-    "principalId": "cadadb30-XXXX-XXXX-XXXX-ef3500e2ff05"
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+    "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222"
   },
   "tags": {}
 }

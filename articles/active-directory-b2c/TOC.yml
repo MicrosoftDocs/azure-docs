@@ -378,12 +378,12 @@
       - name: SwissID
         href:  identity-provider-swissid.md
         displayName: Swiss ID      
-      - name: Twitter
-        href: identity-provider-twitter.md
       - name: WeChat
         href: identity-provider-wechat.md
       - name: Weibo
         href: identity-provider-weibo.md
+      - name: X
+        href: identity-provider-twitter.md
       - name: Pass through identity provider token
         href: idp-pass-through-user-flow.md
     - name: Manage tokens and session 

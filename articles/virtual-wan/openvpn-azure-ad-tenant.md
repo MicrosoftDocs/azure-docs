@@ -3,18 +3,19 @@ title: 'Microsoft Entra tenant for User VPN connections: Microsoft Entra authent
 description: You can use Azure Virtual WAN User VPN (point-to-site) to connect to your VNet using Microsoft Entra authentication
 titleSuffix: Azure Virtual WAN
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 10/08/2024
 ms.author: cherylmc
 
+#Note that Audience values are not sensitive data. 
 ---
 
 # Configure a Microsoft Entra tenant for P2S User VPN OpenVPN protocol connections
 
 When you connect to your VNet using Virtual WAN User VPN (point-to-site), you have a choice of which protocol to use. The protocol you use determines the authentication options that are available to you. If you're using the OpenVPN protocol, Microsoft Entra authentication is one of the authentication options available for you to use. This article helps you configure a Microsoft Entra tenant for Virtual WAN User VPN (point-to-site) using OpenVPN authentication.
 
-[!INCLUDE [OpenVPN note](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 <a name='a-nametenanta1-create-the-azure-ad-tenant'></a>
 
@@ -31,15 +32,15 @@ Verify that you have a Microsoft Entra tenant. If you don't have a Microsoft Ent
 
 1. Create two accounts in the newly created Microsoft Entra tenant. For steps, see [Add or delete a new user](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-   * Global administrator account
+   * [Cloud Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
    * User account
 
-   The global administrator account will be used to grant consent to the Azure VPN app registration. The user account can be used to test OpenVPN authentication.
-1. Assign one of the accounts the **Global administrator** role. For steps, see  [Assign administrator and non-administrator roles to users with Microsoft Entra ID](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+   The Cloud Application Administrator role is used to grant consent to the Azure VPN app registration. The user account can be used to test OpenVPN authentication.
+1. Assign one of the accounts the **Cloud Application Administrator** role. For steps, see  [Assign administrator and non-administrator roles to users with Microsoft Entra ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
 
 ## <a name="enable-authentication"></a>3. Grant consent to the Azure VPN app registration
 
-[!INCLUDE [Steps to enable the tenant](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-azure-ad-tenant.md)]
+[!INCLUDE [Steps to enable the tenant](../../includes/vpn-gateway-vwan-azure-ad-tenant.md)]
 
 ## Next steps
 

@@ -5,7 +5,7 @@ ms.date: 04/29/2024
 ms.topic: sample
 author: padmalathas
 ms.author: padmalathas
-ms.service: batch
+ms.service: azure-batch
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Batch

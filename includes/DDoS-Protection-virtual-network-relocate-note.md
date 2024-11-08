@@ -1,6 +1,6 @@
 ---
 author: abell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: include
 ms.date: 11/28/2023
 ms.author: abell

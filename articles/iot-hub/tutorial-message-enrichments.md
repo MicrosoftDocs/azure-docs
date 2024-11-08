@@ -3,7 +3,7 @@ title: Tutorial - Use message enrichments
 titleSuffix: Azure IoT Hub
 description: Tutorial showing how to use message enrichments for Azure IoT Hub messages
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 05/11/2023
@@ -101,6 +101,9 @@ The values for these variables should be for the same resources you used in the 
 ## Route messages to a second endpoint
 
 Create a second endpoint and route for the enriched messages.
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
 
 # [Azure portal](#tab/portal)
 

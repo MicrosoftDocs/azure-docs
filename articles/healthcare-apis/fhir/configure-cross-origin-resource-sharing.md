@@ -5,7 +5,7 @@ author: expekesheth
 ms.author: kesheth
 ms.date: 06/06/2022
 ms.topic: reference
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ---
 
@@ -13,17 +13,17 @@ ms.subservice: fhir
 
 ##  What is cross-origin resource sharing in FHIR service?
 
-FHIR service in Azure Health Data Services (hereby called FHIR service) supports [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request.
+FHIR&reg; service in Azure Health Data Services supports [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request.
 
 CORS is often used in a single-page app that must call a RESTful API to a different domain.
 
 ## Cross-origin resource sharing configuration settings
 
-To configure a CORS setting in the FHIR service, specify the following settings:
+To configure a CORS setting in the FHIR service, specify the following settings.
 
 - **Origins (Access-Control-Allow-Origin)**. A list of domains allowed to make cross-origin requests to the FHIR service. Each domain (origin) must be entered in a separate line. You can enter an asterisk (*) to allow calls from any domain, but we don't recommend it because it's a security risk.
 
-- **Headers (Access-Control-Allow-Headers)**. A list of headers that the origin request will contain. To allow all headers, enter an asterisk (*).
+- **Headers (Access-Control-Allow-Headers)**. A list of headers that the origin request contains. To allow all headers, enter an asterisk (*).
 
 - **Methods (Access-Control-Allow-Methods)**. The allowed methods (PUT, GET, POST, and so on) in an API call. Choose **Select all** for all methods.
 
@@ -43,4 +43,4 @@ In this tutorial, we walked through how to configure a CORS setting in the FHIR 
 >[!div class="nextstepaction"]
 >[CARIN Implementation Guide for Blue Button&#174;](carin-implementation-guide-blue-button-tutorial.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

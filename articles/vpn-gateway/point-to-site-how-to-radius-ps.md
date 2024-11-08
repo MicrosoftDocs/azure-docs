@@ -3,9 +3,9 @@ title: 'Connect to a virtual network using P2S and RADIUS authentication: PowerS
 titleSuffix: Azure VPN Gateway
 description: Learn how to connect VPN clients securely to a virtual network using P2S and RADIUS authentication.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/29/2024
+ms.date: 06/20/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 This article helps you create a point-to-site (P2S) connection that uses RADIUS authentication. You can create this configuration using either PowerShell, or the Azure portal. If you want to authenticate using a different method, see the following articles:
 
-* [Certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Certificate authentication](point-to-site-certificate-gateway.md)
 * [Microsoft Entra ID authentication](openvpn-azure-ad-tenant.md)
 
 For more information about point-to-site VPN connections, see [About P2S VPN](point-to-site-about.md).
@@ -24,6 +24,11 @@ This type of connection requires:
 * A RouteBased VPN gateway.
 * A RADIUS server to handle user authentication. The RADIUS server can be deployed on-premises, or in the Azure virtual network (VNet). You can also configure two RADIUS servers for high availability.
 * The VPN client profile configuration package. The VPN client profile configuration package is a package that you generate. It contains the settings required for a VPN client to connect over P2S.
+
+Limitations:
+
+* If you are using IKEv2 with RADIUS, only EAP-based authentication is supported.
+* An ExpressRoute connection can't be used to connect to an on-premises RADIUS server.
 
 ## <a name="aboutad"></a>About Active Directory (AD) Domain Authentication for P2S VPNs
 
@@ -35,17 +40,13 @@ Apart from Active Directory, a RADIUS server can also integrate with other exter
 
 :::image type="content" source="./media/point-to-site-how-to-radius-ps/radius-diagram.png" alt-text="Diagram of RADIUS authentication P2S connection." lightbox="./media/point-to-site-how-to-radius-ps/radius-diagram.png":::
 
-> [!IMPORTANT]
-> An ExpressRoute connection can't be used to connect to an on-premises RADIUS server.
->
-
 ## <a name="before"></a>Before beginning
 
 Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [PowerShell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example"></a>Example values
 
@@ -138,7 +139,7 @@ The [Network Policy Server (NPS)](/windows-server/networking/technologies/nps/np
 
 ## <a name="creategw"></a>Create the VPN gateway
 
-In this step, you configure and create the virtual network gateway for your VNet. For more complete information about authentication and tunnel type, see [Specify tunnel and authentication type](vpn-gateway-howto-point-to-site-resource-manager-portal.md#type) in the Azure portal version of this article.
+In this step, you configure and create the virtual network gateway for your VNet. For more complete information about authentication and tunnel type, see [Specify tunnel and authentication type](point-to-site-certificate-gateway.md#type) in the Azure portal version of this article.
 
 * The -GatewayType must be 'Vpn' and the -VpnType must be 'RouteBased'.
 * A VPN gateway can take 45 minutes or more to build, depending on the [Gateway SKU](about-gateway-skus.md) you select.

@@ -6,6 +6,10 @@ author: austinmccollum
 ms.topic: reference
 ms.date: 05/30/2024
 ms.author: austinmc
+
+
+#Customer intent: As a security analyst, I want to use the upload indicators API reference to customize the threat intelligence data from my source into Microsoft Sentinel.
+
 ---
 
 # Reference the legacy upload indicators API
@@ -78,8 +82,8 @@ There were two versions of the legacy API. Depending on the endpoint, a differen
     }
     ```
 
-1. Connector action name: **Threat Intelligence - Upload Indicators of Compromise (V2) (Preview)**
-   - Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligenceindicators:upload`
+- Connector action name: **Threat Intelligence - Upload Indicators of Compromise (V2) (Preview)**
+   - Endpoint: `https://sentinelus.azure-api.net/workspaces/{workspaceId}/threatintelligenceindicators:upload`
    - Array of indicators name: `indicators`
     ```json
     {
@@ -89,9 +93,8 @@ There were two versions of the legacy API. Depending on the endpoint, a differen
     ```
 
 #### Request URI 
-API versioning: `api-version=2022-12-01`<br>
-Endpoint: 
-<br> `https://sentinelus.azure-api.net/{workspaceId}/threatintelligenceindicators:upload?api-version=2022-12-01`<br>
+API versioning: `api-version=2022-07-01`<br>
+Endpoint: `https://sentinelus.azure-api.net/workspaces/{workspaceId}/threatintelligenceindicators:upload?api-version=2022-07-01`<br>
 Method: `POST`<br>
 
 #### Request header

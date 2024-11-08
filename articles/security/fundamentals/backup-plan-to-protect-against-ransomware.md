@@ -1,13 +1,13 @@
 ---
 title: Azure backup and restore plan to protect against ransomware | Microsoft Docs
 description: Learn what to do before and during a ransomware attack to protect your critical business systems and ensure a rapid recovery of business operations.
-author: TerryLanfear
+author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: terrylan
+ms.author: mbaldwin
 manager: rkarlin
-ms.date: 08/29/2023
+ms.date: 06/27/2024
 ---
 
 # Backup and restore plan to protect against ransomware
@@ -149,12 +149,12 @@ After a ransomware attack or an incident response simulation, take the following
 
 1. Identify lessons learned where the process didn't work well (and opportunities to simplify, accelerate, or otherwise improve the process)
 2. Perform root cause analysis on the biggest challenges (at enough detail to ensure solutions address the right problem — considering people, process, and technology)
-3. Investigate and remediate the original breach (engage the [Microsoft Detection and Response Team (DART)](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) to help)
+1. Investigate and remediate the original breach (engage the [Microsoft Incident Response team (formerly DART)](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) to help)
 4. Update your backup and restore strategy based on lessons learned and opportunities — prioritizing based on highest impact and quickest implementation steps first
 
 ## Next steps
 
-In this article, you learned how to improve your backup and restore plan to protect against ransomware. For best practices on deploying ransomware protection, see Rapidly protect against ransomware and extortion.
+For best practices on deploying ransomware protection, see Rapidly protect against ransomware and extortion.
 
 Key industry information:
 
@@ -178,9 +178,3 @@ Microsoft Defender XDR:
 
 - [Find ransomware with advanced hunting](/microsoft-365/security/defender/advanced-hunting-find-ransomware)
 
-Microsoft Security team blog posts:
-
-- [Becoming resilient by understanding cybersecurity risks: Part 4, navigating current threats (May 2021)](https://www.microsoft.com/security/blog/2021/05/26/becoming-resilient-by-understanding-cybersecurity-risks-part-4-navigating-current-threats/). See the Ransomware section
-- [Human-operated ransomware attacks: A preventable disaster (March 2020)](https://www.microsoft.com/security/blog/2020/03/05/human-operated-ransomware-attacks-a-preventable-disaster/). Includes attack chain analysis of actual human-operated ransomware attacks
-- [Ransomware response — to pay or not to pay? (December 2019)](https://www.microsoft.com/security/blog/2019/12/16/ransomware-response-to-pay-or-not-to-pay/)
-- [Norsk Hydro responds to ransomware attack with transparency (December 2019)](https://www.microsoft.com/security/blog/2019/12/17/norsk-hydro-ransomware-attack-transparency/)

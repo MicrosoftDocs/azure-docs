@@ -5,12 +5,42 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/13/2024
+ms.date: 11/01/2024
 ---
 
 # What's new in Azure Update Manager
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
+
+## November 2024
+
+### Hotpatching (preview) on Arc-enabled machines
+
+Public preview: Azure Update Manager now supports Hotpatching on Arc enabled servers.  [Learn more](manage-hot-patching-arc-machines.md).
+
+
+## August 2024
+
+### Support for 35 CIS images added along with 59 other images
+
+Azure Update Manager now supports CIS images along with 59 other popular images. For more information, see the [latest list of supported images](support-matrix.md#supported-operating-systems).
+
+
+### Pre and Post events
+
+General Availability: Azure Update Manager now supports creating and managing pre and post events on scheduled maintenance configurations. [Learn more](pre-post-scripts-overview.md).
+
+## July 2024
+
+### Support for Windows IoT Enterprise on Arc enabled servers
+
+Public preview: Azure Update Manager now supports Windows IoT Enterprise on Arc enabled servers. For more information, see [supported Windows IoT enterprise releases](/azure/update-manager/support-matrix?tabs=winio-arc%2Cpublic%2Cthird-party-win#support-for-check-for-updatesone-time-updateperiodic-assessment-and-scheduled-patching).
+
+## June 2024
+
+### New region support
+
+General Availability: Azure Update Manager is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](support-matrix.md#supported-regions).
 
 ## May 2024
 
@@ -68,7 +98,7 @@ Azure Update Manager allows you to patch Azure Stack HCI cluster. [Learn more](/
 
 ### Azure Migrate, Azure Backup, Azure Site Recovery VMs support
 
-Azure Update Manager now supports [specialized](../virtual-machines/linux/imaging.md#specialized-images) VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery. [Learn more](manage-updates-customized-images.md).
+Azure Update Manager now supports [specialized](/azure/virtual-machines/linux/imaging#specialized-images) VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery. [Learn more](manage-updates-customized-images.md).
 
 ## September 2023
 
@@ -101,7 +131,7 @@ Dynamic scope is an advanced capability of schedule patching. You can now create
 
 ### Customized image support
 
-Update Manager now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+Update Manager now supports [generalized](/azure/virtual-machines/linux/imaging#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
 
 ### Multi-subscription support
 

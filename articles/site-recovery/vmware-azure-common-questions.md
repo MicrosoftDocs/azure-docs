@@ -1,9 +1,9 @@
 ---
 title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
-ms.date: 04/10/2024
-ms.topic: conceptual
-ms.service: site-recovery
+ms.date: 07/10/2024
+ms.topic: faq
+ms.service: azure-site-recovery
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
@@ -95,6 +95,10 @@ Managed disks are charged slightly differently from storage accounts. [Learn mor
 
 You'll typically see an increase in the transactions cost incurred on GPv2 storage accounts since Azure Site Recovery is transactions heavy. [Read more](../storage/common/storage-account-upgrade.md#pricing-and-billing) to estimate the change.
 
+### Does Site Recovery work with reserved instances?
+
+Yes, you can purchase [reserved Azure virtual machines](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the disaster recovery region, and Site Recovery failover operations use them. No additional configuration is needed.
+
 ## Mobility service
 
 ### Where can I find the Mobility service installers?
@@ -132,7 +136,7 @@ Replication of new VMs to a storage account is available only by using PowerShel
 
 ### Can I change the managed-disk type after a machine is protected?
 
-Yes, you can easily [change the type of managed disk](../virtual-machines/disks-convert-types.md) for ongoing replications. Before changing the type, ensure that no shared access signature URL is generated on the managed disk:
+Yes, you can easily [change the type of managed disk](/azure/virtual-machines/disks-convert-types) for ongoing replications. Before changing the type, ensure that no shared access signature URL is generated on the managed disk:
 
 1. Go to the **Managed Disk** resource on the Azure portal and check whether you have a shared access signature URL banner on the **Overview** blade.
 1. If the banner is present, select it to cancel the ongoing export.
@@ -391,7 +395,7 @@ No. Azure Site Recovery cannot use On-demand capacity reservation unless it's Az
 
 ### The application license is based on UUID of VMware virtual machine. Is the UUID of a VMware virtual machine changed when it is failed over to Azure?
 
-Yes, the UUID of the Azure virtual machine is different from the on-prem VMware virtual machine. However, most application vendors support transferring the license to a new UUID. If the application supports it, the customer can work with the vendor to transfer the license to the VM with the new UUID.
+Yes, the UUID of the Azure virtual machine is different from the on-premises VMware virtual machine. However, most application vendors support transferring the license to a new UUID. If the application supports it, the customer can work with the vendor to transfer the license to the VM with the new UUID.
 
 ## Automation and scripting
 

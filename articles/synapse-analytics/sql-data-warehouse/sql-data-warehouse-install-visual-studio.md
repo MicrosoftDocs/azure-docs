@@ -4,7 +4,7 @@ description: Install Visual Studio and SQL Server Development Tools (SSDT) for S
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 05/11/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 12/13/2023
+ms.date: 07/31/2024
 ---
 
 # Data operation code samples for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Here are the code samples for the data operation action definitions in the article, [Perform data operations](../logic-apps/logic-apps-perform-data-operations.md). You can use these samples for when you want to try the examples with your own logic app's underlying workflow definition, Azure subscription, and API connections. Just copy and paste these action definitions into the code view editor for your logic app's workflow definition, and then modify the definitions for your specific workflow. 
+Here are the code samples for the data operation action definitions in the article, [Perform data operations](logic-apps-perform-data-operations.md). You can use these samples for when you want to try the examples with your own logic app's underlying workflow definition, Azure subscription, and API connections. Just copy and paste these action definitions into the code view editor for your logic app's workflow definition, and then modify the definitions for your specific workflow. 
 
 Based on JavaScript Object Notation (JSON) standards, these action definitions appear in alphabetical order. However, in the Logic App Designer, each definition appears in the correct sequence within your workflow because each action definition's `runAfter` property specifies the run order.
 
@@ -20,7 +20,7 @@ Based on JavaScript Object Notation (JSON) standards, these action definitions a
 
 ## Compose
 
-To try the [**Compose** action example](../logic-apps/logic-apps-perform-data-operations.md#compose-action), 
+To try the [**Compose** action example](logic-apps-perform-data-operations.md#compose-action), 
 here are the action definitions you can use:
 
 ```json
@@ -61,7 +61,7 @@ here are the action definitions you can use:
         {
           "name": "firstNameVar",
           "type": "String",
-          "value": "Sophie "
+          "value": "Sophia "
         }
       ]
     },
@@ -74,7 +74,7 @@ here are the action definitions you can use:
         {
           "name": "lastNameVar",
           "type": "String",
-          "value": "Owen"
+          "value": "Owens"
         }
       ]
     },
@@ -91,7 +91,7 @@ here are the action definitions you can use:
 
 ## Create CSV table
 
-To try the [**Create CSV table** action example](../logic-apps/logic-apps-perform-data-operations.md#create-csv-table-action), here are the action definitions you can use:
+To try the [**Create CSV table** action example](logic-apps-perform-data-operations.md#create-csv-table-action), here are the action definitions you can use:
 
 ```json
 "actions": {
@@ -136,7 +136,7 @@ To try the [**Create CSV table** action example](../logic-apps/logic-apps-perfor
 
 ## Create HTML table
 
-To try the [**Create HTML table** action example](../logic-apps/logic-apps-perform-data-operations.md#create-html-table-action), 
+To try the [**Create HTML table** action example](logic-apps-perform-data-operations.md#create-html-table-action), 
 here are the action definitions you can use:
 
 ```json
@@ -182,7 +182,7 @@ here are the action definitions you can use:
 
 ## Filter array
 
-To try the [**Filter array** action example](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action), here are the action definitions you can use:
+To try the [**Filter array** action example](logic-apps-perform-data-operations.md#filter-array-action), here are the action definitions you can use:
 
 ```json
 "actions": {
@@ -223,7 +223,7 @@ To try the [**Filter array** action example](../logic-apps/logic-apps-perform-da
 
 ## Join
 
-To try the [**Join** action example](../logic-apps/logic-apps-perform-data-operations.md#join-action), here are the action definitions you can use:
+To try the [**Join** action example](logic-apps-perform-data-operations.md#join-action), here are the action definitions you can use:
 
 ```json
 "actions": {
@@ -264,7 +264,7 @@ To try the [**Join** action example](../logic-apps/logic-apps-perform-data-opera
 
 ## Parse JSON
 
-To try the [**Parse JSON** action example](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), here are the action definitions you can use:
+To try the [**Parse JSON** action example](logic-apps-perform-data-operations.md#parse-json-action), here are the action definitions you can use:
 
 ```json
 "actions": {
@@ -277,9 +277,9 @@ To try the [**Parse JSON** action example](../logic-apps/logic-apps-perform-data
                "type": "Object",
                "value": {
                   "Member": {
-                     "Email": "Sophie.Owen@contoso.com",
-                     "FirstName": "Sophie",
-                     "LastName": "Owen"
+                     "Email": "Sophia.Owens@fabrikam.com",
+                     "FirstName": "Sophia",
+                     "LastName": "Owens"
                   }
                }
             }
@@ -324,7 +324,7 @@ To try the [**Parse JSON** action example](../logic-apps/logic-apps-perform-data
 
 ## Select
 
-To try the [**Select** action example](../logic-apps/logic-apps-perform-data-operations.md#select-action), the following action definitions create a JSON object array from an integer array:
+To try the [**Select** action example](logic-apps-perform-data-operations.md#select-action), the following action definitions create a JSON object array from an integer array:
 
 ```json
 "actions": {
@@ -363,7 +363,7 @@ To try the [**Select** action example](../logic-apps/logic-apps-perform-data-ope
 },
 ```
 
-The following example shows action definitions that create a string array from a JSON object array, but for this task, next to the **Map** box, switch to text mode (![Icon for text mode.](media/logic-apps-perform-data-operations/text-mode.png)) in the designer, or use the code view editor instead:
+The following example shows action definitions that create a string array from a JSON object array, but for this task, next to the **Map** box, switch to text mode (**T** icon) in the designer, or use the code view editor instead:
 
 ```json
 "actions": {
@@ -402,4 +402,4 @@ The following example shows action definitions that create a string array from a
 
 ## Next steps
 
-* [Perform data operations](../logic-apps/logic-apps-perform-data-operations.md)
+* [Perform data operations](logic-apps-perform-data-operations.md)

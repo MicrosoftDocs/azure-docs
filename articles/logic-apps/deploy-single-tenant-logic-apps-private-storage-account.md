@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23, devx-track-arm-template
-ms.date: 10/09/2023
+ms.date: 07/04/2024
 # Customer intent: As a developer, I want to deploy Standard logic apps to Azure storage accounts that use private endpoints.
 ---
 
 # Deploy single-tenant Standard logic apps to private storage accounts using private endpoints
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 When you create a single-tenant Standard logic app resource, you're required to have a storage account for storing logic app artifacts. You can restrict access to this storage account so that only the resources inside a virtual network can connect to your logic app workflow. Azure Storage supports adding private endpoints to your storage account.
 
@@ -30,6 +30,7 @@ For more information, review the following documentation:
 This deployment method requires that temporary public access to your storage account. If you can't enable public access due to your organization's policies, you can still deploy your logic app to a private storage account. However, you have to [deploy with an Azure Resource Manager template (ARM template)](#deploy-arm-template), which is described in a later section. 
 
 > [!NOTE]
+>
 > An exception to the previous rule is that you can use the Azure portal to deploy your logic app to an App Service Environment, 
 > even if the storage account is protected with a private endpoint. However, you'll need connectivity between the 
 > subnet used by the App Service Environment and the subnet used by the storage account's private endpoint. 
@@ -46,17 +47,25 @@ This deployment method requires that temporary public access to your storage acc
 
 1. Deploy your logic app resource by using either the Azure portal or Visual Studio Code.
 
-1. After deployment finishes, enable virtual network integration between your logic app and the private endpoints on the virtual network that connects to your storage account.
+1. After deployment finishes, enable virtual network integration between your logic app and the private endpoints on the virtual network connected to your storage account.
 
    1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
    1. On the logic app resource menu, under **Settings**, select **Networking**.
 
-   1. Select **VNet integration** on **Outbound Traffic** card to enable integration with a virtual network connecting to your storage account.
+   1. In the **Outbound traffic configuration** section, next to **Virtual network integration**, select **Not configured** > **Add virtual network integration** .
 
-   1. To access your logic app workflow data over the virtual network, in your logic app resource settings, set the `WEBSITE_CONTENTOVERVNET` setting to `1`.
+   1. On the **Add virtual network integration** pane that opens, select your Azure subscription and your virtual network.
 
-   If you use your own domain name server (DNS) with your virtual network, set your logic app resource's `WEBSITE_DNS_SERVER` app setting to the IP address for your DNS. If you have a secondary DNS, add another app setting named `WEBSITE_DNS_ALT_SERVER`, and set the value also to the IP for your secondary DNS.
+   1. From the **Subnet** list, select the subnet where you want to add your logic app. When you're done, select **Connect**.
+
+1. To access your logic app workflow data over the virtual network, follow these steps:
+
+   1. On the logic app resource menu, under **Settings**, select **Environment variables**.
+
+   1. On the **App settings** tab, add the **WEBSITE_CONTENTOVERVNET** app setting, if none exist, and set the value to **1**.
+
+   1. If you use your own domain name server (DNS) with your virtual network, add the **WEBSITE_DNS_SERVER** app setting, if none exist, and set the value to the IP address for your DNS. If you have a secondary DNS, add another app setting named **WEBSITE_DNS_ALT_SERVER**, and set the value to the IP for your secondary DNS.
 
 1. After you apply these app settings, you can remove public access from your storage account.
 
@@ -67,6 +76,7 @@ This deployment method requires that temporary public access to your storage acc
    1. On the **Networking** pane, on the **Firewalls and virtual networks** tab, under **Allow access from**, clear **Selected networks**, and add virtual networks as necessary.
 
    > [!NOTE]
+   >
    > Your logic app might experience an interruption because the connectivity switch between public and private endpoints might take time. 
    > This disruption might result in your workflows temporarily disappearing. If this behavior happens, you can try to reload your workflows 
    > by restarting the logic app and waiting several minutes.
@@ -92,7 +102,6 @@ The following errors commonly happen with a private storage account that's behin
 |---------|-------|
 | Access to the `host.json` file is denied | `"System.Private.CoreLib: Access to the path 'C:\\home\\site\\wwwroot\\host.json' is denied."` |
 | Can't load workflows in the logic app resource | `"Encountered an error (ServiceUnavailable) from host runtime."` |
-|||
 
 As the logic app isn't running when these errors occur, you can't use the Kudu console debugging service on the Azure platform to troubleshoot these errors. However, you can use the following methods instead:
 

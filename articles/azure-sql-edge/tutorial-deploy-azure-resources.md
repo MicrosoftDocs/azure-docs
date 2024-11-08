@@ -4,8 +4,8 @@ description: In part one of this three-part Azure SQL Edge tutorial for predicti
 author: kendalvandyke
 ms.author: kendalv
 ms.reviewer: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: tutorial
 ms.custom:
   - devx-track-azurepowershell
@@ -13,7 +13,9 @@ ms.custom:
 ---
 # Install software and set up resources for the tutorial
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 In this three-part tutorial, you'll create a machine learning model to predict iron ore impurities as a percentage of Silica, and then deploy the model in Azure SQL Edge. In part one, you'll install the required software and deploy Azure resources.
@@ -35,7 +37,7 @@ In this three-part tutorial, you'll create a machine learning model to predict i
 
 Deploy the Azure resources required by this Azure SQL Edge tutorial. These resources can be deployed either by using a PowerShell script or through the Azure portal. This tutorial uses a PowerShell script.
 
-[!INCLUDE [iot-hub-cli-version-info](~/reusable-content/ce-skilling/azure/includes/iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 1. Import the modules needed to run the PowerShell script in this tutorial.
 
@@ -257,6 +259,6 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These resou
    az ml workspace create -w $MyWorkSpace -g $ResourceGroup
    ```
 
-## Next steps
+## Related content
 
 - [Set up IoT Edge modules and connections](tutorial-set-up-iot-edge-modules.md)

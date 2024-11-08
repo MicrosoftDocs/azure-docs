@@ -12,6 +12,8 @@ ms.custom: mvc, mode-other
 
 # Quickstart: Integrate an Azure Storage account with Azure Content Delivery Network
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 In this quickstart, you enable [Azure Content Delivery Network](cdn-overview.md) to cache content from Azure Storage. Azure Content Delivery Network offers developers a global solution for delivering high-bandwidth content. It can cache blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia, and South America.
 
 > [!NOTE]  
@@ -27,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create a storage account
 
-A storage account gives access to Azure Storage services. The storage account represents the highest level of the namespace for accessing each of the Azure Storage service components: Azure Blob, Queue, and Table storage. For more information, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md).
+A storage account gives access to Azure Storage services. The storage account represents the highest level of the namespace for accessing each of the Azure Storage service components: Azure Blob, Queue, and Table storage. Take note that Azure Files can be only accessed through SMB protocol and cannot be put directly behind an Azure CDN which only supports HTTP(80) and HTTPS(443) protocols. For more information, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 To create a storage account, you must be either the service administrator or a coadministrator for the associated subscription.
 

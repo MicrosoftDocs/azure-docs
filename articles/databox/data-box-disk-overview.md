@@ -4,8 +4,7 @@ description: Describes Azure Data Box Disk, a cloud solution that enables you to
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: overview
 ms.date: 09/09/2022
 ms.author: shaas
@@ -29,21 +28,8 @@ Use Data Box Disk to transfer terabytes of data in scenarios with limited networ
 - **Incremental transfer** - when an initial bulk transfer is done using Data Box Disk (seed) followed by incremental transfers over the network. For example, Commvault and Data Box Disk are used to move backup copies to Azure. This migration is followed by copying incremental data using network to Azure Storage.
 - **Periodic uploads** - when large amount of data is generated periodically and needs to be moved to Azure. One possible example might include the transfer of video content is generated on oil rigs and windmill farms for energy exploration. Additionally, periodic uploads can be useful for advanced driver assist system (ADAS) data collection campaigns, where data is collected from test vehicles.
 
-### Ingestion of data from Data Box
-
-Azure providers and non-Azure providers can ingest data from Azure Data Box. The Azure services that provide data ingestion from Azure Data Box include:
-
-- **SharePoint Online** - use Azure Data Box and the SharePoint Migration Tool (SPMT) to migrate your file share content to SharePoint Online. Using Data Box, you remove the dependency on your WAN link to transfer the data. For more information, see [Use the Azure Data Box Heavy to migrate your file share content to SharePoint Online](data-box-heavy-migrate-spo.md).
-
-- **Azure File Sync** -  replicates files from your Data Box to an Azure file share, enabling you to centralize your file services in Azure while maintaining local access to your data. For more information, see [Deploy Azure File Sync](../storage/file-sync/file-sync-deployment-guide.md).
-
-- **HDFS stores** - migrate data from an on-premises Hadoop Distributed File System (HDFS) store of your Hadoop cluster into Azure Storage using Data Box. For more information, see [Migrate from on-premises HDFS store to Azure Storage with Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
-
-- **Azure Backup** - allows you to move large backups of critical enterprise data through offline mechanisms to an Azure Recovery Services Vault. For more information, see [Azure Backup overview](../backup/backup-overview.md).
-
-You can use your Data Box data with many non-Azure service providers. For instance:
-
-- **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to back up and replicate large amounts of data from your Hyper-V machine to your Data Box.
+> [!IMPORTANT]
+> Azure Data Box Disk is now generally available in a hardware-encrypted option in select countries and regions. These Data Box Disk self-encrypting drives (SEDs) are very well suited for data transfers from Linux systems and support similar data transfer rates to BitLocker-encrypted Data Box Disks on Windows and are popular with some of our automotive customers building ADAS capabilities.
 
 ## The workflow
 
@@ -109,6 +95,8 @@ The Data Box Heavy device has the following features in this release.
 ## Region availability
 
 For information on region availability, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Disk can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md).
+
+Data Box Disk self-encrypting drives are generally available in the US, EU, and Japan. 
 
 ## Pricing
 

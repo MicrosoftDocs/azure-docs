@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/23/2024
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-ten
 
@@ -25,7 +25,7 @@ If you're using IoT Central, you can use the IoT Central UI and REST API to inte
 
 Use the Azure IoT service SDKs in your solution to interact with devices and modules. For example, you can use the service SDKs to read and update twin properties and invoke commands. Supported languages include C#, Java, Node.js, and Python.
 
-[!INCLUDE [iot-hub-sdks-service](~/reusable-content/ce-skilling/azure/includes/iot-hub-sdks-service.md)]
+[!INCLUDE [iot-hub-sdks-service](../../includes/iot-hub-sdks-service.md)]
 
 The service SDKs let you access device information from a solution component such as a desktop or web application. The service SDKs include two namespaces and object models that you can use to retrieve the model ID:
 

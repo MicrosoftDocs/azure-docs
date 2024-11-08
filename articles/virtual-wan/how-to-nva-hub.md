@@ -2,7 +2,7 @@
 title: 'Azure Virtual WAN: Create a Network Virtual Appliance (NVA) in the hub'
 description: Learn how to deploy a Network Virtual Appliance in the Virtual WAN hub.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/28/2023
 ms.author: cherylmc
@@ -34,13 +34,13 @@ Verify that you've met the following criteria before beginning your configuratio
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-[!INCLUDE [Create virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="hub"></a>Create a hub
 
 Create a virtual hub by filling out the **Basics** tab to create an empty virtual hub (a virtual hub that doesn't contain any gateways).
 
-[!INCLUDE [Create a virtual hub](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create a virtual hub](../../includes/virtual-wan-hub-basics.md)]
 
 ## Create the Network Virtual Appliance in the hub
 

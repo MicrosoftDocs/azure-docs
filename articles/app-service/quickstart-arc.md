@@ -17,7 +17,7 @@ In this quickstart, you create an [App Service app to an Azure Arc-enabled Kuber
 
 - [Set up your Azure Arc-enabled Kubernetes to run App Service](manage-create-arc-environment.md).
 
-[!INCLUDE [app-service-arc-cli-install-extensions](~/reusable-content/ce-skilling/azure/includes/app-service-arc-cli-install-extensions.md)]
+[!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 
 ## 1. Create a resource group
 
@@ -29,7 +29,7 @@ az group create --name myResourceGroup --location eastus
 
 ## 2. Get the custom location
 
-[!INCLUDE [app-service-arc-get-custom-location](~/reusable-content/ce-skilling/azure/includes/app-service-arc-get-custom-location.md)]
+[!INCLUDE [app-service-arc-get-custom-location](../../includes/app-service-arc-get-custom-location.md)]
 
 ## 3. Create an app
 
@@ -97,7 +97,7 @@ The application logs for all the apps hosted in your Kubernetes cluster are logg
 
 **Log_s** contains application logs for a given App Service and **AppName_s** contains the App Service app name. In addition to logs you write via your application code, the Log_s column also contains logs on container startup, shutdown, and Function Apps.
 
-You can learn more about log queries in [getting started with Kusto](../azure-monitor/logs/get-started-queries.md).
+You can learn more about log queries in [getting started with Kusto](/azure/azure-monitor/logs/get-started-queries).
 
 ## (Optional) Deploy a custom container
 
@@ -123,5 +123,5 @@ To update the image after the app is create, see [Change the Docker image of a c
 - [Configure a Node.js app](configure-language-nodejs.md?pivots=platform-linux)
 - [Configure a PHP app](configure-language-php.md?pivots=platform-linux)
 - [Configure a Linux Python app](configure-language-python.md)
-- [Configure a Java app](configure-language-java.md?pivots=platform-linux)
+- [Configure a Java app](configure-language-java-deploy-run.md?pivots=platform-linux)
 - [Configure a custom container](configure-custom-container.md?pivots=container-linux)

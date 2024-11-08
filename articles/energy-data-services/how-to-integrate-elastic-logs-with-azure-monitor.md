@@ -3,7 +3,7 @@ title: Integrate elastic logs with Azure Monitor - Microsoft Azure Data Manager 
 description: This is a how-to article on how to start collecting ElasticSearch logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics workspace.
 author: nitinnms
 ms.author: nitindwivedi
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to 
 ms.date: 08/18/2022
 ms.custom: template-how-to
@@ -16,7 +16,7 @@ In this article, you'll learn how to start collecting Elasticsearch logs for you
 
 ## Prerequisites
 
-- You need to have a Log Analytics workspace. It will be used to query the Elasticsearch logs dataset using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. [Create a log Analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+- You need to have a Log Analytics workspace. It will be used to query the Elasticsearch logs dataset using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. [Create a log Analytics workspace in Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 
 - You need to have a storage account. It will be used to store JSON dumps of Elasticsearch & Elasticsearch Operator logs. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace. 
@@ -32,7 +32,7 @@ Each diagnostic setting has three basic parts:
 | Part | Description |
 |-|-|
 | Name  | This is the name of the diagnostic log. Ensure a unique name is set for each log. |
-| Categories | Category of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](../azure-monitor/essentials/resource-logs-categories.md) |
+| Categories | Category of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](/azure/azure-monitor/essentials/resource-logs-categories) |
 | Destinations | One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. It should be a storage account, an Event Hubs namespace or an event hub. |
 
 We support two destinations for your Elasticsearch logs from Azure Data Manager for Energy instance:
@@ -111,7 +111,7 @@ The editor in Log Analytics workspace support Kusto (KQL) queries through which 
 After collecting resource logs as explained in this article, there are more capabilities you can explore.
 
 * Create a log query alert to be proactively notified when interesting data is identified in your log data.
-    [Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md)
+    [Create a log query alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-log-alert)
 
 * Start collecting logs from other sources such as Airflow in your Azure Data Manager for Energy instance. 
     [How to Integrate Airflow logs with Azure Monitor](how-to-integrate-airflow-logs-with-azure-monitor.md)

@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 07/18/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Add a tile layer

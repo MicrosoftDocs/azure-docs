@@ -4,16 +4,15 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Shows you how to configure APM integration and CA certificates in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: fenzho
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # How to configure APM integration and CA certificates
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
@@ -67,7 +66,7 @@ This section lists the supported languages and required environment variables fo
   Environment variables required for buildpack binding:
   - `connection-string`
 
-  For other supported environment variables, see [Application Insights Overview](../../azure-monitor/app/app-insights-overview.md?tabs=java).
+  For other supported environment variables, see [Application Insights Overview](/azure/azure-monitor/app/app-insights-overview?tabs=java).
 
 - **DynaTrace**
 

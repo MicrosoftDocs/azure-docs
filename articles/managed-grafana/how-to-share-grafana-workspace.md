@@ -4,7 +4,7 @@ description: Learn how you can share access permissions to Azure Managed Grafana
 #customerintent: As a developer, I want to learn how I can share permissions to an Azure Managed Grafana instance so that I can control user access.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.custom: engagement-fy23
 ms.topic: how-to 
 ms.date: 04/12/2024
@@ -24,17 +24,18 @@ Azure Managed Grafana enables such collaboration by allowing you to set custom p
 
 ## Supported Grafana roles
 
-Azure Managed Grafana supports the Grafana Admin, Grafana Editor, and Grafana Viewer roles:
+Azure Managed Grafana supports the following Grafana roles:
 
-- The Grafana Admin role provides full control of the instance including managing role assignments, viewing, editing, and configuring data sources.
-- The Grafana Editor role provides read-write access to the dashboards in the instance.
-- The Grafana Viewer role provides read-only access to dashboards in the instance.
+- Grafana Admin: provides full control of the instance including managing role assignments, viewing, editing, and configuring data sources.
+- Grafana Editor: provides read-write access to the dashboards in the instance.
+- Grafana Limited Viewer: provides read-only access to the Grafana home page. This role contains no permissions assigned by default and it is not available for Grafana v9 workspaces.
+- Grafana Viewer: provides read-only access to dashboards in the instance.
 
-More details on Grafana roles can be found in the [Grafana documentation](https://grafana.com/docs/grafana/latest/permissions/organization_roles/#compare-roles).
-
-Grafana user roles and assignments are fully [integrated within Microsoft Entra ID](../role-based-access-control/built-in-roles.md#grafana-admin). You can assign a Grafana role to any Microsoft Entra user, group, service principal or managed identity, and grant them access permissions associated with that role. You can manage these permissions from the Azure portal or the command line. This section explains how to assign Grafana roles to users in the Azure portal.
+Go to [Azure role-based access control within Azure Managed Grafana](./concept-role-based-access-control.md) for more information about these roles in Azure, and to [Organization roles](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/#organization-roles) to learn about Grafana roles from the Grafana website. The Grafana Limited Viewer role in Azure maps to the "No Basic Role" in the Grafana documentation.
 
 ## Add a Grafana role assignment
+
+Grafana user roles and assignments are fully [integrated within Microsoft Entra ID](../role-based-access-control/built-in-roles.md#grafana-admin). You can assign a Grafana role to any Microsoft Entra user, group, service principal or managed identity, and grant them access permissions associated with that role. You can manage these permissions from the Azure portal or the command line. This section explains how to assign Grafana roles to users in the Azure portal.
 
 ### [Portal](#tab/azure-portal)
 
@@ -44,7 +45,7 @@ Grafana user roles and assignments are fully [integrated within Microsoft Entra 
 
       :::image type="content" source="media/share/iam-page.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
 
-1. Select a Grafana role to assign among **Grafana Admin**, **Grafana Editor** or **Grafana Viewer**, then select **Next**.
+1. Select a Grafana role to assign among **Grafana Admin**, **Grafana Editor**, **Grafana Limited Viewer** or **Grafana Viewer**, then select **Next**.
 
     :::image type="content" source="media/share/role-assignment.png" alt-text="Screenshot of the Grafana roles in the Azure platform.":::
 
@@ -69,6 +70,7 @@ In the code below, replace the following placeholders:
 - `<roleNameOrId>`:
   - For Grafana Admin, enter `Grafana Admin` or `22926164-76b3-42b3-bc55-97df8dab3e41`.
    - For Grafana Editor, enter `Grafana Editor` or `a79a5197-3a5c-4973-a920-486035ffd60f`.
+   - For Grafana Limited Viewer, enter `Grafana Limited Viewer` or `41e04612-9dac-4699-a02b-c82ff2cc3fb5`.
    - For Grafana Viewer, enter `Grafana Viewer` or `60921a7e-fef1-4a43-9b16-a26c52ad4769`.
 - `<scope>`: enter the full ID of the Azure Managed Grafana instance.
 
@@ -83,7 +85,7 @@ Example:
 ```azurecli
 az role assignment create --assignee "name@contoso.com" \
 --role "Grafana Admin" \
---scope "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourcegroups/my-rg/providers/Microsoft.Dashboard/grafana/my-grafana"
+--scope "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/my-rg/providers/Microsoft.Dashboard/grafana/my-grafana"
 ```
 For more information about assigning Azure roles using the Azure CLI, refer to the [Role based access control documentation](../role-based-access-control/role-assignments-cli.md).
 

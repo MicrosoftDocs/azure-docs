@@ -11,7 +11,7 @@ ms.date: 12/06/2023
 
 # Handle errors and exceptions in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 The way that any integration architecture appropriately handles downtime or issues caused by dependent systems can pose a challenge. To help you create robust and resilient integrations that gracefully handle problems and failures, Azure Logic Apps provides a first-class experience for handling errors and exceptions.
 
@@ -440,7 +440,7 @@ To perform different exception handling patterns, you can use the expressions pr
 
 The previous patterns are useful ways to handle errors and exceptions that happen within a run. However, you can also identify and respond to errors that happen independently from the run. To evaluate run statuses, you can monitor the logs and metrics for your runs, or publish them into any monitoring tool that you prefer.
 
-For example, [Azure Monitor](../azure-monitor/overview.md) provides a streamlined way to send all workflow events, including all run and action statuses, to a destination. You can [set up alerts for specific metrics and thresholds in Azure Monitor](monitor-logic-apps.md#set-up-monitoring-alerts). You can also send workflow events to a [Log Analytics workspace](../azure-monitor/logs/data-platform-logs.md) or [Azure storage account](../storage/blobs/storage-blobs-overview.md). Or, you can stream all events through [Azure Event Hubs](../event-hubs/event-hubs-about.md) into [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). In Stream Analytics, you can write live queries based on any anomalies, averages, or failures from the diagnostic logs. You can use Stream Analytics to send information to other data sources, such as queues, topics, SQL, Azure Cosmos DB, or Power BI.
+For example, [Azure Monitor](/azure/azure-monitor/overview) provides a streamlined way to send all workflow events, including all run and action statuses, to a destination. You can [set up alerts for specific metrics and thresholds in Azure Monitor](monitor-logic-apps.md#set-up-monitoring-alerts). You can also send workflow events to a [Log Analytics workspace](/azure/azure-monitor/logs/data-platform-logs) or [Azure storage account](../storage/blobs/storage-blobs-overview.md). Or, you can stream all events through [Azure Event Hubs](../event-hubs/event-hubs-about.md) into [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). In Stream Analytics, you can write live queries based on any anomalies, averages, or failures from the diagnostic logs. You can use Stream Analytics to send information to other data sources, such as queues, topics, SQL, Azure Cosmos DB, or Power BI.
 
 For more information, review [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](monitor-workflows-collect-diagnostic-data.md).
 

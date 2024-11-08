@@ -2,7 +2,7 @@
 title: Azure Service Bus - message deferral
 description: This article explains how to defer delivery of Azure Service Bus messages. The message remains in the queue or subscription, but it's set aside.
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 07/25/2024
 ---
 
 # Message deferral
@@ -39,7 +39,7 @@ See samples for the older .NET and Java client libraries here:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - See the **Deferral** sample. 
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ## Related resources
 

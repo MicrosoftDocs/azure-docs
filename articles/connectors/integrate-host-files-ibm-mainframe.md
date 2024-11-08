@@ -12,7 +12,7 @@ ms.date: 11/02/2023
 
 # Parse and generate host files from IBM mainframes for Standard workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 To parse and generate new IBM host files and i Series physical files from Standard workflows in Azure Logic Apps, you can use the **IBM Host File** built-in, service provider-based connector. Since the introduction of mainframe systems, ubiquitous host files are used to store abundant data for mission critical systems. Although this connector doesn't require access to an IBM mainframe or midrange system, you must make the host file available to a Standard workflow by using other mechanisms such as FTP, blob storage, Host Integration Server, or a partner software appliance. The **IBM Host File** connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
 

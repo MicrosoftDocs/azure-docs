@@ -26,8 +26,8 @@ Advantages of using a gallery include:
 
 To learn more about Azure Compute Gallery and how to create galleries, see:
 
-- [Store and share images in Azure Compute Gallery](../virtual-machines/shared-image-galleries.md)
-- [Create a gallery for storing and sharing resources](../virtual-machines/create-gallery.md#create-a-gallery-for-storing-and-sharing-resources)
+- [Store and share images in Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries)
+- [Create a gallery for storing and sharing resources](/azure/virtual-machines/create-gallery#create-a-gallery-for-storing-and-sharing-resources)
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 ## Compute gallery image requirements 
 
-A gallery used to configure dev box definitions must have at least [one image definition and one image version](../virtual-machines/image-version.md).
+A gallery used to configure dev box definitions must have at least [one image definition and one image version](/azure/virtual-machines/image-version).
 
 When you create a virtual machine (VM) image, select an image from the Azure Marketplace that's compatible with Microsoft Dev Box. The following are examples of compatible images:
 - [Visual Studio 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019plustools?tab=Overview)
@@ -61,20 +61,25 @@ The image version must meet the following requirements:
     - For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
 - Default 64-GB OS disk size
     - The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
-- The image definition must have [trusted launch enabled as the security type](../virtual-machines/trusted-launch.md). You configure the security type when you create the image definition.
+- The image definition must have [trusted launch enabled as the security type](/azure/virtual-machines/trusted-launch). You configure the security type when you create the image definition.
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
 
-> [!NOTE]
+> [!IMPORTANT]
 > - Microsoft Dev Box image requirements exceed [Windows 365 image requirements](/windows-365/enterprise/device-images) and include settings to optimize dev box creation time and performance. 
 > - Any image that doesn't meet Windows 365 requirements isn't shown in the list of images that are available for creation.
+
+> [!NOTE]
+> Microsoft Dev Box doesn't support preview builds from the Windows Insider Program.
 
 ### Reduce provisioning and startup times
 
 When you create a generalized VM to capture to an image, the following issues can affect provisioning and startup times:
 
 1. Create the image by using these three sysprep options: `/generalize /oobe /mode:vm`. 
-    - These options prevent a lengthy search for and installation of drivers during the first boot. For more information, see [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).1. Enable the Read/Write cache on the OS disk.
+    - These options prevent a lengthy search for and installation of drivers during the first boot. For more information, see [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).
+ 
+1. Enable the Read/Write cache on the OS disk.
     - To verify the cache is enabled, open the Azure portal and navigate to the image. Select **JSON view**, and make sure `properties.storageProfile.osDisk.caching` value is `ReadWrite`.
 
 1.  Enable nested virtualization in your base image:

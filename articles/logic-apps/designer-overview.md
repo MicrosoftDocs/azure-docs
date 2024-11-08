@@ -10,14 +10,14 @@ ms.date: 01/04/2024
 
 # About the Standard logic app workflow designer in single-tenant Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 When you work with Azure Logic Apps in the Azure portal, you can edit your [*workflows*](logic-apps-overview.md#logic-app-concepts) visually or programmatically. After you open a [*logic app* resource](logic-apps-overview.md#logic-app-concepts) in the portal, on the resource menu under **Developer**, you can select between [**Code** view](#code-view) and **Designer** view. When you want to visually develop, edit, and run your workflow, select the designer view. You can switch between the designer view and code view at any time.
 
 > [!IMPORTANT]
 > Currently, the latest version of the designer is available only for *Standard* logic app resources, which run in the 
 > *single-tenant* Azure Logic Apps environment. For more information about different resource types and runtime 
-> environments in Logic Apps, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+> environments in Logic Apps, review [Single-tenant versus multi-tenant in Azure Logic Apps](single-tenant-overview-compare.md).
 
 :::image type="content" source="./media/designer-overview/choose-developer-view.png" alt-text="Screenshot of a logic app resource page in the Azure portal, showing the sidebar options to view a workflow in Code or Designer view.":::
 

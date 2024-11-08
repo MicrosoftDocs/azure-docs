@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 
 # Manage Azure Content Delivery Network with PowerShell
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 PowerShell provides one of the most flexible methods to manage your Azure Content Delivery Network profiles and endpoints. You can use PowerShell interactively or by writing scripts to automate management tasks. This tutorial demonstrates several of the most common tasks you can accomplish with PowerShell to manage your Azure Content Delivery Network profiles and endpoints.
 
 ## Prerequisites

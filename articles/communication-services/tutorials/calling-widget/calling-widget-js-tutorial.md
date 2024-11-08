@@ -11,6 +11,7 @@ ms.date: 05/13/2024
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
+ms.custom: devx-track-js
 ---
 
 # Get started with Azure Communication Services UI library JavaScript bundles calling to Teams Call Queue and Auto Attendant

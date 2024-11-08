@@ -3,12 +3,12 @@ title: "Quickstart: Build and deploy your app from your local filesystem to Azur
 description: Build your container app from local source and deploy in Azure Container Apps using az containerapp up.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: quickstart
-ms.date: 01/27/2024
+ms.date: 09/09/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-code-to-cloud-segmemts
 ---
@@ -81,7 +81,7 @@ Extract the download and change into the *containerapps-albumapi-csharp-main/src
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/main) to your machine.
 
-Extract the download and change into the *containerapps-albumapi-java-main/src* folder.
+Extract the download and change into the *containerapps-albumapi-java-main* folder.
 
 
 # [JavaScript](#tab/javascript)
@@ -178,7 +178,7 @@ If the `up` command doesn't find a Dockerfile, it automatically uses Buildpacks 
 ::: zone-end
 
 
-In the following code example, the `.` (dot) tells `containerapp up` to run in the `src` directory of the extracted sample API application.
+In the following code example, the `.` (dot) tells `containerapp up` to run in the current directory of the extracted sample API application.
 
 # [Bash](#tab/bash)
 

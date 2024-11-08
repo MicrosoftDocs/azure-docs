@@ -4,11 +4,15 @@ description: This article explains how to view and create scheduled analytics ru
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 05/27/2024
+ms.date: 07/02/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security engineer, I want to create scheduled analytics rules from templates so that I can efficiently monitor and detect anomalies in my data.
+
 ---
 # Create scheduled analytics rules from templates
 

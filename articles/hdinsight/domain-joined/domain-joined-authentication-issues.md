@@ -1,18 +1,18 @@
 ---
 title: Authentication issues in Azure HDInsight
 description: Authentication issues in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 05/09/2024
+ms.date: 09/06/2024
 ---
 
 # Authentication issues in Azure HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 
-On secure clusters backed by Azure Data Lake (Gen1 or Gen2), when domain users sign in to the cluster services through HDI Gateway (like signing in to the Apache Ambari portal), HDI Gateway tries to obtain an OAuth token from Microsoft Entra first, and then get a Kerberos ticket from Microsoft Entra Domain Services. Authentication can fail in either of these stages. This article is aimed at debugging some of those issues.
+On secure clusters backed by Azure Data Lake Gen2, when domain users sign in to the cluster services through HDI Gateway (like signing in to the Apache Ambari portal), HDI Gateway tries to obtain an OAuth token from Microsoft Entra first, and then get a Kerberos ticket from Microsoft Entra Domain Services. Authentication can fail in either of these stages. This article is aimed at debugging some of those issues.
 
-When the authentication fails, you gets prompted for credentials. If you cancel this dialog, the error message is printed. Here are some of the common error messages:
+When the authentication fails, you get prompted for credentials. If you cancel this dialog, the error message is printed. Here are some of the common error messages:
 
 ## invalid_grant or unauthorized_client, 50126
 
@@ -21,7 +21,7 @@ When the authentication fails, you gets prompted for credentials. If you cancel 
 Sign in fails for federated users with error code 50126 (sign in succeeds for cloud users). Error message is similar to:
 
 ```
-Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_description":"AADSTS70002: Error validating credentials. AADSTS50126: Invalid username or password\r\nTrace ID: 09cc9b95-4354-46b7-91f1-efd92665ae00\r\n Correlation ID: 4209bedf-f195-4486-b486-95a15b70fbe4\r\nTimestamp: 2019-01-28 17:49:58Z","error_codes":[70002,50126], "timestamp":"2019-01-28 17:49:58Z","trace_id":"09cc9b95-4354-46b7-91f1-efd92665ae00","correlation_id":"4209bedf-f195-4486-b486-95a15b70fbe4"}
+Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_description":"AADSTS70002: Error validating credentials. AADSTS50126: Invalid username or password\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\n Correlation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: 2019-01-28 17:49:58Z","error_codes":[70002,50126], "timestamp":"2019-01-28 17:49:58Z","trace_id":"0000aaaa-11bb-cccc-dd22-eeeeee333333","correlation_id":"aaaa0000-bb11-2222-33cc-444444dddddd"}
 ```
 
 ### Cause
@@ -30,7 +30,7 @@ Microsoft Entra error code 50126 means the `AllowCloudPasswordValidation` policy
 
 ### Resolution
 
-The Global Administrator of the Microsoft Entra tenant should enable Microsoft Entra ID to use password hashes for ADFS backed users.  Apply the `AllowCloudPasswordValidationPolicy` as shown in the article [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+The Administrator of the Microsoft Entra tenant should enable Microsoft Entra ID to use password hashes for ADFS backed users.  Apply the `AllowCloudPasswordValidationPolicy` as shown in the article [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 ---
 
@@ -41,7 +41,7 @@ The Global Administrator of the Microsoft Entra tenant should enable Microsoft E
 Sign in fails with error code 50034. Error message is similar to:
 
 ```
-{"error":"invalid_grant","error_description":"AADSTS50034: The user account Microsoft.AzureAD.Telemetry.Diagnostics.PII doesn't exist in the 0c349e3f-1ac3-4610-8599-9db831cbaf62 directory. To sign into this application, the account must be added to the directory.\r\nTrace ID: bbb819b2-4c6f-4745-854d-0b72006d6800\r\nCorrelation ID: b009c737-ee52-43b2-83fd-706061a72b41\r\nTimestamp: 2019-04-29 15:52:16Z", "error_codes":[50034],"timestamp":"2019-04-29 15:52:16Z","trace_id":"bbb819b2-4c6f-4745-854d-0b72006d6800", "correlation_id":"b009c737-ee52-43b2-83fd-706061a72b41"}
+{"error":"invalid_grant","error_description":"AADSTS50034: The user account Microsoft.AzureAD.Telemetry.Diagnostics.PII doesn't exist in the 0c349e3f-1ac3-4610-8599-9db831cbaf62 directory. To sign into this application, the account must be added to the directory.\r\nTrace ID: 2222cccc-33dd-eeee-ff44-aaaaaa555555\r\nCorrelation ID: cccc2222-dd33-4444-55ee-666666ffffff\r\nTimestamp: 2019-04-29 15:52:16Z", "error_codes":[50034],"timestamp":"2019-04-29 15:52:16Z","trace_id":"2222cccc-33dd-eeee-ff44-aaaaaa555555", "correlation_id":"cccc2222-dd33-4444-55ee-666666ffffff"}
 ```
 
 ### Cause
@@ -61,7 +61,7 @@ Use the same user name that works in that portal.
 User account is locked out, error code 50053. Error message is similar to:
 
 ```
-{"error":"unauthorized_client","error_description":"AADSTS50053: You've tried to sign in too many times with an incorrect user ID or password.\r\nTrace ID: 844ac5d8-8160-4dee-90ce-6d8c9443d400\r\nCorrelation ID: 23fe8867-0e8f-4e56-8764-0cdc7c61c325\r\nTimestamp: 2019-06-06 09:47:23Z","error_codes":[50053],"timestamp":"2019-06-06 09:47:23Z","trace_id":"844ac5d8-8160-4dee-90ce-6d8c9443d400","correlation_id":"23fe8867-0e8f-4e56-8764-0cdc7c61c325"}
+{"error":"unauthorized_client","error_description":"AADSTS50053: You've tried to sign in too many times with an incorrect user ID or password.\r\nTrace ID: 00aa00aa-bb11-cc22-dd33-44ee44ee44ee\r\nCorrelation ID: 11bb11bb-cc22-dd33-ee44-55ff55ff55ff\r\nTimestamp: 2019-06-06 09:47:23Z","error_codes":[50053],"timestamp":"2019-06-06 09:47:23Z","trace_id":"aaaa0000-bb11-2222-33cc-444444dddddd","correlation_id":"aaaa0000-bb11-2222-33cc-444444dddddd"}
 ```
 
 ### Cause
@@ -81,7 +81,7 @@ Wait for 30 minutes or so, stop any applications that might be trying to authent
 Password expired, error code 50053. Error message is similar to:
 
 ```
-{"error":"user_password_expired","error_description":"AADSTS50055: Password is expired.\r\nTrace ID: 241a7a47-e59f-42d8-9263-fbb7c1d51e00\r\nCorrelation ID: c7fe4a42-67e4-4acd-9fb6-f4fb6db76d6a\r\nTimestamp: 2019-06-06 17:29:37Z","error_codes":[50055],"timestamp":"2019-06-06 17:29:37Z","trace_id":"241a7a47-e59f-42d8-9263-fbb7c1d51e00","correlation_id":"c7fe4a42-67e4-4acd-9fb6-f4fb6db76d6a","suberror":"user_password_expired","password_change_url":"https://portal.microsoftonline.com/ChangePassword.aspx"}
+{"error":"user_password_expired","error_description":"AADSTS50055: Password is expired.\r\nTrace ID: 6666aaaa-77bb-cccc-dd88-eeeeee999999\r\nCorrelation ID: eeee4444-ff55-6666-77aa-888888bbbbbb\r\nTimestamp: 2019-06-06 17:29:37Z","error_codes":[50055],"timestamp":"2019-06-06 17:29:37Z","trace_id":"6666aaaa-77bb-cccc-dd88-eeeeee999999","correlation_id":"eeee4444-ff55-6666-77aa-888888bbbbbb","suberror":"user_password_expired","password_change_url":"https://portal.microsoftonline.com/ChangePassword.aspx"}
 ```
 
 ### Cause
@@ -118,7 +118,7 @@ Sign in denied.
 
 ### Cause
 
-To get to this stage, your OAuth authentication isn't an issue, but Kerberos authentication is. If this cluster is backed by ADLS, OAuth sign in has succeeded before Kerberos auth is attempted. On WASB clusters, OAuth sign in isn't attempted. There could be many reasons for Kerberos failure - like password hashes are out of sync, user account locked out in Microsoft Entra Domain Services, and so on. Password hashes sync only when the user changes password. When you create the Microsoft Entra Domain Services instance, it will start syncing passwords that are changed after the creation. It can't retroactively sync passwords that were set before its inception.
+To get to this stage, your OAuth authentication isn't an issue, but Kerberos authentication is. If this cluster backed by ADLS, OAuth sign-in succeeded before Kerberos auth is attempted. On WASB clusters, OAuth sign-in isn't attempted. There could be many reasons for Kerberos failure - like password hashes are out of sync, user account locked out in Microsoft Entra Domain Services, and so on. Password hashes sync only when the user changes password. When you create the Microsoft Entra Domain Services instance, it will start syncing passwords that are changed after the creation. It can't retroactively sync passwords that were set before its inception.
 
 ### Resolution
 
@@ -128,7 +128,7 @@ Try to SSH into a You need to try to authenticate (kinit) using the same user cr
 
 ---
 
-## kinit fails
+## Kinit fails
 
 ### Issue
 
@@ -154,7 +154,7 @@ Ways to find `sAMAccountName`:
 
 ---
 
-## kinit fails with Preauthentication failure
+## Kinit fails with Preauthentication failure
 
 ### Issue
 
@@ -194,13 +194,13 @@ User receives error message `Error fetching access token`.
 
 ### Cause
 
-This error occurs intermittently when users try to access the ADLS Gen2 using ACLs and the Kerberos token has expired.
+This error occurs intermittently when users try to access the ADLS Gen2 using ACLs and the Kerberos token expired.
 
 ### Resolution
 
 * For Azure Data Lake Storage Gen1, clean browser cache and log into Ambari again.
 
-* For Azure Data Lake Storage Gen2, Run `/usr/lib/hdinsight-common/scripts/RegisterKerbTicketAndOAuth.sh <upn>` for the user the user is trying to login as
+* For Azure Data Lake Storage Gen2, Run `/usr/lib/hdinsight-common/scripts/RegisterKerbTicketAndOAuth.sh <upn>` user is trying to log in as
 
 ---
 

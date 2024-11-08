@@ -3,9 +3,9 @@ title: Enable zone-to-zone disaster recovery for Azure virtual machines
 description: This article describes when and how to use zone-to-zone disaster recovery for Azure virtual machines.
 author: ankitaduttaMSFT
 manager: aravindang
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 05/06/2024
+ms.date: 10/28/2024
 ms.author: ankitadutta
 ms.custom: references_regions
 ---
@@ -41,8 +41,10 @@ When you use zone-to-zone disaster recovery, Site Recovery doesn't move or store
 
 Learn more about [currently supported availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
-> [!Note]
+> [!NOTE]
 > Zone-to-zone disaster recovery isn't supported for VMs that have managed disks via zone-redundant storage (ZRS).
+>
+>Regions that don't support Azure availability zones also don't support Azure Site Recovery zone-to-zone replication. For Azure Site Recovery zone-to-zone replication to work, the region must support availability zones.
 
 ## Using availability zones for disaster recovery
 
@@ -63,9 +65,7 @@ As mentioned before, zone-to-zone disaster recovery uses redundant networking co
 
 - **Virtual network**: You can use the same virtual network as the source network for actual failovers. For test failovers, use a virtual network that's different from the source virtual network.
 - **Subnet**: Failover into the same subnet is supported.
-- **Private IP address**: If you're using static IP addresses, you can use the same IP addresses in the target zone if you choose to configure them that way.
-
-    When you use Azure Site Recovery, you must have a free IP address available in the subnet for each VM for which you want to use the same IP address in the target zone. During failover, Azure Site Recovery allocates this free IP address to the source VM to free up the target IP address. Azure Site Recovery then allocates the target IP address to the target VM.
+- **Private IP address**: If you're using static IP addresses, you cannot retain the same IP address in zone to zone failover.
 - **Accelerated networking**: Similar to Azure-to-Azure disaster recovery, you can enable accelerated networking if the VM type supports it.
 - **Public IP address**: You can attach a previously created standard public IP address in the same region to the target VM. Basic public IP addresses don't support scenarios related to availability zones.
 - **Load balancer**: A standard load balancer is a regional resource, so the target VM can be attached to the back-end pool of the same load balancer. A new load balancer isn't required.

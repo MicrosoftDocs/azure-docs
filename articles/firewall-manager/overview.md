@@ -2,7 +2,7 @@
 title: What is Azure Firewall Manager?
 description: Learn about Azure Firewall Manager features.
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 services: firewall-manager
 ms.topic: overview
 ms.date: 02/26/2024

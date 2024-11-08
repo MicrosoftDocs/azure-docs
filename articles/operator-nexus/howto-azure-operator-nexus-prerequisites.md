@@ -11,37 +11,81 @@ ms.custom: template-how-to
 
 # Operator Nexus Azure resources prerequisites
 
-To get started with Operator Nexus, you need to create a Network Fabric Controller (NFC) and then a Cluster Manager (CM)
-in your target Azure region.
+To get started with Operator Nexus, you need to create a Network Fabric Controller (NFC) and then a Cluster Manager (CM) in your target Azure region.
 
 Each NFC is associated with a CM in the same Azure region and your subscription.
 
 You need to complete the prerequisites before you can deploy the first Operator Nexus NFC and CM pair.
 In subsequent deployments of Operator Nexus, you'll only need to create the NFC and CM after reaching the [quota](./reference-limits-and-quotas.md#network-fabric) of supported Operator Nexus instances.
 
-## Resource Provider Registration
+## Install CLI Extensions and sign-in to your Azure subscription
 
-- Permit access to the necessary Azure Resource Providers for the Azure Subscription for Operator Nexus resources:
-  - az provider register --namespace Microsoft.NetworkCloud
-  - az provider register --namespace Microsoft.ManagedNetworkFabric
-  - az provider register --namespace Microsoft.Compute
-  - az provider register --namespace Microsoft.ContainerService
-  - az provider register --namespace Microsoft.ExtendedLocation
-  - az provider register --namespace Microsoft.HybridCompute
-  - az provider register --namespace Microsoft.HybridConnectivity
-  - az provider register --namespace Microsoft.HybridContainerService
-  - az provider register --namespace Microsoft.HybridNetwork
-  - az provider register --namespace Microsoft.Insights
-  - az provider register --namespace Microsoft.Keyvault
-  - az provider register --namespace Microsoft.Kubernetes
-  - az provider register --namespace Microsoft.KubernetesConfiguration
-  - az provider register --namespace Microsoft.ManagedIdentity
-  - az provider register --namespace Microsoft.Network
-  - az provider register --namespace Microsoft.OperationalInsights
-  - az provider register --namespace Microsoft.OperationsManagement
-  - az provider register --namespace Microsoft.ResourceConnector
-  - az provider register --namespace Microsoft.Resources
-  - az provider register --namespace Microsoft.Storage
+Install latest version of the
+[necessary CLI extensions](./howto-install-cli-extensions.md).
+
+### Azure subscription sign-in
+
+```azurecli
+  az login
+  az account set --subscription $SUBSCRIPTION_ID
+  az account show
+```
+
+>[!NOTE]
+>Your account must have permissions to read/write/publish in the subscription
+
+## Resource Provider registration
+
+Ensure access to the necessary Azure Resource Providers for the Azure Subscription for Operator Nexus resources. Register the following providers:
+
+```Azure CLI
+az provider register --namespace Microsoft.Compute
+az provider register --namespace Microsoft.ContainerService
+az provider register --namespace Microsoft.ExtendedLocation
+az provider register --namespace Microsoft.HybridCompute
+az provider register --namespace Microsoft.HybridConnectivity
+az provider register --namespace Microsoft.HybridContainerService
+az provider register --namespace Microsoft.HybridNetwork
+az provider register --namespace Microsoft.Insights
+az provider register --namespace Microsoft.Keyvault
+az provider register --namespace Microsoft.Kubernetes
+az provider register --namespace Microsoft.KubernetesConfiguration
+az provider register --namespace Microsoft.ManagedIdentity
+az provider register --namespace Microsoft.ManagedNetworkFabric
+az provider register --namespace Microsoft.Network
+az provider register --namespace Microsoft.NetworkCloud
+az provider register --namespace Microsoft.OperationalInsights
+az provider register --namespace Microsoft.OperationsManagement
+az provider register --namespace Microsoft.ResourceConnector
+az provider register --namespace Microsoft.Resources
+az provider register --namespace Microsoft.Storage
+```
+
+## EncryptionAtHost feature registration
+You must enable [EncryptionAtHost](/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli) feature for your subscription. Use the following steps to enable the feature for your subscription:
+
+### Register the EncryptionAtHost feature:
+
+Execute the following command to register the feature for your subscription
+
+```Azure CLI
+az feature register --namespace Microsoft.Compute --name EncryptionAtHost
+```
+
+### Verify the registration State:
+
+Confirm that the registration state is Registered (registration might take a few minutes) using the following command before trying out the feature.
+
+```Azure CLI
+az feature show --namespace Microsoft.Compute --name EncryptionAtHost
+```
+### Register the Resource Provider:
+
+```Azure CLI
+az provider register --namespace Microsoft.Compute
+```
+
+Ensure that the registration state is Registered.
 
 ## Dependent Azure resources setup
 
@@ -62,22 +106,6 @@ In subsequent deployments of Operator Nexus, you'll only need to create the NFC 
 - Set up Azure Storage account to store Operator Nexus data objects:
   - Azure Storage supports blobs and files accessible from anywhere in the world over HTTP or HTTPS
   - this storage isn't for user/consumer data.
-
-## Install CLI Extensions and sign-in to your Azure subscription
-
-Install latest version of the
-[necessary CLI extensions](./howto-install-cli-extensions.md).
-
-### Azure subscription sign-in
-
-```azurecli
-  az login
-  az account set --subscription $SUBSCRIPTION_ID
-  az account show
-```
-
->[!NOTE]
->Your account must have permissions to read/write/publish in the subscription
 
 ## Create steps
 

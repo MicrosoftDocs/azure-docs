@@ -2,10 +2,9 @@
 title: Run an existing pipeline with Workflow Orchestration Manager
 description: This tutorial provides step-by-step instructions for running an existing pipeline with Workflow Orchestration Manager in Azure Data Factory.
 author: nabhishek
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 10/20/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ms.author: abnarain
 ---
 

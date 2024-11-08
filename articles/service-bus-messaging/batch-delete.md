@@ -32,6 +32,23 @@ You can delete messages by calling [DeleteMessagesAsync](/dotnet/api/azure.messa
 
 Additionally, you can call [PurgeMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.purgemessagesasync?view=azure-dotnet-preview) to purge all messages from entity. 
 
+### Using Azure portal 
+
+You can also purge messages from entity using Service Bus explorer available on Azure portal. You can follow following steps to purge messages:
+
+1. Navigate to 'Service Bus explorer' blade on the entity you want to delete messages from.
+2. Choose 'Receive mode' in Service Bus explorer dropdown.
+
+ :::image type="content" source="./media/batch-delete/choose-receive-mode-service-bus-explorer.png" alt-text="Screenshot of dropdown with Receive mode selected." lightbox="./media/batch-delete/choose-receive-mode-service-bus-explorer.png":::
+
+3. Click on the purge messages option as shown in snapshot.
+   
+ :::image type="content" source="./media/batch-delete/purge-messages.png" alt-text="Screenshot of Purge messages selected." lightbox="./media/batch-delete/purge-messages.png":::
+ 
+4. Another dialog box will appear, enter 'purge' to execute purge messages operation.
+
+ :::image type="content" source="./media/batch-delete/purge-messages-action.png" alt-text="Screenshot of entering Purge to confirm." lightbox="./media/batch-delete/purge-messages-action.png":::
+
 When using Azure SDKs to perform these operations, the beforeEnqueueTime parameter defaults to the current UTC time (DateTime.UtcNow()). It’s important to ensure you provide the correct values to prevent unintended message deletion.
 
 >[!NOTE]
@@ -52,5 +69,5 @@ Samples for the older .NET and Java client libraries:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - See the **Prefetch** sample. 
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus) - See the **Prefetch** sample. 
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)] 
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)] 
 

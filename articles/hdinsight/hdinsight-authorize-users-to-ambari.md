@@ -1,15 +1,15 @@
 ---
 title: Authorize users for Ambari Views - Azure HDInsight 
 description: 'How to manage Ambari user and group permissions for HDInsight clusters with ESP enabled.'
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/08/2023
+ms.date: 06/13/2024
 ---
 
 # Authorize users for Apache Ambari Views
 
-[Enterprise Security Package (ESP) enabled HDInsight clusters](./domain-joined/hdinsight-security-overview.md) provide enterprise-grade capabilities, including Microsoft Entra ID-based authentication. You can [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) added to Microsoft Entra groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in [Apache Ambari](https://ambari.apache.org/) is supported for both ESP HDInsight clusters and standard HDInsight clusters.
+[Enterprise Security Package (ESP) enabled HDInsight clusters](./domain-joined/hdinsight-security-overview.md) provide enterprise-grade capabilities, including Microsoft Entra ID-based authentication. You can [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) added to Microsoft Entra groups that have been provided access to the cluster, allowing those specific users to perform certain actions. When you work with users, groups, and permissions in [Apache Ambari](https://ambari.apache.org/) is supported for both ESP HDInsight clusters and standard HDInsight clusters.
 
 Active Directory users can sign in to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate cluster interactions with other approved endpoints like [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell, and REST APIs.
 
@@ -163,7 +163,7 @@ Ambari comes with view instances for [Apache Hive](https://hive.apache.org/) and
 
 1. From the management page, select the **Views** link under the **Views** menu heading on the left.
 
-    :::image type="content" source="./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png" alt-text="Apache Ambari views view links.":::
+    :::image type="content" source="./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png" alt-text="Apache Ambari view links.":::
 
 2. On the Views page, expand the **HIVE** row. There is one default Hive view that is created when the Hive service is added to the cluster. You can also create more Hive view instances as needed. Select a Hive view:
 
@@ -230,7 +230,7 @@ On this page, there are two different views you can use to manage roles for user
 
 ### Block view
 
-The Block view displays each role in its own row, and provides the **Assign roles to these users** and **Assign roles to these groups** options as described previously.
+The Block view displays each role in its own row, and provides the `Assign roles to these users` and *`Assign roles to these groups` options as described previously.
 
 :::image type="content" source="./media/hdinsight-authorize-users-to-ambari/ambari-roles-block-view.png" alt-text="Apache Ambari roles block view.":::
 
@@ -246,7 +246,7 @@ The List view provides quick editing capabilities in two categories: Users and G
 
     :::image type="content" source="./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png" alt-text="Apache Ambari roles list view - groups.":::
 
-    In the image above, the "hiveusers" group is assigned the *Cluster User* role. This is a read-only role that allows the users of that group to view but not change service configurations and cluster metrics.
+    In the image above, the **hive users** group is assigned the *Cluster User* role. This is a read-only role that allows the users of that group to view but not change service configurations and cluster metrics.
 
 ## Log in to Ambari as a view-only user
 

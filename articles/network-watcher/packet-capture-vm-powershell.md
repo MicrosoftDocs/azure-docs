@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to start, stop, download, and delete Azure virtual machines packet captures with the packet capture feature of Network Watcher using Azure PowerShell.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 02/07/2024
 ms.custom: devx-track-azurepowershell
@@ -137,7 +137,7 @@ The following output is an example of the output from the `Get-AzNetworkWatcherP
 ```output
 ProvisioningState Name   Target                                                                                                                              BytesToCapturePerPacket TotalBytesPerSession TimeLimitInSeconds
 ----------------- ----   ------                                                                                                                              ----------------------- -------------------- ------------------
-Succeeded         myVM_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM 0                       1073741824           18000
+Succeeded         myVM_1 /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM 0                       1073741824           18000
 ```
 
 > [!NOTE]
@@ -157,7 +157,7 @@ To download a packet capture file saved to Azure storage, use [Get-AzStorageBlob
 
 ```azurepowershell-interactive
 # Download the packet capture file from Azure storage container.
-Get-AzStorageBlobContent -Container 'network-watcher-logs' -Blob 'subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2024/01/25/packetcapture_22_44_54_342.cap' -Destination 'C:\Capture\myVM_1.cap'
+Get-AzStorageBlobContent -Container 'network-watcher-logs' -Blob 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm/2024/01/25/packetcapture_22_44_54_342.cap' -Destination 'C:\Capture\myVM_1.cap'
 ```
 
 > [!NOTE]

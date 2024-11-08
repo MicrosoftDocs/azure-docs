@@ -3,7 +3,7 @@ title: 'Quickstart: Use Azure PowerShell to create a virtual network'
 titleSuffix: Azure Virtual Network
 description: Learn how to use Azure PowerShell to create and connect through an Azure virtual network and virtual machines.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: quickstart
 ms.date: 05/29/2024
 ms.author: allensu

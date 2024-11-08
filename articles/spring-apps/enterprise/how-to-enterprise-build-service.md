@@ -3,7 +3,7 @@ title: How to use Tanzu Build Service in the Azure Spring Apps Enterprise plan
 description: Learn how to use Tanzu Build Service in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: fenzho
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 11/29/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -11,8 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # Use Tanzu Build Service
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 

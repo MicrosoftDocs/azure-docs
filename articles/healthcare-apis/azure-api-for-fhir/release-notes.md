@@ -3,7 +3,7 @@ title: Azure API for FHIR monthly releases
 description: This article provides details about the Azure API for FHIR monthly features and enhancements.
 services: healthcare-apis
 author: kgaddam10
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 09/27/2023
@@ -13,9 +13,41 @@ ms.author: kavitagaddam
 
 # Release notes: Azure API for FHIR
 
-[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
+Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
+
+## **October 2024**
+
+### FHIR service
+
+**Bug fixes**
+
+- Export Validation: An issue was identified where exports proceeded despite invalid search parameters. We're introducing a change that prevents exports under these conditions. This feature is currently behind a strict validation flag and will become the default behavior on or after October 30.
+- Search Parameter Inclusion: We resolved an issue where additional search parameters (for instance, `_include`, `_has`) didn't return all expected results, sometimes omitting the next link.
+- Export Job Execution: A rare occurrence of `System.ObjectDisposedException` during export job completion has been addressed by preventing premature exits.
+- HTTP Status Code Update: The HTTP status code for invalid parameters during `$reindex` job creation is now updated to 400, ensuring better error handling.
+- Search Parameter Cleanup: A fix has been implemented to ensure complete cleanup of search parameters in the database when triggered with delete API calls, addressing issues related to incomplete deletions.
+
+## **August 2024**
+
+### FHIR service
+
+**Bug Fixes** 
+A fix was implemented to address issues with large exports incorrectly displaying a "completed" status while child tasks are still processing. The solution incorporates a delay to mitigate the occurrence of these status errors, improving export reliability. 
+
+
+## **July 2024**
+
+### FHIR service
+
+**Bug Fixes** 
+
+**Fixed: Exporting Data as SMART User**
+Exporting data as a SMART user no longer requires write scopes. Previously, it was necessary to grant "write" privileges to a SMART user for exporting data, which implied higher privilege levels. To initiate an export job as a SMART user, ensure the user is a member of the FHIR export role in RBAC and requests the "read" SMART clinical scope. 
+
+**Fixed: Updating Status Code from HTTP 500 to HTTP 400**
+During a patch operation, if the payload requested an update for a resource type other than Parameter, an internal server error (HTTP 500) was initially thrown. This has been updated to throw an HTTP 400 error instead.
 
 ## **May 2024**
 
@@ -45,7 +77,7 @@ Learn more:
 The query parameter _summary=count and _count=0 can be added to _history endpoint to get count of all versioned resources. This count includes soft deleted resources. For more information, see [history management](././../azure-api-for-fhir/purge-history.md).
 
 **Improve throughput for export operation**
-The "_isparallel" query parameter can be added to the export operation to enhance its throughput. Its' important to note that using this parameter may result in an increase in Request Units consumption over the life of export. For more information, see [Export operation query parameters](././../azure-api-for-fhir/export-data.md).
+The "_isparallel" query parameter can be added to the export operation to enhance its throughput. It's' important to note that using this parameter may result in an increase in Request Units consumption over the life of export. For more information, see [Export operation query parameters](././../azure-api-for-fhir/export-data.md).
 > [!NOTE]
 > There's a known issue with the $export operation that could result in incomplete exports with status success. Issue occurs when the is_parallel flag was used. Export jobs executed with _isparallel query parameter starting February 13th, 2024 are impacted with this issue. 
 
@@ -54,7 +86,7 @@ With this change, exported file names follow the format '{FHIR Resource Name}-{N
 
 
 **Performance Enhancement**
-Parallel optimization for FHIR queries can be enabled using HTTP header "x-ms-query-latency-over-efficiency" . This value needs to be set to true to achieve maximum concurrency during execution of query. For more information, see [Batch Bundles](././../azure-api-for-fhir/fhir-rest-api-capabilities.md).
+Parallel optimization for FHIR queries can be enabled using HTTP header "x-ms-query-latency-over-efficiency". This value needs to be set to true to achieve maximum concurrency during execution of query. For more information, see [Batch Bundles](././../azure-api-for-fhir/fhir-rest-api-capabilities.md).
 
 
 ## **January 2024**
@@ -97,7 +129,7 @@ For more details, visit [#3222](https://github.com/microsoft/fhir-server/pull/32
 
 **Fixed the Error generated when resource is updated using if-match header and PATCH**
 
-Bug is now fixed and Resource will be updated if matches the Etag header. For details , see [#2877](https://github.com/microsoft/fhir-server/issues/2877)|.
+Bug is now fixed and Resource will be updated if it matches the Etag header. For details, see [#2877](https://github.com/microsoft/fhir-server/issues/2877)|.
 
 ## May 2022
 
@@ -137,7 +169,7 @@ Bug is now fixed and Resource will be updated if matches the Etag header. For de
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
 |Duplicate resources in search with `_include` |Fixed issue where a single resource can be returned twice in a search that has `_include`. For more information, see [PR #2448](https://github.com/microsoft/fhir-server/pull/2448). |
-|PUT creates on versioned update |Fixed issue were creates with PUT resulted in an error when the versioning policy is configured to `versioned-update`. For more information, see [PR #2457](https://github.com/microsoft/fhir-server/pull/2457). |
+|PUT creates on versioned update |Fixed issue: creating with PUT resulted in an error when the versioning policy is configured to `versioned-update`. For more information, see [PR #2457](https://github.com/microsoft/fhir-server/pull/2457). |
 |Invalid header handling on versioned update |Fixed issue where invalid `if-match` header would result in an HTTP 500 error. Now an HTTP Bad Request is returned instead. For more information, see [PR #2467](https://github.com/microsoft/fhir-server/pull/2467). |
 
 ## February 2022
@@ -147,7 +179,7 @@ Bug is now fixed and Resource will be updated if matches the Etag header. For de
 |Enhancements  |Related information |
 | :----------------------------------- | :--------------- |
 |Added 429 retry and logging in BundleHandler |We sometimes encounter 429 errors when processing a bundle. If the FHIR service receives a 429 at the BundleHandler layer, we abort processing of the bundle and skip the remaining resources. We've added another retry (in addition to the retry present in the data store layer) that will execute one time per resource that encounters a 429. For more about this feature enhancement, see [PR #2400](https://github.com/microsoft/fhir-server/pull/2400).|
-|Billing for `$convert-data` and `$de-id` |Azure API for FHIR's data conversion and deidentified export features are now Generally Available. Billing for `$convert-data` and `$de-id` operations in Azure API for FHIR has been enabled. Billing meters were turned on March 1, 2022. |
+|Billing for `$convert-data` and `$de-id` |Azure API for FHIR's data conversion and de-identified export features are now Generally Available. Billing for `$convert-data` and `$de-id` operations in Azure API for FHIR has been enabled. Billing meters were turned on March 1, 2022. |
 
 ### **Bug fixes**
 
@@ -170,7 +202,7 @@ Bug is now fixed and Resource will be updated if matches the Etag header. For de
 |Bug fixes |Related information |
 | :----------------------------------- | :--------------- |
 |Fixed 500 error when `SearchParameter` Code is null |Fixed an issue with `SearchParameter` if it had a null value for Code, the result would be a 500. Now it results in an  `InvalidResourceException` like the other values do. [#2343](https://github.com/microsoft/fhir-server/pull/2343) |
-|Returned `BadRequestException` with valid message when input JSON body is invalid |For invalid JSON body requests, the FHIR server was returning a 500 error. Now we'll return a `BadRequestException` with a valid message instead of 500. [#2239](https://github.com/microsoft/fhir-server/pull/2239) |
+|Returned `BadRequestException` with valid message when input JSON body is invalid |For invalid JSON body requests, the FHIR server was returning a 500 error. Now we return a `BadRequestException` with a valid message instead of 500. [#2239](https://github.com/microsoft/fhir-server/pull/2239) |
 |`_sort` can cause `ChainedSearch` to return incorrect results |Previously, the sort options from the chained search's `SearchOption` object wasn't cleared, causing the sorting options to be passed through to the chained subsearch, which aren't valid. This could result in no results when there should be results. This bug is now fixed  [#2347](https://github.com/microsoft/fhir-server/pull/2347). It addressed GitHub bug [#2344](https://github.com/microsoft/fhir-server/issues/2344). |
 
 
@@ -182,7 +214,7 @@ Bug is now fixed and Resource will be updated if matches the Etag header. For de
 | :------------------- | :--------------- |
 |Process Patient-everything links  |We've expanded the Patient-everything capabilities to process patient links [#2305](https://github.com/microsoft/fhir-server/pull/2305). For more information, see [Patient-everything in FHIR](../../healthcare-apis/fhir/patient-everything.md#processing-patient-links) documentation.  |
 |Added software name and version to capability statement |In the capability statement, the software name now distinguishes if you're using Azure API for FHIR or Azure Health Data Services. The software version will now specify which open-source [release package](https://github.com/microsoft/fhir-server/releases) is live in the managed service [#2294](https://github.com/microsoft/fhir-server/pull/2294). Addresses: [#1778](https://github.com/microsoft/fhir-server/issues/1778) and [#2241](https://github.com/microsoft/fhir-server/issues/2241) |
-|Log 500's to `RequestMetric` |Previously, 500s or any unknown/unhandled errors weren't getting logged in `RequestMetric`. They're now getting logged [#2240](https://github.com/microsoft/fhir-server/pull/2240). For more information, see [Enable diagnostic settings in Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging.md) |
+|Log 500s to `RequestMetric` |Previously, 500s or any unknown/unhandled errors weren't getting logged in `RequestMetric`. They're now getting logged [#2240](https://github.com/microsoft/fhir-server/pull/2240). For more information, see [Enable diagnostic settings in Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging.md) |
 |Compress continuation tokens |In certain instances, the continuation token was too long to be able to follow the [next link](../../healthcare-apis/azure-api-for-fhir/overview-of-search.md#pagination) in searches and would result in a 404. To resolve this, we compressed the continuation token to ensure it stays below the size limit [#2279](https://github.com/microsoft/fhir-server/pull/2279). Addresses issue [#2250](https://github.com/microsoft/fhir-server/issues/2250). |
 
 ### **Bug fixes**
@@ -264,4 +296,4 @@ For information about the features and bug fixes in Azure Health Data Services (
 >[!div class="nextstepaction"]
 >[Release notes: Azure Health Data Services](../release-notes.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

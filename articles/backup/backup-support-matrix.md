@@ -1,10 +1,10 @@
 ---
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
-ms.topic: conceptual
-ms.date: 05/30/2024
+ms.topic: reference
+ms.date: 09/11/2024
 ms.custom: references_regions, linux-related-content
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -23,13 +23,15 @@ Other support matrices are available:
 
 ## Vault support
 
+Azure Backup supports both Recovery Services vault and Backup vault, and enables you to back up and restore different datasources. You need to create the appropriate vault based on the datasource type that you want to protect. Learn more about [the supported vaults](/azure/backup/backup-azure-backup-faq#what-are-the-various-vaults-supported-for-backup-and-restore-).
+
 Azure Backup uses Recovery Services vaults to orchestrate and manage backups for the following workload types - Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Azure File shares and on-premises workloads using Azure Backup Agent, Azure Backup Server and System Center DPM. It also uses Recovery Services vaults to store backed-up data for these workloads.
 
 The following table describes the features of Recovery Services vaults:
 
 **Feature** | **Details**
 --- | ---
-**Vaults in subscription** | Up to 500 Recovery Services vaults in a single subscription.
+**Vaults in subscription** | Up to 500 Recovery Services vaults or Backup vaults in a single subscription.
 **Machines in a vault** | Up to 2000 datasources across all workloads (like Azure VMs, SQL Server VM, MABS Servers, and so on) can be protected in a single vault.<br><br>Up to 1,000 Azure VMs in a single vault.<br/><br/> Up to 50 MABS servers can be registered in a single vault.
 **Data sources** | Maximum size of an individual [data source](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) is 54,400 GB. This limit doesn't apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
 **Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.

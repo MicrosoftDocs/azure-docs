@@ -13,6 +13,8 @@ ms.custom: mvc
 
 # Tutorial: Add Azure Content Delivery Network to an Azure App Service web app
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 This tutorial shows how to add [Azure Content Delivery Network](cdn-overview.md) to a [web app in Azure App Service](../app-service/overview.md). Web apps are services for hosting web applications, REST APIs, and mobile back ends.
 
 Here's the home page of the sample static HTML site that you work with:
@@ -234,7 +236,7 @@ This output shows that each query string is treated differently:
 
 For more information, see [Control Azure Content Delivery Network caching behavior with query strings](../cdn/cdn-query-string.md).
 
-[!INCLUDE [cli-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 

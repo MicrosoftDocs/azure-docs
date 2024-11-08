@@ -31,7 +31,7 @@ This sample script imports key-value settings to an Azure App Configuration stor
 az appconfig kv import --name myTestAppConfigStore --source file --format json --path ~/Import.json
 ```
 
-[!INCLUDE [cli-script-cleanup](~/reusable-content/ce-skilling/azure/includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

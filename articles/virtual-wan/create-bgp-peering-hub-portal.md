@@ -3,8 +3,8 @@ title: 'Configure BGP peering to an NVA: Azure portal'
 titleSuffix: Azure Virtual WAN
 description: Learn how to create a BGP peering with Virtual WAN hub router.
 author: cherylmc
-ms.service: virtual-wan
-ms.topic: conceptual
+ms.service: azure-virtual-wan
+ms.topic: how-to
 ms.date: 10/30/2023
 ms.author: cherylmc
 
@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 This article helps you configure an Azure Virtual WAN hub router to peer with a Network Virtual Appliance (NVA) in your virtual network using BGP Peering using the Azure portal. The virtual hub router learns routes from the NVA in a spoke VNet that is connected to a virtual WAN hub. The virtual hub router also advertises the virtual network routes to the NVA. For more information, see [Scenario: BGP peering with a virtual hub](scenario-bgp-peering-hub.md). You can also create this configuration using [Azure PowerShell](create-bgp-peering-hub-powershell.md).
 
-:::image type="content" source="./media/create-bgp-peering-hub-portal/diagram.png" alt-text="Diagram of configuration.":::
+:::image type="content" source="./media/create-bgp-peering-hub-portal/diagram.png" alt-text="Diagram of configuration." lightbox="./media/create-bgp-peering-hub-portal/diagram.png":::
 
 ## Prerequisites
 
@@ -23,13 +23,13 @@ Verify that you've met the following criteria before beginning your configuratio
 
 ## Create a virtual WAN
 
-[!INCLUDE [Create a virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## Create a hub
 
 A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites.
 
-[!INCLUDE [Create a hub](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
 
 Once you have the settings configured, click **Review + Create** to validate, then click **Create**. The hub will begin provisioning. After the hub is created, go to the hub's **Overview** page. When provisioning is completed, the **Routing status** is **Provisioned**.
 

@@ -4,7 +4,7 @@ description: Learn how to manage and monitor Microsoft Azure Recovery Services (
 ms.reviewer: srinathv
 ms.topic: how-to
 ms.date: 11/07/2023
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

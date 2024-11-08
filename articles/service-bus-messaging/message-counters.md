@@ -11,8 +11,8 @@ ms.devlang: azurecli
 This article shows you different ways of getting message counts for a queue or subscription. Knowing the active message count is useful in determining whether a queue builds up a backlog that requires more resources to process than what has currently been deployed. 
 
 | Counter | Description |
-| ----- | ---------- | 
-| ActiveMessageCount | Number of messages in the queue or subscription that are in the active state and ready for delivery. |
+| ----- | ---------- |
+| ActiveMessageCount | Number of messages in the queue or subscription that are in the active state and ready for delivery. This includes deferred messages. |
 | ScheduledMessageCount	| Number of messages in the scheduled state. |
 | DeadLetterMessageCount | Number of messages in the dead-letter queue. |
 | TransferMessageCount | Number of messages pending transfer into another queue or topic. |
@@ -20,9 +20,10 @@ This article shows you different ways of getting message counts for a queue or s
 
 If an application wants to scale resources based on the length of the queue, it should do so with a measured pace. The acquisition of the message counters is an expensive operation inside the message broker, and executing it frequently directly and adversely impacts the entity performance.
 
-> [!NOTE]
-> The messages that are sent to a Service Bus topic are forwarded to subscriptions for that topic. So, the active message count on the topic itself is 0, as those messages have been successfully forwarded to the subscription. Get the message count at the subscription and verify that it's greater than 0. Even though you see messages at the subscription, they are actually stored in a storage owned by the topic. If you look at the subscriptions, then they would have non-zero message count (which add up to 323 MB of space for this entire entity).
+Another useful metric to consider for scaling is the time between when the latest message was sent and when it was processed, also known as "critical time". This is helpful for scenarios where a queue may have thousands of messages in it, but the processing is fast enough to keep up, giving a "critical time" of only a couple of seconds, which may be more than enough for something like an email sending endpoint. Third-party libraries like [NServiceBus](https://docs.particular.net/nservicebus/operations/opentelemetry#meters-emitted-meters) emit this and other useful metrics via OpenTelemetry.
 
+> [!NOTE]
+> The messages that are sent to a Service Bus topic are forwarded to subscriptions for that topic. So, the active message count on the topic itself is 0, as those messages have been successfully forwarded to the subscription. Get the message count at the subscription and verify that it's greater than 0. Even though you see messages at the subscription, they are actually stored in a storage owned by the topic. If you look at the subscriptions, then they would have non-zero message count, which contribute to the storage used by the topic.
 
 ## Using Azure portal
 Navigate to your namespace, and select the queue. You see message counters on the **Overview** page for the queue.
@@ -109,4 +110,4 @@ Find samples for the older .NET and Java client libraries below:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

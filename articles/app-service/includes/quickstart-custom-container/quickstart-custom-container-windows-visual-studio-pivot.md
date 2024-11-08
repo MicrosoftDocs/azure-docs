@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/30/2022
@@ -9,7 +9,7 @@ ms.author: cephalin
 
 [Azure App Service](../../overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the pre-configured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
-This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Azure Container Registry](../../../container-registry/container-registry-intro.md) from Visual Studio. You run the app in a custom container in Azure App Service.
+This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Azure Container Registry](/azure/container-registry/container-registry-intro) from Visual Studio. You run the app in a custom container in Azure App Service.
 
 To complete this quickstart, you need:
 
@@ -97,7 +97,7 @@ Create an ASP.NET web app by following these steps:
 
    ![Screenshot of Configure your a Web App for Containers.](../../media/quickstart-custom-container/configure-web-app-container.png)
 
-    If you have a custom image elsewhere for your web application, such as in [Azure Container Registry](../../../container-registry/index.yml) or in any other private repository, you can configure it here. Select **Review + Create** to continue.
+    If you have a custom image elsewhere for your web application, such as in [Azure Container Registry](/azure/container-registry/) or in any other private repository, you can configure it here. Select **Review + Create** to continue.
 
 1. Verify all the details and then select **Create** and wait for Azure to create the required resources.
 ![Screenshot of Create your a Web App for Containers.](../../media/quickstart-custom-container/web-app-container-create-start.png)
@@ -166,16 +166,25 @@ The streamed logs look like this:
 
 ## 7 - Clean up resources
 
-[!INCLUDE [Clean-up Portal web app resources](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal-no-h.md)]
+[!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
+> [Configure custom container](../../configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
+> [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
+
+> [!div class="nextstepaction"]
+> [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+
+> [!div class="nextstepaction"]
+> [Azure Monitor overview](/azure/azure-monitor/overview)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
 
 > [!div class="nextstepaction"]
 > [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
@@ -184,16 +193,10 @@ The streamed logs look like this:
 > [Use Private Endpoints for App Service apps](../../networking/private-endpoint.md)
 
 > [!div class="nextstepaction"]
-> [Azure Monitor overview](/azure/azure-monitor/overview)
+> [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+> [Deploy a container with Azure Pipelines](../../deploy-container-azure-pipelines.md)
 
 > [!div class="nextstepaction"]
-> [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
-
-> [!div class="nextstepaction"]
-> [Configure custom container](../../configure-custom-container.md)
-
-> [!div class="nextstepaction"]
-> [Sidecar container tutorial](../../tutorial-custom-container-sidecar.md)
+> [Deploy a container with GitHub Actions](../../deploy-container-github-action.md)

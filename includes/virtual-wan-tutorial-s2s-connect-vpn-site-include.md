@@ -2,7 +2,7 @@
 ms.author: cherylmc
 author: cherylmc
 ms.date: 01/31/2024
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: include
 ---
 1. On your Virtual WAN page, go to **Hubs**.
@@ -19,7 +19,7 @@ ms.topic: include
 
 1. On the **Connect sites** page, configure the settings.
 
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot shows the Connected Sites pane for Virtual HUB ready for a preshared key and associated settings.":::
+   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot shows the Connected Sites pane for Virtual HUB ready for a preshared key and associated settings.":::
 
    * **Pre-shared key (PSK)**: Enter the preshared key used by your VPN device. If you don't enter a key, Azure autogenerates one for you. You would then use that key when configuring your VPN device.
    * **Protocol and IPsec**: You can either leave the default settings for Protocol (IKEv2) and IPsec (Default), or you can configure custom settings. For more information, see [default/custom IPsec](../articles/virtual-wan/virtual-wan-ipsec.md).
