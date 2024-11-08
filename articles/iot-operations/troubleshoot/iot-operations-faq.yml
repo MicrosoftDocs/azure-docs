@@ -20,16 +20,16 @@ sections:
       answer: Share your feedback on the [Azure IoT Operations public feedback forum](https://feedback.azure.com/d365community/forum/20152d6e-6a76-ee11-8179-000d3a1abe9e).
     - question: |
          Does Azure IoT Operations offer high availability across multi-node setup?
-      answer: Yes, Azure IoT Operations workloads on K3s and HCI/AKS-Arc multi-node clusters support distribution of workloads across multi-nodes setups in the preview version. The MQTT Broker does automatically replicates states across multiple nodes governed by the Broker's 'cardinality' setting. Replicas are distributed across different nodes in a multi-node cluster and data is not lost if there is one set of replicas running and healthy. 
+      answer: Yes, Azure IoT Operations workloads on K3s and HCI/AKS-Arc multi-node clusters support distribution of workloads across multi-nodes setups in the preview version. The MQTT Broker does automatically replicates states across multiple nodes governed by the Broker's 'cardinality' setting. Replicas are distributed across different nodes in a multi-node cluster and data isn't lost if there's one set of replicas running and healthy. 
     - question: |
          How can we ensure zero or minimal data loss in an Azure IoT Operations setup?
-      answer: To achieve zero message loss in a minimum 3-node cluster is required. This configuration allows for one node to reboot or go offline without data loss. However, if the entire cluster goes down or enough nodes are lost to disrupt quorum, message loss may occur.
+      answer: To achieve zero message loss, a minimum 3-node cluster is required. This configuration allows for one node to reboot or go offline without data loss. However, if the entire cluster goes down or enough nodes are lost to disrupt quorum, message loss might occur.
     - question: |
          Is MQTT with QoS 2 supported in Azure IoT Operations?
-      answer: Currently, MQTT with QoS-2 is not supported. QoS 2 provides strict message guarantees (Exactly Once) and requires complex state management and synchronization which can impact performance and scalability. QoS-0 (At most once) and QoS-1 (At least once) provide sufficient message delivery guarantees for Azure IoT Operations applications, where a balance between availability, throughput, latency, and reliable message delivery is desired.
+      answer: Currently, MQTT with QoS-2 isn't supported. QoS 2 provides strict message guarantees (Exactly Once) and requires complex state management and synchronization which can impact performance and scalability. QoS-0 (At most once) and QoS-1 (At least once) provide sufficient message delivery guarantees for Azure IoT Operations applications, where a balance between availability, throughput, latency, and reliable message delivery is desired.
     - question: |
           Is message persistence supported in Azure IoT Operations?
-      answer:  Full message persistence is on the roadmap, however, Azure IoT Operations supports in-memory message persistence with optional spillover to disk. This setup allows messages to remain available in memory, with overflow messages stored temporarily on disk to prevent data loss during high message volumes. However, if a pod restarts, any messages that were written to disk cannot be restored. 
+      answer:  Full message persistence is on the roadmap, however, Azure IoT Operations supports in-memory message persistence with optional spillover to disk. This setup allows messages to remain available in memory, with overflow messages stored temporarily on disk to prevent data loss during high message volumes. However, if a pod restarts, any messages that were written to disk can't be restored. 
     - question: |
          Does Azure Device Registry Preview offer high availability across availability zones and regions?
       answer: For information on high availability across availability zones and regions for ADR, see [Reliability in Azure Device Registry](../../reliability/reliability-device-registry.md).
