@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/01/2024
+ms.date: 11/07/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to understand how to configure dataflow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
@@ -407,23 +407,43 @@ To customize the MQTT endpoint settings, see the following sections for more inf
 
 ## Available authentication methods
 
-The following authentication methods are available for MQTT broker dataflow endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+The following authentication methods are available for MQTT broker dataflow endpoints.
 
 ### X.509 certificate
 
 Many MQTT brokers, like Event Grid, support X.509 authentication. Dataflows can present a client X.509 certificate and negotiate the TLS communication. 
 
+To use with dataflows, the certificate and private key must in PEM format and not password protected.
+
+> [!TIP]
+> PEM format is a common format for certificates and keys. Certificates and keys in PEM format are base64-encoded ASCII files with a headers that look like `-----BEGIN CERTIFICATE-----` and `-----BEGIN EC PRIVATE KEY----`
+> 
+> If you have a certificate in another format, you can convert it to PEM format using OpenSSL. To learn more, see [How to convert a certificate into the appropriate format](https://knowledge.digicert.com/solution/how-to-convert-a-certificate-into-the-appropriate-format).
+
 # [Portal](#tab/portal)
+
+> [!IMPORTANT]
+> To use the operations experience portal to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+
+> [!IMPORTANT]
+> The operations experience portal currently has a known issue where creating a X.509 secret results in a secret with incorrectly encoded data. To learn more and the workaround, see [known issues](../troubleshoot/known-issues.md).
 
 In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
 
-Enter the following settings for the endpoint:
+Here, under **Synced secret name**, enter a name for the secret. This name is used to reference the secret in the dataflow endpoint settings and is the name of the secret as stored in the Kubernetes cluster.
 
-| Setting               | Description                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------------- |
-| X509 client certificate | The X.509 client certificate used for authentication. |
-| X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain.  |
-| X509 client key       | The private key corresponding to the X.509 client certificate. |
+Then, under *X509 client certificate*, *X509 client key*, and *X509 intermediate certificates*, select **Add reference** to add the certificate, private key, and intermediate certificates. On the next page, select the secret from Azure Key Vault with **Add from Azure Key Vault** or **Create new** secret.
+
+If you select **Create new**, enter the following settings:
+
+| Setting | Description |
+| ------- | ----------- |
+| Secret name | The name of the secret in Azure Key Vault. Pick a name that is easy to remember to select the secret later from the list. |
+| Secret value | The certificate, private key, or intermediate certificates in PEM format. |
+| Set activation date | If turned on, the date when the secret becomes active. |
+| Set expiration date | If turned on, the date when the secret expires. |
+
+To learn more about secrets, see [Create and manage secrets in Azure IoT Operations Preview](../secure-iot-ops/howto-manage-secrets.md).
 
 # [Bicep](#tab/bicep)
 
@@ -439,12 +459,10 @@ mqttSettings: {
 
 # [Kubernetes](#tab/kubernetes)
 
-To use X.509 certificate authentication, you need to create a secret with the certificate and private key. Use the Kubernetes TLS secret containing the public certificate and private key. For example:
+To use X.509 certificate authentication, you need to create a secret with the certificate and private key. Create a secret with the certificate and private key in the same namespace as the MQTT dataflow resource.
 
 ```bash
-kubectl create secret tls my-tls-secret -n azure-iot-operations \
-  --cert=path/to/cert/file \
-  --key=path/to/key/file
+kubectl create secret generic <X509_SECRET_NAME> -n azure-iot-operations --from-file=client_cert.pem=<CLIENT_CERT_FILE>.pem --from-file=client_key.pem=<PRIVATE_KEY_FILE>.pem --from-file=client_intermediate_certs.pem=<INTERMEDIATE_CERT_FILE>.pem
 ```
 
 ```yaml
@@ -612,11 +630,17 @@ To use anonymous authentication, set the authentication method to `Anonymous`.
 
 # [Portal](#tab/portal)
 
-Not yet supported in the operations experience. See [known issues](../troubleshoot/known-issues.md).
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **None**.
 
 # [Bicep](#tab/bicep)
 
-Not yet supported with Bicep. See [known issues](../troubleshoot/known-issues.md).
+```bicep
+mqttSettings: {
+  authentication: {
+    method: 'Anonymous'
+  }
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 

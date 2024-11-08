@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 11/07/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
@@ -305,9 +305,23 @@ To enhance security and follow the principle of least privilege, you can generat
 
 # [Portal](#tab/portal)
 
+> [!IMPORTANT]
+> To use the operations experience portal to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+
 In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Access token**.
 
-Enter the access token secret name you created in **Access token secret name**.
+Here, under **Synced secret name**, enter a name for the secret. This name is used to reference the secret in the dataflow endpoint settings and is the name of the secret as stored in the Kubernetes cluster.
+
+Then, under **Access token secret name**, select **Add reference** to add the secret from Azure Key Vault. On the next page, select the secret from Azure Key Vault with **Add from Azure Key Vault** or **Create new** secret.
+
+If you select **Create new**, enter the following settings:
+
+| Setting | Description |
+| ------- | ----------- |
+| Secret name | The name of the secret in Azure Key Vault. Pick a name that is easy to remember to select the secret later from the list. |
+| Secret value | The SAS token in the format of `'sv=2022-11-02&ss=b&srt=c&sp=rwdlax&se=2023-07-22T05:47:40Z&st=2023-07-21T21:47:40Z&spr=https&sig=<signature>'`. |
+| Set activation date | If turned on, the date when the secret becomes active. |
+| Set expiration date | If turned on, the date when the secret expires. |
 
 To learn more about secrets, see [Create and manage secrets in Azure IoT Operations Preview](../secure-iot-ops/howto-manage-secrets.md).
 
