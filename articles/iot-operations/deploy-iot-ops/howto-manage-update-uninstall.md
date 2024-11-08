@@ -139,7 +139,7 @@ In general, Azure IoT Operations uses the Azure Arc platform to provide a hybrid
 
 However, you can also manage the components of Azure IoT Operations using YAML Kubernetes deployment manifests. This means you can use tools like `kubectl` to manage some components of Azure IoT Operations. This feature is in preview and has some limitations:
 
-- Only some components support using Kubernetes deployment manifests. These components are the [MQTT broker](../manage-mqtt-broker/overview-broker.md) and [dataflows](../connect-to-cloud/overview-dataflow.md). Other components like the the OPC UA connector and Akri don't support this feature.
+- Only some components support using Kubernetes deployment manifests. These components are the [MQTT broker](../manage-mqtt-broker/overview-broker.md) and [dataflows](../connect-to-cloud/overview-dataflow.md). Other components like the OPC UA connector and Akri don't support this feature.
 - Unless Azure IoT Operations is [deployed with resource sync enabled using `az iot ops create --enable-rsync`](/cli/azure/iot/ops#az-iot-ops-create), changes made to the resources using Kubernetes deployment manifests are not synced to Azure. To learn more about resource sync, see [Resource sync](/azure/azure-arc/data/resource-sync).
 - Even if resource sync is enabled, brand new resources created using Kubernetes deployment manifests are not synced to Azure. Only changes to existing resources are synced.
 
