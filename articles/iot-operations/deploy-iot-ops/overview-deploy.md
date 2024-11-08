@@ -22,7 +22,7 @@ Microsoft supports the following environments for Azure IoT Operations deploymen
 | ----------- | --------------- | ------------ |
 | K3s on Ubuntu 24.04 | K3s version 1.31.1 | General availability |
 | Azure Kubernetes Service (AKS) Edge Essentials on Windows 11 IoT Enterprise | AksEdge-K3s-1.29.6-1.8.202.0 | Public preview |
-| Azure Kubernetes Service (AKS) on Azure Stack HCI | Azure Stack HCI OS, version 23H2, build 2411 | Public preview |
+| Azure Kubernetes Service (AKS) on Azure Local | Azure Stack HCI OS, version 23H2, build 2411 | Public preview |
 
 >[!NOTE]
 >Billing usage records are collected on any environment where Azure IoT Operations is installed, regardless of support or availability levels.
