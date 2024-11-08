@@ -218,7 +218,7 @@ This section describes network management and monitoring services in Azure - Net
 
 Container network observability is part of [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview). ACNS leverages Hubble’s control plane to provide comprehensive visibility into AKS networking and performance. It offers real-time, detailed insights across node-level, pod-level, TCP, and DNS metrics, ensuring thorough monitoring of your network infrastructure. 
 
-:::image type="content" source="./media/advanced-container-networking-services/advanced-network-observability.png" alt-text="Diagram of Container Network Observability.":::
+:::image type="content" source="./media/networking-overview/advanced-network-observability.png" alt-text="Diagram of Container Network Observability.":::
 
 ## Next steps
 
