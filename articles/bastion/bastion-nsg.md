@@ -58,11 +58,11 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
 # Connect to Azure Account
 Connect-AzAccount
 
-# Define the NSG details
+# Get the Network Security Group details
 $resourceGroupName = Read-Host ("Enter the name of the Resource Group")
 $nsgName = Read-Host ("Enter the name of the Network Security Group")
 
-# Define the Ingress and Egress rules
+# Ingress and Egress rules
 $rules = @(
     @{
         Name = "AllowHttpsInbound"
