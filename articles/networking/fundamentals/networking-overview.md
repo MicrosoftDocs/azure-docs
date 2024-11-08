@@ -5,7 +5,7 @@ services: networking
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.topic: conceptual
-ms.date: 10/23/2024
+ms.date: 11/08/2024
 ms.author: mbender
 ---
 
@@ -72,7 +72,7 @@ Using Azure DNS, you can host and resolve public domains, manage DNS resolution 
 
 ### <a name="nat"></a>NAT Gateway
 
-Virtual Network NAT(network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
+NAT Gateway simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
 For more information, see [What is Azure NAT gateway](../../virtual-network/nat-gateway/nat-overview.md)?
 
 :::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Diagram of virtual network NAT gateway.":::

@@ -301,6 +301,18 @@ You can enable the following diagnostic log categories for NSGs:
 
 [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) continuously analyzes the security state of your Azure resources for network security best practices. When Defender for Cloud identifies potential security vulnerabilities, it creates [recommendations](../../security-center/security-center-recommendations.md) that guide you through the process of configuring the needed controls to harden and protect your resources.
 
+### Advanced Container Networking Services (ACNS)
+
+Advanced Container Networking Services (ACNS) is a comprehensive suite designed to elevate the operational efficiency of your Azure Kubernetes Service (AKS) clusters. It provides advanced security and observability features, addressing the complexities of managing microservices infrastructure at scale.
+
+Advanced Container Networking Services (ACNS) offers a comprehensive suite of features designed to enhance the operational efficiency and security of your Azure Kubernetes Service (AKS) clusters. 
+
+These features are divided into two main pillars:
+
+- **Security**: For clusters using Azure CNI Powered by Cilium, network policies include fully qualified domain name (FQDN) filtering for solving the complexities of maintaining configuration.
+
+- **Observability**: This feature of the Advanced Container Networking Services suite brings the power of Hubble’s control plane to both Cilium and non-Cilium Linux data planes, providing enhanced visibility into networking and performance.
+
 ## Compute
 The section provides additional information regarding key features in this area and summary information about these capabilities.
 
