@@ -303,9 +303,7 @@ You can enable the following diagnostic log categories for NSGs:
 
 ### Advanced Container Networking Services (ACNS)
 
-Advanced Container Networking Services (ACNS) is a comprehensive suite designed to elevate the operational efficiency of your Azure Kubernetes Service (AKS) clusters. It provides advanced security and observability features, addressing the complexities of managing microservices infrastructure at scale.
-
-Advanced Container Networking Services (ACNS) offers a comprehensive suite of features designed to enhance the operational efficiency and security of your Azure Kubernetes Service (AKS) clusters. 
+[Advanced Container Networking Services (ACNS)](/azure/security/fundamentals/overview#networking) is a comprehensive suite designed to elevate the operational efficiency of your Azure Kubernetes Service (AKS) clusters. It provides advanced security and observability features, addressing the complexities of managing microservices infrastructure at scale.
 
 These features are divided into two main pillars:
 
