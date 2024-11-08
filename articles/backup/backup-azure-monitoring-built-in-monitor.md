@@ -28,26 +28,9 @@ You can monitor all your backup items via a Recovery Services vault. Navigating 
 >
 >For DPM, MABS and MARS, the Backup Item (VM name, cluster name, host name, volume or folder name) and Protection Group cannot include '<', '>', '%', '&', ':', '\', '?', '/', '#' or any control characters.
 
-## Backup Jobs in Backup center
+## Backup Jobs in Azure Business Continuity Center
 
-Azure Backup provides in-built monitoring and alerting capabilities for workloads being protected by Azure Backup. Navigating to the **Backup Jobs** pane in **Backup center** allows you to view the recent backup and restore jobs across your vaults.
-
-:::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-jobs-inline.png" alt-text="Screenshot showing the Recovery Services vault built-in monitoring." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-jobs-expanded.png":::
-
-Jobs are generated when operations such as configuring backup, back up, restore, delete backup, and so on, are performed.
-
-Jobs from the following Azure Backup solutions are shown here:
-
-- Azure VM backup
-- Azure File backup
-- Azure workload back up such as SQL and SAP HANA
-- Microsoft Azure Recovery Services (MARS) agent
-
-Jobs from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) aren't displayed.
-
-> [!NOTE]
->- Azure workloads such as SQL and SAP HANA backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. So for such DB workloads, only user triggered operations are displayed. Scheduled backup operations aren't displayed.
->- In Backup center you can view jobs for upto last 14 days. If you want to view jobs for a large duration, you can go to the individual Recovery Services vaults and select the **Backup Jobs** tab. For jobs older than 6 months, we recommend you to use Log Analytics and/or [Backup Reports](configure-reports.md) to reliably and efficiently query older jobs.
+Learn [how to monitor Backup jobs](../business-continuity-center/tutorial-monitor-operate.md).
 
 ## Azure Monitor alerts for Azure Backup
 
