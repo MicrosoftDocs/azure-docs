@@ -84,8 +84,8 @@ Virtual network integration gives your function app access to resources in your 
 
 Azure Functions supports two kinds of virtual network integration:
 
-* [Regional virtual network integration](#regional-virtual-network-integration) for apps running on the Flex Consumption, Premium, Dedicated (App Service), and Container Apps hosting plans
-* [Gateway-required virtual network integration](../app-service/configure-gateway-required-vnet-integration.md) for apps running on the Dedicated (App Service) hosting plan
+* [Regional virtual network integration](#regional-virtual-network-integration) for apps running on the [Flex Consumption](./flex-consumption-plan.md), [Elastic Premium](./functions-premium-plan.md), [Dedicated (App Service)](./dedicated-plan.md), and [Container Apps](./functions-container-apps-hosting.md) hosting plans (recommended)
+* [Gateway-required virtual network integration](../app-service/configure-gateway-required-vnet-integration.md) for apps running on the [Dedicated (App Service)](./dedicated-plan.md) hosting plan
 
 To learn how to set up virtual network integration, see [Enable virtual network integration](#enable-virtual-network-integration).
 
@@ -110,13 +110,13 @@ When you use regional virtual network integration, you can use the following Azu
 > 
 > Regional virtual network integration isn't able to use port 25.
 
-Considerations for the Flex Consumption plan:
+Considerations for the [Flex Consumption](./flex-consumption-plan.md) plan:
 1. Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider). This is needed for subnet delegation.
 1. The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`. This is a change from Elastic Premium and App Service which has a different delegation requirement.
 1. You can plan for 40 IP addresses to be used at the most for one function app, even if the app scales beyond 40. For example, if you have fifteen Flex Consumption function apps that will be VNet integrated into the same subnet, you can plan for 15x40 = 600 IP addresses used at the most. This limit is subject to change, and is not enforced.
 1. The subnet can't already be in use for other purposes (like private or service endpoints, or [delegated](../virtual-network/subnet-delegation-overview.md) to any other hosting plan or service). While you can share the same subnet with multiple Flex Consumption apps, the networking resources will be shared across these function apps and this can lead to one function app impacting the performance of others on the same subnet.
 
-Considerations for the Elastic Premium, Dedicated (App Service), and Container Apps plans:
+Considerations for the [Elastic Premium](./functions-premium-plan.md), [Dedicated (App Service)](./dedicated-plan.md), and [Container Apps](./functions-container-apps-hosting.md) plans:
 
 * The feature is available for Elastic Premium and App Service Premium V2 and Premium V3. It's also available in Standard but only from newer App Service deployments. If you are on an older deployment, you can only use the feature from a Premium V2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium V3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you desire after that.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
