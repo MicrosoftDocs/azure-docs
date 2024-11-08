@@ -80,15 +80,6 @@ We recommend that you involve all relevant teams when planning your deployment t
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
 
-## SAP data connector agent configuration file
-
-The deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. The file is located in the `/sapcon-app/sapcon/config/system` directory on your VM. You can use this file to update the configuration of your SAP data connector agent.
-
-Earlier versions of the deployment script, released before June 2023, generated a **systemconfig.ini** file instead. For more information, see:
-
-- [Systemconfig.json file reference](reference-systemconfig-json.md)
-- [Systemconfig.ini file reference](reference-systemconfig.md) (legacy)
-
 ## Stop SAP data collection
 
 If you need to stop Microsoft Sentinel from collecting your SAP data, stop log ingestion and disable the connector. Then remove the extra user role and any optional CRs installed on your SAP system.
