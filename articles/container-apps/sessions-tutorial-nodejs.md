@@ -1,116 +1,198 @@
 ---
-title: "Tutorial: Use code interpreter sessions for JavaScript code execution with Azure Container Apps"
-description: Learn to use code interpreter sessions for JavaScript code execution on Azure Container Apps.
+title: "Tutorial: Run JavaScript code in a code interpreter session in Azure Container Apps"
+description: Learn to use code interpreter sessions to run JavaScript code in Azure Container Apps.
 services: container-apps
 author: IshitaAsthana
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 10/28/2024
+ms.date: 11/08/2024
 ms.author: iasthana
 ---
 
-# Tutorial: Use code interpreter sessions for JavaScript code execution with Azure Container Apps
+# Tutorial: Run JavaScript code in a code interpreter session in Azure Container Apps
 
-In this tutorial, you learn how to use a code interpreter in dynamic sessions to execute JavaScript code. You can use dynamic sessions of code-interpreter to run untrusted code
+This tutorial demonstrates how to create a container app where you can pass in code to execute on your behalf. The container app that executes your code uses a dynamic code interpreter session which runs lines of JavaScript you provide via a request.
+
+In this tutorial you:
+
+> [!div class="checklist"]
+> * Create a new code interpreter session
+> * Set the appropriate security context for your session pool
+> * Pass in JavaScript code for the container app to run
 
 ## Prerequisites
 
-- An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
-- Install the [Azure CLI](/cli/azure/install-azure-cli).
-- **Microsoft.App Resource Provider**: Register this resource provider.
+You need the following resources before you begin this tutorial.
 
-   ```shell
-   az provider register --namespace Microsoft.App
-   ```
-   
-## Create Azure resources
+| Resource | Description |
+|---|---|
+| Azure account | You need an Azure account with an active subscription. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
+| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
+
+## Set up
+
+Begin by preparing the Azure CLI with the latest updates and signing into to Azure.
 
 1. Update the Azure CLI to the latest version.
 
-   ```shell
+   ```azurecli
    az upgrade
    ```
 
-1. Remove the Azure Container Apps extension if it's already installed and install a preview version the Azure Container Apps extension containing commands for sessions:
+1. Register the `Microsoft.App` resource provider.
 
-   ```shell
-   az extension remove --name containerapp
-   az extension add \
-   --name containerapp \
-   --allow-preview true -y
+   ```azurecli
+   az provider register --namespace Microsoft.App
    ```
 
-1. Sign in to Azure:
+1. Remove the Azure Container Apps CLI extension and install a preview version of the extension.
 
-   ```shell
+    The preview version includes commands to manage dynamic sessions.
+
+    First, remove the existing instance of the `containerapp` extension.
+
+    ```azurecli
+    az extension remove --name containerapp
+    ```
+
+    Then, add the preview version of the extension.
+
+    ```azurecli
+    az extension add \
+      --name containerapp \
+      --allow-preview true -y
+    ```
+
+1. Sign in to Azure.
+
+   ```azurecli
    az login
    ```
 
-1. Set the variables used in this quickstart:
+1. Create a variable to hold the subscription ID.
 
-   ```shell
-   SUBSCRIPTION_ID=<SUBSCRIPTION_GUID>
-   RESOURCE_GROUP_NAME=<RESOURCE_GROUP_NAME>
-   LOCATION=<LOCATION>
-   SESSION_POOL_NAME=<SESSION_POOL_NAME>
-   SESSION_IDENTIFIER_STRING = <SESSION_IDENTIFIER_STRING>
-   EMAIL_ID=<user@microsoft.com>
-   ```
-
-1. Create a resource group:
-
-    ```shell
-    az account set -s $SUBSCRIPTION
-    az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
+    ```bash
+    SUBSCRIPTION_ID=$(az account show --query id --output tsv)
     ```
 
-1. Create a code interpreter session pool:
+1. View supported regions.
 
-    ```shell
-    az containerapp sessionpool create \
-    --name $SESSION_POOL_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --location $LOCATION \
-    --max-sessions 5 \
-    --network-status EgressEnabled \
-    --container-type NodeLTS \
-    --cooldown-period 300
+    ```azurecli
+    az provider show \
+      -n Microsoft.App \
+      --query "resourceTypes[?resourceType=='sessionPools'].locations"
     ```
 
+1. Set the variables used in this procedure.
 
-## RBAC Role Assignment for Session Code Execution APIs 
+    Before you run the following command, make sure to replace the placeholders surrounded by `<>` with your own values.
 
-The role `Azure ContainerApps Session Executor` is required to execute code in container-apps sessions.
+    ```bash
+    RESOURCE_GROUP=<RESOURCE_GROUP>
+    LOCATION=<LOCATION>
+    SESSION_POOL_NAME=<SESSION_POOL_NAME>
+    ```
 
-```shell
-az role assignment create \
---role "Azure ContainerApps Session Executor"\
---assignee $EMAIL_ID \
---scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME"
+    You use the resource group name and location to create a resource group in the next step. The session pool name is used throughout the following commands to create and manage the dynamic session pool.
+
+1. Create a resource group.
+
+    ```azurecli
+    az group create \
+      --name $RESOURCE_GROUP \
+      --location $LOCATION
+    ```
+
+## Create a code interpreter session pool
+
+Use the `az containerapp sessionpool create` command to create a Node.js session pool that is responsible for executing arbitrary JavaScript code.
+
+```azurecli
+az containerapp sessionpool create \
+  --name $SESSION_POOL_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --location $LOCATION \
+  --max-sessions 5 \
+  --network-status EgressEnabled \
+  --container-type NodeLTS \
+  --cooldown-period 300
 ```
 
-## Obtain BearerToken using the command
+## Set role assignments for code execution APIs
 
-For direct access to the session pool’s API, generate an access token and include it in the `Authorization` header of your requests. Ensure the token contains an audience (`aud`) claim with the value `https://dynamicsessions.io`.
+The interpreter session needs run under an appropriate security context. The role `Azure ContainerApps Session Executor` for the session have the permissions to execute your code.
 
-```shell
+```azurecli
+USER_OBJECT_ID=$(az ad signed-in-user show --query id -o tsv)
+```
+
+```azurecli
+az role assignment create \
+  --role "Azure ContainerApps Session Executor" \
+  --assignee-object-id $USER_OBJECT_ID \
+  --assignee-principal-type User \
+  --scope "/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME"
+```
+
+## Get a bearer token
+
+For direct access to the session pool’s API, generate an access token to include in the `Authorization` header of your requests. Ensure the token contains an audience (`aud`) claim with the value `https://dynamicsessions.io`.
+
+```bash
 JWT_ACCESS_TOKEN=$(az account get-access-token --resource https://dynamicsessions.io --query accessToken -o tsv)
+```
+
+Now with your bearer token defined, you can create a variable to hold the request header.
+
+```bash
 AUTH_HEADER="Authorization: Bearer $JWT_ACCESS_TOKEN"
 ```
-## Retrieve the Session Pool Management Endpoint
 
-```shell
-SESSION_POOL_MANAGEMENT_ENDPOINT=$(az containerapp sessionpool show -n $SESSION_POOL_NAME -g $RESOURCE_GROUP_NAME --query "properties.poolManagementEndpoint" -o tsv)
+This header accompanies the request you make to your application's endpoint.
+
+## Get the session pool management endpoint
+
+Use the following command to return the application's endpoint.
+
+```bash
+SESSION_POOL_MANAGEMENT_ENDPOINT=$(az containerapp sessionpool show -n $SESSION_POOL_NAME -g $RESOURCE_GROUP --query "properties.poolManagementEndpoint" -o tsv)
 ```
 
-## Code Samples
+This endpoint is the location where you make API calls to execute your code payload in the code interpreter session.
 
-Below is a simple Hello-world example for JavaScript
+## Execute code in your session
 
-```shell
+Now that you have a bearer token to establish the security context, and the session pool endpoint, you can issue a request to the application to execute your code block.
+
+Run the following command to run the JavaScript code to log "hello world" in your application.
+
+```bash
 curl -v -X 'POST' -H "$AUTH_HEADER" "$SESSION_POOL_MANAGEMENT_ENDPOINT/executions?api-version=2024-10-02-preview&identifier=test" -H 'Content-Type: application/json' -d '
 {
     "code": "console.log(\"hello world\")"
 }'
 ```
+
+## View the result
+
+To view the result of the code you executed, run the following command to stream log messages to your terminal.
+
+```azurecli
+az containerapp logs show \
+    --name <CONTAINER_APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --tail 50
+```
+
+## Clean up resources
+
+The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.
+
+```azurecli
+az group delete \
+  --resource-group $RESOURCE_GROUP
+```
+
+## Related content
+
+- [Code interpreter sessions overview](./sessions-code-interpreter.md)
