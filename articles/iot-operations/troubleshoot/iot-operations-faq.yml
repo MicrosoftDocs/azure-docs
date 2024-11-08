@@ -29,7 +29,7 @@ sections:
       answer: Currently, MQTT with QOS 2 is not supported. QoS 2 provides "exactly once" message delivery, but it requires additional processing, which can impact performance and scalability, particularly in high-throughput IoT environments. Azure IoT Operations prioritizes QoS levels 0 and 1 for efficient message handling, balancing reliability and resource management.
     - question: |
           Is message persistence supported in Azure IoT Operations?
-      answer: At AIO GA1, full message persistence is not going to be supported - the capability will be added post-GA. Currently, messages are held in memory with optional spill over to disk. However, if there is pod restart for any reason, messages that were written to disk cannot be restored. 	
+      answer:  Currently, Azure IoT Operations supports in-memory message persistence with optional spillover to disk. This setup allows messages to remain available in memory, with overflow messages stored temporarily on disk to prevent data loss during high message volumes. However, if a pod restarts, any messages that were written to disk cannot be restored.
     - question: |
          Does Azure Device Registry Preview offer high availability across availability zones and regions?
       answer: For information on high availability across availability zones and regions for ADR, see [Reliability in Azure Device Registry](../../reliability/reliability-device-registry.md).
