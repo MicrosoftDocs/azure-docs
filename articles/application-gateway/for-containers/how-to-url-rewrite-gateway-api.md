@@ -4,8 +4,8 @@ description: Learn how to rewrite URLs in Gateway API for Application Gateway fo
 services: application gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
-ms.date: 09/16/2024
+ms.topic: how-to
+ms.date: 11/5/2024
 ms.author: greglin
 ---
 
@@ -34,7 +34,7 @@ The following figure illustrates an example of a request destined for _contoso.c
    Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate traffic splitting / weighted round robin support.
 
     ```bash
-    kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+    kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
     ```
   
    This command creates the following on your cluster:
@@ -324,4 +324,4 @@ Via the response we should see:
 }
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application and used filtering to rewrite the client requested URL, prior to traffic being set to the target on Application Gateway for Containers.
+Congratulations, you have installed ALB Controller and deployed a backend application that includes filtering to rewrite the client requested URL. The target on Application Gateway for Containers is ready to receive traffic.
