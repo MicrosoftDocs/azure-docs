@@ -51,7 +51,11 @@ tasks:
       directory: C:\Workspaces
 ```
 
-There are two ways to use a customization file: team customizations which apply to a whole team, and individual customizations which apply to a single dev box.
+There are two ways to use a customization file: individual customizations which apply to a single dev box, and team customizations which apply to a whole team.
+
+### Individual Customization files
+- Contain tasks that are applied when a dev box is created.
+- Uploaded by the developer when they create a dev box.
 
 ### Team Customization files
 - Contain tasks that are applied when a dev box is created.
@@ -61,9 +65,11 @@ There are two ways to use a customization file: team customizations which apply 
 - Are uploaded to the repository that hosts your catalog.
 - Are automatically used when you create a dev box from a configured pool. 
 
-### Individual Customization files
-- Contain tasks that are applied when a dev box is created.
-- Uploaded by the developer when they create a dev box.
+> [!IMPORTANT]
+> Image definitions can only use Dev Box marketplace images as base images. To get a list of images that your DevCenter has access to, use this az cli command:
+> ```bash
+> az devcenter admin image list --dev-center-name CustomizationsImagingHQ --resource-group TeamCustomizationsImagingRG --query "[].name"
+> ```
 
 ## Create a customization file
 

@@ -126,6 +126,9 @@ To build an image from a customization file, follow these steps:
 1. Track progress 
 
    :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-image-build-progress-small.png" alt-text="Screenshot of the Image definition page, with the image status Progressing highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-image-build-progress.png":::  
+
+> [!IMPORTANT]
+> When optimizing your image definition into an image, a dev box is created to run your customization file and generate an image. During this process, this Dev Box is connected to a virtual network managed by Microsoft, and tasks that require access to on premise resources might fail. Support for specifying a custom network for an image build is coming soon. 
  
 When the build completes successfully, the dev box pool automatically uses the image for new dev boxes. You don't need to do any extra configuration to assign the image to the pool. You can now create dev boxes from the pool, and the customizations are applied to each dev box.
 

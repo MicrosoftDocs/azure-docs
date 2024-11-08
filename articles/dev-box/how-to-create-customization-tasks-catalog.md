@@ -61,6 +61,8 @@ To configure your Key Vault secrets for use in your yaml configurations,
 1. Ensure that your dev center project's managed identity has the Key Vault Reader role and Key Vault Secrets User role on your key vault.
 
 1. Grant the Secrets User role for the Key Vault secret to each user or user group who should be able to consume the secret during the customization of a dev box. The user or group granted the role must include the managed identity for the dev center, your own user account, and any user or group who needs the secret during the customization of a dev box.
+ 
+For more information on using key vault secrets in a customization file, see [Clone a private repository using a customization file](how-to-write-customization-file.md#clone-a-private-repository-using-a-customization-file).
 
 ## Attach a catalog 
 You can attach a catalog to a project to make tasks accessible to the developer team. To attach a catalog to a project, follow the steps in this article: [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
