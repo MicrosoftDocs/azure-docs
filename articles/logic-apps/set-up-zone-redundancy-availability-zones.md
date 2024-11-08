@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, laveeshb, azla
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 11/08/2024
 ms.custom: references_regions
 #Customer intent: As a developer, I want to protect logic apps from zonal failures by setting up availability zones and zone redundancy.
 ---
@@ -36,10 +36,13 @@ This guide shows how to enable zone redundancy for your logic apps.
   - [Outbound IP addresses for managed connectors and custom connectors](/connectors/common/outbound-ip-addresses)
 
 
->[!NOTE]
->With HTTP-based actions, certificates exported or created with AES256 encryption won't work when used for client certificate authentication. The same certificates also won't work when used for OAuth authentication.
+## Limitations
+
+With HTTP-based actions, certificates exported or created with AES256 encryption won't work when used for client certificate authentication. The same certificates also won't work when used for OAuth authentication.
 
 ## Set up zone redundancy for your logic app
+
+For Consumption logic apps, zone redundancy is automatically enabled. You don't need to take any additional steps to enable zone redundancy for Consumption logic apps.
 
 For Standard logic apps only, follow these steps:
 

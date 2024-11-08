@@ -7,7 +7,7 @@ ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 services: logic-apps
 ms.service: azure-logic-apps
-ms.date: 11/06/2024
+ms.date: 11/08/2024
 #Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Logic Apps works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different situations.
 
 ---
@@ -18,19 +18,10 @@ ms.date: 11/06/2024
 
 This article describes reliability support in Azure Logic Apps, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Resiliency is a shared responsibility between you and Microsoft and so this article also covers ways for you to create a resilient solution that meets your needs.
+Resiliency is a shared responsibility between you and Microsoft, and so this article also covers ways for you to create a resilient solution that meets your needs.
 
 Azure Logic Apps is a cloud platform where you can create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, you can quickly build a workflow that integrates and manages your apps, data, services, and systems.
 
-Azure Logic Apps simplifies the way that you connect legacy, modern, and cutting-edge systems across cloud, on premises, and hybrid environments. You can use low-code-no-code tools to develop highly scalable integration solutions that support your enterprise and business-to-business (B2B) scenarios.
-
-
-## Production deployment recommendations
-
-<!-- 3. Production deployment recommendations ---------------------------------------------------------
-
-    This section opens with an include that contains a brief explanation of production deployment recommendations such as SKUs and whether to enable zone redundancy in all production environments.
--->
 
 ## Transient faults 
 
@@ -51,8 +42,6 @@ The following logic app workflows support zone redundancy:
 | Standard | App Service Environment V3 | See [Reliability in App Service](./reliability-app-service.md). |
 
 
-Zone redundancy is available only for built-in operations, which directly run with the Azure Logic Apps runtime. Zone redundancy isn't available for managed Azure-hosted connector operations.
-    
 
 ### Requirements
 
@@ -63,11 +52,8 @@ To enable zone redundancy for your logic app, you must use make sure that you me
 
 ###  Considerations 
 
-TODO:   Considerations 
-
-<!-- 5C.  Considerations   --------------------------------------------------------------
-    Describe any workflows or scenarios that aren't supported, as well as any gotchas. For example, some zone-redundant services only replicate parts of the solution across availability zones but not others. Provide links to any relevant information. 
--->
+<!-- may need some more clarity on this -->
+Zone redundancy is available only for built-in connectors, which are designed to run directly and natively inside Azure Logic Apps runtime. Zone redundancy isn't available for managed Azure-hosted connector operations. For more information on connector types, see [Built-in connectors versus managed connectors](/azure/connectors/introduction#built-in-connectors-versus-managed-connectors).
 
 
 ### Cost
@@ -79,12 +65,9 @@ TODO:   Considerations
 | Standard | App Service Environment V3 | See [Reliability in App Service](./reliability-app-service.md). |
 
 
-For Standard hosting plans with App Service Environment v3, see [Reliability in App Service](./reliability-app-service.md).
-
-
 ### Configure availability zone support 
 
-**Create a new workflow with zone-redundancy.** When you deploy a new Azure Logic App workflow in a region that supports availability zones, you can choose whether you'd like to enable zone redundancy. To learn how to enable zone redundancy for your logic app, see [Enable zone redundancy for your logic app](../logic-apps/set-up-zone-redundancy-availability-zones.md).
+**Create a new workflow with zone-redundancy.** Consumption logic apps support zone redundancy automatically, so no configuration is required. To enable zone-redundancy for Standard logic apps, see [Enable zone redundancy for your logic app](../logic-apps/set-up-zone-redundancy-availability-zones.md).
 
 **Migration.** It's not possible to enable zone-redundancy to an existing workflow after it's created. Instead, you need to create the Azure Logic App workflow in the new region and delete the old one.
 
@@ -92,171 +75,21 @@ For Standard hosting plans with App Service Environment v3, see [Reliability in 
 **Disable zone redundancy.** If you need to disable zone redundancy for a logic app, you can't do this after the logic app is created. Instead, you need to create a new logic app in the same region without zone redundancy enabled.
 
 
-### Capacity planning and management 
-
-
-<!-- 5F. Capacity planning and management  ---------------------------------------------------------------
-    Optional section. In some services, a zone failover can cause instances in the surviving zones to become overloaded with requests. If that's a risk for your service's customers, explain that here, and whether they can mitigate that risk by overprovisioning capacity. 
--->
-
-### Traffic routing between zones
-
-
-
-<!-- 5G. Traffic routing between zones ----------------------------------------------------------
-Optional section.
-
-This section should describe how data replication is performed during regular day-to-day operations - NOT during a zone failure. 
-
-- For zone-redundant services, explain how traffic typically gets passed between instances in availability zones. Common approaches are:
-
-    - **Active/active.** Requests are spread across instances in every availability zone.
-
-    - **Active/passive.** There's some sort of leader-based process where requests go to a single primary instance. 
-
--->
-
-**Example:**
-
-> When you configure zone redundancy on [service-name], requests are automatically spread across the instances in each availability zone. A request might go to any instance in any availability zone.
-
-<!--
-
-- For zonal services, explain how customers should configure their solution to route requests between the availability zones. 
-
--->
-
-**Example:**
-
->When you deploy multiple [service-name] resources in different availability zones, you need to decide how to route traffic between those resources. Commonly, you use a zone-redundant Azure Load Balancer to send traffic to resources in each zone.
-
-### Data replication between zones
-TODO: Add your data replication between zones
-
-<!-- 5H. Data replication between zones ------------------------------------------
-    
-Optional section.  
-
-This section is only required for services that perform data replication across zones.  
-
-This section explains how data is replicated: synchronously, asynchronously, or some combination between the two. 
-
-This section should describe how data replication is performed during regular day-to-day operations - NOT during a zone failure.  
-
--->
-
->[!IMPORTANT]
->The data replication approach across zones is usually different to the approach used across regions.
-
-<!--
-Most Azure services replicate data across zones synchronously, which means that changes are applied to multiple (or all) zones simultaneously, and the change isn’t considered to be completed until multiple/all zones have acknowledged the change. Use wording similar to the following to explain this approach and its tradeoffs.
-
--->
-
-**Example:**
-
-> When a client changes any data in your [service-name] resource, that change is applied to all instances in all zones simultaneously. This approach is called *synchronous replication.* Synchronous replication ensures a high level of data consistency, which reduces the likelihood of data loss during a zone failure. Availability zones are located relatively close together, which means there's minimal effect on latency or throughput.
-
-<!--
-Alternatively, some services replicate their data asynchronously, where changes are applied in a single zone and then propagated after some time to the other zones. Use wording similar to this to explain this approach and its tradeoffs.
--->
-
-**Example:**
-
-> When a client changes any data in your [service-name] resource, that change is applied to the primary zone. At that point, the write is considered to be complete. Later, the X resource in the secondary zone is automatically updated with the change. This approach is called *asynchronous replication.* Asynchronous replication ensures high performance and throughput. However, any data that hasn't been replicated between availability zones could be lost if the primary zone experiences a failure.
-
-<!--
-    Your service might behave differently to the examples provided above, so adjust or rewrite as much as you need. The accuracy and clarity of this information is critical to our customers, so please make sure you understand and explain the replication process thoroughly. 
--->
-
 ### Zone-down experience
-TODO: Add your zone-down experience
 
-<!-- 3I. Zone-down experience ------------------------------------------------------------
-
-Explain what happens when an availability zone is down. Be precise and clear. Avoid ambiguity in this section, because customers depend on it for their planning purposes.  Divide your content into the following sections. You can use the table format if your descriptions are short. Otherwise, you can use a list format.
-
-- **Detection and response**: Explain who is responsible for detecting when a zone is down and for responding, such as by initiating a zone failover. For zonal resources, is it customer-initiated or Microsoft-initiated? Zone-redundant is always Microsoft-initiated. 
-
--->
-
-**Example:**
-> The [service-name] platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
-
-<!--    
-- **Notification**: Explain whether a customer can find out when a zone has been lost. Are there logs? Is there a way to set up an alert? 
--->
-**Example:**
-> To determine when a zone failure occurred, see [logs/alerts/Resource Health/Service Health – be specific about what to look for].
-
-
-<!--
-- **Active requests**: For zone-redundant services, explain what happens to any active (in-flight) requests.
--->
-
-**Example:**
-> Any active requests are dropped and should be retried by the client.
-
-
-<!--
-- **Expected data loss**: Explain if the customer should expect any data loss during a zone failover. For zone-redundant services, usually there is no data loss.
--->
-
-**Example:**
-> A zone failure isn't expected to cause any data loss.
-
-<!--
-- **Expected downtime**: Explain any expected downtime, such as during a failover operation.
--->
-
-**Example:**
-> A zone failure isn't expected to cause downtime to your resources.
-
-<!--
-- **Traffic rerouting**: For zone-redundant services, explain how the platform recovers, including how traffic is rerouted to the surviving zones. For zonal services, explain how customers should reroute traffic after a zone is lost.
--->
-
-**Example:**
-> When a zone is unavailable, [service-name] detects the loss of the zone and creates new instances in another availability zone. Then, any new requests are automatically spread across all active instances.
+The Logic Apps platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 
 
 ### Failback
-TODO: Add your failback
 
-<!-- 5J. Failback  ----------------------------------------------------
-    Explain who initiates a failback. For zonal resources, is it customer-initiated or Microsoft-initiated? Zone-redundant is always Microsoft-initiated. 
--->
+<!-- is this true? -->
+When the availability zone recovers, Logic Apps automatically restores instances in the availability zone, removes any temporary instances created in the other availability zones, and reroutes traffic between your instances as normal.
 
-**Example:**
-
-> When the availability zone recovers,  [service-name]  automatically restores instances in the availability zone, removes any temporary instances created in the other availability zones, and reroutes traffic between your instances as normal.
-
-
-<!--
-    Optional: If there is any possibility of data synchronization issues or inconsistencies during failback, explain that here, as well as what customers can/should do to resolve the situation. (Most services don’t require this section because data inconsistency isn’t possible between availability zones.) 
-
--->
 
 ### Testing for zone failures  
-TODO: Add your testing for zone failures  
 
-<!-- 5J. Testing for zone failures ----------------------------------------------------
-
-For zonal services, can you trigger a fault in an availability zone, such as by using Azure Chaos Studio? If so, link to the specific fault types that simulate the appropriate failure. 
-
--->
-
-**Example:**
-
-> You can simulate a zone failure by using Azure Chaos Studio. Inject the XXX fault to simulate the loss of an availability zone. Regularly test your responses to zone failures so that you can be ready for unexpected availability zone outages.
-
-<!--
-For zone-redundant services, is there a way for the customer to test a zone failover? Usually that’s not possible, so use wording like this: 
--->
-
-**Example:**
-  
-> The Azure [service-name]  platform manages traffic routing, failover, and failback for zone-redundant X resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
+<!-- is this true? -->
+The Azure Logic Apps platform manages traffic routing, failover, and failback for zone-redundant X resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
 
 
 ## Multi-region support 
@@ -265,30 +98,6 @@ For zone-redundant services, is there a way for the customer to test a zone fail
 Each logic app is deployed into a single Azure region. If the region becomes unavailable, your logic app is also unavailable.
 
 For higher resiliency, you can setup your primary logic app to failover to either a standby or backup logic app in an another (secondary) region.
-
-
-### Requirements 
-
-- The secondary logic app instance has access to the same apps, services, and systems as the primary logic app instance.
-
-- Both logic app instances must have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For best practices and more information about paired regions for BCDR, see [Cross-region replication in Azure: Business continuity and disaster recovery](cross-region-replication-azure.md).
-
-
->[!NOTE]
->If your logic app also works with B2B artifacts, such as trading partners, agreements, schemas, maps, and certificates, which are stored in an integration account, both your integration account and logic apps must use the same location.
-
-
-### Region support 
-
-The secondary region must support Azure Logic Apps service, as well as the same features and services that your primary logic app uses. To see if your secondary region supports Logic Apps service, see [Azure product availability by region](https://azure.microsoft.comexplore/global-infrastructure/products-by-region).
-
-### Considerations
-
-- When your logic app is triggered and starts running, the app's state is stored in the same region where the app started and is non-transferable to another region. If a regional failure or disruption happens, any in-progress workflow instances are abandoned. When you have primary and secondary region set up, new workflow instances start running at the secondary location.
-
-    To minimize the number of abandoned in-progress workflow instances, you can choose to implement one of the various message patterns. For more information, see [Reduce abandoned in-progress instances](/azure/logic-apps/business-continuity-disaster-recovery-guidance#reduce-abandoned-in-progress-instances).
-
-- A logic app's execution history is stored in the same region where that logic app ran, which means you can't migrate this history to a different region. If your primary instance fails over to a secondary instance, you can only access each instance's trigger and runs history in the respective regions where those instances ran. However, you can get region-agnostic information about your logic app's history by setting up your logic apps to send diagnostic events to an Azure Log Analytics workspace. You can then review the health and history across logic apps that run in multiple regions. For more information on how to set up trigger and runs history in the secondary region, see [Trigger type guidance](/azure/logic-apps/business-continuity-disaster-recovery-guidance#trigger-type-guidance).
 
 
 ### Cost
