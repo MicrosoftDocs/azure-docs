@@ -5,7 +5,7 @@ description: Learn how to use Apache Kafka on HDInsight with Azure IoT Hub. The 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/05/2023
+ms.date: 11/08/2024
 ---
 
 # Use Apache Kafka on HDInsight with Azure IoT Hub
@@ -190,7 +190,7 @@ To retrieve IoT hub information used by the connector, use the following steps:
         2. To get the connection string for the `service` policy, use the following command:
 
             ```azurecli
-            az iot hub show-connection-string --name myhubname --policy-name service --query "connectionString"
+            az iot hub connection-string show --name myhubname --policy-name service --query "connectionString"
             ```
 
             Replace `myhubname` with the name of your IoT hub. The response is the connection string for the `service` policy.
