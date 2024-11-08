@@ -20,7 +20,7 @@ This series of quickstarts is intended to help you get started with Azure IoT Op
 
 For the best new user experience, we recommend using an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) so that you have owner permissions over the resources in these quickstarts.
 
-We also use GitHub Codespaces as a virtual environment for this quickstart so that you can test the scenario without installing new tools on your own machines. However, if you want to deploy Azure IoT Operations to a local cluster such as Azure Kubernetes Service (AKS) Edge Essentials or K3s on Ubuntu, see [Deployment details](../deploy-iot-ops/overview-deploy.md).
+We also use GitHub Codespaces as a virtual environment for this quickstart so that you can test the scenario without installing new tools on your own machines. However, if you want to deploy Azure IoT Operations to a local cluster on Ubuntu or Azure Kubernetes Service (AKS), see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Azure IoT Operations is a suite of data services that run on Kubernetes clusters
 1. Create a schema registry.
 1. Deploy Azure IoT Operations to your cluster.
 
-## Create a cluster
+## Create cluster
 
 Azure IoT Operations can be deployed to K3s on Ubuntu, Azure Kubernetes Service (AKS) Edge Essentials, and AKS on Azure Local. However, for speed and convenience, this quickstart uses GitHub Codespaces to host your cluster. To learn how to deploy Azure IoT Operations to a cluster on Windows or Ubuntu instead, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
@@ -84,7 +84,7 @@ To create your codespace and cluster, use the following steps:
 
 1. Once the codespace is ready, select the menu button at the top left, then select **Open in VS Code Desktop**.
 
-   ![Open VS Code desktop](media/prepare-codespaces/open-in-vs-code-desktop.png)
+   :::image type="content" source="media/quickstart-deploy/open-in-vs-code-desktop.png" alt-text="Screenshot that shows opening the codespace in VS Code Desktop.":::
 
 1. If prompted, install the **GitHub Codespaces** extension for Visual Studio Code and sign in to GitHub.
 
@@ -92,7 +92,7 @@ To create your codespace and cluster, use the following steps:
 
    Use this terminal to run all of the CLI commands for managing your cluster.
 
-## Connect a Kubernetes cluster to Azure Arc
+## Connect cluster to Azure Arc
 
 To connect your cluster to Azure Arc:
 
@@ -233,4 +233,4 @@ If you're continuing on to the next quickstart, keep all of your resources.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Quickstart: Add OPC UA assets to your Azure IoT Operations cluster](quickstart-configure.md)
+> [Quickstart: Configure your cluster](quickstart-configure.md)
