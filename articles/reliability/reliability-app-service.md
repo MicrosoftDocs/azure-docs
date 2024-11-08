@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-app-service
-ms.date: 11/01/2024
+ms.date: 11/08/2024
 zone_pivot_groups: app-service-sku
 ---
 
