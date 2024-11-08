@@ -28,7 +28,9 @@ For more information, see [this announcement](https://github.com/Azure/app-servi
 
 ## Enable functions to run from a package
 
-To enable your function app to run from a package, add a `WEBSITE_RUN_FROM_PACKAGE` app setting to your function app. The `WEBSITE_RUN_FROM_PACKAGE` app setting can have one of the following values:
+Function apps on the [Flex Consumption](./flex-consumption-plan) hosting plan run from a package by default. No special configuration needs to be done.
+
+To enable your function app to run from a package on the [Consumption](./consumption-plan.md), [Elastic Premium](./functions-premium-plan.md), and [Dedicated (App Service)](./dedicated-plan.md) hosting plans, add a `WEBSITE_RUN_FROM_PACKAGE` app setting to your function app. The `WEBSITE_RUN_FROM_PACKAGE` app setting can have one of the following values:
 
 | Value  | Description  |
 |---------|---------|
@@ -45,6 +47,7 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values 
 
 ## General considerations
 
++ Do not add the `WEBSITE_RUN_FROM_PACKAGE` app setting to apps on the [Flex Consumption](./flex-consumption-plan.md) plan.
 + The package file must be .zip formatted. Tar and gzip formats aren't supported.
 + [Zip deployment](#integration-with-zip-deployment) is recommended.
 + When deploying your function app to Windows, you should set `WEBSITE_RUN_FROM_PACKAGE` to `1` and publish with zip deployment.
@@ -87,10 +90,11 @@ When you set the `WEBSITE_RUN_FROM_PACKAGE` app setting value to `1`, the zip de
 
 ## Use WEBSITE_RUN_FROM_PACKAGE = URL
 
-This section provides information about how to run your function app from a package deployed to a URL endpoint. This option is the only one supported for running from a Linux-hosted package with a Consumption plan.
+This section provides information about how to run your function app from a package deployed to a URL endpoint. This option is the only one supported for running from a Linux-hosted package with a Consumption plan. This option is not supported in the [Flex Consumption](./flex-consumption-plan.md) plan.
 
 ### Considerations for deploying from a URL
 
++ Do not set `WEBSITE_RUN_FROM_PACKAGE = <URL>` in apps on the [Flex Consumption](./flex-consumption-plan.md) plan. This option is not supported.
 + Function apps running on Windows experience a slight increase in [cold-start time](event-driven-scaling.md#cold-start) when the application package is deployed to a URL endpoint via `WEBSITE_RUN_FROM_PACKAGE = <URL>`.
 + When you specify a URL, you must also [manually sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package.
 + The Functions runtime must have permissions to access the package URL.
