@@ -13,20 +13,23 @@ ms.reviewer: whhender
 
 # Tutorial: Explore and Analyze data lakes with serverless SQL pool
 
-In this tutorial, you learn how to perform exploratory data analysis. You combine different Azure Open Datasets using serverless SQL pool. You then visualize the results in Synapse Studio for Azure Synapse Analytics.
+In this tutorial, you learn how to perform exploratory data analysis using existing open datasets, with no storage setup required. You combine different Azure Open Datasets using serverless SQL pool. You then visualize the results in Synapse Studio for Azure Synapse Analytics.
 
 The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `[OPENROWSET](develop-openrowset.md)` reads content of a remote data source, such as a file, and returns the content as a set of rows.
 
-## Automatic schema inference
+## Access the serverless SQL pool
 
-Since data is stored in the Parquet file format, automatic schema inference is available. You can query the data without listing the data types of all columns in the files. You also can use the virtual column mechanism and the `filepath` function to filter out a certain subset of files.
+Every workspace comes with a preconfigured serverless SQL pool for you to use called *Built-in*. To access it:
 
-> [!NOTE]
-> The default collation is `SQL_Latin1_General_CP1_CI_ASIf`. For a non-default collation, take into account case sensitivity.
->
-> If you create a database with case sensitive collation when you specify columns, make sure to use correct name of the column.
->
-> A column name `tpepPickupDateTime` would be correct while `tpeppickupdatetime` wouldn't work in a non-default collation.
+1. Open your workspace and select the **Develop** hub.
+1. Select the **+** *Add new resource* button.'
+1. Select SQL script.
+
+You can use this script to explore your data without having to reserve SQL capacity.
+
+## Access the tutorial data
+
+All the data we use in this tutorial is housed in the storage account *azureopendatastorage*, which holds Azure Open Datasets for open use in tutorials like this one. You can run all the scripts as-is directly from your workspace as long as your workspace can access a public network.
 
 This tutorial uses a dataset about [New York City (NYC) Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/):
 
@@ -47,6 +50,8 @@ SELECT TOP 100 * FROM
         FORMAT='PARQUET'
     ) AS [nyc]
 ```
+
+### Other accessible datasets
 
 Similarly, you can query the Public Holidays dataset by using the following query:
 
@@ -75,6 +80,17 @@ You can learn more about the meaning of the individual columns in the descriptio
 - [NYC Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)
 - [Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)
 - [Weather Data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
+
+## Automatic schema inference
+
+Since the data is stored in the Parquet file format, automatic schema inference is available. You can query the data without listing the data types of all columns in the files. You also can use the virtual column mechanism and the `filepath` function to filter out a certain subset of files.
+
+> [!NOTE]
+> The default collation is `SQL_Latin1_General_CP1_CI_ASIf`. For a non-default collation, take into account case sensitivity.
+>
+> If you create a database with case sensitive collation when you specify columns, make sure to use correct name of the column.
+>
+> A column name `tpepPickupDateTime` would be correct while `tpeppickupdatetime` wouldn't work in a non-default collation.
 
 ## Time series, seasonality, and outlier analysis
 
