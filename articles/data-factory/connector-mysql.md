@@ -305,14 +305,11 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `time` |`TimeSpan` |`TimeSpan` |
 | `timestamp` |`Datetime` |`Datetime` |
 | `tinyblob` |`Byte[]` |`Byte[]` |
-| `tinyint` |`SByte` |`Int16` |
+| `tinyint` |`SByte` <br/> (tinyint(1) is mapped to Boolean) |`Int16` |
 | `tinyint unsigned` |`Int16` |`Int16` |
 | `tinytext` |`String` |`String` |
 | `varchar` |`String` |`String` |
 | `year` |`Int` |`Int` |
-
->[!NOTE]
->Storing bit(1) as Boolean in the legacy version was improved in the recommended version. If you still want to have Boolean value by using the recommended version, use tinybit(1) data type.
 
 ## Lookup activity properties
 
@@ -330,39 +327,13 @@ Here are steps that help you upgrade your MySQL connector:
 
 ### Best practices for MySQL connector recommended version
 
-This section introduces some best practices for MySQL connector recommended version.
+This section introduces best practices for MySQL connector recommended version.
 
 #### Cannot load SSL key
 
-If you are using MySQL connector recommended version with SSL Key as a connection property, you might hit the following issues:
-- `Could not load the client key from your_pem_file`
-- `Unrecognized PEM header: -----BEGIN PRIVATE KEY-----`
-
-The reason for these issues is the recommended version cannot decrypt the PCKS#8 format. You need to convert the PEM format to PCKS#1.
-
-#### Treat tiny as Boolean
-
-The recommended version treats tinyint(1) as Boolean type by default, which is by design. For more information, see this [article](https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html).
-
-To let the connector return tiny as numeric, set `treatTinyAsBoolean=false` in the connection properties.
-
-#### Treat char(36) as GUID
-
-The recommended version will treat Char(36) as GUID type by default for better performance.
-
-The connector treats Char(36) fields as GUIDs for easier database handling. This treatment simplifies operations such as inserting, updating, and retrieving GUID values, ensuring they are consistently managed as GUID objects in the application code instead of plain strings. This behavior is particularly useful in scenarios where GUIDs are used as primary keys or unique identifiers and provides better performance.
-
-You can also change this behavior by setting `guidFormat=none` in connection property. 
-
-#### Cannot read zero or invalid date
-
-The recommended version cannot read zero or invalid date value. It is by default. 
-
-MySQL permits you to store a "zero" value of '0000-00-00' as a "dummy date." In some cases, this is more convenient than using NULL values, and uses less data and index space. To disallow '0000-00-00', enable the [NO_ZERO_DATE](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_zero_date) mode. For more information, see this [article](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-types.html).
-
-For zero date value, you can set `convertZeroDateTime=true` and `allowZeroDateTime=true`to return DateTime.MinValue (1/1/0001 12:00:00 AM).
-
-For invalid date value, you can modify your SQL to wrap the column as String type.
+- **Symptoms**: If you are using MySQL connector recommended version with SSL Key as a connection property, you may meet the following error message: `Could not load the client key from your_pem_file: Unrecognized PEM header: -----BEGIN PRIVATE KEY-----`
+- **Cause**: The recommended version cannot decrypt the PCKS#8 format.
+- **Recommendation**: Convert the PEM format to PCKS#1.
 
 ## Differences between the recommended and the legacy driver version
 
