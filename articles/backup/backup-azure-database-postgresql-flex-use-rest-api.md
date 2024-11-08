@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up Azure Database for PostgreSQL - Flexible servers using REST API
+# Back up Azure Database for PostgreSQL - Flexible servers using REST API (preview)
 
 This article describes how to manage backups for Azure PostgreSQL flexible servers via REST API.
 

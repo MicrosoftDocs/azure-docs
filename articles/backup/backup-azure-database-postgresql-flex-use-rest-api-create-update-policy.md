@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Create Azure Data Protection backup policies for Azure Database for PostgreSQL - Flexible servers using REST API
+# Create Azure Data Protection backup policies for Azure Database for PostgreSQL - Flexible servers using REST API (preview)
 
 This article describes how to create the backup policy to protect Azure PostgreSQL flexible servers using REST API.
 
