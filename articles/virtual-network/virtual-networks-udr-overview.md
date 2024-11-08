@@ -70,7 +70,11 @@ You create custom routes by either creating [user-defined](#user-defined) routes
 
 ### User-defined
 
-To customize your traffic routes, you shouldn't modify the default routes but you should create custom, or user-defined(static) routes which override Azure's default system routes. In Azure, you create a route table, then associate the route table to zero or more virtual network subnets. Each subnet can have zero or one route table associated to it. To learn about the maximum number of routes you can add to a route table and the maximum number of user-defined route tables you can create per Azure subscription, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). When you create a route table and associate it to a subnet, the table's routes are combined with the subnet's default routes. If there are conflicting route assignments, user-defined routes override the default routes.
+To customize your traffic routes, you shouldn't modify the default routes but you should create custom, or user-defined(static) routes which override Azure's default system routes. In Azure, you create a route table, then associate the route table to zero or more virtual network subnets. Each subnet can have zero or one route table associated to it. To learn about the maximum number of routes you can add to a route table and the maximum number of user-defined route tables you can create per Azure subscription, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+
+By default, a route table can contain up to 1000 user-defined routes (UDRs). With Azure Virtual Network Manager’s [routing configuration](../virtual-network-manager/concept-user-defined-route.md), this can be expanded to 1000 UDRs per route table. This increased limit supports more advanced routing setups, such as directing traffic from on-premises data centers through a firewall to each spoke virtual network in a hub-and-spoke topology when you have a higher number of spoke virtual networks.
+
+When you create a route table and associate it to a subnet, the table's routes are combined with the subnet's default routes. If there are conflicting route assignments, user-defined routes override the default routes.
 
 You can specify the following next hop types when creating a user-defined route:
 
@@ -176,7 +180,7 @@ If multiple routes contain the same address prefix, Azure selects the route type
 1. System route
 
 > [!NOTE]
-> System routes for traffic related to virtual network, virtual network peerings, or virtual network service endpoints, are preferred routes, even if BGP routes are more specific.
+> System routes for traffic related to virtual network, virtual network peerings, or virtual network service endpoints, are preferred routes, even if BGP routes are more specific. Routes with next hop type virtual network service endpoint, cannot be overriden, even using a route table.
 
 For example, a route table contains the following routes:
 
