@@ -20,10 +20,10 @@ sections:
       answer: Share your feedback on the [Azure IoT Operations public feedback forum](https://feedback.azure.com/d365community/forum/20152d6e-6a76-ee11-8179-000d3a1abe9e).
     - question: |
          Does Azure IoT Operations offer high availability across multi-node setup?
-      answer: Yes, Azure IoT Operations workloads on K3s and HCI/AKS-Arc multi-node clusters support distribution of Azure IoT Operations workloads across multi-nodes setups in the preview version. The AIO MQTT Broker does automatically replicates states across multiple nodes governed by the Broker's 'cardinality' setting. Replicas are distributed across different nodes in a multi-node cluster and data is not lost if there is one set of replicas running and healthy. 
+      answer: Yes, Azure IoT Operations workloads on K3s and HCI/AKS-Arc multi-node clusters support distribution of Azure IoT Operations workloads across multi-nodes setups in the preview version. The MQTT Broker does automatically replicates states across multiple nodes governed by the Broker's 'cardinality' setting. Replicas are distributed across different nodes in a multi-node cluster and data is not lost if there is one set of replicas running and healthy. 
     - question: |
          How can we ensure zero or minimal data loss in an Azure IoT Operations setup?
-      answer: To achieve zero message loss in AIO GA1, a minimum 3-node cluster is required. This configuration allows for one node to reboot or go offline without data loss. However, if the entire cluster goes down or enough nodes are lost to disrupt quorum, message loss may occur.
+      answer: To achieve zero message loss in a minimum 3-node cluster is required. This configuration allows for one node to reboot or go offline without data loss. However, if the entire cluster goes down or enough nodes are lost to disrupt quorum, message loss may occur.
     - question: |
          Is MQTT with QoS 2 supported in Azure IoT Operations?
       answer: Currently, MQTT with QOS 2 is not supported. QoS 2 provides "exactly once" message delivery, but it requires additional processing, which can impact performance and scalability, particularly in high-throughput IoT environments. Azure IoT Operations prioritizes QoS levels 0 and 1 for efficient message handling, balancing reliability and resource management.
