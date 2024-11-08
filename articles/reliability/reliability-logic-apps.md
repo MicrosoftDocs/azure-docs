@@ -23,6 +23,13 @@ Resiliency is a shared responsibility between you and Microsoft, and so this art
 Azure Logic Apps is a cloud platform where you can create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, you can quickly build a workflow that integrates and manages your apps, data, services, and systems.
 
 
+## Production deployment recommendations
+
+For production deployments, you should:
+
+- [Enable zone redundancy](#availability-zone-support), which spreads logic app resources across multiple availability zones.
+
+
 ## Transient faults 
 
 Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests.
@@ -100,145 +107,30 @@ Each logic app is deployed into a single Azure region. If the region becomes una
 For higher resiliency, you can setup your primary logic app to failover to either a standby or backup logic app in an another (secondary) region.
 
 
-### Cost
-
-<!-- 6D. Cost ----------------------
-    Give an idea of what this does to your billing meters. For example, is there an additional charge for enabling multi-region support? Do you need to deploy additional instances of your service in each region? 
-
-    Don't specify prices. Link to the Azure pricing information if needed. 
-
-    If there is no cost difference between zone-redundant and zonal services, state that here.
--->
-
-
-**Example:**
-
-> When you enable multi-region support, you're billed for each region that you select. For more information, see [service pricing information].
-
-
- 
-### Region-down experience 
-
-<!-- 6I. Region down experience   ----------------------
-
-Explain what happens when a region is down. Be precise and clear. Avoid ambiguity in this section, because customers depend on it for their planning purposes. Divide your content into the following sections. You can use the table format if your descriptions are short. Alternatively, you can use a list format.
-
-- **Detection and response** Explain who is responsible for detecting a region is down and for responding, such as by initiating a region failover. Whether your service has customer-managed failover or the service manages it itself, describe it here. 
-
-  If your multi-region support depends on another service, commonly Azure Storage, detecting and failing over, explicitly state that, and link to the relevant reliability guide to understand the conditions under which that happens. Be careful with talking about GRS because that doesn’t apply in non-paired regions, so explain how things work in that case. 
--->
-
-**Example:**
-
-*For customer-initiated detection:*
-
-> [service-name] is responsible for detecting a failure in a region and automatically failing over to the secondary region.
-
-
-*For service-initiated detection:*
-
-> [service name] is responsible for detecting a failure in a region and automatically failing over to the secondary region.
-
-*For detection that depends on another service:*
-
->In regions that have pairs, [service name] depends on Azure Storage geo-redundant storage for data replication to the secondary region. Azure Storage detects and initiates a region failover, but it does so only in the event of a catastrophic region loss. This action might be delayed significantly, and during that time your resource might be unavailable. For more information, see [Link to more info].
-
-<!--
-- **Notification** Explain if there’s a way for a customer to find out when a region has been lost. Are there logs? Is there a way to set up an alert? 
--->
-
-**Example:**
-
-> To determine when a region failure occurred, see [logs/alerts/Resource Health/Service Health].
-
-<!--
-- **Active requests** Explain what happens to any active (inflight) requests.
--->
-
-**Example:**
-
-> Any active requests are dropped and should be retried by the client.
-
-<!--- 
-    **Expected data loss** Explain if the customer should expect any data loss during a region failover. Data loss is common during a region failover, so it’s important to be clear here. 
--->
-
-**Example:**
-
-> You might lose some data during a region failure if that data isn't yet synchronized to another region.
-
-<!--
-    - **Expected downtime** Explain any expected downtime, such as during a failover operation. 
--->
-
-**Example:**
-
-> Your [service-name] resource might be unavailable for approximately 2 to 5 minutes during the region failover process.
-
-<!--
-    - **Traffic rerouting** Explain how the platform recovers, including how traffic is rerouted to the surviving region. If appropriate, explain how customers should reroute traffic after a region is lost. 
--->
-
-**Example:**
-> When a region failover occurs, [service-name] updates DNS records to point to the secondary region. All subsequent requests are sent to the secondary region.
-
-
-### Testing for region failures  
-<!-- 6J. Testing for region failures    ----------------------
-    
-    Can you trigger a fault to simulate a region failure, such as by using Azure Chaos Studio? If so, link to the specific fault types that simulate the appropriate failure. 
-
--->   
-
-**Example:**
-
-> You can simulate a region failure by using Azure Chaos Studio. Inject the XXX fault to simulate the loss of an entire region. Regularly test your responses to region failures so that you can be ready for unexpected region outages.
-
- <!--
-    For Microsoft-managed multi-region services, is there a way for the customer to test a region failover? If that’s not possible, use wording like this: 
-    
- --> 
-
- **Example:**
-
-> The Azure [service-name] platform manages traffic routing, failover, and failback for multi-region X resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate region failure processes.
-
 
 ### Alternative multi-region approaches 
 
-To ensure that your logic app becomes less susceptible to a single-region failure, you'll need to deploy your logic app to a secondary region. To learn how to deploy your logic app to a secondary region, see [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance#deploy-your-logic-app-to-a-secondary-region).
 
-## Backups
+To ensure that your logic app becomes less susceptible to a single-region failure, you'll need to deploy your logic app workloads to multiple regions. To do this, you should:
 
-<!-- 7. Backups   ----------------------
-Required only if the service supports backups. 
+- Deploy your logic app in both both primary and secondary regions.
+- Reconfigure connections to resources as needed.
+- Configure load balancing and failover policies. 
+- Plan to monitor primary instance health and initiate failover.
 
-Describe any backup features the service provides. Clearly explain whether they are fully managed by Microsoft, or if customers have any control over backups. Explain where backups are stored and how they can be recovered. Note whether the backups are only accessible within the region or if they’re accessible across regions, such as after a region failure. 
 
-You must include the following caveat:
--->
+For more information on multi-region deployments for your logic app workflows see:
 
-> For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [link to article about how backups contribute to a resiliency strategy].
+- [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance).
+- [Set up cross-region disaster recovery for integration accounts in Azure Logic Apps](/azure/logic-apps/logic-apps-enterprise-integration-b2b-business-continuity).
+- [Create replication tasks for Azure resources using Azure Logic Apps](/azure/logic-apps/create-replication-tasks-azure-resources)
+
 
 ## Service-level agreement
 
-<!-- 8. Service-level agreement (SLA)   ----------------------
-    Summarize, in readable terms, the key requirements that must be met for the SLA to take effect. Do not repeat the SLA, or provide any exact wording or numbers. Instead, aim to provide a general overview of how a customer should interpret the SLA for a service, because they often are quite specific about what needs to be done for an SLA to apply. 
-
-    The content should begin with:
--->  
-   
-> The service-level agreement (SLA) for [service-name] describes the expected availability of the service, and the conditions that must be met to achieve that availability expectation. For more information, see [link to SLA for [service-name]].
-    
-<!--   
-    You can then list conditions here in list or table form.
--->
+The service-level agreement (SLA) for Azure Logic Apps describes the expected availability of the service. It also describes the conditions that must be met to achieve that availability expectation. To understand those conditions, it's important that you review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## Related content
 
-<!-- 9.Related content ---------------------------------------------------------------------
-Required: Include any related content that points to a relevant task to accomplish,
-or to a related topic. 
 
 - [Reliability in Azure](/azure/availability-zones/overview.md)
--->
