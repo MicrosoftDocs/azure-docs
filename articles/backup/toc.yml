@@ -706,7 +706,7 @@
       items:
       - name: Configure Report
         href: configure-reports.md
-      - name: View  Report
+      - name: Vire  Report
         href: view-reports.md  
       - name: Email Report
         href: backup-reports-email.md
