@@ -417,14 +417,14 @@ The following table summarizes Site Recovery limits.
 - The current limit for per virtual machine data churn is 54 MB/s, regardless of size.
 
 
-**Storage target** | **Average source disk I/O** |**Average source disk data churn** | **Total source disk data churn per day**
+**Replica Disk type ** | **Average source disk I/O** | **Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
 Standard storage | 8 KB    | 2 MB/s | 168 GB per disk
-Premium P10 or P15 disk | 8 KB    | 2 MB/s | 168 GB per disk
-Premium P10 or P15 disk | 16 KB | 4 MB/s |    336 GB per disk
-Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 8 KB    | 5 MB/s | 421 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per disk
+Premium SSD with disk size 128 GiB or more  | 8 KB    | 2 MB/s | 168 GB per disk
+Premium SSD with disk size 128 GiB or more  | 16 KB | 4 MB/s |    336 GB per disk
+Premium SSD with disk size 128 GiB or more  | 32 KB or greater | 8 MB/s | 672 GB per disk
+Premium SSD with disk size 512 GiB or more  | 8 KB    | 5 MB/s | 421 GB per disk
+Premium SSD with disk size 512 GiB or more  | 16 KB or greater |20 MB/s | 1684 GB per disk
 
 
 >[!Note]

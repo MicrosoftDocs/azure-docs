@@ -17,6 +17,8 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
+- November 2024
+  - [Vaulted backup and Cross Region Restore support for AKS is generally available.](#vaulted-backup-and-cross-region-restore-support-for-aks-is-generally-available)
 - October 2024
     - [GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.](#grs-and-crr-support-for-azure-vms-using-premium-ssd-v2-and-ultra-disk-is-now-generally-available)
     - [Back up Azure VMs with Extended Zones](#back-up-azure-vms-with-extended-zones-preview)
@@ -93,6 +95,13 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Vaulted backup and Cross Region Restore support for AKS is generally available
+ 
+Azure Backup supports storing AKS backups offsite, which is protected against tenant compromise, malicious attacks and ransomware threats. Along with backup stored in a vault, you can also use the backups in a regional disaster scenario and recover backups.
+
+Once the feature is enabled, your snapshot-based AKS backups stored in Operational Tier are converted into blobs and moved to a Vault-standard tier outside of your tenant. You can enable/disable this feature by updating the retention rules of your backup policy. This feature also allows you to back up data for long term storage as per the compliance and regulatory requirements. With this feature, you can also enable a Backup vault to be *Globally redundant* with *Cross Region Restore*, and then your vaulted backups will be available in an Azure Paired region for restore. In case of primary region outage, you can use these backups to restore your AKS clusters in a secondary region.
+
+For more information, see [Overview of AKS backup](azure-kubernetes-service-backup-overview.md).
 
 ## GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.
 
