@@ -30,7 +30,7 @@ Application Gateway for Containers enables SSL [offloading](/azure/architecture/
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate TLS/SSL offloading.
 
     ```bash
-    kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/https-scenario/ssl-termination/deployment.yaml
+    kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/https-scenario/ssl-termination/deployment.yaml
     ```
 
     This command creates the following on your cluster:
