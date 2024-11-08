@@ -199,7 +199,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     SUCCESS: Connected to IoT Hub
     ```
     > [!IMPORTANT]
-    > If the DNS client initialization fails and notifies you that the Wi-Fi firmware is out of date, you'll need to update the Wi-Fi module firmware. Download and install the [Inventek ISM 43362 Wi-Fi module firmware update](https://www.st.com/resource/en/utilities/inventek_fw_updater.zip). Then press the **Reset** button on the device to recheck your connection, and continue with this tutorial.
+    > If the DNS client initialization fails and notifies you that the Wi-Fi firmware is out of date, you'll need to update the Wi-Fi module firmware. Download and install the Inventek ISM 43362 Wi-Fi module firmware update from [STMicroelectronics](https://www.st.com/). Then press the **Reset** button on the device to recheck your connection, and continue with this tutorial.
 
 
 Keep Termite open to monitor device output in the following steps.
