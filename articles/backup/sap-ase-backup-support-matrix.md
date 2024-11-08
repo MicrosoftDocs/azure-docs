@@ -16,7 +16,7 @@ This article summarizes the scenarios supported and limitations present when you
 > [!NOTE]
 > The frequency of log backup can now be set to a minimum of 15 minutes. Log backups only begin to flow after a successful full backup for the database.
 
-## Scenario support for SAP ASE (Sybase) databases on Azure VMs (preview)
+## Scenario support for SAP ASE (Sybase) databases on Azure VMs
 
 | **Scenario** | **Supported  configurations** | **Unsupported  configurations** |
 | ------- | -------- | -------- |

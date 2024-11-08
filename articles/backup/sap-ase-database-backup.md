@@ -23,12 +23,12 @@ Before you set up the SAP ASE database for backup, review the following prerequi
 - The combined length of the SAP ASE Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM) VMs (and 77 characters for classic VMs). This limitation is because the service reserves some characters. 
 - VM has python >= 3.6.15 (recommended- Python3.10) and python's requests module should be installed. Default sudo python3 should run python 3.6.15 or newer version. Validate by running python3 and **sudo python3** in your system and check which python version it runs by default. It should run the required version. You can change the version by linking python3 to python 3.6.15 or higher.
 - Run the SAP ASE backup configuration script (preregistration script) in the virtual machine where ASE is installed, as the root user. This script gets the ASE system ready for backup. Learn more [about the preregistration script  workflow](#preregistration-script-workflow).
-- Run the pre-registration script with the -sn or --skip-network-checks parameter, if your ASE setup uses Private Endpoints. Learn [how to run the preregistration script](#run-the-pre-registration-script).
+- Run the preregistration script with the -sn or --skip-network-checks parameter, if your ASE setup uses Private Endpoints. Learn [how to run the preregistration script](#run-the-preregistration-script).
 - Assign the following privileges and settings for the backup operation:
   
   | Privilege/ Setting | Description |
   | --- | --- |
-  | Operator role | Enable this **ASE database role** for the database user to create a custom database user for the backup and restore operations and pass it in the pre-registration script. |
+  | Operator role | Enable this **ASE database role** for the database user to create a custom database user for the backup and restore operations and pass it in the preregistration script. |
   | **Map external file** privilege | Enable this role to allow database file access. |
   | **Own any database** privilege |Enables  the differential backup  feature for the SAP ASE database. |
   | **Trunc log on chkpt** privilege | Disable this privilege for all databases that you want to protect using the **ASE Backup**. Allows you to back up the database log to recovery services vault.  |
@@ -56,11 +56,11 @@ The preregistration script is a Python script that you run on the VM where the S
 11. Sets up the required directories under `/opt` for backup operations.
 12. Encrypts the password and securely stores it in the virtual machine. 
 
-## Run the pre-registration script
+## Run the preregistration script
 
-To execute the pre-registration script for SAP ASE database backup, run the following bash commands:
+To execute the preregistration script for SAP ASE database backup, run the following bash commands:
 
-1. [Download the ASE Pre-Registration Script file](https://aka.ms/preregscriptsapase).
+1. [Download the ASE Preregistration Script file](https://aka.ms/preregscriptsapase).
 2. Copy the file to the virtual machine (VM).
 
   

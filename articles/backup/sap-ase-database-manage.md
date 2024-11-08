@@ -1,5 +1,5 @@
 ---
-title: Manage backed up SAP ASE databases on Azure VMs
+title: Manage backed-up SAP ASE databases on Azure VMs
 description: In this article, learn the common tasks for managing and monitoring SAP ASE databases that are running on Azure virtual machines.
 ms.topic: how-to
 ms.date: 11/19/2024
@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Manage and monitor backed up SAP ASE databases (preview)
+# Manage and monitor backed-up SAP ASE databases (preview)
 
 This article describes how to manage the SAP Adaptive Server Enterprise (ASE) (Sybase) databases that are running on an Azure virtual machine (VM) by using the [Azure Backup](./backup-overview.md) service. 
 
@@ -37,7 +37,7 @@ Generally, synchronization occurs every *hour*. However, at the extension leve
 
 If no data sync occurs to the Azure Backup service for more than *2 hours*, Azure Backup shows the backup status as *NotReachable*. This scenario might occur if the VM is shut down for an extended period or there's a network connectivity issue on the VM, causing the synchronization to cease. Once the VM is operational again and the extension services restart, the data sync operation to the service resumes, and the backup status changes to *Healthy or Unhealthy* based on the status of the last backup. 
 
-:::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/backup-items.png" alt-text="Screenshot showing the status of backed up items." lightbox="media/sap-adaptive-server-enterprise-db-manage/backup-items.png":::
+:::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/backup-items.png" alt-text="Screenshot showing the status of backed-up items." lightbox="media/sap-adaptive-server-enterprise-db-manage/backup-items.png":::
 
 ## Change Backup policy
 
@@ -67,11 +67,11 @@ There are two ways to stop protection of an SAP ASE database:
 
 - Retain backup data -Stop all future backup jobs and leave the recovery points intact.
 
->[!Note]
->If you choose to leave recovery points:
->- All recovery points remain intact forever, and all pruning jobs stop at stop protection with retain data.
->- You incur charges for the protected instance and the consumed storage. 
->- If you delete a data source without stopping backups, new backups fail.
+   >[!Note]
+   >If you choose to leave recovery points:
+   >- All recovery points remain intact forever, and all pruning jobs stop at stop protection with retain data.
+   >- You incur charges for the protected instance and the consumed storage. 
+   >- If you delete a data source without stopping backups, new backups fail.
 
    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/stop-backup.png" alt-text="Screenshot showing how to stop backup." lightbox="media/sap-adaptive-server-enterprise-db-manage/stop-backup.png":::
 
