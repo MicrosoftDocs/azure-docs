@@ -164,7 +164,7 @@ Both cloud-based and edge-based solutions can use other cloud services to provid
 
 ### IoT services comparisons
 
-The following table summarize current service and edge application options:
+The following table summarizes current service and edge application options:
 
 | Current offerings (GA)    | Cloud-based solution | Edge-based solution |
 |---------------------------|----------------------|---------------------|
@@ -173,7 +173,7 @@ The following table summarize current service and edge application options:
 
 ### Deployment comparisons
 
-The following table summarize current deployment options:
+The following table summarizes current deployment options:
 
 | Current offerings (GA) | Cloud-based solution | Edge-based solution |
 |------------------------|----------------------|---------------------|
