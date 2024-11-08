@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-abhmallick 
-  ms.date: 05/31/2024
+  ms.date: 07/11/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -73,7 +73,7 @@ landingContent:
             url: backup-azure-mysql-flexible-server-about.md
           - text: Cross Region Restore for Azure PostgreSQL Database
             url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup
-          - text: Vaulted backup and Cross Region Restore for support for AKS (preview)
+          - text: Vaulted backup and Cross Region Restore for support for AKS
             url: azure-kubernetes-service-backup-overview.md          
 
   # Card

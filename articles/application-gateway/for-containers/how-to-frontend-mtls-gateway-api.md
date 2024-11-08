@@ -5,7 +5,7 @@ services: application-gateway
 author: greglin
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 9/18/2024
+ms.date: 11/5/2024
 ms.author: greglin
 ---
 
@@ -38,7 +38,7 @@ The revoked client certificate flow shows a client presenting a revoked certific
    Apply the following deployment.yaml file on your cluster to create a sample web application and deploy sample secrets to demonstrate frontend mutual authentication (mTLS).
 
    ```bash
-   kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/ssl-termination/deployment.yaml
+   kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/https-scenario/ssl-termination/deployment.yaml
    ```
   
    This command creates the following on your cluster:
