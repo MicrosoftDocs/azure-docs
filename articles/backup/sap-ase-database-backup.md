@@ -20,7 +20,7 @@ This article describes how to configure backup for SAP Adaptive Server Enterpris
 Before you set up the SAP ASE database for backup, review the following prerequisites:
 - Identify or create a Recovery Services vault in the same region and subscription as the VM running SAP ASE.
 - Allow connectivity from the VM to the internet, so that it can reach Azure.
-- The combined length of the SAP ASE Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM)_ VMs (and 77 characters for classic VMs). This limitation is because the service reserves some characters. 
+- The combined length of the SAP ASE Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM) VMs (and 77 characters for classic VMs). This limitation is because the service reserves some characters. 
 - VM has python >= 3.6.15 (recommended- Python3.10) and python's requests module should be installed. Default sudo python3 should run python 3.6.15 or newer version. Validate by running python3 and **sudo python3** in your system and check which python version it runs by default. It should run the required version. You can change the version by linking python3 to python 3.6.15 or higher.
 - Run the SAP ASE backup configuration script (preregistration script) in the virtual machine where ASE is installed, as the root user. This script gets the ASE system ready for backup. Learn more [about the preregistration script  workflow](#preregistration-script-workflow).
 - Run the pre-registration script with the -sn or --skip-network-checks parameter, if your ASE setup uses Private Endpoints. Learn [how to run the preregistration script](#run-the-pre-registration-script).
