@@ -201,7 +201,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 **CAPEX & OPEX**
 
 |   Component  | Sub component  | Assumptions | Azure retained |
- --- | --- | --- | --- |
+|--- | --- | --- | --- |
 | **Capital Asset Expense (CAPEX) (A)** |     |     |     |
 | Server Depreciation | (Total server hardware acquisition cost)/(Depreciable life) | Depreciable life = 4 years |     |
 | Storage Depreciation | (Total storage hardware acquisition cost)/(Depreciable life) | Depreciable life = 4 years |     |
