@@ -45,7 +45,7 @@ The following logic app workflows support zone redundancy:
 | Logic app workflow | Hosting option | Description |
 |-----------|----------------|-------------|
 | Consumption | Multitenant | Zone redundancy is automatically enabled for new and existing Consumption logic app workflows. |
-| Standard | Workflow Service Plan | See [Reliability in Azure Functions](reliability-functions?tabs=azure-portal#availability-zone-support).|
+| Standard | Workflow Service Plan | See [Reliability in Azure Functions](reliability-functions.md?tabs=azure-portal#availability-zone-support).|
 | Standard | App Service Environment V3 | See [Reliability in App Service](./reliability-app-service.md). |
 
 
@@ -54,7 +54,7 @@ The following logic app workflows support zone redundancy:
 
 To enable zone redundancy for your logic app, you must use make sure that you meet the following requirements:
 
-- The region must support availability zones. To see which regions support availability zones, see [Azure regions that support availability zones](availability-zones-service-support#azure-regions-with-availability-zone-support).
+- The region must support availability zones. To see which regions support availability zones, see [Azure regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 
 ###  Considerations 
@@ -133,4 +133,4 @@ The service-level agreement (SLA) for Azure Logic Apps describes the expected av
 ## Related content
 
 
-- [Reliability in Azure](/azure/availability-zones/overview.md)
+- [Reliability in Azure](../reliability/overview.md)
