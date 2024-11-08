@@ -52,7 +52,7 @@ Ensure that you have the following permissions to restore a database:
 
 - **Backup Operator:** Provides permissions in the vault where you're doing the restore. 
 
-- **Contributor (write):** Provides access to the source Virtual Machine (VM) backed up. 
+- **Contributor (write):** Provides access to the source Virtual Machine (VM) backed-up. 
 
 - **Contributor (write):** Provides access to the target VM. 
 
