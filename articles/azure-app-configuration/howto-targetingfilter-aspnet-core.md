@@ -76,7 +76,7 @@ In this section, you will create a web application that allows users to sign in 
     ```
 
     > [!NOTE]
-        > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
+    > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
     
 1. Enable configuration and feature flag refresh from Azure App Configuration with the App Configuration middleware.
 
@@ -157,7 +157,7 @@ builder.Services.AddFeatureManagement()
 // ... ...
 ```
 
-> [!NOTE]
+    > [!NOTE]
     > For more control over how username and groups are extracted for targeting, see the [feature reference for targeting](https://learn.microsoft.com/en-us/azure/azure-app-configuration/feature-management-dotnet-reference#itargetingcontextaccessor).
 
 ## Targeting filter in action
