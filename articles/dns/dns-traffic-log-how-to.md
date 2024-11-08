@@ -8,34 +8,47 @@ ms.date: 11/06/2024
 ms.author: greglin
 ---
 
-# How to filter and view DNS traffic
+# Filter and view DNS traffic
 
-This article shows you how to sign your DNS zone with [Domain Name System Security Extensions (DNSSEC)](dnssec.md). 
-
-To remove DNSSEC signing from a zone, see [How to unsign your Azure Public DNS zone](dnssec-unsign.md).
+This article shows you how to view and filter DNS traffic at the virtual network level. 
 
 > [!NOTE]
 > DNS security policy is in PREVIEW.<br> 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.<br>
-> This DNS security policy preview is offered without a requirement to enroll in a preview. You can use Cloud Shell to configure security policies with Azure PowerShell or Azure CLI. You can configure security policy by using the Azure portal with the next portal update. 
+> This DNS security policy preview is offered without a requirement to enroll in a preview. 
 
 ## Prerequisites
 
-* The DNS zone must be hosted by Azure Public DNS. For more information, see [Manage DNS zones](/azure/dns/dns-operations-dnszones-portal).
-* The parent DNS zone must be signed with DNSSEC. Most major top level domains (.com, .net, .org) are already signed.
+* If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* A virtual network is required. For more information, see [Create a virtual network](../virtual-network/quick-create-portal.md).
 
-## Do something
-
-To protect your DNS zone with DNSSEC, you must first sign the zone. The zone signing process creates a delegation signer (DS) record that must then be added to the parent zone.
+## Create a security policy
 
 ## [Azure portal](#tab/sign-portal)
 
-To do something using the Azure portal:
+To create a DNS security policy using the Azure portal:
 
-1. On the Azure portal Home page, search for and select **DNS zones**.
-2. Select your DNS zone, and then from the zone's **Overview** page, select **DNSSEC**. You can select **DNSSEC** from the menu at the top, or under **DNS Management**.
+1. On the Azure portal **Home** page, search for and select **DNS Security Policies**.
+2. Select **+ Create** to begin creating a new policy.
+3. On the **Basics** tab, select the **Subscription** and **Resource group**, or create a new resource group.
+4. Next to **Instance Name**, enter a name for the DNS security policy.
+5. Choose the **Region** where the security policy will apply.
 
-    [ ![Screenshot of how to select DNSSEC.](./media/dnssec-how-to/select-dnssec.png) ](./media/dnssec-how-to/select-dnssec.png#lightbox)
+    ![Screenshot of the Basics tab for security policy.](./media/dns-traffic-log-how-to/secpol-basics.png)
+
+6. Select **Next: Virtual Networks Link**.
+7. Select **+ Add**. VNets in the same region as the security policy are displayed. 
+8. Select one or more available VNets and then select **Add**. You can't choose a VNet that is already associated with another security policy.
+
+    ![Screenshot of the Virtual Network Links tab for security policy.](./media/dns-traffic-log-how-to/secpol-vnet-links.png)
+
+9. The chosen VNets are displayed in a list. You can remove VNets from the list if desired.
+
+  > [!NOTE]
+  > Virtual network links are created for all VNets displayed in the list, whether or not they are *selected*. Use checkboxes to select VNets for removal from the list.
+
+10. Select Next: **DNS Traffic Rules**.
+11. 
 
 ## [Azure CLI](#tab/sign-cli)
 

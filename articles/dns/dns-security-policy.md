@@ -21,7 +21,15 @@ This article provides an overview of DNS security policy. Also see the following
  
 ## What DNS security policy?
 
-DNS security policy offers the ability to filter DNS queries at the VNET level by allowing/blocking name resolution of known or malicious domains and provides insight of your DNS traffic with logs which can be sent to a storage account, log analytics workspace, or event hubs.
+DNS security policy offers the ability to filter DNS queries at the virtual network (VNet) level. You can allow, alert, or block name resolution of known or malicious domains and gain insight into your DNS traffic. Detailed DNS logs can be sent to a storage account, log analytics workspace, or event hubs.
+
+A DNS security policy has the following associated elements and properties:
+- Location: A security policy can only apply to VNets in the same region.
+- DNS traffic rules: Rules that allow, block, or alert based on priority and domain lists. Rules can be enabled or disabled.
+- Virtual network links: You can link one security policy per VNet. A security policy can be associated to multiple VNets.
+- DNS domain lists: Location-based lists of DNS domains.
+
+You can
 
 On the first option, the security policy is created with diagnostics set to be sent towards a storage account (your DNS query logs will be visible there).
 On the second option, you configure the security policy via Portal and have instructions on how to create and manage the security policy, plus setting the diagnostic options to send the DNS query details to a log analytics workspace.
