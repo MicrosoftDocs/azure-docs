@@ -133,7 +133,7 @@ The backend chain subfield defines the settings for the backend partitionss. The
 
 #### Considerations
 
-When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability if there are pod or node failures. However, this also leads to higher resource consumption. So, when adjusting cardinality values, consider the memory profile settings and balance these factors to optimize the broker's resource usage. Increasing the number of workers per frontend replica can help increase CPU core utilization if you discover that frontend CPU utilization is a bottleneck. Increasing the number of backend workers can help with the message throughput if backend CPU is a bottleneck.
+When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability if there are pod or node failures. However, this also leads to higher resource consumption. So, when adjusting cardinality values, consider the memory profile settings and broker's [CPU resource requests](#cardinality-and-kubernetes-resource-limits). Increasing the number of workers per frontend replica can help increase CPU core utilization if you discover that frontend CPU utilization is a bottleneck. Increasing the number of backend workers can help with the message throughput if backend CPU is a bottleneck.
 
 For example, if your cluster has three nodes, each with eight CPU cores, then set the number of frontend replicas to match the number of nodes (3) and set number of workers to 1. Set the number of backend partitions to match the number of nodes (3), and backend workers to 1. Set redundancy factor as desired (2 or 3). Increase the number of frontend workers if you discover that frontend CPU is a bottleneck. Remember that backend and frontend workers may compete for CPU resources with each other and other pods. 
 
@@ -203,8 +203,6 @@ Medium is the default profile.
 - Maximum memory usage of each backend replica is approximately 5.8 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 
 ## Cardinality and Kubernetes resource limits
-
-To help prevent resource starvation on the cluster, the broker is set to [request Kubernetes CPU resource limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) by default. This is important as increasing the number of replicas or workers proportionally increases the amount of CPU resources requested. Since this setting is enabled by default, a deployment error is emitted if there are insufficient CPU resources. This helps prevent the situations when requested broker cardinality will not have enough resources potentially causing resource contention and pod evictions.
 
 To prevent resource starvation in the cluster, the broker is configured by default to [request Kubernetes CPU resource limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). Scaling the number of replicas or workers proportionally increases the CPU resources required. A deployment error is emitted if there are insufficient CPU resources available in the cluster. This helps avoid situations where the requested broker cardinality lacks enough resources to run optimally. It also helps to avoid potential CPU contention and pod evictions.
 
