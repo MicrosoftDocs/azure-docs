@@ -7,10 +7,11 @@ ms.reviewer: whhender
 ms.date: 01/21/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: article
+ms.topic: how-to
 ms.custom:
   - azure-synapse
 ---
+
 # Upgrade your dedicated SQL pool (formerly SQL DW) to Gen2
 
 Microsoft is helping to reduce the entry-level cost of running a dedicated SQL pool (formerly SQL DW).  Lower compute tiers capable of handling demanding queries are now available for dedicated SQL pool (formerly SQL DW). Read the full announcement [Lower compute tier support for Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is available in the regions noted in the table below. For supported regions, existing Gen1 dedicated SQL pool (formerly SQL DW) can be upgraded to Gen2 through either:
@@ -112,7 +113,7 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 - A: No. After a region has been upgraded, the creation of new Gen1 instances will be disabled.
 
-## Next steps
+## Related content
 
 - [Upgrade steps](upgrade-to-latest-generation.md)
 - [Maintenance windows](maintenance-scheduling.md)
