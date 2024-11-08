@@ -293,6 +293,8 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
 
 1. Select the link **Click here to validate email** after entering user information.
 
+    :::image type="content" source="media/use-variant-feature-flags-aspnet-core/click-to-confirm.png" alt-text="Screenshot of the Quote of the day app, showing click to confirm.":::
+
 1. Register a second user named *userb@contoso.com*, enter another password, and validate this second email.
 
     > [!NOTE]
