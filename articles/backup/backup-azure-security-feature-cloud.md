@@ -130,20 +130,20 @@ Follow these steps:
 1. Identify the items that are in soft-deleted state.
 
    ```powershell
-   $vault = Get-AzRecoveryServicesVault -ResourceGroupName "yourResourceGroupName" -Name "yourVaultName"
-   Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultID $vault.ID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
+   $myVault = Get-AzRecoveryServicesVault -ResourceGroupName "yourResourceGroupName" -Name "yourVaultName"
+   Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultID $myVault.ID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
 
    Name                                     ContainerType        ContainerUniqueName                      WorkloadType         ProtectionStatus     HealthStatus         DeleteState
    ----                                     -------------        -------------------                      ------------         ----------------     ------------         -----------
    VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;selfhostrg;AppVM1       AzureVM              Healthy              Passed               ToBeDeleted
 
-   $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
+   $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVault.ID -Name AppVM1
    ```
 
 2. Reverse the deletion operation that was performed when soft-delete was enabled.
 
    ```powershell
-   Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
+   Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVault.ID -Force
 
    WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
    ------------     ---------            ------               ---------                 -------                   -----
@@ -152,7 +152,7 @@ Follow these steps:
 3. As the soft-delete is disabled, the deletion operation immediately removes the backup data.
 
    ```powershell
-   Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
+   Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVault.ID -Force
 
    WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
    ------------     ---------            ------               ---------                 -------                   -----
