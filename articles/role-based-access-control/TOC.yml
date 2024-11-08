@@ -99,7 +99,7 @@
     - name: ARM template
       displayName: Resource Manager
       href: role-assignments-template.md
-  - name: Azure RBAC and PIM
+  - name: Integration with PIM
     items:
     - name: Integration with PIM
       href: pim-integration.md
