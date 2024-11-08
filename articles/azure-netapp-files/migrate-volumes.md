@@ -1,11 +1,11 @@
 ---
-title: Migrate on-premises volumes to Azure NetApp Files 
+title: Migrate volumes to Azure NetApp Files 
 description: Learn how to peer and migrate on-premises or Cloud Volumes ONTAP volumes to Azure NetApp Files. 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/01/2024
+ms.date: 11/08/2024
 ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 

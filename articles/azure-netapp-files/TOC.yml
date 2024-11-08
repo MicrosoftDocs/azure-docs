@@ -317,7 +317,7 @@
       items:
       - name: Create a dual-protocol volume 
         href: create-volumes-dual-protocol.md
-    - name: Migrate on-premises volumes 
+    - name: Migrate volumes to Azure NetApp Files
       href: migrate-volumes.md
     - name: Manage volume access and encryption 
       items:
