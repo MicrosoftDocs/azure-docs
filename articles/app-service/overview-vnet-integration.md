@@ -76,6 +76,12 @@ Because subnet size can't be changed after assignment, use a subnet that's large
 
 With multi plan subnet join (MPSJ), you can join multiple App Service plans in to the same subnet. All App Service plans must be in the same subscription but the virtual network/subnet can be in a different subscription. Each instance from each App Service plan requires an IP address from the subnet and to use MPSJ a minimum size of `/26` subnet is required. If you plan to join many and/or large scale plans, you should plan for larger subnet ranges.
 
+> [!IMPORTANT]
+> Due to a known bug, MPSJ fails if multiple sites are created and attempt to integrate with the virtual network at the same time. A fix will be deployed soon. In the meantime, you can work around the issue with either of the following methods:
+> * If you create sites manually, create and integrate the sites one by one.
+> * If you create sites programmatically, for example using Terraform or ARM templates, add a [dependsOn](/azure/azure-resource-manager/templates/resource-dependency#dependson) element to each site in your templates to depend on the creation of the previous site for all but the first site in the template. This creates a delay between the site creation and the virtual network integration for each site and therefore isn't blocked by the known bug. For more information see, [Define the order for deploying resources in ARM templates](/azure/azure-resource-manager/templates/resource-dependency).
+>
+
 ### Windows Containers specific limits
 
 Windows Containers uses an extra IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If you have, for example, 10 Windows Container App Service plan instances with four apps running, you need 50 IP addresses and extra addresses to support horizontal (in/out) scale.
