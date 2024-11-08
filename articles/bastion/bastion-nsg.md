@@ -1,4 +1,4 @@
----
+o---
 title: Working with VMs and NSGs in Azure Bastion
 description: Learn about using network security groups with Azure Bastion.
 author: cherylmc
@@ -13,7 +13,7 @@ When working with Azure Bastion, you can use network security groups (NSGs). For
 
 :::image type="content" source="./media/bastion-nsg/figure-1.png" alt-text="NSG":::
 
-In this diagram:
+In this diagram:    
 
 * The Bastion host is deployed to the virtual network.
 * The user connects to the Azure portal using any HTML5 browser.
@@ -53,7 +53,7 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
 
    :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Screenshot shows outbound security rules for Azure Bastion connectivity." lightbox="./media/bastion-nsg/outbound.png":::
 
-### Powershell Script to create the above Ingress and Egress traffic rules ###
+### Powershell Script to create the above mentioned Ingress and Egress traffic rules ###
 ```
 #Connect to Azure Account
 Connect-AzAccount
