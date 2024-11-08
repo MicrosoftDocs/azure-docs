@@ -58,8 +58,6 @@
         href: migrate-load-balancer.md
       - name: Log Analytics Dedicated Cluster workspaces
         href: migrate-monitor-log-analytics.md
-      - name: Azure Logic Apps
-        href: /azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=standard&toc=/azure/reliability
       - name: Azure Recovery Services vault
         href: migrate-recovery-services-vault.md
       - name: Azure Service Fabric
@@ -259,11 +257,7 @@
       - name: De-identification service
         href: reliability-health-data-services-deidentification.md
     - name: Azure Logic Apps
-      items:
-      - name: Availability zones
-        href: ../logic-apps/set-up-zone-redundancy-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: ../logic-apps/business-continuity-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-logic-apps.md
   - name: Internet of Things
     items:
     - name: Azure Device Registry

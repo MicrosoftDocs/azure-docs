@@ -74,8 +74,12 @@ items:
     href: logic-apps-enterprise-integration-overview.md
   - name: Mainframe modernization
     href: mainframe-modernization-overview.md
-  - name: Business continuity and disaster recovery
-    href: business-continuity-disaster-recovery-guidance.md
+  - name: Reliability
+    items:
+    - name: Reliability in Azure Logic Apps
+      href: ../reliability/reliability-logic-apps.md?toc=/azure/logic-apps/toc.json
+    - name: Business continuity and disaster recovery
+      href: business-continuity-disaster-recovery-guidance.md
   - name: Security
     items:
     - name: Security controls by Azure Policy

@@ -318,14 +318,7 @@ To automatically activate the secondary instance, you can create a logic app tha
 
 ## Zone redundancy with availability zones
 
-In each Azure region, *availability zones* are physically separate locations that are tolerant to local failures. Such failures can range from software and hardware failures to events such as earthquakes, floods, and fires. These zones achieve tolerance through the redundancy and logical isolation of Azure services.
-
-To provide resiliency and distributed availability, at least three separate availability zones exist in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region.
-
-Currently, this capability is preview and available for new Consumption logic apps in specific regions. For more information, see the following documentation:
-
-* [Protect Consumption logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md)
-* [Azure regions and availability zones](../availability-zones/az-overview.md)
+For information on Azure Logic Apps support for zone redundancy, see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
 
 <a name="collect-diagnostic-data"></a>
 
