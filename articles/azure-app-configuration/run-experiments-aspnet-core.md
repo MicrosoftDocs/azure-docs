@@ -3,14 +3,14 @@ title: 'Tutorial:  Run experiments with variant feature flags in Azure App Confi
 titleSuffix: Azure App configuration
 description: In this tutorial, you learn how to set up experiments in an App Configuration store using Split Experimentation Workspace.
 #customerintent: As a user of Azure App Configuration, I want to learn how I can run experiments with variant feature flags, using Split Experimentation Workspace and Application Insights.
-author: rossgrambo
-ms.author: rossgrambo
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom:
   - build-2024
 ms.topic: tutorial
-ms.date: 10/10/2024
+ms.date: 05/07/2024
 ---
 
 # Tutorial: Run experiments with variant feature flags (preview)
@@ -25,6 +25,7 @@ By doing so, you can make data-driven decisions to improve your application.
 In this tutorial, you:
 
 > [!div class="checklist"]
+> * Create a variant feature flag
 > * Add an Application Insights resource to your store
 > * Add a Split Experimentation Workspace to your store
 > * Set up an app to run an experiment
@@ -34,15 +35,14 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* Complete the [Variant Feature Flag Tutorial](./use-variant-feature-flags-aspnet-core.md).
 * An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
 * An [App Configuration store](./quickstart-azure-app-configuration-create.md).
 * A [Split Experimentation Workspace resource](../partner-solutions/split-experimentation/create.md).
 * A [workspace-based Application Insights](/azure/azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource) resource.
 
-## Ensure you have an app running from the variant tutorial
+## Create a variant feature flag (preview)
 
-You should have a variant feature flag called *Greeting* with three variants, *None*, *Simple*, and *Long*, as described in the [Variant Feature Flag Tutorial](./use-variant-feature-flags-aspnet-core.md).
+Create a variant feature flag called *Greeting* with two variants, *Off* and *On*, as described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag-preview).
 
 ## Connect an Application Insights (preview) resource to your configuration store
 
@@ -74,11 +74,23 @@ To run experiments in Azure App Configuration, you're going to use Split Experim
 
 Now that you’ve connected the Application Insights (preview) resource to the App Configuration store, set up an app to run your experiment (preview).
 
-In the [variants tutorial](./use-variant-feature-flags-aspnet-core.md), you created an ASP.NET web app named _Quote of the Day_ which used three variants, _None_, _Simple_, and _Long_. Now, we will enable the app to collect and save the telemetry of your user interactions in Application Insights. With Split Experimentation Workspace, you can analyze the effectiveness of your experiment.
+In this example, you create an ASP.NET web app named _Quote of the Day_. When the app is loaded, it displays a quote. Users can hit the heart button to like it. To improve user engagement, you want to explore whether a personalized greeting message will increase the number of users who like the quote. You create the _Greeting_ feature flag in Azure App Configuration with two variants, _Off_ and _On_. Users who receive the _Off_ variant will see a standard title. Users who receive the _On_ variant will get a greeting message. You collect and save the telemetry of your user interactions in Application Insights. With Split Experimentation Workspace, you can analyze the effectiveness of your experiment.
 
-### Navigate to the Quote of the Day app and add user secret
+### Create an app and add user secrets
 
-1. In the command prompt, navigate to the *QuoteOfTheDay* folder and run the following command to create a [user secret](/aspnet/core/security/app-secrets) for the application. This secret holds the connection string for App Insights
+1. Open a command prompt and run the following code. This creates a new Razor Pages application in ASP.NET Core, using Individual account auth, and places it in an output folder named *QuoteOfTheDay*.
+
+    ```dotnetcli
+    dotnet new razor --auth Individual -o QuoteOfTheDay
+    ```
+
+1. In the command prompt, navigate to the *QuoteOfTheDay* folder and run the following command to create a [user secret](/aspnet/core/security/app-secrets) for the application. This secret holds the connection string for App Configuration.
+
+    ```dotnetcli
+    dotnet user-secrets set ConnectionStrings:AppConfiguration "<App Configuration Connection string>"
+    ```
+
+1. Create another user secret that holds the connection string for Application Insights.
 
     ```dotnetcli
     dotnet user-secrets set ConnectionStrings:AppInsights "<Application Insights Connection string>"
@@ -86,10 +98,25 @@ In the [variants tutorial](./use-variant-feature-flags-aspnet-core.md), you crea
 
 ### Update the application code
 
-1. In *QuoteOfTheDay.csproj*, add the `Microsoft.FeatureManagement.Telemetry` package.
+1. In *QuoteOfTheDay.csproj*, add the latest preview versions of the Feature Management and App Configuration SDKs as required packages.
 
     ```csharp
-    <PackageReference Include="Microsoft.FeatureManagement.Telemetry" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Azure.AppConfiguration.AspNetCore" Version="8.0.0-preview.2" />
+    <PackageReference Include="Microsoft.FeatureManagement.Telemetry.ApplicationInsights" Version="4.0.0-preview3" />
+    <PackageReference Include="Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore" Version="4.0.0-preview3" />
+    <PackageReference Include="Microsoft.FeatureManagement.AspNetCore" Version="4.0.0-preview3" />
+    ```
+
+1. In *Program.cs*, under the line `var builder = WebApplication.CreateBuilder(args);`, add the App Configuration provider, which pulls down the configuration from Azure when the application starts. By default, the UseFeatureFlags method includes all feature flags with no label and sets a cache expiration time of 30 seconds.
+
+    ```csharp
+    builder.Configuration
+        .AddAzureAppConfiguration(o =>
+        {
+            o.Connect(builder.Configuration.GetConnectionString("AppConfiguration"));
+    
+            o.UseFeatureFlags();
+        });
     ```
 
 1. In *Program.cs*, add the following using statements:
@@ -97,6 +124,7 @@ In the [variants tutorial](./use-variant-feature-flags-aspnet-core.md), you crea
     ```csharp
     using Microsoft.ApplicationInsights.AspNetCore.Extensions;
     using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore;
     ```
 
 1. Under where `builder.Configuration.AddAzureAppConfiguration` is called, add:
@@ -108,7 +136,8 @@ In the [variants tutorial](./use-variant-feature-flags-aspnet-core.md), you crea
         {
             ConnectionString = builder.Configuration.GetConnectionString("AppInsights"),
             EnableAdaptiveSampling = false
-        });
+        })
+        .AddSingleton<ITelemetryInitializer, TargetingTelemetryInitializer>();
     ```
 
     This snippet performs the following actions.
@@ -117,20 +146,74 @@ In the [variants tutorial](./use-variant-feature-flags-aspnet-core.md), you crea
     * Adds a telemetry initializer that appends targeting information to outgoing telemetry.
     * Disables adaptive sampling. For more information about disabling adaptive sampling, go to [Troubleshooting](../partner-solutions/split-experimentation/troubleshoot.md#sampling-in-application-insights).
 
-1. Also in *Program.cs*, add the following using statement.
+1. In the root folder *QuoteOfTheDay*, create a new file named *ExampleTargetingContextAccessor.cs*. This creates a new class named `ExampleTargetingContextAccessor`. Paste the content below into the file.
+
+    ```csharp
+    using Microsoft.FeatureManagement.FeatureFilters;
+    
+    namespace QuoteOfTheDay
+    {
+        public class ExampleTargetingContextAccessor : ITargetingContextAccessor
+        {
+            private const string TargetingContextLookup = "ExampleTargetingContextAccessor.TargetingContext";
+            private readonly IHttpContextAccessor _httpContextAccessor;
+    
+            public ExampleTargetingContextAccessor(IHttpContextAccessor httpContextAccessor)
+            {
+                _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
+            }
+    
+            public ValueTask<TargetingContext> GetContextAsync()
+            {
+                HttpContext httpContext = _httpContextAccessor.HttpContext;
+                if (httpContext.Items.TryGetValue(TargetingContextLookup, out object value))
+                {
+                    return new ValueTask<TargetingContext>((TargetingContext)value);
+                }
+                List<string> groups = new List<string>();
+                if (httpContext.User.Identity.Name != null)
+                {
+                    groups.Add(httpContext.User.Identity.Name.Split("@", StringSplitOptions.None)[1]);
+                }
+                TargetingContext targetingContext = new TargetingContext
+                {
+                    UserId = httpContext.User.Identity.Name ?? "guest",
+                    Groups = groups
+                };
+                httpContext.Items[TargetingContextLookup] = targetingContext;
+                return new ValueTask<TargetingContext>(targetingContext);
+            }
+        }
+    }
+    ```
+
+    This class declares how FeatureManagement's targeting gets the context for a user. In this case, it reads `httpContext.User.Identity.Name` for the `UserId` and treats the domain of the email address as a `Group`.
+
+1. Navigate back to *Program.cs* and add the following using statements.
 
     ```csharp
     using Microsoft.FeatureManagement.Telemetry;
+    using Microsoft.FeatureManagement;
+    using QuoteOfTheDay;
     ```
 
-1. Under the line `.AddFeatureManagement()` or under `.WithTargeting()`, call the `IFeatureManagementBuilder.AddApplicationInsightsTelemetry()` method. This causes feature evaluation events to be sent to the connected Application Insights.
+1. Under where `AddApplicationInsightsTelemetry` was called, add services to handle App Configuration Refresh, set up Feature Management, configure Feature Management Targeting, and enable Feature Management to publish telemetry events.
 
     ```csharp
+    builder.Services.AddHttpContextAccessor();
+    
     // Add Azure App Configuration and feature management services to the container.
     builder.Services.AddAzureAppConfiguration()
         .AddFeatureManagement()
-        .WithTargeting()
-        .AddApplicationInsightsTelemetry();
+        .WithTargeting<ExampleTargetingContextAccessor>()
+        .AddTelemetryPublisher<ApplicationInsightsTelemetryPublisher>();
+    ```
+
+1. Under the line `var app = builder.Build();`, add a middleware that triggers App Configuration refresh when appropriate.
+
+    ```csharp
+    // Use Azure App Configuration middleware for dynamic configuration refresh.
+    app.UseAzureAppConfiguration();
     ```
 
 1. Under that, add the following code to enable the `TargetingTelemetryInitializer` to have access to targeting information by storing it on HttpContext.
@@ -140,17 +223,53 @@ In the [variants tutorial](./use-variant-feature-flags-aspnet-core.md), you crea
     app.UseMiddleware<TargetingHttpContextMiddleware>();
     ```
 
-1. Open *QuoteOfTheDay* > *Pages* > *Index.cshtml.cs* edit the class to take a `TelemetryClient`. Also edit the `OnPostHeartQuoteAsync` method to send a telemetry event.
+1. In *QuoteOfTheDay* > *Pages* > *Shared* > *_Layout.cshtml*, under where `QuoteOfTheDay.styles.css` is added, add the following line to add the css for version 5.15.3 of `font-awesome`.
+
+    ```css
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    ```
+
+1. Open *QuoteOfTheDay* > *Pages* > *Index.cshtml.cs* and overwrite the content to the quote app.
 
     ```csharp
-    ...
+    using Microsoft.ApplicationInsights;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.RazorPages;
+    using Microsoft.FeatureManagement;
+    
+    namespace QuoteOfTheDay.Pages;
+    
+    public class Quote
+    {
+        public string Message { get; set; }
+    
+        public string Author { get; set; }
+    }
     
     public class IndexModel(IVariantFeatureManagerSnapshot featureManager, TelemetryClient telemetryClient) : PageModel
     {
         private readonly IVariantFeatureManagerSnapshot _featureManager = featureManager;
         private readonly TelemetryClient _telemetryClient = telemetryClient;
     
-        ...
+        private Quote[] _quotes = [
+            new Quote()
+            {
+                Message = "You cannot change what you are, only what you do.",
+                Author = "Philip Pullman"
+            }];
+    
+        public Quote? Quote { get; set; }
+    
+        public bool ShowGreeting { get; set; }
+    
+        public async void OnGet()
+        {
+            Quote = _quotes[new Random().Next(_quotes.Length)];
+    
+            Variant variant = await _featureManager.GetVariantAsync("Greeting", HttpContext.RequestAborted);
+    
+            ShowGreeting = variant.Configuration.Get<bool>();
+        }
     
         public IActionResult OnPostHeartQuoteAsync()
         {
@@ -171,16 +290,149 @@ In the [variants tutorial](./use-variant-feature-flags-aspnet-core.md), you crea
     }
     ```
 
-    Now, when the `PageModel` handles post requests, you're calling `_telemetryClient.TrackEvent("Like");`. This sends an event to Application Insights with the name *Like*. This event is automatically tied to the user and variant, and can be tracked by metrics.
+    This `PageModel` picks a random quote, uses `GetVariantAsync` to get the variant for the current user, and sets a variable called "ShowGreeting" to the variant's value. The `PageModel` also handles Post requests, calling `_telemetryClient.TrackEvent("Like");`, which sends an event to Application Insights with the name *Like*. This event is automatically tied to the user and variant, and can be tracked by metrics.
+
+1. Open *index.cshtml* and overwrite the content for the quote app.
+
+    ```cshtml
+    @page
+    @model IndexModel
+    @{
+        ViewData["Title"] = "Home page";
+        ViewData["Username"] = User.Identity.Name;
+    }
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+    
+        .quote-container {
+            background-color: #fff;
+            margin: 2em auto;
+            padding: 2em;
+            border-radius: 8px;
+            max-width: 750px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            position: relative;
+        }
+    
+        .vote-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 0em;
+        }
+    
+        .vote-container .btn {
+            background-color: #ffffff; /* White background */
+            border-color: #ffffff; /* Light blue border */
+            color: #333
+        }
+    
+        .vote-container .btn:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    
+        .vote-container .btn:hover {
+            background-color: #F0F0F0; /* Light gray background */
+        }
+    
+        .greeting-content {
+            font-family: 'Georgia', serif; /* More artistic font */
+        }
+    
+        .quote-content p.quote {
+            font-size: 2em; /* Bigger font size */
+            font-family: 'Georgia', serif; /* More artistic font */
+            font-style: italic; /* Italic font */
+            color: #4EC2F7; /* Medium-light blue color */
+        }
+    </style>
+    
+    <div class="quote-container">
+        <div class="quote-content">
+            @if (Model.ShowGreeting)
+            {
+                <h3 class="greeting-content">Hi <b>@User.Identity.Name</b>, hope this makes your day!</h3>
+            }
+            else
+            {
+                <h3 class="greeting-content">Quote of the day</h3>
+            }
+            <br />
+            <p class="quote">“@Model.Quote.Message”</p>
+            <p>- <b>@Model.Quote.Author</b></p>
+        </div>
+    
+        <div class="vote-container">
+            <button class="btn btn-primary" onclick="heartClicked(this)">
+                <i class="far fa-heart"></i> <!-- Heart icon -->
+            </button>
+        </div>
+    
+        <form action="/" method="post">
+            @Html.AntiForgeryToken()
+        </form>
+    </div>
+    
+    <script>
+        function heartClicked(button) {
+            var icon = button.querySelector('i');
+            icon.classList.toggle('far');
+            icon.classList.toggle('fas');
+    
+            // If the quote is hearted
+            if (icon.classList.contains('fas')) {
+                // Send a request to the server to save the vote
+                fetch('/Index?handler=HeartQuote', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                    }
+                });
+            }
+        }
+    </script>
+    ```
+
+    This code corresponds to the UI to show the QuoteOfTheDay and handle using the heart action on a quote. It uses the previously mentioned `Model.ShowGreeting` value to show different things to different users, depending on their variant.
 
 ### Build and run the app
 
 1. In the command prompt, in the *QuoteOfTheDay* folder, run: `dotnet build`.
 1. Run: `dotnet run --launch-profile https`.
 1. Look for a message in the format `Now listening on: https://localhost:{port}` in the output of the application. Navigate to the included link in your browser.
-1. Login as `usera@contoso.com` or `userb@contoso.com` and click the heart icon.
- 
-   :::image type="content" source="./media/run-experiments-aspnet-core/heart.png" alt-text="Screenshot of the Quote of the day app, highlighting the heart icon.":::
+1. Once viewing the running application, select **Register** at the top right to register a new user.
+
+    :::image type="content" source="media/run-experiments-aspnet-core/register.png" alt-text="Screenshot of the Quote of the day app, showing Register.":::
+
+1. Register a new user named *user@contoso.com*. The password must have at least six characters and contain a number and a special character.
+
+1. Select the link **Click here to validate email** after entering user information.
+
+1. Register a second user named *userb@contoso.com*, enter another password, and validate this second email.
+
+    > [!NOTE]
+    > It's important for the purpose of this tutorial to use these names exactly. As long as the feature has been configured as expected, the two users should see different variants.
+
+1. Select **Login** at the top right to sign in as userb (userb@contoso.com).
+
+    :::image type="content" source="media/run-experiments-aspnet-core/login.png" alt-text="Screenshot of the Quote of the day app, showing **Login**.":::
+
+1. Once logged in, you should see that userb@contoso.com sees a special message when viewing the app.
+
+    :::image type="content" source="media/run-experiments-aspnet-core/special-message.png" alt-text="Screenshot of the Quote of the day app, showing a special message for the user.":::
+
+    *userb@contoso.com* is the only user who sees the special message.
 
 ## Enable telemetry and create an experiment in your variant feature flag
 
