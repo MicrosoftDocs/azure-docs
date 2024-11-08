@@ -1,83 +1,79 @@
 ---
-title: Backend MTLS with Application Gateway for Containers - Gateway API
-description: Learn how to configure Application Gateway for Containers with support for backend MTLS authentication.
-services: application-gateway
-author: greglin
+title: End-to-end TLS Azure Application Gateway for Containers - Gateway API
+description: Learn how to encrypt traffic to and from Application Gateway for Containers using Gateway API.
+services: application gateway
+author: greg-lindsay
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
 ms.author: greglin
 ---
 
-# Backend MTLS with Application Gateway for Containers - Gateway API
+# End-to-end TLS with Application Gateway for Containers - Gateway API
 
 This document helps set up an example application that uses the following resources from Gateway API. Steps are provided to:
 
 - Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
-- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute/) resource that references a backend service.
-- Create a [BackendTLSPolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.BackendTLSPolicy) resource that has a client and CA certificate for the backend service referenced in the HTTPRoute.
+- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute) that references a backend service.
 
 ## Background
 
-Mutual Transport Layer Security (MTLS) is a process that relies on certificates to encrypt communications and identify clients to a service.  This enables backend workloads to further increase its security posture by only trusting connections from authenticated devices.
+Application Gateway for Containers enables end-to-end TLS for improved privacy and security. In this design, traffic between the client and an Application Gateway for Containers' frontend is encrypted and traffic proxied from Application Gateway for Containers to the backend target is encrypted. See the following example scenario:
 
-See the following figure:
-
-[![A diagram showing the Application Gateway for Containers backend MTLS process.](./media/how-to-backend-mtls-gateway-api/backend-mtls.png)](./media/how-to-backend-mtls-gateway-api/backend-mtls.png#lightbox)
+![A figure showing end-to-end TLS with Application Gateway for Containers.](./media/how-to-end-to-end-tls-gateway-api/e2e-tls.png)
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
-2. If following the ALB managed deployment strategy, ensure you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTP application:
+1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
+2. If following the ALB managed deployment strategy, ensure that you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+3. Deploy sample HTTPS application
+  Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate TLS/SSL offloading.
 
-   Apply the following deployment.yaml file on your cluster to create a sample web application and deploy sample secrets to demonstrate backend mutual authentication (mTLS).
+    ```bash
+    kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/https-scenario/end-to-end-tls/deployment.yaml
+    ```
 
-   ```bash
-   kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
-   ```
-  
-   This command creates the following on your cluster:
-  
-   - A namespace called `test-infra`
-   - One service called `mtls-app` in the `test-infra` namespace
-   - One deployment called `mtls-app` in the `test-infra` namespace
-   - One config map called `mtls-app-nginx-cm` in the `test-infra` namespace
-   - Four secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
+    This command creates the following on your cluster:
+    - a namespace called `test-infra`
+    - one service called `https-app` in the `test-infra` namespace
+    - one deployment called `https-app` in the `test-infra` namespace
+    - one configmap called `https-app-cm` in the `test-infra` namespace
+    - one secret called `contoso.com` in the `test-infra` namespace
+    - one secret called `contoso.xyz` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
 # [ALB managed deployment](#tab/alb-managed)
 
-Create a gateway
+1. Create a Gateway
 
-```bash
-kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1
-kind: Gateway
-metadata:
-  name: gateway-01
-  namespace: test-infra
-  annotations:
-    alb.networking.azure.io/alb-namespace: alb-test-infra
-    alb.networking.azure.io/alb-name: alb-test
-spec:
-  gatewayClassName: azure-alb-external
-  listeners:
-  - name: https-listener
-    port: 443
-    protocol: HTTPS
-    allowedRoutes:
-      namespaces:
-        from: Same
-    tls:
-      mode: Terminate
-      certificateRefs:
-      - kind : Secret
-        group: ""
-        name: frontend.com
-EOF
-```
+    ```bash
+    kubectl apply -f - <<EOF
+    apiVersion: gateway.networking.k8s.io/v1
+    kind: Gateway
+    metadata:
+      name: gateway-01
+      namespace: test-infra
+      annotations:
+        alb.networking.azure.io/alb-namespace: alb-test-infra
+        alb.networking.azure.io/alb-name: alb-test
+    spec:
+      gatewayClassName: azure-alb-external
+      listeners:
+      - name: https-listener
+        port: 443
+        protocol: HTTPS
+        allowedRoutes:
+          namespaces:
+            from: Same
+        tls:
+          mode: Terminate
+          certificateRefs:
+          - kind : Secret
+            group: ""
+            name: contoso.com
+    EOF
+    ```
 
 [!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
@@ -91,7 +87,6 @@ EOF
 
     RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
     FRONTEND_NAME='frontend'
-    az network alb frontend create -g $RESOURCE_GROUP -n $FRONTEND_NAME --alb-name $AGFC_NAME
     ```
 
 2. Create a Gateway
@@ -119,7 +114,7 @@ EOF
           certificateRefs:
           - kind : Secret
             group: ""
-            name: frontend.com
+            name: contoso.com
       addresses:
       - type: alb.networking.azure.io/alb-frontend
         value: $FRONTEND_NAME
@@ -128,18 +123,18 @@ EOF
 
 ---
 
-Once the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+When the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
 
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
-Example output of successful gateway creation:
+Example output of successful gateway creation.
 
 ```yaml
 status:
   addresses:
-  - type: IPAddress
+  - type: Hostname
     value: xxxx.yyyy.alb.azure.com
   conditions:
   - lastTransitionTime: "2023-06-19T21:04:55Z"
@@ -195,7 +190,7 @@ spec:
   - name: gateway-01
   rules:
   - backendRefs:
-    - name: mtls-app
+    - name: https-app
       port: 443
 EOF
 ```
@@ -206,7 +201,7 @@ Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the A
 kubectl get httproute https-route -n test-infra -o yaml
 ```
 
-Verify the status of the Application Gateway for Containers resource is successfully updated.
+Verify the Application Gateway for Containers resource is successfully updated.
 
 ```yaml
 status:
@@ -245,35 +240,25 @@ kubectl apply -f - <<EOF
 apiVersion: alb.networking.azure.io/v1
 kind: BackendTLSPolicy
 metadata:
-  name: mtls-app-tls-policy
+  name: https-app-tls-policy
   namespace: test-infra
 spec:
   targetRef:
     group: ""
     kind: Service
-    name: mtls-app
+    name: https-app
     namespace: test-infra
   default:
-    sni: backend.com
+    sni: contoso.xyz
     ports:
     - port: 443
-    clientCertificateRef:
-      name: gateway-client-cert
-      group: ""
-      kind: Secret
-    verify:
-      caCertificateRef:
-        name: ca.bundle
-        group: ""
-        kind: Secret
-      subjectAltName: backend.com
 EOF
 ```
 
 Once the BackendTLSPolicy object is created, check the status on the object to ensure that the policy is valid:
 
 ```bash
-kubectl get backendtlspolicy -n test-infra mtls-app-tls-policy -o yaml
+kubectl get backendtlspolicy -n test-infra https-app-tls-policy -o yaml
 ```
 
 Example output of valid BackendTLSPolicy object creation:
@@ -291,7 +276,7 @@ status:
 
 ## Test access to the application
 
-Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN:
+Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN.
 
 ```bash
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
@@ -300,7 +285,14 @@ fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addres
 Curling this FQDN should return responses from the backend as configured on the HTTPRoute.
 
 ```bash
-curl --insecure https://$fqdn/
+fqdnIp=$(dig +short $fqdn)
+curl -k --resolve contoso.com:443:$fqdnIp https://contoso.com --insecure
+```
+
+The following result should be present:
+
+```
+Hello world!
 ```
 
 Congratulations, you have installed ALB Controller, deployed a backend application and routed traffic to the application via the ingress on Application Gateway for Containers.
