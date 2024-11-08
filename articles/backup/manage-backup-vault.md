@@ -179,6 +179,10 @@ You can also select the state of CSR  during the creation of Backup vault.
 >- If CSR is disabled but not permanently disabled, then you can reverse the operation by selecting **Vault** > **Properties** > **Cross Subscription Restore** > **Enable**.
 >- If a Backup vault is moved to a different subscription when CSR is disabled or permanently disabled, restore to the original subscription will fail.
 
+## Manage Alerts
+
+Learn [how to manage alerts for Backup vaults](backup-azure-monitoring-alerts.md).
+
 
 ## Next steps
 
