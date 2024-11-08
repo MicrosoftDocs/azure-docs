@@ -82,7 +82,7 @@ To view the list of built-in system capabilities for Azure Firewall, use the fol
 4. Enter your prompt in the prompt bar on either the [Security Copilot portal](https://securitycopilot.microsoft.com) or via the [Copilot in Azure](/azure/copilot/overview) experience on the [Azure portal](https://portal.azure.com/).
 
 > [!IMPORTANT]
-> Use of Copilot in Azure to query Azure Firewall is included with Security Copilot and requires [security compute units (SCUs)](copilot/security/get-started-security-copilot#security-compute-units). You can provision SCUs and increase or decrease them at any time. For more information on SCUs, see [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot).
+> Use of Copilot in Azure to query Azure Firewall is included with Security Copilot and requires [security compute units (SCUs)](/security-copilot/get-started-security-copilot#security-compute-units). You can provision SCUs and increase or decrease them at any time. For more information on SCUs, see [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot).
 > If you do not have Security Copilot properly configured but ask a question relavent to the Azure Firewall capabilities via the Copilot in Azure experience then you will see an error message:
 > :::image type="content" source="media/firewall-copilot/azure-copilot-error-message-new.png" alt-text="Screenshot showing the Copilot in Azure error message when Security Copilot is not properly configured." lightbox="media/firewall-copilot/azure-copilot-error-message-new.png":::
 
