@@ -65,7 +65,7 @@ In this section, you set up and specify the container for session recordings.
 
 1. Within the storage account, create a **Container**. This is the container you'll use to store your Bastion session recordings. We recommend that you create an exclusive container for session recordings. For steps, see [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 1. On the page for your storage account, in the left pane, expand **Settings**. Select **Resource sharing (CORS)**.
-1. Create a new policy under Blob service:
+1. Create a new policy under Blob service and save your changes at the top of the page.
 
 | Name |  Value |
 |---|---|
@@ -76,7 +76,7 @@ In this section, you set up and specify the container for session recordings.
 |Max age| 86400|
 
 
-1. **Save** your changes at the top of the page.
+
 
 ## Add or update the SAS URL
 
