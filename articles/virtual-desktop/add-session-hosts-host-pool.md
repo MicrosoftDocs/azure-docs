@@ -61,7 +61,7 @@ For a general idea of what's required, such as supported operating systems, virt
 
   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see [Request access to an Azure Extended Zone](../extended-zones/request-access.md).
 
-  - An [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) with an outbound rule, on the virtual network where you're deploying the session hosts. This can be an existing load balancer or you create a new within the host pool deployment.
+  - An [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) with an outbound rule on the virtual network to which you're deploying session hosts. You can use an existing load balancer or you create a new one when adding session hosts.
 
 - If you want to use the Azure CLI or Azure PowerShell locally, see [Use the Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) Azure PowerShell module installed. Alternatively, use [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -195,6 +195,7 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Confirm password** | Reenter the password. |
       | **Custom configuration** |  |
       | **Custom configuration script URL** | If you want to run a PowerShell script during deployment, you can enter the URL here. |
+
    </details>
 
    <details>
@@ -222,6 +223,7 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Username** | Enter a name to use as the local administrator account for the new session hosts. |
       | **Password** | Enter a password for the local administrator account. |
       | **Confirm password** | Reenter the password. |
+
    </details>
 
    <details>
@@ -232,12 +234,13 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
       | **Virtual machine type** | Select **Azure virtual machine**. |
-      | **Virtual machine location** | Select the **Deploy to an Azure Extended Zone** link. |
+      | **Virtual machine location** | Select **Deploy to an Azure Extended Zone**. |
       | **Azure Extended Zone** | Select the Extended Zone you require. |
       | **Network and security** |  |
-      | **Select a load balancer** | Select an existing load balancer on the same virtual network where you're deploying the session hosts. Or click on **Create a load balancer** to create a new Azure load balancer.|
-      | **Select a backend pool** | Select a back-end pool on the load balancer where you want to place the session hosts. Or if you are creating a new Azure load balancer, click on **Create new** to create a new backend pool in the new Azure load balancer |
-      | **Add outbound rule** | If you are creating a new Azure load balancer, click on **Create new** to create a new outbound in the new Azure load balancer. |
+      | **Select a load balancer** | Select an existing Azure load balancer on the same virtual network you want to use for your session hosts, or select **Create a load balancer** to create a new load balancer.|
+      | **Select a backend pool** | Select a backend pool on the load balancer you want to use for your session hosts. If you're creating a new load balancer, select **Create new** to create a new backend pool for the new load balancer. |
+      | **Add outbound rule** | If you're creating a new load balancer, select **Create new** to create a new outbound rule for it. |
+
    </details>
 
    After you complete this tab, select **Next: Tags**.
