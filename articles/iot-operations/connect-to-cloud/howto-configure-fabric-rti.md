@@ -34,18 +34,18 @@ Note the [Kafka-compatible connection details for the Custom Endpoint](/fabric/r
 The connection string looks like:
 > *Endpoint=sb://eventstream-xxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=key_xxxxxxxx;SharedAccessKey=xxxxxxxx;EntityPath=es_xxxxxxx*
 
-### Event Hub name
+### Topic name
 The Event Hub name is used as the Kafka topic and is of the form *es_xxxxxxx*.
 
 
-## Create an Azure Data Lake Storage Gen2 dataflow endpoint
+## Create a Microsoft Fabric Real-Time Intelligence dataflow endpoint
 
-To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management. Alternatively, you can authenticate with the storage account using an access token. When using an access token, you would need to create a Kubernetes secret containing the SAS token.
+To configure a dataflow endpoint for Microsoft Fabric Real-Time Intelligence, you will need to use SASL connection string based authentication. Managed identity support will be added in the future. Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can referenced in the dataflow. 
 
 # [Portal](#tab/portal)
 
 1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
-1. Under **Create new dataflow endpoint**, select **Azure Data Lake Storage (2nd generation)** > **New**.
+1. Under **Create new dataflow endpoint**, select **Microsoft Fabric Real-Time Intelligence** > **New**.
 
     :::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using operations experience to create a new ADLS V2 dataflow endpoint.":::
 
