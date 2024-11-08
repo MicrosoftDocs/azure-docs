@@ -113,11 +113,11 @@ sections:
 
           ### I ordered a couple of Data Box devices. I can't create any additional orders. Why?
 
-          We allow a maximum of five active orders per subscription per commerce boundary (combination of country and region selected) for any Data Box product. You can have five active Data Box orders and five active Data Box Heavy orders. If you need to order an additional device, contact Microsoft Support to increase the limit for your subscription. 
+          We allow a maximum of five active orders per subscription per commerce boundary (combination of country/region and region selected) for any Data Box product. You can have five active Data Box orders and five active Data Box Heavy orders. If you need to order an additional device, contact Microsoft Support to increase the limit for your subscription. 
 
           ### When I try to create an order, I receive a notification that the Data Box service is not available. What does this mean?
 
-          The Data Box service isn't available for the combination of country and region you selected for the selected product - either Data Box or Data Box Heavy. Changing this combination would likely allow you to avail of the Data Box service. For a list of the regions where the service is available, go to [Region availability for Data Box](data-box-overview.md#region-availability) or [Region availability for Data Box Heavy](data-box-heavy-overview.md#region-availability).
+          The Data Box service isn't available for the combination of country/region and region you selected for the selected product - either Data Box or Data Box Heavy. Changing this combination would likely allow you to avail of the Data Box service. For a list of the regions where the service is available, go to [Region availability for Data Box](data-box-overview.md#region-availability) or [Region availability for Data Box Heavy](data-box-heavy-overview.md#region-availability).
 
           ### My Data Box is dispatched, but now I want to cancel this order. Why is the cancel button not available?
 
