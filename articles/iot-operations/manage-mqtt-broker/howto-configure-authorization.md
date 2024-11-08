@@ -15,6 +15,8 @@ ms.service: azure-iot-operations
 
 # Configure MQTT broker authorization
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure MQTT broker to use one or multiple authorization policies with the *BrokerAuthorization* resource. Each *BrokerAuthorization* resource contains a list of rules that specify the principals and resources for the authorization policies.
 
 ## Link BrokerAuthorization to BrokerListener
@@ -119,10 +121,10 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
@@ -276,10 +278,10 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
@@ -441,10 +443,10 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
@@ -760,7 +762,7 @@ kubectl edit brokerauthorization my-authz-policies
 
 To disable authorization, omit `authorizationRef` in the `ports` setting of your *BrokerListener* resource.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 To disable authorization, omit `authorizationRef` in the `ports` setting of your *BrokerListener* resource.
 

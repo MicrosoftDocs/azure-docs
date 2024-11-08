@@ -13,6 +13,8 @@ ms.date: 10/22/2024
 
 # Tutorial: Bi-directional MQTT bridge to Azure Event Grid
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 In this tutorial, you set up a bi-directional MQTT bridge between an Azure IoT Operations MQTT broker and Azure Event Grid. To keep the tutorial simple, use the default settings for the Azure IoT Operations MQTT broker and Azure Event Grid endpoints, and no transformation is applied.
 
 ## Prerequisites
@@ -200,10 +202,10 @@ Next, execute the following command in your terminal. Replace `<FILE>` with the 
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowEndpoint
 metadata:
   name: eventgrid
@@ -307,11 +309,11 @@ Like the dataflow endpoint, execute the following command in your terminal:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: Dataflow
 metadata:
   name: local-to-remote
@@ -329,7 +331,7 @@ spec:
       endpointRef: eventgrid
       dataDestination: telemetry/aio
 ---
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: Dataflow
 metadata:
   name: remote-to-local
@@ -372,7 +374,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the same namespac
 
 Currently, bicep doesn't apply to deploy MQTT client.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 apiVersion: v1

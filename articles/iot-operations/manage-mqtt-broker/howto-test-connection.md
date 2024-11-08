@@ -15,6 +15,8 @@ ms.service: azure-iot-operations
 
 # Test connectivity to MQTT broker with MQTT clients
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 This article shows different ways to test connectivity to MQTT broker with MQTT clients in a nonproduction environment.
 
 By default, MQTT broker:
@@ -226,7 +228,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Create a file named `broker-nodeport.yaml` with the following configuration. Replace placeholders with your own values, including your own authentication and TLS settings.
 
@@ -234,7 +236,7 @@ Create a file named `broker-nodeport.yaml` with the following configuration. Rep
 > Removing `authenticationRef` and `tls` settings from the configuration [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: aio-broker-nodeport
@@ -387,7 +389,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 > [!CAUTION]
 > Removing `authenticationRef` and `tls` settings from the configuration [turns off authentication and TLS for testing purposes only.](#only-turn-off-tls-and-authentication-for-testing)
@@ -395,7 +397,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 Create a file named `broker-loadbalancer.yaml` with configuration like the following, replacing placeholders with your own values, including your own authentication and TLS settings.
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: aio-broker-loadbalancer
@@ -590,10 +592,10 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: <LISTENER_NAME>

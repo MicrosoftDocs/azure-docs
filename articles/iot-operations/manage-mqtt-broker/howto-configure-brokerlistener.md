@@ -15,6 +15,8 @@ ms.date: 11/06/2024
 
 # Secure MQTT broker communication using BrokerListener
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 To customize the network access and security use the BrokerListener resource. A listener corresponds to a network endpoint that exposes the broker to the network. You can have one or more BrokerListener resources for each Broker, and thus multiple ports with different access control each.
 
 Each listener port can have its own authentication and authorization rules that define who can connect to the listener and what actions they can perform on the broker. You can use [BrokerAuthentication](./howto-configure-authentication.md) and [BrokerAuthorization](./howto-configure-authorization.md) resources to specify the access control policies for each listener. This flexibility allows you to fine-tune the permissions and roles of your MQTT clients, based on their needs and use cases.
@@ -124,7 +126,7 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 To view the default BrokerListener resource, use the following command:
 
@@ -135,13 +137,13 @@ kubectl get brokerlistener default -n azure-iot-operations -o yaml
 The output should look similar to this, with most metadata removed for brevity:
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta2
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: default
   namespace: azure-iot-operations
   ownerReferences:
-  - apiVersion: mqttbroker.iotoperations.azure.com/v1beta2
+  - apiVersion: mqttbroker.iotoperations.azure.com/v1
     kind: Broker
     name: default
 spec:
@@ -303,10 +305,10 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: <LISTENER_NAME>
@@ -615,12 +617,12 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Modify the `tls` setting in a BrokerListener resource to specify a TLS port and *Issuer* for the frontends.
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: aio-broker-loadbalancer-tls # Avoid conflicts with default service name 'aio-broker'
@@ -820,12 +822,12 @@ Deploy the Bicep file using Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Modify the `tls` setting in a BrokerListener resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`server-cert-secret` in the example previously).
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerListener
 metadata:
   name: loadbalancer-tls

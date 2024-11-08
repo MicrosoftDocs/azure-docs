@@ -13,6 +13,8 @@ ms.date: 10/30/2024
 
 # Configure dataflow profile
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 Dataflow profiles can be used to group dataflows together so that they share the same configuration. You can create multiple dataflow profiles to manage sets of different dataflow configurations. 
 
 The most important setting is the instance count, which determines the number of instances that run the dataflows. For example, you might have a dataflow profile with a single instance for development and testing, and another profile with multiple instances for production. Or, you might use a dataflow profile with low instance count for low-throughput dataflows and a profile with high instance count for high-throughput dataflows. Similarly, you can create a dataflow profile with different diagnostic settings for debugging purposes.
@@ -51,10 +53,10 @@ resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfi
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowProfile
 metadata:
   name: default
@@ -83,10 +85,10 @@ resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@202
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowProfile
 metadata:
   name: '<NAME>'
@@ -118,7 +120,7 @@ resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@202
 ```
 
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 spec:
@@ -156,10 +158,10 @@ resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@202
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowProfile
 metadata:
   name: '<NAME>'
