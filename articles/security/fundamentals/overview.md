@@ -181,7 +181,7 @@ Forced tunneling is commonly used to force outbound traffic to the Internet to g
 
 #### Virtual Network Security Appliances
 
-While Network Security Groups, User-Defined Routes, and forced tunneling provides you with a level of security at the network and transport layers of the [OSI model](https://en.wikipedia.org/wiki/OSI_model), there might be times when you want to enable security at higher levels of the stack. You can access these enhanced network security features by using an Azure partner network security appliance solution. You can find the most current Azure partner network security solutions by visiting the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and searching for **security** and **network security**.
+While Network Security Groups, User-Defined Routes, and forced tunneling provide you with a level of security at the network and transport layers of the [OSI model](https://en.wikipedia.org/wiki/OSI_model), there might be times when you want to enable security at higher levels of the stack. You can access these enhanced network security features by using an Azure partner network security appliance solution. You can find the most current Azure partner network security solutions by visiting the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and searching for **security** and **network security**.
 
 ### Azure Virtual Network
 
