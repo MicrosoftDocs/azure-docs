@@ -46,16 +46,19 @@ This section covers how to use the Azure App Configuration Export task in an Azu
 
 1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. For build pipeline documentation, see  [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=net%2Ctfs-2018-2%2Cbrowser).
       - If you're creating a new build pipeline, on the last step of the process, on the **Review** tab, select **Show assistant** on the right side of the pipeline.
-      ![Screenshot shows the Show assistant button for a new pipeline.](./media/new-pipeline-show-assistant.png)
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot shows the Show assistant button for a new pipeline.](./media/new-pipeline-show-assistant.png)
       - If you're using an existing build pipeline, click the **Edit** button at the top-right.
-      ![Screenshot shows the Edit button for an existing pipeline.](./media/existing-pipeline-show-assistant.png)
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot shows the Edit button for an existing pipeline.](./media/existing-pipeline-show-assistant.png)
 1. Search for the **Azure App Configuration Export** Task.
-![Screenshot shows the Add Task dialog with Azure App Configuration Export in the search box.](./media/add-azure-app-configuration-export-task.png)
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot shows the Add Task dialog with Azure App Configuration Export in the search box.](./media/add-azure-app-configuration-export-task.png)
 1. To export the key-values from the App Configuration store, configure the necessary parameters for the task . Descriptions of the parameters are available in the **Parameters** section  and in tooltips next to each parameter.
       - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
       - Set the **App Configuration Endpoint** to the endpoint of your App Configuration store.
       - Leave the default values for the remaining parameters.
-![Screenshot shows the app configuration task parameters.](./media/azure-app-configuration-export-parameters.png)
+      > ![Screenshot shows the app configuration task parameters.](./media/azure-app-configuration-export-parameters.png)
 1. Save and queue a build. The build log displays any failures that occurred during the execution of the task.
 
 ## Use in releases
@@ -66,11 +69,14 @@ This section covers how to use the Azure App Configuration Export task in an Azu
 1. Choose an existing release pipeline. If you don’t have one, click **New pipeline** to create a new one.
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
 1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found in [Add stages, dependencies, & conditions](/azure/devops/pipelines/release/environments).
-![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
 1. Click **+** next to the Job to which you want to add a new task.
-![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
 1. Search for the **Azure App Configuration Export** Task.
-![Screenshot shows the Add Task dialog with Azure App Configuration Export in the search box.](./media/add-azure-app-configuration-export-task.png)
+      > [!div class="mx-imgBorder"]
+      > ![Screenshot shows the Add Task dialog with Azure App Configuration Export in the search box.](./media/add-azure-app-configuration-export-task.png)
 1. To export your key-values from your App Configuration store, configure the necessary parameters within the task. Descriptions of the parameters are available in the **Parameters** section and in tooltips next to each parameter.
       - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
       - Set the **App Configuration Endpoint** to the endpoint of your App Configuration store.
