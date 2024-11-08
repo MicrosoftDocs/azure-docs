@@ -131,7 +131,7 @@ By convention, the `FeatureManagement` section of this JSON document is used for
 
 ## Use dependency injection to access IVariantFeatureManager 
 
-For some operations, such as manually checking feature flag values, you need to get an instance of [IVariantFeatureManager](/dotnet/api/microsoft.featuremanagement.ivariantfeaturemanager). In ASP.NET Core MVC, you can access the feature manager `IVariantFeatureManager` through dependency injection. In the following example, an argument of type `IVariantFeatureManager` is added to the signature of the constructor for a controller. The runtime automatically resolves the reference and provides an implementation of the interface when calling the constructor. If you're using an application template in which the controller already has one or more dependency injection arguments in the constructor, such as `ILogger`, you can just add `IVariantFeatureManager` as an additional argument:
+For some operations, such as manually checking feature flag values, you need to get an instance of `IVariantFeatureManager`. In ASP.NET Core MVC, you can access the feature manager `IVariantFeatureManager` through dependency injection. In the following example, an argument of type `IVariantFeatureManager` is added to the signature of the constructor for a controller. The runtime automatically resolves the reference and provides an implementation of the interface when calling the constructor. If you're using an application template in which the controller already has one or more dependency injection arguments in the constructor, such as `ILogger`, you can just add `IVariantFeatureManager` as an additional argument:
     
 ```csharp
 using Microsoft.FeatureManagement;
