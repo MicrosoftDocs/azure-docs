@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 04/22/2024
+ms.date: 11/08/2024
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -60,12 +60,6 @@ To verify in an existing project:
 6. The Business case feature isn't supported in the following regions:
 
     Germany West Central and Sweden Central
-
-### How do I add facilities costs to my business case?
-
-1. Go to your business case and select **Edit assumptions** and choose **On-premises cost assumptions**.
-1. Select **Facilities** tab. 
-1. Specify estimated annual lease/colocation/power costs that you want to include as facilities costs in the calculations.
 
 If you aren't aware of your facilities costs, use the following methodology.
 
