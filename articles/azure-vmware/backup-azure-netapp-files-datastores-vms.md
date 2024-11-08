@@ -35,6 +35,8 @@ Before you back up your Azure NetApp Files datastores, you must add your Azure a
     ```
     For more information on creating custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
+* You can't restore to an original location with Azure NetApp Files backup. If you're using Azure NetApp Files backup to restore, restore to an **Alternate location**. 
+
 ### Add an Azure cloud subscription 
 
 1.	Sign in to the VMware vSphere client.
