@@ -14,12 +14,12 @@ ms.date: 11/06/2024
 
 In this quickstart, you use a Bicep definition to deploy a de-identification service (preview).
 
-[!INCLUDE [About Bicep](~reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using Bicep, select the
 **Deploy to Azure** button. The template opens in the Azure portal.
 
-:::image type="content" source="/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Bicep definition to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthdataaiservices%2Fdeidentification-service-create%2Fazuredeploy.json":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Bicep definition to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthdataaiservices%2Fdeidentification-service-create%2Fazuredeploy.json":::
 
 ## Prerequisites
 
