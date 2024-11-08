@@ -92,7 +92,7 @@ Azure Update Manager allows you to enable alerts to address events as captured i
 
 ### Azure Local patching
 
-Azure Update Manager allows you to patch Azure local instance. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
+Azure Update Manager allows you to patch Azure Local instance. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
 
 ## October 2023
 
