@@ -6,7 +6,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.date: 11/04/2024
+ms.date: 11/07/2024
 
 #CustomerIntent: As an operator, I want to configure diagnostics so that I can monitor MQTT broker communications.
 ---
@@ -61,6 +61,8 @@ Then, deploy Azure IoT Operations using the `az iot ops create` command with the
 ```azurecli
 az iot ops create ... --broker-config-file <FILE>.json
 ```
+
+The self-test diagnostics probe publishes messages to the `azedge/dmqtt/selftest` topic. You shouldn't publish or subscribe to this topic as it's used for internal diagnostics. For more information, see [Known Issues](../troubleshoot/known-issues.md#mqtt-broker).
 
 To learn more, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config) and [Broker examples](/rest/api/iotoperations/broker/create-or-update#examples).
 

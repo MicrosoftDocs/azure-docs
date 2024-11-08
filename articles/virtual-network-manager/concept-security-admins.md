@@ -187,7 +187,7 @@ Protocols currently supported with security admin rules are:
 #### Source and destination types
 
 * **IP addresses**: You can provide IPv4 or IPv6 addresses or blocks of address in CIDR notation. To list multiple IP address, separate each IP address with a comma.
-* **Service Tag**: You can define specific service tags based on regions or a whole service. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags.
+* **Service Tag**: You can define specific service tags based on regions or a whole service. See the public documentation on [available service tags](../virtual-network/service-tags-overview.md#available-service-tags) for the list of supported tags. Out of this list, security admin rules currently do not support the AzurePlatformDNS, AzurePlatformIMDS, and AzurePlatformLKM service tags.
 
 #### Source and destination ports
 
