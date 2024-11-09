@@ -1,15 +1,36 @@
-# What is the state store
+---
+title: Persisting data in the state store
+description: Using the state store to persist data between sessions
+author: PatAltimore
+ms.subservice: azure-mqtt-broker
+ms.author: patricka
+ms.topic: concept-article
+ms.custom:
+  - ignite-2023
+ms.date: 10/22/2024
 
-The state store is a distributed storage system within the Azure IoT Operations cluster. Using the State Store, applications can get/set/delete key/value pairs without needing to install additional services such as Redis. The State Store also provides versioning of the data as well as providing the primitives for building distributed locks.
+#CustomerIntent: As an developer, I want understand how to develop application that persist data between sessions using the state store.
+ms.service: azure-iot-operations
+---
 
-Like Redis, the state store uses in memory storage. Stopping the Kubernetes cluster and/or uninstalling MQ will state store data to be lost.
+# Storing data in the state store
 
-The state store is implemented via MQTTv5. Its service is integrated directly into MQ and is automatically started when MQ starts. The state store provides the same high available as the MQ MQTT broker.
+The state store is a distributed storage system, deployed as part of Azure IoT Operations. Using the state store, applications can get, set and delete key-value pairs, without needing to install additional services, such as Redis. The state store also provides versioning of the data, and also the primitives for building distributed locks, ideal for highly available applications.
 
-The state store extends MQTT broker's authorization mechanism, allowing individual clients to have optional read and write access to specific keys. Its authentication is documented in more detail here.
+Like Redis, the state store uses in memory storage. Stopping or restarting the Kubernetes cluster will cause the state store data to be lost.
+
+The state store is implemented via MQTTv5. Its service is integrated directly into MQTT broker and is automatically started when the broker starts. The state store provides the same high availability as the MQTT broker.
+
+## State store authorization
+
+The state store extends MQTT broker's authorization mechanism, allowing individual clients to have optional read and write access to specific keys. Read more on how to [Configure MQTT broker authorization](manage-mqtt-broker/howto-configure-authorization.md).
+
+## Interacting with the state store
 
 The state store protocol is documented in [state store protocol](concept-about-state-store-protocol.md). SDKs are available for the state store for Go, C#, and Rust. You are strongly encouraged to use an SDK if available for your language instead of implementing the protocol yourself. Additional information about the SDKs is available
 
-## CLI
+## Related content
 
-Ewerton tool goes here.
+* [Learn about the MQTT broker state store protocol](concept-about-state-store-protocol.md)
+* [Learn how to populate the state store with data](howto-populate-state-store.md)
+* [Configure MQTT broker authorization](manage-mqtt-broker/howto-configure-authorization.md)

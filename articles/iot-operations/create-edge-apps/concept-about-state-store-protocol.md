@@ -14,7 +14,7 @@ ms.service: azure-iot-operations
 
 # State store protocol
 
-The state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in MQTT broker. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the state store. This article provides protocol guidance for developers who need to implement their own MQTT broker state store clients. 
+The state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in MQTT broker. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the state store. This article provides protocol guidance for developers who need to implement their own state store clients. 
 
 ## Overview
 
@@ -121,7 +121,7 @@ The following example output shows state store RESP3 payloads:
 ```
 
 > [!NOTE]
-> Note that `SET` requires additional MQTT5 properties, as explained in the section [Versioning and hybrid logical clocks](#versioning-and-hybrid-logical-clocks).
+> `SET` requires additional MQTT5 properties, as explained in the section [Versioning and hybrid logical clocks](#versioning-and-hybrid-logical-clocks).
 
 ### Response format
 
