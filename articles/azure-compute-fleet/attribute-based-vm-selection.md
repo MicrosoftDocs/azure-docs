@@ -42,9 +42,9 @@ This feature enables more flexible VM type configurations, eliminating the need 
 With Attribute-Based VM Selection, managing VM size configurations becomes easier and more scalable, ensuring that your workloads run smoothly with optimized cost and performance.
 
 
-# list of VM Attributes supported with example on how to specify each of them in the parameters file:
+# List of VM Attributes supported with examples 
 
-	/// <summary> 
+	   /// <summary> 
         /// Required. 
         /// Must be specified if VMAttributes are specified. 
         /// The range of vCpuCount specified from min to max. 
