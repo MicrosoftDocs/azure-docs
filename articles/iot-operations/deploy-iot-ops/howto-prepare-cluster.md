@@ -18,9 +18,7 @@ The steps in this article prepare your cluster for a secure settings deployment,
 
 ## Prerequisites
 
-Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
-
-If you want to deploy Azure IoT Operations to a multi-node solution, use K3s on Ubuntu.
+Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. If you want to deploy Azure IoT Operations to a multi-node solution, use K3s on Ubuntu.
 
 ### [Ubuntu](#tab/ubuntu)
 
@@ -28,18 +26,17 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Azure CLI version 2.64.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI version 2.64.0 or newer installed on your cluster machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* The latest version of the following extensions for Azure CLI:
+* The latest version of the **connectedk8s** extension for Azure CLI:
 
   ```bash
-  az extension add --upgrade --name azure-iot-ops
   az extension add --upgrade --name connectedk8s
   ```
 
 * Hardware that meets the system requirements:
 
-  * Ensure that your machine has a minimum of 16-GB available RAM and 8 available vCPUs reserved for Azure IoT Operations.
+  * [Azure IoT Operations supported environments](./overview-deploy.md#supported-environments).
   * [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
   * [K3s requirements](https://docs.k3s.io/installation/requirements).
 
@@ -53,7 +50,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
 * Hardware that meets the system requirements:
 
-  * Ensure that your machine has a minimum of 16-GB available RAM, 8 available vCPUs, and 52-GB free disk space reserved for Azure IoT Operations.
+  * [Azure IoT Operations supported environments](./overview-deploy.md#supported-environments).
   * [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
   * [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements).
   * [AKS Edge Essentials networking guidance](/azure/aks/hybrid/aks-edge-concept-networking).

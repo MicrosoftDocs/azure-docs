@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: conceptual
 ms.custom:
-ms.date: 10/23/2024
+ms.date: 11/06/2024
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
@@ -16,17 +16,23 @@ When you deploy Azure IoT Operations, you install a suite of services on an Azur
 
 ## Supported environments
 
-Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. 
+Microsoft supports the following environments for Azure IoT Operations deployments.
 
-* Minimum hardware requirements:
-  * 16-GB RAM
-  * 4 vCPUs
+| Environment | Minimum version | Availability |
+| ----------- | --------------- | ------------ |
+| K3s on Ubuntu 24.04 | K3s version 1.31.1 | General availability |
+| Azure Kubernetes Service (AKS) Edge Essentials on Windows 11 IoT Enterprise | AksEdge-K3s-1.29.6-1.8.202.0 | Public preview |
+| Azure Kubernetes Service (AKS) on Azure Local | Azure Stack HCI OS, version 23H2, build 2411 | Public preview |
 
-* Recommended hardware, especially for multi-node K3s clusters that enable fault tolerance:
-  * 32-GB RAM
-  * 8 vCPUs
+>[!NOTE]
+>Billing usage records are collected on any environment where Azure IoT Operations is installed, regardless of support or availability levels.
 
-[!INCLUDE [validated-environments](../includes/validated-environments.md)]
+To install Azure IoT Operations on a cluster, have the following hardware requirements available. If you're using a multi-node cluster that enables fault tolerance, scale up to the recommended capacity for better performance.
+
+| Spec | Minimum | Recommended |
+|------|---------|-------------|
+| RAM  | 16-GB   | 32-GB       |
+| CPU  | 4 vCPUs | 8 vCPUs     |
 
 ## Choose your features
 
@@ -42,7 +48,7 @@ A deployment with only test settings:
 
 The quickstart scenario, [Quickstart: Run Azure IoT Operations in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md), uses test settings.
 
-At any point, you can upgrade an Azure IoT Operations instance to use secure settings by following the steps in [Enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
+At any point, you can upgrade an Azure IoT Operations instance to use secure settings by following the steps in [Enable secure settings](howto-enable-secure-settings.md).
 
 ### Secure settings deployment
 
