@@ -159,7 +159,7 @@ To configure authorization policies to MQTT broker, first you create a [BrokerAu
                   - "clients/{principal.clientId}/services/statestore/#"
     ```
 
-1. Apply the BrokerAuthorizaion definition to the cluster:
+1. Apply the BrokerAuthorization definition to the cluster:
 
     ```bash
     kubectl apply -f aio-dapr-authz.yaml
