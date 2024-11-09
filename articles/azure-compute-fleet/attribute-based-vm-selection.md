@@ -50,7 +50,8 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// The range of vCpuCount specified from min to max. 
         /// Either min(uint) or max(uint) is required if specified. 
         /// </summary> 
-        vCpuCount 
+	
+       ** vCpuCount** 
 
         Example: 
         "vCpuCount": { 
@@ -67,7 +68,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Either min(double) or max(double) is required if specified. 
         /// </summary> 
 
-        memoryInGiB 
+     **   memoryInGiB **
 
         Example: 
         "memoryInGiB": { 
@@ -83,7 +84,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Either min(double) or max(double) is required if specified. 
         /// </summary> 
 
-        memoryInGiBPerVCpu 
+      **  memoryInGiBPerVCpu **
 	
  	Example: 
         "memoryInGiBPerVCpu": { 
@@ -103,7 +104,8 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Includes VMSizes that support and do not support local storage. 
         /// </summary>
 	
-        localStorageSupport 
+        **localStorageSupport** 
+	
         Example: 
         "localStorageSupport": "Included" 
 
@@ -115,7 +117,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// If localStorageSupport is "Excluded", this VMAttribute can not be used.
         /// </summary> 
 
-        localStorageInGiB 
+        **localStorageInGiB** 
 
         Example: 
         "localStorageInGiB": { 
@@ -134,7 +136,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Default local storage disk types if not specified are "ANY" of the valid values. 
         /// </summary> 
 
-        localStorageDiskTypes 
+        **localStorageDiskTypes** 
 
         Example: 
         "localStorageDiskTypes": { 
@@ -150,7 +152,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Either min(uint) or max(uint) is required if specified. 
         /// </summary> 
 
-        dataDiskCount 
+        **dataDiskCount** 
 
         Example: 
         "dataDiskCount": { 
@@ -166,7 +168,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Either min(uint) or max(uint) is required if specified. 
         /// </summary> 
 
-        networkInterfaceCount 
+        **networkInterfaceCount** 
 
         Example: 
         "networkInterfaceCount": { 
@@ -182,7 +184,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Either min(double) or max(double) is required if specified. 
         /// </summary> 
 
-        networkBandwidthInMbps 
+        **networkBandwidthInMbps** 
 
         Example: 
         "networkBandwidthInMbps": { 
@@ -201,7 +203,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Included - Include VMSizes that support and do not support RDMA. 
         /// </summary> 
 
-        rdmaSupport 
+        **rdmaSupport** 
 	
         Example: 
         "rdmaSupport": "Included" 
@@ -214,7 +216,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// If rdmaSupport is "Excluded", this VMAttribute can not be used. 
         /// </summary> 
 
-        rdmaNetworkInterfaceCount 
+        **rdmaNetworkInterfaceCount** 
 
         Example: 
         "rdmaNetworkInterfaceCount": { 
@@ -233,7 +235,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Included - Include VMSizes that support and do not support accelerator. 
         /// </summary> 
 
-        acceleratorSupport 
+        **acceleratorSupport** 
 
         Example: 
         "acceleratorSupport": "Required" 
@@ -247,7 +249,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Default acceleratorManufacturers if not specified are "ANY" of the valid values. 
         /// </summary> 
 
-        acceleratorManufacturers 
+        **acceleratorManufacturers** 
 
         Example: 
         "acceleratorManufacturers": { 
@@ -265,7 +267,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// If acceleratorSupport is "Excluded", this VMAttribute can not be used. 
         /// </summary> 
 
-        acceleratorCount 
+        **acceleratorCount** 
 
         Example: 
         "acceleratorCount": { 
@@ -283,7 +285,8 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// If acceleratorSupport is "Excluded", this VMAttribute can not be used. 
         /// Default accelelerator types if not specified are "ANY" of the valid values. 
         /// </summary> 
-        acceleratorTypes 
+	
+        **acceleratorTypes** 
 
         Example: 
         "acceleratorTypes": { 
@@ -301,7 +304,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// GeneralPurpose is the default VM category if not specified. 
         /// </summary> 
 
-        vmCategories 
+        **vmCategories** 
 
         Example: 
         "vmCategories": { 
@@ -318,7 +321,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Default architecture types if not specified are "ANY" of the valid values.
         /// </summary> 
 
-        architectureTypes 
+       ** architectureTypes** 
 
         Example: 
         "architectureTypes": { 
@@ -335,7 +338,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Default CPU manufacturers if not specified are "ANY" of the valid values. 
         /// </summary> 
 
-        cpuManufacturers 
+        **cpuManufacturers** 
 
         Example: 
         "cpuManufacturers": { 
@@ -354,7 +357,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Included - Include VMSizes that support and do not support burstable capability. 
         /// </summary> 
 
-        burstableSupport 
+        **burstableSupport** 
 	
         Example: 
         "burstableSupport": "Excluded" 
@@ -367,7 +370,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Limit is 100 VMSizes. 
         /// </summary> 
 
-        excludedVMSizes 
+        **excludedVMSizes** 
 
         Example: 
         "excludedVMSizes": { 
@@ -384,7 +387,8 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// When VMSizesProfile is specified with attributes, excludedVMSizes VMAttribute can not be specified and vice-versa. 
         /// Limit is 100 VMSizes. 
         /// </summary> 
-        VMSizesProfile 
+	
+        **VMSizesProfile** 
 
         Example: 
         "VMSizesProfile": { 
