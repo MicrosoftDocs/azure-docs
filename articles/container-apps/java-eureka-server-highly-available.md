@@ -217,8 +217,7 @@ With the server components linked together, you can create the container app and
 The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.
 
 ```azurecli
-az group delete \
-    --resource-group $RESOURCE_GROUP
+az group delete --resource-group $RESOURCE_GROUP
 ```
 
 ## Related content

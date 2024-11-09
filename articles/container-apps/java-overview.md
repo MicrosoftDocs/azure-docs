@@ -23,11 +23,12 @@ When you use Container Apps for your containerized Java applications, you get:
 - **Cost effective scaling**: When you use the [Consumption plan](plans.md#consumption), your Java apps can scale to zero. Scaling in when there's little demand for your app automatically drives costs down for your projects.
 
 - **Deployment options**: Azure Container Apps integrates with [Buildpacks](https://buildpacks.io), which allows you to deploy directly from a Maven build, via artifact files, or with your own Dockerfile.
-    - **JAR deployment (Preview)**: You can deploy your container app directly from a [JAR file](java-get-started.md?tabs=jar).
 
-    - **WAR deployment (Preview)**: You can deploy your container app directly from a [WAR file](java-get-started.md?tabs=war).
+  - **JAR deployment (Preview)**: You can deploy your container app directly from a [JAR file](java-get-started.md?tabs=jar).
 
-    - **IDE support**: You can deploy your container app directly from [IntelliJ](/azure/developer/java/toolkit-for-intellij/create-container-apps-intellij#deploy-the-container-app).
+  - **WAR deployment (Preview)**: You can deploy your container app directly from a [WAR file](java-get-started.md?tabs=war).
+
+  - **IDE support**: You can deploy your container app directly from [IntelliJ](/azure/developer/java/toolkit-for-intellij/create-container-apps-intellij#deploy-the-container-app).
 
 - **Automatic memory fitting (Preview)**: Container Apps optimizes how the Java Virtual Machine (JVM) [manages memory](java-memory-fit.md), making the most possible memory available to your Java applications.
 
@@ -77,7 +78,7 @@ Keep the following items in mind as you develop your Java applications:
 
 - **Buildpack support issues**: If your Buildpack doesn't support dependencies or the version of Java you require, create your own Dockerfile to deploy your app. You can view a [sample Dockerfile](https://github.com/Azure-Samples/containerapps-albumapi-java/blob/main/Dockerfile) for reference.
 
-- **SIGTERM and SIGINT signals**: By default, the JVM handles `SIGTERM` and `SIGINT` signals and doesn’t pass them to the application unless you intercept these signals and handle them in your application accordingly. Container Apps uses both `SIGTERM` and `SIGINT` for process control. If you don't capture these signals, and your application terminates unexpectedly, you might lose these signals unless you persist them to storage.
+- **SIGTERM and SIGINT signals**: By default, the JVM handles `SIGTERM` and `SIGINT` signals and doesn't pass them to the application unless you intercept these signals and handle them in your application accordingly. Container Apps uses both `SIGTERM` and `SIGINT` for process control. If you don't capture these signals, and your application terminates unexpectedly, you might lose these signals unless you persist them to storage.
 
 - **Access to container images**: If you use artifact or source code deployment in combination with the default registry, you don't have direct access to your container images.
 
