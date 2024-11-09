@@ -80,7 +80,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Azure Policy integration | &check; | &check; | &check; |  |  |  |
 | Azure Advisory integration | &check; | &check; |  | &check; | &check; | &check; |
 | Managed Identities with Azure Key Vault | &check; | &check; |  | &check; |  |  |
-| **Pricing** | [Azure Front Door pricing](https://azure.microsoft.com/en-us/pricing/details/frontdoor/) | | | [Azure CDN pricing](https://azure.microsoft.com/en-us/pricing/details/cdn/) | | |
+| **Pricing** | [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) | | | [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/) | | |
 | Simplified pricing | &check; | &check; |  | &check; | &check; | &check; |
 
 ## Services on retirement path
