@@ -27,7 +27,9 @@ The state store extends MQTT broker's authorization mechanism, allowing individu
 
 ## Interacting with the state store
 
-The state store protocol is documented in [state store protocol](concept-about-state-store-protocol.md). SDKs are available for the state store for Go, C#, and Rust. You are strongly encouraged to use an SDK if available for your language instead of implementing the protocol yourself. Additional information about the SDKs is available
+The state store protocol is documented in [state store protocol](concept-about-state-store-protocol.md). SDKs are available for the state store for Go, C#, and Rust. Using an SDK is the recommended method of interacting with the state store, as implementing the interface can be complex.
+
+Additional information about the [Azure IoT Operations SDKs](overview-sdk-apps.md) is available.
 
 ## Related content
 
