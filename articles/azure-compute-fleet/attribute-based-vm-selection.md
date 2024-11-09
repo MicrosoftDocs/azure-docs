@@ -41,26 +41,8 @@ For Azure Spot Virtual Machines, Attribute-Based Selection supports both capacit
 This feature enables more flexible VM type configurations, eliminating the need for extensive instance-type lists. This way, you can automatically leverage newer VM generations when they are introduced in your selected Region. Additionally, Attribute-Based VM Selection enhances the ability to access more capacity through Spot requests efficiently.
 With Attribute-Based VM Selection, managing VM size configurations becomes easier and more scalable, ensuring that your workloads run smoothly with optimized cost and performance.
 
-# List of VM attributes supported
 
--	vCpuCount
--	memoryInGiB
--	memoryInGiBPerVCpu
--	localStorageInGiB
--	localStorageDiskTypes
--	dataDiskCount
--	networkInterfaceCount
--	networkBandwidthInMbps
--	rdmaNetworkInterfaceCount
--	acceleratorManufacturers
--	acceleratorCount
--	acceleratorTypes	
--	vmCategories
--	architectureTypes
--	cpuManufacturers
--	excludedVMSizes
-
-** list of VM Attributes supportrf and an example on how to specify each of them in parameters file:
+# list of VM Attributes supported with example on how to specify each of them in the parameters file:
 
 	/// <summary> 
         /// Required. 
@@ -118,7 +100,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
         /// Excluded - Do not include VMSizes that support local storage. 
         /// Required - Only include VMSizes that support local storage. 
 	/// Included - Default if not specified as most Azure VMs support local storage. 
-        Includes VMSizes that support and do not support local storage. 
+        /// Includes VMSizes that support and do not support local storage. 
         /// </summary>
 	
         localStorageSupport 
