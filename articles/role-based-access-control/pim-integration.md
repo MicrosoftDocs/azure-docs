@@ -69,8 +69,8 @@ This example shows how to list eligible and time-bound role assignments in a sub
 The `Where-Object` condition filters out active permanent role assignments that are available with Azure RBAC functionality today without PIM.
 
 ```powershell
-Get-AzRoleAssignmentSchedule -Scope /subscriptions/<subscriptionId> | Where-Object {$_.EndDateTime -ne $null }
 Get-AzRoleEligibilitySchedule -Scope /subscriptions/<subscriptionId> 
+Get-AzRoleAssignmentSchedule -Scope /subscriptions/<subscriptionId> | Where-Object {$_.EndDateTime -ne $null }
 ```
 
 For information about how scopes are constructed, see [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
@@ -91,6 +91,8 @@ If your organization has process or compliance reasons to limit the use of PIM. 
 
 1. Repeat these steps for all role assignments at management group, subscription, and resource group scopes that you want to convert.
 
+    If you have role assignments at resource scope that you want to convert, you'll have to make changes directly in PIM.
+
 ### Option 2: Convert using PowerShell
 
 There isn't a command or API to directly convert role assignments to a different state or type, so instead you can follow these steps.
@@ -103,43 +105,40 @@ There isn't a command or API to directly convert role assignments to a different
     > [!IMPORTANT]
     > It is important that you save the list of eligible and time-bound role assignments because these steps require you to remove these role assignments before you create the same role assignments as active permanent.
 
-2. Remove your eligible role assignments.
+2. Use the [New-AzRoleEligibilityScheduleRequest](/powershell/module/az.resources/new-azroleeligibilityschedulerequest) command to remove your eligible role assignments.
 
     The follow example shows how you can remove an eligible role assignment.
 
     ```powershell
-    $guid = New-guid
+    $guid = New-Guid
     New-AzRoleEligibilityScheduleRequest -Name $guid -Scope <Scope> -PrincipalId <PrincipalId> -RoleDefinitionId <RoleDefinitionId> -RequestType AdminRemove
     ```
   
-3. Remove your active time-bound role assignments.
+3. Use the [New-AzRoleAssignmentScheduleRequest](/powershell/module/az.resources/new-azroleassignmentschedulerequest) command to remove your active time-bound role assignments.
 
     The follow example shows how you can remove an active time-bound role assignment
 
     ```powershell
-    $guid = New-guid
+    $guid = New-Guid
     New-AzRoleAssignmentScheduleRequest -Name $guid -Scope <Scope> -PrincipalId <PrincipalId> -RoleDefinitionId <RoleDefinitionId> -RequestType AdminRemove
     ```
 
-4. Create active permanent role assignments with Azure RBAC for every eligible and time-bound role assignment.
+4. Use the [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) and [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) commands to create active permanent role assignments with Azure RBAC for every eligible and time-bound role assignment.
 
     The following example shows how to create an active permanent role assignment with Azure RBAC.
 
     ```powershell
-    foreach($RA in $RAs)
-    {
-        $result = Get-AzRoleAssignment -ObjectId $RA.PrincipalId -RoleDefinitionName $RA.RoleDefinitionDisplayName -Scope $RA.Scope;
-        if($result -eq $null) {
-        New-AzRoleAssignment -ObjectId $RA.PrincipalId -RoleDefinitionName $RA.RoleDefinitionDisplayName -Scope $RA.Scope
-        }
+    $result = Get-AzRoleAssignment -ObjectId $RA.PrincipalId -RoleDefinitionName $RA.RoleDefinitionDisplayName -Scope $RA.Scope;
+    if($result -eq $null) {
+    New-AzRoleAssignment -ObjectId $RA.PrincipalId -RoleDefinitionName $RA.RoleDefinitionDisplayName -Scope $RA.Scope
     }
     ```
 
-## How to stop users from creating eligible or time-bound role assignments
+## How to limit the creation of eligible or time-bound role assignments
 
 You can use Azure Policy to block creation of eligible or time-bound role assignments. For more information, see [What is Azure Policy?](/azure/governance/policy/overview).
 
-Here is an example policy that blocks the creation of eligible and time-bound role assignments except for a specific list of identities to can receive them. Additional parameters and checks can be added for other allow lists.
+Here is an example policy that blocks the creation of eligible and time-bound role assignments except for a specific list of identities to can receive them. Additional parameters and checks can be added for other allow conditions.
 
 ```json
 {
