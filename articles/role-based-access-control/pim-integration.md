@@ -127,9 +127,9 @@ There isn't a command or API to directly convert role assignments to a different
     New-AzRoleAssignmentScheduleRequest -Name $guid -Scope <Scope> -PrincipalId <PrincipalId> -RoleDefinitionId <RoleDefinitionId> -RequestType AdminRemove
     ```
 
-4. Use the [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) and [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) commands to create active permanent role assignments with Azure RBAC for every eligible and time-bound role assignment.
+4. Use the [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command to check for an existing role assignment and use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command to create an active permanent role assignment with Azure RBAC for each eligible and time-bound role assignment.
 
-    This example shows how to create an active permanent role assignment with Azure RBAC.
+    This example shows how to check for an existing role assignment and create an active permanent role assignment with Azure RBAC.
 
     ```powershell
     $result = Get-AzRoleAssignment -ObjectId $RA.PrincipalId -RoleDefinitionName $RA.RoleDefinitionDisplayName -Scope $RA.Scope;
