@@ -24,7 +24,7 @@ For specific information on Preview features, refer to the [AzAcSnap Preview](az
 AzAcSnap 10a is being released with the following fixes and improvements:
 
 - Fixes and Improvements:
-  - Allow AzAcSnap to have Microsoft SQL Server wait timeout for SQL commands increased for slow responding systems (default and minimum value is 30 seconds).
+  - Allow configurable wait timeout for Microsoft SQL Server. This will help you increase timeout for slow responding systems (default and minimum value is 30 seconds).
     - Added a global override variable `MSSQL_CMD_TIMEOUT_SECS` to be used in either the `.azacsnaprc` file or as an environment variable set to the required wait timeout in seconds. For details on configuration refer to the [global override settings to control AzAcSnap behavior](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
 
 Download the binary of [AzAcSnap 10a for Linux](https://aka.ms/azacsnap-10a-linux)([signature file](https://aka.ms/azacsnap-10a-linux-signature)) or [AzAcSnap 10a for Windows](https://aka.ms/azacsnap-10a-windows).
