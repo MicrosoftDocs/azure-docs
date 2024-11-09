@@ -14,6 +14,8 @@ ai-usage: ai-assisted
 
 # Configure dataflows in Azure IoT Operations
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow by creating a *Dataflow* custom resource or using the Azure IoT Operations Studio portal. A dataflow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
 
 <!--
@@ -132,12 +134,12 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Create a Kubernetes manifest `.yaml` file to start creating a dataflow. This example shows the structure of the dataflow containing the source, transformation, and destination configurations.
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: Dataflow
 metadata:
   name: <DATAFLOW_NAME>
@@ -189,7 +191,7 @@ You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as t
 
 Configuring an asset as a source is only available in the operations experience.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Configuring an asset as a source is only available in the operations experience.
 
@@ -232,7 +234,7 @@ sourceSettings: {
 
 Here, `dataSources` allow you to specify multiple MQTT or Kafka topics without needing to modify the endpoint configuration. This flexibility means the same endpoint can be reused across multiple dataflows, even if the topics vary. To learn more, see [Configure data sources](#configure-data-sources-mqtt-or-kafka-topics).
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 For example, to configure a source using an MQTT endpoint and two MQTT topic filters, use the following configuration:
 
@@ -273,7 +275,7 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 sourceSettings:
@@ -328,7 +330,7 @@ sourceSettings: {
 
 Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all telemetry messages under all subtopics of the `temperature` and `humidity` topics.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
   
 ```yaml
 sourceSettings:
@@ -371,7 +373,7 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 sourceSettings:
@@ -413,7 +415,7 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 sourceSettings:
@@ -449,7 +451,7 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Once you have used the [schema registry to store the schema](concept-schema-registry.md), you can reference it in the dataflow configuration.
 
@@ -491,7 +493,7 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 builtInTransformationSettings:
@@ -570,7 +572,7 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
 
@@ -642,7 +644,7 @@ builtInTransformationSettings: {
 
 If the `temperature` field is greater than 20, the data is passed to the next stage. If the `temperature` field is less than or equal to 20, the data is filtered.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 For example, you could use the `temperature` field in the source data to filter the data:
 
@@ -711,7 +713,7 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
 
@@ -754,7 +756,7 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 builtInTransformationSettings:
@@ -787,7 +789,7 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Once you [upload a schema to the schema registry](concept-schema-registry.md#upload-schema), you can reference it in the dataflow configuration.
 
@@ -828,7 +830,7 @@ destinationSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 destinationSettings:
@@ -897,7 +899,7 @@ destinationSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 The syntax is the same for all dataflow endpoints:
 
@@ -1045,10 +1047,10 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: Dataflow
 metadata:
   name: my-dataflow
@@ -1118,7 +1120,7 @@ Select the dataflow you want to export and select **Export** from the toolbar.
 
 Bicep is infrastructure as code and no export is required. Use the [Bicep template file to create a dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure dataflows.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```bash
 kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml

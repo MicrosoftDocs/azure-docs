@@ -17,7 +17,7 @@ ms.service: azure-iot-operations
 
 The Broker resource is the main resource that defines the overall settings for MQTT broker. It also determines the number and type of pods that run the Broker configuration, such as the frontends and the backends. You can also use the Broker resource to configure its memory profile. Self-healing mechanisms are built in to the broker and it can often automatically recover from component failures. For example, a node fails in a Kubernetes cluster configured for high availability. 
 
-You can horizontally scale the MQTT broker by adding more frontend replicas and backend chains. The frontend replicas are responsible for accepting MQTT connections from clients and forwarding them to the backend chains. The backend chains are responsible for storing and delivering messages to the clients. The frontend pods distribute message traffic across the backend pods, and the backend redundancy factor determines the number of data copies to provide resiliency against node failures in the cluster.
+You can horizontally scale the MQTT broker by adding more frontend replicas and backend partitions. The frontend replicas are responsible for accepting MQTT connections from clients and forwarding them to the backend partitions. The backend partitions are responsible for storing and delivering messages to the clients. The frontend pods distribute message traffic across the backend pods, and the backend redundancy factor determines the number of data copies to provide resiliency against node failures in the cluster.
 
 For a list of the available settings, see the [Broker](/rest/api/iotoperationsmq/broker) API reference.
 
@@ -26,7 +26,7 @@ For a list of the available settings, see the [Broker](/rest/api/iotoperationsmq
 > [!IMPORTANT]
 > This setting requires modifying the Broker resource and can only be configured at initial deployment time using the Azure CLI or Azure Portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
-To configure the scaling settings MQTT broker, specify the **cardinality** fields in the specification of the Broker resource during Azure IoT Operations deployment. 
+To configure the scaling settings of MQTT broker, specify the **cardinality** fields in the specification of the Broker resource during Azure IoT Operations deployment. 
 
 ### Automatic deployment cardinality
 
@@ -108,11 +108,11 @@ az iot ops create ... --broker-config-file <FILE>.json
 
 ---
 
-### Understand cardinality
+### Understanding cardinality
 
 Cardinality means the number of instances of a particular entity in a set. In the context of the MQTT broker, cardinality refers to the number of frontend replicas, backend partitions, and backend workers to deploy. The cardinality settings are used to scale the broker horizontally and improve high availability if there are pod or node failures.
 
-The cardinality field is a nested field, with subfields for frontend, backendChain, and backendChain.workers. Each of these subfields has its own settings.
+The cardinality field is a nested field, with subfields for frontend and backendChain. Each of these subfields has its own settings.
 
 #### Frontend
 
@@ -120,21 +120,22 @@ The frontend subfield defines the settings for the frontend pods. The two main s
 
 - **Replicas**: The number of frontend replicas (pods) to deploy. Increasing the number of frontend replicas provides high availability in case one of the frontend pods fails.
 
-- **Workers**: The number of logical frontend workers per replica. Increasing the number of workers per frontend replica improves CPU core utilization because each worker can use only one CPU core at most. For example, if your cluster has three nodes, each with eight CPU cores, then set the number of replicas to match the number of nodes (3) and increase the number of workers up to eight per replica as you need more frontend throughput. This way, each frontend replica can use all the CPU cores on the node without workers competing for CPU resources.
-
+- **Workers**: The number of logical frontend workers per replica. Each worker can consume up to one CPU core at most.
 #### Backend chain
 
-The backend chain subfield defines the settings for the backend chains. The three main settings are:
+The backend chain subfield defines the settings for the backend partitions. The three main settings are:
 
-- **Partitions**: The number of partitions to deploy. Increasing the number of partitions increases the number of messages that the broker can handle. Through a process called *sharding*, each partition is responsible for a portion of the messages, divided by topic ID and session ID. The frontend pods distribute message traffic across the partitions.
+- **Partitions**: The number of partitions to deploy. Through a process called *sharding*, each partition is responsible for a portion of the messages, divided by topic ID and session ID. The frontend pods distribute message traffic across the partitions. Increasing the number of partitions increases the number of messages that the broker can handle.
 
 - **Redundancy Factor**: The number of backend replicas (pods) to deploy per partition. Increasing the redundancy factor increases the number of data copies to provide resiliency against node failures in the cluster.
 
-- **Workers**: The number of workers to deploy per backend replica. The workers take care of storing and delivering messages to clients together. Increasing the number of workers per backend replica increases the number of messages that the backend pod can handle. Each worker can consume up to two CPU cores at most, so be careful when increasing the number of workers per replica to not exceed the number of CPU cores in the cluster.
+- **Workers**: The number of workers to deploy per backend replica. Increasing the number of workers per backend replica may increase the number of messages that the backend pod can handle. Each worker can consume up to two CPU cores at most, so be careful when increasing the number of workers per replica to not exceed the number of CPU cores in the cluster.
 
 #### Considerations
 
-When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability if there are pod or node failures. However, this also leads to higher resource consumption. So, when adjusting cardinality values, consider the memory profile settings and balance these factors to optimize the broker's resource usage.
+When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability if there are pod or node failures. However, this also leads to higher resource consumption. So, when adjusting cardinality values, consider the [memory profile settings](#configure-memory-profile) and broker's [CPU resource requests](#cardinality-and-kubernetes-resource-limits). Increasing the number of workers per frontend replica can help increase CPU core utilization if you discover that frontend CPU utilization is a bottleneck. Increasing the number of backend workers can help with the message throughput if backend CPU is a bottleneck.
+
+For example, if your cluster has three nodes, each with eight CPU cores, then set the number of frontend replicas to match the number of nodes (3) and set number of workers to 1. Set the number of backend partitions to match the number of nodes (3), and backend workers to 1. Set redundancy factor as desired (2 or 3). Increase the number of frontend workers if you discover that frontend CPU is a bottleneck. Remember that backend and frontend workers may compete for CPU resources with each other and other pods. 
 
 ## Configure memory profile
 
@@ -170,7 +171,7 @@ There are a few memory profiles to choose from, each with different memory usage
 When using this profile:
 
 - Maximum memory usage of each frontend replica is approximately 99 MiB but the actual maximum memory usage might be higher.
-- Maximum memory usage of each backend replica is approximately 102 MiB but the actual maximum memory usage might be higher.
+- Maximum memory usage of each backend replica is approximately 102 MiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 
 Recommendations when using this profile:
 
@@ -201,9 +202,31 @@ Medium is the default profile.
 - Maximum memory usage of each frontend replica is approximately 4.9 GiB but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 5.8 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 
-## Generate resource limits
+## Cardinality and Kubernetes resource limits
 
-To help prevent the broker from consuming too many resources, the broker is set to [request Kubernetes CPU resource limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) by default. This is important as increasing the number of replicas or workers proportionally increases the amount of CPU resources requested. Since this setting is enabled by default, a deployment error is emitted if there are insufficient CPU resources. This helps prevent the broker from consuming too many resources and potentially causing other pods to be evicted.
+To prevent resource starvation in the cluster, the broker is configured by default to [request Kubernetes CPU resource limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). Scaling the number of replicas or workers proportionally increases the CPU resources required. A deployment error is emitted if there are insufficient CPU resources available in the cluster. This helps avoid situations where the requested broker cardinality lacks enough resources to run optimally. It also helps to avoid potential CPU contention and pod evictions.
+
+MQTT broker currently requests one (1.0) CPU unit per frontend worker and two (2.0) CPU units per backend worker. See [Kubernetes CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) for more details. 
+
+For example, the below cardinality would request the following CPU resources:
+- For frontends: 2 CPU units per frontend pod, totalling 6 CPU units.
+- For backends: 4 CPU units per backend pod (for two backend workers), times 2 (redundancy factor), times 3 (number of partitions), totalling 24 CPU units.
+
+```json
+{
+  "cardinality": {
+    "frontend": {
+      "replicas": 3,
+      "workers": 2
+    },
+    "backendChain": {
+      "partitions": 3,
+      "redundancyFactor": 2,
+      "workers": 2
+    }
+  }
+}
+```
 
 To disable this setting, set the `generateResourceLimits.cpu` field to `Disabled` in the Broker resource.
 
