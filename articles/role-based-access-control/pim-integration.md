@@ -54,13 +54,13 @@ Here are options for how to list eligible and time-bound role assignments.
 
     You can group and sort by **State**, and look for role assignments that are not of the type **Active permanent**.
 
-    :::image type="content" source="./media/role-assignments-list-portal/rg-access-control-role-assignments.png" alt-text="Screenshot of Access control and Role assignments tab." lightbox="./media/role-assignments-list-portal/rg-access-control-role-assignments.png":::
+    :::image type="content" source="./media/role-assignments-list-portal/sub-access-control-role-assignments-eligible.png" alt-text="Screenshot of Access control and Active assignments and Eligible assignments tabs." lightbox="./media/role-assignments-list-portal/sub-access-control-role-assignments-eligible.png":::
 
 ### Option 2: List using PowerShell
 
 There isn't single PowerShell command that can list both the eligible and active time-bound role assignments. To list your eligible role assignments, use the [Get-AzRoleEligibilitySchedule](/powershell/module/az.resources/get-azroleeligibilityschedule) command. To list your active role assignments, use the [Get-AzRoleAssignmentSchedule](/powershell/module/az.resources/get-azroleassignmentschedule) command.
 
-This example shows how to list eligible and time-bound role assignments in a subscription and it's child scopes, which includes these role assignment types:
+This example shows how to list eligible and time-bound role assignments in a subscription, which includes these role assignment types:
 
 - Eligible permanent
 - Eligible time-bound
@@ -77,7 +77,7 @@ For information about how scopes are constructed, see [Understand scope for Azur
 
 ## How to convert eligible and time-bound role assignments to active permanent
 
-Depending on your organization, eligible or time-bound role assignments might have been inadvertently created. Here are options for how to convert these role assignments to active permanent.
+If your organization has process or compliance reasons to limit the use of PIM. here are the options for how to convert these role assignments to active permanent.
 
 ### Option 1: Convert using the Azure portal
 
@@ -89,20 +89,23 @@ Depending on your organization, eligible or time-bound role assignments might ha
 
     This conversion might take a few moments. For more information, see [Edit assignment](role-assignments-portal.yml#edit-assignment-(preview)).
 
-1. Repeat these steps for all role assignments ate management group, subscription, and resource group scopes that you want to convert.
+1. Repeat these steps for all role assignments at management group, subscription, and resource group scopes that you want to convert.
 
 ### Option 2: Convert using PowerShell
 
 There isn't a command or API to directly convert role assignments to a different state or type, so instead you can follow these steps.
 
+> [!IMPORTANT]
+> Removing role assignments can potentially cause disruptions in your environment. Be sure that you understand the impact before you perform these steps.
+
 1. Retrieve and save the list of all of your eligible and time-bound role assignment in a secure location to prevent data loss.
 
-> [!NOTE]
-> It is important that you save the list of eligible and time-bound role assignments because these steps require you to remove these role assignments before you create the same role assignments as active permanent.
+    > [!IMPORTANT]
+    > It is important that you save the list of eligible and time-bound role assignments because these steps require you to remove these role assignments before you create the same role assignments as active permanent.
 
 2. Remove your eligible role assignments.
 
-    The follow example shows how you can remove an eligible role assignment
+    The follow example shows how you can remove an eligible role assignment.
 
     ```powershell
     $guid = New-guid
@@ -111,7 +114,7 @@ There isn't a command or API to directly convert role assignments to a different
   
 3. Remove your active time-bound role assignments.
 
-    The follow example shsows how you can remove an active timebound role assignment
+    The follow example shows how you can remove an active time-bound role assignment
 
     ```powershell
     $guid = New-guid
@@ -132,7 +135,7 @@ There isn't a command or API to directly convert role assignments to a different
     }
     ```
 
-## How to stop users from creating eligible or time-bound role assignments?
+## How to stop users from creating eligible or time-bound role assignments
 
 You can use Azure Policy to block creation of eligible or time-bound role assignments. For more information, see [What is Azure Policy?](/azure/governance/policy/overview).
 
@@ -141,7 +144,7 @@ Here is an example policy that blocks the creation of eligible and time-bound ro
 ```json
 {
   "properties": {
-    "displayName": "Block eligible and active timebound role assignment creation except for allowed principal ids",
+    "displayName": "Block eligible and active time-bound role assignment creation except for allowed principal ids",
     "policyType": "Custom",
     "mode": "All",
     "metadata": {
