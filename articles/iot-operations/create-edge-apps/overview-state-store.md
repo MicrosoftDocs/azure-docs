@@ -21,15 +21,24 @@ Like Redis, the state store uses in memory storage. Stopping or restarting the K
 
 The state store is implemented via MQTTv5. Its service is integrated directly into MQTT broker and is automatically started when the broker starts. The state store provides the same high availability as the MQTT broker.
 
-## State store authorization
+## Why use the state store?
 
-The state store extends MQTT broker's authorization mechanism, allowing individual clients to have optional read and write access to specific keys. Read more on how to [Configure MQTT broker authorization](manage-mqtt-broker/howto-configure-authorization.md).
+The state store allows an edge application to persist data on the edge. Typical uses of the state store include:
+
+1. Creating stateless applications
+1. Sharing state between applications
+1. Developing highly available applications
+1. Store data to be used by dataflow
 
 ## Interacting with the state store
 
 The state store protocol is documented in [state store protocol](concept-about-state-store-protocol.md). SDKs are available for the state store for Go, C#, and Rust. Using an SDK is the recommended method of interacting with the state store, as implementing the interface can be complex.
 
 Additional information about the [Azure IoT Operations SDKs](overview-sdk-apps.md) is available.
+
+## State store authorization
+
+The state store extends MQTT broker's authorization mechanism, allowing individual clients to have optional read and write access to specific keys. Read more on how to [Configure MQTT broker authorization](manage-mqtt-broker/howto-configure-authorization.md).
 
 ## Related content
 
