@@ -101,7 +101,7 @@
       href: role-assignments-template.md
   - name: Eligible and time-bound
     items:
-    - name: Eligible and time-bound role assignments
+    - name: Eligible and time-bound
       href: pim-integration.md
     - name: Activate eligible roles
       href: role-assignments-eligible-activate.md
