@@ -118,7 +118,6 @@ Pricing depends on your confidential VM size. For more information, see the [Pri
 
 Confidential VMs *don't support*:
 
-- Azure Batch
 - Azure Backup
 - Azure Site Recovery
 - Limited Azure Compute Gallery support
