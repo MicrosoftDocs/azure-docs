@@ -139,7 +139,7 @@ To connect your cluster to Azure Arc:
    >[!TIP]
    >The value of `$CLUSTER_NAME` is automatically set to the name of your codespace. Replace the environment variable if you want to use a different name.
 
-## Create a storage account and schema registry
+## Create storage account and schema registry
 
 Schema registry is a synchronized repository that stores message definitions both in the cloud and at the edge. Azure IoT Operations requires a schema registry on your cluster. Schema registry requires an Azure storage account for the schema information stored in the cloud.
 
@@ -200,7 +200,7 @@ Run the following CLI commands in your Codespaces terminal.
 
    If you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
-## View resources in your cluster
+## View resources in cluster
 
 Once the deployment is complete, you can use kubectl commands to observe changes on the cluster or, since the cluster is Arc-enabled, you can use the Azure portal.
 
