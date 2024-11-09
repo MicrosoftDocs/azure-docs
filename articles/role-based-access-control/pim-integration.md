@@ -16,7 +16,7 @@ This article describes the integration of Azure role-based access control (Azure
 
 ## PIM functionality
 
-If you have PIM, you create eligible and time-bound role assignments using the role assignments steps on the **Access control (IAM)** page in the Azure portal. You can create eligible role assignments for users, but you can't create eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps. You can create eligible role assignments at management group, subscription, and resource group scope, but not at resource scope.
+If you have PIM, you can create eligible and time-bound role assignments using the role assignments steps on the **Access control (IAM)** page in the Azure portal. You can create eligible role assignments for users, but you can't create eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps. You can create eligible role assignments at management group, subscription, and resource group scope, but not at resource scope.
 
 Here's an example of the **Assignment type** tab when adding a role assignment on the **Access control (IAM)** page. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
 
@@ -50,9 +50,9 @@ Here are options for how to list eligible and time-bound role assignments.
 
 1. Sign in to the Azure portal, open the **Access control (IAM)** page, and select the **Role assignments** tab.
 
-1. Filter the eligble and time-bound role assignments.
+1. Filter the eligible and time-bound role assignments.
 
-    You can group and sort by **State**, and look for role assignments that are not of the type **Active permanent**.
+    You can group and sort by **State**, and look for role assignments that aren't the **Active permanent** type.
 
     :::image type="content" source="./media/role-assignments-list-portal/sub-access-control-role-assignments-eligible.png" alt-text="Screenshot of Access control and Active assignments and Eligible assignments tabs." lightbox="./media/role-assignments-list-portal/sub-access-control-role-assignments-eligible.png":::
 
@@ -77,21 +77,25 @@ For information about how scopes are constructed, see [Understand scope for Azur
 
 ## How to convert eligible and time-bound role assignments to active permanent
 
-If your organization has process or compliance reasons to limit the use of PIM. here are the options for how to convert these role assignments to active permanent.
+If your organization has process or compliance reasons to limit the use of PIM, here are the options for how to convert these role assignments to active permanent.
 
 ### Option 1: Convert using the Azure portal
 
-1. On the **Role assignments** tab and **State** column, select the **Eligile permanent**, **Eligible time-bound**, and **Active time-bound** links for each role assignment you want to convert.
+1. On the **Role assignments** tab and **State** column, select the **Eligible permanent**, **Eligible time-bound**, and **Active time-bound** links for each role assignment you want to convert.
 
 1. In the **Edit assignment** pane, select **Active** for the assignment type and **Permanent** for the assignment duration.
 
+    For more information, see [Edit assignment](role-assignments-portal.yml#edit-assignment-(preview)).
+
     :::image type="content" source="./media/role-assignments-portal/assignment-type-edit.png" alt-text="Screenshot of Edit assignment pane with Assignment type options displayed." lightbox="./media/role-assignments-portal/assignment-type-edit.png":::
 
-    This conversion might take a few moments. For more information, see [Edit assignment](role-assignments-portal.yml#edit-assignment-(preview)).
+1. When finished, select **Save**.
+
+    Your updates might take a while to be processed and reflected in the portal.
 
 1. Repeat these steps for all role assignments at management group, subscription, and resource group scopes that you want to convert.
 
-    If you have role assignments at resource scope that you want to convert, you'll have to make changes directly in PIM.
+    If you have role assignments at resource scope that you want to convert, you have to make changes directly in PIM.
 
 ### Option 2: Convert using PowerShell
 
@@ -107,7 +111,7 @@ There isn't a command or API to directly convert role assignments to a different
 
 2. Use the [New-AzRoleEligibilityScheduleRequest](/powershell/module/az.resources/new-azroleeligibilityschedulerequest) command to remove your eligible role assignments.
 
-    The follow example shows how you can remove an eligible role assignment.
+    This example shows how you can remove an eligible role assignment.
 
     ```powershell
     $guid = New-Guid
@@ -116,7 +120,7 @@ There isn't a command or API to directly convert role assignments to a different
   
 3. Use the [New-AzRoleAssignmentScheduleRequest](/powershell/module/az.resources/new-azroleassignmentschedulerequest) command to remove your active time-bound role assignments.
 
-    The follow example shows how you can remove an active time-bound role assignment
+    This example shows how you can remove an active time-bound role assignment
 
     ```powershell
     $guid = New-Guid
@@ -125,7 +129,7 @@ There isn't a command or API to directly convert role assignments to a different
 
 4. Use the [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) and [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) commands to create active permanent role assignments with Azure RBAC for every eligible and time-bound role assignment.
 
-    The following example shows how to create an active permanent role assignment with Azure RBAC.
+    This example shows how to create an active permanent role assignment with Azure RBAC.
 
     ```powershell
     $result = Get-AzRoleAssignment -ObjectId $RA.PrincipalId -RoleDefinitionName $RA.RoleDefinitionDisplayName -Scope $RA.Scope;
@@ -138,7 +142,7 @@ There isn't a command or API to directly convert role assignments to a different
 
 You can use Azure Policy to block creation of eligible or time-bound role assignments. For more information, see [What is Azure Policy?](/azure/governance/policy/overview).
 
-Here is an example policy that blocks the creation of eligible and time-bound role assignments except for a specific list of identities to can receive them. Additional parameters and checks can be added for other allow conditions.
+Here's an example policy that blocks the creation of eligible and time-bound role assignments except for a specific list of identities to can receive them. Additional parameters and checks can be added for other allow conditions.
 
 ```json
 {
