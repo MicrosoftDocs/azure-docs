@@ -42,7 +42,7 @@ This feature enables more flexible VM type configurations, eliminating the need 
 With Attribute-Based VM Selection, managing VM size configurations becomes easier and more scalable, ensuring that your workloads run smoothly with optimized cost and performance.
 
 
-# List of VM Attributes supported with examples 
+# List of VM attributes supported with examples 
 
 	    /// <summary> 
         /// Required. 
@@ -251,10 +251,10 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
 
         Example: 
         "acceleratorManufacturers": { 
-            "value": [ 
+            "value": { 
 		"Nvidia", 
 		"Xilinx" 
-	    ] 
+	    } 
         }   
 
         /// <summary> 
@@ -287,10 +287,10 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
 
         Example: 
         "acceleratorTypes": { 
-            "value": [ 
+            "value": { 
 		"GPU", 
 		"FPGA" 
-	    ] 
+	    } 
         }   
 
         /// <summary> 
@@ -305,10 +305,10 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
 
         Example: 
         "vmCategories": { 
-            "value": [ 
+            "value": { 
 		"GeneralPurpose", 
 		"ComputeOptimized" 
-	    ] 
+	    } 
         }   
 
         /// <summary> 
@@ -322,10 +322,10 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
 
         Example: 
         "architectureTypes": { 
-            "value": [ 
+            "value": { 
 		"ARM64", 
 		"x64" 
-	    ] 
+	    } 
         }   
 
         /// <summary> 
@@ -342,7 +342,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
             "value": [ 
 		"Microsoft", 
 		"Intel" 
-	    ] 
+	    } 
         }   
 
         /// <summary> 
@@ -371,10 +371,10 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
 
         Example: 
         "excludedVMSizes": { 
-            "value": [ 
+            "value": { 
 		"Standard_F1", 
 		"Standard_F2" 
-	    ] 
+	    } 
         }   
 
         /// <summary> 
@@ -388,10 +388,10 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
 
         Example: 
         "VMSizesProfile": { 
-            "value": [ 
+            "value": { 
 		{"name": "Standard_F1"}, 
 		{"name": "Standard_F2"} 
-	    ] 
+	    } 
         }   
 
 # Learn more and get started
