@@ -16,9 +16,9 @@ This article describes the integration of Azure role-based access control (Azure
 
 ## PIM functionality
 
-If you have PIM, you can create eligible and time-bound role assignments using the role assignments steps on the **Access control (IAM)** page in the Azure portal. You can create eligible role assignments for users, but you can't create eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps. You can create eligible role assignments at management group, subscription, and resource group scope, but not at resource scope.
+If you have PIM, you can create eligible and time-bound role assignments using the **Access control (IAM)** page in the Azure portal. You can create eligible role assignments for users, but you can't create eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps. You can create eligible role assignments at management group, subscription, and resource group scope, but not at resource scope.
 
-Here's an example of the **Assignment type** tab when adding a role assignment on the **Access control (IAM)** page. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
+Here's an example of the **Assignment type** tab when you add a role assignment using the **Access control (IAM)** page. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
 
 :::image type="content" source="./media/shared/assignment-type-eligible.png" alt-text="Screenshot of Add role assignment with Assignment type options displayed." lightbox="./media/shared/assignment-type-eligible.png":::
 
@@ -44,7 +44,7 @@ For more information, see [What is Microsoft Entra Privileged Identity Managemen
 
 ## How to list eligible and time-bound role assignments
 
-Here are options for how to list eligible and time-bound role assignments.
+If you want to see which users are using the PIM funcationality, here are options for how to list eligible and time-bound role assignments.
 
 ### Option 1: List using the Azure portal
 
@@ -77,7 +77,7 @@ For information about how scopes are constructed, see [Understand scope for Azur
 
 ## How to convert eligible and time-bound role assignments to active permanent
 
-If your organization has process or compliance reasons to limit the use of PIM, here are the options for how to convert these role assignments to active permanent.
+If your organization has process or compliance reasons to limit the use of PIM, here are options for how to convert these role assignments to active permanent.
 
 ### Option 1: Convert using the Azure portal
 
@@ -111,7 +111,7 @@ There isn't a command or API to directly convert role assignments to a different
 
 2. Use the [New-AzRoleEligibilityScheduleRequest](/powershell/module/az.resources/new-azroleeligibilityschedulerequest) command to remove your eligible role assignments.
 
-    This example shows how you can remove an eligible role assignment.
+    This example shows how to remove an eligible role assignment.
 
     ```powershell
     $guid = New-Guid
@@ -120,7 +120,7 @@ There isn't a command or API to directly convert role assignments to a different
   
 3. Use the [New-AzRoleAssignmentScheduleRequest](/powershell/module/az.resources/new-azroleassignmentschedulerequest) command to remove your active time-bound role assignments.
 
-    This example shows how you can remove an active time-bound role assignment
+    This example shows how to remove an active time-bound role assignment.
 
     ```powershell
     $guid = New-Guid
@@ -140,14 +140,14 @@ There isn't a command or API to directly convert role assignments to a different
 
 ## How to limit the creation of eligible or time-bound role assignments
 
-You can use Azure Policy to block creation of eligible or time-bound role assignments. For more information, see [What is Azure Policy?](/azure/governance/policy/overview).
+If your organization has process or compliance reasons to limit the use of PIM, you can use Azure Policy to limit the creation of eligible or time-bound role assignments. For more information, see [What is Azure Policy?](/azure/governance/policy/overview).
 
-Here's an example policy that blocks the creation of eligible and time-bound role assignments except for a specific list of identities to can receive them. Additional parameters and checks can be added for other allow conditions.
+Here's an example policy that limits the creation of eligible and time-bound role assignments except for a specific list of identities. Additional parameters and checks can be added for other allow conditions.
 
 ```json
 {
   "properties": {
-    "displayName": "Block eligible and active time-bound role assignment creation except for allowed principal ids",
+    "displayName": "Limit eligible and active time-bound role assignments except for allowed principal IDs",
     "policyType": "Custom",
     "mode": "All",
     "metadata": {
