@@ -49,7 +49,7 @@ Azure Key Vault is the recommended way to sync the connection string to the Kube
 1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Microsoft Fabric Real-Time Intelligence** > **New**.
 
-    :::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using operations experience to create a new ADLS V2 dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-fabric-endpoint/event-stream-sasl.png" alt-text="Screenshot using operations experience to create a new Fabric RTI dataflow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
