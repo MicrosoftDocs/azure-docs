@@ -42,7 +42,7 @@ The Event Hub name is used as the Kafka topic and is of the form *es_xxxxxxx*.
 
 To configure a dataflow endpoint for Microsoft Fabric Real-Time Intelligence, you will need to use SASL connection string based authentication. Managed identity support will be added in the future. 
 
-Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can referenced in the dataflow. Secure settings must be enabled to configure this endpoint using the operations experience Portal.
+Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can referenced in the dataflow. [Secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) must be enabled to configure this endpoint using the operations experience Portal.
 
 # [Portal](#tab/portal)
 
