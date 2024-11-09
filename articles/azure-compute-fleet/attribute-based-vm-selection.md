@@ -44,7 +44,7 @@ With Attribute-Based VM Selection, managing VM size configurations becomes easie
 
 # List of VM Attributes supported with examples 
 
-	   /// <summary> 
+	    /// <summary> 
         /// Required. 
         /// Must be specified if VMAttributes are specified. 
         /// The range of vCpuCount specified from min to max. 
