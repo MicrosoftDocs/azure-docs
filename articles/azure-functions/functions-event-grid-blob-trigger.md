@@ -153,7 +153,7 @@ When you create a Blob Storage trigger function using Visual Studio Code, you al
     ::: zone-end
 
 ::: zone pivot="programming-language-java"
-4. In the command palette, enter `Azure Functions: Create Function...` and select `EventGridBlobTrigger`. If you don't see this templates, first select **Change template filter** > **All**.
+4. In the command palette, enter `Azure Functions: Create Function...` and select `EventGridBlobTrigger`. If you don't see this template, first select **Change template filter** > **All**.
 
 5. At the prompts, provide the following information:
 
@@ -207,14 +207,14 @@ Open the generated `EventGridBlobTrigger.js` file and you see a definition for a
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobTriggerEventGrid1.js" :::
 
-In this definition a `source` of `EventGrid` indicates that an event subscription to the `samples-workitems` blob container is used as the source of the event that starts the trigger. 
+In this definition, a `source` of `EventGrid` indicates that an event subscription to the `samples-workitems` blob container is used as the source of the event that starts the trigger. 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 Open the generated `EventGridBlobTrigger.ts` file and you see a definition for a function that looks something like this: 
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobTriggerEventGrid1.ts" :::
 
-In this definition a `source` of `EventGrid` indicates that an event subscription to the `samples-workitems` blob container is used as the source of the event that starts the trigger. 
+In this definition, a `source` of `EventGrid` indicates that an event subscription to the `samples-workitems` blob container is used as the source of the event that starts the trigger. 
 ::: zone-end  
 
 ## Upgrade the Storage extension
