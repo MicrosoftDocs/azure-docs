@@ -1,13 +1,13 @@
 ---
 title: Configure passive geo-replication for Premium Azure Cache for Redis instances
 description: Learn how to use cross-region replication to provide disaster recovery on the Premium tier of Azure Cache for Redis.
-author: flang-msft
 
-ms.service: azure-cache-redis
+
+
 ms.topic: how-to
 ms.custom: engagement-fy23
 ms.date: 12/15/2023
-ms.author: franlanglois
+
 ---
 
 # Configure passive geo-replication for Premium Azure Cache for Redis instances

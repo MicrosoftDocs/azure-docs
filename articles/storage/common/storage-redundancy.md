@@ -43,7 +43,7 @@ Data in an Azure Storage account is always replicated three times in the primary
 - **Zone-redundant storage (ZRS)** copies your data synchronously across three Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region.
 
 > [!NOTE]  
-> Microsoft recommends using ZRS in the primary region for Azure Data Lake Storage Gen2 workloads.
+> Microsoft recommends using ZRS in the primary region for Azure Data Lake Storage workloads.
 
 ### Locally redundant storage
 
@@ -110,9 +110,9 @@ For a list of regions that support zone-redundant storage (ZRS) for premium file
 
 #### Managed disks
 
-ZRS is supported for managed disks with the following [limitations](../../virtual-machines/disks-redundancy.md#limitations).
+ZRS is supported for managed disks with the following [limitations](/azure/virtual-machines/disks-redundancy#limitations).
 
-For a list of regions that support zone-redundant storage (ZRS) for managed disks, see [regional availability](../../virtual-machines/disks-redundancy.md#regional-availability).
+For a list of regions that support zone-redundant storage (ZRS) for managed disks, see [regional availability](/azure/virtual-machines/disks-redundancy#regional-availability).
 
 ## Redundancy in a secondary region
 
@@ -147,9 +147,9 @@ The following diagram shows how your data is replicated with GRS or RA-GRS:
 
 ### Geo-zone-redundant storage
 
-Geo-zone-redundant storage (GZRS) combines the high availability provided by redundancy across availability zones with protection from regional outages provided by geo-replication. Data in a GZRS storage account is copied across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region. In addition, it also replicates to a secondary geographic region for protection from regional disasters. Microsoft recommends using GZRS for applications requiring maximum consistency, durability, and availability, excellent performance, and resilience for disaster recovery.
+Geo-zone-redundant storage (GZRS) combines the high availability provided by redundancy across availability zones with protection from regional outages provided by geo-replication. Data in a GZRS account is copied across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region. In addition, it also replicates to a secondary geographic region for protection from regional disasters. Microsoft recommends using GZRS for applications requiring maximum consistency, durability, and availability, excellent performance, and resilience for disaster recovery.
 
-With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data also remains durable during a complete regional outage or a disaster in which the primary region isn't recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9s) durability of objects over a given year.
+With a GZRS account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data also remains durable during a complete regional outage or a disaster in which the primary region isn't recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9s) durability of objects over a given year.
 
 The following diagram shows how your data is replicated with GZRS or RA-GZRS:
 
@@ -230,7 +230,7 @@ The following table shows the redundancy options supported by each Azure Storage
 
 <sup>1</sup> Standard file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they're less than or equal to 5 TiB in size.<br/>
 <sup>2</sup> Premium file shares are supported on LRS and ZRS.<br/>
-<sup>3</sup> ZRS managed disks have certain limitations. See the [Limitations](../../virtual-machines/disks-redundancy.md#limitations) section of the redundancy options for managed disks article for details.<br/>
+<sup>3</sup> ZRS managed disks have certain limitations. See the [Limitations](/azure/virtual-machines/disks-redundancy#limitations) section of the redundancy options for managed disks article for details.<br/>
 
 ### Supported storage account types
 

@@ -4,15 +4,14 @@ description: Learn how to map an existing custom Distributed Name Service (DNS) 
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 08/28/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Map an existing custom domain to Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -29,7 +28,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 - An application deployed to Azure Spring Apps (see [Quickstart: Launch an existing application in Azure Spring Apps using the Azure portal](./quickstart.md), or use an existing app). If your application is deployed using the Basic plan, be sure to upgrade to the Standard plan.
 - A domain name with access to the DNS registry for a domain provider, such as GoDaddy.
 - A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
-- A deployed instance of Azure Key Vault. For more information, see [About Azure Key Vault](../../key-vault/general/overview.md).
+- A deployed instance of Azure Key Vault. For more information, see [About Azure Key Vault](/azure/key-vault/general/overview).
 
 ## Key Vault private link considerations
 
@@ -423,6 +422,6 @@ When the operation is complete, navigate to any of the HTTPS URLs that point to 
 
 ## Next steps
 
-- [What is Azure Key Vault?](../../key-vault/general/overview.md)
-- [Import a certificate](../../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
+- [What is Azure Key Vault?](/azure/key-vault/general/overview)
+- [Import a certificate](/azure/key-vault/certificates/certificate-scenarios#import-a-certificate)
 - [Use TLS/SSL certificates](./how-to-use-tls-certificate.md)

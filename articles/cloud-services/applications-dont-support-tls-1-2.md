@@ -6,7 +6,7 @@ author: hirenshah1
 ms.author: hirshah
 ms.custom: compute-evergreen 
 tag: top-support-issue 
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.topic: troubleshooting
 ms.date: 07/23/2024
 ---

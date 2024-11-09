@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot and repair Dev Box RDP connectivity issues 
+title: Troubleshoot and repair Remote Desktop connectivity issues 
 description: Having problems connecting to your dev box remotely? Learn how to troubleshoot and resolve connectivity issues to your dev box with developer portal tools. 
 author: RoseHJM 
 ms.author: rosemalcolm 
@@ -10,9 +10,9 @@ ms.date: 01/10/2024
 #CustomerIntent: As a dev box user, I want to be able to troubleshoot and repair connectivity issues with my dev box so that I don't lose development time.
 ---
 
-# Troubleshoot and resolve dev box remote desktop connectivity issues 
+# Troubleshoot and resolve dev box Remote Desktop connectivity issues 
 
-In this article, you learn how to troubleshoot and resolve remote desktop connectivity (RDC) issues with your dev box. Because RDC issues to your dev box can be time consuming to resolve manually, use the **Troubleshoot & repair** tool in the developer portal to diagnose and repair some common dev box connectivity issues.
+In this article, you learn how to troubleshoot and resolve Remote Desktop Connectivity (RDC) issues with your dev box. Because RDC issues to your dev box can be time consuming to resolve manually, use the **Troubleshoot & repair** tool in the developer portal to diagnose and repair some common dev box connectivity issues.
 
 :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-repair-tool.png" alt-text="Screenshot showing the Troubleshoot and repair tool in the Microsoft developer portal." lightbox="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-repair-tool.png":::
 

@@ -72,3 +72,5 @@ The Azure SDK for Go contains libraries that build on top of the Azure REST API,
 - [Create Container](/rest/api/storageservices/create-container) (REST API)
 
 [!INCLUDE [storage-dev-guide-resources-go](../../../includes/storage-dev-guides/storage-dev-guide-resources-go.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-go](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-go.md)]

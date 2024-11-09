@@ -3,12 +3,11 @@ title: How to secure an Azure Maps application with a SAS token
 titleSuffix: Azure Maps
 description: Create an Azure Maps account secured with SAS token authentication.
 author: pbrasil
-ms.author: peterbr 
+ms.author: peterbr
 ms.date: 06/08/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-manager: philema
+ms.subservice: authentication
 ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
@@ -21,7 +20,7 @@ This article describes how to create an Azure Maps account with a securely store
 - An Azure subscription. If you don't already have an Azure account, [sign up for a free one](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - **Owner** role permission on the Azure subscription. You need the **Owner** permissions to:
 
-  - Create a key vault in [Azure Key Vault](../key-vault/general/basic-concepts.md).
+  - Create a key vault in [Azure Key Vault](/azure/key-vault/general/basic-concepts).
   - Create a user-assigned managed identity.
   - Assign the managed identity a role.
   - Create an Azure Maps account.
@@ -34,7 +33,7 @@ A SAS token credential grants the access level it specifies to anyone who holds 
 
 This scenario safely stores a SAS token as a secret in Key Vault, and distributes the token into a public client. Application lifecycle events can generate new SAS tokens without interrupting active connections that use existing tokens.
 
-For more information about configuring Key Vault, see the [Azure Key Vault developer's guide](../key-vault/general/developers-guide.md).
+For more information about configuring Key Vault, see the [Azure Key Vault developer's guide](/azure/key-vault/general/developers-guide).
 
 The following example scenario uses two Azure Resource Manager (ARM) template deployments to do the following steps:
 
@@ -413,7 +412,7 @@ az rest --method GET --url 'https://us.atlas.microsoft.com/search/address/json?a
 
 ## Real-world example
 
-You can run requests to Azure Maps APIs from most clients, like C#, Java, or JavaScript. [Postman](https://learning.postman.com/docs/sending-requests/generate-code-snippets) converts an API request into a basic client code snippet in almost any programming language or framework you choose. You can use this generated code snippet in your front-end applications.
+You can run requests to Azure Maps APIs from most clients, like C#, Java, or JavaScript. API development platforms like [bruno](https://www.usebruno.com) or [Postman](https://learning.postman.com/docs/sending-requests/generate-code-snippets) can convert an API request into a basic client code snippet in almost any programming language or framework you choose. You can use the generated code snippets in your front-end applications.
 
 The following small JavaScript code example shows how you could use your SAS token with the JavaScript [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) to get and return Azure Maps information. The example uses [Get Search Address](/rest/api/maps/search/get-search-address) API version 1.0. Supply your own value for `<your SAS token>`.
 

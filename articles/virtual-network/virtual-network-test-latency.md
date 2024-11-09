@@ -4,7 +4,7 @@ description: Learn how to test network latency between Azure virtual machines on
 services: virtual-network
 author: asudbring
 manager: Marina Lipshteyn
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 08/02/2024
@@ -121,6 +121,20 @@ On both the *sender* and *receiver* Linux VMs, run the following commands to pre
   sudo apt-get install -y libtool
   sudo apt update
   sudo apt upgrade
+  ```
+
+- SUSE:
+
+  ```bash
+  #SUSE - Install Git and other helpful tools
+  sudo zypper install gcc
+  sudo zypper install git
+  sudo zypper install gcc-c++
+  sudo zypper install ncurses-devel
+  sudo zypper install automake
+  sudo zypper install autoconf
+  sudo zypper install libtool
+  sudo zypper install make
   ```
 
 ### Copy, compile, and install SockPerf

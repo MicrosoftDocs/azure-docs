@@ -28,6 +28,26 @@ Calls and meetings can be established in various ways by various users.  We defi
 
 For EU communication resources, when the organizer, initiator, or guests join a call from the EU, processing and storage of personal data will be limited to the EU.
 
+## SMS
+
+Azure Communication Services guarantees that SMS data within the EUDB is stored in EUDB regions. As of today, we process and store data in the Netherlands, Ireland or Switzerland regions, ensuring no unauthorized data transfer outside the EEA (European Economic Area).  
+Also, Azure Communication Services employs advanced security measures, including encryption, to protect SMS data both at rest and in transit. Customers can select their preferred data residency within the EUDB, making sure data remains within the designated EU regions. 
+
+#### SMS EUDB FAQ
+
+**What happens with SMS data in the UK?** 
+
+While the UK is no longer part of the EU, Azure Communication Services processes data for the UK within the EUDB. As of today, data processing and storage occur within the Netherlands, Ireland or Switzerland regions, maintaining compliance with EU regulations.  
+
+**What happens when an SMS recipient is outside the EU?** 
+
+If an SMS recipient is outside the EU, the core data processing and storage remain within the EUDB (Netherlands, Ireland or Switzerland regions). However, for the SMS to be delivered, it may be routed through networks outside the EU, depending on the recipient's location and carrier, which is necessary for successful message delivery. 
+
+**Can data be transferred to non-EU regions under any circumstances?** 
+
+Yes, to deliver SMS to recipients outside the EU, some data routing may occur outside the EUDB, but this is strictly for message delivery purposes. Data processing and storage at rest still comply with the EUDB regulations. 
+
+
 ## Messaging
 
 All threads created from an EU resource will process and storage personal data in the EU. 

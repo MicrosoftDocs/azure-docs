@@ -4,8 +4,8 @@ description: In this article, learn about support for alias records in Microsoft
 services: dns
 author: greg-lindsay
 ms.service: azure-dns
-ms.topic: article
-ms.date: 03/08/2024
+ms.topic: concept-article
+ms.date: 09/24/2024
 ms.author: greglin
 ---
 
@@ -41,6 +41,7 @@ In the following example, an alias named **vm1** is added that points to the pub
 - **Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set** - You can create an A/AAAA or CNAME record set and use alias records to point it to a Traffic Manager profile. It's especially useful when you need to route traffic at a zone apex, as traditional CNAME records aren't supported for a zone apex. For example, say your Traffic Manager profile is myprofile.trafficmanager.net and your business DNS zone is contoso.com. You can create an alias record set of type A/AAAA for contoso.com (the zone apex) and point to myprofile.trafficmanager.net.
 - **Point to an Azure Content Delivery Network (CDN) endpoint** - This alias type is useful when you create static websites using Azure storage and Azure CDN.
 - **Point to another DNS record set within the same zone** - Alias records can reference other record sets of the same type. For example, a DNS CNAME record set can be an alias to another CNAME record set. This arrangement is useful if you want some but not all record sets to be aliases.
+- **Point to an Azure Front Door endpoint** - This allows you to create a custom domain and enable your endpoint to use this domain in the end-user request. Having a visible domain name can be convenient for your customers and useful for branding purposes.
 
 ## Scenarios
 

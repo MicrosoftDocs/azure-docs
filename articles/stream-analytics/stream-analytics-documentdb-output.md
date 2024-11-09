@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/29/2024
 ---
 # Azure Stream Analytics output to Azure Cosmos DB  
-Azure Stream Analytics can output data in JSON format to [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). It enables data archiving and low-latency queries on unstructured JSON data. This article covers some best practices for implementing this configuration (Stream Analytics to Cosmos DB). If you're unfamiliar with Azure Cosmos DB, see the [Azure Cosmos DB documentation](../cosmos-db/index.yml) to get started. 
+Azure Stream Analytics can output data in JSON format to [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). It enables data archiving and low-latency queries on unstructured JSON data. This article covers some best practices for implementing this configuration (Stream Analytics to Cosmos DB). If you're unfamiliar with Azure Cosmos DB, see the [Azure Cosmos DB documentation](/azure/cosmos-db/) to get started. 
 
 > [!Note]
 > - At this time, Stream Analytics supports connection to Azure Cosmos DB only through the *SQL API*.Other Azure Cosmos DB APIs are not yet supported. If you point Stream Analytics to Azure Cosmos DB accounts created with other APIs, the data might not be properly stored. 
@@ -20,7 +20,7 @@ The Azure Cosmos DB output in Stream Analytics enables writing your stream proce
 ## Tuning consistency, availability, and latency
 To match your application requirements, Azure Cosmos DB allows you to fine-tune the database and containers and make trade-offs between consistency, availability, latency, and throughput. 
 
-Depending on what levels of read consistency your scenario needs against read and write latency, you can choose a consistency level on your database account. You can improve throughput by scaling up Request Units (RUs) on the container. Also by default, Azure Cosmos DB enables synchronous indexing on each CRUD operation to your container. This option is another useful one to control write/read performance in Azure Cosmos DB. For more information, review the [Change your database and query consistency levels](../cosmos-db/consistency-levels.md) article.
+Depending on what levels of read consistency your scenario needs against read and write latency, you can choose a consistency level on your database account. You can improve throughput by scaling up Request Units (RUs) on the container. Also by default, Azure Cosmos DB enables synchronous indexing on each CRUD operation to your container. This option is another useful one to control write/read performance in Azure Cosmos DB. For more information, review the [Change your database and query consistency levels](/azure/cosmos-db/consistency-levels) article.
 
 ## Upserts from Stream Analytics
 Stream Analytics integration with Azure Cosmos DB allows you to insert or update records in your container based on a given **Document ID** column. This operation is also called an *upsert*. Stream Analytics uses an optimistic upsert approach. Updates happen only when an insert fails with a document ID conflict. 
@@ -38,7 +38,7 @@ If the incoming JSON document has an existing ID field, that field is automatica
 If you want to save *all* documents, including the ones that have a duplicate ID, rename the ID field in your query (by using the **AS** keyword). Let Azure Cosmos DB create the ID field or replace the ID with another column's value (by using the **AS** keyword or by using the **Document ID** setting).
 
 ## Data partitioning in Azure Cosmos DB
-Azure Cosmos DB automatically scales partitions based on your workload. So we recommend that you use [unlimited](../cosmos-db/partitioning-overview.md) containers for partitioning your data. When Stream Analytics writes to unlimited containers, it uses as many parallel writers as the previous query step or input partitioning scheme.
+Azure Cosmos DB automatically scales partitions based on your workload. So we recommend that you use [unlimited](/azure/cosmos-db/partitioning-overview) containers for partitioning your data. When Stream Analytics writes to unlimited containers, it uses as many parallel writers as the previous query step or input partitioning scheme.
 
 > [!NOTE]
 > Azure Stream Analytics supports only unlimited containers with partition keys at the top level. For example, `/region` is supported. Nested partition keys (for example, `/region/name`) are not supported. 
@@ -49,13 +49,13 @@ Depending on your choice of partition key, you might receive this _warning_:
 
 It's important to choose a partition key property that has many distinct values, and that lets you distribute your workload evenly across these values. As a natural artifact of partitioning, requests that involve the same partition key are limited by the maximum throughput of a single partition. 
 
-The storage size for documents that belong to the same partition key value is limited to 20 GB (the [physical partition size limit](../cosmos-db/partitioning-overview.md) is 50 GB). An [ideal partition key](../cosmos-db/partitioning-overview.md#choose-partitionkey) is the one that appears frequently as a filter in your queries and has sufficient cardinality to ensure that your solution is scalable.
+The storage size for documents that belong to the same partition key value is limited to 20 GB (the [physical partition size limit](/azure/cosmos-db/partitioning-overview) is 50 GB). An [ideal partition key](/azure/cosmos-db/partitioning-overview#choose-partitionkey) is the one that appears frequently as a filter in your queries and has sufficient cardinality to ensure that your solution is scalable.
 
 Partition keys used for Stream Analytics queries and Azure Cosmos DB don't need to be identical. Fully parallel topologies recommend using *Input Partition key*, `PartitionId`, as the Stream Analytics query's partition key but that might not be the recommended choice for an Azure Cosmos DB container's partition key.
 
-A partition key is also the boundary for transactions in stored procedures and triggers for Azure Cosmos DB. You should choose the partition key so that documents that occur together in transactions share the same partition key value. The article [Partitioning in Azure Cosmos DB](../cosmos-db/partitioning-overview.md) gives more details on choosing a partition key.
+A partition key is also the boundary for transactions in stored procedures and triggers for Azure Cosmos DB. You should choose the partition key so that documents that occur together in transactions share the same partition key value. The article [Partitioning in Azure Cosmos DB](/azure/cosmos-db/partitioning-overview) gives more details on choosing a partition key.
 
-For fixed Azure Cosmos DB containers, Stream Analytics allows no way to scale up or out after they're full. They have an upper limit of 10 GB and 10,000 RU/s of throughput. To migrate the data from a fixed container to an unlimited container (for example, one with at least 1,000 RU/s and a partition key), use the [data migration tool](../cosmos-db/import-data.md) or the [change feed library](../cosmos-db/change-feed.md).
+For fixed Azure Cosmos DB containers, Stream Analytics allows no way to scale up or out after they're full. They have an upper limit of 10 GB and 10,000 RU/s of throughput. To migrate the data from a fixed container to an unlimited container (for example, one with at least 1,000 RU/s and a partition key), use the [data migration tool](/azure/cosmos-db/import-data) or the [change feed library](/azure/cosmos-db/change-feed).
 
 The ability to write to multiple fixed containers is being deprecated. We don't recommend it for scaling out your Stream Analytics job.
 
@@ -117,7 +117,7 @@ If a transient failure, service unavailability, or throttling happens while Stre
 
 ## Common issues
 
-1. A unique index constraint is added to the collection and the output data from Stream Analytics violates this constraint. Ensure the output data from Stream Analytics doesn't violate unique constraints or remove constraints. For more information, see [Unique key constraints in Azure Cosmos DB](../cosmos-db/unique-keys.md).
+1. A unique index constraint is added to the collection and the output data from Stream Analytics violates this constraint. Ensure the output data from Stream Analytics doesn't violate unique constraints or remove constraints. For more information, see [Unique key constraints in Azure Cosmos DB](/azure/cosmos-db/unique-keys).
 
 2. The `PartitionKey` column doesn't exists.
 

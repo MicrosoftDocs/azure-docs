@@ -69,6 +69,9 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 ```xml  
 <authentication-managed-identity resource="https://database.windows.net/"/> <!--Azure SQL-->
 ```
+```xml  
+<authentication-managed-identity resource="https://signalr.azure.com"/> <!--Azure SignalR-->
+```
 
 ```xml
 <authentication-managed-identity resource="AD_application_id"/> <!--Application (client) ID of your own Azure AD Application-->

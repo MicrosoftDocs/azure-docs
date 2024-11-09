@@ -29,6 +29,7 @@ The `MessageId` can always be some GUID, but anchoring the identifier to the bus
 >- When **partitioning** is **enabled**, `MessageId+PartitionKey` is used to determine uniqueness. When sessions are enabled, partition key and session ID must be the same. 
 >- When **partitioning** is **disabled** (default), only `MessageId` is used to determine uniqueness.
 >- For information about `SessionId`, `PartitionKey`, and `MessageId`, see [Use of partition keys](service-bus-partitioning.md#use-of-partition-keys).
+>- When using **partitioning** and sending **batches** of messages, you should ensure that they do not contain any partition identifying properties. Since deduplication relies on explicitly setting message IDs to determine uniqueness, it is not recommended to use deduplication and batching together with partitioning.
 
 > [!NOTE]
 > Scheduled messages are included in duplicate detection. Therefore, if you send a scheduled message and then send a duplicate non-scheduled message, the non-scheduled message gets dropped. Similarly, if you send a non-scheduled message and then a duplicate scheduled message, the scheduled message is dropped. 

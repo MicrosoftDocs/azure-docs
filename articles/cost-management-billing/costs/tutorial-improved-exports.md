@@ -3,7 +3,7 @@ title: Tutorial - Improved exports experience - Preview
 description: This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format.
 author: jojohpm
 ms.author: jojoh
-ms.date: 07/17/2024
+ms.date: 08/28/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -40,10 +40,9 @@ For Azure Storage accounts:
 - Your Azure storage account must be configured for blob or file storage.
 - Don't configure exports to a storage container that is configured as a destination in an [object replication rule](../../storage/blobs/object-replication-overview.md#object-replication-policies-and-rules).
 - To export to storage accounts with configured firewalls, you need other privileges on the storage account. The other privileges are only required during export creation or modification. They are:
-  - Owner role on the storage account.  
-  Or
-  - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.  
-  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
+  - **Owner** role or any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.
+  
+  - Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.  
     :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
 
@@ -102,12 +101,13 @@ Note: A template simplifies export creation by preselecting a set of commonly us
 2. Specify your Azure storage account subscription. Choose an existing resource group or create a new one.
 3. Select the Storage account name or create a new one.
 4. If you create a new storage account, choose an Azure region.
-5. Specify the storage container and directory path for the export file.
-6. File partitioning is enabled by default. It splits large files into smaller ones.
-7. **Overwrite data** is enabled by default. For daily exports, it replaces the previous day's file with an updated file.
-8. Select **Next** to move to the **Review + create** tab.
-
-:::image type="content" source="./media/tutorial-improved-exports/destination-tab.png" alt-text="Screenshot showing Destination tab information." lightbox="./media/tutorial-improved-exports/destination-tab.png" :::
+6. Specify the storage container and directory path for the export file.
+7. Choose the **Format** as CSV or Parquet.
+8. Choose the **Compression type** as **None**, **Gzip** for CSV file format, or **Snappy** for the parquet file format. 
+9. **File partitioning** is enabled by default. It splits large files into smaller ones.
+10. **Overwrite data** is enabled by default. For daily exports, it replaces the previous day's file with an updated file.
+11. Select **Next** to move to the **Review + create** tab.  
+    :::image type="content" source="./media/tutorial-improved-exports/new-export-example.png" border="true" alt-text="Screenshot showing the New export dialog." lightbox="./media/tutorial-improved-exports/new-export-example.png" :::
 
 ### Review and create
 
@@ -133,7 +133,7 @@ You can perform the following actions by selecting the ellipsis (**…**) on the
 - Delete - Permanently removes the export.
 - Refresh - Updates the Run history.
 
-:::image type="content" source="./media/tutorial-improved-exports/exports-list-details.png" alt-text="Screenshot showing the list of exports and details." lightbox="./media/tutorial-improved-exports/exports-list-details.png" :::
+    :::image type="content" source="./media/tutorial-improved-exports/export-run-history.png" border="true" alt-text="Screenshot showing the Export run history." lightbox="./media/tutorial-improved-exports/export-run-history.png" :::
 
 ### Schedule frequency
 
@@ -167,8 +167,8 @@ Agreement types, scopes, and required roles are explained at [Understand and wor
 
 | **Data types** | **Supported agreement** | **Supported scopes** |
 | --- | --- | --- |
-| Cost and usage (actual) | • EA<br> • MCA that you bought through the Azure website <br> • MCA enterprise<br> • MCA that you buy through a Microsoft partner <br> • Microsoft Online Service Program (MOSP), also known as pay-as-you-go (PAYG) <br> • Azure internal | • EA - Enrollment, department, account, management group, subscription, and resource group <br> • MCA - Billing account, billing profile, Invoice section, subscription, and resource group <br> • Microsoft Partner Agreement (MPA) - Customer, subscription, and resource group |
-| Cost and usage (amortized) | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner <br> • Microsoft Online Service Program (MOSP), also known as pay-as-you-go (PAYG) <br> • Azure internal | • EA - Enrollment, department, account, management group, subscription, and resource group <br> • MCA - Billing account, billing profile, Invoice section, subscription, and resource group <br> • MPA - Customer, subscription, and resource group |
+| Cost and usage (actual) | • EA<br> • MCA that you bought through the Azure website <br> • MCA enterprise<br> • MCA that you buy through a Microsoft partner <br> • Azure internal | • EA - Enrollment, department, account, subscription, and resource group <br> • MCA - Billing account, billing profile, Invoice section, subscription, and resource group <br> • Microsoft Partner Agreement (MPA) - Customer, subscription, and resource group |
+| Cost and usage (amortized) | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner  <br> • Azure internal | • EA - Enrollment, department, account, subscription, and resource group <br> • MCA - Billing account, billing profile, Invoice section, subscription, and resource group <br> • MPA - Customer, subscription, and resource group |
 | Cost and usage (FOCUS) | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner| • EA - Enrollment, department, account, subscription, and resource group <br> • MCA - Billing account, billing profile, invoice section, subscription, and resource group <br> • MPA - Customer, subscription, resource group. **NOTE**: The management group scope isn't supported for Cost and usage details (FOCUS) exports. |
 | All available prices | • EA <br>  • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner  | • EA - Billing account <br> • All other supported agreements - Billing profile |
 | Reservation recommendations | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner | • EA - Billing account <br> • All other supported agreements - Billing profile |
@@ -179,16 +179,55 @@ Agreement types, scopes, and required roles are explained at [Understand and wor
 
 The improved exports experience currently has the following limitations.
 
-- The new exports experience doesn't fully support the management group scope and it has feature limitations.
+- The new exports experience doesn't fully support the management group scope, and it has feature limitations.
 
-- Azure internal and MOSP billing scopes and subscriptions don’t support FOCUS datasets.
+- Azure internal accounts and the Microsoft Online Service Program (MOSP), commonly referred to as pay-as-you-go, support only the 'Cost and Usage Details (Usage Only)' dataset for billing scopes and subscriptions. 
+
 - Shared access service (SAS) key-based cross tenant export is only supported for Microsoft partners at the billing account scope. It isn't supported for other partner scenarios like any other scope, EA indirect contract, or Azure Lighthouse.
+
+- EA price sheet: Reservation prices are only available for the current month price sheet and cannot be retrieved for historical exports. To retain historical reservation prices, set up recurring exports.
 
 ## FAQ
 
-1. Why is file partitioning enabled in exports? 
+#### Why is file partitioning enabled in exports? 
 
 The file partitioning is a feature that is activated by default to facilitate the management of large files. This functionality divides larger files into smaller segments, which enhances the ease of file transfer, download, ingestion, and overall readability. It's advantageous for customers whose cost files increase in size over time. The specifics of the file partitions are described in a manifest.json file provided with each export run, enabling you to rejoin the original file. 
+
+#### How does the enhanced export experience handle missing attributes like subscription IDs?
+
+In the new export experience, missing attributes such as subscription IDs will be set to null or empty, rather than using a default empty GUID (00000000-0000-0000-0000-000000000000), to more accurately indicate the absence of a value. This affects charges pertaining to unused reservations, unused savings plan and rounding adjustments.
+
+#### How much historical data can I retrieve using Exports?
+
+You can retrieve up to 13 months of historical data through the portal UI for all datasets, except for RI recommendations, which are limited to the current recommendation snapshot. To access data older than 13 months, you can use the REST API.
+
+- Cost and usage (Actual), Cost and usage (Amortized), Cost and usage (FOCUS): Up to 7 years of data.
+
+- Reservation transactions: Up to 7 years of data across all channels.
+
+- Reservation recommendations, Reservation details: Up to 13 months of data.
+
+- All available prices:
+
+  - MCA/MPA: Up to 13 months.
+    
+  - EA: Up to 25 months (starting from December 2022).
+    
+#### Why do I get the 'Unauthorized' error while trying to create an Export? 
+
+When attempting to create an Export to a storage account with a firewall, the user must have the Owner role or a custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions. If these permissions are missing, you will encounter an error like:
+
+
+```json
+{
+	"error":{
+	"code":"Unauthorized",
+	"message":"The user does not have authorization to perform 'Microsoft.Authorization/roleAssignments/write' action on specified storage account, please use a storage account with sufficient permissions. If the permissions have changed recently then retry after some time."
+	}
+}
+```
+
+You can check for the permissions on the storage account by referring to the steps in [Check access for a user to a single Azure resource](../../role-based-access-control/check-access.md). 
 
 ## Next steps
 

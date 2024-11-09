@@ -6,7 +6,10 @@ ms.author: cwatson
 ms.topic: overview
 ms.service: microsoft-sentinel
 ms.date: 05/13/2024
-#customer intent: As a business decision maker, I want to understand what Microsoft Sentinel offers to determine whether the service meets my organization's requirements.
+
+
+#CustomerIntent: As a business decision maker, I want to understand what Microsoft Sentinel offers so that I can determine whether the service meets my organization's requirements.
+
 ---
 
 # What is Microsoft Sentinel?
@@ -21,7 +24,7 @@ Use Microsoft Sentinel to alleviate the stress of increasingly sophisticated att
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 
-Microsoft Sentinel inherits the Azure Monitor [tamper-proofing and immutability](../azure-monitor/logs/data-security.md#tamper-proofing-and-immutability) practices. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes
+Microsoft Sentinel inherits the Azure Monitor [tamper-proofing and immutability](/azure/azure-monitor/logs/data-security#tamper-proofing-and-immutability) practices. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service-no-note.md)]
 

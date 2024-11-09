@@ -13,17 +13,13 @@ products:
 ms.date: 05/08/2024
 ms.custom: vmware-scenario-422
 
-# Customer intent - overview  of the options for assessing an existing VMware deployment for migration
+# Customer intent - Overview  of the options for assessing an existing VMware deployment for migration
 ---
 
 
 # Start here to migrate from VMware to Azure
 
 There are several steps to using the Azure Migration Tools to migrate a VMware deployment to Azure. This article is a map to the steps of the process that are documented for this scenario.
-
-:::image type="content" source="./media/migration-process.png" alt-text="Diagram showing the basic steps to migrate from VMware to Azure." lightbox="./media/migration-process.png":::
-
-<br>
 
 ## Prerequisites
 Make sure you check out the [support matrix](migrate-support-matrix-vmware.md) before getting started.
@@ -34,6 +30,15 @@ You need a list of all of the servers in your environment. To get the list, you 
 - Deploy an appliance that continually discovers servers. For more information, see [Tutorial: Discover servers running in a VMware environment with Azure Migrate](tutorial-discover-vmware.md).
 
 - Use RVTools XLSX to discover servers and store the information in an .xlsx file. For more information, see [Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)](tutorial-import-vmware-using-rvtools-xlsx.md).
+
+## Dependency analysis
+
+Identify dependencies between on-premises servers so that you can identify groups of servers to migrate together. 
+
+For an overview, see [Dependency analysis](../concepts-dependency-visualization.md?context=/azure/migrate/context/vmware-context).
+
+You can choose between [agentless](../how-to-create-group-machine-dependencies-agentless.md?context=/azure/migrate/context/vmware-context) and [agent-based](../how-to-create-group-machine-dependencies.md?context=/azure/migrate/context/vmware-context) analysis.
+
 
 ## Decide - build a business case (preview)
 

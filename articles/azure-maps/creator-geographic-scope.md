@@ -6,11 +6,17 @@ ms.author: aterceros
 ms.date: 05/18/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ms.custom: mvc, references_regions
 ---
 
 # Creator service geographic scope
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 Azure Maps Creator is a geographically scoped service. Creator offers a resource provider API that, given an Azure region, creates an instance of Creator data deployed at the geographical level. The mapping from an Azure region to geography happens behind the scenes as described in the following table. For more information on Azure regions and geographies, see [Azure geographies].
 

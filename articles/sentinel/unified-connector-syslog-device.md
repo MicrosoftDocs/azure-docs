@@ -6,6 +6,10 @@ ms.author: cwatson
 ms.topic: reference
 ms.custom: linux-related-content
 ms.date: 06/27/2024
+
+
+#Customer intent: As a security administrator, I want to configure various security appliances and devices to forward logs via Syslog to Microsoft Sentinel so that I can ensure comprehensive security event monitoring and analysis.
+
 ---
 
 # Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion
@@ -64,7 +68,7 @@ This data connector was developed using Cisco Stealthwatch version 7.3.2
 >
 > Update the parser and specify the hostname of the source machines transmitting the logs in the parser's first line.
 >
-> To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **CiscoUCS**. Alternatively, directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Cisco%20UCS/Parsers/CiscoUCS.txt). It might take about 15-minutes post-installation to update.
+> To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **CiscoUCS**. Alternatively, directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Cisco%20UCS/Parsers/CiscoUCS.yaml). It might take about 15-minutes post-installation to update.
 
 ## Cisco Web Security Appliance (WSA)
 
@@ -86,7 +90,7 @@ Configure Citrix ADC (former NetScaler) to forward logs via Syslog.
 5. For more information, see the [Citrix ADC (former NetScaler) documentation](https://docs.netscaler.com/).
 
 > [!NOTE]
-> The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation. To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **CitrixADCEvent**. Alternatively, you can directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Citrix%20ADC/Parsers/CitrixADCEvent.txt). It might take about 15 minutes post-installation to update.
+> The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation. To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **CitrixADCEvent**. Alternatively, you can directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Citrix%20ADC/Parsers/CitrixADCEvent.yaml). It might take about 15 minutes post-installation to update.
 >
 > This parser requires a watchlist named `Sources_by_SourceType`.
 >
@@ -157,7 +161,7 @@ This data connector was developed using Forescout Syslog Plugin version: v3.6
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
 >
-> To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **Infoblox**. Alternatively, you can directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Infoblox%20NIOS/Parser/Infoblox.txt). It might take about 15 minutes post-installation to update.
+> To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **Infoblox**. Alternatively, you can directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Infoblox%20NIOS/Parsers/Infoblox.yaml). It might take about 15 minutes post-installation to update.
 > 
 > This parser requires a watchlist named **`Sources_by_SourceType`**.
 >
@@ -311,7 +315,7 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 >
 > Update the parser and specify the hostname of the source machines transmitting the logs in the parser's first line. 
 >
-> To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **SymantecVIP**. Alternatively, directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Symantec%20VIP/Parsers/SymantecVIP.txt). It might take about 15 minutes post-installation to update.
+> To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **SymantecVIP**. Alternatively, directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Symantec%20VIP/Parsers/SymantecVIP.yaml). It might take about 15 minutes post-installation to update.
 
 ## VMware ESXi
 

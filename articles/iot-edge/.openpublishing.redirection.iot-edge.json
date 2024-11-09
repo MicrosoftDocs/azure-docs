@@ -355,5 +355,16 @@
             "redirect_url": "/previous-versions/azure/iot-edge/deploy-modbus-gateway",
             "redirect_document_id": false
         }
+        ,
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-deploy-vscode-at-scale.md",
+            "redirect_url": "/azure/iot-edge/how-to-deploy-cli-at-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/how-to-deploy-modules-vscode.md",
+            "redirect_url": "/azure/iot-edge/how-to-deploy-modules-cli",
+            "redirect_document_id": false
+        }
     ]
 }

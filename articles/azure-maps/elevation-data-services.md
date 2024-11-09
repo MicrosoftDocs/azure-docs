@@ -2,12 +2,12 @@
 title: Create elevation data & services using open data
 titeSuffix: Microsoft Azure Maps
 description: a guide to help developers build Elevation services and tiles using open data on the Microsoft Azure Cloud.
-author: FarazGIS
+author: farazgis
 ms.author: fsiddiqui
 ms.date: 3/17/2023
 ms.topic: quickstart
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Create elevation data & services

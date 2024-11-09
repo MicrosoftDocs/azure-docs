@@ -170,7 +170,7 @@ SSMA for Oracle can help you migrate an Oracle data warehouse or data mart to Az
 
 Data Factory can be used to migrate data at source to Azure SQL target. This offline data movement helps to reduce migration downtime significantly.
 
-[Azure Database Migration Services](../../../dms/dms-overview.md) can help you plan and perform a migration from environments like Oracle.
+[Azure Database Migration Services](/azure/dms/dms-overview) can help you plan and perform a migration from environments like Oracle.
 
 When you're planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables to be migrated and their location.
 

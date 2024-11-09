@@ -1,6 +1,6 @@
 ---
 author: jefmarti
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: dotnet
 ms.custom: linux-related-content
 ms.topic: article
@@ -12,7 +12,7 @@ You can use Azure App Service to work with popular AI frameworks like LangChain 
 
 #### Prerequisites
 
-- An [Azure OpenAI resource](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
+- An [Azure OpenAI resource](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
 - A .NET 8 Blazor Web App.  Create the application with a template [here](https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/intro).
 
 ### Setup Blazor web app
@@ -64,7 +64,7 @@ After the Navigation is updated, we can start preparing to build the OpenAI clie
 
 In order to make calls to OpenAI with your client, you need to first grab the Keys and Endpoint values from Azure OpenAI, or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use.
 
-For Azure OpenAI, see [this documentation](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app you'll only need the `deploymentName` and `endpoint` values.  Otherwise, you need each of the following:
+For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app you'll only need the `deploymentName` and `endpoint` values.  Otherwise, you need each of the following:
 
 - `deploymentName`
 - `endpoint`
@@ -75,7 +75,7 @@ For OpenAI, see this [documentation](https://platform.openai.com/docs/api-refere
 - `apiKey`
 - `modelId`
 
-Since we are deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](../../../key-vault/secrets/quick-create-cli.md#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
+Since we're deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
 Then, go to the portal Environment Variables blade in your resource and add the following app settings:
 
@@ -190,11 +190,11 @@ var kernel = builder.Build();
 
 ### Secure your app with managed identity
 
-If you’re using Azure OpenAI, it's highly recommended to secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This enables your application to access the Azure OpenAI resource without needing to manage API keys. If you're not using Azure OpenAI, your secrets can remain secure using Azure Key Vault outlined above.
+If you're using Azure OpenAI, it's highly recommended to secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This enables your application to access the Azure OpenAI resource without needing to manage API keys. If you're not using Azure OpenAI, your secrets can remain secure using Azure Key Vault outlined above.
 
 Follow the steps below to secure your application with managed identity:
 
-Add the identity package `Azure.Identity`. This package enables using Azure credentials in your app.  Install the package using Nuget package manager and add the using statement to the top of the OpenAI.razor file.
+Add the identity package `Azure.Identity`. This package enables using Azure credentials in your app.  Install the package using NuGet package manager and add the using statement to the top of the OpenAI.razor file.
 
 ```c#
 @using Azure.Identity
@@ -215,7 +215,7 @@ var kernel = Kernel.CreateBuilder()
 Once the credentials are added to the application, you'll then need to enable managed identity in your application and grant access to the resource.
 
 1. In your web app resource, navigate to the **Identity** blade and turn on **System assigned** and click **Save**
-2. Once System assigned identity is turned on, it register's the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
+2. Once System assigned identity is turned on, it registers the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
 3. Go to your Azure OpenAI resource and navigate to the **Access control (IAM)** blade on the left pane.  
 4. Find the Grant access to this resource card and click on **Add role assignment**
 5. Search for the **Cognitive Services OpenAI User** role and click **Next**

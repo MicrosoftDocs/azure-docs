@@ -18,7 +18,7 @@ When you [fail over](site-recovery-failover.md) Azure virtual machines from one 
 
 ## Prerequisites
 
-- The virtual machine failover from the primary to secondary region must be committed.
+- The virtual machine failover from the primary to secondary region must be committed. The virtual machine status must be **Failover committed** before you start.
 - The primary target site should be available, and you should be able to access or create resources in that region.
 
 ## Reprotect a virtual machine

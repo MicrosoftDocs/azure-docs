@@ -22,7 +22,7 @@ In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azur
 - A **User-assigned managed** [identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) which has Contributor role access on the Subscription or atleast all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide Storage Blob data Reader, Reader and Data Access roles to the identity on SAP bits storage account where you would store the SAP Media.
 - A [network set up for your infrastructure deployment](prepare-network.md).
 - Availability of minimum 4 cores of either Standard_D4ds_v4 or Standard_E4s_v3 SKUS which will be used during Infrastructure deployment and Software Installation
-- [Review the quotas for your Azure subscription](../../quotas/view-quotas.md). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error. 
+- [Review the quotas for your Azure subscription](/azure/quotas/view-quotas). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error. 
 - Note the SAP Application Performance Standard (SAPS) and database memory size that you need to allow Azure Center for SAP solutions to size your SAP system. If you're not sure, you can also select the VMs. There are:
     - A single or cluster of ASCS VMs, which make up a single ASCS instance in the VIS.
     - A single or cluster of Database VMs, which make up a single Database instance in the VIS.
@@ -226,7 +226,7 @@ The following operating system (OS) software versions are compatible with these 
 
 ## Using a Custom OS Image
 
-You can use custom images for deployment in Azure Center for SAP Solutions from the [Azure Compute Gallery](../../virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)
+You can use custom images for deployment in Azure Center for SAP Solutions from the [Azure Compute Gallery](/azure/virtual-machines/capture-image-portal#capture-a-vm-in-the-portal)
 ### Custom image prerequisites
 
 - Make sure that you've met the [general SAP deployment prerequisites](#prerequisites), [downloaded the SAP media](../../sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installed the SAP software](../../sap/center-sap-solutions/install-software.md#install-sap-software).
@@ -237,7 +237,7 @@ You can use custom images for deployment in Azure Center for SAP Solutions from 
 
 - Check that the user-assigned managed identity has the **Reader role** on the gallery of the custom OS image. Otherwise, the deployment will fail.  
 
-- [Create and upload a VM to a gallery in Azure Compute Gallery](../../virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)  
+- [Create and upload a VM to a gallery in Azure Compute Gallery](/azure/virtual-machines/capture-image-portal#capture-a-vm-in-the-portal)  
 
 - Before beginning the deployment, make sure the image is available in Azure Compute Gallery. 
 

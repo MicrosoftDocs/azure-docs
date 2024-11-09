@@ -4,7 +4,7 @@ description: Learn how to configure bot protection rule in Azure Web Application
 author: sowmyam2019
 ms.service: azure-web-application-firewall
 ms.custom: devx-track-bicep
-ms.topic: article
+ms.topic: how-to
 services: web-application-firewall
 ms.date: 11/10/2022
 ms.author: victorh

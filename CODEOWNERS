@@ -2,10 +2,38 @@
 # Each line is a file pattern followed by one or more owners.
 
 # Folder paths in this list have been migrated to new repositories and content can no longer be created for these services in this repo.
-/articles/aks @tynevi @thomps23
-/articles/defender-for-cloud  @tynevi @thomps23
-/articles/attestation  @tynevi @thomps23
-/articles/confidential-ledger  @tynevi @thomps23
-/articles/dedicated-hsm  @tynevi @thomps23
-/articles/key-vault  @tynevi @thomps23
-/articles/payment-hsm  @tynevi @thomps23
+/articles/aks @tynevi @thomps23 @jasonwhowell
+/articles/defender-for-cloud  @tynevi @thomps23 @jasonwhowell
+/articles/attestation  @tynevi @thomps23 @jasonwhowell
+/articles/confidential-ledger  @tynevi @thomps23 @jasonwhowell
+/articles/dedicated-hsm  @tynevi @thomps23 @jasonwhowell
+/articles/key-vault  @tynevi @thomps23 @jasonwhowell
+/articles/payment-hsm  @tynevi @thomps23 @jasonwhowell
+/articles/postgresql @tynevi @thomps23 @jasonwhowell
+/articles/cosmos-db @tynevi @thomps23 @jasonwhowell
+/articles/dms @tynevi @thomps23 @jasonwhowell
+/articles/mariadb @tynevi @thomps23 @jasonwhowell
+/articles/mysql @tynevi @thomps23 @jasonwhowell
+/articles/managed-instance-apache-cassandra @tynevi @thomps23 @jasonwhowell
+/articles/virtual-machines @jasonwhowell @thomps23
+/articles/virtual-machines-scale-sets @jasonwhowell @thomps23
+/articles/container-instances @jasonwhowell @thomps23
+/articles/service-fabric @jasonwhowell @thomps23
+/articles/machine-learning @jasonwhowell @thomps23
+/articles/ai-studio @jasonwhowell @thomps23
+/articles/ai-services @jasonwhowell @thomps23
+/articles/genomics @jasonwhowell @thomps23
+/articles/open-datasets @jasonwhowell @thomps23
+/articles/search @jasonwhowell @thomps23
+/articles/azure-monitor @jasonwhowell @thomps23
+/articles/advisor @jasonwhowell @thomps23
+/articles/chaos-studio @jasonwhowell @thomps23
+/articles/service-health @jasonwhowell @thomps23
+/articles/azure-arc @jasonwhowell @thomps23
+/articles/azure-linux @jasonwhowell @thomps23
+/articles/azure-portal @jasonwhowell @thomps23
+/articles/copilot @jasonwhowell @thomps23
+/articles/lighthouse @jasonwhowell @thomps23
+/articles/quotas @jasonwhowell @thomps23
+/articles/container-registry @jasonwhowell @thomps23
+/articles/kubernetes-fleet @MicrosoftDocs/azure-docs-codeowners

@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 07/10/2024
 ms.topic: troubleshooting-general
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
 ---
@@ -14,7 +14,7 @@ ms.custom:  [amqp, mqtt]
 # Solutions to common issues for Azure IoT Edge
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
@@ -402,9 +402,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 
 1. In the Azure portal, navigate to the overview page of your virtual machine.
 
-2. Open the configuration panel by selecting **Not configured** (if your virtual machine is new) under DNS name, or select your existing DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one.
-
-   :::image type="content" source="./media/troubleshoot/configure-dns.png" alt-text="Screenshot of how to open the configuration panel of your DNS name.":::
+2. Open the configuration panel by selecting the **Not configured** link (if your virtual machine is new) or select your existing DNS name under **Essentials** > **DNS name**. If your virtual machine already has a DNS name configured, you don't need to configure a new one.
 
 3. Provide a value for **DNS name label** if you don't have one already and select **Save**.
 

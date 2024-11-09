@@ -5,7 +5,7 @@ author: pennyzhou-msft
 ms.author: xupzhou
 ms.topic: overview
 ms.custom: references_regions
-ms.date: 08/11/2023
+ms.date: 09/25/2024
 ---
 # What's new archive for Azure Data Factory
 
@@ -20,6 +20,12 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 This archive page retains updates from older months.
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly updates.
+
+## September 2023
+
+### Pipelines
+
+Added support for metadata driven pipelines for dynamic full and incremental processing in Azure SQL [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/metadata-driven-pipelines-for-dynamic-full-and-incremental/ba-p/3925362)
 
 ## August 2023
 

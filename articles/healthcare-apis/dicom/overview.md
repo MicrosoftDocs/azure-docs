@@ -1,12 +1,12 @@
 ---
 title:  Overview of the DICOM service in Azure Health Data Services
 description: The DICOM service is a cloud-based solution for storing, managing, and exchanging medical imaging data securely and efficiently with any DICOMweb™-enabled systems or applications. Learn more about its benefits and use cases.
-author: mmitrik
+author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: overview
 ms.date: 10/13/2023
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # What is the DICOM service?
@@ -27,11 +27,11 @@ The DICOM service offers many benefits, including:
 
 ## Use imaging data to enable healthcare scenarios
 
-To effectively treat patients, research treatments, diagnose illnesses, or get an overview of a patient's health history, organizations need to integrate data across several sources. The DICOM service enables imaging data to persist  in the Microsoft cloud and allows it to reside with electronic health records (EHR) and healthcare device (IoT) data in the same Azure subscription.  
+To effectively treat patients, research treatments, diagnose illnesses, or get an overview of a patient's health history, organizations need to integrate data across several sources. The DICOM service enables imaging data to persist in the Microsoft cloud and allows it to reside with electronic health records (EHR) and healthcare device (IoT) data in the same Azure subscription.  
 
 FHIR&reg; supports integration of other types of data directly, or through references. With the DICOM service, organizations are able to store references to imaging data in FHIR and enable queries that cross clinical and imaging datasets. This capability enables organizations to deliver better healthcare. For example:
 
-- **Image back-up**. Research institutions, clinics, imaging centers, veterinary clinics, pathology institutions, retailers, or organizations can use the DICOM service to back up their images with unlimited storage and access. There's no need to deidentify PHI data because the service is validated for PHI compliance.
+- **Image back-up**. Research institutions, clinics, imaging centers, veterinary clinics, pathology institutions, retailers, or other organizations can use the DICOM service to back up their images with unlimited storage and access. There's no need to de-identify PHI data because the service is validated for PHI compliance.
 
 - **Image exchange and collaboration**. Share an image, a subset of images, or an entire image library instantly with or without related EHR data.
 
@@ -51,19 +51,19 @@ The DICOM service enables organizations to manage medical imaging data with seve
 
 - **Studies Service support**. The [Studies Service](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_10) allows users to store, retrieve, and search for DICOM studies, series, and instances. Microsoft includes the nonstandard delete transaction to enable a full resource lifecycle.
 
-- **Worklist Service support**. The DICOM service supports the Push and Pull SOPs of the [Worklist Service (UPS-RS)](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_11). This service provides access to one Worklist containing Workitems, each of which represents a Unified Procedure Step (UPS).Studies Service
+- **Worklist Service support**. The DICOM service supports the Push and Pull SOPs of the [Worklist Service (UPS-RS)](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#chapter_11). This service provides access to one Worklist containing Workitems, each of which represents a Unified Procedure Step (UPS) Studies Service.
 
 - **Extended query tags**. The DICOM service allows you to expand the list of tags specified in the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md) so you can index DICOM studies, series, and instances on standard or private DICOM tags.
 
-- **Change feed**. The DICOM service enables you to access ordered, guaranteed, immutable, read-only logs of all changes that occur in the DICOM service. Client applications can read these logs at any time independently, in parallel and at their own pace.
+- **Change feed**. The DICOM service enables you to access ordered, guaranteed, immutable, read-only logs of all changes that occur in the DICOM service. Client applications can read these logs at any time independently, in parallel, and at their own pace.
 
 - **DICOMcast**. DICOMcast is an [open-source capability](https://github.com/microsoft/dicom-server/blob/main/docs/quickstarts/deploy-dicom-cast.md) that can be self-hosted in Azure. DICOMcast enables a single source of truth for clinical data and imaging metadata. With DICOMcast, the DICOM service can inject DICOM metadata into a FHIR service or FHIR server as an imaging study resource.
 
-- **Export files**. The DICOM service allows you to [export DICOM data](export-dicom-files.md) in a file format, simplifying the process of using medical imaging in external workflows such as AI and machine learning. 
+- **Export files**. The DICOM service allows you to [export DICOM data](export-dicom-files.md) in a file format, simplifying the process of using medical imaging in external workflows, such as AI and machine learning. 
 
 ## Prerequisites to deploy the DICOM service
 
-Your organization needs an Azure subscription to configure and run the components required for the DICOM service. By default, the components are created inside of an Azure resource group to simplify management. Additionally, a Microsoft Entra account is required. For each instance of the DICOM service, Microsoft creates a combination of isolated and multitenant resources.
+Your organization needs an Azure subscription to configure and run the components required for the DICOM service. To simplify management, by default the components are created inside an Azure resource group. Additionally, a Microsoft Entra account is required. For each instance of the DICOM service, Microsoft creates a combination of isolated and multitenant resources.
  
 ## Next steps
 

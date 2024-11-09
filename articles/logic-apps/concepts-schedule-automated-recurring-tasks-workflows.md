@@ -36,7 +36,7 @@ You can also use the Schedule built-in actions to pause your workflow before the
 
 This guide describes the capabilities for the Schedule-type built-in triggers and actions.
 
-## Run recurring workloads with without multiple logic apps
+## Run recurring workloads without creating multiple logic apps
 
 You can schedule and run recurring workloads without creating a separate Consumption logic app for each scheduled job and running into the [limit on workflows per region and subscription](logic-apps-limits-and-config.md#definition-limits). Instead, you can either [create a Standard logic app with multiple workflows](create-single-tenant-workflows-azure-portal.md), or use the Consumption logic app pattern that's created by the [Azure QuickStart template: Logic Apps job scheduler](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logicapps-jobscheduler/).
 

@@ -30,15 +30,15 @@ The following requirements and considerations apply to large volumes. For perfor
       <tr>
         <th></th>
         <th colspan="2">Capacity</th>
-        <th colspan="2">Linear performance scaling per TiB up to maximum throughput </th>
+        <th colspan="2">Linear performance scaling per TiB up to maximum allowed capacity tier throughput (large volume) </th>
       </tr></thead>
     <tbody>
       <tr>
         <td>Capacity tier</td>
         <td>Minimum volume size<br>(TiB)</td>
         <td>Maximum volume size (TiB)</td>
-        <td>Minimum throughput (MiB/s)</td>
-        <td>Maximum throughput (MiB/s)</td>
+        <td>Minimum throughput for capacity tier (MiB/s)</td>
+        <td>Maximum throughput for capacity tier (MiB/s)</td>
       </tr>
       <tr>
         <td>Standard (16 MiB/s per TiB)</td>
@@ -65,8 +65,11 @@ The following requirements and considerations apply to large volumes. For perfor
     </table>
 
     \* 2-PiB large volumes are available on request depending on regional dedicated capacity availability. To request 2-PiB large volumes, contact your account team. 
-    
-* Large volumes aren't currently supported with standard storage with cool access.
+
+    For the latest performance benchmark numbers conducted on Azure NetApp Files Large volumes, see [Azure NetApp Files large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)](solutions-benefits-azure-netapp-files-electronic-design-automation.md).
+
+
+* Large volumes aren't currently supported with cool access.
 
 ## About 64-bit file IDs
 
@@ -115,6 +118,7 @@ If this is your first time using large volumes, register the feature with the [l
 
 ## Next steps
 
+* [Understand large volumes](large-volumes.md)
 * [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Create an NFS volume](azure-netapp-files-create-volumes.md)

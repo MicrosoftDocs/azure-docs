@@ -5,8 +5,8 @@ description: Find out about reliability and high availability in Azure Database 
 author: sunilagarwal
 ms.author: anaharris
 ms.reviewer: maghan, anaharris
-ms.date: 12/21/2023
-ms.service: postgresql
+ms.date: 11/5/2024
+ms.service: azure-database-postgresql
 ms.topic: conceptual
 ms.custom:
   - references_regions
@@ -47,7 +47,7 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 
 **Zone redundancy:**
 
-- The **zone-redundancy** option is only available in [regions that support availability zones](../postgresql/flexible-server/overview.md#azure-regions).
+- The **zone-redundancy** option is only available in [regions that support availability zones](/azure/postgresql/flexible-server/overview#azure-regions).
 
 - Zone-redundancy is **not** supported for:
 
@@ -57,7 +57,7 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 
 **Zonal:**
 
-- The **zonal** deployment option is available in all [Azure regions](../postgresql/flexible-server/overview.md#azure-regions) where you can deploy Flexible Server.
+- The **zonal** deployment option is available in all [Azure regions](/azure/postgresql/flexible-server/overview#azure-regions) where you can deploy Flexible Server.
 
 ### High availability features
 
@@ -81,6 +81,19 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 
 - Periodic maintenance activities such as minor version upgrades happen at the standby first and, to reduce downtime, the standby is promoted to primary so that workloads can keep on, while the maintenance tasks are applied on the remaining node.
 
+
+### Monitor High-Availability Health
+
+High Availability (HA) health status monitoring in Azure Database for PostgreSQL - Flexible Server provides a continuous overview of the health and readiness of HA-enabled instances. This monitoring feature leverages [Azure’s Resource Health Check (RHC)](/azure/service-health/resource-health-overview) framework to detect and alert on any issues that may impact your database's failover readiness or overall availability. By assessing key metrics like connection status, failover state, and data replication health, HA health status monitoring enables proactive troubleshooting and helps maintain your database’s uptime and performance.
+
+Customers can use HA health status monitoring to:
+
+- Gain real-time insights into the health of both primary and standby replicas, with status indicators that reveal potential issues, such as degraded performance or network blocking.
+- Configure alerts for timely notifications on any changes in HA status, ensuring immediate action to address potential disruptions.
+- Optimize failover readiness by identifying and addressing issues before they impact database operations.
+
+For a detailed guide on configuring and interpreting HA health statuses, refer to the main article [High Availability (HA) health status monitoring for Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-monitor-high-availability).
+
 ### High availability limitations
 
 - Due to synchronous replication to the standby server, especially with a zone-redundant configuration, applications can experience elevated write and commit latency.
@@ -101,7 +114,7 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 
 - Planned events such as scale computing and scale storage happens on the standby first and then on the primary server. Currently, the server doesn't failover for these planned operations.
 
-- If logical decoding or logical replication is configured with an availability-configured Flexible Server, in the event of a failover to the standby server, the logical replication slots aren't copied over to the standby server. To maintain logical replication slots and ensure data consistency after a failover, it is recommended to use the PG Failover Slots extension. For more information on how to enable this extension, please refer to the [documentation](../postgresql/flexible-server/concepts-extensions.md#pg_failover_slots-preview).
+- If logical decoding or logical replication is configured with an availability-configured Flexible Server, in the event of a failover to the standby server, the logical replication slots aren't copied over to the standby server. To maintain logical replication slots and ensure data consistency after a failover, it is recommended to use the PG Failover Slots extension. For more information on how to enable this extension, please refer to the [documentation](/azure/postgresql/flexible-server/concepts-extensions#pg_failover_slots-preview).
 
 - Configuring availability zones between private (VNET) and public access with private endpoints isn't supported. You must configure availability zones within a VNET (spanned across availability zones within a region) or public access with private endpoints.
 
@@ -119,7 +132,7 @@ To learn how to create an Azure Database for PostgreSQL - Flexible Server for hi
 
 ### Availability zone redeployment and migration
 
-To learn how to enable or disable high availability configuration in your flexible server in both zone-redundant and zonal deployment models see [Manage high availability in Flexible Server](../postgresql/flexible-server/how-to-manage-high-availability-portal.md).
+To learn how to enable or disable high availability configuration in your flexible server in both zone-redundant and zonal deployment models see [Manage high availability in Flexible Server](/azure/postgresql/flexible-server/how-to-manage-high-availability-portal).
 
 ### High availability components and workflow
 

@@ -10,7 +10,7 @@ ms.topic: how-to
 
 # Asset modification overview
 
-This article outlines how to modify inventory assets. You can change the state of an asset, assign an external ID or apply labels to help provide context and use inventory data. Users can also remove assets from their inventory in bulk based on the method with which they were discovered; for instance, users can remove a seed from a discovery group and elect to remove any assets that were discovered through a connection to this seed. This article describes all modification options available in Defender EASM, and outlines how to update assets and track any updates with the Task Manager.
+This article outlines how to modify inventory assets. You can change the state of an asset, assign an external ID or apply labels to help provide context and use inventory data. You can also mark CVEs and other observations as non-applicable to remove them from your reported counts. You can also remove assets from their inventory in bulk based on the method with which they are discovered. For instance, users can remove a seed from a discovery group and elect to remove any assets that are discovered through a connection to this seed. This article describes all modification options available in Defender EASM, and outlines how to update assets and track any updates with the Task Manager.
 
 ### Label assets
 
@@ -32,16 +32,26 @@ Labels are free form text fields, so you can create a label for any use case tha
 ### Change the state of an asset 
 
 Users can also change the state of an asset. States help categorize your inventory based on their role in your organization. Users can switch between the following states: 
-- **Approved Inventory**:	A part of your owned attack surface; an item that you are directly responsible for.
-- **Dependency**:	Infrastructure that is owned by a third party but is part of your attack surface because it directly supports the operation of your owned assets. For example, you might depend on an IT provider to host your web content. While the domain, hostname, and pages would be part of your “Approved Inventory,” you may wish to treat the IP Address running the host as a “Dependency.”
-- **Monitor Only**:	An asset that is relevant to your attack surface but is neither directly controlled nor a technical dependency. For example, independent franchisees or assets belonging to related companies might be labeled as “Monitor Only” rather than “Approved Inventory” to separate the groups for reporting purposes.
-- **Candidate**:	An asset that has some relationship to your organization's known seed assets but does not have a strong enough connection to immediately label it as “Approved Inventory.” These candidate assets must be manually reviewed to determine ownership.
-- **Requires Investigation**:	A state similar to the “Candidate” states, but this value is applied to assets that require manual investigation to validate. This is determined based on our internally generated confidence scores that assess the strength of detected connections between assets. It does not indicate the infrastructure's exact relationship to the organization as much as it denotes that this asset has been flagged as requiring additional review to determine how it should be categorized.
+- **Approved Inventory**:	A part of your owned attack surface; an item that you're directly responsible for.
+- **Dependency**:	Infrastructure owned by a third party but is part of your attack surface because it directly supports the operation of your owned assets. For example, you might depend on an IT provider to host your web content. While the domain, hostname, and pages would be part of your “Approved Inventory,” you may wish to treat the IP Address running the host as a “Dependency.”
+- **Monitor Only**:	An asset that is relevant to your attack surface but isn't directly controlled by your organization, nor a technical dependency. For example, independent franchisees or assets belonging to related companies might be labeled as “Monitor Only” rather than “Approved Inventory” to separate the groups for reporting purposes.
+- **Candidate**:	An asset that has some relationship to your organization's known seed assets but doesn't have a strong enough connection to immediately label it as “Approved Inventory.” These candidate assets must be manually reviewed to determine ownership.
+- **Requires Investigation**:	A state similar to the “Candidate” states, but this value is applied to assets that require manual investigation to validate. This is determined based on our internally generated confidence scores that assess the strength of detected connections between assets. It doesn't indicate the infrastructure's exact relationship to the organization as much as it denotes that this asset was flagged as requiring extra review to determine how it should be categorized.
 
 
 ### Apply an External ID 
 
-Users can also apply an external ID to an asset. This is useful in situations when you employ multiple solutions for asset tracking, remediation activities or ownership monitoring; seeing any external IDs within Defender EASM helps you align this disparate asset information. External ID values can be numeric or alphanumeric and must be entered in text format. External IDs are also displayed within the Asset Details section. 
+Users can also apply an external ID to an asset. This action is useful in situations when you employ multiple solutions for asset tracking, remediation activities or ownership monitoring; seeing any external IDs within Defender EASM helps you align this disparate asset information. External ID values can be numeric or alphanumeric and must be entered in text format. External IDs are also displayed within the Asset Details section. 
+
+
+### Mark observation as non-applicable 
+
+Many Defender EASM dashboards feature CVE data, bringing your attention to potential vulnerabilities based on the web component infrastructure that powers your attack surface. For instance, CVEs are listed on the Attack Surface summary dashboard, categorized by their potential severity. Upon investigating these CVEs, you might determine that some aren't relevant to your organization. This may be because you're running an unimpacted version of the web component, or your organization has different technical solutions in place to protect you from that specific vulnerability. 
+
+From the drilldown view of any CVE-related chart, next to the "Download CSV report" button, you now have the option to set an observation as non-applicable. Clicking this value routes you to an inventory list of all assets associated to that observation, and you can then elect to mark all observations as non-applicable from this page. The actual change is either performed from the Inventory list view or from the Asset details page for a particular asset. 
+
+![Screenshot of dashboard drilldown view with "mark observation as nonapplicable" button highlighted.](media/cves-1.png)
+
 
 
 ## How to modify assets 
@@ -54,7 +64,7 @@ You should modify assets from the inventory list page if you want to update nume
 
 1. On the leftmost pane of your Microsoft Defender External Attack Surface Management (Defender EASM) resource, select **Inventory**.
 
-2. Apply filters to produce your intended results. In this example, we're looking for domains that expire within 30 days that require renewal. The applied label helps you more quickly access any expiring domains to simplify the remediation process. You can apply as many filters as necessary to obtain the specific results that are needed. For more information on filters, see [Inventory filters overview](inventory-filters.md).
+2. Apply filters to produce your intended results. In this example, we're looking for domains that expire within 30 days that require renewal. The applied label helps you more quickly access any expiring domains to simplify the remediation process. You can apply as many filters as necessary to obtain the specific results that are needed. For more information on filters, see [Inventory filters overview](inventory-filters.md). For instances where you'd like to mark CVEs as non-applicable, the relevant dashbaord chart drilldown provides a link that directly routes you to this Inventory page with the correct filters applied. 
 
    ![Screenshot that shows the inventory list view with the Add filter dropdown opened to display the query editor.](media/labels-2.png)
 
@@ -64,7 +74,10 @@ You should modify assets from the inventory list page if you want to update nume
 
 4. Select **Modify assets**.
 
-5. On the **Modify Assets** pane that opens on the right side of your screen, you can quickly change the state of the selected assets. For this example, you create a new label. Select **Create a new label**.
+   ![Screenshot that shows the available modification options.](media/cves-2.png)
+
+
+5. On the **Modify Assets** pane that opens on the right side of your screen, you can quickly change various fields for the selected assets. For this example, you create a new label. Select **Create a new label**.
 
 6. Determine the label name and display text values. The label name can't be changed after you initially create the label, but the display text can be edited at a later time. The label name is used to query for the label in the product interface or via API, so edits are disabled to ensure these queries work properly. To edit a label name, you need to delete the original label and create a new one.
 
@@ -98,6 +111,7 @@ You can also modify a single asset from the asset details page. This option is i
 5. The asset details page refreshes and displays the newly applied label or state change. A banner indicates that the asset was successfully updated.
 
 
+
 ## Modify, remove, or delete labels
 
 Users can remove a label from an asset by accessing the same **Modify asset** pane from either the inventory list or asset details view. From the inventory list view, you can select multiple assets at once and then add or remove the desired label in one action.
@@ -117,6 +131,14 @@ To modify the label itself or delete a label from the system:
    ![Screenshot that shows the Confirm Remove option on the Labels management page.](media/labels-9a.png)
 
 The **Labels** page automatically refreshes. The label is removed from the list and also removed from any assets that had the label applied. A banner confirms the removal.
+
+
+
+## Mark observations as non-applicable 
+
+While observations can be marked as non-applicable from the same "Modify assets" screens for other manual changes, you can also make these updates from the Observations tab in Asset details. The Observations tab features two tables: Observations and Non-appliable observations. All active observations determined to be "recent" within your attack surface are in the Observations table, whereas the Non-applicable observations table lists any observations that were manually marked as non-applicable or were determined by the system to no longer be applicable. To mark observations as non-applicable and therefore exclude that particular observation from dashboard counts, simply select the desired observations and click "Set as non-applicable."  These observations immediately disappear from the active Observations table and instead appear on the "Non-applicable observations" table. You can revert this change at any time by selection the relevant observations from this table and selecting "Set as applicable." 
+
+   ![Screenshot that shows the Observations tab with multiple CVEs selected to be marked as non-applicable.](media/cves-3.png)
 
 
 ## Task Manager and notifications
@@ -155,11 +177,11 @@ After you label assets in your inventory, you can use inventory filters to retri
 
 ## Asset chain-based management 
 
-In some instances, you may wish to remove multiple assets at once based on the means with which they were discovered. For example, you may determine that a particular seed within a discovery group has pulled in assets that are not relevant to your organization, or you may need to remove assets that relate to a subsidiary that is no longer under your purview. For this reason, Defender EASM offers the ability to remove the source entity and any assets "downstream" in the discovery chain. You can delete linked assets with the following three methods: 
+In some instances, you may wish to remove multiple assets at once based on the means with which they were discovered. For example, you may determine that a particular seed within a discovery group pulled in assets that are not relevant to your organization, or you may need to remove assets that relate to a subsidiary that is no longer under your purview. For this reason, Defender EASM offers the ability to remove the source entity and any assets "downstream" in the discovery chain. You can delete linked assets with the following three methods: 
 
-- **Seed-based management:** users can delete a seed that was previously included in a discovery group, removing all assets that were introduced to inventory through an observed connection to the specified seed. This method is useful when you can determine that a specific manually inputted seed resulted in undesired assets being added to inventory. 
-- **Discovery chain management**: users can identify an asset within a discovery chain and delete it, simultaneously removing any assets discovered by that entity. Discovery is a recursive process; it scans seeds to identify new assets directly associated to these designated seeds, then continues to scan the newly discovered entities to unveil more connections. This deletion approach is useful when your discovery group is properly configured, but you need to remove a newly discovered asset and any asset(s) brought into inventory by association to that entity. Consider your discovery group settings and designated seeds to be the "top" of your discovery chain; this deletion approach allows you to remove assets from the middle.
-- **Discovery group management:** users can remove entire discovery group(s) and all assets that were introduced to inventory through this discovery group. This is useful when an entire discovery group is no longer applicable to your organization. For instance, you may have a discovery group that specifically searches for assets related to a subsidiary. If this subsidiary is no longer relevant to your organization, you can leverage asset chain-based management to delete all assets brought into inventory through that discovery group.
+- **Seed-based management:** users can delete a seed that was once included in a discovery group, removing all assets that were introduced to inventory through an observed connection to the specified seed. This method is useful when you can determine that a specific manually inputted seed resulted in undesired assets being added to inventory. 
+- **Discovery chain management**: users can identify an asset within a discovery chain and delete it, simultaneously removing any assets discovered by that entity. Discovery is a recursive process; it scans seeds to identify new assets directly associated to these designated seeds, then continues to scan the newly discovered entities to unveil more connections. This deletion approach is useful when your discovery group is properly configured, but you need to remove a newly discovered asset and any assets brought into inventory by association to that entity. Consider your discovery group settings and designated seeds to be the "top" of your discovery chain; this deletion approach allows you to remove assets from the middle.
+- **Discovery group management:** users can remove entire discovery groups and all assets that were introduced to inventory through this discovery group. This is useful when an entire discovery group is no longer applicable to your organization. For instance, you may have a discovery group that specifically searches for assets related to a subsidiary. If this subsidiary is no longer relevant to your organization, you can leverage asset chain-based management to delete all assets brought into inventory through that discovery group.
 
  You can still view removed assets in Defender EASM; simply filter your inventory list for assets in the "Archived" state. 
 
@@ -168,7 +190,7 @@ In some instances, you may wish to remove multiple assets at once based on the m
 
 You may decide that one of your initially designated discovery seeds should no longer be included in a discovery group.  The seed may no longer be relevant to your organization, or it might be bringing in more false positives than legitimate owned assets. In this situation, you can remove the seed from your Discovery Group to prevent it from being used in future discovery runs while simultaneously removing any assets that have been brought to inventory through the designated seed in the past. 
 
-To perform a bulk removal based on a seed, route to the appropriate Discovery Group details page and click "Edit discovery group."  Follow the prompts to reach the Seeds page, and remove the problematic seed from the list. When you select "Review + Update", you will see a warning that indicates that all assets discovered through the designated seed will be removed as well. Select "Update" or "Update & Run" to complete the deletion. 
+To perform a bulk removal based on a seed, route to the appropriate Discovery Group details page and click "Edit discovery group."  Follow the prompts to reach the Seeds page, and remove the problematic seed from the list. When you select "Review + Update", you'll see a warning that indicates that all assets discovered through the designated seed will be removed as well. Select "Update" or "Update & Run" to complete the deletion. 
 
 ![Screenshot that shows the Edit Discovery Group page with a warning indicating the removal of a seed and any assets discovered through that seed.](media/chain-1.png)
 
@@ -180,14 +202,14 @@ In the following example, imagine that you've discovered an insecure login form 
 
 ![Screenshot that shows the Asset Details page with the Discovery Chain section highlighted.](media/chain-2.png)
 
-In this situation, the initial discovery seed (the corporate domain) is still legitimate so we need to instead remove a problematic asset from the discovery chain. While we could perform the chain deletion from the contact email, we'll instead elect to remove everything associated to the personal domain registered to this employee so that Defender EASM will alert us of any other domains registered to that email address in the future. From the discovery chain, select this personal domain to view the asset details page. From this view, select "Remove from discovery chain" to remove the asset from your inventory, as well as all assets brought into inventory due to an observed connection to the personal domain. You will be asked to confirm the removal of the asset and all downstream assets and will be presented with a summarized list of the other assets that will be removed with this action. Select "Remove discovery chain" to confirm the bulk removal. 
+In this situation, the initial discovery seed (the corporate domain) is still legitimate so we need to instead remove a problematic asset from the discovery chain. While we could perform the chain deletion from the contact email, we'll instead elect to remove everything associated to the personal domain registered to this employee so that Defender EASM will alert us of any other domains registered to that email address in the future. From the discovery chain, select this personal domain to view the asset details page. From this view, select "Remove from discovery chain" to remove the asset from your inventory, as well as all assets brought into inventory due to an observed connection to the personal domain. You need to confirm the removal of the asset and all downstream assets and are then presented with a summarized list of the other assets that are removed with this action. Select "Remove discovery chain" to confirm the bulk removal. 
 
-![Screenshot that shows the box that prompts users to confirm the removal of the current asset and all downstream assets, with a summary of the other assets that will be removed with this action.](media/chain-3.png)
+![Screenshot that shows the box that prompts users to confirm the removal of the current asset and all downstream assets, with a summary of the other assets that are removed with this action.](media/chain-3.png)
 
 
 ### Discovery group deletion 
 
-You may need to delete and entire discovery group and all the assets discovered through the group.  For instance, your company may have sold a subsidiary that no longer needs to be monitored. Users can delete discovery groups from the Discovery management page. To remove a discovery group and all related assets, simply select the trash bin icon next to the appropriate group in the list. You will receive a warning that lists a summary of the assets that will be removed with this action. To confirm the deletion of the discovery group; and all related assets, select "Remove discovery group." 
+You may need to delete and entire discovery group and all the assets discovered through the group.  For instance, your company may have sold a subsidiary that no longer needs to be monitored. Users can delete discovery groups from the Discovery management page. To remove a discovery group and all related assets, select the trash bin icon next to the appropriate group in the list. You'll receive a warning that lists a summary of the assets that will be removed with this action. To confirm the deletion of the discovery group; and all related assets, select "Remove discovery group." 
 
 ![Screenshot that shows the Discovery management page, with the warning box that appears after electing to delete a group highlighted.](media/chain-4.png)
 

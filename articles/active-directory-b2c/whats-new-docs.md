@@ -1,9 +1,9 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 07/31/2024
-ms.service: active-directory
-ms.subservice: B2C
+ms.date: 11/04/2024
+ms.service: azure-active-directory
+ms.subservice: b2c
 ms.topic: whats-new
 
 ms.author: kengaderdus
@@ -19,29 +19,27 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
 
-## July 2024
+## October 2024
 
 ### Updated articles
 
-- [Developer notes for Azure Active Directory B2C](custom-policy-developer-notes.md) - Updated Twitter to X
-- [Custom email verification with SendGrid](custom-email-sendgrid.md) - Updated the localization script
+- [Secure APIs used for API connectors in Azure AD B2C](secure-rest-api.md) - ROPC flow updates
+- [Application types that can be used in Active Directory B2C](application-types.md) - Implicit grant flow updates
+- [Configure authentication in a sample single-page application by using Azure AD B2C](configure-authentication-sample-spa-app.md) - Implicit grant flow updates
+- [Single-page application sign-in using the OAuth 2.0 implicit flow in Azure Active Directory B2C](implicit-flow-single-page-application.md) - Implicit grant flow updates
+- [Register a single-page application in Azure Active Directory B2C](tutorial-register-spa.md) - Implicit grant flow updates
 
-## June 2024
-
-### Updated articles
-
-- [Define an OAuth2 custom error technical profile in an Azure Active Directory B2C custom policy](oauth2-error-technical-profile.md) - Error code updates
-- [Configure authentication in a sample Python web app by using Azure AD B2C](configure-authentication-sample-python-web-app.md) - Python version update
-
-
-## May 2024
-
-### New articles
-
-- [Configure Transmit Security with Azure Active Directory B2C for risk detection and prevention](partner-transmit-security.md)
+## September 2024
 
 ### Updated articles
 
-- [Set up sign-up and sign-in with a LinkedIn account using Azure Active Directory B2C](identity-provider-linkedin.md) - Updated LinkedIn instructions
-- [Page layout versions](page-layout.md) - Updated page layout versions
+- [Developer notes for Azure Active Directory B2C](custom-policy-developer-notes.md) - Updated feature availability for China cloud
+
+## August 2024
+
+This month, we changed Twitter to X in numerous articles and code samples.
+
+### Updated articles
+
+- [Tutorial: Configure Keyless with Azure Active Directory B2C](partner-keyless.md) - Editorial updates
 

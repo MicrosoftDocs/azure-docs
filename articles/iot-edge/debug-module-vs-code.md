@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 02/14/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 zone_pivot_groups: iotedge-dev
 ---
 
@@ -428,6 +428,6 @@ See this [IoT Developer blog entry](https://devblogs.microsoft.com/iotdev/easily
 
 ## Next steps
 
-After you've built your module, learn how to [deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md).
+After you've built your module, learn how to [deploy Azure IoT Edge modules](how-to-deploy-modules-cli.md).
 
 To develop modules for your IoT Edge devices, understand and use [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).

@@ -10,13 +10,13 @@ ms.author: kesheth
 ---
 # Export your FHIR data
 
-By using the bulk `$export` operation in the FHIR service, you can export data as described in the [HL7 FHIR Bulk Data Access specification](https://www.hl7.org/fhir/uv/bulkdata/). 
+By using the bulk `$export` operation in the FHIR&reg; service, you can export data as described in the [HL7 FHIR Bulk Data Access specification](https://www.hl7.org/fhir/uv/bulkdata/). 
 
 Before you attempt to use `$export`, make sure that your FHIR service is configured to connect with an Azure Data Lake Storage Gen2 account. To configure export settings and create a Data Lake Storage Gen2 account, refer to [Configure settings for export](./configure-export-data.md).
 
 ## Call the `$export` endpoint
 
-After you set up the FHIR service to connect with a Data Lake Storage Gen2 account, you can call the `$export` endpoint, and the FHIR service will export data into an Azure Blob Storage container inside the storage account. The following example request exports all resources into a container, which is specified by name (`{{containerName}}`). Note that you must create the container in the Data Lake Storage Gen2 account beforehand if you want to specify the `{{containerName}}` in the request.
+After you set up the FHIR service to connect with a Data Lake Storage Gen2 account, you can call the `$export` endpoint, and the FHIR service will export data into an Azure Blob Storage container inside the storage account. The following example request exports all resources into a container, which is specified by name (`{{containerName}}`). Note: You must create the container in the Data Lake Storage Gen2 account before hand if you want to specify the `{{containerName}}` in the request.
 
 ```
 GET {{fhirurl}}/$export?_container={{containerName}}
@@ -32,7 +32,8 @@ The FHIR service supports `$export` at the following levels:
 * [Group of patients](https://www.hl7.org/fhir/uv/bulkdata/)\*: `GET {{fhirurl}}/Group/[ID]/$export`  
     \*The FHIR service exports all referenced resources but doesn't export the characteristics of the group resource itself.
 
-Data is exported in multiple files. Each file contains resources of only one type. The number of resources in an individual file will be limited. The maximum number of resources is based on system performance. It is currently set to 5,000, but can change. The result is that you might get multiple files for a resource type. The file names will follow the format `<resourceName>-<number>-<number>.ndjson`. The order of the files is not guaranteed to correspond to any ordering of the resources in the database.
+Data is exported in multiple files. Each file contains resources of only one type. The number of resources in an individual file is. The maximum number of resources is based on system performance. It's currently set to 5,000, but can change.
+The result is that you might get multiple files for a resource type. The file names follow the format `<resourceName>-<number>-<number>.ndjson`. The order of the files isn't guaranteed to correspond to any ordering of the resources in the database.
 
 > [!NOTE] 
 > `Patient/$export` and `Group/[ID]/$export` can export duplicate resources if a resource is in multiple groups or in a compartment of more than one resource.
@@ -44,7 +45,7 @@ In addition to checking the presence of exported files in your storage account, 
 Currently, the FHIR service supports `$export` to Data Lake Storage Gen2 accounts, with the following limitations:
 
 - Data Lake Storage Gen2 provides [hierarchical namespaces](../../storage/blobs/data-lake-storage-namespace.md), yet there isn't a way to target `$export` operations to a specific subdirectory within a container. The FHIR service can specify only the destination container for the export, where a new folder for each `$export` operation is created.
-- After an `$export` operation is complete and all data has been written inside a folder, the FHIR service doesn't export anything to that folder again, because subsequent exports to the same container will be inside a newly created folder.
+- After an `$export` operation is complete and all data has been written inside a folder, the FHIR service doesn't export anything to that folder again. Subsequent exports to the same container will be inside a newly created folder.
 
 To export data to a storage account behind a firewall, see [Configure settings for export](configure-export-data.md).
 
@@ -60,13 +61,13 @@ The FHIR service supports the following query parameters for filtering exported 
 
 |Query parameter        | Defined by the FHIR specification?    |  Description|
 |------------------------|---|------------|
-| `_outputFormat` | Yes | Currently supports three values to align to the FHIR specification: `application/fhir+ndjson`, `application/ndjson`, or just `ndjson`. All export jobs will return `.ndjson` files and the passed value has no effect on code behavior. |
+| `_outputFormat` | Yes | Currently supports three values to align to the FHIR specification: `application/fhir+ndjson`, `application/ndjson`, or just `ndjson`. All export jobs return `.ndjson` files and the passed value has no effect on code behavior. |
 | `_since` | Yes | Allows you to export only resources that have been modified since the specified time. |
-| `_type` | Yes | Allows you to specify which types of resources will be included. For example, `_type=Patient` would return only patient resources.|
+| `_type` | Yes | Allows you to specify which types of resources to be included. For example, `_type=Patient` would return only patient resources.|
 | `_typeFilter` | Yes | To request finer-grained filtering, you can use `_typeFilter` along with the `_type` parameter. The value of the `_typeFilter` parameter is a comma-separated list of FHIR queries that further limit the results. |
-| `_container` | No |  Specifies the name of the container in the configured storage account where the data should be exported. If a container is specified, the data will be exported into a folder in that container. If the container isn't specified, the data will be exported to a new container with an autogenerated name. |
-| `_till` | No |  Allows you to export resources that have been modified till the specified time. This parameter is applicable only with System-Level export. In this case, if historical versions have not been disabled or purged, export guarantees true snapshot view, or, in other words, enables time travel. |
-|`includeAssociatedData` | No | Allows you to export history and soft deleted resources. This filter doesn't work with '_typeFilter' query parameter. Include value as '_history' to export history/ non latest versioned resources. Include value as '_deleted' to export soft deleted resources. |
+| `_container` | No |  Specifies the name of the container in the configured storage account where the data should be exported. If a container is specified, the data is exported into a folder in that container. If the container isn't specified, the data is exported to a new container with an autogenerated name. |
+| `_till` | No |  Allows you to export resources that have been modified up to the specified time. This parameter is applicable only with System-Level export. In this case, if historical versions haven't been disabled or purged, export guarantees a true snapshot view. |
+|`includeAssociatedData` | No | Allows you to export history and soft deleted resources. This filter doesn't work with '_typeFilter' query parameter. Include value as '_history' to export history/non-latest versioned resources. Include value as '_deleted' to export soft deleted resources. |
 > [!NOTE]
 > Only storage accounts in the same subscription as the FHIR service are allowed to be registered as the destination for `$export` operations.
     
@@ -78,16 +79,14 @@ The following information can help you resolve problems with exporting FHIR data
 
 In some situations, there's a potential for a job to be stuck in a bad state while the FHIR service is attempting to export data. This can occur especially if the Data Lake Storage Gen2 account permissions haven't been set up correctly.
 
-One way to check the status of your `$export` operation is to go to your storage account's *storage browser* and see whether any `.ndjson` files are present in the export container. If the files aren't present and no other `$export` jobs are running, it's possible that the current job is stuck in a bad state. In this case, you can cancel the `$export` job by calling the FHIR service API with a `DELETE` request. Later, you can requeue the `$export` job and try again. 
-
-For more information about canceling an `$export` operation, see the [Bulk Data Delete Request](https://www.hl7.org/fhir/uv/bulkdata/) documentation from HL7. 
+One way to check the status of your `$export` operation is to go to your storage account's *storage browser* and see whether any `.ndjson` files are present in the export container. If the files aren't present and no other `$export` jobs are running, it's possible that the current job is stuck in a bad state. In this case, you can cancel the `$export` job by sending a DELETE request to the URL provided in the Content-Location header to cancel the request
 
 > [!NOTE] 
 > In the FHIR service, the default time for an `$export` operation to idle in a bad state is 10 minutes before the service stops the operation and moves to a new job.
 
 ## Next steps
 
-In this article, you've learned about exporting FHIR resources by using the `$export` operation. For information about how to set up and use additional options for export, see:
+In this article, you've learned about exporting FHIR resources by using the `$export` operation. For information about how to set up and use other options for export, see:
  
 >[!div class="nextstepaction"]
 >[Export de-identified data](de-identified-export.md)
@@ -95,4 +94,5 @@ In this article, you've learned about exporting FHIR resources by using the `$ex
 >[!div class="nextstepaction"]
 >[Copy data from the FHIR service to Azure Synapse Analytics](copy-to-synapse.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
+

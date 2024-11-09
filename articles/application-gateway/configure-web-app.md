@@ -57,7 +57,7 @@ In this article you'll learn how to:
 
 - App Service: If you don't have an existing App Service, see [App Service documentation](../app-service/index.yml).
 
-- A custom domain name and associated certificate (signed by a well known authority), stored in Key Vault.  For more information on how to store certificates in Key Vault, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md)
+- A custom domain name and associated certificate (signed by a well known authority), stored in Key Vault.  For more information on how to store certificates in Key Vault, see [Tutorial: Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate)
 
 ### [Default domain](#tab/defaultdomain)
 

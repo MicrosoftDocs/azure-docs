@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 10/31/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: rest-sdk
 ms.custom: devx-track-java, devx-track-js, devx-track-python, devx-track-ts
-services: azure-maps
 ---
 
 # REST SDK Developer Guide
@@ -117,7 +117,7 @@ For more information, see the [Java SDK Developers Guide].
 
 [js render readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-render-rest/README.md
 [js render package]: https://www.npmjs.com/package/@azure-rest/maps-render
-[js render sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-render-rest/samples/v1-beta
+[js render sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-render-rest/samples/v2-beta
 
 [js Geolocation readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-geolocation-rest/README.md
 [js Geolocation package]: https://www.npmjs.com/package/@azure-rest/maps-geolocation

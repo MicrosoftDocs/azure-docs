@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 04/12/2024
+  ms.date: 10/21/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 
@@ -77,7 +77,7 @@ sections:
 
       - question: Does Azure Backup support standard SSD-managed disks?
         answer: |
-          Yes, Azure Backup supports [standard SSD managed disks](../virtual-machines/disks-types.md#standard-ssds).
+          Yes, Azure Backup supports [standard SSD managed disks](/azure/virtual-machines/disks-types#standard-ssds).
 
       - question: Can we back up a VM with a Write Accelerator (WA)-enabled disk?
         answer: Snapshots can be taken on only data disks that are WA enabled and not OS disks. So, only data disks that are WA enabled can be protected.
@@ -93,7 +93,7 @@ sections:
           The scheduled backup will be triggered within 2 hours of the scheduled backup time. For example, If 100 VMs have their backup start time scheduled at 2:00 AM, then by 4:00 AM at the latest all the 100 VMs will have their backup job in progress. If scheduled backups have been paused because of an outage and resumed or retried, then the backup can start outside of this scheduled two-hour window.
 
       - question: What is the minimum allowed retention range for a daily backup point?
-        answer: Azure Virtual Machine backup policy supports a minimum retention range from seven days up to 9999 days. Any modification to an existing VM backup policy with less than seven days will require an update to meet the minimum retention range of seven days.
+        answer: Azure Virtual Machine backup policy supports a minimum retention range from seven days up to 9999 days. By default, backup of VMs are kept for *7 days* in snapshot and *180 days* in vault. Any modification to an existing VM backup policy with less than seven days will require an update to meet the minimum retention range of seven days.
 
       - question: What happens if I change the case of the name of my VM or my VM resource group?
         answer: If you change the case (to upper or lower) of your VM or VM resource group, the case of the backup item name won't change; this is expected Azure Backup behavior. The case change won't appear in the backup item, but is updated at the backend.
@@ -296,7 +296,7 @@ sections:
         answer: |
           Yes, it's supported for [Cross Zonal Restore](backup-azure-arm-restore-vms.md#restore-options).
 
-      - question: How do I clear iSCSI session and it's processes after running the Python script for Linux ILR?
+      - question: How do I clear iSCSI session and its processes after running the Python script for Linux ILR?
         answer: |
           After you unmount disks from the Azure portal, run the Python script with `clean` parameter (`python scriptName.py clean`) to clear the session and remove the mount paths of the recovery point from the machine.     
 
@@ -400,6 +400,35 @@ sections:
         answer: |
           **Expiry Time** of recovery points are updated when Garbage Collector (GC) runs, which is *every 24 hours*. Once you update the backup policy, it can take up to *24 hours* to show the updates in the **Expiry Time**, if there're no delays in GC jobs.
 
+      - question: Why the expiry time for latest recovery points doesn't appear in the Azure portal for VMs?
+        answer: |
+          The expiry time for the latest recovery point doesn't appear because it has infinite retention until a newer one gets created. The expiry time of other recovery points will be available in the Azure Portal after 24 hours of creation, depending on when the garbage collection runs (that will be within 24 hours).
 
+      - question: Will an Azure VM restore operation to original or alternate location affect a scheduled backup?
+        answer: |
+          No, the restore operation (to  the original or an alternate location) doesn't affect scheduled backups.
 
+          - **Restore to Original Location**: Azure Backup replaces the existing VM’s disks with the ones from the restore point. This process includes [taking a snapshot of the current VM before the restore ensuring that the backup schedule remains](backup-azure-arm-restore-vms.md).
+          - **Restore to Alternate Location**: Azure Backup creates a new VM using the restore point. This new VM won't have the same backup schedule as the original VM; you need to configure the Backup policy manually. Learn [about Azure VM restore](about-azure-vm-restore.md).
+
+          In these restore scenarios, the original backup policy and schedule for the original VM remain unaffected. However, if you want the restored VM (in the alternate location) to have a backup schedule, you need to set up the Backup policy.
       
+      - question: What happens to the backup configuration if I do Original/Alternate Location Restore of Azure VMs?
+        answer: |
+          In case of an Original Location Restore (OLR) or an Alternate Location Restore (ALR) for Azure VMs, Azure Backup performs the backup configuration as:
+
+          | Restore type | Backup configuration | Backup data |
+          | --- | --- | --- |
+          | **Original Location Restore (OLR)** | The backup configuration remains the same. The restored VM uses the same backup policy and schedule as the original VM. | The existing backup data is preserved, and new backups are triggered as per the original backup schedule. |
+          | **Alternate Location Restore (ALR)** | The new VM created in the alternate location doesn't inherit the backup configuration of the original VM. You need to configure a new backup policy for this VM manually. | The backup data for the original VM remains unaffected. However, the new VM starts with a fresh backup history once you configure its backup. |
+
+          >[!Note]
+          >- **OLR**: Provides a seamless continuation of backups with the same policy.
+          >- **ALR**: Requires manual setup of backup policies for the new VM.
+
+      - question: Why VMs with the Storage Spaces direct and Storage Spaces are not supported with the Azure VM Backup? 
+        answer: |    
+          Storage Spaces Direct is not supported since it has data spread across two different virtual machines.
+
+          Storage spaces in a single VM not supported for application consistent VM backup. For application consistent VM backup, VSS freezes the I/O and ensures that disk snapshots are consistent. Storage Spaces can still perform writes in the background, breaking the application consistent guarantee. This can result in a small probability that the backup taken is not application consistent. Today, backup and recovery of VM with storage spaces is not blocked in the product.
+

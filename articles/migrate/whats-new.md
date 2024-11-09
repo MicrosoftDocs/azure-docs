@@ -6,13 +6,23 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 06/07/2024
+ms.date: 10/28/2024
 ms.custom: mvc, engagement-fy24
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (November 2024)
+
+- AVS assessments now support cost assessments with AV64 SKU and Azure NetApp Files (ANF) as an external storage option. [Learn more](how-to-create-azure-vmware-solution-assessment.md).
+- Support for cost of SKUs when porting on-premises VCF subscription to AVS.
+
+## Update (October 2024)
+
+The RVTools XLSX (preview) file import now reads storage data, when available, from vPartition and vMemory (for storage required for unreserved memory) sheets. [Learn more](vmware/tutorial-import-vmware-using-rvtools-xlsx.md#prerequisites).
+
 
 ## Update (April 2024)
 
@@ -159,7 +169,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 ## Update (August 2021)
 
 - At-scale discovery and assessment of ASP.NET web apps running on IIS servers in your VMware environment, is now in preview. [Learn More](concepts-azure-webapps-assessment-calculation.md). Refer to the [Discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-webapps.md) tutorials to get started.
-- Support for Azure [ultra disks](../virtual-machines/disks-types.md#ultra-disks) in Azure VM assessment recommendation.
+- Support for Azure [ultra disks](/azure/virtual-machines/disks-types#ultra-disks) in Azure VM assessment recommendation.
 - General Availability of at-scale, software inventory, and agentless dependency analysis for VMware virtual machines.
 - Azure Migrate appliance updates:
     - "Diagnose and solve" on appliance to help users identify and self-assess any issues with the appliance.

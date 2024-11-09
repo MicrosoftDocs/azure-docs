@@ -16,7 +16,7 @@ This article shows you how to securely and seamlessly create an SSH connection t
 
 Azure Bastion provides secure connectivity to all of the VMs in the virtual network in which it's provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH. For more information, see the [What is Azure Bastion?](bastion-overview.md) article.
 
-When connecting to a Linux virtual machine using SSH, you can use both username/password and SSH keys for authentication. The SSH private key must be in a format that begins with  `"-----BEGIN RSA PRIVATE KEY-----"` and ends with `"-----END RSA PRIVATE KEY-----"`.
+When connecting to a Linux virtual machine using SSH, you can use both username/password and SSH keys for authentication.
 
 ## Prerequisites
 
@@ -61,16 +61,15 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
 
 1. Use the following sections in this article to configure authentication settings and connect to your VM.
 
-   * [Microsoft Entra ID Authentication](#microsoft-entra-id-authentication-preview)
+   * [Microsoft Entra ID Authentication](#microsoft-entra-id-authentication)
    * [Username and password](#password-authentication)
    * [Password - Azure Key Vault](#password-authentication---azure-key-vault)
    * [SSH private key from local file](#ssh-private-key-authentication---local-file)
    * [SSH private key - Azure Key Vault](#ssh-private-key-authentication---azure-key-vault)
 
-## Microsoft Entra ID authentication (Preview)
-
+## Microsoft Entra ID authentication
 > [!NOTE]
-> Microsoft Entra ID Authentication support for SSH connections within the portal is in Preview and is currently being rolled out.
+> Microsoft Entra ID Authentication support for SSH connections within the portal is only supported for Linux VMs.
 
 If  the following prerequisites are met, Microsoft Entra ID becomes the default option to connect to your VM. If not, Microsoft Entra ID won't appear as an option.
 
@@ -139,11 +138,11 @@ Use the following steps to authenticate using a password from Azure Key Vault.
    * **Azure Key Vault**: Select the Key Vault.
    * **Azure Key Vault Secret**: Select the Key Vault secret containing the value of your SSH private key.
 
-     * If you didn’t set up an Azure Key Vault resource, see [Create a key vault](../key-vault/secrets/quick-create-powershell.md) and store your SSH private key as the value of a new Key Vault secret.
+     * If you didn’t set up an Azure Key Vault resource, see [Create a key vault](/azure/key-vault/secrets/quick-create-powershell) and store your SSH private key as the value of a new Key Vault secret.
 
-     * Make sure you have **List** and **Get** access to the secrets stored in the Key Vault resource. To assign and modify access policies for your Key Vault resource, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md).
+     * Make sure you have **List** and **Get** access to the secrets stored in the Key Vault resource. To assign and modify access policies for your Key Vault resource, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
 
-     * Store your SSH private key as a secret in Azure Key Vault using the **PowerShell** or **Azure CLI** experience. Storing your private key via the Azure Key Vault portal experience interferes with the formatting and result in unsuccessful login. If you did store your private key as a secret using the portal experience and no longer have access to the original private key file, see [Update SSH key](../virtual-machines/extensions/vmaccess-linux.md#update-ssh-key) to update access to your target VM with a new SSH key pair.
+     * Store your SSH private key as a secret in Azure Key Vault using the **PowerShell** or **Azure CLI** experience. Storing your private key via the Azure Key Vault portal experience interferes with the formatting and result in unsuccessful login. If you did store your private key as a secret using the portal experience and no longer have access to the original private key file, see [Update SSH key](/azure/virtual-machines/extensions/vmaccess-linux#update-ssh-key) to update access to your target VM with a new SSH key pair.
 
 1. To work with the VM in a new browser tab, select **Open in new browser tab**.
 
@@ -187,11 +186,11 @@ Use the following steps to authenticate using a private key stored in Azure Key 
    * **Subscription**: Select the subscription.
    * **Azure Key Vault**: Select the Key Vault.
 
-     * If you didn’t set up an Azure Key Vault resource, see [Create a key vault](../key-vault/secrets/quick-create-powershell.md) and store your SSH private key as the value of a new Key Vault secret.
+     * If you didn’t set up an Azure Key Vault resource, see [Create a key vault](/azure/key-vault/secrets/quick-create-powershell) and store your SSH private key as the value of a new Key Vault secret.
 
-     * Make sure you have **List** and **Get** access to the secrets stored in the Key Vault resource. To assign and modify access policies for your Key Vault resource, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md).
+     * Make sure you have **List** and **Get** access to the secrets stored in the Key Vault resource. To assign and modify access policies for your Key Vault resource, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
 
-     * Store your SSH private key as a secret in Azure Key Vault using the **PowerShell** or **Azure CLI** experience. Storing your private key via the Azure Key Vault portal experience interferes with the formatting and result in unsuccessful login. If you did store your private key as a secret using the portal experience and no longer have access to the original private key file, see [Update SSH key](../virtual-machines/extensions/vmaccess-linux.md#update-ssh-key) to update access to your target VM with a new SSH key pair.
+     * Store your SSH private key as a secret in Azure Key Vault using the **PowerShell** or **Azure CLI** experience. Storing your private key via the Azure Key Vault portal experience interferes with the formatting and result in unsuccessful login. If you did store your private key as a secret using the portal experience and no longer have access to the original private key file, see [Update SSH key](/azure/virtual-machines/extensions/vmaccess-linux#update-ssh-key) to update access to your target VM with a new SSH key pair.
 
    * **Azure Key Vault Secret**: Select the Key Vault secret containing the value of your SSH private key.
 

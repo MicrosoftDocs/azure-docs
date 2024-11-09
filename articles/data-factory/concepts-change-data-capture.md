@@ -39,7 +39,7 @@ The changed data including inserted, updated and deleted rows can be automatical
 -   [SQL Server](connector-sql-server.md)
 -   [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md)
 -   [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md)
--   [Azure Cosmos DB analytical store](../cosmos-db/analytical-store-introduction.md)
+-   [Azure Cosmos DB analytical store](/azure/cosmos-db/analytical-store-introduction)
 -   [Snowflake](connector-snowflake.md)
 
 ### Auto incremental extraction in mapping data flow

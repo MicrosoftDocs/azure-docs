@@ -6,11 +6,17 @@ ms.author: aterceros
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ms.custom: mvc
 ---
 
 # Creator Long-Running Operation API
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 Some APIs in Azure Maps use an [Asynchronous Request-Reply pattern]. This pattern allows Azure Maps to provide highly available and responsive services. This article explains Azure Map's specific implementation of long-running asynchronous background processing.
 

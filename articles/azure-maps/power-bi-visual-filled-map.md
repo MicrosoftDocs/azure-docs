@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 07/19/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Filled map in Azure Maps Power BI visual

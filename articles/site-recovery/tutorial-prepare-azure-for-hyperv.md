@@ -128,4 +128,4 @@ It takes a few minutes for the virtual network to be created. After it's created
 
 - [Prepare the on-premises Hyper-V infrastructure](hyper-v-prepare-on-premises-tutorial.md) for disaster recovery to Azure.
 - Learn about [Azure networks](../virtual-network/virtual-networks-overview.md).
-- Learn about [Managed disks](../virtual-machines/managed-disks-overview.md).
+- Learn about [Managed disks](/azure/virtual-machines/managed-disks-overview).

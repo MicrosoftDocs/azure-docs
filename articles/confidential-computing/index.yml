@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
 title: Azure confidential computing
-summary: Azure confidential computing offers solutions to enable isolation of your sensitive data while it's being processed in the cloud. Learn how to deploy any application on confidential computing infrastructure by reading concepts, completing tutorials, and working with code samples. 
+summary: Azure confidential computing offers solutions to isolate your sensitive data while it's being processed. Learn how to deploy any application on confidential computing infrastructure by reading concepts, completing tutorials, and working with code samples. 
 
 metadata:
   title: Azure confidential computing
   description: Learn about how Azure confidential computing protects data in use and learn ways to build confidential workloads in the cloud.
   ms.service: azure-virtual-machines
-  ms.subservice: azure-confidential-computing
+  ms.subservice: confidential-computing
   ms.topic: landing-page
   author: michamcr 
   ms.author: mmcrey
@@ -41,15 +41,15 @@ landingContent:
       - linkListType: concept
         links:
           - text: Microsoft Azure Attestation
-            url: ../attestation/overview.md
+            url: /azure/attestation/overview
           - text: Azure Confidential Ledger
-            url: ../confidential-ledger/overview.md
+            url: /azure/confidential-ledger/overview
           - text: Trusted Hardware Identity Management
             url: ../security/fundamentals/trusted-hardware-identity-management.md
           - text: Trusted launch
-            url: ../virtual-machines/trusted-launch.md
+            url: /azure/virtual-machines/trusted-launch
           - text: Azure Key Vault Managed HSM
-            url: ../key-vault/managed-hsm/index.yml
+            url: /azure/key-vault/managed-hsm/
           - text: Azure SQL Always Encrypted in secure enclaves
             url: https://learn.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves
           - text: Azure IoT Edge
@@ -81,6 +81,8 @@ landingContent:
             url: quick-create-confidential-vm-arm.md
           - text: Create confidential VM with Azure CLI
             url: quick-create-confidential-vm-azure-cli.md
+          - text: Create VMSS with Confidential Disk Encryption
+            url: https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vmss-cvm-fde#readme
       - linkListType: how-to-guide
         links:
           - text: Use sample app for guest attestation
@@ -94,19 +96,19 @@ landingContent:
           - text: Confidential VMs FAQ 
             url: confidential-vm-faq.yml
           - text: DCasv5 and DCadsv5-series VM specs
-            url: ../virtual-machines/dcasv5-dcadsv5-series.md
+            url: /azure/virtual-machines/dcasv5-dcadsv5-series
           - text: ECasv5 and ECadsv5-series VM specs
-            url: ../virtual-machines/ecasv5-ecadsv5-series.md
+            url: /azure/virtual-machines/ecasv5-ecadsv5-series
           - text: DCesv5 and DCedsv5-series VM specs
-            url: ../virtual-machines/dcesv5-dcedsv5-series.md
+            url: /azure/virtual-machines/dcesv5-dcedsv5-series
           - text: ECesv5 and ECedsv5-series VM specs
-            url: ../virtual-machines/ecesv5-ecedsv5-series.md
+            url: /azure/virtual-machines/ecesv5-ecedsv5-series
           - text: Availability
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
       - linkListType: whats-new
         links:
-          - text: Confidential VMs with Intel TDX (Public Preview)
-            url: https://aka.ms/TDX-CVM-pubprev
+          - text: Azure confidential VMs with NVIDIA H100 Tensor Core GPUs (Public Preview)
+            url: https://aka.ms/cvm-h100-blog
 
   # Card
   - title: Container compute
@@ -123,7 +125,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Hello world with Confidential containers with Azure Container Instances (ACI)
-            url: ..\container-instances\container-instances-tutorial-deploy-confidential-containers-cce-arm.md
+            url: /azure/container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm
           - text: CLI based provisioning with a hello from enclave container app on AKS
             url: confidential-enclave-nodes-aks-get-started.md
           - text: Confidential containers with Intel SGX quickstart
@@ -174,9 +176,9 @@ landingContent:
       - linkListType: reference
         links:
           - text: DCsv2-series virtual machines
-            url: ../virtual-machines/dcv2-series.md
+            url: /azure/virtual-machines/dcv2-series
           - text: DCsv3 and DCdsv3-series virtual machines
-            url: ../virtual-machines/dcv3-series.md
+            url: /azure/virtual-machines/dcv3-series
 ## Row 2
 # Card
   - title: Concepts

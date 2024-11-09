@@ -29,13 +29,13 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse serverless SQL pool|[Azure Cosmos DB analytical store view propagates wrong attributes in the column](#azure-cosmos-db-analytical-store-view-propagates-wrong-attributes-in-the-column)|Has workaround|
 |Azure Synapse serverless SQL pool|[Query failures in serverless SQL pools](#query-failures-in-serverless-sql-pools)|Has workaround|
 |Azure Synapse serverless SQL pool|[Storage access issues due to authorization header being too long](#storage-access-issues-due-to-authorization-header-being-too-long)|Has workaround|
+|Azure Synapse serverless SQL pool|[Querying a view shows unexpected results](#querying-a-view-shows-unexpected-results)|Has workaround|
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has workaround|
 |Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has workaround|
 |Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has workaround|
 |Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
 |Azure Synapse Workspace|[No `GET` API operation dedicated to the `Microsoft.Synapse/workspaces/trustedServiceBypassEnabled` setting](#no-get-api-operation-dedicated-to-the-microsoftsynapseworkspacestrustedservicebypassenabled-setting)|Has workaround|
-
 
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
@@ -223,7 +223,13 @@ Suggested workarounds are:
 - Switch to Managed Identity storage authorization as described in the [storage access control](sql/develop-storage-files-storage-access-control.md?tabs=managed-identity).
 - Decrease number of security groups (having 90 or fewer security groups results with a token that is of compatible length).
 - Increase number of security groups over 200 (as that changes how token is constructed, it will contain an MS Graph API URI instead of a full list of groups). It could be achieved by adding dummy/artificial groups by following [managed groups](sql/develop-storage-files-storage-access-control.md?tabs=managed-identity), after you would need to add users to newly created groups.
-  
+
+### Querying a view shows unexpected results
+When you query the view for which the underlying schema has changed after the view was created, you may encounter unexpected results. This means that the view references columns or objects that were modified or no longer exist. To overcome this you need to manually adjust the view definition to align with the underlying schema changes.
+
+**Workaround**: Manually adjust the view definition. 
+
+
 ## Recently closed known issues
 
 |Synapse Component|Issue|Status|Date Resolved|
@@ -232,6 +238,7 @@ Suggested workarounds are:
 |Azure Synapse serverless SQL pool|[Query failures while reading Cosmos DB data using OPENROWSET](#query-failures-while-reading-azure-cosmos-db-data-using-openrowset)|Resolved|March 2023|
 |Azure Synapse Apache Spark pool|[Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse dedicated SQL pool Connector for Apache Spark when using notebooks in pipelines](#failed-to-write-to-sql-dedicated-pool-from-synapse-spark-using-azure-synapse-dedicated-sql-pool-connector-for-apache-spark-when-using-notebooks-in-pipelines)|Resolved|June 2023|
 |Azure Synapse Apache Spark pool|[Certain spark job or task fails too early with Error Code 503 due to storage account throttling](#certain-spark-job-or-task-fails-too-early-with-error-code-503-due-to-storage-account-throttling)|Resolved|November 2023|
+|Azure Synapse Apache Spark pool|[Query failure with a LIKE clause using Synapse Dedicated SQL Pool Connector in Spark 3.4 runtime](#query-failure-with-a-like-clause-using-synapse-dedicated-sql-pool-connector-in-spark-34-runtime)|Resolved|October 2024|
 
 ## Azure Synapse Analytics serverless SQL pool recently closed known issues summary
 
@@ -264,6 +271,14 @@ While using Azure Synapse dedicated SQL pool Connector for Apache Spark to write
 ### Certain spark job or task fails too early with Error Code 503 due to storage account throttling
 
 Between October 3, 2023 and November 16, 2023, few Azure Synapse Analytics Apache Spark pools could have experienced spark job/task failures due to storage API limit threshold being exceeded.
+
+**Status**: Resolved
+
+### Query failure with a LIKE clause using Synapse Dedicated SQL Pool Connector in Spark 3.4 runtime
+
+The open source Apache Spark 3.4 has introduced an [issue](https://issues.apache.org/jira/browse/SPARK-46029), which escapes special characters, but Synapse SQL does not support the escape keyword. When customers use the [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](spark/synapse-spark-sql-pool-import-export.md), it can generate an invalid SQL query for Synapse SQL and the Synapse Spark notebook or batch job would throw an error similar to:
+
+`com.microsoft.spark.sqlanalytics.SQLAnalyticsConnectorException: com.microsoft.sqlserver.jdbc.SQLServerException: Parse error at line: 1, column: XXX: Incorrect syntax near ''%test%''`
 
 **Status**: Resolved
 

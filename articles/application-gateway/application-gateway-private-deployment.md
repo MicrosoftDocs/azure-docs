@@ -49,23 +49,23 @@ Use the following steps to enroll into the public preview for the enhanced Appli
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the search box, enter _subscriptions_ and select **Subscriptions**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Azure portal search.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Screenshot of Azure portal search.":::
 
 3. Select the link for your subscription's name.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Select Azure subscription.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Screenshot of selecting the Azure subscription.":::
 
 4. From the left menu, under **Settings** select **Preview features**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Azure preview features menu.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Screenshot of the Azure preview features menu.":::
 
 5. You see a list of available preview features and your current registration status.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Screenshot of the Azure portal list of preview features.":::
 
 6. From **Preview features** type into the filter box **EnableApplicationGatewayNetworkIsolation**, check the feature, and click **Register**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Screenshot of the Azure portal filter preview features.":::
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -115,23 +115,23 @@ To opt out of the public preview for the enhanced Application Gateway network co
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the search box, enter _subscriptions_ and select **Subscriptions**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Azure portal search.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Screenshot of Azure portal search.":::
 
 3. Select the link for your subscription's name.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Select Azure subscription.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Screenshot of selecting Azure subscription.":::
 
 4. From the left menu, under **Settings** select **Preview features**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Azure preview features menu.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Screenshot of the Azure preview features menu.":::
 
 5. You see a list of available preview features and your current registration status.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Azure portal list of preview features.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-list.png" alt-text="Screenshot of the Azure portal list of preview features.":::
 
 6. From **Preview features** type into the filter box **EnableApplicationGatewayNetworkIsolation**, check the feature, and click **Unregister**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Azure portal filter preview features.":::
+    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Screenshot of the Azure portal filter preview features.":::
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -179,7 +179,7 @@ After registration into the public preview, configuration of NSG, Route Table, a
 
 After your gateway is provisioned, a resource tag is automatically assigned with the name of **EnhancedNetworkControl** and value of **True**. See the following example:
 
- ![View the EnhancedNetworkControl tag](./media/application-gateway-private-deployment/tags.png)
+ ![Screenshot of the EnhancedNetworkControl tag.](./media/application-gateway-private-deployment/tags.png)
 
 The resource tag is cosmetic, and serves to confirm that the gateway has been provisioned with the capabilities to configure any combination of the private only gateway features. Modification or deletion of the tag or value doesn't change any functional workings of the gateway. 
 
@@ -192,7 +192,7 @@ Application Gateway Subnet is the subnet within the Virtual Network where the Ap
 
 ## Outbound Internet connectivity
 
-Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) aren't able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
+Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration associated to a request routing rule) aren't able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
 
 To enable outbound connectivity from your Application Gateway to an Internet facing backend target, you can utilize [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or forward traffic to a virtual appliance that has access to the Internet.
 
@@ -212,7 +212,7 @@ Network security groups associated to an Application Gateway subnet no longer re
 
 The following configuration is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, explicit rules are defined to allow client traffic to reach the listener of the gateway.
 
- [ ![View the inbound security group rules](./media/application-gateway-private-deployment/inbound-rules.png) ](./media/application-gateway-private-deployment/inbound-rules.png#lightbox)
+ [ ![Screenshot of the inbound security group rules.](./media/application-gateway-private-deployment/inbound-rules.png) ](./media/application-gateway-private-deployment/inbound-rules.png#lightbox)
 
 > [!Note]
 > Application Gateway will display an alert asking to ensure the **Allow LoadBalanceRule** is specified if a **DenyAll** rule inadvertently restricts access to health probes.
@@ -233,7 +233,7 @@ First, [create a network security group](../virtual-network/tutorial-filter-netw
 
 Three inbound [default rules](../virtual-network/network-security-groups-overview.md#default-security-rules) are already provisioned in the security group. See the following example:
 
- [ ![View default security group rules](./media/application-gateway-private-deployment/default-rules.png) ](./media/application-gateway-private-deployment/default-rules.png#lightbox)
+ [ ![Screenshot of the default security group rules.](./media/application-gateway-private-deployment/default-rules.png) ](./media/application-gateway-private-deployment/default-rules.png#lightbox)
 
 Next, create the following four new inbound security rules:
 
@@ -259,7 +259,7 @@ To create these rules:
 
 Select **Refresh** to review all rules when provisioning is complete.
 
- [ ![View example inbound security group rules](./media/application-gateway-private-deployment/inbound-example.png) ](./media/application-gateway-private-deployment/inbound-example.png#lightbox)
+ [ ![Screenshot of example inbound security group rules.](./media/application-gateway-private-deployment/inbound-example.png) ](./media/application-gateway-private-deployment/inbound-example.png#lightbox)
 
 #### Outbound rules
 
@@ -267,7 +267,7 @@ Three default outbound rules with priority 65000, 65001, and 65500 are already p
 
 Create the following three new outbound security rules:
 
-- Allow TCP 443 from 10.10.4.0/24 to backend target 20.62.8.49
+- Allow TCP 443 from 10.10.4.0/24 to backend target 203.0.113.1
 - Allow TCP 80 from source 10.10.4.0/24 to destination 10.13.0.4
 - DenyAll traffic rule
 
@@ -276,7 +276,7 @@ These rules are assigned a priority of 400, 401, and 4096, respectively.
 > [!NOTE]
 > - 10.10.4.0/24 is the Application Gateway subnet address space.
 > - 10.13.0.4 is a virtual machine in a peered VNet.
-> - 20.63.8.49 is a backend target VM.
+> - 203.0.113.1 is a backend target VM.
 
 To create these rules: 
 - Select **Outbound security rules**
@@ -287,23 +287,23 @@ To create these rules:
 
 | Rule # |     Source   | Source IP addresses/CIDR ranges | Source port ranges | Destination  | Destination IP addresses/CIDR ranges | Service | Dest port ranges | Protocol | Action | Priority |         Name         |
 | ------ | ------------ | ------------------------------- | ------------------ | ------------ | ------------------------------------ | ------- | ---------------- | -------- | ------ | -------- | -------------------- |
-|   1    | IP Addresses |         10.10.4.0/24            |          *         | IP Addresses |              20.63.8.49              |  HTTPS  |        443       |   TCP    | Allow  |   400    | AllowToBackendTarget |
+|   1    | IP Addresses |         10.10.4.0/24            |          *         | IP Addresses |              203.0.113.1             |  HTTPS  |        443       |   TCP    | Allow  |   400    | AllowToBackendTarget |
 |   2    | IP Addresses |         10.10.4.0/24            |          *         | IP Addresses |              10.13.0.4               |  HTTP   |        80        |   TCP    | Allow  |   401    | AllowToPeeredVnetVM  |
 |   3    |      Any     |                                 |          *         |     Any      |                                      | Custom  |        *         |   Any    | Deny   |   4096   |        DenyAll       |
 
 Select **Refresh** to review all rules when provisioning is complete.
 
-[ ![View example outbound security group rules](./media/application-gateway-private-deployment/outbound-example.png) ](./media/application-gateway-private-deployment/outbound-example.png#lightbox)
+:::image type="content" source="./media/application-gateway-private-deployment/outbound-example.png" alt-text="Screenshot of outbound security rules for application gateway." lightbox="./media/application-gateway-private-deployment/outbound-example-expanded.png":::
 
 #### Associate NSG to the subnet
 
 The last step is to [associate the network security group to the subnet](../virtual-network/tutorial-filter-network-traffic.md#associate-network-security-group-to-subnet) that contains your Application Gateway.
 
-![Associate NSG to subnet](./media/application-gateway-private-deployment/nsg-subnet.png)
+![Screenshot of associate NSG to subnet.](./media/application-gateway-private-deployment/nsg-subnet.png)
 
 Result:
 
-[ ![View the NSG overview](./media/application-gateway-private-deployment/nsg-overview.png) ](./media/application-gateway-private-deployment/nsg-overview.png#lightbox)
+:::image type="content" source="./media/application-gateway-private-deployment/nsg-overview.png" alt-text="Screenshot of the NSG overview." lightbox="./media/application-gateway-private-deployment/nsg-overview-expanded.png":::
 
 > [!IMPORTANT] 
 > Be careful when you define **DenyAll** rules, as you might inadvertently deny inbound traffic from clients to which you intend to allow access. You might also inadvertently deny outbound traffic to the backend target, causing backend health to fail and produce 5XX responses.
@@ -323,7 +323,7 @@ In the following example, we create a route table and associate it to the Applic
 - There is a network virtual appliance (a virtual machine) in the hub network
 - A route table with a default route (0.0.0.0/0) to the virtual appliance is associated to Application Gateway subnet
 
-![Diagram for example route table](./media/application-gateway-private-deployment/route-table-diagram.png)
+![Diagram for example route table.](./media/application-gateway-private-deployment/route-table-diagram.png)
 
 **Figure 1**: Internet access egress through virtual appliance
 
@@ -331,15 +331,15 @@ To create a route table and associate it to the Application Gateway subnet:
 
 1.	[Create a route table](../virtual-network/manage-route-table.yml#create-a-route-table):
 
- ![View the newly created route table](./media/application-gateway-private-deployment/route-table-create.png)
+ ![Screenshot of the newly created route table.](./media/application-gateway-private-deployment/route-table-create.png)
 
 2.	Select **Routes** and create the next hop rule for 0.0.0.0/0 and configure the destination to be the IP address of your VM:
 
- [ ![View of adding default route to network virtual applicance](./media/application-gateway-private-deployment/default-route-nva.png) ](./media/application-gateway-private-deployment/default-route-nva.png#lightbox)
+ [ ![Screenshot of adding default route to network virtual applicance.](./media/application-gateway-private-deployment/default-route-nva.png) ](./media/application-gateway-private-deployment/default-route-nva.png#lightbox)
 
 3. Select **Subnets** and associate the route table to the Application Gateway subnet:
 
- [ ![View of associating the route to the AppGW subnet](./media/application-gateway-private-deployment/associate-route-to-subnet.png) ](./media/application-gateway-private-deployment/associate-route-to-subnet.png#lightbox)
+ [ ![Screenshot of associating the route to the AppGW subnet.](./media/application-gateway-private-deployment/associate-route-to-subnet.png) ](./media/application-gateway-private-deployment/associate-route-to-subnet.png#lightbox)
 
 4. Validate that traffic is passing through the virtual appliance.
 

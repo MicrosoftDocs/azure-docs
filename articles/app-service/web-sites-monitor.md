@@ -79,7 +79,7 @@ There are two metrics that reflect CPU usage:
 **CPU percentage**: Useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across all instances.
 
 ## Metrics granularity and retention policy
-Metrics for an app and app service plan are logged and aggregated by the service and [retained according to these rules](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics).
+Metrics for an app and app service plan are logged and aggregated by the service and [retained according to these rules](/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics).
 
 ## Monitoring quotas and metrics in the Azure portal
 To review the status of the various quotas and metrics that affect an app, go to the [Azure portal](https://portal.azure.com).
@@ -97,7 +97,7 @@ You can access metrics directly from the resource **Overview** page. Here you'll
 
 Clicking on any of those charts will take you to the metrics view where you can create custom charts, query different metrics and much more. 
 
-To learn more about metrics, see [Monitor service metrics](../azure-monitor/data-platform.md).
+To learn more about metrics, see [Monitor service metrics](/azure/azure-monitor/data-platform).
 
 ## Alerts and autoscale
 
@@ -105,7 +105,7 @@ Metrics for an app or an App Service plan can be hooked up to alerts. For more i
 
 App Service apps hosted in Basic or higher App Service plans support autoscale. With autoscale, you can configure rules that monitor the App Service plan metrics. Rules can increase or decrease the instance count, which can provide additional resources as needed. Rules can also help you save money when the app is over-provisioned.
 
-For more information about autoscale, see [How to scale](../azure-monitor/autoscale/autoscale-get-started.md) and [Best practices for Azure Monitor autoscaling](../azure-monitor/autoscale/autoscale-best-practices.md).
+For more information about autoscale, see [How to scale](/azure/azure-monitor/autoscale/autoscale-get-started) and [Best practices for Azure Monitor autoscaling](/azure/azure-monitor/autoscale/autoscale-best-practices).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

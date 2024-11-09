@@ -115,7 +115,7 @@ Key Features:
 - [Microsoft Entra multifactor authentication (MFA)](../../active-directory/authentication/howto-mfa-userstates.md)
 - [Microsoft Entra ID Protection](../../active-directory/authentication/concept-password-ban-bad.md)
 - [Microsoft Entra Conditional Access](../../active-directory/conditional-access/overview.md)
-- [Microsoft Defender for Cloud documentation](../../defender-for-cloud/index.yml)
+- [Microsoft Defender for Cloud documentation](/azure/defender-for-cloud/)
 
 ## Conclusion
 

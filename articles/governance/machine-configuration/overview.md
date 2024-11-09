@@ -7,7 +7,7 @@ ms.topic: conceptual
 # Understanding Azure Machine Configuration
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 Azure Policy's machine configuration feature provides native capability to audit or configure
 operating system settings as code for machines running in Azure and hybrid
@@ -36,6 +36,16 @@ Examples of each scenario are provided in the following table.
 You can view the per-setting results from configurations in the [Guest assignments page][44]. If an
 Azure Policy assignment orchestrated the configuration is orchestrated, you can select the "Last
 evaluated resource" link on the ["Compliance details" page][07].
+
+## Enforcement Modes for Custom Policies
+
+In order to provide greater flexibility in the enforcement and monitoring of server settings, applications and workloads, Machine Configuration offers three main enforcement modes for each policy assignment as described in the following table.
+
+| Mode                  | Description                                                                                  |
+|:----------------------|:---------------------------------------------------------------------------------------------|
+| Audit                 | Only report on the state of the machine                                                      |
+| Apply and Monitor     | Configuration applied to the machine and then monitored for changes                          |
+| Apply and Autocorrect | Configuration applied to the machine and brought back into conformance in the event of drift |
 
 [A video walk-through of this document is available][08]. (Update coming soon)
 
@@ -74,6 +84,11 @@ If you prefer to deploy the extension and managed identity to a single machine, 
 
 To use machine configuration packages that apply configurations, Azure VM guest configuration
 extension version 1.26.24 or later is required.
+
+> [!IMPORTANT]
+> The creation of a managed identity or assignment of a policy with "Guest Configuration 
+> Resource Contributor" role are actions that require appropriate Azure RBAC permissions to perform.
+> To learn more about Azure Policy and Azure RBAC, see [role-based access control in Azure Policy][45].
 
 ### Limits set on the extension
 
@@ -138,7 +153,8 @@ symbolic to represent new minor versions of Linux distributions.
 \* Red Hat CoreOS isn't supported.
 
 Machine configuration policy definitions support custom virtual machine images as long as they're
-one of the operating systems in the previous table.
+one of the operating systems in the previous table. Machine Configuration does not support VMSS 
+uniform but does support [VMSS Flex][46].
 
 ## Network requirements
 
@@ -483,3 +499,5 @@ Machine configuration built-in policy samples are available in the following loc
 [42]: ./how-to/develop-custom-package/overview.md
 [43]: ./how-to/create-policy-definition.md
 [44]: ../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration
+[45]: ../policy/overview.md
+[46]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration

@@ -198,7 +198,7 @@ When you implement or update a filter, the change may take a few minutes to be r
 
 Routing metrics such as count, latency, and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
 
-For information about viewing and managing metrics with Azure Monitor, see [Get started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md). For a full list of routing metrics available for Azure Digital Twins, see [Azure Digital Twins routing metrics](how-to-monitor.md#routing-metrics).
+For information about viewing and managing metrics with Azure Monitor, see [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started). For a full list of routing metrics available for Azure Digital Twins, see [Azure Digital Twins routing metrics](how-to-monitor.md#routing-metrics).
 
 ## Next steps
 

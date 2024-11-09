@@ -22,7 +22,7 @@ This article shows two options to import an [Azure OpenAI Service](/azure/ai-ser
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../ai-services/openai/how-to/create-resource.md).
+- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 
     Make a note of the ID (name) of the deployment. You'll need it when you test the imported API in API Management.
 - Permissions to grant access to the Azure OpenAI resource from the API Management instance.
@@ -136,8 +136,7 @@ In addition to the `azure-openai-token-limit` and `azure-openai-emit-token-metri
 
 ## Related content
 
+* [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
 * [API Management policy reference](api-management-policies.md)
-* [Azure OpenAI Service as a central capability with Azure API Management](/samples/azure/enterprise-azureai/enterprise-azureai/)
-* [Azure API Management - Azure OpenAI sample](https://github.com/galiniliev/apim-azure-openai-sample)
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]

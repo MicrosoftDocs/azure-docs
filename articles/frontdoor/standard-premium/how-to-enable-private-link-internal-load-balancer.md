@@ -6,7 +6,7 @@ services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 08/12/2024
 ms.author: duau
 ---
 
@@ -17,7 +17,7 @@ This article guides you through how to configure Azure Front Door Premium to con
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Review [Secure your origin with Private Link](../private-link.md) to understand how Private Link works with Azure Front Door.
+* Review the [Secure your origin with Private Link](../private-link.md) documentation to better understand how Private Link works with Azure Front Door.
 * Create a [Private Link](../../private-link/create-private-link-service-portal.md) service for your origin web servers.
 
 ## Enable private connectivity to an internal load balancer
@@ -28,7 +28,7 @@ In this section, you map the Private Link service to a private endpoint created 
 
 1. Navigate to your Azure Front Door Premium profile, then select **Origin groups** from under *Settings* in the left side menu pane.
 
-1. Select an existing or create a new origin group to add an internal load balancer origin.
+1. Select an existing origin group or create a new one to add to an internal load balancer origin.
 
 1. Select **+ Add an origin** to add new origin. Select or enter the following settings to configure the internal load balancer origin. 
 
@@ -72,7 +72,7 @@ In this section, you map the Private Link service to a private endpoint created 
 
     :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-endpoint-pending-approval.png" alt-text="Screenshot of pending approval for private link.":::
 
-1. The *connection state* should change to **Approved**. It may take a couple of minutes for the connection to fully establish. You can now access your internal load balancer from Azure Front Door.
+1. The *connection state* should change to **Approved**. It might take a couple of minutes for the connection to fully establish. You can now access your internal load balancer from Azure Front Door.
 
     :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-approved.png" alt-text="Screenshot of approved private link request.":::
 

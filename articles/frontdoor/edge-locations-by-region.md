@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.date: 05/30/2023
+ms.date: 08/12/2024
 ms.author: duau
 ms.custom: references_regions
 ---

@@ -43,7 +43,7 @@ This quickstart shows you how to connect Azure Functions to other Cloud resource
 #### [Using a managed identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> Using Managed Identity requires you have the permission to [Azure AD role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation will fail. You can ask your subscription owner for the permission or use an access key to create the connection.
+> Using Managed Identity requires you have the permission to [Azure AD role assignment](/entra/identity/role-based-access-control/manage-roles-portal). If you don't have the permission, your connection creation will fail. You can ask your subscription owner for the permission or use an access key to create the connection.
 
 Use the Azure CLI [az functionapp connection](/cli/azure/functionapp/connection) command to create a service connection to a Blob Storage with a system-assigned managed identity, providing the following information:
 
@@ -60,6 +60,9 @@ az functionapp connection create storage-blob --system-identity
 > If you don't have a Blob Storage, you can run `az functionapp connection create storage-blob --new --system-identity` to provision a new one and directly get connected to your function app.
 
 #### [Using an access key](#tab/Using-access-key)
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 Use the Azure CLI [az functionapp connection create](/cli/azure/functionapp/connection/create) command to create a service connection to an Azure Blob Storage with an access key, providing the following information:
 

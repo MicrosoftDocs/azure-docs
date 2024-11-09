@@ -83,11 +83,13 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |2|	450-AKMP	|	Dual, Hot-Plug, Redundant Power Supply (1+1), 600W	|
 
 ## Optional Components
+
 |Quantity|PN|Description|
 |----|---|----|
 |2| 450-AMJH | Dual, Hot-Plug, Power Supply, 700W MM HLAC (200-220Vac) Titanium, Redundant (1+1), by LiteOn, NAF|
 
 ## Optional Storage Controllers
+
 Multi-disk RAID arrays combine multiple physical drives into one logical drive for increased redundancy and performance. The optional modules below are tested in our lab for compatibility and sustained performance:
 
 |Quantity|PN|Description|
@@ -95,6 +97,7 @@ Multi-disk RAID arrays combine multiple physical drives into one logical drive f
 |1| 405-ABBT	|	PERC H755 Controller Card (RAID10) |
 
 ## Optional port expansion
+
 Optional modules for additional monitoring ports can be installed:
 
 |Location |Type |Specifications |

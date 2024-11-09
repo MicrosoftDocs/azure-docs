@@ -3,13 +3,16 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 07/17/2024
-ms.topic: conceptual 
+ms.date: 10/01/2024
+ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-python
 ms.service: azure-automation
 ---
 
 # Manage modules in Azure Automation
+
+>[!NOTE]
+> Starting **February 1, 2025**, Azure Automation will *discontinue* the execution of all the runbooks that use AzureRM modules. Starting **November 1, 2024**, you won't be able to create new runbooks using AzureRM modules. The AzureRM PowerShell module has been officially deprecated as of **February 29, 2024**. We recommend you to migrate from the AzureRM module to the Az PowerShell module to ensure continued support and updates. While the AzureRM module may still work, it is no longer maintained or supported, and continued use of the AzureRM module is at the user's own risk. For more information, see [migration resources](https://aka.ms/azpsmigrate) for guidance on transitioning to the Az module.
 
 Azure Automation uses a number of PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations. Supported modules include:
 
@@ -197,7 +200,7 @@ TestModule
    2.0.0
 ```
 
-Within each of the version folders, copy your PowerShell .psm1, .psd1, or PowerShell module **.dll** files that make up a module into the respective version folder. Zip up the module folder so that Azure Automation can import it as a single .zip file. While Automation only shows the highest version of the module imported, if the module package contains side-by-side versions of the module, they are all available for use in your runbooks or DSC configurations.  
+Within each of the version folders, copy your PowerShell .psm1, .psd1, or PowerShell module **.dll** files that make up a module into the respective version folder. Zip up the module folder so that Azure Automation can import it as a single .zip file. While Automation only shows one of the versions of the module imported, if the module package contains side-by-side versions of the module, they are all available for use in your runbooks or DSC configurations.  
 
 While Automation supports modules containing side-by-side versions within the same package, it does not support using multiple versions of a module across module package imports. For example, you import **module A**, which contains versions 1 and 2 into your Automation account. Later you update **module A** to include versions 3 and 4, when you import into your Automation account, only versions 3 and 4 are usable within any runbooks or DSC configurations. If you require all versions - 1, 2, 3, and 4 to be available, the .zip file your import should contain versions 1, 2, 3, and 4.
 

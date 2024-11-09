@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 01/05/2022
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Localization support in Azure Maps

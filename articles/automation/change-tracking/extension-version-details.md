@@ -3,8 +3,9 @@ title: Azure Automation Change Tracking extension version details and known issu
 description: This article describes the Change Tracking extension version details and known issues.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 05/22/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: overview
+ms.service: azure-automation
 ---
 
 # Change tracking and inventory extension version details and known issues

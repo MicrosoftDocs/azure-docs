@@ -61,7 +61,7 @@ Keys are stored as part of your function app in Azure and are encrypted at rest.
 |Location  | Value | Description  | 
 |---------|---------|---------|
 | A second storage account | `blob` | Stores keys in Blob storage in a storage account that's different that the one used by the Functions runtime. The specific account and container used is defined by a shared access signature (SAS) URL set in the [`AzureWebJobsSecretStorageSas`](functions-app-settings.md#azurewebjobssecretstoragesas) setting. You must maintain the `AzureWebJobsSecretStorageSas` setting when the SAS URL changes. |
-| [Azure Key Vault](../key-vault/general/overview.md) | `keyvault` | The key vault set in [`AzureWebJobsSecretStorageKeyVaultUri`](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) is used to store keys. | 
+| [Azure Key Vault](/azure/key-vault/general/overview) | `keyvault` | The key vault set in [`AzureWebJobsSecretStorageKeyVaultUri`](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) is used to store keys. | 
 | File system  | `files` | Keys are persisted on the local file system,  which is the default in Functions v1.x. File system storage isn't recommended. |
 | Kubernetes Secrets  |`kubernetes` | The resource set in [AzureWebJobsKubernetesSecretName](functions-app-settings.md#azurewebjobskubernetessecretname) is used to store keys. Supported only when your function app is deployed to Kubernetes. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when you use it to deploy your app to a Kubernetes cluster.|
 

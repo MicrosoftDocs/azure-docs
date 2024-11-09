@@ -2,7 +2,7 @@
 title: Build and deploy a Node.js Express app to Azure Cloud Services (classic)
 description: Use this tutorial to create a new application using the Express module, which provides a Model-View-Control (MVC) framework for creating Node.js web applications.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah

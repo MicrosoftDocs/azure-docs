@@ -54,8 +54,6 @@ API Management offers both managed and self-hosted gateways:
 
     * Each self-hosted gateway is associated with a **Gateway** resource in a cloud-based API Management instance from which it receives configuration updates and communicates status. 
 
-[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
-
 ## Feature comparison: Managed versus self-hosted gateways
 
 The following tables compare features available in the following API Management gateways:
@@ -107,7 +105,7 @@ The following tables compare features available in the following API Management 
 | [App Service](import-app-service-as-api.md) |  ✔️ | ✔️ |  ✔️ | ✔️ | ✔️ |
 | [Function App](import-function-app-as-api.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Container App](import-container-app-with-oas.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ |❌ | ❌ | ❌ | 
+| [Service Fabric](/azure/service-fabric/service-fabric-api-management-overview) |  Developer, Premium |  ❌ |❌ | ❌ | ❌ | 
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ | ✔️ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ✔️<sup>1</sup> | ✔️<sup>1</sup> | ❌ |
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ❌ |
@@ -143,17 +141,17 @@ For details about monitoring options, see [Observability in Azure API Management
 | Feature support  | Classic  |  V2  | Consumption | Self-hosted  | Workspace |
 | --- | --- | ----- | ----- | ---------- | ----- |
 | [API analytics](howto-use-analytics.md) | ✔️ | ✔️<sup>1</sup> | ❌ | ❌ | ❌ | 
-| [Application Insights](api-management-howto-app-insights.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | 
+| [Application Insights](api-management-howto-app-insights.md) | ✔️ | ✔️ | ✔️ | ✔️<sup>2</sup> | ✔️ | 
 | [Logging through Event Hubs](api-management-howto-log-event-hubs.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ | ✔️ |✔️ | ✔️ | ❌ |
 | [OpenTelemetry Collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) |  ❌ | ❌ | ❌ | ✔️ | ❌ |
-| [Request logs in Azure Monitor and Log Analytics](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ | ✔️ | ❌ | ❌<sup>2</sup> | ❌ |
+| [Request logs in Azure Monitor and Log Analytics](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ | ✔️ | ❌ | ❌<sup>3</sup> | ❌ |
 | [Local metrics and logs](how-to-configure-local-metrics-logs.md) |  ❌ | ❌ | ❌ | ✔️ | ❌ |  
-| [Request tracing](api-management-howto-api-inspector.md) | ✔️ | ❌<sup>3</sup> | ✔️ | ✔️ | ❌ |
+| [Request tracing](api-management-howto-api-inspector.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 
 <sup>1</sup> The v2 tiers support Azure Monitor-based analytics.<br/>
-<sup>2</sup> The self-hosted gateway currently doesn't send resource logs (diagnostic logs) to Azure Monitor. Optionally [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.<br/>
-<sup>3</sup> Tracing is currently unavailable in the v2 tiers.
+<sup>2</sup> Gateway uses [Azure Application Insight's built-in memory buffer](/azure/azure-monitor/app/telemetry-channels#built-in-telemetry-channels) and does not provide delivery guarantees.<br/>
+<sup>3</sup> The self-hosted gateway currently doesn't send resource logs (diagnostic logs) to Azure Monitor. Optionally [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.<br/>
 
 ### Authentication and authorization
 
@@ -197,6 +195,9 @@ Scale capacity by adding and removing scale [units](upgrade-and-scale.md) in the
 
 ## Related content
 
--   Learn more about [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
--   Learn more about using the [capacity metric](api-management-capacity.md) for scaling decisions
--   Learn about [observability capabilities](observability.md) in API Management
+Lear more about:
+
+-   [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
+-   [Capacity metric](api-management-capacity.md) for scaling decisions
+-   [Observability capabilities](observability.md) in API Management
+-   [GenAI gateway capabilities](genai-gateway-capabilities.md) in API Management

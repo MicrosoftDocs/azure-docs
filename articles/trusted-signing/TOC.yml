@@ -20,10 +20,12 @@
       href: how-to-sign-history.md
     - name: Revoke a certificate profile in Trusted Signing
       href: how-to-cert-revocation.md
-    - name: Renew Trusted Signing identity validation
+    - name: Renew or delete Trusted Signing identity validation
       href: how-to-renew-identity-validation.md
-    - name: Change Pricing Tier
+    - name: Change the account SKU (pricing tier)
       href: how-to-change-sku.md
+    - name: Device Guard Signing Service Migration 
+      href: how-to-device-guard-signing-service-migration.md
   - name: Tutorials
     items:
     - name: Assign roles in Trusted Signing

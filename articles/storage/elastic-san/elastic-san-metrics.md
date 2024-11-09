@@ -26,9 +26,9 @@ The following metrics are currently available for your Elastic SAN resource. You
 
 By default, all metrics are shown at the SAN level. To view these metrics at either the volume group or volume level, select a filter on your selected metric to view your data on a specific volume group or volume.
 
-## Diagnostic logging
+## Resource logging
 
-You can configure the diagnostic settings of your elastic SAN to send Azure platform logs and metrics to different destinations. Currently, there are two log configurations:
+You can configure the [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) of your elastic SAN to send Azure platform logs and metrics to different destinations. Currently, there are two log configurations:
 
 - All - Every resource log offered by the resource.
 - Audit - All resource logs that record customer interactions with data or the settings of the service. 
@@ -46,5 +46,5 @@ Available log categories:
 
 ## Next steps
 
-- [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md)
-- [Azure Monitor Metrics aggregation and display explained](../../azure-monitor/essentials/metrics-aggregation-explained.md)
+- [Azure Monitor Metrics overview](/azure/azure-monitor/essentials/data-platform-metrics)
+- [Azure Monitor Metrics aggregation and display explained](/azure/azure-monitor/essentials/metrics-aggregation-explained)

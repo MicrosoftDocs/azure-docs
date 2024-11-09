@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to deploy the Azure CNI plug-in to enable container virtual network connectivity for a standalone Linux Docker host.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 08/28/2023
 ms.custom: template-how-to, linux-related-content

@@ -19,7 +19,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 The Azure OpenAI semantic search input binding allows you to use semantic search on your embeddings.
 
-For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about semantic ranking in Azure AI Search, see [Semantic ranking in Azure AI Search](../search/semantic-search-overview.md).
+For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about semantic ranking in Azure AI Search, see [Semantic ranking in Azure AI Search](/azure/search/semantic-search-overview).
 
 [!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
@@ -53,7 +53,7 @@ This example shows how to perform a semantic search on a file.
 
 This example shows how to perform a semantic search on a file.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/nodejs/src/app.ts" range="40-58":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="40-58":::
 
 
  ::: zone-end  

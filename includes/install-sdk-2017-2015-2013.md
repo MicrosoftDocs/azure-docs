@@ -1,7 +1,7 @@
 ---
 author: tanmaygore
 ms.author: tagore
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.topic: include
 ms.date: 11/25/2018
 ---

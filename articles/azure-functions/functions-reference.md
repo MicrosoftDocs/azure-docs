@@ -157,18 +157,18 @@ However, a connection name can also refer to a collection of multiple configurat
 For example, the `connection` property for an Azure Blob trigger definition might be `Storage1`. As long as there's no single string value configured by an environment variable named `Storage1`,  an environment variable named `Storage1__blobServiceUri` could be used to inform the `blobServiceUri` property of the connection. The connection properties are different for each service. Refer to the documentation for the component that uses the connection.
 
 > [!NOTE]
-> When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](/azure/key-vault/general/overview) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
 >
 > For example, `Storage1:blobServiceUri`.
 
 ### Configure an identity-based connection
 
-Some connections in Azure Functions can be configured to use an identity instead of a secret. Support depends on the extension using the connection. In some cases, a connection string may still be required in Functions even though the service to which you're connecting supports identity-based connections. For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
-
+Some connections in Azure Functions can be configured to use an identity instead of a secret. Support depends on the runtime version and the extension using the connection. In some cases, a connection string may still be required in Functions even though the service to which you're connecting supports identity-based connections. For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
 
 > [!NOTE]
 > When running in a Consumption or Elastic Premium plan, your app uses the [`WEBSITE_AZUREFILESCONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings when connecting to Azure Files on the storage account used by your function app. Azure Files doesn't support using managed identity when accessing the file share. For more information, see [Azure Files supported authentication scenarios](../storage/files/storage-files-active-directory-overview.md#supported-authentication-scenarios)
 
+Identity-based connections are only supported on Functions 4.x, If you are using version 1.x, you must first [migrate to version 4.x](./migrate-version-1-version-4.md).
 
 The following components support identity-based connections:
 
@@ -254,6 +254,15 @@ An identity-based connection for an Azure service accepts the following common p
 | Resource ID | `<CONNECTION_NAME_PREFIX>__managedIdentityResourceId` | When `credential` is set to `managedidentity`, this property can be set to specify the resource Identifier to be used when obtaining a token. The property accepts a resource identifier corresponding to the resource ID of the user-defined managed identity. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` shouldn't be set.
 
 Other options may be supported for a given connection type. Refer to the documentation for the component making the connection.
+
+##### Azure SDK Environment Variables
+
+> [!CAUTION]
+> Use of the Azure SDK's [`EnvironmentCredential`][environment-credential] environment variables is not recommended due to the potentially unintentional impact on other connections. They also are not fully supported when deployed to Azure Functions.
+
+The environment variables associated with the Azure SDK's [`EnvironmentCredential`][environment-credential] can also be set, but these are not processed by the Functions service for scaling in Consumption plans. These environment variables are not specific to any one connection and will apply as a default unless a corresponding property is not set for a given connection. For example, if `AZURE_CLIENT_ID` is set, this would be used as if `<CONNECTION_NAME_PREFIX>__clientId` had been configured. Explicitly setting `<CONNECTION_NAME_PREFIX>__clientId` would override this default.
+
+[environment-credential]: /dotnet/api/azure.identity.environmentcredential
 
 ##### Local development with identity-based connections
 

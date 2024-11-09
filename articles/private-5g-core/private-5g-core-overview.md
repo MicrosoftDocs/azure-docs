@@ -39,7 +39,7 @@ You'll also need the following to deploy a private mobile network using Azure Pr
 
   Packet core instances run on a Kubernetes cluster, which is connected to Azure Arc and deployed on an Azure Stack Edge Pro with GPU device. These platforms provide security and manageability for the entire core network stack from Azure. Additionally, Azure Arc allows Microsoft to provide support at the edge.
 
-  For more information, see [Azure Arc overview](../azure-arc/overview.md) and [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/).
+  For more information, see [Azure Arc overview](/azure/azure-arc/overview) and [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/).
 
 - **RANs and SIMs** 
 
@@ -197,7 +197,7 @@ For more information on using Azure Monitor to analyze metrics in your deploymen
 
 Azure Private 5G Core is integrated with Azure Resource Health, which reports on the health of your control plane resources and allows you to diagnose and get support for service issues.
 
-For more information on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](../service-health/resource-health-overview.md).
+For more information on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
 Azure Private 5G Core can be configured to integrate with Azure Monitor Event Hubs, allowing you to monitor UE usage.
 

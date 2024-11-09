@@ -5,7 +5,8 @@ author: kgremban
 ms.author: kgremban
 ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Device Update for Azure IoT Hub using Eclipse ThreadX

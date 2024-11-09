@@ -50,14 +50,14 @@ The decision of how to process the request depends on whether caching is enabled
 
 ## Route matching
 
-This section focuses on how Front Door matches to a routing rule. The basic concept is that Front Door always matches to the **most-specific request** looking only at the "left-hand side". Front Door first match based on protocol, then domain, and last the path.
+This section focuses on how Front Door matches to a routing rule. The basic concept is that Front Door always matches to the **most-specific request** looking only at the "left-hand side". Front Door first matches based on protocol, then domain, and last the path.
 
 ### Frontend host matching
 
 Azure Front Door uses the following logic to match frontend hosts:
 
 1. Determine if there are any routes with an exact match on the frontend host.
-2. If there are no exact frontend hosts match, the request get rejected and a 400: Bad Request error gets sent.
+2. If there are no exact frontend hosts match, the request get rejected and a 404: Bad Request error gets sent.
 
 The following tables show three different routing rules with frontend host and paths:
 
@@ -73,11 +73,11 @@ The following table shows the matching results for the above routing rules:
 |--|--|
 | foo.contoso.com | A, B |
 | www\.fabrikam.com | C |
-| images.fabrikam.com | Error 400: Bad Request |
+| images.fabrikam.com | Error 404: Bad Request |
 | foo.adventure-works.com | C |
-| contoso.com | Error 400: Bad Request |
-| www\.adventure-works.com | Error 400: Bad Request |
-| www\.northwindtraders.com | Error 400: Bad Request |
+| contoso.com | Error 404: Bad Request |
+| www\.adventure-works.com | Error 404: Bad Request |
+| www\.northwindtraders.com | Error 404: Bad Request |
 
 ### Path matching
 
@@ -85,7 +85,7 @@ After Front Door determines the specific frontend host and filters for possible 
 
 1. Determine if there are any routing rules with an exact match to the request path.
 1. If there isn't an exact matching path, then Front Door looks for a routing rule with a wildcard path that matches.
-1. If there are no routing rules found with a matching path, then request gets rejected and a 400: Bad Request error gets set sent.
+1. If there are no routing rules found with a matching path, then request gets rejected and a 404: Bad Request error gets set sent.
 
 ::: zone pivot="front-door-standard-premium"
 
@@ -135,7 +135,7 @@ The following table shows which routing rule the incoming request gets matched t
 | www\.contoso.com/path/zzz | B |
 
 >[!WARNING]
-> If there are no routing rules for an exact-match frontend host with a catch-all route Path (`/*`), then there will not be a match to any routing rule.
+> If there are no routing rules for an exact-match frontend host without a catch-all route path (/*), then no routing rule will be matched.
 >
 > Example configuration:
 >
@@ -147,7 +147,7 @@ The following table shows which routing rule the incoming request gets matched t
 >
 > | Incoming request       | Matched Route |
 > |------------------------|---------------|
-> | profile.domain.com/other | None. Error 400: Bad Request |
+> | profile.domain.com/other | None. Error 404: Bad Request |
 
 ### Routing decision
 

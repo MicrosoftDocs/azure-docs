@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -195,6 +195,7 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
 > | Microsoft.DBforMySQL/register/action | Register MySQL Resource Provider |
 > | Microsoft.DBforMySQL/checkNameAvailability/action | Verify whether given server name is available for provisioning worldwide for a given subscription. |
+> | Microsoft.DBforMySQL/acceleratedLogsFeatureSwitches/read |  |
 > | Microsoft.DBforMySQL/flexibleServers/read | Returns the list of servers or gets the properties for the specified server. |
 > | Microsoft.DBforMySQL/flexibleServers/write | Creates a server with the specified parameters or updates the properties or tags for the specified server. |
 > | Microsoft.DBforMySQL/flexibleServers/delete | Deletes an existing server. |
@@ -249,6 +250,7 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/flexibleServers/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for MySQL servers |
 > | Microsoft.DBforMySQL/flexibleServers/providers/Microsoft.Insights/metricDefinitions/read | Return types of metrics that are available for databases |
 > | Microsoft.DBforMySQL/flexibleServers/replicas/read | Returns the list of read replicas for a MySQL server |
+> | Microsoft.DBforMySQL/flexibleServers/supportAcceleratedLogs/read |  |
 > | Microsoft.DBforMySQL/flexibleServers/supportedFeatures/read | Return the list of the MySQL Server Supported Features |
 > | Microsoft.DBforMySQL/locations/checkVirtualNetworkSubnetUsage/action | Checks the subnet usage for speicifed delegated virtual network. |
 > | Microsoft.DBforMySQL/locations/checkNameAvailability/action | Verify whether given server name is available for provisioning worldwide for a given subscription. |
@@ -369,6 +371,8 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/flexibleServers/advisors/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/advisors/recommendedActions/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/backups/read |  |
+> | Microsoft.DBforPostgreSQL/flexibleServers/backups/write |  |
+> | Microsoft.DBforPostgreSQL/flexibleServers/backups/delete |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/capabilities/read | Gets the capabilities for this subscription in a given location |
 > | Microsoft.DBforPostgreSQL/flexibleServers/configurations/read | Returns the list of  PostgreSQL server configurations or gets the configurations for the specified server. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/configurations/write | Updates the configuration of a PostgreSQL server. |
@@ -402,11 +406,17 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/flexibleServers/queryTexts/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/replicas/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/topQueryStatistics/read |  |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/read | Returns the list of Tuning Options available for the Azure Database for PostgreSQL Flexible Server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/read |  |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/recommendations/read | Returns the list of recommended indexes for the Azure Database for PostgreSQL Flexible Server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/write | Creates or Updates VirtualEndpoint |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/write | Patches the VirtualEndpoint. Currently patch does a full replace |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/delete | Deletes the VirtualEndpoint |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/read | Gets the VirtualEndpoint details |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/read | Lists the VirtualEndpoints |
+> | Microsoft.DBforPostgreSQL/locations/getAutoMigrationFreeSlots/action | Returns the list of free / available slots for auto migration of PostgreSQL server |
+> | Microsoft.DBforPostgreSQL/locations/getLatestAutoMigrationSchedule/action | Returns the instance of the latest auto migration schedule for PostgreSQL server |
+> | Microsoft.DBforPostgreSQL/locations/updateAutoMigrationSchedule/action | Update auto migration schedule for the PostgreSQL server |
 > | Microsoft.DBforPostgreSQL/locations/administratorAzureAsyncOperation/read | Gets in-progress operations on PostgreSQL server administrators |
 > | Microsoft.DBforPostgreSQL/locations/administratorOperationResults/read | Return PostgreSQL Server administrator operation results |
 > | Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read | Return PostgreSQL Server Operation Results |
@@ -534,6 +544,7 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | Microsoft.DocumentDB/databaseAccounts/joinPerimeter/action | Joins a database account to a Network Security Perimeter |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | Submit a restore request |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | Submit a request to configure backup |
+> | Microsoft.DocumentDB/databaseAccounts/chaosFault/action | Enable, Disable and GetStatus of Chaos Fault |
 > | Microsoft.DocumentDB/databaseAccounts/apis/databases/write | (Deprecated. Please use resource paths without '/apis/' segment) Create a database. Only applicable to API types: 'sql', 'mongodb', 'gremlin'. |
 > | Microsoft.DocumentDB/databaseAccounts/apis/databases/read | (Deprecated. Please use resource paths without '/apis/' segment) Read a database or list all the databases. Only applicable to API types: 'sql', 'mongodb', 'gremlin'. |
 > | Microsoft.DocumentDB/databaseAccounts/apis/databases/delete | (Deprecated. Please use resource paths without '/apis/' segment) Delete a database. Only applicable to API types: 'sql', 'mongodb', 'gremlin'. |
@@ -816,8 +827,10 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | Microsoft.DocumentDB/mongoClusters/users/delete | Deletes an existing user for the specified Mongo Cluster. |
 > | Microsoft.DocumentDB/operationResults/read | Read status of the asynchronous operation |
 > | Microsoft.DocumentDB/operations/read | Read operations available for the Microsoft DocumentDB  |
-> | Microsoft.DocumentDB/throughputPool/throughputPoolAccounts/read | Read throughputPool account in throughputPool |
-> | Microsoft.DocumentDB/throughputPool/throughputPoolAccounts/write | Create throughputPool account in throughputPool |
+> | Microsoft.DocumentDB/throughputPool/read | Read/List throughputPool |
+> | Microsoft.DocumentDB/throughputPool/write | Create/Update/Delete throughputPool |
+> | Microsoft.DocumentDB/throughputPool/throughputPoolAccounts/read | Read/List throughputPool account in throughputPool |
+> | Microsoft.DocumentDB/throughputPool/throughputPoolAccounts/write | Create/Update/Delete throughputPool account in throughputPool |
 
 ## Microsoft.Sql
 
@@ -835,6 +848,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/instancePools/read | Gets an instance pool |
 > | Microsoft.Sql/instancePools/write | Creates or updates an instance pool |
 > | Microsoft.Sql/instancePools/delete | Deletes an instance pool |
+> | Microsoft.Sql/instancePools/operations/read | Get instance pool operations |
 > | Microsoft.Sql/instancePools/usages/read | Gets an instance pool's usage info |
 > | Microsoft.Sql/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notify of NSP Update |
 > | Microsoft.Sql/locations/deleteVirtualNetworkOrSubnets/action | Deletes Virtual network rules associated to a virtual network or subnet |
@@ -1386,6 +1400,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | Return types of metrics that are available for servers |
 > | Microsoft.Sql/servers/recommendedElasticPools/read | Retrieve recommendation for elastic database pools to reduce cost or improve performance based on historical resource utilization |
 > | Microsoft.Sql/servers/recommendedElasticPools/databases/read | Retrieve metrics for recommended elastic database pools for a given server |
+> | Microsoft.Sql/servers/recommendedElasticPools/metrics/read | Retrieve metrics for recommended elastic database pools for a given server |
 > | Microsoft.Sql/servers/recoverableDatabases/read | Return the list of recoverable databases or gets the properties for the specified recoverable database. |
 > | Microsoft.Sql/servers/replicationLinks/read | Return the list of replication links or gets the properties for the specified replication links. |
 > | Microsoft.Sql/servers/restorableDroppedDatabases/read | Get a list of databases that were dropped on a given server that are still within retention policy. |
@@ -1444,6 +1459,8 @@ Azure service: [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-m
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/availabilityGroupListeners/write | Create a new or changes properties of existing SQL availability group listener |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/availabilityGroupListeners/delete | Delete existing availability group listener |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/sqlVirtualMachines/read | List Sql virtual machines by a particular sql virtual virtual machine group |
+> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/PostUpdateValidation/action |  |
+> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/PreUpdateValidation/action |  |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/startAssessment/action | Start SQL best practices Assessment on SQL virtual machine |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/redeploy/action | Redeploy existing SQL virtual machine |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/read | Retrieve details of SQL virtual machine |

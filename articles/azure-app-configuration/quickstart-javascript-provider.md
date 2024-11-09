@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: quickstart
 ms.custom: quickstart, mode-other, devx-track-js
-ms.date: 10/12/2023
+ms.date: 04/18/2024
 ms.author: yanzh
 #Customer intent: As a JavaScript developer, I want to manage all my app settings in one place.
 ---
@@ -134,8 +134,8 @@ async function run() {
     const config = settings.constructConfigurationObject({ separator: "." });
     // Use dot-notation to access configuration
     console.log("config.message:", config.message);         // config.message: undefined
-    console.log("config.app.greeting:", config.greeting);   // config.app.greeting: Hello World
-    console.log("config.app.json:", config.json);           // config.app.json: { myKey: 'myValue' }
+    console.log("config.app.greeting:", config.app.greeting);   // config.app.greeting: Hello World
+    console.log("config.app.json:", config.app.json);           // config.app.json: { myKey: 'myValue' }
 }
 
 run().catch(console.error);

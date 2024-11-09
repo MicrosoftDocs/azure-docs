@@ -103,22 +103,18 @@
       href: how-to-query-graph.md
   - name: Develop client apps
     items:
-    - name: Call Azure Digital Twins APIs with Postman
-      href: how-to-use-postman-with-digital-twins.md
+    - name: Call Azure Digital Twins APIs
+      href: how-to-use-apis.md
     - name: Use 3D Scenes Studio
       href: how-to-use-3d-scenes-studio.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration with Azure Digital Twins access
       href: how-to-create-app-registration.md
-    - name: Integrate with Azure SignalR Service
-      href: how-to-integrate-azure-signalr.md
   - name: Connect input
     items:
     - name: Ingest telemetry from IoT Hub
       href: how-to-ingest-iot-hub-data.md
-    - name: Automanage devices with DPS
-      href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Power Platform and Logic Apps
       href: how-to-use-power-platform-logic-apps-connector.md
   - name: Connect output
@@ -129,8 +125,6 @@
       href: how-to-create-routes.md
     - name: Create a data history connection
       href: how-to-create-data-history-connection.md
-    - name: Integrate with Azure Time Series Insights
-      href: how-to-integrate-time-series-insights.md
   - name: Monitor and troubleshoot
     items:
     - name: Monitor your instance
@@ -283,8 +277,6 @@
       href: https://explorer.digitaltwins.azure.net
     - name: 3D Scenes Studio
       href: https://explorer.digitaltwins.azure.net/3dscenes
-    - name: Azure Digital Twins Postman Collection
-      href: https://github.com/microsoft/azure-digital-twins-postman-samples
     - name: Sample for ingesting OPC UA data into Azure Digital Twins
       href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
     - name: DTDL parser sample

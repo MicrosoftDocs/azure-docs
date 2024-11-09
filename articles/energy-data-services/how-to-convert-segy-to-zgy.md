@@ -3,7 +3,7 @@ title: Microsoft Azure Data Manager for Energy Preview - How to convert segy to 
 description: This article describes how to convert a SEG-Y file to a ZGY file
 author: suzafar
 ms.author: suzafar
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 09/13/2023
 ms.custom: template-how-to

@@ -34,7 +34,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure AI services resource
 
-[Azure AI services](../../ai-services/index.yml) includes many types of services. Follow services are examples used in the Azure Synapse tutorials.
+[Azure AI services](/azure/ai-services/) includes many types of services. Follow services are examples used in the Azure Synapse tutorials.
 
 You can create a [Text Analytics](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource in the Azure portal:
 

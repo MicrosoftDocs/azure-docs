@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn about IP based access control lists in Azure Virtual Network.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: overview
 ms.date: 05/02/2024
 

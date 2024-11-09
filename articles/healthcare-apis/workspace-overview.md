@@ -6,7 +6,7 @@ ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 1/5/2023
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # What is Azure Health Data Services workspace?
@@ -58,7 +58,7 @@ Some features are configured at the workspace level and apply to all child servi
 
 ### Application monitoring
 
-Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information provides you insights to how your applications are performing and lets you proactively identify and resolve issues affecting them and the resources they depend on. For information about Azure Monitor, see [Azure Monitor overview](../azure-monitor/index.yml) documentation.
+Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information provides you insights to how your applications are performing and lets you proactively identify and resolve issues affecting them and the resources they depend on. For information about Azure Monitor, see [Azure Monitor overview](/azure/azure-monitor/) documentation.
 
 ### Azure role-based access control
 

@@ -2,7 +2,7 @@
 title: Handling an Azure service disruption that impacts Azure Cloud Services (classic)
 description: Learn what to do if an Azure service disruption that impacts Azure Cloud Services.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah

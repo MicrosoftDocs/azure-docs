@@ -45,10 +45,7 @@ To enable drain mode for a session host and block new sessions in the Azure port
 
 ### [Azure PowerShell](#tab/powershell)
 
-You can set drain mode in PowerShell with the *AllowNewSessions* parameter, which is part of the [Update-AzWvdSessionhost](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost) command. You'll need to run these commands for every session host for which you want to enable and disable drain.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+You can set drain mode in PowerShell with the *AllowNewSessions* parameter, which is part of the [Update-AzWvdSessionhost](/powershell/module/az.desktopvirtualization/update-azwvdsessionhost) command. You need to run these commands for every session host for which you want to enable and disable drain mode. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 

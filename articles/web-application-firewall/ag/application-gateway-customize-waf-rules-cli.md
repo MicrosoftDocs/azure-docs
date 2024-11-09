@@ -7,7 +7,7 @@ ms.service: azure-web-application-firewall
 ms.custom: devx-track-azurecli
 ms.date: 08/25/2023
 ms.author: victorh
-ms.topic: article
+ms.topic: how-to
 ---
 
 # Customize Web Application Firewall rules using the Azure CLI

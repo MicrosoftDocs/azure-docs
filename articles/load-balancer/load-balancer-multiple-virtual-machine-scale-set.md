@@ -19,7 +19,7 @@ In this article, you’ll learn how to configure multiple Virtual Machine Scale 
 
 - Access to the Azure portal
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Two or more [Virtual Machine Scale Sets](../virtual-machine-scale-sets/quick-create-portal.md)
+- Two or more [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/quick-create-portal)
   - Ensure the upgrade policy is set to automatic.
     - If manual upgrade policy is used, upgrade all virtual machine instances after attaching it to the load balancer.  
 - An existing [standard SKU load balancer](quickstart-load-balancer-standard-internal-portal.md) in the same subscription and virtual network as the Virtual Machine Scale Sets.
@@ -28,7 +28,7 @@ In this article, you’ll learn how to configure multiple Virtual Machine Scale 
 # [Azure CLI](#tab/azurecli/)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Two or more [Virtual Machine Scale Sets](../virtual-machine-scale-sets/quick-create-portal.md)
+- Two or more [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/quick-create-portal)
   - Ensure that the upgrade policy is set to automatic.
     - If manual upgrade policy is used, upgrade all virtual machine instances after attaching it to the load balancer.  
 - An existing [standard SKU load balancer](quickstart-load-balancer-standard-internal-portal.md) in the same subscription and virtual network as the Virtual Machine Scale Sets.
@@ -105,4 +105,4 @@ az vmss update \
 In this article, you attached multiple Virtual Machine Scale Sets behind a single Azure load balancer.
 
 - [What is Azure Load Balancer?](load-balancer-overview.md)
-- [What are Azure Virtual Machine Scale Sets?](../virtual-machine-scale-sets/overview.md)
+- [What are Azure Virtual Machine Scale Sets?](/azure/virtual-machine-scale-sets/overview)

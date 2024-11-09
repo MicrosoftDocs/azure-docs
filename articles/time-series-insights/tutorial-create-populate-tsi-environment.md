@@ -5,7 +5,7 @@ author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 # Customer intent: As a data analyst or developer, I want to learn how to create an Azure Time Series Insights environment so that I can use Azure Time Series Insights queries to understand device behavior.
@@ -200,4 +200,4 @@ In this tutorial, you learned how to:
 Now that you know how to create your own Azure Time Series Insights environment, learn how to build a web application that consumes data from an Azure Time Series Insights environment:
 
 > [!div class="nextstepaction"]
-> [Read hosted client SDK visualization samples](https://tsiclientsample.azurewebsites.net/)
+> Read hosted client SDK visualization samples

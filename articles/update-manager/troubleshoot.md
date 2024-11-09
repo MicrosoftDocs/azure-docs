@@ -2,8 +2,8 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 07/04/2024
-ms.topic: conceptual
+ms.date: 09/11/2024
+ms.topic: troubleshooting
 ms.author: sudhirsneha
 author: SnehaSudhirG
 ---
@@ -42,7 +42,7 @@ To review the logs related to all actions performed by the extension, check for 
 #### [Arc-enabled Servers](#tab/azure-arc)
 
 
-For Azure Arc-enabled servers, see [Troubleshoot VM extensions](../azure-arc/servers/troubleshoot-vm-extensions.md) for general troubleshooting steps.
+For Azure Arc-enabled servers, see [Troubleshoot VM extensions](/azure/azure-arc/servers/troubleshoot-vm-extensions) for general troubleshooting steps.
 
 To review the logs related to all actions performed by the extension, on Windows, check for more information in `C:\ProgramData\GuestConfig\extension_Logs\Microsoft.SoftwareUpdateManagement\WindowsOsUpdateExtension`. It includes the following two log files of interest:
 
@@ -210,7 +210,7 @@ The machines are in a shutdown state.
 
 #### Resolution
 
-Keep your machines turned on at least 15 minutes before the scheduled update. For more information, see [Shut down machines](../virtual-machines/maintenance-configurations.md#shut-down-machines).
+Keep your machines turned on at least 15 minutes before the scheduled update. For more information, see [Shut down machines](/azure/virtual-machines/maintenance-configurations#shut-down-machines).
 
 ### Patch run failed with Maintenance window exceeded property showing true even if time remained
 
@@ -235,6 +235,105 @@ To find more information, review the logs in the file path provided in the error
 #### Resolution
 
 Set a longer time range for maximum duration when you're triggering an [on-demand update deployment](deploy-updates.md) to help avoid the problem.
+
+
+### Windows/Linux OS update extension isn't installed
+
+#### Issue
+
+The Windows/Linux OS Update extension must be successfully installed on Arc machines to perform on-demand assessments, patching, and scheduled patching.
+
+#### Resolution
+
+Trigger an on-demand assessment or patching to install the extension on the machine. You can also attach the machine to a maintenance configuration schedule which will install the extension when patching is performed as per the schedule. 
+
+If the extension is already present on the machine but the extension status is not **Succeeded**, ensure that you [remove the extension](/azure/azure-arc/servers/manage-vm-extensions-portal#remove-extensions) and trigger an on-demand operation so that it is installed again.
+
+### Windows/Linux patch update extension isn't installed
+
+#### Issue
+The Windows/Linux patch update extension must be successfully installed on Azure machines to perform on-demand assessment or patching, scheduled patching and for periodic assessments.
+
+#### Resolution
+Trigger an on-demand assessment or patching to install the extension on the machine. You can also attach the machine to a maintenance configuration schedule which will install the extension when patching is performed as per the schedule. 
+
+If the extension is already present on the machine but the extension status is not **Succeeded**, ensure that you [remove the extension](/azure/azure-arc/servers/manage-vm-extensions-portal#remove-extensions) and trigger an on-demand operation which will install it again. 
+
+
+### Allow Extension Operations check failed
+
+#### Issue
+
+The property [AllowExtensionOperations](/dotnet/api/microsoft.azure.management.compute.models.osprofile.allowextensionoperations) is set to false in the machine OSProfile.
+
+#### Resolution
+The property should be set to true to allow extensions to work properly. 
+
+### Sudo privileges not present
+
+#### Issue
+
+Sudo privileges are not granted to the extensions for assessment or patching operations on Linux machines.
+
+#### Resolution
+Grant sudo privileges to ensure assessment or patching operations succeed. 
+
+### Proxy is configured
+
+#### Issue
+
+Proxy is configured on Windows or Linux machines that may block access to endpoints required for assessment or patching operations to succeed. 
+
+#### Resolution
+
+For Windows, see [issues related to proxy](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting#issues-related-to-httpproxy). 
+
+For Linux, ensure proxy setup doesn't block access to repositories that are required for downloading and installing updates.
+
+### TLS 1.2 Check Failed 
+
+#### Issue
+
+TLS 1.0 and TLS 1.1 are deprecated.
+
+#### Resolution
+
+Use TLS 1.2 or higher.
+ 
+For Windows, see [Protocols in TLS/SSL Schannel SSP](/windows/win32/secauthn/protocols-in-tls-ssl--schannel-ssp-).
+
+For Linux, execute the following command to see the supported versions of TLS for your distro.
+`nmap --script ssl-enum-ciphers -p 443 www.azure.com`
+
+### Https connection check failed
+
+#### Issue
+
+Https connection is not available which is required to download and install updates from required endpoints for each operating system. 
+
+#### Resolution
+
+Allow Https connection from your machine. 
+
+### MsftLinuxPatchAutoAssess service is not running, or Time is not active 
+
+#### Issue
+
+[MsftLinuxPatchAutoAssess](https://github.com/Azure/LinuxPatchExtension) is required for successful periodic assessments on Linux machines. 
+
+#### Resolution
+
+Ensure that the LinuxPatchExtension status is succeeded for the machine. Reboot the machine to check if the issue is resolved.
+
+### Linux repositories aren't accessible
+
+#### Issue
+
+The updates are downloaded from configured public or private repositories for each Linux distro. The machine is unable to connect to these repositories to download or assess the updates. 
+
+#### Resolution
+
+Ensure that network security rules don’t hinder connection to required repositories for update operations. 
 
 ## Next steps
 

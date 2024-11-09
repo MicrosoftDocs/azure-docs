@@ -4,8 +4,7 @@ description: Describes how to manage access, power, and connectivity mode for th
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: gateway
+ms.service: azure-data-box-gateway
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: shaas 

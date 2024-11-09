@@ -56,6 +56,8 @@ Use the following steps to develop a Stream Analytics job to filter and ingest r
 
     :::image type="content" source="./media/filter-ingest-synapse-sql/no-code-list-jobs.png" alt-text="Screenshot of the Stream Analytics jobs tab where you view the running jobs status." lightbox="./media/filter-ingest-synapse-sql/no-code-list-jobs.png" :::
 
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
+
 ## Next steps
 
 Learn more about Azure Stream Analytics and how to monitor the job you've created.

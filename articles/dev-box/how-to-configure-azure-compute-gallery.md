@@ -26,8 +26,8 @@ Advantages of using a gallery include:
 
 To learn more about Azure Compute Gallery and how to create galleries, see:
 
-- [Store and share images in Azure Compute Gallery](../virtual-machines/shared-image-galleries.md)
-- [Create a gallery for storing and sharing resources](../virtual-machines/create-gallery.md#create-a-gallery-for-storing-and-sharing-resources)
+- [Store and share images in Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries)
+- [Create a gallery for storing and sharing resources](/azure/virtual-machines/create-gallery#create-a-gallery-for-storing-and-sharing-resources)
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 ## Compute gallery image requirements 
 
-A gallery used to configure dev box definitions must have at least [one image definition and one image version](../virtual-machines/image-version.md).
+A gallery used to configure dev box definitions must have at least [one image definition and one image version](/azure/virtual-machines/image-version).
 
 When you create a virtual machine (VM) image, select an image from the Azure Marketplace that's compatible with Microsoft Dev Box. The following are examples of compatible images:
 - [Visual Studio 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019plustools?tab=Overview)
@@ -61,7 +61,7 @@ The image version must meet the following requirements:
     - For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
 - Default 64-GB OS disk size
     - The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
-- The image definition must have [trusted launch enabled as the security type](../virtual-machines/trusted-launch.md). You configure the security type when you create the image definition.
+- The image definition must have [trusted launch enabled as the security type](/azure/virtual-machines/trusted-launch). You configure the security type when you create the image definition.
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
 

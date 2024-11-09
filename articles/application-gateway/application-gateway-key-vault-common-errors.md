@@ -42,7 +42,7 @@ The following sections describe the various errors you might encounter. You can 
 
 :::image type="content" source="./media/application-gateway-key-vault-common-errors/no-get-permission-for-managed-identity.png" alt-text=" Screenshot that shows how to resolve the Get permission error.":::
 
-For more information, see [Assign a Key Vault access policy by using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
+For more information, see [Assign a Key Vault access policy by using the Azure portal](/azure/key-vault/general/assign-access-policy-portal).
 
   **Azure role-based access control**
   1. Go to the linked key vault in the Azure portal.
@@ -55,7 +55,7 @@ For more information, see [Assign a Key Vault access policy by using the Azure p
     c. **Members**: select the user-assigned managed identity that you've associated with your application gateway.<br>
   1. Select **Review + assign**.
 
-For more information, see [Azure role-based access control in Key Vault](../key-vault/general/rbac-guide.md).
+For more information, see [Azure role-based access control in Key Vault](/azure/key-vault/general/rbac-guide).
 
 > [!NOTE]
 > Portal support for adding a new key vault-based certificate is currently not available when using **Azure role-based access control**. You can accomplish it by using ARM template, CLI, or PowerShell. Visit [this page](./key-vault-certs.md#key-vault-azure-role-based-access-control-permission-model) for guidance.

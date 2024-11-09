@@ -48,13 +48,13 @@ you can select a source option to migrate from, including types being retired fo
 | VHD in a storage account | Select **Browse** to choose the storage account for the VHD. |
 
 For more information about this process, see
-[creating an image definition and version for Compute Gallery](../virtual-machines/image-version.md#create-an-image).
+[creating an image definition and version for Compute Gallery](/azure/virtual-machines/image-version#create-an-image).
 
 ## FAQs
 
 - How can I create an Azure Compute Gallery?
 
-  See the [guide](../virtual-machines/create-gallery.md#create-a-private-gallery) for Compute Gallery creation.
+  See the [guide](/azure/virtual-machines/create-gallery#create-a-private-gallery) for Compute Gallery creation.
 
 - How do I create a Pool with a Compute Gallery image?
 
@@ -70,4 +70,4 @@ For more information about this process, see
 
 ## Next steps
 
-For more information, see [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md).
+For more information, see [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery).

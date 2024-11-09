@@ -37,16 +37,20 @@ landingContent:
             url: create-cli.md
       - linkListType: how-to-guide
         links:
-          - text: Add connectors for Confluent Cloud
+          - text: Connect to compute services
             url: add-connectors.md
+          - text: Use Confluent connectors
+            url: add-confluent-connectors.md
           - text: Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions
             url: troubleshoot.md
 
   # Card
-  - title: Explore reference content
+  - title: SDKs and tools
     linkLists:
       - linkListType: reference
         links:
+          - text: Confluent developer tools 
+            url: confluent-tools.md#
           - text: Azure CLI
             url: /cli/azure/confluent
           - text: Azure PowerShell

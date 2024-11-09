@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 10/29/2024
 ms.author: ankitadutta
 
 ---
@@ -70,6 +70,9 @@ To troubleshoot permissions, refer to [key vault permission issues](#trusted-roo
 
    By default, Site Recovery creates a new key vault in the target region. The vault's name has an "asr" suffix that's based on the source VM disk encryption keys. If a key vault already exists that was created by Site Recovery, it's reused. Select a different key vault from the list if necessary.
 
+> [!NOTE]
+> Alternatively, you can download the key, import it in the secondary key vault region. You can then modify your replicas disks to use the keys.
+
 ## Enable replication
 
 Use the following procedure to replicate Azure Disk Encryption-enabled VMs to another Azure region. As an example, primary Azure region is East Asia, and the secondary is Southeast Asia.
@@ -127,7 +130,7 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
 
          :::image type="Availability option" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/availability-option.png" alt-text="Screenshot of availability option.":::
 
-    1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](../virtual-machines/capacity-reservation-overview.md).
+    1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](/azure/virtual-machines/capacity-reservation-overview).
     Select **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings. On triggering Failover, the new VM will be created in the assigned Capacity Reservation Group.
 
          :::image type="Capacity reservation" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/capacity-reservation.png" alt-text="Screenshot of capacity reservation.":::

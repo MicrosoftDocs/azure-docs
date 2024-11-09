@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 09/28/2023
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: rest-api
 ---
 
 # Tutorial: Migrate web service from Google Maps
@@ -51,11 +51,6 @@ The following service APIs aren't currently available in Azure Maps:
 * Map URLs
 * Nearest Roads - Achievable using the Web SDK as demonstrated in the [Basic snap to road logic] sample, but isn't currently available as a service.
 * Static street view
-
-Azure Maps has several other REST web services that may be of interest:
-
-* [Spatial operations]: Offload complex spatial calculations and operations, such as geofencing, to a service.
-* [Traffic]: Access real-time traffic flow and incident data.
 
 ## Prerequisites
 

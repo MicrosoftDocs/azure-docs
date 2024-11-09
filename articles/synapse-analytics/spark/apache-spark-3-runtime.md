@@ -16,10 +16,10 @@ ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.1.
 
 > [!CAUTION]
-> Deprecation and disablement notification for Azure Synapse Runtime for Apache Spark 3.1 
-> * Effective August 29, 2024, **disablement** of jobs running on Azure Synapse Runtime for Apache Spark 3.1 will be executed. **Immediately** migrate to higher runtime versions otherwise your jobs will stop executing. 
-> * **All Spark jobs running on Azure Synapse Runtime for Apache Spark 3.1 will be disabled as of August 29, 2024.**
- * End of Support for Azure Synapse Runtime for Apache Spark 3.1 announced January 26, 2023.
+> Deprecation and disablement notification for Azure Synapse Runtime for Apache Spark 3.1. 
+>* **On August 29, 2024,** partial pools and jobs disablement will begin. We will continue with further, **full disablement by September 30, 2024.**  **Immediately** migrate to higher runtime versions otherwise your jobs will stop executing. 
+> * **All Spark jobs running on Azure Synapse Runtime for Apache Spark 3.1 will be fully disabled as of** **September 30, 2024.**
+* End of Support for Azure Synapse Runtime for Apache Spark 3.1 announced January 26, 2023.
  * Effective January 26, 2024, the Azure Synapse has stopped official support for Spark 3.1 Runtimes.
  * Post January 26, 2024, we will not be addressing any support tickets related to Spark 3.1. There will be no release pipeline in place for bug or security fixes for Spark 3.1. Utilizing Spark 3.1 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
  * Recognizing that certain customers may need additional time to transition to a higher runtime version, we are temporarily extending the usage option for Spark 3.1, but we will not provide any official support for it.

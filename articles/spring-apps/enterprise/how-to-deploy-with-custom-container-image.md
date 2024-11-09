@@ -12,10 +12,9 @@ ms.date: 06/27/2024
 # Deploy an application with a custom container image
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Standard ✔️ Enterprise
 
@@ -24,7 +23,7 @@ This article explains how to deploy Spring Boot applications in Azure Spring App
 ## Prerequisites
 
 * A container image containing the application.
-* The image is pushed to an image registry. For more information, see [Azure Container Registry](../../container-instances/container-instances-tutorial-prepare-acr.md).
+* The image is pushed to an image registry. For more information, see [Azure Container Registry](/azure/container-instances/container-instances-tutorial-prepare-acr).
 
 > [!NOTE]
 > The web application must listen on port `1025` for the Standard plan and on port `8080` for the Enterprise plan. The way to change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot applications or `ASPNETCORE_URLS=http://+:1025/` for ASP.NET Core applications. You can disable the probe for applications that don't listen on any port. For more information, see [How to configure health probes and graceful termination periods for apps hosted in Azure Spring Apps](how-to-configure-health-probes-graceful-termination.md).
@@ -249,7 +248,7 @@ AppPlatformContainerEventLogs
 
 ### Scan your image for vulnerabilities
 
-We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks)
+We recommend that you use Microsoft Defender for Cloud with ACR to prevent your images from being vulnerable. For more information, see [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-containers-introduction?tabs=defender-for-container-arch-aks)
 
 ### Switch between JAR deployment and container deployment
 

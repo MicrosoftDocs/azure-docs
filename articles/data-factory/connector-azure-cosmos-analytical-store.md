@@ -51,7 +51,7 @@ Settings specific to Azure Cosmos DB are available in the **Source Options** tab
 
 **Preferred regions:** Choose the preferred read regions for this process.
 
-**Change feed:** If true, you'll get data from [Azure Cosmos DB change feed](../cosmos-db/change-feed.md), which is a persistent record of changes to a container in the order they occur from last run automatically. When you set it true, don't set both **Infer drifted column types** and **Allow schema drift** as true at the same time. For more information, see [Azure Cosmos DB change feed](#azure-cosmos-db-change-feed).
+**Change feed:** If true, you'll get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed), which is a persistent record of changes to a container in the order they occur from last run automatically. When you set it true, don't set both **Infer drifted column types** and **Allow schema drift** as true at the same time. For more information, see [Azure Cosmos DB change feed](#azure-cosmos-db-change-feed).
 
 **Start from beginning:** If true, you'll get initial load of full snapshot data in the first run, followed by capturing changed data in next runs. If false, the initial load will be skipped in the first run, followed by capturing changed data in next runs. The setting is aligned with the same setting name in [Azure Cosmos DB reference](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references#reading-cosmosdb-collection-change-feed). For more information, see [Azure Cosmos DB change feed](#azure-cosmos-db-change-feed).
 
@@ -78,7 +78,7 @@ Settings specific to Azure Cosmos DB are available in the **Settings** tab of th
 
 ## Azure Cosmos DB change feed 
 
-Azure Data Factory can get data from [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) by enabling it in the mapping data flow source transformation. With this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You don't have to use Azure functions to read the change feed and then write custom transformations. You can use this option to move data from one container to another, prepare change feed driven material views for fit purpose or automate container backup or recovery based on change feed, and enable many more such use cases using visual drag and drop capability of Azure Data Factory.
+Azure Data Factory can get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) by enabling it in the mapping data flow source transformation. With this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You don't have to use Azure functions to read the change feed and then write custom transformations. You can use this option to move data from one container to another, prepare change feed driven material views for fit purpose or automate container backup or recovery based on change feed, and enable many more such use cases using visual drag and drop capability of Azure Data Factory.
 
 Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run.
 
@@ -89,4 +89,4 @@ In the monitoring section, you always have the chance to rerun a pipeline. When 
 In addition, Azure Cosmos DB analytical store now supports Change Data Capture (CDC) for Azure Cosmos DB API for NoSQL and Azure Cosmos DB API for Mongo DB (public preview). Azure Cosmos DB analytical store allows you to efficiently consume a continuous and incremental feed of changed (inserted, updated, and deleted) data from analytical store.
 
 ## Related content
-Get started with [change data capture in Azure Cosmos DB analytical store ](../cosmos-db/get-started-change-data-capture.md).
+Get started with [change data capture in Azure Cosmos DB analytical store ](/azure/cosmos-db/get-started-change-data-capture).

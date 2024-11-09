@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 05/01/2024
 ms.author: normesta
 ---
@@ -55,7 +55,7 @@ A time-based retention policy stores blob data in a WORM format for a specified 
 
 A time-based retention policy can be configured at the following scopes:
 
-- Version-level WORM policy: A time-based retention policy can be configured at the account, container, or version level. If it's configured at the account or container level, it will be inherited by all blobs in the respective account or container.
+- Version-level WORM policy: A time-based retention policy can be configured at the account, container, or version level. If it's configured at the account or container level, it will be inherited by all blobs in the respective account or container. If there is a legal hold on a container, Version-level WORM cannot be created for the same container. This is because the versions can't generated due to the legal hold.
 - Container-level WORM policy: A time-based retention policy configured at the container level applies to all blobs in that container. Individual blobs can't be configured with their own immutability policies.
 
 ### Retention interval for a time-based policy
@@ -118,7 +118,7 @@ The following table shows a breakdown of the differences between container-level
 | Feature dependencies | No other features are a prerequisite or requirement for this feature to function. | Versioning is a prerequisite for this feature to be used. |
 | Enablement for existing accounts/container | This feature can be enabled at any time for existing containers. | Depending on the level of granularity, this feature might not be enabled for all existing accounts/containers. |
 | Account/container deletion | Once a time-based retention policy is locked on a container, containers may only be deleted if they're empty. | Once version-level WORM is enabled on an account or container level, they may only be deleted if they're empty.|
-| Support for Azure Data Lake Storage Gen2 (storage accounts that have a hierarchical namespace enabled)| Container-level WORM policies are supported in accounts that have a hierarchical namespace.  | Version-level WORM policies are not yet supported in accounts that have a hierarchical namespace. |
+| Support for Azure Data Lake Storage (storage accounts that have a hierarchical namespace enabled)| Container-level WORM policies are supported in accounts that have a hierarchical namespace.  | Version-level WORM policies are not yet supported in accounts that have a hierarchical namespace. |
 
 To learn more about container-level WORM, see [Container-Level WORM policies](immutable-container-level-worm-policies.md). To learn more about version-level WORM, please visit [version-Level WORM policies](immutable-version-level-worm-policies.md).
 
@@ -131,7 +131,7 @@ The following table helps you decide which type of WORM policy to use.
 | Organization of data | You want to set policies for specific data sets, which can be categorized by container. All the data in that container needs to be kept in a WORM state for the same amount of time. | You can't group objects by retention periods. All blobs must be stored with an individual retention time based on that blob’s scenarios, or user has a mixed workload so that some groups of data can be clustered into containers while other blobs can't. You might also want to set container-level policies and blob-level policies within the same account. |
 | Amount of data that requires an immutable policy | You don't need to set policies on more than 10,000 containers per account. | You want to set policies on all data or large amounts of data that can be delineated by account. You know that if you use container-level WORM, you'll have to exceed the 10,000-container limit. |
 | Interest in enabling versioning | You don't want to deal with enabling versioning either because of the cost, or because the workload would create numerous extra versions to deal with. | You either want to use versioning, or don't mind using it. You know that if they don’t enable versioning, you can't keep edits or overwrites to immutable blobs as separate versions. |
-| Storage location (Blob Storage vs Data Lake Storage Gen2) | Your workload is entirely focused on Azure Data Lake Storage Gen2. You have no immediate interest or plan to switch to using an account that doesn't have the hierarchical namespace feature enabled. | Your workload is either on Blob Storage in an account that doesn't have the hierarchical namespace feature enabled, and can use version-level WORM now, or you're willing to wait for versioning to be available for accounts that do have a hierarchical namespace enabled (Azure Data Lake Storage Gen2).|
+| Storage location (Blob Storage vs Data Lake Storage) | Your workload is entirely focused on Azure Data Lake Storage. You have no immediate interest or plan to switch to using an account that doesn't have the hierarchical namespace feature enabled. | Your workload is either on Blob Storage in an account that doesn't have the hierarchical namespace feature enabled, and can use version-level WORM now, or you're willing to wait for versioning to be available for accounts that do have a hierarchical namespace enabled (Azure Data Lake Storage).|
 
 ### Access tiers
 

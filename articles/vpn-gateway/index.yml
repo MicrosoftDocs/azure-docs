@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is VPN Gateway?
             url: vpn-gateway-about-vpngateways.md
+          - text: What's new in VPN Gateway?
+            url: whats-new.md
       - linkListType: concept
         links:
           - text: VPN Gateway FAQ
@@ -60,7 +62,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Configure point-to-site VPN Certificate authentication
-            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+            url: point-to-site-certificate-gateway.md
           - text: Configure point-to-site VPN Microsoft Entra ID authentication
             url: point-to-site-entra-gateway.md
           - text: Configure point-to-site VPN using Multiple authentication types

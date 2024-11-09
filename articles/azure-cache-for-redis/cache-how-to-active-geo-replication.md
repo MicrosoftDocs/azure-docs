@@ -1,13 +1,13 @@
 ---
 title: Configure active geo-replication for Enterprise Azure Cache for Redis instances
 description: Learn how to replicate your Azure Cache for Redis Enterprise instances across Azure regions.
-author: flang-msft
 
-ms.service: azure-cache-redis
+
+
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 03/23/2023
-ms.author: franlanglois
+
 ---
 
 # Configure active geo-replication for Enterprise Azure Cache for Redis instances
@@ -135,6 +135,35 @@ New-AzRedisEnterpriseCache -Name "Cache2" -ResourceGroupName "myResourceGroup" -
 ```
 
 As before, you need to list both _Cache1_ and _Cache2_ using the `-LinkedDatabase` parameter.
+
+## Scaling instances in a geo-replication group
+It is possible to scale instances that are configured to use active geo-replication. However, a geo-replication group with a mix of different cache sizes can introduce problems. To prevent these issues from occurring, all caches in a geo replication group need to be the same size and capacity. 
+
+Since it is difficult to simultaneously scale all instances in the geo-replication group, Azure Cache for Redis has a locking mechanism. If you scale one instance in a geo-replication group, the underlying VM will be scaled, but the memory available will be capped at the original size until the other instances are scaled up as well. And any other scaling operations for the remaining instances are locked until they match the same configuration as the first cache to be scaled.
+
+### Scaling example
+For example, you may have three instances in your geo-replication group, all Enterprise E10 instances:
+
+| Instance Name |   Redis00   |    Redis01   |   Redis02  |
+|-----------|:--------------------:|:--------------------:|:--------------------:|
+| Type | Enterprise E10 | Enterprise E10 | Enterprise E10 |
+
+Let's say you want to scale up each instance in this geo-replication group to an Enterprise E20 instance. You would first scale one of the caches up to an E20:
+
+| Instance Name |   Redis00   |    Redis01   |   Redis02  |
+|-----------|:--------------------:|:--------------------:|:--------------------:|
+| Type | Enterprise E20 | Enterprise E10 | Enterprise E10 |
+
+At this point, the `Redis01` and `Redis02` instances can only scale up to an Enterprise E20 instance. All other scaling operations are blocked. 
+>[!NOTE]
+> The `Redis00` instance is not blocked from scaling further at this point. But it will be blocked once either `Redis01` or `Redis02` is scaled to be an Enterprise E20.
+>
+
+Once each instance has been scaled to the same tier and size, all scaling locks are removed:
+
+| Instance Name |   Redis00   |    Redis01   |   Redis02  |
+|-----------|:--------------------:|:--------------------:|:--------------------:|
+| Type | Enterprise E20 | Enterprise E20 | Enterprise E20 |
 
 ## Flush operation
 

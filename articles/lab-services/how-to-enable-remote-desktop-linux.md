@@ -33,7 +33,7 @@ Performance over a remote desktop connection varies by distribution, version, GU
 Another option to consider is [nested virtualization](concept-nested-virtualization-template-vm.md). Students can connect to a Windows lab host VM using RDP, and then use Linux on nested VMs. This approach might help improve performance.
 
 > [!IMPORTANT]
-> Some marketplace images already have a graphical desktop environment and remote desktop server installed. For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) already has [XFCE and X2Go Server installed and configured to accept client connections](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
+> Some marketplace images already have a graphical desktop environment and remote desktop server installed. For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) already has [XFCE and X2Go Server installed and configured to accept client connections](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
 
 ## Choose setup options
 

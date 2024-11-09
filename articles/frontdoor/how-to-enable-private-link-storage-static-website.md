@@ -8,9 +8,12 @@ ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/31/2024
 ms.author: duau
+zone_pivot_groups: front-door-dev-exp-portal-cli
 ---
 
 # Connect Azure Front Door Premium to a storage static website with Private Link
+
+::: zone pivot="front-door-portal"
 
 This article guides you through how to configure Azure Front Door Premium tier to connect to your storage static website privately using the Azure Private Link service.
 
@@ -75,6 +78,67 @@ When creating a private endpoint connection to the storage static website's seco
 :::image type="content" source="./media/how-to-enable-private-link-storage-static-website/private-endpoint-storage-static-website-secondary.png" alt-text="Screenshot of enabling private link to a storage static website secondary.":::
 
 Once the origin is added and the private endpoint connection is approved, you can test your private link connection to your storage static website.
+
+::: zone-end
+
+::: zone pivot="front-door-cli"
+
+This article will guide you through how to configure Azure Front Door Premium tier to connect to your Storage Account privately using the Azure Private Link service with Azure CLI.
+
+## Prerequisites - CLI
+
+[!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Have a functioning Azure Front Door Premium profile, an endpoint and an origin group. For more information on how to create an Azure Front Door profile, see [Create a Front Door - CLI](create-front-door-cli.md).
+
+## Enable Private Link to a Storage Static Website in Azure Front Door Premium
+
+1. Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to create a new Azure Front Door origin. Enter the following settings to configure the Storage Static Website you want Azure Front Door Premium to connect with privately. Notice the `private-link-location` must be in one of the [available regions](private-link.md#region-availability) and the `private-link-sub-resource-type` must be **web**.
+
+```azurecli-interactive
+az afd origin create --enabled-state Enabled \
+                     --resource-group testRG \
+                     --origin-group-name default-origin-group \
+                     --origin-name pvtStaticSite \
+                     --profile-name testAFD \
+                     --host-name example.z13.web.core.windows.net\
+                     --origin-host-header example.z13.web.core.windows.net\
+                     --http-port 80 \
+                     --https-port 443 \
+                     --priority 1 \
+                     --weight 500 \
+                     --enable-private-link true \
+                     --private-link-location EastUS \
+                     --private-link-request-message 'AFD Storage static website origin Private Link request.' \
+                     --private-link-resource /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testingafdpl \
+                     --private-link-sub-resource-type web
+ 
+```
+
+## Approve Private Endpoint Connection from Storage Account
+
+1. Run [az network private-endpoint-connection list](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-list) to list the private endpoint connections for your storage account. Note down the 'Resource ID' of the private endpoint connection available in your storage account, in the first line of your output.
+
+```azurecli-interactive
+    az network private-endpoint-connection list -g testRG -n testingafdpl --type Microsoft.Storage/storageAccounts
+
+```
+
+2. Run [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) to approve the private endpoint connection.
+
+```azurecli-interactive
+    az network private-endpoint-connection approve --id /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testingafdpl/privateEndpointConnections/testingafdpl.00000000-0000-0000-0000-000000000000
+
+```
+
+## Create Private Endpoint Connection to Web_Secondary
+
+When creating a private endpoint connection to the storage static website's secondary sub-resource, you need to add a **-secondary** suffix to the origin host header. For example, if your origin host header is `example.z13.web.core.windows.net`, you need to change it to `example-secondary.z13.web.core.windows.net`.
+
+Once the origin is added and the private endpoint connection is approved, you can test your private link connection to your storage static website.
+
+::: zone-end
 
 ## Next steps
 

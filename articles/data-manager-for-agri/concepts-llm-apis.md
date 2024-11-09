@@ -29,9 +29,9 @@ Our copilot templates make generative AI in agriculture a reality.
 ## Prerequisites
 
 - An instance of [Azure Data Manager for Agriculture](quickstart-install-data-manager-for-agriculture.md)
-- An instance of [Azure OpenAI Service](../ai-services/openai/how-to/create-resource.md) created in your Azure subscription
-- [Azure Key Vault](../key-vault/general/quick-create-portal.md)
-- [Azure Container Registry](../container-registry/container-registry-get-started-portal.md)
+- An instance of [Azure OpenAI Service](/azure/ai-services/openai/how-to/create-resource) created in your Azure subscription
+- [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
+- [Azure Container Registry](/azure/container-registry/container-registry-get-started-portal)
 
 ## High-level architecture
 
@@ -39,7 +39,7 @@ You have full control because deployment of key components is within your tenant
 
 :::image type="content" source="./media/concepts-llm-apis/high-level-architecture.png" alt-text="Screenshot that shows the high-level feature architecture.":::
 
-We recommend that you apply content and safety filters on your Azure OpenAI instance. Taking this step helps ensure that the generative AI capability is aligned with guidelines from Microsoft's Office of Responsible AI. To get started, follow the [instructions on how to use content filters with Azure OpenAI](../ai-services/openai/how-to/content-filters.md).
+We recommend that you apply content and safety filters on your Azure OpenAI instance. Taking this step helps ensure that the generative AI capability is aligned with guidelines from Microsoft's Office of Responsible AI. To get started, follow the [instructions on how to use content filters with Azure OpenAI](/azure/ai-services/openai/how-to/content-filters).
 
 ## Use cases for farm operations
 

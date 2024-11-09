@@ -1,11 +1,11 @@
 ---
 title: Deploy the diagnostics tool for Azure Virtual Desktop (classic) - Azure
 description: How to deploy the diagnostics UX tool for Azure Virtual Desktop (classic).
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
-ms.custom: has-azure-ad-ps-ref
+ms.custom: has-azure-ad-ps-ref, docs_inherited
 ms.date: 12/15/2020
-ms.author: helohr
+ms.author: daknappe
 ---
 
 # Deploy the Azure Virtual Desktop (classic) diagnostics tool
@@ -114,7 +114,7 @@ Here's how to manually configure the recommended performance counters:
     -   Processor Information(\*)\\Processor Time
     -   User Input Delay per Session(\*)\\Max Input Delay
 
-Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](../../azure-monitor/agents/data-sources-performance-counters.md).
+Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](/azure/azure-monitor/agents/data-sources-performance-counters).
 
 >[!NOTE]
 >Any additional counters you configure won't show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.
@@ -180,25 +180,30 @@ After that, you need to set the Redirect URI.
 To set the Redirect URI:
 
 1.  In the [Azure portal](https://portal.azure.com/), go to **App Services** and locate the application you created.
-2.  Go to the overview page and copy the URL you find there.
-3.  Navigate to **app registrations** and select the app you want to deploy.
-4.  In the left panel, under Manage section, select **Authentication**.
-5.  Enter the desired Redirect URI into the **Redirect URI** text box, then select **Save** in the top-left corner of the menu.
-6. Select **Web** in the drop-down menu under Type.
-7. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   > [!div class="mx-imgBorder"]
-   > ![The redirect URI page](../media/redirect-uri-page.png)
+1.  Go to the overview page and copy the URL you find there.
 
-8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is `http://contoso.azurewebsites.net`).
-9. Sign in using the appropriate Microsoft Entra user account.
-10.   Select **Accept**.
+1.  Navigate to **app registrations** and select the app you want to deploy.
+
+1.  In the left panel, under Manage section, select **Authentication**.
+
+1.  Enter the desired Redirect URI into the **Redirect URI** text box, then select **Save** in the top-left corner of the menu.
+
+1. Select **Web** in the drop-down menu under Type.
+
+1. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
+
+1. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL you copied earlier.
+
+1. Sign in using the appropriate Microsoft Entra user account.
+
+1. Select **Accept**.
 
 ## Distribute the diagnostics tool
 
 Before you make the diagnostics tool available to your users, make sure they have the following permissions:
 
-- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../../azure-monitor/roles-permissions-security.md).
+- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/roles-permissions-security).
 -  Users also need read access for the Azure Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Azure Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 You also need to give your users the following information:

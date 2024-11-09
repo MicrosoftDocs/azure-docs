@@ -27,7 +27,7 @@ Azure Confidential Computing offers solutions to enable isolation of your sensit
 
 Attestation is a process that provides assurances regarding the integrity and identity of the hardware and software environments in which applications run. In Confidential Computing, attestation allows you to verify that your applications are running on trusted hardware and in a trusted execution environment. 
 
-Learn more about attestation and Microsoft Azure Attestation service at [Attestation in Azure](../attestation/basic-concepts.md)
+Learn more about attestation and Microsoft Azure Attestation service at [Attestation in Azure](/azure/attestation/basic-concepts)
 
 ## Definition of memory isolation
 
@@ -78,7 +78,7 @@ You can find more information about the offering and our partner solutions [here
 - **Programming model**: Zero to minimal changes for containerized applications. Support is limited to containers that are Linux based (containers using a Linux base image for the container).
 - **Ideal Workloads**: Rapid development and deployment of simple containerized workloads without orchestration. Support for bursting from AKS using Virtual Nodes.
 
-You can find more details at [Getting started with Confidential Containers on ACI](../container-instances/container-instances-confidential-overview.md).
+You can find more details at [Getting started with Confidential Containers on ACI](/azure/container-instances/container-instances-confidential-overview).
 
 ## Learn more
 
