@@ -24,7 +24,7 @@ This article shows you how to view and filter DNS traffic at the virtual network
 
 ## Create a security policy
 
-Choose one of the following tabs to create a security policy using the Azure portal, Azure CLI, or Powershell.
+Choose one of the following tabs to create a security policy using the Azure portal, Azure CLI, or PowerShell.
 
 ## [Azure portal](#tab/sign-portal)
 
@@ -34,7 +34,7 @@ To create a DNS security policy using the Azure portal:
 2. Select **+ Create** to begin creating a new policy.
 3. On the **Basics** tab, select the **Subscription** and **Resource group**, or create a new resource group.
 4. Next to **Instance Name**, enter a name for the DNS security policy.
-5. Choose the **Region** where the security policy will apply.
+5. Choose the **Region** where the security policy applies.
 
      > [!NOTE]
      > A DNS security policy can only be applied to VNets in the same region as the security policy.
@@ -81,7 +81,7 @@ To configure diagnostic settings:
 1. Select the DNS security policy that you created (**myeast-secpol** in this example).
 2. Under **Monitoring**, select **Diagnostic settings**.
 3. Select **Add diagnostic setting**.
-4. Next to **Diagnostic setting name**, enter a name for the logs you will collect here.
+4. Next to **Diagnostic setting name**, enter a name for the logs you collect here.
 5. Under **Logs** and under **Metrics** select "all" logs and metrics.
 6. Under **Destination details**, select **Send to Log Analytics workspace** and then choose the subscription and workspace that you created.
 7. Select **Save**. See the following example.
@@ -110,7 +110,7 @@ To create a DNS domain list using the Azure portal:
 
 Repeat this section to create additional domain lists if desired. Each domain list can be associated to a traffic rule that has one of three actions:
 
-- **Allow**: Permit the the DNS query and log it.
+- **Allow**: Permit the DNS query and log it.
 - **Block**: Block the DNS query and log the block action.
 - **Alert**: Permit the DNS query and log an alert.
 
@@ -127,19 +127,19 @@ To configure diagnostic settings:
 3. Select **+ Add**. The **Add DNS Traffic Rule** pane opens.
 4. Next to **Priority**, enter a value in the range of 100-65000. Lower number rules have higher priority.
 5. Next to **Rule Name**, enter a name for the rule.
-6. Next to **DNS Domain Lists**, select the domain lists that will be used in this rule.
+6. Next to **DNS Domain Lists**, select the domain lists to be used in this rule.
 7. Next to **Traffic Action**, select **Allow**, **Block**, or **Alert** based on the type of action that should apply to the selected domains. In this example, **Allow** is chosen.
 8. Leave the default **Rule State** as **Enabled** and select **Save**.
 
     ![Screenshot of creating a DNS traffic rule.](./media/dns-traffic-log-how-to/add-traffic-rule.png)
 
-9. Refresh the view to verify that the rule was added succesfully. You can edit traffic actions, DNS domain lists, rule priority, and rule state.
+9. Refresh the view to verify that the rule was added successfully. You can edit traffic actions, DNS domain lists, rule priority, and rule state.
 
     ![Screenshot of DNS traffic rules.](./media/dns-traffic-log-how-to/dns-traffic-rules.png)
 
 ## View and test DNS logs
 
-1. Navigate to your DNS security policy and then under **Monitoring**, select **Diagnosic settings**.
+1. Navigate to your DNS security policy and then under **Monitoring**, select **Diagnostic settings**.
 2. Select the Log Analytics workspace that you previously associated with security policy (**secpol-loganalytics** in this example). 
 3. Select **Logs** on the left.
 4. To view DNS queries from a virtual machine with IP address 10.40.40.4 in the same region, run a query as follows:

@@ -31,7 +31,7 @@ A DNS security policy has the following associated elements and properties:
 
 You can
 
-On the first option, the security policy is created with diagnostics set to be sent towards a storage account (your DNS query logs will be visible there).
+On the first option, the security policy is created with diagnostics set to be sent towards a storage account (your DNS query logs are visible there).
 On the second option, you configure the security policy via Portal and have instructions on how to create and manage the security policy, plus setting the diagnostic options to send the DNS query details to a log analytics workspace.
 
 You should now be able to log your DNS traffic to one or multiple locations (storage account, log analytics workspace). DNS security policy should log all DNS queries initiated from your VNET. You can try following two scenarios for your testing.
@@ -40,7 +40,7 @@ You should now be able to log your DNS traffic to one or multiple locations (sto
 ## FAQ
 
 What is a DNS security policy?
-- DNS security policy is an object which will contain monitoring settings for DNS query logging which can be applied to one or more Virtual Networks. This is a 1:N relationship.
+- DNS security policy is an object that contains monitoring settings for DNS query logging which can be applied to one or more Virtual Networks. This is a 1:N relationship.
 
 What is a Virtual Network Link?
 - Virtual Network links enable the policy on Virtual Networks which are linked to a DNS security policy. This is a 1:1 relationship.
