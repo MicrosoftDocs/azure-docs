@@ -58,7 +58,7 @@ If you want to see which users are using the PIM funcationality, here are option
 
 ### Option 2: List using PowerShell
 
-There isn't single PowerShell command that can list both the eligible and active time-bound role assignments. To list your eligible role assignments, use the [Get-AzRoleEligibilitySchedule](/powershell/module/az.resources/get-azroleeligibilityschedule) command. To list your active role assignments, use the [Get-AzRoleAssignmentSchedule](/powershell/module/az.resources/get-azroleassignmentschedule) command.
+There isn't a single PowerShell command that can list both the eligible and active time-bound role assignments. To list your eligible role assignments, use the [Get-AzRoleEligibilitySchedule](/powershell/module/az.resources/get-azroleeligibilityschedule) command. To list your active role assignments, use the [Get-AzRoleAssignmentSchedule](/powershell/module/az.resources/get-azroleassignmentschedule) command.
 
 This example shows how to list eligible and time-bound role assignments in a subscription, which includes these role assignment types:
 
@@ -66,7 +66,7 @@ This example shows how to list eligible and time-bound role assignments in a sub
 - Eligible time-bound
 - Active time-bound
 
-The `Where-Object` condition filters out active permanent role assignments that are available with Azure RBAC functionality today without PIM.
+The `Where-Object` command filters out active permanent role assignments that are available with Azure RBAC functionality without PIM.
 
 ```powershell
 Get-AzRoleEligibilitySchedule -Scope /subscriptions/<subscriptionId> 
@@ -81,7 +81,7 @@ If your organization has process or compliance reasons to limit the use of PIM, 
 
 ### Option 1: Convert using the Azure portal
 
-1. On the **Role assignments** tab and **State** column, select the **Eligible permanent**, **Eligible time-bound**, and **Active time-bound** links for each role assignment you want to convert.
+1. In the Azure portal, on the **Role assignments** tab and **State** column, select the **Eligible permanent**, **Eligible time-bound**, and **Active time-bound** links for each role assignment you want to convert.
 
 1. In the **Edit assignment** pane, select **Active** for the assignment type and **Permanent** for the assignment duration.
 
@@ -231,5 +231,5 @@ For information about how to assign an Azure Policy with parameters, see [Tutori
 
 ## Next steps
 
-- [Steps to assign an Azure role](role-assignments-steps.md)
 - [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
+- [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure)
