@@ -44,7 +44,7 @@ Create a virtual network using the following example values:
 * **Name:** VNet1
 * **Region:** (US) East US (or region of your choosing)
 * **IPv4 address space:** 10.1.0.0/16
-* **Subnet name:** FrontEnd
+* **Subnet name:** Use the default name, or specify a name. Example: FrontEnd
 * **Subnet address space:** 10.1.0.0/24
 
 [!INCLUDE [Create a VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
@@ -124,4 +124,4 @@ After you create a VPN gateway, you can configure more gateway settings and conn
 > [Site-to-site VPN connections](./tutorial-site-to-site-portal.md)
 
 > [!div class="nextstepaction"]
-> [Point-to-site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> [Point-to-site VPN connections](point-to-site-certificate-gateway.md)

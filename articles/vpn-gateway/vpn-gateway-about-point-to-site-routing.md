@@ -246,4 +246,4 @@ Clients using Windows can access VNets and sites that are connected using a Site
 
 ## Next steps
 
-See [Create a P2S VPN using the Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) to begin creating your P2S VPN.
+See [Create a P2S VPN using the Azure portal](point-to-site-certificate-gateway.md) to begin creating your P2S VPN.

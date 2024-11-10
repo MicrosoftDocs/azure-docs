@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 10/14/2024
+ms.date: 11/05/2024
 ms.author: juergent
 ---
 
@@ -54,7 +54,12 @@ In the SAP workload documentation space, you can find the following areas:
 - **Azure Monitor for SAP solutions**: Microsoft developed monitoring solutions specifically for SAP supported OS and DBMS, as well as S/4HANA and NetWeaver. This section documents the deployment and usage of the service
 
 ## Change Log
-
+- November 5, 2024: Add missing step to start HANA [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md).
+- November 1, 2024: Adding HANA high-availability hook ChkSrv for [dying indexserver for RHEL based cluster setups](./sap-hana-high-availability-rhel.md#implement-sap-hana-system-replication-hooks).
+- October 29, 2024: some changes on disk caching and smaller updates in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md). Plus fixing some typoes in HANA storage configuration documents
+- October 28, 2024: Added information on RedHat support and the configuration of Azure fence agents for VMs in the Azure Government cloud to the document [Set up Pacemaker on Red Hat Enterprise Linux in Azure](./high-availability-guide-rhel-pacemaker.md).
+- October 25, 2024: Adding documentation link to [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms-guide-sqlserver.md) that describes how to disable SMT to be able to use some Mv3 SKUs where SQL Server would have a problem with too large NUMA nodes.
+- October 16, 2024: Included ordering constraints in [High availability of SAP HANA scale-up with Azure NetApp Files on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) to ensure SAP resources on a node stop before any of the NFS mounts.
 - October 14, 2024: Change several database guides mentioning that with several Mv3 VM types, IOPS and throughput could be lower when using read cached Premium SSD v1 disks compared to using non-cached disks
 - October 7, 2024: Changes in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms-guide-sqlserver.md), documenting new Mv3 SKUs that will not work with SQL Server because of NUMA nodes larger than 64 vCPUs
 - October 5, 2024: Changes in documenting active/active and active/passive application layer in [SAP workload configurations with Azure Availability Zones](./high-availability-zones.md). Eliminating the list of regions for each of the cases
@@ -160,19 +165,4 @@ In the SAP workload documentation space, you can find the following areas:
 - January 30, 2022: Adding context about SQL Server proportional fill and expectations that SQL Server data files should be the same size and should have the same free space in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms-guide-sqlserver.md)
 - January 24, 2022: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md), [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md), [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md), [HA for SAP NNW on Azure VMs on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md), [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md), [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md) and  [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to remove cidr_netmask from Pacemaker configuration to allow the resource agent to determine the value automatically.
 - January 12, 2022: Change in [HA for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to remove obsolete information for the SAP kernel that supports the scenario.
-- December 08, 2021: Change in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms-guide-sqlserver.md) to clarify Azure Load Balancer settings.
-- December 08, 2021: Release of scenario [HA of SAP HANA Scale-up with Azure NetApp Files on SLES](./sap-hana-high-availability-netapp-files-suse.md)  
-- December 07, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to clarify that the instructions are applicable for both RHEL 7 and RHEL 8
-- December 07, 2021: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md) and [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md) to adjust the instructions for configuring SWAP file.  
-- December 02, 2021: Introduction of new fencing method in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) using Azure shared disk SBD device
-- December 01, 2021: Change in [SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-guide-wsfc-file-share.md), [HA for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) and [HA for SAP NetWeaver on Azure VMs on Windows with Azure Files(SMB)](./high-availability-guide-windows-azure-files-smb.md) to update the SAP kernel version, required to support clustering SAP on Windows with file share  
-- November 30, 2021: Added [Using Windows DFS-N to support flexible SAPMNT share creation for SMB-based file share](./high-availability-guide-windows-dfs.md)
-- November 22, 2021: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md) and [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md) to clarify the guidelines for J2EE SAP systems and share consolidations per storage account.
-- November 16, 2021: Release of high availability guides for SAP ASCS/ERS with NFS on Azure files [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md) and [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md)
-- November 15, 2021: Introduction of new proximity placement architecture for zonal deployments in [Azure proximity placement groups for optimal network latency with SAP applications](./proximity-placement-scenarios.md)
-- November 02, 2021: Changed [Azure Storage types for SAP workload](./planning-guide-storage.md) and [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms-guide-sapase.md) to declare SAP ASE support for NFS on Azure NetApp Files.
-- November 02, 2021: Changed [SAP workload configurations with Azure Availability Zones](./high-availability-zones.md) to move Singapore SouthEast to regions for active/active configurations
-- November 02, 2021: Change in [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)  to update instructions for HANA scale-up Active/Active (Read Enabled) configuration.
-- October 26, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to update resource names in HANA scale-out Active/Active (Read Enabled) configuration
-- October 19, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add instructions for HANA scale-out Active/Active (Read Enabled) configuration
-- October 11, 2021: Change in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md), [Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md) and [SAP ASCS/SCS instance multi-SID high availability with Windows server failover clustering and Azure shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) to add instructions about zone redundant storage (ZRS) for Azure shared disk support
+

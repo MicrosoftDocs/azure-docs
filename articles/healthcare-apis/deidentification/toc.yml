@@ -11,10 +11,18 @@ items:
   - name: Quickstarts
     expanded: true
     items:
-      - name: Deploy the de-identification service
+      - name: Portal
         href: quickstart.md
+      - name: Bicep
+        href: quickstart-bicep.md
+        displayName: Resource Manager,ARM,template
       - name: Azure Health De-identification client library for .NET
         href: quickstart-sdk-net.md
+  - name: Tutorials
+    expanded: true
+    items:
+      - name: Configure Azure Storage to de-identify documents
+        href: configure-storage.md
   - name: How-to
     expanded: true
     items:
