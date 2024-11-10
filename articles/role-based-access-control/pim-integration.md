@@ -54,7 +54,7 @@ If you want to see which users are using the PIM funcationality, here are option
 
     You can group and sort by **State**, and look for role assignments that aren't the **Active permanent** type.
 
-    :::image type="content" source="./media/role-assignments-list-portal/sub-access-control-role-assignments-eligible.png" alt-text="Screenshot of Access control and Active assignments and Eligible assignments tabs." lightbox="./media/role-assignments-list-portal/sub-access-control-role-assignments-eligible.png":::
+    :::image type="content" source="./media/shared/sub-access-control-role-assignments-eligible.png" alt-text="Screenshot of Access control and Active assignments and Eligible assignments tabs." lightbox="./media/shared/sub-access-control-role-assignments-eligible.png":::
 
 ### Option 2: List using PowerShell
 
@@ -87,7 +87,7 @@ If your organization has process or compliance reasons to limit the use of PIM, 
 
     For more information, see [Edit assignment](role-assignments-portal.yml#edit-assignment-(preview)).
 
-    :::image type="content" source="./media/role-assignments-portal/assignment-type-edit.png" alt-text="Screenshot of Edit assignment pane with Assignment type options displayed." lightbox="./media/role-assignments-portal/assignment-type-edit.png":::
+    :::image type="content" source="./media/shared/assignment-type-edit.png" alt-text="Screenshot of Edit assignment pane with Assignment type options displayed." lightbox="./media/shared/assignment-type-edit.png":::
 
 1. When finished, select **Save**.
 
