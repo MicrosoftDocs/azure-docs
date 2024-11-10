@@ -147,7 +147,13 @@ The file is generated, and you're prompted to save it locally.
 
 ## Remediate aggregated alerts
 
-hjkhjk
+To reduce alert fatigue, multiple versions of the same alert with identical parameters are listed as one item in the Alerts page. Investigate the alerts and then remediate them using the Learn tab.
+
+1. On the **Alerts** page, select an alert in the grid to display more details in the pane on the right. How do we know from the table that this is an aggregated alert?<!-- is there a violations column or -->
+1. Select the **Violations** tab.
+1. Export the data to a CSV file using the **Export** button. Open the file and examine the data.
+1. Select the **Take action** tab. Follow the **Remediation steps**.
+1. Select the **Learn** button so that Defender for IoT learns that this doesn't need to create an alert item for this activity in the future.
 
 ## Next steps
 

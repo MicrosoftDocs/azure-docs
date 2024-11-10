@@ -179,8 +179,15 @@ For more information, see [Accelerating OT alert workflows](alerts.md#accelerati
 
 ## Remediate aggregated alerts
 
-jkjljl
+To reduce alert fatigue, multiple versions of the same alert with identical parameters are listed as one item in the Alerts page. Investigate the alerts and then remediate them using the Learn tab.
 
+1. Sign into your OT sensor console and select the **Alerts** page on the left.
+1. How do we know from the table that this is an aggregated alert?<!-- is there a violations column or -->
+1. Select the **Violations** tab.
+1. Export the data to a CSV file using the **Export** button. Open the file and examine the data.
+1. Select the **Take action** tab. Follow the **Remediation steps**.
+1. Select the **Learn** button so that Defender for IoT learns that this doesn't need to create an alert item for this activity in the future.
+<!-- go over this with the OT sensor and data that shows this feature and check this is correct -->
 ## Next steps
 
 > [!div class="nextstepaction"]
