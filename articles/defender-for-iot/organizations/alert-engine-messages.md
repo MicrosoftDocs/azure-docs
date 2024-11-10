@@ -79,6 +79,11 @@ Each alert has one of the following categories:
 
 Policy engine alerts describe detected deviations from learned baseline behavior.
 
+| Title  | Description | Severity | Category | MITRE ATT&CK <br> Tactics and techniques |Learnable| Aggregated |
+|--|--|--|--|--|--|--|
+| **Beckhoff Software Changed** | Firmware was updated on a source device. This might be authorized activity, for example a planned maintenance procedure. | Medium | Firmware Change | **Tactics:** <br> - Inhibit Response Function <br> - Persistence <br><br> **Techniques:** <br> - T0857: System Firmware | Learnable |
+| **Database Login Failed** | A failed sign-in attempt was detected from a source device to a destination server. This might be the result of human error, but could also indicate a malicious attempt to compromise the server or data on it. <br><br> Threshold: 2 sign-in failures in 5 minutes | Medium | Authentication | **Tactics:** <br> - Lateral Movement <br> - Collection <br><br> **Techniques:** <br> - T0812: Default Credentials <br> - T0811: Data from Information Repositories| Not learnable | Aggregated with violations |
+
 | Title  | Description | Severity | Category | MITRE ATT&CK <br> Tactics and techniques |Learnable|
 |--|--|--|--|--|--|
 | **Beckhoff Software Changed** | Firmware was updated on a source device. This might be authorized activity, for example a planned maintenance procedure. | Medium | Firmware Change | **Tactics:** <br> - Inhibit Response Function <br> - Persistence <br><br> **Techniques:** <br> - T0857: System Firmware | Learnable |

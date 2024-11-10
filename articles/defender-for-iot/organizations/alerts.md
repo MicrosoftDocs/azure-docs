@@ -51,11 +51,15 @@ For more information, see:
 Alert options also differ depending on your location and user role. For more information, see [Azure user roles and permissions](roles-azure.md) and [On-premises users and roles](roles-on-premises.md).
 
 <!-- placing here for initial ease and finding - where should this really go?-->
-## Alert grouping
+## Aggregated alerts / Alert grouping
 
-Multiple alerts, from the same alert category, that have the same parameters, ie. the same source and destination IP addresses, are aggregated into one alert report, instead of each alert being displayed individually.
+Alert fatigue caused by excessive number of identical alerts could lead to your team failing to see or remediate vital alerts. Alert grouping reduces the number of alerts reported by listing identical alert types that have the same parameters as one alert report. The matching parameters differ depending on the type of alert. For example, the alert *Unpermitted Usage of Modbus Function Code* needs to have the same source and destination IP addresses.
 
-The alert has a violations parameter added to show how many alerts of this type are generated. They can all be remediated simaltaneously using the Learn and Actions recommended, which will apply to all versions of this alert. The alerts can be viewed individually within their respective devices.
+The alert grouping includes alerts with different alert codes and these will be shown in the **Violations** tab of the alert details. The full list of alerts can be downloaded as a CSV file, displaying the relevant parameters and functions. Each set of aggregated alerts is remediated as a group using the **Learn** button and therefore the **Violations** feature only applies to alerts which have the same remediation process. Alerts can still be viewed individually within their respective devices.
+
+The alerts that can be grouped are listed in the [Alert reference](alert-engine-messages.md) tables under the **Aggregated heading.
+
+Alert grouping appears in both the OT sensor console and the Azure portal. For more information, see [alert grouping in Sensor console](how-to-view-alerts.md#remediate-aggregated-alerts) and [alert grouping in Azure portal](how-to-manage-cloud-alerts.md#remediate-aggregated-alerts)
 
 ## Focused alerts in OT/IT environments
 

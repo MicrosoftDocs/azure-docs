@@ -145,6 +145,10 @@ You might want to export a selection of alerts to a CSV file for offline sharing
 
 The file is generated, and you're prompted to save it locally.
 
+## Remediate aggregated alerts
+
+hjkhjk
+
 ## Next steps
 
 > [!div class="nextstepaction"]

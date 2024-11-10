@@ -177,6 +177,10 @@ If your admin has [created custom comments](how-to-accelerate-alert-incident-res
 
 For more information, see [Accelerating OT alert workflows](alerts.md#accelerating-ot-alert-workflows).
 
+## Remediate aggregated alerts
+
+jkjljl
+
 ## Next steps
 
 > [!div class="nextstepaction"]
