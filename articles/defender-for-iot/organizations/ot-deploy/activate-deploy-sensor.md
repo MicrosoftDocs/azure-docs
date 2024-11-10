@@ -124,8 +124,8 @@ In the **Interface configurations** tab, do the following to configure settings 
            - **Subnet**.
    
        For example:
-   
-       :::image type="content" source="media/activate-deploy-sensor/erspan-adv-settings-tunneling.png" alt-text="Screenshot of how to configure ERSPAN settings in the OT sensor settings.":::
+
+    :::image type="content" source="media/activate-deploy-sensor/erspan-adv-settings-tunneling.png" alt-text="Screenshot of how to configure ERSPAN settings in the OT sensor settings.":::
 
 1. Select **Save** to save your changes.
 
