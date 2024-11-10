@@ -117,7 +117,9 @@ az network application-gateway rule create \
   --resource-group myResourceGroupAG \
   --http-listener redirectListener \
   --rule-type Basic \
-  --redirect-config myredirect
+  --redirect-config myredirect \
+  --priority 11
+
 ```
 
 ## Test the application gateway
