@@ -112,7 +112,7 @@ To forcibly delete an environment, follow these steps:
 1. Open the CLI.
 1. Run the following command to forcibly delete the environment:
    ```bash
-   az devcenter environment delete --name <environment-name> --dev-center --project-name <project-name> --force
+   az devcenter environment delete --name <environment-name> --dev-center <dev-center-name> --project-name <project-name> --force
    ```
    Replace `<environment-name>` with the name of the environment you want to delete, `<dev-center-name>` with the name of your dev center, and `<project-name>` with the name of the project that the environment belongs to.
 For more information about the `az devcenter environment delete` command, see [az devcenter environment delete](/cli/azure/devcenter/dev/environment).
