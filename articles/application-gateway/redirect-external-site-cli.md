@@ -71,7 +71,7 @@ az network application-gateway create \
   --http-settings-port 80 \
   --http-settings-protocol Http \
   --public-ip-address myAGPublicIPAddress \
-  --priority 10 \
+  --priority 10 
 ```
 
 It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features of it:
