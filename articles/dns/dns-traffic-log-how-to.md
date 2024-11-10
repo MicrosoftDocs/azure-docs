@@ -144,7 +144,7 @@ To configure diagnostic settings:
 3. Select **Logs** on the left.
 4. To view DNS queries from a virtual machine with IP address 10.40.40.4 in the same region, run a query as follows:
 
-```
+```Kusto
 DNSQueryLogs
 | where SourceIpAddress contains "10.40.40.4"
 | limit 1000
@@ -189,8 +189,8 @@ The failed query is recorded in log analytics:
 
 ![Screenshot of a failed query.](./media/dns-traffic-log-how-to/failed-query.png)
 
-> [NOTE!]
-> It can take a few minutes for query results to show up in log analytics.
+ > [NOTE!]
+ > It can take a few minutes for query results to show up in log analytics.
 
 
 ## [Azure CLI](#tab/sign-cli)
