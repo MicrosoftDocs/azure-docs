@@ -16,7 +16,7 @@ Eligible Azure role assignments provide just-in-time access to a role for a limi
 ## Prerequisites
 
 - Microsoft Entra ID P2 license or Microsoft Entra ID Governance license
-- [Eligible role assignment](./role-assignments-portal.yml#step-6-select-assignment-type-(preview))
+- [Eligible role assignment](./role-assignments-portal.yml#step-6-select-assignment-type)
 - `Microsoft.Authorization/roleAssignments/read` permission, such as [Reader](./built-in-roles/general.md#reader)
 
 ## Activate group membership (if needed)

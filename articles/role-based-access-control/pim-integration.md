@@ -85,7 +85,7 @@ If your organization has process or compliance reasons to limit the use of PIM, 
 
 1. In the **Edit assignment** pane, select **Active** for the assignment type and **Permanent** for the assignment duration.
 
-    For more information, see [Edit assignment](role-assignments-portal.yml#edit-assignment-(preview)).
+    For more information, see [Edit assignment](role-assignments-portal.yml#edit-assignment).
 
     :::image type="content" source="./media/shared/assignment-type-edit.png" alt-text="Screenshot of Edit assignment pane with Assignment type options displayed." lightbox="./media/shared/assignment-type-edit.png":::
 
