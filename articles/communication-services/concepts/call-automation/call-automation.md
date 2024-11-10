@@ -197,6 +197,12 @@ Operation Callback URI is an optional parameter in some mid-call APIs that use e
 | `Recognize` | `RecognizeCompleted` / `RecognizeFailed` / `RecognizeCanceled`  |
 | `StopContinuousDTMFRecognition` | `ContinuousDtmfRecognitionStopped` |
 | `SendDTMF` | `ContinuousDtmfRecognitionToneReceived` / `ContinuousDtmfRecognitionToneFailed`  |
+| `Hold` | `HoldFailed` |
+| `StartMediaStreaming` | `MediaStreamingStarted` / `MediaStreamingFailed` |
+| `StopMediaStreaming` | `MediaStreamingStopped` / `MediaStreamingFailed` |
+| `StartTranscription` | `TranscriptionStarted` / `TranscriptionFailed` |
+| `UpdateTranscription` | `TranscriptionUpdated` / `TranscriptionFailed` |
+| `StopTranscription` | `TranscriptionStopped` / `TranscriptionFailed` |
 
 ## Next steps
 
