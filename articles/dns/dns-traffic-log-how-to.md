@@ -49,7 +49,7 @@ To create a DNS security policy using the Azure portal:
 
 9. VNets that were selected are displayed. If desired, you can remove VNets from the list before creating virtual network links.
 
-    ![Screenshot of the Virtual Network Links tab for security policy.](./media/dns-traffic-log-how-to/secpol-vnet-links-list.png)
+    ![Screenshot of the Virtual Network Links list.](./media/dns-traffic-log-how-to/secpol-vnet-links-list.png)
 
      > [!NOTE]
      > Virtual network links are created for all VNets displayed in the list, whether or not they are *selected*. Use checkboxes to select VNets for removal from the list.
