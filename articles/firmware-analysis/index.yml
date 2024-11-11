@@ -26,7 +26,7 @@ landingContent:
           - text: Get started with Firmware analysis in the Azure portal
             url: tutorial-analyze-firmware.md
           - text: What file systems are supported by Firmware analysis?
-            url: firmware-analysis-faq.md#What-types-of-firmware-images-does-Firmware-analysis-support
+            url: firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support
       - linkListType: concept
         links:
           - text: What roles and permissions are needed to use Firmware analysis?
@@ -39,14 +39,14 @@ landingContent:
   # Card
   - title: Automate your workflow
     linkLists:
-      - linkListType: how-to-guides
+      - linkListType: how-to-guide
         links:
           - text: Automate your workflow using service principals
             url: automate-firmware-analysis-service-principals.md
           - text: Analyze firmware images using Azure CLI commands
             url: quickstart-upload-firmware-using-azure-command-line-interface.md
           - text: Analyze firmware images using Azure PowerShell commands
-            url: quickstart-upload-firmware-using-azure-powershell.md
+            url: quickstart-upload-firmware-using-powershell.md
           - text: Analyze firmware images using a Python script
             url: quickstart-upload-firmware-using-python.md
 
@@ -56,7 +56,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Understand the resource hierarchy of Firmware analysis
-            url: firmware-analysis-rbac.md#Understanding-the-Representation-of-Firmware-Images-in-the-Azure-Resource-Hierarchy
+            url: firmware-analysis-rbac.md#understanding-the-representation-of-firmware-images-in-the-azure-resource-hierarchy
           - text: Understand and interpret the extractor path results
             url: interpreting-extractor-paths.md
 
