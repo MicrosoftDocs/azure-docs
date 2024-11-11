@@ -58,7 +58,7 @@ Data is in `json` format. `mapping1` is pre-defined on the table `WeatherMetrics
 >For long-term, secure solutions, use one of these options:
 >
 >* [Passwordless authentication](../../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md?tabs=passwordless)
->* [Store your connection string in an Azure Key Vault](/azure/key-vault/secrets/quick-create-portal) and use [this method](/azure/key-vault/secrets/quick-create-net.md#retrieve-a-secret) to retrieve it in your code.
+>* [Store your connection string in an Azure Key Vault](/azure/key-vault/secrets/quick-create-portal) and use [this method](/azure/key-vault/secrets/quick-create-net#retrieve-a-secret) to retrieve it in your code.
 
 ```csharp
 var eventHubNamespaceConnectionString=<connection_string>;
