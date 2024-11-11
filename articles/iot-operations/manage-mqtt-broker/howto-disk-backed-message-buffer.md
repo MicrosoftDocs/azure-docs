@@ -28,7 +28,9 @@ The **disk-backed message buffer** feature is used for efficient management of m
 By default, the disk-backed message buffer feature is disabled. In this case, messages remain in memory, and back pressure is applied to clients as the reader pool or scratch pool reaches the limit as defined by the [subscriber queue limit](./howto-broker-mqtt-client-options.md#subscriber-queue-limit). 
 
 Configuring the disk-backed message buffer is essential for maintaining a robust and reliable message queuing system, especially in scenarios where message processing speed and connectivity are critical.
-**Note**: The MQTT broker writes data to disk exactly as received from clients, without additional encryption. Securing the disk is essential to protect the data stored by the broker.
+
+> [!NOTE]
+> The MQTT broker writes data to disk exactly as received from clients, without additional encryption. Securing the disk is essential to protect the data stored by the broker.
 
 ## Configuration options
 
