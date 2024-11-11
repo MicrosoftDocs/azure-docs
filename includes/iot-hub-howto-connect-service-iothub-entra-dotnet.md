@@ -12,39 +12,37 @@ ms.date: 11/06/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
-##### Entra token credential
+##### Security token
 
-Use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to use Microsoft Entra to authenticate a connection to IoT Hub. `DefaultAzureCredential` supports different authentication mechanisms and determines the appropriate credential type based on the environment it's executing in. It attempts to use multiple credential types in an order until it finds a working credential. For more information on setting up Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/authenticate-authorize-azure-ad).
+A backend app that uses Microsoft Entra must successfully authenticate and obtain a security token credential before connecting to IoT Hub. This token is passed to a IoT Hub connection method. For more information on setting up Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/authenticate-authorize-azure-ad).
 
-To create required Microsoft Entra app parameters for `DefaultAzureCredential`, create a Microsoft Entra app registration that contains your preferred authentication mechanism:
+You must set up a Microsoft Entra app that contains your preferred authentication mechanism, which consist of the following:
 
 * Client secret
 * Certificate
 * Federated identity credential
 
-For more information, see [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
+For more information about setting up a Microsoft Entra app, see [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
 
-#### Entra app permissions
+Microsoft Entra apps may require specific role permissions depending on operations being performed. For example, [IoT Hub Twin Contributor](/azure/role-based-access-control/built-in-roles/internet-of-things#iot-hub-twin-contributor) is required to enable read and write access to a IoT Hub device and module twins. For more information, see [Manage access to IoT Hub by using Azure RBAC role assignment](/azure/iot-hub/authenticate-authorize-azure-ad?branch=main#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment).
 
-Microsoft Entra apps may require permissions depending on operations performed. For example, [IoT Hub Twin Contributor](/azure/role-based-access-control/built-in-roles/internet-of-things#iot-hub-twin-contributor) is required to enable read and write access to a IoT Hub device and module twins. For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles#internet-of-things).
+##### Using DefaultAzureCredential
 
-### Connect to IoT Hub
+The easiest way to use Microsoft Entra to authenticate a backend applicaiton is to use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), but it's recommended to use a different method in a production envoronment including a specific `TokenCredential` or pared-down `ChainedTokenCredential`. For simplicity, this section describes authentication using `DefaultAzureCredential` and Client secret. For more information about the pros and cons of using `DefaultAzureCredential`, see [Usage guidance for DefaultAzureCredential](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#usage-guidance-for-defaultazurecredential).
 
-Add these packages and statements to your code to use the Microsoft Entra library.
+`DefaultAzureCredential` supports different authentication mechanisms and determines the appropriate credential type based on the environment it's executing in. It attempts to use multiple credential types in an order until it finds a working credential.
 
-Packages:
+Microsoft Entra requires these NuGet packages and corresponding `using` statements:
 
 * Azure.Core
 * Azure.Identity
-
- Statements:
 
 ```csharp
 using Azure.Core;
 using Azure.Identity;
 ```
 
-In this example, Microsoft Entra app registration client secret, client ID, and tenant ID are added to environment variables. These environment variables are used by `DefaultAzureCredential` to authenticate the application.
+In this example, Microsoft Entra app registration client secret, client ID, and tenant ID are added to environment variables. These environment variables are used by `DefaultAzureCredential` to authenticate the application. The result of a successful Microsoft Entra authentication is a security token credential that is passed to an IoT Hub connection method.
 
 ```csharp
 string clientSecretValue = "xxxxxxxxxxxxxxx";
@@ -58,7 +56,7 @@ Environment.SetEnvironmentVariable("AZURE_TENANT_ID", tenantID);
 TokenCredential tokenCredential = new DefaultAzureCredential();
 ```
 
-The resulting [TokenCredential](/dotnet/api/azure.core.tokencredential) can then be passed to a connect to IoT Hub method for any SDK client that accepts Microsoft Entra/AAD credentials:
+The resulting [TokenCredential](/dotnet/api/azure.core.tokencredential) can then be passed to a connect to IoT Hub method for any SDK client that accepts Microsoft Entra credentials:
 
 * [JobClient](/dotnet/api/microsoft.azure.devices.jobclient.create?#microsoft-azure-devices-jobclient-create(system-string-azure-core-tokencredential-microsoft-azure-devices-httptransportsettings))
 * [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager.create?#microsoft-azure-devices-registrymanager-create(system-string-azure-core-tokencredential-microsoft-azure-devices-httptransportsettings))
