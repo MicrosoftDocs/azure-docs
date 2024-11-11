@@ -36,6 +36,14 @@
     items:
     - name: From the Azure portal
       href: quick-backup-aks.md
+    - name: With Azure CLI
+      href: quick-kubernetes-backup-cli.md
+    - name: With PowerShell
+      href: quick-kubernetes-backup-powershell.md
+    - name: With Azure Resource Manager
+      href: quick-kubernetes-backup-arm.md
+    - name: With Bicep
+      href: quick-kubernetes-backup-bicep.md
     - name: With Terraform
       href: quick-kubernetes-backup-terraform.md
   - name: Configure vaulted backup for Azure Blob

@@ -6,16 +6,17 @@ ms.author: gesaur
 ms.reviewer: wiassaf, jovanpop
 ms.service: azure-synapse-analytics
 ms.subservice: database-editor
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 08/16/2022
 ms.custom: template-concept
 ---
 
 # Quickstart: Create a new lake database leveraging database templates
 
-This quick start gives you a complete sample scenario on how you can apply database templates to create a lake database, align data to your new model, and use the integrated experience to analyze the data. 
+This quick start gives you a complete sample scenario on how you can apply database templates to create a lake database, align data to your new model, and use the integrated experience to analyze the data.
 
 ## Prerequisites
+
 - At least **Synapse User** role permissions are required for exploring a lake database template from Gallery.
 - **Synapse Administrator**, or **Synapse Contributor** permissions are required on the Azure Synapse workspace for creating a lake database.
 - **Storage Blob Data Contributor** permissions are required on data lake when using create table **From data lake** option.
@@ -26,13 +27,13 @@ Use the new database templates functionality to create a lake database that you 
 
 For our scenario we will use the `Retail` database template and select the following entities: 
 
- - **RetailProduct** - A product is anything that can be offered to a market that might satisfy a need by potential customers. That product is the sum of all physical, psychological, symbolic, and service attributes associated with it.
- - **Transaction** - The lowest level of executable work or customer activity.
+- **RetailProduct** - A product is anything that can be offered to a market that might satisfy a need by potential customers. That product is the sum of all physical, psychological, symbolic, and service attributes associated with it.
+- **Transaction** - The lowest level of executable work or customer activity.
 A transaction consists of one or more discrete events.
- - **TransactionLineItem** - The components of a Transaction broken down by Product and Quantity, one per line item.
- - **Party** - A party is an individual, organization, legal entity, social organization, or business unit of interest to the business.
- - **Customer** - A customer is an individual or legal entity that has or has purchased a product or service.
- - **Channel** - A channel is a means by which products or services are sold and/or distributed.
+- **TransactionLineItem** - The components of a Transaction broken down by Product and Quantity, one per line item.
+- **Party** - A party is an individual, organization, legal entity, social organization, or business unit of interest to the business.
+- **Customer** - A customer is an individual or legal entity that has or has purchased a product or service.
+- **Channel** - A channel is a means by which products or services are sold and/or distributed.
 
 The easiest way to find entities is by using the search box above the different business areas that contain the tables. 
  
@@ -83,6 +84,6 @@ You can use lake database to train your machine learning models and score the da
 ## Next steps
 
 Continue to explore the capabilities of the database designer using the links below.
- - [Database templates concept](concepts-database-templates.md)
- - [Lake database concept](concepts-lake-database.md)
- - [How to create a lake database](create-empty-lake-database.md)
+- [Database templates concept](concepts-database-templates.md)
+- [Lake database concept](concepts-lake-database.md)
+- [How to create a lake database](create-empty-lake-database.md)
