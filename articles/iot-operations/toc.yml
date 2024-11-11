@@ -201,5 +201,6 @@ items:
           href: reference/observability-metrics-layered-network.md
       - name: MQTT support
         href: reference/mqtt-support.md
-      - name: Glossary
-        href: reference/glossary.md
+      - name: IoT Glossary
+        href: ../iot/iot-glossary.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
+
