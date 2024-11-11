@@ -95,6 +95,11 @@ No. Azure Virtual Network Manager doesn't store any customer data.
 
 No. Azure Virtual Network Manager doesn't currently support that capability. If you need to move an instance, you can consider deleting it and using the Azure Resource Manager template to create another one in another location.
 
+### Can I move a subscription with an Azure Virtual Network Manager to another tenant?
+Yes, but there are some considerations to keep in mind:
+- The target tenant cannot have an Azure Virtual Network Manager created.
+- The spokes virtual networks in the network group may lose their reference when changing tenants, thus losing connectivity to the hub vnet. To resolve this, after moving the subscription to another tenant, you must manually add the spokes vnets to the network group of Azure Virtual Network Manager.
+
 ### How can I see what configurations are applied to help me troubleshoot?
 
 You can view Azure Virtual Network Manager settings under **Network Manager** for a virtual network. The settings show both connectivity and security admin configurations that are applied. For more information, see [View configurations applied by Azure Virtual Network Manager](how-to-view-applied-configurations.md).

@@ -26,7 +26,7 @@ Secrets management for Azure IoT Operations uses Secret Store extension to sync 
 > [!NOTE]
 > Azure IoT Operations instances work with only one Azure Key Vault, multiple key vaults per instance isn't supported.
 
-Once the [set up secrets management](../deploy-iot-ops/howto-enable-secure-settings#set-up-secrets-management.md) steps are completed, you can start adding secrets to Azure Key Vault, and sync them to the edge to be used in **Asset Endpoints** or **Dataflow Endpoints** using the [operations experience](https://iotoperations.azure.com) web UI.
+Once the [set up secrets management](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-secrets-management) steps are completed, you can start adding secrets to Azure Key Vault, and sync them to the edge to be used in **Asset Endpoints** or **Dataflow Endpoints** using the [operations experience](https://iotoperations.azure.com) web UI.
 
 Secrets are used in asset endpoints and dataflow endpoints for authentication. In this section, we use asset endpoints as an example, the same can be applied to dataflow endpoints. You have the option to directly create the secret in Azure Key Vault and have it automatically synchronized down to the edge, or use an existing secret reference from the key vault:
 

@@ -342,7 +342,7 @@ Moreover, users have the flexibility to define their own conversion functions by
 
 For more complex calculations, functions like `sqrt` (which finds the square root of a number) are also available.
 
-### Available arithmetic, comparison, and Boolean operators grouped by precedence
+## Available operators by precedence
 
 | Operator | Description |
 |----------|-------------|
