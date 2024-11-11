@@ -155,7 +155,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Documentation
-            url: https://aka.ms/networkfoundationdocs
+            url: https://aka.ms/loadbalancingandcontentdeliverydocs
       - linkListType: overview
         links:
           - text: Azure Application Gateway
