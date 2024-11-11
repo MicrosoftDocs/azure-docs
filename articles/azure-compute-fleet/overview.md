@@ -30,9 +30,9 @@ When using Spot VMs, Compute fleet can automatically replace Spot VMs when evict
 ### Multi-region Deployment: 
 Compute Fleet allows you to dynamically distribute workloads across multiple regions.
 ### Attribute based Vm selection: 
-Compute Fleet supports deploying VM types based on user specified attributes (e.g., memory, vCPU, storage) 
+Compute Fleet supports deploying VM types using VM level attributes (e.g., memory, vCPU, storage) 
 
-### Using Compute Fleet, you can:
+## Using Compute Fleet, you can:
 - Deploy up to 10,000 VMs with a single API, using [Spot VM](../virtual-machines/spot-vms.md) and [Standard VM](../virtual-machines/overview.md) types together.
 - Get superior price-performance ratios by utilizing a blend of diverse pricing models, like Reserved Instances, Savings Plan, Spot instances, and pay-as-you-go (PYG) options.
 - Expedite access to Azure capacity by rapidly provisioning instances from a customized SKU list tailored to your preferences.
