@@ -115,7 +115,7 @@ assigning following Azure Policy definitions:
 - Deprecated accounts should be removed from your subscription
 - Deprecated accounts with owner permissions should be removed from your subscription
 
-### 1490 An application whitelisting solution is implemented on all servers to restrict the execution of executables, software libraries, scripts and installers to an approved set
+### 1490 An application allow listing solution is implemented on all servers to restrict the execution of executables, software libraries, scripts and installers to an approved set
 
 - Adaptive Application Controls should be enabled on virtual machines
 
