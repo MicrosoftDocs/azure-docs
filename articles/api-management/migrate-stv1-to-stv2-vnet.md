@@ -223,7 +223,7 @@ After you update the VNet configuration, the status of your API Management insta
 
 Under certain conditions, [Option 1: Migrate and keep same subnet](#option-1-migrate-and-keep-same-subnet) may not be available or behaves differently. The portal detects these conditions and recommends the migration option(s). If you aren't able to use Option 1, or multiple conditions are present, use [Option 2: Change to a new subnet](#option-2-migrate-and-change-to-new-subnet).
 
-* **Classic virtual network** - If your API Management instance is currently deployed in a classic VNet, Option 1 for same-subnet migration in the portal includes 1 hour of downtime. You can also use the following modified Azure CLI script for same-subnet migration with 1 hour of downtime:
+* **VNet with special internal conditions** - If your API Management instance is currently deployed in a VNet with special internal conditions (unrelated to customer configuration), you are notified in the portal that Option 1 for same-subnet migration in the portal includes additional downtime (approximately 1 hour). Using the portal for migration is recommended. You can also use the following modified Azure CLI script for same-subnet migration with approximately 1 hour of downtime:
 
    ```azurecli
    APIM_NAME={name of your API Management instance}
