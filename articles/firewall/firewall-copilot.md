@@ -71,7 +71,7 @@ To view the list of built-in system capabilities for Azure Firewall, use the fol
 
 No other configuration is necessary. As long as structured logs are being sent to a Log Analytics workspace and you have the right RBAC permissions, Copilot finds the data it needs to answer your questions.
 
-    :::image type="content" source="media/firewall-copilot/azure-firewall-plugin.png" alt-text="Screenshot showing the Azure Firewall plugin.":::    
+:::image type="content" source="media/firewall-copilot/azure-firewall-plugin.png" alt-text="Screenshot showing the Azure Firewall plugin.":::    
 
 1. Enter your prompt in the prompt bar on either the [Security Copilot portal](https://securitycopilot.microsoft.com) or via the [Copilot in Azure](/azure/copilot/overview) experience in the Azure portal.
 
