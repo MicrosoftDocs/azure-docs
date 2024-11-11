@@ -134,12 +134,12 @@ Azure Compute Fleet has applicable Standard and Spot VMs quotas.
 - Compute Fleet can't span across Azure regions. You have to create a separate Compute Fleet for each region.
 - Compute Fleet is available in all Azure Public regions.
 
-#### New on Comute Fleet
+#### New on Compute Fleet
 Multi-Region Compute Fleet
-   A new New deployment capability that allows users to dynamically distribute workloads across several regions![image](https://github.com/user-attachments/assets/c77de16b-dc62-442a-a9a9-a738ed074aef)
+   A new New deployment capability that allows users to dynamically distribute workloads across several regions.
 
 Attribute based VM selection
-  A new feature that Enables users to scale fleets based on VM attributes instead of explicitly chosen VM sizes![image](https://github.com/user-attachments/assets/eb90ca10-4c7f-4cb2-b291-59e3a5fbb6b2)
+  A new feature that Enables users to scale fleets based on VM attributes instead of explicitly chosen VM sizes.
 
 ## Next steps
 > [!div class="nextstepaction"]
