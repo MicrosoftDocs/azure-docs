@@ -226,11 +226,14 @@ Now that the topic space is created, you need to assign the managed identity of 
 
 <!-- TODO: refactor or make the get managed identity / extension name an include? -->
 
-In Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, find the name of your Azure IoT Operations extension. Copy the name of the extension.
+If you select system-assigned managed identity, in Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, find the name of your Azure IoT Operations extension. This is your system-assigned managed identity. Copy the name of the extension.
 
 Then, go to the Event Grid namespace > **Access control (IAM)** > **Add role assignment**. Assign the managed identity of the Azure IoT Operations Arc extension with an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`. This gives the managed identity the necessary permissions to send or receive messages for all topic spaces in the namespace. 
 
 Alternatively, you can assign the role at the topic space level. Go to the topic space > **Access control (IAM)** > **Add role assignment**. Assign the managed identity of the Azure IoT Operations Arc extension with an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`. This gives the managed identity the necessary permissions to send or receive messages for the specific topic space.
+
+> [!NOTE]
+> For system-assigned managed identity on the Members tab, for **Assign access to**, select **User, group, or service principal** option. For user-assigned managed identity select **Managed identity** option.
 
 ### Create dataflow endpoint
 
@@ -249,7 +252,7 @@ Once the Event Grid namespace is configured, you can create a dataflow endpoint 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                                        |
     | Host                 | The hostname and port of the Event Grid MQTT broker. Use the format `<NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883`                                |
-    | Authentication method | The method used for authentication. Choose *System assigned managed identity* |
+    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, or *User assigned managed identity*. |
 
 1. Select **Apply** to provision the endpoint.
 
@@ -281,8 +284,7 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
     mqttSettings: {
       host: eventGridHostName
       authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
+        // See available authentication methods below
       }
       tls: {
         mode: 'Enabled'
@@ -313,9 +315,7 @@ spec:
   mqttSettings:
     host: <NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883
     authentication:
-      method: SystemAssignedManagedIdentity
-      systemAssignedManagedIdentitySettings:
-        {}
+      # See available authentication methods below
     tls:
       mode: Enabled
 ```
@@ -552,7 +552,10 @@ mqttSettings:
 
 To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-Then, specify the user-assigned managed identity authentication method along with the client ID and tenant ID of the managed identity.
+Before you configure the endpoint, make sure that the user-assigned managed identity has the necessary permissions to connect to the MQTT broker. 
+
+1. Assign a role to the user-assigned managed identity that grants permission to connect to the MQTT broker. For example, with Azure Event Grid MQTT broker, assign the managed identity to the Event Grid namespace or topic space with [an appropriate role](../../event-grid/mqtt-client-microsoft-entra-token-and-rbac.md#authorization-to-grant-access-permissions).
+1. Specify the user-assigned managed identity authentication method along with the client ID and tenant ID of the managed identity.
 
 # [Portal](#tab/portal)
 
