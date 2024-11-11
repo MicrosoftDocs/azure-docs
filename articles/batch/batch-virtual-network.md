@@ -75,7 +75,7 @@ In order to provide the necessary communication between compute nodes and the Ba
 * Outbound traffic on any port to the Internet. This rule might be amended per subnet-level NSG rules.
 
 > [!TIP]
-> For pools created using API version previous than `2024-07-01`, remote access rules also be configured. Inbound TCP traffic on port 22 (Linux nodes) or port 3389 (Windows nodes) to permit remote access for SSH or RDP on default ports, respectively.
+> For pools created using API version earlier than `2024-07-01`, inbound TCP traffic on port 22 (Linux nodes) or port 3389 (Windows nodes) to permit remote access for SSH or RDP on default ports is configured, respectively.
 
 > [!IMPORTANT]
 > Use caution if you modify or add inbound or outbound rules in Batch-configured NSGs. If communication to the compute nodes in the specified subnet is denied by an NSG, the Batch service will set the state of the compute nodes to **unusable**. Additionally, no resource locks should be applied to any resource created by Batch, because this can prevent cleanup of resources as a result of user-initiated actions such as deleting a pool.
