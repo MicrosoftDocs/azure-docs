@@ -13,7 +13,7 @@ ms.reviewer: jushiman
 
 # Fleet allocation strategies 
 
-## Standard Fleet allocation strategies 
+## Standard VM 
 
 ### Lowest price (default): 
 The Compute Fleet launches the lowest price pay-as-you-go VM from the list of VM types and sizes you specified. It attempts to fulfill the pay-as-you-go capacity, followed by the second and third lowest in price VMs until the desired capacity is fulfilled. 
@@ -21,7 +21,7 @@ The Compute Fleet launches the lowest price pay-as-you-go VM from the list of VM
 ### Prioritized: 
 The Compute Fleet utilizes the priority you assign to each VM types and sizes, initiating VM sizes in descending order of priority. This approach prioritizes the highest-ranked VM types and sizes for launching first. Note that this strategy is not compatible with attribute-based VM selection.
 
-## Spot Fleet allocation strategies 
+## Spot VM
 
 ### Price capacity optimized (recommended): 
 The Compute Fleet launches qualifying VMs from your selected list of VM types and sizes to fullfil the target capacity. It prioritizes the highest available Spot capacity at the lowest price on Spot VMs in the region. Note that this strategy is not compatible with attribute-based VM selection.
