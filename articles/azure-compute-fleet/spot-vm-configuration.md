@@ -1,5 +1,5 @@
 ---
-title: Azure Compute Fleet overview
+title: Spot VM configuration
 description: Learn about Spot VM configuration on your Compute Fleet.
 author: rajeeshr
 ms.author: rajeeshr
