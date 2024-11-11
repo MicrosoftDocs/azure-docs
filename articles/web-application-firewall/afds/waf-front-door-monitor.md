@@ -4,7 +4,7 @@ description: Learn about Azure Web Application Firewall in Azure Front Door moni
 author: vhorne
 ms.service: azure-web-application-firewall
 ms.custom: devx-track-js
-ms.topic: article
+ms.topic: how-to
 services: web-application-firewall
 ms.date: 05/23/2024
 ms.author: victorh
@@ -15,7 +15,7 @@ zone_pivot_groups: front-door-tiers
 
 Azure Web Application Firewall on Azure Front Door provides extensive logging and telemetry to help you understand how your web application firewall (WAF) is performing and the actions it takes.
 
-The Azure Front Door WAF log is integrated with [Azure Monitor](../../azure-monitor/overview.md). Azure Monitor enables you to track diagnostic information, including WAF alerts and logs. You can configure WAF monitoring within the Azure Front Door resource in the Azure portal under the **Diagnostics** tab, through infrastructure as code approaches, or by using Azure Monitor directly.
+The Azure Front Door WAF log is integrated with [Azure Monitor](/azure/azure-monitor/overview). Azure Monitor enables you to track diagnostic information, including WAF alerts and logs. You can configure WAF monitoring within the Azure Front Door resource in the Azure portal under the **Diagnostics** tab, through infrastructure as code approaches, or by using Azure Monitor directly.
 
 ## Metrics
 
@@ -51,7 +51,7 @@ The following filters are provided as part of this metric:
 
 ## Logs and diagnostics
 
-The Azure Front Door WAF provides detailed reporting on each request and each threat that it detects. Logging is integrated with Azure's diagnostics logs and alerts by using [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
+The Azure Front Door WAF provides detailed reporting on each request and each threat that it detects. Logging is integrated with Azure's diagnostics logs and alerts by using [Azure Monitor logs](/azure/azure-monitor/insights/azure-networking-analytics).
 
 Logs aren't enabled by default. You must explicitly enable logs. You can configure logs in the Azure portal by using the **Diagnostic settings** tab.
 

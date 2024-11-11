@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Azure Health De-identification client library for .NET"
+title: "Quickstart: Azure Health de-identification client library for .NET"
 description: A quickstart guide to de-identify health data with the .NET client library
 author: GrahamMThomas
 ms.author: gthomas
@@ -37,7 +37,7 @@ A de-identification service (preview) provides you with an endpoint URL. This en
     az resource create -g $RESOURCE_GROUP_NAME -n $DEID_SERVICE_NAME --resource-type microsoft.healthdataaiservices/deidservices --is-full-object -p "{\"identity\":{\"type\":\"SystemAssigned\"},\"properties\":{},\"location\":\"$REGION\"}"
     ```
     
-### Create an Azure Storage Account
+### Create an Azure Storage account
 
 1. Install [Azure CLI](/cli/azure/install-azure-cli)
 1. Create an Azure Storage Account
@@ -47,7 +47,7 @@ A de-identification service (preview) provides you with an endpoint URL. This en
     az storage account create --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --location $REGION
     ```
 
-### Authorize de-identification service (preview) on storage account
+### Authorize de-identification service (preview) on the Azure Storage account
 
 -  Give the de-identification service (preview) access to your storage account
    
@@ -82,15 +82,15 @@ The client library is available through NuGet, as the `Azure.Health.Deidentifica
 
 
 ## Code examples
-- [Create a Deidentification Client](#create-a-deidentification-client)
+- [Create a de-identification Client](#create-a-de-identification-client)
 - [De-identify a string](#de-identify-a-string)
 - [Tag a string](#tag-a-string)
-- [Create a Deidentification Job](#create-a-deidentification-job)
-- [Get the status of a Deidentification Job](#get-the-status-of-a-deidentification-job)
+- [Create a de-identification Job](#create-a-de-identification-job)
+- [Get the status of a de-identification Job](#get-the-status-of-a-de-identification-job)
 
-### Create a Deidentification Client
+### Create a de-identification client
 
-Before you can create the client, you need to find your **deidentification service (preview) endpoint URL**.
+Before you can create the client, you need to find your **de-identification service (preview) endpoint URL**.
 
 You can find the endpoint URL with the Azure CLI:
 
@@ -131,7 +131,7 @@ content.Operation = OperationType.Tag;
 DeidentificationResult result = await client.DeidentifyAsync(content);
 ```
 
-### Create a Deidentification Job
+### Create a de-identification job
 
 This function allows you to de-identify all files, filtered via prefix, within an Azure Blob Storage Account.
 
@@ -156,7 +156,7 @@ DeidentificationJob job = new(
 job = client.CreateJob(WaitUntil.Started, "my-job-1", job).Value;
 ```
 
-### Get the status of a Deidentification Job
+### Get the status of a de-identification job
 
 Once a job is created, you can view the status and other details of the job.
 
@@ -175,19 +175,19 @@ dotnet run
 
 ## Clean up resources
 
-### Delete Deidentification Service
+### Delete de-identification service
 
 ```bash
 az resource delete -n $DEID_SERVICE_NAME -g $RESOURCE_GROUP_NAME  --resource-type microsoft.healthdataaiservices/deidservices
 ```
 
-### Delete Azure Storage Account
+### Delete Azure Storage account
 
 ```bash
 az resource show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME  --resource-type Microsoft.Storage/storageAccounts
 ```
 
-### Delete Role Assignment
+### Delete role assignment
 
 ```bash
 az role assignment delete --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage Blob Data Contributor" --scope $STORAGE_ACCOUNT_ID
@@ -198,9 +198,9 @@ az role assignment delete --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage 
 
 ### Unable to access source or target storage
 
-Ensure the permissions are given and the Managed Identity for the de-identification service (preview) is set up properly.
+Ensure the permissions are given, and the Managed Identity for the de-identification service (preview) is set up properly.
 
-See [Authorize Deidentification Service on Storage Account](#authorize-de-identification-service-preview-on-storage-account)
+See [Authorize de-identification service (preview) on the Azure Storage account](#authorize-de-identification-service-preview-on-the-azure-storage-account)
 
 ### Job failed with status PartialFailed
 
@@ -213,7 +213,7 @@ See [Sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdata
 
 In this quickstart, you learned:
 - How to create a de-identification service (preview) and assign a role on a storage account.
-- How to create a Deidentification Client
+- How to create a de-identification client
 - How to de-identify strings and create jobs on documents within a storage account.
 
 > [!div class="nextstepaction"]

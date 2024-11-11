@@ -5,12 +5,13 @@ author: kgremban
 ms.author: kgremban
 ms.date: 04/06/2023
 ms.topic: quickstart
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 manager: lizross
 ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: iot-dps-set1
 #Customer intent: As a new IoT developer, I want to simulate an X.509 certificate device using the SDK, to learn how secure provisioning works.
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Quickstart: Provision an X.509 certificate simulated device
@@ -78,7 +79,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 ::: zone-end
 
-* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
+* Install the latest version of [Git](https://git-scm.com/downloads). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/downloads) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
 * Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash prompt. To verify that OpenSSL is installed, open a Git Bash prompt and enter `openssl version`.
 
@@ -884,11 +885,11 @@ In this section, you use both your Windows command prompt and your Git Bash prom
     2022-05-11 09:42:26,074 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Client connection opened successfully
     2022-05-11 09:42:26,075 INFO (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Device client opened successfully
     Sending message from device to IoT Hub...
-    2022-05-11 09:42:26,077 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] )
+    2022-05-11 09:42:26,077 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] )
     Press any key to exit...
-    2022-05-11 09:42:26,079 DEBUG (MyExampleHub.azure-devices.net-java-device-01-ee6c362d-Cxn7a1fb819-e46d-4658-9b03-ca50c88c0440-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] )
-    2022-05-11 09:42:26,422 DEBUG (MQTT Call: java-device-01) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] )
-    2022-05-11 09:42:26,425 DEBUG (MyExampleHub.azure-devices.net-java-device-01-ee6c362d-Cxn7a1fb819-e46d-4658-9b03-ca50c88c0440-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [54d9c6b5-3da9-49fe-9343-caa6864f9a02] Message Id [28069a3d-f6be-4274-a48b-1ee539524eeb] ) with status OK
+    2022-05-11 09:42:26,079 DEBUG (MyExampleHub.azure-devices.net-java-device-01-ee6c362d-Cxn7a1fb819-e46d-4658-9b03-ca50c88c0440-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] )
+    2022-05-11 09:42:26,422 DEBUG (MQTT Call: java-device-01) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] )
+    2022-05-11 09:42:26,425 DEBUG (MyExampleHub.azure-devices.net-java-device-01-ee6c362d-Cxn7a1fb819-e46d-4658-9b03-ca50c88c0440-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] ) with status OK
     Message sent!
     ```
 

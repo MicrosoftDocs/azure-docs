@@ -4,15 +4,14 @@ description: Learn how to map an existing custom Distributed Name Service (DNS) 
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 08/28/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Map an existing custom domain to Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 

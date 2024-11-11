@@ -1,8 +1,8 @@
 ---
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
-ms.topic: conceptual
-ms.date: 07/31/2024
+ms.topic: reference
+ms.date: 11/11/2024
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -41,6 +41,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - Operational backup supports block blobs in standard general-purpose v2 storage accounts only. Storage accounts with hierarchical namespace enabled (that is, ADLS Gen2 accounts) aren't supported.   <br><br>   Also, any page blobs, append blobs, and premium blobs in your storage account won't be restored and only block blobs will be restored.
 
 - Blob backup is also supported when the storage account has private endpoints.
+- The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](/rest/api/storageservices/data-lake-storage-gen2).
 
 **Other limitations**:
 

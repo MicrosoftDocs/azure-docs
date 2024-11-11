@@ -15,11 +15,11 @@ ms.custom: template-how-to
 
 ## Prerequisites
 
-* Use the [latest API version](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#supported-api-versions) for your request.
+* Use the [latest API version](/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#supported-api-versions) for your request.
 
 ## Sample request and response
 > [!IMPORTANT]
-> This example bypasses proxies. You **must** bypass proxies when querying IMDS. For more information, see [Proxies](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#proxies).
+> This example bypasses proxies. You **must** bypass proxies when querying IMDS. For more information, see [Proxies](/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies).
 
 ## Schema breakdown
 
@@ -35,7 +35,7 @@ ms.custom: template-how-to
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254:80/metadata/loadbalancer?api-version=2020-10-01" | ConvertTo-Json
 ```
 > [!NOTE]
-> The -NoProxy parameter was introduced in PowerShell 6.0. If you are using an older version of PowerShell, remove -NoProxy in the request body and make sure you are not using a proxy while retrieving IMDS info. Learn more [here](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#proxies).
+> The -NoProxy parameter was introduced in PowerShell 6.0. If you are using an older version of PowerShell, remove -NoProxy in the request body and make sure you are not using a proxy while retrieving IMDS info. Learn more [here](/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies).
 > 
 ### [Linux](#tab/linux/)
 
@@ -89,8 +89,8 @@ curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254:80/metadata/loadba
 ## Next steps
 [Common error codes and troubleshooting steps](troubleshoot-load-balancer-imds.md)
 
-Learn more about [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md)
+Learn more about [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service)
 
-[Retrieve all metadata for an instance](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#access-azure-instance-metadata-service)
+[Retrieve all metadata for an instance](/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#access-azure-instance-metadata-service)
 
 [Deploy a standard load balancer](quickstart-load-balancer-standard-public-portal.md)

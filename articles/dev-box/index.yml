@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 06/06/2023
+  ms.date: 09/05/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -27,10 +27,16 @@ landingContent:
             url: concept-dev-box-architecture.md
           - text: Microsoft Dev Box concepts
             url: concept-dev-box-concepts.md
+          - text: Microsoft Dev Box Roadmap
+            url: dev-box-roadmap.md
 
   # Card
   - title: Get started
     linkLists:
+      - linkListType: deploy
+        links:
+          - text: Microsoft Dev Box deployment guide
+            url: concept-dev-box-deployment-guide.md
       - linkListType: quickstart
         links:
           - text: Set up Dev Box with an ARM template
@@ -39,10 +45,6 @@ landingContent:
             url: quickstart-configure-dev-box-service.md
           - text: Create a dev box
             url: quickstart-create-dev-box.md
-      - linkListType: deploy
-        links:
-          - text: Microsoft Dev Box deployment guide
-            url: concept-dev-box-deployment-guide.md
 
   # Card
   - title: Quota management
@@ -57,10 +59,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Use Dev Home to manage dev boxes
-            url: how-to-use-dev-home-customize-dev-box.md              
-          - text: Configure the Remote Desktop client to connect to a dev box
-            url: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+          - text: Connect with Windows App
+            url: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
           - text: Use multiple monitors with your dev box 
             url: tutorial-configure-multiple-monitors.md 
       - linkListType: how-to-guide
@@ -69,10 +69,22 @@ landingContent:
             url: how-to-troubleshoot-repair-dev-box.md      
 
   # Card
+  - title: Provide secure access
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure conditional access policies
+            url: how-to-configure-intune-conditional-access-policies.md
+          - text: Enable single sign-on for dev box
+            url: how-to-enable-single-sign-on.md  
+
+  # Card
   - title: Create custom dev boxes
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Use Dev Home to manage dev boxes
+            url: how-to-use-dev-home-customize-dev-box.md       
           - text: Configure Azure Compute Gallery
             url: how-to-configure-azure-compute-gallery.md
           - text: Provision a custom image by using Azure VM Image Builder

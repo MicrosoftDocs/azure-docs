@@ -210,7 +210,7 @@ Consider the following testing recommendations for your migration project:
     - Mock testing capabilities for HTTP actions and Azure connectors.
     - Configure tests to use different setting values from production.
     
-  - [Integration Playbook: Logic Apps Standard Testing](https://www.mikestephenson.me/2021/12/11/logic-app-standard-integration-testing/) from Michael Stephenson, Microsoft MVP
+  - [Integration Playbook: Logic Apps Standard Testing](https://mikestephenson.me/2021/12/11/logic-app-standard-integration-testing/) from Michael Stephenson, Microsoft MVP
 
     The [Integration Playbook testing framework](https://github.com/michaelstephensonuk/IntegrationPlaybook-LogicApp-Standard-Testing) builds on the Microsoft-provided test framework and supports additional scenarios:
 

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/14/2024
+ms.date: 09/12/2024
 ms.author: anfdocs
 ---
 
@@ -16,7 +16,7 @@ This article describes requirements and considerations about [using the volume c
 ## Requirements and considerations 
 
 * Azure NetApp Files replication is only available in certain fixed region pairs. See [Supported region pairs](cross-region-replication-introduction.md#supported-region-pairs). 
-* SMB volumes are supported along with NFS volumes. Replication of SMB volumes requires an Active Directory connection in the source and destination NetApp accounts. The destination AD connection must have access to the DNS servers or AD DS Domain Controllers that are reachable from the delegated subnet in the destination region. For more information, see [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections). 
+* SMB volumes are supported along with NFS volumes. Replicating SMB volumes requires an Active Directory connection in the source and destination NetApp accounts. The destination AD connection must have access to the DNS servers or AD DS Domain Controllers that are reachable from the delegated subnet in the destination region. For more information, see [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * The destination account must be in a different region from the source volume region. You can also select an existing NetApp account in a different region.  
 * The replication destination volume is read-only until you [fail over to the destination region](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) to enable the destination volume for read and write. 
     >[!IMPORTANT]
@@ -33,8 +33,9 @@ This article describes requirements and considerations about [using the volume c
 * You can revert a source or destination volume of a cross-region replication to a snapshot, provided the snapshot is newer than the most recent SnapMirror snapshot. Snapshots older than the SnapMirror snapshot can't be used for a volume revert operation. For more information, see [Revert a volume using snapshot revert](snapshots-revert-volume.md). 
 * Data replication volumes support [customer-managed keys](configure-customer-managed-keys.md).
 * If you are copying large data sets into a volume that has cross-region replication enabled and you have spare capacity in the capacity pool, you should set the replication interval to 10 minutes, increase the volume size to allow for the changes to be stored, and temporarily disable replication.
-* If you use the cool access feature, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#considerations) for more considerations.
+* If you use the cool access feature, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md#considerations) for more considerations.
 * [Large volumes](large-volumes-requirements-considerations.md) are supported with cross-region replication only with an hourly or daily replication schedule.
+* If the volume's size exceeds 95% utilization, there's a risk that replication to the destination volume can fail depending on the rate of data changes. 
 
 ## Large volumes configuration
 

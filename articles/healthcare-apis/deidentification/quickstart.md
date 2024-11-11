@@ -54,7 +54,7 @@ For more information, see [Use tags to organize your Azure resources](/azure/azu
 In the **Managed Identity** tab, you can assign a managed identity to your de-identification service (preview). For more information, see [managed identities](managed-identities.md).
 
 1. To create a system-assigned managed identity, select **On** under **Status**.
-1. To add a user-assigned managed identity, select **Add** to use the selection pane to choose an existing identity to assign.
+1. To add a user-assigned managed identity, select **Add** to use the selection pane to assign an existing identity.
 
 ## Review and create
 
@@ -67,6 +67,7 @@ After you complete the configuration, you can deploy the de-identification servi
 
 If you no longer need them, delete the resource group and de-identification service (preview). To do so, select the resource group and select **Delete**.
 
-## Related content
+## Next steps
 
-[De-identification service overview](overview.md)
+> [!div class="nextstepaction"]
+> [Tutorial: Configure Azure Storage to de-identify documents](configure-storage.md)

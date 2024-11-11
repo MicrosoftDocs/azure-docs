@@ -3,9 +3,9 @@ title: Use IoT Plug and Play models in a solution | Microsoft Docs
 description: As a solution builder, learn about how you can use IoT Plug and Play models in your IoT solution.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/13/2024
+ms.date: 08/30/2024
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 ---
 
 # Use IoT Plug and Play models in an IoT solution
@@ -105,7 +105,7 @@ content-encoding:utf-8
 
 ## Retrieve a model definition
 
-A solution uses model ID identified above to retrieve the corresponding model definition.
+A solution uses the model ID identified previously to retrieve the corresponding model definition.
 
 A solution can get the model definition by using one of the following options:
 
@@ -149,7 +149,7 @@ dtmi:com:example:Thermostat;1
 dtmi:azure:DeviceManagement:DeviceInformation;1
 ```
 
-The `ModelsRepositoryClient` can be configured to query a custom DMR -available through http(s)- and to specify the dependency resolution by using the `ModelDependencyResolution` flag:
+The `ModelsRepositoryClient` can be configured to query a custom DMR--available through https--and to specify the dependency resolution by using the `ModelDependencyResolution` flag:
 
 - Disabled. Returns the specified interface only, without any dependency.
 - Enabled. Returns all the interfaces in the dependency chain
@@ -188,7 +188,7 @@ After you identify the model ID for a new device connection, follow these steps:
 
 ## Next steps
 
-Now that you've learned how to integrate IoT Plug and Play models in an IoT solution, some suggested next steps are:
+Now that you learned how to integrate IoT Plug and Play models in an IoT solution, some suggested next steps are:
 
 - [Interact with a device from your solution](tutorial-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)

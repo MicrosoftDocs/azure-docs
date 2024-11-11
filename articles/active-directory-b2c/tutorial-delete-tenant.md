@@ -5,12 +5,12 @@ description: Steps describing how to delete an Azure AD B2C tenant. Learn how to
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: tutorial
-ms.date: 01/11/2024
+ms.date: 09/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to delete the tenant and all associated resources, so that I can clean up after completing tutorials or testing.
@@ -28,7 +28,7 @@ When you've finished the Azure Active Directory B2C (Azure AD B2C) tutorials, yo
 
 ## Identify cleanup tasks
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with a global administrator or subscription administrator role. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) role. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select the **Microsoft Entra ID** service.
 1. In the left menu, under **Manage**, select **Properties**.
@@ -45,7 +45,7 @@ When you've finished the Azure Active Directory B2C (Azure AD B2C) tutorials, yo
 
 If you've the confirmation page open from the previous section, you can use the links in the **Required action** column to open the Azure portal pages where you can remove these resources. Or, you can remove tenant resources from within the Azure AD B2C service using the following steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with a global administrator or subscription administrator role. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator). Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, select the **Azure AD B2C** service, or search for and select **Azure AD B2C**.
 1. Delete all users *except* the admin account you're currently signed in as: 
@@ -86,7 +86,7 @@ If you've the confirmation page open from the previous section, you can use the 
 
 Once you delete all the tenant resources, you can now delete the tenant itself: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with a global administrator or subscription administrator role. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator). Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select the **Microsoft Entra ID** service.
 1. If you haven't already granted yourself access management permissions, do the following:

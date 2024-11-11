@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 07/26/2024
+ms.date: 11/01/2024
 ms.custom: references_regions, build-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
@@ -64,7 +64,15 @@ Concurrency is a key factor that determines how Flex Consumption function apps s
 
 This _per-function scaling_ behavior is a part of the hosting platform, so you don't need to configure your app or change the code. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling) in the Event-driven scaling article.
 
-In per function scaling, HTTP, Blob (Event Grid), and Durable triggers are special cases. All HTTP triggered functions in the app are grouped and scale together in the same instances, and all Durable triggered functions (Orchestration, Activity, or Entity triggers) are grouped and scale together in the same instances, and all Blob (Event Grid) functions are grouped and scale together in the same instances. All other functions in the app are scaled individually into their own instances.
+In per-function scaling, decisions are made for certain function triggers based on group aggregations. This table shows the defined set of function scale groups:  
+
+| Scale groups | Triggers in group | Settings value |
+| ---- | ---- | --- |
+| HTTP triggers |[HTTP trigger](functions-bindings-http-webhook-trigger.md)<br/>[SignalR trigger](functions-bindings-signalr-service-trigger.md) | `http` |
+| Blob storage triggers<br/>(Event Grid-based) |  [Blob storage trigger](functions-bindings-storage-blob-trigger.md) | `blob`|
+| Durable Functions | [Orchestration trigger](./durable/durable-functions-bindings.md#orchestration-trigger)<br/>[Activity trigger](./durable/durable-functions-bindings.md#activity-trigger)<br/>[Entity trigger](./durable/durable-functions-bindings.md#entity-trigger) | `durable` |
+
+All other functions in the app are scaled individually in their own set of instances, which are referenced using the convention `function:<NAMED_FUNCTION>`.
 
 ## Always ready instances
 
@@ -128,20 +136,20 @@ In Flex Consumption, many of the standard application settings and site configur
 
 Keep these other considerations in mind when using Flex Consumption plan during the current preview:
 
++ **Host**: There is a 30 seconds timeout for the app initialization. If your function app takes longer than 30 seconds to start you will see gRPC related System.TimeoutException entries. This timeout will be configurable and a more clear exception will be implemented as part of [this host work item](https://github.com/Azure/azure-functions-host/issues/10482).
++ **Durable Functions**: Azure Storage is currently the only supported [storage provider](./durable/durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan. See [recommendations](./durable/durable-functions-azure-storage-provider.md#flex-consumption-plan) when hosting Durable Functions in the Flex Consumption plan.
 + **VNet Integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
-+ **Triggers**: All triggers are fully supported except for Kafka, Azure SQL, and SignalR triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
-+ **Regions**:
-  + Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
-  + There is a temporary limitation where App Service quota limits for creating new apps are also being applied to Flex Consumption apps. If you see the following error "This region has quota of 0 instances for your subscription. Try selecting different region or SKU." please raise a support ticket so that your app creation can be unblocked.
-+ **Deployments**: These deployment-related features aren't currently supported:
-  + Deployment slots
-  + Continuous deployment using Azure DevOps Tasks (`AzureFunctionApp@2`)
-  + Continuous deployment using GitHub Actions (`functions-action@v1`) 
-+ **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`.
++ **Triggers**: All triggers are fully supported except for Kafka and Azure SQL triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
++ **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
++ **Deployments**: Deployment slots are not currently supported.
++ **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`. 
 + **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#dependency-management) aren't supported by Flex Consumption. You must instead [define your own custom modules](functions-reference-powershell.md#custom-modules).
 + **Diagnostic settings**: Diagnostic settings are not currently supported.
- 
-## Related articles 
++ **Certificates**: Loading certificates with the WEBSITE_LOAD_CERTIFICATES app setting is currently not supported.
++ **Key Vault References**: Key Vault references in app settings do not work when Key Vault is network access restricted, even if the function app has Virtual Network integration. The current workaround is to directly reference the Key Vault in code and read the required secrets.
++ **Azure Files file share mount**: [Mounting an Azure Files file share](./scripts/functions-cli-mount-files-storage-linux.md) does not work when the function app has Virtual Network integration. 
+
+## Related articles
 
 [Azure Functions hosting options](functions-scale.md)
 [Create and manage function apps in the Flex Consumption plan](flex-consumption-how-to.md)

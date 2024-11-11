@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 08/08/2024
+ms.date: 09/27/2024
 ms.author: anfdocs
 ---
 # Configure customer-managed keys with managed Hardware Security Module for Azure NetApp Files volume encryption 
@@ -34,28 +34,44 @@ Azure NetApp Files volume encryption with customer-managed keys with the managed
 
 ## Supported regions
 
+* Australia Central 
+* Australia Central 2
 * Australia East
+* Australia Southeast
 * Brazil South
+* Brazil Southeast
 * Canada Central
+* Canada East
+* Central India
 * Central US
 * East Asia
 * East US
 * East US 2
 * France Central
+* Germany North 
+* Germany West Central
+* Israel Central 
+* Italy North
 * Japan East
+* Japan West
 * Korea Central
 * North Central US
 * North Europe
 * Norway East
 * Norway West
+* Qatar Central
 * South Africa North
 * South Central US
+* South India
 * Southeast Asia
+* Spain Central
 * Sweden Central
 * Switzerland North
+* Switzerland West
 * UAE Central
 * UAE North
 * UK South
+* West Europe
 * West US
 * West US 2
 * West US 3

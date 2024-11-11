@@ -5,8 +5,8 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: azure-health-data-services
 ms.topic: tutorial
-ms.date: 06/12/2024
-ms.author: jasteppe
+ms.date: 09/12/2024
+ms.author: kesheth
 ---
 
 # Logging for Azure Health Data Services
@@ -50,6 +50,8 @@ Here's an example of the AuditLog:
 
 [Enable diagnostic settings for the MedTech service](./../healthcare-apis/iot/how-to-enable-diagnostic-settings.md)
 
-[Use Azure Monitor logs](../azure-monitor/essentials/platform-logs-overview.md).
+[Enable diagnostic logging in the de-identification service (preview)](./deidentification/monitor-deidentification-service-reference.md)
 
-[Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md)
+[Use Azure Monitor logs](/azure/azure-monitor/essentials/platform-logs-overview).
+
+[Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported)

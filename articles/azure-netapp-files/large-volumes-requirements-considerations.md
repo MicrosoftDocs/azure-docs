@@ -69,7 +69,7 @@ The following requirements and considerations apply to large volumes. For perfor
     For the latest performance benchmark numbers conducted on Azure NetApp Files Large volumes, see [Azure NetApp Files large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)](solutions-benefits-azure-netapp-files-electronic-design-automation.md).
 
 
-* Large volumes aren't currently supported with standard storage with cool access.
+* Large volumes aren't currently supported with cool access.
 
 ## About 64-bit file IDs
 
@@ -118,6 +118,7 @@ If this is your first time using large volumes, register the feature with the [l
 
 ## Next steps
 
+* [Understand large volumes](large-volumes.md)
 * [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Create an NFS volume](azure-netapp-files-create-volumes.md)

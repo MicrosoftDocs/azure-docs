@@ -91,7 +91,7 @@ This section explains the process to troubleshoot errors that you might encounte
 
 ### Backup jobs completed with warning
 
-- When the MARS agent iterates over files and folders during backup, it might encounter various conditions that can cause the backup to be marked as completed with warnings. During these conditions, a job shows as completed with warnings. That's fine, but it means that at least one file wasn't able to be backed up. So the job skipped that file, but backed up all other files in question on the data source.
+- When the MARS agent iterates over files and folders during backup, it might encounter various conditions that can cause the backup to be marked as completed with warnings. During these conditions, a job shows as completed with warnings. That's fine, but it means that at least one file wasn't able to be backed up. So the job skipped that file, but backed up all other files in question on the data source. Also, not having the latest agent installed on VM can cause a warning state.
 
   ![Backup job completed with warnings](./media/backup-azure-mars-troubleshoot/backup-completed-with-warning.png)
 

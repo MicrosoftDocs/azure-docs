@@ -13,6 +13,8 @@ ms.author: duau
 
 # Using Azure CDN with CORS
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 ## What is CORS?
 
 CORS (cross-origin resource sharing) is an HTTP feature that enables a web application running under one domain to access resources in another domain. In order to reduce the possibility of cross-site scripting attacks, all modern web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy). This restriction prevents a web page from calling APIs in a different domain. CORS provides a secure way to allow one origin (the origin domain) to call APIs in another origin.
@@ -95,7 +97,7 @@ If the regular expression matches, your rule replaces the **Access-Control-Allow
 
 #### Request header rule for each origin.
 
-Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](/previous-versions/azure/mt757336(v=azure.100)#match-conditions). As with the regular expression method, the rules engine alone sets the CORS headers.
+Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](./cdn-verizon-premium-rules-engine-reference-match-conditions.md). As with the regular expression method, the rules engine alone sets the CORS headers.
 
 ![Rules example without regular expression](./media/cdn-cors/cdn-cors-no-regex.png)
 

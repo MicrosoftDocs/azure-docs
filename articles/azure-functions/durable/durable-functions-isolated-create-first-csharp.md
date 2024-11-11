@@ -39,6 +39,8 @@ To complete this quickstart, you need:
 
 * [.NET Core SDK](https://dotnet.microsoft.com/download) version 3.1 or later installed.
 
+* An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
+
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create an Azure Functions project
@@ -111,9 +113,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
     :::image type="content" source="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png" alt-text="Screenshot of the Azure local output window." lightbox="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png":::
 
-1. Use one of these HTTP test tools to send an HTTP POST request to the URL endpoint:
-
-   [!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
+1. Use an HTTP test tool to send an HTTP POST request to the URL endpoint.
 
    The response is the HTTP function's initial result. It lets you know that the Durable Functions app orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs.
 

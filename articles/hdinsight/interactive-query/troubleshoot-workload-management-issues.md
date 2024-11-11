@@ -6,7 +6,7 @@ ms.service: azure-hdinsight
 ms.topic: troubleshooting
 author: reachnijel
 ms.author: nijelsf
-ms.date: 09/14/2023
+ms.date: 09/06/2024
 ---
 
 # Troubleshoot Hive LLAP Workload Management issues

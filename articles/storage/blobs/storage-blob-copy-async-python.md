@@ -109,6 +109,10 @@ This method wraps the [Abort Copy Blob](/rest/api/storageservices/abort-copy-blo
 
 To learn more about copying blobs with asynchronous scheduling using the Azure Blob Storage client library for Python, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_copy_blob.py)
+
 ### REST API operations
 
 The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods covered in this article use the following REST API operations:
@@ -116,8 +120,6 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 - [Copy Blob](/rest/api/storageservices/copy-blob) (REST API)
 - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_copy_blob.py)
-
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-python](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-python.md)]

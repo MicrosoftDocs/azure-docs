@@ -2,8 +2,8 @@
 title: Azure Site Recovery dashboard and built-in alerts
 description: Monitor and troubleshoot Azure Site Recovery replication issues and operations, and enable built-in alerts, by using the portal.
 ms.service: azure-site-recovery
-ms.topic: conceptual
-ms.date: 04/29/2024
+ms.topic: how-to
+ms.date: 07/10/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -200,7 +200,6 @@ To test the working of the alerts for a test VM using Azure Site Recovery, you c
 
 You can view the alerts settings under **Recovery Services Vault** > **Settings** > **Properties** > **Monitoring Settings**. The built-in alerts for Site Recovery are enabled by default, but you can disable either or both categories of Site Recovery alerts. Select the checkbox to opt out of classic alerts for Site Recovery and only use built-in alerts. If not done, duplicate alerts are generated for classic and built-in.  
 
-:::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/properties.png" alt-text="Screenshot displays properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/properties.png":::
 
 ### Manage Azure Site Recovery alerts in Business Continuity Center
 
@@ -213,6 +212,9 @@ Get an at-scale view of all vaults across all subscriptions using Classic Alerts
 :::image type="content" source="./media/site-recovery-monitor-and-troubleshoot/backup-continuity-center.png" alt-text="Screenshot displays opt-in properties for alerting feature." lightbox="./media/site-recovery-monitor-and-troubleshoot/backup-continuity-center.png":::
 
 ### Manage Azure Site Recovery alerts in Backup Center
+
+> [!IMPORTANT]
+> This section describes an older alerting solution (referred to as classic alerts). We recommend you to switch to using Azure Monitor based alerts as it offers multiple benefits. For more information on how to switch, see [Switch Azure Monitor Based alerts](../backup/move-to-azure-monitor-alerts.md).
 
 To manage your alerts settings, do the following:
 
@@ -298,7 +300,7 @@ To configure email notifications for built-in Azure Monitor alerts for Azure Sit
 
 ### Configure notifications to non-email channels
 
-With Azure Monitor action groups, you can route alerts to other notification channels like webhooks, logic apps, functions, etc. [Learn more about supported action groups in Azure Monitor](../azure-monitor/alerts/action-groups.md).
+With Azure Monitor action groups, you can route alerts to other notification channels like webhooks, logic apps, functions, etc. [Learn more about supported action groups in Azure Monitor](/azure/azure-monitor/alerts/action-groups).
 
 
 ### Configure notifications through programmatic interfaces

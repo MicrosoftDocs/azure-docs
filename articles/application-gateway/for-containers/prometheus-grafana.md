@@ -3,10 +3,9 @@ title: Configure Application Gateway for Containers for Prometheus and Grafana
 description: Configure Application Gateway for Containers metrics to be sent to Prometheus and displayed on Grafana.
 services: application-gateway
 author: greglin
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: article
-ms.date: 07/09/2024
+ms.date: 10/21/2024
 ms.author: greglin
 ---
 
@@ -24,11 +23,11 @@ You can monitor Azure Application Gateway for Containers resources in the follow
 [![A diagram of architecture grid.](./media/prometheus-grafana/design-arch.png)](./media/prometheus-grafana/design-arch.png#lightbox)
 
 ## Learn About the Services
-- [What is Azure Managed Prometheus?](../../azure-monitor/essentials/prometheus-metrics-overview.md)
+- [What is Azure Managed Prometheus?](/azure/azure-monitor/essentials/prometheus-metrics-overview)
    - Why use Prometheus:  Azure Prometheus offers native integration and management capabilities, simplifying the setup and management of monitoring infrastructure.
 - [What is Azure Managed Grafana?](../../managed-grafana/overview.md)
    - Why use Grafana: Azure Managed Grafana lets you bring together all your telemetry data into one place and Built-in support for Azure Monitor and Azure Data Explorer using Microsoft Entra identities.
-- [What is Azure Log Analytics Workspace?](../../azure-monitor/logs/log-analytics-workspace-overview.md)
+- [What is Azure Log Analytics Workspace?](/azure/azure-monitor/logs/log-analytics-workspace-overview)
    - Why use Log Analytics Workspace: Log Analytics workspace scales with your business needs, handling large volumes of log data efficiently and detects and diagnose issues quickly.
      
 ## Prerequisites
@@ -52,11 +51,11 @@ You can monitor Azure Application Gateway for Containers resources in the follow
 
 Complete the steps to configure prometheus and grafana. 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
-2. In **Search resources, service, and docs**, type **Application Gateways for Containers** and select your Kubernetes Cluster name.
+2. In **Search resources, service, and docs**, type **Kubernetes services** and select your Kubernetes Cluster name.
    
    [ ![A screenshot of kubernetes insights.](./media/prometheus-grafana/configure.png) ](./media/prometheus-grafana/configure.png#lightbox)
    
-3. Under insights and select **Configure Monitoring**.
+3. Expand **Monitoring**, select **Insights**, and select **Configure Monitoring**.
    
     [ ![A screenshot of monitoring metrics.](./media/prometheus-grafana/grafana-container.png) ](./media/prometheus-grafana/grafana-container.png#lightbox)
 
@@ -114,7 +113,7 @@ We created the resources and now we combine all resources and configure promethe
 ## Enable diagnostic logs for Application Gateway for Containers
 Activity logging is automatically enabled for every Resource Manager resource. For Access Logs, you must enable access logging to start collecting the data available through those logs. To enable logging, you may configure diagnostic settings in Azure Monitor.
 
-1. [Create a log analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+1. [Create a log analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 2. Send logs from Application Gateway for Containers to log analytics workspace: 
    1. Enter **Application Gateway for Containers** in the search box. Select your active Application Gateway for Container resource.
    2. Search and select Diagnostic Setting under Monitoring. Add diagnostic setting.

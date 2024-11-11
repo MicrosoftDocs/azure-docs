@@ -19,7 +19,7 @@ This article shows you how to create, view, and manage namespace topics in Azure
 
 1. Follow the [create, view and manage namespaces](create-view-manage-namespaces.md) steps to identify the namespace you want to use to create the topic.
 
-2. Once you are in the resource, click on the **Topics** option in the **Eventing** section.
+2. Once you are in the resource, click on the **Topics** option in the **Event broker** section.
 
     :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topics.png" alt-text="Screenshot showing Event Grid namespace topic section.":::
 
@@ -35,7 +35,7 @@ This article shows you how to create, view, and manage namespace topics in Azure
 
 1. Follow the [create, view, and manage namespaces](create-view-manage-namespaces.md) steps to identify the namespace you want to use to view the topic.
 
-2. Click on the **Topics** option in the **Eventing** section.
+2. Click on the **Topics** option in the **Event broker** section.
 
     :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topics.png" alt-text="Screenshot showing Event Grid namespace topic section.":::
 
@@ -51,7 +51,7 @@ This article shows you how to create, view, and manage namespace topics in Azure
 
 1. Follow the [create, view, and manage namespaces](create-view-manage-namespaces.md) steps to identify the namespace you want to use to delete the topic.
 
-2. Click on the **Topics** option in the **Eventing** section.
+2. Click on the **Topics** option in the **Event broker** section.
 
     :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topics.png" alt-text="Screenshot showing Event Grid namespace topic section.":::
 

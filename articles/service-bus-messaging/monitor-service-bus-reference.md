@@ -84,7 +84,7 @@ The following *resource metrics* are available only with the **premium** tier.
 | CPU usage per namespace | The percentage CPU usage of the namespace. |
 | Memory size usage per namespace | The percentage memory usage of the namespace. |
 
-The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](../azure-monitor/alerts/alerts-metric.md) for these metrics using Azure Monitor.
+The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](/azure/azure-monitor/alerts/alerts-metric) for these metrics using Azure Monitor.
 
 The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-premium-tier)
 
@@ -130,7 +130,7 @@ This section lists the types of resource logs you can collect for Azure Service 
 - Virtual network and IP filtering logs
 - Runtime Audit logs
 
-Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables. 
+Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](/azure/azure-monitor/essentials/resource-logs) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables. 
 
 :::image type="content" source="media/monitor-service-bus-reference/destination-table-toggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-service-bus-reference/destination-table-toggle.png":::
 
@@ -397,7 +397,7 @@ Resource specific table entry:
 
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
-Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
+Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. 
 
 ### Service Bus Microsoft.ServiceBus/namespaces
 

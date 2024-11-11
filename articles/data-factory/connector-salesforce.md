@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/11/2024
+ms.date: 10/15/2024
 ---
 
 # Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
@@ -18,7 +18,7 @@ ms.date: 07/11/2024
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 >[!IMPORTANT]
->The new Salesforce connector provides improved native Salesforce support. If you are using the legacy Salesforce connector in your solution, please [upgrade your Salesforce connector](#upgrade-the-salesforce-linked-service) before **October 11, 2024**. Refer to this [section](#differences-between-salesforce-and-salesforce-legacy) for details on the difference between the legacy and latest version. 
+>The new Salesforce connector provides improved native Salesforce support. If you are using the legacy Salesforce connector in your solution, you are recommended to [upgrade your Salesforce connector](#upgrade-the-salesforce-linked-service) at your earliest convenience. Refer to this [section](#differences-between-salesforce-and-salesforce-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
@@ -209,8 +209,8 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **SalesforceV2Object**.  | Yes |
-| objectApiName | The Salesforce object name to retrieve data from. | No for source (if "query" in source is specified), Yes for sink |
-| reportId | The ID of the Salesforce report to retrieve data from. It isn't supported in sink. There are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. | No for source (if "query" in source is specified), not support sink |
+| objectApiName | The Salesforce object name to retrieve data from. The applicable self-hosted integration runtime version is 5.44.8984.1 or above. | No for source (if "query" in source is specified), Yes for sink |
+| reportId | The ID of the Salesforce report to retrieve data from. It isn't supported in sink. There are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. The applicable self-hosted integration runtime version is 5.44.8984.1 or above. | No for source (if "query" in source is specified), not support sink |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
@@ -247,7 +247,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceV2Source**. | Yes |
-| query | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations. For SOQL limitations, see this [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query isn't specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset is retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
+| query | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations. For SOQL limitations, see this [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query isn't specified, all the data of the Salesforce object specified in "objectApiName/reportId" in dataset is retrieved. | No (if "objectApiName/reportId" in the dataset is specified) |
 | includeDeletedObjects | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is false. <br>Allowed values: **false** (default), **true**.   | No |
 
 > [!IMPORTANT]
@@ -369,13 +369,13 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Salesforce linked service 
+## <a name="upgrade-the-salesforce-linked-service"></a> Upgrade the Salesforce connector
 
-Here are steps that help you upgrade your linked service and related queries:
+Here are steps that help you upgrade your Salesforce connector:
 
 1. Configure the connected apps in Salesforce portal by referring to [Prerequisites](connector-salesforce.md#prerequisites).
 
-1. Create a new Salesforce linked service and configure it by referring to [Linked service properties](connector-salesforce.md#linked-service-properties). You also need to manually update existing datasets that rely on the old linked service, editing each dataset to use the new linked service instead. Pipeline activities that reference the updated datasets automatically use the updated linked service reference.
+1. Create a new Salesforce linked service and configure it by referring to [Linked service properties](connector-salesforce.md#linked-service-properties). You also need to manually update existing datasets that rely on the old linked service, editing each dataset to use the new linked service instead.
 
 1. If you use SQL query in the copy activity source or the lookup activity that refers to the legacy linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type) and [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm).
 
@@ -388,8 +388,8 @@ The Salesforce connector offers new functionalities and is compatible with most 
 |Salesforce |Salesforce (legacy)|
 |:---|:---|
 |Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses aren't supported. <br>• Aggregate Functions such as COUNT() aren't supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses aren't supported, but they're supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields aren't supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries aren't supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
-|Objects that contain binary fields aren't supported.| Objects that contain binary fields are supported, like Attachment object.|
-|Support objects within Bulk API. For more information, see this [article](https://help.salesforce.com/s/articleView?id=000383508&type=1).|Support objects that are unsupported with Bulk API, like CaseStatus.|
+| Objects that contain binary fields aren't supported when specifying query. | Objects that contain binary fields are supported when specifying query.|
+| Support objects within Bulk API when specifying query. | Support objects that are unsupported with Bulk API when specifying query.|
 |Support report by selecting a report ID.|Support report query syntax, like `{call "<report name>"}`.|
 
 ## Related content

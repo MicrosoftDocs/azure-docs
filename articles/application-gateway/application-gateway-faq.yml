@@ -67,7 +67,7 @@ sections:
         answer: |
           `Keep-Alive` timeout governs how long the application gateway waits for a client to send another HTTP request on a persistent connection before reusing it or closing it. TCP idle timeout governs how long a TCP connection is kept open if there's no activity. 
           
-          The `Keep-Alive` timeout in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. For private IP addresses, the value is nonconfigurable with a TCP idle timeout of 5 minutes. The TCP idle timeout is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can configure the TCP idle timeout value on v1 and v2 Application Gateway instances to be anywhere between 4 minutes and 30 minutes. For both v1 and v2 Application Gateway instances, you need to go to the public IP of the application gateway and change the TCP idle timeout under the **Configuration** pane of the public IP in the portal. You can set the TCP idle timeout value of the public IP through PowerShell by running the following commands: 
+          For HTTP/1.1 connections, the `Keep-Alive` timeout in the Application Gateway v1 and v2 SKU is 120 seconds. For private IP addresses, the value is nonconfigurable with a TCP idle timeout of 5 minutes. The TCP idle timeout is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can configure the TCP idle timeout value on v1 and v2 Application Gateway instances to be anywhere between 4 minutes and 30 minutes. For both v1 and v2 Application Gateway instances, you need to go to the public IP of the application gateway and change the TCP idle timeout under the **Configuration** pane of the public IP in the portal. You can set the TCP idle timeout value of the public IP through PowerShell by running the following commands: 
           
           ```azurepowershell-interactive
           $publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
@@ -76,6 +76,8 @@ sections:
           ```
 
           For HTTP/2 connections to the frontend IP address on Application Gateway v2 SKU, the idle timeout is set to 180 seconds and is nonconfigurable.
+          
+          To prevent conflict and unexpected behavior, make sure that the TCP idle timeout is set to be the same as or longer than the keep-alive timeout.
           
       - question: Does Application Gateway reuse the TCP connection that's established with a backend server?
         answer: Yes. Application Gateway reuses the existing TCP connections with a backend server.
@@ -121,7 +123,7 @@ sections:
           
       - question: How does Application Gateway handle routine maintenance?
         answer: |
-          Updates initiated to Application Gateway are applied one [update domain](../../articles/virtual-machines/availability-set-overview.md#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic<sup>1</sup>. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway temporarily runs at reduced maximum capacity, which is determined by the number of instances configured. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully.
+          Updates initiated to Application Gateway are applied one [update domain](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic<sup>1</sup>. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway temporarily runs at reduced maximum capacity, which is determined by the number of instances configured. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully.
           
           <sup>1</sup> We recommend a minimum instance count of 2 to be configured for Application Gateway v1 SKU deployments to ensure at least one instance can serve traffic while updates are applied.
           
@@ -570,6 +572,12 @@ sections:
           To satisfy this `Ingress` resource, an ingress controller is required, which listens for any changes to `Ingress` resources and configures the load balancer policies.
           
           The Application Gateway Ingress Controller (AGIC) allows [Application Gateway](https://azure.microsoft.com/services/application-gateway/) to be used as the ingress for an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), also known as an AKS cluster.
+
+      - question: Can I configure Application Gateway directly instead of using ingress controller?
+        answer: |
+          Direct configuration of Application Gateway isn't supported.
+          
+          If there is a need to change settings on Application Gateway, make the change by using the exposed configuration on the ingress controller or other Kubernetes objects, such as by using supported annotations. After an Application Gateway is linked to Application Gateway Ingress Controller (AGIC), nearly all configuration of that gateway will be synced and controlled by the ingress controller. If you're trying to directly configure Application Gateway imperatively or through infrastructure as code, those changes will eventually be overwritten by the ingress controller. 
           
       - question: Can a single ingress controller instance manage multiple application gateways?
         answer: Currently, one instance of an ingress controller can only be associated to one application gateway.
@@ -628,7 +636,7 @@ sections:
 
       - question: Can I set alerts with Application Gateway?
         answer: |
-          Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](./application-gateway-metrics.md) and [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md).
+          Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](./application-gateway-metrics.md) and [Receive alert notifications](/azure/azure-monitor/alerts/alerts-overview).
           
       - question: How do I analyze traffic statistics for Application Gateway?
         answer: |

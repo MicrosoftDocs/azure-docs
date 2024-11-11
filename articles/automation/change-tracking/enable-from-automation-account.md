@@ -3,12 +3,14 @@ title: Enable Azure Automation Change Tracking and Inventory from Automation acc
 description: This article tells how to enable Change Tracking and Inventory from an Automation account.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 07/22/2024
-ms.topic: conceptual
+ms.date: 10/24/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 
 # Enable Change Tracking and Inventory from an Automation account
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 This article describes how you can use your Automation account to enable [Change Tracking and Inventory](overview.md) for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory.
 
@@ -19,7 +21,7 @@ This article describes how you can use your Automation account to enable [Change
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](../automation-security-overview.md) to manage machines.
-* A [virtual machine](../../virtual-machines/windows/quick-create-portal.md).
+* A [virtual machine](/azure/virtual-machines/windows/quick-create-portal).
 
 ## Sign in to Azure
 
@@ -45,11 +47,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable non-Azure VMs
 
-Machines not in Azure need to be added manually. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then using Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. If you also plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
+Machines not in Azure need to be added manually. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), and then using Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. If you also plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 1. From your Automation account select **Inventory** or **Change tracking** under **Configuration Management**.
 
-2. Click **Add non-Azure machine**. This action opens up a new browser window with [instructions to install and configure the Log Analytics agent for Windows](../../azure-monitor/agents/log-analytics-agent.md) so that the machine can begin reporting Change Tracking and Inventory operations. If you're enabling a machine that's currently managed by Operations Manager, a new agent isn't required and the workspace information is entered into the existing agent.
+2. Click **Add non-Azure machine**. This action opens up a new browser window with [instructions to install and configure the Log Analytics agent for Windows](/azure/azure-monitor/agents/log-analytics-agent) so that the machine can begin reporting Change Tracking and Inventory operations. If you're enabling a machine that's currently managed by Operations Manager, a new agent isn't required and the workspace information is entered into the existing agent.
 
 ## Enable machines in the workspace
 

@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 03/02/2024
+ms.date: 08/30/2024
 ms.author: anfdocs
 ---
 # Linux filesystem cache best practices for Azure NetApp Files
@@ -34,13 +34,13 @@ These two tunables define the amount of RAM made usable for data modified but no
 
 ### `vm.dirty_background_ratio | vm.dirty_background_bytes` 
 
-These tunables define the starting point where the Linux write-back mechanism begins flushing dirty blocks to stable storage. Redhat defaults to 10% of physical memory, which, on a large memory system, is a significant amount of data to start flushing. Taking SAS GRID for example, historically the recommendation was to set `vm.dirty_background` to 1/5 size of `vm.dirty_ratio` or `vm.dirty_bytes`. Considering how aggressively the `vm.dirty_bytes` setting is set for SAS GRID, no specific value is being set here. 
+These tunables define the starting point where the Linux write-back mechanism begins flushing dirty blocks to stable storage. Redhat defaults to 10% of physical memory, which, on a large memory system, is a significant amount of data to start flushing. With SAS GRID as an example, historically the recommendation was to set `vm.dirty_background` to 1/5 size of `vm.dirty_ratio` or `vm.dirty_bytes`. Considering how aggressively the `vm.dirty_bytes` setting is set for SAS GRID, no specific value is being set here. 
 
 ### `vm.dirty_expire_centisecs` 
 
-This tunable defines how old a dirty buffer can be before it must be tagged for asynchronously writing out. Take  SAS Viya’s CAS workload for example. An ephemeral write-dominant workload found that setting this value to 300 centiseconds (3 seconds) was optimal, with 3000 centiseconds (30 seconds) being the default. 
+This tunable defines how old a dirty buffer can be before it must be tagged for asynchronously writing out. Take SAS Viya’s CAS workload for example. An ephemeral write-dominant workload found that setting this value to 300 centiseconds (3 seconds) was optimal, with 3000 centiseconds (30 seconds) being the default. 
 
-SAS Viya shares CAS data into multiple small chunks of a few megabytes each. Rather than closing these file handles after writing data to each shard, the handles are left open and the buffers within are memory-mapped by the application. Without a close, there's no flush until either memory pressure or 30 seconds has passed. Waiting for memory pressure proved suboptimal as did waiting for a long timer to expire. Unlike SAS GRID, which looked for the best overall throughput, SAS Viya looked to optimize write bandwidth. 
+SAS Viya shares CAS data into multiple small chunks of a few megabytes each. Rather than closing these file handles after writing data to each shard, the handles are left open and the buffers within are memory-mapped by the application. Without a close, there's no flush until the passage of either memory pressure or 30 seconds. Waiting for memory pressure proved suboptimal as did waiting for a long timer to expire. Unlike SAS GRID, which looked for the best overall throughput, SAS Viya looked to optimize write bandwidth. 
 
 ### `vm.dirty_writeback_centisecs` 
 
@@ -48,7 +48,7 @@ The kernel flusher thread is responsible for asynchronously flushing dirty buffe
 
 ## Impact of an untuned filesystem cache
 
-Considering the default virtual memory tunables and the amount of RAM in modern systems, write-back potentially slows down other storage-bound operations from the perspective of the specific client driving this mixed workload. The following symptoms may be expected from an untuned, write-heavy, cache-laden Linux machine. 
+When you consider the default virtual memory tunables and the amount of RAM in modern systems, write-back potentially slows down other storage-bound operations from the perspective of the specific client driving this mixed workload. The following symptoms can be expected from an untuned, write-heavy, cache-laden Linux machine. 
 
 * Directory lists `ls` take long enough as to appear unresponsive.
 * Read throughput against the filesystem decreases significantly in comparison to write throughput.
@@ -62,7 +62,9 @@ Setting the filesystem cache parameters as described in this section has been sh
 
 To understand what is going with virtual memory and the write-back, consider the following code snippet and output. *Dirty* represents the amount dirty memory in the system, and *writeback* represents the amount of memory actively being written to storage. 
 
-`# while true; do echo "###" ;date ; egrep "^Cached:|^Dirty:|^Writeback:|file" /proc/meminfo; sleep 5; done`
+```
+# while true; do echo "###" ;date ; egrep "^Cached:|^Dirty:|^Writeback:|file" /proc/meminfo; sleep 5; done`
+```
 
 The following output comes from an experiment where the `vm.dirty_ratio` and the `vm.dirty_background` ratio were set to 2% and 1% of physical memory respectively. In this case, flushing began at 3.8 GiB, 1% of the 384-GiB memory system. Writeback closely resembled the write throughput to NFS. 
 

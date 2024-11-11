@@ -17,7 +17,7 @@ In this article, you learn how to monitor Azure Virtual Network Manager for virt
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed instance of [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md) in your subscription, with managed virtual networks.
--  You deployed either a [Log Analytics workspace](../azure-monitor/essentials/tutorial-resource-logs.md#create-a-log-analytics-workspace) or a [storage account](../storage/common/storage-account-create.md) to store event logs and observe data related to Azure Virtual Network Manager.
+-  You deployed either a [Log Analytics workspace](/azure/azure-monitor/essentials/tutorial-resource-logs#create-a-log-analytics-workspace) or a [storage account](../storage/common/storage-account-create.md) to store event logs and observe data related to Azure Virtual Network Manager.
 
 ## Configure Diagnostic Settings
 
@@ -27,7 +27,7 @@ Depending on how you consume event logs, you need to set up a Log Analytics work
 > At least one virtual network must be added or removed from a network group in order to generate logs for the Network Group Membership Change schema. A log will generate for this event a couple minutes after network group membership change occurs. 
 ### Configure event logs with Log Analytics
 
-Log analytics is one option for storing event logs. In this task, you configure your Azure Virtual Network Manager Instance to use a Log Analytics workspace. This task assumes you have already deployed a Log Analytics workspace. If you haven't, see [Create a Log Analytics workspace](../azure-monitor/essentials/tutorial-resource-logs.md#create-a-log-analytics-workspace).
+Log analytics is one option for storing event logs. In this task, you configure your Azure Virtual Network Manager Instance to use a Log Analytics workspace. This task assumes you have already deployed a Log Analytics workspace. If you haven't, see [Create a Log Analytics workspace](/azure/azure-monitor/essentials/tutorial-resource-logs#create-a-log-analytics-workspace).
 
 1. Navigate to the network manager you want to obtain the logs of.
 1. Under the **Monitoring** in the left pane, select the **Diagnostic settings**.
@@ -79,5 +79,5 @@ In this task, you access the event logs for your Azure Virtual Network Manager i
 ## Next steps
 
 - Learn about [Security admin rules](concept-security-admins.md)
-- Learn how to [Use queries in Azure Monitor Log Analytics](../azure-monitor/logs/queries.md)
+- Learn how to [Use queries in Azure Monitor Log Analytics](/azure/azure-monitor/logs/queries)
 - Learn how to block network traffic with a [SecurityAdmin configuration](how-to-block-network-traffic-portal.md).

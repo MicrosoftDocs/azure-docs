@@ -2,7 +2,7 @@
 title: Find resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 09/26/2024
 ms.custom: devx-track-arm-template
 content_well_notification: 
   - AI-contribution
@@ -21,11 +21,10 @@ The resource providers for AI and machine learning services are:
 | --------------------------- | ------------- |
 | Microsoft.AutonomousSystems | [Autonomous Systems](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.BotService | [Azure Bot Service](/azure/bot-service/) |
-| Microsoft.CognitiveServices | [Cognitive Services](../../ai-services/index.yml) |
+| Microsoft.CognitiveServices | [Cognitive Services](/azure/ai-services/) |
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
-| Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/classic/index.yml) |
-| Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
-| Microsoft.Search | [Azure AI Search](../../search/index.yml) |
+| Microsoft.MachineLearningServices | [Azure Machine Learning](/azure/machine-learning/) |
+| Microsoft.Search | [Azure AI Search](/azure/search/) |
 
 ## Analytics resource providers
 
@@ -68,17 +67,17 @@ The resource providers for compute services are:
 | Microsoft.AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
-| Microsoft.Compute | [Virtual Machines](../../virtual-machines/index.yml)<br />[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) |
+| Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
 | Microsoft.DesktopVirtualization | [Azure Virtual Desktop](../../virtual-desktop/index.yml) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
-| Microsoft.HanaOnAzure | [SAP HANA on Azure Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
+| Microsoft.HanaOnAzure | [SAP HANA on Azure Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
-| Microsoft.Maintenance | [Azure Maintenance](../../virtual-machines/maintenance-configurations.md) |
+| Microsoft.Maintenance | [Azure Maintenance](/azure/virtual-machines/maintenance-configurations) |
 | Microsoft.Microservices4Spring | [Azure Spring Apps](../../spring-apps/enterprise/overview.md) |
 | Microsoft.Quantum | [Azure Quantum](https://azure.microsoft.com/services/quantum/) |
 | Microsoft.SerialConsole - [registered by default](#registration) | [Azure Serial Console for Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
-| Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
-| Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/image-builder-overview.md) |
+| Microsoft.ServiceFabric | [Service Fabric](/azure/service-fabric/) |
+| Microsoft.VirtualMachineImages | [Azure Image Builder](/azure/virtual-machines/image-builder-overview) |
 | Microsoft.VMware | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](../../vmware-cloudsimple/index.md) |
 
@@ -89,10 +88,10 @@ The resource providers for container services are:
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.App | [Azure Container Apps](../../container-apps/index.yml) |
-| Microsoft.ContainerInstance | [Container Instances](../../container-instances/index.yml) |
-| Microsoft.ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
+| Microsoft.ContainerInstance | [Container Instances](/azure/container-instances/) |
+| Microsoft.ContainerRegistry | [Container Registry](/azure/container-registry/) |
 | Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](/azure/aks/) |
-| Microsoft.RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
+| Microsoft.RedHatOpenShift | [Azure Red Hat OpenShift](/azure/virtual-machines/linux/openshift-get-started) |
 
 ## Core resource providers
 
@@ -147,6 +146,7 @@ The resource providers for DevOps services are:
 | --------------------------- | ------------- |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VSOnline | [Azure DevOps](/azure/devops/) |
+| Microsoft.DevOpsInfrastructure | [Managed DevOps Pools](/azure/devops/managed-devops-pools/) |
 
 ## Hybrid resource providers
 
@@ -156,10 +156,10 @@ The resource providers for hybrid services are:
 | --------------------------- | ------------- |
 | Microsoft.AzureArcData | [Azure Arc-enabled data services](/azure/azure-arc/data/overview) |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
-| Microsoft.HybridCompute | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) |
-| Microsoft.Kubernetes | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
-| Microsoft.KubernetesConfiguration | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
-| Microsoft.Edge | [Azure Arc site manager](../../azure-arc/site-manager/index.yml) |
+| Microsoft.HybridCompute | [Azure Arc-enabled servers](/azure/azure-arc/servers/) |
+| Microsoft.Kubernetes | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) |
+| Microsoft.KubernetesConfiguration | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) |
+| Microsoft.Edge | [Azure Arc site manager](/azure/azure-arc/site-manager/) |
 
 ## Identity resource providers
 
@@ -211,7 +211,7 @@ The resource providers for management services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.Advisor | [Azure Advisor](../../advisor/index.yml) |
+| Microsoft.Advisor | [Azure Advisor](/azure/advisor/) |
 | Microsoft.Authorization - [registered by default](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
 | Microsoft.Billing - [registered by default](#registration) | [Cost Management and Billing](/azure/billing/) |
@@ -224,13 +224,13 @@ The resource providers for management services are:
 | Microsoft.DynamicsLcs | [Lifecycle Services](https://lcs.dynamics.com/Logon/Index) |
 | Microsoft.Features - [registered by default](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.ManagedServices | [Azure Lighthouse](../../lighthouse/index.yml) |
+| Microsoft.ManagedServices | [Azure Lighthouse](/azure/lighthouse/) |
 | Microsoft.Management | [Management Groups](../../governance/management-groups/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft.Portal - [registered by default](#registration) | [Azure portal](../../azure-portal/index.yml) |
+| Microsoft.Portal - [registered by default](#registration) | [Azure portal](/azure/azure-portal/) |
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.ResourceGraph - [registered by default](#registration) | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
-| Microsoft.ResourceHealth | [Azure Service Health](../../service-health/index.yml) |
+| Microsoft.ResourceHealth | [Azure Service Health](/azure/service-health/) |
 | Microsoft.Resources - [registered by default](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft.SoftwarePlan | License |
@@ -263,13 +263,13 @@ The resource providers for monitoring services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.ChangeAnalysis | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.Insights | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.OperationalInsights | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.WorkloadMonitor | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.AlertsManagement | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.ChangeAnalysis | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.Insights | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.Intune | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.OperationalInsights | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.OperationsManagement | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.WorkloadMonitor | [Azure Monitor](/azure/azure-monitor/) |
 
 ## Network resource providers
 

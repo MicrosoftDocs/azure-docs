@@ -70,7 +70,9 @@ items:
           displayName: secured, certificate, client certificate, password, oauth, security, secure endpoint
           href: how-to-test-secured-endpoints.md
         - name: Run tests in debug mode
-          href: how-to-run-tests-in-debug-mode.md  
+          href: how-to-run-tests-in-debug-mode.md
+        - name: Schedule load tests
+          href: how-to-schedule-tests.md          
     - name: Automation
       items:
         - name: Run load tests in CI/CD
@@ -95,6 +97,8 @@ items:
           href: how-to-use-a-managed-identity.md
         - name: Configure customer-managed keys
           href: how-to-configure-customer-managed-keys.md
+        - name: Secure Azure Load Testing with Azure Policy
+          href: how-to-use-azure-policy.md
     - name: Manage resources
       items:
         - name: Create & manage tests (Azure portal)

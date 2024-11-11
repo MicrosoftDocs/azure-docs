@@ -3,7 +3,7 @@ title: Restore Key Vault key & secret for encrypted VM
 description: Learn how to restore Key Vault key and secret in Azure Backup using PowerShell
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 02/28/2023 
+ms.date: 09/04/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -52,7 +52,7 @@ Once the JSON file is generated in the destination path mentioned above, generat
 ```powershell
 $keyDestination = 'C:\keyDetails.blob'
 [io.file]::WriteAllBytes($keyDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyBackupData))
-Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
+Restore-AzKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
 ```
 
 ## Restore secret

@@ -4,22 +4,25 @@ description: Learn how to help your students download software developer tools f
 author: v-dihans
 ms.author: rymend
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 08/21/2024
 ms.service: azure-education
 ---
 
 # Download software developer tools
 
-Students who have a current and active Azure for Students subscription through the Azure Dev Tools for Teaching program can download certain software developer tools for free. Have your students follow the procedure in this article to download the tools from the Azure Education Hub.
+Students who have an active Azure for Students subscription and/or are part of the Azure Dev Tools for Teaching program can download certain software developer tools for free on the Education Hub. Have your students follow the procedure in this article to download the tools from the Azure Education Hub.
 
 ## Download instructions for students
 
 1. Open a browser and go to the [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software).
-1. Sign in with your Azure for Students subscription credentials.
-1. Select any of the software developer tools in the Education Hub to open the download pane.
-1. Read the software information to make sure that the software is compatible with your computer system.
-1. Select **Download**.
-1. Follow the on-screen instructions to download and install the software.
+1. Sign in with you account that is associated with Azure for Students or Azure Dev Tools for Teaching
+2. Navigate to the **Software** blade in the Education Hub
+3. Select any of the software developer tools in the software blade to open the download pane.
+4. Read the software information to make sure that the software is compatible with your computer system.
+5. Select **Download**.
+6. Follow the on-screen instructions to download and install the software.
+
+[ ![Screenshot of software blade in Education Hub where students can download various products.](media/download-software.png)](media/download-software.png#lightbox)
 
 ## Related content
 

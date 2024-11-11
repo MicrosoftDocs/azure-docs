@@ -3,12 +3,15 @@ title: Trino with DBeaver
 description: Using Trino in DBeaver.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Connect and query with DBeaver
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 It's possible to use JDBC driver with many available database tools. This article demonstrates how to configure one of the most popular tool **DBeaver** to connect to Trino cluster with HDInsight on AKS in few simple steps.
 

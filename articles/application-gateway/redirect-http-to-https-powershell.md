@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Create an application gateway with HTTP to HTTPS redirection using Azure PowerShell
 
-You can use the Azure PowerShell to create an [application gateway](overview.md) with a certificate for TLS/SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for the backend pool of the application gateway that contains two virtual machine instances. 
+You can use the Azure PowerShell to create an [application gateway](overview.md) with a certificate for TLS/SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](/azure/virtual-machine-scale-sets/overview) for the backend pool of the application gateway that contains two virtual machine instances. 
 
 In this article, you learn how to:
 

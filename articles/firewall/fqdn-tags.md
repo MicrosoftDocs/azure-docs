@@ -4,7 +4,7 @@ description: An FQDN tag represents a group of fully qualified domain names (FQD
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/07/2024
 ms.author: victorh
 ---

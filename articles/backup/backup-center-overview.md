@@ -2,7 +2,7 @@
 title: Overview of Backup center for Azure Backup and Azure Site Recovery
 description: This article provides an overview of Backup center for Azure.
 ms.topic: overview
-ms.date: 07/30/2024
+ms.date: 09/24/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -10,6 +10,8 @@ ms.author: v-abhmallick
 ---
 
 # About Backup center for Azure Backup and Azure Site Recovery
+
+[!INCLUDE [backup-center-deprecation.md ](../../includes/backup-center-deprecation.md )]
 
 Backup center provides a *single unified management experience* in Azure for enterprises to govern, monitor, operate, and analyze backups at scale. It also provides at-scale monitoring and management capabilities for Azure Site Recovery. So, it's consistent with Azure's native management experiences.
 
@@ -25,9 +27,9 @@ In this article, you'll learn about:
 
 Some of the key benefits of Backup center include:
 
-- **Single pane of glass to manage backups**: Backup center is designed to function well across a large and distributed Azure environment. You can use Backup center to efficiently manage backups spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](../lighthouse/overview.md) tenants.
+- **Single pane of glass to manage backups**: Backup center is designed to function well across a large and distributed Azure environment. You can use Backup center to efficiently manage backups spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](/azure/lighthouse/overview) tenants.
 - **Datasource-centric management**: Backup center provides views and filters that are centered on the datasources that you're backing up (for example, VMs and databases). This allows a resource owner or a backup admin to monitor and operate backups of items without needing to focus on which vault an item is backed up to. A key feature of this design is the ability to filter views by datasource-specific properties, such as datasource subscription, datasource resource group, and datasource tags. For example, if your organization follows a practice of assigning different tags to VMs belonging to different departments, you can use Backup center to filter backup information based on the tags of the underlying VMs being backed up without needing to focus on the tag of the vault.
-- **Connected experiences**: Backup center provides native integrations to existing Azure services that enable management at scale. For example, Backup center uses the [Azure Policy](../governance/policy/overview.md) experience to help you govern your backups. It also leverages [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md) and [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md) to help you view detailed reports on backups. So, you don't need to learn any new principles to use the varied features that the Backup center offers. You can also [discover community resources from the Backup center](#access-community-resources-on-community-hub).
+- **Connected experiences**: Backup center provides native integrations to existing Azure services that enable management at scale. For example, Backup center uses the [Azure Policy](../governance/policy/overview.md) experience to help you govern your backups. It also leverages [Azure workbooks](/azure/azure-monitor/visualize/workbooks-overview) and [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) to help you view detailed reports on backups. So, you don't need to learn any new principles to use the varied features that the Backup center offers. You can also [discover community resources from the Backup center](#access-community-resources-on-community-hub).
 - **At-scale monitoring capabilities**: Backup center now provides at-scale monitoring capabilities that help you to view replicated items and jobs across all vaults and manage them across subscriptions, resource groups, and regions from a single view for Azure Site Recovery.
 
 ## Supported scenarios

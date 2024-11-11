@@ -3,14 +3,14 @@ title: Automate function app resource deployment to Azure
 description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 07/16/2024
+ms.date: 10/21/2024
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template, linux-related-content
 zone_pivot_groups: functions-hosting-plan
 ---
 
 # Automate resource deployment for your function app in Azure Functions
 
-You can use a Bicep file or an Azure Resource Manager (ARM) template to automate the process of deploying your function app. During the deployment, you can use existing Azure resources or create new ones. Automation help's you with these scenarios:
+You can use a Bicep file or an Azure Resource Manager (ARM) template to automate the process of deploying your function app. During the deployment, you can use existing Azure resources or create new ones. Automation helps you with these scenarios:
 
 + Integrating your resource deployments with your source code in Azure Pipelines and GitHub Actions-based deployments.
 + Restoring a function app and related resources from a backup.
@@ -94,12 +94,12 @@ When you deploy multiple resources in a single Bicep file or ARM template, the o
 ## Prerequisites  
 
 + The examples are designed to execute in the context of an existing resource group.
-+ Both Application Insights and storage logs require you to have an existing [Azure Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md). Workspaces can be shared between services, and as a rule of thumb you should create a workspace in each geographic region to improve performance. For an example of how to create a Log Analytics workspace, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?tabs=azure-resource-manager#create-a-workspace). You can find the fully qualified workspace resource ID in a workspace page in the [Azure portal](https://portal.azure.com) under **Settings** > **Properties** > **Resource ID**. 
++ Both Application Insights and storage logs require you to have an existing [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview). Workspaces can be shared between services, and as a rule of thumb you should create a workspace in each geographic region to improve performance. For an example of how to create a Log Analytics workspace, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-resource-manager#create-a-workspace). You can find the fully qualified workspace resource ID in a workspace page in the [Azure portal](https://portal.azure.com) under **Settings** > **Properties** > **Resource ID**. 
 ::: zone pivot="container-apps" 
 + This article assumes that you have already created a [managed environment](../container-apps/environment.md) in Azure Container Apps. You need both the name and the ID of the managed environment to create a function app hosted on Container Apps.  
 ::: zone-end  
 ::: zone pivot="azure-arc" 
-+ This article assumes that you have already created an [App Service-enabled custom location](../app-service/overview-arc-integration.md) on an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). You need both the custom location ID and the Kubernetes environment ID to create a function app hosted in an Azure Arc custom location.  
++ This article assumes that you have already created an [App Service-enabled custom location](../app-service/overview-arc-integration.md) on an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview). You need both the custom location ID and the Kubernetes environment ID to create a function app hosted in an Azure Arc custom location.  
 ::: zone-end  
 <a name="storage"></a>
 ## Create storage account
@@ -131,7 +131,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
 For more context, see the complete [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep#L37) file in the templates repository.
 ::: zone-end  
 ::: zone pivot="flex-consumption-plan"
-For more context, see the complete [storage-account.bicep](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/starters/http/dotnet/infra/core/storage/storage-account.bicep#L11) file in the sample repository.
+For more context, see the complete [storage-account.bicep](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd/blob/main/infra/core/storage/storage-account.bicep) file in the sample repository.
 ::: zone-end  
 
 ### [ARM template](#tab/json)
@@ -169,7 +169,7 @@ You need to set the connection string of this storage account as the `AzureWebJo
 
 Deployments to an app running in the Flex Consumption plan require a container in Azure Blob Storage as the deployment source. You can use either the default storage account or you can specify a separate storage account. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings). 
 
-This deployment account must already be configured when you create your app, including the specific container used for deployments. To learn more about configuring deployments, see [Deployment sources](#deployment-sources-2).
+This deployment account must already be configured when you create your app, including the specific container used for deployments. To learn more about configuring deployments, see [Deployment sources](#deployment-sources).
 
 This example shows how to create a container in the storage account:
 
@@ -187,7 +187,7 @@ For the snippet in context, see [this deployment example](https://github.com/Azu
 
 ---
 
-Other deployment settings are [configured with the app itself](#deployment-sources-2). 
+Other deployment settings are [configured with the app itself](#deployment-sources). 
 
 ::: zone-end  
 ### Enable storage logs
@@ -257,7 +257,7 @@ This same workspace can be used for the Application Insights resource defined la
 
 ## Create Application Insights
 
-You should be using Application Insights for monitoring your function app executions. Application Insights now requires an Azure Log Analytics workspace, which can be shared. These examples assume you're using an existing workspace and have the fully qualified resource ID for the workspace. For more information, see [Azure Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md). 
+You should be using Application Insights for monitoring your function app executions. Application Insights now requires an Azure Log Analytics workspace, which can be shared. These examples assume you're using an existing workspace and have the fully qualified resource ID for the workspace. For more information, see [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview). 
 
 In this example section, the Application Insights resource is defined with the type `Microsoft.Insights/components` and the kind `web`:
 
@@ -1197,17 +1197,19 @@ For a complete end-to-end example, see this [azuredeploy.json template](https://
 ---
 
 ::: zone-end  
-::: zone pivot="dedicated-plan,premium-plan"  
 ## Deployment sources
+::: zone pivot="container-apps,azure-arc"  
+You can use the [`linuxFxVersion`](./functions-app-settings.md#linuxfxversion) site setting to request that a specific Linux container be deployed to your app when it's created. More settings are required to access images in a private repository. For more information, see [Application configuration](#application-configuration).    
 
+[!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
+::: zone-end
+::: zone pivot="dedicated-plan,premium-plan"  
 Your Bicep file or ARM template can optionally also define a deployment for your function code, which could include these methods:
 
 + [Zip deployment package](./deployment-zip-push.md)
 + [Linux container](./functions-how-to-custom-container.md) 
 ::: zone-end  
 ::: zone pivot="flex-consumption-plan"  
-## Deployment sources
-
 In the Flex Consumption plan, your project code is deployed from a zip-compressed package published to a Blob storage container. For more information, see [Deployment](flex-consumption-plan.md#deployment). The specific storage account and container used for deployments, the authentication method, and credentials are set in the `functionAppConfig.deployment.storage` element of the `properties` for the site. The container and any application settings must exist when the app is created. For an example of how to create the storage container, see [Deployment container](#deployment-container).
 
 This example uses a system assigned managed identity to access the specified blob storage container, which is created elsewhere in the deployment:
@@ -1241,8 +1243,6 @@ For a complete reference example, see [this ARM template](https://github.com/Azu
 When using a connection string instead of managed identities, you need to instead set the `authentication.type` to `StorageAccountConnectionString` and set `authentication.storageAccountConnectionStringName` to the name of the application setting that contains the deployment storage account connection string.  
 ::: zone-end  
 ::: zone pivot="consumption-plan"  
-## Deployment sources
-
 Your Bicep file or ARM template can optionally also define a deployment for your function code using a [zip deployment package](./deployment-zip-push.md).  
 ::: zone-end  
 ::: zone pivot="dedicated-plan,premium-plan,consumption-plan" 
@@ -1682,15 +1682,17 @@ In a Flex Consumption plan, you configure your function app in Azure with two ty
 | Application configuration | `functionAppConfig` |
 | Application settings | `siteConfig.appSettings` collection |
 
-These configurations are maintained in `functionAppConfig`:
+These application configurations are maintained in `functionAppConfig`:
 
 | Behavior | Setting in `functionAppConfig`| 
 | --- | --- |
+| [Always ready instances](flex-consumption-plan.md#always-ready-instances) |  `scaleAndConcurrency.alwaysReady`  |
+| [Deployment source](#deployment-sources) | `deployment` |
+| [Instance memory size](flex-consumption-plan.md#instance-memory) | `scaleAndConcurrency.instanceMemoryMB` |
+| [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency) | `scaleAndConcurrency.triggers.http.perInstanceConcurrency` |
 | [Language runtime](functions-app-settings.md#functions_worker_runtime) | `runtime.name` |
 | [Language version](supported-languages.md) | `runtime.version` |
 | [Maximum instance count](event-driven-scaling.md#flex-consumption-plan) | `scaleAndConcurrency.maximumInstanceCount` |
-| [Instance memory size](flex-consumption-plan.md#instance-memory) | `scaleAndConcurrency.instanceMemoryMB` |
-| [Deployment source](#deployment-sources) | `deployment` |
 
 The Flex Consumption plan also supports these application settings:
 
@@ -1747,6 +1749,12 @@ These site settings are required on the `siteConfig` property:
 + [`alwaysOn`](functions-app-settings.md#alwayson)
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
 ::: zone-end  
+::: zone pivot="dedicated-plan,premium-plan,azure-arc,container-apps"  
+These site settings are required only when using managed identities to obtain the image from an Azure Container Registry instance:
+
++ [`AcrUseManagedIdentityCreds`](functions-app-settings.md#acrusemanagedidentitycreds)
++ [`AcrUserManagedIdentityID`](functions-app-settings.md#acrusermanagedidentityid)
+::: zone-end
 ::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 These application settings are required (or recommended) for a specific operating system and hosting option:
 ::: zone-end  
@@ -1831,7 +1839,36 @@ These application settings are required for container deployments:
 ::: zone-end 
 
 Keep these considerations in mind when working with site and application settings using Bicep files or ARM templates:
- ::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
+::: zone pivot="flex-consumption-plan"   
++ The optional `alwaysReady` setting contains an array of one or more `{name,instanceCount}` objects, with one for each [per-function scale group](flex-consumption-plan.md#per-function-scaling). These are the scale groups being used to make always-ready scale decisions. This example sets always-ready counts for both the `http` group and a single function named `helloworld`, which is of a non-grouped trigger type:
+	### [Bicep](#tab/bicep)
+	```bicep
+	alwaysReady: [
+	  {
+	    name: 'http'
+	    instanceCount: 2
+	  }
+	  {
+	    name: 'function:helloworld'
+	    instanceCount: 1
+	  }
+	]
+ 	```
+	### [ARM template](#tab/json)
+	```json
+	  "alwaysReady": [
+	    {
+	      "name": "http",
+	      "instanceCount": 2
+	    },
+	    {
+	      "name": "function:helloworld",
+	      "instanceCount": 1
+	    }
+	  ]
+ 	```
+::: zone-end
+::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 + There are important considerations for when you should set `WEBSITE_CONTENTSHARE` in an automated deployment. For detailed guidance, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference. 
 ::: zone-end
 ::: zone pivot="container-apps,azure-arc,premium-plan,dedicated-plan"  

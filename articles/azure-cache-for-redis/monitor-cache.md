@@ -121,7 +121,7 @@ In contrast, for clustered caches, use the metrics with the suffix `Instance Bas
 ### Log Analytics queries
 
 > [!NOTE]
-> For a tutorial on how to use Azure Log Analytics, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md). Remember that it may take up to 90 minutes before logs show up in Log Analtyics.
+> For a tutorial on how to use Azure Log Analytics, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview). Remember that it may take up to 90 minutes before logs show up in Log Analtyics.
 
 Here are some basic queries to use as models.
 

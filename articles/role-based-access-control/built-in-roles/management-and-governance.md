@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -15,6 +15,151 @@ ms.custom: generated
 
 This article lists the Azure built-in roles in the Management and governance category.
 
+
+## Advisor Recommendations Contributor (Assessments and Reviews)
+
+View assessment recommendations, accepted review recommendations, and manage the recommendations lifecycle (mark recommendations as completed, postponed or dismissed, in progress, or not started).
+
+[Learn more](/azure/advisor/permissions)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/recommendations/read | Reads recommendations |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/recommendations/write | Writes recommendations |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/recommendations/available/action | New recommendation is available in Microsoft Advisor |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "View assessment recommendations, accepted review recommendations, and manage the recommendations lifecycle (mark recommendations as completed, postponed or dismissed, in progress, or not started).",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/6b534d80-e337-47c4-864f-140f5c7f593d",
+  "name": "6b534d80-e337-47c4-864f-140f5c7f593d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Advisor/recommendations/read",
+        "Microsoft.Advisor/recommendations/write",
+        "Microsoft.Advisor/recommendations/available/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Advisor Recommendations Contributor (Assessments and Reviews)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Advisor Reviews Contributor
+
+View reviews for a workload and triage recommendations linked to them.
+
+[Learn more](/azure/advisor/permissions)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/resiliencyReviews/read | Read resiliencyReviews |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/triageRecommendations/read | Read triageRecommendations |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/triageRecommendations/approve/action | Approve triageRecommendations |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/triageRecommendations/reject/action | Reject triageRecommendations |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/triageRecommendations/reset/action | Reset triageRecommendations |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "View reviews for a workload and triage recommendations linked to them.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/8aac15f0-d885-4138-8afa-bfb5872f7d13",
+  "name": "8aac15f0-d885-4138-8afa-bfb5872f7d13",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Advisor/resiliencyReviews/read",
+        "Microsoft.Advisor/triageRecommendations/read",
+        "Microsoft.Advisor/triageRecommendations/approve/action",
+        "Microsoft.Advisor/triageRecommendations/reject/action",
+        "Microsoft.Advisor/triageRecommendations/reset/action",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Advisor Reviews Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Advisor Reviews Reader
+
+View reviews for a workload and recommendations linked to them.
+
+[Learn more](/azure/advisor/permissions)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/resiliencyReviews/read | Read resiliencyReviews |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/triageRecommendations/read | Read triageRecommendations |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "View reviews for a workload and recommendations linked to them.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c64499e0-74c3-47ad-921c-13865957895c",
+  "name": "c64499e0-74c3-47ad-921c-13865957895c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Advisor/resiliencyReviews/read",
+        "Microsoft.Advisor/triageRecommendations/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Advisor Reviews Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ## Automation Contributor
 
@@ -274,6 +419,435 @@ Read Runbook properties - to be able to create Jobs of the runbook.
 }
 ```
 
+## Azure Center for SAP solutions administrator
+
+This role provides read and write access to all capabilities of Azure Center for SAP solutions.
+
+[Learn more](/azure/sap/center-sap-solutions/manage-with-azure-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/configurations/read | Get configurations |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/recommendations/read | Reads recommendations |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/sapvirtualInstances/*/read |  |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/sapVirtualInstances/*/write |  |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/sapVirtualInstances/*/delete |  |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/Locations/*/action |  |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/Locations/*/read |  |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/sapVirtualInstances/*/start/action |  |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/sapVirtualInstances/*/stop/action |  |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/connectors/*/read |  |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/connectors/*/write |  |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/connectors/*/delete |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metrics/read | Read metrics |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricDefinitions/read | Read metric definitions |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/write | Creates or updates a resource group. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/* |  |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/providers/Microsoft.Insights/metricDefinitions/read | Gets available metrics for the PingMesh |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/virtualMachines/read | Gets references to all the virtual machines in a virtual network subnet |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/ipconfigurations/read | Gets a network interface ip configuration definition.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/loadBalancers/read | Gets all the load balancers that the network interface is part of |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/providers/Microsoft.Insights/metricDefinitions/read | Gets available metrics for the Network Interface |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/read | Gets a load balancer definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/frontendIPConfigurations/read | Gets a load balancer frontend IP configuration definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/loadBalancingRules/read | Gets a load balancer load balancing rule definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/inboundNatRules/read | Gets a load balancer inbound nat rule definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/providers/Microsoft.Insights/logDefinitions/read | Gets the events for Load Balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/networkInterfaces/read | Gets references to all the network interfaces under a load balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/outboundRules/read | Gets a load balancer outbound rule definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/virtualMachines/read | Gets references to all the virtual machines under a load balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Load Balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/read | Gets an private endpoint resource. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/routeTables/join/action | Joins a route table. Not Alertable. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/read | Get file service properties |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/shares/read | List file shares |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/availabilitySets/read | Get the properties of an availability set |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/sshPublicKeys/read | Get the properties of an SSH public key |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/sshPublicKeys/write | Creates a new SSH public key or updates an existing SSH public key |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/sshPublicKeys/*/generateKeyPair/action |  |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/read | Get the properties of a virtual machine extension |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/delete | Deletes the virtual machine extension |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/read | Get the properties of a Disk |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "This role provides read and write access to all capabilities of Azure Center for SAP solutions.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/7b0c7e81-271f-4c71-90bf-e30bdfdbc2f7",
+  "name": "7b0c7e81-271f-4c71-90bf-e30bdfdbc2f7",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Advisor/configurations/read",
+        "Microsoft.Advisor/recommendations/read",
+        "Microsoft.Workloads/sapvirtualInstances/*/read",
+        "Microsoft.Workloads/sapVirtualInstances/*/write",
+        "Microsoft.Workloads/sapVirtualInstances/*/delete",
+        "Microsoft.Workloads/Locations/*/action",
+        "Microsoft.Workloads/Locations/*/read",
+        "Microsoft.Workloads/sapVirtualInstances/*/start/action",
+        "Microsoft.Workloads/sapVirtualInstances/*/stop/action",
+        "Microsoft.Workloads/connectors/*/read",
+        "Microsoft.Workloads/connectors/*/write",
+        "Microsoft.Workloads/connectors/*/delete",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/providers/Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/write",
+        "Microsoft.Network/virtualNetworks/subnets/virtualMachines/read",
+        "Microsoft.Network/networkInterfaces/read",
+        "Microsoft.Network/networkInterfaces/ipconfigurations/read",
+        "Microsoft.Network/networkInterfaces/loadBalancers/read",
+        "Microsoft.Network/networkInterfaces/providers/Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Network/loadBalancers/read",
+        "Microsoft.Network/loadBalancers/backendAddressPools/read",
+        "Microsoft.Network/loadBalancers/frontendIPConfigurations/read",
+        "Microsoft.Network/loadBalancers/loadBalancingRules/read",
+        "Microsoft.Network/loadBalancers/inboundNatRules/read",
+        "Microsoft.Network/loadBalancers/providers/Microsoft.Insights/logDefinitions/read",
+        "Microsoft.Network/loadBalancers/networkInterfaces/read",
+        "Microsoft.Network/loadBalancers/outboundRules/read",
+        "Microsoft.Network/loadBalancers/virtualMachines/read",
+        "Microsoft.Network/loadBalancers/providers/Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Network/privateEndpoints/read",
+        "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Network/routeTables/join/action",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/fileServices/read",
+        "Microsoft.Storage/storageAccounts/fileServices/shares/read",
+        "Microsoft.Compute/virtualMachines/read",
+        "Microsoft.Compute/availabilitySets/read",
+        "Microsoft.Compute/sshPublicKeys/read",
+        "Microsoft.Compute/sshPublicKeys/write",
+        "Microsoft.Compute/sshPublicKeys/*/generateKeyPair/action",
+        "Microsoft.Compute/virtualMachines/extensions/read",
+        "Microsoft.Compute/virtualMachines/extensions/delete",
+        "Microsoft.Compute/disks/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Center for SAP solutions administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Center for SAP solutions reader
+
+This role provides read access to all capabilities of Azure Center for SAP solutions.
+
+[Learn more](/azure/sap/center-sap-solutions/manage-with-azure-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/configurations/read | Get configurations |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/recommendations/read | Reads recommendations |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/sapvirtualInstances/*/read |  |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/Locations/*/read |  |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/Operations/read | read Operations |
+> | [Microsoft.Workloads](../permissions/management-and-governance.md#microsoftworkloads)/Locations/OperationStatuses/read | read OperationStatuses |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metrics/read | Read metrics |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricDefinitions/read | Read metric definitions |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/read | Gets or lists deployments. |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/providers/Microsoft.Insights/metricDefinitions/read | Gets available metrics for the PingMesh |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/virtualMachines/read | Gets references to all the virtual machines in a virtual network subnet |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/ipconfigurations/read | Gets a network interface ip configuration definition.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/loadBalancers/read | Gets all the load balancers that the network interface is part of |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/providers/Microsoft.Insights/metricDefinitions/read | Gets available metrics for the Network Interface |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/read | Gets a load balancer definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/frontendIPConfigurations/read | Gets a load balancer frontend IP configuration definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/loadBalancingRules/read | Gets a load balancer load balancing rule definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/inboundNatRules/read | Gets a load balancer inbound nat rule definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/providers/Microsoft.Insights/logDefinitions/read | Gets the events for Load Balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/networkInterfaces/read | Gets references to all the network interfaces under a load balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/outboundRules/read | Gets a load balancer outbound rule definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/virtualMachines/read | Gets references to all the virtual machines under a load balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Load Balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/read | Gets an private endpoint resource. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/read | Get file service properties |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/shares/read | List file shares |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/availabilitySets/read | Get the properties of an availability set |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/read | Get the properties of a virtual machine extension |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/read | Get the properties of a Disk |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "This role provides read access to all capabilities of Azure Center for SAP solutions.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/05352d14-a920-4328-a0de-4cbe7430e26b",
+  "name": "05352d14-a920-4328-a0de-4cbe7430e26b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Advisor/configurations/read",
+        "Microsoft.Advisor/recommendations/read",
+        "Microsoft.Workloads/sapvirtualInstances/*/read",
+        "Microsoft.Workloads/Locations/*/read",
+        "Microsoft.Workloads/Operations/read",
+        "Microsoft.Workloads/Locations/OperationStatuses/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Insights/alertRules/read",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/providers/Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/virtualMachines/read",
+        "Microsoft.Network/networkInterfaces/read",
+        "Microsoft.Network/networkInterfaces/ipconfigurations/read",
+        "Microsoft.Network/networkInterfaces/loadBalancers/read",
+        "Microsoft.Network/networkInterfaces/providers/Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Network/loadBalancers/read",
+        "Microsoft.Network/loadBalancers/backendAddressPools/read",
+        "Microsoft.Network/loadBalancers/frontendIPConfigurations/read",
+        "Microsoft.Network/loadBalancers/loadBalancingRules/read",
+        "Microsoft.Network/loadBalancers/inboundNatRules/read",
+        "Microsoft.Network/loadBalancers/providers/Microsoft.Insights/logDefinitions/read",
+        "Microsoft.Network/loadBalancers/networkInterfaces/read",
+        "Microsoft.Network/loadBalancers/outboundRules/read",
+        "Microsoft.Network/loadBalancers/virtualMachines/read",
+        "Microsoft.Network/loadBalancers/providers/Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Network/privateEndpoints/read",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/fileServices/read",
+        "Microsoft.Storage/storageAccounts/fileServices/shares/read",
+        "Microsoft.Compute/virtualMachines/read",
+        "Microsoft.Compute/availabilitySets/read",
+        "Microsoft.Compute/virtualMachines/extensions/read",
+        "Microsoft.Compute/disks/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Center for SAP solutions reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Center for SAP solutions service role
+
+Azure Center for SAP solutions service role - This role is intended to be used for providing the permissions to user assigned managed identity. Azure Center for SAP solutions will use this identity to deploy and manage SAP systems.
+
+[Learn more](/azure/sap/center-sap-solutions/manage-with-azure-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/write | Creates or updates a resource group. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/* |  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/read | Gets a load balancer definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/write | Creates a load balancer or updates an existing load balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/write | Creates a load balancer backend address pool or updates an existing load balancer backend address pool |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/frontendIPConfigurations/read | Gets a load balancer frontend IP configuration definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/loadBalancingRules/read | Gets a load balancer load balancing rule definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/inboundNatRules/read | Gets a load balancer inbound nat rule definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/providers/Microsoft.Insights/logDefinitions/read | Gets the events for Load Balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/networkInterfaces/read | Gets references to all the network interfaces under a load balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/outboundRules/read | Gets a load balancer outbound rule definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/virtualMachines/read | Gets references to all the virtual machines under a load balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Load Balancer |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/write | Creates a network interface or updates an existing network interface.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/ipconfigurations/read | Gets a network interface ip configuration definition.  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/loadBalancers/read | Gets all the load balancers that the network interface is part of |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/checkIpAddressAvailability/read | Check if IP Address is available at the specified virtual network |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/virtualMachines/read | Gets references to all the virtual machines in a virtual network subnet |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/virtualMachines/read | Gets references to all the virtual machines in a virtual network |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/ipconfigurations/join/action | Joins a Network Interface IP Configuration. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/read | Gets an private endpoint resource. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/write | Creates a new private endpoint, or updates an existing private endpoint. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/join/action | Joins a Virtual Machine to a network interface. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/frontendIPConfigurations/join/action | Joins a Load Balancer Frontend IP Configuration. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/joinLoadBalancer/action | Joins a load balancer to virtual network subnets |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/write | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/read | Get file service properties |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/write | Put file service properties |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/shares/read | List file shares |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/shares/write | Create or update file share |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/write | Creates a new virtual machine or updates an existing virtual machine |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/instanceView/read | Gets the detailed runtime status of the virtual machine and its resources |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/availabilitySets/read | Get the properties of an availability set |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/availabilitySets/write | Creates a new availability set or updates an existing one |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/skus/read | Gets the list of Microsoft.Compute SKUs available for your Subscription |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/sshPublicKeys/read | Get the properties of an SSH public key |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/read | Get the properties of a virtual machine extension |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/write | Creates a new virtual machine extension or updates an existing one |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/delete | Deletes the virtual machine extension |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/read | Get the properties of a Disk |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Azure Center for SAP solutions service role - This role is intended to be used for providing the permissions to user assigned managed identity. Azure Center for SAP solutions will use this identity to deploy and manage SAP systems.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/aabbc5dd-1af0-458b-a942-81af88f9c138",
+  "name": "aabbc5dd-1af0-458b-a942-81af88f9c138",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
+        "Microsoft.Network/loadBalancers/read",
+        "Microsoft.Network/loadBalancers/write",
+        "Microsoft.Network/loadBalancers/backendAddressPools/read",
+        "Microsoft.Network/loadBalancers/backendAddressPools/write",
+        "Microsoft.Network/loadBalancers/frontendIPConfigurations/read",
+        "Microsoft.Network/loadBalancers/loadBalancingRules/read",
+        "Microsoft.Network/loadBalancers/inboundNatRules/read",
+        "Microsoft.Network/loadBalancers/providers/Microsoft.Insights/logDefinitions/read",
+        "Microsoft.Network/loadBalancers/networkInterfaces/read",
+        "Microsoft.Network/loadBalancers/outboundRules/read",
+        "Microsoft.Network/loadBalancers/virtualMachines/read",
+        "Microsoft.Network/loadBalancers/providers/Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Network/networkInterfaces/read",
+        "Microsoft.Network/networkInterfaces/write",
+        "Microsoft.Network/networkInterfaces/ipconfigurations/read",
+        "Microsoft.Network/networkInterfaces/loadBalancers/read",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/virtualMachines/read",
+        "Microsoft.Network/virtualNetworks/virtualMachines/read",
+        "Microsoft.Network/networkInterfaces/ipconfigurations/join/action",
+        "Microsoft.Network/privateEndpoints/read",
+        "Microsoft.Network/privateEndpoints/write",
+        "Microsoft.Network/networkInterfaces/join/action",
+        "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
+        "Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action",
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+        "Microsoft.Network/virtualNetworks/subnets/joinLoadBalancer/action",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/write",
+        "Microsoft.Storage/storageAccounts/PrivateEndpointConnectionsApproval/action",
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/fileServices/read",
+        "Microsoft.Storage/storageAccounts/fileServices/write",
+        "Microsoft.Storage/storageAccounts/fileServices/shares/read",
+        "Microsoft.Storage/storageAccounts/fileServices/shares/write",
+        "Microsoft.Compute/virtualMachines/read",
+        "Microsoft.Compute/virtualMachines/write",
+        "Microsoft.Compute/virtualMachines/instanceView/read",
+        "Microsoft.Compute/availabilitySets/read",
+        "Microsoft.Compute/availabilitySets/write",
+        "Microsoft.Compute/skus/read",
+        "Microsoft.Compute/sshPublicKeys/read",
+        "Microsoft.Compute/virtualMachines/extensions/read",
+        "Microsoft.Compute/virtualMachines/extensions/write",
+        "Microsoft.Compute/virtualMachines/extensions/delete",
+        "Microsoft.Compute/disks/read",
+        "Microsoft.Compute/disks/write"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Center for SAP solutions service role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Azure Connected Machine Onboarding
 
 Can onboard Azure Connected Machines.
@@ -330,24 +904,16 @@ Can read, write, delete and re-onboard Azure Connected Machines.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/delete | Deletes an Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/* |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/read | Reads any Azure Arc extensions |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/delete | Deletes an Azure Arc extensions |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/privateLinkScopes/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/locations/* |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/*/read |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/write | Installs or Updates an Azure Arc licenses |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/delete | Deletes an Azure Arc licenses |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/read | Reads any Azure Arc runcommands |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/write | Installs or Updates an Azure Arc runcommands |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/delete | Deletes an Azure Arc runcommands |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -366,24 +932,16 @@ Can read, write, delete and re-onboard Azure Connected Machines.
   "permissions": [
     {
       "actions": [
-        "Microsoft.HybridCompute/machines/read",
-        "Microsoft.HybridCompute/machines/write",
-        "Microsoft.HybridCompute/machines/delete",
+        "Microsoft.HybridCompute/machines/*",
+        "Microsoft.HybridCompute/machines/extensions/*",
+        "Microsoft.HybridCompute/machines/licenseProfiles/*",
+        "Microsoft.HybridCompute/machines/runCommands/*",
         "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
-        "Microsoft.HybridCompute/machines/extensions/read",
-        "Microsoft.HybridCompute/machines/extensions/write",
-        "Microsoft.HybridCompute/machines/extensions/delete",
         "Microsoft.HybridCompute/privateLinkScopes/*",
+        "Microsoft.HybridCompute/licenses/*",
+        "Microsoft.HybridCompute/locations/*",
         "Microsoft.HybridCompute/*/read",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.HybridCompute/licenses/write",
-        "Microsoft.HybridCompute/licenses/delete",
-        "Microsoft.HybridCompute/machines/licenseProfiles/read",
-        "Microsoft.HybridCompute/machines/licenseProfiles/write",
-        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
-        "Microsoft.HybridCompute/machines/runCommands/read",
-        "Microsoft.HybridCompute/machines/runCommands/write",
-        "Microsoft.HybridCompute/machines/runCommands/delete"
+        "Microsoft.Resources/deployments/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -405,24 +963,38 @@ Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid co
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Gets the endpoint to the resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Update the endpoint to the target resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Gets the details about the service to the resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Update the service details in the service configurations of the target resource. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/*/read |  |
+> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
+> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/write | Create new guest configuration assignment. |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/delete | Deletes an Azure Arc machines |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/read | Reads any Azure Arc extensions |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/delete | Deletes an Azure Arc extensions |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/*/read |  |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/delete | Deletes an Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/delete | Deletes an Azure Arc extensions |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
-> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
-> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/*/read |  |
-> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/write | Create new guest configuration assignment. |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Get or list of endpoints to the target resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Get or list of serviceConfigurations to the endpoints resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Create or update the serviceConfigurations to the endpoints resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Create or update the endpoint to the target resource. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.EdgeMarketplace/locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.EdgeMarketPlace/offers/getAccessToken/action | get access token. |
+> | Microsoft.EdgeMarketPlace/offers/generateAccessToken/action | A long-running resource action. |
+> | Microsoft.EdgeMarketplace/publishers/read | Get a Publisher |
+> | Microsoft.EdgeMarketplace/offers/read | Get a Offer |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/read | Gets an Custom Location resource |
+> | Microsoft.Attestation/attestationProviders/write | Adds attestation service. |
+> | Microsoft.Attestation/attestationProviders/read | Gets the attestation service status. |
+> | Microsoft.Attestation/attestationProviders/delete | Removes attestation service. |
+> | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
+> | Microsoft.Attestation/attestationProviders/attestation/write | Adds attestation service. |
+> | Microsoft.Attestation/attestationProviders/attestation/delete | Removes attestation service. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -441,24 +1013,38 @@ Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid co
   "permissions": [
     {
       "actions": [
-        "Microsoft.HybridConnectivity/endpoints/read",
-        "Microsoft.HybridConnectivity/endpoints/write",
-        "Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read",
-        "Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/*/read",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/write",
         "Microsoft.HybridCompute/machines/read",
-        "Microsoft.HybridCompute/machines/write",
-        "Microsoft.HybridCompute/machines/delete",
         "Microsoft.HybridCompute/machines/extensions/read",
-        "Microsoft.HybridCompute/machines/extensions/write",
-        "Microsoft.HybridCompute/machines/extensions/delete",
         "Microsoft.HybridCompute/*/read",
-        "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
+        "Microsoft.HybridCompute/machines/delete",
+        "Microsoft.HybridCompute/machines/extensions/delete",
+        "Microsoft.HybridCompute/machines/extensions/write",
+        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
         "Microsoft.HybridCompute/machines/licenseProfiles/read",
         "Microsoft.HybridCompute/machines/licenseProfiles/write",
-        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
-        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
-        "Microsoft.GuestConfiguration/guestConfigurationAssignments/*/read",
-        "Microsoft.GuestConfiguration/guestConfigurationAssignments/write"
+        "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
+        "Microsoft.HybridCompute/machines/write",
+        "Microsoft.HybridConnectivity/endpoints/read",
+        "Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read",
+        "Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write",
+        "Microsoft.HybridConnectivity/endpoints/write",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.EdgeMarketplace/locations/operationStatuses/read",
+        "Microsoft.EdgeMarketPlace/offers/getAccessToken/action",
+        "Microsoft.EdgeMarketPlace/offers/generateAccessToken/action",
+        "Microsoft.EdgeMarketplace/publishers/read",
+        "Microsoft.EdgeMarketplace/offers/read",
+        "Microsoft.ExtendedLocation/customLocations/read",
+        "Microsoft.Attestation/attestationProviders/write",
+        "Microsoft.Attestation/attestationProviders/read",
+        "Microsoft.Attestation/attestationProviders/delete",
+        "Microsoft.Attestation/attestationProviders/attestation/read",
+        "Microsoft.Attestation/attestationProviders/attestation/write",
+        "Microsoft.Attestation/attestationProviders/attestation/delete"
       ],
       "notActions": [],
       "dataActions": [],
@@ -466,6 +1052,57 @@ Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid co
     }
   ],
   "roleName": "Azure Connected Machine Resource Manager",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Customer Lockbox Approver for Subscription
+
+Can approve Microsoft support requests to access specific resources contained within a subscription, or the subscription itself, when Customer Lockbox for Microsoft Azure is enabled on the tenant where the subscription resides.
+
+[Learn more](/azure/security/fundamentals/customer-lockbox-overview)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.CustomerLockbox](../permissions/management-and-governance.md#microsoftcustomerlockbox)/requests/UpdateApproval/action | Update Approval Microsoft.CustomerLockbox |
+> | [Microsoft.CustomerLockbox](../permissions/management-and-governance.md#microsoftcustomerlockbox)/requests/read | Read Lockbox Request |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/eventtypes/values/read | Read Activity Log events |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can approve Microsoft support requests to access specific resources contained within a subscription, or the subscription itself, when Customer Lockbox for Microsoft Azure is enabled on the tenant where the subscription resides.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4dae6930-7baf-46f5-909e-0383bc931c46",
+  "name": "4dae6930-7baf-46f5-909e-0383bc931c46",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.CustomerLockbox/requests/UpdateApproval/action",
+        "Microsoft.CustomerLockbox/requests/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Insights/eventtypes/values/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Customer Lockbox Approver for Subscription",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1326,59 +1963,6 @@ Lets you purchase reservations
 }
 ```
 
-## Reservations Administrator
-
-Lets one read and manage all the reservations in a tenant
-
-[Learn more](/azure/cost-management-billing/reservations/view-reservations)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/*/read |  |
-> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/*/action |  |
-> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/*/write |  |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/providers/Microsoft.Capacity"
-  ],
-  "description": "Lets one read and manage all the reservations in a tenant",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/a8889054-8d42-49c9-bc1c-52486c10e7cd",
-  "name": "a8889054-8d42-49c9-bc1c-52486c10e7cd",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Capacity/*/read",
-        "Microsoft.Capacity/*/action",
-        "Microsoft.Capacity/*/write",
-        "Microsoft.Authorization/roleAssignments/read",
-        "Microsoft.Authorization/roleDefinitions/read",
-        "Microsoft.Authorization/roleAssignments/write",
-        "Microsoft.Authorization/roleAssignments/delete"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Reservations Administrator",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
 ## Reservations Reader
 
 Lets one read all the reservations in a tenant
@@ -1472,6 +2056,65 @@ Users with rights to create/modify resource policy, create support ticket and re
     }
   ],
   "roleName": "Resource Policy Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Savings plan Purchaser
+
+Lets you purchase savings plans
+
+[Learn more](/azure/cost-management-billing/savings-plan/permission-view-manage)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/register/action | Registers the Capacity resource provider and enables the creation of Capacity resources. |
+> | [Microsoft.Capacity](../permissions/general.md#microsoftcapacity)/catalogs/read | Read catalog of Reservation |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.BillingBenefits](../permissions/management-and-governance.md#microsoftbillingbenefits)/savingsPlanOrders/write | Create a savings plan orders |
+> | [Microsoft.BIllingBenefits](../permissions/management-and-governance.md#microsoftbillingbenefits)/register/action | Registers the BillingBenefits resource provider and enables the creation of BillingBenefits resources. |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/supporttickets/write | Allows creating and updating a support ticket |
+> | [Microsoft.Billing](../permissions/management-and-governance.md#microsoftbilling)/billingProperty/read | Gets the billing properties for a subscription |
+> | [Microsoft.CostManagement](../permissions/management-and-governance.md#microsoftcostmanagement)/benefitRecommendations/read | List  single or shared recommendations for Microsoft benefits. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you purchase savings plans",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/3d24a3a0-c154-4f6f-a5ed-adc8e01ddb74",
+  "name": "3d24a3a0-c154-4f6f-a5ed-adc8e01ddb74",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Capacity/register/action",
+        "Microsoft.Capacity/catalogs/read",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.BillingBenefits/savingsPlanOrders/write",
+        "Microsoft.BIllingBenefits/register/action",
+        "Microsoft.Support/supporttickets/write",
+        "Microsoft.Billing/billingProperty/read",
+        "Microsoft.CostManagement/benefitRecommendations/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Savings plan Purchaser",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

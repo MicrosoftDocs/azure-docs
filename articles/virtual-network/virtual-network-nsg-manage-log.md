@@ -24,7 +24,7 @@ When you enable logging for an NSG, you can gather the following types of resour
 
 Resource logs are only available for NSGs deployed through the Azure Resource Manager deployment model. You can't enable resource logging for NSGs deployed through the classic deployment model. For more information, see [Understand deployment models](../azure-resource-manager/management/deployment-models.md).
 
-Resource logging is enabled separately for *each* NSG for which to collect diagnostic data. If you're interested in *activity*, or *operational*, logs instead, see [Overview of Azure platform logs](../azure-monitor/essentials/platform-logs-overview.md). If you're interested in IP traffic flowing through NSGs, see [Flow logs for network security groups](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
+Resource logging is enabled separately for *each* NSG for which to collect diagnostic data. If you're interested in *activity*, or *operational*, logs instead, see [Overview of Azure platform logs](/azure/azure-monitor/essentials/platform-logs-overview). If you're interested in IP traffic flowing through NSGs, see [Flow logs for network security groups](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
 
 ## Enable logging
 
@@ -91,7 +91,7 @@ New-AzDiagnosticSetting `
    -WorkspaceId $Oms.ResourceId
 ```
 
-If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use an appropriate parameter in the command. For more information, see [Azure resource logs](../azure-monitor/essentials/resource-logs.md).
+If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use an appropriate parameter in the command. For more information, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
 
 For more information about settings, see [New-AzDiagnosticSetting](/powershell/module/az.monitor/new-azdiagnosticsetting).
 
@@ -128,9 +128,9 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-If you don't have an existing workspace, create one using the [Azure portal](../azure-monitor/logs/quick-create-workspace.md) or [Azure PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). There are two categories of logging for which you can enable logs.
+If you don't have an existing workspace, create one using the [Azure portal](/azure/azure-monitor/logs/quick-create-workspace) or [Azure PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). There are two categories of logging for which you can enable logs.
 
-If you only want to log data for one category or the other, remove the category you don't want to log data for in the previous command. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use an appropriate parameter. For more information, see [Azure resource logs](../azure-monitor/essentials/resource-logs.md).
+If you only want to log data for one category or the other, remove the category you don't want to log data for in the previous command. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use an appropriate parameter. For more information, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
 
 View and analyze logs. For more information, see [View and analyze logs](#view-and-analyze-logs).
 
@@ -138,10 +138,10 @@ View and analyze logs. For more information, see [View and analyze logs](#view-a
 
 You can send diagnostics data to the following options:
 
-- [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
-- [Azure Event Hubs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
-- [Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
-- [Azure Monitor partner integrations](../azure-monitor/essentials/resource-logs.md#azure-monitor-partner-integrations)
+- [Log Analytics workspace](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
+- [Azure Event Hubs](/azure/azure-monitor/essentials/resource-logs#send-to-azure-event-hubs)
+- [Azure Storage](/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage)
+- [Azure Monitor partner integrations](/azure/azure-monitor/essentials/resource-logs#azure-monitor-partner-integrations)
 
 ## Log categories
 
@@ -209,17 +209,17 @@ The rule counter log contains information about each rule applied to resources. 
 
 If you send diagnostics data to:
 
-- **Azure Monitor logs**: You can use the [network security group analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) solution for enhanced insights. The solution provides visualizations for NSG rules that allow or deny traffic, per MAC address, of the network interface in a virtual machine.
+- **Azure Monitor logs**: You can use the [network security group analytics](/azure/azure-monitor/insights/azure-networking-analytics?toc=%2fazure%2fvirtual-network%2ftoc.json) solution for enhanced insights. The solution provides visualizations for NSG rules that allow or deny traffic, per MAC address, of the network interface in a virtual machine.
 - **Azure Storage account**: Data is written to a *PT1H.json* file. You can find the:
 
   - Event log that is in the following path: *insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]*
   - Rule counter log that is in the following path: *insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]*
 
-To learn how to view resource log data, see [Azure platform logs overview](../azure-monitor/essentials/platform-logs-overview.md).
+To learn how to view resource log data, see [Azure platform logs overview](/azure/azure-monitor/essentials/platform-logs-overview).
 
 ## Next steps
 
-- For more information about Activity logging, see [Overview of Azure platform logs](../azure-monitor/essentials/platform-logs-overview.md).
+- For more information about Activity logging, see [Overview of Azure platform logs](/azure/azure-monitor/essentials/platform-logs-overview).
 
   Activity logging is enabled by default for NSGs created through either Azure deployment model. To determine which operations were completed on NSGs in the activity log, look for entries that contain the following resource types:
 

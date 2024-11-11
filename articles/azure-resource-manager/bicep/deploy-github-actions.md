@@ -2,7 +2,7 @@
 title: Deploy Bicep files by using GitHub Actions
 description: In this quickstart, you learn how to deploy Bicep files by using GitHub Actions.
 ms.topic: how-to
-ms.date: 01/19/2024
+ms.date: 09/26/2024
 ms.custom: github-actions-azure, devx-track-bicep
 ---
 
@@ -20,7 +20,7 @@ It provides a short introduction to GitHub actions and Bicep files. If you want 
 
 ## Create resource group
 
-Create a resource group. Later in this quickstart, you'll deploy your Bicep file to this resource group.
+Create a resource group. Later in this quickstart, you deploy your Bicep file to this resource group.
 
 # [CLI](#tab/CLI)
 
@@ -40,7 +40,7 @@ New-AzResourceGroup -Name exampleRG -Location westus
 
 # [Service principal](#tab/userlevel)
 
-Your GitHub Actions run under an identity. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the identity. Grant the service principal the contributor role for the resource group created in the previous session so that the GitHub action with the identity can create resources in this resource group. It is recommended that you grant minimum required access.
+Your GitHub Actions run under an identity. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the identity. Grant the service principal the contributor role for the resource group created in the previous session so that the GitHub action with the identity can create resources in this resource group. It's recommended that you grant minimum required access.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name {app-name} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/exampleRG --json-auth
@@ -48,7 +48,7 @@ az ad sp create-for-rbac --name {app-name} --role contributor --scopes /subscrip
 
 Replace the placeholder `{app-name}` with the name of your application. Replace `{subscription-id}` with your subscription ID.
 
-The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. 
+The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to the following output. 
 
 ```output
   {
@@ -60,21 +60,21 @@ The output is a JSON object with the role assignment credentials that provide ac
   }
 ```
 
-Copy this JSON object for later. You'll only need the sections with the `clientId`, `clientSecret`, `subscriptionId`, and `tenantId` values. Make sure you don't have an extra comma at the end of the last line, for example, the `tenantId` line in the preceding example, or else it will result in an invalid JSON file. You will get an error during the deployment saying "Login failed with Error: Content is not a valid JSON object. Double check if the 'auth-type' is correct."
+Copy this JSON object for later. You'll only need the sections with the `clientId`, `clientSecret`, `subscriptionId`, and `tenantId` values. Make sure you don't have an extra comma at the end of the last line, for example, the `tenantId` line in the preceding example, or else it results in an invalid JSON file. You get an error during the deployment saying "Login failed with Error: Content isn't a valid JSON object. Double check if the 'auth-type' is correct."
 
 # [Open ID Connect](#tab/openid)
 
 Open ID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security.
 
-1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application.
+1.  If you don't have an existing application, register a [new Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application.
 
     ```azurecli-interactive
     az ad app create --display-name myApp
     ```
 
-    This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later.
+    This command outputs JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later.
 
-    You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
+    You use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
 
 1. Create a service principal. Replace the `$appID` with the appId from your JSON output.
 
@@ -86,7 +86,7 @@ Open ID Connect is an authentication method that uses short-lived tokens. Settin
      az ad sp create --id $appId
     ```
 
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli).
+1. Create a new role assignment by subscription and object. By default, the role assignment is tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     ```azurecli-interactive
     az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/
@@ -112,7 +112,7 @@ Open ID Connect is an authentication method that uses short-lived tokens. Settin
 
 # [Service principal](#tab/userlevel)
 
-Create secrets for your Azure credentials, resource group, and subscriptions. You will use these secrets in the [Create workflow](#create-workflow) section.
+Create secrets for your Azure credentials, resource group, and subscriptions. You use these secrets in the [Create workflow](#create-workflow) section.
 
 1. In [GitHub](https://github.com/), navigate to your repository.
 
@@ -122,7 +122,7 @@ Create secrets for your Azure credentials, resource group, and subscriptions. Yo
 
 1. Create another secret named `AZURE_RG`. Add the name of your resource group to the secret's value field (`exampleRG`).
 
-1. Create another secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
+1. Create another secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`).
 
 # [Open ID Connect](#tab/openid)
 
@@ -284,7 +284,7 @@ Updating either the workflow file or Bicep file triggers the workflow. The workf
 
 ## Check workflow status
 
-1. Select the **Actions** tab. You'll see a **Create deployBicepFile.yml** workflow listed. It takes 1-2 minutes to run the workflow.
+1. Select the **Actions** tab. You see a **Create deployBicepFile.yml** workflow listed. It takes 1-2 minutes to run the workflow.
 1. Select the workflow to open it, and verify the `Status` is `Success`.
 
 ## Clean up resources

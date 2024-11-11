@@ -1,8 +1,8 @@
 ---
 title: Azure Database for PostgreSQL server support matrix
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL server backup.
-ms.topic: conceptual
-ms.date: 09/07/2023
+ms.topic: reference
+ms.date: 09/09/2024
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS

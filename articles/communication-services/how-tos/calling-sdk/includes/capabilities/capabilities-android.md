@@ -61,3 +61,4 @@ private void OnCapabilitiesChanged(CapabilitiesChangedEvent args)
 - *CustomBackground*: Ability to apply a custom background
 - *StartLiveCaptions*: Ability to start live captions
 - *RaiseHand*: Ability to raise hand
+- *MuteOthers*: Ability to soft mute remote participant(s) in the meeting 

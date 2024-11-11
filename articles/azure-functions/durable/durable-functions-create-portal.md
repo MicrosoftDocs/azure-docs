@@ -76,11 +76,7 @@ If you are creating JavaScript Durable Functions, you'll need to install the [`d
 
 1. Go back to the **HttpStart** function, choose **Get function Url**, and select the **Copy to clipboard** icon to copy the URL. You use this URL to start the **HelloSequence** function.
 
-1. Use one of these HTTP test tools to send an HTTP POST request to the URL endpoint:
-
-   [!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
-
-   The following example is a cURL command that sends a POST request to the durable function:
+1. Use a secure HTTP test tool to send an HTTP POST request to the URL endpoint. This example is a cURL command that sends a POST request to the durable function:
 
     ```bash
     curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/{functionName} --header "Content-Length: 0"
@@ -98,7 +94,7 @@ If you are creating JavaScript Durable Functions, you'll need to install the [`d
     }
     ```
 
-    [!INCLUDE [api-test-http-request-tools-caution](../../../includes/api-test-http-request-tools-caution.md)]
+    Make sure to choose an HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
 
 1. Call the `statusQueryGetUri` endpoint URI and you see the current status of the durable function, which might look like this example:
 

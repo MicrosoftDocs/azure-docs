@@ -4,8 +4,7 @@ description: Describes data residency posture for Azure Stack Edge.
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 10/01/2021
 ms.author: alkohli

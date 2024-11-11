@@ -36,7 +36,7 @@ Encountering a warning as - unable to acquire token `organizations` with error `
 
 ### Cause
 
-This is part of one of the documented [issues](https://github.com/Azure/azure-powershell/issues/25005) with Az.Accounts 3.0.0 module. [Learn more](https://learn.microsoft.com/answers/questions/1342970/warning-unable-to-acquire-token-for-tenant-organiz)
+This is part of one of the documented [issues](https://github.com/Azure/azure-powershell/issues/25005) with Az.Accounts 3.0.0 module. [Learn more](/answers/questions/1342970/warning-unable-to-acquire-token-for-tenant-organiz)
 
 ### Resolution
 
@@ -52,7 +52,7 @@ Your organization requires to use `Connect-AzAccount`  with `DeviceCode` paramet
 
 ### Resolution
 
-- Modify this [line](https://github.com/azureautomation/Preqrequisite-for-Migration-from-Azure-Automation-Update-Management-to-Azure-Update-Manager/blob/1750c1758cf9be93153a24b6eb9bfccc174ce66b/MigrationPrerequisites.ps1#L1224) in the Prerequisite script where it has the Connect-AzAccount Command to use the - [UseDeviceAuthentication](https://review.learn.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-12.2.0&branch=main#-usedeviceauthentication) parameter.
+- Modify this [line](https://github.com/azureautomation/Preqrequisite-for-Migration-from-Azure-Automation-Update-Management-to-Azure-Update-Manager/blob/1750c1758cf9be93153a24b6eb9bfccc174ce66b/MigrationPrerequisites.ps1#L1224) in the Prerequisite script where it has the Connect-AzAccount Command to use the - [UseDeviceAuthentication](/powershell/module/az.accounts/connect-azaccount#-usedeviceauthentication) parameter.
 
 
 ## Encountering Get-AzOperationInsightsWorkspace exception message

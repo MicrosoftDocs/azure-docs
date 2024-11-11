@@ -108,18 +108,20 @@ With this basic setup in place, you can implement other examples in this article
 
 To learn more about listing containers using the Azure Blob Storage client library for Python, see the following resources.
 
+### Code samples
+
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_list_containers.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_list_containers_async.py) code samples from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for listing containers use the following REST API operation:
 
 - [List Containers](/rest/api/storageservices/list-containers2) (REST API)
 
-### Code samples
-
-- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_list_containers.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_list_containers_async.py) code samples from this article (GitHub)
-
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 
-## See also
+### See also
 
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
+
+[!INCLUDE [storage-dev-guide-next-steps-python](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-python.md)]

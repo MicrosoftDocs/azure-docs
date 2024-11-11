@@ -4,13 +4,13 @@ description: This article provides details on how Access Azure Update Manager op
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 08/02/2024
-ms.topic: conceptual
+ms.date: 09/10/2024
+ms.topic: overview
 ---
 
 # Access Azure Update Manager operations data using Azure Resource Graph
 
-Logs created from operations like update assessments and installations are stored by Azure Update Manager in [Azure Resource Graph](../governance/resource-graph/overview.md). Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update Manager uses Resource Graph to store its results. You can view the update assessment history for the last 7 days and update installations history for the last 30 days from the Resource Graph.
+Logs created from operations like update assessments and installations are stored by Azure Update Manager in [Azure Resource Graph](../governance/resource-graph/overview.md). Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update Manager uses Resource Graph to store its results. You can view the most recent update assessment history for the last 7 days and update installations history for the last 30 days from the Resource Graph.
 
 This article describes the structure of the logs from Update Manager and how you can use [Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) to analyze them in support of your reporting, visualizing, and export needs.
 
@@ -62,7 +62,7 @@ If the property for the resource type is `patchassessmentresults/softwarepatches
 |Value |Description |
 |------|------------|
 |`lastModifiedDateTime` |Timestamp (UTC) representing when the record was last updated.|
-|`publishedDateTime` |Timestamp representing when the specific update was made available by the OS vendor. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't provide the detail of when an update was provided by OS vendor, the value is null.|
+|`publishedDateTime` |Timestamp representing when the specific update was made available by the OS vendor. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't provide the detail of when an update was provided by OS vendor, the value is null. Currently this value is not available in case of Linux updates.|
 |`classifications` |Category that the specific update belongs to according to the OS vendor. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't provide the detail of category, the value is `Others` (for Linux) or `Updates` (for Windows Server). |
 |`rebootRequired` |Value indicates if the specific update requires the OS to reboot to finish the installation. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't require a reboot, the value is `false`.|
 |`rebootBehavior` |Behavior set in the OS update installation runs the job when configuring the update deployment if Update Manager can reboot the target machine. |

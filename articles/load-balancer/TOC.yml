@@ -128,7 +128,7 @@
     href: instance-metadata-service-load-balancer.md
   - name: Health monitoring
     items:
-    - name: Monitor load balancer
+    - name: Monitor Load Balancer
       href: monitor-load-balancer.md
     - name: Monitoring data reference
       href: monitor-load-balancer-reference.md
@@ -138,6 +138,8 @@
       href: load-balancer-standard-diagnostics.md
     - name: Load Balancer Health Event Logs
       href: load-balancer-health-event-logs.md
+    - name: Manage Load Balancer health status
+      href: load-balancer-manage-health-status.md
   - name: Inbound connectivity
     items:
     - name: Inbound NAT rules

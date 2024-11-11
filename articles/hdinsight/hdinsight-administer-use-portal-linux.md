@@ -85,7 +85,7 @@ Select your cluster name from the [**HDInsight clusters**](#showClusters) page. 
 
     | Item| Description |
     |---|---|
-    |Resource health|See [Azure resource health overview](../service-health/resource-health-overview.md).|
+    |Resource health|See [Azure resource health overview](/azure/service-health/resource-health-overview).|
     |New support request|Allows you to create a support ticket with Microsoft support.|
 
 ## <a name="properties"></a> Cluster Properties

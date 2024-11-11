@@ -49,7 +49,7 @@ In a scenario where your virtual machines are deployed as *single instance* into
 
 ## Prepare the source virtual machines
 
-1. Your virtual machines should use managed disks if you want to move them to an Availability Zone by using Site Recovery. You can convert existing Windows virtual machines that use unmanaged disks to use managed disks. Follow the steps at [Convert a Windows virtual machine from unmanaged disks to managed disks](../virtual-machines/windows/convert-unmanaged-to-managed-disks.md). Ensure that the availability set is configured as *managed*.
+1. Your virtual machines should use managed disks if you want to move them to an Availability Zone by using Site Recovery. You can convert existing Windows virtual machines that use unmanaged disks to use managed disks. Follow the steps at [Convert a Windows virtual machine from unmanaged disks to managed disks](/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Ensure that the availability set is configured as *managed*.
 2. Check that all the latest root certificates are present on the Azure virtual machines you want to move. If the latest root certificates aren't present, the data copy to the target region can't be enabled because of security constraints.
 
 3. For Windows virtual machines, install all the latest Windows updates on the virtual machine, so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows update and certificate update processes for your organization.

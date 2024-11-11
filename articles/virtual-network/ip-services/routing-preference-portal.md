@@ -70,7 +70,7 @@ If you choose to install and use PowerShell locally, this article requires the A
     > [!NOTE]
     > Public IP addresses are created with an IPv4 or IPv6 address. However, routing preference only supports IPV4 currently.
 
-You can associate the above created public IP address with a [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. Use the CLI section on the tutorial page: [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md) to associate the public IP to your VM. You can also associate the public IP address created above with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
+You can associate the above created public IP address with a [Windows](/azure/virtual-machines/windows/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](/azure/virtual-machines/linux/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. Use the CLI section on the tutorial page: [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md) to associate the public IP to your VM. You can also associate the public IP address created above with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
 # [Azure CLI](#tab/azurecli/)
 
@@ -99,7 +99,7 @@ az network public-ip create \
 > [!NOTE]
 >  Currently, routing preference only supports IPV4 public IP addresses.
 
-You can associate the above created public IP address with a [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. Use the CLI section on the tutorial page: [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md) to associate the Public IP to your VM. You can also associate the public IP address created above with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
+You can associate the above created public IP address with a [Windows](/azure/virtual-machines/windows/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](/azure/virtual-machines/linux/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. Use the CLI section on the tutorial page: [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md) to associate the Public IP to your VM. You can also associate the public IP address created above with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
@@ -120,7 +120,7 @@ $publicIp = New-AzPublicIpAddress  `
 -IpAddressVersion IPv4
 ```
 
-You can associate the above created public IP address with a [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. Use the CLI section on the tutorial page: [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md) to associate the Public IP to your VM. You can also associate the public IP address created above with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
+You can associate the above created public IP address with a [Windows](/azure/virtual-machines/windows/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](/azure/virtual-machines/linux/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. Use the CLI section on the tutorial page: [Associate a public IP address to a virtual machine](./associate-public-ip-address-vm.md) to associate the Public IP to your VM. You can also associate the public IP address created above with an [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
 ---
 

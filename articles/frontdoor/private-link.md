@@ -103,6 +103,7 @@ Azure Front Door private link is available in the following regions:
 | West US 3 | Sweden Central | | |
 | US Gov Arizona | | | |
 | US Gov Texas | | | |
+| US Gov Virginia | | | |
 
 
 ## Limitations
@@ -112,11 +113,12 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Web App
 * Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 * Storage Static Website
-* Application Gateway (Preview only. Don't use in production environments)
+* Application Gateway (Preview only in PowerShell and CLI. Don't use in production environments)
+* API Management (Preview only in PowerShell and CLI. Don't use in production environments)
 
 > [!NOTE]
 > * This feature isn't supported with Azure App Service Slots or Functions.
-> * Azure Application Gateway integration is currently not supported using the Azure portal.
+> * Azure Application Gateway and APIM Management integrations are currently not supported using the Azure portal.
 
 The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint.
 
@@ -126,4 +128,5 @@ The Azure Front Door Private Link feature is region agnostic but for the best la
 * Learn how to [connect Azure Front Door Premium to a storage account origin with Private Link](standard-premium/how-to-enable-private-link-storage-account.md).
 * Learn how to [connect Azure Front Door Premium to an internal load balancer origin with Private Link](standard-premium/how-to-enable-private-link-internal-load-balancer.md).
 * Learn how to [connect Azure Front Door Premium to a storage static website origin with Private Link](how-to-enable-private-link-storage-static-website.md).
-
+* Learn how to [connect Azure Front Door Premium to an application gateway origin with Private Link](how-to-enable-private-link-application-gateway.md).
+* Learn how to [connect Azure Front Door Premium to an API Management origin with Private Link](standard-premium/how-to-enable-private-link-apim.md)

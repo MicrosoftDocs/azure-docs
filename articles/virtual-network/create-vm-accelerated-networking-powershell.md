@@ -304,4 +304,4 @@ To confirm whether Accelerated Networking is enabled for an existing VM:
 
 - [How Accelerated Networking works in Linux and FreeBSD VMs](accelerated-networking-how-it-works.md)
 - [Create a VM with Accelerated Networking by using Azure CLI](create-vm-accelerated-networking-cli.md)
-- [Proximity placement groups](../virtual-machines/co-location.md)
+- [Proximity placement groups](/azure/virtual-machines/co-location)

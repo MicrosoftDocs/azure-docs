@@ -2,13 +2,15 @@
 title: Troubleshoot Windows update agent issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues with the Windows update agent during Update Management.
 services: automation
-ms.date: 01/25/2020
+ms.date: 08/30/2024
 ms.topic: troubleshooting
 ms.subservice: update-management
 ms.service: azure-automation
 ---
 
 # Troubleshoot Windows update agent issues
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 There can be many reasons why your machine isn't showing up as ready (healthy) during an Update Management deployment. You can check the health of a Windows Hybrid Runbook Worker agent to determine the underlying problem. The following are the three readiness states for a machine:
 
@@ -33,7 +35,7 @@ For Azure machines, you can launch the Troubleshoot Update Agent page by selecti
 > [!NOTE]
 > To check the health of the Hybrid Runbook Worker, the VM must be running. If the VM isn't running, a **Start the VM** button appears.
 
-On the Troubleshoot Update Agent page, select **Run checks** to start the troubleshooter. The troubleshooter uses [Run Command](../../virtual-machines/windows/run-command.md) to run a script on the machine, to verify dependencies. When the troubleshooter is finished, it returns the result of the checks.
+On the Troubleshoot Update Agent page, select **Run checks** to start the troubleshooter. The troubleshooter uses [Run Command](/azure/virtual-machines/windows/run-command) to run a script on the machine, to verify dependencies. When the troubleshooter is finished, it returns the result of the checks.
 
 :::image type="content" source="../media/update-agent-issues/troubleshoot-page.png" alt-text="Screenshot of the Troubleshoot Update Agent page.":::
 
@@ -63,7 +65,7 @@ To fix, you need to download and install [Windows Management Framework 5.1](http
 
 This check determines whether you're using TLS 1.2 to encrypt your communications. TLS 1.0 is no longer supported by the platform. Use TLS 1.2 to communicate with Update Management.
 
-To fix, follow the steps to [Enable TLS 1.2](../../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12)
+To fix, follow the steps to [Enable TLS 1.2](/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12)
 
 
 ## Monitoring agent service health checks
@@ -85,7 +87,7 @@ To validate, check event id *15003 (HW start event) OR 15004 (hw stopped event) 
 Raise a support ticket if the issue is not fixed still.
 
 ### VMs linked workspace
-See [Network requirements](../../azure-monitor/agents/agent-windows-troubleshoot.md#connectivity-issues).
+See [Network requirements](/azure/azure-monitor/agents/agent-windows-troubleshoot#connectivity-issues).
 
 To validate: Check VMs connected workspace or Heartbeat table of corresponding log analytics.
 
@@ -169,7 +171,7 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
 
 ### IMDS endpoint connectivity
 
-To fix the issue, allow access to IP **169.254.169.254** </br> For more information see, [access Azure instance metadata service](../../virtual-machines/windows/instance-metadata-service.md#access-azure-instance-metadata-service)
+To fix the issue, allow access to IP **169.254.169.254** </br> For more information see, [access Azure instance metadata service](/azure/virtual-machines/windows/instance-metadata-service#access-azure-instance-metadata-service)
 
 
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate: 
@@ -184,7 +186,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.
 
 This check determines if the Log Analytics agent for Windows (`healthservice`) is running on the machine. To learn more about troubleshooting the service, see [The Log Analytics agent for Windows isn't running](hybrid-runbook-worker.md#mma-not-running).
 
-To reinstall the Log Analytics agent for Windows, see [Install the agent for Windows](../../azure-monitor/agents/agent-windows.md).
+To reinstall the Log Analytics agent for Windows, see [Install the agent for Windows](/azure/azure-monitor/agents/agent-windows).
 
 ### Monitoring agent service events
 

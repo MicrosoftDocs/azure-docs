@@ -7,47 +7,55 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 07/11/2024
+ms.date: 11/01/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
+ms.service: azure-iot-operations
 ---
 
 # Configure core MQTT broker settings
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The **Broker** resource is the main resource that defines the overall settings for MQTT broker. It also determines the number and type of pods that run the *Broker* configuration, such as the frontends and the backends. You can also use the *Broker* resource to configure its memory profile. Self-healing mechanisms are built in to the broker and it can often automatically recover from component failures. For example, a node fails in a Kubernetes cluster configured for high availability. 
+The *Broker* resource is the main resource that defines the overall settings for MQTT broker. It also determines the number and type of pods that run the *Broker* configuration, such as the frontends and the backends. You can also use the *Broker* resource to configure its memory profile. Self-healing mechanisms are built in to the broker and it can often automatically recover from component failures. For example, a node fails in a Kubernetes cluster configured for high availability. 
 
 You can horizontally scale the MQTT broker by adding more frontend replicas and backend chains. The frontend replicas are responsible for accepting MQTT connections from clients and forwarding them to the backend chains. The backend chains are responsible for storing and delivering messages to the clients. The frontend pods distribute message traffic across the backend pods, and the backend redundancy factor determines the number of data copies to provide resiliency against node failures in the cluster.
+
+For a list of the available settings, see the [Broker](/rest/api/iotoperationsmq/broker) API reference.
 
 ## Configure scaling settings
 
 > [!IMPORTANT]
 > At this time, the *Broker* resource can only be configured at initial deployment time using the Azure CLI, Portal or GitHub Action. A new deployment is required if *Broker* configuration changes are needed. 
 
-To configure the scaling settings MQTT broker, you need to specify the `mode` and `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
+To configure the scaling settings MQTT broker, you need to specify the `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create).
 
-The `mode` field can be one of these values:
+### Automatic deployment cardinality
 
-- `auto`: This value indicates that MQTT broker operator automatically deploys the appropriate number of pods based on the cluster hardware. The default value is *auto* and used for most scenarios.
-- `distributed`: This value indicates that you can manually specify the number of frontend pods and backend chains in the `cardinality` field. This option gives you more control over the deployment, but requires more configuration.
+To automatically determine the initial cardinality during deployment, omit the `cardinality` field in the *Broker* resource. The MQTT broker operator automatically deploys the appropriate number of pods based on the number of available nodes at the time of the deployment. This is useful for non-production scenarios where you don't need high-availability or scale.
 
-The `cardinality` field is a nested field that has these subfields:
+However, this is *not* auto-scaling. The operator doesn't automatically scale the number of pods based on the load. The operator only determines the initial number of pods to deploy based on the cluster hardware. As noted above, the cardinality can only be set at initial deployment time, and a new deployment is required if the cardinality settings need to be changed.
+
+### Configure cardinality directly
+
+To configure the cardinality settings directly, specify the `cardinality` field. The `cardinality` field is a nested field that has these subfields:
 
 - `frontend`: This subfield defines the settings for the frontend pods, such as:
-  - `replicas`: The number of frontend pods to deploy. This subfield is required if the `mode` field is set to `distributed`.
-  - `workers`: The number of workers to deploy per frontend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
+  - `replicas`: The number of frontend pods to deploy. Increasing the number of frontend replicas provides high availability in case one of the frontend pods fails.
+  - `workers`: The number of logical frontend workers per replica. Increasing the number of workers per frontend replica improves CPU core utilization because each worker can use only one CPU core at most. For example, if your cluster has 3 nodes, each with 8 CPU cores, then set the number of replicas to match the number of nodes (3) and increase the number of workers up to 8 per replica as you need more frontend throughput. This way, each frontend replica can use all the CPU cores on the node without workers competing for CPU resources.
 - `backendChain`: This subfield defines the settings for the backend chains, such as:
-  - `redundancyFactor`: The number of data copies in each backend chain. This subfield is required if the `mode` field is set to `distributed`.
-  - `partitions`: The number of partitions to deploy. This subfield is required if the `mode` field is set to `distributed`.
-  - `workers`: The number of workers to deploy per backend, currently it must be set to `1`. This subfield is required if the `mode` field is set to `distributed`.
+  - `partitions`: The number of partitions to deploy. Increasing the number of partitions increases the number of messages that the broker can handle. Through a process called *sharding*, each partition is responsible for a portion of the messages, divided by topic ID and session ID. The frontend pods distribute message traffic across the partitions.
+  - `redundancyFactor`: The number of backend pods to deploy per partition. Increasing the redundancy factor increases the number of data copies to provide resiliency against node failures in the cluster.
+  - `workers`: The number of workers to deploy per backend replica. The workers take care of storing and delivering messages to clients together. Increasing the number of workers per backend replica increases the number of messages that the backend pod can handle. Each worker can consume up to 2 CPU cores at most, so be careful when increasing the number of workers per replica to not exceed the number of CPU cores in the cluster.
+
+When you increase these values, the broker's capacity to handle more connections and messages improves, and it enhances high availability in case of pod or node failures. However, this also leads to higher resource consumption. So, when adjusting cardinality values, consider the memory profile settings and balance these factors to optimize the broker's resource usage.
 
 ## Configure memory profile
 
 > [!IMPORTANT]
 > At this time, the *Broker* resource can only be configured at initial deployment time using the Azure CLI, Portal or GitHub Action. A new deployment is required if *Broker* configuration changes are needed.
 
-To configure the memory profile settings MQTT broker, specify the `memoryProfile` fields in the spec of the *Broker* custom resource. For more information on setting the memory profile setting using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
+To configure the memory profile settings MQTT broker, specify the `memoryProfile` fields in the spec of the *Broker* custom resource. For more information on setting the memory profile setting using Azure CLI, see [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create).
 
 `memoryProfile`: This subfield defines the settings for the memory profile. There are a few profiles for the memory usage you can choose:
 
@@ -89,91 +97,15 @@ Medium is the default profile.
 
 ## Default broker
 
-By default, Azure IoT Operations Preview deploys a default Broker resource named `broker`. It's deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
+By default, Azure IoT Operations Preview deploys a default Broker resource named `default`. It's deployed in the `azure-iot-operations` namespace with cardinality and memory profile settings as configured during the initial deployment with Azure portal or Azure CLI. To see the settings, run the following command:
 
 ```bash
-kubectl get broker broker -n azure-iot-operations -o yaml
-```
-
-### Modify default broker by redeploying
-
-Only [cardinality](#configure-scaling-settings) and [memory profile](#configure-memory-profile) are configurable with Azure portal or Azure CLI during initial deployment. Other settings and can only be configured by modifying the YAML file and redeploying the broker.
-
-To delete the default broker, run the following command:
-
-```bash
-kubectl delete broker broker -n azure-iot-operations
-```
-
-Then, create a YAML file with desired settings. For example, the following YAML file configures the broker with name `broker` in namespace `azure-iot-operations` with `medium` memory profile and `distributed` mode with two frontend replicas and two backend chains with two partitions and two workers each. Also, the [encryption of internal traffic option](#configure-encryption-of-internal-traffic) is disabled.
-
-```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
-kind: Broker
-metadata:
-  name: broker
-  namespace: azure-iot-operations
-spec:
-  memoryProfile: medium
-  mode: distributed
-  cardinality:
-    backendChain:
-      partitions: 2
-      redundancyFactor: 2
-      workers: 2
-    frontend:
-      replicas: 2
-      workers: 2
-  encryptInternalTraffic: false
-```
-
-Then, run the following command to deploy the broker:
-
-```bash
-kubectl apply -f <path-to-yaml-file>
+kubectl get broker default -n azure-iot-operations -o yaml
 ```
 
 ## Configure MQTT broker advanced settings
 
-The following table lists the properties of the broker advanced settings that include client configurations, encryption of internal traffic, certificate rotation, and node tolerations.
-
-| Name                                | Type                     | Description                                                                 |
-|-------------------------------------|--------------------------|-----------------------------------------------------------------------------|
-| clients                             | ClientConfig             | Configurations related to all clients                                      |
-| clients.maxKeepAliveSeconds         | `integer`                | Upper bound of a client's keep alive, in seconds                           |
-| clients.maxMessageExpirySeconds     | `integer`                | Upper bound of message expiry interval, in seconds                         |
-| clients.maxReceiveMaximum           | `integer`                | Upper bound of receive maximum that a client can request in the CONNECT packet |
-| clients.maxSessionExpirySeconds     | `integer`                | Upper bound of session expiry interval, in seconds                         |
-| clients.subscriberQueueLimit        | `SubscriberQueueLimit`    | The limit on the number of queued messages for a subscriber                |
-| clients.subscriberQueueLimit.length | `integer`                | The maximum length of the queue before messages are dropped       |
-| clients.subscriberQueueLimit.strategy | `SubscriberMessageDropStrategy` | The strategy for dropping messages from the queue              |
-| clients.subscriberQueueLimit.strategy.DropOldest | `string` | The oldest message is dropped                                       |
-| clients.subscriberQueueLimit.strategy.None     | `string` | Messages are never dropped                                          |
-| encryptInternalTraffic              | Encrypt                  | The setting to enable or disable encryption of internal traffic            |
-| encryptInternalTraffic.Disabled     | `string`                 | Disable internal traffic encryption                                       |
-| encryptInternalTraffic.Enabled      | `string`                 | Enable internal traffic encryption                                        |
-| internalCerts                       | CertManagerCertOptions   | Certificate rotation and private key configuration                         |
-| internalCerts.duration              | `string`                 | Lifetime of certificate. Must be specified using a *Go* *time.Duration* format (h, m, s). For example, 240h for 240 hours and 45m for 45 minutes. |
-| internalCerts.privateKey            | `CertManagerPrivateKey`  | Configuration of certificate private key                                   |
-| internalCerts.renewBefore           | `string`                 | Duration before renewing a certificate. Must be specified using a *Go* *time.Duration* format (h, m, s). For example, 240h for 240 hours and 45m for 45 minutes. |
-| internalCerts.privateKey.algorithm  | PrivateKeyAlgorithm      | Algorithm for private key                                                  |
-| internalCerts.privateKey.rotationPolicy | PrivateKeyRotationPolicy | Cert-manager private key rotation policy                                |
-| internalCerts.privateKey.algorithm.Ec256   | `string`| Algorithm - EC256  |
-| internalCerts.privateKey.algorithm.Ec384   | `string`| Algorithm - EC384  |
-| internalCerts.privateKey.algorithm.Ec521   | `string`| Algorithm - EC521  |
-| internalCerts.privateKey.algorithm.Ed25519 | `string`| Algorithm - Ed25519|
-| internalCerts.privateKey.algorithm.Rsa2048 | `string`| Algorithm - RSA2048|
-| internalCerts.privateKey.algorithm.Rsa4096 | `string`| Algorithm - RSA4096|
-| internalCerts.privateKey.algorithm.Rsa8192 | `string`| Algorithm - RSA8192|
-| internalCerts.privateKey.rotationPolicy.Always  | `string`| Always rotate key |
-| internalCerts.privateKey.rotationPolicy.Never   | `string`| Never rotate key  |
-| tolerations                         | NodeTolerations          | The details of tolerations that are applied to all *Broker* pods             |
-| tolerations.effect                  | `string`                 | Toleration effect                                                          |
-| tolerations.key                     | `string`                 | Toleration key                                                             |
-| tolerations.operator                | `TolerationOperator`     | Toleration operator. For example, "Exists" or "Equal".                              |
-| tolerations.value                   | `string`                 | Toleration value                                                            |
-| tolerations.operator.Equal          | `string`                 | Equal operator                                                             |
-| tolerations.operator.Exists         | `string`                 | Exists operator                                                             |
+The broker advanced settings include client configurations, encryption of internal traffic, and certificate rotations. For more information on the advanced settings, see the [Broker](/rest/api/iotoperations/broker/create-or-update) API reference.
 
 Here's an example of a *Broker* with advanced settings:
 
@@ -181,7 +113,7 @@ Here's an example of a *Broker* with advanced settings:
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
-  name: broker
+  name: default
   namespace: azure-iot-operations
 spec:
   advanced:
@@ -200,11 +132,6 @@ spec:
       privateKey:
         algorithm: Rsa2048
         rotationPolicy: Always
-    tolerations:
-        effect: string
-        key: string
-        operator: Equal
-        value: string
 ```
 
 ## Configure MQTT broker diagnostic settings
@@ -216,29 +143,7 @@ Diagnostic settings allow you to enable metrics and tracing for MQTT broker.
 
 To override default diagnostic settings for MQTT broker, update the `spec.diagnostics` section in  the *Broker* resource. Adjust the log level to control the amount and detail of information that is logged. The log level can be set for different components of MQTT broker. The default log level is `info`.
 
-You can configure diagnostics using the *Broker* custom resource definition (CRD). The following table shows the properties of the broker diagnostic settings and all default values.
-
-| Name                                 | Format           | Default | Description                                                     |
-| ------------------------------------ | ---------------- | ------- | --------------------------------------------------------------- |
-| logs.exportIntervalSeconds           | integer          | 30      | How often to export the logs to the open telemetry collector    |
-| logs.exportLogLevel                  | string           | error   | The level of logs to export                                     |
-| logs.level                           | string           | info    | The log level. For example, `debug`, `info`, `warn`, `error`, `trace` |
-| logs.openTelemetryCollectorAddress   | string           |         | The open telemetry collector endpoint where to export           |
-| metrics.exportIntervalSeconds        | integer          | 30      | How often to export the metrics to the open telemetry collector |
-| metrics.mode                         | MetricsEnabled   | Enabled | The toggle to enable/disable metrics.                           |
-| metrics.openTelemetryCollectorAddress| string           |         | The open telemetry collector endpoint where to export           |
-| metrics.prometheusPort               | integer          | 9600    | The prometheus port to expose the metrics                       |
-| metrics.stalenessTimeSeconds         | integer          | 600     | The time used to determine if a metric is stale and drop from the metrics cache |
-| metrics.updateIntervalSeconds        | integer          | 30      | How often to refresh the metrics                                |
-| selfcheck.intervalSeconds            | integer          | 30      | The self check interval                                         |
-| selfcheck.mode                       | SelfCheckMode    | Enabled | The toggle to enable/disable self check                         |
-| selfcheck.timeoutSeconds             | integer          | 15      | The timeout for self check                                      |
-| traces.cacheSizeMegabytes            | integer          | 16      | The cache size in megabytes                                     |
-| traces.exportIntervalSeconds         | integer          | 30      | How often to export the metrics to the open telemetry collector |
-| traces.mode                          | TracesMode       | Enabled | The toggle to enable/disable traces                             |
-| traces.openTelemetryCollectorAddress | string           |         | The open telemetry collector endpoint where to export           |
-| traces.selfTracing                   | SelfTracing      |         | The self tracing properties                                     |
-| traces.spanChannelCapacity           | integer          | 1000    | The span channel capacity                                       |
+You can configure diagnostics using the *Broker* custom resource definition (CRD). For more information on the diagnostics settings, see the [Broker](/rest/api/iotoperationsmq/broker) API reference.
 
 Here's an example of a *Broker* custom resource with metrics and tracing enabled and self-check disabled:
 
@@ -246,42 +151,37 @@ Here's an example of a *Broker* custom resource with metrics and tracing enabled
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
-  name: broker
+  name: default
   namespace: azure-iot-operations
 spec:
-  mode: auto
   diagnostics:
     logs:
-      exportIntervalSeconds: 220
-      exportLogLevel: nym
-      level: debug
-      openTelemetryCollectorAddress: acfqqatmodusdbzgomgcrtulvjy
+      level: "debug"
+      opentelemetryExportConfig:
+        otlpGrpcEndpoint: "endpoint"
     metrics:
-      stalenessTimeSeconds: 463
-      mode: Enabled
-      exportIntervalSeconds: 246
-      openTelemetryCollectorAddress: vyasdzsemxfckcorfbfx
-      prometheusPort: 60607
-      updateIntervalSeconds: 15
+      opentelemetryExportConfig:
+        otlpGrpcEndpoint: "endpoint"
+        intervalSeconds: 60
     selfCheck:
       mode: Enabled
-      intervalSeconds: 106
-      timeoutSeconds: 70
+      intervalSeconds: 120
+      timeoutSeconds: 60
     traces:
-      cacheSizeMegabytes: 97
+      cacheSizeMegabytes: 32
       mode: Enabled
-      exportIntervalSeconds: 114
-      openTelemetryCollectorAddress: oyujxiemzlqlcsdamytj
+      opentelemetryExportConfig:
+        otlpGrpcEndpoint: "endpoint"
       selfTracing:
         mode: Enabled
-        intervalSeconds: 179
-      spanChannelCapacity: 47152
+        intervalSeconds: 120
+      spanChannelCapacity: 1000
 ```
 
 ## Configure encryption of internal traffic
 
 > [!IMPORTANT]
-> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment. To modify this setting, you need to modify the YAML file and [redeploy the broker](#modify-default-broker-by-redeploying).
+> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment.
 
 The **encryptInternalTraffic** feature is used to encrypt the internal traffic between the frontend and backend pods. To use this feature, cert-manager must be installed in the cluster, which is installed by default when using the Azure IoT Operations.
 
@@ -304,7 +204,7 @@ By default, the **encryptInternalTraffic** feature is enabled. To disable the fe
 ## Configure disk-backed message buffer behavior
 
 > [!IMPORTANT]
-> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment. To modify this setting, you need to modify the YAML file and [redeploy the broker](#modify-default-broker-by-redeploying).
+> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment.
 
 The **diskBackedMessageBufferSettings** feature is used for efficient management of message queues within the MQTT broker distributed MQTT broker. The benefits include:
 
@@ -345,9 +245,8 @@ The value of the *ephemeralVolumeClaimSpec* property is used as the ephemeral.*v
 For example, to use an ephemeral volume with a capacity of 1 gigabyte, specify the following parameters in your Broker CRD:
 
 ```yaml
-diskBackedMessageBufferSettings:
+diskBackedMessageBuffer:
   maxSize: "1G"
-
   ephemeralVolumeClaimSpec:
     storageClassName: "foo"
     accessModes:
@@ -365,9 +264,8 @@ The value of the *persistentVolumeClaimSpec* property is used as the *volumeClai
 For example, to use a *persistent* volume with a capacity of 1 gigabyte, specify the following parameters in your Broker CRD:
 
 ```yaml 
-diskBackedMessageBufferSettings:
+diskBackedMessageBuffer:
   maxSize: "1G"
-
   persistentVolumeClaimSpec:
     storageClassName: "foo"
     accessModes:
@@ -383,7 +281,7 @@ Only use *emptyDir* volume when using a cluster with filesystem quotas. For more
 For example, to use an emptyDir volume with a capacity of 1 gigabyte, specify the following parameters in your Broker CRD:
 
 ```yaml
-      diskBackedMessageBufferSettings:
+      diskBackedMessageBuffer:
         maxSize: "1G"
 ```
 

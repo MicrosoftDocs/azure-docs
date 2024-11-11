@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: encryption, byok, deploy, openshift, red hat, key
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 09/06/2024
 ms.custom: template-how-to, devx-track-azurecli
 ms.devlang: azurecli
 ---
@@ -30,7 +30,7 @@ It's the responsibility of customers to maintain the Key Vault and Disk Encrypti
 
 The Azure Red Hat OpenShift Engineering team can't access the keys. Therefore, they can't back up, replicate, or retrieve the keys. 
 
-For details about using Disk Encryption Sets to manage your encryption keys, see [Server-side encryption of Azure Disk Storage](../virtual-machines/disk-encryption.md) in the Microsoft Azure documentation.
+For details about using Disk Encryption Sets to manage your encryption keys, see [Server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption) in the Microsoft Azure documentation.
 
 ## Prerequisites
 * [Verify your permissions](create-cluster.md#verify-your-permissions). You must have either Contributor and User Access Administrator permissions or Owner permissions.
@@ -104,6 +104,11 @@ az keyvault set-policy -n $KEYVAULT_NAME \
 
 ## Create an Azure Red Hat OpenShift cluster
 Create an Azure Red Hat OpenShift cluster to use the customer-managed keys.
+
+> [!NOTE]
+> Enabling CMK on *existing* ARO clusters is only possible for worker nodes, not master nodes. You can achieve this using machine-API through machineset CRs. See [Enabling customer-managed encryption keys for a machine set](https://docs.openshift.com/container-platform/4.12/machine_management/creating_machinesets/creating-machineset-azure.html#machineset-enabling-customer-managed-encryption-azure_creating-machineset-azure) and [Modifying a compute machine set](https://docs.openshift.com/container-platform/4.12/machine_management/modifying-machineset.html) for more information.
+> 
+
 ```azurecli-interactive
 az aro create --resource-group $RESOURCEGROUP \
               --name $CLUSTER  \

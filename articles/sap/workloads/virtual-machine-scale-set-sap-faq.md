@@ -7,7 +7,7 @@ ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
-ms.date: 08/19/2024
+ms.date: 10/15/2024
 ---
 
 # FAQs for Virtual Machine Scale Set for SAP workload
@@ -30,11 +30,11 @@ Deploying a flexible scale set in a region without zones is essentially the same
 
 ### Which data disks can be used with Virtual Machine (VM) deployed with flexible scale set?
 
-For new SAP deployment in flexible scale set with FD=1, VMs deployed within the scale set can utilize any data disks that are listed as supported in this [reference list](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#are-data-disks-supported-within-scale-sets-). For more information on migrating a deployment that involves pinned storage volumes (such as ANF), see the [Migration of SAP Workload](#migration-of-sap-workload) FAQ section.
+For new SAP deployment in flexible scale set with FD=1, VMs deployed within the scale set can utilize any data disks that are listed as supported in this [reference list](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#are-data-disks-supported-within-scale-sets-). For more information on migrating a deployment that involves pinned storage volumes (such as ANF), see the [Migration of SAP Workload](#migration-of-sap-workload) FAQ section.
 
 ### What are the limitations of assigning capacity reservation to VMs deployed in flexible scale set?
 
-If you're deploying VMs in flexible scale set without a scaling profile for SAP workloads, it's not possible to assign capacity reservation group at the scale set level. Attempting to do so would result in deployment failure. Instead, you would need to enable capacity reservation for each individual VM. For more information, see the [limitations and restrictions](../../virtual-machines/capacity-reservation-overview.md#limitations-and-restrictions) section as not all SKUs are currently supported for capacity reservation.
+If you're deploying VMs in flexible scale set without a scaling profile for SAP workloads, it's not possible to assign capacity reservation group at the scale set level. Attempting to do so would result in deployment failure. Instead, you would need to enable capacity reservation for each individual VM. For more information, see the [limitations and restrictions](/azure/virtual-machines/capacity-reservation-overview#limitations-and-restrictions) section as not all SKUs are currently supported for capacity reservation.
 
 ## High Availability and Disaster Recovery of SAP workload
 
@@ -50,7 +50,9 @@ You can enable managed system identity at the VM level after a VM is manually de
 
 ### How can I migrate my current Availability set or Availability zone deployment of SAP workload to flexible scale set with zonal deployment (FD=1)?
 
-To migrate SAP VMs to a flexible scale set, you need to re-create the VMs and the disks with zone constraints (if necessary) from existing resources. There's no direct way to migrate SAP workloads deployed in availability sets or availability zones to flexible scale with FD=1. An [open-source project](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) includes PowerShell functions that you can use as a sample, and a [blog post](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-easily-migrate-an-existing-sap-system-vms-to-flexible/ba-p/3833548) shows you how to modify a HA or non-HA SAP system deployed in availability set or availability zone to flexible scale set with FD=1.
+To migrate SAP VMs deployed in availability set to a flexible scale set, you need to re-create the VMs and the disks with zone constraints (if necessary) from existing resources. There's no direct way to migrate SAP workloads deployed in availability sets to flexible scale with FD=1. An [open-source project](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) includes PowerShell functions that you can use as a sample, and a [blog post](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-easily-migrate-an-existing-sap-system-vms-to-flexible/ba-p/3833548) shows you how to modify a HA or non-HA SAP system deployed in availability set to flexible scale set with FD=1.
+
+For VMs deployed in an availability zone, you can attach the VM directly to a scale set with FD=1 in the same zone. For example, if your VM is deployed in availability zone 1, you can attach it to a scale set FD=1 in the same zone. For more details on how to attach a VM to a scale set and the limitations, see [Attach or detach a Virtual Machine to or from a Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm)
 
 ### How can an existing deployment of SAP HANA configured with availability set pinning and proximity placement group, currently utilizing application volume group be migrated to flexible scale set with FD=1?
 
@@ -61,7 +63,7 @@ The volumes (/hana/data, /hana/log, and /hana/shared) configured for SAP HANA ca
 
 ### I have my SAP workload deployed in an availability zone. Can I use the attach or detach feature of a scale set to attach my VMs deployed in an availability zone to a scale set with FD=1?
 
-To attach an existing VM deployed in availability zones to a scale set with FD=1, see [Attach an existing Virtual Machine to a Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm.md?tabs=portal-1%2Cportal-2%2Cportal-3#attach-an-existing-virtual-machine-to-a-virtual-machine-scale-set). The scale set created without a scaling profile default to having the singlePlacementGroup property set to null. To attach VMs to a scale set without a scaling profile, you need to create a scale set with singlePlacementGroup property explicitly set to false. Additionally, refer to [Limitations for attaching an existing Virtual Machine to a scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm.md?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-virtual-machine-to-a-scale-set)
+To attach an existing VM deployed in availability zones to a scale set with FD=1, see [Attach an existing Virtual Machine to a Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#attach-an-existing-virtual-machine-to-a-virtual-machine-scale-set). The scale set created without a scaling profile default to having the singlePlacementGroup property set to null. To attach VMs to a scale set without a scaling profile, you need to create a scale set with singlePlacementGroup property explicitly set to false. Additionally, refer to [Limitations for attaching an existing Virtual Machine to a scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-virtual-machine-to-a-scale-set)
 
 ### How to configure SAP HANA using Azure NetApp Files (ANF) Application Volume Groups (AVG) in a specific availability zone?
 

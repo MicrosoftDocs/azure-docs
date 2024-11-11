@@ -3,8 +3,8 @@ title: Azure Lab Services within Canvas
 description: Learn about the benefits of using Azure Lab Services in Canvas.
 services: lab-services
 ms.service: azure-lab-services
-ms.author: nicktrog
-author: ntrogh
+ms.author: rosemalcolm
+author: RoseHJM
 ms.topic: how-to
 ms.date: 06/02/2023
 ---

@@ -119,6 +119,10 @@ With this basic setup in place, you can implement other examples in this article
 
 To learn more about setting and retrieving container properties and metadata using the Azure Blob Storage client library for Python, see the following resources.
 
+### Code samples
+
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_container_properties_metadata.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_container_properties_metadata_async.py) code samples from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for setting and retrieving properties and metadata use the following REST API operations:
@@ -129,8 +133,6 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 The `get_container_properties` method retrieves container properties and metadata by calling both the [Get Container Properties](/rest/api/storageservices/get-container-properties) operation and the [Get Container Metadata](/rest/api/storageservices/get-container-metadata) operation.
 
-### Code samples
-
-- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_container_properties_metadata.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_container_properties_metadata_async.py) code samples from this article (GitHub)
-
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-python](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-python.md)]

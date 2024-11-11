@@ -72,14 +72,13 @@ To determine which user you can use to sign in to the tool, go to your [Microsof
 :::image type="content" source="../media/management-ui-user-consent-allowed-inline.png" alt-text="A screenshot showing if users can grant consent to applications for just their user." lightbox="../media/management-ui-user-consent-allowed-expanded.png":::
 
 - If the value is set to **Yes**, you can sign in with any user account in the Microsoft Entra ID and provide consent for that user only. However, if you sign in to the management tool with a different user later, you must perform the same consent again.
-- If the value is set to **No**, you must sign in as a Global Administrator in the Microsoft Entra ID and provide admin consent for all users in the directory. No other users will face a consent prompt.
-
+- If the value is set to **No**, you must sign in using an account with the required permissions to provide consent for all users in the tenant. No other users will face a consent prompt. For more information, see [Grant tenant-wide admin consent to an application](/entra/identity/enterprise-apps/grant-admin-consent).
 
 Once you decide which user you'll use to provide consent, follow these instructions to provide consent to the tool:
 
 1. Go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  `https://rdmimgmtweb-210520190304.azurewebsites.net`.
 2. Sign in using the appropriate Microsoft Entra user account.
-3. If you authenticated with a Global Administrator, you can now select the checkbox to **Consent on behalf of your organization**. Select **Accept** to provide consent. This will now take you to the management tool.
+3. If you providing consent for all users, you can now select the checkbox to **Consent on behalf of your organization**. Select **Accept** to provide consent. This will now take you to the management tool.
 
 ## Use the management tool
 

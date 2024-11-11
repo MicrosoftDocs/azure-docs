@@ -27,7 +27,7 @@ landingContent:
       - text: Reservation purchase recommendations
         url: reserved-instance-purchase-recommendations.md
       - text: Instance size flexibility
-        url: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
+        url: /azure/virtual-machines/reserved-vm-instance-size-flexibility?toc=/azure/cost-management-billing/reservations/toc.json
       - text: Windows and SQL software cost charged separately
         url: reserved-instance-windows-software-costs.md
                 

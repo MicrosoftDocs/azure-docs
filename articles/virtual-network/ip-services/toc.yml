@@ -114,8 +114,10 @@ items:
         href: associate-public-ip-address-vm.md
       - name: Dissociate public IP address from a VM
         href: remove-public-ip-address-vm.md
-      - name: Upgrade a basic public IP address on a VM
+      - name: Upgrade basic public IP addresses on a VM
         href: public-ip-upgrade-vm.md
+      - name: Upgrade basic public IP addresses on VMs in an Availability Set
+        href: public-ip-upgrade-availability-set.md
       - name: Add dual-stack network to an existing VM
         href: add-dual-stack-ipv6-vm-portal.md
       - name: Create a virtual machine with a dual-stack network
@@ -144,6 +146,8 @@ items:
           href: virtual-network-multiple-ip-addresses-powershell.md
         - name: Azure CLI
           href: virtual-network-multiple-ip-addresses-cli.md
+      - name: Assign private IP address prefixes to VM
+        href: virtual-network-private-ip-address-blocks-portal.md
       - name: Virtual machine scale set with IPv6
         href: ipv6-virtual-machine-scale-set.md
       - name: Configure DHCPv6 for Linux VMs

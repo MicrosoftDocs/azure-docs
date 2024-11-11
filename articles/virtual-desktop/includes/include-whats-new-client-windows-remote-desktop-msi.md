@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 08/14/2024
+ms.date: 11/07/2024
 ---
 
 ## Supported client versions
@@ -11,29 +11,71 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5560 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5620 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public | 1.2.5709 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.5802 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
+## Updates for version 1.2.5802 (Insider) 
 
-## Updates for version 1.2.5560
+*Date published: November 6, 2024*   
 
-*Date published: August 13, 2024* 
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
+- Added list of graphics codecs to the Connection Information dialog. 
+- Fixed an issue where the bottom portion of the Windows Authentication dialog could be cut off when connected to a RemoteApp.
+- Fixed an issue where the Connection Information dialog showed the lowest round-trip time (RTT) instead of average RTT.
+- Fixed an issue where UDP type was incorrectly reported as "UDP (Private Network)" for all UDP connections in the Connection Info dialog. 
 
-- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+> [!NOTE]
+> This version replaced the Insider versions 1.2.5799, and 1.2.5800. Changes noted above reflect all changes for these versions. 
 
+## Updates for version 1.2.5709
+
+*Date published: October 8, 2024*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
+
+- Fixed an issue for [CVE-2024-43533](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43533).
+- Multimedia redirection call redirection is now generally available.
+
+## Updates for version 1.2.5704 
+
+*Date published: September 18, 2024*   
+
+- Fixed an issue where initiating a screen capture while Teams is open as a RemoteApp caused the client to crash.  
+- Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework. 
+- Addressed an issue that reduces the chance of encountering a **low virtual memory** error on reconnect attempts.
+- Made an improvement where new session windows will not become the focused windows. 
+- Fixed a bug to ensure that the `screen mode id` setting in an RDP file is honored.
+- Fixed issue where Microsoft Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
+
+> [!NOTE]
+> This version replaced the Insider version 1.2.5702, 1.2.5701, and 1.2.5699. It contains all changes made in noted versions and was promoted to public on September 18, 2024. 
+
+## Updates for version 1.2.5623 
+
+*Date published: September 4, 2024*   
+
+- Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework.
+- Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts.
+
+> [!NOTE]
+> This hotfix version replaced the public version 1.2.5620 and has the same release notes with the addition of the the above fixes. 
 
 ## Updates for version 1.2.5620
 
 *Date published: August 13, 2024* 
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
-
-- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+- Fixed an issue for [CVE-2024-38131](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
 
 > [!NOTE]
 > This version replaced the Insider version 1.2.5617 and has the same release notes with the addition of the security release.  
+
+## Updates for version 1.2.5560
+
+*Date published: August 13, 2024* 
+
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+
 
 ## Updates for version 1.2.5617
 
@@ -79,8 +121,6 @@ In this release, we made the following changes:
 
 *Date published: June 11, 2024* 
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1m3bh), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1m3bi), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1m0Bd) 
-
 In this release, we made the following changes:
 
 - Fixed an issue where the client crashed when a session is disconnected. 
@@ -102,8 +142,6 @@ In this release, we made the following changes:
 ## Updates for version 1.2.5452
 
 *Date published: May 29, 2024* 
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
 
 In this release, we made the following changes:
 
@@ -127,8 +165,6 @@ In this release, we made the following changes:
 
 *Date published: April 17, 2024*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kB76), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kGol), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kB75)
-
 In this release, we made the following changes:
 
 - Fixed an issue that made the multifactor authentication (MFA) prompt appear twice when users tried to connect to a resource 
@@ -136,8 +172,6 @@ In this release, we made the following changes:
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.5331
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kHro), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kK2T), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kHrn)
 
 *Date published: April 18, 2024*
 
@@ -393,8 +427,8 @@ In this release, we've made the following changes:
 - Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
 - Disabled UPnP for non-Insiders customers after reports of connectivity issues.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- Updates to MMR for Azure Virtual Desktop, including the following:
-   - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
+- Updates to multimedia redirection for Azure Virtual Desktop, including the following:
+   - Fixed an issue that caused multimedia redirection for Azure Virtual Desktop to not load for the ARM64 version of the client.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused the application window sharing to freeze or show a black screen in scenarios with Topmost window occlusions.
    - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the ARM64 version of the client.
@@ -412,8 +446,8 @@ In this release, we've made the following changes:
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Bug fix for Background Effects persistence between Teams sessions.
-- Updates to MMR for Azure Virtual Desktop, including the following:
-   - Various bug fixes for multimedia redirection (MMR) video playback redirection.
+- Updates to multimedia redirection for Azure Virtual Desktop, including the following:
+   - Various bug fixes for multimedia redirection video playback redirection.
    - [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md) is now generally available.
 
 >[!IMPORTANT]
@@ -476,9 +510,9 @@ In this release, we've made the following changes:
 - Added banner warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
 - Added page to installer warning users running client on Windows 7 that support for Windows 7 will end starting January 10, 2023.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
-- Updates to multimedia redirection (MMR) for Azure Virtual Desktop, including the following:
-   - MMR now works on a browser published as a RemoteApp and supports up to 30 sites. For more information, see [Understanding multimedia redirection for Azure Virtual Desktop](../multimedia-redirection-intro.md).
-   - MMR introduces better diagnostic tools with the new status icon and one-click Tracelog. For more information, see [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md).
+- Updates to [Multimedia redirection for video playback and calls in a remote session](../multimedia-redirection-video-playback-calls.md) including the following:
+   - Multimedia redirection now works on a browser published as a RemoteApp and supports up to 30 sites.
+   - Multimedia redirection introduces better diagnostic tools with the new status icon and one-click Tracelog.
 
 ## Updates for version 1.2.3497
 

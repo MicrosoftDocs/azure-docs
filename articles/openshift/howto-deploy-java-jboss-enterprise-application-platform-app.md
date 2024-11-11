@@ -11,9 +11,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-tr
 
 # Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift
 
-This article shows you how to quickly set up JBoss Enterprise Application Platform (EAP) on Azure Red Hat OpenShift (ARO) using the Azure portal.
+This article shows you how to quickly set up JBoss Enterprise Application Platform (EAP) on Azure Red Hat OpenShift using the Azure portal.
 
-This article uses the Azure Marketplace offer for JBoss EAP to accelerate your journey to ARO. The offer automatically provisions resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the JBoss EAP Operator, and optionally a container image including JBoss EAP and your application using Source-to-Image (S2I). To see the offer, visit the [Azure portal](https://aka.ms/eap-aro-portal). If you prefer manual step-by-step guidance for running JBoss EAP on ARO that doesn't use the automation enabled by the offer, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](/azure/developer/java/ee/jboss-eap-on-aro).
+This article uses the Azure Marketplace offer for JBoss EAP to accelerate your journey to Azure Red Hat OpenShift. The offer automatically provisions resources including an Azure Red Hat OpenShift cluster with a built-in OpenShift Container Registry (OCR), the JBoss EAP Operator, and optionally a container image including JBoss EAP and your application using Source-to-Image (S2I). To see the offer, visit the [Azure portal](https://aka.ms/eap-aro-portal). If you prefer manual step-by-step guidance for running JBoss EAP on Azure Red Hat OpenShift that doesn't use the automation enabled by the offer, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](/azure/developer/java/ee/jboss-eap-on-aro).
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
@@ -138,6 +138,9 @@ The following sections show you how to set up Azure Database for MySQL - Flexibl
 ### Set environment variables in the command line shell
 
 The sample is a Java application backed by a MySQL database, and is deployed to the OpenShift cluster using Source-to-Image (S2I). For more information about S2I, see the [S2I Documentation](http://red.ht/eap-aro-s2i).
+
+> [!NOTE]
+> Because Azure Workload Identity is not yet supported by Azure OpenShift, this article still uses username and password for database authentication instead of using passwordless database connections.
 
 Open a shell and set the following environment variables. Replace the substitutions as appropriate.
 
@@ -343,7 +346,7 @@ Use the following steps to deploy the app to the cluster. The app is hosted in t
    ```bash
    git clone https://github.com/Azure/rhel-jboss-templates.git
    cd rhel-jboss-templates
-   git checkout 20230615
+   git checkout 20240904
    cd ..
    oc new-project ${PROJECT_NAME}
    oc adm policy add-scc-to-user privileged -z default --namespace ${PROJECT_NAME}

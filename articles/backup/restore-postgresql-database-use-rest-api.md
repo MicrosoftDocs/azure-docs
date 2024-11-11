@@ -1,8 +1,8 @@
 ---
 title: Restore Azure PostgreSQL databases via Azure data protection REST API
 description: Learn how to restore Azure PostGreSQL databases using Azure Data Protection REST API.
-ms.topic: conceptual
-ms.date: 01/24/2022
+ms.topic: how-to
+ms.date: 09/11/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -125,7 +125,7 @@ There're various restore options for a PostgreSQL database. You can restore the 
 
 #### Restore as database
 
-Construct the Azure Resource Manager ID (ARM ID) of the new PostgreSQL database to be created with the target PostgreSQL server, to which permissions were assigned as detailed [above](#set-up-permissions), and the required PostgreSQL database name. For example, a PostgreSQL database can be named **emprestored21** under a target PostgreSQL server **targetossserver** in resource group **targetrg** with a different subscription.
+Construct the Azure Resource Manager ID (ARM ID) of the new PostgreSQL database to be created with the target PostgreSQL server, to which permissions were assigned as detailed [above](#set-up-permissions), and the required PostgreSQL database name. For example, a PostgreSQL database can be named `emprestored21` under a target PostgreSQL server `targetossserver` in resource group `targetrg` with a different subscription.
 
 ```http
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21"

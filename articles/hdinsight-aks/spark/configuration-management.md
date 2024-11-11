@@ -3,11 +3,14 @@ title: Configuration management in HDInsight on AKS with Apache Spark™
 description: Learn how to perform Configuration management in HDInsight on AKS with Apache Spark™ cluster
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 # Configuration management in HDInsight on AKS with Apache Spark™ cluster
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Azure HDInsight on AKS is a managed cloud-based service for big data analytics that helps organizations process large amounts data. This tutorial shows how to use configuration management in Azure HDInsight on AKS with Apache Spark™ cluster.
 

@@ -7,7 +7,7 @@ ms.suite: integration
 ms.collection: ce-skilling-ai-copilot
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 10/14/2024
 ---
 
 # Connect to Azure AI services from Standard workflows in Azure Logic Apps (Preview)
@@ -22,8 +22,8 @@ To integrate enterprise data and services with AI technologies, you can use the 
 
 This guide provides an overview and examples for how to use the **Azure OpenAI** and **Azure AI Search** connector operations in your workflow.
 
-- [What is Azure OpenAI Service](../../ai-services/openai/overview.md)
-- [What is Azure AI Search](../../search/search-what-is-azure-search.md)
+- [What is Azure OpenAI Service](/azure/ai-services/openai/overview)
+- [What is Azure AI Search](/azure/search/search-what-is-azure-search)
 
 ## Why use Azure Logic Apps with AI services?
 
@@ -46,7 +46,7 @@ For more information, see the following resources:
 
 - [Introduction to large language models](/training/modules/introduction-large-language-models/)
 - [Guide to working with large language models](/ai/playbook/technology-guidance/generative-ai/working-with-llms/)
-- [What is a vector database](/semantic-kernel/memories/vector-db)
+- [What is a vector database](/azure/cosmos-db/vector-database#what-is-a-vector-database)
 
 ## Connector technical reference
 
@@ -89,7 +89,7 @@ The following list describes these options, all which require that you provide t
 
 For more information, see the following resources:
 
-- [Authenticate requests to Azure AI services](../../ai-services/authentication.md)
+- [Authenticate requests to Azure AI services](/azure/ai-services/authentication)
 - [What is Microsoft Entra ID](/entra/fundamentals/whatis)
 - [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)
 - [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](../authenticate-with-managed-identity.md?tabs=standard)
@@ -110,9 +110,9 @@ For example, you can select from many trigger types to make your automated workf
 
 For more information, see the following resources:
 
-- [Vectors in Azure AI Search](../../search/vector-search-overview.md)
+- [Vectors in Azure AI Search](/azure/search/vector-search-overview)
 - [What are embeddings](/semantic-kernel/memories/embeddings)
-- [Understand embeddings in Azure OpenAI](../../ai-services/openai/concepts/understand-embeddings.md)
+- [Understand embeddings in Azure OpenAI](/azure/ai-services/openai/concepts/understand-embeddings)
 
 ### Generate completions
 
@@ -120,8 +120,8 @@ An Azure Logic Apps workflow can accept input, while Azure OpenAI Service can pe
 
 For more information, see the following resources:
 
-- [Introduction to prompt engineering](../../ai-services/openai/concepts/prompt-engineering.md)
-- [Learn how to generate or manipulate text](../../ai-services/openai/how-to/completions.md)
+- [Introduction to prompt engineering](/azure/ai-services/openai/concepts/prompt-engineering)
+- [Learn how to generate or manipulate text](/azure/ai-services/openai/how-to/completions)
 
 ## Example scenario with sample code: Ingest data and create chat interactions
 
@@ -164,7 +164,7 @@ Each step in this pattern makes sure that the AI seamlessly extracts all the cru
 | 1 | Check for new data. | **When an HTTP request is received** | A trigger that either polls or waits for new data to arrive, either based on a scheduled recurrence or in response to specific events respectively. Such an event might be a new file that's uploaded to a specific storage system, such as SharePoint, OneDrive, or Azure Blob Storage. <br><br>In this example, the **Request** trigger operation waits for an HTTP or HTTPS request sent from another endpoint. The request includes the URL for a new uploaded document. |
 | 2 | Get the data. | **HTTP** | An **HTTP** action that retrieves the uploaded document using the file URL from the trigger output. |
 | 3 | Compose document details. | **Compose** | A **Data Operations** action that concatenates various items. <br><br>This example concatenates key-value information about the document. |
-| 4 | Create token string. | **Parse a document** | A **Data Operations** action that produces a [token string](../../ai-services/openai/overview.md#tokens) using the output from the **Compose** action. |
+| 4 | Create token string. | **Parse a document** | A **Data Operations** action that produces a [token string](/azure/ai-services/openai/overview#tokens) using the output from the **Compose** action. |
 | 5 | Create content chunks. | **Chunk text** | A **Data Operations** action that splits the token string into pieces, based on either the number of characters or tokens per content chunk. |
 | 6 | Convert tokenized data to JSON. | **Parse JSON** | A **Data Operations** action that converts the token string chunks into a JSON array. |
 | 7 | Select JSON array items. | **Select** | A **Data Operations** action that selects multiple items from the JSON array. |

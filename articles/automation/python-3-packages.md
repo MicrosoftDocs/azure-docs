@@ -3,8 +3,8 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages  in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/16/2023
-ms.topic: conceptual
+ms.date: 09/10/2024
+ms.topic: how-to
 ms.custom: has-adal-ref, references_regions, devx-track-azurepowershell, devx-track-python
 ms.service: azure-automation
 ---

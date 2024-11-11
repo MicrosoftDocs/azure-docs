@@ -28,6 +28,8 @@ To complete this quickstart, you need:
 
 * The latest version of [Azure Functions Core Tools](../functions-run-local.md) installed.
 
+* An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
+
 * An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
 * [Python](https://www.python.org/) version 3.7, 3.8, 3.9, or 3.10 installed.
@@ -308,9 +310,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 ::: zone pivot="python-mode-configuration"
 
-5. Use your browser or one of these HTTP test tools to send an HTTP POST request to the URL endpoint: 
-
-   [!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
+5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
 
    Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
@@ -341,9 +341,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 ::: zone pivot="python-mode-decorators"
 
-5. Use your browser or one of these HTTP test tools to send an HTTP POST request to the URL endpoint: 
-
-   [!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
+5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
 
    Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 

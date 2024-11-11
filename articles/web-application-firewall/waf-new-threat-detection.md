@@ -85,4 +85,4 @@ You can configure Analytic Rules in Sentinel for various web application attacks
 ## Next steps
 
 - [Learn more about Microsoft Sentinel](../sentinel/overview.md)
-- [Learn more about Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)
+- [Learn more about Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview)

@@ -4,7 +4,7 @@ description: Include file
 services: azure-communication-services
 author: glorialimicrosoft
 ms.service: azure-communication-services
-ms.subservice: messages
+ms.subservice: advanced-messaging
 ms.date: 02/29/2024
 ms.topic: include
 ms.custom: include file

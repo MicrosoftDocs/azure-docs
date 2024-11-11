@@ -137,5 +137,5 @@ The API response shows the details:
 ## Related content
 
 - [Add students to a lab](add-student-api.md)
-- [Manage your academic grant by using the Overview page](hub-overview-page.md)
+- [Manage your academic sponsorship by using the Overview page](hub-overview-page.md)
 - [Learn about support options](educator-service-desk.md)

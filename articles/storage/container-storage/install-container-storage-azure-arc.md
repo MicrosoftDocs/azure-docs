@@ -94,7 +94,7 @@ Before you create your cluster, you should understand which back-end storage opt
 
 * **[Azure Elastic SAN](../elastic-san/elastic-san-introduction.md)**: Azure Elastic SAN is a good fit for general purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. Storage is provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
 
-* **[Azure Disks](../../virtual-machines/managed-disks-overview.md)**: Azure Disks are a good fit for databases such as MySQL, MongoDB, and PostgreSQL. Storage is provisioned per target container storage pool size and maximum volume size.
+* **[Azure Disks](/azure/virtual-machines/managed-disks-overview)**: Azure Disks are a good fit for databases such as MySQL, MongoDB, and PostgreSQL. Storage is provisioned per target container storage pool size and maximum volume size.
 
 * **Ephemeral Disk**: This option uses local NVMe or temp SSD drives on the AKS nodes and is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment.
 
@@ -102,12 +102,12 @@ Before you create your cluster, you should understand which back-end storage opt
 
 To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. If you're using local NVMe for your storage pool, the node pool should contain a minimum of four Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
 
-If you intend to use Azure Elastic SAN or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes.
+If you intend to use Azure Elastic SAN or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5** for the cluster nodes.
 
-If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**. If you intend to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
+If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](/azure/virtual-machines/sizes-storage) such as **standard_l8s_v3**. If you intend to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](/azure/virtual-machines/ev3-esv3-series) is required.
 
 > [!IMPORTANT]
-> You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md).
+> You must choose a VM type that supports [Azure premium storage](/azure/virtual-machines/premium-storage-performance).
 
 ## Create AKS cluster
 

@@ -2,9 +2,8 @@
 title: Fail back VMware VMs/physical servers from Azure with Azure Site Recovery 
 description: Learn how to fail back to the on-premises site after failover to Azure, during disaster recovery of VMware VMs and physical servers to Azure.
 author: ankitaduttaMSFT
-manager: gaggupta
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: ankitadutta
 ms.date: 12/04/2023
 

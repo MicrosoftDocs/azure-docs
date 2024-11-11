@@ -6,7 +6,11 @@ ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
-ms.date: 07/15/2024
+ms.date: 09/30/2024
+
+
+#Customer intent: As a security operations manager, I want to understand the Microsoft Sentinel's feature availability across different Azure environments so that I can effectively plan and manage our security operations.
+
 ---
 
 # Microsoft Sentinel feature support for Azure commercial/other clouds
@@ -68,7 +72,6 @@ While Microsoft Sentinel is also available in the [Microsoft Defender portal](mi
 |[Microsoft Purview (Preview)](connect-services-diagnostic-setting-based.md) |Public preview |&#x2705;|&#10060; |&#10060; |
 |[Microsoft Purview Information Protection](connect-microsoft-purview.md) |Public preview |&#x2705;| &#10060;|&#10060; |
 |[Office 365](connect-services-api-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
-|[Security Events via Legacy Agent](connect-services-windows-based.md#log-analytics-agent-legacy) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Summary rules](summary-rules.md) | Public preview |&#x2705; | &#10060; |&#10060; |
 |[Syslog](connect-syslog.md) |GA |&#x2705;| &#x2705;|&#x2705; |
 |[Syslog via AMA](connect-cef-syslog-ama.md) |GA |&#x2705;| &#x2705;|&#x2705; |
@@ -195,4 +198,4 @@ While Microsoft Sentinel is also available in the [Microsoft Defender portal](mi
 In this article, you learned about available features in Microsoft Sentinel. 
 
 - [Learn about Microsoft Sentinel](overview.md)
-- [Plan your Microsoft Sentinel architecture](design-your-workspace-architecture.md)
+- [Design a Log Analytics workspace architecture](/azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)

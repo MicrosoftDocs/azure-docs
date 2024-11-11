@@ -336,7 +336,7 @@ For more details about using Azure services from your web and worker roles, such
 
 [What is a Cloud Service?]: cloud-services-choose-me.md
 [execution model-web sites]: ../app-service/overview.md
-[execution model-vms]:../virtual-machines/windows/overview.md
+[execution model-vms]:/azure/virtual-machines/windows/overview
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 

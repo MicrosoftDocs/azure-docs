@@ -4,7 +4,7 @@ description: You can enable Threat intelligence-based filtering for your firewal
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 08/01/2022
 ms.author: victorh
 ---

@@ -59,9 +59,9 @@ To use traffic analytics, you need the following components:
 
 - **Network Watcher**: A regional service that you can use to monitor and diagnose conditions at a network-scenario level in Azure. You can use Network Watcher to turn network security group flow logs on and off. For more information, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md)
 
-- **Log Analytics**: A tool in the Azure portal that you use to work with Azure Monitor Logs data. Azure Monitor Logs is an Azure service that collects monitoring data and stores the data in a central repository. This data can include events, performance data, or custom data that's provided through the Azure API. After this data is collected, it's available for alerting, analysis, and export. Monitoring applications such as network performance monitor and traffic analytics use Azure Monitor Logs as a foundation. For more information, see [Azure Monitor Logs](../azure-monitor/logs/log-query-overview.md?toc=/azure/network-watcher/toc.json). Log Analytics provides a way to edit and run queries on logs. You can also use this tool to analyze query results. For more information, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md?toc=/azure/network-watcher/toc.json).
+- **Log Analytics**: A tool in the Azure portal that you use to work with Azure Monitor Logs data. Azure Monitor Logs is an Azure service that collects monitoring data and stores the data in a central repository. This data can include events, performance data, or custom data that's provided through the Azure API. After this data is collected, it's available for alerting, analysis, and export. Monitoring applications such as network performance monitor and traffic analytics use Azure Monitor Logs as a foundation. For more information, see [Azure Monitor Logs](/azure/azure-monitor/logs/log-query-overview?toc=/azure/network-watcher/toc.json). Log Analytics provides a way to edit and run queries on logs. You can also use this tool to analyze query results. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview?toc=/azure/network-watcher/toc.json).
 
-- **Log Analytics workspace**: The environment that stores Azure Monitor log data that pertains to an Azure account. For more information about Log Analytics workspaces, see [Overview of Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md?toc=/azure/network-watcher/toc.json).
+- **Log Analytics workspace**: The environment that stores Azure Monitor log data that pertains to an Azure account. For more information about Log Analytics workspaces, see [Overview of Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview?toc=/azure/network-watcher/toc.json).
 
 - Additionally, you need a network security group enabled for flow logging if you're using traffic analytics to analyze [network security group flow logs](nsg-flow-logs-overview.md) or a virtual network enabled for flow logging if you're using traffic analytics to analyze [virtual network flow logs](vnet-flow-logs-overview.md):
 
@@ -105,7 +105,7 @@ Traffic analytics requires the following prerequisites:
 
 - A Network Watcher enabled subscription. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
 - Network security group flow logs enabled for the network security groups you want to monitor or virtual network flow logs enabled for the virtual network you want to monitor. For more information, see [Create a network security group flow log](nsg-flow-logs-portal.md#create-a-flow-log) or [Create a virtual network flow log](vnet-flow-logs-portal.md#create-a-flow-log).
-- An Azure Log Analytics workspace with read and write access. For more information, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=/azure/network-watcher/toc.json).
+- An Azure Log Analytics workspace with read and write access. For more information, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?toc=/azure/network-watcher/toc.json).
 
 - One of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md) needs to be assigned to your account:
 
@@ -139,7 +139,7 @@ Traffic analytics requires the following prerequisites:
 
     <sup>1</sup> Network contributor doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
 
-    <sup>2</sup> Only required when using traffic analytics to analyze virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md?toc=/azure/network-watcher/toc.json).
+    <sup>2</sup> Only required when using traffic analytics to analyze virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview?toc=/azure/network-watcher/toc.json).
 
     To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
 
@@ -156,5 +156,5 @@ To get answers to the most frequently asked questions about traffic analytics, s
 
 ## Related content
 
-- To learn how to use traffic analytics, see [Usage scenarios](usage-scenarios-traffic-analytics.md).
+- To learn how to use traffic analytics, see [Usage scenarios](traffic-analytics-usage-scenarios.md).
 - To understand the schema and processing details of traffic analytics, see [Schema and data aggregation in Traffic Analytics](traffic-analytics-schema.md).

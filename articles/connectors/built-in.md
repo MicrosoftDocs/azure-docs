@@ -550,7 +550,7 @@ For more information, review the following documentation:
 [azure-event-grid-publisher-doc]: /azure/logic-apps/connectors/built-in/reference/eventgridpublisher/ "Connect to Azure Event Grid for event-based programming using pub-sub semantics"
 [azure-event-hubs-doc]: /azure/logic-apps/connectors/built-in/reference/eventhub/ "Connect to Azure Event Hubs so that you can receive and send events between logic app workflows and Event Hubs"
 [azure-file-storage-doc]: /azure/logic-apps/connectors/built-in/reference/azurefile/ "Connect to Azure File Storage so you can create and manage files in your Azure storage account"
-[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic app workflows with Azure Functions"
+[azure-functions-doc]: ../logic-apps/call-azure-functions-from-workflows.md "Integrate logic app workflows with Azure Functions"
 [azure-key-vault-doc]: /azure/logic-apps/connectors/built-in/reference/keyvault/ "Connect to Azure Key Vault to securely store, access, and manage secrets"
 [azure-openai-doc]: https://techcommunity.microsoft.com/t5/azure-integration-services-blog/public-preview-of-azure-openai-and-ai-search-in-app-connectors/ba-p/4049584 "Connect to Azure OpenAI to perform operations on large language models"
 [azure-queue-storage-doc]: /azure/logic-apps/connectors/built-in/reference/azurequeues/ "Connect to Azure Storage so you can create and manage queue entries and queues"

@@ -1,13 +1,13 @@
 ---
 title: Migrate machines as physical servers to Azure with Azure Migrate and Modernize
 description: This article describes how to migrate physical machines to Azure with Azure Migrate and Modernize.
-author: vijain
+author: pingvishal-msft
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 06/17/2024
-ms.custom: MVC, engagement-fy24
+ms.date: 08/21/2024
+ms.custom: MVC, engagement-fy25
 ---
 
 # Migrate machines as physical servers to Azure
@@ -157,7 +157,7 @@ The mobility service agent must be installed on the servers to get them discover
 A Mobility service agent must be preinstalled on the source physical machines to be migrated before you can start replication. The approach you choose to install the Mobility service agent might depend on your organization's preferences and existing tools. The "push" installation method built into Site Recovery isn't currently supported. Approaches you might want to consider:
 
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
-- [Azure Arc for servers and custom script extensions](../azure-arc/servers/overview.md)
+- [Azure Arc for servers and custom script extensions](/azure/azure-arc/servers/overview)
 - [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
 - [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 
@@ -199,7 +199,7 @@ Now, select machines for migration.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-vms-inline.png" alt-text="Screenshot that shows selecting VMs." lightbox="./media/tutorial-migrate-physical-virtual-machines/select-vms-expanded.png":::
 
-1. In **Target settings**, select the subscription and target region to which you'll migrate. Specify the resource group in which the Azure VMs will reside after migration.
+1. In **Target settings**, select the subscription to which you'll migrate. (The region is set to your selection in the previous step and can't be modified.) Specify the resource group in which the Azure VMs will reside after migration.
 1. In **Virtual Network**, select the Azure virtual network/subnet to which the Azure VMs will be joined after migration.
 1. In **Cache storage account**, keep the default option to use the cache storage account that's automatically created for the project. Use the dropdown list if you want to specify a different storage account to use as the cache storage account for replication. <br/>
 
@@ -218,7 +218,7 @@ Now, select machines for migration.
     - Double encryption with platform-managed and customer-managed keys.
 
    > [!NOTE]
-   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
+   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
 
 1. In **Azure Hybrid Benefit**:
 
@@ -268,7 +268,7 @@ When delta replication begins, you can run a test migration for the VMs before y
 
 To do a test migration:
 
-1. In **Migration goals**, select **Servers** > **Migration and modernization**, select **Replicated servers** under **Replications**.
+1. In **Migration goals**, select **Servers, databases and web apps** > **Migration and modernization**, select **Replicated servers** under **Replications**.
 
 1. In the **Replicating machines** tab, right-click the VM to test and select **Test migrate**.
 
@@ -325,7 +325,7 @@ After you verify that the test migration works as expected, you can migrate the 
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just-in-time administration](../security-center/security-center-just-in-time.md).
     - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
     - Restrict network traffic to management endpoints with [network security groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks and keep data safe from theft and unauthorized access.
+    - Deploy [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview) to help secure disks and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)and [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
     - Consider deploying [Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.

@@ -78,9 +78,9 @@
         - name: Azure Cache for Redis
           href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure AI Search
-          href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/search/search-howto-move-across-regions?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Container Registry
-          href: ../../container-registry/manual-regional-move.md
+          href: /azure/container-registry/manual-regional-move
         - name: Azure Cosmos DB
           href: /azure/cosmos-db/how-to-move-regions?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for MariaDB Server
@@ -112,7 +112,7 @@
         - name: Logic apps
           href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Maintenance Control configuration
-          href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/virtual-machines/move-region-maintenance-configuration?toc=/azure/azure-resource-manager/management/toc.json
         - name: Networking
           href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Managed identities for Azure Resources

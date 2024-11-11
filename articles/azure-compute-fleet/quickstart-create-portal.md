@@ -41,8 +41,8 @@ You can deploy a Compute Fleet with a Windows Server image or Linux image such a
 1. **For Standard fleet deployment:** Under **VM capacity**, specify your target capacity for Standard VM instance count between 1 and 10,000. 
 
 1. Under **Administrator account** configure the admin username and set up an associated password or SSH public key.
-   - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
-   - If you select a Linux OS disk image, you can instead choose **SSH public key**. You can use an existing key or create a new one. In this example, Azure generates a new key pair for us. For more information on generating key pairs, see [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
+   - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
+   - If you select a Linux OS disk image, you can instead choose **SSH public key**. You can use an existing key or create a new one. In this example, Azure generates a new key pair for us. For more information on generating key pairs, see [create and use SSH keys](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 1. Select **Next: Networking** to move the networking configuration options. For this quickstart, leave the default networking configurations.
 

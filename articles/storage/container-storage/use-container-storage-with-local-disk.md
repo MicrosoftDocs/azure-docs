@@ -27,9 +27,9 @@ Due to the ephemeral nature of these disks, Azure Container Storage supports the
 
 ## Choose a VM type that supports local NVMe
 
-Ephemeral Disk is only available in certain types of VMs. If you plan to use local NVMe, a [storage optimized VM](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3** is required.
+Ephemeral Disk is only available in certain types of VMs. If you plan to use local NVMe, a [storage optimized VM](/azure/virtual-machines/sizes-storage) such as **standard_l8s_v3** is required.
 
-You can run the following command to get the VM type that's used with your node pool.
+Run the following command to get the VM type that's used with your node pool. Replace `<resource group>` and `<cluster name>` with your own values. You don't need to supply values for `PoolName` or `VmSize`, so keep the query as shown here.
 
 ```azurecli-interactive
 az aks nodepool list --resource-group <resource group> --cluster-name <cluster name> --query "[].{PoolName:name, VmSize:vmSize}" -o table
@@ -400,7 +400,7 @@ kubectl delete sp -n acstor <storage-pool-name>
 
 ### Optimize performance when using local NVMe
 
-Depending on your workload’s performance requirements, you can choose from three different performance tiers: **Basic**, **Standard**, and **Advanced**. Your selection will impact the number of vCPUs that Azure Container Storage components consume in the nodes where it's installed. Standard is the default configuration if you don't update the performance tier.
+Depending on your workload’s performance requirements, you can choose from three different performance tiers: **Basic**, **Standard**, and **Premium**. Your selection will impact the number of vCPUs that Azure Container Storage components consume in the nodes where it's installed. Standard is the default configuration if you don't update the performance tier.
 
 These three tiers offer a different range of IOPS. The following table contains guidance on what you could expect with each of these tiers. We used [FIO](https://github.com/axboe/fio), a popular benchmarking tool, to achieve these numbers with the following configuration:
 - AKS: Node SKU - Standard_L16s_v3; 
@@ -408,14 +408,14 @@ These three tiers offer a different range of IOPS. The following table contains 
 
 | **Tier** | **Number of vCPUs** | **100 % Read IOPS** | **100 % Write IOPS** |
 | --- | --- | --- | --- |
-| `Basic` | 12.5% of total VM cores | Up to 100,000  | Up to 90,000 |
-| `Standard` (default)| 25% of total VM cores | Up to 200,000  | Up to 180,000 |
-| `Advanced` | 50% of total VM cores | Up to 400,000  | Up to 360,000 |
+| `Basic` | 12.5% of total VM cores | Up to 120,000  | Up to 90,000 |
+| `Standard` (default)| 25% of total VM cores | Up to 220,000  | Up to 180,000 |
+| `Premium` | 50% of total VM cores | Up to 550,000  | Up to 360,000 |
 
 > [!NOTE]
 > RAM and hugepages consumption will stay consistent across all tiers: 1 GiB of RAM and 2 GiB of hugepages.
 
-Once you've identified the performance tier that aligns best to your needs, you can run the following command to update the performance tier of your Azure Container Storage installation. Replace `<performance tier>` with basic, standard, or advanced.
+Once you've identified the performance tier that aligns best to your needs, you can run the following command to update the performance tier of your Azure Container Storage installation. Replace `<performance tier>` with basic, standard, or premium.
 
 ```azurecli-interactive
 az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type> --ephemeral-disk-nvme-perf-tier <performance-tier>

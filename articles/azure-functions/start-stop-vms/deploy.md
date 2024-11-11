@@ -121,8 +121,6 @@ To manage the automation method to control the start and stop of your VMs, you c
 
 If you need additional schedules, you can duplicate one of the Logic Apps provided using the **Clone** option in the Azure portal.
 
-:::image type="content" source="media/deploy/logic-apps-clone-option.png" alt-text="Select the Clone option to duplicate a logic app":::
-
 ## Scheduled start and stop scenario
 
 Perform the following steps to configure the scheduled start and stop action for Azure Resource Manager and classic VMs. For example, you can configure the **ststv2_vms_Scheduled_start** schedule to start them in the morning when you are in the office, and stop all VMs across a subscription when you leave work in the evening based on the **ststv2_vms_Scheduled_stop** schedule.
@@ -140,6 +138,9 @@ For each scenario, you can target the action against one or more subscriptions, 
 1. After Logic App Designer appears, in the designer pane, select **Recurrence** to configure the logic app schedule. To learn about the specific recurrence options, see [Schedule recurring task](../../connectors/connectors-native-recurrence.md#add-the-recurrence-trigger).
 
     :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
+
+   > [!NOTE]
+   > If you do not provide a start date and time for the first recurrence, a recurrence will immediately run when you save the logic app, which might cause the VMs to start or stop before the scheduled run.
 
 1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 
@@ -238,6 +239,9 @@ In an environment that includes two or more components on multiple Azure Resourc
 
     :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
 
+   > [!NOTE]
+   > If you do not provide a start date and time for the first recurrence, a recurrence will immediately run when you save the logic app, which might cause the VMs to start or stop before the scheduled run.
+
 1. In the designer pane, select **Function-Try** to configure the target settings and then select the **</> Code view** button in the top menu to edit the code for the **Function-Try** element. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 
     ```json
@@ -322,7 +326,7 @@ The following metric alert properties in the request body support customization:
 - AutoStop_TimeAggregationOperator
 - AutoStop_TimeWindow
 
-To learn more about how Azure Monitor metric alerts work and how to configure them see [Metric alerts in Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md).
+To learn more about how Azure Monitor metric alerts work and how to configure them see [Metric alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-metric-overview).
 
 1. From the list of Logic apps, to configure auto stop, select **ststv2_vms_AutoStop**.
 

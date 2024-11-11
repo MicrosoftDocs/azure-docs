@@ -36,7 +36,9 @@ Java Virtual Machine (JVM) metrics are critical for monitoring the health and pe
 
 ::: zone pivot="azure-portal"
 
-To make the collection of Java metrics available to your app, you have to create your container app with some specific settings.
+To make the collection of Java metrics available to your app, configure your container app with some specific settings.
+
+# [create](#tab/create)
 
 In the *Create* window, if you select for *Deployment source* the **Container image** option, then you have access to stack-specific features.
 
@@ -45,6 +47,16 @@ Under the *Development stack-specific features* and for the *Development stack*,
 :::image type="content" source="media/java-metrics/azure-container-apps-java-metrics-development-stack.png" alt-text="Screenshot of the Azure portal where you can select Java-specific features for your container app." lightbox="media/java-metrics/azure-container-apps-java-metrics-development-stack.png":::
 
 Once you select the Java development stack, the *Customize Java features for your app* window appears. Next to the *Java features* label, select **JVM core metrics**.
+
+# [update](#tab/update)
+
+1. Go to your container app in the [Azure portal](https://portal.azure.com).
+
+1. In the *Overview* section, under *Essentials*, find *Development stack* and select **manage**.
+
+1. In the *Development stack* drop down, select **Java**.
+
+1. Select **Apply**.
 
 ::: zone-end
 

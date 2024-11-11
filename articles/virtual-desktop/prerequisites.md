@@ -5,7 +5,7 @@ ms.topic: overview
 ms.custom: references_regions
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 04/17/2024
+ms.date: 09/17/2024
 ---
 # Prerequisites for Azure Virtual Desktop
 
@@ -93,7 +93,7 @@ To access desktops and applications from your session hosts, your users need to 
 You need to join session hosts that provide desktops and applications to the same Microsoft Entra tenant as your users, or an Active Directory domain (either AD DS or Microsoft Entra Domain Services).
 
 > [!NOTE]
-> For Azure Stack HCI, you can only join session hosts to an Active Directory Domain Services domain.
+> For Azure Stack HCI, you can only join session hosts to an Active Directory Domain Services domain. You can only join session hosts on Azure Stack HCI to an Active Directory Domain Services (AD DS) domain. This includes using [Microsoft Entra hybrid join](/entra/identity/devices/concept-hybrid-join), where you can benefit from some of the functionality provided by Microsoft Entra ID.
 
 To join session hosts to Microsoft Entra ID or an Active Directory domain, you need the following permissions:
 
@@ -156,27 +156,25 @@ You have a choice of operating systems (OS) that you can use for session hosts t
 To learn more about licenses you can use, including per-user access pricing, see [Licensing Azure Virtual Desktop](licensing.md).
 
 > [!IMPORTANT]
-> - The following items are not supported:
+> - The following items aren't supported for session hosts:
 >   - 32-bit operating systems.
 >   - N, KN, LTSC, and other editions of Windows operating systems not listed in the previous table.
->   - [Ultra disks](../virtual-machines/disks-types.md#ultra-disks) for the OS disk type.
->   - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md).
->   - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
-> 
-> - Support for Windows 7 ended on January 10, 2023.
-> - Support for Windows Server 2012 R2 ended on October 10, 2023.
+>   - [Ultra disks](/azure/virtual-machines/disks-types#ultra-disks) for the OS disk type.
+>   - [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks).
+>   - [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
+>   - Arm64-based Azure VMs.
 
 For Azure, you can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or create your own custom images stored in an Azure Compute Gallery or as a managed image. Using custom image templates for Azure Virtual Desktop enables you to easily create a custom image that you can use when deploying session host virtual machines (VMs). To learn more about how to create custom images, see:
 
 - [Custom image templates in Azure Virtual Desktop](custom-image-templates.md)
-- [Store and share images in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
-- [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.yml).
+- [Store and share images in an Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries).
+- [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource).
 
 Alternatively, for Azure Stack HCI you can use operating system images from:
 
 - Azure Marketplace. For more information, see [Create Azure Stack HCI VM image using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
 - Azure Storage account. For more information, see [Create Azure Stack HCI VM image using image in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account).
-- A local share. For more information, see[Create Azure Stack HCI VM image using images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+- A local share. For more information, see [Create Azure Stack HCI VM image using images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
 You can deploy a virtual machines (VMs) to be used as session hosts from these images with any of the following methods:
 

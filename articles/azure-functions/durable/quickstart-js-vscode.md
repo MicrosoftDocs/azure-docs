@@ -49,7 +49,8 @@ To complete this quickstart, you need:
 * [Azure Functions Core Tools](../functions-run-local.md) version 4.0.5382 or later installed.
 
 ::: zone-end
-
+* An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
+ 
 * An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
 ::: zone pivot="nodejs-model-v3"
@@ -261,9 +262,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 ::: zone pivot="nodejs-model-v3"
 
-5. Use your browser or one of these HTTP test tools to send an HTTP POST request to the URL endpoint: 
-
-   [!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
+5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
 
    Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
@@ -273,9 +272,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 ::: zone pivot="nodejs-model-v4"
 
-5. Use your browser or one of these HTTP test tools to send an HTTP POST request to the URL endpoint: 
-
-   [!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
+5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
 
    Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 

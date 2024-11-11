@@ -7,6 +7,9 @@ items:
     - name: What is Microsoft Dev Box?
       displayName: DevBox, VDI
       href: overview-what-is-microsoft-dev-box.md
+    - name: Roadmap for Microsoft Dev Box
+      displayName: roadmap, future, features, enhancements, coming soon, in development
+      href: dev-box-roadmap.md
 - name: Quickstarts
   expanded: true
   items:
@@ -75,15 +78,13 @@ items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
   - name: Connect with Windows App
-    displayName: connect, access dev box, RDP, iPad 
+    displayName: Windows App, connect, access dev box, RDP, iPad 
     href: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
   - name: Connect with Remote Desktop
-    displayName: connect, access dev box, RDP, iPad 
+    displayName: Windows App, connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
   - name: Use multiple monitors
     href: tutorial-configure-multiple-monitors.md
-  - name: Access a dev box with Task view
-    href: how-to-access-dev-box-task-view.md
 - name: Security
   items:
   - name: Provide access to project admins
@@ -116,6 +117,8 @@ items:
   items: 
   - name: Troubleshoot dev box connectivity issues
     href: how-to-troubleshoot-repair-dev-box.md
+  - name: Troubleshoot Task view issues
+    href: how-to-troubleshoot-dev-box-task-view.md    
 - name: Reference
   items:
     - name: Install Azure CLI devcenter extension

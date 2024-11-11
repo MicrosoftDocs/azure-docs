@@ -11,8 +11,6 @@
       href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
-    - name: MQTT in Web PubSub
-      href: overview-mqtt.md
     - name: What's new
       href: whats-new.md
 - name: Quickstarts
@@ -22,8 +20,6 @@
       href: howto-develop-create-instance.md
     - name: PubSub among clients
       href: quickstarts-pubsub-among-clients.md
-    - name: PubSub among MQTT clients
-      href: quickstarts-pubsub-among-mqtt-clients.md
     - name: Push message from server
       href: quickstarts-push-messages-from-server.md
     - name: Event notifications from clients
@@ -84,33 +80,33 @@
           href: howto-monitor-data-reference.md
     - name: Secure
       items:
-        - name: Protect the access key
+        - name: Rotate access keys
           href: howto-secure-rotate-access-key.md
-        - name: Application firewall
+        - name: Set up an application firewall
           href: howto-configure-application-firewall.md
-        - name: Use Azure Service Tags
+        - name: Use service tags to control access
           href: howto-service-tags.md
-        - name: Use Azure private endpoints
+        - name: Use secure private endpoints
           href: howto-secure-private-endpoints.md
         - name: Manage network access control
           href: howto-secure-network-access-control.md
         - name: Secure outbound traffic through shared private endpoints
           href: howto-secure-shared-private-endpoints.md
-        - name: Access Key Vault through shared private endpoints
+        - name: Access a key vault through shared private endpoints
           href: howto-secure-shared-private-endpoints-key-vault.md
         - name: Use a managed identity
           href: howto-use-managed-identity.md
         - name: Configure Microsoft Entra authorizations
           items:
-            - name: Authorize from Azure applications
+            - name: Authorize from an Azure application
               href: howto-authorize-from-application.md
-            - name: Authorize from managed identities
+            - name: Authorize from a managed identity
               href: howto-authorize-from-managed-identity.md
             - name: Disable local authentication
               href: howto-disable-local-auth.md
         - name: Configure client certificate authentication
           href: howto-client-certificate.md
-        - name: Custom domain
+        - name: Add a custom domain
           href: howto-custom-domain.md
     - name: Scale and geo-replicate
       items:
@@ -150,7 +146,7 @@
     - name: Overview
       href: overview-mqtt.md
     - name: Quickstart for MQTT users
-      href: quickstarts-pubsub-among-mqtt-clients.md
+      href: howto-mqtt-pubsub-among-mqtt-clients.md
     - name: Tutorials
       expanded: true
       items:
@@ -160,6 +156,8 @@
       items:
         - name: Connect MQTT WebSocket clients
           href: howto-connect-mqtt-websocket-client.md
+        - name: PubSub among MQTT clients
+          href: howto-mqtt-pubsub-among-mqtt-clients.md
     - name: Reference
       items:
         - name: MQTT event handler protocol
@@ -173,13 +171,24 @@
   items:
     - name: Overview
       href: socketio-overview.md
-    - name: Quickstart for Socket.IO users
-      href: socketio-quickstart.md
+    - name: Serverless Mode Overview
+      href: socket-io-serverless-overview.md
+    - name: Quickstart
+      expanded: true
+      items:
+      - name: Quickstart for Socket.IO users
+        href: socketio-quickstart.md
+      - name: Quickstart for Socket.IO Serverless with Azure Function
+        href: socket-io-serverless-quickstart.md
     - name: Tutorials
       expanded: true
       items:
         - name: Build real time code streaming app
           href: socketio-build-realtime-code-streaming-app.md
+        - name: Build an app to publish data to Socket.IO clients with Python in Serverless Mode
+          href: socket-io-serverless-tutorial-python.md
+        - name: Build chat app with Azure Function in Serverless Mode
+          href: socket-io-serverless-tutorial.md
     - name: How-to guides
       items:
         - name: Easily migrate a self-hosted Socket.IO app
@@ -202,8 +211,14 @@
       items:
         - name: How does Web PubSub support Socket.IO library
           href: socketio-service-internal.md
-        - name: Supported Socket.IO server APIs
+        - name: Azure Function Bindings for Socket.IO
+          href: socket-io-serverless-function-binding.md
+        - name: Unsupported Socket.IO server APIs
           href: socketio-supported-server-apis.md
+    - name: Reference
+      items:
+        - name: Socket.IO Serverless Mode Specification
+          href: socket-io-serverless-protocol.md
 - name: Samples
   expanded: false
   items:

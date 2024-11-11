@@ -1,6 +1,6 @@
 ---
-title:  Overview of the de-identification service (preview) in Azure Health Data Services
-description: Learn how the de-identification service (preview) in Azure Health Data Services anonymizes clinical data, ensuring HIPAA compliance while retaining data relevance for research and analytics.
+title:  Overview of the De-identification service (preview) in Azure Health Data Services
+description: Learn how the De-identification service (preview) in Azure Health Data Services anonymizes clinical data, ensuring HIPAA compliance while retaining data relevance for research and analytics.
 author: kimiamavon
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
@@ -11,7 +11,7 @@ ms.author: kimiamavon
 
 # What is the de-identification service (preview)?
 
-The de-identification service (preview) in Azure Health Data Services enables healthcare organizations to anonymize clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 28 entities, including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
+The de-identification service (preview) in Azure Health Data Services enables healthcare organizations to anonymize clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 28 entities - including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
 
 ## Use de-identified data in research, analytics, and machine learning
 
@@ -42,7 +42,7 @@ The de-identification service (preview) offers two ways to interact with the RES
 
 ## Input requirements and service limits
 
-The de-identification service (preview) is designed to receive unstructured text. To de-identify data stored in the FHIR&reg; service, see [Export deidentified data](/azure/healthcare-apis/fhir/deidentified-export).
+The de-identification service (preview) is designed to receive unstructured text. To de-identify data stored in the FHIR&reg; service, see [Export de-identified data](/azure/healthcare-apis/fhir/deidentified-export).
 
 The following service limits are applicable during preview:
 - Requests can't exceed 50 KB.
@@ -62,10 +62,10 @@ When you choose to store documents in Azure Blob Storage, you are charged based 
 
 An AI system includes the technology, the people who use it, the people affected by it, and the environment where you deploy it. Read the transparency note for the de-identification service (preview) to learn about responsible AI use and deployment in your systems.
 
-## Related content
+## Next steps
 
-[De-identification quickstart](quickstart.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Deploy the de-identification service (preview)](quickstart.md)
 
-[Integration and responsible use](/legal/cognitive-services/language-service/guidance-integration-responsible-use?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)
-
-[Data, privacy, and security](/legal/cognitive-services/language-service/data-privacy?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)
+- [Integration and responsible use](/legal/cognitive-services/language-service/guidance-integration-responsible-use?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)
+- [Data, privacy, and security](/legal/cognitive-services/language-service/data-privacy?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)

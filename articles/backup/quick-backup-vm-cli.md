@@ -14,7 +14,7 @@ ms.author: v-abhmallick
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md) or in the [Azure portal](quick-backup-vm-portal.md).
 
-This quickstart enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure CLI](../virtual-machines/linux/quick-create-cli.md).
+This quickstart enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -24,7 +24,7 @@ This quickstart enables backup on an existing Azure VM. If you need to create a 
 
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-Create a Recovery Services vault with [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Specify the same resource group and location as the VM you wish to protect. If you used the [VM quickstart](../virtual-machines/linux/quick-create-cli.md), then you created:
+Create a Recovery Services vault with [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Specify the same resource group and location as the VM you wish to protect. If you used the [VM quickstart](/azure/virtual-machines/linux/quick-create-cli), then you created:
 
 - a resource group named *myResourceGroup*,
 - a VM named *myVM*,

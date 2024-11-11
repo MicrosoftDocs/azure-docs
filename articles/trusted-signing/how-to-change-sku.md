@@ -1,7 +1,7 @@
 ---
-title: Change SKU selection 
-description: How-to change your SKU for Trusted Signing account. 
-author: mehasharma 
+title: Change the account SKU 
+description: Learn how to change your SKU or pricing tier for a Trusted Signing account. 
+author: TacoTechSharma 
 ms.author: mesharm 
 ms.service: trusted-signing 
 ms.topic: how-to 
@@ -9,75 +9,83 @@ ms.date: 05/30/2024
 ---
 
 
-# Select or change Trusted Signing SKU (Pricing tier)
+# Change a Trusted Signing account SKU (pricing tier)
 
-Trusted Signing provides a choice between two pricing tiers: Basic and Premium. Both tiers are tailored to offer the service at an optimal cost, suitable for any signing scenario.  
+Trusted Signing gives you a choice between two pricing tiers: Basic and Premium. Both tiers are tailored to offer the service at an optimal cost and to be suitable for any signing scenario.
 
-## SKU (Pricing tier) overview
+For more information, see [Trusted Signing pricing](https://azure.microsoft.com/pricing/details/trusted-signing/).
 
-Each pricing tier provides varying options for the number of certificate profile types available and the monthly allocation of signatures. 
+## SKU (pricing tier) overview
 
-|        Account level       | Basic  | Premium     |
+The following table describes key account details for the Basic SKU and the Premium SKU:
+
+|        Account detail       | Basic  | Premium     |
 | :------------------- | :------------------- |:---------------|
-| Price(monthly)              | **$9.99 / account**              | **$99.99 / account**  |
-| Quota (signatures / month)             | 5,000              | 100,000  |
-| Price after quota is reached             | $0.005 / signature               | $0.005 / signature   |
-| Certificate Profiles             | 1 of each available type               | 10 of each available type  |
-| Public-Trust Signing             | Yes               | Yes  |
-| Private-Trust Signing             | Yes               | Yes  |
-                        
-**Note**: The pricing tier is also referred to as the SKU.
+| Price (monthly)              | **$9.99 per account**              | **$99.99 per account**  |
+| Quota (signatures per month)             | 5,000              | 100,000  |
+| Price after quota is reached             | $0.005 per signature               | $0.005 per signature   |
+| Certificate profiles             | 1 of each available type               | 10 of each available type  |
+| Public Trust signing             | Yes               | Yes  |
+| Private Trust signing             | Yes               | Yes  |
 
+> [!NOTE]
+> The pricing tier is also called the *account SKU*.
 
-## Change SKU
+## Change the SKU
 
-You can change the SKU for a Trusted Signing account at any time by upgrading to Premium or downgrading to Basic. This change can be done from both the Azure portal and from Azure CLI. 
+You can change the SKU for a Trusted Signing account at any time by upgrading to Premium or by downgrading to Basic. You can change the SKU by using either the Azure portal or the Azure CLI.
 
-- SKU updates are effective from next billing cycle.
-- SKU limitations for updated SKU are enforced after the update is successful.
-- Downgrade to Basic: 
-    - The Basic SKU allows only one certificate profile of each type. For example, if you have two certificate profiles of type Public Trust, you need to delete any one profile to be eligible to downgrade. Same applies for other certificate profile types as well.
-    - In Azure portal on Certificate Profiles page, make sure **Status: All** to view all certificate profiles to help you delete all relevant certificate profiles to meet the criteria to downgrade.
-    
-    :::image type="content" source="media/trusted-signing-certificate-profile-deletion-changesku.png" alt-text="Screenshot that shows adding a diagnostic setting." lightbox="media/trusted-signing-certificate-profile-deletion-changesku.png":::
+Considerations:
 
-- Upgrade to Premium:  
-    - There are no limitations when you upgrade to the Premium SKU from Basic SKU. 
-- After changing the SKU, you're required to manually refresh the Account Overview section to see the updated SKU under SKU (Pricing tier). (This limitation is known, and being actively worked on to resolve). 
+- SKU updates are effective beginning in the next billing cycle.
+- SKU limitations for an updated SKU are enforced after the update is successful.
+- After you change the SKU, you must manually refresh the account overview to see the updated SKU under **SKU (Pricing tier)**. (We are actively working to resolve this known limitation.)
+- To upgrade to Premium:
+
+  - No limitations are applied when you upgrade from the Basic SKU to the Premium SKU.
+- To downgrade to Basic:
+
+  - The Basic SKU allows only one certificate profile of each type. For example, if you have two certificate profiles of the Public Trust type, you must delete any single profile to be eligible to downgrade. The same limitation applies for other certificate profile types.
+  - In the Azure portal, on the **Certificate Profiles** pane, make sure that you select **Status: All** to view all certificate profiles. Viewing all certificate profiles can help you delete all relevant certificate profiles to meet the criteria to downgrade.
+
+    :::image type="content" source="media/trusted-signing-certificate-profile-deletion-changesku.png" alt-text="Screenshot that shows selecting all certificate profile statuses to view all certificate profiles." lightbox="media/trusted-signing-certificate-profile-deletion-changesku.png":::
 
 # [Azure portal](#tab/sku-portal)
 
-To change the SKU (Pricing tier) from the Azure portal, follow these steps:
+To change the SKU (pricing tier) by using the Azure portal:
 
-1. Sign in to the Azure portal.
-2. Navigate to your Trusting Signing account in the Azure portal.
-3. On the account Overview page, locate the current **SKU (Pricing tier)**. 
-4. Select the current SKU selection hyperlink. Your current selection is highlighted in the "choose pricing tier" window.
-5. Select the SKU you want to update to (for example, downgrade to Basic or upgrade to Premium) and select **Update**. 
+1. In the Azure portal, go to your Trusting Signing account.
+1. On the account **Overview** pane, find the current value for **SKU (Pricing tier)**.
+1. Select the link for the current SKU. Your current SKU selection is highlighted in the **Choose pricing tier** pane.
+1. Select the SKU to update to (for example, downgrade to Basic or upgrade to Premium), and then select **Update**.
 
- 
 # [Azure CLI](#tab/sku-cli)
 
-To change the SKU with Azure CLI, use the following command: 
+To change the SKU by using the Azure CLI, run this command:
 
-```
+```azurecli
 az trustedsigning update -n MyAccount -g MyResourceGroup --sku Premium
 ```
+
 ---
 
-## Cost Management and Billing
+## Cost management and billing
 
-**Cost Management**
+View details about cost management and billing for your Trusted Signing resource by viewing your Azure subscription.
 
-View and estimate the cost of your Trusted Signing resource usage.  
-1. In the Azure portal, search **Subscriptions**.
-2. Select the **Subscription**, where you have created Trusted Signing resources.
-3. Select Cost Management from the menu on the left. Learn more about using [Cost Management](https://learn.microsoft.com/azure/cost-management-billing/costs/).
-4. For Trusted Signing, you can see costs associated to your Trusted Signing account.  
+### Cost management
 
-**Billing**
+To view and estimate the cost of your Trusted Signing resource usage:
 
-View Invoice for Trusted Signing service. 
-1. In the Azure portal, search **Subscriptions**.
-2. Select the **Subscription**, where you have created Trusted Signing resources.
-3. Select Billing from the menu on the left. Learn more about [Billing](https://learn.microsoft.com/azure/cost-management-billing/manage/).
+1. In the Azure portal, search for **Subscriptions**.
+1. Select the subscription you used to create your Trusted Signing resource.
+1. On the left menu, select **Cost Management**. Learn more about [cost management](../cost-management-billing/costs/overview-cost-management.md).
+1. Under **Trusted Signing**, verify that you can see the costs that are associated with your Trusted Signing account.  
+
+### Billing
+
+To view invoices for your Trusted Signing account:
+
+1. In the Azure portal, search for **Subscriptions**.
+1. Select the subscription you used to create your Trusted Signing resource.
+1. On the left menu, select **Billing**. Learn more about [billing](../cost-management-billing/cost-management-billing-overview.md).

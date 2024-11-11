@@ -20,7 +20,7 @@ The following are specific characteristics of Kafka on HDInsight:
 
 * It uses Azure Managed Disks as the backing store for Kafka. Managed Disks can provide up to 16 TB of storage per Kafka broker. For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Apache Kafka on HDInsight](apache-kafka-scalability.md).
 
-    For more information on managed disks, see [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md).
+    For more information on managed disks, see [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview).
 
 * Kafka was designed with a single dimensional view of a rack. Azure separates a rack into two dimensions - Update Domains (UD) and Fault Domains (FD). Microsoft provides tools that rebalance Kafka partitions and replicas across UDs and FDs.
 

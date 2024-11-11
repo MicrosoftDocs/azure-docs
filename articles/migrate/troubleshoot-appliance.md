@@ -13,9 +13,6 @@ ms.custom: engagement-fy25
 
 # Troubleshoot the Azure Migrate appliance
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 This article helps you troubleshoot issues when you deploy the [Azure Migrate](migrate-services-overview.md) appliance and use the appliance to discover on-premises servers.
 
 ## What's supported?
@@ -227,7 +224,7 @@ You can also run the commands from the command prompt on the appliance server by
 ssh <username>@<servername>
 ````
 
-Few Linux machines like Oracle/CentOS have a configuration value that requires **tty** option to be enabled by default which can cause an error. In such cases, you can disable this setting by adding **a "!"** character in the **/etc/sudoers** file. You can also add the following at the end of **/etc/sudoers/** file to ensure that no other configuration in the file can override this:
+Few Linux machines like Oracle have a configuration value that requires **tty** option to be enabled by default which can cause an error. In such cases, you can disable this setting by adding **a "!"** character in the **/etc/sudoers** file. You can also add the following at the end of **/etc/sudoers/** file to ensure that no other configuration in the file can override this:
 - Defaults    !visiblepw 
 - Defaults    !requiretty 
 

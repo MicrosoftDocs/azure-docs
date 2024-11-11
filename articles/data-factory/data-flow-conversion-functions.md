@@ -7,7 +7,7 @@ ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Conversion functions in mapping data flow

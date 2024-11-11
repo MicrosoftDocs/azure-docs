@@ -1,6 +1,6 @@
 ---
-title: Manage your academic grant in the Azure Education Hub
-description: Learn how to view and update the details of your academic grant on the Overview page of the Azure Education Hub.
+title: Manage your academic sponsorship in the Azure Education Hub
+description: Learn how to view and update the details of your academic sponsorship on the Overview page of the Azure Education Hub.
 author: v-shmck
 ms.author: rymend
 ms.topic: how-to
@@ -8,9 +8,9 @@ ms.service: azure-education
 ms.date: 08/07/2024
 ---
 
-# Manage your academic grant in the Azure Education Hub
+# Manage your academic sponsorship in the Azure Education Hub
 
-Your main landing page in the Azure Education Hub is the **Overview** page. This page contains all the relevant information about your academic grant, such as the number of labs that you established and your total running credit allocated and used from those labs. It also displays other resources available to help you get started with allocating credits and tracking your spend.
+Your main landing page in the Azure Education Hub is the **Overview** page. This page contains all the relevant information about your academic sponsorship, such as the number of labs that you established and your total running credit allocated and used from those labs. It also displays other resources available to help you get started with allocating credits and tracking your spend.
 
 ## Overview page
 

@@ -9,6 +9,7 @@ ms.author: darmour
 ms.date: 02/29/2024
 ms.topic: include
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ---
 
 1. On next step, you need to add a phone number to your WhatsApp for Business account. You can use a phone number that you purchased from Azure Communication Services or a number you purchased elsewhere. Another WhatsApp account can't use this phone number. If you were using an Azure Communication Services phone number, make sure that you completed the [Prerequisites](#prerequisites) and use the **Text message** option to verify the number.

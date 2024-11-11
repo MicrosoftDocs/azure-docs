@@ -2,7 +2,7 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 08/21/2024
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -92,7 +92,7 @@ az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name
 ### Backup only OS disk during modify protection with Azure CLI
 
 ```azurecli
-az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --exclude-all-data-disks
+ az backup protection update-for-vm --vault-name MyVault --resource-group MyResourceGroup --container-name MyContainer --item-name MyItem --disk-list-setting exclude --diskslist 1.
 ```
 
 ### Restore disks with Azure CLI

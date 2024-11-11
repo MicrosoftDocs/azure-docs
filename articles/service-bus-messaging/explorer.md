@@ -34,10 +34,10 @@ To use the Service Bus Explorer tool, you need to do the following tasks:
     - [Quickstart - Create topics](service-bus-quickstart-topics-subscriptions-portal.md)
 
     > [!NOTE]
-    > If it's not the namespace you created, ensure that you're a member of one of these roles on the namespace: 
-    > - [Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
-    > - [Contributor](../role-based-access-control/built-in-roles.md#contributor) 
-    > - [Owner](../role-based-access-control/built-in-roles.md#owner)
+    > Ensure that you're a member of one of these roles on the namespace or the entities you want to execute send or receive (including peek and purge) operations on: 
+    > - [Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner); Allows both send and receive operations.
+    > - [Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender); Allows send operations.
+    > - [Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver); Allows receive operations.
 
 ## Use the Service Bus Explorer
 
@@ -185,6 +185,14 @@ After the lock has been abandoned, the message will be available for receive ope
 
 After a message has been dead-lettered, it will be available from the **Dead-letter** subqueue.
 
+### Purge messages
+
+To Purge messages, select the **Purge messages** button of Service Bus explorer. 
+ 
+ :::image type="content" source="./media/service-bus-explorer/purge-messages.png" alt-text="Screenshot indicating the purge messages button." lightbox="./media/service-bus-explorer/purge-messages.png":::
+
+Once you enter 'purge' to confirm on the operation, messages would be purged from respective service bus entity. 
+
 ## Send a message to a queue or topic
 
 To send a message to a **queue** or a **topic**, select the **Send messages** button of the Service Bus Explorer.
@@ -222,11 +230,6 @@ After peeking or receiving a message, we can resend it, which will send a copy o
     > - If you resend a message in a dead-letter queue of a subscription, a copy of the message is sent to the topic. Therefore, all subscriptions will receive a copy of the message. 
 
 ## Switch authentication type
-
-> [!NOTE] 
-> To use Microsoft Entra ID (Azure Active Directory) authentication the following are required:
-> - The user/service principal is assigned the 'Azure Service Bus Data Owner' role. No other built in or customer roles are supported.
-> - The 'Azure Service Bus Data Owner' role has to be assigned at the namespace scope. Assignment at queue or topic scope is not supported.
 
 When working with Service Bus Explorer, it's possible to use either **Access Key** or **Microsoft Entra ID** authentication.
 

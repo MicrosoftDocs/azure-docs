@@ -91,7 +91,7 @@ Integrating Azure services with an Azure virtual network enables private access 
 
 ## Limits
 
-There are limits to the number of Azure resources that you can deploy. Most Azure networking limits are at the maximum values. However, you can [increase certain networking limits](../azure-portal/supportability/networking-quota-requests.md). For more information, see [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+There are limits to the number of Azure resources that you can deploy. Most Azure networking limits are at the maximum values. However, you can [increase certain networking limits](/azure/azure-portal/supportability/networking-quota-requests). For more information, see [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 ## Virtual networks and availability zones
 

@@ -59,7 +59,7 @@ In addition to execution time, when using one or more always ready instances, yo
 >[!IMPORTANT]
 >In this article, prices are only provided to help understand example calculations. Always check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) when estimating costs you might incur while running your functions in the Flex Consumtion plan. 
 
-For the examples in this section, consider the example prices in this table for pay-as-you-go in East US.
+For the examples in this section, consider the discounted preview pricing in this table for pay-as-you-go in East US.
 
 | Mode        | Meter             | Free monthly grants        | Consumption rates        |
 | ------------| ----------------- | -------------------------- | ------------------------ | 
@@ -107,7 +107,7 @@ When estimating the overall costs of your function app and related services, use
 | Related cost | Description |
 | ------------ | ----------- |
 | **Storage account** | Each function app requires that you have an associated General Purpose [Azure Storage account](../storage/common/storage-introduction.md#types-of-storage-accounts), which is [billed separately](https://azure.microsoft.com/pricing/details/storage/). This account is used internally by the Functions runtime, but you can also use it for Storage triggers and bindings. If you don't have a storage account, one is created for you when the function app is created. To learn more, see [Storage account requirements](storage-considerations.md#storage-account-requirements).|
-| **Application Insights** | Functions relies on [Application Insights](../azure-monitor/app/app-insights-overview.md) to provide a high-performance monitoring experience for your function apps. While not required, you should [enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration). A free grant of telemetry data is included every month. To learn more, see [the Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). |
+| **Application Insights** | Functions relies on [Application Insights](/azure/azure-monitor/app/app-insights-overview) to provide a high-performance monitoring experience for your function apps. While not required, you should [enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration). A free grant of telemetry data is included every month. To learn more, see [the Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). |
 | **Network bandwidth** | You can incur costs for data transfer depending on the direction and scenario of the data movement. To learn more, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/). |
 
 ## Behaviors affecting execution time
@@ -134,7 +134,7 @@ Function execution units are a combination of execution time and your memory usa
 
 If you haven't already done so, [enable Application Insights in your function app](configure-monitoring.md#enable-application-insights-integration). With this integration enabled, you can [query this telemetry data in the portal](analyze-telemetry-data.md#query-telemetry-data). 
 
-You can use either [Azure Monitor metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) in the [Azure portal] or REST APIs to get Monitor Metrics data.
+You can use either [Azure Monitor metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started) in the [Azure portal] or REST APIs to get Monitor Metrics data.
 
 [!INCLUDE [functions-consumption-metrics-queries](../../includes/functions-consumption-metrics-queries.md)]
 

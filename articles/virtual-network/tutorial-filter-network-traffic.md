@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Filter network traffic with a network security group (NSG) - Azure portal"
+title: "Tutorial: Filter network traffic with a network security group (NSG)"
 titlesuffix: Azure Virtual Network
-description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group (NSG), using the Azure portal.
+description: In this tutorial, you learn how to filter network traffic to a subnet with a network security group (NSG).
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: tutorial
@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 # Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ---
 
-# Tutorial: Filter network traffic with a network security group using the Azure portal
+# Tutorial: Filter network traffic with a network security group
 
 You can use a network security group to filter inbound and outbound network traffic to and from Azure resources in an Azure virtual network.
 
@@ -471,7 +471,7 @@ az network nsg rule create \
 ```
 
 > [!CAUTION]
-> In this article, SSJ (port 22) is exposed to the internet for the VM that is assigned to the **asg-mgmt** application security group.
+> In this article, SSH (port 22) is exposed to the internet for the VM that is assigned to the **asg-mgmt** application security group.
 >
 > For production environments, instead of exposing port 22 to the internet, it's recommended that you connect to Azure resources that you want to manage using a VPN, private network connection, or Azure Bastion.
 >
@@ -857,7 +857,7 @@ az network nic ip-config update \
 
 1. Search for **vm-web** in the portal search box.
 
-1. On the **Overview** page of **vm-web**, note the **Public IP address** for your VM. The address shown in the following example is 20.230.55.178. Your address is different:
+1. On the **Overview** page of **vm-web**, note the **Public IP address** for your VM. The address shown in the following example is 203.0.113.103. Your address is different:
 
    :::image type="content" source="./media/tutorial-filter-network-traffic/public-ip-address.png" alt-text="Screenshot of Public IP address of a virtual machine in the Overview page." border="true" lightbox="./media/tutorial-filter-network-traffic/public-ip-address.png":::
 

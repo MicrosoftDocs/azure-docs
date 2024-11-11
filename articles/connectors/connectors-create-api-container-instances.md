@@ -16,7 +16,7 @@ ms.date: 01/04/2024
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-With Azure Logic Apps and the Azure Container Instance connector, you can set up automated tasks and workflows that deploy and manage [container groups](../container-instances/container-instances-container-groups.md). The Container Instance connector supports the following actions:
+With Azure Logic Apps and the Azure Container Instance connector, you can set up automated tasks and workflows that deploy and manage [container groups](/azure/container-instances/container-instances-container-groups). The Container Instance connector supports the following actions:
 
 * Create or delete a container group
 * Get the properties of a container group
@@ -40,7 +40,7 @@ If you're new to logic apps, review
 
   * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
 
-  * [Create and manage container instances](../container-instances/container-instances-quickstart.md)
+  * [Create and manage container instances](/azure/container-instances/container-instances-quickstart)
 
 * The logic app where you want to access your container instances. To use an action, start your logic app with another trigger, for example, the **Recurrence** trigger.
 
@@ -79,7 +79,7 @@ and continue building your logic app's workflow.
 
 For technical details about triggers, actions, and limits, which are 
 described by the connector's OpenAPI (formerly Swagger) description, 
-review the connector's [reference page](/connectors/aci/) or container group [YAML reference](../container-instances/container-instances-reference-yaml.md).
+review the connector's [reference page](/connectors/aci/) or container group [YAML reference](/azure/container-instances/container-instances-reference-yaml).
 
 ## Next steps
 

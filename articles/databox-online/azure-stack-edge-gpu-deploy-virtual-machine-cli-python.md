@@ -4,8 +4,7 @@ description: Describes how to create and manage virtual machines (VMs) on an Azu
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: alkohli
@@ -437,4 +436,4 @@ A Python script is provided to you to create a VM. Depending on whether you are 
 
 ## Next steps
 
-[Common Az CLI commands for Linux virtual machines](../virtual-machines/linux/cli-manage.md)
+[Common Az CLI commands for Linux virtual machines](/azure/virtual-machines/linux/cli-manage)

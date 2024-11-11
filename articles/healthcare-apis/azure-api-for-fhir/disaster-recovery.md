@@ -11,7 +11,7 @@ ms.author: ounyman
 
 # Disaster recovery for Azure API for FHIR
 
-[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 Azure API for FHIR is a fully managed service, based on Fast Healthcare Interoperability Resources (FHIR®). To meet business and compliance requirements you can use the disaster recovery (DR) feature for Azure API for FHIR. 
 
@@ -19,11 +19,11 @@ The DR feature provides a Recovery Point Objective (RPO) of 15 minutes and a Rec
 
 ## How to enable DR 
   
-To enable the DR feature, create a one-time support ticket. You can choose an Azure paired region or another region where the Azure API for FHIR is supported. The Microsoft support team will enable the DR feature based on the support priority.
+To enable the DR feature, create a one-time support ticket. You can choose an Azure paired region or another region where the Azure API for FHIR is supported. The Microsoft support team enables the DR feature based on the support priority.
 
 ## How the DR process works
 
-The DR process involves the following steps: 
+The DR process involves the following steps.
 * Data replication
 * Automatic failover
 * Affected region recovery
@@ -49,7 +49,7 @@ After the affected region recovers, it's automatically available as a secondary 
 
 [![Diagram that shows replication in disaster recovery.](media/disaster-recovery/replication-in-disaster-recovery.png)](media/disaster-recovery/replication-in-disaster-recovery.png#lightbox)
 
-When the compute has failed back to the recovered region and the data hasn't, there may be potential network latencies. The main reason is that the compute and the data are in two different regions. The network latencies should disappear automatically as soon as the data fails back to the recovered region through a manual trigger.
+When the compute fails back to the recovered region and the data hasn't, there may be potential network latencies. The main reason is that the compute and the data are in two different regions. The network latencies should disappear automatically as soon as the data fails back to the recovered region through a manual trigger.
 
 [![Diagram that shows network latency.](media/disaster-recovery/network-latency.png)](media/disaster-recovery/network-latency.png#lightbox)
 
@@ -61,11 +61,11 @@ The compute fails back automatically to the recovered region. The data is switch
 
 ## Configuration changes in DR
 
-Other configuration changes may be required when Private Link, Customer Managed Key (CMK), IoMT FHIR Connector (the Internet of Medical Things) and $export are used.
+Other configuration changes may be required when Private Link, Customer Managed Key (CMK), IoMT FHIR Connector (the Internet of Medical Things) and `$export` are used.
 
 ### Private link
 
-You can enable the private link feature before or after the Azure API for FHIR has been provisioned. You can also provision private link before or after the DR feature has been enabled. Refer to the list below when you're ready to configure Private Link for DR.
+You can enable the private link feature before or after the Azure API for FHIR has been provisioned. You can also provision private link before or after the DR feature has been enabled. Refer to the following list when you're ready to configure Private Link for DR.
 
 * Configure Azure Private Link in the primary region. This step isn't required in the secondary region. For more information, see [Configure private link](/azure/healthcare-apis/fhir/configure-private-link)
 
@@ -73,9 +73,9 @@ You can enable the private link feature before or after the Azure API for FHIR h
 
 * In the primary region, VNet creates a VNet peering to the secondary region VNet. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
 
-* Use the default settings, or you can tailor the configuration as needed. The importance is that the traffic can flow between the two virtual networks.
+* Use the default settings, or you can tailor the configuration as needed. It's most important that the traffic can flow between the two virtual networks.
 
-* When the private DNS is set up, the VNet in the secondary region needs to be manually set up as a "Virtual network links". The primary VNet should have already been added as part of the Private Link endpoint creation flow. For more information, see [Virtual network links](../../dns/private-dns-virtual-network-links.md).
+* When the private DNS is set up, the VNet in the secondary region needs to be manually set up as a "Virtual network links". The primary VNet should already be added as part of the Private Link endpoint creation flow. For more information, see [Virtual network links](../../dns/private-dns-virtual-network-links.md).
 
 * Optionally, set up one VM in the primary region VNet and one in the secondary region VNet. You can access the Azure API for FHIR from both VMs.
 
@@ -96,7 +96,7 @@ Ensure that you grant the same permissions to the system identity of the Azure A
 
 ## How to test DR
 
-While not required, you can test the DR feature on a non-production environment. For DR test, only the data will be included and the compute won't be included. 
+While not required, you can test the DR feature on a non-production environment. For a DR test, only the data is included. The compute isn't included. 
 
 Consider the following steps for DR test.
 
@@ -108,7 +108,7 @@ Consider the following steps for DR test.
  
 * The Microsoft support team enables the DR feature and confirms that the preferred failover region by the customer has been added
 
-* Conduct your DR test and record the testing results, which it should include any data loss and network latency issues. 
+* Conduct your DR test and record the testing results, which should include any data loss and network latency issues. 
 
 * For failback, notify the Microsoft support team to complete the failback step.
  
@@ -126,9 +126,9 @@ The disaster recovery feature incurs extra costs because data of the compute and
 
 ## Next steps
 
-In this article, you've learned how DR for Azure API for FHIR works and how to enable it. To learn about Azure API for FHIR's other supported features, see
+In this article, you learned how DR for Azure API for FHIR works and how to enable it. To learn about Azure API for FHIR's other supported features, see
 
 > [!div class="nextstepaction"]
-> [FHIR supported features](fhir-features-supported.md)
+> [FHIR supported features](fhir-features-supported.md).
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

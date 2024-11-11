@@ -26,7 +26,7 @@ Core Tools commands are organized into the following contexts, each providing a 
 
 Before using the commands in this article, you must [install the Core Tools](functions-run-local.md#install-the-azure-functions-core-tools). 
 
-## func init 
+## `func init`
 
 Creates a new Functions project in a specific language.
 
@@ -49,13 +49,13 @@ When you supply `<PROJECT_FOLDER>`, the project is created in a new folder with 
 | **`--model`** | Sets the desired programming model for a target language when more than one model is available. Supported options are `V1` and `V2` for Python and `V3` and `V4` for Node.js. For more information, see the [Python developer guide](functions-reference-python.md#programming-model) and the [Node.js developer guide](functions-reference-node.md), respectively. |
 | **`--source-control`** | Controls whether a git repository is created. By default, a repository isn't created. When `true`, a repository is created. |
 | **`--worker-runtime`** | Sets the language runtime for the project. Supported values are: `csharp`, `dotnet`, `dotnet-isolated`, `javascript`,`node` (JavaScript), `powershell`, `python`, and `typescript`. For Java, use [Maven](functions-reference-java.md#create-java-functions). To generate a language-agnostic project with just the project files, use `custom`. When not set, you're prompted to choose your runtime during initialization. |
-| **`--target-framework`** | Sets the target framework for the function app project. Valid only with `--worker-runtime dotnet-isolated`. Supported values are: `net6.0` (default), `net7.0`, `net8.0`, and `net48` (.NET Framework 4.8). |
+| **`--target-framework`** | Sets the target framework for the function app project. Valid only with `--worker-runtime dotnet-isolated`. Supported values are: `net9.0` (preview), `net8.0` (default), `net6.0`, and `net48` (.NET Framework 4.8). |
 |
 
 > [!NOTE]
 > When you use either `--docker` or `--docker-only` options, Core Tools automatically create the Dockerfile for C#, JavaScript, Python, and PowerShell functions. For Java functions, you must manually create the Dockerfile. For more information, see [Creating containerized function apps](functions-how-to-custom-container.md#creating-containerized-function-apps).
 
-## func logs
+## `func logs`
 
 Gets logs for functions running in a Kubernetes cluster.
 
@@ -72,7 +72,7 @@ The `func logs` action supports the following options:
 
 To learn more, see [Azure Functions on Kubernetes with KEDA](functions-kubernetes-keda.md).
 
-## func new
+## `func new`
 
 Creates a new function in the current project based on a template.
 
@@ -94,7 +94,7 @@ The `func new` action supports the following options:
 
 To learn more, see [Create a function](functions-run-local.md#create-func).
 
-## func run
+## `func run`
 
 *Version 1.x only.*
 
@@ -120,13 +120,13 @@ For example, to call an HTTP-triggered function and pass content body, run the f
 func run MyHttpTrigger --content '{\"name\": \"Azure\"}'
 ```
 
-## func start
+## `func start`
 
 Starts the local runtime host and loads the function project in the current folder. 
 
 The specific command depends on the [runtime version](functions-versions.md).   
 
-# [v2.x+](#tab/v2)
+### [v2.x+](#tab/v2)
 
 ```command
 func start
@@ -152,7 +152,7 @@ func start
 
 With the project running, you can [verify individual function endpoints](functions-run-local.md#run-a-local-function).
 
-# [v1.x](#tab/v1)
+### [v1.x](#tab/v1)
 
 ```command
 func host start
@@ -173,7 +173,7 @@ In version 1.x, you can also use the [`func run`](#func-run) command to run a sp
 
 ---
 
-## func azure functionapp fetch-app-settings
+## `func azure functionapp fetch-app-settings`
 
 Gets settings from a specific function app.
 
@@ -185,14 +185,14 @@ For more information, see [Download application settings](functions-run-local.md
 
 Settings are downloaded into the local.settings.json file for the project. On-screen values are masked for security. You can protect settings in the local.settings.json file by [enabling local encryption](functions-run-local.md#encrypt-the-local-settings-file). 
 
-## func azure functionapp list-functions
+## `func azure functionapp list-functions`
 
 Returns a list of the functions in the specified function app.
 
 ```command
 func azure functionapp list-functions <APP_NAME>
 ```
-## func azure functionapp logstream
+## `func azure functionapp logstream`
 
 Connects the local command prompt to streaming logs for the function app in Azure.
 
@@ -210,7 +210,7 @@ The `deploy` action supports the following options:
 
 For more information, see [Enable streaming execution logs in Azure Functions](streaming-logs.md).
 
-## func azure functionapp publish 
+## `func azure functionapp publish`
 
 Deploys a Functions project to an existing function app resource in Azure. 
 
@@ -255,7 +255,7 @@ The following publish options apply, based on version:
 
 ---
 
-## func azure storage fetch-connection-string    
+## `func azure storage fetch-connection-string`
 
 Gets the connection string for the specified Azure Storage account.
 
@@ -265,7 +265,7 @@ func azure storage fetch-connection-string <STORAGE_ACCOUNT_NAME>
 
 For more information, see [Download a storage connection string](functions-run-local.md#download-a-storage-connection-string).
 
-## func azurecontainerapps deploy    
+## `func azurecontainerapps deploy`
 
 Deploys a containerized function app to an Azure Container Apps environment. Both the storage account used by the function app and the environment must already exist. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
 
@@ -298,11 +298,11 @@ The following deployment options apply:
 > [!IMPORTANT]
 > Storage connection strings and other service credentials are important secrets. Make sure to securely store any script files using `func azurecontainerapps deploy` and don't store them in any publicly accessible source control. 
 
-## func deploy
+## `func deploy`
 
 The `func deploy` command is deprecated. Instead use [`func kubernetes deploy`](#func-kubernetes-deploy).
 
-## func durable delete-task-hub
+## `func durable delete-task-hub`
 
 Deletes all storage artifacts in the Durable Functions task hub.
 
@@ -319,7 +319,7 @@ The `delete-task-hub` action supports the following options:
 
 To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#delete-a-task-hub).
 
-## func durable get-history
+## `func durable get-history`
 
 Returns the history of the specified orchestration instance.
 
@@ -337,7 +337,7 @@ The `get-history` action supports the following options:
 
 To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-1).
 
-## func durable get-instances
+## `func durable get-instances`
 
 Returns the status of all orchestration instances. Supports paging using the `top` parameter.
 
@@ -359,7 +359,7 @@ The `get-instances` action supports the following options:
 
 To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-2).
 
-## func durable get-runtime-status  
+## `func durable get-runtime-status`
 
 Returns the status of the specified orchestration instance.
 
@@ -379,7 +379,7 @@ The `get-runtime-status` action supports the following options:
 
 To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-1).
 
-## func durable purge-history
+## `func durable purge-history`
 
 Purge orchestration instance state, history, and blob storage for orchestrations older than the specified threshold.
 
@@ -399,7 +399,7 @@ The `purge-history` action supports the following options:
 
 To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-7).
 
-## func durable raise-event         
+## `func durable raise-event`
 
 Raises an event to the specified orchestration instance.
 
@@ -419,7 +419,7 @@ The `raise-event` action supports the following options:
 
 To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-5).
 
-## func durable rewind              
+## `func durable rewind`
 
 Rewinds the specified orchestration instance.
 
@@ -438,7 +438,7 @@ The `rewind` action supports the following options:
 
 To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-6).
 
-## func durable start-new
+## `func durable start-new`
 
 Starts a new instance of the specified orchestrator function.
 
@@ -458,7 +458,7 @@ The `start-new` action supports the following options:
 
 To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools).
 
-## func durable terminate
+## `func durable terminate`
 
 Stops the specified orchestration instance.
 
@@ -477,7 +477,7 @@ The `terminate` action supports the following options:
 
 To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-4).
 
-## func extensions install
+## `func extensions install`
 
 Manually installs Functions extensions in a non-.NET project or in a C# script project. 
 
@@ -519,7 +519,7 @@ The following considerations apply when using `func extensions install`:
 
 + The first time you explicitly install an extension, a .NET project file named extensions.csproj is added to the root of your app project. This file defines the set of NuGet packages required by your functions. While you can work with the [NuGet package references](/nuget/consume-packages/package-references-in-project-files) in this file, Core Tools lets you install extensions without having to manually edit this C# project file.
 
-## func extensions sync
+## `func extensions sync`
 
 Installs all extensions added to the function app.
 
@@ -533,7 +533,7 @@ The `sync` action supports the following options:
 
 Regenerates a missing extensions.csproj file. No action is taken when an extension bundle is defined in your host.json file.
 
-## func kubernetes deploy
+## `func kubernetes deploy`
 
 Deploys a Functions project as a custom docker container to a Kubernetes cluster.
 
@@ -570,9 +570,9 @@ The following Kubernetes deployment options are available:
 
 Core Tools uses the local Docker CLI to build and publish the image. Make sure your Docker is already installed locally. Run the `docker login` command to connect to your account.
 
-To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes).
+Azure Functions supports hosting your containerized functions either in Azure Container Apps or in Azure Functions. Running your containers directly in a Kubernetes cluster or in Azure Kubernetes Service (AKS) isn't officially supported by Azure Functions. To learn more, see [Linux container support in Azure Functions](container-concepts.md).
 
-## func kubernetes install
+## `func kubernetes install`
 
 Installs KEDA in a Kubernetes cluster.
 
@@ -592,7 +592,7 @@ The `install` action supports the following options:
 
 To learn more, see [Managing KEDA and functions in Kubernetes](functions-kubernetes-keda.md#managing-keda-and-functions-in-kubernetes).
 
-## func kubernetes remove
+## `func kubernetes remove`
 
 Removes KEDA from the Kubernetes cluster defined in the kubectl config file.
 
@@ -610,7 +610,7 @@ The `remove` action supports the following options:
 
 To learn more, see [Uninstalling KEDA from Kubernetes](functions-kubernetes-keda.md#uninstalling-keda-from-kubernetes).
 
-## func settings add
+## `func settings add`
 
 Adds a new setting to the `Values` collection in the [local.settings.json file].
 
@@ -626,7 +626,7 @@ The `add` action supports the following option:
 | ------------ | -------------------------------------- |
 | **`--connectionString`** | Adds the name-value pair to the `ConnectionStrings` collection instead of the `Values` collection. Only use the `ConnectionStrings` collection when required by certain frameworks. To learn more, see [local.settings.json file]. |
 
-## func settings decrypt
+## `func settings decrypt`
 
 Decrypts previously encrypted values in the `Values` collection in the [local.settings.json file].
 
@@ -636,7 +636,7 @@ func settings decrypt
 
 Connection string values in the `ConnectionStrings` collection are also decrypted. In local.settings.json, `IsEncrypted` is also set to `false`. Encrypt local settings to reduce the risk of leaking valuable information from local.settings.json. In Azure, application settings are always stored encrypted. 
 
-## func settings delete
+## `func settings delete`
 
 Removes an existing setting from the `Values` collection in the [local.settings.json file].
 
@@ -652,7 +652,7 @@ The `delete` action supports the following option:
 | ------------ | -------------------------------------- |
 | **`--connectionString`** | Removes the name-value pair from the `ConnectionStrings` collection instead of from the `Values` collection. |
 
-## func settings encrypt
+## `func settings encrypt`
 
 Encrypts the values of individual items in the `Values` collection in the [local.settings.json file].
 
@@ -662,7 +662,7 @@ func settings encrypt
 
 Connection string values in the `ConnectionStrings` collection are also encrypted. In local.settings.json, `IsEncrypted` is also set to `true`, which specifies that the local runtime decrypts settings before using them. Encrypt local settings to reduce the risk of leaking valuable information from local.settings.json. In Azure, application settings are always stored encrypted. 
 
-## func settings list
+## `func settings list`
 
 Outputs a list of settings in the `Values` collection in the [local.settings.json file]. 
 
@@ -678,7 +678,7 @@ The `list` action supports the following option:
 | ------------ | -------------------------------------- |
 | **`--showValue`** | Shows the actual unmasked values in the output. |
 
-## func templates list
+## `func templates list`
 
 Lists the available function (trigger) templates.
 

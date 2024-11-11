@@ -127,7 +127,7 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 [!INCLUDE [azure-search-limits-per-service](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-service.md)]
 
-To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](../../search/search-limits-quotas-capacity.md).
+To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capacity).
 
 <a name='azure-cognitive-services-limits'></a>
 
@@ -137,7 +137,7 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ## Azure Chaos Studio limits
 
-For Azure Chaos Studio limits, see [Azure Chaos Studio service limits](../../chaos-studio/chaos-studio-service-limits.md).
+For Azure Chaos Studio limits, see [Azure Chaos Studio service limits](/azure/chaos-studio/chaos-studio-service-limits).
 
 ## Azure Communications Gateway limits
 
@@ -213,7 +213,7 @@ For Azure Load Testing limits, see [Service limits in Azure Load Testing](../../
 
 ## Azure Machine Learning limits
 
-The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../../machine-learning/how-to-manage-quotas.md)
+The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](/azure/machine-learning/how-to-manage-quotas)
 
 ## Azure Maps limits
 
@@ -225,7 +225,7 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 ## Azure Monitor limits
 
-For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor/service-limits.md).
+For Azure Monitor limits, see [Azure Monitor service limits](/azure/azure-monitor/service-limits).
 
 ## Azure Data Factory limits
 
@@ -324,9 +324,9 @@ If you use classic deployment model instead of the Azure Resource Manager deploy
 
 ## Container Registry limits
 
-The following table details the features and limits of the Basic, Standard, and Premium [service tiers](../../container-registry/container-registry-skus.md).
+The following table details the features and limits of the Basic, Standard, and Premium [service tiers](/azure/container-registry/container-registry-skus).
 
-[!INCLUDE [container-registry-limits](../../../includes/container-registry-limits.md)]
+[!INCLUDE [container-registry-limits](~/reusable-content/ce-skilling/azure/includes/container-registry/container-registry-limits.md)]
 
 ## Content Delivery Network limits
 
@@ -397,7 +397,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Media Services v2 (legacy)
 
-For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/azure/media-services/previous/media-services-quotas-and-limitations)
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)]
 
 ## Mobile Services limits
 
@@ -410,6 +410,9 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 ## Networking limits
 
 [!INCLUDE [azure-virtual-network-limits](../../../includes/azure-virtual-network-limits.md)]
+
+### <a name="load-balancer"></a>Azure Load Balancer limits
+[!INCLUDE [azure-load-balancer-limits](../../../includes/load-balancer-limits.md)]
 
 ### Application Gateway limits
 
@@ -509,18 +512,18 @@ The maximum number of private endpoints per Azure SQL Database logical server is
 
 [!INCLUDE [azure-storage-limits-vm-disks](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks.md)]
 
-For more information, see [Virtual machine sizes](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information, see [Virtual machine sizes](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [azure-storage-limits-vm-apps](../../../includes/azure-storage-limits-vm-apps.md)]
 
-For more information, see [VM Applications](../../virtual-machines/vm-applications.md).
+For more information, see [VM Applications](/azure/virtual-machines/vm-applications).
 
 #### Disk encryption sets
 
-There's a limitation of 1000 disk encryption sets per region, per subscription. For more
+There's a limitation of 5000 disk encryption sets per region, per subscription. For more
 information, see the encryption documentation for
-[Linux](../../virtual-machines/disk-encryption.md#restrictions) or
-[Windows](../../virtual-machines/disk-encryption.md#restrictions) virtual machines. If you
+[Linux](/azure/virtual-machines/disk-encryption#restrictions) or
+[Windows](/azure/virtual-machines/disk-encryption#restrictions) virtual machines. If you
 need to increase the quota, contact Azure support.
 
 ### Managed virtual machine disks
@@ -580,6 +583,6 @@ The maximum number of allowed Managed Run Commands is currently limited to 25.
 ## See also
 
 * [Understand Azure limits and increases](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)
-* [Virtual machine and cloud service sizes for Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Virtual machine and cloud service sizes for Azure](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Sizes for Azure Cloud Services](../../cloud-services/cloud-services-sizes-specs.md)
 * [Naming rules and restrictions for Azure resources](resource-name-rules.md)

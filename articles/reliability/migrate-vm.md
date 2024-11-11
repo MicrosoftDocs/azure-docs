@@ -28,8 +28,8 @@ For more information on availability zone support for VM services, see [Reliabil
 
 To migrate to availability zone support, your VM SKUs must be available across the zones in for your region. To check for VM SKU availability, use one of the following methods:
 
-- Use PowerShell to [Check VM SKU availability](../virtual-machines/windows/create-PowerShell-availability-zone.md#check-vm-sku-availability).
-- Use the Azure CLI to [Check VM SKU availability](../virtual-machines/linux/create-cli-availability-zone.md#check-vm-sku-availability).
+- Use PowerShell to [Check VM SKU availability](/azure/virtual-machines/windows/create-powershell-availability-zone#check-vm-sku-availability).
+- Use the Azure CLI to [Check VM SKU availability](/azure/virtual-machines/linux/create-cli-availability-zone#check-vm-sku-availability).
 - Go to [Foundational Services](availability-zones-service-support.md#an-icon-that-signifies-this-service-is-foundational-foundational-services).
 
 ## Downtime requirements
@@ -48,7 +48,7 @@ Use the redeployment option if you have set up good Infrastructure as Code (IaC)
 
 - Existing managed disks without availability zone support can't be attached to a VM with availability zone support. To attach existing managed disks to a VM with availability zone support, you need to take a snapshot of the current disks, and then create your VM with the new managed disks attached.
 
-- For zonal deployments that require reasonably low network latency and good performance between application tier and data tier, use [proximity placement groups](../virtual-machines/co-location.md). Proximity groups can force grouping of different VM resources under a single network spine. For an example of an SAP workload that uses proximity placement groups, see [Azure proximity placement groups for optimal network latency with SAP applications](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md)
+- For zonal deployments that require reasonably low network latency and good performance between application tier and data tier, use [proximity placement groups](/azure/virtual-machines/co-location). Proximity groups can force grouping of different VM resources under a single network spine. For an example of an SAP workload that uses proximity placement groups, see [Azure proximity placement groups for optimal network latency with SAP applications](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios)
 
 
 ### How to redeploy
@@ -57,11 +57,11 @@ If you want to migrate the data on your current managed disks when creating a ne
 
 If you only want to create new VM with new managed disks in an availability zone, see:
 
-- [Create VM using Azure CLI](../virtual-machines/linux/create-cli-availability-zone.md)
-- [Create VM using Azure PowerShell](../virtual-machines/windows/create-PowerShell-availability-zone.md)
-- [Create VM using Azure portal](../virtual-machines/create-portal-availability-zone.md?tabs=standard)
+- [Create VM using Azure CLI](/azure/virtual-machines/linux/create-cli-availability-zone)
+- [Create VM using Azure PowerShell](/azure/virtual-machines/windows/create-powershell-availability-zone)
+- [Create VM using Azure portal](/azure/virtual-machines/create-portal-availability-zone?tabs=standard)
 
-To learn how to create Virtual Machine Scale Sets in an availability zone, see [Create a virtual machine scale set that uses Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md).
+To learn how to create Virtual Machine Scale Sets in an availability zone, see [Create a virtual machine scale set that uses Availability Zones](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones).
 
 ### Migrate your managed disks
 
@@ -69,12 +69,12 @@ In this section, you migrate the data from your current managed disks to either 
 
 #### Step 1: Create your snapshot
 
-The easiest and cleanest way to create a snapshot is to do so while the VM is offline. See [Snapshots](../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md#snapshots). If you choose this approach, some downtime should be expected. To create a snapshot of your VM using the Azure portal, PowerShell, or Azure CLI, see [Create a snapshot of a virtual hard disk](../virtual-machines/snapshot-copy-managed-disk.md)
+The easiest and cleanest way to create a snapshot is to do so while the VM is offline. See [Snapshots](/azure/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks#snapshots). If you choose this approach, some downtime should be expected. To create a snapshot of your VM using the Azure portal, PowerShell, or Azure CLI, see [Create a snapshot of a virtual hard disk](/azure/virtual-machines/snapshot-copy-managed-disk)
 
-If you're taking a snapshot of a disk that's attached to a running VM, read the guidance in [Snapshots](../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md#snapshots) before proceeding.
+If you're taking a snapshot of a disk that's attached to a running VM, read the guidance in [Snapshots](/azure/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks#snapshots) before proceeding.
 
 >[!NOTE]
-> The source managed disks remain intact with their current configurations and you'll continue to be billed for them. To avoid this, you must manually delete the disks once you've finished your migration and confirmed the new disks are working. For more information, see [Find and delete unattached Azure managed and unmanaged disks](../virtual-machines/windows/find-unattached-disks.md).
+> The source managed disks remain intact with their current configurations and you'll continue to be billed for them. To avoid this, you must manually delete the disks once you've finished your migration and confirmed the new disks are working. For more information, see [Find and delete unattached Azure managed and unmanaged disks](/azure/virtual-machines/windows/find-unattached-disks).
 
 
 #### Step 2: Migrate the data on your managed disks
@@ -84,7 +84,7 @@ Now that you have snapshots of your original disks, you can use them to create e
 
 To migrate a non-zonal managed disk to zonal:
 
-1. Create a zonal managed disk from the source disk snapshot. The zone parameter should match your zonal VM.  To create a zonal managed disk from the snapshot, you can use [Azure CLI](../virtual-machines/scripts/create-managed-disk-from-snapshot.md)(example below), [PowerShell](../virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md), or the Azure portal.
+1. Create a zonal managed disk from the source disk snapshot. The zone parameter should match your zonal VM.  To create a zonal managed disk from the snapshot, you can use [Azure CLI](/azure/virtual-machines/scripts/create-managed-disk-from-snapshot)(example below), [PowerShell](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot), or the Azure portal.
 
     ```azurecli
         az disk create --resource-group $resourceGroupName --name $diskName --location $location --zone $zone --sku $storageType --size-gb $diskSize --source $snapshotId
@@ -95,7 +95,7 @@ To migrate a non-zonal managed disk to zonal:
 ##### Migrate your data to ZRS managed disks
 
 >[!IMPORTANT]
-> Zone-redundant storage (ZRS) for managed disks has some restrictions. For more information, see [Limitations](../virtual-machines/disks-deploy-zrs.md?tabs=portal#limitations). 
+> Zone-redundant storage (ZRS) for managed disks has some restrictions. For more information, see [Limitations](/azure/virtual-machines/disks-deploy-zrs?tabs=portal#limitations). 
 
 1. Create a ZRS managed disk from the source disk snapshot by using the following Azure CLI snippet: 
 
@@ -206,11 +206,11 @@ The following table describes the support matrix for moving virtual machines net
 
 ### How to move a VM from regional to zonal configuration
 
-Before moving a VM from regional to zonal configuration, see [FAQ - Move Azure single instance VM from regional to zonal](../virtual-machines/move-virtual-machines-regional-zonal-faq.md).
+Before moving a VM from regional to zonal configuration, see [FAQ - Move Azure single instance VM from regional to zonal](/azure/virtual-machines/move-virtual-machines-regional-zonal-faq).
 
-To learn how to move VMs from regional to zonal configuration within same region in the Azure portal, see [Move Azure single instance VMs from regional to zonal configuration](../virtual-machines/move-virtual-machines-regional-zonal-portal.md).
+To learn how to move VMs from regional to zonal configuration within same region in the Azure portal, see [Move Azure single instance VMs from regional to zonal configuration](/azure/virtual-machines/move-virtual-machines-regional-zonal-portal).
 
-To learn how to do the same using Azure PowerShell and CLI, see [Move a VM in an availability zone using Azure PowerShell and CLI](../virtual-machines/move-virtual-machines-regional-zonal-powershell.md).
+To learn how to do the same using Azure PowerShell and CLI, see [Move a VM in an availability zone using Azure PowerShell and CLI](/azure/virtual-machines/move-virtual-machines-regional-zonal-powershell).
 
 ## Migration Option 3: Azure Resource Mover
 
@@ -244,6 +244,6 @@ The following requirements should be part of a disaster recovery strategy that h
 - [Azure services and regions that support availability zones](availability-zones-service-support.md)
 - [Reliability in Virtual Machines](./reliability-virtual-machines.md)
 - [Reliability in Virtual Machine Scale Sets](./reliability-virtual-machine-scale-sets.md)
-- [Move single instance Azure VMs from regional to zonal configuration using PowerShell](../virtual-machines/move-virtual-machines-regional-zonal-powershell.md)
-- [Move single instance Azure VMs from regional to zonal configuration via portal](../virtual-machines/move-virtual-machines-regional-zonal-portal.md)
+- [Move single instance Azure VMs from regional to zonal configuration using PowerShell](/azure/virtual-machines/move-virtual-machines-regional-zonal-powershell)
+- [Move single instance Azure VMs from regional to zonal configuration via portal](/azure/virtual-machines/move-virtual-machines-regional-zonal-portal)
 

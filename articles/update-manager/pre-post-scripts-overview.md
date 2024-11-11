@@ -2,8 +2,8 @@
 title: An overview of pre and post events in your Azure Update Manager
 description: This article provides an overview on pre and post events and its requirements.
 ms.service: azure-update-manager
-ms.date: 07/24/2024
-ms.topic: conceptual
+ms.date: 09/06/2024
+ms.topic: overview
 author: SnehaSudhir 
 ms.author: sudhirsneha
 ---

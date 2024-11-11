@@ -25,7 +25,7 @@ The following table shows the default IPsec parameters for Point-to-site VPN con
 | Phase 1 IKE Integrity |  SHA256 |
 | DH Group | DHGroup24 |
 | Phase 2 IPsec Encryption | GCMAES256|
-| Phase 2 IPsec Integrity | GCMAES25 |
+| Phase 2 IPsec Integrity | GCMAES256 |
 | PFS Group |PFS24|
 
 ## Custom IPsec policies

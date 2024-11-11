@@ -79,7 +79,7 @@ rooms_client = RoomsClient.from_connection_string(connection_string)
 ## Create a room
 
 ### Set up room participants
-In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-python) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
+In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-python) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`. ACS Rooms currently supports a room participant of type CommunicationUserIdentifier only, using other types of CommunicationIdentity will result in a runtime error.
 
 To use the `CommunicationIdentityClient`, install the following package:
 

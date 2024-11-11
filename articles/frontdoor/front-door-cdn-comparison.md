@@ -4,7 +4,7 @@ description: This article provides a comparison between the different Azure Fron
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/13/2023
 ms.author: duau
 ---
@@ -17,13 +17,17 @@ Azure Front Door and Azure CDN are both Azure services that offer global content
 
 > [!NOTE]
 > To switch between tiers, you will need to recreate the Azure Front Door profile. You can use the [**migration capability**](migrate-tier.md) to move your existing Azure Front Door profile to the new tier. For more information about upgrading from Standard to Premium, see [**upgrade capability**](tier-upgrade.md).
-> 
+>
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 ## Service comparison
 
 The following table provides a comparison between Azure Front Door and Azure CDN services.
 
-| Features and optimizations | Front Door Standard | Front Door Premium | Front Door Classic | Azure CDN Standard Microsoft | Azure CDN Standard Edgio | Azure CDN Premium Edgio |
+| Features and optimizations | Front Door Standard | Front Door Premium | Front Door (classic) | CDN Standard from Microsoft (classic) | CDN Standard from Edgio | CDN Premium from Edgio |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Delivery and acceleration** | | | | | | |
 | Static file delivery | &check; | &check; | &check; | &check; | &check; | &check; |
@@ -75,9 +79,21 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Compression encodings | gzip, brotli | gzip, brotli | gzip, brotli | gzip, brotli | gzip, deflate, bzip2 | gzip, deflate, bzip2, brotli |
 | Azure Policy integration | &check; | &check; | &check; |  |  |  |
 | Azure Advisory integration | &check; | &check; |  | &check; | &check; | &check; |
-| Managed Identities with Azure Key Vault | &check; | &check; |  |  |  |  |
-| **Pricing** | | | | | | |
+| Managed Identities with Azure Key Vault | &check; | &check; |  | &check; |  |  |
+| **Pricing** | [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) | | | [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/) | | |
 | Simplified pricing | &check; | &check; |  | &check; | &check; | &check; |
+
+## Services on retirement path
+The following table lists services that are on retirement path, frequently asked questions regarding retirement, and migration guidance.
+
+| Details | Front Door (classic) | CDN Standard from Microsoft (classic) | CDN Standard from Akamai | CDN Standard/Premium from Edgio
+| --- | --- | --- | --- | --- |
+| Retirement Date | March 31, 2027 | September 30, 2027 | December 31, 2023 | November 4, 2025
+| Date till new resources can be created | March 31, 2025 | September 30, 2025 | Service is already retired | January 15, 2025
+| Documentation | [Azure update](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/), [FAQ](classic-retirement-faq.md) | [Azure update](https://azure.microsoft.com/updates/v2/Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027), [FAQ](../cdn/classic-cdn-retirement-faq.md) | [FAQ](../cdn/akamai-retirement-faq.md)|[FAQ](../cdn/edgio-retirement-faq.md)
+| Migration | [Considerations](tier-migration.md), [Step-by-step instructions](migrate-tier.md) | [Considerations](../cdn/tier-migration.md), [Step-by-step instructions](../cdn/migrate-tier.md) | Service is already retired | [Step-by-step instructions](migrate-cdn-to-front-door.md)
+
+
 
 ## Next steps
 

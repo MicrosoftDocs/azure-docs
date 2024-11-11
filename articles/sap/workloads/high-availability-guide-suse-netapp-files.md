@@ -110,7 +110,7 @@ The SAP Netweaver architecture presented in this article uses single Azure NetAp
    6. volume sap**QAS** (nfs://10.1.0.4/usrsap**qas**/usrsap**QAS**pas)
    7. volume sap**QAS** (nfs://10.1.0.4/usrsap**qas**/usrsap**QAS**aas)
 
-In this example, we used Azure NetApp Files for all SAP Netweaver file systems to demonstrate how Azure NetApp Files can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds) . In this example **a-e** must be on Azure NetApp Files and **f-g** (that is, /usr/sap/**QAS**/D**02**, /usr/sap/**QAS**/D**03**) could be deployed as Azure disk storage.
+In this example, we used Azure NetApp Files for all SAP Netweaver file systems to demonstrate how Azure NetApp Files can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds) . In this example **a-e** must be on Azure NetApp Files and **f-g** (that is, /usr/sap/**QAS**/D**02**, /usr/sap/**QAS**/D**03**) could be deployed as Azure disk storage.
 
 ### Important considerations
 

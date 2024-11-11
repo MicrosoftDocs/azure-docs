@@ -138,17 +138,19 @@ To allow or disable WebAuthn redirection using Microsoft Intune:
 
 1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/).
 
-1. [Create or edit a configuration profile](/mem/intune/configuration/administrative-templates-windows) for **Windows 10 and later** devices, with the **Templates** profile type, and the **Administrative templates** template.
+1. [Create or edit a configuration profile](/mem/intune/configuration/administrative-templates-windows) for **Windows 10 and later** devices, with the **Settings catalog** profile type.
 
-1. In the **Configuration settings** tab, browse to **Computer configuration** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Device and Resource Redirection**, then select **Do not allow WebAuthn redirection**.
+1. In the settings picker, browse to **Administrative templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Device and Resource Redirection**.
 
-   :::image type="content" source="media/redirection-remote-desktop-protocol/redirection-configuration-intune-template-webauthn.png" alt-text="A screenshot showing the device and resource redirection options in the Microsoft Intune portal." lightbox="media/redirection-remote-desktop-protocol/redirection-configuration-intune-template-webauthn.png":::
+   :::image type="content" source="media/redirection-remote-desktop-protocol/redirection-configuration-intune.png" alt-text="A screenshot showing the device and resource redirection options in the Microsoft Intune portal." lightbox="media/redirection-remote-desktop-protocol/redirection-configuration-intune.png":::
 
-1. Select **Do not allow WebAuthn redirection**. In the pane separate pane that opens:
+1. Check the box for **Do not allow WebAuthn redirection**, then close the settings picker.
 
-   - To allow WebAuthn redirection, select **Disabled** or **Not configured**, then select **OK**. 
+1. Expand the **Administrative templates** category, then toggle the switch for **Do not allow WebAuthn redirection** to **Enabled** or **Disabled**, depending on your requirements:
 
-   - To disable WebAuthn redirection, select **Enabled**, then select **OK**.
+   - To allow WebAuthn redirection, toggle the switch to **Disabled**.
+
+   - To disable WebAuthn redirection, toggle the switch to **Enabled**.
 
 1. Select **Next**.
 

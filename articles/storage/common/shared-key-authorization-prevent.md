@@ -62,7 +62,7 @@ Some Azure tools offer the option to use Microsoft Entra authorization to access
 |-|-|
 | Azure portal | Supported. For information about authorizing with your Microsoft Entra account from the Azure portal, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md). |
 | AzCopy | Supported for Blob Storage. For information about authorizing AzCopy operations, see [Choose how you'll provide authorization credentials](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) in the AzCopy documentation. |
-| Azure Storage Explorer | Supported for Blob Storage, Queue Storage, Table Storage, and Azure Data Lake Storage Gen2. Microsoft Entra ID access to File storage is not supported. Make sure to select the correct Microsoft Entra tenant. For more information, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
+| Azure Storage Explorer | Supported for Blob Storage, Queue Storage, Table Storage, and Azure Data Lake Storage. Microsoft Entra ID access to File storage is not supported. Make sure to select the correct Microsoft Entra tenant. For more information, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Supported. For information about how to authorize PowerShell commands for blob or queue operations with Microsoft Entra ID, see [Run PowerShell commands with Microsoft Entra credentials to access blob data](../blobs/authorize-data-operations-powershell.md) or [Run PowerShell commands with Microsoft Entra credentials to access queue data](../queues/authorize-data-operations-powershell.md). |
 | Azure CLI | Supported. For information about how to authorize Azure CLI commands with Microsoft Entra ID for access to blob and queue data, see [Run Azure CLI commands with Microsoft Entra credentials to access blob or queue data](../blobs/authorize-data-operations-cli.md). |
 | Azure IoT Hub | Supported. For more information, see [IoT Hub support for virtual networks](../../iot-hub/virtual-network-support.md). |
@@ -149,7 +149,7 @@ A SAS may be authorized with either Shared Key or Microsoft Entra ID. For more i
 
 ### Determine the number and frequency of requests authorized with Shared Key
 
-To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
+To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 Follow these steps to create a metric that tracks requests made with Shared Key or SAS:
 
@@ -181,7 +181,7 @@ After you have configured the metric, requests to your storage account will begi
 
 :::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot showing aggregated requests authorized with Shared Key." lightbox="media/shared-key-authorization-prevent/metric-shared-key-requests.png":::
 
-You can also configure an alert rule to notify you when a certain number of requests that are authorized with Shared Key are made against your storage account. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
+You can also configure an alert rule to notify you when a certain number of requests that are authorized with Shared Key are made against your storage account. For more information, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric).
 
 ### Analyze logs to identify clients that are authorizing requests with Shared Key or SAS
 
@@ -189,11 +189,11 @@ Azure Storage logs capture details about requests made against the storage accou
 
 To log requests to your Azure Storage account in order to evaluate how they are authorized, you can use Azure Storage logging in Azure Monitor. For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
-Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md).
+Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 #### Create a diagnostic setting in the Azure portal
 
-To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. After you configure logging for your storage account, the logs are available in the Log Analytics workspace. To create a workspace, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
+To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. After you configure logging for your storage account, the logs are available in the Log Analytics workspace. To create a workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 To learn how to create a diagnostic setting in the Azure portal, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
 
@@ -210,7 +210,7 @@ StorageBlobLogs
 | top 10 by count_ desc
 ```
 
-You can also configure an alert rule based on this query to notify you about requests authorized with Shared Key or SAS. For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
+You can also configure an alert rule based on this query to notify you about requests authorized with Shared Key or SAS. For more information, see [Create, view, and manage log alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-log).
 
 ## Remediate authorization via Shared Key
 

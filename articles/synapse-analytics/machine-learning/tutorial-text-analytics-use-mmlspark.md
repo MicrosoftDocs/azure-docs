@@ -11,7 +11,7 @@ ms.author: ruxu
 
 # Tutorial: Text Analytics with Azure AI services
 
-[Text Analytics](../../ai-services/language-service/index.yml) is an [Azure AI services](../../ai-services/index.yml) that enables you to perform  text mining and text analysis with Natural Language Processing (NLP) features. In this tutorial, you'll learn how to use [Text Analytics](../../ai-services/language-service/index.yml) to analyze unstructured text on Azure Synapse Analytics.
+[Text Analytics](/azure/ai-services/language-service/) is an [Azure AI services](/azure/ai-services/) that enables you to perform  text mining and text analysis with Natural Language Processing (NLP) features. In this tutorial, you'll learn how to use [Text Analytics](/azure/ai-services/language-service/) to analyze unstructured text on Azure Synapse Analytics.
 
 This tutorial demonstrates using text analytics with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
@@ -19,7 +19,7 @@ This tutorial demonstrates using text analytics with [SynapseML](https://github.
 > - Detect sentiment labels at the sentence or document level
 > - Identify the language for a given text input
 > - Recognize entities from a text with links to a well-known knowledge base
-> - Extract key phases from a text
+> - Extract key phrases from a text
 > - Identify different entities in text and categorize them into pre-defined classes or types
 > - Identify and redact sensitive entities in a given text
 
@@ -50,7 +50,7 @@ ai_service_name = "<Your linked service for text analytics>"
 ```
 
 ## Text Sentiment
-The Text Sentiment Analysis provides a way for detecting the sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level. See the [Supported languages in Text Analytics API](../../ai-services/language-service/language-detection/overview.md?tabs=sentiment-analysis) for the list of enabled languages.
+The Text Sentiment Analysis provides a way for detecting the sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level. See the [Supported languages in Text Analytics API](/azure/ai-services/language-service/language-detection/overview?tabs=sentiment-analysis) for the list of enabled languages.
 
 ```python
 
@@ -89,7 +89,7 @@ display(results
 
 ## Language Detector
 
-The Language Detector evaluates text input for each document and returns language identifiers with a score that indicates the strength of the analysis. This capability is useful for content stores that collect arbitrary text, where language is unknown. See the [Supported languages in Text Analytics API](../../ai-services/language-service/language-detection/overview.md?tabs=language-detection) for the list of enabled languages.
+The Language Detector evaluates text input for each document and returns language identifiers with a score that indicates the strength of the analysis. This capability is useful for content stores that collect arbitrary text, where language is unknown. See the [Supported languages in Text Analytics API](/azure/ai-services/language-service/language-detection/overview?tabs=language-detection) for the list of enabled languages.
 
 ```python
 # Create a dataframe that's tied to it's column names
@@ -117,7 +117,7 @@ display(language.transform(df))
 ---
 
 ## Entity Detector
-The Entity Detector returns a list of recognized entities with links to a well-known knowledge base. See the [Supported languages in Text Analytics API](../../ai-services/language-service/language-detection/overview.md?tabs=entity-linking) for the list of enabled languages.
+The Entity Detector returns a list of recognized entities with links to a well-known knowledge base. See the [Supported languages in Text Analytics API](/azure/ai-services/language-service/language-detection/overview?tabs=entity-linking) for the list of enabled languages.
 
 ```python
 df = spark.createDataFrame([
@@ -140,7 +140,7 @@ display(entity.transform(df).select("if", "text", col("replies").getItem("docume
 
 ## Key Phrase Extractor
 
-The Key Phrase Extraction evaluates unstructured text and returns a list of key phrases. This capability is useful if you need to quickly identify the main points in a collection of documents. See the [Supported languages in Text Analytics API](../../ai-services/language-service/language-detection/overview.md?tabs=key-phrase-extraction) for the list of enabled languages.
+The Key Phrase Extraction evaluates unstructured text and returns a list of key phrases. This capability is useful if you need to quickly identify the main points in a collection of documents. See the [Supported languages in Text Analytics API](/azure/ai-services/language-service/language-detection/overview?tabs=key-phrase-extraction) for the list of enabled languages.
 
 ```python
 df = spark.createDataFrame([
@@ -170,7 +170,7 @@ display(keyPhrase.transform(df).select("text", col("replies").getItem("document"
 
 ## Named Entity Recognition (NER)
 
-Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. See the [Supported languages in Text Analytics API](../../ai-services/language-service/language-detection/overview.md?tabs=named-entity-recognition) for the list of enabled languages.
+Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. See the [Supported languages in Text Analytics API](/azure/ai-services/language-service/language-detection/overview?tabs=named-entity-recognition) for the list of enabled languages.
 
 ```python
 df = spark.createDataFrame([
@@ -192,7 +192,7 @@ display(ner.transform(df).select("text", col("replies").getItem("document").getI
 ---
 
 ## Personally Identifiable Information (PII) V3.1
-The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as: phone number, email address, mailing address, passport number. See the [Supported languages in Text Analytics API](../../ai-services/language-service/language-detection/overview.md?tabs=pii) for the list of enabled languages.
+The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as: phone number, email address, mailing address, passport number. See the [Supported languages in Text Analytics API](/azure/ai-services/language-service/language-detection/overview?tabs=pii) for the list of enabled languages.
 
 ```python
 df = spark.createDataFrame([

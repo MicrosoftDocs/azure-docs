@@ -63,9 +63,12 @@ Using Microsoft Entra is the secure way to connect your cache. We recommend that
 
 When you disable access key authentication for a cache, all existing client connections are terminated, whether they use access keys or Microsoft Entra authentication. Follow the recommended Redis client best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections, if any.
 
-Before you disable access keys:
+### Before you disable access keys:
 
-- Microsoft Entra authorization must be enabled.
+- Ensure that Microsoft Entra authentication is enabled and you have at least one Redis User configured.
+- Ensure all applications connecting to your cache instance switch to using Microsoft Entra Authentication.
+- Ensure that the metrics _Connected Clients_ and _Connected Clients Using Microsoft Entra Token_ have the same values. If the values for these two metrics are not the same, that means there are still some connections that were created using access keys and not Entra Token.
+- Consider disabling access during the scheduled maintenance window for your cache instance.
 - Disabling access keys is only available for Basic, Standard, and Premium tier caches.
 - For geo-replicated caches, you must:
 
@@ -144,6 +147,7 @@ The following table includes links to code samples. They demonstrate how to conn
 | Client library  | Language   | Link to sample code|
 |----|----|----|
 | StackExchange.Redis | .NET           | [StackExchange.Redis code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis)   |
+| go-redis            | Go             | [go-redis code sample](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#example-package-Redis) |
 | redis-py            | Python         | [redis-py code sample](https://aka.ms/redis/aad/sample-code/python)        |
 | Jedis               | Java           | [Jedis code sample](https://aka.ms/redis/aad/sample-code/java-jedis)    |
 | Lettuce             | Java           | [Lettuce code sample](https://aka.ms/redis/aad/sample-code/java-lettuce)  |
@@ -155,7 +159,7 @@ The following table includes links to code samples. They demonstrate how to conn
 
 - Configure private links or firewall rules to protect your cache from a denial of service attack.
 - Ensure that your client application sends a new Microsoft Entra token at least three minutes before token expiry to avoid connection disruption.
-- When you call the Redis server `AUTH` command periodically, consider adding a jitter so that the `AUTH` commands are staggered. In this way, your Redis server doesn't receive too many `AUTH` commands at the same time.
+- When you call the Redis server `AUTH` command periodically, consider adding a random delay so that the `AUTH` commands are staggered. In this way, your Redis server doesn't receive too many `AUTH` commands at the same time.
 
 ## Related content
 

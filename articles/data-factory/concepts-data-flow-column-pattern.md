@@ -8,7 +8,7 @@ ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Using column patterns in mapping data flows

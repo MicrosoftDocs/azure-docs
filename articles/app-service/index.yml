@@ -71,9 +71,7 @@ landingContent:
           - text: Node.js and MongoDB
             url: tutorial-nodejs-mongodb-app.md
           - text: Java Spring Boot and Azure Cosmos DB
-            url: tutorial-java-spring-cosmosdb.md
-          - text: Multi-container (preview) and MySQL
-            url: tutorial-multi-container-app.md                
+            url: tutorial-java-spring-cosmosdb.md             
       - linkListType: reference
         links:
           - text: REST API

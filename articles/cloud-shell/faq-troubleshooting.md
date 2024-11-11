@@ -1,7 +1,6 @@
 ---
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
-ms.contributor: jahelmic
-ms.date: 08/14/2024
+ms.date: 11/04/2024
 ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -97,8 +96,10 @@ command that requires elevated permissions.
 - **Details**: When creating the Cloud Shell storage account for first-time users, it's
   unsuccessful due to an Azure Policy assignment placed by your admin. The error message includes:
 
-  > The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by
-  > one or more policies.
+  ```
+  The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by
+  one or more policies.
+  ```
 
 - **Resolution**: Contact your Azure administrator to remove or update the Azure Policy assignment
   denying storage creation.
@@ -118,6 +119,96 @@ command that requires elevated permissions.
   following domains:
   - `*.console.azure.com`
   - `*.servicebus.windows.net`
+  - `*.servicebus.usgovcloudapi.net` for Azure Government Cloud
+
+### Failed to request a terminal - Accessing Cloud Shell from a network that uses a private DNS resolver
+
+- **Details**: Cloud Shell uses Azure Relay for terminal connections. Cloud Shell can fail to
+  request a terminal due to DNS resolution problems. This failure can be caused when you launch a
+  Cloud Shell session from a host in a network that has a private DNS Zone for the `servicebus`
+  domain. This error can also occur if you're using a private on-premises DNS server.
+
+- **Resolution**: You can add a DNS record for the Azure Relay instance that Cloud Shell uses.
+
+  The following steps show you how to identify the DNS name of the Cloud Shell instance and how to
+  create a DNS record for that name.
+
+  1. Try to start Cloud Shell using your web browser. Use the browser's Developer Tools to find the
+     Azure Relay instance name. In Microsoft Edge or Google Chrome, hit the <kbd>F12</kbd> key to
+     open the Developer Tools. Select the **Network** tab. Find the **Search** box in the top right
+     corner. Search for `terminals?` to find the request for a Cloud Shell terminal. Select the one
+     of the request entries found by the search. In the **Headers** tab, find the hostname in the
+     **Request URL**. The name is similar to
+     `ccon-prod-<region-name>-aci-XX.servicebus.windows.net`. For Azure Government Cloud, the
+     hostname ends with `servicebus.usgovcloudapi.net`.
+
+     The following screenshot shows the Developer Tools in Microsoft Edge for a successful request
+     for a terminal. The hostname is `ccon-prod-southcentalus-aci-02.servicebus.windows.net`. In
+     your case, the request should be unsuccessful, but you can find the hostname you need to
+     resolve.
+
+     [![Screenshot of the browser developer tools.](media/faq-troubleshooting/devtools-small.png)](media/faq-troubleshooting/devtools-large.png#lightbox)
+
+     For information about accessing the Developer Tools in other browsers, see
+     [Capture a browser trace for troubleshooting][03].
+
+  1. From a host outside of your private network, run the `nslookup` command to find the IP address
+     of the hostname as found in the previous step.
+
+     ```bash
+     nslookup ccon-prod-southcentalus-aci-02.servicebus.windows.net
+     ```
+
+     The results should look similar to the following example:
+
+     ```Output
+     Server:         168.63.129.16
+     Address:        168.63.129.16
+
+     Non-authoritative answer:
+     ccon-prod-southcentralus-aci-02.servicebus.windows.net  canonical name = ns-sb2-prod-sn3-012.cloudapp.net.
+     Name:   ns-sb2-prod-sn3-012.cloudapp.net
+     Address: 40.84.152.91
+     ```
+
+  1. Add an A record for the public IP in the Private DNS Zone of your private network. For this
+     example, the DNS record would have the following properties:
+
+     - Name: ccon-prod-southcentralus-aci-02
+     - Type: A
+     - TTL: 1 hour
+     - IP Address: 40.84.152.91
+
+     For more information about creating DNS records in a private DNS zone, see
+     [Manage DNS record sets and records with Azure DNS][02].
+
+     > [!NOTE]
+     > This IP address is subject to change periodically. You might need to repeat this process to
+     > discover the new IP address.
+
+  Alternately, you can deploy your own private Cloud Shell instance. For more information, see
+  [Deploy Cloud Shell in a virtual network][01].
+
+### Terminal output - Sorry, your Cloud Shell failed to provision: {"code":"TenantDisabled" ...}
+
+
+- **Details**: In rare cases, Azure might flag out-of-the-ordinary resource consumption based in
+  from Cloud Shell as fraudulent activity. When this occurs, Azure disables Cloud Shell at the
+  tenant level and you see the following error message:
+
+  > Sorry, your Cloud Shell failed to provision: {"code":"TenantDisabled","message":"Cloud Shell has
+  > been disabled in directory<>."} Please refresh the page.
+
+  There can be legitimate use cases where CPU usage in your Azure Cloud Shell instance exceeds the
+  thresholds that trigger fraud prevention and block your tenant. Large AZCopy jobs could be the
+  cause this event. The Microsoft Azure engineering team can help to figure out why the tenant was
+  disabled and re-enable it.
+
+- **Resolution**: To investigate the cause and re-enable Cloud Shell for your tenant, open a new
+  Azure support request. Include the following details:
+
+  1. Tenant ID
+  2. The business justification and a description of how you use Cloud Shell.
 
 ## Managing Cloud Shell
 
@@ -168,4 +259,9 @@ Use the following steps to delete your user settings.
   entry point is `ux.console.azure.us`; there's no corresponding `shell.azure.us`.
 - **Resolution**: Restrict access to `ux.console.azure.com` or `ux.console.azure.us` from your
   network. The Cloud Shell icon still exists in the Azure portal, but you can't connect to the
-  service.
+    service.
+
+<!-- link references -->
+[01]: /azure/cloud-shell/vnet/overview
+[02]: /azure/dns/dns-operations-recordsets-portal
+[03]: /azure/azure-portal/capture-browser-trace

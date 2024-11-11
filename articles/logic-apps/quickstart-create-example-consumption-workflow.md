@@ -81,7 +81,7 @@ To create a Standard logic app workflow that runs in single-tenant Azure Logic A
 
    The **Create Logic App** page appears and shows the following options:
 
-   [!INCLUDE [logic-apps-host-plans](../../includes/logic-apps-host-plans.md)]
+   [!INCLUDE [logic-apps-host-plans](includes/logic-apps-host-plans.md)]
 
 1. On the **Create Logic App** page, select **Consumption (Multi-tenant)**.
 
@@ -128,7 +128,7 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
    |----------|----------|-------|-------------|
    | **The RSS feed URL** | Yes | <*RSS-feed-URL*> | The RSS feed URL to monitor. <br><br>This example uses the Wall Street Journal's RSS feed at **https://feeds.a.dj.com/rss/RSSMarketsMain.xml**. However, you can use any RSS feed that doesn't require HTTP authorization. Choose an RSS feed that publishes frequently, so you can easily test your workflow. |
    | **Chosen Property Will Be Used To Determine Which Items are New** | No | **PublishDate** | The property that determines which items are new. |
-   | **Interval** | Yes | **1** | The number of intervals to wait between feed checks. <br><br>This example uses **1** as the interval. |
+   | **Interval** | Yes | **30** | The number of intervals to wait between feed checks. <br><br>This example uses **30** as the interval because this value is the [minimum interval for the **RSS** trigger](/connectors/rss/#general-limits). |
    | **Frequency** | Yes | **Minute** | The unit of frequency to use for every interval. <br><br>This example uses **Minute** as the frequency. |
    | **Time Zone** | No | <*time-zone*> | The time zone to use for checking the RSS feed |
    | **Start Time** | No | <*start-time*> | The start time to use for checking the RSS feed | 
@@ -181,7 +181,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
       1. With the cursor still in the **Subject** box, select the dynamic content list (lightning icon).
 
-         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-open-dynamic-content.png" alt-text="Screenshot shows action named Send an email, cursor in box named Subject, and selected option for dynamic content list." lightbox="media/quickstart-create-example-consumption-workflow/send-email-open-dynamic-content.png":::
+         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-open-dynamic-content.png" alt-text="Screenshot shows the action named Send an email, cursor in box named Subject, and selected option for dynamic content list." lightbox="media/quickstart-create-example-consumption-workflow/send-email-open-dynamic-content.png":::
 
       1. From the dynamic content list that opens, under **When a feed item is published**, select **Feed title**, which is a trigger output that references the title for the RSS item.
 
@@ -193,7 +193,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
          After you finish, the email subject looks like the following example:
 
-         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png" alt-text="Screenshot shows action named Send an email, with example email subject and included property named Feed title." lightbox="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png":::
+         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png" alt-text="Screenshot shows the action named Send an email, with example email subject and included property named Feed title." lightbox="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png":::
 
          > [!NOTE]
          > 
@@ -213,7 +213,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
       | `Date published:` | **Feed published on** | The item's publishing date and time |
       | `Link:` | **Primary feed link** | The URL for the item |
 
-      :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-body.png" alt-text="Screenshot shows action named Send an email, with descriptive text and properties in the box named Body." lightbox="media/quickstart-create-example-consumption-workflow/send-email-body.png":::
+      :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-body.png" alt-text="Screenshot shows the action named Send an email, with descriptive text and properties in the box named Body." lightbox="media/quickstart-create-example-consumption-workflow/send-email-body.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 

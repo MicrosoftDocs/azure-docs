@@ -4,7 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Learn how to integrate a NAT gateway and Azure Firewall in a hub and spoke network.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: tutorial
 ms.date: 09/07/2023
 ms.custom: template-tutorial
@@ -395,7 +395,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 1. Select **public-ip-nat**.
 
-1. Make note of value in **IP address**. The example used in this article is **20.225.88.213**.
+1. Make note of value in **IP address**. The example used in this article is **203.0.113.0.25**.
 
 ### Test NAT gateway from spoke
 
@@ -417,7 +417,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
     ```output
     azureuser@vm-1:~$ curl ifconfig.me
-    20.225.88.213
+    203.0.113.0.25
     ```
 
 1. Close the Bastion connection to **vm-spoke**.

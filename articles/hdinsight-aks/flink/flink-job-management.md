@@ -3,12 +3,15 @@ title: Apache Flink® job management in HDInsight on AKS
 description: HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal.
 ms.service: azure-hdinsight-on-aks
 ms.topic: tutorial
-ms.date: 04/01/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Apache Flink® job management in HDInsight on AKS clusters
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 HDInsight on AKS provides a feature to manage and submit Apache Flink® jobs directly through the Azure portal (user-friendly interface) and ARM Rest APIs. 
 
@@ -381,7 +384,7 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
-- **Savepoint:** Rest API to trigger savepoint for job.
+- **Savepoint:** Rest APIs to trigger savepoint for job.
    
    |  Option  |  Value  |
    | -------- | ------- |

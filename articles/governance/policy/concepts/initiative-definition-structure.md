@@ -128,7 +128,7 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 ## Version (preview)
 Built-in policy initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version-preview)
 
-The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey the level of change to a built-in policy definition or initiative and state. The format of `version` is: `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the `version` property or in another property as a **boolean** as shown in the common metadata properties.
+The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey state and level of change to a built-in policy definition or initiative. The format of `version` is: `{Major}.{Minor}.{Patch}`. When a policy definition is in preview state, the suffix _preview_ is appended to the `version` property and treated as a **boolean**. When a policy definition is deprecated, the deprecation is captured as a boolean in the definition's metadata using `"deprecated": "true"`.
 
 - Major Version (example: 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default.
 - Minor Version (example: 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to role definitionIds, adding or removing definitions within an initiative.
@@ -349,7 +349,7 @@ This information is:
 - Displayed in the Azure portal on the overview of a **control** on a Regulatory Compliance
   initiative.
 - Available via REST API. See the `Microsoft.PolicyInsights` resource provider and the
-  [policyMetadata operation group](/rest/api/policyinsights/policy-metadata/get-resource).
+  [policyMetadata operation group](/rest/api/policy/policy-metadata/get-resource).
 - Available via Azure CLI. See the [az policy metadata](/cli/azure/policy/metadata) command.
 
 > [!IMPORTANT]

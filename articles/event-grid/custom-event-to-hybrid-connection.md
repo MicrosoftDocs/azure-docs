@@ -8,7 +8,12 @@ ms.custom: devx-track-azurecli
 
 # Tutorial: Route custom events to Azure Relay Hybrid Connections with Azure CLI and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. Azure Relay Hybrid Connections is one of the supported event handlers. You use hybrid connections as the event handler when you need to process events from applications that don't have a public endpoint. These applications might be within your corporate enterprise network. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to the hybrid connection.
+Azure Relay Hybrid Connections is one of the supported event handlers. You use hybrid connections as the event handler when you need to process events from applications that don't have a public endpoint. These applications might be within your corporate enterprise network. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to the hybrid connection.
+
+
+> [!NOTE]
+> If you are new to Azure Event Grid, see [What's Azure Event Grid](overview.md) to get an overview of the service before going through this tutorial. 
+
 
 ## Prerequisites
 
@@ -32,7 +37,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## Create a custom topic
 
-An Event Grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The Event Grid topic name must be unique because it's represented by a DNS entry.
+An Event Grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The Event Grid topic name must be unique because it's represented by a Domain Name System (DNS) entry.
 
 ```azurecli-interactive
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup

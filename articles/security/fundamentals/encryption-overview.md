@@ -46,7 +46,7 @@ The three server-side encryption models offer different key management character
 
 ### Azure disk encryption
 
-All Managed Disks, Snapshots, and Images are encrypted using Storage Service Encryption using a service-managed key. Azure also offers options to protect temp disks, caches, and manage keys in Azure Key Vault. For more information, see [Overview of managed disk encryption options](../../virtual-machines/disk-encryption-overview.md).
+All Managed Disks, Snapshots, and Images are encrypted using Storage Service Encryption using a service-managed key. Azure also offers options to protect temp disks, caches, and manage keys in Azure Key Vault. For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
 
 ### Azure Storage Service Encryption
 
@@ -140,7 +140,7 @@ You can also use Remote Desktop to connect to a Linux VM in Azure.
 
 ### Secure access to Linux VMs with SSH
 
-For remote management, you can use [Secure Shell](../../virtual-machines/linux/ssh-from-windows.md) (SSH) to connect to Linux VMs running in Azure. SSH is an encrypted connection protocol that allows secure sign-ins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. By using SSH keys for authentication, you eliminate the need for passwords to sign in. SSH uses a public/private key pair (asymmetric encryption) for authentication.
+For remote management, you can use [Secure Shell](/azure/virtual-machines/linux/ssh-from-windows) (SSH) to connect to Linux VMs running in Azure. SSH is an encrypted connection protocol that allows secure sign-ins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. By using SSH keys for authentication, you eliminate the need for passwords to sign in. SSH uses a public/private key pair (asymmetric encryption) for authentication.
 
 ## Azure VPN encryption
 
@@ -160,7 +160,7 @@ You can configure a point-to-site VPN connection to a virtual network by using t
 
 To learn more about point-to-site VPN connections to Azure virtual networks, see:
 
-[Configure a point-to-site connection to a virtual network by using certification authentication: Azure portal](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
+[Configure a point-to-site connection to a virtual network by using certification authentication: Azure portal](../../vpn-gateway/point-to-site-certificate-gateway.md) 
 
 [Configure a point-to-site connection to a virtual network by using certificate authentication: PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 

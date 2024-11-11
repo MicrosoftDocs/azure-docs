@@ -5,7 +5,10 @@ ms.topic: include
 ms.date: 07/15/2024
 ms.author: insravan
 ---
+
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
+
+## Implement breakout rooms
 
 `BreakoutRooms` is a `feature` of the class `Call`. First you need to import package `Features` from the Calling SDK:
 
@@ -14,24 +17,28 @@ import { Features} from "@azure/communication-calling";
 ```
 ### Create breakoutRoom feature
 
-Then you can get the feature API object from the call instance:
+Then get the feature API object from the call instance:
+
 ```js
 const breakoutRoomsFeature = mainMeetingCall.feature(Features.BreakoutRooms);
 ```
+
 ### Subscribe to breakoutRoom events
 
-The `BreakoutRooms` API allows you to subscribe to `BreakoutRooms` events. A `breakoutRoomsUpdated` event comes from a `BreakoutRoomsCallFeature` instance and contains information about the created, updated and assigned breakout rooms. 
+The `BreakoutRooms` API enables you to subscribe to `BreakoutRooms` events. A `breakoutRoomsUpdated` event comes from a `BreakoutRoomsCallFeature` instance and contains information about the created, updated, and assigned breakout rooms. 
 
-To receive  breakout room details, subscribe to the `breakoutRoomsUpdated` event. 
+To receive  breakout room details, subscribe to the `breakoutRoomsUpdated` event.
+
 ```js
 breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 ```
 
 ### Handle breakoutRoom events
 
-Event **breakoutRoomsUpdated** provides instance of one of the following classes as an input parameter. You can use property `type` to distinguish between individual event types.
+Event `breakoutRoomsUpdated` provides an instance of one of the following classes as an input parameter. You can use property `type` to distinguish between individual event types.
 
-1. Class `BreakoutRoomsEvent`: This event is triggered when a user with a role organizer, co-organizer, or breakout room manager creates or updates the breakout rooms. Microsoft 365 users with role organizer, co-organizer or  breakout room manager can receive this type of event. Developers can use the breakout rooms in property `data` to render details about all breakout rooms. This class has property `type` equal to `"breakoutRooms"`.
+- Class `BreakoutRoomsEvent`: This event is triggered when a user with the role organizer, co-organizer, or breakout room manager creates or updates the breakout rooms. Microsoft 365 users with role organizer, co-organizer, or  breakout room manager can receive this type of event. Developers can use the breakout rooms in property `data` to render details about all breakout rooms. This class has property `type` equal to `"breakoutRooms"`.
+
     ```js
       export interface BreakoutRoomsEvent {
         /**
@@ -45,7 +52,8 @@ Event **breakoutRoomsUpdated** provides instance of one of the following classes
       }
    ```
 
-2. Class `BreakoutRoomsSettingsEvent`: This event is triggered when a user with a role organizer, co-organizer, or breakout room manager updates the breakout room's settings. Developers can use this information to render the time when breakout room ends or decide whether to render button to join main room. This class has property `type` equal to `"breakoutRoomSettings"`.
+- Class `BreakoutRoomsSettingsEvent`: When a user with a role organizer, co-organizer, or breakout room manager updates the breakout room's settings, it triggers this event. Developers can use this information to render the time when breakout room ends or decide whether to render a button to join main room. This class has property `type` equal to `"breakoutRoomSettings"`.
+
    ```js
     export interface BreakoutRoomSettingsEvent {
       /**
@@ -59,7 +67,7 @@ Event **breakoutRoomsUpdated** provides instance of one of the following classes
     }
    ```
 
-3. Class `AssignedBreakoutRoomsEvent`: This event is triggered when user is assigned to a breakout room, or assigned breakout room is updated. Users can join the breakout room when property `state` is set to `open`, leave the breakout room when property `state` is set to `closed` or render details of the breakout room. This class has property `type` equal to `"assignedBreakoutRoom"`.
+- Class `AssignedBreakoutRoomsEvent`: This event is triggered when user is assigned to a breakout room, or assigned breakout room is updated. Users can join the breakout room when property `state` is set to `open`, leave the breakout room when property `state` is set to `closed`, or render details of the breakout room. This class has property `type` equal to `"assignedBreakoutRoom"`.
 
    ```js
     export interface AssignedBreakoutRoomEvent {
@@ -74,7 +82,8 @@ Event **breakoutRoomsUpdated** provides instance of one of the following classes
     }
    ```
 
-4. Class `JoinBreakoutRoomsEvent` : This event is triggered when the participant is joining breakout room call. This event can happen when user is automatically moved to breakout room (that is, if `assignedBreakoutRoom` has property `state` set to `open` and `autoMoveParticipantToBreakoutRoom` is set to `true`) or when user explicitly joins breakout room (that is, calls method `join` on the instance `assignedBreakoutRoom` when `autoMoveParticipantToBreakoutRoom` is set to `false`). Property `data` contains the breakout room `call` instance, that developers can use to control breakout room call. This class has property `type` equal to `"join"`.
+- Class `JoinBreakoutRoomsEvent`: This event is triggered when the participant is joining a breakout room call. This event can happen when a user is automatically moved to breakout room (that is, if `assignedBreakoutRoom` has property `state` set to `open` and `autoMoveParticipantToBreakoutRoom` is set to `true`) or when a user explicitly joins a breakout room (that is, calls method `join` on the instance `assignedBreakoutRoom` when `autoMoveParticipantToBreakoutRoom` is set to `false`). Property `data` contains the breakout room `call` instance, that developers can use to control breakout room call. This class has property `type` equal to `"join"`.
+
    ```js
     export interface JoinBreakoutRoomEvent {
       /**
@@ -87,7 +96,9 @@ Event **breakoutRoomsUpdated** provides instance of one of the following classes
       data: Call | TeamsCall;
     }
    ```
-The following code shows you valuable information received in the breakout room events:
+
+The following code shows the useful information received in the breakout room events:
+
 ```js
     const breakoutRoomsUpdatedListener = (event) => {
     switch(event.type) {
@@ -118,9 +129,11 @@ The following code shows you valuable information received in the breakout room 
     }
 breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 ```
+
 ### List available breakout rooms
 
-Microsoft 365 user with role organizer, co-organizer, or breakout room manager can access all breakout rooms.
+Microsoft 365 users with role organizer, co-organizer, or breakout room manager can access all breakout rooms.
+
 ```js
 const breakoutRooms = breakoutRoomsFeature.breakoutRooms;
 breakoutRooms.forEach((room)=>{
@@ -131,6 +144,7 @@ breakoutRooms.forEach((room)=>{
 ### List invitees
 
 Microsoft 365 user with role organizer, co-organizer, or breakout room manager can access participants assigned to individual breakout rooms.
+
 ```js
 breakoutRooms.forEach((room)=>{
       console.log(`${room.displayName}`);
@@ -143,6 +157,7 @@ breakoutRooms.forEach((room)=>{
 ### Join breakout room
 
 If the `assignedBreakoutRoom` has property `autoMoveParticipantToBreakoutRoom` set to `true`, then the user is automatically moved to the breakout room when the property `state` is set to `open`. If `autoMoveParticipantToBreakoutRoom` is set to `false`, then use the following code to join breakout room.
+
 This triggers `breakoutRoomsUpdated` event with class `JoinBreakoutRoomsEvent` that has property `type` set as `join`. You can use the instance of a class `call` in property `data` to manage breakout room call. 
 
 ```js
@@ -177,55 +192,49 @@ console.log(`Participants of the breakoutRoom : <br/>" + breakoutRoomParticipant
 
 ### Stop receiving breakout rooms events
 
-Use the following code to stop receiving breakoutRooms events
+Use the following code to stop receiving breakoutRooms events.
+
 ```js
 breakoutRoomsFeature.off('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 ```
-### Breakout room  properties
+### Breakout room properties
 
 Breakout rooms have the following properties:
 
+> [!Note]
+> The following sample code efficiently displays all breakout room properties. It is not intended to be reused as shown. In practice you only use the properties needed for your breakout room scenario.
+
 ```js
 const displayName : string = breakoutRoom.displayName;
-```
-- `displayName` : Name of the breakout room. This property is read-only.
-
-```js
 const threadId : string = breakoutRoom.threadId;
-```
-- `threadId` : You can use chat thread ID to join chat of the breakout room. This property is read-only.
-
-```js
 const state : BreakoutRoomState = breakoutRoom.state;
-```
-- `state` : State of the breakout room. It can be either `open` or `closed`. Users would be able to join the breakout room only when the state is `open`. This property is read-only.
-
-```js
-const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom; 
-```
-- `autoMoveParticipantToBreakoutRoom` : Boolean value, which indicates whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `open`. This property is read-only.
-
-```js
+const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom;
 const call : Call | TeamsCall = breakoutRoom.call;
-```
-- `call` : Breakout room call object. This is returned when the user joins the breakout room call automatically or by calling `join` method on `assignedBreakoutRoom` object. This property is read-only.
-
-```js
 const invitees : Invitee[] = breakoutRoom.invitees;
 ```
-- `invitees` : The list of invitees who are assigned to the breakout room. This property is read-only.
 
-### Breakout room  settings
+| Breakout room properties | Description|
+| --- | --- |
+| `displayName`	| Name of the breakout room. This property is read-only. |
+| `threadId` | Use the chat thread ID to join chat of the breakout room. This property is read-only. |
+| `state` | State of the breakout room. It can be either `open` or `closed`. Users would be able to join the breakout room only when the state is `open`. This property is read-only. |
+| `autoMoveParticipantToBreakoutRoom` | Boolean value indicating whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `open`. This property is read-only. In the Teams UI settings for breakout rooms, the organizer, co-organizer, or breakout room manager can adjust this specific setting. By setting this option to `true`, participants are automatically transferred to their designated breakout room. Conversely, if you set this property to `false`, then you must manually call the `join` method to move participants into the breakout room. |
+| `call` | Breakout room call object. This object is returned when the user joins the breakout room call automatically or by calling the `join` method on `assignedBreakoutRoom` object. This property is read-only. |
+| `invitees` | The list of invitees who are assigned to the breakout room. This property is read-only. |
+
+### Breakout room settings
+
 Breakout rooms share setting that has the following properties:
+
 ```js
 const disableReturnToMainMeeting : boolean = breakoutRoomsSettings.disableReturnToMainMeeting;
-```
-- `disableReturnToMainMeeting` : Disable participants to return to the main meeting from the breakout room call. This property is read-only.
-
-```js
 const roomEndTime : TimestampInfo = breakoutRoomsSettings.roomEndTime;
 ```
-- `roomEndTime`: Breakout room end time set by the Microsoft 365 user with role organizer, co-organizer, or breakout room manager of the main meeting. This property is read-only.
+
+| Breakout room properties | Description|
+| --- | --- |
+| `disableReturnToMainMeeting` | Disable participants to return to the main meeting from the breakout room call. This property is read-only. In the Teams UI settings for breakout rooms, the organizer, co-organizer, or breakout room manager can adjust this specific setting to control when the participant of breakout rooms can return to the main meeting. |
+| `roomEndTime` | Breakout room end time set by the Microsoft 365 user with role organizer, co-organizer, or breakout room manager of the main meeting. This property is read-only. |
 
 ### Troubleshooting
 
@@ -238,7 +247,5 @@ const roomEndTime : TimestampInfo = breakoutRoomsSettings.roomEndTime;
 |412 | 46256| ExpectedError | Unable to join Breakout Room as the room is closed. | Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly.|
 |412 | 46257| UnexpectedServerError | Unable to resume main meeting. | Follow the instructions defined in the section `Leave breakout room` for manual leaving of breakout room. If the issue persists, gather browser console logs and contact Azure Communication Services support. |
 |412| 46258 | UnexpectedClientError | Unable to read breakout room details. | Gather browser console logs and contact Azure Communication Services support. |
-|500 | 46259| UnexpectedServerError | Could not hang up the Breakout room call. | Follow the instructions defined in the section `Leave breakout room` for manual leaving of breakout room. |
-|412| 46260 | UnexpectedClientError | Cannot join Breakout Room as it is not yet assigned. | Ensure that the `breakoutRoomsFeature.assignedBreakoutRoom` is having the details of the assigned breakout room. Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly. |
-  
-  
+|500 | 46259| UnexpectedServerError | Couldn't hang up the Breakout room call. | Follow the instructions defined in the section `Leave breakout room` for manual leaving of breakout room. |
+|412| 46260 | UnexpectedClientError | Can't join Breakout Room as it isn't yet assigned. | Ensure that the `breakoutRoomsFeature.assignedBreakoutRoom` is having the details of the assigned breakout room. Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly. |

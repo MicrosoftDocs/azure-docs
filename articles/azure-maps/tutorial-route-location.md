@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to find a route to a point of interest. See how to set address coordinates and query the Azure Maps Route service for directions to the point.
 author: sinnypan
 ms.author: sipa
-ms.date: 12/28/2021
+ms.date: 09/03/2024
 ms.topic: tutorial
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -78,11 +78,11 @@ The following steps show you how to create and display the Map control in a web 
     </html>
     ```
 
-   Some things to know about the above HTML:
+   Some things to know about the HTML:
 
    * The HTML header includes CSS and JavaScript resource files hosted by the Azure Map Control library.
-   * The `onload` event in the body of the page calls the `GetMap` function when the body of the page has loaded.
-   * The `GetMap` function contains the inline JavaScript code used to access the Azure Maps APIs. It's added in the next step.
+   * The `onload` event in the body of the page calls the `GetMap` function when the body of the page finishes loading.
+   * The `GetMap` function contains the inline JavaScript code used to access the Azure Maps APIs. This function is added in the next step.
 
 3. Next, add the following JavaScript code to the `GetMap` function, just beneath the code added in the last step. This code creates a map control and initializes it using your Azure Maps subscription keys that you provide. Make sure and replace the string `<Your Azure Maps Key>` with the Azure Maps primary key that you copied from your Maps account.
 
@@ -97,7 +97,7 @@ The following steps show you how to create and display the Map control in a web 
     });
     ```
 
-   Some things to know about the above JavaScript:
+   Some things to know about the JavaScript:
 
    * This is the core of the `GetMap` function, which initializes the Map Control API for your Azure Maps account key.
    * [atlas] is the namespace that contains the Azure Maps API and related visual components.
@@ -144,13 +144,13 @@ In this tutorial, the route is rendered using a line layer. The start and end po
     });
     ```
 
-   Some things to know about the above JavaScript:
+   Some things to know about the JavaScript:
 
    * This code implements the Map control's `ready` event handler. The rest of the code in this tutorial is placed inside the `ready` event handler.
    * In the map control's `ready` event handler, a data source is created to store the route from start to end point.
    * To define how the route line is rendered, a line layer is created and attached to the data source. To ensure that the route line doesn't cover up the road labels, pass a second parameter with the value of `'labels'`.
 
-    Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered. Expressions have been added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions].
+    Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered. Expressions were added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions].
 
 2. Next, set the start point at Microsoft, and the end point at a gas station in Seattle. Start and points are created by appending the following code in the Map control's `ready` event handler:
 
@@ -175,7 +175,7 @@ In this tutorial, the route is rendered using a line layer. The start and end po
     });
     ```
 
-   Some things to know about the above JavaScript:
+   Some things to know about the JavaScript:
 
    * This code creates two [GeoJSON Point objects] to represent start and end points, which are then added to the data source.
    * The last block of code sets the camera view using the latitude and longitude of the start and end points.
@@ -230,7 +230,7 @@ This section shows you how to use the Azure Maps Route Directions API to get rou
     });
     ```
 
-   Some things to know about the above JavaScript:
+   Some things to know about the JavaScript:
 
    * This code constructs the route from the start to end point.
    * The `url` queries the Azure Maps Route service API to calculate route directions.

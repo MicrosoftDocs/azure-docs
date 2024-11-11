@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 10/28/2024
 ms.author: jianleishen
 ---
 
@@ -20,7 +20,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory and Syn
 >To copy data from or to [Azure Database for MySQL](/azure/mysql/overview) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
 
 >[!IMPORTANT]
->MySQL connector using the recommended driver version provides improved native MySQL support. If you are using it with the legacy driver version, please [upgrade your driver version](#upgrade-the-mysql-driver-version) before **October 31, 2024**. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between the legacy and recommended version. 
+>MySQL connector using the recommended driver version provides improved native MySQL support. If you are using the connector with the legacy driver version, please [upgrade it](#upgrade-the-mysql-driver-version) before **October 31, 2024**. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between the legacy and recommended version. 
 
 ## Supported capabilities
 
@@ -305,7 +305,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `time` |`TimeSpan` |`TimeSpan` |
 | `timestamp` |`Datetime` |`Datetime` |
 | `tinyblob` |`Byte[]` |`Byte[]` |
-| `tinyint` |`SByte` |`Int16` |
+| `tinyint` |`SByte` <br/> (`tinyint(1)` is mapped to `Boolean`) |`Int16` |
 | `tinyint unsigned` |`Int16` |`Int16` |
 | `tinytext` |`String` |`String` |
 | `varchar` |`String` |`String` |
@@ -315,15 +315,27 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the MySQL driver version
+## <a name="upgrade-the-mysql-driver-version"></a> Upgrade the MySQL connector
 
-Here are steps that help you upgrade your MySQL driver version: 
+Here are steps that help you upgrade your MySQL connector: 
 
 1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
 
 1. The data type mapping for the latest MySQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
 
 1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
+
+### Best practices for MySQL connector recommended version
+
+This section introduces best practices for MySQL connector recommended version.
+
+#### Cannot load SSL key
+
+- **Symptoms**: If you are using MySQL connector recommended version with SSL Key as a connection property, you may meet the following error message: `Could not load the client key from your_pem_file: Unrecognized PEM header: -----BEGIN PRIVATE KEY-----`
+
+- **Cause**: The recommended version cannot decrypt the PCKS#8 format.
+
+- **Recommendation**: Convert the PEM format to PCKS#1.
 
 ## Differences between the recommended and the legacy driver version
 

@@ -132,7 +132,7 @@ When the Azure Virtual Desktop Agent is first installed on session host VMs (eit
 
 1. If there's already a registration token, remove it with Remove-AzWvdRegistrationInfo.
 2. Run the **New-AzWvdRegistrationInfo** cmdlet to generate a new token.
-3. Confirm that the *-ExpriationTime* parameter is set to three days.
+3. Confirm that the *-ExpirationTime* parameter is set to three days.
 
 ### Error: Azure Virtual Desktop agent isn't reporting a heartbeat when running Get-AzWvdSessionHost
 
@@ -319,5 +319,5 @@ Golden images must not include the Azure Virtual Desktop agent. You can install 
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

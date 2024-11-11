@@ -34,7 +34,7 @@ The following diagram shows the architecture for Azure Bastion and the Developer
 
   When you deploy Bastion using default values, the values are pulled from the virtual network in which your VM resides. Make sure the VM resides in a resource group that's in a region where the Developer SKU is supported.
 
-  * If you don't already have a VM in a virtual network, create one using [Quickstart: Create a Windows VM](../virtual-machines/windows/quick-create-portal.md), or [Quickstart: Create a Linux VM](../virtual-machines/linux/quick-create-portal.md).
+  * If you don't already have a VM in a virtual network, create one using [Quickstart: Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal), or [Quickstart: Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal).
   * If you need example values, see the [Example values](#values) section.
   * If you already have a virtual network, make sure it's selected on the Networking tab when you create your VM.
   * If you don't have a virtual network, you can create one at the same time you create your VM.

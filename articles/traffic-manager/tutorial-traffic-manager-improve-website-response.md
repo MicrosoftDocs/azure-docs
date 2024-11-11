@@ -65,7 +65,7 @@ In this section, you create two VMs **myIISVMEastUS** and **myIISVMWestEurope** 
     | Image | Choose the base operating system or application for the VM. For this example, select **Windows Server 2019 Datacenter**. |
     | VM architecture | Leave as default. |
     | Size | Leave as default. |
-    | Administrator Account | Enter a user name and password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-). |
+    | Administrator Account | Enter a user name and password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](/azure/virtual-machines/windows/faq?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-). |
     | Public inbound ports | Select **Allow selected ports** and select **RDP** and **HTTP** in the pull-down box.|
 
     :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/createVM.png" alt-text="Screenshot of creating a VM.":::
@@ -152,7 +152,7 @@ In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azu
     | Image | Choose the base operating system or application for the VM. For this example, select **Windows Server 2019 Datacenter**. |
     | VM architecture | Leave as default. |
     | Size | Leave as default. |
-    | Administrator Account | Enter a user name and password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-). |
+    | Administrator Account | Enter a user name and password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](/azure/virtual-machines/windows/faq?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-). |
     | Public inbound ports | Select **Allow selected ports** and select **RDP** and **HTTP** in the pull-down box.|
 
 1. Select the **Management** tab, or select **Next: Disks**, then **Next: Networking**, then **Next: Management**. Under **Monitoring**, set **Boot diagnostics** to **Disable**.

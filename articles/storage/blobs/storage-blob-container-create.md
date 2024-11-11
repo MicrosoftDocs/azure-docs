@@ -53,7 +53,7 @@ The following example uses a `BlobServiceClient` object to create a container as
 
 ## Create the root container
 
-A root container serves as a default container for your storage account. Each storage account may have one root container, which must be named *$root*. The root container must be explicitly created or deleted.
+A root container serves as a default container for your storage account. Each storage account can have one root container, which must be named *$root*. The root container must be explicitly created or deleted.
 
 You can reference a blob stored in the root container without including the root container name. The root container enables you to reference a blob at the top level of the storage account hierarchy. For example, you can reference a blob that is in the root container in the following manner:
 
@@ -74,3 +74,5 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 - [Create Container](/rest/api/storageservices/create-container) (REST API)
 
 [!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

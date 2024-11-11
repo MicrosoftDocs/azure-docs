@@ -56,7 +56,7 @@ In the **Event Subscription Details** section, provide an appropriate name.
 
 #### [Using PowerShell](#tab/powershell)
 
-1. Create a maintenance configuration by following the steps listed [here](../virtual-machines/maintenance-configurations-powershell.md#guest).
+1. Create a maintenance configuration by following the steps listed [here](/azure/virtual-machines/maintenance-configurations-powershell#guest).
 
 1. ```powershell-interactive
     # Obtain the Maintenance Configuration ID from Step 1 and assign it to MaintenanceConfigurationResourceId variable  
@@ -99,7 +99,7 @@ In the **Event Subscription Details** section, provide an appropriate name.
 
 #### [Using CLI](#tab/cli)
 
-1. Create a maintenance configuration by following the steps listed [here](../virtual-machines/maintenance-configurations-cli.md#guest-vms).
+1. Create a maintenance configuration by following the steps listed [here](/azure/virtual-machines/maintenance-configurations-cli#guest-vms).
 
 1. ```azurecli-interactive
 

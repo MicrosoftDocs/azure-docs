@@ -4,7 +4,7 @@ description: This article gives an overview of connection strings in Azure Signa
 author: chenkennt
 ms.service: azure-signalr-service
 ms.topic: conceptual
-ms.date: 03/29/2023
+ms.date: 08/09/2024
 ms.author: kenchen
 ---
 

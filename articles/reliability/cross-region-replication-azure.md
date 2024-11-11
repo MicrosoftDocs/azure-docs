@@ -2,12 +2,12 @@
 title: Azure cross-region replication
 description: Learn about Azure cross-region replication
 author: anaharris-ms
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 12/12/2022
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Azure cross-region replication
@@ -107,12 +107,13 @@ The table below lists Azure regions without a region pair:
 
 | Geography | Region |
 |-----|----|
-| Qatar | Qatar Central |
-| Mexico | Mexico Central |
-| Poland | Poland Central |
+| Austria | Austria East (coming soon) |
 | Israel | Israel Central|
 | Italy | Italy North|
-| Austria | Austria East (Coming soon) |
+| Mexico | Mexico Central |
+| New Zealand | New Zealand North (coming soon) |
+| Poland | Poland Central |
+| Qatar | Qatar Central |
 | Spain | Spain Central|
 
 ## Next steps

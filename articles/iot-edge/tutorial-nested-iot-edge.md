@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 06/10/2024
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
 content_well_notification: 
@@ -66,7 +66,7 @@ To create a hierarchy of IoT Edge devices, you need:
    * 443: Used between parent and child edge hubs for REST API calls and to pull docker container images.
    * 5671, 8883: Used for AMQP and MQTT.
 
-   For more information, see [how to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md).
+   For more information, see [how to open ports to a virtual machine with the Azure portal](/azure/virtual-machines/windows/nsg-quickstart-portal).
 
    >[!TIP]
    >You use the SSH handle and either the FQDN or IP address of each virtual machine for configuration in later steps, so keep track of this information. 

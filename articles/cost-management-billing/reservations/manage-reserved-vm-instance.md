@@ -128,7 +128,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 ## Change optimize setting for Reserved VM Instances
 
- When you buy a Reserved VM Instance, you choose instance size flexibility or capacity priority. Instance size flexibility applies the reservation discount to other VMs in the same [VM size group](../../virtual-machines/reserved-vm-instance-size-flexibility.md). Capacity priority designates data center capacity most important for your deployments. This option offers additional confidence in your ability to launch the VM instances when you need them.
+ When you buy a Reserved VM Instance, you choose instance size flexibility or capacity priority. Instance size flexibility applies the reservation discount to other VMs in the same [VM size group](/azure/virtual-machines/reserved-vm-instance-size-flexibility). Capacity priority designates data center capacity most important for your deployments. This option offers additional confidence in your ability to launch the VM instances when you need them.
 
 By default, when the scope of the reservation is shared, the instance size flexibility is on. The data center capacity isn't prioritized for VM deployments.
 

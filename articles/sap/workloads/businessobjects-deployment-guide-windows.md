@@ -122,7 +122,7 @@ For details on how to create a storage account, see [Create a FileStorage storag
 
 #### Create Azure file shares
 
-The next step is to create Azure files in the storage account. Azure files use a provisioned model for premium file shares. In a provisioned business model, you proactively specify to Azure files what your storage requirements are, rather than being billed based on what you use. To understand more about this model, see [Provisioned model](../../storage/files/understanding-billing.md#provisioned-model). In this example, we create two Azure files: frsinput (256 GB) and frsoutput (256 GB) for the SAP BOBI file store.
+The next step is to create Azure files in the storage account. Azure files use a provisioned model for premium file shares. In a provisioned business model, you proactively specify to Azure files what your storage requirements are, rather than being billed based on what you use. To understand more about this model, see [Provisioned model](../../storage/files/understanding-billing.md#provisioned-v1-model). In this example, we create two Azure files: frsinput (256 GB) and frsoutput (256 GB) for the SAP BOBI file store.
 
 1. Go to the storage account **azusbobi** > **File shares**.
 1. Select **New file share**.
@@ -143,8 +143,8 @@ The SAP BusinessObjects BI application requires a partition on which its binarie
 
 In this example, an SAP BOBI application is installed on a separate partition (F:). Initialize the Premium SSD disk that you attached during the VM provisioning:
 
-1. **[A]** If no data disk is attached to the VM (azuswinboap1 and azuswinboap2), follow the steps in [Add a data disk](../../virtual-machines/windows/attach-managed-disk-portal.yml#add-a-data-disk) to attach a new managed data disk.
-1. **[A]** After the managed disk is attached to the VM, initialize the disk by following the steps in [Initialize a new data disk](../../virtual-machines/windows/attach-managed-disk-portal.yml#initialize-a-new-data-disk).
+1. **[A]** If no data disk is attached to the VM (azuswinboap1 and azuswinboap2), follow the steps in [Add a data disk](/azure/virtual-machines/windows/attach-managed-disk-portal#add-a-data-disk) to attach a new managed data disk.
+1. **[A]** After the managed disk is attached to the VM, initialize the disk by following the steps in [Initialize a new data disk](/azure/virtual-machines/windows/attach-managed-disk-portal#initialize-a-new-data-disk).
 
 ### Mount Azure Premium Files
 

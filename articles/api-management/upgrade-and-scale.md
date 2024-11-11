@@ -101,7 +101,7 @@ If you're scaling from or to the **Developer** tier, there will be downtime. Oth
 
 ## Compute isolation
 
-If your security requirements include [compute isolation](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), you can use the **Isolated** pricing tier. This tier ensures the compute resources of an API Management service instance consume the entire physical host and provide the necessary level of isolation required to support, for example, US Department of Defense Impact Level 5 (IL5) workloads. To get access to the Isolated tier, [create a support request](../azure-portal/supportability/how-to-create-azure-support-request.md). 
+If your security requirements include [compute isolation](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), you can use the **Isolated** pricing tier. This tier ensures the compute resources of an API Management service instance consume the entire physical host and provide the necessary level of isolation required to support, for example, US Department of Defense Impact Level 5 (IL5) workloads. To get access to the Isolated tier, [create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). 
 
 ## Related content
 

@@ -82,6 +82,32 @@ landingContent:
             url: troubleshoot-cli-common-issues.md
 
   # Card
+  - title: Safe Upgrade Practices
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Get Started with Safe Upgrades
+            url: safe-upgrade-practices.md
+      - linkListType: concept
+        links:
+          - text: Control Upgrade Behavior on Failure
+            url: safe-upgrades-nf-level-rollback.md
+
+ # Card
+  - title: Edge Registry and Private Link
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Get Started with Cluster Registry
+            url: get-started-with-cluster-registry.md
+          - text: Get Started with Private Link
+            url: get-started-with-private-link.md    
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Network Function Operator Extension
+            url: manage-network-function-operator.md
+            
+  # Card
   - title: Additional Resources
     linkLists:
       - linkListType: architecture
