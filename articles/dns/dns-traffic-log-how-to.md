@@ -189,7 +189,7 @@ The failed query is recorded in log analytics:
 
 ![Screenshot of a failed query.](./media/dns-traffic-log-how-to/failed-query.png)
 
- > [NOTE!]
+ > [!NOTE]
  > It can take a few minutes for query results to show up in log analytics.
 
 
@@ -240,6 +240,6 @@ Get-AzDnsDnssecConfig -ResourceGroupName "your-resource-group" -ZoneName "adatum
 
 ## Next steps
 
-- Learn how to [unsign a DNS zone](dnssec-unsign.md).
-- Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-for-azure-services.md).
-- Learn how to [manage reverse DNS records for your Azure services](dns-reverse-dns-for-azure-services.md).
+- Review concepts related to [DNS security policy](dns-security-policy.md).
+- Review [Azure Private DNS zones scenarios](private-dns-scenarios.md).
+- Review [DNS resolution in virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
