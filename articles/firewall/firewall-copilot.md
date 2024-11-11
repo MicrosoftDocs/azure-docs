@@ -67,11 +67,9 @@ To view the list of built-in system capabilities for Azure Firewall, use the fol
 
 1.	Ensure that the Azure Firewall plugin is turned on. In the prompt bar, select the **Sources** icon.
 
-1. In the **Manage sources** pop-up window that appears, confirm that the **Azure Firewall** toggle is turned on. Then, close the window. 
+1. In the **Manage sources** pop-up window that appears, confirm that the **Azure Firewall** toggle is turned on. Then, close the window. No other configuration is necessary. As long as structured logs are being sent to a Log Analytics workspace and you have the right RBAC permissions, Copilot finds the data it needs to answer your questions.
 
-No other configuration is necessary. As long as structured logs are being sent to a Log Analytics workspace and you have the right RBAC permissions, Copilot finds the data it needs to answer your questions.
-
-:::image type="content" source="media/firewall-copilot/azure-firewall-plugin.png" alt-text="Screenshot showing the Azure Firewall plugin.":::    
+    :::image type="content" source="media/firewall-copilot/azure-firewall-plugin.png" alt-text="Screenshot showing the Azure Firewall plugin.":::    
 
 1. Enter your prompt in the prompt bar on either the [Security Copilot portal](https://securitycopilot.microsoft.com) or via the [Copilot in Azure](/azure/copilot/overview) experience in the Azure portal.
 
