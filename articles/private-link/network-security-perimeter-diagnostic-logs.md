@@ -6,6 +6,7 @@ ms.author: mbender
 ms.service: azure-private-link
 ms.topic: conceptual
 ms.date: 11/04/2024
+ms.custom: references_regions
 #CustomerIntent: As a network administrator, I want to enable diagnostic logging for Network Security Perimeter, so that I can monitor and analyze the network traffic to and from my resources.
 ---
 
@@ -25,8 +26,8 @@ Access logs categories for a network security perimeter are based on the results
 | **NspPublicInboundPerimeterRulesDenied** | Public inbound access denied by network security perimeter. | Enforced |
 | **NspPublicOutboundPerimeterRulesAllowed** | Outbound access is allowed based on network security perimeter access rules. | Learning/Enforced |
 | **NspPublicOutboundPerimeterRulesDenied** | Public outbound access denied by network security perimeter. | Enforced |
-| **nspOutboundAttempt** | Outbound attempt within network security perimeter. | Learning/Enforced |
-| **nspIntraPerimeterInboundAllowed** | Inbound access within perimeter is allowed. | Learning/Enforced |
+| **NspOutboundAttempt** | Outbound attempt within network security perimeter. | Learning/Enforced |
+| **NspIntraPerimeterInboundAllowed** | Inbound access within perimeter is allowed. | Learning/Enforced |
 | **NspPublicInboundResourceRulesAllowed** | When network security perimeter rules deny, inbound access is allowed based on PaaS resource rules. | Learning |
 | **NspPublicInboundResourceRulesDenied** | When network security perimeter rules deny, inbound access denied by PaaS resource rules. | Learning |
 | **NspPublicOutboundResourceRulesAllowed** | When network security perimeter rules deny, outbound access allowed based on PaaS resource rules. | Learning |
@@ -42,6 +43,9 @@ The destinations for storing diagnostic logs for a network security perimeter in
 You can enable diagnostic logging for a network security perimeter by using the Azure portal under Diagnostic settings. When adding a diagnostic setting, you can choose the log categories you want to collect and the destination where you want to deliver the logs.
 
 :::image type="content" source="media/network-security-perimeter-diagnostic-logs/network-security-perimeter-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings options for a network security perimeter.":::
+
+> [!NOTE]
+> When using Azure Monitor with a network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions. For more information on available regions, see [Regional limits for Network Security Perimeter](./network-security-perimeter-concepts.md#regional-limitations).
 
 ## Next steps
 

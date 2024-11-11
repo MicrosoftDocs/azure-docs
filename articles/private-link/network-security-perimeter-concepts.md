@@ -18,10 +18,10 @@ For access patterns involving traffic from virtual networks to PaaS resources, s
 
 Features of Network Security Perimeter include:
 
-- Service to service communication within perimeter members, preventing data exfiltration to non-authorized destinations.
-- Public network access control for PaaS resources.
-- Access logs for audit and compliance.
+- Resource to resource access communication within perimeter members, preventing data exfiltration to non-authorized destinations.
 - Manage external public access with explicit rules for PaaS resources associated with the perimeter.
+- Access logs for audit and compliance.
+- Unified experience across PaaS resources.
 
 
 
@@ -80,11 +80,11 @@ Network security perimeter provides a secure perimeter for communication of PaaS
 
 ## How does Network Security Perimeter work?
 
-When a network security perimeter is created and the PaaS resources are associated with the  perimeter, all public traffic is denied by default. Thus preventing data exfiltration outside the perimeter.
+When a network security perimeter is created and the PaaS resources are associated with the perimeter in enforced mode, all public traffic is denied by default thus preventing data exfiltration outside the perimeter.  
 
-Access rules can be used to approve public inbound and outbound traffic outside the perimeter. Public inbound access can be approved using network and identity attributes of the client such as source IP addresses and subscriptions. Public outbound access can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations.
+Access rules can be used to approve public inbound and outbound traffic outside the perimeter. Public inbound access can be approved using Network and Identity attributes of the client such as source IP addresses, subscriptions. Public outbound access can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations. 
 
-For example, when creating a network security perimeter and associating a set of PaaS resources, like Azure Key Vault and SQL DB, with the perimeter, all incoming and outgoing public traffic is denied to these PaaS resources by default. To allow any access outside the perimeter, necessary access rules can be created. Within the same perimeter, profiles can also be created to group PaaS resources with similar set of inbound and outbound access requirements.
+For example, upon creating a network security perimeter and associating a set of PaaS resources like Azure Key Vault and SQL DB in enforced mode, with the perimeter, all incoming and outgoing public traffic is denied to these PaaS resources by default. To allow any access outside the perimeter, necessary access rules can be created. Within the same perimeter, profiles may also be created to group PaaS resources with similar set of inbound and outbound access requirements.
 
 ## Onboarded private link resources
 A network security perimeter-aware private link resource is a PaaS resource that can be associated with a network security perimeter. Currently the list of onboarded private link resources are as follows:
@@ -98,16 +98,16 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | Key Vault                 | Microsoft.KeyVault/vaults | - |
 | SQL DB                    | Microsoft.Sql/servers | - |
 | [Storage](/azure/storage/common/storage-network-security)               | Microsoft.Storage/storageAccounts | - |
-| Event Grid | Microsoft.EventGrid/topics</br>Microsoft.EventGrid/domains |	- |
 
+> [!NOTE]
+> 
 ## Limitations of network security perimeter
 
 ### Regional limitations
 
-Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, consider the region availability of Azure monitor.
+Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions. Currently, those regions are **East US**, **East US 2**, **North Central US**, **South Central US**, **West US**, and **West US 2**.
 
 > [!NOTE]
-> Though the network security perimeter can be created in any region, the Log analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
 > For PaaS resource logs, use **Storage and Event Hub** as the log destination for any region associated to the same perimeter.
 
 [!INCLUDE [network-security-perimeter-limits](../../includes/network-security-perimeter-limits.md)]
