@@ -25,14 +25,15 @@ This article provides an overview of the current limitations when you're using [
 * Azure Virtual Network Manager policies don't support the standard evaluation cycle for policy compliance. For more information, see [Evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 * The move of the subscription where the Azure Virtual Network Manager instance exists to another tenant is not supported.
 
-## Limitations and limits for peering and connected groups 
+## Limitations for peerings and connected groups 
 
 * A virtual network can be peered up to 1000 virtual networks using Azure Virtual Network Manager's hub and spoke topology. This means that you can peer up to 1000 spoke virtual networks to a hub virtual network.
 * By default, a [connected group](concept-connectivity-configuration.md) can have up to 250 virtual networks. This is a soft limit and can be increased up to 1000 virtual networks by submitting a request using [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRzeHatNxLHpJshECDnD5QidURTM2OERMQlYxWkE1UTNBMlRNUkJUNkhDTy4u&route=shorturl).
 * By default, a virtual network can be part of up to two connected groups. For example, a virtual network:
   * Can be part of two mesh configurations.
   * Can be part of a mesh topology and a network group that has direct connectivity enabled in a hub-and-spoke topology.
-  * Can be part of two network groups with direct connectivity enabled in the same or a different hub-and-spoke configuration. 
+  * Can be part of two network groups with direct connectivity enabled in the same or a different hub-and-spoke configuration.
+  * This is a soft limit and can be adjusted by submitting a request using [this form](https://forms.office.com/r/xXxYrQt0NQ).  
 * The following BareMetal Infrastructures are not supported:
   * [Azure NetApp Files](../azure-netapp-files/index.yml)
   * [Azure VMware Solution](../azure-vmware/index.yml)
@@ -45,8 +46,8 @@ This article provides an overview of the current limitations when you're using [
 ## Limitations for security admin rules
 
 * The maximum number of IP prefixes in all [security admin rules](concept-security-admins.md) combined is 1,000.
-
 * The maximum number of admin rules in one level of Azure Virtual Network Manager is 100.
+* The service tags AzurePlatformDNS, AzurePlatformIMDS, and AzurePlatformLKM are not currently supported in security admin rules.
 
 ## Related content
 

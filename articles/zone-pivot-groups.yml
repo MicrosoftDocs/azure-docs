@@ -1712,3 +1712,14 @@ groups:
     title: Interactive
   - id: terraform
     title: Terraform
+# Owner: jodowns
+- id: app-service-sku
+  title: App Service tier
+  prompt: Choose an App Service tier
+  pivots:
+  - id: free-shared-basic
+    title: Free, Shared, Basic
+  - id: premium
+    title: Premium v2 and Premium v3
+  - id: isolated
+    title: Isolated v2 (App Service Environment)

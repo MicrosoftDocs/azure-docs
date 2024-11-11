@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/23/2024
+ms.date: 11/08/2024
 ms.author: kendownie
 ---
 
@@ -13,6 +13,19 @@ ms.author: kendownie
 Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
 ## What's new in 2024
+
+### 2024 quarter 4 (October, November, December)
+
+#### Azure File Sync v19 release
+
+The Azure File Sync v19 release improves performance, security, and adds support for Windows Server 2025: 
+- Faster server provisioning and improved disaster recovery for Azure File Sync server endpoints
+- Sync performance improvements
+- Preview: Managed Identities support for Azure File Sync service and servers
+- Azure File Sync agent support for Windows Server 2025
+
+To learn more, see the [Azure File Sync release notes](../file-sync/file-sync-release-notes.md#version-19100). 
+
 
 ### 2024 quarter 3 (July, August, September)
 
