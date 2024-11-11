@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot Synapse Studio connectivity
-description: Troubleshoot Azure Synapse Studio connectivity using PowerShell
+description: In this article we provide steps to troubleshoot Azure Synapse Studio connectivity problems using PowerShell.
 author: whhender 
 ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.date: 10/30/2020 
 ms.author: whhender 
 ms.reviewer: whhender
@@ -52,7 +52,6 @@ If you're a network administrator and tuning your firewall configuration for Azu
 
 * All the test items (requests) marked with "Passed" mean they have passed connectivity tests, regardless of the HTTP status code.
  For the failed requests, the reason is shown in yellow, such as `NamedResolutionFailure` or `ConnectFailure`. These reasons might help you figure out whether there are misconfigurations with your network environment.
-
 
 ## Next steps
 If the previous steps don't help to resolve your issue, [create a support ticket](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
