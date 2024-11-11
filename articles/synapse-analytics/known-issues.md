@@ -8,7 +8,7 @@ ms.reviewer: wiassaf, joanpo
 ms.date: 04/08/2024
 ms.service: azure-synapse-analytics
 ms.subservice: overview
-ms.topic: conceptual
+ms.topic: troubleshooting-known-issue
 ---
 
 # Azure Synapse Analytics known issues
