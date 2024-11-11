@@ -29,8 +29,7 @@ You pay for function apps in an App Service Plan as you would for other App Serv
 
 When you run your app on an App Service plan, you should enable the **Always on** setting so that your function app runs correctly. On an App Service plan, the Functions runtime goes idle after a few minutes of inactivity. The **Always on** setting is available only on an App Service plan. In other plans, the platform activates function apps automatically. If you choose not to enable **Always on**, you can reactivate an idled app in these ways:
 
-+ Send a request to an HTTP trigger endpoint.
-+ Send a request to an `/admin` API endpoint (requires the [master key](function-keys-how-to.md#understand-keys)).
++ Send a request to an HTTP trigger endpoint or any other endpoint on the app. Even a failed request should wake up your app. 
 + Acccess your app in the [Azure portal](https://portal.azure.com). 
 
 Even with **Always on** enabled, the execution timeout for individual functions is controlled by the `functionTimeout` setting in the [host.json](functions-host-json.md#functiontimeout) project file.
