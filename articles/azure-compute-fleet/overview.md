@@ -64,6 +64,13 @@ We invite you to test out 2 new additinal capacibilities on Compute Fleet...
 
 ## SDK - Compute Fleet
 
+| SDK        | Documentation Links                                                                                                                              |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| [Java](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-computefleet_1.0.0/sdk/computefleet/azure-resourcemanager-computefleet/)  | [Java SDK learn docs](https://docs.microsoft.com/javascript/api/overview/azure/arm-computefleet-readme)                           |
+| [[Java-Script](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computefleet_1.0.0/sdk/computefleet/arm-computefleet/)  | [Java-Script SDK learn docs](https://docs.microsoft.com/javascript/api/overview/azure/arm-computefleet-readme)                           |
+| [Python](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computefleet_1.0.0/sdk/computefleet/azure-mgmt-computefleet/)  | [Python SDK learn docs](https://docs.microsoft.com/javascript/api/overview/azure/arm-computefleet-readme)                           |
+| [Java](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-computefleet_1.0.0/sdk/computefleet/azure-resourcemanager-computefleet/)  | [Java SDK learn docs](https://docs.microsoft.com/javascript/api/overview/azure/arm-computefleet-readme)                           |
+
 
 
 ## Next steps
