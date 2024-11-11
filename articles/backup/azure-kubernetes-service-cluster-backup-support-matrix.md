@@ -19,12 +19,10 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Operational Tier support for AKS backup is supported in all the following Azure public cloud regions: East US, North Europe, West Europe, South East Asia, West US 2, East US 2, West US, North Central US, Central US, France Central, Korea Central, Australia East, UK South, East Asia, West Central US, Japan East, South Central US, West US 3, Canada Central, Canada East, Australia South East, Central India, Norway East, Germany West Central, Switzerland North, Sweden Central, Japan West, UK West, Korea South, South Africa North, South India, France South, Brazil South, UAE North, China East 2, China East 3, China North 2, China North 3, USGov Virginia, USGov Arizona and USGov Texas.
 
-- Vault Tier and Cross Region Restore support (preview) for AKS backup are available in the following regions: East US, West US, West US 3, North Europe, West Europe, North Central US, South Central US, West Central US, East US 2, Central US, UK South, UK West, East Asia, South-East Asia, Japan East South India, Central India, Canada Central and Norway East.
+- Vault Tier and Cross Region Restore support for AKS backup are available in the following regions: East US, West US, West US 3, North Europe, West Europe, North Central US, South Central US, West Central US, East US 2, Central US, UK South, UK West, East Asia, South-East Asia, Japan East South India, Central India, Canada Central and Norway East.
 
 
   >[!Note]
-  >Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
-  >
   >To access backups stored in Vault Tier in the Azure paired region, enable Cross Region Restore capability for your Backup Vault. See the [list of Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions).
 
 ## Limitations
@@ -79,7 +77,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Configuration of a storage account with private endpoint is supported.
 
-### Additional limitations for Vaulted backup and Cross Region Restore (preview)
+### Additional limitations for Vaulted backup and Cross Region Restore
 
 - Only Azure Disk with Persistent Volumes of size <= 1 TB are eligible to be moved to the Vault Tier; otherwise, they are skipped in the backup data. 
 
