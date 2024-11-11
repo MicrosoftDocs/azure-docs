@@ -16,6 +16,12 @@ items:
       - name: Bicep
         href: quickstart-bicep.md
         displayName: Resource Manager,ARM,template
+      - name: Azure CLI
+        href: quickstart-azcli.md
+        displayName: Resource Manager,Azure CLI, az deidservice
+      - name: Azure PowerShell
+        href: quickstart-powershell.md
+        displayName: Resource Manager
       - name: Azure Health De-identification client library for .NET
         href: quickstart-sdk-net.md
   - name: Tutorials
