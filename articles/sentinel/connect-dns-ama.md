@@ -26,6 +26,7 @@ While some mechanisms were introduced to improve the overall security of this pr
 Before you begin, verify that you have:
 
 - A Log Analytics workspace enabled for Microsoft Sentinel.
+- The Windows Server DNS solution installed on your workspace.
 - Windows Server 2012 R2 with auditing hotfix and later.
 - A Windows DNS Server.
 
@@ -44,14 +45,14 @@ If you need to create multiple DCRs, [use the API](#set-up-the-connector-with-th
 **To configure the connector**:
 
 1. In Microsoft Sentinel, open the **Data connectors** page, and locate the **Windows DNS Events via AMA** connector.
-1. Below the connector description, select **Open connector page**.
+1. Towards the bottom of the side pane, select **Open connector page**.
 1. In the **Configuration** area, select **Create data collection rule**. You can create a single DCR per workspace.
 
     The DCR name, subscription, and resource group are automatically set based on the workspace name, the current subscription, and the resource group the connector was selected from. For example:
 
     :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-create-dcr.png" alt-text="Screenshot of creating a new D C R for the Windows D N S over A M A connector.":::
 
-1. Select the **Resources** tab and select **Add Resource(s)**.
+1. Select the **Resources** tab > **Add Resource(s)**.
 1. Select the VMs on which you want to install the connector to collect logs. For example:
 
     :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-select-resource.png" alt-text="Screenshot of selecting resources for the Windows D N S over A M A connector.":::
@@ -60,9 +61,9 @@ If you need to create multiple DCRs, [use the API](#set-up-the-connector-with-th
 
 ## Configure the Windows DNS over AMA connector via API
 
-Use the API setup option to configure the connector using multiple [DCRs](/rest/api/monitor/data-collection-rules) per workspace. If you'd prefer to use a single DCR, use the [portal option](#configure-the-windows-dns-over-ama-connector-via-the-portal) instaed.
+Use the API setup option to configure the connector using multiple [DCRs](/rest/api/monitor/data-collection-rules) per workspace. If you'd prefer to use a single DCR, use the [portal option](#configure-the-windows-dns-over-ama-connector-via-the-portal) instead.
 
-Using the API to create multiple DCRs will still show only one DCR in the portal.
+Using the API to create multiple DCRs still shows only one DCR in the portal.
 
 Use the following example as a template to create or update a DCR:
 
@@ -145,11 +146,12 @@ For more information, see [Available fields for filtering](dns-ama-fields.md#ava
 
 ### Create advanced filters via the portal
 
-Use the following procedure to create filters via the portal. If you're using the API, see [Advanced filtering examples](#advanced-filtering-examples) for more information.
+Use the following procedure to create filters via the portal. For more information about creating filters with the API, see [Advanced filtering examples](#advanced-filtering-examples).
 
 **To create filters via the portal**:
 
-1. On the connector page, in the **Configuration** area, select **Add data collection filters**. 
+1. On the connector page, in the **Configuration** area, select **Add data collection filters**.
+
 1. Enter a name for the filter and select the filter type, which is a parameter that reduces the number of collected events. Parameters are normalized according to the DNS normalized schema. For more information, see [Available fields for filtering](dns-ama-fields.md#available-fields-for-filtering).
 
     :::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-create-filter.png" alt-text="Screenshot of creating a filter for the Windows D N S over A M A connector.":::
@@ -298,7 +300,7 @@ The [ASIM DNS schema](normalization-schema-dns.md) represents the DNS protocol a
 See the [list of Windows DNS server fields](dns-ama-fields.md#asim-normalized-dns-schema) translated into the normalized field names.
 
 
-## Related niformation
+## Related content
 
 In this article, you learned how to set up the Windows DNS events via AMA connector to upload data and filter your Windows DNS logs. To learn more about Microsoft Sentinel, see the following articles:
 
