@@ -22,7 +22,7 @@ Multi-region Compute Fleet enables your workloads to run seamlessly across multi
 
 There will be a number of ways customer can use this capability,  whether by running a stateless web service, large batch jobs, a big data cluster and or continuous integration pipeline. Workloads such as financial risk analysis, log processing or image rendering can benefit from the ability to run hundred thousand of concurrent cores/instances.
 
-:::image type="content" source="./media/multi-region-compute-fleet.png" lightbox="./media/multi-region-compute-fleet.png" alt-text="Screenshot that shows Multi region compute fleet flow diagram.":::
+:::image type="content" source="./media/multi-region-compute-fleet/test.md/multi-region-fleet.png" lightbox="./media/multi-region-compute-fleet/test.md/multi-region-fleet.png" alt-text="Screenshot that shows Multi region compute fleet flow diagram.":::
 
 You can now simply specify your required target capacity by specifying up to 3 regions of choice for Azure to meet your capacity demands mixing both Standard and Spot VMs. Compute Fleet will deploy the request capacity across the regions that best meets your demand from a customized SKU list tailored to your workload requirements.
 
