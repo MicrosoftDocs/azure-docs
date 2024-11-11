@@ -13,7 +13,7 @@ ms.subservice: data-explorer
 
 [Azure Event Hubs](../../../event-hubs/event-hubs-about.md) is a big data streaming platform and event ingestion service. Azure Synapse Data Explorer offers continuous ingestion from customer-managed Event Hubs.
 
-The Event Hubs ingestion pipeline transfers events to Azure Synapse Data Explorer in several steps. You first create an Event Hubs in the Azure portal. You then create a target table in Azure Synapse Data Explorer into which the [data in a particular format](#data-format), will be ingested using the given [ingestion properties](#ingestion-properties). The Event Hubs connection needs to know [events routing](#events-routing). Data is embedded with selected properties according to the [event system properties mapping](#event-system-properties-mapping). [Create a connection](#event-hub-connection) to Event Hubs to [create an Event Hubs](#create-an-event-hub) and [send events](#send-events). This process can be managed through the [Azure portal](data-explorer-ingest-event-hub-portal.md), programmatically with [C#](data-explorer-ingest-event-hub-csharp.md) or [Python](data-explorer-ingest-event-hub-python.md), or with the [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md).
+The Event Hubs ingestion pipeline transfers events to Azure Synapse Data Explorer in several steps. You first create an Event Hubs in the Azure portal. You then create a target table in Azure Synapse Data Explorer into which the [data in a particular format](#data-format), will be ingested using the given [ingestion properties](#ingestion-properties). The Event Hubs connection needs to know [events routing](#events-routing). Data is embedded with selected properties according to the [event system properties mapping](#event-system-properties-mapping). [Create a connection](#event-hubs-connection) to Event Hubs to [create an Event Hubs](#create-an-event-hubs) and [send events](#send-events). This process can be managed through the [Azure portal](data-explorer-ingest-event-hub-portal.md), programmatically with [C#](data-explorer-ingest-event-hub-csharp.md) or [Python](data-explorer-ingest-event-hub-python.md), or with the [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md).
 
 For general information about data ingestion in Azure Synapse Data Explorer, see [Azure Synapse Data Explorer data ingestion overview](data-explorer-ingest-data-overview.md).
 
@@ -58,7 +58,7 @@ Data is in `json` format. `mapping1` is pre-defined on the table `WeatherMetrics
 >For long-term, secure solutions, use one of these options:
 >
 >* [Passwordless authentication](../../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md?tabs=passwordless)
->* [Store your connection string in an Azure Key Vault](/key-vault/secrets/quick-create-portal) and use [this method](/key-vault/secrets/quick-create-net.md#retrieve-a-secret) to retrieve it in your code.
+>* [Store your connection string in an Azure Key Vault](/azure/key-vault/secrets/quick-create-portal) and use [this method](/azure/key-vault/secrets/quick-create-net.md#retrieve-a-secret) to retrieve it in your code.
 
 ```csharp
 var eventHubNamespaceConnectionString=<connection_string>;

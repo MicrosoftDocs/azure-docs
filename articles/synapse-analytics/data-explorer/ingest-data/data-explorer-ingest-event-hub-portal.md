@@ -188,7 +188,7 @@ Use the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) 
 >For long-term, secure solutions, use one of these options:
 >
 >* [Passwordless authentication](../../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md?tabs=passwordless)
->* [Store your connection string in an Azure Key Vault](/key-vault/secrets/quick-create-portal) and use [this method](/key-vault/secrets/quick-create-net.md#retrieve-a-secret) to retrieve it in your code.
+>* [Store your connection string in an Azure Key Vault](/azure/key-vault/secrets/quick-create-portal) and use [this method](/azure/key-vault/secrets/quick-create-net.md#retrieve-a-secret) to retrieve it in your code.
 
 1. Open the sample app solution in Visual Studio.
 1. In the *program.cs* file, update the `eventHubName` constant to the name of your Event Hubs and update the `connectionString` constant to the connection string you copied from the Event Hubs namespace.

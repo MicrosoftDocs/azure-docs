@@ -28,7 +28,7 @@ In this article, you create an Event Hub data connection for Azure Synapse Data 
 
 [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
-- [Event Hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hub).
+- [Event Hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hubs).
 - [Python 3.4+](https://www.python.org/downloads/).
 <!-- - [Database and table policies](database-table-policies-python.md) (optional). -->
 
@@ -40,7 +40,7 @@ In this article, you create an Event Hub data connection for Azure Synapse Data 
 
 ## Add an Event Hub data connection
 
-The following example shows you how to add an Event Hub data connection programmatically. See [connect to the event hub](data-explorer-ingest-event-hub-portal.md#connect-to-the-event-hub) for adding an Event Hub data connection using the Azure portal.
+The following example shows you how to add an Event Hub data connection programmatically. See [connect to the event hub](data-explorer-ingest-event-hub-portal.md#connect-to-the-event-hubs) for adding an Event Hub data connection using the Azure portal.
 
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
