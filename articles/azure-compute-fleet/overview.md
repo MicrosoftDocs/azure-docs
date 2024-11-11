@@ -55,7 +55,7 @@ You can specify target capacity using VM instances.
 Compute Fleet allows you to modify the target capacity for Spot and pay-as-you-go VMs based on your Compute Fleet configuration. For more information, see [Modify your Compute Fleet](#modify-your-compute-fleet) for details related to modifying target capacity. 
 
 
-## Minimum starting capacity 
+### Minimum starting capacity 
 
 You can set your Compute Fleet to deploy Spot VMs, pay-as-you-go VMs, or a combination of both only if the Compute Fleet can deploy the minimum starting capacity requested against the actual target capacity. The deployment fails if capacity becomes unavailable to fulfill the minimum starting capacity. 
 
