@@ -218,27 +218,13 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 >__How to use it:__ To be able to edit your functions in the [Azure portal](https://portal.azure.com), you must have [created your functions in the portal](./functions-get-started.md). To preserve a single source of truth, using any other deployment method makes your function read-only and prevents continued portal editing. To return to a state in which you can edit your files in the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment-related application settings (like [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)).
 
->__When to use it:__ The portal is a good way to get started with Azure Functions. For more advanced development work, we recommend that you use one of the following client tools:
+>__When to use it:__ The portal is a good way to get started with Azure Functions. Because of [development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal), you should use one of the following client tools more advanced development work:
 >
 >+ [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 >+ [Azure Functions Core Tools (command line)](functions-run-local.md)
 >+ [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
 >__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
-
-The following table shows the operating systems and languages that support in-portal editing:
-
-| Language | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
-|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
-| C#<sup>1</sup> | | | | | |
-| Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔|✔|
-| Python<sup>2</sup> | | | |✔ |✔ |✔ |
-| PowerShell |✔|✔|✔| | | |
-| TypeScript (Node.js) | | | | | | |
-
-<sup>1</sup> In-portal editing is only supported for C# script files, which run in-process with the host. For more information, see the [Azure Functions C# script (.csx) developer reference](functions-reference-csharp.md).   
-<sup>2</sup> In-portal editing is only supported for the [v1 Python programming model](functions-reference-python.md?pivots=python-mode-configuration).  
 
 ## Deployment behaviors
 
