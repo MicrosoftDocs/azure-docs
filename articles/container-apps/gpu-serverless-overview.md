@@ -20,15 +20,15 @@ Serverless GPUs are only supported for Consumption workload profiles. The featur
 
 ## Benefits
 
-Serverless GPUs accelerate AI development by allowing you to focus on your core AI code and less on managing infrastructure when using GPUs. This feature provides a middle layer option between the Azure AI model catalog's serverless APIs and hosting models on managed compute.
+Serverless GPUs accelerate AI development by allowing you to focus on your core AI code and less on managing infrastructure when using GPUs. This feature provides a middle layer option between the [Azure AI model catalog](/azure/machine-learning/concept-model-catalog)'s serverless APIs and hosting models on managed compute.
 
 The Container Apps serverless GPU support provides full data governance as your data never leaves the boundaries of your container while still providing a managed, serverless platform from which to build your applications.
 
 When you use serverless GPUs in Container Apps, your apps get:
 
-- **Scale-to zero GPUs**: Support for automatic serverless scaling of NVIDIA A100 and T4 GPUs.
+- **Scale-to zero GPUs**: Support for serverless scaling of NVIDIA A100 and T4 GPUs.
 
-- **Per-second billing**: Pay only for the GPU compute you use.
+- **Per-second billing**: Fine-grained cost calculations reduced down to the second.
 
 - **Built-in data governance**: Your data never leaves the container boundary.
 
@@ -40,12 +40,9 @@ When you use serverless GPUs in Container Apps, your apps get:
 
 The following scenarios, while not comprehensive, describe common use cases for serverless GPUs.
 
-- **Artificial Intelligence**: Applications that involve deep learning, neural networks, or large-scale data analysis can use GPUs to significantly accelerate computation speed. Including applications that support:
+- **Real-time and batch inferencing**: Using custom open-source models with fast startup times, automatic scaling, and a per-second billing model. Serverless GPUs are ideal for dynamic applications. You pay only for the compute you use, and your apps automatically scale in and out to meet demand.
 
-  - Real-time custom model inferencing with open-source models
-  - Batch-inferencing for periodic workloads with automatic scale-to-zero
-  - Custom fine-tuning of generative AI models
-  - Machine learning scenarios
+- **Machine learning scenarios**: Significantly speed up applications that implement fine-tuned custom generative AI models, deep learning, neural networks, or large-scale data analysis.
 
 - **High-Performance Computing (HPC)**: Applications that require complex calculations and simulations, such as scientific computing, financial modeling, or weather forecasting use GPUs as resources for high computational demands.
 
