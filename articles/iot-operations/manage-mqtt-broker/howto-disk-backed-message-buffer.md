@@ -6,7 +6,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.date: 11/04/2024
+ms.date: 11/11/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker so that I can modify the message queue behavior.
 ---
@@ -79,9 +79,9 @@ Tailor the broker message buffer options by adjusting the following settings:
 
 - **Configure the volume**: Specify a volume claim template to mount a dedicated storage volume for your message buffer.
 
-  - **Select a storage class**: Define the desired *StorageClass* using the `storageClassName` property.
+- **Select a storage class**: Define the desired *StorageClass* using the `storageClassName` property.
 
-  - **Define access modes**: Determine the access modes you need for your volume. For more information, see [persistent volume access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1).
+- **Define access modes**: Determine the access modes you need for your volume. For more information, see [persistent volume access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1).
 
 Use the following sections to understand the different volume modes: 
 
@@ -89,13 +89,22 @@ Use the following sections to understand the different volume modes:
 - [Persistent volume](#persistent-volume) is preferred next, and 
 - [*`emptyDir`* volume](#emptydir-volume) least preferred.
 
-Both persistent volume and ephemeral volume are generally provided by the same storage classes. If you have both options, choose ephemeral. However, ephemeral requires Kubernetes 1.23 or higher.
+Both persistent and ephemeral volumes are generally provided by the same storage classes. If both options are available, choose ephemeral. Note that ephemeral volumes require Kubernetes 1.23 or higher.
 
-Finally, deploy the Azure IoT Operations using the `az iot ops create` command with the `--broker-config-file` flag. See the following command (other parameters omitted for brevity):
+> [!TIP]
+> Specifying a Ephemeral Volume Claim (EVC) or Persistent Volume Claim (PVC) template lets you to use a storage class of your choice, increasing flexibility for some deployment scenarios. For example, Persistent Volumes (PVs) provisioned using a PVC template appear in commands like `kubectl get pv`, which can be useful for inspecting the cluster state.
+> 
+> If your Kubernetes nodes lack sufficient local disk space for the message buffer, use a storage class that provides network storage like Azure Blobs. However, it's generally better to use local disk with a smaller `maxSize` value, as the message buffer benefits from fast access and doesn't require durability.
+
+### Deploy Azure IoT Operations with disk-backed message buffer
+
+To use disk-backed message buffer, deploy Azure IoT Operations using the `az iot ops create` command with the `--broker-config-file` flag. See the following command (other parameters omitted for brevity):
 
 ```azurecli
 az iot ops create ... --broker-config-file <FILE>.json
 ```
+
+This setting cannot be changed after deployment. To change the disk-backed message buffer configuration, redeploy the Azure IoT Operations instance.
 
 ## Ephemeral volume
 
