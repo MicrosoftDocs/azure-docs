@@ -34,8 +34,9 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 
 | Term | Account type | Description |
 | --- | --- | --- |
+|AccountId|EA, pay-as-you-go|Unique identifier for the EA enrollment account.|
 | AccountName | EA, pay-as-you-go | Display name of the EA enrollment account or pay-as-you-go billing account. |
-| AccountOwnerId¹ | EA, pay-as-you-go | Unique identifier for the EA enrollment account or pay-as-you-go billing account. |
+| AccountOwnerId¹ | EA, pay-as-you-go | The email ID of the EA enrollment account owner. |
 | AdditionalInfo¹  | All | Service-specific metadata. For example, an image type for a virtual machine. |
 | AvailabilityZone | External account | Valid only for cost data obtained from the cross-cloud connector. The field displays the availability zone in which the AWS service is deployed. |
 | BenefitId¹ | EA, MCA | Unique identifier for the purchased savings plan instance. |
@@ -102,6 +103,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | ResourceGroup | All | Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, **Others**, or **Not applicable**. |
 | ResourceId¹ | All | Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource. |
 | ResourceLocation¹  | All | The Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. For an example using Virtual Machines, see [What's the difference between MeterRegion and ResourceLocation](/azure/virtual-machines/vm-usage#what-is-the-difference-between-meter-region-and-resource-location). |
+| ResourceLocationNormalized  | All | Standardized format of the Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. The normalized location is used to resolve inconsistencies in region names sent by different Azure Resource Providers (RPs). |
 | ResourceName | EA, pay-as-you-go | Name of the resource. Not all charges come from deployed resources. Charges that don't have a resource type are shown as null/empty, **Others** , or **Not applicable**. |
 | ResourceType | MCA | Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type are shown as null/empty, **Others** , or **Not applicable**. |
 | RoundingAdjustment | EA, MCA | Rounding adjustment represents the quantization that occurs during cost calculation. When the calculated costs are converted to the invoiced total, small rounding errors can occur. The rounding errors are represented as `rounding adjustment` to ensure that the costs shown in Cost Management align to the invoice. For more information, see [Rounding adjustment details](#rounding-adjustment-details).  |

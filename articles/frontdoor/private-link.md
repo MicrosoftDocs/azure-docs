@@ -103,6 +103,7 @@ Azure Front Door private link is available in the following regions:
 | West US 3 | Sweden Central | | |
 | US Gov Arizona | | | |
 | US Gov Texas | | | |
+| US Gov Virginia | | | |
 
 
 ## Limitations

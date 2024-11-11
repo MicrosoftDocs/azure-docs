@@ -117,16 +117,6 @@ To connect your cluster to Azure Arc:
    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
    ```
 
-## Verify cluster
-
-Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command on the cluster host:
-
-```azurecli
-az iot ops verify-host
-```
-
-This helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints.
-
 ## Create a storage account and schema registry
 
 Azure IoT Operations requires a schema registry on your cluster. Schema registry requires an Azure storage account so that it can synchronize schema information between cloud and edge.
@@ -181,7 +171,7 @@ Run the following CLI commands in your Codespaces terminal.
 1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
-   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance  --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id)
+   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance  --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id) --broker-frontend-replicas 1 --broker-frontend-workers 1  --broker-backend-part 1  --broker-backend-workers 1 --broker-backend-rf 2 --broker-mem-profile Low
    ```
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.

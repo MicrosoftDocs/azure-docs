@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: azure-health-data-services
 ms.topic: tutorial
 ms.date: 09/12/2024
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Logging for Azure Health Data Services
