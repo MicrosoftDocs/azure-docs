@@ -1,4 +1,15 @@
-
+---
+title: Configuring Fleet
+description: Learn about how to modify your Compute Fleet.
+author: rajeeshr
+ms.author: rajeeshr
+ms.topic: overview
+ms.service: azure-compute-fleet
+ms.custom:
+  - ignite-2024
+ms.date: 11/10/2024
+ms.reviewer: jushiman
+---
 
 # Modify fleet 
 
