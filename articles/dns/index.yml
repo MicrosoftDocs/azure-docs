@@ -101,3 +101,18 @@ landingContent:
             url: tutorial-alias-pip.md
           - text: Create an alias record to support apex domain names with Traffic Manager
             url: tutorial-alias-tm.md
+# Card
+  - title: Network foundation
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Documentation
+            url: https://aka.ms/networkfoundationdocs
+      - linkListType: concept
+        links:
+          - text: Azure Bastion overview
+            url: /azure/bastion/bastion-overview
+          - text: Azure Virtual Network overview
+            url: /azure/virtual-network/virtual-networks-overview
+          - text: Azure Private Link overview
+            url: /azure/private-link/private-link-overview
