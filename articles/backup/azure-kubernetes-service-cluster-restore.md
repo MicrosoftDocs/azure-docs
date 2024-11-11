@@ -124,7 +124,7 @@ Azure Backup for AKS currently supports the following two options when doing a r
 
 ## Restore in secondary region
 
-To restore the AKS cluster in the secondary region, [configure Geo redundancy and Cross Region Restore in the Backup vault](azure-kubernetes-service-cluster-backup.md#create-a-backup-vault), configure backup for the AKS cluster and then you can [trigger restore](tutorial-restore-aks-backups-across-regions.md#restore-in-secondary-region) to a secondary region (Azure paired region).
+To restore the AKS cluster in the secondary region, [configure Geo redundancy and Cross Region Restore in the Backup vault](azure-kubernetes-service-cluster-backup.md#create-a-backup-vault), and then [trigger restore](tutorial-restore-aks-backups-across-regions.md#restore-in-secondary-region).
 
 ## Next steps
 

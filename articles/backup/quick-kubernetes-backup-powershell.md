@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Configure backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via PowerShell
+title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via PowerShell
 description: Learn how to quickly configure backup for a Kubernetes cluster using PowerShell.
 ms.service: azure-backup
 ms.topic: quickstart
@@ -11,27 +11,17 @@ author: AbhishekMallick-MS
 
 ---
 
-# Quickstart: Configure backup for an Azure Kubernetes Service (AKS) cluster using PowerShell
+# Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using PowerShell
 
-This quickstart describes how to configure backup for an Azure Kubernetes Service (AKS) cluster using PowerShell.
+This quickstart describes how to configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using PowerShell.
 
 Azure Backup for AKS is a cloud-native, enterprise-ready, application-centric backup service that lets you quickly configure backup for AKS clusters.
 
 ## Before you start
 
-- Currently, AKS backup supports Azure Disk-based persistent volumes (enabled by CSI driver) only. The backups are stored only in operational datastore (in your tenant) and aren't moved to a vault. The Backup vault and AKS cluster should be in the same region.
+Before you configure vaulted backup for AKS cluster, ensure the following prerequisites are met:
 
-- AKS backup uses a blob container and a resource group to store the backups. The blob container has the AKS cluster resources stored in it, whereas the persistent volume snapshots are stored in the resource group. The AKS cluster and the storage locations must reside in the same region. Learn [how to create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
-
-- Currently, AKS backup supports once-a-day backup. It also supports more frequent backups (in every *4*, *8*, and *12* hours intervals) per day. This solution allows you to retain your data for restore for up to 360 days. Learn to [create a backup policy](#create-a-backup-policy).
-
-- You must [install the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations on an AKS cluster. Learn more [about Backup Extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
-
-- Ensure that `Microsoft.KubernetesConfiguration`, `Microsoft.DataProtection`, and `Microsoft.ContainerService` are registered for your subscription before initiating the backup configuration and restore operations.
-
-- Ensure to perform [all the prerequisites](azure-kubernetes-service-cluster-backup-concept.md) before initiating backup or restore operation for AKS backup.
-
-For more information on the supported scenarios, limitations, and availability, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).
+- Perform [all the prerequisites](azure-kubernetes-service-cluster-backup-concept.md) before initiating backup or restore operation for AKS backup.
 
 ## Create a Backup vault
 
@@ -55,7 +45,8 @@ Retrieve the policy template using the command `Get-AzDataProtectionPolicyTempla
 $policyDefn = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureKubernetesService
 ```
 
-The policy template consists of a trigger criteria (which decides the factors to trigger the backup job) and a lifecycle (which decides when to delete, copy, or move the backups). In AKS backup, the default value for trigger is a scheduled hourly trigger is *every 4 hours (PT4H)* and retention of each backup is *seven days*.
+The policy template consists of a trigger criteria (which decides the factors to trigger the backup job) and a lifecycle (which decides when to delete, copy, or move the backups). In AKS backup, the default value for trigger is a scheduled hourly trigger is *every 4 hours (PT4H)* and retention of each backup is *seven days*. For vaulted backups add retention for vault datastore.
+
 
 ```azurepowershell
 New-AzDataProtectionBackupPolicy -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Name aksBkpPolicy -Policy $policyDefn
@@ -65,7 +56,7 @@ $aksBkpPol = Get-AzDataProtectionBackupPolicy -ResourceGroupName "testBkpVaultRG
 
 Once the policy JSON has all the required values, proceed to create a new policy from the policy object.
 
-```azurecli
+```azurepowershell
 az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVault -n mypolicy --policy policy.json
 ```
 

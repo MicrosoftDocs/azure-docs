@@ -65,12 +65,6 @@ landingContent:
         links:
           - text: SAP ASE (Sybase) database backup support (preview)
             url: sap-ase-database-about.md
-          - text: Azure Database for PostgreSQL - Flexible Server backup support (preview)
-            url: backup-azure-database-postgresql-flex-overview.md
-          - text: Azure Blob vaulted backup
-            url: blob-backup-overview.md?tabs=vaulted-backup
-          - text: Azure Files vaulted backup (preview)
-            url: azure-file-share-backup-overview.md?tabs=vault-standard
           - text: Vaulted backup and Cross Region Restore support for AKS
             url: azure-kubernetes-service-backup-overview.md          
 

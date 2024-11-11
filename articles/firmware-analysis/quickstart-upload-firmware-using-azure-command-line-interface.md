@@ -60,7 +60,7 @@ The output of this command includes a `name` property, which is your firmware ID
 3. Upload your firmware image to Azure Storage. Replace `pathToFile` with the path to your firmware image on your local machine.
 
     ```azurecli
-    az storage blob upload -f pathToFile --blob-url %sasURL%
+    az storage blob upload -f "pathToFile" --blob-url %sasURL%
     ```
 
 Here's an example workflow of how you could use these commands to create and upload a firmware image. To learn more about using variables in CLI commands, visit [How to use variables in Azure CLI commands](/cli/azure/azure-cli-variables?tabs=bash):
