@@ -10,7 +10,7 @@ metadata:
 
   author: abell
   ms.author: abell
-  ms.date: 03/28/2023
+  ms.date: 11/11/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -18,75 +18,74 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Private Link
+  - title: What is Azure Private Link?
     linkLists:
       - linkListType: overview
         links:
           - text: What is Private Link?
             url: private-link-overview.md
+          - text: What is a private endpoint?
+            url: private-endpoint-overview.md
+          - text: What is Private Link service?
+            url: private-link-service-overview.md
+          - text: Pricing
+            url: https://azure.microsoft.com/en-us/pricing/details/private-link/
       - linkListType: learn
         links:
           - text: Introduction to Azure Private Link
             url: /training/modules/introduction-azure-private-link/
+
+# Card (optional)
+  - title: Getting started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Private Link service
+            url: create-private-link-service-portal.md
+          - text: Create a private endpoint
+            url: create-private-endpoint-portal.md
+          - text: Private DNS zone values
+            url: private-endpoint-dns.md
       - linkListType: video
         links:
           - text: Secure Azure PaaS resources using Private Link
             url: https://www.youtube.com/watch?v=AZ0iFcyPDkc
 
-
   # Card (optional)
-  - title: Connect to an Azure service
+  - title: Scenarios 
     linkLists:
-      - linkListType: concept
+      - linkListType: tutorial
         links:
-          - text: What is a Private Endpoint?
-            url: private-endpoint-overview.md
+          - text: Connect to a storage account 
+            url: tutorial-private-endpoint-storage-portal.md
+          - text: Inspect traffic with Azure Firewall
+            url: tutorial-inspect-traffic-azure-firewall.md
           - text: Private Endpoints DNS integration
-            url: private-endpoint-dns.md            
-      - linkListType: quickstart
-        links:
-          - text: Create a Private Endpoint
-            url: create-private-endpoint-portal.md
-
-  # Card (optional)
-  - title: Build your own Private Link service
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: What is Private Link service?
-            url: private-link-service-overview.md
-      
+            url: private-endpoint-dns-integration.md  
+          - text: Connect to a SQL server
+            url: tutorial-private-endpoint-sql-portal.md    
       - linkListType: how-to-guide
         links:
-          - text: Create a Private Link service
-            url: create-private-link-service-powershell.md   
-  
-  # Card
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Azure CLI
-            url: /cli/azure/network
-          - text: Azure PowerShell
-            url: /powershell/module/az.network
-          - text: REST
-            url: /rest/api/virtualnetwork/privatelinkservices
+          - text: Approve private endpoint connections across subscriptions
+            url: how-to-approve-private-link-cross-subscription.md
+          - text: Manage network policies 
+            url: disable-private-endpoint-network-policy.md
 
+  # Card (optional)
 
-  - title: Learn about Private Link architecture
+  - title: Concepts and Architecture
     linkLists:
       - linkListType: concept
         links:
+          - text: Secruity baseline
+            url: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
           - text: Multitenancy and Azure Private Link
             url: /azure/architecture/guide/multitenant/service/private-link
-          
       - linkListType: learn
         links:
           - text: Design and implement private access to Azure Services
             url: /training/modules/design-implement-private-access-to-azure-services
-
-      - linkListType: reference
+      - linkListType: architecture
         links:
           - text: Azure Private Link in a hub-and-spoke network
             url: /azure/architecture/guide/networking/private-link-hub-spoke-network
@@ -94,3 +93,25 @@ landingContent:
             url: /azure/architecture/example-scenario/private-web-app/private-web-app
           - text: Multi-tier app service with private endpoint
             url: /azure/architecture/example-scenario/web/multi-tier-app-service-private-endpoint
+
+  # Card
+  - title: Troubleshoot and support
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Private endpoint connectivity
+            url: troubleshoot-private-endpoint-connectivity.md
+          - text: Private link service connectivity 
+            url: troubleshoot-private-endpoint-connectivity
+
+  # Card
+  - title: Networking Foundation
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Documentation
+            url: https://learn.microsoft.com/en-us/azure/networking/foundations/
+          - text: Virtual Network
+            url: /azure/virtual-network/
+          - text: DNS
+            url: /azure/dns/
