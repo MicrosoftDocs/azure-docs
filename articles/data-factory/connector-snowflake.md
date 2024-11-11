@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/22/2024
+ms.date: 11/11/2024
 ai-usage: ai-assisted
 ---
 
@@ -98,6 +98,7 @@ These generic properties are supported for the Snowflake linked service:
 | warehouse | The default virtual warehouse used for the session after connecting. |Yes|
 | authenticationType | Type of authentication used to connect to the Snowflake service. Allowed values are: **Basic** (Default) and  **KeyPair**. Refer to corresponding sections below on more properties and examples respectively.  | No |
 | role | The default security role used for the session after connecting. | No |
+| host | The host name of the Snowflake account. For example: `contoso.snowflakecomputing.com`. `.cn` is also supported.| No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No |
 
 This Snowflake connector supports the following authentication types. See the corresponding sections for details.
