@@ -77,9 +77,8 @@ No other configuration is necessary. As long as structured logs are being sent t
 
     > [!IMPORTANT]
     > Use of Copilot in Azure to query Azure Firewall is included with Security Copilot and requires [security compute units (SCUs)](/security-copilot/get-started-security-copilot#security-compute-units). You can provision SCUs and increase or decrease them at any time. For more information on SCUs, see [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot).
-    > If you do not have Security Copilot properly configured but ask a question relavent to the Azure Firewall capabilities via the Copilot in Azure experience then you will see an error message:
-    > :::image type="content" source="media/firewall-copilot/azure-copilot-error-message-new.png" alt-text="Screenshot showing the Copilot in Azure error message when Security Copilot is not properly configured." lightbox="media/firewall-copilot/azure-copilot-error-message-new.png":::
-
+    > If you do not have Security Copilot properly configured but ask a question relavent to the Azure Firewall capabilities via the Copilot in Azure experience then you will see an error message.
+   
 ## Sample Azure Firewall prompts
 
 There are many prompts you can use to get information from Azure Firewall. This section lists the ones that work best today. They're continuously updated as new capabilities are launched.
