@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Secure break-glass access
 
-The Break-Glass mechanism provides temporary and emergency access to Azure Operator Nexus (AON) devices or services, primarily for disaster recovery, incident response, or essential maintenance. Access is granted under controlled Identity Access Management (IAM) policies, maintaining security even during emergencies.
+The Break-Glass mechanism provides temporary and emergency access to Azure Operator Nexus devices or services, primarily for disaster recovery, incident response, or essential maintenance. Access is granted under controlled Identity Access Management (IAM) policies, maintaining security even during emergencies.
 
 For Network Fabric environments, the current break-glass model, known as Method D v1.5, relies on shared password authentication. This model, however, is limited to 15 shared accounts and poses significant security risks. Method D v2.0 introduces a modernized approach, implementing FIDO-2 devices and SSH keys to secure break-glass access. Key improvements include:
 
