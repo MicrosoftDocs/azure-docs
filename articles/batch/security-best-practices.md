@@ -69,7 +69,7 @@ Batch management operations via Azure Resource Manager are encrypted using HTTPS
 
 ### Batch pool compute nodes
 
-The Batch service communicates with a Batch node agent that runs on each node in the pool. For example, the service instructs the node agent to run a task, stop a task, or get the files for a task. Communication with the node agent is enabled by one or more load balancers, the number of which depends on the number of nodes in a pool. The load balancer forwards the communication to the desired node, with each node being addressed by a unique port number. By default, load balancers have public IP addresses associated with them. You can also remotely access pool nodes via RDP or SSH (this access is enabled by default, with communication via load balancers).
+The Batch service communicates with a Batch node agent that runs on each node in the pool. For example, the service instructs the node agent to run a task, stop a task, or get the files for a task. Communication with the node agent is enabled by one or more load balancers, the number of which depends on the number of nodes in a pool. The load balancer forwards the communication to the desired node, with each node being addressed by a unique port number. By default, load balancers have public IP addresses associated with them. You can also remotely access pool nodes via RDP or SSH (this access can be enabled by setting [InboundNatPool](/rest/api/batchmanagement/pool/create#inboundnatpool) during pool creation).
 
 #### Batch compute node OS
 
@@ -158,7 +158,7 @@ For more information, see [Create a pool without public IP addresses](simplified
 
 #### Limit remote access to pool nodes
 
-By default, Batch allows a node user with network connectivity to connect externally to a compute node in a Batch pool by using RDP or SSH.
+Pools created using API version previous than `2024-07-01`, Batch by default allows a node user with network connectivity to connect externally to a compute node in a Batch pool by using RDP or SSH.
 
 To limit remote access to nodes, use one of the following methods:
 
@@ -166,6 +166,7 @@ To limit remote access to nodes, use one of the following methods:
 - Create your pool [without public IP addresses](simplified-node-communication-pool-no-public-ip.md). By default, these pools can't be accessed outside of the VNet.
 - Associate an NSG with the VNet to deny access to the RDP or SSH ports.
 - Don't create any users on the node. Without any node users, remote access won't be possible.
+- Create your pools using API with version `2024-07-01` or later.
 
 ## Encrypt data
 
