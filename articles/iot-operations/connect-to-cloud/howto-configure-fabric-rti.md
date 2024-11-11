@@ -72,7 +72,7 @@ Azure Key Vault is the recommended way to sync the connection string to the Kube
 
 # [Bicep](#tab/bicep)
 
-Identical to [SASL instructions for the Event Hubs endpoint](../connect-to-cloud/howto-configure-kafka-endpoint?tabs=bicep#sasl).
+Identical to [SASL instructions for the Event Hubs endpoint](./howto-configure-kafka-endpoint?tabs=bicep#sasl).
 
 # [Kubernetes](#tab/kubernetes)
 
