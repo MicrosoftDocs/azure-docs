@@ -15,7 +15,7 @@ Azure Resource Manager is the deployment and management service for Azure. To pr
 
 A data boundary can only be established in new tenants that have no existing subscriptions or deployed resources. Once in place, the data boundary configuration can't be removed or modified, and existing subscriptions and resources can't be moved into or out of a tenant with a data boundary. Each tenant is limited to one data boundary, and after it's established, Azure Resource Manager will restrict resource deployments to regions within that boundary. Customers can opt their tenants into a data boundary by deploying a `Microsoft.Resources/dataBoundaries` resource at the tenant level.
 
-The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-powershell.yml).
+The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-powershell.md).
 
 To opt your tenant into an Azure EU Data Boundary:
 
