@@ -17,7 +17,7 @@ VPN gateways can now be migrated from the classic deployment model to [Resource 
 > [!IMPORTANT]
 > [!INCLUDE [classic gateway restrictions](../../includes/vpn-gateway-classic-gateway-restrict-create.md)]
 
-VPN gateways begins with a VNet migration from classic to Resource Manager. This migration is done by customers one VNet at a time. There aren't additional requirements in terms of tools or prerequisites to begin the VNet migration. Migration steps are identical to the existing VNet migration and are documented at [IaaS resources migration page](/azure/virtual-machines/migration-classic-resource-manager-ps).
+VPN gateways begin with a VNet migration from classic to Resource Manager. This migration is done by customers one VNet at a time. There aren't additional requirements in terms of tools or prerequisites to begin the VNet migration. Migration steps are identical to the existing VNet migration and are documented at [IaaS resources migration page](/azure/virtual-machines/migration-classic-resource-manager-ps).
 
 There isn't a data path downtime during VNet migration and thus existing workloads continue to function without the loss of on-premises connectivity during migration. The public IP address associated with the VPN gateway doesn't change during the migration process. This implies that you won't need to reconfigure your on-premises router once the migration is completed. 
 
