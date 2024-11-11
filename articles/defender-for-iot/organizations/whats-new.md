@@ -26,7 +26,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ## ERSPAN tunneling and legacy
 
-The ERSPAN is now a legacy.... for more info, see [configure initial settings and activate your sensor](/ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor) and [configure ERSPAN (Legacy)](/traffic-mirroring/configure-mirror-erspan.md#configure-legacy-erspan-in-the-cli).
+The ERSPAN is now a legacy.... for more info, see [configure initial settings and activate your sensor](/ot-deploy/activate-deploy-sensor#define-the-interfaces-you-want-to-monitor) and [configure ERSPAN (Legacy)](../traffic-mirroring/configure-mirror-erspan.md#configure-legacy-erspan-in-the-cli).
 
 ## October 2024
 
