@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configure APM Java agent with init-container"
-description: Learn to configure APM Java agent with init-container
+title: "Tutorial: Configure Application Performance Management (APM) Java agent with init-container"
+description: Learn to configure Application Performance Management (APM) Java agent with init-container
 services: container-apps
 author: croffz
 ms.service: azure-container-apps
