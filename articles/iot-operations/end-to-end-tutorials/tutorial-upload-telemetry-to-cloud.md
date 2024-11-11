@@ -142,7 +142,7 @@ To create the dataflow:
 
     | Datapoint | New datapoint name |
     |-----------|--------------------|
-    | $metadata.externalAssetId | AssetId |
+    | $metadata.user_property.externalAssetId | AssetId |
   
     The rename transformation looks like the following screenshot:
   
