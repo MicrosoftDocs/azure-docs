@@ -238,15 +238,6 @@ Open the generated `EventGridBlobTrigger.ts` file and you see a definition for a
 In this definition, a `source` of `EventGrid` indicates that an event subscription to the `samples-workitems` blob container is used as the source of the event that starts the trigger. 
 ::: zone-end  
 
-   ```python
-   @app.blob_trigger(arg_name="myblob", path="samples-workitems",
-                  connection="AzureWebJobsStorage", source="EventGrid") 
-    def blob_trigger(myblob: func.InputStream):
-        logging.info(f"Python blob trigger function processed blob"
-                     f"Size: {myblob.length}")
-   ```
-
-::: zone-end
 ## Upgrade the Storage extension
 
 To use the Event Grid-based Blob Storage trigger, you must have at least version 5.x of the Azure Functions Storage extension.
