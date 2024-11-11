@@ -235,7 +235,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
     Next, follow the instructions to [perform migrations](tutorial-migrate-hyper-v.md#migrate-vms). 
-]
+
 ### Grant access permissions to the Recovery Services vault
 
 You must grant the permissions to the Recovery Services vault for authenticated access to the cache/replication storage account.
