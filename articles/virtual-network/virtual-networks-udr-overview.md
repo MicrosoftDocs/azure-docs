@@ -98,7 +98,7 @@ You can specify the following next hop types when you create a UDR:
 
 You can't specify **Virtual network peering** or `VirtualNetworkServiceEndpoint` as the next hop type in UDRs. Routes with **Virtual network peering** or `VirtualNetworkServiceEndpoint` next hop types are created by Azure only when you configure a virtual network peering or a service endpoint.
 
-### Service tags for UDRs
+### Service tags for user-defined routes
 
 You can now specify a [service tag](service-tags-overview.md) as the address prefix for a UDR instead of an explicit IP range. A service tag represents a group of IP address prefixes from a specific Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change. This support minimizes the complexity of frequent updates to UDRs and reduces the number of routes that you need to create. You can currently create 25 or less routes with service tags in each route table. With this release, using service tags in routing scenarios for containers is also supported. </br>
 
@@ -157,7 +157,6 @@ The name displayed and referenced for next hop types is different between the Az
 An on-premises network gateway can exchange routes with an Azure virtual network gateway by using the BGP. Using BGP with an Azure virtual network gateway is dependent on the type you selected when you created the gateway:
 
 * **ExpressRoute**: You must use BGP to advertise on-premises routes to the Microsoft Edge router. You can't create UDRs to force traffic to the ExpressRoute virtual network gateway if you deploy a virtual network gateway deployed as the type **ExpressRoute**. You can use UDRs for forcing traffic from the express route to, for example, a network virtual appliance.
-
 * **VPN**: Optionally, you can use BGP. For more information, see [BGP with site-to-site VPN connections](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 When you exchange routes with Azure by using BGP, a separate route is added to the route table of all subnets in a virtual network for each advertised prefix. The route is added with **Virtual network gateway** listed as the source and next hop type.
@@ -287,7 +286,7 @@ Here's an explanation of each route ID:
 
 * **ID1**: Azure automatically added this route for all subnets within *Virtual-network-1* because 10.0.0.0/16 is the only address range defined in the address space for the virtual network. If you don't create the UDR in route ID2, traffic sent to any address between 10.0.0.1 and 10.0.255.254 is routed within the virtual network. This process occurs because the prefix is longer than 0.0.0.0/0 and doesn't fall within the address prefixes of any other routes.
 
-   Azure automatically changed the state from *Active* to *Invalid*, when ID2, a UDR, was added. It has the same prefix as the default route, and UDRs override default routes. The state of this route is still *Active* for *Subnet2* because the route table that the UDR, ID2, is in isn't associated to *Subnet2*.
+   Azure automatically changed the state from **Active** to **Invalid**, when ID2, a UDR, was added. It has the same prefix as the default route, and UDRs override default routes. The state of this route is still **Active** for *Subnet2* because the route table that the UDR, ID2, is in isn't associated to *Subnet2*.
 
 * **ID2**: Azure added this route when a UDR for the 10.0.0.0/16 address prefix was associated to the *Subnet1* subnet in the *Virtual-network-1* virtual network. The UDR specifies 10.0.100.4 as the IP address of the virtual appliance because the address is the private IP address assigned to the virtual appliance virtual machine. The route table in which this route exists isn't associated to *Subnet2*, so the route doesn't appear in the route table for *Subnet2*.
 
@@ -299,27 +298,21 @@ Here's an explanation of each route ID:
 
 * **ID4**: Azure automatically added the routes in IDs 4 and 5 for all subnets within *Virtual-network-1* when the virtual network was peered with *Virtual-network-2.* *Virtual-network-2* has two address ranges in its address space, 10.1.0.0/16 and 10.2.0.0/16, so Azure added a route for each range. If you don't create the UDRs in route IDs 6 and 7, traffic sent to any address between 10.1.0.1-10.1.255.254 and 10.2.0.1-10.2.255.254 is routed to the peered virtual network. This process occurs because the prefix is longer than 0.0.0.0/0 and doesn't fall within the address prefixes of any other routes.
 
-   When you added the routes in IDs 6 and 7, Azure automatically changed the state from *Active* to *Invalid*. This process occurs because they have the same prefixes as the routes in IDs 4 and 5, and UDRs override default routes. The state of the routes in IDs 4 and 5 are still *Active* for *Subnet2* because the route table in which the UDRs in IDs 6 and 7 isn't associated to *Subnet2*. A virtual network peering was created to meet [requirement](#requirements) 1.
+   When you added the routes in IDs 6 and 7, Azure automatically changed the state from **Active** to **Invalid**. This process occurs because they have the same prefixes as the routes in IDs 4 and 5, and UDRs override default routes. The state of the routes in IDs 4 and 5 are still **Active** for *Subnet2* because the route table in which the UDRs in IDs 6 and 7 isn't associated to *Subnet2*. A virtual network peering was created to meet [requirement](#requirements) 1.
 
 * **ID5**: Same explanation as ID4.
-
 * **ID6**: Azure added this route and the route in ID7 when UDRs for the 10.1.0.0/16 and 10.2.0.0/16 address prefixes were associated to the *Subnet1* subnet. Azure drops traffic destined for addresses between 10.1.0.1-10.1.255.254 and 10.2.0.1-10.2.255.254, rather than being routed to the peered virtual network, because UDRs override default routes. The routes aren't associated to *Subnet2*, so the routes don't appear in the route table for *Subnet2*. The routes override the ID4 and ID5 routes for traffic leaving *Subnet1*. The ID6 and ID7 routes exist to meet [requirement](#requirements) 3 to drop traffic destined to the other virtual network.
-
 * **ID7**: Same explanation as ID6.
-
 * **ID8**: Azure automatically added this route for all subnets within *Virtual-network-1* when a VPN type virtual network gateway was created within the virtual network. Azure added the public IP address of the virtual network gateway to the route table. Traffic sent to any address between 10.10.0.1 and 10.10.255.254 is routed to the virtual network gateway. The prefix is longer than 0.0.0.0/0 and not within the address prefixes of any of the other routes. A virtual network gateway was created to meet [requirement](#requirements) 2.
-
 * **ID9**: Azure added this route when a UDR for the 10.10.0.0/16 address prefix was added to the route table associated to *Subnet1*. This route overrides ID8. The route sends all traffic destined for the on-premises network to a network virtual appliance for inspection, rather than routing traffic directly on-premises. This route was created to meet [requirement](#requirements) 3.
-
 * **ID10**: Azure automatically added this route to the subnet when a service endpoint to an Azure service was enabled for the subnet. Azure routes traffic from the subnet to a public IP address of the service, over the Azure infrastructure network. The prefix is longer than 0.0.0.0/0 and not within the address prefixes of any of the other routes. A service endpoint was created to meet [requirement](#requirements) 3 to enable traffic destined for Azure Storage to flow directly to Azure Storage.
-
 * **ID11**: Azure automatically added this route to the route table of all subnets within *Virtual-network-1* and *Virtual-network-2.* The 0.0.0.0/0 address prefix is the shortest prefix. Any traffic sent to addresses within a longer address prefix are routed based on other routes.
 
-   By default, Azure routes all traffic destined for addresses other than the addresses specified in one of the other routes to the internet. Azure automatically changed the state from *Active* to *Invalid* for the *Subnet1* subnet when a UDR for the 0.0.0.0/0 address prefix (ID12) was associated to the subnet. The state of this route is still *Active* for all other subnets within both virtual networks because the route isn't associated to any other subnets within any other virtual networks.
+   By default, Azure routes all traffic destined for addresses other than the addresses specified in one of the other routes to the internet. Azure automatically changed the state from **Active** to **Invalid** for the *Subnet1* subnet when a UDR for the 0.0.0.0/0 address prefix (ID12) was associated to the subnet. The state of this route is still **Active** for all other subnets within both virtual networks because the route isn't associated to any other subnets within any other virtual networks.
 
 * **ID12**: Azure added this route when a UDR for the 0.0.0.0/0 address prefix was associated to the *Subnet1* subnet. The UDR specifies 10.0.100.4 as the IP address of the virtual appliance. This route isn't associated to *Subnet2*, so the route doesn't appear in the route table for *Subnet2*. All traffic for any address not included in the address prefixes of any of the other routes is sent to the virtual appliance.
 
-   The addition of this route changed the state of the default route for the 0.0.0.0/0 address prefix (ID11) from *Active* to *Invalid* for *Subnet1* because a UDR overrides a default route. This route exists to meet [requirement](#requirements) 3.
+   The addition of this route changed the state of the default route for the 0.0.0.0/0 address prefix (ID11) from **Active** to **Invalid** for *Subnet1* because a UDR overrides a default route. This route exists to meet [requirement](#requirements) 3.
 
 #### Subnet2
 

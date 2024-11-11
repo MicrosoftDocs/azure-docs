@@ -10,7 +10,9 @@ ms.author: allensu
 
 # Enable containers to use Azure Virtual Network capabilities
 
-To bring the rich set of Azure network capabilities to containers, you can use the same software-defined networking stack that powers virtual machines. The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine. The plug-in assigns IP addresses from a virtual network to containers brought up in the virtual machine. It attaches them to the virtual network and connects them directly to other containers and virtual network resources. The plug-in doesn't rely on overlay networks, or routes, for connectivity, and provides the same performance as virtual machines. At a high level, the plug-in provides the following capabilities so that you can:
+To bring the rich set of Azure network capabilities to containers, you can use the same software-defined networking stack that powers virtual machines. The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine. The plug-in assigns IP addresses from a virtual network to containers brought up in the virtual machine. It attaches them to the virtual network and connects them directly to other containers and virtual network resources.
+
+The plug-in doesn't rely on overlay networks, or routes, for connectivity, and provides the same performance as virtual machines. At a high level, the plug-in provides the following capabilities so that you can:
 
 - Assign a virtual network IP address to every pod, which could consist of one or more containers.
 - Connect pods to peered virtual networks and to on-premises over Azure ExpressRoute or a site-to-site virtual private network. Pods are also reachable from peered and on-premises networks.
