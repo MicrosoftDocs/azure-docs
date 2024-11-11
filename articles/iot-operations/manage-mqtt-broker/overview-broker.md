@@ -27,19 +27,18 @@ The MQTT broker underpins the messaging layer in IoT Operations and supports bot
 
 ## Architecture
 
-The MQTT broker has three layers: 
+The MQTT broker has two major layers: 
 
-- Load balancer that routes requests and connects the broker to others
-- Stateless frontend layer that handles client requests
-- Stateful and sharded backend layer that stores and processes data
+- Stateless frontend layer.
+- Stateful and sharded backend layer.
 
-The backend layer partitions data by different keys, such as client ID for client sessions, and topic name for topic messages. It uses chain replication to replicate data within each partition. For data that's shared by all partitions, it uses a single chain that spans all the partitions.
+The frontend layer handles client connections and requests and routes them to the backend. The backend layer partitions data by different keys, such as client ID for client sessions, and topic name for topic messages. It uses chain replication to replicate data within each partition.
 
 The goals of the architecture are:
 
-- **Fault tolerance and isolation**: Message publishing continues if backend nodes fail and prevents failures from propagating to the rest of the system
+- **Fault tolerance and isolation**: Message publishing continues if backend pods fail and prevents failures from propagating to the rest of the system
 - **Failure recovery**: Automatic failure recovery without operator intervention
-- **No message loss**: Delivery of messages if at least one front-end node and one backend node is running
+- **No message loss**: Delivery of messages if at least one front-end pod and one backend pod in a partition is running
 - **Elastic scaling**: Horizontal scaling of publishing and subscribing throughput to support edge and cloud deployments
 - **Consistent performance at scale**: Limit message latency overhead due to chain-replication
 - **Operational simplicity**: Minimum dependency on external components to simplify maintenance and complexity
