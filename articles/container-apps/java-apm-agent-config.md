@@ -37,7 +37,7 @@ The following commands help you define variables and ensure your Container Apps 
     # [Bash](#tab/bash)
 
     ```bash
-    SUBSCRIPTION_ID="<SUBSCRIPTION_ID>"
+    SUBSCRIPTION_ID="<SUBSCRIPTION_ID>" # Replace with your own Azure subscription ID
     APP_INSIGHTS_RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-app-insights"
     CONTAINER_REGISTRY_NAME="myacr"
     RESOURCE_GROUP="my-resource-group"
@@ -49,7 +49,7 @@ The following commands help you define variables and ensure your Container Apps 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    $SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000" # Replace with your own Azure subscription ID
+    $SUBSCRIPTION_ID="<SUBSCRIPTION_ID>" # Replace with your own Azure subscription ID
     $APP_INSIGHTS_RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-app-insights"
     $CONTAINER_REGISTRY_NAME="myacr"
     $RESOURCE_GROUP="my-resource-group"
