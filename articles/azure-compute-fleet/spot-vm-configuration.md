@@ -1,6 +1,6 @@
 ---
 title: Azure Compute Fleet overview
-description: Learn about configuring capacity preference on your Compute Fleet.
+description: Learn about Spot VM configuration on your Compute Fleet.
 author: rajeeshr
 ms.author: rajeeshr
 ms.topic: overview
