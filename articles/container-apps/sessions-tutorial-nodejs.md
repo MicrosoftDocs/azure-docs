@@ -72,12 +72,6 @@ Begin by preparing the Azure CLI with the latest updates and signing into to Azu
    az login
    ```
 
-1. Create a variable to hold the subscription ID.
-
-    ```bash
-    SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-    ```
-
 1. View supported regions.
 
     ```azurecli
@@ -91,12 +85,19 @@ Begin by preparing the Azure CLI with the latest updates and signing into to Azu
     Before you run the following command, make sure to replace the placeholders surrounded by `<>` with your own values.
 
     ```bash
+    SUBSCRIPTION_ID=<SUBSCRIPTION_GUID>
     RESOURCE_GROUP=<RESOURCE_GROUP>
     LOCATION=<LOCATION>
     SESSION_POOL_NAME=<SESSION_POOL_NAME>
     ```
 
-    You use the resource group name and location to create a resource group in the next step. The session pool name is used throughout the following commands to create and manage the dynamic session pool.
+    You use the subcriptions id, resource group name and location to create a resource group in the next step. The session pool name is used throughout the following commands to create and manage the dynamic session pool.
+
+1. Set the subscription you want to use for creating the resource group
+   
+    ```azurecli
+    az account set -s $SUBSCRIPTION_ID
+    ```
 
 1. Create a resource group.
 
@@ -140,6 +141,7 @@ az role assignment create \
 ## Get a bearer token
 
 For direct access to the session pool’s API, generate an access token to include in the `Authorization` header of your requests. Ensure the token contains an audience (`aud`) claim with the value `https://dynamicsessions.io`.
+More details on auth can be found at [Authentication and authorization](https://learn.microsoft.com/azure/container-apps/sessions?tabs=azure-cli#authentication)
 
 ```bash
 JWT_ACCESS_TOKEN=$(az account get-access-token --resource https://dynamicsessions.io --query accessToken -o tsv)
@@ -196,6 +198,7 @@ az group delete \
   --resource-group $RESOURCE_GROUP
 ```
 
-## Related content
+## Next steps
 
-- [Code interpreter sessions overview](./sessions-code-interpreter.md)
+> [!div class="nextstepaction"]
+> [Code interpreter sessions](./sessions-code-interpreter.md)
