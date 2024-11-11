@@ -6,7 +6,7 @@ author: jessie-jyy
 ms.author: duau
 manager: KumudD
 ms.date: 11/11/2024
-ms.topic: concept
+ms.topic: conceptual
 ms.service: azure-frontdoor
 ---
 
