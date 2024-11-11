@@ -47,11 +47,11 @@ Before you enable encryption on a Backup vault, review the following requirement
 
 ### Known limitation
 
-If you delete the key vault/MHSM key used for encryption settings, the delete Backup Vault operation will fail. 
+If you delete the key vault/MHSM key used for encryption settings, the delete Backup Vault operation might fail. 
 
 >[!Note]
->- Before performing the delete vault operation on a vault with encryption settings enabled, ensure that the encryption settings details, such as the managed identity, are attached to the vault and have the necessary permissions to access the key vault/MHSM key.
->- Also, ensure that the key vault/MHSM key (if used) exists. If the key is deleted, you can recover it from the soft deleted state. Learn about the [troubleshooting steps](#troubleshoot-operation-errors-for-encryption-settings).
+>- Before performing the delete vault operation on a vault with encryption settings enabled, ensure that the encryption settings details, such as the managed identity, is attached to the vault and have the necessary permissions to access the key vault/MHSM key.
+>- Also, ensure that the key vault/MHSM key exists. If the key is deleted, you can recover it from the soft deleted state. Learn about the [troubleshooting steps](#troubleshoot-operation-errors-for-encryption-settings).
 
 ## Considerations
 
@@ -59,7 +59,7 @@ Before you enable encryption on a Backup vault, review the following considerati
 
 - After you enable encryption by using CMKs for a Backup vault, you can't revert to using PMKs (the default). You can change the encryption keys or the managed identity to meet requirements.
 
-- A CMK is applied on the Azure Backup storage vault and vault-archive tiers. It isn't applicable for the operational tier.
+- CMK is applied on the Azure Backup storage vault and vault-archive tiers. It isn't applicable for the operational tier.
 
 - Moving a CMK-encrypted Backup vault across resource groups and subscriptions isn't currently supported.
 
@@ -71,7 +71,7 @@ Before you enable encryption on a Backup vault, review the following considerati
 
 - Encryption settings use the Azure Key Vault key and the Backup vault's managed identity details.
 
-  If the key or key vault that you're using is deleted or access is revoked and can't be restored, you'll lose access to the data stored in the Backup vault. Also, ensure that you have appropriate permissions to provide and update managed identity, Backup vault, and key vault details.
+  If the key or Key Vault that you're using is deleted or access is revoked and can't be restored, you'll lose access to the data stored in the Backup vault. Also, ensure that you have appropriate permissions to provide and update managed identity, Backup vault, and key vault details.
 
 - Vaults that use user-assigned managed identities for CMK encryption don't support the use of private endpoints for Azure Backup.
 
@@ -99,7 +99,7 @@ To enable the encryption, follow these steps:
 
 3. To specify the key to be used for encryption, select the appropriate option.
 
-   To enable autorotation of the encryption key used for the Backup vault, choose **Select from Key Vault**. Or run the version component from the key URI by selecting **Enter key URI**. [Learn more about autorotation](encryption-at-rest-with-cmk.md#enable-autorotation-of-encryption-keys).
+   To enable autorotation of the encryption key version used for the Backup vault, choose **Select from Key Vault**. Or remove the version component from the key URI by selecting **Enter key URI**. [Learn more about autorotation](encryption-at-rest-with-cmk.md#enable-autorotation-of-encryption-keys).
 
 4. Provide the URI for the encryption key. You can also browse and select the key.
 
@@ -107,7 +107,7 @@ To enable the encryption, follow these steps:
 
 5. Add the user-assigned managed identity to manage encryption with CMKs.
 
-   During the vault creation, only *user-assigned managed identities* can be used for CMK. To add CMK with system-assigned managed identity, update the vault properties after creating the vault.
+   During the vault creation, only *user-assigned managed identities* can be used for CMK. To use CMK with system-assigned managed identity, update the vault properties after creating the vault.
 6. To enable encryption on the backup storage infrastructure, select **Infrastructure Encryption**.
 
    You can enable this only on a new vault during the encryption using Customer-Managed Keys (CMK).
