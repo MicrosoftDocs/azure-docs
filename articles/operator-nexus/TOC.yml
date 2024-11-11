@@ -310,7 +310,7 @@
           items:
             - name: Gather trace IDs for PersistentVolumeClaim failures
               href: howto-gather-pvc-trace-id.md
-            - name: Troubleshoot Nexus Kubernetes Cluster pods
+            - name: Troubleshoot Nexus Kubernetes Cluster pods stuck in ContainerCreating
               href: troubleshoot-nexus-kubernetes-cluster-pods.md
         - name: Troubleshoot Resolve CSN storage pod stuck in ContainerCreating
           href: troubleshoot-csn-storage-pod-container-stuck-in-creating.md
