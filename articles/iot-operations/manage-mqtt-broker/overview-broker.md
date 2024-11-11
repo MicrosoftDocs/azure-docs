@@ -27,14 +27,12 @@ The MQTT broker underpins the messaging layer in IoT Operations and supports bot
 
 ## Architecture
 
-The MQTT broker has four major components: 
+The MQTT broker has two major layers: 
 
 - Stateless frontend layer.
 - Stateful and sharded backend layer.
-- Kubernetes operator.
-- Health manager.
 
-The frontend layer handles client connections and requests and routes them to the backend. The backend layer partitions data by different keys, such as client ID for client sessions, and topic name for topic messages. It uses chain replication to replicate data within each partition. [Kubernetes operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) manages custom resources lifecycle. Health manager facilitates failure handling and recovery of backend and frontend pods.
+The frontend layer handles client connections and requests and routes them to the backend. The backend layer partitions data by different keys, such as client ID for client sessions, and topic name for topic messages. It uses chain replication to replicate data within each partition.
 
 The goals of the architecture are:
 
