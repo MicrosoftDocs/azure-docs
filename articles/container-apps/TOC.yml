@@ -144,7 +144,7 @@
             href: sessions-tutorial-llamaindex.md
           - name: Semantic Kernel
             href: sessions-tutorial-semantic-kernel.md
-          - name: NodeJS
+          - name: JavaScript Code Interpreter
             href: sessions-tutorial-nodejs.md
     - name: Event-driven processing
       items:
