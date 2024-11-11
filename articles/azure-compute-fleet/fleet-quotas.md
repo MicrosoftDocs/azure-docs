@@ -1,4 +1,15 @@
-
+---
+title: Fleet quota
+description: Learn about quota limits on your Compute Fleet.
+author: rajeeshr
+ms.author: rajeeshr
+ms.topic: overview
+ms.service: azure-compute-fleet
+ms.custom:
+  - ignite-2024
+ms.date: 11/10/2024
+ms.reviewer: jushiman
+---
 
 # Fleet quota 
 
