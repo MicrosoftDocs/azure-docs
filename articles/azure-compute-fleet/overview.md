@@ -135,13 +135,13 @@ Azure Compute Fleet has applicable Standard and Spot VMs quotas.
 
 ## New on Compute Fleet
 
-we invite you to trt out nw additinal capacibilities we recently announced on Compute Fleet...
+We invite you to test out 2 new additinal capacibilities on Compute Fleet...
 
 ### Multi-Region Compute Fleet
-  A new New deployment capability that allows users to dynamically distribute workloads across several regions.
+     A new deployment capability that allows users to dynamically distribute workloads across several regions.
 
 ### Attribute based VM selection
-  A new feature that Enables users to scale fleets based on VM attributes instead of explicitly chosen VM sizes.
+     A new feature that Enables users to scale fleets based on VM attributes instead of explicitly chosen VM sizes.
 
 ## Next steps
 > [!div class="nextstepaction"]
