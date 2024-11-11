@@ -18,7 +18,7 @@ ms.reviewer: jushiman
 
 Azure Compute Fleet is a building block that gives you accelerated access to Azure's capacity in a given region. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity. There are many ways you can use this product, whether by running a stateless web service, a big data cluster, or a Continuous Integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core instances.
 
-## Feature and benefits
+## Features and benefits
 ### Multiple VM Series: 
 Compute Fleet can launch multiple VM series (such as Dv5, Ev5, and N-series), ensuring it isn't reliant on the availability of any single type. This enhances overall availability within the fleet.
 ### Distributing VMs Across Availability Zones: 
