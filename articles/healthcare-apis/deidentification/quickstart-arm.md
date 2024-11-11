@@ -43,7 +43,7 @@ One Azure resource is defined in the template:
 
 ## Deploy the template
 
-Deploy the template using any standard method for [deploying an ARM template](../azure-resource-manager/templates/deploy-cli.md) such as the following example using Azure CLI.
+Deploy the template using any standard method to [Deploy a local ARM template](/azure/azure-resource-manager/templates/deployment-tutorial-local-template) such as the following example using Azure CLI.
 1. Save the template file as **azuredeploy.json** to your local computer.
 1. Create a resource group in one of the supported regions for the de-identification service, replacing **\<deid-service-name\>** with the name you choose for your de-identification service:
     ```azurecli
