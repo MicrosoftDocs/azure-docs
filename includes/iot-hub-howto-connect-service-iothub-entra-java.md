@@ -11,9 +11,9 @@ ms.manager: lizross
 ms.date: 11/06/2024
 ---
 
-### Entra client secret credential
+### Microsoft Entra client secret credential
 
-Use [ClientSecretCredential](https://learn.microsoft.com/en-us/java/api/com.azure.identity.clientsecretcredential) to authenticate an application with Microsoft Entra.
+Use [ClientSecretCredential](/java/api/com.azure.identity.clientsecretcredential) to authenticate an application with Microsoft Entra.
 
 `ClientSecretCredential` is configured using [ClientSecretCredentialBuilder](/java/api/com.azure.identity.clientsecretcredentialbuilder).
 
@@ -24,13 +24,12 @@ TokenCredential clientSecretCredential = new ClientSecretCredentialBuilder().ten
      .build();
 ```
 
-### Entra client certificate credential
+### Microsoft Entra client certificate credential
 
-You can use [ClientCertificateCredential](/java/api/com.azure.identity.clientcertificatecredential) to create a `TokenCredential` using a certicate.
+You can use [ClientCertificateCredential](/java/api/com.azure.identity.clientcertificatecredential) to create a `TokenCredential` using a certificate.
 
 The `TokenCredential` can then be passed to service constructors such as:
 
-* [DeviceTwin](https://learn.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?view=azure-java-stable#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-devicetwin(java-lang-string-com-azure-core-credential-tokencredential))
+* [DeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-devicetwin(java-lang-string-com-azure-core-credential-tokencredential))
 
-For more information about Entra app registration, see [Quickstart: Register an application with the Microsoft identity platform](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app).
-
+For more information about Microsoft Entra app registration, see [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).

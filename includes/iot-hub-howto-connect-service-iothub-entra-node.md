@@ -16,9 +16,9 @@ For an overview of Node.js SDK authentication, see:
 * [Getting started with user authentication on Azure](/azure/developer/javascript/how-to/with-authentication/getting-started)
 * [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme)
 
-##### Entra token credential
+##### Microsoft Entra token credential
 
-Use [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) to generate a token. The token will be supplied to `fromTokenCredential`.
+Use [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) to generate a token. The token is supplied to `fromTokenCredential`.
 
 To create required Microsoft Entra app parameters for `DefaultAzureCredential`, create a Microsoft Entra app registration that contains your selected authentication mechanism:
 
@@ -32,14 +32,14 @@ Microsoft Entra apps may require permissions depending on operations performed. 
 
 ##### Connect to IoT Hub
 
-Use [fromTokenCredential](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromtokencredential) to create a service connection to IoT Hub using an Entra token credential.
+Use [fromTokenCredential](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromtokencredential) to create a service connection to IoT Hub using a Microsoft Entra token credential.
 
 `fromTokenCredential` requires two parameters:
 
 * hostname - The Azure service URL
 * tokenCredential - The Azure credential token
 
-In this example, the Azure credential is obtained using `DefaultAzureCredential`. THe Azure domain URL and credential are then supplied to `KeyClient`.
+In this example, the Azure credential is obtained using `DefaultAzureCredential`. The Azure domain URL and credential are then supplied to `KeyClient`.
 
 ```javascript
 import { DefaultAzureCredential } from "@azure/identity";
