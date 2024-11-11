@@ -106,4 +106,4 @@ az spring app scale \
 
 ## Next steps
 
-- [Scale an application in Azure Spring Apps](how-to-scale-manual.md)
+- [Scale an application in Azure Spring Apps](../basic-standard/how-to-scale-manual.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)

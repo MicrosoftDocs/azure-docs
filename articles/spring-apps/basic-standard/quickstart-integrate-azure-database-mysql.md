@@ -199,5 +199,5 @@ az group delete --name <resource-group>
 
 ## Next steps
 
-* [Bind an Azure Database for MySQL instance to your application in Azure Spring Apps](../enterprise/how-to-bind-mysql.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
-* [Use a managed identity to connect Azure SQL Database to an app in Azure Spring Apps](../enterprise/connect-managed-identity-to-azure-sql.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+* [Bind an Azure Database for MySQL instance to your application in Azure Spring Apps](how-to-bind-mysql.md)
+* [Use a managed identity to connect Azure SQL Database to an app in Azure Spring Apps](connect-managed-identity-to-azure-sql.md)

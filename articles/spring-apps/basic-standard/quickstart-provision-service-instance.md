@@ -18,10 +18,10 @@ zone_pivot_groups: programming-languages-spring-apps
 
 This article shows you how to provision a Basic or Standard plan Azure Spring Apps service instance.
 
-Azure Spring Apps supports multiple plans. For more information, see [Quotas and service plans for Azure Spring Apps](../enterprise/quotas.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json). To learn how to create service instances for other plans, see the following articles:
+Azure Spring Apps supports multiple plans. For more information, see [Quotas and service plans for Azure Spring Apps](quotas.md). To learn how to create service instances for other plans, see the following articles:
 
 - [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](../consumption-dedicated/quickstart-provision-standard-consumption-service-instance.md)
-- [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](../enterprise/how-to-migrate-standard-tier-to-enterprise-tier.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+- [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](how-to-migrate-standard-tier-to-enterprise-tier.md)
 
 ## Prerequisites
 

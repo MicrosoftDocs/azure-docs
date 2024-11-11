@@ -20,7 +20,7 @@ This article explains how to use Elastic APM Agent to monitor Spring Boot applic
 With the Elastic Observability Solution, you can achieve unified observability to:
 
 * Monitor apps using the Elastic APM Java Agent and using persistent storage with Azure Spring Apps.
-* Use diagnostic settings to ship Azure Spring Apps logs to Elastic. For more information, see [Analyze logs with Elastic (ELK) using diagnostics settings](../enterprise/how-to-elastic-diagnostic-settings.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
+* Use diagnostic settings to ship Azure Spring Apps logs to Elastic. For more information, see [Analyze logs with Elastic (ELK) using diagnostics settings](how-to-elastic-diagnostic-settings.md).
 
 The following video introduces unified observability for Spring Boot applications using Elastic.
 
@@ -54,7 +54,7 @@ This article uses the Spring Petclinic sample to walk through the required steps
 
 Use the following steps to enable custom persistent storage:
 
-1. Follow the steps in [How to enable your own persistent storage in Azure Spring Apps](../enterprise/how-to-custom-persistent-storage.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
+1. Follow the steps in [How to enable your own persistent storage in Azure Spring Apps](how-to-custom-persistent-storage.md).
 
 1. Use the following Azure CLI command to add persistent storage for your Azure Spring Apps apps.
 
@@ -192,5 +192,5 @@ Using the inbuilt AI engine in the Elastic solution, you can also enable Anomaly
 
 ## Next steps
 
-* [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](../enterprise/quickstart.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+* [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](quickstart.md?pivots=sc-standard)
 * [Deploy Elastic on Azure](https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement)

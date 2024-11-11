@@ -31,7 +31,7 @@ This article describes how to configure VMware Tanzu Dev Tools. Dev Tools includ
   az extension remove --name spring-cloud
   ```
 
-- Custom roles that delegate permissions to Azure Spring Apps resources. For more information, see [How to use permissions in Azure Spring Apps](how-to-permissions.md).
+- Custom roles that delegate permissions to Azure Spring Apps resources. For more information, see [How to use permissions in Azure Spring Apps](../basic-standard/how-to-permissions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ## Configure Dev Tools Portal
 

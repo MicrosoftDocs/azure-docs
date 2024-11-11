@@ -279,5 +279,5 @@ az config set defaults.group=
 To explore more monitoring capabilities of Azure Spring Apps, see:
 
 > [!div class="nextstepaction"]
-> [Analyze logs and metrics with diagnostics settings](../enterprise/diagnostic-services.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
-> [Stream Azure Spring Apps app logs in real-time](../enterprise/how-to-log-streaming.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+> [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)
+> [Stream Azure Spring Apps app logs in real-time](how-to-log-streaming.md)

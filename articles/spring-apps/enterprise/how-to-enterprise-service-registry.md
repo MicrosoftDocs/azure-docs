@@ -493,4 +493,4 @@ az spring service-registry delete \
 
 ## Next steps
 
-- [Create Roles and Permissions](./how-to-permissions.md)
+- [Create Roles and Permissions](../basic-standard/how-to-permissions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
