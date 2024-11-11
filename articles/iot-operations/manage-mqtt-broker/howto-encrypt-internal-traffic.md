@@ -20,7 +20,7 @@ Ensuring the security of internal communications within your infrastructure is i
 > [!IMPORTANT]
 > This setting requires modifying the Broker resource and can only be configured at initial deployment time using the Azure CLI or Azure Portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
-The **encrypt internal traffic** feature is used to encrypt the internal traffic between the MQTT broker frontend and backend pods. To use this feature, cert-manager, which is installed by default when using the Azure IoT Operations, is required.
+The **encrypt internal traffic** feature is used to encrypt the internal traffic between the MQTT broker frontend and backend pods. It's enabled by default when you deploy Azure IoT Operations.
 
 The benefits include:
 
@@ -36,9 +36,10 @@ The benefits include:
 
 - **Secure data in the message buffer on disk**: All data in the [message buffer on disk](./howto-disk-backed-message-buffer.md) is encrypted.
 
-By default, encrypting internal traffic enabled. To mitigate security threats, we recommend that you keep the encryption enabled. However, disabling the encryption can improve the performance of the MQTT broker, which can be useful in IoT deployments with high throughput requirements. 
+To disable encryption, modify the `advanced.encryptInternalTraffic` setting in the Broker resource. This can only be done using the `--broker-config-file` flag during the deployment of Azure IoT Operations with the `az iot ops create` command.
 
-To disable the encryption, change the `advanced.encryptInternalTraffic` setting in the Broker resource. Currently, disabling encryption is only supported using the `--broker-config-file` flag when you deploy the Azure IoT Operations using the `az iot ops create` command. 
+> [!CAUTION]
+> Disabling encryption can enhance the performance of the MQTT broker, which may be beneficial in high-throughput IoT deployments. However, to safeguard against security threats like man-in-the-middle attacks, we strongly recommended to keep this setting enabled. Only disable encryption in controlled, non-production environments for testing purposes.
 
 ```json
 {
