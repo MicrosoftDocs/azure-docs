@@ -89,7 +89,7 @@ When you exchange reservations, the new purchase currency amount must be greater
 
 ## Exchange nonpremium storage for premium storage or vice versa
 
-You can exchange a reservation purchased for a VM size that doesn't support premium storage to a corresponding VM size that does and vice-versa. For example, an _F1_ for an _F1s_ or an _F1s_ for an _F1_. To make the exchange, go to Reservation Details and select **Exchange**. The exchange doesn't reset the term of the reserved instance or create a new transaction. Also the new reservation will be for the same region and there are no charges for this exchange
+You can exchange a reservation purchased for a VM size that doesn't support premium storage to a corresponding VM size that does and vice-versa. For example, an _F1_ for an _F1s_ or an _F1s_ for an _F1_. To make the exchange, go to Reservation Details and select **Exchange**. The exchange doesn't reset the term of the reserved instance or create a new transaction. Also, the new reservation will be for the same region, and there are no charges for this exchange.
 If you're exchanging for a different size, series, region, or payment frequency, the term is reset for the new reservation. 
 
 ## How transactions are processed
