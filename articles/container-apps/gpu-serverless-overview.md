@@ -26,9 +26,9 @@ The Container Apps serverless GPU support provides full data governance as your 
 
 When you use serverless GPUs in Container Apps, your apps get:
 
-- **Scale-to zero GPUs**: Support for serverless scaling of NVIDIA A100 and T4 GPUs.
+- **Scale-to zero GPUs**: Support for automatic serverless scaling of NVIDIA A100 and NVIDIA T4 GPUs.
 
-- **Per-second billing**: Fine-grained cost calculations reduced down to the second.
+- **Per-second billing**: Pay only for the GPU compute you use.
 
 - **Built-in data governance**: Your data never leaves the container boundary.
 
