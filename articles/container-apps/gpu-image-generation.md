@@ -13,7 +13,7 @@ ms.author: cshoe
 
 In this article, you learn how to create a container app that uses [serverless GPUs](gpu-serverless-overview.md) to power an AI application.
 
-With serverless GPUs, you have direct access to GPU compute resources without having to do any manual server configuration. The AI model is packaged in the provided container image, and all you have to do is configure and deploy the application.
+With serverless GPUs, you have direct access to GPU compute resources without having to do manual infrastructure configuration such as installing drivers. All you have to do is deploy your AI model's image. 
 
 In this tutorial you:
 
