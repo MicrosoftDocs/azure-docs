@@ -23,7 +23,7 @@
       - name: Azure Application Gateway
         href: migrate-app-gateway-v2.md
       - name: Azure App Service
-        href: reliability-app-service.md#availability-zone-migration
+        href: reliability-app-service.md#configure-availability-zone-support
       - name: Azure Functions
         href: migrate-functions.md
       - name: Azure Cache for Redis
@@ -162,24 +162,24 @@
         href: ../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability
       - name: Disaster recovery
         href: ../azure-app-configuration/concept-disaster-recovery.md?tabs=core2x?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Container Apps
-        href: reliability-azure-container-apps.md
-      - name: Azure Container Instances
-        href: reliability-containers.md
-      - name: Azure Container Registry
-        items:
-        - name: Availability zones
-          href: /azure/container-registry/zone-redundancy?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Disaster recovery
-          href: /azure/container-registry/container-registry-geo-replication?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Kubernetes Service (AKS)
-        href: /azure/aks/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Service Fabric
-        items:
-        - name: Availability zones
-          href: /azure/service-fabric/service-fabric-cross-availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Disaster recovery
-          href: /azure/service-fabric/service-fabric-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-of-the-service-fabric-cluster
+    - name: Azure Container Apps
+      href: reliability-azure-container-apps.md
+    - name: Azure Container Instances
+      href: reliability-containers.md
+    - name: Azure Container Registry
+      items:
+      - name: Availability zones
+        href: /azure/container-registry/zone-redundancy?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Disaster recovery
+        href: /azure/container-registry/container-registry-geo-replication?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Kubernetes Service (AKS)
+      href: /azure/aks/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Service Fabric
+      items:
+      - name: Availability zones
+        href: /azure/service-fabric/service-fabric-cross-availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Disaster recovery
+        href: /azure/service-fabric/service-fabric-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-of-the-service-fabric-cluster
   - name: Databases
     items:
     - name: Azure SQL
@@ -424,6 +424,24 @@
       href: ../azure-signalr/signalr-concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
 - name: Resources
   items:
+  - name: Service availability
+    items:
+    - name: Service availability by region
+      href: https://azure.microsoft.com/global-infrastructure/services/
+    - name: Service availability by category
+      href: availability-service-by-category.md
+    - name: Service availability by sovereign cloud
+      items:
+      - name: US Government
+        href: ../azure-government/compare-azure-government-global-azure.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability
+      - name: Microsoft Azure operated by 21Vianet
+        href: sovereign-cloud-china.md
+  - name: Azure Reliability feature page
+    href: https://azure.microsoft.com/explore/reliability/#overview
+  - name: Reliability testing - Chaos engineering
+    href: /azure/well-architected/resiliency/chaos-engineering
+  - name: Reliability in Microsoft Azure Well-Architected Framework
+    href: /azure/well-architected/reliability
   - name:  Azure Service Manager retirement
     items:
     - name: Overview
@@ -463,23 +481,4 @@
       - name: Classic ExpressRoute Gateway  
         href: /azure/expressroute/expressroute-migration-classic-resource-manager?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Classic VPN gateway 
-        href: /azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Service availability
-      items:
-      - name: Service availability by region
-        href: https://azure.microsoft.com/global-infrastructure/services/
-      - name: Service availability by category
-        href: availability-service-by-category.md
-      - name: Service availability by sovereign cloud
-        items:
-        - name: US Government
-          href: ../azure-government/compare-azure-government-global-azure.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability
-        - name: Microsoft Azure operated by 21Vianet
-          href: sovereign-cloud-china.md     
-  - name: Azure Reliability feature page
-    href: https://azure.microsoft.com/explore/reliability/#overview
-  - name: Reliability testing - Chaos engineering
-    href: /azure/well-architected/resiliency/chaos-engineering
-  - name: Reliability in Microsoft Azure Well-Architected Framework
-    href: /azure/well-architected/reliability
-  
+        href: /azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json  
