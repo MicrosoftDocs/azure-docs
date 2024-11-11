@@ -80,7 +80,7 @@ If you set the following values:
 - `aggregatinInterval` = 60
 - `dataPointsPerAggregation` = 1
 
-The `summaryReported` event is raised every 60 seconds and contains 1 unique unit for each statistic recorded.
+The `summaryReported` event is raised every 60 seconds and contains one (1) unique unit for each statistic recorded.
 
 ## Best practices
 
@@ -232,6 +232,7 @@ In earlier versions, `rttInMs` existed as `pairRttInMs` in the stats for audio, 
 ## What are changed in SDK version 1.20.1 (GA)
 
 We now support MediaStats feature API in 1.20.1 (GA).
+
 Compared to the previous beta versions, we also made some minor changes to the API interface in this GA version.
 
 In the previous beta versions, `pairRttInMs`, `availableBitrate` were included in audio, video, and screenShare statistics. Now these metrics are separated into transport metrics.
@@ -240,4 +241,4 @@ We introduced `packets` and `packetsLost` metric fields in audio, video, screenS
 
 The `frameRateOutput` in video and screenShare statistics is removed. You can use `frameRateDecoded` instead.
 
-The metric field `jitterBufferInMs` has been renamed to `jitterBufferDelayInMs` to provide a clearer description, because this metric indicates the duration of a packet stay in the jitter buffer.
+The metric field `jitterBufferInMs` is renamed to `jitterBufferDelayInMs` to provide a clearer description, because this metric indicates the duration of a packet stay in the jitter buffer.
