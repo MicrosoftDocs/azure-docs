@@ -13,7 +13,9 @@ ms.topic: overview
 
 Update Manager assesses and applies updates to all Azure machines and Azure Arc-enabled servers for both Windows and Linux. 
 
-![Diagram that shows the Update Manager workflow.](./media/overview/update-management-center-overview.png)
+
+:::image type="content" source="./media/overview/update-manager-overview.png" alt-text="Screenshot that shows the update manager workflow." lightbox="./media/overview/update-manager-overview.png":::
+
 
 ## Update Manager VM extensions
 

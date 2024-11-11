@@ -23,6 +23,7 @@ The following release notes are generally available (GA):
 * Release Notes for Version 2.0.2804-137
 * Release Notes for Version 2.0.2810-144
 * Release Notes for Version 2.0.2847-158
+* Release Notes for Version 2.0.2860-160
   
 ### Release Attestation
 These releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
@@ -74,7 +75,7 @@ Through Microsoft’s Secure Future Initiative (SFI), this release delivers the 
 
 * NFO	- Signing of helm package used by network function extension.
 * NFO	- Signing of core image used by network function extension.
-* NFO	- Use of Cert-manager for service certificate management and rotation. This change can result in failed SNS deployments if not properly reconciled. For guidance on the impact of this change, see our [best practice recommendations](best-practices-onboard-deploy.md#considerations-if-your-nf-runs-cert-manager).
+* NFO	- Use of Cert-manager for service certificate management and rotation. This change can result in failed SNS deployments if not properly reconciled.
 * NFO	- Automated refresh of AOSM certificates during extension installation.
 * NFO	- A dedicated service account for the preupgrade job to safeguard against modifications to the existing network function extension service account.
 * RP - The service principles (SPs) used for deploying site & Network Function (NF) now require “Microsoft.ExtendedLocation/customLocations/read” permission. The SPs that deploy day N scenario now require "Microsoft.Kubernetes/connectedClusters/listClusterUserCredentials/action" permission. This change can result in failed SNS deployments if not properly reconciled
@@ -271,4 +272,33 @@ The following bug fixes, or other defect resolutions, are delivered with this re
 * NFO - Adds retries to fix intermittent image download failures from the cluster registry.
 
 #### Security Related Updates
-* CVE	- A total of 19 CVEs Are addressed in this release.
+* CVE	- A total of 19 CVEs are addressed in this release.
+
+## Release 2.0.2860-160
+
+Document Revision 1.0
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This October 31, 2024 Azure Operator Service Manager release includes updating the NFO version to 2.0.2860-160, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: Version 2.0.2860-160
+* Release Date: October 31, 2024
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.22.4 - Helm/3.15.2
+
+### Release Installation
+This release can be installed with as an update on top of release 2.0.2847-158. See [learn documentation](manage-network-function-operator.md) for more installation guidance.
+
+### Release Highlights
+#### Cluster registry garbage collection automation
+This version expands the cluster registry garbage collection feature set to include automatic cleanup. A background job runs to regularly clean up container images. The job schedule, how frequently each day the jobs runs, and the threshold condition to trigger cleanup, expressed as percent capacity utilized, is configured by end-user. By default, the job will run once per day at a 0% utilization threshold.
+
+#### Bugfix Related Updates
+The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+
+None
+
+#### Security Related Updates
+
+None
