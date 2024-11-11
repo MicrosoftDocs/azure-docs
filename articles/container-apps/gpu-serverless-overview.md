@@ -42,7 +42,7 @@ The following scenarios, while not comprehensive, describe common use cases for 
 
 - **Artificial Intelligence**: Applications that involve deep learning, neural networks, or large-scale data analysis can use GPUs to significantly accelerate computation speed. Including applications that support:
 
-  - Real-time custom model inferencing with open-source models such as Llama3
+  - Real-time custom model inferencing with open-source models
   - Batch-inferencing for periodic workloads with automatic scale-to-zero
   - Custom fine-tuning of generative AI models
   - Machine learning scenarios
