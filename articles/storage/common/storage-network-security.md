@@ -88,7 +88,12 @@ After you apply network rules, they're enforced for all requests. SAS tokens tha
 
 ### Network Security Perimeter (preview)
 
-[Network Security Perimeter](../../private-link/network-security-perimeter-concepts.md) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Blob Storage and SQL Database) that are deployed outside their virtual networks. The feature restricts public network access to PaaS resources outside the perimeter. However, you can exempt access by using explicit access rules for public inbound and outbound traffic. By design, access to a storage account from within a Network Security Perimeter takes the highest precedence over other network access restrictions. Currently, Network Security Perimeter is in public preview for Azure Blobs, Azure Files (SMB only), Azure Tables, and Azure Queues.
+[Network Security Perimeter](../../private-link/network-security-perimeter-concepts.md) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Blob Storage and SQL Database) that are deployed outside their virtual networks. The feature restricts public network access to PaaS resources outside the perimeter. However, you can exempt access by using explicit access rules for public inbound and outbound traffic. By design, access to a storage account from within a Network Security Perimeter takes the highest precedence over other network access restrictions.
+
+Currently, Network Security Perimeter is in public preview for Azure Blobs, Azure Files (REST), Azure Tables, and Azure Queues. See [Transition to a Network Security Perimeter](../../private-link/network-security-perimeter-transition.md).
+
+> [!IMPORTANT]
+> Private endpoint traffic is considered highly secure and therefore isn't subject to Network Security Perimeter rules. All other traffic, including trusted services, will be subject to Network Security Perimeter rules if the storage account is associated with a perimeter.
 
 #### Limitations
 
@@ -97,27 +102,18 @@ This preview doesn't support the following services, operations, and protocols o
 - [Object replication](../blobs/object-replication-overview.md) for Azure Blob Storage
 - [Lifecycle management](../blobs/lifecycle-management-overview.md) for Azure Blob Storage
 - [SSH File transfer protocol (SFTP)](../blobs/secure-file-transfer-protocol-support.md) over Azure Blob Storage
-- Network file system (NFS) protocol over [Azure Blob Storage](../blobs/network-file-system-protocol-support.md) and [Azure Files](../files/files-nfs-protocol.md).
-- [Azure Storage Blob Inventory](../blobs/blob-inventory.md)
+- Network file system (NFS) protocol with [Azure Blob Storage](../blobs/network-file-system-protocol-support.md) and [Azure Files](../files/files-nfs-protocol.md).
+- Server message block (SMB) protocol with Azure Files can only be achieved thru IP allowlisting at this time.
+- [Azure Blob Inventory](../blobs/blob-inventory.md)
 
 We recommend you don't enable Network Security Perimeter if you need to use any of these services, operations, or protocols. This is to prevent any potential data loss or data exfiltration risk.
 
 > [!WARNING]
-> If you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [resource instances](#grant-access-from-azure-resource-instances) and [exceptions](#manage-exceptions) that you previously configured, including [Allow Azure services on the trusted services list to access this storage account](#grant-access-to-trusted-azure-services), will remain in effect. As a result, those resources and services might still have access to the storage account.
+> For storage accounts that are associated with a Network Security Perimeter, in order for customer managed keys (CMK) scenarios to work, ensure that the Azure Key Vault is accessible from within the perimeter to which the storage account has been associated.
 
 #### Associate a Network Security Perimeter with a storage account
 
-To associate a Network Security Perimeter with a storage account, follow these instructions.
-
-1. Sign in to the Azure portal and navigate to the storage account.
-1. In the service menu, under **Security + networking**, select **Networking**.
-1. Under **Network Security Perimeter**, select **Associate**.
-
-   :::image type="content" source="media/storage-network-security/associate-network-security-perimeter.png" alt-text="Screenshot showing how to associate a Network Security Perimeter with a storage account in the Azure portal." lightbox="media/storage-network-security/associate-network-security-perimeter.png":::
-
-1. Search for and select a Network Security Perimeter, select a profile, and then select **Associate**.
-
-The Network Security Perimeter is now associated with your storage account.
+To associate a Network Security Perimeter with a storage account, follow these [common instructions](../../private-link/network-security-perimeter-concepts.md) for all PaaS resources.
 
 ## Restrictions and considerations
 

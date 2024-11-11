@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # What is Network Security Perimeter?
 
-Azure Network Security Perimeter allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Storage and SQL Database) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter, access can be exempted by using explicit access rules for public inbound and outbound.
+Azure Network Security Perimeter allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Storage and SQL Database) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter; access can be exempted by using explicit access rules for public inbound and outbound.
 
 For access patterns involving traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md).
 
