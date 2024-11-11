@@ -1,6 +1,6 @@
 ---
-title: Create an Event Hub data connection for Azure Synapse Data Explorer by using Azure Resource Manager template (Preview)
-description: In this article, you learn how to create an Event Hub data connection for Azure Synapse Data Explorer by using Azure Resource Manager template.
+title: Create an Event Hubs data connection for Azure Synapse Data Explorer by using Azure Resource Manager template (Preview)
+description: In this article, you learn how to create an Event Hubs data connection for Azure Synapse Data Explorer by using Azure Resource Manager template.
 ms.topic: how-to
 ms.date: 11/02/2021
 author: shsagir
@@ -11,7 +11,7 @@ ms.subservice: data-explorer
 ms.custom: devx-track-arm-template
 ---
 
-# Create an Event Hub data connection for Azure Synapse Data Explorer by using Azure Resource Manager template (Preview)
+# Create an Event Hubs data connection for Azure Synapse Data Explorer by using Azure Resource Manager template (Preview)
 
 > [!div class="op_single_selector"]
 > * [Portal](data-explorer-ingest-event-hub-portal.md)
@@ -22,19 +22,19 @@ ms.custom: devx-track-arm-template
 
 [!INCLUDE [data-connector-intro](../includes/data-explorer-ingest-data-intro.md)] 
 
-In this article, you create an Event Hub data connection for Azure Synapse Data Explorer by using Azure Resource Manager template.
+In this article, you create an Event Hubs data connection for Azure Synapse Data Explorer by using Azure Resource Manager template.
 
 ## Prerequisites
 
 [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
-- [Event Hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hubs).
+- [Event Hubs with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hubs).
 
 [!INCLUDE [data-explorer-ingest-event-hub-table-mapping](../includes/data-explorer-ingest-event-hub-table-mapping.md)]
 
-## Azure Resource Manager template for adding an Event Hub data connection
+## Azure Resource Manager template for adding an Event Hubs data connection
 
-The following example shows an Azure Resource Manager template for adding an Event Hub data connection.  You can [edit and deploy the template in the Azure portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) by using the form.
+The following example shows an Azure Resource Manager template for adding an Event Hubs data connection. You can [edit and deploy the template in the Azure portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) by using the form.
 
 ```json
 {
