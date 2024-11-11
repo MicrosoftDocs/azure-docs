@@ -1,1 +1,16 @@
+---
+title: Configuring Compute Fleet
+description: Learn about configuration options for your Azure Compute Fleet.
+author: rajeeshr
+ms.author: rajeeshr
+ms.topic: overview
+ms.service: azure-compute-fleet
+ms.custom:
+  - build-2024
+ms.date: 11/10/2024
+ms.reviewer: jushiman
+---
 
+# Configuration options for your Compute Fleet 
+
+When configuring your Compute Fleet, we recommend you to consider the following configuration options when creating your fleet.
