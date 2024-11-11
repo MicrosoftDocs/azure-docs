@@ -84,10 +84,10 @@ Times in UTC format are expressed using the 24-hour time format. For instance, i
 
 ## View the window configuration
 
-You can view an environment's maintenance window with the `maintenance-config show` command.
+You can view an environment's maintenance window with the `maintenance-config list` command.
 
 ```azurecli
-az containerapp env maintenance-config show \
+az containerapp env maintenance-config list \
   --resource-group <RESOURCE_GROUP> \
   --environment <ENVIRONMENT_NAME>
 ```
