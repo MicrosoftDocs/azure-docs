@@ -15,7 +15,7 @@ ms.custom: "devx-track-csharp, mvc"
 
 # Quickstart: Manage feature flags in Azure App Configuration
 
-Azure App Configuration includes feature flags, which you can use to enable or disable a functionality, and variant feature flags (preview), which allow multiple variations of a feature flag.
+Azure App Configuration includes feature flags, which you can use to enable or disable a functionality, and variant feature flags, which allow multiple variations of a feature flag.
 
 The Feature manager in the Azure portal provides a UI for creating and managing the feature flags and the variant feature flags that you use in your applications.
 
@@ -59,9 +59,9 @@ az appconfig feature set --name <name> --feature Beta
 
 ---
 
-## Create a variant feature flag (preview)
+## Create a variant feature flag
 
-Add a new variant feature flag (preview) by opening your Azure App Configuration store in the Azure portal and from the **Operations** menu, select **Feature manager** > **Create**. Then select **Variant feature flag (Preview)**.
+Add a new variant feature flag by opening your Azure App Configuration store in the Azure portal and from the **Operations** menu, select **Feature manager** > **Create**. Then select **Variant feature flag**.
 
 :::image type="content" source="media\manage-feature-flags\variant-feature-flags-menu.png" alt-text="Screenshot of the Azure platform. Create a variant feature flag.":::
 

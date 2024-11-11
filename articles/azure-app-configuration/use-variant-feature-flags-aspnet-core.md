@@ -26,7 +26,7 @@ In this tutorial, you:
 
 ## Create a variant feature flag
 
-Create a variant feature flag called *Greeting* with no label and three variants, *None*, *Simple*, and *Long*. Creating variant flags is described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag-preview).
+Create a variant feature flag called *Greeting* with no label and three variants, *None*, *Simple*, and *Long*. Creating variant flags is described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag).
 
 | Variant Name | Variant Configuration Value | Allocation| 
 |---|---|---|

@@ -1207,7 +1207,7 @@ builder.services
 > [!NOTE]
 > To ensure Application Insights telemetry works as expected, the `TargetingHttpContextMiddleware` should be used.
 
-To enable persistance of targeting context in the current activity, you can use the [`TargetingHttpContextMiddleware`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement.AspNetCore/TargetingHttpContextMiddleware.cs).
+To enable persistance of targeting context in the current activity, you can use the [`TargetingHttpContextMiddleware`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/TargetingHttpContextMiddleware.cs).
 
 ``` C#
 app.UseMiddleware<TargetingHttpContextMiddleware>();
@@ -1217,7 +1217,7 @@ An example of its usage can be found in the [VariantAndTelemetryDemo](https://gi
 
 #### Prerequisite
 
-This telemetry publisher depends on Application Insights already being setup registered as an application service. For example, that is done [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/examples/VariantAndTelemetryDemo/Program.cs#L22-L32) in the example application.
+This telemetry publisher depends on Application Insights already being setup registered as an application service. For example, that is done [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/examples/VariantAndTelemetryDemo/Program.cs#L22-L32) in the example application.
 
 This telemetry publisher depends on Application Insights already being [setup](/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-no-visual-studio) and registered as an application service.
 
