@@ -32,7 +32,7 @@ Create an Arc-enabled K3s cluster that meets the system requirements.
 * If you expect intermittent connectivity for your cluster, ensure that you've allocated enough disk space to the cluster cache data and messages while the [cluster is offline](../overview-iot-operations.md#offline-support).
 * If possible, have a second cluster as a staging area for testing new changes before deploying to the primary production cluster.
 * [Turn off auto-upgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster.
-* *For multi-node clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster#configure-multi-node-clusters-for-azure-container-storage) to prepare for enabling fault tolerance during deployment.
+* *For multi-node clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-multi-node-clusters-for-azure-container-storage) to prepare for enabling fault tolerance during deployment.
 
 **Security**
 
@@ -102,7 +102,7 @@ After deployment, you can [edit BrokerListener resources](../manage-mqtt-broker/
 
 You can also [edit BrokerAuthentication resources]
 
-* Use [X.509 certificates or Kubernetes service account tokens for authentication](../manage-mqtt-broker/howto-configure-authentication#configure-authentication-method). 
+* Use [X.509 certificates or Kubernetes service account tokens for authentication](../manage-mqtt-broker/howto-configure-authentication.md#configure-authentication-method). 
 * Don't use no-auth.
 
 When you create a new resource, manage its authorization:
