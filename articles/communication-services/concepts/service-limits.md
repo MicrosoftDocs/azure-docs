@@ -138,10 +138,10 @@ Azure Communication Services provides rich logs and analytics to help monitor an
 
 | Operation | Scope | Timeframe (minutes) | Limit (number of emails) |
 |---------|-----|-------------|-------------------|
-|Send Email|Per Subscription|1|30|
-|Send Email|Per Subscription|60|100|
-|Get Email Status|Per Subscription|1|60|
-|Get Email Status|Per Subscription|60|200|
+|Send Email|Per Subscription|1|30 <br /> You can [request an increase](./email/email-quota-increase.md).|
+|Send Email|Per Subscription|60|100 <br /> You can [request an increase](./email/email-quota-increase.md).|
+|Get Email Status|Per Subscription|1|60 <br /> You can [request an increase](./email/email-quota-increase.md).|
+|Get Email Status|Per Subscription|60|200 <br /> You can [request an increase](./email/email-quota-increase.md).|
 
 [Azure Managed Domains](../quickstarts/email/add-azure-managed-domains.md)
 
