@@ -34,7 +34,7 @@ There are four major reports that you need to review:
 - **Current on-premises vs Future**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
 - **On-premises with Azure Arc**: This report covers the breakdown of the total cost of ownership for your on-premises estate with and without Arc.
 - **Azure IaaS**: This report covers the Azure and on-premises footprint of the servers and workloads recommended for migrating to Azure IaaS.
-- **On-premises vs AVS (Azure VMware Solution)**: If you build a business case to *Migrate to AVS*, you’ll see this report which covers the AVS and on-premises footprint of the workloads for migrating to AVS.
+- **On-premises vs AVS (Azure VMware Solution)**: If you build a business case to *Migrate to AVS*, you see this report which covers the AVS and on-premises footprint of the workloads for migrating to AVS.
 - **Azure PaaS**: This report covers the Azure and on-premises footprint of the workloads recommended for migrating to Azure PaaS.
 
 ## View a business case
@@ -48,7 +48,7 @@ There are four major reports that you need to review:
 This card covers your potential total cost of ownership savings based on the chosen migration strategy. It includes one year savings from compute, storage, network, labor, and facilities cost (based on assumptions) to help you envision how Azure benefits can turn into cost savings. You can see the insights of different cost categories in the **On-premises vs Azure** report.
 
 ### Estimated on-premises cost
-It covers the cost of running all the servers scoped in the business case using some of the industry benchmarks. It doesn't cover Facilities (lease/colocation/power) cost by default, but you can edit it in the on-premises cost assumptions section. It includes one time cost for some of the capital expenditures like hardware acquisition etc., and annual cost for other components that you might pay as operating expenses like maintenance etc.
+It covers the cost of running all the servers scoped in the business case using some of the industry benchmarks. It includes one time cost for some of the capital expenditures like hardware acquisition etc., and annual cost for other components that you might pay as operating expenses like maintenance etc.
 
 ### Estimated Azure cost
 It covers the cost of all servers and workloads that have been identified as ready for migration/modernization as per the recommendation. Refer to the respective [Azure IaaS](how-to-view-a-business-case.md#azure-iaas-report) and [Azure PaaS](how-to-view-a-business-case.md#azure-paas-report) report for details. The Azure cost is calculated based on the right sized Azure configuration, ideal migration target, and most suitable pricing offers for your workloads. You can override the migration strategy, target location, or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
@@ -151,12 +151,26 @@ It covers cost components for on-premises and AVS, savings, and insights to unde
 #### [AVS (Azure VMware Solution)](#tab/avs-azure)
 
 This section contains the cost estimate by recommended target (Annual cost includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
-- AVS cost estimate:
-    - **Estimated AVS cost**: This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking, and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU. A default CPU over-subscription of 4:1, 100% memory overcommit and compression and deduplication factor of 1.5 is assumed to get the compute cost of AVS. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). External storage options like ANF aren’t a part of the business case yet. 
-    - **Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit. 
-- Savings and optimization:
-    - **Savings with 3-year RI**: This card shows the node cost with 3-year RI.
-    - **Savings with Azure Hybrid Benefit & Extended Security Updates**: This card displays the estimated maximum savings when using Azure hybrid benefit and with extended security updates over a period of one year.
+
+#### AVS cost estimate
+
+**Estimated AVS cost**:  This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking, and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU. The infrastructure settings used are as follows:
+    
+- The number and SKU of AVS hosts used in a business case aligns to the SKUs available in the given region and optimized to use the least number of nodes required to host all VMs ready to be migrated.
+- Azure NetApp File (ANF) is used when it can be used to optimize the number of AVS hosts required. ANF Standard tier is used when the VMs have been imported using RVTools. For an Azure Migrate appliance-based business case, the tier of ANF used in the business case depends on the IOPS & throughput data for VMs. 
+    - CPU over-subscription of 4:1
+    - Memory overcommit of 100% 
+    - Compression and deduplication factor of 1.5. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). 
+
+**Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit. 
+
+#### Savings and optimization:
+    
+**Savings with 3-year RI**: This card shows the node cost with 3-year RI.
+
+**Savings with Azure Hybrid Benefit & Extended Security Updates**: This card displays the estimated maximum savings when using Azure hybrid benefit and with extended security updates over a period of one year.
+
+:::image type="content" source="./media/how-to-view-a-business-case/avs-estimation-inline.png" alt-text="Screenshot of AVS estimation." lightbox="./media/how-to-view-a-business-case/avs-estimation-expanded.png":::
 
 #### [On-premises](#tab/avs-on-premises)
 
@@ -170,14 +184,14 @@ This section contains the cost estimate by recommended target (Annual cost inclu
 ## On-premises with Azure Arc report 
 This section contains the cost and savings estimate by Arc-enabling your on-premises estate: 
 
-- Arc cost estimate
+#### Arc cost estimate
    - **Compute and license cost**: Estimated as a sum of total server hardware acquisition cost on-premises, software cost (Windows license, SQL license, Virtualization software cost), and maintenance cost, SQL license cost is assumed to be using pay-as-you-go model via Arc-enabled SQL Server. ESU licenses for Windows Server and SQL Server are also assumed to be paid via Azure through ESUs enabled by Azure Arc.
    - **Security and Management Cost**: Security cost is estimated as sum of total protection cost for general servers and SQL workloads using MDC via Azure Arc and management cost is estimated as sum of total management cost  for general servers.
    - **Storage, Network and facilities cost** : Storage cost is Cost per GB and can be customized in the assumptions. Network and facilities cost is considered same as that of current on-premises costs.
-- Arc savings
+#### Arc savings
    - **Estimated ESU savings**: This report includes the savings by paying ESUs monthly instead of annual licensing and deploying them seamlessly to your on-premises servers.
    - **IT Productivity Savings**: Azure Arc improves IT productivity by reducing the time they spend on routine activities. This report includes that and management savings.
-   - **Threat protection and Savings by using MDC**: The report also includes  the savings by using Microsoft Defender for Cloud to secure your on-premises server. You can mitigate threats 50% faster and improve your security posture with Microsoft Defender for cloud.
+   - **Threat protection and Savings using MDC**: The report also includes  the savings by using Microsoft Defender for Cloud to secure your on-premises server. You can mitigate threats 50% faster and improve your security posture with Microsoft Defender for cloud.
 
 :::image type="content" source="./media/how-to-view-a-business-case/azure-arc-inline.png" alt-text="Screenshot of comparison of on-premises servers with Arc and without Arc." lightbox="./media/how-to-view-a-business-case/azure-arc-expanded.png":::
 

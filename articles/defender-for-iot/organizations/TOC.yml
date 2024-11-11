@@ -359,6 +359,8 @@
         href: /legal/defender-for-iot/hardware-support-policy?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
       - name: Corporate environments
         items:
+        - name: HPE ProLiant DL360 Gen11
+          href: appliance-catalog/hpe-proliant-dl360-gen11.md
         - name: HPE ProLiant DL360
           href: appliance-catalog/hpe-proliant-dl360.md
         - name: Dell PowerEdge R660
@@ -373,6 +375,8 @@
           href: appliance-catalog/dell-poweredge-r360-e1800.md
       - name: Production line
         items:
+        - name: Heptagon YB3x
+          href: appliance-catalog/heptagon-yb3x.md
         - name: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
           href: appliance-catalog/hpe-proliant-dl20-gen-11-nhp-2lff.md
         - name: DELL XE4 SFF

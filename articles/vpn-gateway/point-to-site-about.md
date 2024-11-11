@@ -83,7 +83,7 @@ A RADIUS server can also integrate with other external identity systems. This op
 
 For P2S gateway configuration steps, see [Configure P2S - RADIUS](point-to-site-how-to-radius-ps.md).
 
-## What are the client configuration requirements?
+## <a name="client"></a>What are the client configuration requirements?
 
 The client configuration requirements vary, based on the VPN client that you use, the authentication type, and the protocol. The following table shows the available clients and the corresponding articles for each configuration.
 
@@ -154,7 +154,7 @@ The tables in this section show the values for the default policies. However, th
 
 A P2S configuration requires quite a few specific steps. The following articles contain the steps to walk you through common P2S configuration steps.
 
-* [Certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Certificate authentication](point-to-site-certificate-gateway.md)
 * [Microsoft Entra ID authentication](point-to-site-entra-gateway.md)
 * [RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
@@ -175,7 +175,7 @@ There are multiple FAQ entries for point-to-site. See the [VPN Gateway FAQ](vpn-
 
 ## Next Steps
 
-* [Configure a P2S connection - Azure certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Configure a P2S connection - Azure certificate authentication](point-to-site-certificate-gateway.md)
 * [Configure a P2S connection - Microsoft Entra ID authentication](point-to-site-entra-gateway.md)
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**
