@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: concept-article
-ms.date: 08/16/2024
+ms.date: 11/19/2024
 ---
 
 # Azure Extended Zones frequently asked questions (FAQ)
@@ -26,7 +26,7 @@ Currently, Los Angeles is the only available Azure Extended Zone.
 
 ## How will I be charged for resources I create in an Azure Extended Zone?
 
-Currently, you won't be billed for any resources that you create in Los Angles Extended Zone. However, any resources you create in the parent region are subject to charges. For example, if you create a virtual machine in Los Angeles with a network security group in West US, you'll only be billed for the network security group.
+The billing process of Los Angeles Azure Extended Zone is consistent with the West US Region. Resources created in the Los Angeles Extended Zone follows the same billing pricing as those created in the West US Region.
 
 ## Will there be SKUs specific to the Azure Extended Zones?
 

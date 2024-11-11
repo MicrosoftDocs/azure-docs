@@ -1,14 +1,14 @@
 ---
-title: What are Azure Extended Zones (Preview)?
-description: Learn about Azure Extended Zones.
+title: What are Azure Extended Zones?
+description: Learn about Azure Extended Zones and how they can help you run latency-sensitive and throughput-intensive applications close to end users.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: overview
-ms.date: 08/16/2024
+ms.date: 11/19/2024
 ---
 
-# What are Azure Extended Zones (Preview)?
+# What are Azure Extended Zones?
 
 Azure Extended Zones are small-footprint extensions of Azure placed in metros, industry centers, or a specific jurisdiction to serve low latency and data residency workloads. Azure Extended Zones supports virtual machines (VMs), containers, storage, and a selected set of Azure services and can run latency-sensitive and throughput-intensive applications close to end users and within approved data residency boundaries.
  
@@ -46,11 +46,11 @@ The following table lists key services that are available in Azure Extended Zone
 
 ## Availability
 
-Currently, Los Angeles is the only available Extended Zone in preview.
+Currently, Los Angeles is the only available Extended Zone.
 
 ## Pricing
 
-Currently, resources created in Los Angeles Extended Zone aren't billed. However, any resources you create in the parent region to use with Extended Zone resources are subject to charges. For example, if you create a virtual machine in Los Angeles with a network security group in West US, you'll only be billed for the network security group.
+The billing process of Los Angeles Azure Extended Zone is consistent with the West US Region. Resources created in the Los Angeles Extended Zone follows the same billing pricing as those created in the West US Region.
 
 ## Frequently asked questions (FAQ)
 
