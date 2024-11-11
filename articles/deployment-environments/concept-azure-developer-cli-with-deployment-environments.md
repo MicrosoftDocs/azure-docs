@@ -1,23 +1,23 @@
 ---
 title: Use Azure Developer CLI with Azure Deployment Environments
-description: Understand ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
+description: Understand how ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: concept-article
-ms.date: 11/08/2024
+ms.date: 11/11/2024
 
-# Customer intent: As a platform engineer, I want to understand ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
+# Customer intent: As a platform engineer, I want to understand how ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
 
 ---
 
-# Use Azure Developer CLI with Azure Deployment Environments
+# Azure Developer CLI and Azure Deployment Environments
 
 In this article, you learn about Azure Developer CLI (`azd`) and how it works with Azure Deployment Environments (ADE) to simplify the process of provisioning application infrastructure and deploying application code to the new infrastructure.
 
 `azd` is an open-source command-line tool that provides developer-friendly commands that map to key stages in your workflow. You can install `azd` locally on your machine or use it in other environments.
 
-With ADE, you can create environments from an environment definition in a catalog attached to your dev center. By adding `azd`, you can deploy your application code to the new infrastructure.
+With ADE, you can create environments from an environment definition in a catalog attached to your dev center, and by using the [ADE extensibilty model to execute deployments](how-to-configure-extensibility-model-custom-image.md). By adding `azd`, you can streamline the process of provisioning infrastructure and deploying code to the cloud.
 
 ## How does `azd` work with ADE?
 
