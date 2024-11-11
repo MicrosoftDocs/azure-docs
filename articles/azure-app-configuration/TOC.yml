@@ -152,6 +152,12 @@
         href: howto-targetingfilter.md
       - name: ASP.NET Core
         href: howto-targetingfilter-aspnet-core.md
+    - name: Telemetry
+      items:
+      - name: Overview
+        href: howto-telemetry.md
+      - name: Python
+        href: howto-telemetry-python.md
     - name: Run experiments with variant feature flags
       items:
       - name: ASP.NET Core
