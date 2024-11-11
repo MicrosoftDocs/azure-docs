@@ -3,7 +3,7 @@ title: What is centrally managed Azure Hybrid Benefit for SQL Server?
 description: Azure Hybrid Benefit is a licensing benefit that lets you bring your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/21/2024
+ms.date: 11/11/2024
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -32,6 +32,9 @@ To use centrally managed licenses, you must have a specific role assigned to you
     - Billing profile owner
     - Billing profile contributor  
         If you don't have one of the roles, your organization must assign one to you. For more information about how to become a member of the roles, see [Manage billing roles](../manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
+> [!NOTE]
+> When you have SQL Server licenses applied with centrally managed SQL Azure Hybrid Benefit in your Enterprise Agreement and then transfer the agreement to a Microsoft Customer Agreement (enterprise), the licenses don’t automatically transfer. After your new agreement migration completes, you must manually assign licenses with centrally managed SQL Hybrid Benefit. For more information about migrating from an Enterprise Agreement to a Microsoft Customer Agreement (enterprise), see [Set up your billing account for a Microsoft Customer Agreement](../manage/mca-setup-account.md).
 
 At a high level, here's how centrally managed Azure Hybrid Benefit works:
 
