@@ -2,7 +2,7 @@
 title: Configure data boundary
 description: Learn how to configure data boundary.
 ms.topic: how-to
-ms.date: 10/28/2024
+ms.date: 11/11/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to create a new data boundary.
 ---
@@ -15,7 +15,7 @@ Azure Resource Manager is the deployment and management service for Azure. To pr
 
 A data boundary can only be established in new tenants that have no existing subscriptions or deployed resources. Once in place, the data boundary configuration can't be removed or modified, and existing subscriptions and resources can't be moved into or out of a tenant with a data boundary. Each tenant is limited to one data boundary, and after it's established, Azure Resource Manager will restrict resource deployments to regions within that boundary. Customers can opt their tenants into a data boundary by deploying a `Microsoft.Resources/dataBoundaries` resource at the tenant level.
 
-The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml).
+The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-powershell.yml).
 
 To opt your tenant into an Azure EU Data Boundary:
 
@@ -23,24 +23,17 @@ To opt your tenant into an Azure EU Data Boundary:
 - Before creating any new subscriptions or resources, deploy a `Microsoft.Resources/dataBoundaries` resource with an EU configuration.
 - Create a subscription and deploy Azure resources.  
 
-(The CLI PR: https://github.com/Azure/azure-cli/pull/29961/file)
-(The PowerShell PR: https://github.com/Azure/azure-powershell/pull/26158)
-(The RESTAPI PR: https://github.com/Azure/azure-rest-api-specs/pull/29950)
-
 ## Create data boundary
 
-To opt in a tenant to data boundary, use the following commands. Data boundary geo currently have two options:
-
-|Data boundary geo | Description |
-|------|-------------|
-|Global| By default, all tenants have a global data boundary. |
-|EU    | Establish an EU data boundary. |
+To opt in a tenant to data boundary, use the following commands.
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az data-boundary create --data-boundary <data-boundary-geo>
+az data-boundary create --data-boundary <data-boundary-geo> --default default
 ```
+
+The `--default` switch is currently mandatory but will be phased out in the future.
 
 For more information, see [Azure CLI Reference](/cli/azure/reference-index).
 
@@ -85,6 +78,13 @@ For more information, see [Azure REST API Reference](/rest/api/azure/).
 
 ---
 
+Data boundary geo currently have two options:
+
+|Data boundary geo | Description |
+|------|-------------|
+|Global| By default, all tenants have a global data boundary. |
+|EU    | Establish an EU data boundary. |
+
 ## Read data boundary
 
 To get data boundary at specified scopes. The scopes include:
@@ -98,14 +98,16 @@ To get data boundary at specified scopes. The scopes include:
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az data-boundary show --scope <scope-path>
+az data-boundary show --scope <scope-path> --default default
 ```
 
 Get data boundary of tenant:
 
 ```azurecli
-az data-boundary show-tenant 
+az data-boundary show-tenant --default default
 ```
+
+The `--default` switch is currently mandatory but will be phased out in the future.
 
 For more information, see [Azure CLI Reference](/cli/azure/reference-index).
 
@@ -137,7 +139,7 @@ Response body:
   "id": " /providers/Microsoft.Resources/dataBoundaries/{tenantId}",   
   "properties": { 
     "dataBoundary": "{dataBoundaryGeo}", 
-    "provisioningState": "Created" 
+    "provisioningState": "Succeeded" 
   } 
 } 
 ```
