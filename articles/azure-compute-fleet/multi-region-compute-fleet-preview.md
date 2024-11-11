@@ -18,7 +18,7 @@ ms.reviewer: jushiman
 
 Multi region Compute Fleet is a new cloud deployment capability that allows you to dynamically distribute workloads across several regions. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity bringing unmatched flexibility and reliability on accessing compute capacity for your cloud workloads. This new feature eliminates the constraints of regional dependencies, letting your applications thrive wherever the demand takes them. 
 
-:::image type="content" source="./media/multi-region-compute-fleet/test.md/multi-region-fleet.png" lightbox="./media/multi-region-compute-fleet/test.md/multi-region-fleet.png" alt-text="Screenshot that shows Multi region compute fleet flow diagram.":::
+:::image type="content" source="./media/multi-region-compute-fleet/multi-region-fleet-diagram.png" lightbox="./media/multi-region-compute-fleet/multi-region-fleet-diagram.png" alt-text="Screenshot shows Multi Region Compute Fleet flow diagram.":::
 
 Multi-region Compute Fleet enables your workloads to run seamlessly across multiple regions, ensuring scaling, enhanced fault tolerance, and optimized performance. Whether you're driving global-scale applications or balancing unpredictable demand, Compute fleet delivers a new level of freedom and resilience to automatically deploy and manage 1000s of VMs (across a mix of SKUs, Zones, Regions and pricing model) with a single API call. 
 
