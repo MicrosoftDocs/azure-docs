@@ -1,6 +1,6 @@
 - name: "Overview"
   items:
-  - name: Overview of Firmware analysis
+  - name: Overview of Firmware analysis (preview)
     href: overview-firmware-analysis.md
   - name: Firmware analysis frequently asked questions
     href: firmware-analysis-faq.md

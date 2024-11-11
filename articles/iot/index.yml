@@ -97,7 +97,7 @@ conceptualContent:
           text: Update your devices
         - url: ../firmware-analysis/overview-firmware-analysis.md
           itemType: overview
-          text: Device firmware analysis
+          text: Device firmware analysis (preview)
     # Card
     - title: Process and route messages
       links:
