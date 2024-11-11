@@ -12,21 +12,21 @@ ms.date: 11/06/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
-##### Security token
+A backend app that uses Microsoft Entra must successfully authenticate and obtain a security token credential before connecting to IoT Hub. This token is passed to a IoT Hub connection method.
 
-A backend app that uses Microsoft Entra must successfully authenticate and obtain a security token credential before connecting to IoT Hub. This token is passed to a IoT Hub connection method. For more information on setting up Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/authenticate-authorize-azure-ad).
+##### Configure Microsoft Entra app
 
-You must set up a Microsoft Entra app that contains your preferred authentication mechanism, which consist of the following:
+You must set up a Microsoft Entra app that is configured for your preferred authentication credential:
 
 * Client secret
 * Certificate
 * Federated identity credential
 
-For more information about setting up a Microsoft Entra app, see [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
-
 Microsoft Entra apps may require specific role permissions depending on operations being performed. For example, [IoT Hub Twin Contributor](/azure/role-based-access-control/built-in-roles/internet-of-things#iot-hub-twin-contributor) is required to enable read and write access to a IoT Hub device and module twins. For more information, see [Manage access to IoT Hub by using Azure RBAC role assignment](/azure/iot-hub/authenticate-authorize-azure-ad?branch=main#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment).
 
-##### Using DefaultAzureCredential
+For more information on setting up Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/authenticate-authorize-azure-ad). For more information about setting up a Microsoft Entra app, see [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
+
+##### Authenticate using DefaultAzureCredential
 
 The easiest way to use Microsoft Entra to authenticate a backend applicaiton is to use [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), but it's recommended to use a different method in a production envoronment including a specific `TokenCredential` or pared-down `ChainedTokenCredential`. For simplicity, this section describes authentication using `DefaultAzureCredential` and Client secret. For more information about the pros and cons of using `DefaultAzureCredential`, see [Usage guidance for DefaultAzureCredential](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#usage-guidance-for-defaultazurecredential).
 
