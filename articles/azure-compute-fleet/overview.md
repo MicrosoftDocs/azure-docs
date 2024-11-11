@@ -19,12 +19,18 @@ ms.reviewer: jushiman
 Azure Compute Fleet is a building block that gives you accelerated access to Azure's capacity in a given region. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity. There are many ways you can use this product, whether by running a stateless web service, a big data cluster, or a Continuous Integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core instances.
 
 ## Feature and benefits
-### Multiple VM Series: Compute Fleet can launch multiple VM series (such as Dv5, Ev5, and N-series), ensuring it isn't reliant on the availability of any single type. This enhances overall availability within the fleet.
-### Distributing VMs Across Availability Zones: Compute Fleet can automatically distribute VMs across multiple Availability Zones to ensure high availability and resilience against potential zone failures.
-### Diverse Pricing Models: Compute Fleets can leverage various purchasing options, including Spot VMs for cost savings and standard Pay-As-You-Go VMs. You can also integrate Azure Reserved Instances and Savings Plans to optimize costs while ensuring consistent capacity.
-### Automated Replacement of Spot VMs: When using Spot VMs, Compute fleet can automatically replace Spot VMs when evicted due to price fluctuations or capacity constraints.
-### Multi-region Deployment: Compute Fleet allows you to dynamically distribute workloads across multiple regions.
-### Attribute based Vm selection: Compute Fleet supports deploying VM types using VM level attributes (e.g., memory, vCPU, storage) 
+### Multiple VM Series: 
+Compute Fleet can launch multiple VM series (such as Dv5, Ev5, and N-series), ensuring it isn't reliant on the availability of any single type. This enhances overall availability within the fleet.
+### Distributing VMs Across Availability Zones: 
+Compute Fleet can automatically distribute VMs across multiple Availability Zones to ensure high availability and resilience against potential zone failures.
+### Diverse Pricing Models: 
+Compute Fleets can leverage various purchasing options, including Spot VMs for cost savings and standard Pay-As-You-Go VMs. You can also integrate Azure Reserved Instances and Savings Plans to optimize costs while ensuring consistent capacity.
+### Automated Replacement of Spot VMs: 
+When using Spot VMs, Compute fleet can automatically replace Spot VMs when evicted due to price fluctuations or capacity constraints.
+### Multi-region Deployment: 
+Compute Fleet allows you to dynamically distribute workloads across multiple regions.
+### Attribute based Vm selection: 
+Compute Fleet supports deploying VM types using VM level attributes (e.g., memory, vCPU, storage) 
 
 ## Using Compute Fleet, you can:
 - Deploy up to 10,000 VMs with a single API, using [Spot VM](../virtual-machines/spot-vms.md) and [Standard VM](../virtual-machines/overview.md) types together.
