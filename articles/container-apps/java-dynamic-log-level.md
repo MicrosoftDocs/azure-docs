@@ -70,7 +70,7 @@ The following Java logging frameworks are supported:
 
 ### Supported log levels by different logging frameworks
 
-Different logging frameworks support different log levels. In the JVM diagnostics platform, some frameworks are better supported than others. Before changing logging levels, make sure the log levels you're using are supported by both the framework and platform.
+Different logging frameworks support different log levels. In the JVM diagnostics platform, some frameworks are better supported than others. Before changing logging levels, make sure the framework and platform support the log levels you're using.
 
 | Framework     | OFF   | FATAL | ERROR | WARN | INFO | DEBUG | TRACE |
 |---------------|-------|-------|-------|------|------|-------|-------|
@@ -91,7 +91,7 @@ Different logging frameworks support different log levels. In the JVM diagnostic
 | **DEBUG** | Yes   | Yes   | Yes  | Yes  | Yes   |       |
 | **TRACE** | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   |
 
-For example, if you set log level to `INFO`, your app will print logs with level `FATAL`, `ERROR`, `WARN`, `INFO`, and will NOT print logs with level `DEBUG` and `TRACE`.
+For example, if you set log level to `INFO`, your app prints logs with level `FATAL`, `ERROR`, `WARN`, `INFO`, and does NOT print logs with level `DEBUG` and `TRACE`.
 
 ## Related content
 
