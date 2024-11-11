@@ -23,3 +23,5 @@ When configuring your Compute Fleet, we recommend you to consider the following 
 | Attribute Based VM selection | Specify your VM sizes and types for your fleet or let Compute fleet choose the VM sizes & types that meets your application requirement   |
 | Mix multiple VM SKU's/Sizes  | Mix up to 15 different SKU list tailored to your workload requirement                                                                     |
 
+### Next topic: Capacity preference
+### Previous Topic: Compute Fleet Overview
