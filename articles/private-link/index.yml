@@ -102,7 +102,7 @@ landingContent:
           - text: Private endpoint connectivity
             url: troubleshoot-private-endpoint-connectivity.md
           - text: Private link service connectivity 
-            url: troubleshoot-private-endpoint-connectivity
+            url: troubleshoot-private-link-connectivity.md
 
   # Card
   - title: Networking Foundation
