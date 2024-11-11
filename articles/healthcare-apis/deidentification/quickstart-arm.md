@@ -21,7 +21,7 @@ an Azure Health Data Services de-identification service (preview).
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the
-**Deploy to Azure** button. The template will open in the Azure portal.
+**Deploy to Azure** button. The template opens in the Azure portal.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthdataaiservices%2Fdeidentification-service-create%2Fazuredeploy.json":::
 
@@ -45,7 +45,7 @@ One Azure resource is defined in the template:
 
 Deploy the template using any standard method for [deploying an ARM template](../azure-resource-manager/templates/deploy-cli.md) such as the following example using Azure CLI.
 1. Save the template file as **azuredeploy.json** to your local computer.
-1. Create a resource group in one of the supported regions for the de-identificaation service, replacing **\<deid-service-name\>** with the name you choose for your de-identification service:
+1. Create a resource group in one of the supported regions for the de-identification service, replacing **\<deid-service-name\>** with the name you choose for your de-identification service:
     ```azurecli
     az group create --name exampleRG --location eastus
 
