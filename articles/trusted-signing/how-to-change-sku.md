@@ -1,7 +1,7 @@
 ---
 title: Change the account SKU 
 description: Learn how to change your SKU or pricing tier for a Trusted Signing account. 
-author: TacoTechSharma
+author: TacoTechSharma 
 ms.author: mesharm 
 ms.service: trusted-signing 
 ms.topic: how-to 
