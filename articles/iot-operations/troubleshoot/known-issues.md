@@ -29,7 +29,7 @@ This article lists the known issues for Azure IoT Operations.
 
   As a workaround, when deploying Azure IoT Operations with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md).
 
-- If a Broker only has one backend replica, upgrading Azure IoT Operations might fail. Only upgrade Azure IoT Operations if the Broker has more than one backend replica.
+- If a Broker only has one backend replica (`backendChain.redundancyFactor` is set to 1) upgrading Azure IoT Operations might fail. Only upgrade Azure IoT Operations if the Broker has more than one backend replica.
 
 - Even though the MQTT broker's [diagnostics](../manage-mqtt-broker/howto-broker-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
 
