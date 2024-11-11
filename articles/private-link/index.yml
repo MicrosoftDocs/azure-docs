@@ -82,7 +82,7 @@ landingContent:
             url: troubleshoot-private-link-connectivity.md
 
   # Card
-  - title: Networking Foundation
+  - title: Networking foundation
     linkLists:
       - linkListType: get-started
         links:
@@ -95,11 +95,11 @@ landingContent:
 
   # Card
 
-  - title: Concepts and Architecture
+  - title: Concepts and architecture
     linkLists:
       - linkListType: concept
         links:
-          - text: Secruity baseline
+          - text: Security baseline
             url: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
           - text: Multitenancy and Azure Private Link
             url: /azure/architecture/guide/multitenant/service/private-link
