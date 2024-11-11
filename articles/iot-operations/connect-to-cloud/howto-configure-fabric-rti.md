@@ -66,7 +66,7 @@ Azure Key Vault is the recommended way to sync the connection string to the Kube
     | SASL type             | Choose *Plain* |
     | Synced secret name    | Name of secret that will synced to the Kubernetes cluster. You can choose any name. |
     | Username reference of token secret | Create a new or choose an existing Key Vault reference. The secret value must be the literal string *$ConnectionString*. It is not an environment variable. |
-    | Password reference of token secret | Create a new or choose an existing Key Vault reference. The secret value must the Custom Endpoint connection string noted earlier. |
+    | Password reference of token secret | Create a new or choose an existing Key Vault reference. The secret value must be the Custom Endpoint connection string noted earlier. |
 
 1. Select **Apply** to provision the endpoint.
 
@@ -76,7 +76,7 @@ Identical to [SASL instructions for the Event Hubs endpoint](../connect-to-cloud
 
 # [Kubernetes](#tab/kubernetes)
 
-Identical to [SASL instructions for the Event Hubs endpoint](../connect-to-cloud/howto-configure-kafka-endpoint?tabs=bicep#kubernetes).
+Identical to [SASL instructions for the Event Hubs endpoint](../connect-to-cloud/howto-configure-kafka-endpoint?tabs=kubernetes#sasl).
 
 ---
 
