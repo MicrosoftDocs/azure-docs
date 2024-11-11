@@ -18,6 +18,18 @@ ms.reviewer: jushiman
 
 Azure Compute Fleet is a building block that gives you accelerated access to Azure's capacity in a given region. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity. There are many ways you can use this product, whether by running a stateless web service, a big data cluster, or a Continuous Integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core instances.
 
+## Using Compute Fleet, you can:
+- Deploy up to 10,000 VMs with a single API, using [Spot VM](../virtual-machines/spot-vms.md) and [Standard VM](../virtual-machines/overview.md) types together.
+- Get superior price-performance ratios by utilizing a blend of diverse pricing models, like Reserved Instances, Savings Plan, Spot instances, and pay-as-you-go (PYG) options.
+- Expedite access to Azure capacity by rapidly provisioning instances from a customized SKU list tailored to your preferences.
+- Implement personalized Compute Fleet allocation strategies, catering to both Standard and Spot VMs, optimizing for cost, capacity, or a combination of both.
+- Embrace the "Fire & Forget-it" model, automating the deployment, management, and monitoring of instances without requiring intricate code frameworks.
+    - Streamline the initial setup process, saving valuable time and resources.
+    - Alleviate concerns about scripting complexity associated with determining optimal virtual machine (VM) pricing, available capacity, managing Spot evictions, and SKU availability.
+- Attempt to maintain your Spot target capacity if your Spot VMs are evicted for price or capacity.
+
+There's no extra charge for using Compute Fleet. You're only charged for the VMs your Compute Fleet launches per hour. For more information on virtual machine billing, see [states and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
+
 ## Features and benefits
 ### Multiple VM Series: 
 Compute Fleet can launch multiple VM series (such as Dv5, Ev5, and N-series), ensuring it isn't reliant on the availability of any single type. This enhances overall availability within the fleet.
@@ -32,19 +44,6 @@ Compute Fleet allows you to dynamically distribute workloads across multiple reg
 ### Attribute based Vm selection: 
 Compute Fleet supports deploying VM types based on user specified attributes (e.g., memory, vCPU, storage) 
  
-
-## Using Compute Fleet, you can:
-- Deploy up to 10,000 VMs with a single API, using [Spot VM](../virtual-machines/spot-vms.md) and [Standard VM](../virtual-machines/overview.md) types together.
-- Get superior price-performance ratios by utilizing a blend of diverse pricing models, like Reserved Instances, Savings Plan, Spot instances, and pay-as-you-go (PYG) options.
-- Expedite access to Azure capacity by rapidly provisioning instances from a customized SKU list tailored to your preferences.
-- Implement personalized Compute Fleet allocation strategies, catering to both Standard and Spot VMs, optimizing for cost, capacity, or a combination of both.
-- Embrace the "Fire & Forget-it" model, automating the deployment, management, and monitoring of instances without requiring intricate code frameworks.
-    - Streamline the initial setup process, saving valuable time and resources.
-    - Alleviate concerns about scripting complexity associated with determining optimal virtual machine (VM) pricing, available capacity, managing Spot evictions, and SKU availability.
-- Attempt to maintain your Spot target capacity if your Spot VMs are evicted for price or capacity.
-
-There's no extra charge for using Compute Fleet. You're only charged for the VMs your Compute Fleet launches per hour. For more information on virtual machine billing, see [states and billing status of Azure Virtual Machines](../virtual-machines/states-billing.md).
-
 ## Compute Fleet considerations 
 
 - Compute Fleet launches a combination of VM types that have their own considerations. For more information, see [Spot VMs](../virtual-machines/spot-vms.md) and [Virtual Machines](../virtual-machines/overview.md) for details. 
