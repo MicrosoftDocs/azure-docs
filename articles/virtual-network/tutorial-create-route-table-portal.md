@@ -325,8 +325,6 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
 
 ### [PowerShell](#tab/powershell)
 
-### Create a virtual machine
-
 Create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *vm-nva*.
 
 ```azurepowershell-interactive
@@ -352,7 +350,7 @@ New-AzVM @vmParams
 
 ### [CLI](#tab/cli)
 
-Create a VM to be used as the NVA in the *subnet-dmz* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *vm-nvaVMNic* and a subnet-public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a subnet-public IP address to the VM, since the VM doesn't need to be connected to from the internet. 
+Create a VM to be used as the NVA in the *subnet-dmz* subnet with [az vm create](/cli/azure/vm). 
 
 ```azurecli-interactive
 az vm create \
