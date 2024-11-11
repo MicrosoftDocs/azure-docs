@@ -11,7 +11,7 @@ ms.author: iasthana
 
 # Tutorial: Run JavaScript code in a code interpreter session in Azure Container Apps
 
-This tutorial demonstrates how to create a container app where you can pass in code to execute on your behalf. The container app that executes your code uses a dynamic code interpreter session which runs lines of JavaScript you provide via a request.
+This tutorial demonstrates how to create a sessionpool for dynamic sessions where you can pass in code to execute on your behalf. Code interpreter in dynamic sessions is used which runs lines of JavaScript you provide via a request.
 
 In this tutorial you:
 
@@ -19,6 +19,9 @@ In this tutorial you:
 > * Create a new code interpreter session
 > * Set the appropriate security context for your session pool
 > * Pass in JavaScript code for the container app to run
+
+> [!NOTE]
+> Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](./sessions.md#preview-limitations) for more information.
 
 ## Prerequisites
 
