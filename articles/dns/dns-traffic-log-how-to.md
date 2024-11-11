@@ -4,13 +4,13 @@ description: Learn how to filter and view Azure DNS traffic
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 11/11/2024
 ms.author: greglin
 ---
 
 # Filter and view DNS traffic
 
-This article shows you how to view and filter DNS traffic at the virtual network level. 
+This article shows you how to view and filter DNS traffic at the virtual network by with [DNS security policy](dns-security-policy.md).
 
 > [!NOTE]
 > DNS security policy is in PREVIEW.<br> 
@@ -33,28 +33,26 @@ To create a DNS security policy using the Azure portal:
 1. On the Azure portal **Home** page, search for and select **DNS Security Policies**. You can also choose **Dns Security Policy** from the Azure Marketplace.
 2. Select **+ Create** to begin creating a new policy.
 3. On the **Basics** tab, select the **Subscription** and **Resource group**, or create a new resource group.
-4. Next to **Instance Name**, enter a name for the DNS security policy.
-5. Choose the **Region** where the security policy applies.
+4. Next to **Instance Name**, enter a name for the DNS security policy and then choose the **Region** where the security policy applies.
 
      > [!NOTE]
      > A DNS security policy can only be applied to VNets in the same region as the security policy.
 
     ![Screenshot of the Basics tab for security policy.](./media/dns-traffic-log-how-to/secpol-basics.png)
 
-6. Select **Next: Virtual Networks Link**.
-7. Select **+ Add**.  
-8. VNets in the same region as the security policy are displayed. Select one or more available VNets and then select **Add**. You can't choose a VNet that is already associated with another security policy. In the following example, two VNets have already been associated with a security policy, leaving two VNets available to select.
+5. Select **Next: Virtual Networks Link** and then select **+ Add**.  
+6. VNets in the same region as the security policy are displayed. Select one or more available VNets and then select **Add**. You can't choose a VNet that is already associated with another security policy. In the following example, two VNets have already been associated with a security policy, leaving two VNets available to select.
 
     ![Screenshot of the Virtual Network Links tab for security policy.](./media/dns-traffic-log-how-to/secpol-vnet-links.png)
 
-9. VNets that were selected are displayed. If desired, you can remove VNets from the list before creating virtual network links.
+7. VNets that were selected are displayed. If desired, you can remove VNets from the list before creating virtual network links.
 
     ![Screenshot of the Virtual Network Links list.](./media/dns-traffic-log-how-to/secpol-vnet-links-list.png)
 
      > [!NOTE]
      > Virtual network links are created for all VNets displayed in the list, whether or not they are *selected*. Use checkboxes to select VNets for removal from the list.
 
-10. Select **Review + create** and then select **Create**. Choosing **Next: DNS Traffic Rules** is skipped here, but you also have the option to create traffic rules now. In this guide, traffic rules and DNS domain lists are created and applied to DNS security policy later.
+8. Select **Review + create** and then select **Create**. Choosing **Next: DNS Traffic Rules** is skipped here, but you also have the option to create traffic rules now. In this guide, traffic rules and DNS domain lists are created and applied to DNS security policy later.
 
 ## Create a log analytics workspace
 
@@ -65,12 +63,11 @@ To create a Log Analytics Workspace using the Azure portal:
 1. On the Azure portal **Home** page, search for and select **Log Analytics workspaces**. You can also choose **Log Analytics Workspace** from the Azure Marketplace.
 2. Select **+ Create** to begin creating a new workspace.
 3. On the **Basics** tab, select the **Subscription** and **Resource group**, or create a new resource group.
-4. Next to **Name**, enter a name for the workspace.
-5. Choose the **Region** for the workspace.
+4. Next to **Name**, enter a name for the workspace and then choose the **Region** for the workspace.
 
     ![Screenshot of the Virtual Network Links list for security policy.](./media/dns-traffic-log-how-to/workspace-create.png)
 
-6. Select **Review + create** and then select **Create**.
+5. Select **Review + create** and then select **Create**.
 
 ## Configure diagnostic settings
 
@@ -95,18 +92,17 @@ To create a DNS domain list using the Azure portal:
 1. On the Azure portal **Home** page, search for and select **DNS Domain Lists**.
 2. Select **+ Create** to begin creating a new domain list.
 3. On the **Basics** tab, select the **Subscription** and **Resource group**, or create a new resource group.
-4. Next to **Domain list name**, enter a name for the domain list.
-5. Choose the **Region** for the list. 
+4. Next to **Domain list name**, enter a name for the domain list and then choose the **Region** for the list. 
 
      > [!NOTE]
      > Security policies require domain lists in the same region.
 
-6. Select **Next: DNS Domains**.
-7. On the **DNS Domains** tab, enter domain names manually one at a time, or import them from a comma-separated-value (CSV) file.
+5. Select **Next: DNS Domains**.
+6. On the **DNS Domains** tab, enter domain names manually one at a time, or import them from a comma-separated-value (CSV) file.
 
     ![Screenshot of creating a DNS Domain List.](./media/dns-traffic-log-how-to/create-domain-list.png)
 
-8. When you have completed entering domain names, select **Review + create** and then select **Create**.
+7. When you have completed entering domain names, select **Review + create** and then select **Create**.
 
 Repeat this section to create additional domain lists if desired. Each domain list can be associated to a traffic rule that has one of three actions:
 
