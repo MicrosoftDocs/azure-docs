@@ -1,84 +1,63 @@
 ### YamlMime:Landing
 
-title: service documentation # < 60 chars
-summary: summary # < 160 chars
+title: Firmware analysis (preview) # < 60 chars
+summary: Analyze your firmware images for security vulnerabilities # < 160 chars
 
 metadata:
-  title: title # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: description # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: service or ms.prod: product #Required; use either service or product per approved list. 
-  ms.subservice: subservice or ms.technology: technology # Optional; Remove if not applicable.
+  title: Firmware analysis (preview) # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Analyze your firmware images for security vulnerabilities # Required; article description that is displayed in search results. < 160 chars.
+  ms.service: service or ms.prod: service #Required; use either service or product per approved list. 
   ms.topic: landing-page # Required
-  ms.collection: collection # Optional; Remove if no collection is used.
-  author: githubauthor #Required; your GitHub user alias, with correct capitalization.
-  ms.author: msauthor #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/27/2020 #Required; mm/dd/yyyy format.
+  author: karengu0 #Required; your GitHub user alias, with correct capitalization.
+  ms.author: karenguo #Required; microsoft alias of author; optional team alias.
+  ms.date: 11/11/2024 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card 
-  - title: About [service]
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is [service]?
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-
-  # Card 
+  # Card
   - title: Get started
     linkLists:
-      - linkListType: linkListType
+      - linkListType: get-started
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
+          - text: What is Firmware analysis (preview)?
+            url: overview-firmware-analysis.md
+          - text: Get started with Firmware analysis in the Azure portal
+            url: tutorial-analyze-firmware.md
+          - text: What file systems are supported by Firmware analysis?
+            url: firmware-analysis-faq.md#What-types-of-firmware-images-does-Firmware-analysis-support
+      - linkListType: concept
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+          - text: What roles and permissions are needed to use Firmware analysis?
+            url: firmware-analysis-rbac.md
+      - linkListType: whats-new
+        links:
+          - text: What's new in Firmware analysis (preview)?
+            url: release-notes.md
 
   # Card
-  - title: cardtitle3
+  - title: Automate your workflow
     linkLists:
-      - linkListType: linkListType
+      - linkListType: how-to-guides
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+          - text: Automate your workflow using service principals
+            url: automate-firmware-analysis-service-principals.md
+          - text: Analyze firmware images using Azure CLI commands
+            url: quickstart-upload-firmware-using-azure-command-line-interface.md
+          - text: Analyze firmware images using Azure PowerShell commands
+            url: quickstart-upload-firmware-using-azure-powershell.md
+          - text: Analyze firmware images using a Python script
+            url: quickstart-upload-firmware-using-python.md
 
-  # Card (Optional; Remove if not applicable.)
-  - title: cardtitle4
+  # Card
+  - title: Understand the Firmware analysis service
     linkLists:
-      - linkListType: linkListType
+      - linkListType: concept
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+          - text: Understand the resource hierarchy of Firmware analysis
+            url: firmware-analysis-rbac.md#Understanding-the-Representation-of-Firmware-Images-in-the-Azure-Resource-Hierarchy
+          - text: Understand and interpret the extractor path results
+            url: interpreting-extractor-paths.md
+
