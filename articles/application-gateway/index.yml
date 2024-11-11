@@ -156,3 +156,17 @@ landingContent:
         links:
           - text: Well-Architected review of Application Gateway
             url: /azure/architecture/framework/services/networking/azure-application-gateway
+
+  # Card
+  - title: Load balancing and content delivery
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Documentation
+            url: https://aka.ms/loadbalancingandcontentdeliverydocs
+      - linkListType: overview
+        links:
+          - text: Azure Front Door
+            url: ../frontdoor/front-door-overview.md
+          - text: Azure Load Balancer
+            url: ../load-balancer/load-balancer-overview.md
