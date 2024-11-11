@@ -13,7 +13,7 @@ ms.author: cshoe
 
 Azure Container Apps provides access to GPUs on-demand without you having to manage the underlying infrastructure. As a serverless feature, you only pay for GPUs in use. When enabled, the number of GPUs used for your app rises and falls to meet the load demands of your application. Serverless GPUs enable you to seamlessly run your workloads with automatic scaling, optimized cold start, per-second billing with scale down to zero when not in use, and reduced operational overhead. 
 
-Serverless GPUs work exclusively with both dedicated and consumption workload profiles in a Workload profiles environment. Serverless GPU support isn't available for Consumption-only environments.
+Serverless GPUs are only supported for Consumption workload profiles. The feature is not supported for Consumption-only environments.
 
 > [!NOTE]
 > Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request).
