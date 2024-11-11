@@ -88,7 +88,7 @@ With this strategy, Compute Fleet doesn't prioritize pricing over capacity, so y
 The Compute Fleet launches VM types and sizes from your specified list of VMs that offer the lowest price for Spot VMs. Followed by the second and third lowest price until the desired capacity is fulfilled.
 
 
-### Target capacity 
+## Target capacity 
 
 Compute Fleet allows you to set individual target capacity for Spot and pay-as-you-go VM types. This capacity could be managed individually based on your workloads or application requirement.  
 
@@ -97,7 +97,7 @@ You can specify target capacity using VM instances.
 Compute Fleet allows you to modify the target capacity for Spot and pay-as-you-go VMs based on your Compute Fleet configuration. For more information, see [Modify your Compute Fleet](#modify-your-compute-fleet) for details related to modifying target capacity. 
 
 
-### Minimum starting capacity 
+## Minimum starting capacity 
 
 You can set your Compute Fleet to deploy Spot VMs, pay-as-you-go VMs, or a combination of both only if the Compute Fleet can deploy the minimum starting capacity requested against the actual target capacity. The deployment fails if capacity becomes unavailable to fulfill the minimum starting capacity. 
 
