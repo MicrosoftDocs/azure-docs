@@ -10,7 +10,7 @@ ms.date: 11/19/2024
 
 # Azure Extended Zones frequently asked questions (FAQ)
 
-This article provides answers to some of the frequently asked questions asked about Azure Extended Zones.
+This article provides answers to some of the frequently asked questions about Azure Extended Zones.
 
 ## Where is customer data stored and processed when deploying to an Azure Extended Zone?
 
