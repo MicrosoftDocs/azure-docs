@@ -28,3 +28,6 @@ If scaling down occurs to reduce the current target capacity, Compute Fleet does
 While the Compute Fleet is running, you can add or delete new VM sizes or SKUs to your Compute Fleet. For Spot, you may delete or replace existing VM sizes in your Compute Fleet configuration if the capacity preference is set to *Maintain capacity*. 
 
 In all other scenarios requiring a modification to the running Compute Fleet, you may have to delete the existing Compute Fleet and create a new one.  
+
+#### Next topic: Fleet quota
+#### Previous Topic: Target Capacity
