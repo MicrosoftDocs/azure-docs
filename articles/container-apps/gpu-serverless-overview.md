@@ -30,7 +30,7 @@ When you use serverless GPUs in Container Apps, your apps get:
 
 - **Per-second billing**: Fine-grained cost calculations reduced down to the second.
 
-- **Built-in data governance**: Your data never leave the container boundary.
+- **Built-in data governance**: Your data never leaves the container boundary.
 
 - **Flexible compute options**: You can choose between the NVIDIA A100 or T4 compute profiles.
 
