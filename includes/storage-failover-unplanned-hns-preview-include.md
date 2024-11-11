@@ -14,7 +14,7 @@ ms.custom: "include file", references_regions
 > [!IMPORTANT]
 > Customer-managed (unplanned) failover for accounts that have Azure Data Lake Storage Gen2 enabled is currently in PREVIEW and supported in all public GRS/GZRS regions. 
 > 
-> To opt in to the preview, see [Set up preview features in Azure subscription](../articles/azure-resource-manager/management/preview-features.md) and specify `AllowHNSAccountFailover` as the feature name.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!IMPORTANT]
 > Customer-managed (unplanned) failover for accounts that have SSH File Transfer Protocol (SFTP) enabled is currently in PREVIEW and only supported in the following regions:
