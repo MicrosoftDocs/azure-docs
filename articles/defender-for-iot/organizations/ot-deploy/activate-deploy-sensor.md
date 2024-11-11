@@ -113,17 +113,17 @@ In the **Interface configurations** tab, do the following to configure settings 
     |**Description**     |  Enter an optional description for the interface. You'll see this later on in the sensor's **System settings > Interface configurations** page, and these descriptions may be helpful in understanding the purpose of each interface.  |
     |**Auto negotiation**     | Relevant for physical machines only. Use this option to determine which sort of communication methods are used, or if the communication methods are automatically defined between components. <br><br>**Important**: We recommend that you change this setting only on the advice of your networking team. |
 
-       **To add ERSPAN tunneling to your interface:**
-   
-       1. In the **Mode** option, select **Tunneling** from the drop-down list.
-   
-       1. To configure the tunnel, update the following OT sensor details:
-   
-           - **Description** (optional).
-           - **Interface IP**.
-           - **Subnet**.
-   
-       For example:
+    **To add ERSPAN tunneling to your interface:**
+
+    1. In the **Mode** option, select **Tunneling** from the drop-down list.
+
+    1. To configure the tunnel, update the following OT sensor details:
+
+        - **Description** (optional).
+        - **Interface IP**.
+        - **Subnet**.
+
+    For example:
 
     :::image type="content" source="media/activate-deploy-sensor/erspan-adv-settings-tunneling.png" alt-text="Screenshot of how to configure ERSPAN settings in the OT sensor settings.":::
 
@@ -131,7 +131,7 @@ In the **Interface configurations** tab, do the following to configure settings 
 
 1. Select **Next: Reboot >** to continue, and then **Start reboot** to reboot your sensor machine. After the sensor starts again, you're automatically redirected to the IP address you'd [defined earlier as your sensor IP address](#ip).
 
-       Select **Cancel** to wait for the reboot.
+    Select **Cancel** to wait for the reboot.
 
 ### Activate your OT sensor
 
