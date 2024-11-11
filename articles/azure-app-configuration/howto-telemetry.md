@@ -57,7 +57,7 @@ In this tutorial, you:
 
 ## Next steps
 
-In this tutorial, you learned how to enable telemetry for feature flags in Azure App Configuration. To learn about how to use the telemetry data in your applications, continue to the following tutorial for your language or platform.
+In this tutorial, you learned how to enable telemetry for feature flags in Azure App Configuration. To learn about how to emit the telemetry data from your applications, continue to the following tutorial for your language or platform.
 
 > [!div class="nextstepaction"]
 > [Python](./howto-telemetry-python.md)
