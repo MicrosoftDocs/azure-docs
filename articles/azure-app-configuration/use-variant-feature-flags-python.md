@@ -67,6 +67,9 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
 
 1. Create a new file named *app.py* in the *QuoteOfTheDay* folder.
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
     ```python
     import os
     from azure.appconfiguration.provider import load
@@ -125,7 +128,62 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
     from . import routes
     app.register_blueprint(routes.bp)
     ```
-
+    ### [Connection string](#tab/connection-string)
+    ```python
+    import os
+    from azure.appconfiguration.provider import load
+    from featuremanagement import FeatureManager
+    from featuremanagement.azuremonitor import publish_telemetry
+    from opentelemetry import trace
+    from opentelemetry.trace import get_tracer_provider
+    from flask_bcrypt import Bcrypt
+    
+    from flask_sqlalchemy import SQLAlchemy
+    from flask_login import LoginManager
+    
+    from flask import Flask
+    
+    app = Flask(__name__, template_folder="../templates", static_folder="../static")
+    bcrypt = Bcrypt(app)
+    
+    tracer = trace.get_tracer(__name__, tracer_provider=get_tracer_provider())
+    
+    def callback():
+        app.config.update(azure_app_config)
+    
+    global azure_app_config
+    azure_app_config = load(
+        connection_string=os.getenv("AzureAppConfigurationConnectionString"),
+        on_refresh_success=callback,
+        feature_flag_enabled=True,
+        feature_flag_refresh_enabled=True,
+    )
+    app.config.update(azure_app_config)
+    feature_manager = FeatureManager(azure_app_config, on_feature_evaluated=publish_telemetry)
+    
+    db = SQLAlchemy()
+    db.init_app(app)
+    
+    login_manager = LoginManager()
+    login_manager.init_app(app)
+    
+    
+    from .model import Users
+    
+    @login_manager.user_loader
+    def loader_user(user_id):
+        return Users.query.get(user_id)
+    
+    with app.app_context():
+        db.create_all()
+    
+    if __name__ == "__main__":
+        app.run(debug=True)
+    
+    from . import routes
+    app.register_blueprint(routes.bp)
+    ```
+    ---
 1. Create a new file called *model.py* in the *QuoteOfTheDay* folder.
 
     ```python
@@ -538,6 +596,28 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
     ```bash
     export AzureAppConfigurationEndpoint='endpoint-of-your-app-configuration-store'
     ```
+
+    ### [Connection string](#tab/connection-string)
+    Set the environment variable named **ConnectionString** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx AzureAppConfigurationConnectionString "connection-string-of-your-app-configuration-store"
+    ```
+
+   If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:AzureAppConfigurationConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export AzureAppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
+    ```
+    ---
 
 1. In the command prompt, in the *QuoteOfTheDay* folder, run: `flask run`.
 1. Wait for the app to start, and then open a browser and navigate to `http://localhost:5000/`.
