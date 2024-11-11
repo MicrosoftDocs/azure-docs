@@ -4,7 +4,7 @@ description: Learn how to set up disaster recovery for Virtual machines on Azure
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 04/19/2023
+ms.date: 11/11/2024
 ms.author: ankitadutta
 ---
 
@@ -32,7 +32,7 @@ To enable replication to a secondary location, follow the below steps:
 
 1. On the Azure portal, select **Virtual machines** and select a VM to replicate.
 1. On the left pane, under **Operations**, select **Disaster recovery**.
-    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/disaster-recovery.png" alt-text=" Screenshot of Select Disaster Recovery option."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/disaster-recovery-expanded.png":::
+    :::image type="content" source="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/disaster-recovery.png" alt-text=" Screenshot of Select Disaster Recovery option."lightbox="./media/disaster-recovery-for-edge-zone-vm-flow-tutorial/disaster-recovery.png":::
      
 1. In **Basics**, select the **Target region** or an Azure Public MEC.
     - Option 1: **Public MEC to Region**
