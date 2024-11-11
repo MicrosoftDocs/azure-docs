@@ -17,10 +17,9 @@ When configuring your Compute Fleet, we recommend you to consider the following 
 
 | Configuration Options        | Description                                                                                                                               |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| Capacity preference          | Fleet will submit a one-time request for a desired capacity or a fleet that maintains target capacity over time                           |
+| Spot VM                      | Fleet will submit a one-time request for a desired capacity or a fleet that maintains target capacity over time                           |
 | Fleet allocation strategies  | Choose an allocation strategies each for Spot and Standard VMs to optimize your fleet for lowest price, capacity or a combination of both |
 | Attribute based VM selection | Specify your VM sizes and types for your fleet or let Compute fleet choose the VM sizes & types that meets your application requirement   |
-| Multi-region fleet           | Allows you to dynamically distribute workloads across multiple Azure regions (up to 3 regions of choice, all in a single fleet request)   |
 
-#### Next topic: Capacity preference
+#### Next topic: Spot VM Configuration
 #### Previous Topic: Compute Fleet overview
