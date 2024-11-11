@@ -28,7 +28,6 @@ The following table contrasts the differences between using managed and existing
 | Supported Azure Functions [hosting plans](../azure-functions/functions-scale.md) | Consumption | Consumption<br>Premium<br>Dedicated |
 | [Integrated security](user-information.md) with direct access to user authentication and role-based authorization data | ✔ | ✔ |
 | [Routing integration](./configuration.md?#routes) that makes the `/api` route available to the web app securely without requiring custom CORS rules. | ✔ | ✔ |
-| [Distributed functions (preview)](./distributed-functions.md) for dynamic global distribution of backend compute. | ✔ | ✕ |
 | [Durable Functions](../azure-functions/durable/durable-functions-overview.md) programming model | ✕ | ✔ |
 | [Managed identity](../app-service/overview-managed-identity.md) | ✕ | ✔ |
 | [Azure App Service Authentication and Authorization](../app-service/configure-authentication-provider-aad.md) token management | ✕ | ✔ |
@@ -38,9 +37,6 @@ The following table contrasts the differences between using managed and existing
 <sup>1</sup> To specify the runtime version in managed functions, add a configuration file to your frontend app and set the [`apiRuntime` property](configuration.md#platform). Support is subject to the [Azure Functions language runtime support policy](../azure-functions/language-support-policy.md).
 
 [!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
-
-> [!NOTE]
-> [Distributed functions](./distributed-functions.md) is available with managed functions. Distributed functions automatically distribute your managed functions to regions of high request loads.
 
 ## Configuration
 

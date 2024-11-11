@@ -141,3 +141,17 @@ landingContent:
             url: /azure/frontdoor/front-door-overview
           - text: Azure Application Gateway overview
             url: /azure/application-gateway/overview
+
+  # Card
+  - title: Load balancing and content delivery
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Documentation
+            url: https://aka.ms/loadbalancingandcontentdeliverydocs
+      - linkListType: overview
+        links:
+          - text: Azure Front Door overview
+            url: /azure/frontdoor/front-door-overview
+          - text: Azure Application Gateway overview
+            url: /azure/application-gateway/overview

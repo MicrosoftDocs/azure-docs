@@ -41,7 +41,7 @@ For more information, see the [Spring Boot documentation on data access](https:/
 ::: zone pivot="java-tomcat"
 
 > [!TIP]
-> By default, the Linux Tomcat containers can automatically configure shared data sources for you in the Tomcat server. The only thing for you to do is add an app setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and App Service automatically adds the cooresponding shared database to */usr/local/tomcat/conf/context.xml* for you, using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md).
+> By default, the Linux Tomcat containers can automatically configure shared data sources for you in the Tomcat server. The only thing for you to do is add an app setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and App Service automatically adds the corresponding shared database to */usr/local/tomcat/conf/context.xml*, using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md).
 
 These instructions apply to all database connections. You need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
@@ -377,46 +377,30 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar
 
 ::: zone pivot="java-jboss"
 
-There are three core steps when [registering a data source with JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management): uploading the JDBC driver, adding the JDBC driver as a module, and registering the module. App Service is a stateless hosting service, so the configuration commands for adding and registering the data source module must be scripted and applied as the container starts.
+> [!TIP]
+> By default, the Linux JBoss containers can automatically configure shared data sources for you in the JBoss server. The only thing for you to do is add an app setting that contains a valid JDBC connection string to an Oracle, SQL Server, PostgreSQL, or MySQL database (including the connection credentials), and App Service automatically adds the corresponding shared data source, using an appropriate driver available in the container. For an end-to-end scenario using this approach, see [Tutorial: Build a JBoss web app with Azure App Service on Linux and MySQL](tutorial-java-jboss-mysql-app.md).
 
-1. Obtain your database's JDBC driver.
-2. Create an XML module definition file for the JDBC driver. The following example shows a module definition for PostgreSQL.
+There are three core steps when [registering a data source with JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management): 
 
-    ```xml
-    <?xml version="1.0" ?>
-    <module xmlns="urn:jboss:module:1.1" name="org.postgres">
-        <resources>
-        <!-- ***** IMPORTANT : REPLACE THIS PLACEHOLDER *******-->
-        <resource-root path="/home/site/deployments/tools/postgresql-42.2.12.jar" />
-        </resources>
-        <dependencies>
-            <module name="javax.api"/>
-            <module name="javax.transaction.api"/>
-        </dependencies>
-    </module>
-    ```
+1. Upload the JDBC driver.
+1. Add the JDBC driver as a module.
+1. Add a data source with the module. 
 
-1. Put your JBoss CLI commands into a file named `jboss-cli-commands.cli`. The JBoss commands must add the module and register it as a data source. The following example shows the JBoss CLI commands for PostgreSQL.
+App Service is a stateless hosting service, so you must put these steps into a startup script and run it each time the JBoss container starts. Using PostgreSQL, MySQL, and SQL Database as an examples:
 
-    ```bash
-    #!/usr/bin/env bash
-    module add --name=org.postgres --resources=/home/site/deployments/tools/postgresql-42.2.12.jar --module-xml=/home/site/deployments/tools/postgres-module.xml
+# [PostgreSQL](#tab/postgresql)
 
-    /subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgres",driver-class-name=org.postgresql.Driver,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
+[!INCLUDE [configure-jboss-postgresql](includes/configure-language-java-data-sources/configure-jboss-postgresql.md)]
 
-    data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=${POSTGRES_CONNECTION_URL,env.POSTGRES_CONNECTION_URL:jdbc:postgresql://db:5432/postgres} --user-name=${POSTGRES_SERVER_ADMIN_FULL_NAME,env.POSTGRES_SERVER_ADMIN_FULL_NAME:postgres} --password=${POSTGRES_SERVER_ADMIN_PASSWORD,env.POSTGRES_SERVER_ADMIN_PASSWORD:example} --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
-    ```
+# [MySQL](#tab/mysql)
 
-1. Create a startup script, `startup_script.sh` that calls the JBoss CLI commands. The following example shows how to call your `jboss-cli-commands.cli`. Later, you'll configure App Service to run this script when the container starts.
+[!INCLUDE [configure-jboss-mysql](includes/configure-language-java-data-sources/configure-jboss-mysql.md)]
 
-    ```bash
-    $JBOSS_HOME/bin/jboss-cli.sh --connect --file=/home/site/deployments/tools/jboss-cli-commands.cli
-    ```
+# [SQL Database](#tab/sqldatabase)
 
-1. Using an FTP client of your choice, upload your JDBC driver, `jboss-cli-commands.cli`, `startup_script.sh`, and the module definition to `/site/deployments/tools/`.
-2. Configure your site to run `startup_script.sh` when the container starts. In the Azure portal, navigate to **Configuration** > **General Settings** > **Startup Command**. Set the startup command field to `/home/site/deployments/tools/startup_script.sh`. **Save** your changes.
+[!INCLUDE [configure-jboss-sqldatabase](includes/configure-language-java-data-sources/configure-jboss-sql-database.md)]
 
-To confirm that the datasource was added to the JBoss server, SSH into your webapp and run `$JBOSS_HOME/bin/jboss-cli.sh --connect`. Once you're connected to JBoss, run the `/subsystem=datasources:read-resource` to print a list of the data sources.
+---
 
 ::: zone-end
 
