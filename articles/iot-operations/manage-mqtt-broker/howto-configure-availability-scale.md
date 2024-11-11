@@ -121,6 +121,7 @@ The frontend subfield defines the settings for the frontend pods. The two main s
 - **Replicas**: The number of frontend replicas (pods) to deploy. Increasing the number of frontend replicas provides high availability in case one of the frontend pods fails.
 
 - **Workers**: The number of logical frontend workers per replica. Each worker can consume up to one CPU core at most.
+
 #### Backend chain
 
 The backend chain subfield defines the settings for the backend partitions. The three main settings are:
@@ -256,15 +257,42 @@ To learn more, see [Azure CLI support for advanced MQTT broker configuration](ht
 
 ---
 
-<!-- TODO -->
+## Multi-node deployment
 
-<!-- ## Best practices
+To ensure high availability and resilience with multi-node deployments, the Azure IoT Operations MQTT broker automatically sets [anti-affinity rules](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) for backend pods. 
 
-### Configuration required to ensure the backends and dataflow instances are scheduled on separate nodes/node-pools
+These rules are predefined and cannot be modified.
 
-### Load balancers required in front of the frontends
+### Purpose of anti-affinity rules
 
-### Self-healing and resilience -->
+The anti-affinity rules ensure that backend pods from the same partition don't run on the same node. This helps to distribute the load and provides resilience against node failures. Specifically, backend pods from the same partition have anti-affinity with each other.
+
+### Verifying anti-affinity settings
+
+To verify the anti-affinity settings for a backend pod, use the following command:
+
+```sh
+kubectl get pod aio-broker-backend-1-0 -n azure-iot-operations -o yaml | grep affinity -A 15
+```
+
+The output will show the anti-affinity configuration, similar to the following:
+
+```yaml
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - podAffinityTerm:
+        labelSelector:
+          matchExpressions:
+          - key: chain-number
+            operator: In
+            values:
+            - "1"
+        topologyKey: kubernetes.io/hostname
+      weight: 100
+```
+
+These are the only anti-affinity rules set for the broker.
 
 ## Next steps
 
