@@ -107,6 +107,8 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
+        - text: Documentation
+          url: https://learn.microsoft.com/en-us/azure/networking/security/
         - text: Azure Firewall
           url: /azure/firewall/
         - text: Azure WAF
