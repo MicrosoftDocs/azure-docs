@@ -41,6 +41,8 @@ With API analysis:
 
 View an analysis summary and the analysis reports for your API definitions in the Azure portal. After API definitions are analyzed, the reports list errors, warnings, and information based on the configured API style guide. 
 
+In the API analysis report, also review the ruleset that was used for the analysis and the history of linting passes.
+
 To view an analysis summary in your API center:
 
 1. In the portal, navigate to your API center.
@@ -78,6 +80,9 @@ Before deploying the custom ruleset to your API center, validate it locally. The
     This step makes the custom ruleset the active API style guide for linting.
 
 Now, when you open an OpenAPI-based API definition file, a local linting operation is automatically triggered in Visual Studio Code. Results are displayed inline in the editor and in the **Problems** window (**View > Problems** or **Ctrl+Shift+M**).
+
+    > [!TIP]
+    > API developers in your organization can use this local linting capability to help improve their API definitions before registering APIs in your API center.
 
 :::image type="content" source="media/enable-managed-api-analysis-linting/validate-local-linting.png" alt-text="Screenshot of linting an API definition in Visual Studio Code." lightbox="media/enable-managed-api-analysis-linting/validate-local-linting.png":::
 
