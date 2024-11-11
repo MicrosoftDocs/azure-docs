@@ -26,4 +26,4 @@ You may choose this preference when:
 Not enabling this preference stops your Compute Fleet from goal seeking to replace evicted Spot VMs even if the target capacity isn't met.
 
 #### Next topic: Fleet allocation stratergies
-#### Previous Topic: Spot Virtual Machines
+#### Previous Topic: Configuring Compute Fleet
