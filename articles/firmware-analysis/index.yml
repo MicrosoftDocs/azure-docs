@@ -6,7 +6,6 @@ summary: Analyze your firmware images for security vulnerabilities # < 160 chars
 metadata:
   title: Firmware analysis (preview) # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Analyze your firmware images for security vulnerabilities # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: service or ms.prod: service #Required; use either service or product per approved list. 
   ms.topic: landing-page # Required
   author: karengu0 #Required; your GitHub user alias, with correct capitalization.
   ms.author: karenguo #Required; microsoft alias of author; optional team alias.
