@@ -152,12 +152,12 @@ To reduce alert fatigue, multiple versions of the same alert with identical para
 1. On the **Alerts** page, select an alert in the grid to display more details in the pane on the right.
 1. For an Aggregated alert the *Multiple violations* message appears underneath the Source device IP address, and the **Violations** tab is displayed.
 
-    :::image type="content" source="media/how-to-manage-cloud-alerts/alert-details-aggregated.png" alt-text="Screenshot of the alerts detail pane showing the aggregated alerts message, the ViolationsCount and the Violations tab":::
+    :::image type="content" source="media/how-to-manage-cloud-alerts/alert-details-aggregated.png" alt-text="Screenshot of the alerts detail pane showing the aggregated alerts message, the ViolationsCount and the Violations tab.":::
 
 1. Select the **Violations** tab.
 1. Export the data to a CSV file using the **Export** button. Open the file and examine the data. For example:
 
-    :::image type="content" source="media/how-to-manage-cloud-alerts/alert-details-aggregated-csv.png" alt-text="Screenshot of the alerts detail pane showing the aggregated alerts message, the ViolationsCount and the Violations tab":::
+    :::image type="content" source="media/how-to-manage-cloud-alerts/alert-details-aggregated-csv.png" alt-text="Screenshot of example data from the csv file containing the list of multiple alerts that make up the content of the aggregated alert listed in the alert detail pane.":::
 
 1. Select the **Take action** tab. Follow the **Remediation steps**.
 1. Select the **Learn** button, if appropriate, so that Defender for IoT learns that this network activity doesn't need to create an alert item in the future.

@@ -22,7 +22,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Group multiple alerts with the same parameters](#group-multiple-alerts-with-the-same-parameters)|
+| **OT networks** | - [Group multiple alerts with the same parameters](#aggregate-group-multiple-alerts-with-the-same-parameters)|
 
 ### Aggregate/ Group multiple alerts with the same parameters
 
