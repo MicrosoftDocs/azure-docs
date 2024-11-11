@@ -134,7 +134,7 @@ To enable the new certificate templates:
    > [!NOTE]
    > If you already have an enrollment agent certificate template configured, you only need to add the ADFS SSO template.
 
-## Configure the AD FS Servers
+### Configure the AD FS Servers
 
 You must configure the Active Directory Federation Services (AD FS) servers to use the new certificate templates and set the relying-party trust to support SSO.
 
@@ -142,9 +142,9 @@ The relying-party trust between your AD FS server and the Azure Virtual Desktop 
 
 When configuring AD FS single sign-on you must choose shared key or certificate:
 
-* If you have a single AD FS server, you can choose shared key or certificate.
-* If you have multiple AD FS servers,  it's required to choose certificate.
-
+* If you have a single AD FS server, you can choose **shared key** or **certificate**.
+* If you have multiple AD FS servers,  it's required to choose **certificate**.
+  
 The shared key or certificate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](/azure/key-vault/general/overview). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Azure Virtual Desktop service can access it.
 
 When using a certificate, you can use any general purpose certificate and there is no requirement on the subject name or Subject Alternative Name (SAN). While not required, it's recommended to create a certificate issued by a valid Certificate Authority. This certificate can be created directly in Azure Key Vault and needs to have an exportable private key. The public key can be exported and used to configure the AD FS server using the script below. Note that this certificate is different from the AD FS SSL certificate that must have a proper subject name and valid Certificate Authority.
@@ -162,25 +162,19 @@ This script only has one required parameter, *ADFSAuthority*, which is the URL t
    > [!NOTE]
    > If you already have an EnrollmentAgentCertificateTemplate configured, ensure you use the existing template name instead of ADFSEnrollmentAgent.
 
+# [Shared Key Method](#tab/shared-key)
+To configure AD FS server for the relying-party trust with the shared key method:
+
 2. Run the ConfigureWVDSSO.ps1 script.
    > [!NOTE]
    > You need the `$config` variable values to complete the next part of the instructions, so don't close the PowerShell window you used to complete the previous instructions. You can either keep using the same PowerShell window or leave it open while launching a new PowerShell session.
-   
+
+
    * If you're using a shared key in the Key Vault, run the following PowerShell cmdlet on the AD FS server with ADFSServiceUrl replaced with the full URL to reach your AD FS service:
 
      ```powershell
      Install-Script ConfigureWVDSSO
      $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" [-WvdWebAppAppIDUri "<WVD Web App URI>"] [-RdWebURL "<RDWeb URL>"]
-     ```
-
-     > [!NOTE]
-     > You need the WvdWebAppAppIDUri and RdWebURL properties to configure an environment in a sovereign cloud like Azure Government. In the Azure Commercial Cloud, these properties are automatically set to `https://www.wvd.microsoft.com` and `https://rdweb.wvd.microsoft.com` respectively.
-
-   * If you're using a certificate in the Key Vault, run the following PowerShell cmdlet on the AD FS server with ADFSServiceUrl replaced with the full URL to reach your AD FS service:
-
-     ```powershell
-     Install-Script ConfigureWVDSSO
-     $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -UseCert -CertPath "<Path to the pfx file>" -CertPassword <Password to the pfx file> [-WvdWebAppAppIDUri "<WVD Web App URI>"] [-RdWebURL "<RDWeb URL>"]
      ```
 
      > [!NOTE]
@@ -200,6 +194,27 @@ This script only has one required parameter, *ADFSAuthority*, which is the URL t
      $hp = Get-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" 
      $secret = Set-AzKeyVaultSecret -VaultName "<Key Vault Name>" -Name "adfsssosecret" -SecretValue (ConvertTo-SecureString -String $config.SSOClientSecret  -AsPlainText -Force) -Tag @{ 'AllowedWVDSubscriptions' = $hp.Id.Split('/')[2]}
      ```
+
+# [Certificate Method](#tab/certificate)
+To configure AD FS server for the relying-party trust with the certificate method:
+
+   * If you're using a certificate in the Key Vault, run the following PowerShell cmdlet on the AD FS server with ADFSServiceUrl replaced with the full URL to reach your AD FS service:
+
+     ```powershell
+     Install-Script ConfigureWVDSSO
+     $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -UseCert -CertPath "<Path to the pfx file>" -CertPassword <Password to the pfx file> [-WvdWebAppAppIDUri "<WVD Web App URI>"] [-RdWebURL "<RDWeb URL>"]
+     ```
+
+     > [!NOTE]
+     > You need the WvdWebAppAppIDUri and RdWebURL properties to configure an environment in a sovereign cloud like Azure Government. In the Azure Commercial Cloud, these properties are automatically set to `https://www.wvd.microsoft.com` and `https://rdweb.wvd.microsoft.com` respectively.
+
+3. Set the access policy on the Azure Key Vault by running the following PowerShell cmdlet:
+
+   ```powershell
+   Set-AzKeyVaultAccessPolicy -VaultName "<Key Vault Name>" -ServicePrincipalName 9cdead84-a844-4324-93f2-b2e6bb768d07 -PermissionsToSecrets get -PermissionsToKeys sign
+   ```
+
+4. Store the shared key or certificate in Azure Key Vault with a Tag containing a coma separated list of subscription IDs allowed to use the secret.
 
    * If your certificate is already in the Key Vault, run the following PowerShell cmdlet to set the tag:
 
