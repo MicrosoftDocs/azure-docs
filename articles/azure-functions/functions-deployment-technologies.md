@@ -226,20 +226,7 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 >__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
-The following table shows the operating systems and languages that support in-portal editing:
-
-| Language | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
-|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
-| C#<sup>1</sup> | | | | | |
-| Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔|✔|
-| Python<sup>2</sup> | | | |✔ |✔ |✔ |
-| PowerShell |✔|✔|✔| | | |
-| TypeScript (Node.js) | | | | | | |
-
-<sup>1</sup> In-portal editing is only supported for C# script files, which run in-process with the host. For more information, see the [Azure Functions C# script (.csx) developer reference](functions-reference-csharp.md).   
-<sup>2</sup> In-portal editing is only supported for the [v1 Python programming model](functions-reference-python.md?pivots=python-mode-configuration).  
-
+For more information, see [Development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal).
 ## Deployment behaviors
 
 When you deploy updates to your function app code, currently executing functions are terminated. After deployment completes, the new code is loaded to begin processing requests. Review [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless) to learn how to write stateless and defensive functions.
