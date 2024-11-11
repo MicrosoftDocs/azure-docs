@@ -194,7 +194,7 @@
           - name: How to setup break glass access
             href: howto-setup-break-glass-access-.md
           - name: How to enable-Micro-BFD on CE and PE devices.md
-            href: howto-enable-micro-bfd-on-ce-pe-devices.md
+            href: howto-enable-micro-bfd.md
     - name: Cluster
       expanded: false
       items:

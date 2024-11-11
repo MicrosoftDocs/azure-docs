@@ -15,21 +15,21 @@ The Break-Glass mechanism provides temporary and emergency access to Azure Opera
 
 For Network Fabric environments, the current break-glass model, known as Method D v1.5, relies on shared password authentication. This model, however, is limited to 15 shared accounts and poses significant security risks. Method D v2.0 introduces a modernized approach, implementing FIDO-2 devices and SSH keys to secure break-glass access. Key improvements include:
 
-- **Strict Access Control**: Customer administrators control access through individual assignments instead of shared accounts.
+- **Strict access control**: Customer administrators control access through individual assignments instead of shared accounts.
 
-- **Strong Authentication**: Break-glass access is managed via Microsoft Entra with Multi-Factor Authentication (MFA) and Single Sign-On (SSO), eliminating local account dependencies.
+- **Strong authentication**: Break-glass access is managed via Microsoft Entra with Multi-Factor Authentication (MFA) and Single Sign-On (SSO), eliminating local account dependencies.
 
-- **Enhanced Security**: Unauthorized access attempts are logged for audit and investigation purposes.
+- **Enhanced security**: Unauthorized access attempts are logged for audit and investigation purposes.
 
 ## Setting Up Method D v2.0 for break-glass access
 
-### Step 1: Configure FIDO-2 Token and Register the Public Key in Microsoft Entra
+### Step 1: Configure FIDO-2 token and register the public key in Microsoft Entra
 
 To set up secure access, users need a FIDO-2 hardware token, which provides unphishable multi-factor authentication using both a fingerprint and a personal PIN.
 
-1. **Connect the FIDO-2 Token**: Insert the FIDO-2 token into your computer.
+1. **Connect the FIDO-2 token**: Insert the FIDO-2 token into your computer.
 
-2. **Run the AZ CLI Command**: Log in to your Azure account and execute the following command:
+2. **Run the AZ CLI command**: Log in to your Azure account and execute the following command:
 
    ```Azure CLI
    az nexusidentity gen-keys
@@ -39,27 +39,27 @@ To set up secure access, users need a FIDO-2 hardware token, which provides unph
 > [!NOTE] 
 > Re-run this command anytime you need to refresh your break-glass credentials.
 
-### Step 2: Assign Break-Glass Permissions to a Network Fabric Instance
+### Step 2: Assign break-lgass permissions to a Network Fabric instance
 
 With assistance from Microsoft, customer administrators can assign one of two roles scoped to a specific Network Fabric instance:
 
-- **Nexus Network Fabric Service Reader**: Allows users to view configuration but restricts access to modification commands.
+- **Nexus Network Fabric Service reader**: Allows users to view configuration but restricts access to modification commands.
 
-- **Nexus Network Fabric Service Writer**: Provides permission to modify the running configuration.
+- **Nexus Network Fabric Service writer**: Provides permission to modify the running configuration.
 
 These roles match permissions provided under the TelcoRO and TelcoRW accounts in Method D v1.5.
 
 After assigning read or write access, usernames and public keys are synced across all devices within the instance. This sync occurs within a four-hour window or can be triggered immediately by running a Nexus Network Fabric reconcile operation.
 
-### Day-to-Day Break-Glass Access Workflow
+### Day-to-day break-glass access workflow
 
 To log into a Fabric device:
 
-1. **Connect FIDO-2 Token**: Ensure the FIDO-2 token is plugged into your computer.
+1. **Connect FIDO-2 token**: Ensure the FIDO-2 token is plugged into your computer.
 
 2. **Log In with SSH**: Use one of the following methods:
 
-   - **Direct SSH Access with Jump Host**:
+   - **Direct SSH access with jump host**:
 
      ```bash
      ssh -J JumpBoxUsername@JumpBoxIp EntraUsername@FabricDeviceIP
@@ -68,7 +68,7 @@ To log into a Fabric device:
 > [!NOTE] 
 > This command authenticates first on the jump server, then on the Fabric device.
 
-   - **Indirect Access Using SSH-Agent Forwarding**:
+   - **Indirect access using SSH-agent forwarding**:
 
      First, connect to the jump server and then SSH into the Fabric device. SSH-agent forwarding relays authentication requests to your local machine, using the token to complete the process.
 
