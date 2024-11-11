@@ -29,7 +29,6 @@ ms.custom: "include file", references_regions
 > - (North America) East US 2
 > - (North America) South Central US
 >
-> To opt in to the preview, see [Set up preview features in Azure subscription](../articles/azure-resource-manager/management/preview-features.md) and specify `AllowHNSAccountFailover` as the feature name.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
