@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Configure backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via Azure Resource Manager
+title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via Azure Resource Manager
 description: Learn how to quickly configure backup for a Kubernetes cluster using Azure Resource Manager.
 ms.service: azure-backup
 ms.topic: quickstart
@@ -116,6 +116,7 @@ This template enables you to configure backup for an AKS cluster. In this templa
       "name": "[concat(parameters('backupVaultName'), '/', parameters('backupPolicyName'))]",
       "properties": {
         "backupRepeatingTimeIntervals": ["R/2024-04-14T06:33:16+00:00/PT4H"],
+
         "defaultRetentionRule": {
           "lifeCycle": {
             "duration": "P7D",

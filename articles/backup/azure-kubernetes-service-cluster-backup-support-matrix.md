@@ -78,7 +78,6 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
   | Number of allowed restores per backup instance in a day | 10 |
 
 - Configuration of a storage account with private endpoint is supported.
-
 - To enable Azure Backup for AKS via Terraform, its version should be >= 3.99.
 
 ### Additional limitations for Vaulted backup and Cross Region Restore

@@ -4,7 +4,7 @@ description: API developers can use the Azure API Center extension for Visual St
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 11/08/2024
 ms.author: danlep 
 ms.collection: ce-skilling-ai-copilot
 ms.custom: 
@@ -16,7 +16,8 @@ ms.custom:
 API developers in your organization can build and register APIs in your [API center](overview.md) inventory by using the Azure API Center extension for Visual Studio Code. API developers can:
 
 * Add an existing API to an API center as a one-time operation, or integrate a development pipeline to register APIs as part of a CI/CD workflow.
-* Generate OpenAPI specification files from API code using GitHub Copilot, and register the API to an API center.
+* Use GitHub Copilot to generate new OpenAPI specs from API code.
+* Use natural language prompts with the API Center plugin for GitHub Copilot for Azure to create new OpenAPI specs.
 
 API developers can also take advantage of features in the extension to [discover and consume APIs](discover-apis-vscode-extension.md) in the API center and ensure [API governance](govern-apis-vscode-extension.md).
 
@@ -27,6 +28,7 @@ The following Visual Studio Code extensions are needed for the specified scenari
 * [GitHub Actions](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions) - to register APIs using a CI/CD pipeline with GitHub Actions
 * [Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines) - to register APIs using a CI/CD pipeline with Azure Pipelines
 * [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) - to generate OpenAPI specification files from API code
+* [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) - to generate OpenAPI specification files using the Azure API Center Plugin for GitHub Copilot for Azure
    
 [!INCLUDE [vscode-extension-setup](includes/vscode-extension-setup.md)]  
 
@@ -51,9 +53,9 @@ The following steps register an API in your API center with a CI/CD pipeline. Wi
 
 Learn more about setting up a [GitHub Actions workflow](register-apis-github-actions.md) to register APIs with your API center.
 
-## Generate OpenAPI specification file from API code 
+## Generate OpenAPI spec from API code 
  
-Use the power of GitHub Copilot with the Azure API Center extension for Visual Studio Code to create an OpenAPI specification file from your API code. Right-click on the API code, select **Copilot** from the options, and select **Generate API documentation**. GitHub Copilot creates an OpenAPI specification file.
+Use the power of [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) with the Azure API Center extension for Visual Studio Code to create an OpenAPI specification file from your API code. Right-click on the API code, select **Copilot** from the options, and select **Generate API documentation**. GitHub Copilot creates an OpenAPI specification file.
 
 > [!NOTE]
 > This feature is available in the pre-release version of the API Center extension.
@@ -62,6 +64,33 @@ Use the power of GitHub Copilot with the Azure API Center extension for Visual S
 
 After generating the OpenAPI specification file and checking for accuracy, you can register the API with your API center using the **Azure API Center: Register API** command.
 
+## Generate OpenAPI spec using natural language prompts
+
+The API Center plugin for [GitHub Copilot for Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) helps you design new APIs starting from natural language prompts. With AI assistance, quickly generate an OpenAPI spec for API development that complies with your organization's standards.
+
+> [!NOTE]
+> This feature is available in the pre-release version of the API Center extension.
+
+1. If desired, set an active API style guide. Use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. Type **Azure API Center: Set API Style Guide**, make a selection, and hit **Enter**. 
+
+    If no style guide is set, the default `spectral:oas` ruleset is used.
+1. In the chat panel, make a request in natural language to the `@azure` agent to describe what the API does. Example:
+
+    ```vscode
+    @azure Generate OpenAPI spec: An API that allows customers to pay for an order using various payment methods such as cash, checks, credit cards, and debit cards.
+    ```  
+
+    The agent responds with an OpenAPI specification document.
+
+    :::image type="content" source="media/build-register-apis-vscode-extension/generate-api-specification.png" alt-text="Screenshot showing how to use @azure extension to generate an OpenAPI spec from a prompt.":::
+
+
+1. Review the generated output for accuracy and compliance with your API style guide. Refine the prompt if needed to regenerate.
+
+    > [!TIP]
+    > Effective prompts focus on an API's business requirements rather than implementation details. Shorter prompts sometimes work better than longer ones.
+1. When it meets your requirements, save the generated OpenAPI specification to a file. 
+1. Register the API with your API center. Select **Register your API in API Center** button in the chat panel, or select **Azure API Center: Register API** from the Command Palette, and follow the prompts.
 
 ## Related content
 
