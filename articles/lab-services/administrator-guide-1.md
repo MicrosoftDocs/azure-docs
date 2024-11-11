@@ -181,6 +181,8 @@ A general rule is to set a resource's region to one that's closest to its users.
 
 When administrators or Lab Creators create a lab, they can choose from various VM sizes, depending on the needs of their classroom. Remember that the size availability depends on the region that your lab account is located in.
 
+In the following table, notice that several of the VM sizes map to more than one VM series. Depending on capacity available, Lab Services can use any of the VM series that are listed for a VM size. The pricing is determined by the VM size and is the same regardless of which VM series Lab Services uses for that specific size. For more information on pricing for each VM size, read the [Lab Services pricing guide](https://azure.microsoft.com/pricing/details/lab-services/).
+
 | Size | vCPUs | Memory (GB) | Series | Suggested use |
 | ---- | ----- |  ----- | ------ | ------------- |
 | Small | 2 | 4 | [A2_v2](/azure/virtual-machines/av2-series) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
@@ -193,9 +195,11 @@ When administrators or Lab Creators create a lab, they can choose from various V
 
 | Size | vCPUs | Memory (GB) | Series | Suggested use | GPU/Accelerator | Accelerator Memory (GB) |
 | - | - | - | - | - | - | - |
-| Small GPU (Compute) | 6 | 56 | [NC8asT4_v3](/azure/virtual-machines/sizes/gpu-accelerated/ncast4v3-series) | Best suited for computer-intensive applications such as AI and deep learning. | NVIDIA Tesla T4 | 16 |
-| Small GPU (Visualization) | 6 | 56 | [NV12ads_A10_v5](/azure/virtual-machines/sizes/gpu-accelerated/nvadsa10v5-series) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. | NVIDIA A10 (1/3) | 8 |
-| Medium GPU (Visualization) | 12 | 112 | [NV18ads_A10_v5]/(azure/virtual-machines/sizes/gpu-accelerated/nvadsa10v5-series) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. | NVIDIA A10 (1/2) | 12 |
+| Small GPU (Compute) | 8 | 56 | [NC8asT4_v3](/azure/virtual-machines/sizes/gpu-accelerated/ncast4v3-series) | Computer-intensive applications like AI and deep learning | NVIDIA Tesla T4 | 16 |
+| | 6 | 112 | [NC6s_v3](/azure/virtual-machines/ncv3-series) | Computer-intensive applications like AI and deep learning | NVIDIA Tesla T4 | 16 |
+| Small GPU (Visualization) | 12 | 110 | [NV12ads_A10_v5](/azure/virtual-machines/sizes/gpu-accelerated/nvadsa10v5-series) | Remote visualization,and streaming | NVIDIA A10 (1/3) | 8 |
+| Medium GPU (Visualization) | 18 | 220 | [NV18ads_A10_v5](/azure/virtual-machines/sizes/gpu-accelerated/nvadsa10v5-series) | Best suited for remote visualization and streaming | NVIDIA A10 (1/2) | 12 |
+| | 12 | 112 | [NV12_v3](/azure/virtual-machines/nvv3-series) | Remote visualization and streaming | NVIDIA Tesla M60 | 8 |
 
 ## Manage identity
 

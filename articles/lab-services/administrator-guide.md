@@ -179,7 +179,7 @@ For information on VM sizes and their cost, see the [Azure Lab Services Pricing]
 | Size | vCPUs | Memory (GB) | Series | Suggested use | GPU/Accelerator | Accelerator Memory (GB) |
 | - | - | - | - | - | - | - |
 | Small GPU (Compute) | 8 | 56 | [NC8as_T4_v3](/azure/virtual-machines/nct4-v3-series) | AI & deep learning | NVIDIA Tesla T4 | 16 |
-| Small GPU (Visualization) | 8 | 28 | [NVas_v4](/azure/virtual-machines/nvv4-series) | (Windows only) Remote visualization, streaming, gaming | AMD Radeon Instinct MI25 (1/4) | 4 |
+| Small GPU (Visualization) | 8 | 28 | [NV8as_v4](/azure/virtual-machines/nvv4-series) | (Windows only) Remote visualization, streaming, gaming | AMD Radeon Instinct MI25 (1/4) | 4 |
 | Medium GPU (Visualization) | 12 | 112 | [NV12s_v3](/azure/virtual-machines/nvv3-series) | (Windows only) Remote visualization, streaming, gaming | NVIDIA Tesla M60 | 8 |
 
 ### Alternative VM sizes
