@@ -163,13 +163,13 @@ In the Elastic Premium and Dedicated (App Service) plans, the required address s
 
 Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity for Functions Elastic Premium plans, you should use a /24 with 256 addresses for Windows and a /26 with 64 addresses for Linux. When creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /24 and /26 is required for Windows and Linux respectively.
 
-The Flex Consumption plan allows for multiple Flex Consumption apps to integrate with the same subnet. This is not the case for the Elastic Premium and Dedicated (App Service) hosting plan. These plans only support two virtual networks to be connected with each App Service plan. Multiple apps from a single App Service plan can join the same subnet, but apps from a different one cannot use that subnet.
+The Flex Consumption plan allows for multiple apps running in the Flex Consumption plan to integrate with the same subnet. This isn't the case for the Elastic Premium and Dedicated (App Service) hosting plans. These plans only allow two virtual networks to be connected with each App Service plan. Multiple apps from a single App Service plan can join the same subnet, but apps from a different plan can't use that same subnet.
 
 The feature is fully supported for both Windows and Linux apps, including [custom containers](../app-service/configure-custom-container.md). All of the behaviors act the same between Windows apps and Linux apps.
 
 ### Network security groups
 
-You can use network security groups to block inbound and outbound traffic to resources in a virtual network. An app that uses regional virtual network integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your virtual network or the internet. To block traffic to public addresses, you must have virtual network integration with Route All enabled. The inbound rules in an NSG don't apply to your app because virtual network integration affects only outbound traffic from your app.
+You can use [network security groups][VNETnsg] to control traffic between resources in your virtual network. For example, you can create a security rule that blocks your app's outbound traffic from reaching a resource in your virtual network or from leaving the network. These security rules apply to apps that have configured virtual network integration. To block traffic to public addresses, you must have virtual network integration and Route All enabled. The inbound rules in an NSG don't apply to your app because virtual network integration affects only outbound traffic from your app.
 
 To control inbound traffic to your app, use the Access Restrictions feature. An NSG that's applied to your integration subnet is in effect regardless of any routes applied to your integration subnet. If your function app is virtual network integrated with [Route All](../app-service/configure-vnet-integration-routing.md#configure-application-routing) enabled, and you don't have any routes that affect public address traffic on your integration subnet, all of your outbound traffic is still subject to NSGs assigned to your integration subnet. When Route All isn't enabled, NSGs are only applied to RFC1918 traffic.
 
@@ -208,9 +208,11 @@ As used in Azure Functions, each hybrid connection correlates to a single TCP ho
 To learn more, see the [App Service documentation for Hybrid Connections](../app-service/app-service-hybrid-connections.md). These same configuration steps support Azure Functions.
 
 >[!IMPORTANT]
-> Hybrid Connections is only supported on Windows plans. Linux isn't supported.
+> Hybrid Connections is only supported when your function app runs on Windows. Linux apps aren't supported.
 
 ## Connecting to Azure Services through a virtual network
+
+Virtual network integration enables your function app to access resources in a virtual network. This section overviews things you should consider when attempting to connect your app to certain services.
 
 ### Restrict your storage account to a virtual network 
 
@@ -221,13 +223,13 @@ When you create a function app, you must create or link to a general-purpose Azu
 
 You can use a network restricted storage account with function apps on the Flex Consumption, Elastic Premium, and Dedicated (App Service) plans; the Consumption plan isn't supported. For the Elastic Premium and Dedicated plan, you'll have to ensure that private [content share routing](../app-service/configure-vnet-integration-routing.md#content-share) is set. To learn how to set up a function app with a storage account secured with a virtual network, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
-## Use Key Vault references
+### Use Key Vault references
 
 You can use Azure Key Vault references to use secrets from Azure Key Vault in your Azure Functions application without requiring any code changes. Azure Key Vault is a service that provides centralized secrets management, with full control over access policies and audit history.
 
 If virtual network integration is configured for the app, [Key Vault references](../app-service/app-service-key-vault-references.md) may be used to retrieve secrets from a network-restricted vault.
 
-## Virtual network triggers (non-HTTP)
+### Virtual network triggers (non-HTTP)
 
 Your workload may require your app to be triggered from an event source protected by a virtual network. There's two options if you want your app to dynamically scale with the amount of events in these trigger sources:
 
@@ -236,7 +238,7 @@ Your workload may require your app to be triggered from an event source protecte
 
 Function apps running on the [Dedicated (App Service)](./dedicated-plan.md) plans do not dynamically scale based on events. Rather, scale out is dictated by [auto-scale](./dedicated-plan.md#scaling) rules you define.
 
-### Elastic Premium plan with virtual network triggers
+#### Elastic Premium plan with virtual network triggers
 
 The [Elastic Premium plan](functions-premium-plan.md) lets you create functions that are triggered by services secured by a virtual network. These non-HTTP triggers are known as _virtual network triggers_.   
 
@@ -288,7 +290,7 @@ The extensions in this table support dynamic scale monitoring of virtual network
 > [!IMPORTANT]
 > When you enable virtual network trigger monitoring, only triggers for these extensions can cause your app to scale dynamically. You can still use triggers from extensions that aren't in this table, but they won't cause scaling beyond their pre-warmed instance count. For a complete list of all trigger and binding extensions, see [Triggers and bindings](./functions-triggers-bindings.md#supported-bindings).
 
-### App Service plan and App Service Environment with virtual network triggers
+#### App Service plan and App Service Environment with virtual network triggers
 
 When your function app runs in either an App Service plan or an App Service Environment, you can write functions that are triggered by resources secured by a virtual network. For your functions to get triggered correctly, your app must be connected to a virtual network with access to the resource defined in the trigger connection.
 

@@ -28,7 +28,7 @@ For more information, see [this announcement](https://github.com/Azure/app-servi
 
 ## Enable functions to run from a package
 
-Function apps on the [Flex Consumption](./flex-consumption-plan) hosting plan run from a package by default. No special configuration needs to be done.
+Function apps on the [Flex Consumption](./flex-consumption-plan.md) hosting plan run from a package by default. No special configuration needs to be done.
 
 To enable your function app to run from a package on the [Consumption](./consumption-plan.md), [Elastic Premium](./functions-premium-plan.md), and [Dedicated (App Service)](./dedicated-plan.md) hosting plans, add a `WEBSITE_RUN_FROM_PACKAGE` app setting to your function app. The `WEBSITE_RUN_FROM_PACKAGE` app setting can have one of the following values:
 
