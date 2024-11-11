@@ -165,7 +165,7 @@ landingContent:
         links:
           - text: Azure DDoS Protection
             url: ../ddos-protection/index.yml
-          - text: Web Application Firewall
+          - text: Azure Web Application Firewall
             url: ../web-application-firewall/index.yml
 
 # Card
