@@ -27,15 +27,20 @@ To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operation
 > [!NOTE]
 > Event Stream supports multiple input sources including Azure Event Hubs. If you have an existing dataflow to Azure Event Hubs, you can bring that into Fabric as shown in the [Quickstart](../get-started-end-to-end-sample/quickstart-get-insights.md#ingest-data-into-real-time-intelligence). This article shows you how to flow real-time data directly into Microsoft Fabric without any other hops in between.
 
-## Retrieve connection details
+## Retrieve Custom Endpoint connection details
 Note the [Kafka-compatible connection details for the Custom Endpoint](/fabric/real-time-intelligence/event-streams/add-source-custom-app#kafka). You will need:
+
+:::image type="content" source="media/howto-configure-fabric-rti/event-stream-kafka.png" alt-text="Screenshot in Micrsoft Fabric that has the Custom Endpoint connection details":::
+
+#### Hostname
+The bootstrap server address is used for the hostname property in Dataflow endpoint. 
+
+#### Topic name
+The Event Hub name is used as the Kafka topic and is of the form *es_xxxxxxx*.
 
 #### Custom Endpoint connection string
 The connection string looks like:
 > *Endpoint=sb://eventstream-xxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=key_xxxxxxxx;SharedAccessKey=xxxxxxxx;EntityPath=es_xxxxxxx*
-
-#### Topic name
-The Event Hub name is used as the Kafka topic and is of the form *es_xxxxxxx*.
 
 
 ## Create a Microsoft Fabric Real-Time Intelligence dataflow endpoint
