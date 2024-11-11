@@ -30,7 +30,8 @@ When using Spot VMs, Compute fleet can automatically replace Spot VMs when evict
 ### Multi-region Deployment: 
 Compute Fleet allows you to dynamically distribute workloads across multiple regions.
 ### Attribute based Vm selection: 
-Compute Fleet supports deploying VM types using VM level attributes (e.g., memory, vCPU, storage) 
+Compute Fleet supports deploying VM types based on user specified attributes (e.g., memory, vCPU, storage) 
+ 
 
 ## Using Compute Fleet, you can:
 - Deploy up to 10,000 VMs with a single API, using [Spot VM](../virtual-machines/spot-vms.md) and [Standard VM](../virtual-machines/overview.md) types together.
@@ -69,17 +70,20 @@ Not enabling this preference stops your Compute Fleet from goal seeking to repla
 
 ### Spot Fleet allocation strategies 
 
-**Price capacity optimized (recommended):** The Compute Fleet launches qualifying VMs from your selected list of VM types and sizes to fullfil the target capacity. It prioritizes the highest available Spot capacity at the lowest price on Spot VMs in the region. Note that this strategy is not compatible with attribute-based VM selection.
+**Price capacity optimized (recommended):** 
+The Compute Fleet launches qualifying VMs from your selected list of VM types and sizes to fullfil the target capacity. It prioritizes the highest available Spot capacity at the lowest price on Spot VMs in the region. Note that this strategy is not compatible with attribute-based VM selection.
 
 If you select multiple VMs that happen to offer the ideal capacity to meet your target, then Compute Fleet prioritizes deploying VMs that offer the lowest price first. Followed by the second and third lowest price if sufficient capacity isn't available with the first lowest price VMs. Compute Fleet considers both price and capacity while configuring this strategy.
 
-**Capacity optimized:** The Compute Fleet launches VM types and sizes from your specified list of VMs that offer the highest available Spot capacity. This strategy prioritizes choosing VMs that fulfill your Spot target capacity over VMs with the lowest prices that don't have enough Spot capacity.
+**Capacity optimized:** 
+The Compute Fleet launches VM types and sizes from your specified list of VMs that offer the highest available Spot capacity. This strategy prioritizes choosing VMs that fulfill your Spot target capacity over VMs with the lowest prices that don't have enough Spot capacity.
 
 If you select multiple VMs that happen to offer the ideal capacity to meet your target, then Compute Fleet prioritizes deploying VMs that offer the highest capacity first. Followed by the second and third highest capacity if sufficient capacity isn't achieved. 
 
 With this strategy, Compute Fleet doesn't prioritize pricing over capacity, so your costs may be higher.
 
-**Lowest Price:** The Compute Fleet launches VM types and sizes from your specified list of VMs that offer the lowest price for Spot VMs. Followed by the second and third lowest price until the desired capacity is fulfilled.
+**Lowest Price:** 
+The Compute Fleet launches VM types and sizes from your specified list of VMs that offer the lowest price for Spot VMs. Followed by the second and third lowest price until the desired capacity is fulfilled.
 
 
 ### Target capacity 
