@@ -105,8 +105,6 @@
     items:
       - name: Integration options
         href: apis-functions.md
-      - name: Distributed functions
-        href: distributed-functions.md
       - name: Tutorials
         items:
         - name: Add an API
