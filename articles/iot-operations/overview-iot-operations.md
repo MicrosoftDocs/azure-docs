@@ -101,6 +101,10 @@ To connect to the cloud from Azure IoT Operations, you can use the following dat
 * [Microsoft Fabric OneLake](connect-to-cloud/howto-configure-fabric-endpoint.md)
 * [Azure Data Explorer](connect-to-cloud/howto-configure-adx-endpoint.md)
 
+## Offline support
+
+Azure IoT Operations support max offline time for 72 hours. Degradation may occur within 72 hours. However, Azure IoT Operations will resume fully functional when it reconnects.
+
 ## Process data
 
 [Dataflows](connect-to-cloud/overview-dataflow.md) provide enhanced data transformation and data contextualization capabilities within Azure IoT Operations. Dataflows can use schemas stored in the schema registry to deserialize and serialize messages.
