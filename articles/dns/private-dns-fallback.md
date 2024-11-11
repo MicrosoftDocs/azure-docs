@@ -1,30 +1,35 @@
 ---
-title: Fallback to Internet for Azure Private DNS zones
+title: Fallback to internet for Azure Private DNS zones (Preview)
 titleSuffix: Azure DNS
-description: Learn how to enable fallback to Internet resolution for private DNS.
+description: Learn how to enable fallback to internet resolution for private DNS.
 services: dns
 author: greg-lindsay
 ms.service: azure-dns
-ms.date: 11/06/2024
+ms.date: 11/11/2024
 ms.author: greglin
 ms.topic: how-to
 ---
 
-# Fallback to Internet for Azure Private DNS zones
+# Fallback to internet for Azure Private DNS zones (Preview)
 
-Azure Private DNS Zones is a globally available, fully managed, cloud-native DNS service. It offers private name resolution in Azure, complemented by Azure Private DNS Resolver, a hybrid recursive resolver for name resolution to and from Azure. When linked to a Virtual Network, it provides authoritative responses for matching namespace queries and hosts private records for Azure Private Link endpoints.
+This article shows you how to set the [ResolutionPolicy](/java/api/com.azure.resourcemanager.privatedns.models.resolutionpolicy) property in Azure Private DNS to enable fallback to internet recursion when an authoritative NXDOMAIN response is received for a Private Link zone.
+
+> [!NOTE]
+> Fallback to internet for Azure Private DNS is in PREVIEW.<br> 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.<br>
+> This DNS security policy preview is offered without a requirement to enroll in a preview.
 
 ## Problem
 
-The growing use of Azure Private Link and network isolation across different tenants has highlighted a need for an alternative name resolution path when authoritative Private DNS returns an NXDOMAIN response, which stops name resolution if a record is not found. This affected the ability to reach Private Link-enabled resources outside a specific tenant's control. Traditional IaaS VM-based solutions to address this issue increased operational complexity, security risks, and incurred high costs.
+Azure Private Link and network isolation across different tenants can require an alternative name resolution path when Private DNS queries return an NXDOMAIN response. The NXDOMAIN response stops name resolution and affects the ability to reach Private Link-enabled resources outside a tenant's control. VM-based workarounds exist to address this issue, but these solutions increase operational complexity and are associated with security risks and higher costs.
 
 ## Solution
 
-By introducing the "Resolution Policy" property in Azure Private DNS Zones, a fully managed native solution is now available. This allows public recursion via Azure’s recursive resolver fleet when an authoritative NXDOMAIN response is received from Private DNS Zones for Private link that have this policy enabled. This functionality, enabled at the Virtual Network link level with the NxDomainRedirect setting, simplifies operations and enhances security.
+The **Resolution Policy** property in Azure Private DNS is a fully managed native solution. This property enables public recursion via Azure’s recursive resolver fleet when an authoritative NXDOMAIN response is received for a private link zone. Resolution policy is enabled at the virtual network link level with the **NxDomainRedirect** setting. In the Azure portal, **NxDomainRedirect** is enabled by selecting **Enable fallback to internet** in virtual network link configuration.
 
 ## Policy definition
 
-In order to enable this policy customer should use api-version=2024-06-01 or higher and setup "resolutionPolicy" as "NxDomainRedirect" at the virtualNetworkLinks resource level
+This policy is available in api-version=2024-06-01 or higher. The following example has **resolutionPolicy** set to **NxDomainRedirect** at the **virtualNetworkLinks** resource level:
 
 ```
 {
@@ -45,15 +50,14 @@ In order to enable this policy customer should use api-version=2024-06-01 or hig
 
 ## How it works
 
-An NXDOMAIN (RCODE3) response means the queried domain name doesn't exist. This definitive negative answer typically prevents resolvers from retrying the query until the negative caching duration (defined by the SOA record's TTL) expires.
+An NXDOMAIN (RCODE3) response means the (Private Link) queried domain name doesn't exist. This negative answer typically prevents resolvers from retrying the query until the cached negative answer expires.
 
-When the NxDomainRedirect Resolution Policy is applied to a Private DNS zone, the Azure Recursive Resolver (RR) will retry the query using the public endpoint QNAME as the query label each time an NXDOMAIN response is received from PrivateEdge for that specific Private zone scope.
+When the **NxDomainRedirect** resolution policy is enabled on a virtual network link, the Azure recursive resolver retries the query. The resolver uses the public endpoint QNAME as the query label each time an NXDOMAIN response is received from PrivateEdge for that private zone scope.
 
-Customer Experience
-From the customer's perspective, this adjustment should be seen in the CNAME chain resolution. However, the NXDOMAIN should not appear, making the retry process seamless for the user.
+This change can be seen in the CNAME chain resolution. The NXDOMAIN does not appear, making the retry process seamless.
 
 ```
-C:\Users\azureuser>nslookup remoteprivateendpoint.blob.core.windows.net
+C:\>nslookup remoteprivateendpoint.blob.core.windows.net
 Server:  UnKnown
 Address:  168.63.129.16
 
@@ -64,25 +68,16 @@ Aliases:  remoteprivateendpoint.blob.core.windows.net
           remoteprivateendpoint.privatelink.blob.core.windows.net
 ```
 
-## Confirm Fallback to Internet is working as intended
-
-1. In ASC, check the Virtual Network Link for the correspondent Private DNS zone. The property Policy Resolution should show NxDomainRedirect
-2. You can confirm if the resolution Policy is taking effect using the following query:
-
-Resolution: DnsServingPlaneProd
-
-The following filters will help to determine that the Fallback to Internet policy took effect for a given query:
-
-```
-| where AliasNameChaseCount == 1
-| where AliasNameChaseBitMask == 2
-```
-For a working example see Jarvis sample 
-AliasNameChaseCount indicates the number of times that alias chasing has been done for a given query, while a values of 2 for the AliasNameChaseBitMask indicates that privatednsfallback is enabled due to the Fallback to Internet Resoltion Policy.
-
 ## Limitations
-This policy is only available for Private DNS zones associated to Private Link resources
-ResolutionPolicy parameter currently only accepts "Default" and "NxDomainRedirect" as possible values.
+* This policy is only available for Private DNS zones associated to Private Link resources.
+* The ResolutionPolicy parameter only accepts **Default** or **NxDomainRedirect** as possible values.
+
+## Demonstrate fallback to internet
+
+## Prerequisites
+
+* A virtual machine in a virtual network
+* A private endpoint with a private DNS integrated private link zone
 
 ## Next steps
 
