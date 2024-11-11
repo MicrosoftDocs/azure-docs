@@ -131,7 +131,7 @@ az role assignment create \
   --role "Azure ContainerApps Session Executor" \
   --assignee-object-id $USER_OBJECT_ID \
   --assignee-principal-type User \
-  --scope "/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME"
+  --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME"
 ```
 
 ## Get a bearer token
@@ -172,16 +172,16 @@ curl -v -X 'POST' -H "$AUTH_HEADER" "$SESSION_POOL_MANAGEMENT_ENDPOINT/execution
     "code": "console.log(\"hello world\")"
 }'
 ```
+You should see "status":"Succeeded" and "result.stdout" with "hello world\n" as the output.
 
-## View the result
-
-To view the result of the code you executed, run the following command to stream log messages to your terminal.
-
-```azurecli
-az containerapp logs show \
-    --name <CONTAINER_APP_NAME> \
-    --resource-group <RESOURCE_GROUP> \
-    --tail 50
+```bash
+"status": "Succeeded",
+"result": {
+   "stdout": "hello-world\n",
+   "stderr": "",
+   "executionResult": "",
+   "executionTimeInMilliseconds": 5
+},
 ```
 
 ## Clean up resources
