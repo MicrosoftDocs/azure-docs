@@ -16,11 +16,21 @@ For an overview of Node.js SDK authentication, see:
 * [Getting started with user authentication on Azure](/azure/developer/javascript/how-to/with-authentication/getting-started)
 * [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme)
 
-### Entra token credential
+##### Entra token credential
 
 Use [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) to generate a token. The token will be supplied to `fromTokenCredential`.
 
-### Connect to IoT Hub
+To create required Microsoft Entra app parameters for `DefaultAzureCredential`, create a Microsoft Entra app registration that contains your selected authentication mechanism:
+
+* Client secret
+* Certificate
+* Federated identity credential
+
+For more information, see [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
+
+Microsoft Entra apps may require permissions depending on operations performed. For example, [IoT Hub Twin Contributor](/azure/role-based-access-control/built-in-roles/internet-of-things#iot-hub-twin-contributor) is required to enable read and write access to a IoT Hub device and module twins. For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles#internet-of-things).
+
+##### Connect to IoT Hub
 
 Use [fromTokenCredential](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromtokencredential) to create a service connection to IoT Hub using an Entra token credential.
 

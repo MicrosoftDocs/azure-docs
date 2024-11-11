@@ -164,6 +164,13 @@ from azure.iot.hub.models import Twin, TwinProperties, QuerySpecification, Query
 
 ### Connect to IoT hub
 
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+#### Connect using a shared access policy
+
 Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string).
 
 The SDK methods in this section require these shared access policy permissions:
@@ -180,6 +187,10 @@ For example:
 IOTHUB_CONNECTION_STRING = "{IoT hub shared access policy connection string}"
 iothub_registry_manager = IoTHubRegistryManager.from_connection_string(IOTHUB_CONNECTION_STRING)
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-python](iot-hub-howto-connect-service-iothub-entra-python.md)]
 
 ### Retrieve and update module identity twin desired properties
 

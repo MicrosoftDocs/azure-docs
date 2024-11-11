@@ -325,6 +325,13 @@ let Registry = require('azure-iothub').Registry;
 
 ### Connect to IoT hub
 
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+#### Connect using a shared access policy
+
 Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub.
 
 The SDK methods in this section require these shared access policy permissions:
@@ -338,6 +345,10 @@ As a parameter to `CreateFromConnectionString`, supply a shared access policy co
 let connectionString = '{IoT hub shared access policy connection string}';
 let registry = Registry.fromConnectionString(serviceConnectionString);
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-node](iot-hub-howto-connect-service-iothub-entra-node.md)]
 
 ### Retrieve a module identity twin and update desired properties
 
