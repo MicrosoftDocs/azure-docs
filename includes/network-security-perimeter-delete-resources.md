@@ -5,18 +5,6 @@
  author: mbender
  ms.service: azure-private-link
  ms.topic: include
- ms.date: 11/05/2024
- ms.author: mbender> -ms
-ms.custom: include file
----
-
----
- title: include file
- description: include file
- services: private-link
- author: mbender
- ms.service: azure-private-link
- ms.topic: include
  ms.date: 11/11/2024
  ms.author: mbender> -ms
 ms.custom: include file
