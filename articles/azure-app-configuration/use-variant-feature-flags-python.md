@@ -43,7 +43,7 @@ Create a variant feature flag (preview) called *Greeting* with no label and thre
 
 In this example, you create a Python Flask web app named _Quote of the Day_. When the app is loaded, it displays a quote. Users can interact with the heart button to like it. To improve user engagement, you want to explore whether a personalized greeting message increases the number of users who like the quote. Users who receive the _None_ variant (preview) see no greeting. Users who receive the _Simple_ variant get a simple greeting message. Users who receive the _Long_ variant get a slightly longer greeting. 
 
-### Create an app and add user secrets (preview)
+### Create an app that uses variants (preview)
 
 1. Create a new project folder named *QuoteOfTheDay*.
 
