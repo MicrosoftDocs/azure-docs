@@ -12,14 +12,9 @@ ms.service: azure-iot-operations
 
 # Populating the state store
 
-The state store runs on the cluster and is accessed via MQTT broker using the MQTT5 protocol. There are currently two main ways of using the state store:
+The state store runs on the cluster and is accessed via MQTT broker using the MQTT5 protocol. The current method to populate the state store is using a CLI application.
 
-1. Using the Azure IoT Operations SDKs to interact with the state store in your edge applications.
-1. Using the CLI tool to push data into the state store from an external computer.
 
-## Azure IoT Operations SDKs
-
-The SDKs are the recommended way to interact with the state store when developing edge applications. To read more about the SDKs and their available functions, refer to [Azure IoT Operations SDKs](overview-sdk-apps.md).
 
 ## State store CLI
 

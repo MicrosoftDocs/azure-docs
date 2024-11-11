@@ -28,20 +28,27 @@ The state store allows an edge application to persist data on the edge. Typical 
 1. Creating stateless applications
 1. Sharing state between applications
 1. Developing highly available applications
-1. Store data to be used by dataflow
-
-## Interacting with the state store
-
-The state store protocol is documented in [state store protocol](concept-about-state-store-protocol.md). SDKs are available for the state store for Go, C#, and Rust. Using an SDK is the recommended method of interacting with the state store, as implementing the interface can be complex.
-
-Additional information about the [Azure IoT Operations SDKs](overview-sdk-apps.md) is available.
+1. Storing data to be used by dataflows
 
 ## State store authorization
 
-The state store extends MQTT broker's authorization mechanism, allowing individual clients to have optional read and write access to specific keys. Read more on how to [Configure MQTT broker authorization](manage-mqtt-broker/howto-configure-authorization.md).
+The state store extends MQTT broker's authorization mechanism, allowing individual clients to have optional read and write access to specific keys. Read more on how to [configure MQTT broker authorization](manage-mqtt-broker/howto-configure-authorization.md) for the state store.
+
+## Interacting with the state store
+
+A CLI tool is available which enables interaction with the state store from a shell running on any machine. 
+
+1. Generate an X.509 certificate chain for authenticating with MQTT broker
+1. Create a `BrokerAuthentication` using x.509 certificates
+1. Create a `BrokerListener` as a LoadBalancer to enable off-cluster access
+1. Open ports on your cluster to enable access to the MQTT broker.
+
+For instructions on setting up your cluster and using the tool, refer to the [state store CLI GitHub](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/state-store-cli) page.
+
+> [!NOTE]
+> SDKs to interact with the state store are currently in active development, and will be available in the near future to enable edge applications to interact with the state store.
 
 ## Related content
 
 * [Learn about the MQTT broker state store protocol](concept-about-state-store-protocol.md)
-* [Learn how to populate the state store with data](howto-populate-state-store.md)
 * [Configure MQTT broker authorization](manage-mqtt-broker/howto-configure-authorization.md)
