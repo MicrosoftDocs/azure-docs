@@ -88,7 +88,7 @@ When you need to update your deployment environment, you can redeploy it. The re
 
 ## Delete an environment by using the developer portal
 
-You can delete your deployment environment completely when you don't need it anymore. ADE uses the environment definition to identify and delete the resource group and resources that were created when you created the environment.
+You can delete your deployment environment completely when you don't need it anymore. ADE uses the resource group and environment definition to identify and delete the resources created for the deployment environment.
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
 
