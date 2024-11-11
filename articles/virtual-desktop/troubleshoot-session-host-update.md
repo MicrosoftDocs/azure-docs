@@ -7,10 +7,10 @@ ms.author: daknappe
 ms.date: 10/01/2024
 ---
 
-# Troubleshoot session host update in Azure Virtual Desktop
+# Troubleshoot session host configuration and update in Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Session host update for Azure Virtual Desktop is currently in PREVIEW. This preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
+> Session host configuration and update for Azure Virtual Desktop is currently in PREVIEW. This preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -31,6 +31,14 @@ If the session host configuration fails to create when creating a host pool, you
 ## Error: SessionHostConfiguration doesn't exist
 
 If you get the error **Error: SessionHostConfiguration does not exist** when using the PowerShell cmdlet `Get-AzWvdSessionHostConfiguration`, create the session host configuration using the `New-AzWvdSessionHostConfiguration` cmdlet.
+
+## Errors when adding session hosts to the host pool
+Host pools with a session host configuration only support adding session hosts through the Azure Portal. The primary difference between host pools using a session host configuration from standard host pools is that the domain join extension is not used with the session host configuration. Instead domain join is completed by the RDAgent. This means that:
+
+- ARM template deployment can succeed even if domain join fails, resulting in unhealthy session hosts
+- Domain join failure diagnostics can be optioned in portal on the Session Host Details blade by viewing the JSON for session host health
+
+For domain join failures and other issues when session hosts are added to the host pool, you can follow the guidance for [troubleshooting session hosts](troubleshoot-vm-configuration.md).
 
 ## Failed updates
 
