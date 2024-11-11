@@ -42,16 +42,36 @@ For more information, see [CLI command reference from OT network sensors](../cli
 
 [!INCLUDE [validate-traffic-mirroring](../includes/validate-traffic-mirroring.md)]
 
-## Configure ERSPAN on your OT network sensor
+## Configure legacy ERSPAN in the CLI
 
-After deploying your sensor, make sure to configure ERSPAN settings on the **Interface configurations** page. For more information, see:
+> [!IMPORTANT]
+>
+> We don't recommend using legacy versions of the software as this might cause security issues for your system. If you're still using the legacy version the user needs to run specific CLI commands discussed in this section.
+>
 
-- In the deployment wizard GUI: [Define the interfaces you want to monitor](../ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor)
-- In the OT sensor system settings: [Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan)
+## Configure setup via the CLI
 
-For example:
+Use this procedure to configure the following initial setup settings via CLI:
 
-:::image type="content" source="../media/how-to-manage-individual-sensors/configure-erspan.png" alt-text="Screenshot of how to configure ERSPAN settings in the OT sensor settings.":::
+- Signing into the sensor console and setting a new *admin* user password
+- Defining network details for your sensor
+- Defining the interfaces you want to monitor
+
+### CLI Legacy
+
+To configure a legacy ERSPAN tunneling interface in the CLI you need to use an adapted line of code. This code ensures that the legacy ERSPAN option is available in the CLI sensor configuration wizard.
+
+A new legacy ERPSAN can only be configured if you have an existing interface configured.
+
+**To configure the legacy ERSPAN**:
+
+1. Log in to your sensor using a CLI interface with a cyberx or admin user.
+1. Type `ERSPAN=1 python3 -m cyberx.config.configure`.
+
+    :::image type="content" source="media/configure-mirror-erspan/legacy-erspan-cli.png" alt-text="Screenshot of the CLI sensor configuration for a legacy version interface.":::
+
+1. Select **LegacyErspan** and assign an interface.
+1. Select **Save**.
 
 ## Next steps
 
@@ -60,4 +80,3 @@ For example:
 
 > [!div class="step-by-step"]
 > [Provision OT sensors for cloud management »](../ot-deploy/provision-cloud-management.md)
-
