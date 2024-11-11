@@ -74,6 +74,32 @@ ms.author: cephalin
     </deployment>
     ```
 
+    # [Azure Pipelines](#tab/pipelines)
+
+    ```YAML
+    variables: # Set <subscription-id>, <resource-group-name>, <app-name> for your environment
+    - name: SUBSCRIPTION_ID
+      value: <subscription-id>
+    - name: RESOURCE_GROUP_NAME
+      value: <resource-group-name>
+    - name: APP_NAME
+      value: <app-name>
+    
+    steps: 
+    - task: AzureCLI@2
+      displayName: Azure CLI
+      inputs:
+        azureSubscription: $(SUBSCRIPTION_ID)
+        scriptType: bash
+        scriptLocation: inlineScript
+        inlineScript: |
+          # The lib type uploads to /home/site/libs by default.
+          az webapp deploy --resource-group $(RESOURCE_GROUP_NAME) --name $(APP_NAME) --src-path mssql-jdbc-11.2.3.jre17.jar --target-path mssql-jdbc-11.2.3.jre17.jar --type lib
+          az webapp deploy --resource-group $(RESOURCE_GROUP_NAME) --name $(APP_NAME) --src-path jboss_cli_commands.cli --target-path /home/site/scripts/jboss_cli_commands.cli --type static
+          # The startup type uploads to /home/site/scripts/startup.sh by default.
+          az webapp deploy --resource-group $(RESOURCE_GROUP_NAME) --name $(APP_NAME) --src-path startup.sh --type startup
+    ```
+
     ---
 
 To confirm that the data source was added to the JBoss server, SSH into your webapp and run `$JBOSS_HOME/bin/jboss-cli.sh --connect`. Once you're connected to JBoss, run the `/subsystem=datasources:read-resource` to print a list of the data sources.
