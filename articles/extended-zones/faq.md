@@ -26,7 +26,7 @@ Currently, Los Angeles is the only available Azure Extended Zone.
 
 ## How will I be charged for resources I create in an Azure Extended Zone?
 
-The billing process of Los Angeles Azure Extended Zone is consistent with the West US Region. Resources created in the Los Angeles Extended Zone follows the same billing pricing as those created in the West US Region.
+The billing process of Los Angeles Azure Extended Zone is consistent with the West US Region. Resources created in the Los Angeles Extended Zone follow the same billing pricing as those created in the West US Region.
 
 ## Will there be SKUs specific to the Azure Extended Zones?
 
