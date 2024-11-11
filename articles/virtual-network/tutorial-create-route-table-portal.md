@@ -210,6 +210,66 @@ az group create \
   --location eastus2
 ```
 
+Create a virtual network with one subnet with [az network vnet create](/cli/azure/network/vnet).
+
+```azurecli-interactive
+az network vnet create \
+  --name vnet-1 \
+  --resource-group test-rg \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name subnet-1 \
+  --subnet-prefix 10.0.0.0/24
+```
+
+Create two more subnets with [az network vnet subnet create](/cli/azure/network/vnet/subnet).
+
+```azurecli-interactive
+# Create a bastion subnet.
+az network vnet subnet create \
+  --vnet-name vnet-1 \
+  --resource-group test-rg \
+  --name AzureBastionSubnet \
+  --address-prefix 10.0.1.0/24
+
+# Create a private subnet.
+az network vnet subnet create \
+  --vnet-name vnet-1 \
+  --resource-group test-rg \
+  --name subnet-private \
+  --address-prefix 10.0.2.0/24
+
+# Create a DMZ subnet.
+az network vnet subnet create \
+  --vnet-name vnet-1 \
+  --resource-group test-rg \
+  --name subnet-dmz \
+  --address-prefix 10.0.3.0/24
+```
+
+### Create Azure Bastion
+
+Create a public IP address for the Azure Bastion host with [az network public-ip create](/cli/azure/network/public-ip). The following example creates a public IP address named *public-ip-bastion* in the *vnet-1* virtual network.
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group test-rg \
+    --name public-ip-bastion \
+    --location eastus2 \
+    --allocation-method Static \
+    --sku Standard
+```
+
+Create an Azure Bastion host with [az network bastion create](/cli/azure/network/bastion). The following example creates an Azure Bastion host named *bastion* in the *AzureBastionSubnet* subnet of the *vnet-1* virtual network. Azure Bastion is used to securely connect Azure virtual machines without exposing them to the public internet.
+
+```azurecli-interactive
+az network bastion create \
+    --resource-group test-rg \
+    --name bastion \
+    --vnet-name vnet-1 \
+    --public-ip-address public-ip-bastion \
+    --location eastus2
+```
+
 ---
 
 ## Create an NVA virtual machine
@@ -290,6 +350,35 @@ New-AzVM @vmParams
 ```
 
 ### [CLI](#tab/cli)
+
+Create a VM to be used as the NVA in the *subnet-dmz* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a network interface *vm-nvaVMNic* and a subnet-public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a subnet-public IP address to the VM, since the VM doesn't need to be connected to from the internet. 
+
+```azurecli-interactive
+az vm create \
+  --resource-group test-rg \
+  --name vm-nva \
+  --image Ubuntu2204 \
+  --public-ip-address "" \
+  --subnet subnet-dmz \
+  --vnet-name vnet-1 \
+  --admin-username azureuser \
+  --authentication-type password
+```
+
+The VM takes a few minutes to create. Don't continue to the next step until Azure finishes creating the VM and returns output about the VM.
+
+Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. We use the `sysctl` command to enable the Linux kernel to forward packets. To run this command without logging onto the VM, we use the [Custom Script extension](/azure/virtual-machines/extensions/custom-script-linux) [az vm extension set](/cli/azure/vm/extension):
+
+```azurecli-interactive
+az vm extension set \
+  --resource-group test-rg \
+  --vm-name vm-nva \
+  --name customScript \
+  --publisher Microsoft.Azure.Extensions \
+  --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
+```
+
+The command might take up to a minute to execute. This change won't persist after a VM reboot, so if the NVA VM is rebooted for any reason, the script will need to be repeated.
 
 ---
 
@@ -443,6 +532,32 @@ The VM takes a few minutes to create. Don't continue with the next step until th
 
 ### [CLI](#tab/cli)
 
+Create a VM in the *subnet-1* subnet with [az vm create](/cli/azure/vm). The `--no-wait` parameter enables Azure to execute the command in the background so you can continue to the next command.
+
+```azurecli-interactive
+az vm create \
+  --resource-group test-rg \
+  --name vm-public \
+  --image Ubuntu2204 \
+  --vnet-name vnet-1 \
+  --subnet subnet-1 \
+  --admin-username azureuser \
+  --authentication-type password \
+  --no-wait
+```
+
+Create a VM in the *subnet-private* subnet.
+
+```azurecli-interactive
+az vm create \
+  --resource-group test-rg \
+  --name vm-private \
+  --image Ubuntu2204 \
+  --vnet-name vnet-1 \
+  --subnet subnet-private \
+  --admin-username azureuser \
+  --authentication-type password
+```
 ---
 
 ## Enable IP forwarding
@@ -490,6 +605,15 @@ Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
 ### [CLI](#tab/cli)
+
+Enable IP forwarding for the network interface of the **vm-nva** virtual machine with [az network nic update](/cli/azure/network/nic). The following example enables IP forwarding for the network interface named *vm-nvaVMNic*.
+
+```azurecli-interactive
+az network nic update \
+  --name vm-nvaVMNic \
+  --resource-group test-rg \
+  --ip-forwarding true
+```
 
 ---
 
@@ -647,6 +771,37 @@ Set-AzVirtualNetworkSubnetConfig @subnetParams | Set-AzVirtualNetwork
 
 ### [CLI](#tab/cli)
 
+Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *route-table-public*.
+
+```azurecli-interactive
+# Create a route table
+az network route-table create \
+  --resource-group test-rg \
+  --name route-table-public
+```
+
+Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create).
+
+```azurecli-interactive
+az network route-table route create \
+  --name to-private-subnet \
+  --resource-group test-rg \
+  --route-table-name route-table-public \
+  --address-prefix 10.0.2.0/24 \
+  --next-hop-type VirtualAppliance \
+  --next-hop-ip-address 10.0.3.4
+```
+
+Associate the *route-table-subnet-public* route table to the *subnet-1* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet).
+
+```azurecli-interactive
+az network vnet subnet update \
+  --vnet-name vnet-1 \
+  --name subnet-1 \
+  --resource-group test-rg \
+  --route-table route-table-public
+```
+
 ---
 
 ## Test the routing of network traffic
@@ -739,6 +894,15 @@ Remove-AzResourceGroup @rgParams -Force
 ```
 
 ### [CLI](#tab/cli)
+
+When no longer needed, use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains.
+
+```azurecli-interactive
+az group delete \
+    --name test-rg \
+    --yes \
+    --no-wait
+```
 
 ---
 
