@@ -18,6 +18,16 @@ Features released earlier than nine months ago are described in the [What's new 
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
+## November 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [ERSPAN tunnelling and legacy](#erspan-tunnelling-and-legacy)|
+
+## ERSPAN tunnelling and legacy
+
+The ERSPAN is now a legacy.... for more info, see [configure initial settings and activate your sensor](/ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor) and [configure ERSPAN (Legacy)](/traffic-mirroring/configure-mirror-erspan.md#configure-legacy-erspan-in-the-cli).
+
 ## October 2024
 
 |Service area  |Updates  |
