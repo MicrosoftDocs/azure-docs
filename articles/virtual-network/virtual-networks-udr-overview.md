@@ -88,7 +88,7 @@ You can specify the following next hop types when you create a UDR:
 
     You can define a route with 0.0.0.0/0 as the address prefix and a next hop type of virtual appliance. This configuration allows the appliance to inspect the traffic and determine whether to forward or drop the traffic. If you intend to create a UDR that contains the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first.
 
-* **Virtual network gateway**: Specify when you want traffic destined for specific address prefixes routed to a virtual network gateway. The virtual network gateway must be created with type **VPN**. You can't specify a virtual network gateway created as type **ExpressRoute** in a UDR because with ExpressRoute, you must use BGP for custom routes. You can't specify virtual network gateways if you have virtual private network (VPN) and ExpressRoute coexisting connections either. You can define a route that directs traffic destined for the 0.0.0.0/0 address prefix to a route-based virtual network gateway.
+* **Virtual network gateway**: Specify when you want traffic destined for specific address prefixes routed to a virtual network gateway. The virtual network gateway must be created with the type **VPN**. You can't specify a virtual network gateway created as the type **ExpressRoute** in a UDR because with ExpressRoute, you must use BGP for custom routes. You can't specify virtual network gateways if you have virtual private network (VPN) and ExpressRoute coexisting connections either. You can define a route that directs traffic destined for the 0.0.0.0/0 address prefix to a route-based virtual network gateway.
 
    On your premises, you might have a device that inspects the traffic and determines whether to forward or drop the traffic. If you intend to create a UDR for the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first. Instead of configuring a UDR for the 0.0.0.0/0 address prefix, you can advertise a route with the 0.0.0.0/0 prefix via BGP if the [BGP for a VPN virtual network gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) is enabled.
 
@@ -156,7 +156,7 @@ The name displayed and referenced for next hop types is different between the Az
 
 An on-premises network gateway can exchange routes with an Azure virtual network gateway by using the BGP. Using BGP with an Azure virtual network gateway is dependent on the type you selected when you created the gateway:
 
-* **ExpressRoute**: You must use BGP to advertise on-premises routes to the Microsoft Edge router. You can't create UDRs to force traffic to the ExpressRoute virtual network gateway if you deploy a virtual network gateway deployed as type **ExpressRoute**. You can use UDRs for forcing traffic from the express route to, for example, a network virtual appliance.
+* **ExpressRoute**: You must use BGP to advertise on-premises routes to the Microsoft Edge router. You can't create UDRs to force traffic to the ExpressRoute virtual network gateway if you deploy a virtual network gateway deployed as the type **ExpressRoute**. You can use UDRs for forcing traffic from the express route to, for example, a network virtual appliance.
 
 * **VPN**: Optionally, you can use BGP. For more information, see [BGP with site-to-site VPN connections](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -210,7 +210,7 @@ When you override the 0.0.0.0/0 address prefix, outbound traffic from the subnet
 
    When you enable a service endpoint for a service, Azure creates a route with address prefixes for the service. Traffic to the service doesn't route to the next hop type in a route with the 0.0.0.0/0 address prefix. The address prefixes for the service are longer than 0.0.0.0/0.
 
-* You can no longer directly access resources in the subnet from the internet. You can access resources in the subnet from the internet indirectly. The device specified by the next hop type for a route with the 0.0.0.0/0 address prefix must process inbound traffic. After the traffic traverses the device, the traffic reaches the resource in the virtual network. If the route contains the following values for next hop type:
+* You can no longer directly access resources in the subnet from the internet. You can access resources in the subnet from the internet indirectly. The device specified by the next hop type for a route with the 0.0.0.0/0 address prefix must process inbound traffic. After the traffic traverses the device, the traffic reaches the resource in the virtual network. If the route contains the following values for the next hop type:
 
     * **Virtual appliance**: The appliance must:
 
