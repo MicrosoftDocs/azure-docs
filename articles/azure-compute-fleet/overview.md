@@ -52,15 +52,15 @@ Compute Fleet supports deploying VM types based on user specified attributes (e.
 - Compute Fleet is available in all Azure Public regions.
 - Compute Fleet can span across multiple-regions.
 
-# Added features in Preview**
+## New features in Preview**
 
 We invite you to test out 2 new additinal capacibilities on Compute Fleet...
 
-## Multi-Region Compute Fleet
+### Multi-Region Compute Fleet
   A new deployment capability that allows users to dynamically distribute workloads across several regions.
 
 ### Attribute based VM selection
   A new feature that Enables users to scale fleets based on VM attributes instead of explicitly chosen VM sizes.
 
-# Next steps
+## Next steps
 > [Create an Azure Compute Fleet with Azure portal.](quickstart-create-portal.md)
