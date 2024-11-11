@@ -10,3 +10,6 @@ Azure Compute Fleet has applicable Standard and Spot VMs quotas.
 | The **target capacity** per Compute Fleet | 10,000 VMs |
 | The **target capacity** across all Compute Fleets in a Region | 100,000 VMs |
 | The **Compute Fleet** can span across multiple Regions | 3 |
+
+#### Next topic: Spot VM Configuration
+#### Previous Topic: Modify fleet
