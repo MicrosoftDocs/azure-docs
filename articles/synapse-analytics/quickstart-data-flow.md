@@ -159,7 +159,7 @@ Now you've finished building your data flow. You're ready to run it in your pipe
 
 ## Running and monitoring the Data Flow
 
-You can debug a pipeline before you publish it. In this step, you're going to trigger a debug run of the data flow pipeline. While data preview doesn't write data, a debug run will write data to your sink destination.
+You can debug a pipeline before you publish it. In this step, you're going to trigger a debug run of the data flow pipeline. While data preview doesn't write data, a debug run writes data to your sink destination.
 
 1. Go to the pipeline canvas. Select **Debug** to trigger a debug run.
 
