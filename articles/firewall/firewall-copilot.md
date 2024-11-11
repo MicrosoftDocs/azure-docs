@@ -17,8 +17,7 @@ ms.collection: Tier1, ce-skilling-ai-copilot
 > Azure Firewall integration in Microsoft Security Copilot is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-
-Security Copilot is a generative AI-powered security solution designed to enhance the efficiency and capabilities of security personnel. It helps improve security outcomes at machine speed and scale by providing a natural language, assistive copilot experience. This tool supports security professionals in various scenarios, including incident response, threat hunting, intelligence gathering, and posture management. For more information, see [What is Microsoft Security Copilot?](/copilot/security/microsoft-security-copilot).
+Security Copilot is a generative AI-powered security solution that helps increase the efficiency and capabilities of security personnel to improve security outcomes at machine speed and scale. It provides a natural language, assistive copilot experience helping support security professionals in end-to-end scenarios such as incident response, threat hunting, intelligence gathering, and posture management. For more information about what it can do, see [What is Microsoft Security Copilot?](/copilot/security/microsoft-security-copilot)
 
 ## Know before you begin
 
