@@ -24,3 +24,6 @@ You may choose this preference when:
 - A minimum of three different VM sizes are specified.
 
 Not enabling this preference stops your Compute Fleet from goal seeking to replace evicted Spot VMs even if the target capacity isn't met.
+
+#### Next topic: Fleet Allocation Stratergies
+#### Previous Topic: Spot Virtual Machines
