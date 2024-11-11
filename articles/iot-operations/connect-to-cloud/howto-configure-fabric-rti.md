@@ -61,55 +61,18 @@ Azure Key Vault is the recommended way to sync the connection string to the Kube
     | Setting               | Description                                                                                       |
     | --------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                  | The name of the dataflow endpoint.                                                              |
-    | Host                  | The hostname of the Azure Data Lake Storage Gen2 endpoint in the format `<account>.blob.core.windows.net`. Replace the account placeholder with the endpoint account name. |
-    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *Access token*.     |
-    | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
-    | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
-    | Access token secret name | The name of the Kubernetes secret containing the SAS token. Required if using *Access token*. |
+    | Host                  | The hostname of the Event Stream Custom Endpoint in the format `*.servicebus.windows.net:9093`. Use the bootstrap server address noted previously. |
+    | Authentication method | *SASL* is the currently the only supported authentication method. |
+    | SASL type             | Choose *Plain* |
+    | Synced secret name    | Name of secret that will synced to the Kubernetes cluster. You can choose any name. |
+    | Username reference of token secret | Create a new or choose an existing Key Vault reference. The secret value must be the literal string *$ConnectionString*. It is not an environment variable. |
+    | Password reference of token secret | Create a new or choose an existing Key Vault reference. The secret value must the Custom Endpoint connection string noted earlier. |
 
 1. Select **Apply** to provision the endpoint.
 
 # [Bicep](#tab/bicep)
 
-Create a Bicep `.bicep` file with the following content.
-    
-```bicep
-param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param endpointName string = '<ENDPOINT_NAME>'
-param host string = 'https://<ACCOUNT>.blob.core.windows.net'
-
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
-  name: aioInstanceName
-}
-resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
-  name: customLocationName
-}
-resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
-  parent: aioInstance
-  name: endpointName
-  extendedLocation: {
-    name: customLocation.id
-    type: 'CustomLocation'
-  }
-  properties: {
-    endpointType: 'DataLakeStorage'
-    dataLakeStorageSettings: {
-      host: host
-      authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
-      }
-    }
-  }
-}
-```
-
-Then, deploy via Azure CLI.
-
-```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
-```
+Follow [SASL instructions for the Event Hubs endpoint](../connect-to-cloud/howto-configure-kafka-endpoint.md&tabs=bicep#sasl).
 
 # [Kubernetes](#tab/kubernetes)
 
