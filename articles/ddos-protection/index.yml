@@ -37,7 +37,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Security baseline
-            url: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline.md
+            url: ../security/benchmark/azure/baselines/azure-ddos-protection-security-baseline.md
           - text: Reliability
             url: ../reliability/reliability-ddos.md?toc=/azure/ddos-protection/TOC.json
       - linkListType: architecture
@@ -100,3 +100,14 @@ landingContent:
           url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/defending-against-udp-flood-attacks-with-azure-ddos-protection/ba-p/3941758
         - text: Enhance network visibility and threat detection through Azure network security integrations with Microsoft Sentinel
           url: https://mslearn.cloudguides.com/guides/Enhance%20network%20visibility%20and%20threat%20detection%20through%20Azure%20network%20security%20integrations%20with%20Microsoft%20Sentinel
+
+
+    # Card
+  - title: Learn about Azure network security
+    linkLists:
+      - linkListType: get-started
+        links:
+        - text: Azure Firewall
+          url: /azure/firewall/
+        - text: Azure WAF
+          url: /azure/web-application-firewall/
