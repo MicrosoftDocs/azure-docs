@@ -1,5 +1,5 @@
 ---
-title: Configuring Fleet
+title: Modify fleet
 description: Learn about how to modify your Compute Fleet.
 author: rajeeshr
 ms.author: rajeeshr
