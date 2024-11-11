@@ -44,7 +44,7 @@ For more information, see [What is Microsoft Entra Privileged Identity Managemen
 
 ## How to list eligible and time-bound role assignments
 
-If you want to see which users are using the PIM funcationality, here are options for how to list eligible and time-bound role assignments.
+If you want to see which users are using the PIM functionality, here are options for how to list eligible and time-bound role assignments.
 
 ### Option 1: List using the Azure portal
 
