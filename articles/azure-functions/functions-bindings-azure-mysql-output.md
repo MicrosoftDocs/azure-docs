@@ -411,13 +411,13 @@ The [configuration](#configuration) section explains these properties.
 The following example is sample JavaScript code:
 
 ```javascript
-module.exports = async function (context, req, products) {
+module.exports = async function (context, req, product) {
     context.log('JavaScript HTTP trigger and MySQL output binding function processed a request.');
     
     context.res = {
         // status: 200, /* Defaults to 200 */
         mimetype: "application/json",
-        body: products
+        body: product
     };
 }
 ```

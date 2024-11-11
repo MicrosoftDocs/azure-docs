@@ -132,6 +132,103 @@ Gives user permission to view and download debug snapshots collected with the Ap
 }
 ```
 
+## Azure Managed Grafana Workspace Contributor
+
+Can manage Azure Managed Grafana resources, without providing access to the workspaces themselves.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/write | Write grafana |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/delete | Delete grafana |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/PrivateEndpointConnectionsApproval/action | Approve PrivateEndpointConnection |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/managedPrivateEndpoints/action | Operations on Private Endpoints |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/locations/operationStatuses/write | Write operation statuses |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/privateEndpointConnectionProxies/validate/action | Validate PrivateEndpointConnectionProxy |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/privateEndpointConnectionProxies/write | Create/Update PrivateEndpointConnectionProxy |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/privateEndpointConnectionProxies/delete | Delete PrivateEndpointConnectionProxy |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/privateEndpointConnections/write | Update PrivateEndpointConnection |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/privateEndpointConnections/delete | Delete PrivateEndpointConnection |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/managedPrivateEndpoints/write | Write Managed Private Endpoints |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/managedPrivateEndpoints/delete | Delete Managed Private Endpoints |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can manage Azure Managed Grafana resources, without providing access to the workspaces themselves.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/5c2d7e57-b7c2-4d8a-be4f-82afa42c6e95",
+  "name": "5c2d7e57-b7c2-4d8a-be4f-82afa42c6e95",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Dashboard/grafana/write",
+        "Microsoft.Dashboard/grafana/delete",
+        "Microsoft.Dashboard/grafana/PrivateEndpointConnectionsApproval/action",
+        "Microsoft.Dashboard/grafana/managedPrivateEndpoints/action",
+        "Microsoft.Dashboard/locations/operationStatuses/write",
+        "Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/validate/action",
+        "Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/write",
+        "Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/delete",
+        "Microsoft.Dashboard/grafana/privateEndpointConnections/write",
+        "Microsoft.Dashboard/grafana/privateEndpointConnections/delete",
+        "Microsoft.Dashboard/grafana/managedPrivateEndpoints/write",
+        "Microsoft.Dashboard/grafana/managedPrivateEndpoints/delete",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/deployments/delete",
+        "Microsoft.Resources/deployments/cancel/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/deployments/whatIf/action",
+        "Microsoft.Resources/deployments/exportTemplate/action",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/operationstatuses/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Managed Grafana Workspace Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Grafana Admin
 
 Manage server-wide settings and manage access to resources such as organizations, users, and licenses.
