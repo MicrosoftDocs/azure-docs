@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: mbender-ms
   ms.author: mbender
-  ms.date: 11/05/2024
+  ms.date: 11/11/2024
   ms.custom: engagement-fy23, seo-FY24Q2
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -115,7 +115,7 @@ landingContent:
         - linkListType: concept
           links:
           - text: Azure security baseline for Azure Load Balancer
-            url: /azure/load-balancer/azure-load-balancer-security-baseline
+            url: /security/benchmark/azure/baselines/azure-load-balancer-security-baseline
           - text: Implement a secure hybrid network
             url: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz
         - linkListType: how-to-guide
@@ -133,10 +133,6 @@ landingContent:
             url: /azure/load-balancer/load-balancer-test-frontend-reachability
           - text: Troubleshoot Azure Load Balancer health probe status
             url: /azure/load-balancer/load-balancer-troubleshoot-health-probe-status
-        - linkListType: video
-          links:
-          - text: Build & monitor highly available apps w/ Azure Load Balancer
-            url: https://techcommunity.microsoft.com/t5/video-hub/build-amp-monitor-highly-available-apps-w-azure-load-balancer/m-p/1703353
   - title: Load balancing and content delivery
     linkLists:
       - linkListType: concept
