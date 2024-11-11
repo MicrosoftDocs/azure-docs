@@ -81,8 +81,8 @@ Before deploying the custom ruleset to your API center, validate it locally. The
 
 Now, when you open an OpenAPI-based API definition file, a local linting operation is automatically triggered in Visual Studio Code. Results are displayed inline in the editor and in the **Problems** window (**View > Problems** or **Ctrl+Shift+M**).
 
-    > [!TIP]
-    > API developers in your organization can use this local linting capability to help improve their API definitions before registering APIs in your API center.
+> [!TIP]
+> API developers in your organization can also use this local linting capability to help improve their API definitions before registering APIs in your API center.
 
 :::image type="content" source="media/enable-managed-api-analysis-linting/validate-local-linting.png" alt-text="Screenshot of linting an API definition in Visual Studio Code." lightbox="media/enable-managed-api-analysis-linting/validate-local-linting.png":::
 
