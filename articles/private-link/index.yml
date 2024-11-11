@@ -71,29 +71,6 @@ landingContent:
           - text: Manage network policies 
             url: disable-private-endpoint-network-policy.md
 
-  # Card (optional)
-
-  - title: Concepts and Architecture
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Secruity baseline
-            url: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
-          - text: Multitenancy and Azure Private Link
-            url: /azure/architecture/guide/multitenant/service/private-link
-      - linkListType: learn
-        links:
-          - text: Design and implement private access to Azure Services
-            url: /training/modules/design-implement-private-access-to-azure-services
-      - linkListType: architecture
-        links:
-          - text: Azure Private Link in a hub-and-spoke network
-            url: /azure/architecture/guide/networking/private-link-hub-spoke-network
-          - text: Web app private connectivity to Azure SQL Database
-            url: /azure/architecture/example-scenario/private-web-app/private-web-app
-          - text: Multi-tier app service with private endpoint
-            url: /azure/architecture/example-scenario/web/multi-tier-app-service-private-endpoint
-
   # Card
   - title: Troubleshoot and support
     linkLists:
@@ -115,3 +92,26 @@ landingContent:
             url: /azure/virtual-network/
           - text: DNS
             url: /azure/dns/
+
+  # Card
+
+  - title: Concepts and Architecture
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Secruity baseline
+            url: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
+          - text: Multitenancy and Azure Private Link
+            url: /azure/architecture/guide/multitenant/service/private-link
+      - linkListType: learn
+        links:
+          - text: Design and implement private access to Azure Services
+            url: /training/modules/design-implement-private-access-to-azure-services
+      - linkListType: architecture
+        links:
+          - text: Azure Private Link in a hub-and-spoke network
+            url: /azure/architecture/guide/networking/private-link-hub-spoke-network
+          - text: Web app private connectivity to Azure SQL Database
+            url: /azure/architecture/example-scenario/private-web-app/private-web-app
+          - text: Multi-tier app service with private endpoint
+            url: /azure/architecture/example-scenario/web/multi-tier-app-service-private-endpoint
