@@ -115,7 +115,8 @@ Here are known issues and limitations:
    - Manually add these new session hosts from within [Azure Virtual Desktop Insights](insights.md) in the Azure portal.
 
 - Avoid modifying a session host configuration in a host pool with no session hosts at the same time a session host is being created as this can result in a host pool with inconsistent session host properties.
-- Updates with large batch sizes can result in intermittent failures with error code `AgentRegistrationFailureGeneric`. If this occurs for a subset of session hosts being updated, [retrying the update](session-host-update-configure.md#pause-resume-cancel-or-retry-an-update) will typically resolve the issue.
+
+- Updates with large batch sizes can result in intermittent failures with the error code `AgentRegistrationFailureGeneric`. If this occurs for a subset of session hosts being updated, [retrying the update](session-host-update-configure.md#pause-resume-cancel-or-retry-an-update) typically resolves the issue.
 
 ## Next steps
 
