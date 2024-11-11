@@ -29,25 +29,7 @@ To complete the steps in this article, you must have a dev center configured wit
   
 1. Download the [example YAML customization file](https://aka.ms/devcenter/preview/imaging/examples).  
 1. Open the file and examine the tasks.  
-   ```yml
-   $schema: "1.0"
-   name: example-winget
-   image: MicrosoftWindowsDesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365
-   tasks:
-       - name: winget
-         parameters:
-           package:  Microsoft.PowerToys
-       - name: winget
-         parameters:
-           package:  Microsoft.VisualStudioCode
-       - name: winget
-         parameters:
-           package:  Microsoft.AzureCLI
-       - name: winget
-         parameters:
-           package:  GitHub.GitHubDesktop
-   ```
-   The image definition file specifies a name for the image definition by using a `name` field. Use this name to identify the image definition in the dev box pool.
+   Note that the image definition file specifies a name for the image definition by using a `name` field. Use this name to identify the image definition in the dev box pool.
 
 ## Add a catalog to your dev center
 

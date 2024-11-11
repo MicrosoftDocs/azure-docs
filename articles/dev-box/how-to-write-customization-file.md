@@ -90,44 +90,8 @@ You can create and manage customization files with Visual Studio Code. You can u
 
 1. When the customization file runs successfully, upload it to your catalog.
 
-## Use GitHub Copilot to write a customization file
-The Microsoft Dev Box extension for Visual Studio Code integrates with GitHub Copilot Chat to bring the power of AI to creating your customization file. You can use GitHub Copilot to help write a customization file for your development team. 
-
-There are two commands that you can use with the Dev Box chat agent:
-   - Tasks: Lists available tasks for this dev box, and answers task related questions.
-   - Customize: Generates custom tasks based on your commands and available tasks.
-
-To use GitHub Copilot, you need to install the GitHub Copilot extension in Visual Studio Code. For more information, see [GitHub Copilot](https://code.visualstudio.com/docs/copilot/overview).
-
-To invoke the Dev Box chat agent:
-1. In Visual Studio Code, open a customization file. 
-1. From the Activity Bar, select Chat.
-1. In the chat box, enter **@devbox**.
- 
-   :::image type="content" source="media/how-to-write-customization-file/github-copilot-chat-dev-box-commands.png" alt-text="Screenshot of GitHub Copilot Chat in Visual Studio Code, showing the 'devbox' command and two available commands: 'Tasks' and 'Customize'.":::
-
-1. To list available tasks for this dev box, enter **@devbox /tasks list-tasks** in the chat box.
-
-    You see the list of available tasks in the chat box. These tasks are available in the catalog attached to the dev center, or in the catalog attached to your project.
-
-    :::image type="content" source="media/how-to-write-customization-file/github-copilot-chat-dev-box-tasks-available.png" alt-text="Screenshot showing available tasks for the dev box in GitHub Copilot Chat.":::
-
-1. To ask a task based question, enter your question in Copilot Chat. Try it: enter **@devbox /tasks Are there any tasks to clone a repo?** in the chat box.
-
-    :::image type="content" source="media/how-to-write-customization-file/github-copilot-chat-dev-box-task-question.png" alt-text="Screenshot showing a task based question in GitHub Copilot Chat.":::
-
-    This example clones the microsoft/calculator repository to the C:\Workspaces directory.
-
-1. To generate a custom task, enter **@devbox /customize** and a description of the task you want to create. Try it: enter **@devbox /customize I want to install notepad++ and vscode** in the chat box.
-
-    :::image type="content" source="media/how-to-write-customization-file/github-copilot-chat-dev-box-customize.png" alt-text="Screenshot showing a custom task generated in GitHub Copilot Chat.":::
-
-    This example installs Notepad++ and Visual Studio Code on the dev box.
-
-    You can select **Generate Workload.yaml File** to create a file with the custom task. You can then rename the *workload.yaml* file to *imagedefintion.yaml*for use in your team customizations.
-
 ## Clone a private repository using a customization file
-You can use secrets from your Azure Key Vault in your yaml customizations to clone private repositories, or with any custom task you author that requires an access token. In a team customization file, you can use a personal access token (PAT) sotred in a key vault to access a private repository. In an individual customization file, you can also use the `{{ado}}` or `{{ado://your-ado-organization-name}}` parameter to fetch an access token on your behalf when creating a dev box.
+You can use secrets from your Azure Key Vault in your yaml customizations to clone private repositories, or with any custom task you author that requires an access token. In a team customization file, you can use a personal access token (PAT) stored in a key vault to access a private repository. git 
 
 ### Use Key Vault secrets in team customization files
  To clone a private repository, store your PAT as an Azure KeyVault secret, and use it when invoking the git-clone task in your customization.
