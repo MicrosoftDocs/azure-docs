@@ -169,9 +169,11 @@ procedureSection:
   - title: |
       Step 6: Select assignment type
     summary: |
-      If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, an **Assignment type** tab will appear for management group, subscription, and resource group scopes. Use eligible assignments to provide just-in-time access to a role. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different. For more information, see [Eligible and time-bound role assignments in Azure RBAC](././pim-integration.md).
+      If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, an **Assignment type** tab will appear for management group, subscription, and resource group scopes. Use eligible assignments to provide just-in-time access to a role. Users with eligible and/or time-bound assignments must have a valid license.
+      
+      If you don't want to use the PIM functionality, select the **Active** assignment type and **Permanent** assignment duration options. These settings create a role assignment where the principal always has permissions in the role.
 
-      If you don't want to use the PIM functionality, select the **Active** assignment type and **Permanent** assignment duration options. These settings create a role assignment where the principal always has permissions in the role. 
+       This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different. For more information, see [Eligible and time-bound role assignments in Azure RBAC](././pim-integration.md).
     steps:
       - |
         On the **Assignment type** tab, select the **Assignment type**.
