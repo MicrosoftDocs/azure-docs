@@ -196,9 +196,9 @@ In the following table, notice that several of the VM sizes map to more than one
 | Size | vCPUs | Memory (GB) | Series | Suggested use | GPU/Accelerator | Accelerator Memory (GB) |
 | - | - | - | - | - | - | - |
 | Small GPU (Compute) | 8 | 56 | [NC8asT4_v3](/azure/virtual-machines/sizes/gpu-accelerated/ncast4v3-series) | Computer-intensive applications like AI and deep learning | NVIDIA Tesla T4 | 16 |
-| | 6 | 112 | [NC6s_v3](/azure/virtual-machines/ncv3-series) | Computer-intensive applications like AI and deep learning | NVIDIA Tesla T4 | 16 |
+| | 6 | 112 | [NC6s_v3](/azure/virtual-machines/ncv3-series) | Computer-intensive applications like AI and deep learning | NVIDIA Tesla V100 | 16 |
 | Small GPU (Visualization) | 12 | 110 | [NV12ads_A10_v5](/azure/virtual-machines/sizes/gpu-accelerated/nvadsa10v5-series) | Remote visualization,and streaming | NVIDIA A10 (1/3) | 8 |
-| Medium GPU (Visualization) | 18 | 220 | [NV18ads_A10_v5](/azure/virtual-machines/sizes/gpu-accelerated/nvadsa10v5-series) | Best suited for remote visualization and streaming | NVIDIA A10 (1/2) | 12 |
+| Medium GPU (Visualization) | 18 | 220 | [NV18ads_A10_v5](/azure/virtual-machines/sizes/gpu-accelerated/nvadsa10v5-series) | Remote visualization and streaming | NVIDIA A10 (1/2) | 12 |
 | | 12 | 112 | [NV12_v3](/azure/virtual-machines/nvv3-series) | Remote visualization and streaming | NVIDIA Tesla M60 | 8 |
 
 ## Manage identity

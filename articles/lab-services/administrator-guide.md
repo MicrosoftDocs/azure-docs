@@ -180,7 +180,7 @@ For information on VM sizes and their cost, see the [Azure Lab Services Pricing]
 | - | - | - | - | - | - | - |
 | Small GPU (Compute) | 8 | 56 | [NC8as_T4_v3](/azure/virtual-machines/nct4-v3-series) | AI & deep learning | NVIDIA Tesla T4 | 16 |
 | Small GPU (Visualization) | 8 | 28 | [NV8as_v4](/azure/virtual-machines/nvv4-series) | (Windows only) Remote visualization, streaming, gaming | AMD Radeon Instinct MI25 (1/4) | 4 |
-| Medium GPU (Visualization) | 12 | 112 | [NV12s_v3](/azure/virtual-machines/nvv3-series) | (Windows only) Remote visualization, streaming, gaming | NVIDIA Tesla M60 | 8 |
+| Medium GPU (Visualization) | 12 | 112 | [NV12s_v3](/azure/virtual-machines/nvv3-series) | Remote visualization, streaming, gaming | NVIDIA Tesla M60 | 8 |
 
 ### Alternative VM sizes
 
@@ -189,8 +189,8 @@ To better serve you in locations where there's high demand, you can select from 
 | Size | vCPUs | Memory (GB) | Series | Suggested use | GPU/Accelerator | Accelerator Memory (GB) |
 | - | - | - | - | - | - | - |
 | Alternative Small GPU (Compute) | 6 | 112 | [NC6s_v3](/azure/virtual-machines/ncv3-series) | AI & deep learning | NVIDIA Tesla V100 | 16 |
-| Alternative Small GPU (Visualization) | 6 | 55 | [NV6ads_A10_v5](/azure/virtual-machines/nva10v5-series) | Remote visualization, streaming, gaming | NVIDIA A10 (1/6) | 4 |
-| Alternative Medium GPU (Visualization) | 12 | 110 | [NV12ads_A10_v5](/azure/virtual-machines/nva10v5-series) | Remote visualization, streaming, gaming | NVIDIA A10 (1/3) | 8 |
+| Alternative Small GPU (Visualization) | 6 | 55 | [NV6ads_A10_v5](/azure/virtual-machines/nva10v5-series) | (Windows only) Remote visualization, streaming, gaming | NVIDIA A10 (1/6) | 4 |
+| Alternative Medium GPU (Visualization) | 12 | 110 | [NV12ads_A10_v5](/azure/virtual-machines/nva10v5-series) | (Windows only) Remote visualization, streaming, gaming | NVIDIA A10 (1/3) | 8 |
 
 ### Classic VM sizes
 
