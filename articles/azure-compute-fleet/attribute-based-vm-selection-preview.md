@@ -18,7 +18,7 @@ ms.reviewer: jushiman
 
 Attribute based VM selection is a new feature enabling you to configure your instance requirements as a set of VM attributes (e.g., memory, vCPU, and storage). These requirements are matched with all suitable Azure VM sizes, simplifying the creation and maintenance of VM configurations. This feature also allows you to seamlessly utilize newer VM generations as they become available and gain access to a wider range of capacity through Azure Spot Virtual Machines. The Compute Fleet service selects and launches VMs that match the specified attributes, eliminating the need to manually choose VM sizes.
 
-:::image type="content" source="./media/multi-region-compute-fleet.png" lightbox="./media/multi-region-compute-fleet.png" alt-text="Screenshot that shows Multi region compute fleet flow diagram.":::
+:::image type="content" source="./media/vm-attribute/test.md/attribute-based-VM-selection.png" lightbox="./media/vm-attribute/test.md/attribute-based-VM-selection.png" alt-text="Screenshot that shows Multi region compute fleet flow diagram.":::
 
 Attribute-Based VM Selection is ideal for scenarios such as stateless web services, large-scale batch processing, big data clusters, or continuous integration pipelines. Workloads like financial risk modeling, log processing, and image rendering can take advantage of the ability to run hundreds of thousands of concurrent cores/instances. When leveraging Spot Virtual Machines, instead of specifying numerous VM sizes and types individually, a simple attribute configuration can now encompass all relevant options, including new ones as they are released.
 
