@@ -5,7 +5,7 @@ ms.date: 05/26/2024
 ms.topic: install-set-up-deploy
 ---
 
-# Configure ERSPAN traffic mirroring with a Cisco switch
+# Configure ERSPAN (legacy) traffic mirroring with a Cisco switch
 
 This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT.
 
