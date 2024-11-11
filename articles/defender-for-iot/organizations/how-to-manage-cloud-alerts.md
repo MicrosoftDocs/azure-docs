@@ -150,7 +150,7 @@ The file is generated, and you're prompted to save it locally.
 To reduce alert fatigue, multiple versions of the same alert with identical parameters are listed as one item in the Alerts page. As you investigate alerts, an aggregated alert is identified by the *Multiple violations* message that appears under the Source device IP. Use the **Violations** tab to investigate further and the **Take action** tab to remediate the alerts.
 
 1. On the **Alerts** page, select an alert in the grid to display more details in the pane on the right.
-1. For an Aggregated alert the *Multiple violations* message appears underneath the Source device IP address, and the **ViolationCount** will contain a number above 0.
+1. For an Aggregated alert the *Multiple violations* message appears underneath the Source device IP address, and the **Violations** tab is displayed.
 
     :::image type="content" source="media/how-to-manage-cloud-alerts/alert-details-aggregated.png" alt-text="Screenshot of the alerts detail pane showing the aggregated alerts message, the ViolationsCount and the Violations tab":::
 
