@@ -25,6 +25,8 @@ items:
         href: deploy-iot-ops/howto-manage-update-uninstall.md
       - name: Enable secure settings
         href: deploy-iot-ops/howto-enable-secure-settings.md
+      - name: Production deployment guidelines
+        href: deploy-iot-ops/howto-production-guidelines.md
     - name: Secure your deployment
       items:
       - name: Certificate management
