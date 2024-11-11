@@ -79,7 +79,7 @@ In this tutorial, you:
     from featuremanagement import track_event
 
     # Something has happened in your application
-    track_event("my_event", user)
+    track_event("checkout", user)
     ```
 
 ## Setup Environment Variables
