@@ -38,3 +38,5 @@ With this strategy, Compute Fleet doesn't prioritize pricing over capacity, so y
 ### Lowest Price: 
 The Compute Fleet launches VM types and sizes from your specified list of VMs that offer the lowest price for Spot VMs. Followed by the second and third lowest price until the desired capacity is fulfilled.
 
+#### Next topic: Attribute based VM selection(preview)
+#### Previous Topic: Capacity preference
