@@ -83,7 +83,7 @@ In the *Container* tab of the create process, set the following settings:
 
 1. Under the *Container resource allocation* section, check the **GPU** checkbox.
 
-1. For the *GPU Type**, select either the A100 or T4 option.
+1. For the *GPU Type**, select either the NVIDIA A100 or NVIDIA T4 option.
 
 ## Manage serverless GPU workload profile
 
