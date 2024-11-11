@@ -461,7 +461,7 @@ For more information about the CLI commands you can run, see:
 
 ## Clustering
 
-App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, it restarts, and the JBoss EAP installation automatically starts up with a clustered configuration. When you [run multiple instances with autoscaling](/azure/azure-monitor/autoscale/autoscale-get-started), the JBoss EAP instances communicate with each other over the subnet specified in the virtual network integration, using the ports shown in the `WEBSITES_PRIVATE_PORTS` environment variable at runtime. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
+App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, it restarts, and the JBoss EAP installation automatically starts up with a clustered configuration. When you [run multiple instances with autoscaling](/azure/azure-monitor/autoscale/autoscale-get-started), the JBoss EAP instances communicate with each other over the subnet specified in the virtual network integration. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
 
 :::image type="content" source="media/configure-language-java-deploy-run/jboss-clustering.png" alt-text="A diagram showing a vnet-integrated JBoss App Service app, scaled out to three instances.":::
 
