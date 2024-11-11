@@ -32,11 +32,17 @@ If you're new to Security Copilot, you should familiarize yourself with it by re
 
 Azure Firewall is a cloud-native and intelligent network firewall security service that provides best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.
 
-The integration of Azure Firewall with Security Copilot enables analysts to comprehensively investigate malicious traffic intercepted by the IDPS feature across their entire fleet using natural language queries.
+The Azure Firewall integration in Security Copilot helps analysts perform detailed investigations of the malicious traffic intercepted by the IDPS feature of their firewalls across their entire fleet using natural language questions.
 
-You can use this integration in the [Security Copilot portal](https://securitycopilot.microsoft.com) or the [Copilot in Azure](/azure/copilot/overview) experience in the Azure portal:
+You can use this integration in two different experience:
 
-:::image type="content" source="media/firewall-copilot/azure-copilot-overview-image-new.png" alt-text="Screenshot of the Azure portal with a prompt relevant to Firewall." lightbox="media/firewall-copilot/azure-copilot-overview-image-new.png"::: 
+- [Security Copilot portal](https://securitycopilot.microsoft.com) (standalone experience)
+
+    :::image type="content" source="media/firewall-copilot/security-copilot-overview-image.jpg" alt-text="Screenshot of the Security Copilot portal with a prompt relevant to Firewall." lightbox="media/firewall-copilot/security-copilot-overview-image.jpg":::
+
+- [Copilot in Azure](/azure/copilot/overview) (embedded experience) in the Azure portal:
+
+    :::image type="content" source="media/firewall-copilot/azure-copilot-overview-image-new.png" alt-text="Screenshot of the Azure portal with a prompt relevant to Firewall." lightbox="media/firewall-copilot/azure-copilot-overview-image-new.png"::: 
 
 For more information, see  [Microsoft Security Copilot experiences](/security-copilot/experiences-security-copilot) and [Microsoft Copilot in Azure capabilities](/azure/copilot/capabilities).
 
