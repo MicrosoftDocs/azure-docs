@@ -67,7 +67,7 @@ landingContent:
           - text: Mission-critical global content delivery
             url: /azure/architecture/guide/networking/global-web-applications/mission-critical-content-delivery
           - text: Mission-critical global HTTP ingress
-            url: /azure/architecture/guide/networking/global-web-applications/mission-critical-gloabl-http-ingress
+            url: /azure/architecture/guide/networking/global-web-applications/mission-critical-global-http-ingress
 
   # Card
   - title: Security
