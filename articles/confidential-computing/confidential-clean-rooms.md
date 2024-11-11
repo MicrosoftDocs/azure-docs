@@ -46,10 +46,10 @@ Confidential computing can address some of the regulatory and privacy concerns b
 ACCR is built using confidential computing to provide a hardware-based, trusted execution environment (TEE). This environment is sandboxed and allows only authorized workloads to execute and prevents unauthorized access to data or code during processing, ensuring that sensitive information remains secure.
 - Verifiable trust at each step with the help of cryptographic remote attestation forms the cornerstone of Azure Confidential Clean Rooms.
 
-:::image type="content" source="./media/confidential-clean-rooms/accr-illustration.png" alt-text="Graphic of Azure Confidential Clean Rooms benefits, showing all steps of clean room creation.":::
-
 - Cost-effective: 
 By providing a secure and compliant environment for data collaboration, ACCR reduces the need for costly and complex data protection measures. This makes it a cost-effective solution for organizations looking to leverage sensitive data for analysis and insights
+
+:::image type="content" source="./media/confidential-clean-rooms/accr-illustration.png" alt-text="Graphic of Azure Confidential Clean Rooms benefits, showing all steps of clean room creation.":::
 
 
 ## Onboarding to Azure Confidential Clean Rooms
