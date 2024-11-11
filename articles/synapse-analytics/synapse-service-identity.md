@@ -41,9 +41,7 @@ Managed identity provides the below benefits:
 
 You can find the managed identity information from Azure portal -> your Synapse workspace -> Properties.
 
-:::image type="content" source="../data-factory/media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png" alt-text="Shows the Azure portal with the system-managed identity object ID for a Synapse workspace." lightbox="../data-factory/media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png":::
-
-- Managed Identity Object ID
+:::image type="content" source="../data-factory/media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png" alt-text="Screenshot of the Azure portal with the system-managed identity object ID for a Synapse workspace." lightbox="../data-factory/media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png":::
 
 The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
