@@ -1,3 +1,6 @@
+- name: Firmware analysis (preview)
+  href: index.yml
+
 - name: "Overview"
   items:
   - name: Overview of Firmware analysis (preview)
@@ -6,6 +9,7 @@
     href: firmware-analysis-faq.md
   - name: What's new?
     href: release-notes.md
+  expanded: true
 - name: Quickstarts
   items:
   - name: Quickstart to use Firmware analysis with Azure CLI
@@ -14,6 +18,7 @@
     href: quickstart-upload-firmware-using-powershell.md
   - name: Quickstart to use Firmware analysis with a Python script
     href: quickstart-upload-firmware-using-python.md
+  expanded: true
 - name: Tutorial using Firmware analysis with the Azure portal
   href: tutorial-analyze-firmware.md
 - name: Concepts
