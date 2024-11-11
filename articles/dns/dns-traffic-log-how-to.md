@@ -24,7 +24,7 @@ This article shows you how to view and filter DNS traffic at the virtual network
 
 ## Create a security policy
 
-Choose one of the following tabs to create a security policy using the Azure portal, Azure CLI, or PowerShell.
+Choose one of the following methods to create a security policy using the Azure portal or PowerShell:
 
 ## [Azure portal](#tab/sign-portal)
 
@@ -192,49 +192,76 @@ The failed query is recorded in log analytics:
  > [!NOTE]
  > It can take a few minutes for query results to show up in log analytics.
 
-
-## [Azure CLI](#tab/sign-cli)
-
-1. Sign a zone using the Azure CLI:
-
-```azurepowershell-interactive
-# Ensure you are logged in to your Azure account
-az login
-
-# Select the appropriate subscription
-az account set --subscription "your-subscription-id"
-
-# Enable DNSSEC for the DNS zone
-az network dns dnssec-config create --resource-group "your-resource-group" --zone-name "adatum.com"
-
-# Verify the DNSSEC configuration
-az network dns dnssec-config show --resource-group "your-resource-group" --zone-name "adatum.com"
-```
-
-2. Something
-
-
-
 ## [PowerShell](#tab/sign-powershell)
 
-1. Something using PowerShell:
+Set up a local PowerShell repository and install the Az.DnsResolver PowerShell module
+
+1. Create a new folder on your disk to act as a local PowerShell repository. In this example, `C:\bin\PSRepo` is used. 
+2. Download [Az.DnsResolver.0.2.6.nupkg](https://github.com/sfiguemsft/privateresolver/blob/main/Az.DnsResolver.0.2.6.nupkg) into this directory. 
+3. Set up your local repository by running the following command:
 
 ```PowerShell
-# Connect to your Azure account (if not already connected)
-Connect-AzAccount
+# Register the repository
+Register-PSRepository -Name LocalPSRepo -SourceLocation 'C:\bin\PSRepo' -ScriptSourceLocation 'C:\bin\PSRepo' -InstallationPolicy Trusted
 
-# Select the appropriate subscription
-Select-AzSubscription -SubscriptionId "your-subscription-id"
+# Install the Az.DnsResolver module
+Install-Module -Name Az.DnsResolver -RequiredVersion 0.2.6
 
-# Enable DNSSEC for the DNS zone
-New-AzDnsDnssecConfig -ResourceGroupName "your-resource-group" -ZoneName "adatum.com"
+# If you already installed Az.DnsResolver, update your version to 0.2.6
+Update-Module -Name Az.DnsResolver
 
-# Verify the DNSSEC configuration
-Get-AzDnsDnssecConfig -ResourceGroupName "your-resource-group" -ZoneName "adatum.com"
+# Confirm that the Az.DnsResolver module was installed properly
+Get-InstalledModule -Name Az.DnsResolver
 ```
 
-2. Obtain something
+4. Set the subscription context
 
+```PowerShell
+# Connect PowerShell to Azure cloud
+Connect-AzAccount -Environment AzureCloud
+
+# Set your default subscription
+Select-AzSubscription -SubscriptionObject (Get-AzSubscription -SubscriptionId <your-sub-id>)
+
+# Register your subscription for Microsoft.Network
+# Even if your subscription is already registered, re-register the subscription to ensure access to Azure DNS security policy resource types.
+$result = Register-AzProviderFeature -ProviderNamespace Microsoft.Network $result.ResourceTypes | Where-Object { $_.ResourceTypeName.Contains("dnsResolverPolicies") -or $_.ResourceTypeName.Contains("dnsResolverDomainLists") }
+```
+
+4. Create a DNS security policy with PowerShell
+
+```PowerShell
+$ErrorActionPreference = "Stop"
+$resourceNumber = 1 # Customize this if needed $region = "centraluseuap" $name = "$($env:username)" $nameSuffix = "prod-$($region)-$($name)-securitypolicytest$($resourceNumber)-bugbash"
+$resourceGroupName = "rg-$($nameSuffix)" $virtualNetworkName = "vnet-$($nameSuffix)" $securityPolicyName = "dnssecuritypolicy-$($nameSuffix)" $storageAccountName = "storageaccount$name" $diagnosticSettingName = "diagnosticsetting-$($nameSuffix)" $vnetId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Network/virtualNetworks/$virtualNetworkName"
+Write-Host "Creating resource group"
+$rg = New-AzResourceGroup -Name $resourceGroupName -Location $region Write-Host ($rg | ConvertTo-Json -Depth 64)
+Write-Host "Creating virtual network" $defaultSubnet = New-AzVirtualNetworkSubnetConfig -Name "default" -AddressPrefix "10.$resourceNumber.0.0/24" $vnet = New-AzVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName -Location $region -AddressPrefix "10.$resourceNumber.0.0/16" -Subnet $defaultSubnet Write-Host ($vnet | ConvertTo-Json -Depth 64)
+Write-Host "Creating storage account" $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName -Location $region -SkuName Standard_GRS Write-Host $securityPolicy.ToJsonString()
+################################
+# DO PUTS
+################################
+Write-Host "Creating security policy" $securityPolicy = New-AzDnsResolverPolicy -Location $region -ResourceGroupName $resourceGroupName -Name $securityPolicyName Write-Host $securityPolicy.ToJsonString()
+Write-Host "Creating security policy virtual network link" $link = New-AzDnsResolverPolicyVirtualNetworkLink -Location $region -ResourceGroupName $resourceGroupName -DnsResolverPolicyName $securityPolicyName -Name test-policy-link -VirtualNetworkId $vnetId Write-Host $link.ToJsonString()
+$log = New-AzDiagnosticSettingLogSettingsObject -Enabled $true -Category DnsResponse
+Write-Host "Creating diagnostic setting" $diagnosticSetting = New-AzDiagnosticSetting -Name $diagnosticSettingName -ResourceId $securityPolicy.id -Log $log -StorageAccountId $storageAccount.id Write-Host $diagnosticSetting.ToJsonString()
+################################
+# DO UPDATES
+################################
+Write-Host "Updating security policy" $securityPolicy = Update-AzDnsResolverPolicy -ResourceGroupName $resourceGroupName -Name $securityPolicyName -Tag @{"key0" = "value0"} Write-Host $securityPolicy.ToJsonString()
+Write-Host "Updating security policy virtual network link" $link = Update-AzDnsResolverPolicyVirtualNetworkLink -ResourceGroupName $resourceGroupName -DnsResolverPolicyName $securityPolicyName -Name test-policy-link -Tag @{"key1" = "value1"} Write-Host $link.ToJsonString()
+$log = New-AzDiagnosticSettingLogSettingsObject -Enabled $false -Category DnsResponse
+Write-Host "Updating diagnostic setting by disabling log category" $diagnosticSetting = New-AzDiagnosticSetting -Name $diagnosticSettingName -ResourceId $securityPolicy.id -Log $log -StorageAccountId $storageAccount.id Write-Host $diagnosticSetting.ToJsonString()
+################################
+# DO GETS
+################################
+Write-Host "Getting security policy" $securityPolicy = Get-AzDnsResolverPolicy -ResourceGroupName $resourceGroupName -Name $securityPolicyName Write-Host $securityPolicy.ToJsonString()
+Write-Host "Getting security policy virtual network link"
+$link = Get-AzDnsResolverPolicyVirtualNetworkLink -ResourceGroupName $resourceGroupName -DnsResolverPolicyName $securityPolicyName -Name test-policy-link Write-Host $link.ToJsonString()
+Write-Host "Getting diagnostic setting" $diagnosticSetting = Get-AzDiagnosticSetting -ResourceId $securityPolicy.id Write-Host $diagnosticSetting.ToJsonString()
+```
+
+Configuration for domain list and traffic rules is coming.
 
 ---
 

@@ -73,6 +73,8 @@
   items:
   - name: Security
     items:
+    - name: DNS security policy
+      href: dns-security-policy.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
   - name: Public DNS
@@ -97,8 +99,6 @@
       href: private-dns-privatednszone.md
     - name: Private DNS records
       href: dns-private-records.md
-    - name: DNS security policy
-      href: dns-security-policy.md
     - name: Virtual network links
       href: private-dns-virtual-network-links.md
     - name: Autoregistration
@@ -121,6 +121,10 @@
       href: private-resolver-reliability.md
 - name: How-to guides
   items:
+  - name: DNS security policy
+    items:
+    - name: Filter and view DNS traffic
+      href: dns-traffic-log-how-to.md
   - name: Public DNS
     items:
     - name: Alias records for load balanced web apps
@@ -175,8 +179,6 @@
       href: dns-custom-domain.md
   - name: Private DNS
     items:
-    - name: Filter and view DNS traffic
-      href: dns-traffic-log-how-to.md
     - name: Protect private DNS zones and records
       href: dns-protect-private-zones-recordsets.md
     - name: Import and export a DNS zone file
