@@ -211,9 +211,9 @@ To allow or disable MTP and PTP redirection using Microsoft Intune:
 
 1. Expand the **Administrative templates** category, then set toggle the switch for **Do not allow supported Plug and Play device redirection**, depending on your requirements:
 
-   - To allow MTP and PTP redirection, toggle the switch to **Disabled**, then select **OK**.
+   - To allow MTP and PTP redirection, toggle the switch to **Disabled**.
 
-   - To disable MTP and PTP redirection, toggle the switch to **Enabled**, then select **OK**.
+   - To disable MTP and PTP redirection, toggle the switch to **Enabled**.
 
 1. Select **Next**.
 

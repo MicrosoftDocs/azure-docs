@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Data Manager for Energy
 description: This tutorial shows sample steps for interacting with the Seismic DDMS APIs in Azure Data Manager for Energy.
 author: elizabethhalper
 ms.author: elhalper
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: tutorial
 ms.date: 3/16/2022
 ms.custom: template-tutorial

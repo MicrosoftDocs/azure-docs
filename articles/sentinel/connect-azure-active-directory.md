@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 05/13/2024
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to stream Microsoft Entra logs into Microsoft Sentinel so that analysts can monitor and analyze sign-in activities, audit logs, and provisioning logs for enhanced security and threat detection.
+
 ---
 
 # Connect Microsoft Entra data to Microsoft Sentinel

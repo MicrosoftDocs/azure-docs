@@ -5,9 +5,10 @@ description: Learn to diagnose and troubleshoot common errors for Azure IoT Hub 
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.topic: troubleshooting
 ms.date: 06/28/2024
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Troubleshooting with Azure IoT Hub Device Provisioning Service

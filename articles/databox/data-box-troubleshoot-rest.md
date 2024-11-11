@@ -4,8 +4,7 @@ description: Describes how to troubleshoot issues seen in Azure Data Box when da
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.custom: devx-track-python, linux-related-content
 ms.topic: troubleshooting
 ms.date: 01/25/2021

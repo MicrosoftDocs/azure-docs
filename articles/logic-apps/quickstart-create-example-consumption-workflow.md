@@ -81,7 +81,7 @@ To create a Standard logic app workflow that runs in single-tenant Azure Logic A
 
    The **Create Logic App** page appears and shows the following options:
 
-   [!INCLUDE [logic-apps-host-plans](../../includes/logic-apps-host-plans.md)]
+   [!INCLUDE [logic-apps-host-plans](includes/logic-apps-host-plans.md)]
 
 1. On the **Create Logic App** page, select **Consumption (Multi-tenant)**.
 

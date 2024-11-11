@@ -1,10 +1,14 @@
 ---
 title: "Microsoft Sentinel migration: Ingest data into target platform | Microsoft Docs"
 description: Learn how to ingest historical data into your selected target platform.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: As a data engineer, I want to ingest historical data into my target platform so that I can ensure seamless data migration and integration for analysis and reporting.
+
 ---
 
 # Ingest historical data into your target platform

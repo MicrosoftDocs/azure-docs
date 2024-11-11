@@ -4,8 +4,7 @@ description: Describes how to configure BCDR on Azure Stack Edge VPN.
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 04/17/2020
 ms.author: alkohli
@@ -45,7 +44,7 @@ In the event that the entire Azure region fails over due to a catastrophic event
 When the region fails over, the virtual network (Vnet) also fails over to the new region and so does the Virtual network gateway (VPN gateway). To address this change, make the following changes in your Azure Stack Edge VPN configuration:
 
 1. Move your Vnet to the target region. For more information, see: [Move an Azure virtual network to another region via the Azure portal](../virtual-network/move-across-regions-vnet-portal.md).
-2. Deploy a new Azure VPN gateway in the target region where you moved the Vnet. For more information, see [Create a virtual network gateway](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw).
+2. Deploy a new Azure VPN gateway in the target region where you moved the Vnet. For more information, see [Create a virtual network gateway](../vpn-gateway/tutorial-create-gateway-portal.md).
 3. Update Azure Stack Edge VPN configuration to use the above VPN gateway in the VPN connection and then select the target region to add routes that use the VPN gateway.
 4. Update the incoming Azure route table if the client address pool also changes. 
 

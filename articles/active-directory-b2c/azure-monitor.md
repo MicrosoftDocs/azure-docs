@@ -6,11 +6,11 @@ description: Learn how to log Azure AD B2C events with Azure Monitor by using de
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.date: 09/11/2024
 ms.custom: "b2c-support"
 

@@ -210,7 +210,7 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 **Boot Type**: Boot type of the virtual machine. It can be either BIOS or EFI.  Currently Azure Site Recovery supports Windows Server EFI virtual machines (Windows Server 2012, 2012 R2 and 2016) provided the number of partitions in the boot disk is less than 4 and boot sector size is 512 bytes. To protect EFI virtual machines, Azure Site Recovery mobility service version must be 9.13 or later. Only failover is supported for EFI virtual machines. Failback isn't supported.  
 
-**OS Type**: It's OS type of the virtual machine. It can be either Windows or Linux or other based on the chosen template from virtual machineware vSphere while creating the virtual machine.  
+**OS Type**: It's OS type of the virtual machine. It can be either Windows or Linux or other based on the chosen template from VMware vSphere while creating the virtual machine.  
 
 ## Incompatible virtual machines
 

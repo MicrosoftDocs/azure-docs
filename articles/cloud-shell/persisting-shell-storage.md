@@ -116,7 +116,7 @@ MountPoint         : /home/user/clouddrive
 Name               : cs7xxxxxxxxxxxxxxx
 ResourceGroupName  : cloud-shell-storage-southcentralus
 StorageAccountName : cs7xxxxxxxxxxxxxxx
-SubscriptionId     : 78a66d97-7204-4a0d-903f-43d3d4170e5b
+SubscriptionId     : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ```
 
 ### Unmount the file share

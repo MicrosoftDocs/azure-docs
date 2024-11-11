@@ -5,7 +5,7 @@ description: How to use the Azure IoT SDKs to create device and backend service 
 author: kgremban
 ms.author: kgremban
 manager: lizross
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 09/10/2024

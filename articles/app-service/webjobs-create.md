@@ -40,7 +40,7 @@ Azure Functions provides another way to run programs and scripts. For a comparis
 
 ### [Windows code](#tab/windowscode)
 The following file types are supported:<br>
-**.cmd**, **.bat**, **.exe** (using Windows cmd)<br>**.ps1** (using PowerShell)<br>**.sh** (using Bash)<br>**.php** (using PHP)<br>**.py** (using Python)<br>**.js** (using Node.js)<br>**.jar** (using Java)<br><br>The necessary runtimes to run these file types are already installed on the web app instance.
+**.cmd**, **.bat**, **.exe** (using Windows cmd)<br>**.ps1** (using PowerShell)<br>**.sh** (using Bash)<br>**.js** (using Node.js)<br>**.jar** (using Java)<br><br>The necessary runtimes to run these file types are already installed on the web app instance.
 ### [Windows container](#tab/windowscontainer)
 > [!NOTE]
 > WebJobs for Windows container is in preview.

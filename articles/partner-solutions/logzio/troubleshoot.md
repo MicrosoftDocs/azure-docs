@@ -1,9 +1,9 @@
 ---
 title: Troubleshooting Logz.io
 description: This article describes how to troubleshoot Logz.io integration with Azure.
-author: flang-msft
 
-ms.author: franlanglois
+
+
 ms.topic: conceptual
 ms.date: 01/06/2023
 

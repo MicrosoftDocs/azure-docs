@@ -4,7 +4,7 @@ description: A list of FQDNs and endpoints you must allow, ensuring your Azure V
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 06/26/2024
+ms.date: 10/29/2024
 ---
 
 # Required FQDNs and endpoints for Azure Virtual Desktop
@@ -120,10 +120,11 @@ Select the relevant tab based on which cloud you're using.
 | `aka.ms` | TCP | 443 | Microsoft URL shortener | All |
 | `learn.microsoft.com` | TCP | 443 | Documentation | All |
 | `privacy.microsoft.com` | TCP | 443 | Privacy statement | All |
-| `query.prod.cms.rt.microsoft.com` | TCP | 443 | Download an MSI to update the client. Required for automatic updates. | [Windows Desktop](users/connect-windows.md) |
+| `query.prod.cms.rt.microsoft.com` | TCP | 443 | Download an MSI or MSIX package to update the client. Required for automatic updates. | [Windows Desktop](users/connect-windows.md) |
 | `graph.microsoft.com` | TCP | 443 | Service traffic | All |
-| `windows.cloud.microsoft.com` | TCP | 443 | Connection center | All |
+| `windows.cloud.microsoft` | TCP | 443 | Connection center | All |
 | `windows365.microsoft.com` | TCP | 443 | Service traffic | All |
+| `ecs.office.com` | TCP | 443 | Connection center | All |
 
 # [Azure for US Government](#tab/azure-for-us-government)
 
@@ -136,10 +137,11 @@ Select the relevant tab based on which cloud you're using.
 | `aka.ms` | TCP | 443 | Microsoft URL shortener | All |
 | `learn.microsoft.com` | TCP | 443 | Documentation | All |
 | `privacy.microsoft.com` | TCP | 443 | Privacy statement | All |
-| `query.prod.cms.rt.microsoft.com` | TCP | 443 | Download an MSI to update the client. Required for automatic updates. | [Windows Desktop](users/connect-windows.md) |
+| `query.prod.cms.rt.microsoft.com` | TCP | 443 | Download an MSI or MSIX package to update the client. Required for automatic updates. | [Windows Desktop](users/connect-windows.md) |
 | `graph.microsoft.com` | TCP | 443 | Service traffic | All |
-| `windows.cloud.microsoft.com` | TCP | 443 | Connection center | All |
+| `windows.cloud.microsoft` | TCP | 443 | Connection center | All |
 | `windows365.microsoft.com` | TCP | 443 | Service traffic | All |
+| `ecs.office.com` | TCP | 443 | Connection center | All |
 
 ---
 

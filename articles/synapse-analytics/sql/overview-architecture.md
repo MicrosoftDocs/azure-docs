@@ -4,14 +4,14 @@ description: Learn how Azure Synapse SQL combines distributed query processing c
 author: WilliamDAssafMSFT 
 manager: rothja
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: overview
 ms.subservice: sql
 ms.date: 11/01/2022
 ms.author: wiassaf
 ms.custom: engagement-fy23
 ---
 
-# Azure Synapse SQL architecture
+# What is Azure Synapse SQL architecture?
 
 This article describes the architecture components of Synapse SQL. It also explains how Azure Synapse SQL combines distributed query processing capabilities with Azure Storage to achieve high performance and scalability.
 
@@ -109,6 +109,6 @@ The diagram below shows a replicated table that is cached on the first distribut
 
 :::image type="content" source="./media/overview-architecture/replicated-table.png" alt-text="Screenshot of the replicated table cached on the first distribution on each compute node." lightbox="./media/overview-architecture/replicated-table.png" :::
 
-## Next steps
+## Related content
 
 Now that you know a bit about Synapse SQL, learn how to quickly [create a dedicated SQL pool](../quickstart-create-sql-pool-portal.md) and [load sample data](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md). Or start [using serverless SQL pool](../quickstart-sql-on-demand.md). If you're new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md) helpful as you encounter new terminology.

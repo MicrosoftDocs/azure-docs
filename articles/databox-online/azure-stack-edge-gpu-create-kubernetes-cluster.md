@@ -4,8 +4,7 @@ description: Describes how to create and manage a Kubernetes cluster on Azure St
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/18/2023
 ms.author: alkohli

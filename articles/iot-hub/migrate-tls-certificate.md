@@ -5,7 +5,7 @@ description: Migrate all Azure IoT hub instances to use the new DigiCert Global 
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 01/16/2024
 ---

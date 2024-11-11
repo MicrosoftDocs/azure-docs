@@ -99,46 +99,54 @@
       href: regional-capacity-quota.md
     - name: Understand default and individual user and group quotas
       href: default-individual-user-group-quotas-introduction.md
+    - name: Understand large volumes 
+      href: large-volumes.md
     - name: Requirements and considerations for large volumes
       href: large-volumes-requirements-considerations.md
   - name: Performance
     items:
-    - name: Performance considerations for Azure NetApp Files
-      href: azure-netapp-files-performance-considerations.md    
-    - name: Performance benchmark test recommendations for Azure NetApp Files
-      href: azure-netapp-files-performance-metrics-volumes.md 
-    - name: Performance benchmarks for Linux
-      href: performance-benchmarks-linux.md
-    - name: Large volume performance benchmarks for Linux
-      href: performance-large-volumes-linux.md
-    - name: Performance impact of Kerberos on NFSv4.1
-      href: performance-impact-kerberos.md
-    - name: Performance considerations for cool access 
-      href: performance-considerations-cool-access.md
-    - name: Oracle database performance on Azure NetApp Files single volumes
-      href: performance-oracle-single-volumes.md
-    - name: Oracle database performance on Azure NetApp Files multiple volumes
-      href: performance-oracle-multiple-volumes.md
-    - name: Azure NetApp Files datastore performance benchmarks for AVS 
-      href: performance-benchmarks-azure-vmware-solution.md
-    - name: AVS datastore performance considerations for Azure NetApp Files 
-      href: performance-azure-vmware-solution-datastore.md
-    - name: Performance reference for Azure NetApp Files
+    - name: Best practices and considerations
       items:
-      - name: Linux direct I/O best practices
-        href: performance-linux-direct-io.md
-      - name: Linux filesystem cache best practices
-        href: performance-linux-filesystem-cache.md
-      - name: Linux NFS mount options best practices
-        href: performance-linux-mount-options.md
-      - name: Linux concurrency best practices
-        href: performance-linux-concurrency-session-slots.md
-      - name: Linux NFS read-ahead best practices
-        href: performance-linux-nfs-read-ahead.md
-      - name: SMB performance best practices
-        href: azure-netapp-files-smb-performance.md
-      - name: Azure virtual machine SKUs' best practices
-        href: performance-virtual-machine-sku.md 
+        - name: General performance considerations for Azure NetApp Files
+          href: azure-netapp-files-performance-considerations.md  
+        - name: Understand workload types
+          href: workload-types.md
+        - name: Linux direct I/O best practices
+          href: performance-linux-direct-io.md
+        - name: Linux filesystem cache best practices
+          href: performance-linux-filesystem-cache.md
+        - name: Linux NFS mount options best practices
+          href: performance-linux-mount-options.md
+        - name: Linux concurrency best practices
+          href: performance-linux-concurrency-session-slots.md
+        - name: Linux NFS read-ahead best practices
+          href: performance-linux-nfs-read-ahead.md
+        - name: SMB performance best practices
+          href: azure-netapp-files-smb-performance.md
+        - name: Azure virtual machine SKUs best practices
+          href: performance-virtual-machine-sku.md 
+        - name: Performance considerations for cool access tiering
+          href: performance-considerations-cool-access.md
+        - name: Performance impact of Kerberos on NFSv4.1
+          href: performance-impact-kerberos.md
+        - name: AVS datastore performance considerations for Azure NetApp Files 
+          href: performance-azure-vmware-solution-datastore.md
+    - name: Performance tests
+      items:
+      - name: Performance benchmark test recommendations for Azure NetApp Files
+        href: azure-netapp-files-performance-metrics-volumes.md 
+      - name: Testing methodology
+        href: testing-methodology.md
+      - name: Regular volume performance benchmarks for Linux
+        href: performance-benchmarks-linux.md
+      - name: Large volume performance benchmarks for Linux
+        href: performance-large-volumes-linux.md
+      - name: Oracle database performance on Azure NetApp Files single volumes
+        href: performance-oracle-single-volumes.md
+      - name: Oracle database performance on Azure NetApp Files multiple volumes
+        href: performance-oracle-multiple-volumes.md
+      - name: Azure NetApp Files datastore performance benchmarks for AVS 
+        href: performance-benchmarks-azure-vmware-solution.md 
   - name: Application volume groups 
     items:
       - name: Understand application volume groups
@@ -337,8 +345,6 @@
         href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
       - name: Mount an SMB volume for Windows VMs
         href: mount-volumes-vms-smb.md
-      - name: Access SMB volume from Microsoft Entra joined Windows VM
-        href: access-smb-volume-from-windows-client.md
     - name: Manage volume capacity and performance 
       items:
       - name: Monitor the capacity of a volume

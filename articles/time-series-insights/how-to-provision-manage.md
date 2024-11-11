@@ -4,7 +4,7 @@ description: Learn how to manage an Azure Time Series Insights Gen 2 environment
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 ms.topic: conceptual
 ms.date: 03/15/2020
 ---
