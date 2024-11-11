@@ -34,8 +34,10 @@ items:
     - name: Discovery options
     - name: Discover using inventory import
       items:
-      - name: CMDB import
+      - name: CSV import
+        href: tutuorial-discover-import.md
       - name: RVTools import
+        href: tutorial-import-vmware-using-rvtools-xlsx.md
     - name: Discover using appliance
       items:
       - name: Identify suitable appliance
@@ -105,7 +107,6 @@ items:
       href: assessment-prerequisites.md
     - name: Cost and savings calculations # provide details about cost calculations, Reservations & savings plan calculations, Environment based calculations, license cost.
       href: cost-estimation.md   
-    - name: Retail vs. negotiated pricing
     - name: Performance-based assessments # help users understand how perf data is used in depth
     - name: Confidence rating
       href: confidence-ratings.md
@@ -120,11 +121,6 @@ items:
             href: assessment-report.md
           - name: Migration preference # talk about what each preference is and how that will identify recommended strategy
           - name: Compare assessment strategies
-          - name: PaaS preferred strategy 
-          - name: PaaS centric strategy
-          - name: IaaS centric strategy
-          - name: Native Azure solutions strategy
-          - name: Lift and shift strategy
     - name: Workload specific assessments
       items:
       - name: Azure VM assessment
@@ -188,8 +184,6 @@ items:
       - name: Prerequisites
       - name: Create a migration plan
       - name: Support matrix
-      - name: Create custom pre-migration tasks 
-      - name: Create custom post-migration tasks
       - name: Landing zone
         items:
           - name: Basics 
