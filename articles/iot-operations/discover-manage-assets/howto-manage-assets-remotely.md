@@ -114,7 +114,7 @@ An Azure IoT Operations deployment can include an optional built-in OPC PLC simu
 Run the following command:
 
 ```azurecli
-az iot ops asset endpoint opcua create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --instance {your instance name} 
+az iot ops asset endpoint create opcua --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --instance {your instance name} 
 ```
 
 > [!TIP]
