@@ -351,6 +351,17 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
 
 ## Development limitations in the Azure portal
 
+The following table shows the operating systems and languages that support in-portal editing:
+
+| Language | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
+| C# | | | | | |
+| Java | | | | | | |
+| JavaScript (Node.js) |✔|✔|✔| |✔|✔|
+| Python | | | |✔ |✔ |✔ |
+| PowerShell |✔|✔|✔| | | |
+| TypeScript (Node.js) | | | | | | |
+
 Consider these limitations when you develop your functions in the [Azure portal](https://portal.azure.com):
 
 + In-portal editing is supported only for functions that were created or last modified in the Azure portal.
