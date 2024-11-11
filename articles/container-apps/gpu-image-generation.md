@@ -99,6 +99,9 @@ In this tutorial you:
 
 From the *Overview* window, select the **Application Url** link to open the web app front end in your browser and use the GPU application.
 
+> [!NOTE]
+> To achieve the best performance of your GPU apps, follow the steps to [improve cold start for your serverless GPUs](gpu-serverless-overview.md#improve-gpu-cold-start).
+
 ## Monitor your GPU
 
 Once you generate an image, use the following steps to view results of the GPU processing:
