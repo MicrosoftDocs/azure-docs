@@ -80,6 +80,9 @@ To learn how to set up service endpoints, see [Establish Azure Functions private
 
 ### Virtual network integration
 
+This section details the features that Functions supports to control data outbound from your app.
+
+
 Virtual network integration gives your function app access to resources in your virtual network. Once integrated, your app will route outbound traffic through the virtual network. This allows your app to access private endpoints or resources with rules allowing traffic from only select subnets. When the destination is an IP address outside of the virtual network, the source IP will still be sent from the one of the addresses listed in your app's properties, unless you've configured a NAT Gateway.
 
 Azure Functions supports two kinds of virtual network integration:
