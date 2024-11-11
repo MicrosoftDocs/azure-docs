@@ -1,6 +1,6 @@
 ---
-title: Gather trace IDs for PersistentVolumeClaim failures
-description: Gather trace IDs for PersistentVolumeClaim failures
+title: "Azure Operator Nexus: Gather trace IDs for PersistentVolumeClaim failures"
+description: Learn how to gather trace IDs for pods stuck in 'ContainerCreating'
 ms.service: azure-operator-nexus
 ms.custom: how-to
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.author: peterwhiting
 author: pjw711
 ---
 
-# Gather trace IDs for PersistentVolumeClaim failures
+# Gather trace IDs for pods stuck in 'ContainerCreating'
 
 There are rare cases where pods using PersistentVolumeClaims referencing the 'nexus-volume' or 'nexus-shared' storage class can enter a stuck state. Pods can get stuck in the "ContainerCreating" state due to failures creating a volume or in attaching a volume to a node.
 
