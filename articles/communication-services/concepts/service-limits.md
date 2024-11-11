@@ -139,7 +139,7 @@ Azure Communication Services provides rich logs and analytics to help monitor an
 | Operation | Scope | Timeframe (minutes) | Limit (number of emails) |
 |---------|-----|-------------|-------------------|
 |Send Email|Per Subscription|1|30|
-|Send Email|Per Subscription|60|?100?|
+|Send Email|Per Subscription|60|100|
 |Get Email Status|Per Subscription|1|60|
 |Get Email Status|Per Subscription|60|200|
 
