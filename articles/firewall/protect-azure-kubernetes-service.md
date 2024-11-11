@@ -146,6 +146,11 @@ When the previous command has succeeded, save the firewall frontend IP address f
 
 FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
 FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIPAddress" -o tsv)
+
+
+# set fw as vnet dns server so dns queries are visible in fw logs
+
+az network vnet update -g $RG --name $VNET_NAME --dns-servers $FWPRIVATE_IP
 ```
 
 > [!NOTE]
@@ -191,6 +196,11 @@ az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aks
 
 ```azurecli
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
+
+# set fw application rule to allow kubernettes to reach storage and image resources
+
+az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwarweb' -n 'storage' --source-addresses '10.42.1.0/24' --protocols 'https=443' --target-fqdns '*.blob.storage.azure.net' '*.blob.core.windows.net' --action allow --priority 101
+az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwarweb' -n 'website' --source-addresses '10.42.1.0/24' --protocols 'https=443' --target-fqdns 'ghcr.io' '*.docker.io' '*.docker.com' '*.githubusercontent.com' 
 ```
 
 See [Azure Firewall documentation](overview.md) to learn more about the Azure Firewall service.

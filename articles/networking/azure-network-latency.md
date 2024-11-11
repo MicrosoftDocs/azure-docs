@@ -87,7 +87,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 156     | 152       |
 | Norway East         | 172     | 171       |
 | Norway West         | 167     | 167       |
-| Poland North        | 175     | 177       |
+| Poland Central       | 175     | 177       |
 | Qatar Central       | 264     | 254       |
 | South Africa North  | 294     | 291       |
 | South Africa West   | 278     | 275       |
@@ -139,7 +139,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 112        | 104              | 122              | 132             |
 | Norway East         | 136        | 127              | 136              | 150             |
 | Norway West         | 129        | 118              | 133              | 145             |
-| Poland North        | 141        | 129              | 141              | 155             |
+| Poland Central      | 141        | 129              | 141              | 155             |
 | Qatar Central       | 226        | 214              | 224              | 240             |
 | South Africa North  | 257        | 245              | 255              | 271             |
 | South Africa West   | 241        | 228              | 239              | 255             |
@@ -190,7 +190,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 88      | 95        |
 | Norway East         | 108     | 110       |
 | Norway West         | 102     | 103       |
-| Poland North        | 113     | 112       |
+| Poland Central      | 113     | 112       |
 | Qatar Central       | 196     | 199       |
 | South Africa North  | 227     | 230       |
 | South Africa West   | 210     | 214       |
@@ -240,7 +240,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 187          | 99             | 106         |
 | Norway East         | 211          | 114            | 124         |
 | Norway West         | 199          | 110            | 115         |
-| Poland North        | 210          | 123            | 129         |
+| Poland Central      | 210          | 123            | 129         |
 | Qatar Central       | 296          | 208            | 213         |
 | South Africa North  | 326          | 239            | 244         |
 | South Africa West   | 311          | 223            | 228         |
@@ -291,7 +291,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 296               | 283                 | 290            | 281                 |
 | Norway East         | 309               | 300                 | 303            | 290                 |
 | Norway West         | 305               | 294                 | 307            | 286                 |
-| Poland North        | 306               | 297                 | 303            | 286                 |
+| Poland Central      | 306               | 297                 | 303            | 286                 |
 | Qatar Central       | 184               | 182                 | 182            | 170                 |
 | South Africa North  | 280               | 278                 | 279            | 266                 |
 | South Africa West   | 295               | 294                 | 295            | 282                 |
@@ -342,7 +342,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 252        | 257        |
 | Norway East         | 272        | 276        |
 | Norway West         | 264        | 269        |
-| Poland North        | 277        | 279        |
+| Poland Central      | 277        | 279        |
 | Qatar Central       | 155        | 161        |
 | South Africa North  | 252        | 259        |
 | South Africa West   | 268        | 274        |
@@ -392,7 +392,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 19             | 28           | 41          | 19          |
 | Norway East         | 32             | 41           | 39          | 25          |
 | Norway West         | 25             | 35           | 39          | 18          |
-| Poland North        | 28             | 35           | 34          | 23          |
+| Poland Central      | 28             | 35           | 34          | 23          |
 | Qatar Central       | 124            | 114          | 126         | 132         |
 | South Africa North  | 156            | 154          | 167         | 163         |
 | South Africa West   | 141            | 138          | 152         | 147         |
@@ -415,7 +415,7 @@ Use the following tabs to view latency statistics for each region.
 
 #### [Central Europe](#tab/CentralEurope/Europe)
 
-| Source              | Germany North | Germany West Central | Poland North | Switzerland North | Switzerland West |
+| Source              | Germany North | Germany West Central | Poland Central | Switzerland North | Switzerland West |
 |---------------------|---------------|----------------------|--------------|-------------------|------------------|
 | Australia Central   | 296           | 292                  | 305          | 284               | 284              |
 | Australia Central 2 | 288           | 284                  | 297          | 278               | 279              |
@@ -443,7 +443,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 33            | 28                   | 39           | 33                | 27               |
 | Norway East         | 23            | 27                   | 31           | 30                | 33               |
 | Norway West         | 27            | 27                   | 35           | 30                | 33               |
-| Poland North        | 13            | 22                   |              | 25                | 27               |
+| Poland Central      | 13            | 22                   |              | 25                | 27               |
 | Qatar Central       | 136           | 131                  | 145          | 125               | 122              |
 | South Africa North  | 170           | 164                  | 179          | 165               | 161              |
 | South Africa West   | 154           | 151                  | 163          | 148               | 145              |
@@ -494,7 +494,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 39          | 34          | 43             |
 | Norway East         |             | 10          | 11             |
 | Norway West         | 11          |             | 17             |
-| Poland North        | 29          | 34          | 26             |
+| Poland Central      | 29          | 34          | 26             |
 | Qatar Central       | 149         | 144         | 153            |
 | South Africa North  | 183         | 176         | 186            |
 | South Africa West   | 167         | 160         | 170            |
@@ -544,7 +544,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe          |              | 13       | 16      |
 | Norway East           | 40           | 30       | 34      |
 | Norway West           | 35           | 25       | 27      |
-| Poland North          | 41           | 31       | 35      |
+| Poland Central        | 41           | 31       | 35      |
 | Qatar Central         | 140          | 130      | 133     |
 | South Africa North    | 172          | 162      | 165     |
 | South Africa West     | 158          | 147      | 151     |
@@ -597,7 +597,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 261           | 254         |
 | Norway East         | 271           | 265         |
 | Norway West         | 267           | 260         |
-| Poland North        | 267           | 261         |
+| Poland Central      | 267           | 261         |
 | Qatar Central       | 152           | 145         |
 | South Africa North  | 250           | 241         |
 | South Africa West   | 265           | 257         |
@@ -648,7 +648,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 146           | 160         | 164        |
 | Norway East         | 154           | 170         | 176        |
 | Norway West         | 148           | 162         | 172        |
-| Poland North        | 151           | 165         | 173        |
+| Poland Central      | 151           | 165         | 173        |
 | Qatar Central       | 41            | 55          | 65         |
 | South Africa North  | 138           | 153         | 158        |
 | South Africa West   | 153           | 168         | 174        |
@@ -702,7 +702,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 229       | 198            |
 | Norway East         | 240       | 208            |
 | Norway West         | 236       | 204            |
-| Poland North        | 237       | 205            |
+| Poland Central       | 237       | 205            |
 | Qatar Central       | 121       | 90             |
 | South Africa North  | 218       | 188            |
 | South Africa West   | 233       | 203            |
@@ -752,7 +752,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 70             | 139           | 127         | 129       |
 | Norway East         | 83             | 150           | 138         | 140       |
 | Norway West         | 81             | 146           | 134         | 136       |
-| Poland North        | 69             | 146           | 134         | 136       |
+| Poland Central       | 69             | 146           | 134         | 136       |
 | Qatar Central       | 153            |               | 16          | 17        |
 | South Africa North  | 195            | 117           | 105         | 102       |
 | South Africa West   | 183            | 132           | 121         | 118       |
@@ -803,7 +803,7 @@ Use the following tabs to view latency statistics for each region.
 | North Europe        | 172                | 155              |
 | Norway East         | 184                | 167              |
 | Norway West         | 177                | 160              |
-| Poland North        | 180                | 163              |
+| Poland Central       | 180                | 163              |
 | Qatar Central       | 118                | 131              |
 | South Africa North  |                    | 20               |
 | South Africa West   | 21                 |                  |
