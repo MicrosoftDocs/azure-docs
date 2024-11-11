@@ -3,7 +3,7 @@ title: Transition to centrally managed Azure Hybrid Benefit
 description: This article describes the changes and several transition scenarios to illustrate transitioning to centrally managed Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/21/2024
+ms.date: 11/11/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -12,6 +12,9 @@ ms.subservice: ahb
 # Transition to centrally managed Azure Hybrid Benefit
 
 When you transition to centrally managed Azure Hybrid Benefit, it removes the need to configure the benefit at the resource level. This article describes the changes and several transition scenarios to illustrate the result. For a better understanding about how the new scope-level license management experience applies licenses and discounts to your resources, see [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md)
+
+> [!NOTE]
+> When you have SQL Server licenses applied with centrally managed SQL Azure Hybrid Benefit in your Enterprise Agreement and then transfer the agreement to a Microsoft Customer Agreement (enterprise), the licenses don’t automatically transfer. After your new agreement migration completes, you must manually assign licenses with centrally managed SQL Hybrid Benefit. For more information about migrating from an Enterprise Agreement to a Microsoft Customer Agreement (enterprise), see [Set up your billing account for a Microsoft Customer Agreement](../manage/mca-setup-account.md).
 
 ## Changes to individual resource configuration
 
