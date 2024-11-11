@@ -51,7 +51,7 @@ In this tutorial you:
 
     | Setting | Value |
     |---|---|
-    | Region | Select **West US 3**. |
+    | Region | Select **West US 3**. <br><br>For more supported regions, refer to [Using serverless GPUs in Azure](gpu-serverless-overview.md#supported-regions). |
     | Container Apps environment | Select **Create new**. |
 
     In the *Create Container Apps environment* window, enter the following values:
