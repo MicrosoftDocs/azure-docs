@@ -207,7 +207,7 @@ Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS ce
 
     If you're logging in on subsequent occasions continue to step 4.
 
-1. To start the `Sensor Config` wizard, at the prompt type `network reconfigure`. If you are using the cyberx user, type `ERSPAN=1 python3 -m cyberx.config.configure`.
+1. To start the `Sensor Config` wizard, at the prompt type `network reconfigure`. If you are using the cyberx user, type `TUNNEL=1 python3 -m cyberx.config.configure`.
 
 1. The `Sensor Config` screen shows the present setup of the interfaces. Ensure that one interface is set as the management interface. In this wizard, use the up or down arrows to navigate, and the **SPACE** bar to select an option. Press **ENTER** to advance to the next screen.
 
