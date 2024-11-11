@@ -160,7 +160,7 @@ To reduce alert fatigue, multiple versions of the same alert with identical para
     :::image type="content" source="media/how-to-manage-cloud-alerts/alert-details-aggregated-csv.png" alt-text="Screenshot of the alerts detail pane showing the aggregated alerts message, the ViolationsCount and the Violations tab":::
 
 1. Select the **Take action** tab. Follow the **Remediation steps**.
-1. Select the **Learn** button so that Defender for IoT learns that this doesn't need to create an alert item for this activity in the future.
+1. Select the **Learn** button, if appropriate, so that Defender for IoT learns that this network activity doesn't need to create an alert item in the future.
 
 ## Next steps
 
