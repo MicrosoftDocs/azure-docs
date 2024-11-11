@@ -23,6 +23,23 @@ In this tutorial you:
 > [!NOTE]
 > Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](./sessions.md#preview-limitations) for more information.
 
+> [!NOTE]
+> Sessions supporting NodeJS runtime are currently supported only in the below regions
+> ```
+> - Central US EUAP
+> - East US 2 EUAP
+> - West US 2
+> - East US
+> - East Asia
+> - North Central US
+> - Germany West Central
+> - Poland Central
+> - Italy North
+> - Switzerland North
+> - Australia East
+> - West Central US
+> ```
+
 ## Prerequisites
 
 You need the following resources before you begin this tutorial.
