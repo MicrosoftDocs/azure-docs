@@ -62,5 +62,9 @@ We invite you to test out 2 new additinal capacibilities on Compute Fleet...
 ### Attribute based VM selection
   A new feature that Enables users to scale fleets based on VM attributes instead of explicitly chosen VM sizes.
 
+## SDK - Compute Fleet
+
+
+
 ## Next steps
 > [Create an Azure Compute Fleet with Azure portal.](quickstart-create-portal.md)
