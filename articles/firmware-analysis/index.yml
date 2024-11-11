@@ -1,0 +1,55 @@
+### YamlMime:Landing
+
+title: Firmware analysis Preview # < 60 chars
+summary: Analyze firmware images for security vulnerabilities # < 160 chars
+
+metadata:
+  title: Firmware analysis Preview # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Analyze firmware images for security vulnerabilities # Required; article description that is displayed in search results. < 160 chars.
+  ms.topic: landing-page # Required
+  ms.custom:
+  author: karengu0
+  ms.author: karenguo
+  ms.date: 11/11/2024
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is Azure IoT Operations?
+            url: overview-iot-operations.md
+          - text: Get started with an end-to-end sample
+            url: get-started-end-to-end-sample/quickstart-deploy.md
+  # Card
+  - title: Common scenarios
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Azure IoT Operations to a cluster
+            url: deploy-iot-ops/howto-deploy-iot-operations.md
+          - text: Discover and manage assets
+            url: discover-manage-assets/overview-manage-assets.md
+          - text: MQTT broker overview
+            url: manage-mqtt-broker/overview-iot-mq.md
+          - text: Route and transform data
+            url: connect-to-cloud/overview-dataflow.md
+          - text: Manage layered network
+            url: manage-layered-network/overview-layered-network.md
+          - text: Configure observability and monitoring
+            url: configure-observability-monitoring/howto-configure-observability.md
+
+  # Card
+  - title: Connect to cloud services
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create a dataflow
+            url: connect-to-cloud/howto-create-dataflow.md
+          - text: Configure dataflow endpoint
+            url: connect-to-cloud/howto-configure-dataflow-endpoint.md
+
