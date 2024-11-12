@@ -17,27 +17,31 @@ ms.date: 11/06/2024
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-To customize the network access and security use the BrokerListener resource. A listener corresponds to a network endpoint that exposes the broker to the network. You can have one or more BrokerListener resources for each Broker, and thus multiple ports with different access control each.
+A BrokerListener corresponds to a network endpoint that exposes the broker to clients over the network. You can have one or more BrokerListener resources for each Broker, with multiple ports and different access control on each.
 
-Each listener port can have its own authentication and authorization rules that define who can connect to the listener and what actions they can perform on the broker. You can use [BrokerAuthentication](./howto-configure-authentication.md) and [BrokerAuthorization](./howto-configure-authorization.md) resources to specify the access control policies for each listener. This flexibility allows you to fine-tune the permissions and roles of your MQTT clients, based on their needs and use cases.
+Each BrokerListener port can have its own authentication and authorization rules that define who can connect on that listener port and what actions they can perform on the broker. You can use [BrokerAuthentication](./howto-configure-authentication.md) and [BrokerAuthorization](./howto-configure-authorization.md) resources to specify the access control policies for each listener port. This flexibility allows you to fine-tune the permissions and roles for your MQTT clients based on their needs and use cases.
 
 > [!TIP]
-> You can only access the default MQTT broker deployment by using the cluster IP, TLS, and a service account token. Clients connecting from outside the cluster [need extra configuration](./howto-test-connection.md) before they can connect.
+> The default MQTT broker deployment is a cluster IP service that requires clients to connect with TLS and authenticate with service account tokens. Clients connecting from outside the cluster [need extra configuration](./howto-test-connection.md) before they can connect.
 
 Broker listeners have the following characteristics:
 
 - **Name**: Name of the listener. This name is also the Kubernetes service name [unless overridden](#service-name).
 - **Service type**: You can have up to three listeners, one per [service type](#service-type). The [default listener](#default-brokerlistener) is service type `ClusterIp`.
 - **Ports**: Each listener supports [multiple ports](#ports). Ports [can't conflict over different listeners](#using-same-port-across-listeners).
-- **Authentication and Authorization**: [BrokerAuthentication](./howto-configure-authentication.md) and [BrokerAuthorization](./howto-configure-authorization.md) are configured per port.
+- **Authentication and Authorization references**: [BrokerAuthentication](./howto-configure-authentication.md) and [BrokerAuthorization](./howto-configure-authorization.md) are configured per port.
 - **TLS**: [Manual](#enable-tls-manual-certificate-management-for-a-port) or [automatic](#enable-tls-automatic-certificate-management-for-a-port) TLS configuration is applied per port.
-- **WebSockets**: [MQTT over WebSockets](#websockets-support) can be enabled per port.
+- **Protocol**: [MQTT over WebSockets](#websockets-support) can be enabled per port.
 
 For a list of all available settings, see the [Broker Listener API reference](/rest/api/iotoperationsmq/broker-listener).
 
 ## Default BrokerListener
 
-When you deploy Azure IoT Operations, the deployment also creates a BrokerListener resource named `default`. This listener is used for encrypted internal communication between Azure IoT Operations components. The default listener is part of the [default Broker](./overview-broker.md#default-broker-resource), exposes a [ClusterIp service](https://kubernetes.io/docs/concepts/services-networking/service/#type-clusterip) on port 18883, uses [Kubernetes service account authentication](./howto-configure-authentication.md#default-brokerauthentication-resource), has an [automatically managed](#configure-tls-with-automatic-certificate-management) TLS certificate, and doesn't use any authorization.
+When you deploy Azure IoT Operations, the deployment creates a BrokerListener resource named `default`. This listener is used for encrypted internal communication between Azure IoT Operations components. The default listener is part of the [default Broker](./overview-broker.md#default-broker-resource).
+- It exposes a [ClusterIp service](https://kubernetes.io/docs/concepts/services-networking/service/#type-clusterip) on port 18883
+- It requires clients to use [Kubernetes service account authentication](./howto-configure-authentication.md#default-brokerauthentication-resource)
+- It has an [automatically managed](#configure-tls-with-automatic-certificate-management) TLS certificate
+- It doesn't configure any client authorization policies
 
 > [!CAUTION]
 > To avoid disrupting internal Azure IoT Operations communication, keep the default listener unchanged and dedicated for internal use. For external communication, [create a new listener](#create-new-broker-listeners). If you need to use the ClusterIp service, add more ports to the default listener without changing any of the existing settings.
@@ -190,9 +194,9 @@ To create a new listener, specify the following settings:
 
 ### Example: Create a new listener with two ports
 
-This example shows how to create a new listener with load balancer service type. The BrokerListener resource defines a two ports that accept MQTT connections from clients.
+This example shows how to create a new listener with load balancer service type. The BrokerListener resource defines two ports that accept MQTT connections from clients.
 
-- The first port listens on port 1883 without TLS and authentication. Clients can connect to the broker without encryption or authentication. This setup is suitable for testing only. [Don't use this configuration in production](./howto-test-connection.md#only-turn-off-tls-and-authentication-for-testing).
+- The first port listens on port 1883 without TLS and authentication. This setup is suitable for testing only. [Don't use this configuration in production](./howto-test-connection.md#only-turn-off-tls-and-authentication-for-testing).
 - The second port listens on port 8883 with TLS and authentication enabled. Only [authenticated clients with a Kubernetes service account token](./howto-configure-authentication.md#default-brokerauthentication-resource) can connect. TLS is set to [automatic mode](#enable-tls-automatic-certificate-management-for-a-port), using cert-manager to manage the server certificate from the [default issuer](../secure-iot-ops/concept-default-root-ca.md#default-self-signed-issuer-and-root-ca-certificate-for-tls-server-certificates). This setup is closer to a production configuration.
 
 # [Portal](#tab/portal)
@@ -347,14 +351,14 @@ Only one listener per service type is allowed. If you need more connectivity of 
 
 ## Service name
 
-The service name is the name of the Kubernetes service that exposes the broker. If not specified, the broker listener name is used as the service name. The service name must be unique within the namespace.
+The service name is the name of the Kubernetes service associated with the broker. If not specified, the broker listener name is used as the service name. The service name must be unique within the namespace.
 
 > [!TIP]
 > To prevent management overhead, we recommend leaving the service name empty. The listener name is unique and can be used to identify the service. Use the service name as an override only when you can't name the service after the listener.
 
 ## Ports
 
-Each listener can have multiple ports, and each port can have its own settings for authentication, authorization, websockets, and TLS. 
+Each listener can have multiple ports, and each port can have its own settings for authentication, authorization, protocol, and TLS. 
 
 To use your own authentication or authorization setting for a port, you must create the corresponding resources before using it with a listener. For more information, see [Configure MQTT broker authentication](howto-configure-authentication.md) and [Configure MQTT broker authorization](howto-configure-authorization.md).
 
@@ -411,13 +415,13 @@ The CA issuer is useful for development and testing. It must be configured with 
 
 #### Set up the root certificate as a Kubernetes secret
 
-If you have an existing CA certificate, create a Kubernetes secret with the CA certificate and private key PEM files. Run the following command and you have set up the root certificate as a Kubernetes secret and can skip the next section.
+If you have an existing CA certificate, create a Kubernetes secret with the CA certificate and CA private key PEM files. Run the following command to import the CA certificate as a Kubernetes secret and skip the next section.
 
 ```bash
 kubectl create secret tls test-ca --cert tls.crt --key tls.key -n azure-iot-operations
 ```
 
-If you don't have a CA certificate, cert-manager can generate a root CA certificate for you. Using cert-manager to generate a root CA certificate is known as [bootstrapping](https://cert-manager.io/docs/configuration/selfsigned/#bootstrapping-ca-issuers) a CA issuer with a self-signed certificate.
+If you don't have a CA certificate, cert-manager can generate a CA certificate for you. Using cert-manager to generate a CA certificate is known as [bootstrapping](https://cert-manager.io/docs/configuration/selfsigned/#bootstrapping-ca-issuers) a CA issuer with a self-signed certificate.
 
 1. Start by creating `ca.yaml`:
 
@@ -468,7 +472,7 @@ The prior example stores the CA certificate in a Kubernetes secret called `test-
 kubectl get secret test-ca -n azure-iot-operations -o json | jq -r '.data["tls.crt"]' | base64 -d > ca.crt
 ```
 
-This certificate must be distributed and trusted by all clients. For example, use `--cafile` flag for a mosquitto client.
+This certificate must be distributed and trusted by all clients. For example, use the `--cafile` flag for a mosquitto client.
 
 #### Create issuer based on CA certificate
 
@@ -492,15 +496,15 @@ Create the issuer with the following command:
 kubectl apply -f issuer-ca.yaml
 ```
 
-The prior command creates an issuer for issuing the TLS server certificates. Note the name and kind of the issuer. In the example,  name `my-issuer` and kind `Issuer`. These values are set in the BrokerListener resource later.
+The prior command creates an issuer for issuing TLS server certificates. Note the name and kind of the issuer. In the example, the name is `my-issuer` and the kind is `Issuer`. These values are set in the BrokerListener resource later.
 
 # [Production](#tab/prod)
 
-For production, check cert-manager documentation to see which issuer works best for you. For example, with [Vault Issuer](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-cert-manager):
+For production, check cert-manager documentation to see which Issuer works best for you. For example, with thet [Vault Issuer](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-cert-manager):
 
-1. Deploy the vault in an environment of choice, like [Kubernetes](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-raft-deployment-guide). Initialize and unseal the vault accordingly.
+1. Deploy HashiCorp Vault in an environment of choice, like [Kubernetes](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-raft-deployment-guide). Initialize and unseal the Vault accordingly.
 1. Create and configure the PKI secrets engine by importing your CA certificate.
-1. Configure vault with role and policy for issuing server certificates.
+1. Configure Vault with role and policy for issuing server certificates.
 
     The following is an example role. Note `ExtKeyUsageServerAuth` makes the server certificate work:
 
@@ -521,7 +525,7 @@ For production, check cert-manager documentation to see which issuer works best 
     }
     ```
 
-1. Set up authentication between cert-manager and vault using a method of choice, like [SAT](https://developer.hashicorp.com/vault/docs/auth/kubernetes).
+1. Set up authentication between cert-manager and Vault using a method of choice, like [SAT](https://developer.hashicorp.com/vault/docs/auth/kubernetes).
 1. [Configure the cert-manager Vault Issuer](https://cert-manager.io/docs/configuration/vault/).
 
 ---
@@ -646,7 +650,7 @@ Once the BrokerListener resource is configured, MQTT broker automatically create
 
 #### Optional: Configure server certificate parameters
 
-The only required parameters are issuer name and issuer kind. All properties of the generated TLS server certificates are automatically chosen. However, MQTT broker allows certain properties to be customized following the same syntax as cert-manager Certificates. For example, you can specify the private key algorithm and rotation policy. These settings are under `tls.certManagerCertificateSpec` or the **TLS configuration** pane in the Azure portal.
+The only required parameters are Issuer name and Issuer kind. All other properties of the generated TLS server certificates are automatically chosen. However, MQTT broker allows certain properties to be customized following the same syntax as cert-manager Certificates. For example, you can specify the private key algorithm and rotation policy. These settings are under `tls.certManagerCertificateSpec` or the **TLS configuration** pane in the Azure portal.
 
 For a full list of these settings, see [Broker Listener CertManagerCertificateSpec API reference](/rest/api/iotoperationsmq/broker-listener/create-or-update#certmanagercertificatespec).
 
@@ -679,13 +683,13 @@ Remember to specify authentication methods if needed.
 
 ### Default root CA and issuer
 
-To help you get started, Azure IoT Operations is deployed with a default "quickstart" root CA and issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer for TLS server certificates](../deploy-iot-ops/concept-default-root-ca.md).
+To help you get started, Azure IoT Operations is deployed with a default "quickstart" CA certificate and issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer for TLS server certificates](../deploy-iot-ops/concept-default-root-ca.md).
 
 For production, you must configure a CA issuer with a certificate from a trusted CA, as described in the previous sections.
 
 ## Configure TLS with manual certificate management
 
-To manually configure MQTT broker to use a specific TLS certificate, specify it in a BrokerListener resource with a reference to a Kubernetes secret. Then deploy it using kubectl. This article shows an example to configure TLS with self-signed certificates for testing.
+To manually configure MQTT broker to use a specific TLS certificate, specify it in a BrokerListener resource with a reference to a Kubernetes secret and deploy it using kubectl. This article shows an example that configures TLS with self-signed certificates for testing.
 
 ### Create certificate authority with Step CLI
 
@@ -718,7 +722,7 @@ step certificate create mqtts-endpoint mqtts-endpoint.crt mqtts-endpoint.key \
 --no-password --insecure
 ```
 
-Here, `mqtts-endpoint` and `localhost` are the Subject Alternative Names (SANs) for MQTT broker's frontend in Kubernetes and local clients, respectively. To connect over the internet, add a `--san` with [an external IP](#use-external-ip-for-the-server-certificate). The `--no-password --insecure` flags are used for testing to skip password prompts and disable password protection for the private key because it's stored in a Kubernetes secret. For production, use a password and store the private key in a secure location like Azure Key Vault.
+Here, `mqtts-endpoint` and `localhost` are the Subject Alternative Names (SANs) for MQTT broker's frontend in Kubernetes and local clients, respectively. To connect over the Internet, add a `--san` with [an external IP](#use-external-ip-for-the-server-certificate). The `--no-password --insecure` flags are used for testing to skip password prompts and disable password protection for the private key because it's stored in a Kubernetes secret. For production, use a password and store the private key in a secure location like Azure Key Vault.
 
 #### Certificate key algorithm requirements
 
@@ -757,7 +761,7 @@ The following is an example of a BrokerListener resource that enables TLS on por
 
     | Setting        | Description                                                                                   |
     | -------------- | --------------------------------------------------------------------------------------------- |
-    | Port           | Port number on which the BrokerListener listens for MQTT connections.  Required.              |
+    | Port           | Port number on which the BrokerListener listens for MQTT connections. Required.               |
     | Authentication | The [authentication resource reference](howto-configure-authentication.md).                   |
     | Authorization  | The [authorization resource reference](howto-configure-authorization.md).                     |
     | TLS            | Select the *Add* button.                                                                      |
@@ -856,6 +860,8 @@ To test the TLS connection with mosquitto client, publish a message and pass the
 mosquitto_pub -d -h localhost -p 8885 -i "my-client" -t "test-topic" -m "Hello" --cafile root_ca.crt
 ```
 
+Remember to specify username, password, etc. if MQTT broker authentication is enabled.
+
 ```Output
 Client my-client sending CONNECT
 Client my-client received CONNACK (0)
@@ -867,13 +873,11 @@ Client my-client sending DISCONNECT
 > To use localhost, the port must be available on the host machine. For example, `kubectl port-forward svc/mqtts-endpoint 8885:8885 -n azure-iot-operations`. With some Kubernetes distributions like K3d, you can add a forwarded port with `k3d cluster edit $CLUSTER_NAME --port-add 8885:8885@loadbalancer`.
 
 > [!NOTE]
-> To connect to the broker you need to distribute root of trust to the clients, also known as trust bundle. In this case the root of trust is the self-signed root CA created Step CLI. Distribution of root of trust is required for the client to verify the server certificate chain. If your MQTT clients are workloads on the Kubernetes cluster you also need to create a ConfigMap with the root CA and mount it in your Pod.
-
-Remember to specify username, password, etc. if MQTT broker authentication is enabled.
+> To connect to the broker, you need to distribute root of trust, also known as trust bundle, to all clients. In this case, the root of trust is the self-signed root CA created by Step CLI. Distribution of root of trust is required for the client to verify the server certificate chain. If your MQTT clients are workloads on the Kubernetes cluster you also need to create a ConfigMap with the root CA and mount it in your Pod.
 
 #### Use external IP for the server certificate
 
-To connect with TLS over the internet, MQTT broker's server certificate must have its external hostname as a SAN. In production, this is usually a DNS name or a well-known IP address. However, during dev/test, you might not know what hostname or external IP is assigned before deployment. To solve this, deploy the listener without the server certificate first, then create the server certificate and secret with the external IP, and finally import the secret to the listener.
+To connect with TLS over the Internet, MQTT broker's server certificate must have its external hostname or IP address as a SAN. In production, this is usually a DNS name or a well-known IP address. However, during dev/test, you might not know what hostname or external IP is assigned before deployment. To solve this, deploy the listener without the server certificate first, create the server certificate and secret with the external IP, and import the secret to the listener.
 
 If you try to deploy the example TLS listener `manual-tls-listener` but the referenced Kubernetes secret `server-cert-secret` doesn't exist, the associated service gets created, but the pods don't start. The service is created because the operator needs to reserve the external IP for the listener.
 
@@ -886,7 +890,7 @@ NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)     
 mqtts-endpoint         LoadBalancer   10.X.X.X        172.X.X.X     8885:30674/TCP      1m15s
 ```
 
-However, this behavior is expected and it's okay to leave it like this while we import the server certificate. The health manager logs mention MQTT broker is waiting for the server certificate.
+However, this behavior is expected while we import the server certificate. The health manager logs mention MQTT broker is waiting for the server certificate.
 
 ```bash
 kubectl logs -l app=health-manager -n azure-iot-operations
