@@ -15,6 +15,8 @@
       href: concepts-storage.md
     - name: Cluster deployment
       href: concepts-cluster-deployment-overview.md
+    - name: Cluster Runtime upgrade
+      href: concepts-cluster-upgrade-overview.md
     - name: Network Fabric
       expanded: false
       items:
