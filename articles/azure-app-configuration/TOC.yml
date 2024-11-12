@@ -182,6 +182,8 @@
     href: concept-point-time-snapshot.md
   - name: Feature management
     href: concept-feature-management.md
+  - name: Experimentation
+    href: concept-experimentation.md
   - name: Configuration files
     href: concept-config-file.md
   - name: Event handling
