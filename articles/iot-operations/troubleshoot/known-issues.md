@@ -21,6 +21,8 @@ This article lists the known issues for Azure IoT Operations.
 
 - Directly editing **SecretProviderClass** and **SecretSync** custom resources in your Kubernetes cluster can break the secrets flow in Azure IoT Operations. For any operations related to secrets, use the operations experience UI.
 
+- During and after deploying Azure IoT Operations, you might see warnings about `Unable to retrieve some image pull secrets (regcred)` in the logs and Kubernetes events. These warnings are expected and don't affect the deployment and use of Azure IoT Operations.
+
 ## MQTT broker
 
 - MQTT broker resources created in your cluster using Kubernetes aren't visible Azure portal. This is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
