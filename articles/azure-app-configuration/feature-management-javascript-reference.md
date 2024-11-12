@@ -669,11 +669,15 @@ const featureManager = new FeatureManager(featureProvider, { onFeatureEvaluated 
 
 The JavaScript feature management library provide extension packages that integration with [Application Insights](/azure/azure-monitor/app/app-insights-overview) sdks.
 
+The Application Insights offers different sdks for [web](https://www.npmjs.com/package/@microsoft/applicationinsights-web) and [Node.js](https://www.npmjs.com/package/applicationinsights) scenarios. Please select the correct extension packages for your application.
+
+### [Browser](#tab/browser)
+
 If your application runs in the browser, install the `"@microsoft/feature-management-applicationinsights-browser"` package. The following example shows how you can create a built-in Application Insights telemetry publisher and register it to the feature manager.
 
 ``` javascript
 import { ApplicationInsights } from "@microsoft/applicationinsights-web"
-import { createTelemetryPublisher } from "@microsoft/feature-management-applicationinsights-browser"
+import { createTelemetryPublisher, trackEvent } from "@microsoft/feature-management-applicationinsights-browser"
 
 const appInsights = new ApplicationInsights({ config: {
   connectionString: "<your-connection-string>"
@@ -683,7 +687,35 @@ appInsights.loadAppInsights();
 ...
 const telemetryPublisher = createTelemetryPublisher(appInsights);
 const featureManager = new FeatureManager(ffProvider, { onFeatureEvaluated: telemetryPublisher});
+
+...
+// Emit a custom event with targeting id attached.
+trackEvent(appInsights, TARGETING_ID, {name: "TestEvent"}, {"Tag": "Some Value"});
 ```
+
+### [Node.js](#tab/nodejs)
+
+If your application runs in the Node.js, install the `"@microsoft/feature-management-applicationinsights-node"` package. The following example shows how you can create a built-in Application Insights telemetry publisher and register it to the feature manager.
+
+``` javascript
+import ApplicationInsights from "applicationinsights"
+import { createTelemetryPublisher, trackEvent } from "@microsoft/feature-management-applicationinsights-node"
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: "<your-connection-string>"
+}});
+appInsights.loadAppInsights();
+
+...
+const telemetryPublisher = createTelemetryPublisher(appInsights.defaultClient);
+const featureManager = new FeatureManager(ffProvider, { onFeatureEvaluated: telemetryPublisher});
+
+...
+// Emit a custom event with targeting id attached.
+trackEvent(appInsights.defaultClient, TARGETING_ID, {name: "TestEvent"});
+```
+
+---
 
 The telemetry publisher sends `FeatureEvaluation` custom events to the Application Insights when a feature flag enabled with telemetry is evaluated. The custom event follows the [FeatureEvaluationEvent](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent) schema.
 
