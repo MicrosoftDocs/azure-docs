@@ -37,7 +37,7 @@ If you're new to Security Copilot, you should familiarize yourself with it by re
 
 This integration primarily supports the standalone experience accessed through [https://securitycopilot.microsoft.com](https://securitycopilot.microsoft.com), where you interact in a chat-like experience to summarize incidents and get other answers about your security data. For more information, see [Microsoft Security Copilot experiences](/security-copilot/experiences-security-copilot#standalone-and-embedded-experiences).
 
-### Key features
+## Key features
 
 Microsoft Sentinel data integrates with Security Copilot in two ways.
 
