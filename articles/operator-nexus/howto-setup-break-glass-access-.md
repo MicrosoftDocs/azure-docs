@@ -77,7 +77,7 @@ As part of the **Secure Future Initiative (SFI)**, **On-Behalf-Of (OBO) tokens**
 
    - **Principal:** NexusIdentityRP
 
-:::image type="content" source="media/breakglass-breakglass-constrain-roles-principals.png" alt-text="Screenshot of adding roles and principals":::
+:::image type="content" source="media/breakglass-constrain-roles-principals.png" alt-text="Screenshot of adding roles and principals":::
 
 4. Click **Save** to finalize the configuration.
 
