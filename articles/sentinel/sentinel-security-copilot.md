@@ -35,9 +35,13 @@ If you're new to Security Copilot, you should familiarize yourself with it by re
 
 ## Security Copilot integration with Microsoft Sentinel
 
+This integration primarily supports the standalone experience accessed through [https://securitycopilot.microsoft.com](https://securitycopilot.microsoft.com), where you interact in a chat-like experience to summarize incidents and get other answers about your security data. For more information, see [Microsoft Security Copilot experiences](/security-copilot/experiences-security-copilot#standalone-and-embedded-experiences).
+
+### Key features
+
 Microsoft Sentinel data integrates with Security Copilot in two ways.
 
-1. In Microsoft's unified security operations platform, Copilot in Microsoft Defender XDR benefits from unified incidents with Microsoft Sentinel.
+1. In Microsoft's unified security operations platform, Copilot in Microsoft Defender XDR benefits from unified incidents integrated with Microsoft Sentinel.
 1. In the standalone experience, Microsoft Sentinel provides two plugins to integrate with Security Copilot:
    - **Microsoft Sentinel (Preview)**
    - **Natural language to KQL for Microsoft Sentinel (Preview)**.
