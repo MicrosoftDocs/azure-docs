@@ -9,11 +9,7 @@
   - name: Serverless comparison
     href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=/azure/azure-functions/durable/toc.json
   - name: Durable Functions versions
-    items:
-    - name: Durable Functions v2
-      href: durable-functions-versions.md
-    - name: Durable Functions v3
-      href: durable-functions-versions-v3.md
+    href: durable-functions-versions.md
   - name: Durable Functions for .NET isolated
     href: durable-functions-dotnet-isolated-overview.md
   - name: Durable Functions packages
