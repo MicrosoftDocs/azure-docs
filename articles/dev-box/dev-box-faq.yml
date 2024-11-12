@@ -31,8 +31,7 @@ sections:
 
       - question: How are backup, high-availability, and disaster recovery implemented in Microsoft Dev Box? 
         answer: |
-          Dev Box doesn't provide high-availability and disaster recovery functions. If there's an Azure regional outage, customers lose access to Dev Box in that region. They must implement manual disaster recovery and re-create new Dev Boxes.
-          Customers should design and implement high-availability and disaster recovery solutions that suit their requirements. 
+          [Existing business continuity and disaster recovery mechanisms for Windows 365](https://learn.microsoft.com/en-us/windows-365/business-continuity-disaster-recovery) also apply to Dev Box. Learn more about upcoming functionalities that will enhance disaster recovery for Dev Box on the [Dev Box roadmap](https://learn.microsoft.com/en-us/azure/dev-box/dev-box-roadmap#fundamental-performance--reliability).  
 
       - question: What is the preferred monitoring solution?
         answer: |
