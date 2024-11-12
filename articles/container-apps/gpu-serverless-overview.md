@@ -32,9 +32,9 @@ When you use serverless GPUs in Container Apps, your apps get:
 
 - **Built-in data governance**: Your data never leaves the container boundary.
 
-- **Flexible compute options**: You can choose between the NVIDIA A100 or T4 compute profiles.
+- **Flexible compute options**: You can choose between the NVIDIA A100 or T4 GPU types.
 
-- **Middle-layer for AI development**: Bring your own AI model on a managed, serverless compute platform.
+- **Middle-layer for AI development**: Bring your own model on a managed, serverless compute platform.
 
 ## Common scenarios
 
