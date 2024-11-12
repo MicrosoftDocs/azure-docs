@@ -66,7 +66,7 @@ Most `azd` templates also optionally include one or more of the following folder
 
 Azure Deployment Environments catalogs consist of environment definitions: IaC templates that define the infrastructure resources that are provisioned for a deployment environment. Azure Developer CLI uses environment definitions in the catalog attached to the dev center to provision new environments. 
 
-Azure Developer CLI works with ARM templates stored in the Azure Deployment Environments dev center catalog. It also supports other IaC templates, such as Bicep and Terraform through the ADE extensibility model. To learn how to configure the ADE extensibility model, see [Azure Deployment Environments extensibility model](/azure/developer/azure-developer-cli/ade-extensibility-model).
+Azure Developer CLI works with ARM templates stored in the Azure Deployment Environments dev center catalog. It also supports other IaC templates, such as Bicep and Terraform through the ADE extensibility model. To learn how to configure the ADE extensibility model, see [Azure Deployment Environments extensibility model](how-to-configure-extensibility-model-custom-image.md).
 
 To properly support certain Azure Compute services, Azure Developer CLI requires more configuration settings in the IaC template. For example, you must tag app service hosts with specific information so that `azd` knows how to find the hosts and deploy the app to them.
 
