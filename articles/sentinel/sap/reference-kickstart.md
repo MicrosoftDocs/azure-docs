@@ -1,27 +1,27 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications container kickstart deployment script reference | Microsoft Docs
+title: Kickstart deployment script reference for the Microsoft Sentinel for SAP applications data connector agent
 description: Description of command line options available with kickstart deployment script
 author: batamig
 ms.author: bagol
 ms.topic: reference
-ms.date: 04/03/2024
-
-
+ms.date: 09/15/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 #Customer intent: As an SAP BASIS team member, I want to understand the options in the kickstart script used to deploy and configure a container hosting the SAP data connector, so that I can streamline the setup process and manage secrets storage and network configurations efficiently.
 
 ---
 
-# Kickstart script reference
+# Kickstart deployment script reference for the Microsoft Sentinel for SAP applications data connector agent
 
-## Script overview
+This article provides a reference of the configurable parameters available in the kickstart script used to the deploy the Microsoft Sentinel for SAP applications data connector agent. 
 
-Simplify the [deployment of the container hosting the SAP data connector](deploy-data-connector-agent-container.md) by using the provided **Kickstart script** (available at [Microsoft Sentinel solution for SAP® applications GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)), which can also enable different modes of secrets storage, configure Secure Network Communications (SNC), and more.
+For more information, see [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md).
 
-## Parameter reference
+Content in this article is intended for your **SAP BASIS** teams.
 
-The following parameters are configurable. You can see examples of how these parameters are used in [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md).
-
-#### Secret storage location
+## Secret storage location
 
 **Parameter name:** `--keymode`
 
@@ -29,7 +29,7 @@ The following parameters are configurable. You can see examples of how these par
 
 **Required:** No. `kvmi` is assumed by default.
 
-**Explanation:** Specifies whether secrets (username, password, log analytics ID, and shared key) should be stored in local configuration file, or in Azure Key Vault. Also controls whether authentication to Azure Key Vault is done using the VM's Azure system-assigned managed identity or a Microsoft Entra registered-application identity.
+**Description:** Specifies whether secrets (username, password, log analytics ID, and shared key) should be stored in local configuration file, or in Azure Key Vault. Also controls whether authentication to Azure Key Vault is done using the VM's Azure system-assigned managed identity or a Microsoft Entra registered-application identity.
 
 If set to `kvmi`, Azure Key Vault is used to store secrets, and authentication to Azure Key Vault is done using the virtual machine's Azure system-assigned managed identity.
 
@@ -37,7 +37,7 @@ If set to `kvsi`, Azure Key Vault is used to store secrets, and authentication t
 
 If set to `cfgf`, the configuration file stored locally is used to store secrets.
 
-#### ABAP server connection mode
+## ABAP server connection mode
 
 **Parameter name:** `--connectionmode`
 
@@ -45,9 +45,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. If not specified, the default is `abap`.
 
-**Explanation:** Defines whether the data collector agent should connect to the  ABAP server directly, or through a message server. Use `abap` to have the agent connect directly to the ABAP server, whose name you can define using the `--abapserver` parameter (though if you don't, [you're still prompted for it](#abap-server-address)). Use `mserv` to connect through a message server, in which case you **must** specify the `--messageserverhost`, `--messageserverport`, and `--logongroup` parameters.
+**Description:** Defines whether the data collector agent should connect to the  ABAP server directly, or through a message server. Use `abap` to have the agent connect directly to the ABAP server, whose name you can define using the `--abapserver` parameter. If you don't define the name ahead of time, the script prompts you for it. Use `mserv` to connect through a message server, in which case you **must** specify the `--messageserverhost`, `--messageserverport`, and `--logongroup` parameters.
 
-#### Configuration folder location
+## Configuration folder location
 
 **Parameter name:** `--configpath`
 
@@ -55,19 +55,19 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No, `/opt/sapcon/<SID>` is assumed if not specified.
 
-**Explanation:** By default kickstart initializes configuration file, metadata location to `/opt/sapcon/<SID>`. To set alternate location of configuration and metadata, use the `--configpath` parameter.
+**Description:** By default kickstart initializes configuration file, metadata location to `/opt/sapcon/<SID>`. To set alternate location of configuration and metadata, use the `--configpath` parameter.
 
-#### ABAP server address
+## ABAP server address
 
 **Parameter name:** `--abapserver`
 
 **Parameter values:** `<servername>`
 
-**Required:** No. If the parameter isn't specified and if the [ABAP server connection mode](#abap-server-connection-mode) parameter is set to `abap`, you're prompted for the server hostname/IP address.
+**Required:** No. If the parameter isn't specified and if the [ABAP server connection mode](#abap-server-connection-mode) parameter is set to `abap`, the script prompts you for the server hostname/IP address.
 
-**Explanation:** Used only if the connection mode is set to `abap`, this parameter contains the Fully Qualified Domain Name (FQDN), short name, or IP address of the ABAP server to connect to.
+**Description:** Used only if the connection mode is set to `abap`, this parameter contains the Fully Qualified Domain Name (FQDN), short name, or IP address of the ABAP server to connect to.
 
-#### System instance number
+## System instance number
 
 **Parameter name:** `--systemnr`
 
@@ -75,9 +75,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. If not specified, the user is prompted for the system number.
 
-**Explanation:** Specifies the SAP system instance number to connect to.
+**Description:** Specifies the SAP system instance number to connect to.
  
-#### System ID
+## System ID
 
 **Parameter name:** `--sid`
 
@@ -85,9 +85,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. If not specified, the user is prompted for the system ID.
 
-**Explanation:**  Specifies the SAP system ID to connect to.
+**Description:**  Specifies the SAP system ID to connect to.
 
-#### Client number
+## Client number
 
 **Parameter name:** `--clientnumber`
 
@@ -95,10 +95,10 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. If not specified, the user is prompted for the client number.
 
-**Explanation:** Specifies the client number to connect to.
+**Description:** Specifies the client number to connect to.
 
 
-#### Message Server Host
+## Message Server Host
 
 **Parameter name:** `--messageserverhost`
 
@@ -106,9 +106,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if [ABAP server connection mode](#abap-server-connection-mode) is set to `mserv`.
 
-**Explanation:** Specifies the hostname/ip address of the message server to connect to. Can **only** be used if [ABAP server connection mode](#abap-server-connection-mode) is set to `mserv`.
+**Description:** Specifies the hostname/ip address of the message server to connect to. Can **only** be used if [ABAP server connection mode](#abap-server-connection-mode) is set to `mserv`.
  
-#### Message Server Port
+## Message Server Port
 
 **Parameter name:** `--messageserverport`
 
@@ -116,9 +116,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if [ABAP server connection mode](#abap-server-connection-mode) is set to `mserv`.
 
-**Explanation:** Specifies the service name (port) of the message server to connect to. Can **only** be used if [ABAP server connection mode](#abap-server-connection-mode) is set to `mserv`.
+**Description:** Specifies the service name (port) of the message server to connect to. Can **only** be used if [ABAP server connection mode](#abap-server-connection-mode) is set to `mserv`.
  
-#### Logon group
+## Logon group
 
 **Parameter name:** `--logongroup`
 
@@ -126,9 +126,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if [ABAP server connection mode](#abap-server-connection-mode) is set to `mserv`.
 
-**Explanation:** Specifies the sign-in group to use when connecting to a message server. Can be used **only** if [ABAP server connection mode](#abap-server-connection-mode) is set to `mserv`. If the logon group name contains spaces, they should be passed in double quotes, as in the example `--logongroup "my logon group"`.
+**Description:** Specifies the sign-in group to use when connecting to a message server. Can be used **only** if [ABAP server connection mode](#abap-server-connection-mode) is set to `mserv`. If the logon group name contains spaces, they should be passed in double quotes, as in the example `--logongroup "my logon group"`.
 
-#### Logon username
+## Logon username
 
 **Parameter name:** `--sapusername`
 
@@ -136,9 +136,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. If not supplied, the user is prompted for the username if they are **not** using SNC (X.509) for authentication.
 
-**Explanation:** Username used to authenticate to ABAP server.
+**Description:** Username used to authenticate to ABAP server.
 
-#### Logon password 
+## Logon password 
 
 **Parameter name:** `--sappassword`
 
@@ -146,9 +146,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. If not supplied, the user is prompted for the password, if they're **not** using SNC (X.509) for authentication. Password input is masked.
 
-**Explanation:** Password used to authenticate to ABAP server.
+**Description:** Password used to authenticate to ABAP server.
  
-#### NetWeaver SDK file location
+## NetWeaver SDK file location
 
 **Parameter name:** `--sdk`
 
@@ -156,9 +156,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. The script attempts to locate the nwrfc*.zip file in the current folder. If it isn't found, the user is prompted to supply a valid NetWeaver SDK archive file.
 
-**Explanation:** NetWeaver SDK file path. A valid SDK is required for the data collector to operate. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#table-of-prerequisites).
+**Description:** NetWeaver SDK file path. A valid SDK is required for the data collector to operate. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-prerequisites).
 
-#### Enterprise Application ID
+## Enterprise Application ID
 
 **Parameter name:** `--appid`
 
@@ -166,9 +166,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container.md?tabs=registered-application#create-a-virtual-machine-and-configure-access-to-your-credentials). This parameter specifies the application ID.
+**Description:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container.md?tabs=registered-application#create-a-virtual-machine-and-configure-access-to-your-credentials). This parameter specifies the application ID.
 
-#### Enterprise Application secret
+## Enterprise Application secret
 
 **Parameter name:** `--appsecret`
 
@@ -176,9 +176,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container.md?tabs=registered-application#create-a-virtual-machine-and-configure-access-to-your-credentials). This parameter specifies the application secret.
+**Description:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container.md?tabs=registered-application#create-a-virtual-machine-and-configure-access-to-your-credentials). This parameter specifies the application secret.
 
-#### Tenant ID
+## Tenant ID
 
 **Parameter name:** `--tenantid`
 
@@ -186,9 +186,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container.md?tabs=registered-application#create-a-virtual-machine-and-configure-access-to-your-credentials). This parameter specifies the Microsoft Entra tenant ID.
+**Description:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container.md?tabs=registered-application#create-a-virtual-machine-and-configure-access-to-your-credentials). This parameter specifies the Microsoft Entra tenant ID.
  
-#### Key Vault Name
+## Key Vault Name
 
 **Parameter name:** `--kvaultname`
 
@@ -196,9 +196,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. If [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, the script prompts for the value if not supplied.
 
-**Explanation:** If [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, the key vault name (in FQDN format) should be entered here.
+**Description:** If [Secret storage location](#secret-storage-location) is set to `kvsi` or `kvmi`, the key vault name (in FQDN format) should be entered here.
  
-#### Log Analytics workspace ID
+## Log Analytics workspace ID
 
 **Parameter name:** `--loganalyticswsid`
 
@@ -206,9 +206,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. If not supplied, the script prompts for the workspace ID.
 
-**Explanation:** Log Analytics workspace ID where the data collector sends the data to. To locate the workspace ID, locate the Log Analytics workspace in the Azure portal: open Microsoft Sentinel, select **Settings** in the **Configuration** section, select **Workspace settings**, then select **Agents Management**.
+**Description:** Log Analytics workspace ID where the data collector sends the data to. To locate the workspace ID, locate the Log Analytics workspace in the Azure portal: open Microsoft Sentinel, select **Settings** in the **Configuration** section, select **Workspace settings**, then select **Agents Management**.
  
-#### Log Analytics key
+## Log Analytics key
 
 **Parameter name:** `--loganalyticskey`
 
@@ -216,9 +216,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. If not supplied, script prompts for the workspace key. Input is masked.
 
-**Explanation:** Primary or secondary key of the Log Analytics workspace where the data collector sends the data to. To locate the workspace Primary or Secondary Key, locate the Log Analytics workspace in Azure portal: open Microsoft Sentinel, select **Settings** in the **Configuration** section, select **Workspace settings**, then select **Agents Management**.
+**Description:** Primary or secondary key of the Log Analytics workspace where the data collector sends the data to. To locate the workspace Primary or Secondary Key, locate the Log Analytics workspace in Azure portal: open Microsoft Sentinel, select **Settings** in the **Configuration** section, select **Workspace settings**, then select **Agents Management**.
  
-#### Use X.509 (SNC) for authentication
+## Use X.509 (SNC) for authentication
 
 **Parameter name:** `--use-snc`
 
@@ -226,9 +226,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. If not specified, the username and password is used for authentication. If specified, `--cryptolib`, `--sapgenpse`, combination of either `--client-cert` and `--client-key`, or `--client-pfx` and `--client-pfx-passwd` as well as `--server-cert`, and in certain cases `--cacert` switches is required.
 
-**Explanation:** Specifies that X.509 authentication is used to connect to ABAP server, rather than username/password authentication. For more information, see [Deploy the Microsoft Sentinel for SAP data connector by using SNC](configure-snc.md).
+**Description:** Specifies that X.509 authentication is used to connect to ABAP server, rather than username/password authentication. For more information, see [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
 
-#### SAP Cryptographic library path
+## SAP Cryptographic library path
 
 **Parameter name:** `--cryptolib`
 
@@ -236,9 +236,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if `--use-snc` is specified.
 
-**Explanation:** Location and filename of SAP Cryptographic library (libsapcrypto.so).
+**Description:** Location and filename of SAP Cryptographic library (libsapcrypto.so).
 
-#### SAPGENPSE tool path
+## SAPGENPSE tool path
 
 **Parameter name:** `--sapgenpse`
 
@@ -246,9 +246,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if `--use-snc` is specified.
 
-**Explanation:** Location and filename of the sapgenpse tool for creation and management of PSE-files and SSO-credentials.
+**Description:** Location and filename of the **sapgenpse** tool for creation and management of PSE-files and SSO-credentials.
  
-#### Client certificate public key path
+## Client certificate public key path
 
 **Parameter name:** `--client-cert`
 
@@ -256,9 +256,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if `--use-snc` **and** certificate is in .crt/.key base-64 format.
 
-**Explanation:** Location and filename of the base-64 client public certificate. If client certificate is in .pfx format, use `--client-pfx` switch instead.
+**Description:** Location and filename of the base-64 client public certificate. If the client certificate is in .pfx format, use `--client-pfx` switch instead.
  
-#### Client certificate private key path
+## Client certificate private key path
 
 **Parameter name:** `--client-key`
 
@@ -266,9 +266,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if `--use-snc` is specified **and** key is in .crt/.key base-64 format.
 
-**Explanation:** Location and filename of the base-64 client private key. If client certificate is in .pfx format, use `--client-pfx` switch instead.
+**Description:** Location and filename of the base-64 client private key. If the client certificate is in .pfx format, use `--client-pfx` switch instead.
 
-#### Issuing/root Certification Authority certificates
+## Issuing/root Certification Authority certificates
 
 **Parameter name:** `--cacert`
 
@@ -276,9 +276,11 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if `--use-snc` is specified **and** the certificate is issued by an enterprise certification authority.
 
-**Explanation:** If the certificate is self-signed, it has no issuing CA, so there's no trust chain that needs to be validated. If the certificate is issued by an enterprise CA, the issuing CA certificate and any higher-level CA certificates need to be validated. Use separate instances of the `--cacert` switch for each CA in the trust chain, and supply the full filenames of the public certificates of the enterprise certificate authorities.
+**Description:** If the certificate is self-signed, it has no issuing CA, so there's no trust chain that needs to be validated. 
 
-#### Client PFX certificate path
+If the certificate is issued by an enterprise CA, the issuing CA certificate and any higher-level CA certificates need to be validated. Use separate instances of the `--cacert` switch for each CA in the trust chain, and supply the full filenames of the public certificates of the enterprise certificate authorities.
+
+## Client PFX certificate path
 
 **Parameter name:** `--client-pfx`
 
@@ -286,9 +288,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if `--use-snc` **and** key is in .pfx/.p12 format.
 
-**Explanation:** Location and filename of the pfx client certificate.
+**Description:** Location and filename of the pfx client certificate.
  
-#### Client PFX certificate password
+## Client PFX certificate password
 
 **Parameter name:** `--client-pfx-passwd`
 
@@ -296,9 +298,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if `--use-snc` is used, certificate is in .pfx/.p12 format, and certificate is protected by a password.
 
-**Explanation:** PFX/P12 file password.
+**Description:** PFX/P12 file password.
  
-#### Server certificate
+## Server certificate
 
 **Parameter name:** `--server-cert`
 
@@ -306,9 +308,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** Yes, if `--use-snc` is used.
 
-**Explanation:** ABAP server certificate full path and name.
+**Description:** ABAP server certificate full path and name.
 
-#### HTTP proxy server URL
+## HTTP proxy server URL
 
 **Parameter name:** `--http-proxy`
 
@@ -316,17 +318,17 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No
 
-**Explanation:** Containers that can't establish connection to Microsoft Azure services directly and require connection via a proxy server require `--http-proxy` switch to define proxy url for the container. Format of the proxy url is `http://hostname:port`.
+**Description:** Containers that can't establish a connection to Microsoft Azure services directly and require a connection via a proxy server, also require an `--http-proxy` switch to define the proxy URL for the container. The format for the proxy URL is `http://hostname:port`.
 
-#### Host Based Networking
+## Host-based networking
 
 **Parameter name:** `--hostnetwork`
 
 **Required:** No.
 
-**Explanation:** If this switch is specified, the agent uses host-based networking configuration. This can solve internal DNS resolution issues in some cases.
+**Description:** If the `hostnetwork` switch is specified, the agent uses a host-based networking configuration. This can solve internal DNS resolution issues in some cases.
 
-#### Confirm all prompts
+## Confirm all prompts
 
 **Parameter name:** `--confirm-all-prompts`
 
@@ -334,9 +336,9 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No
 
-**Explanation:** If the `--confirm-all-prompts` switch is specified, the script doesn't pause for any user confirmations and only prompts if user input is required. Use `--confirm-all-prompts` switch to achieve a zero-touch deployment.
+**Description:** If the `--confirm-all-prompts` switch is specified, the script doesn't pause for any user confirmations, and only prompts if user input is required. Use the `--confirm-all-prompts` switch for a zero-touch deployment.
 
-#### Use preview build of the container
+## Use preview build of the container
 
 **Parameter name:** `--preview`
 
@@ -344,31 +346,11 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No
 
-**Explanation:** By default, container deployment kickstart script deploys the container with the `:latest` tag. Public preview features are published to the `:latest-preview` tag. To ensure container deployment script uses public preview version of the container, specify the `--preview` switch.
+**Description:** By default, the container deployment kickstart script deploys the container with the `:latest` tag. Public preview features are published to the `:latest-preview` tag. To have the container deployment script uses the public preview version of the container, specify the `--preview` switch.
 
-## Next steps
+## Related content
 
-Learn more about the Microsoft Sentinel solution for SAP® applications:
+For more information, see:
 
-- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
 - [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
-- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
-- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
-- [Enable and configure SAP auditing](configure-audit.md)
-- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
-
-Troubleshooting:
-
-- [Troubleshoot your Microsoft Sentinel solution for SAP® applications solution deployment](sap-deploy-troubleshoot.md)
-
-Reference files:
-
-- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
-- [Update script reference](reference-update.md)
-- [Systemconfig.ini file reference](reference-systemconfig.md)
-
-For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
+- [Troubleshoot your Microsoft Sentinel solution for SAP applications solution deployment](sap-deploy-troubleshoot.md)

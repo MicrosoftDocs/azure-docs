@@ -6,7 +6,7 @@ ms.author: honc
 ms.service: service-connector
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 10/25/2023
+ms.date: 10/22/2024
 ---
 # Tutorial: Python function with Azure Queue Storage as trigger
 
@@ -50,7 +50,7 @@ Follow the [tutorial to create a local Azure Functions project](../azure-functio
 | **Provide a function name**                                     | Enter `QueueStorageTriggerFunc`.                                                                                                          |
 | **Select setting from "local.settings.json"**                   | Choose `Create new local app settings`, which lets you select your Storage Account and provide your queue name that works as the trigger. |
 
-You have created a Python function project with Azure Storage Queue as trigger. The local project connects to Azure Storage using the connection string saved into the `local.settings.json` file. Finally, the `main` function in `__init__.py` file of the function can consume the connection string with the help of the Function Binding defined in the `function.json` file.
+You created a Python function project with Azure Storage Queue as trigger. The local project connects to Azure Storage using the connection string saved into the `local.settings.json` file. Finally, the `main` function in `__init__.py` file of the function can consume the connection string with the help of the Function Binding defined in the `function.json` file.
 
 ## Run the function locally
 
@@ -58,7 +58,7 @@ Follow the [tutorial](../azure-functions/create-first-function-vs-code-python.md
 
 1. Select the storage account as you chose when creating the Azure Function resource if you're prompted to connect to storage. This value is used for Azure Function's runtime, and it isn't necessarily the same as the storage account you use for the trigger.
 1. To start the function locally, press `<kbd>`F5 `</kbd>` or select the **Run and Debug** icon in the left-hand side Activity bar.
-1. To verify the trigger works properly, keep the function running locally and open the Storage Queue blade in Azure portal, select **Add message** and provide a test message. You should see the function is triggered and processed as a queue item in your Visual Studio Code terminal.
+1. To verify the trigger works properly, keep the function running locally and open the Storage Queue pane in Azure portal, select **Add message** and provide a test message. You should see the function is triggered and processed as a queue item in your Visual Studio Code terminal.
 
 ## Create a connection using Service Connector
 
@@ -81,11 +81,11 @@ This step creates a Service Connector resource that configures an `AZURE_STORAGE
 Now you can deploy your function to Azure and verify the storage queue trigger works.
 
 1. Follow this [Azure Functions tutorial](../azure-functions/create-first-function-vs-code-python.md?pivots=python-mode-configuration#deploy-the-project-to-azure) to deploy your function to Azure.
-1. Open the Storage Queue blade in the Azure portal, select **Add message** and provide a test message. You should see the function is triggered and processed as a queue item in your function logs.
+1. Open the Storage Queue pane in the Azure portal, select **Add message** and provide a test message. You should see the function is triggered and processed as a queue item in your function logs.
 
 ## Troubleshoot
 
-If there are any errors related with the storage host, such as `No such host is known (<acount-name>.queue.core.windows.net:443)`, check whether the connection string you use to connect to Azure Storage contains the queue endpoint or not. If it doesn't, go to Azure Storage in the Azure portal, copy the connection string from the `Access keys` blade, and replace the values.
+If there are any errors related with the storage host, such as `No such host is known (<acount-name>.queue.core.windows.net:443)`, check whether the connection string you use to connect to Azure Storage contains the queue endpoint or not. If it doesn't, go to Azure Storage in the Azure portal, copy the connection string from the `Access keys` pane, and replace the values.
 
 If this error happens when you start the project locally, check the `local.settings.json` file.
 

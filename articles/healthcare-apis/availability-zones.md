@@ -8,7 +8,7 @@ ms.subservice: fhir
 ms.custom: devx-track-python
 ms.topic: conceptual
 ms.date: 10/15/2024
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Availability Zones for Azure Health Data Services
@@ -36,7 +36,6 @@ Here's a list of the availability zones for Azure Health Data Services.
 - UK South
 - Sweden Central
 - Germany West Central*
-- Qatar Central*
 - East US*
 - East US 2
 - South Central US*
@@ -44,7 +43,7 @@ Here's a list of the availability zones for Azure Health Data Services.
 - West US 3*
 - Canada Central
 
-Zones marked with a star ("*") have quota issues due to high demand. Enabling AZ features in these zones may take longer.
+Regions marked with a star ("*") have quota issues due to high demand. Enabling AZ features in these regions may take longer.
 
 ### Limitations
 

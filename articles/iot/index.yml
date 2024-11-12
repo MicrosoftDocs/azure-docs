@@ -95,6 +95,9 @@ conceptualContent:
         - url: ../iot-hub-device-update/understand-device-update.md
           itemType: overview
           text: Update your devices
+        - url: ../firmware-analysis/overview-firmware-analysis.md
+          itemType: overview
+          text: Device firmware analysis
     # Card
     - title: Process and route messages
       links:
