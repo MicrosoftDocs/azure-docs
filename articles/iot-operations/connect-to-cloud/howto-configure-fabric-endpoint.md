@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 11/11/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Microsoft Fabric OneLake in Azure IoT Operations so that I can send data to Microsoft Fabric OneLake.
@@ -116,7 +116,7 @@ apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowEndpoint
 metadata:
   name: <ENDPOINT_NAME>
-  namespace: azure-iotoperations
+  namespace: azure-iot-operations
 spec:
   endpointType: FabricOneLake
   fabricOneLakeSettings:
@@ -330,4 +330,4 @@ fabricOneLakeSettings:
 
 ## Next steps
 
-To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).
+To learn more about dataflows, see [Create dataflow](howto-create-dataflow.md).
