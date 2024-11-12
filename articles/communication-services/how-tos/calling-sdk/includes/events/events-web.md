@@ -323,6 +323,37 @@ call.on('mutedByOthers', () => {
 });
 ```
 
+### Event: `callerInfoChanged`
+
+The `callerInfoChanged` event happens when caller information was updated.
+
+**How might your application react to the event?**
+Application can update caller information.
+
+**Code Sample:**
+
+```javascript
+call.on('callerInfoChanged', () => {
+    showCallerInfo(call.callerInfo)
+});
+```
+
+### Event: `transferorInfoChanged`
+
+The `transferorInfoChanged` event happens when transferor information was updated.
+
+**How might your application react to the event?**
+Application can update transferor information.
+
+**Code Sample:**
+
+```javascript
+call.on('transferorInfoChanged', () => {
+    showTransferorInfo(call.transferorInfo)
+});
+```
+
+
 <!---- RemoteParticipant  ---->
 ## Events on the `RemoteParticipant` object
 
