@@ -176,6 +176,8 @@ landingContent:
           url: feature-management-python-reference.md
         - text: Python feature management API reference
           url: https://microsoft.github.io/FeatureManagement-Python/html/index.html
+        - text: JavaScript feature management
+          url: feature-management-javascript-reference.md
 
   - title: Client libraries and tools
     linkLists:

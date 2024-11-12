@@ -28,13 +28,16 @@ Here are some of the benefits of using JavaScript feature management library:
 * Low barrier to entry
   * Supports both JSON objects and map-based feature flag sources
   * Supports usage in both Node.js and browser environments
-* Feature Flag lifetime management with Azure App Configuration
+* Feature flag lifetime management with Azure App Configuration
   * Configuration values can change in real-time
 * Simple to Complex Scenarios Covered
   * Toggle on/off features through declarative configuration file
   * Dynamically evaluate state of feature based on call to server
 
-  The JavaScript feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-JavaScript).
+The JavaScript feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-JavaScript).
+
+> [!NOTE]
+> It is recommended to use the feature management library together with Azure App Configuration. Azure App Configuration provides a solution for centrally managing application settings and feature flags. For more details, please refer to this [section](#use-feature-flags-from-azure-app-configuration).
 
 ## Feature flags
 
@@ -74,15 +77,7 @@ const featureProvider = new ConfigurationMapFeatureFlagProvider(config);
 const featureManager = new FeatureManager(featureProvider);
 ```
 
-The object can also be parsed from a JSON file:
-
-``` javascript
-const config = JSON.parse(await fs.readFile("path/to/config.json"));
-const featureProvider = new ConfigurationObjectFeatureFlagProvider(config);
-const featureManager = new FeatureManager(featureProvider);
-```
-
-### [Use object Configuration](#tab/object-configuration)
+### [Use Object Configuration](#tab/object-configuration)
 
 ``` javascript
 const config = {
@@ -90,11 +85,11 @@ const config = {
         "feature_flags": [
             {
                 "id": "FeatureT",
-                "enabled": "true"
+                "enabled": true
             },
             {
                 "id": "FeatureX",
-                "enabled": "false"
+                "enabled": false
             }
         ]
     },
@@ -106,24 +101,38 @@ const featureProvider = new ConfigurationObjectFeatureFlagProvider(config);
 const featureManager = new FeatureManager(featureProvider);
 ```
 
+The object can also be parsed from a JSON file:
+
+``` javascript
+const config = JSON.parse(await fs.readFile("path/to/config.json"));
+const featureProvider = new ConfigurationObjectFeatureFlagProvider(config);
+const featureManager = new FeatureManager(featureProvider);
+```
+
 ---
 
 ### Use feature flags from Azure App Configuration
 
+Rather than hard coding your feature flags into your application, we recommend that you keep feature flags outside the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes take effect in the application right away. The Azure App Configuration service provides a dedicated portal UI for managing all of your feature flags. See the [tutorial](./manage-feature-flags.md).
+
+The Azure App Configuration service also delivers the feature flags to your application directly through its JavaSript client library [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider). The following example shows how to use the library.
+
 The App Configuration JavaScript provider provides feature flags in as a `Map` object. The built-in `ConfigurationMapFeatureFlagProvider` helps to load feature flags in this case.
 
 ``` javascript
+import { load } from "@azure/app-configuration-provider";
+
 const appConfig = await load(connectionString, {featureFlagOptions: { enabled: true }}); // load feature flags from Azure App Configuration service
 const featureProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
 const featureManager = new FeatureManager(featureProvider);
 ```
 
 > [!NOTE]
-> For more information about how to use feature management library with Azure App Configuration, pelase go to the [quickstart](./quickstart-javascript.md).
+> For more information about how to use feature management library with Azure App Configuration, please go to the [quickstart](./quickstart-javascript.md).
 
 ### Feature flag declaration
 
-Below we have an example of the format used to set up feature flags in a JSON file.
+The following example shows the format used to set up feature flags in a JSON file.
 
 ```json
 {
@@ -131,15 +140,15 @@ Below we have an example of the format used to set up feature flags in a JSON fi
         "feature_flags": [
             {
                 "id": "FeatureT",
-                "enabled": "true"
+                "enabled": true
             },
             {
                 "id": "FeatureU",
-                "enabled": "false"
+                "enabled": false
             },
             {
                 "id": "FeatureV",
-                "enabled": "true",
+                "enabled": true,
                 "conditions": {
                     "client_filters": [
                         {
@@ -157,7 +166,7 @@ Below we have an example of the format used to set up feature flags in a JSON fi
 }
 ```
 
-The `feature_management` section is used by convention to load feature flag settings. The `feature_flags` section is a list of the feature flags that are loaded into the library. In the section above, we see three different features. Features define their feature filters using the `client_filters` property, inside of `conditions`. In the feature filters for `FeatureT`, we see `enabled` is on with no filters defined, resulting in `FeatureT` always returning `true` . `FeatureU` is the same as `FeatureT` but with `enabled` is `false` resulting in the feature always returning `false`. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. `FeatureV` is an example of a configurable feature filter. We can see in the example that the filter has a `parameters` property. The `parameters` property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
+The `feature_management` section is used by convention to load feature flag settings. The `feature_flags` section is a list of the feature flags that are loaded into the library. In the section above, we see three different features. Features define their feature filters using the `client_filters` property, inside of `conditions`. In the feature filters for `FeatureT`, we see `enabled` is `true` with no filters defined, resulting in `FeatureT` always returning `true` . `FeatureU` is the same as `FeatureT` but with `enabled` is `false` resulting in the feature always returning `false`. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. `FeatureV` is an example of a configurable feature filter. We can see in the example that the filter has a `parameters` property. The `parameters` property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
 
 The detailed schema of the `feature_management` section can be found [here](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json).
 
@@ -178,7 +187,7 @@ A `requirement_type` of `All` changes the traversal. First, if there are no filt
         "feature_flags": [
             {
                 "id": "FeatureW",
-                "enabled": "true",
+                "enabled": true,
                 "conditions": {
                     "requirement_type": "All",
                     "client_filters": [
@@ -697,8 +706,3 @@ To learn how to use feature filters, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
 > [Roll out features to targeted audiences](./howto-targetingfilter.md)
-
-To learn how to run experiments with variant feature flags, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [Run experiments with variant feature flags](./run-experiments-aspnet-core.md)

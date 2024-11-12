@@ -248,7 +248,7 @@ The `feature_management` section of the json document is used by convention to l
 
 **Advanced:** The usage of colon ':' is forbidden in feature flag names.
 
-#### Requirement type
+#### Requirement Type
 
 The `requirement_type` property of `conditions` is used to determine if the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` isn't specified, the default value is `Any`.
 

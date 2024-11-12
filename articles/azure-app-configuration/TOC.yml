@@ -336,6 +336,10 @@
         href: ./feature-management-python-reference.md
       - name: API reference
         href: https://microsoft.github.io/FeatureManagement-Python/html/index.html
+    - name: JavaScript
+      items:
+      - name: Feature reference
+        href: ./feature-management-javascript-reference.md
   - name: Deployment
     items:
     - name: ARM template
