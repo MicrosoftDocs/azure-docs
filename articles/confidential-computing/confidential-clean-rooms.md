@@ -14,16 +14,16 @@ ms.author: mathapli
 > [!NOTE]
 > Azure Confidential Clean Rooms is currently in Gated Preview. Please fill the form at https://aka.ms/ACCRPreview and we will reach out to you with next steps.
 
-Azure Confidential Clean Rooms, aka ACCR, offers a secure and compliant environment that helps organizations overcome the challenges of using privacy-sensitive data for AI model development. This solution ensures that the model's intellectual property remains intact while also enabling advanced data analytics.
+Azure Confidential Clean Rooms, aka ACCR, offers a secure and compliant environment that helps organizations overcome the challenges of using privacy-sensitive data for AI model development.Built on top of [Confidential containers or C-ACI](/articles/confidential-computing/confidential-containers.md), this solution ensures that the model's intellectual property remains intact while also enabling advanced data analytics.
 Organizations can safely collaborate and analyze sensitive data without violating compliance standards or risking data breaches by using advanced privacy-enhancing technologies like secure governance & audit, secure collaboration (TEE), verifiable trust, differential privacy, and controlled access.
 
 ## Who should use Azure Confidential Clean Rooms?
 Azure Confidential Clean Rooms could be a great choice for you if you have these scenarios: 
 
 - Data analytics and inferencing: Organizations looking to build insights on second-party data while ensuring data privacy can leverage ACCR. ACCR is useful when data providers are concerned about data exfiltration. ACCR ensures that data is only used for agreed purposes and safeguards against unauthorized access or egress (as it is a sandboxed environment). 
-- Data privacy ISVs: Independent Software Vendors (ISVs) who provide secure multiparty data collaboration services can use ACCR as an extensible platform. It allows them to add enforceable tamperproof contracts with governance and audit capabilities, and uses confidential hardware underneath to ensure data is encrypted during processing so that their customers' data remains secure.
-- ML fine tuning: For organizations that require data from various sources to train or fine-tune machine learning models but face data sharing regulations, ACCR provides a solution. It allows any party to audit and confirm that data is being used only for the agreed purpose, such as ML modeling
-- ML inferencing: For organizations that require data from various sources to train or fine-tune machine learning models but face data sharing regulations, ACCR provides a solution. It allows any party to audit and confirm that data is being used only for the agreed purpose, such as ML modeling
+- Data privacy ISVs: Independent Software Vendors (ISVs) who provide secure multiparty data collaboration services can use ACCR as an extensible platform. It allows them to add enforceable tamperproof contracts with governance and audit capabilities, and uses [Confidential containers or C-ACI](/articles/confidential-computing/confidential-containers.md) underneath to ensure data is encrypted during processing so that their customers' data remains secure.
+- ML fine tuning: For organizations that require data from various sources to train or fine-tune machine learning models but face data sharing regulations, ACCR provides a solution. It allows any party to audit and confirm that data is being used only for the agreed purpose, such as ML modeling.
+- ML inferencing: For organizations that require data from various sources to train or fine-tune machine learning models but face data sharing regulations, ACCR provides a solution. It allows any party to audit and confirm that data is being used only for the agreed purpose, such as ML modeling.
 
 ### Industries which can successfully utilize ACCR
 1. Healthcare- In the healthcare industry, Azure Confidential Clean Rooms enable secure collaboration on sensitive patient data. For example, healthcare providers can use clean rooms to train and fine-tune AI/ML models for predictive diagnostics, personalized medicine, and clinical decision support. By leveraging confidential computing, healthcare organizations can protect patient privacy while collaborating with other institutions to improve healthcare outcomes.
@@ -36,7 +36,7 @@ Subsequently, ACCR can also be used for ML inferencing where partner hospitals c
 
 :::image type="content" source="./media/confidential-clean-rooms/accr-benefits.png" alt-text="Graphic of Azure Confidential Clean Rooms benefits, showing zero trust, no data duplicationm container workloads, and managed governance.":::
 
-Azure Confidential Clean Rooms (ACCR) provides a secure and compliant environment for multi-party data collaboration. Built on confidential hardware, ACCR ensures that sensitive data remains protected throughout the collaboration process. Here are some key benefits of using Azure Confidential Clean Rooms:
+Azure Confidential Clean Rooms (ACCR) provides a secure and compliant environment for multi-party data collaboration. Built on [Confidential containers or C-ACI](/articles/confidential-computing/confidential-containers.md), ACCR ensures that sensitive data remains protected throughout the collaboration process. Here are some key benefits of using Azure Confidential Clean Rooms:
 
 - Secure collaboration and governance:
 ACCR allows collaborators to create tamper-proof contracts. ACCR also enforces all the constraints which are part of the contract. Governance ensures validity of constraints before allowing data to be released into clean rooms and drives transparency amongst collaborators by generating tamper-proof audit trails. ACCR uses the open-sourced [confidential consortium framework](../managed-ccf/confidential-consortium-framework-overview.md) to enable these capabilities.
@@ -47,14 +47,14 @@ ACCR is built using confidential computing to provide a hardware-based, trusted 
 - Verifiable trust at each step with the help of cryptographic remote attestation forms the cornerstone of Azure Confidential Clean Rooms.
 
 - Cost-effective: 
-By providing a secure and compliant environment for data collaboration, ACCR reduces the need for costly and complex data protection measures. This makes it a cost-effective solution for organizations looking to leverage sensitive data for analysis and insights
+By providing a secure and compliant environment for data collaboration, ACCR reduces the need for costly and complex data protection measures. This makes it a cost-effective solution for organizations looking to leverage sensitive data for analysis and insights.
 
 :::image type="content" source="./media/confidential-clean-rooms/accr-illustration.png" alt-text="Graphic of Azure Confidential Clean Rooms benefits, showing all steps of clean room creation.":::
 
 
 ## Onboarding to Azure Confidential Clean Rooms
 ACCR is currently in Gated Preview. To express your interest in joining the gated preview, please follow these steps:
-- Fill and submit the form at https://aka.ms/ACCR-Preview-Onboarding
+- Fill and submit the form at https://aka.ms/ACCR-Preview-Onboarding.
 - Once you submit, further steps will be shared with you on onboarding. 
 - For further questions on onboarding reach out to  CleanRoomPMTeam@microsoft.com.
 - After reviewing details, we will reach out to you with detailed steps for onboarding.
