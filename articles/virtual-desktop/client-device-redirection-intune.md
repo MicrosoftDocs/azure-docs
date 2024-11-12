@@ -291,6 +291,4 @@ Now that you configure Intune to manage device redirection on personal devices, 
 
 ## Known issues
 
-- When creating an app configuration policy or an app protection policy for Android, Remote Desktop is listed twice. Add both apps. This will be updated soon so Remote Desktop is only shown once.
-
 - Windows App (Preview) will exit without warning if Company Portal and Windows App are not installed in the same profile. The solution is to install both apps either in personal profile OR both apps in work profile.
