@@ -13,37 +13,35 @@ ms.date: 11/11/2024
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-This guide provides examples, samples, and other resources that can help learn how to integrate Azure AI services, such as Azure OpenAI and Azure AI Search, with Standard workflows in Azure Logic Apps.
+This guide provides examples, samples, and other resources to help you learn how you can integrate Azure AI services, such as Azure OpenAI and Azure AI Search, with Standard workflows in Azure Logic Apps.
 
-## Documentation
+## AI-related operations documentation
 
-- [Parse or chunk content for Standard workflows in Azure Logic Apps](/azure/logic-apps/parse-document-chunk-text)
+The following sections describe built-in operations and documentation that you can use to build Standard workflows for AI integration scenarios, such as document ingestion and making it possible for customers to "chat with the data". 
 
-  This guide shows how to convert content into tokens and split up content for easier consumption by Azure AI connectors, such as the **Azure AI Search** and **Azure OpenAI**.
+### Parse a document and chunk text operations
 
-In addition, the **Parse a document** and **Chunk text** operations help you prepare content for building document ingestion workflows so that you can make it possible for customers to "chat with the data".  
-in a handful of steps without a single line of code
+The **Parse a document** and **Chunk text** built-in or "in-app" actions help you prepare content for Azure AI services to consume in your workflows. Connectors for Azure AI services such as **Azure OpenAI** and **Azure AI Search** usually expect tokenized input and can handle only a limited number of tokens.
 
-Without any custom logic or configuration, the **Parse a document** operation enables your workflow to read and parse thousands of documents in multiple languages and with file types such as PDF, DOCX, PPT, HTML, and more.
+| Action | Description |
+|--------|-------------|
+| **Parse a document** | This action converts content into tokenized string output so that a workflow can read and parse thousands of documents with file types such as PDF, DOCX, CSV, PPT, HTML, and others in multiple languages. |
+| **Chunk text** | This action splits a tokenized string into pieces for subsequent actions in the same workflow to easily consume. |
 
-This no-code approach enables you to automate complex workflows—whether it’s document parsing, data chunking, or powering generative AI models—helping you unlock the full potential of your data with minimal effort.
+Both these actions don't require any custom logic or configuration to use. This no-code approach helps you automate complex workflows whether the task is document parsing, data chunking, or powering generative AI models, which helps you unlock your data's full potential with minimal effort. 
 
- 
+For a guide that shows how to use these actions in your Standard workflow, see [Parse or chunk content for Standard workflows in Azure Logic Apps](/azure/logic-apps/parse-document-chunk-text).
 
-by using the actions named [**Parse a document**] and [**Chunk text**](/azure/logic-apps/parse-document-chunk-text)
+### Azure OpenAI and Azure AI Search operations
 
-the Azure AI Search or Azure OpenAI actions expect tokenized input and can handle only a limited number of tokens.
+The **Azure AI Search** and **Azure OpenAI** built-in or "in-app" connectors provide operations that help you integrate the natural language processing capabilities in Azure Open AI with the intelligent search capabilities in Azure AI Search. These connectors simplify backend processes with codeless setup and reduce complexity around integrating AI capabilities into your workflows.
 
-For these scenarios, use the Data Operations actions named Parse a document and Chunk text in your Standard logic app workflow. These actions respectively transform content, such as a PDF document, CSV file, Excel file, and so on, into tokenized string output and then split the string into pieces, based on the number of tokens. You can then reference and use these outputs with subsequent actions in your workflow.
+| Connector | Description |
+|-----------|-------------|
+| **Azure OpenAI** | This connector provides operations with AI capabilities such as generate embeddings and chat completion, which are critical for creating sophisticated AI applications. |
+| **Azure AI Search** | This connector provides operations that enhance data retrieval with indexing, advanced vector, and hybrid search operations. |
 
-  For more information about the **Parse a document** and **Chunk text** operations, see [Blog articles](#blog-articles).
-
-- [Connect to Azure AI services from Standard workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai)
-
-  This guide shows how to access Azure AI services, such as **Azure AI Search** and **Azure OpenAI**, from your Standard workflow and examples for how to use these connector operations.
-
-
-<a name="blog-articles"></a>
+For a guide that shows how to use these connector operations in your Standard workflow, see [Connect to Azure AI services from Standard workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai).
 
 ## Azure OpenAI Assistants
 
