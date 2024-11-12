@@ -286,7 +286,8 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
     mqttSettings: {
       host: eventGridHostName
       authentication: {
-        // See available authentication methods below
+        // See available authentication methods section for method types
+        // method: <METHOD_TYPE>
       }
       tls: {
         mode: 'Enabled'
@@ -317,7 +318,8 @@ spec:
   mqttSettings:
     host: <NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883
     authentication:
-      # See available authentication methods below
+      # See available authentication methods section for method types
+      # method: <METHOD_TYPE>
     tls:
       mode: Enabled
 ```
@@ -381,7 +383,8 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
 ```bicep
 mqttSettings: {
   authentication: {
-    // See available authentication methods below
+    // See available authentication methods section for method types
+    // method: <METHOD_TYPE>
   }
   host: '<HOST>:<PORT>'
   tls: {
@@ -399,7 +402,8 @@ spec:
   mqttSettings:
     host: <HOST>:<PORT>
     authentication:
-      # See available authentication methods below
+      # See available authentication methods section for method types
+      # method: <METHOD_TYPE>
     tls:
       mode: Enabled # or Disabled
       trustedCaCertificateConfigMapRef: <TRUSTED_CA_CERT_CONFIGMAP>
