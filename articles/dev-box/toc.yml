@@ -21,6 +21,8 @@ items:
     - name: Spin up a new dev box
       displayName: connect, access dev box
       href: quickstart-create-dev-box.md
+    - name: Use Team Customizations
+      href: quickstart-team-customizations.md
 - name: Concepts
   expanded: true
   items:
@@ -69,10 +71,14 @@ items:
     href: how-to-customize-devbox-azure-image-builder.md
 - name: Customize dev boxes
   items:
-  - name: Create reusable customizations
-    href: how-to-customize-dev-box-setup-tasks.md
-  - name: Use Dev Home to manage dev boxes
-    href: how-to-use-dev-home-customize-dev-box.md
+  - name: What are Team Customizations
+    href: concept-what-are-team-customizations.md
+  - name: Write a customization file
+    href: how-to-write-customization-file.md
+  - name: Configure imaging for Customizations
+    href: how-to-configure-customization-imaging.md
+  - name: Create customization tasks
+    href: how-to-create-customization-tasks-catalog.md
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal
@@ -80,6 +86,8 @@ items:
   - name: Connect with Windows App
     displayName: Windows App, connect, access dev box, RDP, iPad 
     href: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
+  - name: Use Dev Home to manage dev boxes
+    href: how-to-use-dev-home-customize-dev-box.md
   - name: Connect with Remote Desktop
     displayName: Windows App, connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
