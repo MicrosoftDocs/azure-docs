@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to run your Playwright tests at s
 ms.topic: quickstart
 ms.date: 10/04/2023
 ms.custom: playwright-testing-preview, build-2024
-zone_pivot_group_filename: playwright-testing/ZonePivotGroups.json
+zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---
 
@@ -108,7 +108,7 @@ In the `playwright.config.ts` file of your project, make sure you are collecting
 1. Create a new file `PlaywrightServiceSetup.cs` in the root directory of your project. This file facilitates authentication of your client with the service. 
 2. Add the following content to it:
 
-    :::code language="typescript" source="~/playwright-testing-service/samples/.NET/NUnit/PlaywrightServiceSetup.cs":::
+    :::code language="csharp" source="~/playwright-testing-service/samples/.NET/NUnit/PlaywrightServiceSetup.cs":::
 
 3. Save and commit the file to your source code repository.
 

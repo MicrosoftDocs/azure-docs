@@ -4,7 +4,7 @@ description: Learn how to manage authentication and authorization for Microsoft 
 ms.topic: how-to
 ms.date: 09/07/2024
 ms.custom: playwright-testing-preview
-zone_pivot_group_filename: playwright-testing/ZonePivotGroups.json
+zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---
 

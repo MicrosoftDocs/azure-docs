@@ -4,7 +4,7 @@ description: 'This quickstart shows how to run your Playwright tests with highly
 ms.topic: quickstart
 ms.date: 10/04/2023
 ms.custom: playwright-testing-preview, build-2024
-zone_pivot_group_filename: playwright-testing/ZonePivotGroups.json
+zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---
 
@@ -313,7 +313,7 @@ Run Playwright tests against browsers managed by the service and see the results
 dotnet test --settings:.runsettings --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
 ```
 
-The settings for your test run is defined in `.runsettings` file. See [how to use service package options](./how-to-use-service-config-file.md#options-in-runsettings-file)
+The settings for your test run are defined in `.runsettings` file. See [how to use service package options](./how-to-use-service-config-file.md#options-in-runsettings-file)
 
 After the test run completes, you can view the test status in the terminal.
 

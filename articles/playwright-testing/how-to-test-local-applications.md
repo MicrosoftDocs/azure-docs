@@ -4,7 +4,7 @@ description: Learn how to run end-to-end for locally deployed applications with 
 ms.topic: how-to
 ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
-zone_pivot_group_filename: playwright-testing/ZonePivotGroups.json
+zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---
 

@@ -4,7 +4,7 @@ description: 'This quickstart shows how to troubleshoot your test runs using Mic
 ms.topic: quickstart
 ms.date: 09/23/2024
 ms.custom: playwright-testing-preview
-zone_pivot_group_filename: playwright-testing/ZonePivotGroups.json
+zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---
 
@@ -261,7 +261,7 @@ You've now prepared the configuration for publishing test results and artifacts 
 dotnet test --settings:.runsettings
 ```
 
-The settings for your test run is defined in `.runsettings` file. For more information, see [how to use service package options](./how-to-use-service-config-file.md#options-in-runsettings-file)
+The settings for your test run are defined in `.runsettings` file. For more information, see [how to use service package options](./how-to-use-service-config-file.md#options-in-runsettings-file)
 
 > [!NOTE]
 > For the Reporting feature of Microsoft Playwright Testing, you get charged based on the number test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with publishing single test result instead of your full test suite to avoid exhausting your free trial limits.
