@@ -20,9 +20,9 @@ Complete the steps in this article *before* deploying Azure IoT Operations to yo
 ## Prerequisites
 
 * An Arc-enabled Kubernetes cluster.
-* Azure CLI installed on your development machine. For instructions, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
-* Helm installed on your development machine. For instructions, see [Install Helm](https://helm.sh/docs/intro/install/).
-* Kubectl installed on your development machine. For instructions, see [Install Kubernetes tools](https://kubernetes.io/docs/tasks/tools/).
+* Azure CLI installed on your cluster machine. For instructions, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Helm installed on your cluster machine. For instructions, see [Install Helm](https://helm.sh/docs/intro/install/).
+* Kubectl installed on your cluster machine. For instructions, see [Install Kubernetes tools](https://kubernetes.io/docs/tasks/tools/).
 
 ## Create resources in Azure
 

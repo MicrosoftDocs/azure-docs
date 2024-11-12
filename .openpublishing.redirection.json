@@ -3714,6 +3714,21 @@
       "source_path_from_root": "/articles/reliability/resiliency-recommendations/recommend-cosmos-db-nosql.md",
       "redirect_url": "/azure/reliability/reliability-cosmos-db-nosql",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-create-route-table-portal.md",
+      "redirect_url": "/azure/virtual-network/tutorial-create-route-table",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-create-route-table-powershell.md",
+      "redirect_url": "/azure/virtual-network/tutorial-create-route-table",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-create-route-table-cli.md",
+      "redirect_url": "/azure/virtual-network/tutorial-create-route-table",
+      "redirect_document_id": false
     }
   ]
 }
