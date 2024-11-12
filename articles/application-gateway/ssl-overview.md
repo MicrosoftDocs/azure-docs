@@ -123,6 +123,9 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 | If the client doesn't specify a SNI header and if all the multi-site headers are enabled with "Require SNI" | Resets the connection | Returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners
 | If the client doesn't specify SNI header and if there's a basic listener configured with a certificate | Returns the certificate configured in the basic listener to the client (default or fallback certificate) | Returns the certificate configured in the basic listener |
 
+> [!NOTE]
+> When the client does not specify an SNI header, it is recommended that the user add a basic listener and rule to present a default SSL/TLS certificate.
+
 > [!TIP]
 > The SNI flag can be configured with PowerShell or by using an ARM template. For more information, see [RequireServerNameIndication](/powershell/module/az.network/set-azapplicationgatewayhttplistener#-requireservernameindication) and [Quickstart: Direct web traffic with Azure Application Gateway - ARM template](quick-create-template.md#review-the-template).
 
