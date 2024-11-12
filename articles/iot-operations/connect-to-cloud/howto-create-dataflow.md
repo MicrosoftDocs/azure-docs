@@ -214,7 +214,7 @@ Once configured, the data from the asset reached the dataflow via the local MQTT
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | MQTT topic           | The MQTT topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
-    | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-schema-to-deserialize-data). |
+    | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
 
 1. Select **Apply**.
 
