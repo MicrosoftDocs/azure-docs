@@ -7,7 +7,7 @@ description: Learn how to create an Azure Cache, an Azure Virtual Network, and a
 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 01/12/2024
+ms.date: 11/12/2024
 
 ---
 
@@ -351,7 +351,7 @@ az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyR
 
 For **Basic, Standard, and Premium tier** caches, your application should connect to `<cachename>.redis.cache.windows.net` on port `6380`. A private DNS zone, named `*.privatelink.redis.cache.windows.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint.  We recommend avoiding the use of `<cachename>.privatelink.redis.cache.windows.net` in configuration or connection string.
 
-For **Enterprise and Enterprise Flash** tier caches, your application should connect to `<cachename>.<region>.redisenterprise.cache.azure.net` on port `10000`, and 8500 - 8599 if using OSS Cluster mode. If using Enterprise Cluster mode, only port 10000 is required.
+For **Enterprise and Enterprise Flash** tier caches, your application should connect to `<cachename>.<region>.redisenterprise.cache.azure.net` on port `10000`. If you are using OSS clustering, then your client library might also create connections to your Redis Enterprise instance on ports 8500 - 8599 as your application needs to connect to each shard individually in OSS clustering configuration.
 
 For more information, see [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md).
 
