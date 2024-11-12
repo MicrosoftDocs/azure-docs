@@ -1,5 +1,5 @@
 ---
-title: Azure Compute Fleet overview
+title: Azure Compute Fleet Overview
 description: Learn about Azure Compute Fleet and how to accelerate your access to Azure's capacity.
 author: rajeeshr
 ms.author: rajeeshr
@@ -14,13 +14,13 @@ ms.reviewer: jushiman
 # What is Azure Compute Fleet? (Preview)
 
 > [!IMPORTANT]
-> Azure Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+> Azure Compute Fleet is currently in preview. Previews are made available to you if you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change before general availability (GA). 
 
-Azure Compute Fleet is a building block that gives you accelerated access to Azure's capacity in a given region. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity. There are many ways you can use this product, whether by running a stateless web service, a big data cluster, or a Continuous Integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core instances.
+Azure Compute Fleet is a building block that gives you accelerated access to Azure's capacity in a given region. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity. You can use this product in many ways, whether by running a stateless web service, a big data cluster, or a Continuous Integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core instances.
 
 Using Compute Fleet, you can:
 - Deploy up to 10,000 VMs with a single API, using [Spot VM](/azure/virtual-machines/spot-vms) and [Standard VM](/azure/virtual-machines/overview) types together.
-- Get superior price-performance ratios by utilizing a blend of diverse pricing models, like Reserved Instances, Savings Plan, Spot instances, and pay-as-you-go (PYG) options.
+- Get superior price-performance ratios by utilizing a blend of diverse pricing models, like Reserved Instances, Savings Plans, Spot instances, and pay-as-you-go (PYG) options.
 - Expedite access to Azure capacity by rapidly provisioning instances from a customized SKU list tailored to your preferences.
 - Implement personalized Compute Fleet allocation strategies, catering to both Standard and Spot VMs, optimizing for cost, capacity, or a combination of both.
 - Embrace the "Fire & Forget-it" model, automating the deployment, management, and monitoring of instances without requiring intricate code frameworks.
@@ -37,13 +37,13 @@ Preferences are only available when creating your Compute Fleet using Spot VMs.
 
 ### Maintain capacity
 
-Enabling this preference allows for automatic VM replacement in your Compute Fleet. Your running Spot VMs are replaced with any of the VM types or sizes you specified if a Spot eviction for price increase or VM failure occurs. Compute Fleet continues to goal seek replacing your evicted Spot VMs until your target capacity is met. 
+Enabling this preference allows for automatic VM replacement in your Compute Fleet. Your running Spot VMs are replaced with any of the VM types or sizes you specified if a Spot eviction for a price increase or VM failure occurs. Compute Fleet continues to goal seek to replace your evicted Spot VMs until your target capacity is met. 
 
 You may choose this preference when:
 - All qualified availability zones in the region are selected.
 - A minimum of three different VM sizes are specified.
 
-Not enabling this preference stops your Compute Fleet from goal seeking to replace evicted Spot VMs even if the target capacity isn't met.
+Not enabling this preference stops your Compute Fleet from goal-seeking to replace evicted Spot VMs even if the target capacity isn't met.
 
 
 ## Compute Fleet strategies 
@@ -54,7 +54,7 @@ Not enabling this preference stops your Compute Fleet from goal seeking to repla
 
 ### Spot Fleet allocation strategies 
 
-**Price capacity optimized (recommended):** The Compute Fleet launches qualifying VMs from your selected list of VM types and sizes to fullfil the target capacity. It prioritizes the highest available Spot capacity at the lowest price on Spot VMs in the region. 
+**Price capacity optimized (recommended):** The Compute Fleet launches qualifying VMs from your selected list of VM types and sizes to fulfill the target capacity. It prioritizes the highest available Spot capacity at the lowest price on Spot VMs in the region. 
 
 If you select multiple VMs that happen to offer the ideal capacity to meet your target, then Compute Fleet prioritizes deploying VMs that offer the lowest price first. Followed by the second and third lowest price if sufficient capacity isn't available with the first lowest price VMs. Compute Fleet considers both price and capacity while configuring this strategy.
 
@@ -67,9 +67,9 @@ With this strategy, Compute Fleet doesn't prioritize pricing over capacity, so y
 **Lowest Price:** The Compute Fleet launches VM types and sizes from your specified list of VMs that offer the lowest price for Spot VMs. Followed by the second and third lowest price until the desired capacity is fulfilled.
 
 
-## Target capacity 
+## Target Capacity 
 
-Compute Fleet allows you to set individual target capacity for Spot and pay-as-you-go VM types. This capacity could be managed individually based on your workloads or application requirement.  
+Compute Fleet allows you to set individual target capacity for Spot and pay-as-you-go VM types. This capacity could be managed individually based on your workload or application requirement.  
 
 You can specify target capacity using VM instances. 
 
@@ -80,7 +80,7 @@ Compute Fleet allows you to modify the target capacity for Spot and pay-as-you-g
 
 You can set your Compute Fleet to deploy Spot VMs, pay-as-you-go VMs, or a combination of both only if the Compute Fleet can deploy the minimum starting capacity requested against the actual target capacity. The deployment fails if capacity becomes unavailable to fulfill the minimum starting capacity. 
 
-If your requested target capacity is 100 VM instances and minimum starting capacity is set to 20 VM instances, the deployment succeeds only if Compute Fleet can fulfill the starting capacity ask of 20 VM instances. Otherwise, the request fails. 
+If your requested target capacity is 100 VM instances and the minimum starting capacity is set to 20 VM instances, the deployment succeeds only if Compute Fleet can fulfill the starting capacity ask of 20 VM instances. Otherwise, the request fails. 
 
 You may not be able to set the minimum starting capacity if you choose to configure the Compute Fleet with capacity preference type as *Maintain capacity*. 
 
@@ -91,7 +91,7 @@ While your Compute Fleet is in a running state, it allows you to modify the targ
 
 ### Modify target capacity 
 
-You can update your Spot target capacity of the Compute Fleet while running, if the capacity preference is set to *Maintain capacity*.  
+You can update your Spot target capacity of the Compute Fleet while running if the capacity preference is set to *Maintain capacity*.  
 
 Compute Fleet automatically deploys new Spot VMs from the list of specified SKUs to scale up and attain the new target capacity.
 
