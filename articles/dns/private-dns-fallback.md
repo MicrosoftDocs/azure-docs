@@ -48,6 +48,8 @@ This policy is available in API version 2024-06-01 or higher. In the following e
 }
 ```
 
+This setting is available in the Azure portal at: **Private DNS zones** > **Virtual Network Links** > **Enable fallback to internet**.
+
 ## How it works
 
 An NXDOMAIN (RCODE3) response means the (Private Link) queried domain name doesn't exist. This negative answer typically prevents resolvers from retrying the query until the cached negative answer expires.
