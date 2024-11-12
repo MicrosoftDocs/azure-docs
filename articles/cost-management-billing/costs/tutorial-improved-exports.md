@@ -213,6 +213,26 @@ You can retrieve up to 13 months of historical data through the portal UI for al
     
   - EA: Up to 25 months (starting from December 2022).
     
+#### Which datasets support parquet format and compression?
+
+The following table captures the supported formats and compression formats for each of the exported datasets. 
+
+|Dataset|Format supported|Compression supported|
+| -------- | -------- | -------- |
+|Cost and usage details (Actual)|CSV|None, Gzip|
+||Parquet|None, Snappy|
+|Cost and usage details (Amortized)|CSV|None, Gzip|
+||Parquet|None, Snappy|
+|Cost and usage details (Usage only)|CSV|None, Gzip|
+||Parquet|None, Snappy|
+|Cost and usage details (FOCUS)|CSV|None, Gzip|
+||Parquet|None, Snappy|
+|Reservation details|CSV|None|
+|Reservation recommendations|CSV|None|
+|Reservation transactions|CSV|None|
+|Price Sheet|CSV|None, Gzip|
+||Parquet|None, Snappy|
+
 #### Why do I get the 'Unauthorized' error while trying to create an Export? 
 
 When attempting to create an Export to a storage account with a firewall, the user must have the Owner role or a custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions. If these permissions are missing, you will encounter an error like:
