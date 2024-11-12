@@ -85,7 +85,7 @@ If you're a billing administrator, use following steps to view and manage all re
 
 We don’t allow changing the billing subscription after a reservation is purchased. [Subscription transfer](../manage/ea-transfers.md#change-azure-subscription-or-account-ownership) doesn't transfer an Azure reservation. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.
 
-## Check billing subscription for an Azure reservation
+## Check billing subscription for an Azure Reservation
 
 To check the billing subscription for an Azure reservation:
 
