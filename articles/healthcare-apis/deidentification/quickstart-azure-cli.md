@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: deploy the Azure Health Data Services de-identification service with Azure CLI"
-description: "Quickstart: deploy the Azure Health Data Services de-identification service with Azure CLI."
+title: "Quickstart: Deploy the Azure Health Data Services de-identification service with Azure CLI"
+description: "Quickstart: Deploy the Azure Health Data Services de-identification service with Azure CLI."
 author: jovinson-ms
 ms.author: jovinson
 ms.service: azure-health-data-services
@@ -41,7 +41,7 @@ The command returns the following output, with some fields omitted for brevity.
 
 ```output
 {
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.HealthDataAIServices/DeidServices/<deid-service-name>",
+    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/exampleRG/providers/Microsoft.HealthDataAIServices/DeidServices/<deid-service-name>",
     "location": "eastus",
     "name": "<deid-service-name>",
     "properties": {
