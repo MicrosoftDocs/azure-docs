@@ -1,17 +1,19 @@
 ---
-title: Durable Functions v2 - Azure Functions
-description: Learn about Durable Functions v2.
+title: Durable Functions versions overview - Azure Functions
+description: Learn about Durable Functions versions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 05/06/2022
 ms.author: azfuncdf
 ---
 
-# Durable Functions v2
+# Durable Functions versions overview
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/webjobs-create.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you. If you aren't already familiar with Durable Functions, see the [overview documentation](durable-functions-overview.md). This page introduces the new features in Durable Functions v2 compared to Durable Functions v1 and provides guidance on how to migrate from v1.x to v2.
+*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/webjobs-create.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you. If you aren't already familiar with Durable Functions, see the [overview documentation](durable-functions-overview.md).
 
 ## WebJobs.Extensions.DurableTask v3.x
+
+This section introduces the new WebJobs Extension DurableTask v3 package and details its updates and changes. It’s a major version update, particularly for .NET in-process customers.
 
 ### New Azure Storage SDK
 
