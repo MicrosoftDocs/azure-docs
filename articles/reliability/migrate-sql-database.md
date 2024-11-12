@@ -102,7 +102,7 @@ To enable zone redundancy, see [Databases - Create Or Update in ARM](/rest/api/s
 
 1. Go to the [Azure portal](https://portal.azure.com) to find and select the elastic pool that you want to migrate.
 
-1. Select **Settings**, and then select **Configure**. 
+1. Under **Settings**, select **Compute + Storage**.
 
 1. Select **Yes** for **Would you like to make this elastic pool zone redundant?**.
 
