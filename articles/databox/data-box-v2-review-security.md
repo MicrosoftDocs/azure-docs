@@ -49,7 +49,7 @@ The Data Box device is protected by the following features:
 - A rugged device casing that withstands shocks, adverse transportation, and environmental conditions. 
 - Hardware and software tampering detection that prevents further device operations.
 - Built-in intrusion detection system that detects any unauthorized physical access to the devices.
-- Semper Secure Flash technology integrated with a hardware Root of Trust (RoT) within the flash memory chip, ensuring firmware integrity and secure updates without hardware modifications.
+- Semper Secure Flash technology integrated with a hardware Root of Trust (RoT) within the flash memory chip, ensuring BMC firmware integrity and secure updates without hardware modifications.
 - A Trusted Platform Module (TPM) 2.0 that performs hardware-based, security-related functions. Specifically, the TPM manages and protects secrets and data that needs to be persisted on the device.
 - Runs only Data Box-specific software.
 - Boots up in a locked state.
