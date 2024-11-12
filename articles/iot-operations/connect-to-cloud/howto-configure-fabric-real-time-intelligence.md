@@ -28,9 +28,9 @@ To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operation
 > Event Stream supports multiple input sources including Azure Event Hubs. If you have an existing dataflow to Azure Event Hubs, you can bring that into Fabric as shown in the [Quickstart](../get-started-end-to-end-sample/quickstart-get-insights.md#ingest-data-into-real-time-intelligence). This article shows you how to flow real-time data directly into Microsoft Fabric without any other hops in between.
 
 ## Retrieve Custom Endpoint connection details
-Note the [Kafka-compatible connection details for the Custom Endpoint](/fabric/real-time-intelligence/event-streams/add-source-custom-app#kafka). You need:
+Retrieve the [Kafka-compatible connection details for the Custom Endpoint](/fabric/real-time-intelligence/event-streams/add-source-custom-app#kafka). You need:
 
-:::image type="content" source="media/howto-configure-fabric-rti/event-stream-kafka.png" alt-text="Screenshot in Micrsoft Fabric that has the Custom Endpoint connection details":::
+:::image type="content" source="media/howto-configure-fabric-rti/event-stream-kafka.png" alt-text="Screenshot in Micrsoft Fabric that has the Custom Endpoint connection details.":::
 
 #### Hostname
 The bootstrap server address is used for the hostname property in Dataflow endpoint. 
@@ -39,13 +39,12 @@ The bootstrap server address is used for the hostname property in Dataflow endpo
 The event hub name is used as the Kafka topic and is of the form *es_xxxxxxx*.
 
 #### Custom Endpoint connection string
-The connection string looks like:
-> *Endpoint=sb://eventstream-xxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=key_xxxxxxxx;SharedAccessKey=xxxxxxxx;EntityPath=es_xxxxxxx*
+The connection string string for the primary key. 
 
 
 ## Create a Microsoft Fabric Real-Time Intelligence dataflow endpoint
 
-To configure a dataflow endpoint for Microsoft Fabric Real-Time Intelligence, you need to use Simple Authentication and Security Layer (SASL) based authentication. Managed identity support will be added in the future. 
+To configure a dataflow endpoint for Microsoft Fabric Real-Time Intelligence, you need to use Simple Authentication and Security Layer (SASL) based authentication.
 
 Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can be referenced in the dataflow. [Secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) must be enabled to configure this endpoint using the operations experience Portal.
 
