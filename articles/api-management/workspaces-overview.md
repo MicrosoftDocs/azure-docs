@@ -97,7 +97,8 @@ Workspace gateways are currently available in the following regions:
 * North Central US
 * East US 2
 * UK South
-* France Central 
+* France Central
+* Germany West Central
 * North Europe
 * East Asia
 * Southeast Asia

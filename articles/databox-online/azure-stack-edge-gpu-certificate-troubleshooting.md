@@ -4,8 +4,7 @@ description: Describes troubleshooting certificate errors with Azure Stack Edge 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 06/01/2021
 ms.author: alkohli

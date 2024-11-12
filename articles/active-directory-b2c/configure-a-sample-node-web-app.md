@@ -5,12 +5,12 @@ titleSuffix: Azure AD B2C
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.custom: devx-track-js
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 #Customer intent: As a developer, I want to configure authentication in a Node.js web application using Azure Active Directory B2C, so that I can enable users to sign in, sign out, update profile, and reset password using Azure AD B2C user flows.
 ---
 

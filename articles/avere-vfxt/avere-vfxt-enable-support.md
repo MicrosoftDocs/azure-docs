@@ -18,9 +18,6 @@ Follow these steps from the Avere Control Panel to activate support. (Read [Acce
 
 1. Navigate to the **Settings** tab at the top.
 1. Click the **Support** link on the left and accept the privacy policy.
-
-   ![Screenshot showing Avere Control Panel and pop-up window with Confirm button to accept the privacy policy](media/avere-vfxt-privacy-policy.png)
-
 1. On the support configuration page, open the **Customer Info** section by clicking the triangle at the left.
 1. Click the **Revalidate upload information** button.
 1. Set the cluster's support name in **Unique Cluster Name**. Make sure this name uniquely identifies your cluster to support staff.

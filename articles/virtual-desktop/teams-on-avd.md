@@ -16,7 +16,7 @@ There are two versions of Teams, *Classic Teams* and *[New Teams](/microsoftteam
 
 To redirect calling and meeting functionality to the local device, Azure Virtual Desktop uses an extra component. This component is either *SlimCore* or the *WebRTC Redirector Service*. The option you use depends on the following:
 
-- New Teams can use either SlimCore or the WebRTC Redirector Service. SlimCore is available in preview and you need [to opt in to the preview](/microsoftteams/public-preview-doc-updates?tabs=new-teams-client) to use it. If you use SlimCore, you should also install the WebRTC Redirector Service. This allows a user to fall back to WebRTC, such as if they roam between different devices that don't support the new optimization architecture. For more information about SlimCore and how to opt into the preview, see [New VDI solution for Teams](/microsoftteams/vdi-2).
+- New Teams can use either SlimCore or the WebRTC Redirector Service. If you use SlimCore, you should also install the WebRTC Redirector Service. This allows a user to fall back to WebRTC, such as if they roam between different devices that don't support the new optimization architecture. For more information about SlimCore, see [New VDI solution for Teams](/microsoftteams/vdi-2).
 
 - Classic Teams uses the WebRTC Redirector Service.
 

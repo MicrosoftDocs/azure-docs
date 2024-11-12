@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 10/03/2024
+ms.date: 11/12/2024
 ms.author: anfdocs
 ---
 
@@ -17,6 +17,14 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Storage with cool access enhancement: ](manage-cool-access.md) cool access tiering policy
 
     You now have the option to limit tiering to only snapshot copies. 
+ 
+## October 2024
+
+* [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
+
+    Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
+
+    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, and Switzerland North regions. 
   
 ## September 2024 
 

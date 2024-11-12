@@ -7,8 +7,7 @@ metadata:
   ms.custom:
     - ge-structured-content-pilot
 
-  ms.service: databox
-  ms.subservice: edge
+  ms.service: azure-stack-edge
   ms.topic: how-to
   ms.date: 03/21/2024
   ms.author: alkohli

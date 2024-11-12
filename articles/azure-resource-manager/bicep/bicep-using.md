@@ -29,7 +29,7 @@ The `using` statement in [Bicep parameter files](./parameter-files.md) ties the 
   using '<path>/<file-name>.json'
   ```
 
-- To use [public modules](./modules.md#path-to-module):
+- To use [public modules](./modules.md#path-to-a-module):
 
   ```bicep
   using 'br/public:<file-path>:<tag>'

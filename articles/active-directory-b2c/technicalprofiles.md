@@ -6,12 +6,12 @@ description: Specify the TechnicalProfiles element of a custom policy in Azure A
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to understand the different types of technical profiles available, so that I can choose the appropriate profile to communicate with Azure AD B2C and perform actions such as user creation, user profile reading, and authentication.

@@ -4,7 +4,7 @@ description: How to use IP filtering to allow connections from specific IP addre
 author: kgremban
 
 ms.author: kgremban 
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 09/17/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
