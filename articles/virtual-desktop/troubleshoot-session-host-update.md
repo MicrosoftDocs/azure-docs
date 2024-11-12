@@ -1,16 +1,16 @@
 ---
-title: Troubleshoot session host update - Azure Virtual Desktop
-description: Troubleshooting guidance to help with session host update.
+title: Troubleshoot session host configuration and session host update - Azure Virtual Desktop
+description: Troubleshooting guidance to help with session host configuration and session host update.
 ms.topic: troubleshooting
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/01/2024
+ms.date: 11/12/2024
 ---
 
-# Troubleshoot session host configuration and update in Azure Virtual Desktop
+# Troubleshoot session host configuration and session host update in Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Session host configuration and update for Azure Virtual Desktop is currently in PREVIEW. This preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
+> Session host configuration and session host update for Azure Virtual Desktop is currently in PREVIEW. This preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -18,7 +18,7 @@ Session host update in Azure Virtual Desktop enables you to easily update sessio
 
 ## Session host configuration failed to create when creating a host pool
 
-When a session host configuration is created, the parameters provided for the configuration are checked during extended validation. Validation can fail if the service concludes that it will be unable to successfully create session hosts with the provided parameters. As the Azure resources are stored in your subscription, they can be modified by other processes; session host creation can still fail using the session host configuration even after this validation check is completed.
+When a session host configuration is created, the parameters provided for the configuration are checked during extended validation. Validation can fail if the service concludes that it will be unable to successfully create session hosts with the provided parameters. As the Azure resources are stored in your subscription, they can be modified by other processes; session host creation can still fail when using the session host configuration even after this validation check is completed.
 
 Here are some example failures:
 
@@ -32,11 +32,12 @@ If the session host configuration fails to create when creating a host pool, you
 
 If you get the error **Error: SessionHostConfiguration does not exist** when using the PowerShell cmdlet `Get-AzWvdSessionHostConfiguration`, create the session host configuration using the `New-AzWvdSessionHostConfiguration` cmdlet.
 
-## Errors when adding session hosts to the host pool
-Host pools with a session host configuration only support adding session hosts through the Azure Portal. The primary difference between host pools using a session host configuration from standard host pools is that the domain join extension is not used with the session host configuration. Instead domain join is completed by the RDAgent. This means that:
+## Errors when adding session hosts to a host pool
 
-- ARM template deployment can succeed even if domain join fails, resulting in unhealthy session hosts
-- Domain join failure diagnostics can be optioned in portal on the Session Host Details blade by viewing the JSON for session host health
+We only support adding session hosts to a host pool with a session host configuration through the Azure portal. The primary difference between host pools using a session host configuration from standard host pools is that the domain join extension isn't used with the session host configuration. Instead, the Azure Virtual Desktop agent completes the domain join process. This method means that:
+
+- ARM template deployment can succeed even if domain join fails, resulting in unhealthy session hosts.
+- Domain join failure diagnostics are available in the Azure portal on the session host details by viewing the JSON for session host health.
 
 For domain join failures and other issues when session hosts are added to the host pool, you can follow the guidance for [troubleshooting session hosts](troubleshoot-vm-configuration.md).
 
@@ -72,17 +73,17 @@ Here are some example failures that prevent an update from starting:
 
 - **No session hosts to update**: the error `HostpoolHasNoSessionHosts` is returned when there are no session hosts to update as part of the session host update. If you didn't make changes to the session host configuration prior to initiating an update, this error is returned.
 
-- **Capacity issues**: validation checks for sufficient capacity in your virtual network subnet and VM core quota. This check does not guarantee capacity during an update; creation of other resources outside of session host update can result in errors mid-update associated with capacity limits. Set your batch size to be within the remaining quota for your subscription.
+- **Capacity issues**: validation checks for sufficient capacity in your virtual network subnet and VM core quota. This check doesn't guarantee capacity during an update; creation of other resources outside of session host update can result in errors mid-update associated with capacity limits. Set your batch size to be within the remaining quota for your subscription.
 
 - **Parameter consistency with current session hosts**: session host update doesn't support changing the region, subscription, resource group, or domain join type for a session host. If the session host configuration contains properties in these fields that differ from the session hosts in the host pool, the update fails to start. You should remove the session hosts that are inconsistent with the configuration.
 
 ### Failures during an update
 
-Session host update starts with an initial batch size of 1 to validate that the provided session host configuration will result in healthy session hosts. Failures that occur during the first validation batch are most often be due to parameters within the session host configuration and are typically not resolved by retrying the update. Failures that occur after the validation batch are often intermittent and can be resolved by [retrying the update](session-host-update-configure.md#pause-resume-cancel-or-retry-an-update).
+Session host update starts with an initial batch size of 1 to validate that the provided session host configuration will result in healthy session hosts. Failures that occur during the first validation batch are most often due to parameters within the session host configuration and are typically not resolved by retrying the update. Failures that occur after the validation batch are often intermittent and can be resolved by [retrying the update](session-host-update-configure.md#pause-resume-cancel-or-retry-an-update).
 
 Here are some example failures that can occur during an update:
 
-- **VM creation failures**: VM creation can fail for a variety of reasons not specific to Azure Virtual Desktop, for example the exhaustion of subscription capacity, or issues with the provided image. You should review the error message provided to determine the appropriate remediation. Open a support case with Azure support if you need further assistance.
+- **VM creation failures**: VM creation can fail for various reasons not specific to Azure Virtual Desktop, for example the exhaustion of subscription capacity, or issues with the provided image. You should review the error message provided to determine the appropriate remediation. Open a support case with Azure support if you need further assistance.
 
 - **Agent installation, domain join, and session host health errors or timeout**: Agent, domain join, and other session host health errors that occur in the first validation batch can often be resolved by reviewing guidance for addressing deployment and domain join failures for Azure Virtual Desktop, and by ensuring your image doesn't have the PowerShell DSC extension installed. If the extension is installed on the image, remove the folder `C:\packages\plugin` from the image. If the failure is intermittent, with some session hosts successfully updating and others encountering an error such as `AgentRegistrationFailureGeneric`, [retrying the update](session-host-update-configure.md#pause-resume-cancel-or-retry-an-update) can often resolve the issue.
 
