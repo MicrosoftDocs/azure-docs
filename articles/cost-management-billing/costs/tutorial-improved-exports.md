@@ -213,9 +213,9 @@ You can retrieve up to 13 months of historical data through the portal UI for al
     
   - EA: Up to 25 months (starting from December 2022).
     
-#### Which datasets support parquet format and compression?
+#### Which datasets support Parquet format and compression?
 
-The following table captures the supported formats and compression formats for each of the exported datasets. 
+The following table captures the supported formats and compression formats for each of the exported datasets. If you are creating an export with multiple datasets, Parquet & compression options will only appear in the dropdown if all of the selected datasets support them. 
 
 |Dataset|Format supported|Compression supported|
 | -------- | -------- | -------- |
