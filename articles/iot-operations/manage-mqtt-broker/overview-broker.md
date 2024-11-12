@@ -15,6 +15,8 @@ ms.service: azure-iot-operations
 
 # Azure IoT Operations built-in local MQTT broker
 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+
 Azure IoT Operations features an enterprise-grade, standards-compliant MQTT broker that is scalable, highly available, and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 ## MQTT compliance
@@ -25,19 +27,18 @@ The MQTT broker underpins the messaging layer in IoT Operations and supports bot
 
 ## Architecture
 
-The MQTT broker has three layers: 
+The MQTT broker has two major layers: 
 
-- Load balancer that routes requests and connects the broker to others
-- Stateless frontend layer that handles client requests
-- Stateful and sharded backend layer that stores and processes data
+- Stateless frontend layer.
+- Stateful and sharded backend layer.
 
-The backend layer partitions data by different keys, such as client ID for client sessions, and topic name for topic messages. It uses chain replication to replicate data within each partition. For data that's shared by all partitions, it uses a single chain that spans all the partitions.
+The frontend layer handles client connections and requests and routes them to the backend. The backend layer partitions data by different keys, such as client ID for client sessions, and topic name for topic messages. It uses chain replication to replicate data within each partition.
 
 The goals of the architecture are:
 
-- **Fault tolerance and isolation**: Message publishing continues if backend nodes fail and prevents failures from propagating to the rest of the system
+- **Fault tolerance and isolation**: Message publishing continues if backend pods fail and prevents failures from propagating to the rest of the system
 - **Failure recovery**: Automatic failure recovery without operator intervention
-- **No message loss**: Delivery of messages if at least one front-end node and one backend node is running
+- **No message loss**: Delivery of messages if at least one front-end pod and one backend pod in a partition is running
 - **Elastic scaling**: Horizontal scaling of publishing and subscribing throughput to support edge and cloud deployments
 - **Consistent performance at scale**: Limit message latency overhead due to chain-replication
 - **Operational simplicity**: Minimum dependency on external components to simplify maintenance and complexity
@@ -199,7 +200,7 @@ To configure settings like disk-backed message buffer and advanced MQTT client o
 
 Use Azure portal or Azure CLI to customize the default Broker resource.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Use Azure portal or Azure CLI to customize the default Broker resource.
 
@@ -224,7 +225,7 @@ az iot ops broker show --name default --instance <INSTANCE_NAME> --resource-grou
 
 Use Azure portal, Azure CLI, or Kubernetes to view the default Broker resource.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```bash
 kubectl get broker default -n azure-iot-operations -o yaml

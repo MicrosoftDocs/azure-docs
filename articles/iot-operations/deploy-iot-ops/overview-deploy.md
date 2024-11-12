@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: conceptual
 ms.custom:
-ms.date: 10/23/2024
+ms.date: 11/06/2024
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
@@ -16,17 +16,23 @@ When you deploy Azure IoT Operations, you install a suite of services on an Azur
 
 ## Supported environments
 
-Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. 
+Microsoft supports the following environments for Azure IoT Operations deployments.
 
-* Minimum hardware requirements:
-  * 16-GB RAM
-  * 4 vCPUs
+| Environment | Minimum version | Availability |
+| ----------- | --------------- | ------------ |
+| K3s on Ubuntu 24.04 | K3s version 1.31.1 | General availability |
+| Azure Kubernetes Service (AKS) Edge Essentials on Windows 11 IoT Enterprise | AksEdge-K3s-1.29.6-1.8.202.0 | Public preview |
+| Azure Kubernetes Service (AKS) on Azure Local | Azure Stack HCI OS, version 23H2, build 2411 | Public preview |
 
-* Recommended hardware, especially for multi-node K3s clusters that enable fault tolerance:
-  * 32-GB RAM
-  * 8 vCPUs
+>[!NOTE]
+>Billing usage records are collected on any environment where Azure IoT Operations is installed, regardless of support or availability levels.
 
-[!INCLUDE [validated-environments](../includes/validated-environments.md)]
+To install Azure IoT Operations on a cluster, have the following hardware requirements available. If you're using a multi-node cluster that enables fault tolerance, scale up to the recommended capacity for better performance.
+
+| Spec | Minimum | Recommended |
+|------|---------|-------------|
+| RAM  | 16-GB   | 32-GB       |
+| CPU  | 4 vCPUs | 8 vCPUs     |
 
 ## Choose your features
 
@@ -42,7 +48,7 @@ A deployment with only test settings:
 
 The quickstart scenario, [Quickstart: Run Azure IoT Operations in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md), uses test settings.
 
-At any point, you can upgrade an Azure IoT Operations instance to use secure settings by following the steps in [Enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
+At any point, you can upgrade an Azure IoT Operations instance to use secure settings by following the steps in [Enable secure settings](howto-enable-secure-settings.md).
 
 ### Secure settings deployment
 
@@ -94,55 +100,32 @@ Azure IoT Operations supports Azure Arc sites for organizing instances. A _site_
 
 For more information, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview)
 
-## Domain allowlist for Azure IoT Operations
+## Azure IoT Operations endpoints
 
-If you use enterprise firewalls or proxies to manage outbound traffic, add the following endpoints to your domain allowlist before deploying Azure IoT Operations.
+If you use enterprise firewalls or proxies to manage outbound traffic, configure the following endpoints before deploying Azure IoT Operations.
 
-Additionally, review the [Azure Arc-enabled Kubernetes endpoints](/azure/azure-arc/network-requirements-consolidated#azure-arc-enabled-kubernetes-endpoints).
+* Endpoints in the [Azure Arc-enabled Kubernetes endpoints](/azure/azure-arc/network-requirements-consolidated#azure-arc-enabled-kubernetes-endpoints).
 
-```text
-nw-umwatson.events.data.microsoft.com 
-dc.services.visualstudio.com 
-github.com 
-self.events.data.microsoft.com 
-mirror.enzu.com 
-ppa.launchpadcontent.net 
-msit-onelake.pbidedicated.windows.net 
-gcr.io 
-adhs.events.data.microsoft.com 
-gbl.his.arc.azure.cn 
-onegetcdn.azureedge.net 
-graph.windows.net 
-pas.windows.net 
-agentserviceapi.guestconfiguration.azure.com 
-aka.ms 
-api.segment.io 
-download.microsoft.com 
-raw.githubusercontent.com 
-go.microsoft.com 
-global.metrics.azure.eaglex.ic.gov 
-gbl.his.arc.azure.us 
-packages.microsoft.com 
-global.metrics.azure.microsoft.scloud 
-www.powershellgallery.com
-k8s.io 
-guestconfiguration.azure.com 
-ods.opinsights.azure.com 
-vault.azure.net 
-googleapis.com 
-quay.io 
-handler.control.monitor.azure.com 
-pkg.dev 
-docker.io 
-prod.hot.ingestion.msftcloudes.com 
-docker.com 
-prod.microsoftmetrics.com 
-oms.opinsights.azure.com 
-azureedge.net 
-monitoring.azure.com
-blob.core.windows.net 
-azurecr.io
-```
+  >[!NOTE]
+  >If you use *Azure Arc Gateway* to connect your cluster to Arc, you can configure a smaller set of endpoints based on the [Arc Gateway guidance](/azure/azure-arc/servers/arc-gateway#step-3-ensure-the-required-urls-are-allowed-in-your-environment).
+
+* Endpoints in [Azure CLI endpoints](/cli/azure/azure-cli-endpoints?tabs=azure-cloud#endpoints).
+
+  You need `graph.windows.net`, `*.azurecr.io`, `*.blob.core.windows.net`, `*.vault.azure.net` from this endpoint list.
+
+* The following endpoints are required specifically for Azure IoT Operations:
+
+  |Endpoints (DNS) | Description |
+  |-|-|
+  | `<customer-specific>.blob.storage.azure.net` | Storage for schema registry. Refer to [storage account endpoints](/azure/storage/common/storage-account-overview#storage-account-endpoints) for identifying the customer specific subdomain of your endpoint. |
+
+* To push data to the cloud, enable the following endpoints based on your choice of data platform.
+
+  * Microsoft Fabric OneLake: [Add Fabric URLs to your allowlist](/fabric/security/fabric-allow-list-urls#onelake).
+  * Event Hubs: [Troubleshoot connectivity issues - Azure Event Hubs](/azure/event-hubs/troubleshooting-guide).
+  * Event Grid: [Troubleshoot connectivity issues - Azure Event Grid](/azure/event-grid/troubleshoot-network-connectivity).
+  * Azure Data Lake Storage Gen 2: [Storage account standard endpoints](/azure/storage/common/storage-account-overview#standard-endpoints).
+
 
 ## Next steps
 

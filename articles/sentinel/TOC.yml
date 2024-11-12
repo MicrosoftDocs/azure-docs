@@ -878,6 +878,20 @@
     href: hunting.md
   - name: Conduct end-to-end hunts
     href: hunts.md
+  - name: Advanced hunting in the Defender portal
+    items:
+    - name: Overview
+      href: /defender-xdr/advanced-hunting-microsoft-defender?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Generate queries with Security Copilot
+      href: /defender-xdr/advanced-hunting-security-copilot?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Use functions, saved queries, custom rules
+      href: /defender-xdr/advanced-hunting-defender-use-custom-rules?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Use shared queries
+      href: /defender-xdr/advanced-hunting-shared-queries?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Work with query results
+      href: /defender-xdr/advanced-hunting-query-results?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Explore results containing Microsoft Sentinel data
+      href: /defender-xdr/advanced-hunting-defender-results?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Hunt with Kusto Query Language
     items:
     - name: Overview

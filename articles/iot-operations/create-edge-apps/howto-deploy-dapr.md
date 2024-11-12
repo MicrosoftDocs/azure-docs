@@ -135,7 +135,7 @@ To configure authorization policies to MQTT broker, first you create a [BrokerAu
 1. Save the following yaml, which contains a BrokerAuthorization definition, to a file named `aio-dapr-authz.yaml`:
 
     ```yml
-    apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+    apiVersion: mqttbroker.iotoperations.azure.com/v1
     kind: BrokerAuthorization
     metadata:
       name: my-dapr-authz-policies

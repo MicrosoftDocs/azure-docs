@@ -6,7 +6,7 @@ description: Learn how to replicate your Azure Cache for Redis Enterprise instan
 
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 11/11/2024
 
 ---
 
@@ -38,7 +38,7 @@ There are a few restrictions when using active geo replication:
 - You can't add an existing (that is, running) cache to a geo-replication group. You can only add a cache to a geo-replication group when you create the cache.
 - All caches within a geo-replication group must have the same configuration. For example, all caches must have the same SKU, capacity, eviction policy, clustering policy, modules, and TLS setting.
 - You can't use the `FLUSHALL` and `FLUSHDB` Redis commands when using active geo-replication. Prohibiting the commands prevents unintended deletion of data. Use the [flush operation](#flush-operation) from the portal instead.
-- The E1 SKU does not support active geo-replication.
+- The E1 SKU doesn't support active geo-replication.
 
 ## Create or join an active geo-replication group
 
@@ -62,9 +62,9 @@ There are a few restrictions when using active geo replication:
 
 To remove a cache instance from an active geo-replication group, you just delete the instance. The remaining instances then reconfigure themselves automatically.
 
-## Force-unlink if there's a region outage
+## Force unlink if there's a region outage
 
-In case one of the caches in your replication group is unavailable due to region outage, you can forcefully remove the unavailable cache from the replication group.
+In case one of the caches in your replication group is unavailable due to region outage, you can forcefully remove the unavailable cache from the replication group. After you apply **Force-unlink** to a cache, you can't sync any data that is written to that cache back to the replication group after force-unlinking.
 
 You should remove the unavailable cache because the remaining caches in the replication group start storing the metadata that hasn’t been shared to the unavailable cache. When this happens, the available caches in your replication group might run out of memory.
 
@@ -93,7 +93,7 @@ Use the Azure CLI to create a new cache and geo-replication group, or to add a n
 This example creates a new Azure Cache for Redis Enterprise E10 cache instance called _Cache1_ in the East US region. Then, the cache is added to a new active geo-replication group called _replicationGroup_:
 
 ```azurecli-interactive
-az redisenterprise create --location "East US" --cluster-name "Cache1" --sku "Enterprise_E10" --resource-group "myResourceGroup" --group-nickname "replicationGroup" --linked-databases id="/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"
+az redisenterprise create --location "East US" --cluster-name "Cache1" --sku "Enterprise_E10" --resource-group "myResourceGroup" --group-nickname "replicationGroup" --linked-databases id="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"
 ```
 
 To configure active geo-replication properly, the ID of the cache instance being created must be added with the `--linked-databases` parameter. The ID is in the format:
@@ -105,7 +105,7 @@ To configure active geo-replication properly, the ID of the cache instance being
 This example creates a new Enterprise E10 cache instance called _Cache2_ in the West US region. Then, the script adds the cache to the `replicationGroup` active geo-replication group create in a previous procedure. This way, it's linked in an active-active configuration with _Cache1_.
 
 ```azurecli-interactive
-az redisenterprise create --location "West US" --cluster-name "Cache2" --sku "Enterprise_E10" --resource-group "myResourceGroup" --group-nickname "replicationGroup" --linked-databases id="/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default" --linked-databases id="/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache2/databases/default"
+az redisenterprise create --location "West US" --cluster-name "Cache2" --sku "Enterprise_E10" --resource-group "myResourceGroup" --group-nickname "replicationGroup" --linked-databases id="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default" --linked-databases id="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache2/databases/default"
 ```
 
 As before, you need to list both _Cache1_ and _Cache2_ using the `--linked-databases` parameter.
@@ -119,7 +119,7 @@ Use Azure PowerShell to create a new cache and geo-replication group, or to add 
 This example creates a new Azure Cache for Redis Enterprise E10 cache instance called _Cache1_ in the East US region. Then, the cache is added to a new active geo-replication group called _replicationGroup_:
 
 ```powershell-interactive
-New-AzRedisEnterpriseCache -Name "Cache1" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "Enterprise_E10" -GroupNickname "replicationGroup" -LinkedDatabase '{id:"/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"}'
+New-AzRedisEnterpriseCache -Name "Cache1" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "Enterprise_E10" -GroupNickname "replicationGroup" -LinkedDatabase '{id:"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"}'
 ```
 
 To configure active geo-replication properly, the ID of the cache instance being created must be added with the `-LinkedDatabase` parameter. The ID is in the format:
@@ -128,21 +128,23 @@ To configure active geo-replication properly, the ID of the cache instance being
 
 #### Create new Enterprise instance in an existing geo-replication group using PowerShell
 
-This example creates a new Enterprise E10 cache instance called _Cache2_ in the West US region. Then, the script adds the cache to the "replicationGroup" active geo-replication group created in the previous procedure. the links the two caches, _Cache1_ and _Cache2_, in an active-active configuration.
+This example creates a new Enterprise E10 cache instance called _Cache2_ in the West US region. Then, the script adds the cache to the _replicationGroup_ active geo-replication group created in the previous procedure. After the running the command, the two caches, _Cache1_ and _Cache2_, are linked in an active-active configuration.
 
 ```powershell-interactive
-New-AzRedisEnterpriseCache -Name "Cache2" -ResourceGroupName "myResourceGroup" -Location "West US" -Sku "Enterprise_E10" -GroupNickname "replicationGroup" -LinkedDatabase '{id:"/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"}', '{id:"/subscriptions/34b6ecbd-ab5c-4768-b0b8-bf587aba80f6/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache2/databases/default"}'
+New-AzRedisEnterpriseCache -Name "Cache2" -ResourceGroupName "myResourceGroup" -Location "West US" -Sku "Enterprise_E10" -GroupNickname "replicationGroup" -LinkedDatabase '{id:"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache1/databases/default"}', '{id:"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Cache/redisEnterprise/Cache2/databases/default"}'
 ```
 
 As before, you need to list both _Cache1_ and _Cache2_ using the `-LinkedDatabase` parameter.
 
 ## Scaling instances in a geo-replication group
-It is possible to scale instances that are configured to use active geo-replication. However, a geo-replication group with a mix of different cache sizes can introduce problems. To prevent these issues from occurring, all caches in a geo replication group need to be the same size and capacity. 
 
-Since it is difficult to simultaneously scale all instances in the geo-replication group, Azure Cache for Redis has a locking mechanism. If you scale one instance in a geo-replication group, the underlying VM will be scaled, but the memory available will be capped at the original size until the other instances are scaled up as well. And any other scaling operations for the remaining instances are locked until they match the same configuration as the first cache to be scaled.
+It's possible to scale instances that are configured to use active geo-replication. However, a geo-replication group with a mix of different cache sizes can introduce problems. To prevent these issues from occurring, all caches in a geo replication group need to be the same size and capacity.
+
+Because it's difficult to simultaneously scale all instances in the geo-replication group, Azure Cache for Redis has a locking mechanism. If you scale one instance in a geo-replication group, the underlying VM is scaled, but the memory available is capped at the original size until the other instances are scaled up as well. Any other scaling operations for the remaining instances are locked until they match the same configuration as the first cache to be scaled.
 
 ### Scaling example
-For example, you may have three instances in your geo-replication group, all Enterprise E10 instances:
+
+For example, you might have three instances in your geo-replication group, all Enterprise E10 instances:
 
 | Instance Name |   Redis00   |    Redis01   |   Redis02  |
 |-----------|:--------------------:|:--------------------:|:--------------------:|
@@ -154,12 +156,12 @@ Let's say you want to scale up each instance in this geo-replication group to an
 |-----------|:--------------------:|:--------------------:|:--------------------:|
 | Type | Enterprise E20 | Enterprise E10 | Enterprise E10 |
 
-At this point, the `Redis01` and `Redis02` instances can only scale up to an Enterprise E20 instance. All other scaling operations are blocked. 
+At this point, the `Redis01` and `Redis02` instances can only scale up to an Enterprise E20 instance. All other scaling operations are blocked.
 >[!NOTE]
 > The `Redis00` instance is not blocked from scaling further at this point. But it will be blocked once either `Redis01` or `Redis02` is scaled to be an Enterprise E20.
 >
 
-Once each instance has been scaled to the same tier and size, all scaling locks are removed:
+Once each instance is scaled to the same tier and size, all scaling locks are removed:
 
 | Instance Name |   Redis00   |    Redis01   |   Redis02  |
 |-----------|:--------------------:|:--------------------:|:--------------------:|
