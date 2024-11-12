@@ -162,8 +162,6 @@ landingContent:
           url: howto-timewindow-filter.md
         - text: Roll out features to targeted audience
           url: howto-targetingfilter.md
-        - text: Use variant feature flags
-          url: use-variant-feature-flags.md
         - text: Run experiments with variant feature flags
           url: run-experiments-aspnet-core.md
       - linkListType: reference
