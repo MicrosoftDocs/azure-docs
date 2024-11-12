@@ -6,31 +6,36 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: quickstart
-ms.date: 11/04/2024
+ms.date: 11/12/2024
 ms.author: cshoe
 ---
 
 # Tutorial: Launch your first Java microservice applications with managed Java components in Azure Container Apps
 
-This guide demonstrates how to deploy the Spring PetClinic Microservices sample on Azure Container Apps. It uses the built-in Java components provided by Azure Container Apps to support your microservice applications, eliminating the need for manual deployment.
+In this article, you learn how to deploy an application that uses Java components to handle configuration management, service discovery, and manage health and metrics. The sample application used in this example is the Java PetClinic sample which uses the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps.
 
-The PetClinic sample illustrates the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps.
+:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png" alt-text="Architecture of pet clinic app." lightbox="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png":::
 
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png" alt-text="Architecture of pet clinic app.":::
+The PetClinic application includes the following features:
+
+* The frontend app is standalone Node.js web application hosted on the API Gateway app.
+* Requests to API Gateway routes requests to backend service apps.
+* Backend apps are built with Spring Boot.
+* Each backend app uses HyperSQL DataBase as the persistent store.
+* The apps use managed Java components on Azure Container Apps, including Service Registry, Config Server, and Admin Server.
+* The config server reads data from a Git repository.
+* Log Analytics workspace is responsible for logging server data.
+
+In this tutorial you:
 
 > [!div class="checklist"]
-> * One
-> * Two
+> * Create Config Server, Eureka Server, Admin and admin components
+> * Create a series of microservice applications
+> * Bind the server components to your microservices apps
+> * Deploy the collection of applications
+> * Review the deployed apps
 
-* Builds the frontend app as a standalone web application on the API Gateway App with Node.js, exposing the URL of the API Gateway to route requests to backend service apps.
-* Builds the backend apps with Spring Boot, each utilizing HSQLDB as the persistent store.
-* Uses managed Java components on Azure Container Apps, including Service Registry, Config Server, and Admin Server.
-* Reads configurations of the config server from a Git repository.
-* Exposes the URL of the Admin Server to monitor backend apps.
-* Exposes the URL of the Service Registry to discover backend apps.
-* Analyzes logs using the Log Analytics workspace.
-
-By the end of this tutorial, you deploy one web application and three backend applications, and configure three Java components. These components can be managed through the Azure portal.
+By the end of this article, you deploy one web application and three backend applications that are configured to work with three different Java components. You can then manage each component via the Azure portal.
 
 ## Prerequisites
 
@@ -42,13 +47,19 @@ By the end of this tutorial, you deploy one web application and three backend ap
 
 ## Setup
 
-1. Set the following environment variables in your machine, and customize the top three variables `RESOURCE_GROUP`, `LOCATION`, and `CONTAINER_APP_ENVIRONMENT` as you need:
+1. Begin by creating variables with your custom values.
+
+    Before you run this command, make sure to replace the placeholder values surrounded by `<>` with your own values.
 
     ```bash
-    export RESOURCE_GROUP=rg-petclinic # customize this
-    export LOCATION=eastus # customize this
-    export CONTAINER_APP_ENVIRONMENT=petclinic-env # customize this
-    
+    export RESOURCE_GROUP=<RESOURCE_GROUP>
+    export LOCATION=<LOCATION>
+    export CONTAINER_APP_ENVIRONMENT=<CONTAINER_APPS_ENVIRONMENT>
+    ```
+
+1. Create variables which hold the settings for your microservices app.
+
+    ```bash
     export CONFIG_SERVER_COMPONENT=configserver
     export ADMIN_SERVER_COMPONENT=admin
     export EUREKA_SERVER_COMPONENT=eureka
@@ -69,7 +80,7 @@ By the end of this tutorial, you deploy one web application and three backend ap
     az login
     ```
 
-1. Create a resource group to organize your Azure Container App services.
+1. Create a resource group to organize your Azure services.
 
     ```azurecli
     az group create \
@@ -77,7 +88,9 @@ By the end of this tutorial, you deploy one web application and three backend ap
       --location $LOCATION
     ```
 
-1. Create your Container Apps Environment, this environment is used to host both Java components and your Container Apps.
+1. Create your Container Apps environment.
+
+    This environment hosts both the Java components and your container apps.
 
     ```azurecli
     az containerapp env create \
@@ -88,7 +101,11 @@ By the end of this tutorial, you deploy one web application and three backend ap
 
 ## Create Java components
 
-In this section, you create three Java components: Config Server, Eureka Server, and Admin. Azure Container Apps manages these components and provides essential services for your microservice applications.
+Next create the different Java components that support your app:
+
+* **Config Server**: Used to manage configuration settings for your microservices apps.
+* **Eureka Server**: Used to manage service registry and discovery.
+* **Admin**: Used to monitor and manage the health and metrics of your microservices apps.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -122,110 +139,179 @@ In this section, you create three Java components: Config Server, Eureka Server,
 
 ### [Azure portal](#tab/azure-portal)
 
-1. Go to your Container Apps Environment on Azure portal, select the **Service** section in the left menu, and select **Configure** and choose **Java component** to create a new Java component. In this section, you need to create three components in total.
+1. Open your Container Apps environment in the Azure portal.
 
-    :::image type="content" source="media/java-deploy-war-file/configure-java-component.png" alt-text="Configure java component.":::
+1. From the left menu, expand the *Services* menu and select the **Service**.
 
-2. Create the Config Server component: Select `Config Server for Spring` as the **Java component type**, and fill in the **Java component name** with `configserver` which is the value of the environment variable `$CONFIG_SERVER_COMPONENT` you set before. Then in the **Git repositories** section, select **Add** to add a new Git repository with the **URI** `https://github.com/spring-petclinic/spring-petclinic-microservices-config.git`. Select **Add**, then **Next** to the Review page, and select **Configure** to finish the configuration of Java component.
+    In this section, you create three components in total.
 
-    :::image type="content" source="media/java-deploy-war-file/configure-configserver.png" alt-text="Configure config server.":::
+1. Create the Config Server component.
 
-3. Create the Eureka component: Select `Eureka Server for Spring` as the **Java component type**, and fill in the **Java component name** with `eureka` which is the value of the environment variable `$EUREKA_SERVER_COMPONENT` you set before. select **Next** to the Review page, then select **Configure** to finish the configuration of Java component.
+    Select **Configure** and choose **Java component** to create a new Java component.
 
-    :::image type="content" source="media/java-deploy-war-file/configure-eureka.png" alt-text="Configure Eureka.":::
+    Use the following table to add the values in the portal window.
 
-4. Create the Admin component: Select `Admin for Spring` as the **Java component type**, and fill in the **Java component name** with `admin` which is the value of the environment variable `$ADMIN_SERVER_COMPONENT` you set before. select **Next** to the Review page, then select **Configure** to finish the configuration of Java component.
+    | Setting | Value | Remarks |
+    |---|---|
+    | Java component type | Select **Config Server for Spring**. | |
+    | Java component name | Enter **configserver**. | This value matches what you defined for the `$CONFIG_SERVER_COMPONENT` variable. |
 
-    :::image type="content" source="media/java-deploy-war-file/configure-admin.png" alt-text="Configure Admin.":::
+    In the *Git repositories* section, select **Add**.
+
+    For the *URI* field, enter **https://github.com/spring-petclinic/spring-petclinic-microservices-config.git**
+
+    Select **Add**.
+
+    Select **Next**.
+
+    Select **Configure** to finish the configuration.
+
+1. Create the Eureka Server component.
+
+    Select **Configure** and choose **Java component** to create a new Java component.
+
+    Use the following table to add the values in the portal window.
+
+    | Setting | Value | Remarks |
+    |---|---|
+    | Java component type | Select **Eureka Server for Spring**. | |
+    | Java component name | Enter **eureka**. | This value matches what you defined for the `$EUREKA_SERVER_COMPONENT` variable. |
+
+    Select **Next**.
+
+    Select **Configure** to finish the configuration.
+
+1. Create the Admin Server component.
+
+    Select **Configure** and choose **Java component** to create a new Java component.
+
+    Use the following table to add the values in the portal window.
+
+    | Setting | Value | Remarks |
+    |---|---|
+    | Java component type | Select **Admin for Spring**. | |
+    | Java component name | Enter **admin**. | This value matches what you defined for the `$ADMIN_SERVER_COMPONENT` variable. |
+
+    Select **Next**.
+
+    Select **Configure** to finish the configuration.
 
 ---
 
-## Deploy Java microservice apps to Azure Container Apps
+## Deploy the microservice apps
 
-Deploy the Java microservice apps to Azure Container Apps using our prebuilt images.
-
-```azurecli
-az containerapp create \
-  --name $CUSTOMERS_SERVICE \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINER_APP_ENVIRONMENT \
-  --image $CUSTOMERS_SERVICE_IMAGE
-```
-
-```azurecli
-az containerapp create \
-  --name $VETS_SERVICE \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINER_APP_ENVIRONMENT \
-  --image $VETS_SERVICE_IMAGE
-```
-
-```azurecli
-az containerapp create \
-  --name $VISITS_SERVICE \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINER_APP_ENVIRONMENT \
-  --image $VISITS_SERVICE_IMAGE
-```
-
-```azurecli
-az containerapp create \
-  --name $API_GATEWAY \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINER_APP_ENVIRONMENT \
-  --image $API_GATEWAY_IMAGE \
-  --ingress external \
-  --target-port 8080 \
-  --query properties.configuration.ingress.fqdn 
-```
+Deploy the Java microservice apps to Azure Container Apps using the prebuilt container images.
 
 > [!NOTE]
-> This documentation guides you use our [built images](https://github.com/orgs/Azure-Samples/packages?tab=packages&q=spring-petclinic) for the [Spring Petclinic microservice apps](https://github.com/spring-petclinic/spring-petclinic-microservices). If you want to customize the sample code and use your own images, you can go to [our GitHub sample repository](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-petclinic-microservices/README.md) for instructions.
+> In this article, you use a series of [built images](https://github.com/orgs/Azure-Samples/packages?tab=packages&q=spring-petclinic) for the [Spring Petclinic microservice apps](https://github.com/spring-petclinic/spring-petclinic-microservices). You also have the option to customize the sample code and use your own images. For more information, see the [GitHub sample repository](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-petclinic-microservices/README.md).
 
-## Bind Azure Container Apps to Java components
+1. Create the customer data app.
 
-This section guides you bind three kinds of Java components (Config Server, Eureka Server, and Admin) to each of your container apps.
+    ```azurecli
+    az containerapp create \
+      --name $CUSTOMERS_SERVICE \
+      --resource-group $RESOURCE_GROUP \
+      --environment $CONTAINER_APP_ENVIRONMENT \
+      --image $CUSTOMERS_SERVICE_IMAGE
+    ```
 
-* Binding to Config Server: Injects configurations to the app so that it pulls the configurations from the managed Config Server on startup.
+1. Create the vet app.
 
-* Binding to Eureka Server: Registers the app with the managed Eureka Server for service discovery.
+    ```azurecli
+    az containerapp create \
+      --name $VETS_SERVICE \
+      --resource-group $RESOURCE_GROUP \
+      --environment $CONTAINER_APP_ENVIRONMENT \
+      --image $VETS_SERVICE_IMAGE
+    ```
 
-* Binding to Admin: Enables Admin server to monitor the app.
+1. Create the visits app.
+
+    ```azurecli
+    az containerapp create \
+      --name $VISITS_SERVICE \
+      --resource-group $RESOURCE_GROUP \
+      --environment $CONTAINER_APP_ENVIRONMENT \
+      --image $VISITS_SERVICE_IMAGE
+    ```
+
+1. Create the API gateway app.
+
+    ```azurecli
+    az containerapp create \
+      --name $API_GATEWAY \
+      --resource-group $RESOURCE_GROUP \
+      --environment $CONTAINER_APP_ENVIRONMENT \
+      --image $API_GATEWAY_IMAGE \
+      --ingress external \
+      --target-port 8080 \
+      --query properties.configuration.ingress.fqdn 
+    ```
+
+## Bind container apps to Java components
+
+Next, you bind together the Java components to your container apps.
+
+The following commands create bindings which provide the following functionality:
+
+* Injects configuration data into each app from the managed Config Server on startup.
+
+* Registers the app with the managed Eureka Server for service discovery.
+
+* Enables Admin server to monitor the app.
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azurecli
-az containerapp update \
-  --name $CUSTOMERS_SERVICE \
-  --resource-group $RESOURCE_GROUP \
-  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
-```
+The `containerapp update` command creates bindings for each app.
 
-```azurecli
-az containerapp update \
-  --name $VETS_SERVICE \
-  --resource-group $RESOURCE_GROUP \
-  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
-```
+1. Add bindings to the customer data app.
 
-```azurecli
-az containerapp update \
-  --name $VISITS_SERVICE \
-  --resource-group $RESOURCE_GROUP \
-  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
-```
+    ```azurecli
+    az containerapp update \
+      --name $CUSTOMERS_SERVICE \
+      --resource-group $RESOURCE_GROUP \
+      --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
+    ```
 
-```azurecli
-az containerapp update \
-  --name $API_GATEWAY \
-  --resource-group $RESOURCE_GROUP \
-  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT \
-  --query properties.configuration.ingress.fqdn 
-```
+1. Add bindings to the vet service.
+
+    ```azurecli
+    az containerapp update \
+      --name $VETS_SERVICE \
+      --resource-group $RESOURCE_GROUP \
+      --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
+    ```
+
+1. Add bindings to the visits service.
+
+    ```azurecli
+    az containerapp update \
+      --name $VISITS_SERVICE \
+      --resource-group $RESOURCE_GROUP \
+      --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
+    ```
+
+1. Add bindings to the API gateway.
+
+    This command returns the URL of the front end application. Open this location in your browser.
+
+    ```azurecli
+    az containerapp update \
+      --name $API_GATEWAY \
+      --resource-group $RESOURCE_GROUP \
+      --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT \
+      --query properties.configuration.ingress.fqdn 
+    ```
 
 ### [Azure portal](#tab/azure-portal)
 
-Navigate to your Java components on Azure portal, select each of the three components you created in the above steps, go to the **Bindings** section, and add the four apps you created in the above steps to the bindings.
+1. Open your Container Apps environment in the Azure portal.
+
+1. From the left menu, expand the *Services* menu and select the **Service**.
+
+1. For each of the three components, select the component by name.
+
+1. In the *Bindings* section, add the four apps created in this tutorial.
 
 :::image type="content" source="media/java-deploy-war-file/bind-apps.png" alt-text="Bind apps.":::
 
@@ -233,39 +319,49 @@ Navigate to your Java components on Azure portal, select each of the three compo
 
 ## Verify app status
 
-In this example, the `containerapp create` and `containerapp update` command for the API gateway includes the `--query properties.configuration.ingress.fqdn` argument, which returns the fully qualified domain name (FQDN), also known as the app's URL.
+1. View the front end application.
 
-View the application by pasting this URL into a browser. Your app should resemble the following screenshot.
+    Using the URL returned from the API gateway's `az containerapp update` command, go to the application in your browser.
 
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of pet clinic application.":::
+    The application should resemble the following screenshot.
 
-You can also get the URL of the Eureka Server and Admin for Spring dashboard and view your apps' status.
+    :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of pet clinic application." lightbox="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png":::
 
-```azurecli
-az containerapp env java-component eureka-server-for-spring show \
-  --environment $CONTAINER_APP_ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --name $EUREKA_SERVER_COMPONENT \
-  --query properties.ingress.fqdn
-```
+1. View the Eureka Server dashboard.
 
-```azurecli
-az containerapp env java-component admin-for-spring show \
-  --environment $CONTAINER_APP_ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --name $ADMIN_SERVER_COMPONENT \
-  --query properties.ingress.fqdn
-```
+    Run the following command to return the dashboard URL.
 
-The dashboard of your Eureka and Admin servers should resemble the following screenshots.
+    ```azurecli
+    az containerapp env java-component eureka-server-for-spring show \
+      --environment $CONTAINER_APP_ENVIRONMENT \
+      --resource-group $RESOURCE_GROUP \
+      --name $EUREKA_SERVER_COMPONENT \
+      --query properties.ingress.fqdn
+    ```
 
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-eureka.png" alt-text="Screenshot of pet clinic application Eureka Server.":::
+    Open the URL in your browser, and you should see an application that resembles the following screenshot.
 
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-admin.png" alt-text="Screenshot of pet clinic application Admin.":::
+    :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-eureka.png" alt-text="Screenshot of pet clinic application Eureka Server." lightbox="media/java-deploy-war-file/azure-container-apps-petclinic-eureka.png":::
 
-## Optional: configure Java components
+1. View the Admin for Spring dashboard.
 
-The Java components you created in this tutorial can be configured through the Azure portal. You can go to the **Configurations** section and add or update configurations for your Java components.
+    Run the following command to return the dashboard URL.
+
+    ```azurecli
+    az containerapp env java-component admin-for-spring show \
+      --environment $CONTAINER_APP_ENVIRONMENT \
+      --resource-group $RESOURCE_GROUP \
+      --name $ADMIN_SERVER_COMPONENT \
+      --query properties.ingress.fqdn
+    ```
+
+    Open the URL in your browser, and you should see an application that resembles the following screenshot.
+
+    :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-admin.png" alt-text="Screenshot of pet clinic application Admin." lightbox="media/java-deploy-war-file/azure-container-apps-petclinic-admin.png":::
+
+## Optional: Configure Java components
+
+The Java components created in this tutorial can be configured through the Azure portal. You can go to the **Configurations** section and add or update configurations for your Java components.
 
 :::image type="content" source="media/java-deploy-war-file/java-component-configurations.png" alt-text="Configure Java components.":::
 
