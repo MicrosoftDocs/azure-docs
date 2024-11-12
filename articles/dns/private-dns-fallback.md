@@ -90,14 +90,14 @@ The following example shows how to enable fallback to internet resolution for pr
 1. On the Azure portal **Home** page, search for and select **Private DNS zones**.
 2. Review the list of names and verify that at least two private DNS zones have the same name (**privatelink.blob.core.windows.net**). See the following example: 
 
-   [![Screenshot of the list of Private DNS zones.](./media/private-dns-fallback/private-zones.png)]
+   ![Screenshot of the list of Private DNS zones.](./media/private-dns-fallback/private-zones.png)
 
 3. Select the private link zones and then select **Recordsets**. 
 4. Verify that records for storage accounts are present in each private zone.
 
-> [!NOTE]
-> Storage accounts that are in the same resource group have resource records in the same Private DNS zone.<br>
-> Storage accounts that are in different resource groups have resource records in different Private DNS zones.
+    > [!NOTE]
+    > Storage accounts that are in the same resource group have resource records in the same Private DNS zone.<br>
+    > Storage accounts that are in different resource groups have resource records in different Private DNS zones.
 
 ## Demonstrate DNS resolution failure
 
@@ -120,9 +120,12 @@ C:\>dig myeaststorageacct2.privatelink.blob.core.windows.net +short
 
 1. Select each of the private DNS zones again, select Virtual Network Links, and then select the "edit" icon.
 
-   [![Screenshot of the list of Private DNS zones.](./media/private-dns-fallback/private-zones.png)]
+   ![Screenshot of the list of Private DNS zones.](./media/private-dns-fallback/edit-link.png)
 
-2. At the bottom of the page, select **Enable fallback to internet** and then select **Save**. 
+2. At the bottom of the page, select **Enable fallback to internet** and then select **Save**.
+
+   ![Screenshot of the list of Private DNS zones.](./media/private-dns-fallback/enable-fallback.png)
+
 3. Repeat this setting for each private link zone, and allow time for the virtual network link to update.
 4. Attempt to resolve the FQDN of the storage accounts again. See the following example:
 
