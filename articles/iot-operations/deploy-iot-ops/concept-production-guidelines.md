@@ -18,7 +18,7 @@ Decide whether you're deploying Azure IoT Operations to a single-node or multi-n
 
 ## Platform
 
-Currently, K3s v1.30 on Ubuntu 24.04 is the only generally available platform for deploying Azure IoT Operations in production.
+Currently, K3s on Ubuntu 24.04 is the only generally available platform for deploying Azure IoT Operations in production.
 
 ## Cluster setup
 
@@ -28,6 +28,7 @@ Ensure that your hardware setup is sufficient for your scenario and that you beg
 
 Create an Arc-enabled K3s cluster that meets the system requirements.
 
+* Use a [supported environment for Azure IoT Operations](../overview-iot-operations.md#supported-environments).
 * [Configure the cluster](./howto-prepare-cluster.md) according to documentation.
 * If you expect intermittent connectivity for your cluster, ensure that you've allocated enough disk space to the cluster cache data and messages while the [cluster is offline](../overview-iot-operations.md#offline-support).
 * If possible, have a second cluster as a staging area for testing new changes before deploying to the primary production cluster.
@@ -101,7 +102,7 @@ After deployment, you can [edit BrokerListener resources](../manage-mqtt-broker/
 
 * [Configure TLS with automatic certificate management](../manage-mqtt-broker/howto-configure-brokerlistener.md#configure-tls-with-automatic-certificate-management) for listeners.
 
-You can also [edit BrokerAuthentication resources]
+You can also [edit BrokerAuthentication resources](../manage-mqtt-broker/howto-configure-authentication.md).
 
 * Use [X.509 certificates or Kubernetes service account tokens for authentication](../manage-mqtt-broker/howto-configure-authentication.md#configure-authentication-method). 
 * Don't use no-auth.
