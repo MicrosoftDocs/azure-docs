@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Fallback to internet for Azure Private DNS zones (Preview)
 
-This article shows you how to set the [ResolutionPolicy](/java/api/com.azure.resourcemanager.privatedns.models.resolutionpolicy) property in Azure Private DNS to enable fallback to internet recursion when an authoritative NXDOMAIN response is received for a Private Link zone.
+This article shows you how to set the [ResolutionPolicy](/java/api/com.azure.resourcemanager.privatedns.models.resolutionpolicy) property in Azure Private DNS to enable fallback to internet recursion when an authoritative NXDOMAIN response is received for a Private Link zone. On the DNS client side, there is no response to the DNS query.
 
 > [!NOTE]
 > Fallback to internet for Azure Private DNS is in PREVIEW.<br> 
@@ -21,7 +21,7 @@ This article shows you how to set the [ResolutionPolicy](/java/api/com.azure.res
 
 ## Problem
 
-Azure Private Link and network isolation across different tenants can require an alternative name resolution path when Private DNS queries return an NXDOMAIN response. The NXDOMAIN response stops name resolution and affects the ability to reach Private Link-enabled resources outside a tenant's control. VM-based workarounds exist to address this issue, but these solutions increase operational complexity and are associated with security risks and higher costs.
+Private DNS queries for Azure Private Link and network isolation scenarios across different tenants and resource groups have unique name resolution paths. This affects the ability to reach Private Link-enabled resources outside a tenant's control. VM-based workarounds exist to address this issue, but these solutions increase operational complexity and are associated with security risks and higher costs.
 
 ## Solution
 
@@ -54,7 +54,7 @@ An NXDOMAIN (RCODE3) response means the (Private Link) queried domain name doesn
 
 When the **NxDomainRedirect** resolution policy is enabled on a virtual network link, the Azure recursive resolver retries the query. The resolver uses the public endpoint QNAME as the query label each time an NXDOMAIN response is received from PrivateEdge for that private zone scope.
 
-This change can be seen in the CNAME chain resolution. The NXDOMAIN does not appear, making the retry process seamless.
+This change can be seen in the CNAME chain resolution.
 
 ```
 C:\>nslookup remoteprivateendpoint.blob.core.windows.net
@@ -63,21 +63,76 @@ Address:  168.63.129.16
 
 Non-authoritative answer:
 Name:    blob.mwh20prdstr02e.store.core.windows.net
-Address:  20.60.153.33
+Address:  203.0.113.33
 Aliases:  remoteprivateendpoint.blob.core.windows.net
           remoteprivateendpoint.privatelink.blob.core.windows.net
 ```
 
 ## Limitations
+
 * This policy is only available for Private DNS zones associated to Private Link resources.
 * The ResolutionPolicy parameter only accepts **Default** or **NxDomainRedirect** as possible values.
 
-## Demonstrate fallback to internet
+## Demonstrate fallback to internet resolution
+
+The following example shows how to enable fallback to internet resolution for private link zones (for example: privatelink.blob.core.windows.net).
 
 ## Prerequisites
 
-* A virtual machine in a virtual network
-* A private endpoint with a private DNS integrated private link zone
+* At least two resource groups: each with a virtual network, a private endpoint for storage accounts
+  * The resource groups can be in different regions, or the same region
+* At least one virtual machine in one of the virtual networks
+
+## Review Private DNS zones
+
+1. On the Azure portal **Home** page, search for and select **Private DNS zones**.
+2. Review the list of names and verify that at least two private DNS zones have the same name (**privatelink.blob.core.windows.net**). See the following example: 
+
+   [![Screenshot of the list of Private DNS zones.](./media/private-dns-fallback/private-zones.png)]
+
+3. Select the private link zones and then select **Recordsets**. 
+4. Verify that records for storage accounts are present in each private zone.
+
+> [!NOTE]
+> Storage accounts that are in the same resource group have resource records in the same Private DNS zone.<br>
+> Storage accounts that are in different resource groups have resource records in different Private DNS zones.
+
+## Demonstrate DNS resolution failure
+
+1. Write down the fully qualified domain name (FQDN) and IP address for a storage account in the first private link zone displayed (for example: `myeaststorageacct1.privatelink.blob.core.windows.net`, `10.40.40.5`).
+2. Repeat the last two steps for a storage account in a different Private DNS zone with the same name (for example: `myeaststorageacct2.privatelink.blob.core.windows.net`, `10.10.10.5`).
+  1. At least one of these Private DNS zones must have a virtual network link to the VNet where you will run queries from a virtual machine.
+3. Open a command prompt on your Azure virtual machine and attempt to resolve the FQDN of both storage accounts. See the following example:
+
+
+```cmd
+C:\>dig myeaststorageacct1.privatelink.blob.core.windows.net +short
+10.40.40.5
+
+C:\>dig myeaststorageacct2.privatelink.blob.core.windows.net +short
+
+```
+4. Notice that one storage account resolves and the other storage account doesn't resolve.
+
+## Demonstrate fallback to internet resolution
+
+1. Select each of the private DNS zones again, select Virtual Network Links, and then select the "edit" icon.
+
+   [![Screenshot of the list of Private DNS zones.](./media/private-dns-fallback/private-zones.png)]
+
+2. At the bottom of the page, select **Enable fallback to internet** and then select **Save**. 
+3. Repeat this setting for each private link zone, and allow time for the virtual network link to update.
+4. Attempt to resolve the FQDN of the storage accounts again. See the following example:
+
+```cmd
+C:\>dig myeaststorageacct1.privatelink.blob.core.windows.net +short
+10.40.40.5
+
+C:\>dig myeaststorageacct2.privatelink.blob.core.windows.net +short
+blob.bl5prdstr19c.store.core.windows.net.
+203.0.113.161
+```
+The storage account that was not resolving is now successfully resolving via the internet.
 
 ## Next steps
 
