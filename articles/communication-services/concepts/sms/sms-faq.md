@@ -245,7 +245,7 @@ Azure Communication Services supports sending and receiving of long messages ove
 
 To ensure that we continue offering the high quality of service consistent with our SLAs, Azure Communication Services applies rate limits (different for each primitive). Developers who call our APIs beyond the limit receive a 429 HTTP Status Code Response. 
 
-Rate Limits for SMS:
+#### Rate Limits for SMS:
 
 |Operation|Number Type |Scope|Timeframe (s)| Limit (request #) | Message units per minute|
 |---------|---|--|-------------|-------------------|-------------------------|
@@ -254,6 +254,22 @@ Rate Limits for SMS:
 |Send Message|Alphanumeric Sender ID |Per resource|60|600*|600|
 
 *If your company has requirements that exceed the rate-limits, submit [a request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to enable higher throughput.
+
+#### Rate limits for 10DLC
+| **Carrier** | **Message Class / Brand Tier** | **Use Case Type** | **Use Case**       | **Vetting Score Requirements** | **Daily Cap (SMS)** |
+|-------------|--------------------------------|--------------------|--------------------|-------------------------------|----------------------|
+| AT&T        | A                              | Standard          | Dedicated Use Case | 75-100                        | 4,500                | 
+| AT&T        | B                              | Standard          | Mixed / Marketing  | 75-100                        | 4,500                | 
+| AT&T        | C                              | Standard          | Dedicated Use Case | 50-74                         | 4,500                | 
+| AT&T        | D                              | Standard          | Mixed / Marketing  | 50-74                         | 4,500                | 
+| AT&T        | E                              | Standard          | Dedicated Use Case | 1-49                          | 240                  | 
+| AT&T        | F                              | Standard          | Mixed / Marketing  | 1-49                          | 240                  | 
+| AT&T        | T                              | Standard          | Low Volume Mixed   | 75                            | 50                   |       
+| T-Mobile    | Top                            | Standard          | All                | 75-100                        | 200,000              |                      
+| T-Mobile    | High Mid                       | Standard          | All                | 50-74                         | 40,000               |                     
+| T-Mobile    | Low Mid                        | Standard          | All                | 25-49                         | 10,000               |                      
+| T-Mobile    | Low                            | Standard          | All                | 1-24                          | 2,000                |                      
+| T-Mobile    | Standard                       | Standard          | Low Volume Mixed   |                               | 2,000                |                     
 
 ## Carrier Fees 
 ### What are the carrier fees for SMS?
