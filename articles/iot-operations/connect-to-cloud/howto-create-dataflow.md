@@ -169,39 +169,11 @@ Review the following sections to learn how to configure the operation types of t
 
 ## Source
 
-To configure a source for the dataflow, specify the endpoint reference and a list of data sources for the endpoint.
+To configure a source for the dataflow, specify the endpoint reference and a list of data sources for the endpoint. Choose one of the following options as the source for the dataflow.
 
-### Use asset as source
+If the default endpoint isn't used as the source, it must be used as the [destination](#destination). To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
 
-# [Portal](#tab/portal)
-
-You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. Using an asset as a source is only available in the operations experience.
-
-1. Under **Source details**, select **Asset**.
-1. Select the asset you want to use as the source endpoint.
-1. Select **Proceed**.
-
-    A list of datapoints for the selected asset is displayed.
-
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using operations experience to select an asset as the source endpoint.":::
-
-1. Select **Apply** to use the asset as the source endpoint.
-
-# [Bicep](#tab/bicep)
-
-Configuring an asset as a source is only available in the operations experience.
-
-# [Kubernetes (preview)](#tab/kubernetes)
-
-Configuring an asset as a source is only available in the operations experience.
-
----
-
-When using an asset as the source, the asset definition is used to infer the schema for the dataflow. The asset definition includes the schema for the asset's datapoints. To learn more, see [Manage asset configurations remotely](../discover-manage-assets/howto-manage-assets-remotely.md).
-
-Once configured, the data from the asset reached the dataflow via the local MQTT broker. So, when using an asset as the source, the dataflow uses the local MQTT broker default endpoint as the source in actuality.
-
-### Use default MQTT endpoint as source
+### Option 1: Use default MQTT endpoint as source
 
 # [Portal](#tab/portal)
 
@@ -250,9 +222,37 @@ Because `dataSources` allows you to specify MQTT or Kafka topics without modifyi
 
 ---
 
-If the default endpoint isn't used as the source, it must be used as the [destination](#destination). To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
+### Option 2: Use asset as source
 
-### Use custom MQTT or Kafka dataflow endpoint as source
+# [Portal](#tab/portal)
+
+You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. Using an asset as a source is only available in the operations experience.
+
+1. Under **Source details**, select **Asset**.
+1. Select the asset you want to use as the source endpoint.
+1. Select **Proceed**.
+
+    A list of datapoints for the selected asset is displayed.
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using operations experience to select an asset as the source endpoint.":::
+
+1. Select **Apply** to use the asset as the source endpoint.
+
+# [Bicep](#tab/bicep)
+
+Configuring an asset as a source is only available in the operations experience.
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+Configuring an asset as a source is only available in the operations experience.
+
+---
+
+When using an asset as the source, the asset definition is used to infer the schema for the dataflow. The asset definition includes the schema for the asset's datapoints. To learn more, see [Manage asset configurations remotely](../discover-manage-assets/howto-manage-assets-remotely.md).
+
+Once configured, the data from the asset reached the dataflow via the local MQTT broker. So, when using an asset as the source, the dataflow uses the local MQTT broker default endpoint as the source in actuality.
+
+### Option 3: Use custom MQTT or Kafka dataflow endpoint as source
 
 If you created a custom MQTT or Kafka dataflow endpoint (for example, to use with Event Grid or Event Hubs), you can use it as the source for the dataflow. Remember that storage type endpoints, like Data Lake or Fabric OneLake, can't be used as source.
 
@@ -384,14 +384,16 @@ sourceSettings:
 ---
 
 
-If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, shared subscription is automatically enabled for all dataflows that use MQTT source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses an MQTT endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. If you want to use a different shared subscription group ID, you can override it in the topic, like `$shared/mygroup/topic1`.
+If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all dataflows that use MQTT source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses an MQTT endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
+
+You can explicitly create a topic named `$shared/mygroup/topic` in your configuration. However, adding the `$shared` topic explicitly isn't recommended since the `$shared` prefix is automatically added when needed. Dataflows can make optimizations with the group name if it isn't set. For example, `$share` isn't set and dataflows only has to operate over the topic name.
 
 > [!IMPORTANT]
-> Dataflows requireing shared subscription when instance count is greater than 1 is important when using Event Grid MQTT broker as a source since it [doesn't support shared subscriptions](../../event-grid/mqtt-support.md#mqttv5-current-limitations). To avoid missing messages, set the dataflow profile instance count to 1 when using Event Grid MQTT broker as the source. That is when the dataflow is the subscriber and receiving messages from the cloud.
+> Dataflows requiring shared subscription when instance count is greater than one is important when using Event Grid MQTT broker as a source since it [doesn't support shared subscriptions](../../event-grid/mqtt-support.md#mqttv5-current-limitations). To avoid missing messages, set the dataflow profile instance count to one when using Event Grid MQTT broker as the source. That is when the dataflow is the subscriber and receiving messages from the cloud.
 
 #### Kafka topics
 
-When the source is a Kafka (Event Hubs included) endpoint, specify the individual kafka topics to subscribe to for incoming messages. Wildcards are not supported, so you must specify each topic statically.
+When the source is a Kafka (Event Hubs included) endpoint, specify the individual Kafka topics to subscribe to for incoming messages. Wildcards are not supported, so you must specify each topic statically.
 
 > [!NOTE]
 > When using Event Hubs via the Kafka endpoint, each individual event hub within the namespace is the Kafka topic. For example, if you have an Event Hubs namespace with two event hubs, `thermostats` and `humidifiers`, you can specify each event hub as a Kafka topic.
@@ -430,7 +432,7 @@ sourceSettings:
 
 ### Specify schema to deserialize data
 
-If the source data has optional fields or fields with different types, specify a deserialization schema to ensure consistency. For example, the data might have fields that aren't present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
+If the source data has optional fields or fields with different types, specify a [deserialization schema](concept-schema-registry.md) to ensure consistency. For example, the data might have fields that aren't present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
 
 Specifying the schema is only relevant when using the MQTT or Kafka source. If the source is an asset, the schema is automatically inferred from the asset definition.
 
@@ -511,7 +513,7 @@ builtInTransformationSettings:
 
 To enrich the data, you can use the reference dataset in the Azure IoT Operations [state store](../create-edge-apps/concept-about-state-store-protocol.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
-You can load sample data into the state store by using the [DSS set tool sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dss_set). Key names in the state store correspond to a dataset in the dataflow configuration.
+You can load sample data into the state store by using the [DSS set tool sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dss_set) (Linux/x86 only). Key names in the state store correspond to a dataset in the dataflow configuration.
 
 # [Portal](#tab/portal)
 
