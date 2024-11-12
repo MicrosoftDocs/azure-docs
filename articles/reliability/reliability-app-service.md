@@ -70,16 +70,20 @@ For App Service plans that aren't configured as zone redundant, VM instances are
 ::: zone pivot="free-shared-basic,premium"
 
 - You must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans).
-<!-- Is footprint a technical term here?--> 
+
 - Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, you'll receive an error if availability zones aren't supported for your resource group. To ensure your workloads land on a stamp that supports availability zones, you may need to create a new resource group, App Service plan, and App Service.
 
 ::: zone-end
 
 - You must deploy a minimum of three instances of your plan.
 
+::: zone pivot="premium,isolated"
+
 ### Regions supported
 
-::: zone pivot="free-shared-basic,premium"
+::: zone-end
+
+::: zone pivot="premium"
 
 Zone-redundant App Service plans can be deployed in [any region that supports availability zones](./availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
@@ -91,13 +95,17 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ::: zone-end
 
+::: zone pivot="premium,isolated"
+
 ### Considerations
 
 Applications that are deployed in a zone-redundant App Service plan continue to run and serve traffic even if multiple zones in the region suffer an outage. However it's possible that non-runtime behaviors including App Service plan scaling, application creation, application configuration, and application publishing may still be impacted during an availability zone outage. Zone redundancy for App Service plans only ensures continued uptime for deployed applications.
 
 ### Cost
 
-::: zone pivot="free-shared-basic,premium"
+::: zone-end
+
+::: zone pivot="premium"
 
 When you're using App Service Premium v2 or Premium v3 plans, there's no additional cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You'll be charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform enforces a minimum instance count of three and charges you for those three instances.
 
@@ -109,11 +117,9 @@ App Service Environment v3 has a specific pricing model for zone redundancy. For
 
 ::: zone-end
 
+::: zone pivot="premium,isolated"
+
 ### Configure availability zone support
-
-::: zone pivot="free-shared-basic"
-
-To use zone redundancy, switch to a supported App Service plan type.
 
 ::: zone-end
 
@@ -134,6 +140,8 @@ To deploy a new zone-redundant Azure App Service Environment, see [Create an App
 Zone redundancy can only be configured when creating a new App Service plan. If you have an existing App Service plan that isn't zone-redundant, you need to replace it with a new zone-redundant plan. You can't convert an existing App Service plan to use availability zones. Similarly, you can't disable zone redundancy on an existing App Service plan.
 
 ::: zone-end
+
+::: zone pivot="premium,isolated"
 
 ### Capacity planning and management
 
@@ -167,12 +175,13 @@ When the availability zone recovers, Azure App Service automatically creates ins
 
 Azure App Service platform manages traffic routing, failover, and failback for zone-redundant App Service plans. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
 
+::: zone-end
+
 ## Multi-region support
 
 Azure App Service is a single-region service. If the region becomes unavailable, your application is also unavailable.
 
 ### Alternative multi-region solutions
-
 
 To ensure that your application becomes less susceptible to a single-region failure, you'll need to deploy your application to multiple regions. To do this, you should:
 
@@ -185,7 +194,7 @@ To ensure that your application becomes less susceptible to a single-region fail
 For example architectures that illustrates this approach, see:
 
 - [Reference architecture: Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region).
-- [Multi-region App Service apps for disaster recovery](/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service) <!-- TODO Can't publish until this is ready -->
+- [Multi-region App Service apps for disaster recovery](/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service)
 
 To follow along with a tutorial that creates a multi-region app, see [Tutorial: Create a highly available multi-region app in Azure App Service](/azure/app-service/tutorial-multi-region-app).
 
@@ -200,8 +209,6 @@ For an example approach that illustrates this architecture, see [High availabili
 ## Backups
 
 When you use Basic tier or higher, you can back up your App Service app to a file by using the [App Service backup and restore capabilities](../app-service/manage-backup.md). This feature is useful if it's hard to redeploy your code, or if you store state on disk. However, for most solutions, you shouldn't rely on App Service backups, and should instead use the other methods described in this article to support your resiliency requirements.
-
-<!--To learn more about backups and how they contribute to a resiliency strategy, see [new conceptual article].  TODO We should omit this until we've got the conceptual article ready -->
 
 ## Service-level agreement (SLA)
 
