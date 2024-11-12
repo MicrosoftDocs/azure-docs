@@ -193,22 +193,31 @@ Now that you have a bearer token to establish the security context, and the sess
 Run the following command to run the JavaScript code to log "hello world" in your application.
 
 ```bash
-curl -v -X 'POST' -H "$AUTH_HEADER" "$SESSION_POOL_MANAGEMENT_ENDPOINT/executions?api-version=2024-10-02-preview&identifier=test" -H 'Content-Type: application/json' -d '
+curl -v -X 'POST' -H "$AUTH_HEADER" "$SESSION_POOL_MANAGEMENT_ENDPOINT/code/execute?api-version=2024-10-02-preview&identifier=test" -H 'Content-Type: application/json' -d '
 {
-    "code": "console.log(\"hello world\")"
+    "properties": {
+        "codeInputType": "inline",
+        "executionType": "synchronous",
+        "code": "console.log(\"hello-world\")"
+    }
 }'
 ```
-You should see "status":"Succeeded" and "result.stdout" with "hello world\n" as the output.
+You should see "status":"Success" and "stdout" with "hello world\n" as the output.
 
 ```bash
-"status": "Succeeded",
-"result": {
-   "stdout": "hello-world\n",
-   "stderr": "",
-   "executionResult": "",
-   "executionTimeInMilliseconds": 5
-},
+{
+	"properties": {
+		"$id": "<guid>",
+		"status": "Success",
+		"stdout": "hello-world\n",
+		"stderr": "",
+		"executionResult": "",
+		"executionTimeInMilliseconds": 5
+	}
+}
 ```
+
+More samples can be found at [Code Interpreter API Samples](https://github.com/Azure-Samples/container-apps-dynamic-sessions-samples/blob/main/code-interpreter/api-samples.md)
 
 ## Clean up resources
 
