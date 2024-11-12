@@ -24,7 +24,7 @@ Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a b
 
 [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
-- [Event Hubs with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hubs).
+- [Event Hubs with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hub).
 
 > [!NOTE]
 > Ingesting data from an Event Hub into Data Explorer pools will not work if your Synapse workspace uses a managed virtual network with data exfiltration protection enabled.

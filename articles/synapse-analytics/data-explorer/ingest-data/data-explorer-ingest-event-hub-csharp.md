@@ -27,7 +27,7 @@ In this article, you create an Event Hubs data connection for Azure Synapse Data
 
 [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
-- [Event hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hubs).
+- [Event hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hub).
 
 > [!NOTE]
 > Ingesting data from an Event Hub into Data Explorer pools will not work if your Synapse workspace uses a managed virtual network with data exfiltration protection enabled.

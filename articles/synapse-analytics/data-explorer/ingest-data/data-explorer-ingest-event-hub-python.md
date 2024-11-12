@@ -28,7 +28,7 @@ In this article, you create an Event Hub data connection for Azure Synapse Data 
 
 [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
-- [Event Hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hubs).
+- [Event Hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hub).
 - [Python 3.4+](https://www.python.org/downloads/).
 <!-- - [Database and table policies](database-table-policies-python.md) (optional). -->
 
