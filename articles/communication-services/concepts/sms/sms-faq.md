@@ -17,6 +17,99 @@ ms.custom: references_regions
 # SMS FAQ
 This article answers commonly asked questions about the SMS service. 
 
+## 10DLC (10 Digit Long Code)
+### What is brand registration, and why is it required for 10DLC messaging?
+
+Brand registration is the process of registering your business as a recognized brand with carriers to send SMS messages using 10DLC (10-digit long codes). Carriers require brand registration to ensure compliance with messaging regulations and to prevent spam.
+
+### How do I complete brand registration with ACS?
+
+To register a brand, you’ll need to provide information such as your business’s name, tax ID, address, industry, and other identifying information. This can be done through the ACS portal by following [this quickstart](../quickstarts/sms/apply-for-ten-digit-long-code.md).
+
+### What types of information are required for brand registration?
+
+You’ll need to provide:
+- Legal business name
+- Business address
+- Tax ID or Employer Identification Number (EIN)
+- Industry type
+- Contact information
+- Business website (if applicable)
+
+### Can I update my brand information after registration?
+
+This feature is currently not available but will be supported in the future releases. 
+
+### Is there a fee for brand registration?
+
+Yes, there is a fee. Refer to the [pricing page](https://learn.microsoft.com/azure/communication-services/pricing) for details on fees.
+
+---
+
+### What is vetting, and when is it required?
+
+Vetting is a review process to evaluate your brand’s trustworthiness and assign it a score, which influences messaging throughput limits. It is required if your brand’s use case involves high-volume messaging or falls into certain categories needing additional carrier review.
+
+### How is the vetting score determined?
+
+The vetting score is based on the information provided during brand registration and includes factors like industry reputation, message content, and business type. Scores range from 1-100, with higher scores resulting in higher messaging throughput limits.
+
+### What type of campaigns are supported?
+
+Currently, ACS supports **Standard campaigns** only. These campaigns are used for general business messaging, such as customer service notifications, account updates, and other informational messages that do not fall under special categories (e.g., political or emergency services).
+
+### How often can I update my campaign information?
+
+This feature is currently not available but will be supported in the future releases. 
+
+### Is there a fee for campaign registration?
+
+Yes, there is a fee. Refer to the [pricing page](https://learn.microsoft.com/azure/communication-services/pricing) for details on fees.
+
+## General 10DLC FAQs
+
+### Can I use 10DLC numbers in any country?
+
+No, 10DLC is primarily supported in the United States. Availability depends on the subscription billing location and eligibility. Check the ACS eligibility documentation for more details on supported countries.
+
+### What is a 10DLC number?
+A 10DLC (10-Digit Long Code) number is a standard 10-digit phone number used for Application-to-Person (A2P) messaging in the United States. It is designed for businesses to send SMS messages to customers at scale, without the restrictions of traditional long codes.
+
+### What are the advantages of using 10DLC numbers over short codes?
+- **Cost-effective**: 10DLC numbers are more affordable than short codes for A2P messaging.
+- **Wide coverage**: 10DLC numbers can be used for messaging across all major U.S. carriers, providing reliable delivery at scale.
+- **No need for dedicated short codes**: 10DLCs do not require additional approvals or significant setup costs, unlike short codes.
+
+### Can 10DLC numbers be used for voice calls?
+Yes, 10DLC numbers are nothing but local numbers that are voice-enabled. When registered, they can be used for SMS. 10DLC registration only applies to SMS enablement and is not required for calling.
+
+### What kind of messages can be sent from a 10DLC number?
+10DLC numbers can be used for a wide range of business communications, including:
+- Customer service notifications
+- Marketing and promotional messages
+- Alerts and reminders
+- Two-factor authentication (2FA) codes
+
+However, 10DLC numbers must adhere to messaging guidelines and cannot be used for illegal or spam purposes.
+
+### Are 10DLC numbers subject to throughput limits?
+Yes, 10DLC numbers are subject to throughput limits, which can vary depending on the carrier and the volume of messages sent. These limits are generally higher than those for traditional long codes but are lower than those for short codes. The actual throughput may be impacted by factors such as campaign registration and compliance with carrier guidelines.
+
+### Can I port my existing number to a 10DLC number?
+Yes, it is possible to port an existing phone number to a 10DLC. Please follow instructions to port [here](https://review.learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/port-phone-number?branch=main).
+
+### What happens if I send unsolicited messages from a 10DLC number?
+Sending unsolicited messages, also known as spam, can lead to penalties, including the suspension of your 10DLC number or carrier blocking. It is essential to comply with applicable laws, including the Telephone Consumer Protection Act (TCPA) and carrier guidelines to avoid these issues.
+
+### Can 10DLC numbers be used for international messaging?
+ 10DLC numbers are designed for use within the United States and do not support international messaging.
+ 
+### How can I monitor the performance of my 10DLC number?
+Monitoring the performance of your 10DLC number, such as delivery rates, message throughput, and errors, can typically be done through [SMS insights dashboard](https://review.learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/insights/sms-insights?branch=main).
+
+### Can I use 10DLC numbers for high-volume messaging?
+Yes, 10DLC numbers are suitable for high-volume messaging, but they are subject to carrier rate limiting and compliance guidelines. To ensure optimal performance, it's important to work with your provider to manage message volume and adhere to best practices for A2P messaging.
+
 ## Sending and receiving messages
 ### How can I receive messages using Azure Communication Services?
 
