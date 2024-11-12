@@ -116,7 +116,7 @@ If the Windows App isn't installed, selecting Launch takes you to the web client
 
 ### Install the Windows App
 
-1. Go to the Microsoft store and search for *Windows App* or use this [download link:](https://apps.microsoft.com/detail/9n1f85v9t8bn?hl=en-US&gl=US).
+1. Go to the Microsoft store and search for *Windows App* or use this [download link:](https://apps.microsoft.com/detail/9n1f85v9t8bn).
 1. Download the app and install it.
 
 ### Launch your dev box 

@@ -131,7 +131,7 @@ tasks:
 
 Your dev center needs access to your key vault. DevCenter does not support service tags, so if your key vault is kept private you must allow trusted Microsoft services to bypass the firewall. 
 
-:::image type="content" source="media/how-to-write-customization-file/trusted-services-bypass-firewall.png" alt-text="text":::
+:::image type="content" source="media/how-to-write-customization-file/trusted-services-bypass-firewall.png" alt-text="Screenshot showing the option to allow trusted Microsoft services to bypass the firewall in Azure Key Vault settings." lightbox="media/how-to-write-customization-file/trusted-services-bypass-firewall.png":::
  
 To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
