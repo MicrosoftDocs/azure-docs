@@ -5,13 +5,13 @@ services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.date: 10/13/2023
+ms.date: 11/12/2024
 ms.author: duau
 ---
 
 # Comparison between Azure Front Door and Azure CDN services
 
-Azure Front Door and Azure CDN are both Azure services that offer global content delivery with intelligent routing and caching capabilities at the application layer. Both services can be used to optimize and accelerate your applications by providing a globally distributed network of points of presence (POP) close to your users. Both services also offer a variety of features to help you secure your applications from malicious attacks and to help you monitor your application's health and performance.
+Azure Front Door and Azure CDN are both Azure services that offer global content delivery with intelligent routing and caching capabilities at the application layer. Both services can be used to optimize and accelerate your applications by providing a globally distributed network of points of presence (POP) close to your users. Both services also offer various features to help you secure your applications from malicious attacks and to help you monitor your application's health and performance.
 
 :::image type="content" source="./media/front-door-cdn-comparison/architecture.png" alt-text="Diagram of Azure Front Door architecture.":::
 
@@ -41,9 +41,9 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Supported TLS Versions | TLS1.3, TLS1.2, TLS1.0 | TLS1.3 TLS1.2, TLS1.0 | TLS1.3, TLS1.2, TLS1.0 | TLS1.3, TLS 1.2, TLS 1.0/1.1 | TLS 1.2, TLS 1.3 | TLS 1.2, TLS 1.3 |
 | **Caching** | | | | | | |
 | Query string caching | &check; | &check; | &check; | &check; | &check; | &check; |
-| Cache manage (purge, rules, and compression) | &check; | &check; | &check; | &check; | &check; | &check; |
+| Cache management (purge, rules, and compression) | &check; | &check; | &check; | &check; | &check; | &check; |
 | Fast purge |  |  |  |  | &check; | &check; |
-| Asset pre-loading |  |  |  |  | &check; | &check; |
+| Asset preloading |  |  |  |  | &check; | &check; |
 | Cache behavior settings | &check; - using standard rules engine | &check; - using standard rules engine | &check; - using standard rules engine | &check; - using standard rules engine | &check; | &check; |
 | **Routing** | | | | | | |
 | Origin load balancing | &check; | &check; | &check; | &check; | &check; | &check; |
@@ -60,7 +60,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Mobile device rules | &check; | &check; | &check; | &check; using Standard rules engine |  | &check; using Premium rules engine |
 | **Security** | | | | | | |
 | Custom Web Application Firewall (WAF) rules | &check; | &check; | &check; |  |  |  |
-| Microsoft managed rule set |  | &check; | &check; - Only default rule set 1.1 or below |  |  |  |
+| Microsoft managed rule set |  | &check; | &check; - Only default rule set 1.1 or less |  |  |  |
 | Bot protection |  | &check; | &check; - Only bot manager rule set 1.0 |  |  |  |
 | Private link connection to origin |  | &check; |  |  |  |  |
 | Geo-filtering | &check; | &check; | &check; | &check; | &check; | &check; |
@@ -86,14 +86,12 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 ## Services on retirement path
 The following table lists services that are on retirement path, frequently asked questions regarding retirement, and migration guidance.
 
-| Details | Front Door (classic) | CDN Standard from Microsoft (classic) | CDN Standard from Akamai | CDN Standard/Premium from Edgio
+| Details | Front Door (classic) | CDN Standard from Microsoft (classic) | CDN Standard from Akamai | CDN Standard/Premium from Edgio |
 | --- | --- | --- | --- | --- |
-| Retirement Date | March 31, 2027 | September 30, 2027 | December 31, 2023 | November 4, 2025
-| Date till new resources can be created | March 31, 2025 | September 30, 2025 | Service is already retired | January 15, 2025
-| Documentation | [Azure update](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/), [FAQ](classic-retirement-faq.md) | [Azure update](https://azure.microsoft.com/updates/v2/Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027), [FAQ](../cdn/classic-cdn-retirement-faq.md) | [FAQ](../cdn/akamai-retirement-faq.md)|[FAQ](../cdn/edgio-retirement-faq.md)
-| Migration | [Considerations](tier-migration.md), [Step-by-step instructions](migrate-tier.md) | [Considerations](../cdn/tier-migration.md), [Step-by-step instructions](../cdn/migrate-tier.md) | Service is already retired | [Step-by-step instructions](migrate-cdn-to-front-door.md)
-
-
+| Retirement Date | March 31, 2027 | September 30, 2027 | December 31, 2023 | November 4, 2025 |
+| Date until new resources can be created | March 31, 2025 | September 30, 2025 | Service is already retired | January 15, 2025 |
+| Documentation | [Azure update](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/), [FAQ](classic-retirement-faq.md) | [Azure update](https://azure.microsoft.com/updates/v2/Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027), [FAQ](../cdn/classic-cdn-retirement-faq.md) | [FAQ](../cdn/akamai-retirement-faq.md)|[FAQ](../cdn/edgio-retirement-faq.md) |
+| Migration | [Considerations](tier-migration.md), [Step-by-step instructions](migrate-tier.md) | [Considerations](../cdn/tier-migration.md), [Step-by-step instructions](../cdn/migrate-tier.md) | Service is already retired | [Step-by-step instructions](migrate-cdn-to-front-door.md) |
 
 ## Next steps
 
