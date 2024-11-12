@@ -6,12 +6,12 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-iot-operations
-ms.date: 10/31/2024 
+ms.date: 11/12/2024 
 ---
 
-# Reliability in Azure Device Registry Preview
+# Reliability in Azure Device Registry
 
-This article describes reliability support in Azure Device Registry Preview. It covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support).
+This article describes reliability support in Azure Device Registry. It covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support).
 
 Because resiliency is a shared responsibility between you and Microsoft, this article also covers ways for you to build a resilient solution that meets your needs.
 
@@ -82,6 +82,6 @@ The service-level agreement (SLA) for Azure Device Registry describes the expect
 ## Related content
 
 
-- [What is Azure IoT Operations? - Azure IoT Operations Preview](/azure/iot-operations/overview-iot-operations) 
+- [What is Azure IoT Operations? - Azure IoT Operations](/azure/iot-operations/overview-iot-operations) 
 
 - [Reliability in Azure](/azure/availability-zones/overview)
