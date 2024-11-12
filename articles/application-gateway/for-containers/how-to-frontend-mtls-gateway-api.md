@@ -38,7 +38,7 @@ The revoked client certificate flow shows a client presenting a revoked certific
    Apply the following deployment.yaml file on your cluster to create a sample web application and deploy sample secrets to demonstrate frontend mutual authentication (mTLS).
 
    ```bash
-   kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/https-scenario/ssl-termination/deployment.yaml
+   kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/https-scenario/ssl-termination/deployment.yaml
    ```
   
    This command creates the following on your cluster:

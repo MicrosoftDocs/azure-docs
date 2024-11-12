@@ -34,7 +34,7 @@ See the following figure:
    Apply the following deployment.yaml file on your cluster to create a sample web application and deploy sample secrets to demonstrate backend mutual authentication (mTLS).
 
    ```bash
-   kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
+   kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
    ```
   
    This command creates the following on your cluster:
