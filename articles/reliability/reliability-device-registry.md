@@ -53,7 +53,7 @@ There's no extra cost to use zone redundancy for Azure Device Registry.
 
 ### Zone-down experience
 
-During a zone-wide outage, you don't need to take any action to failover to a healthy zone. The service automatically self-heals and rebalances itself to take advantage of the healthy zone automatically.
+During a zone-wide outage, you don't need to take any action to fail over to a healthy zone. The service automatically self-heals and rebalances itself to take advantage of the healthy zone automatically.
 
 **Detection and response:**  Because Azure Device Registry detects and responds automatically to failures in an availability zone, you don't need to do anything to initiate an availability zone failover.
 
