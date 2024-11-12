@@ -93,7 +93,7 @@ export default defineConfig(
       ```
 
 * **`runId`**:
-    - **Description**: This setting allows you to set a unique ID for every test run to distinguish them in the service portal. Using the same runId for multiple test runs results in error. 
+    - **Description**: This setting allows you to set a unique ID for every test run to distinguish them in the service portal. Using the same runId for multiple test runs results in error. For sharding, keep this same across all shards.
     - **Example**:
       ```typescript
       runId: new Date().toISOString()
@@ -203,7 +203,7 @@ Here's version of the `.runsettings` file with all the available options:
     <LoggerRunSettings>
         <Loggers>
             <!--microsoft playwright testing service logger for reporting -->
-            <Logger friendlyName="microsoft-playwright-testing" enabled="True" />
+            <Logger friendlyName="microsoft-playwright-testing" enabled="true" />
             <!--could enable any logger additionally -->
             <Logger friendlyName="trx" enabled="false" />
         </Loggers>
@@ -237,7 +237,7 @@ Here's version of the `.runsettings` file with all the available options:
       ```
 
 * **`RunId`**:
-    - **Description**: This setting allows you to set a unique ID for every test run to distinguish them in the service portal. Using the same runId for multiple test runs results in error. If you don't set it, the service package will generate a unique ID every time you trigger a test run.
+    - **Description**: This setting allows you to set a unique ID for every test run to distinguish them in the service portal. Using the same runId for multiple test runs results in error. If you don't set it, the service package will generate a unique ID every time you trigger a test run. For sharding, keep this same across all shards.
     - **Example**:
       ```xml
       <Parameter name="RunId" value="sample-run-id1" />
