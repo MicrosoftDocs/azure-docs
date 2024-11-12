@@ -46,7 +46,7 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 ## Azure Virtual Network injection
 
 > [!CAUTION]
-> Virtual Network injection is not not recommended. For more information, see [Limitations of VNet injection](#limitations-of-vnet-injection)
+> Virtual Network injection is not recommended. For more information, see [Limitations of VNet injection](#limitations-of-vnet-injection)
 
 Virtual Network (VNet) enables many Azure resources to securely communicate with each other, the internet, and on-premises networks. VNet is like a traditional network you would operate in your own data center.
 
