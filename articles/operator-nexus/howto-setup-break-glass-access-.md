@@ -34,6 +34,7 @@ Customers must register the **Microsoft.NexusIdentity** user resource provider o
    ```Azure CLI
    az provider register --namespace Microsoft.NexusIdentity --wait
    ```
+   
 2. Verify the registration status:
 
    ```Azure CLI
