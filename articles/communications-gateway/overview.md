@@ -6,6 +6,7 @@ ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: overview
 ms.custom: template-overview
+ms.date: 10/22/2024
 ---
 
 # What is Azure Communications Gateway?
