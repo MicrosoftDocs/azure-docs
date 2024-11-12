@@ -39,7 +39,7 @@ Before you begin:
     - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Ensure that you have owner or contributor access to the subscription to create a Data Box order.
-- Register the [Microsoft.DataBox resource provider](../azure-resource-manager/management/resource-providers-and-types#register-resource-provider.md) against this subscription in the Azure portal. 
+- Register the [Microsoft.DataBox resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) against this subscription in the Azure portal. 
 - Review the [safety guidelines for your Data Box](data-box-safety.md).
 - You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
