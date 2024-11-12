@@ -94,6 +94,9 @@ To start using feature flags with Azure App Configuration, continue to the follo
 > [Python](./quickstart-feature-flag-python.md)
 
 > [!div class="nextstepaction"]
+> [JavaScript](./quickstart-feature-flag-javascript.md)
+
+> [!div class="nextstepaction"]
 > [Azure Kubernetes Service](./quickstart-feature-flag-azure-kubernetes-service.md)
 
 > [!div class="nextstepaction"]
