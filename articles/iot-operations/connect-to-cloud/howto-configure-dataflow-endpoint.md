@@ -25,13 +25,14 @@ Use the following table to choose the endpoint type to configure:
 | [Kafka](howto-configure-kafka-endpoint.md) | For bi-directional messaging with Kafka brokers, including Azure Event Hubs. | Yes | Yes |
 | [Data Lake](howto-configure-adlsv2-endpoint.md) | For uploading data to Azure Data Lake Gen2 storage accounts. | No | Yes |
 | [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. | No | Yes |
+| [Azure Data Explorer](howto-configure-adx-endpoint.md) | For uploading data to Azure Data Explorer databases. | No | Yes |
 | [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes. | No | Yes |
 
 ## Dataflows must use local MQTT broker endpoint
 
 When you create a dataflow, you specify the source and destination endpoints. The dataflow moves data from the source endpoint to the destination endpoint. You can use the same endpoint for multiple dataflows, and you can use the same endpoint as both the source and destination in a dataflow.
 
-However, using custom endpoints as both the source and destination in a dataflow isn't supported. This restriction means the built-in MQTT broker in Azure IoT Operations must be either the source or destination for every dataflow. To avoid dataflow deployment failures, use the [default MQTT dataflow endpoint](./howto-configure-mqtt-endpoint.md#default-endpoint) as either the source or destination for every dataflow. 
+However, using custom endpoints as both the source and destination in a dataflow isn't supported. This restriction means the built-in MQTT broker in Azure IoT Operations must be at least one endpoint. It can be either the source, destination, or both. To avoid dataflow deployment failures, use the [default MQTT dataflow endpoint](./howto-configure-mqtt-endpoint.md#default-endpoint) as either the source or destination for every dataflow. 
 
 The specific requirement is each dataflow must have either the source or destination configured with an MQTT endpoint that has the host `aio-broker`. So it's not strictly required to use the default endpoint, and you can create additional dataflow endpoints pointing to the local MQTT broker as long as the host is `aio-broker`. However, to avoid confusion and manageability issues, the default endpoint is the recommended approach.
 
@@ -115,7 +116,7 @@ spec:
 
 ---
 
-Similarly, you can create multiple dataflows that use the same MQTT endpoint for other endpoints and topics. For example, you can use the same MQTT endpoint for a dataflow that sends data to an Event Hub endpoint.
+Similarly, you can create multiple dataflows that use the same MQTT endpoint for other endpoints and topics. For example, you can use the same MQTT endpoint for a dataflow that sends data to an Event Hubs endpoint.
 
 # [Portal](#tab/portal)
 

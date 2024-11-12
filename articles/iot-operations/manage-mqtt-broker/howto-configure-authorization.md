@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/08/2024
+ms.date: 11/11/2024
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -21,7 +21,7 @@ Authorization policies determine what actions the clients can perform on the bro
 
 ## Link BrokerAuthorization to BrokerListener
 
-To link a *BrokerListener* to a *BrokerAuthorization* resource, specify the `authenticationRef` field in the `ports` setting of the *BrokerListener* resource. Similar to BrokerAuthentication, the *BrokerAuthorization* resource can be linked to multiple *BrokerListener* ports. The authorization policies apply to all linked listener ports. However, there's one key difference compared with BrokerAuthentication:
+To link a *BrokerListener* to a *BrokerAuthorization* resource, specify the `authorizationRef` field in the `ports` setting of the *BrokerListener* resource. Similar to BrokerAuthentication, the *BrokerAuthorization* resource can be linked to multiple *BrokerListener* ports. The authorization policies apply to all linked listener ports. However, there's one key difference compared with BrokerAuthentication:
 
 > [!IMPORTANT]
 > To have the *BrokerAuthorization* configuration apply to a listener port, at least one BrokerAuthentication must also be linked to that listener port.
@@ -176,34 +176,34 @@ In the broker authorization rules for your authorization policy, use the followi
 
 ```json
 [
-    {
-        "brokerResources": [
-            {
-                "clientIds": [
-                    "{principal.attributes.building}*"
-                ],
-                "method": "Connect",
-                "topics": []
-            },
-            {
-                "clientIds": [],
-                "method": "Publish",
-                "topics": [
-                    "sensors/{principal.attributes.building}/{principal.clientId}/telemetry"
-                ]
-            }
+  {
+    "brokerResources": [
+      {
+        "clientIds": [
+          "{principal.attributes.building}*"
         ],
-        "principals": {
-            "attributes": [
-                {
-                    "building": "building22"
-                },
-                {
-                    "building": "building23"
-                }
-            ]
+        "method": "Connect",
+        "topics": []
+      },
+      {
+        "clientIds": [],
+        "method": "Publish",
+        "topics": [
+          "sensors/{principal.attributes.building}/{principal.clientId}/telemetry"
+        ]
+      }
+    ],
+    "principals": {
+      "attributes": [
+        {
+          "building": "building22"
+        },
+        {
+          "building": "building23"
         }
+      ]
     }
+  }
 ]
 ```
 
@@ -339,36 +339,36 @@ In the Broker authorization rules for your authorization policy, use the followi
 
 ```json
 [
-    {
-        "brokerResources": [
-            {
-                "clientIds": [],
-                "method": "Connect",
-                "topics": []
-            },
-            {
-                "clientIds": [],
-                "method": "Publish",
-                "topics": [
-                    "odd-numbered-orders"
-                ]
-            },
-            {
-                "clientIds": [],
-                "method": "Subscribe",
-                "topics": [ 
-                    "orders" 
-                ]
-            }
-        ],
-        "principals": {
-            "attributes": [
-                {
-                    "group": "authz-sat"
-                }
-            ]
+  {
+    "brokerResources": [
+      {
+        "clientIds": [],
+        "method": "Connect",
+        "topics": []
+      },
+      {
+        "clientIds": [],
+        "method": "Publish",
+        "topics": [
+          "odd-numbered-orders"
+        ]
+      },
+      {
+        "clientIds": [],
+        "method": "Subscribe",
+        "topics": [
+          "orders"
+        ]
+      }
+    ],
+    "principals": {
+      "attributes": [
+        {
+          "group": "authz-sat"
         }
+      ]
     }
+  }
 ]
 ```
 
@@ -453,7 +453,7 @@ metadata:
   namespace: azure-iot-operations
 spec:
   authorizationPolicies:
-    enableCache: false
+    cache: Enabled
     rules:
       - principals:
           attributes:
@@ -472,11 +472,11 @@ spec:
 
 To learn more with an example, see [Set up Authorization Policy with Dapr Client](../create-edge-apps/howto-develop-dapr-apps.md).
 
-## Distributed state store
+## State store
 
-MQTT broker provides a distributed state store (DSS) that clients can use to store state. The DSS can also be configured to be highly available.
+MQTT broker provides a [state store](../create-edge-apps/concept-about-state-store-protocol.md) that clients can use to store state. The state store can also be configured to be highly available.
 
-To set up authorization for clients that use the DSS, provide the following permissions:
+To set up authorization for clients that use the state store, provide the following permissions:
 
 - Permission to publish to the system key value store `$services/statestore/_any_/command/invoke/request` topic
 - Permission to subscribe to the response-topic (set during initial publish as a parameter) `<response_topic>/#`

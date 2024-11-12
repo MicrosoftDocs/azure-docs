@@ -511,9 +511,9 @@ builtInTransformationSettings:
 
 ### Enrich: Add reference data
 
-To enrich the data, you can use the reference dataset in the Azure IoT Operations [distributed state store (DSS)](../create-edge-apps/concept-about-state-store-protocol.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
+To enrich the data, you can use the reference dataset in the Azure IoT Operations [state store](../create-edge-apps/concept-about-state-store-protocol.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
-You can load sample data into the DSS by using the [DSS set tool sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dss_set). Key names in the distributed state store correspond to a dataset in the dataflow configuration.
+You can load sample data into the state store by using the [DSS set tool sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dss_set). Key names in the state store correspond to a dataset in the dataflow configuration.
 
 # [Portal](#tab/portal)
 
