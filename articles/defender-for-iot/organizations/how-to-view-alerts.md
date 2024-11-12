@@ -182,15 +182,19 @@ For more information, see [Accelerating OT alert workflows](alerts.md#accelerati
 To reduce alert fatigue, multiple versions of the same alert with identical parameters are listed as one item in the Alerts inventory. As you investigate alerts, an aggregated alert is identified by the *Multiple violations* message that appears under the Source device IP. Use the **Violations** tab to investigate further and the **Take action** tab to remediate the alerts.
 
 1. Sign into your OT sensor console and select the **Alerts** page on the left.
-1. For an Aggregated alert the *Multiple violations* message appears underneath the Source device IP address, and the **Violations** tab is displayed.
 
-    :::image type="content" source="media/how-to-manage-cloud-alerts/alert-details-aggregated.png" alt-text="Screenshot of the alerts detail pane showing the aggregated alerts message, the ViolationsCount and the Violations tab.":::
-<!-- change the image to one for an OT sensor -->
+    1. For an Aggregated alert the *Multiple violations* message appears underneath the Source device IP address, and the **Violations** tab is displayed.  <!-- add OT sensor image :::image type="content" source="media/how-to-manage-cloud-alerts/alert-details-aggregated.png" alt-text="Screenshot of the alerts detail pane showing the aggregated alerts message, the ViolationsCount and the Violations tab.":::-->
+
 1. Select the **Violations** tab.
-1. An inventory table displays the first 10 alerts from this aggregated alert group. Export the data to a CSV file using the **Export** button. Open the file and examine the data.
+
+    An inventory table displays the first 10 alerts from this aggregated alert group.
+
+1. Select **Export** to download the CSV data file. Open the file and examine the data.
+
 1. Select the **Take action** tab. Follow the **Remediation steps**.
-1. Select the **Learn** button, if appropriate, so that Defender for IoT learns that this network activity doesn't need to create an alert item in the future.
-<!-- go over this with the OT sensor and data that shows this feature and check this is correct -->
+
+1. Select **Learn**, if needed. For more information, see [learning an alert](alerts.md#alert-statuses-and-triaging-options).
+
 ## Next steps
 
 > [!div class="nextstepaction"]

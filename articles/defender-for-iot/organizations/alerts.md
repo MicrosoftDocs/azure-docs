@@ -50,23 +50,22 @@ For more information, see:
 
 Alert options also differ depending on your location and user role. For more information, see [Azure user roles and permissions](roles-azure.md) and [On-premises users and roles](roles-on-premises.md).
 
-<!-- placing here for initial ease and finding - where should this really go?-->
-## Aggregated alerts / Alert grouping
+## Aggregating alerts
 
-Alert fatigue caused by excessive number of identical alerts could lead to your team failing to see or remediate vital alerts. Alert grouping reduces the number of alerts reported by listing identical alert types that have the same parameters as one alert report. The matching parameters differ depending on the type of alert. For example, the alert *Unpermitted Usage of Modbus Function Code* needs to have the same source and destination IP addresses.
+Alert fatigue caused by excessive number of identical alerts could lead to your team failing to see or remediate vital alerts. Aggregating alerts reduces the number of alerts reported by listing identical alert types with the same parameter settings as one alert. The matching parameters differ depending on the type of alert. For example, the alert *Unpermitted Usage of Modbus Function Code* needs to have the same source and destination IP addresses.
 
-The alert grouping includes alerts with different alert codes and these will be shown in the **Violations** tab of the alert details. The full list of alerts can be downloaded as a CSV file, displaying the relevant parameters and functions. Each set of aggregated alerts is remediated as a group using the **Learn** button and therefore the **Violations** feature only applies to alerts which have the same remediation process. Alerts can still be viewed individually within their respective devices.
+The aggregated alert includes alerts with different alert codes, such as read and write codes. You access this data in the **Violations** tab of the alert details where you download it as a CSV file that lists the relevant parameters and functions. You can then remediate the alert. Only alerts that have the same remediation process are grouped. Alerts can still be viewed individually within their respective devices.
 
-The alerts that can be grouped are listed in the [Alert reference](alert-engine-messages.md) tables under the **Aggregated heading.
+The alerts that can be grouped are listed in the [Alert reference](alert-engine-messages.md) tables under the **Grouped** heading.
 
-Alert grouping appears in both the OT sensor console and the Azure portal. For more information, see [alert grouping in Sensor console](how-to-view-alerts.md#remediate-aggregated-alerts) and [alert grouping in Azure portal](how-to-manage-cloud-alerts.md#remediate-aggregated-alerts)
+Alert grouping appears in both the OT sensor console and the Azure portal. For more information, see [remediate aggregated alerts in Sensor console](how-to-view-alerts.md#remediate-aggregated-alerts) and [remediate aggregated alerts in Azure portal](how-to-manage-cloud-alerts.md#remediate-aggregated-alerts).
 
 ## Focused alerts in OT/IT environments
 
 Organizations where sensors are deployed between OT and IT networks deal with many alerts, related to both OT and IT traffic. The amount of alerts, some of which are irrelevant, can cause alert fatigue and affect overall performance. To address these challenges, Defender for IoT's detection policy steers its different [alert engines](alert-engine-messages.md#supported-alert-types) to focus on alerts with business impact and relevance to an OT network, and reduce low-value IT related alerts. For example, the **Unauthorized internet connectivity** alert is highly relevant in an OT network, but has relatively low value in an IT network.
 
-To focus the alerts triggered in these environments, all alert engines, except for the *Malware* engine, trigger alerts only if they detect a related OT subnet or protocol. 
-However, to maintain triggering of alerts that indicate critical scenarios: 
+To focus the alerts triggered in these environments, all alert engines, except for the *Malware* engine, trigger alerts only if they detect a related OT subnet or protocol.
+However, to maintain triggering of alerts that indicate critical scenarios:
 
 - The *Malware* engine triggers malware alerts regardless of whether the alerts are related to OT or IT devices.
 - The other engines include exceptions for critical scenarios. For example, the *Operational* engine triggers alerts related to sensor traffic, regardless of whether the alert is related to OT or IT traffic.
@@ -76,7 +75,7 @@ However, to maintain triggering of alerts that indicate critical scenarios:
 Users working in hybrid environments might be managing OT alerts in [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, the OT sensor, and an on-premises management console.
 
 > [!NOTE]
-> While the sensor console displays an alert's **Last detection** field in real-time, Defender for IoT in the Azure portal may take up to one hour to display the updated time. This explains a scenario where the last detection time in the sensor console isn't the same as the last detection time in the Azure portal. 
+> While the sensor console displays an alert's **Last detection** field in real-time, Defender for IoT in the Azure portal may take up to one hour to display the updated time. This explains a scenario where the last detection time in the sensor console isn't the same as the last detection time in the Azure portal.
 
 Alert statuses are otherwise fully synchronized between the Azure portal and the OT sensor, and between the sensor and the on-premises management console. This means that regardless of where you manage the alert in Defender for IoT, the alert is updated in other locations as well.
 

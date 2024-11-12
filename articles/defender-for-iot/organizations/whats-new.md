@@ -22,11 +22,11 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Group multiple alerts with the same parameters](#aggregate-group-multiple-alerts-with-the-same-parameters)|
+| **OT networks** | - [Aggregating multiple alerts with the same parameters](#aggregating-multiple-alerts-with-the-same-parameters)|
 
-### Aggregate/ Group multiple alerts with the same parameters
+### Aggregating multiple alerts with the same parameters
 
-To reduce alert fatigue, multiple versions of the same alert and with the same parameters are grouped together and listed in the alerts table as one item. The alert details lists the each of the identical alerts as **violations** and the appropriate remediation or Learn actions are listed. For more information, see [Group multiple alerts with the same parameters](alerts.md#aggregated-alerts--alert-grouping). <!-- fix this when the title is chosen -->
+To reduce alert fatigue, multiple versions of the same alert and with the same parameters are grouped together and listed in the alerts table as one item. The alert details lists the each of the identical alerts as **Violations** and the appropriate remediation actions are listed. For more information, see [aggregating alerts with the same parameters](alerts.md#aggregating-alerts).
 
 ## October 2024
 
