@@ -67,12 +67,13 @@ Workspace gateways are managed independently from the API Management service and
 * For information on the cost of workspace gateways, see [API Management pricing](https://aka.ms/apimpricing).
 * For a detailed comparison of API Management gateways, see [API Management gateways overview](api-management-gateways-overview.md).
 
+> [!NOTE]
+> We're introducing the ability to associate multiple workspaces with a workspace gateway, helping organizations manage APIs with workspaces at a lower cost. This feature is being rolled out starting in December 2024 and it may not be available to all eligible services before January. [Learn more](https://aka.ms/apim/workspaces/sharedgateway)
+
 ### Gateway hostname
 
 Each association of a workspace to a workspace gateway creates a unique hostname for APIs managed in that workspace. Default hostnames follow the pattern `<workspace-name>-<hash>.gateway.<region>.azure-api.net`. Currently, custom hostnames aren't supported for workspace gateways.
 
-> [!NOTE]
-> Through October 2024, APIs in workspaces can be accessed at runtime using the gateway hostname of your API Management instance in addition to the hostname of the workspace gateway.
 
 ### Network isolation
 
@@ -109,7 +110,6 @@ Workspace gateways are currently available in the following regions:
 The following constraints currently apply to workspace gateways:
 
 * A workspace gateway needs to be in the same region as the API Management instance's primary Azure region and in the same subscription. 
-* A gateway can be associated only with one workspace
 * A workspace can't be associated with a self-hosted gateway
 * Workspace gateways don't support inbound private endpoints
 * APIs in workspace gateways can't be assigned custom hostnames
