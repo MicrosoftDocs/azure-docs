@@ -9,9 +9,9 @@ ms.date: 11/08/2024
 ms.author: iasthana
 ---
 
-# Tutorial: Run JavaScript code in a code interpreter session in Azure Container Apps
+# Tutorial: Run JavaScript code in a code interpreter session in Azure Container Apps (Preview)
 
-This tutorial demonstrates how to create a sessionpool for dynamic sessions where you can pass in code to execute on your behalf. Code interpreter in dynamic sessions is used which runs lines of JavaScript you provide via a request.
+This tutorial demonstrates how to execute JavaScript code in Azure Container Apps dynamic sessions using an HTTP API. Currently JavaScript code interpreter functionality is in Preview state.
 
 In this tutorial you:
 
@@ -38,6 +38,10 @@ In this tutorial you:
 > - Switzerland North
 > - Australia East
 > - West Central US
+> - Norway East
+> - Sweden Central
+> - Japan East
+> - North Europe
 > ```
 
 ## Prerequisites
