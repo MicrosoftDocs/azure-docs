@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial
-ms.date: 02/20/2024
+ms.date: 11/12/2024
 ms.author: zhiyuanliang
 #Customer intent: I want to dynamically update my .NET background service to use the latest configuration data in App Configuration.
 ---
@@ -73,19 +73,27 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 1. Connect to App Configuration using Microsoft Entra ID (recommended), or a connection string.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. 
+    
+    1. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader role**. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+   1. Update the code in Program.cs.
+ 
     ```csharp
     // Existing code in Program.cs
     // ... ...
     
     var builder = Host.CreateApplicationBuilder(args);
     
-    builder.Configuration.AddAzureAppConfiguration(options =&gt;
+    builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(new DefaultAzureCredential())
+        string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
             // Load all keys that start with `TestApp:`.
             .Select("TestApp:*")
             // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
-            .ConfigureRefresh(refreshOptions =&gt;
+            .ConfigureRefresh(refreshOptions =>
             {
                 refreshOptions.Register("TestApp:Settings:Message");
             });
