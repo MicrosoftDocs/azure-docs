@@ -37,7 +37,7 @@ az group create --name exampleRG --location eastus
 az deidservice create --resource-group exampleRG --name=<deid-service-name>
 ```
 
-The command will return the following output, with additional fields omitted for brevity.
+The command returns the following output, with some fields omitted for brevity.
 
 ```output
 {

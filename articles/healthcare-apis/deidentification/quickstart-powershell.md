@@ -37,7 +37,7 @@ New-AzResourceGroup -Name 'exampleRG' -Location 'EastUS'
 New-AzDeidService -ResourceGroupName 'jovinson' -Name '<deid-service-name>' -Location 'EastUS'
 ```
 
-The command will return the following output, with additional fields omitted for brevity.
+The command returns the following output, with some fields omitted for brevity.
 
 ```output
 Id                           : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Mi
