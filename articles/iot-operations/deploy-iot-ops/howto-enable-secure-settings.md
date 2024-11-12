@@ -156,7 +156,7 @@ Follow these steps to set up Secrets Management:
 
 Now that secret synchronization setup is complete, you can refer to [Manage Secrets](./howto-manage-secrets.md) to learn how to use secrets with Azure IoT Operations.
 
-## Set up user-assigned managed identity for cloud connections
+## Set up a user-assigned managed identity for cloud connections
 
 Some Azure IoT Operations components like dataflow endpoints use user-assigned managed identity for cloud connections. It's recommended to use a separate identity from the one used to set up Secrets Management.
 
