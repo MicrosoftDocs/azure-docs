@@ -129,18 +129,18 @@ By convention, the `FeatureManagement` section of this JSON document is used for
 * `FeatureB` is *off*.
 * `FeatureC` specifies a filter named `Percentage` with a `Parameters` property. `Percentage` is a configurable filter. In this example, `Percentage` specifies a 50-percent probability for the `FeatureC` flag to be *on*. For a how-to guide on using feature filters, see [Use feature filters to enable conditional feature flags](./howto-feature-filters-aspnet-core.md).
 
-## Use dependency injection to access IVariantFeatureManager 
+## Use dependency injection to access IFeatureManager 
 
-For some operations, such as manually checking feature flag values, you need to get an instance of `IVariantFeatureManager`. In ASP.NET Core MVC, you can access the feature manager `IVariantFeatureManager` through dependency injection. In the following example, an argument of type `IVariantFeatureManager` is added to the signature of the constructor for a controller. The runtime automatically resolves the reference and provides an implementation of the interface when calling the constructor. If you're using an application template in which the controller already has one or more dependency injection arguments in the constructor, such as `ILogger`, you can just add `IVariantFeatureManager` as an additional argument:
+For some operations, such as manually checking feature flag values, you need to get an instance of [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager). In ASP.NET Core MVC, you can access the feature manager `IFeatureManager` through dependency injection. In the following example, an argument of type `IFeatureManager` is added to the signature of the constructor for a controller. The runtime automatically resolves the reference and provides an implementation of the interface when calling the constructor. If you're using an application template in which the controller already has one or more dependency injection arguments in the constructor, such as `ILogger`, you can just add `IFeatureManager` as an additional argument:
     
 ```csharp
 using Microsoft.FeatureManagement;
 
 public class HomeController : Controller
 {
-    private readonly IVariantFeatureManager _featureManager;
+    private readonly IFeatureManager _featureManager;
 
-    public HomeController(ILogger<HomeController> logger, IVariantFeatureManager featureManager)
+    public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
     {
         _featureManager = featureManager;
     }
@@ -165,7 +165,7 @@ public static class MyFeatureFlags
 A common pattern of feature management is to check if a feature flag is set to *on* and if so, run a section of code. For example:
 
 ```csharp
-IVariantFeatureManager featureManager;
+IFeatureManager featureManager;
 ...
 if (await featureManager.IsEnabledAsync(MyFeatureFlags.FeatureA))
 {

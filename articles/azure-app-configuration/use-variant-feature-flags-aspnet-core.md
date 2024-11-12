@@ -13,32 +13,18 @@ ms.date: 10/10/2024
 
 # Tutorial: Use variant feature flags from Azure App Configuration in an ASP.NET application
 
-In this tutorial, you:
+In this tutorial, you'll use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You'll utilize the variant feature flag created in [Use variant feature flags](./use-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
 > [!div class="checklist"]
-> * Create a variant feature flag
-> * Set up an app to consume variant feature flags
+> * Set up an ASP.NET app to consume variant feature flags
 
 ## Prerequisites
 
 * An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
 * An [App Configuration store](./quickstart-azure-app-configuration-create.md).
+* [Use variant feature flags](./use-variant-feature-flags.md)
 
-## Create a variant feature flag
-
-Create a variant feature flag called *Greeting* with no label and three variants, *None*, *Simple*, and *Long*. Creating variant flags is described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag).
-
-| Variant Name | Variant Configuration Value | Allocation| 
-|---|---|---|
-| None *(Default)* | null | 50% |
-| Simple | "Hello!" | 25% |
-| Long | "I hope this makes your day!" | 25% | 
-
-## Set up an app to use the variants
-
-In this example, you create an ASP.NET web app named _Quote of the Day_. When the app is loaded, it displays a quote. Users can interact with the heart button to like it. To improve user engagement, you want to explore whether a personalized greeting message will increase the number of users who like the quote. Users who receive the _None_ variant will see no greeting. Users who receive the _Simple_ variant will get a simple greeting message. Users who receive the _Long_ variant will get a slightly longer greeting. 
-
-### Create an app and add user secrets
+### Create an ASP.NET Core web app
 
 1. Open a command prompt and run the following code. This creates a new Razor Pages application in ASP.NET Core, using Individual account auth, and places it in an output folder named *QuoteOfTheDay*.
 
@@ -46,29 +32,31 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
     dotnet new razor --auth Individual -o QuoteOfTheDay
     ```
 
-1. In the command prompt, navigate to the *QuoteOfTheDay* folder and run the following command to create a [user secret](/aspnet/core/security/app-secrets) for the application. This secret holds the connection string for App Configuration.
+1. In the command prompt, navigate to the *QuoteOfTheDay* folder and run the following command to create a [user secret](/aspnet/core/security/app-secrets) for the application. This secret holds the endpoint for App Configuration.
 
     ```dotnetcli
-    dotnet user-secrets set ConnectionStrings:AppConfiguration "<App Configuration Connection string>"
+    dotnet user-secrets set Endpoints:AppConfiguration "<App Configuration Endpoint>"
     ```
 
-### Update the application code
+1. Add the latest versions of the required libraries.
 
-1. In *QuoteOfTheDay.csproj*, add the latest versions of the Feature Management and App Configuration SDKs as required packages.
-
-    ```csharp
-    <PackageReference Include="Microsoft.Azure.AppConfiguration.AspNetCore" Version="8.0.0" />
-    <PackageReference Include="Microsoft.FeatureManagement.AspNetCore" Version="4.0.0" />
+    ```dotnetcli
+    dotnet add package Azure.Identity
+    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+    dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. In *Program.cs*, under the line `var builder = WebApplication.CreateBuilder(args);`, add the App Configuration provider, which pulls down the configuration from Azure when the application starts. By default, the UseFeatureFlags method includes all feature flags with no label.
+## Connect to App Configuration for feature management
+
+1. In *Program.cs*, under the line `var builder = WebApplication.CreateBuilder(args);`, add the App Configuration provider, which pulls down the configuration from Azure App Configuration when the application starts. See the [.NET provider quickstart](./quickstart-dotnet-core-app?tabs=entra-id#connect-to-an-app-configuration-store) for more on authenticating with the provider. By default, the UseFeatureFlags method includes all feature flags with no label.
 
     ```csharp
     builder.Configuration
         .AddAzureAppConfiguration(options =>
         {
-            options.Connect(builder.Configuration.GetConnectionString("AppConfiguration"));
-    
+            string endpoint = builder.Configuration.Get("Endpoints:AppConfiguration");
+            options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+
             options.UseFeatureFlags();
         });
     ```
@@ -79,7 +67,7 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
     using Microsoft.FeatureManagement;
     ```
 
-1. Set up Feature Management and enable Feature Management Targeting.
+1. Add Azure App Configuration and feature management services and enable targeting for feature management.
 
     ```csharp
     // Add Azure App Configuration and feature management services to the container.
@@ -88,20 +76,22 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
         .WithTargeting();
     ```
 
-1. Under the line `var app = builder.Build();`, add a middleware that triggers App Configuration refresh when appropriate.
+1. Under the line `var app = builder.Build();`, add Azure App Configuration middleware for dynamic configuration refresh.
 
     ```csharp
     // Use Azure App Configuration middleware for dynamic configuration refresh.
     app.UseAzureAppConfiguration();
     ```
 
-1. In *QuoteOfTheDay* > *Pages* > *Shared* > *_Layout.cshtml*, under where `QuoteOfTheDay.styles.css` is added, add the following line to add the css for version 5.15.3 of `font-awesome`.
+## Use the variant feature flag
+
+1. In *QuoteOfTheDay* > *Pages* > *Shared* > *_Layout.cshtml*, under where `QuoteOfTheDay.styles.css` is added, add the following reference to the font-awesome CSS library.
 
     ```css
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     ```
 
-1. Open *QuoteOfTheDay* > *Pages* > *Index.cshtml.cs* and overwrite the content to the quote app.
+1. Open *QuoteOfTheDay* > *Pages* > *Index.cshtml.cs* and replace the content with the following code.
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;
@@ -130,7 +120,7 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
     
         public Quote? Quote { get; set; }
     
-        public string Greeting { get; set; }
+        public string GreetingMessage { get; set; }
     
         public async void OnGet()
         {
@@ -140,7 +130,7 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
 
             if (variant != null)
             {
-                Greeting = variant.Configuration?.Get<string>() ?? "";
+                GreetingMessage = variant.Configuration?.Get<string>() ?? "";
             }
             else
             {
@@ -164,16 +154,16 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
     }
     ```
 
-    This `PageModel` picks a random quote, uses `GetVariantAsync` to get the variant for the current user, and sets a variable called "Greeting" to the variant's value. The `PageModel` also handles likes, which are sent as post requests. 
+    This `PageModel` picks a random quote, uses `GetVariantAsync` to get the variant for the current user, and sets a variable called "GreetingMessage" to the variant's value. The `PageModel` also handles likes, which are sent as post requests. 
 
-1. Open *index.cshtml* and overwrite the content for the quote app.
+1. Open *index.cshtml* and replace its content with the following code.
 
     ```cshtml
     @page
     @model IndexModel
     @{
         ViewData["Title"] = "Home page";
-        ViewData["Username"] = User.Identity.Name;
+        ViewData["Username"] = User.Identity?.Name ?? string.Empty;
     }
     
     <style>
@@ -233,17 +223,10 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
     
     <div class="quote-container">
         <div class="quote-content">
-            @if (Model.ShowGreeting)
-            {
-                <h3 class="greeting-content">Hi <b>@User.Identity.Name</b>, hope this makes your day!</h3>
-            }
-            else
-            {
-                <h3 class="greeting-content">Quote of the day</h3>
-            }
+            <h3 class="greeting-content">@(Model.GreetingMessage)</h3>
             <br />
-            <p class="quote">“@Model.Quote.Message”</p>
-            <p>- <b>@Model.Quote.Author</b></p>
+            <p class="quote">“@(Model.Quote?.Message ?? "< Quote not found >")”</p>
+            <p>- <b>@(Model.Quote?.Author ?? "Unknown")</b></p>
         </div>
     
         <div class="vote-container">
@@ -278,14 +261,17 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
     </script>
     ```
 
-    This code corresponds to the UI to show the QuoteOfTheDay and handle using the heart action on a quote. It uses the previously mentioned `Model.ShowGreeting` value to show different things to different users, depending on their variant.
+    This code corresponds to the UI to show the QuoteOfTheDay and handle using the heart action on a quote. It uses the previously mentioned `Model.GreetingMessage` value to show different things to different users, depending on their variant.
 
 ### Build and run the app
 
-1. In the command prompt, in the *QuoteOfTheDay* folder, run: `dotnet build`.
-1. Run: `dotnet run --launch-profile https`.
-1. Look for a message in the format `Now listening on: https://localhost:{port}` in the output of the application. Navigate to the included link in your browser.
-1. Once viewing the running application, select **Register** at the top right to register a new user.
+1. Build and run the application.
+
+    ```dotnetcli
+    dotnet build
+    dotnet run
+    ```
+1. Once the application is loaded, select **Register** at the top right to register a new user.
 
     :::image type="content" source="media/use-variant-feature-flags-aspnet-core/register.png" alt-text="Screenshot of the Quote of the day app, showing Register.":::
 
@@ -295,20 +281,18 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
 
     :::image type="content" source="media/use-variant-feature-flags-aspnet-core/click-to-confirm.png" alt-text="Screenshot of the Quote of the day app, showing click to confirm.":::
 
-1. Register a second user named *userb@contoso.com*, enter another password, and validate this second email.
+1. Repeat the same steps to register a second user named userb@contoso.com.
 
     > [!NOTE]
     > It's important for the purpose of this tutorial to use these names exactly. As long as the feature has been configured as expected, the two users should see different variants.
-
-1. Select **Login** at the top right to sign in as userb (userb@contoso.com).
+@
+1. Select **Login** at the top right to sign in as usera@contoso.com.
 
     :::image type="content" source="media/use-variant-feature-flags-aspnet-core/login.png" alt-text="Screenshot of the Quote of the day app, showing **Login**.":::
 
 1. Once logged in, you should see that usera@contoso.com sees the long message when viewing the app, and userb@contoso.com sees the simple message.
 
     :::image type="content" source="media/use-variant-feature-flags-aspnet-core/special-message.png" alt-text="Screenshot of the Quote of the day app, showing a special message for the user.":::
-
-    *usera@contoso.com* sees the long message.
 
 ## Next steps
 

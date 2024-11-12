@@ -133,7 +133,7 @@ In this section, you will create a web application that allows users to sign in 
 
 1. Open *_Layout.cshtml* in the *Pages/Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
-    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="14-38" highlight="13-17":::
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-39" highlight="13-17":::
 
 ## Enable targeting for the web application
 
