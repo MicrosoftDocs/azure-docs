@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 01/12/2023
+ms.date: 10/30/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -54,12 +54,12 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 ### Developer, Basic, Standard, or Premium tier
 
-To receive and verify client certificates over HTTP/2 in the Developer, Basic, Basic v2, Standard, Standard v2, or Premium tiers, you must enable the **Negotiate client certificate** setting on the **Custom domain** blade as shown below.
+To receive and verify client certificates over HTTP/2 in the Developer, Basic, Standard, or Premium tiers, you must enable the **Negotiate client certificate** setting on the **Custom domain** blade as shown below.
 
 ![Negotiate client certificate](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
-### Consumption tier
-To receive and verify client certificates in the Consumption tier, you must enable the **Request client certificate** setting on the **Custom domains** blade as shown below.
+### Consumption, Basic v2, Standard v2 tier
+To receive and verify client certificates in the Consumption, Basic v2, or Standard v2 tier, you must enable the **Request client certificate** setting on the **Custom domains** blade as shown below.
 
 ![Request client certificate](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 

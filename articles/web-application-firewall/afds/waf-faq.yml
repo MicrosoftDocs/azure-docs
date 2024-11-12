@@ -35,7 +35,7 @@ sections:
       - question: |
           Does Azure WAF support IPv6?
         answer: |
-          Yes. You can configure IP restriction for IPv4 and IPv6.
+          Yes. You can configure IP restriction for IPv4 and IPv6. For more information, see [IPv6 Adoption: Enhancing Azure WAF on Front Door](https://techcommunity.microsoft.com/t5/azure-network-security-blog/ipv6-adoption-enhancing-azure-waf-on-front-door/ba-p/4284188).
 
       - question: |
           How up-to-date are the managed rule sets?

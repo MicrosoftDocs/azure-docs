@@ -86,7 +86,7 @@ conceptualContent:
             - url: ../../vpn-gateway/vpn-gateway-about-point-to-site-routing.md
               itemType: concept
               text: About Point-to-site VPN routing
-            - url: ../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
+            - url: ../../vpn-gateway/point-to-site-certificate-gateway.md
               itemType: how-to-guide
               text: Configure point-to-site VPN - Azure certificate authentication
             - url: ../../vpn-gateway/point-to-site-how-to-radius-ps.md

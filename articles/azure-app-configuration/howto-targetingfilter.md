@@ -68,16 +68,13 @@ In this article, you will learn how to add and configure a targeting filter for 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, applying new targeting filter.](./media/feature-filters/feature-flag-edit-apply-targeting-filter.png)
 
-Now, you successfully added a targeting filter for your feature flag. This targeting filter will use the targeting rule you configured to enable or disable the feature flag for specific users and groups. Follow the instructions in the [Next steps](#next-steps) section to learn how it works in your application for the language or platform you are using.
+    Now, you successfully added a targeting filter for your feature flag. This targeting filter will use the targeting rule you configured to enable or disable the feature flag for specific users and groups. 
+
+1. Continue to the following instructions to use the feature flag with a targeting filter in your application for the language or platform you are using.
+
+    - [ASP.NET Core](./howto-targetingfilter-aspnet-core.md)
 
 ## Next steps
-
-In this tutorial, you learned the concept of the targeting filter and added it to a feature flag.
-
-To learn how to use the feature flag with a targeting filter in your application, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [ASP.NET Core](./howto-targetingfilter-aspnet-core.md)
 
 To learn more about the feature filters, continue to the following tutorials:
 

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 10/28/2024
 ms.custom: generated
 ---
 
@@ -274,7 +274,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='cognitive-services-custom-vision-labeler'></a>[Cognitive Services Custom Vision Labeler](./built-in-roles/ai-machine-learning.md#cognitive-services-custom-vision-labeler) | View, edit training images and create, add, remove, or delete the image tags. Labelers can view the project but can't update anything other than training images and tags. | 88424f51-ebe7-446f-bc41-7fa16989e96c |
 > | <a name='cognitive-services-custom-vision-reader'></a>[Cognitive Services Custom Vision Reader](./built-in-roles/ai-machine-learning.md#cognitive-services-custom-vision-reader) | Read-only actions in the project. Readers can't create or update the project. | 93586559-c37d-4a6b-ba08-b9f0940c2d73 |
 > | <a name='cognitive-services-custom-vision-trainer'></a>[Cognitive Services Custom Vision Trainer](./built-in-roles/ai-machine-learning.md#cognitive-services-custom-vision-trainer) | View, edit projects and train the models, including the ability to publish, unpublish, export the models. Trainers can't create or delete the project. | 0a5ae4ab-0d65-4eeb-be61-29fc9b54394b |
-> | <a name='cognitive-services-data-reader-preview'></a>[Cognitive Services Data Reader (Preview)](./built-in-roles/ai-machine-learning.md#cognitive-services-data-reader-preview) | Lets you read Cognitive Services data. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | <a name='cognitive-services-data-reader'></a>[Cognitive Services Data Reader](./built-in-roles/ai-machine-learning.md#cognitive-services-data-reader) | Lets you read Cognitive Services data. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | <a name='cognitive-services-face-recognizer'></a>[Cognitive Services Face Recognizer](./built-in-roles/ai-machine-learning.md#cognitive-services-face-recognizer) | Lets you perform detect, verify, identify, group, and find similar operations on Face API. This role does not allow create or delete operations, which makes it well suited for endpoints that only need inferencing capabilities, following 'least privilege' best practices. | 9894cab4-e18a-44aa-828b-cb588cd6f2d7 |
 > | <a name='cognitive-services-immersive-reader-user'></a>[Cognitive Services Immersive Reader User](./built-in-roles/ai-machine-learning.md#cognitive-services-immersive-reader-user) | Provides access to create Immersive Reader sessions and call APIs | b2de6794-95db-4659-8781-7e080d3f2b9d |
 > | <a name='cognitive-services-language-owner'></a>[Cognitive Services Language Owner](./built-in-roles/ai-machine-learning.md#cognitive-services-language-owner) | Has access to all Read, Test, Write, Deploy and Delete functions under Language portal | f07febfe-79bc-46b1-8b37-790e26e6e498 |
@@ -465,6 +465,7 @@ The following table provides a brief description of each built-in role. Click th
 > | --- | --- | --- |
 > | <a name='application-insights-component-contributor'></a>[Application Insights Component Contributor](./built-in-roles/monitor.md#application-insights-component-contributor) | Can manage Application Insights components | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | <a name='application-insights-snapshot-debugger'></a>[Application Insights Snapshot Debugger](./built-in-roles/monitor.md#application-insights-snapshot-debugger) | Gives user permission to view and download debug snapshots collected with the Application Insights Snapshot Debugger. Note that these permissions are not included in the [Owner](/azure/role-based-access-control/built-in-roles#owner) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor) roles. When giving users the Application Insights Snapshot Debugger role, you must grant the role directly to the user. The role is not recognized when it is added to a custom role. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
+> | <a name='azure-managed-grafana-workspace-contributor'></a>[Azure Managed Grafana Workspace Contributor](./built-in-roles/monitor.md#azure-managed-grafana-workspace-contributor) | Can manage Azure Managed Grafana resources, without providing access to the workspaces themselves. | 5c2d7e57-b7c2-4d8a-be4f-82afa42c6e95 |
 > | <a name='grafana-admin'></a>[Grafana Admin](./built-in-roles/monitor.md#grafana-admin) | Manage server-wide settings and manage access to resources such as organizations, users, and licenses. | 22926164-76b3-42b3-bc55-97df8dab3e41 |
 > | <a name='grafana-editor'></a>[Grafana Editor](./built-in-roles/monitor.md#grafana-editor) | Create, edit, delete, or view dashboards; create, edit, or delete folders; and edit or view playlists. | a79a5197-3a5c-4973-a920-486035ffd60f |
 > | <a name='grafana-limited-viewer'></a>[Grafana Limited Viewer](./built-in-roles/monitor.md#grafana-limited-viewer) | View home page. | 41e04612-9dac-4699-a02b-c82ff2cc3fb5 |

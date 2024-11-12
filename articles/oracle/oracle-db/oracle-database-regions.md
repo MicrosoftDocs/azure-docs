@@ -14,7 +14,7 @@ ms.author: jacobjaygbay
 
 Learn what Azure regions and corresponding Oracle Cloud Infrastructure (OCI) regions support Oracle Database@Azure in standard business regions across the globe.
 
-## Asia-Pacific (APAC)
+## Asia Pacific (APAC)
 
 The following table lists Azure regions and corresponding OCI regions that support Oracle Database@Azure in the APAC business region:
 
@@ -22,7 +22,13 @@ The following table lists Azure regions and corresponding OCI regions that suppo
 |----------------|--------------------------|-------------------|-------------------|
 | Australia East | Australia East (Sydney)  | ✓  |          ✓                      |
 | Southeast Asia | Singapore (Singapore)  | ✓  |          ✓                      |
-| Japan East     | Japan East(Tokyo)  | ✓  |          ✓                      |
+| Japan East     | Japan East(Tokyo)  | ✓  |                                 |
+
+## Brazil
+
+| Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
+|----------------|--------------------------|-------------------|-------------------|
+| Brazil South | Brazil Southeast (Vinhedo)   | ✓   |     |
 
 ## Europe, Middle East, Africa (EMEA)
 
