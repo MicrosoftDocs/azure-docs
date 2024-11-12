@@ -185,7 +185,7 @@
       href: private-reverse-dns.md
     - name: Use Azure Resource Graph Explorer
       href: private-dns-arg.md
-    - name: Fallback to Internet resolution
+    - name: Fallback to internet resolution
       href: private-dns-fallback.md
   - name: Private Resolver
     items:
