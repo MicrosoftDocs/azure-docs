@@ -490,11 +490,9 @@ mosquitto_pub -q 1 -t hello -d -V mqttv5 -m world -i thermostat \
 
 In the example:
 
-- The `--cert` parameter specifies the client certificate PEM file.
+- The `--cert` parameter specifies the client certificate PEM file. This file should also include any intermediate certificates to help the MQTT broker build the complete certificate chain.
 - The `--key` parameter specifies the client private key PEM file.
-- The third parameter `--cafile` is the most complex: the trusted certificate database, used for two purposes:
-  - When mosquitto client connects to MQTT broker over TLS, it validates the server certificate. It searches for root certificates in the database to create a trusted chain to the server certificate. Because of this, the server root certificate needs to be copied into this file.
-  - When the MQTT broker requests a client certificate from mosquitto client, it also requires a valid certificate chain to send to the server. The `--cert` parameter tells mosquitto which certificate to send, but it's not enough. MQTT broker can't verify this certificate alone because it also needs the intermediate certificate. Mosquitto uses the database file to build the necessary certificate chain. To support this, the `cafile` must contain both the intermediate and root certificates.
+- The `--cafile` parameter is for server validation. It contains the server root certificate for the MQTT broker, which the mosquitto client uses to validate the server certificate when connecting over TLS.
 
 ### Understand MQTT broker X.509 client authentication flow
 
