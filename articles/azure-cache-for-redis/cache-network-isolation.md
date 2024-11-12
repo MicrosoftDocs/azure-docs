@@ -50,13 +50,6 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 
 Virtual Network (VNet) enables many Azure resources to securely communicate with each other, the internet, and on-premises networks. VNet is like a traditional network you would operate in your own data center.
 
-<!-- ### Advantages of VNet injection
-
-- When an Azure Cache for Redis instance is configured with a VNet, it's not publicly addressable. It can only be accessed from virtual machines and applications within the VNet.  
-- When VNet is combined with restricted NSG policies, it helps reduce the risk of data exfiltration.
-- VNet deployment provides enhanced security and isolation for your Azure Cache for Redis. Subnets, access control policies, and other features further restrict access.
-- Geo-replication is supported. -->
-
 ### Limitations of VNet injection
 
 - Creating and maintaining virtual network configurations is error prone. Troubleshooting network configuration issues is challenging. Incorrect virtual network configurations can lead to various issues:
