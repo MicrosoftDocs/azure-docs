@@ -32,7 +32,7 @@ The state store allows an edge application to persist data on the edge. Typical 
 
 ## State store authorization
 
-The state store extends MQTT broker's authorization mechanism, allowing individual clients to have optional read and write access to specific keys. Read more on how to [configure MQTT broker authorization](manage-mqtt-broker/howto-configure-authorization.md) for the state store.
+The state store extends MQTT broker's authorization mechanism, allowing individual clients to have optional read and write access to specific keys. Read more on how to [configure MQTT broker authorization](../manage-mqtt-broker/howto-configure-authorization.md) for the state store.
 
 ## Interacting with the state store
 
@@ -51,4 +51,4 @@ For instructions on setting up your cluster and using the tool, refer to the [st
 ## Related content
 
 * [Learn about the MQTT broker state store protocol](concept-about-state-store-protocol.md)
-* [Configure MQTT broker authorization](manage-mqtt-broker/howto-configure-authorization.md)
+* [Configure MQTT broker authorization](../manage-mqtt-broker/howto-configure-authorization.md)
