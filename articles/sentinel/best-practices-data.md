@@ -4,7 +4,7 @@ description: Learn about best practices to employ when connecting data sources t
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 01/09/2023
+ms.date: 11/12/2024
 
 
 #Customer intent: As a security analyst, I want to implement best practices for Microsoft Sentinel data collection so that I can optimize log ingestion, reduce costs, and enhance security monitoring.
@@ -21,7 +21,7 @@ Learn how to [prioritize your data connectors](prioritize-data-connectors.md) as
 
 ## Filter your logs before ingestion
 
-You may want to filter the logs collected, or even log content, before the data is ingested into Microsoft Sentinel. For example, you may want to filter out logs that are irrelevant or unimportant to security operations, or you may want to remove unwanted details from log messages. Filtering message content may also be helpful when trying to drive down costs when working with Syslog, CEF, or Windows-based logs that have many irrelevant details.
+You might want to filter the logs collected, or even log content, before the data is ingested into Microsoft Sentinel. For example, you might want to filter out logs that are irrelevant or unimportant to security operations, or you might want to remove unwanted details from log messages. Filtering message content might also be helpful when trying to drive down costs when working with Syslog, CEF, or Windows-based logs that have many irrelevant details.
 
 Filter your logs using one of the following methods:
 
@@ -37,7 +37,7 @@ Filter your logs using one of the following methods:
 
 ## Alternative data ingestion requirements
 
-Standard configuration for data collection may not work well for your organization, due to various challenges. The following tables describe common challenges or requirements, and possible solutions and considerations.
+Standard configuration for data collection might not work well for your organization, due to various challenges. The following tables describe common challenges or requirements, and possible solutions and considerations.
 
 > [!NOTE]
 > Many solutions listed in the following sections require a custom data connector. For more information, see [Resources for creating Microsoft Sentinel custom connectors](create-custom-connector.md).
@@ -51,9 +51,9 @@ Standard configuration for data collection may not work well for your organizati
 |**Requires log filtering**     | Use Logstash <br><br>Use Azure Functions <br><br> Use LogicApps <br><br> Use custom code (.NET, Python)  |  While filtering can lead to cost savings, and ingests only the required data, some Microsoft Sentinel features aren't supported, such as [UEBA](identify-threats-with-entity-behavior-analytics.md), [entity pages](entity-pages.md), [machine learning](bring-your-own-ml.md), and [fusion](fusion.md). <br><br>When configuring log filtering, make updates in resources such as threat hunting queries and analytics rules     |
 |**Agent cannot be installed**     |Use Windows Event Forwarding, supported with the [Azure Monitor Agent](connect-windows-security-events.md#connector-options)       |   Using Windows Event forwarding lowers load-balancing events per second from the Windows Event Collector, from 10,000 events to 500-1000 events.|
 |**Servers do not connect to the internet**     | Use the [Log Analytics gateway](/azure/azure-monitor/agents/gateway)        | Configuring a proxy to your agent requires extra firewall rules to allow the Gateway to work.        |
-|**Requires tagging and enrichment at ingestion**     |Use Logstash to inject a ResourceID <br><br>Use an ARM template to inject the ResourceID into on-premises machines <br><br>Ingest the resource ID into separate workspaces        | Log Analytics doesn't support RBAC for custom tables <br><br>Microsoft Sentinel doesn’t support row-level RBAC <br><br>**Tip**: You may want to adopt cross workspace design and functionality for Microsoft Sentinel.        |
+|**Requires tagging and enrichment at ingestion**     |Use Logstash to inject a ResourceID <br><br>Use an ARM template to inject the ResourceID into on-premises machines <br><br>Ingest the resource ID into separate workspaces        | Log Analytics doesn't support RBAC for custom tables <br><br>Microsoft Sentinel doesn’t support row-level RBAC <br><br>**Tip**: You might want to adopt cross workspace design and functionality for Microsoft Sentinel.        |
 |**Requires splitting operation and security logs**     | Use the [Microsoft Monitor Agent or Azure Monitor Agent](connect-windows-security-events.md) multi-home functionality        |  Multi-home functionality requires more deployment overhead for the agent.       |
-|**Requires custom logs**     |   Collect files from specific folder paths <br><br>Use API ingestion <br><br>Use PowerShell <br><br>Use Logstash     |   You may have issues filtering your logs. <br><br>Custom methods aren't supported. <br><br>Custom connectors may require developer skills.       |
+|**Requires custom logs**     |   Collect files from specific folder paths <br><br>Use API ingestion <br><br>Use PowerShell <br><br>Use Logstash     |   You might have issues filtering your logs. <br><br>Custom methods aren't supported. <br><br>Custom connectors might require developer skills.       |
 
 
 ### On-premises Linux log collection
@@ -63,7 +63,7 @@ Standard configuration for data collection may not work well for your organizati
 |**Requires log filtering**     | Use Syslog-NG <br><br>Use Rsyslog <br><br>Use FluentD configuration for the agent <br><br> Use the Azure Monitor Agent/Microsoft Monitoring Agent <br><br> Use Logstash  |  Some Linux distributions might not be supported by the agent. <br> <br>Using Syslog or FluentD requires developer knowledge. <br><br>For more information, see [Connect to Windows servers to collect security events](connect-windows-security-events.md) and [Resources for creating Microsoft Sentinel custom connectors](create-custom-connector.md).      |
 |**Agent cannot be installed**     |  Use a Syslog forwarder, such as (syslog-ng or rsyslog.       |         |
 |**Servers do not connect to the internet**       | Use the [Log Analytics gateway](/azure/azure-monitor/agents/gateway)        | Configuring a proxy to your agent requires extra firewall rules to allow the Gateway to work.          |
-|**Requires tagging and enrichment at ingestion**      | Use Logstash for enrichment, or custom methods, such as API or Event Hubs.         | You may have extra effort required for filtering.    |
+|**Requires tagging and enrichment at ingestion**      | Use Logstash for enrichment, or custom methods, such as API or Event Hubs.         | You might have extra effort required for filtering.    |
 |**Requires splitting operation and security logs**     |  Use the [Azure Monitor Agent](connect-windows-security-events.md) with the multi-homing configuration.       |         |
 |**Requires custom logs**     |    Create a custom collector using the Microsoft Monitoring (Log Analytics) agent.      |      |
 
@@ -85,7 +85,7 @@ If you need to collect Microsoft Office data, outside of the standard connector 
 
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|
-|**Collect raw data from Teams, message trace, phishing data, and so on**     |    Use the built-in [Office 365 connector](./data-connectors/office-365.md) functionality, and then create a custom connector for other raw data.  |  Mapping events to the corresponding recordID may be challenging.  |
+|**Collect raw data from Teams, message trace, phishing data, and so on**     |    Use the built-in [Office 365 connector](./data-connectors/office-365.md) functionality, and then create a custom connector for other raw data.  |  Mapping events to the corresponding recordID might be challenging.  |
 |**Requires RBAC for splitting countries/regions, departments, and so on**     | Customize your data collection by adding tags to data and creating dedicated workspaces for each separation needed.|   Custom data collection has extra ingestion costs.     |
 |**Requires multiple tenants in a single workspace**     |  Customize your data collection using Azure LightHouse and a unified incident view.|  Custom data collection has extra ingestion costs.  <br><br>For more information, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md).      |
 
@@ -94,8 +94,8 @@ If you need to collect Microsoft Office data, outside of the standard connector 
 
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|
-|**Filter logs from other platforms**     | Use Logstash <br><br>Use the Azure Monitor Agent / Microsoft Monitoring (Log Analytics) agent       |    Custom collection has extra ingestion costs. <br><br>You may have a challenge of collecting all Windows events vs only security events.     |
-|**Agent cannot be used**     |   Use Windows Event Forwarding      | You may need to load balance efforts across your resources.        |
+|**Filter logs from other platforms**     | Use Logstash <br><br>Use the Azure Monitor Agent / Microsoft Monitoring (Log Analytics) agent       |    Custom collection has extra ingestion costs. <br><br>You might have a challenge of collecting all Windows events vs only security events.     |
+|**Agent cannot be used**     |   Use Windows Event Forwarding      | You might need to load balance efforts across your resources.        |
 |**Servers are in air-gapped network**     | Use the [Log Analytics gateway](/azure/azure-monitor/agents/gateway)        | Configuring a proxy to your agent requires firewall rules to allow the Gateway to work.        |
 |**RBAC, tagging, and enrichment at ingestion**     |    Create custom collection via Logstash or the Log Analytics API.     |  RBAC isn't supported for custom tables <br><br>Row-level RBAC isn't supported for any tables.       |
 
