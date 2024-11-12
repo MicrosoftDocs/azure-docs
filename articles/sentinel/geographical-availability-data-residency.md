@@ -22,7 +22,7 @@ This article can help you meet compliance requirements by describing where Micro
 
 Microsoft Sentinel collects the following types of data:
 
-- **Raw data**, such as event data collected from connected Microsoft services and partner systems. Data from multiple clouds and sources are streamed to the customer’s Azure Log Analytics workspace associated with Microsoft Sentinel, under the customer’s tenant’s subscription.This approach gives the customer the ability to choose region and retention and deletion policies.
+- **Raw data**, such as event data collected from connected Microsoft services and partner systems. Data from multiple clouds and sources are streamed to the customer’s Azure Log Analytics workspace associated with Microsoft Sentinel, under the customer’s tenant’s subscription. This approach gives the customer the ability to choose region and retention and deletion policies.
 - **Processed data**, such as incidents, alerts, and so on.
 - **Configuration data**, such as connector settings, rules, and so on.
 
