@@ -15,9 +15,9 @@ ms.service: azure-iot-operations
 
 # Storing data in the state store
 
-The state store is a distributed storage system, deployed as part of Azure IoT Operations. Using the state store, applications can get, set and delete key-value pairs, without needing to install additional services, such as Redis. The state store also provides versioning of the data, and also the primitives for building distributed locks, ideal for highly available applications.
+The state store is a distributed storage system, deployed as part of Azure IoT Operations. Using the state store, applications can get, set, and delete key-value pairs, without needing to install more services, such as Redis. The state store also provides versioning of the data, and also the primitives for building distributed locks, ideal for highly available applications.
 
-Like Redis, the state store uses in memory storage. Stopping or restarting the Kubernetes cluster will cause the state store data to be lost.
+Like Redis, the state store uses in memory storage. Stopping or restarting the Kubernetes cluster causes the state store data to be lost.
 
 The state store is implemented via MQTTv5. Its service is integrated directly into MQTT broker and is automatically started when the broker starts. The state store provides the same high availability as the MQTT broker.
 
@@ -40,7 +40,7 @@ A CLI tool is available which enables interaction with the state store from a sh
 
 1. Generate an X.509 certificate chain for authenticating with MQTT broker
 1. Create a `BrokerAuthentication` using x.509 certificates
-1. Create a `BrokerListener` as a LoadBalancer to enable off-cluster access
+1. Create a `BrokerListener` of type LoadBalancer which enables off-cluster access
 1. Open ports on your cluster to enable access to the MQTT broker.
 
 For instructions on setting up your cluster and using the tool, refer to the [state store CLI GitHub](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/state-store-cli) page.
