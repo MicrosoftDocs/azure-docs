@@ -25,11 +25,11 @@ Private DNS queries for Azure Private Link and network isolation scenarios acros
 
 ## Solution
 
-The **Resolution Policy** property in Azure Private DNS is a fully managed native solution. This property enables public recursion via Azure’s recursive resolver fleet when an authoritative NXDOMAIN response is received for a private link zone. Resolution policy is enabled at the virtual network link level with the **NxDomainRedirect** setting. In the Azure portal, **NxDomainRedirect** is enabled by selecting **Enable fallback to internet** in virtual network link configuration.
+The [ResolutionPolicy](/java/api/com.azure.resourcemanager.privatedns.models.resolutionpolicy) property in Azure Private DNS is a fully managed native solution. This property enables public recursion via Azure’s recursive resolver fleet when an authoritative NXDOMAIN response is received for a private link zone. Resolution policy is enabled at the virtual network link level with the **NxDomainRedirect** setting. In the Azure portal, **NxDomainRedirect** is enabled by selecting **Enable fallback to internet** in virtual network link configuration.
 
 ## Policy definition
 
-This policy is available in api-version=2024-06-01 or higher. The following example has **resolutionPolicy** set to **NxDomainRedirect** at the **virtualNetworkLinks** resource level:
+This policy is available in API version 2024-06-01 or higher. In the following example, **resolutionPolicy** is set to **NxDomainRedirect** at the **virtualNetworkLinks** resource level:
 
 ```
 {
@@ -56,7 +56,7 @@ When the **NxDomainRedirect** resolution policy is enabled on a virtual network 
 
 This change can be seen in the CNAME chain resolution.
 
-```
+```cmd
 C:\>nslookup remoteprivateendpoint.blob.core.windows.net
 Server:  UnKnown
 Address:  168.63.129.16
@@ -106,25 +106,24 @@ The following example shows how to enable fallback to internet resolution for pr
   1. At least one of these Private DNS zones must have a virtual network link to the VNet where you can run queries from a virtual machine.
 3. Open a command prompt on your Azure virtual machine and attempt to resolve the FQDN of both storage accounts. See the following example:
 
+  ```cmd
+  C:\>dig myeaststorageacct1.privatelink.blob.core.windows.net +short
+  10.40.40.5
 
-```cmd
-C:\>dig myeaststorageacct1.privatelink.blob.core.windows.net +short
-10.40.40.5
+  C:\>dig myeaststorageacct2.privatelink.blob.core.windows.net +short
 
-C:\>dig myeaststorageacct2.privatelink.blob.core.windows.net +short
-
-```
+  ```
 4. Notice that one storage account resolves and the other storage account doesn't resolve.
 
 ## Configure fallback to internet resolution
 
 1. Select each of the private DNS zones again, select Virtual Network Links, and then select the "edit" icon.
 
-   ![Screenshot of the list of Private DNS zones.](./media/private-dns-fallback/edit-link.png)
+   ![Screenshot of the editing the virtual network link.](./media/private-dns-fallback/edit-link.png)
 
 2. At the bottom of the page, select **Enable fallback to internet** and then select **Save**.
 
-   ![Screenshot of the list of Private DNS zones.](./media/private-dns-fallback/enable-fallback.png)
+   ![Screenshot of how to enable fallback.](./media/private-dns-fallback/enable-fallback.png)
 
 3. Repeat this setting for each private link zone, and allow time for the virtual network link to update.
 4. Attempt to resolve the FQDN of the storage accounts again. See the following example:
