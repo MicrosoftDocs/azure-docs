@@ -2,7 +2,7 @@
 title: AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft Docs
 description: Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs
 ms.topic: article
-ms.date: 06/08/2023
+ms.date: 11/12/2024
 ---
 
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide
@@ -263,10 +263,10 @@ To begin transactional work, the controller must obtain a `txn-id` from the coor
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
-| attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
-|  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
-| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction ID}<br/>))|
+| `attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>)` | ------> |  |
+|  | <------ | `attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>)` |
+| `transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}`| ------> |  |
+|  | <------ | `disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction ID}<br/>))`|
 
 #### Discharging a transaction
 
@@ -276,11 +276,11 @@ The controller concludes the transactional work by sending a `discharge` message
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
-| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
+| `transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}`| ------> |  |
+|  | <------ | `disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))`|
 | | . . . <br/>Transactional work<br/>on other links<br/> . . . |
-| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
-| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
+| `transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}`| ------> |  |
+| | <------ | `disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)`|
 
 #### Sending a message in a transaction
 
@@ -288,10 +288,10 @@ All transactional work is done with the transactional delivery state `transactio
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
-| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
-| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
-| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+| `transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}`| ------> |  |
+|  | <------ | `disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))`|
+| `transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }`| ------> |  |
+| | <------ | `disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))`|
 
 #### Disposing a message in a transaction
 
@@ -299,10 +299,10 @@ Message disposition includes operations like `Complete` / `Abandon` / `DeadLette
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
-| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
-| | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
-| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+| `transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}`| ------> |  |
+|  | <------ | `disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))`|
+| | <------ |`transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }`|  
+| `disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))`| ------> |
 
 
 ## Advanced Service Bus capabilities
