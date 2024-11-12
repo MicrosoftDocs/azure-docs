@@ -11,7 +11,7 @@ ms.date: 10/30/2024
 
 # Understand message schemas
 
-Schema registry, a feature provided by Azure Device Registry, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. 
+Schema registry (preview), a feature provided by Azure Device Registry, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. 
 
 The connector for OPC UA can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI or using ARM/Bicep templates.
 
@@ -87,7 +87,7 @@ Message schemas are used in all three phases of a dataflow: defining the source 
 
 ### Input schema
 
-Each dataflow source can optionally specify a message schema. If a schema is defined for a dataflow source, any incoming messages that don't match the schema are dropped. 
+Each dataflow source can optionally specify a message schema. Currently, dataflows doesn't perform runtime validation on source message schemas. 
 
 Asset sources have a predefined message schema that was created by the connector for OPC UA.
 
@@ -101,7 +101,7 @@ The operations experience uses the input schema as a starting point for your dat
 
 ### Output schema
 
-Output schemas are associated with dataflow destinations are only used for dataflows that select local storage, Fabric, Azure Storage (ADLS Gen2), or Azure Data Explorer as the destination endpoint. Currently, Azure IoT Operations experience only supports Parquet output for output schemas.
+Output schemas are associated with dataflow destinations and are only used for dataflows that select local storage, Fabric, Azure Storage (ADLS Gen2), or Azure Data Explorer as the destination endpoint. Currently, Azure IoT Operations experience only supports Parquet output for output schemas.
 
 Note: The Delta schema format is used for both Parquet and Delta output.
 
