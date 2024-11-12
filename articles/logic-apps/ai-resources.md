@@ -43,21 +43,15 @@ The **Azure AI Search** and **Azure OpenAI** built-in or "in-app" connectors pro
 
 For a guide that shows how to use these connector operations in your Standard workflow, see [Connect to Azure AI services from Standard workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai).
 
-## Azure OpenAI Assistants
+## Ingest documents and chat with data
 
-| Resource type | Link |
-|---------------|------|
-| **Blog article** | [Build Azure OpenAI assistants with function calling](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/announcing-azure-openai-service-assistants-public-preview-refresh/4143217) |
+Data is the cornerstone for any AI application and unique for each organization. When you build any AI application, efficient data ingestion is critical for success. Regardless where your data resides and with little or no code, you can more easily integrate AI into new and existing business processes by building Standard workflows with Azure Logic Apps.
 
-For more information, see [Call Azure Logic Apps workflows as functions using Azure OpenAI Assistants](/azure/ai-services/openai/how-to/assistants-logic-apps).
+With over 1,400 enterprise connectors and operations, Azure Logic Apps makes it possible for you to quickly access and perform tasks with a wide range of services, systems, applications, and databases. When you use these connectors alongside AI services, your organization can transform workloads such as automating routine tasks, enhancing customer interactions, and generating intelligent insights. 
 
-## Document ingestion and chat with data
+Along with these operations, Azure Logic Apps also offers prebuilt workflow templates for data ingestion from many common data sources, such as SharePoint, Azure File Storage, Blob Storage, SFTP, and more, to help you quickly build and your applications.
 
-When you build any AI application, efficient data ingestion is critical for success. Azure Logic Apps includes over 1,400 enterprise connectors and operations that provide access to a wide range of services, systems, applications, and databases.
-
-In addition to these out-of-the-box actions, Azure Logic Apps also offers pre-built templates for data ingestion from many common data sources, including SharePoint, Azure File Storage, Blob Storage, SFTP, and more, helping you rapidly build and deploy your applications.
-
-By leveraging connectors like Azure OpenAI and Azure AI Search, businesses can seamlessly implement the Retrieval-Augmented Generation (RAG) pattern, allowing the ingestion and retrieval of data from multiple sources with ease.
+For example, when you use operations from connectors such as **Azure OpenAI** and **Azure AI Search** in your workflows, your organization can seamlessly implement the retrieval-augmented generation (RAG) pattern. This architecture makes it easier to ingest and retrieve data from multiple sources.
 
 | Resource type | Link |
 |---------------|------|
@@ -113,6 +107,20 @@ You can customize this workflow to trigger daily, weekly, or monthly, based on y
 |---------------|------|
 | **Blog article** | [Automate responses to StackOverflow queries using Azure OpenAI and Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/automate-responses-to-stackoverflow-queries-using-openai-and-logic-apps/4182590) |
 | **GitHub sample** | [Automate responses to unanswered StackOverflow questions](https://github.com/Azure/logicapps/tree/helpdesk-sample-1/testAILA) |
+
+## Build Assistants with Azure Logic apps
+
+With Azure OpenAI, you can easily build agent-like features into your applications by using the Assistants API. Although the capability to build agents previously existed, the process often required significant engineering, external libraries, and multiple integrations. However, now with Assistants, you can rapidly create customized stateful copilots that are trained on their enterprise data and can handle diverse tasks by using the latest GPT models, tools, and knowledge. The current release includes features such as File Search and Browse tools, enhanced data security features, improved controls, new models, expanded region support, and various enhancements that make it easy to go from prototyping to production.
+
+You can now build Assistants by calling Azure Logic Apps workflows as AI functions. Without writing any code, you can discover, import, and invoke workflows in Azure OpenAI Studio from the Azure OpenAI Assistants playground. The Assistants playground enumerates and lists all the workflows in your subscription that are eligible for function calling.
+
+To test Assistants with function calling, you can import workflows as AI functions using a browse and select experience. Function specification generation and other configuration is automatically pulled from Swagger for your workflow. Function calling invokes workflows based on user prompts, while all the appropriate parameters are passed in based on the definition.
+
+| Resource type | Link |
+|---------------|------|
+| **Blog article** | [Build Azure OpenAI assistants with function calling](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/announcing-azure-openai-service-assistants-public-preview-refresh/4143217) |
+
+For more information, see [Call Azure Logic Apps workflows as functions using Azure OpenAI Assistants](/azure/ai-services/openai/how-to/assistants-logic-apps).
 
 ## Integrate with Semantic Kernel
 
