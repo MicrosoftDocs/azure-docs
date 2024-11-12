@@ -147,10 +147,10 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 ```json
 {
     "properties": {
-      "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
-      "eventHubAuthorizationRuleId": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
+      "storageAccountId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+      "eventHubAuthorizationRuleId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
       "eventHubName": "myeventhub",
-      "workspaceId": "/subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
+      "workspaceId": "/subscriptions/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
       "logs": [
         {
           "category": "ConnectedClientList",
@@ -189,11 +189,11 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 ```json
 { 
     "properties": {
-      "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/myteststorage",
-      "eventHubAuthorizationRuleID": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule", 
+      "storageAccountId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/myteststorage",
+      "eventHubAuthorizationRuleID": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule", 
       "eventHubName": "myeventhub",
-      "marketplacePartnerId": "/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/mydatadog",
-      "workspaceId": "/subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights integration/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
+      "marketplacePartnerId": "/subscriptions/dddd3d3d-ee4e-ff5f-aa6a-bbbbbb7b7b7b/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/mydatadog",
+      "workspaceId": "/subscriptions/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a/resourceGroups/insights integration/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
       "logs": [
         {
           "category": "ConnectionEvents",
@@ -290,7 +290,7 @@ If you send your logs to a storage account, the contents of the logs look like t
         ],
         "roleInstance": "1"
     },
-    "resourceId": "/SUBSCRIPTIONS/E6761CE7-A7BC-442E-BBAE-950A121933B5/RESOURCEGROUPS/AZURE-CACHE/PROVIDERS/MICROSOFT.CACHE/REDIS/MYCACHE", 
+    "resourceId": "/SUBSCRIPTIONS/eeee4efe-ff5f-aa6a-bb7b-cccccc8c8c8c/RESOURCEGROUPS/AZURE-CACHE/PROVIDERS/MICROSOFT.CACHE/REDIS/MYCACHE", 
     "Level": 4,
     "operationName": "Microsoft.Cache/ClientList"
 }
@@ -326,7 +326,7 @@ If you send your logs to a storage account, a log for a connection event looks l
 ```json
     {
         "time": "2023-01-24T10:00:02.3680050Z",
-        "resourceId": "/SUBSCRIPTIONS/4A1C78C6-5CB1-422C-A34E-0DF7FCB9BD0B/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
+        "resourceId": "/SUBSCRIPTIONS/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
         "category": "ConnectionEvents",
         "location": "westus",
         "operationName": "Microsoft.Cache/redisEnterprise/databases/ConnectionEvents/Read",
@@ -344,7 +344,7 @@ And the log for an auth event looks like this:
 ```json
  {
         "time": "2023-01-24T10:00:02.3680050Z",
-        "resourceId": "/SUBSCRIPTIONS/4A1C78C6-5CB1-422C-A34E-0DF7FCB9BD0B/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
+        "resourceId": "/SUBSCRIPTIONS/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
         "category": "ConnectionEvents",
         "location": "westus",
         "operationName": "Microsoft.Cache/redisEnterprise/databases/ConnectionEvents/Read",
@@ -362,7 +362,7 @@ And the log for a disconnection event looks like this:
 ```json
     {
         "time": "2023-01-24T10:00:03.3680050Z",
-        "resourceId": "/SUBSCRIPTIONS/4A1C78C6-5CB1-422C-A34E-0DF7FCB9BD0B/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
+        "resourceId": "/SUBSCRIPTIONS/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
         "category": "ConnectionEvents",
         "location": "westus",
         "operationName": "Microsoft.Cache/redisEnterprise/databases/ConnectionEvents/Read",
