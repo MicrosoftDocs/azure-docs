@@ -123,6 +123,8 @@ items:
       href: create-publish-workflow-templates.md
     - name: Secure traffic between Standard workflows and virtual networks
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+    - name: AI playbook and development resources
+      href: ai-resources.md
     - name: Develop for rules engine integration
       items:
       - name: Overview for rules engine integration
