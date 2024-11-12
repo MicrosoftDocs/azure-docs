@@ -291,4 +291,4 @@ Now that you configure Intune to manage device redirection on personal devices, 
 
 ## Known issues
 
-- Windows App (Preview) will exit without warning if Company Portal and Windows App are not installed in the same profile. The solution is to install both apps either in personal profile OR both apps in work profile.
+- Windows App exits without warning if Company Portal and Windows App aren't installed in the same profile. Install both apps either in a personal profile or both apps in a work profile.
