@@ -1031,8 +1031,8 @@
       href: enroll-simplified-pricing-tier.md
     - name: Optimize costs with pre-purchase plan
       href: billing-pre-purchase-plan.md
-    - name: Tutorial - Configure data retention policy
-      href: configure-data-retention.md
+    - name: Manage data retention
+      href: /azure/azure-monitor/logs/data-retention-configure?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
