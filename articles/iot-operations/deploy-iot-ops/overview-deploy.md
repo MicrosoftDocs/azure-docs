@@ -27,7 +27,7 @@ Microsoft supports the following environments for Azure IoT Operations deploymen
 >[!NOTE]
 >Billing usage records are collected on any environment where Azure IoT Operations is installed, regardless of support or availability levels.
 
-To install Azure IoT Operations on a cluster, have the following hardware requirements available. If you're using a multi-node cluster that enables fault tolerance, scale up to the recommended capacity for better performance.
+To install Azure IoT Operations, have the following hardware requirements available for Azure IoT Operations. If you're using a multi-node cluster that enables fault tolerance, scale up to the recommended capacity for better performance.
 
 | Spec | Minimum | Recommended |
 |------|---------|-------------|
