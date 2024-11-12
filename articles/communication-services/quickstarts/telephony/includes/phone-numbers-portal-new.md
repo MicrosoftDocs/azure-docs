@@ -21,7 +21,7 @@ Azure Communication Services is introducing a new user experience for purchasing
 
    :::image type="content" source="../media/phone-numbers-portal/get-phone-number-search.png" alt-text="Screenshot showing phone number shopping cart search wizard." lightbox="../media/phone-numbers-portal/get-phone-number-search.png":::
 
-4. Choose the **Country/region** where you would like to provision the phone number. Country availability is based on the billing location for your Azure subscription. More information on what numbers are available for each country can be found [here](../../../concepts/numbers/sub-eligibility-number-capability.md). Next you'll choose the [number type](../../../concepts/telephony/plan-solution.md#phone-number-types-in-azure-communication-services). You can select from two phone number types: **Local**, and **Toll-free**.
+4. Choose the **Country/region** where you would like to provision the phone number. Country/region availability is based on the billing location for your Azure subscription. More information on what numbers are available for each country/region can be found [here](../../../concepts/numbers/sub-eligibility-number-capability.md). Next you'll choose the [number type](../../../concepts/telephony/plan-solution.md#phone-number-types-in-azure-communication-services). You can select from two phone number types: **Local**, and **Toll-free**.
 
 5. Select **Search** to pull up numbers that meet your selected criteria. You have various filters to search for the number that fits your needs, including:
 

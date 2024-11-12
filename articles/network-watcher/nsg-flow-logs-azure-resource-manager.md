@@ -83,8 +83,8 @@ Example 1 uses the simplest version of the ARM template with minimum parameters 
     "location": "eastus",
     "apiVersion": "2022-11-01",
     "properties": {
-      "targetResourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
-      "storageId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+      "targetResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+      "storageId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
       "enabled": true,
       "flowAnalyticsConfiguration": {},
       "retentionPolicy": {},
@@ -115,13 +115,13 @@ Example 2 uses the following template to enable NSG flow logs (version 2) with r
       "location": "eastus",
       "apiVersion": "2022-11-01",
       "properties": {
-        "targetResourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
-        "storageId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+        "targetResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+        "storageId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
         "enabled": true,
         "flowAnalyticsConfiguration": {
           "networkWatcherFlowAnalyticsConfiguration": {
             "enabled": true,
-            "workspaceResourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/defaultresourcegroup-eus/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-abcdef01-2345-6789-0abc-def012345678-EUS",
+            "workspaceResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/defaultresourcegroup-eus/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e-EUS",
             "trafficAnalyticsInterval": 10
           }
         },

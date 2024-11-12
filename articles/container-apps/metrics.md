@@ -5,7 +5,7 @@ services: container-apps
 author: v-jaswel
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 09/23/2024
+ms.date: 11/01/2024
 ms.author: v-wellsjason
 ---
 
@@ -21,26 +21,37 @@ Container Apps provides these basic metrics.
 
 | Title | Dimensions | Description | Metric ID | Unit |
 |--|--|--|--|--|
-| CPU Usage | Replica, Revision | CPU consumed by the container app, in nano cores (1,000,000,000 nanocores = 1 core) | `UsageNanoCores` | nanocores |
-| Memory Working Set Bytes | Replica, Revision | Container app working set memory used in bytes | `WorkingSetBytes` | bytes |
-| Network In Bytes | Replica, Revision | Network received bytes | `RxBytes` | bytes |
-| Network Out Bytes | Replica, Revision | Network transmitted bytes | `TxBytes` | bytes |
-| Replica count | Revision | Number of active replicas | `Replicas` | n/a |
-| Replica Restart Count | Replica, Revision | Restarts count of container app replicas | `RestartCount` | n/a |
-| Requests | Replica, Revision, Status Code, Status Code Category | Requests processed | `Requests` | n/a |
-| Reserved Cores | Revision | Number of reserved cores for container app revisions | `CoresQuotaUsed` | n/a |
-| Resiliency Connection Timeouts | Revision | Total connection timeouts | `ResiliencyConnectTimeouts` | n/a |
-| Resiliency Ejected Hosts | Revision | Number of currently ejected hosts | `ResiliencyEjectedHosts` | n/a |
-| Resiliency Ejections Aborted | Revision | Number of ejections aborted due to the max ejection % | `ResiliencyEjectionsAborted` | n/a |
-| Resiliency Request Retries | Revision | Total request retries | `ResiliencyRequestRetries` | n/a |
-| Resiliency Request Timeouts | Revision | Total requests that timed out waiting for a response | `ResiliencyRequestTimeouts` | n/a |
-| Resiliency Requests Pending Connection Pool | Replica | Total requests pending a connection pool connection | `ResiliencyRequestsPendingConnectionPool` | n/a |
-| Total Reserved Cores | None | Total cores reserved for the container app | `TotalCoresQuotaUsed` | n/a |
+| CPU Usage | Replica, Revision | CPU consumed by the container app, in nano cores (1,000,000,000 nanocores = 1 core) | `UsageNanoCores` | Nanocores |
+| Memory Working Set Bytes | Replica, Revision | Container app working set memory used in bytes | `WorkingSetBytes` | Bytes |
+| Network In Bytes | Replica, Revision | Network received bytes | `RxBytes` | Bytes |
+| Network Out Bytes | Replica, Revision | Network transmitted bytes | `TxBytes` | Bytes |
+| Replica count | Revision | Number of active replicas | `Replicas` | Count |
+| Replica Restart Count | Replica, Revision | Restarts count of container app replicas | `RestartCount` | Count |
+| Requests | Replica, Revision, Status Code, Status Code Category | Requests processed | `Requests` | Count |
+| Reserved Cores | Revision | Number of reserved cores for container app revisions | `CoresQuotaUsed` | Count |
+| Resiliency Connection Timeouts | Revision | Total connection timeouts | `ResiliencyConnectTimeouts` | Count |
+| Resiliency Ejected Hosts | Revision | Number of currently ejected hosts | `ResiliencyEjectedHosts` | Count |
+| Resiliency Ejections Aborted | Revision | Number of ejections aborted due to the max ejection % | `ResiliencyEjectionsAborted` | Count |
+| Resiliency Request Retries | Revision | Total request retries | `ResiliencyRequestRetries` | Count |
+| Resiliency Request Timeouts | Revision | Total requests that timed out waiting for a response | `ResiliencyRequestTimeouts` | Count |
+| Resiliency Requests Pending Connection Pool | Replica | Total requests pending a connection pool connection | `ResiliencyRequestsPendingConnectionPool` | Count |
+| Total Reserved Cores | None | Total cores reserved for the container app | `TotalCoresQuotaUsed` | Count |
+| Average Response Time (Preview) | Status Code, Status Code Category | Average response time per status code | `ResponseTime` | Milliseconds |
+| CPU Usage Percentage (Preview) | Replica | Percentage of CPU limit used, in percentage points | `CpuPercentage` | Percent |
+| Memory Percentage (Preview) | Replica | Percentage of memory limit used, in percentage points | `MemoryPercentage` | Percent |
 
-The metrics namespace is `microsoft.app/containerapps`.
+The metrics namespace is `Microsoft.App/containerapps`.
 
 > [!NOTE]
 > Replica restart count is the aggregate restart count over the specified time range, not the number of restarts that occurred at a point in time.
+
+Container Apps environments provides this basic metric. You can only view this metric in [Azure Monitor metrics](https://ms.portal.azure.com/?feature.allrts=true#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/metrics). 
+
+| Title | Dimensions | Description | Metric ID | Unit |
+|--|--|--|--|--|
+| Workload Profile Node Count (Preview) | Workload Profile Name | The node count per workload profile | `NodeCount` | Count |
+
+The metrics namespace is `Microsoft.App/managedEnvironments`.
 
 More runtime specific metrics are available, [Java metrics](./java-metrics.md).
 
