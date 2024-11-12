@@ -33,6 +33,7 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 
 - Any external cache dependencies don't affect the VNet's NSG rules.
 - Persisting to any storage accounts protected with firewall rules is supported on the Premium tier when using managed identity to connect to Storage account, see more [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md#what-if-i-have-firewall-enabled-on-my-storage-account)
+- Private link offers less privilege by reducing the amount of access your cache has to other network resources. Private link prevents a bad actor from initiating traffic to the rest of your network.
 
 ### Limitations of Private Link
 
