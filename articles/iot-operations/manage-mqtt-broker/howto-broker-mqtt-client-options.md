@@ -80,9 +80,9 @@ The `maxMessageExpirySeconds` setting controls how long a message can stay in th
 
 ### Session expiry
 
-The `maxSessionExpirySeconds` setting works with the subscriber queue limit to ensure that messages aren't kept in the queue indefinitely. If a session expires, all messages in the queue for that session are dropped. This helps prevent slow subscribers from using too much memory by eventually clearing the entire queue.
+The `maxSessionExpirySeconds` setting works with the subscriber queue limit to ensure that messages aren't kept in the queue indefinitely. If a session expires, all messages in the queue for that session are dropped. This helps prevent offline subscribers from using too much memory by eventually clearing the entire queue.
 
-Both message expiry and session expiry are important for managing slow subscribers and ensuring efficient memory usage.
+Both message expiry and session expiry are important for managing slow and offline subscribers and ensuring efficient memory usage.
 
 ## Next steps
 
