@@ -673,7 +673,7 @@ The Application Insights offers different sdks for [web](https://www.npmjs.com/p
 
 ### [Browser](#tab/browser)
 
-If your application runs in the browser, install the `"@microsoft/feature-management-applicationinsights-browser"` package. The following example shows how you can create a built-in Application Insights telemetry publisher and register it to the feature manager.
+If your application runs in the browser, install the [`"@microsoft/feature-management-applicationinsights-browser"`](https://www.npmjs.com/package/@microsoft/feature-management-applicationinsights-browser) package. The following example shows how you can create a built-in Application Insights telemetry publisher and register it to the feature manager.
 
 ``` javascript
 import { ApplicationInsights } from "@microsoft/applicationinsights-web"
@@ -695,7 +695,7 @@ trackEvent(appInsights, TARGETING_ID, {name: "TestEvent"}, {"Tag": "Some Value"}
 
 ### [Node.js](#tab/nodejs)
 
-If your application runs in the Node.js, install the `"@microsoft/feature-management-applicationinsights-node"` package. The following example shows how you can create a built-in Application Insights telemetry publisher and register it to the feature manager.
+If your application runs in the Node.js, install the [`"@microsoft/feature-management-applicationinsights-node"`](https://www.npmjs.com/package/@microsoft/feature-management-applicationinsights-node) package. The following example shows how you can create a built-in Application Insights telemetry publisher and register it to the feature manager.
 
 ``` javascript
 import ApplicationInsights from "applicationinsights"
