@@ -80,6 +80,9 @@ Microsoft Sentinel may share data, including customer data, among the following 
 
 - Microsoft Defender XDR / Microsoft's unified security operations platform
 - Azure Log Analytics
+- Scuba Security Platform
+- SIPS ML Detections 
+- SMLAP 
 ## Related content
 
 For more information, see details about [Azure regions](/azure/azure-monitor/logs/workspace-design#azure-regions?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) when designing your workspace architecture.
