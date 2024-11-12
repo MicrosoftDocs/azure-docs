@@ -81,7 +81,7 @@ In this section, you'll set the environment in *3D Scenes Studio* and customize 
 
 The 3D representation of an environment in 3D Scenes Studio is called a *scene*. A scene consists of a 3D file and a configuration file that's created for you automatically.
 
-To create a scene, start with a segmented 3D file in *.GLTF* or *.GLB* format. You can download and view a sample 3D file using this link: [Download RobotArms.glb](https://cardboardresources.blob.core.windows.net/public/RobotArms.glb). 
+To create a scene, start with a segmented 3D file in *.GLTF* or *.GLB* format. You can view and download a sample 3D file from this link: [RobotArms.glb](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/3dscenes/RobotArms.glb). 
 
 >[!TIP]
 >3D Scenes Studio supports animation. If you use a 3D model file that contains animations, they will play in the scene.
