@@ -34,7 +34,7 @@ Customers must register the **Microsoft.NexusIdentity** user resource provider o
    ```Azure CLI
    az provider register --namespace Microsoft.NexusIdentity --wait
    ```
-   
+
 2. Verify the registration status:
 
    ```Azure CLI
@@ -57,17 +57,27 @@ As part of the **Secure Future Initiative (SFI)**, **On-Behalf-Of (OBO) tokens**
 
 1. Under **Privileged Administrator Roles**, select **Azure RBAC Administrator** as the built-in role and click **Next**.
 
+   :::image type="content" source="media/breakglass-role-assignment.png" alt-text="Screenshot of adding role-assignment":::
+
 2. In the **Members** tab, add **NexusIdentityRP** with the following details:
 
    - **Object ID:** `71949d44-2def-42f7-b10b-993a3f952347`
 
    - **Type:** `App`
+   
+   :::image type="content" source="media/breakglass-add-member-nexusidenitityrp.png" alt-text="Screenshot of adding member to role assignment":::
 
-3. Select **Role and Principal**, then assign:
+3. In the **Conditions** tab, select "Allow users to only assign selected roles to selected principals (fewer privileges).
+
+   :::image type="content" source="media/breakglass-conditions-roles-assignment.png" alt-text="Screenshot of adding member to role assignment":::
+
+3. Edit Conditions then assign:
 
    - **Role:** Reader
 
    - **Principal:** NexusIdentityRP
+
+:::image type="content" source="media/breakglass-breakglass-constrain-roles-principals.png" alt-text="Screenshot of adding roles and principals":::
 
 4. Click **Save** to finalize the configuration.
 
