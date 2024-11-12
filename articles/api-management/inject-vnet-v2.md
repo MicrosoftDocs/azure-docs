@@ -92,7 +92,7 @@ When you [create](get-started-create-service-instance.md) a Premium v2 instance 
 
 When a Premium v2 API Management instance is injected in a virtual network, you have to manage your own DNS to enable inbound access to API Management. 
 
-We recommend:
+While you have the option to use your own custom DNS server, we recommend:
 
 1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
 1. Link the Azure DNS private zone to the virtual network. 
