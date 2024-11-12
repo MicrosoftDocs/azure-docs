@@ -14,7 +14,7 @@ ms.author: mathapli
 > [!NOTE]
 > Azure Confidential Clean Rooms is currently in Gated Preview. Please fill the form at https://aka.ms/ACCRPreview and we will reach out to you with next steps.
 
-Azure Confidential Clean Rooms, aka ACCR, offers a secure and compliant environment that helps organizations overcome the challenges of using privacy-sensitive data for AI model development, inferencing, and data analytics. Built on top of [Confidential containers or C-ACI](../confidential-computing/confidential-containers.md), this solution ensures that the model's intellectual propertyand the data for training remains intact while also enabling advanced data analytics.
+Azure Confidential Clean Rooms, aka ACCR, offers a secure and compliant environment that helps organizations overcome the challenges of using privacy-sensitive data for AI model development, inferencing, and data analytics. Built on top of [Confidential containers or C-ACI](../confidential-computing/confidential-containers.md), this service secures the data and the model from exfiltration outside the clean room boundary.
 Organizations can safely collaborate and analyze sensitive data, within the sandbox, without violating compliance standards or risking data breaches by using advanced privacy-enhancing technologies like secure governance & audit, secure collaboration (TEE), verifiable trust, differential privacy, and controlled access.
 
 ## Who should use Azure Confidential Clean Rooms?
@@ -63,6 +63,9 @@ ACCR is currently in Gated Preview. To express your interest in joining the gate
 
 - Question: Where is the location Microsoft published side cars?
   Answer: The Microsoft published side cars are available at: mcr.microsoft.com/cleanroom. The code repository for the sidecars is present [here](https://github.com/Azure/azure-cleanroom).
+
+- Question: Is there a sampleclean room application to try out?
+  Answer: You can find the clean room sample application [here](https://github.com/Azure/azure-cleanroom-samples/). Please feel free to try out the sample after signing up for the Preview and receiving our response. 
 
 - Question: Can more than two collaborators participate in a collaboration?
   Answer: Yes, more than two collaborators can become part of collaboration. This allows multiple data providers to share data in the clean room.
