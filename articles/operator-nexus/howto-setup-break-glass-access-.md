@@ -21,115 +21,62 @@ For Network Fabric environments, the current break-glass model, known as Method 
 
 - **Enhanced security**: Unauthorized access attempts are logged for audit and investigation purposes.
 
-## Prerequisites
+## Prerequisites for upgrading or installing runtime version 4.0.0
 
-Starting with `NNF-7.0.0`, Method DV2.0 is enabled by default to enhance the security of break-glass access for on-premises network devices. The following steps are required from the `NNF-7.0.0` release onwards.
+With the installation or upgrade to Runtime Fabric version 4.0.0, **MethodDV2.0** is enabled by default, enhancing security for BreakGlass access on on-premises network devices. Follow these steps to ensure secure and effective access control.
 
-1. **Register the Resource Provider**  
-   
-   Register the `Microsoft.NexusIdentity` resource provider within your subscription.
+### Step 1: Register NexusIdentity Resource Provider
+
+Customers must register the **Microsoft.NexusIdentity** user resource provider on their subscription.
+
+1. Register the resource provider:
 
    ```Azure CLI
    az provider register --namespace Microsoft.NexusIdentity --wait
    ```
-
-2. **Validate the Resource Provider registration**  
-   
-   Confirm that the registration status shows as `Registered`.
+2. Verify the registration status:
 
    ```Azure CLI
    az provider show --namespace Microsoft.NexusIdentity -o table
    ```
 
-   > [!NOTE]
-   > Ensure the status displays as `Registered` to proceed.
+   The registration status should display as **"Registered"**.
 
-3. **On-Behalf-Of (OBO) tokens to control access**
+### Step 2: Assign necessary permissions for Network Fabric access
 
-As part of the Secure Future Initiative (SFI), all customer resources now require On-Behalf-Of (OBO) tokens to control access. This security measure enhances protection and simplifies access management. Method DV2.0 uses OBO tokens to grant reader permissions to Microsoft’s 1P service for the Network Fabric resource, allowing the service to read built-in NNF roles assigned to Breakglass users.
+As part of the **Secure Future Initiative (SFI)**, **On-Behalf-Of (OBO) tokens** are now required to grant access to customer resources. This token provides **reader permissions** to Microsoft’s 1P service for the Network Fabric instance, allowing access to NNF built-in roles assigned to BreakGlass users. Assign the following permissions to the end-user for Create, Read, Update, and Delete (CRUD) operations on Network Fabric (NF) resources.
 
-To ensure correct workflow functionality, assign the following permissions for Create, Read, Update, and Delete (CRUD) operations on Network Fabric (NF) resources only:
+#### Required permissions
 
-```plaintext
-Microsoft.NexusIdentity/identitySets/read
-Microsoft.NexusIdentity/identitySets/write
-Microsoft.NexusIdentity/identitySets/delete
-```
+1. `Microsoft.NexusIdentity/identitySets/read`
+2. `Microsoft.NexusIdentity/identitySets/write`
+3. `Microsoft.NexusIdentity/identitySets/delete`
 
-4. **Delegate Azure RBAC Administrator Role**  
+#### Configure Azure RBAC for NexusIdentityRP
 
-   Add the Azure RBAC administrator role with “delegate permissions” to the Nexus Identity App ID for the permissions listed above. 
+1. Under **Privileged Administrator Roles**, select **Azure RBAC Administrator** as the built-in role and click **Next**.
 
-### Deployment scenarios
+2. In the **Members** tab, add **NexusIdentityRP** with the following details:
 
-To set up the required permissions for Network Fabric, follow the appropriate instructions based on your deployment type.
+   - **Object ID:** `71949d44-2def-42f7-b10b-993a3f952347`
 
-#### **New deployment scenarios**
+   - **Type:** `App`
 
-If Network Fabric instances have not yet been created, permissions need to be assigned at the **Resource Group** level. This allows the NexusIdentity service to manage Network Fabric resources within the designated group. 
+3. Select **Role and Principal**, then assign:
 
-**Steps to assign permissions at the Resource Group level:**
+   - **Role:** Reader
 
-1. **Navigate to the Azure Portal**  
+   - **Principal:** NexusIdentityRP
 
-   Go to the **Resource Group** that will contain your Network Fabric resources.
+4. Click **Save** to finalize the configuration.
 
-2. **Open Access Control (IAM)**  
+### Deployment scenario permissions
 
-   In the resource group’s menu, select **Access control (IAM)** to manage roles and permissions.
+- **New deployment scenarios:** Grant constrained delegated permissions at the **resource group scope**.
 
-3. **Add a role assignment**  
+- **Existing deployment scenarios:** Grant constrained delegated permissions at the **Network Fabric scope**.
 
-   - Click **Add > Add role assignment**.
-
-   - In the **Role** dropdown, select **Constrained Reader**. This role provides limited, read-only access to manage Network Fabric resources without full administrative privileges.
-
-4. **Select the NexusIdentity Service Principal**  
-
-   - Under **Members**, click **Select members**.
-
-   - Search for and select **NexusIdentity User RP service principal**. This service principal allows the NexusIdentity service to manage resources within the Resource Group.
-
-5. **Review and Save**  
-
-   Confirm the role assignment details, then click **Review + assign** to apply the permissions.
-
-   > **Outcome:** The NexusIdentity service can now read and manage Network Fabric resources within the specified Resource Group, preparing it for future deployment actions.
-
-#### **Existing Deployment Scenarios**
-
-If Network Fabric instances are already created, permissions should be applied directly to the **Network Fabric resource** to ensure only the necessary access is granted for ongoing management.
-
-**Steps to assign permissions at the Network Fabric resource level:**
-
-1. **Locate the Network Fabric Resource** 
-
-   Go to the **Network Fabric** resource that requires delegated permissions.
-
-2. **Open Access Control (IAM)**  
-
-   In the Network Fabric resource menu, select **Access control (IAM)** to manage roles and permissions for that specific resource.
-
-3. **Add a Role Assignment**  
-
-   - Click **Add > Add role assignment**.
-
-   - In the **Role** dropdown, select **Constrained Reader** to provide restricted, read-only access tailored to managing Network Fabric resources.
-
-4. **Assign to the NexusIdentity Service Principal**  
-
-   - Under **Members**, select **Select members**.
-
-   - Search for and select **NexusIdentity User RP service principal**.
-
-5. **Review and Confirm**  
-
-   Verify the role assignment and click **Review + assign** to finalize.
-
-   > **Outcome:** The NexusIdentity service now has the necessary delegated permissions to manage the Network Fabric resource directly, enabling CRUD operations within the specific scope.
-
-> [!NOTE]
-> Complete these steps before performing any Create, Read, Update, or Delete (CRUD) operations, such as creating, deleting, or upgrading Network Fabric resources to `NNF-7.0.0`. Without these permissions, CRUD operations will fail. 
+>[!NOTE] These steps are required for creating, deleting, or upgrading Network Fabric to runtime version 4.0.0, even if MethodDV2.0 is not utilized. Failure to complete these steps will cause CRUD operations to fail.
 
 #### Additional Prerequisites for Method DV2.0
 
