@@ -177,7 +177,7 @@ If your deployment didn't validate, review the validation failure message(s), an
 
 Your screen should look something like this:
 
-:::image type="content" source="media\deploy-manual-portal\created-medtech-service.png" alt-text="Screenshot of the MedTech service deployment completion." lightbox="media\deploy-manual-portal\created-medtech-service.png":::
+:::image type="content" source="media\deploy-manual-portal\created-medtech-service-fixNov24.png" alt-text="Screenshot of the MedTech service deployment completion." lightbox="media\deploy-manual-portal\created-medtech-service-fixNov24.png":::
 
 ## Post-deployment
 
