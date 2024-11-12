@@ -27,7 +27,7 @@ creating a hierarchy for governance by using management groups.
    Diagram of a root management group that holds both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is four levels of management groups, with all subscriptions at the child level.
 :::image-end:::
 
-You can create a hierarchy that applies a policy, for example, that limits VM locations to the West US region in the management group called _Corp_. This policy will inherit all the Enterprise Agreement (EA) subscriptions that are descendants of that management group and will apply to all VMs under those subscriptions. The resource or subscription
+You can create a hierarchy that applies a policy, for example, that limits VM locations to the West US region in the management group called _Corp_. This policy will inherit all the Enterprise Agreement (EA) subscriptions that are descendants of that management group and applies to all VMs under those subscriptions. The resource or subscription
 owner can't alter this security policy, to allow for improved governance.
 
 > [!NOTE]
@@ -107,11 +107,11 @@ resource groups, and resources within that Microsoft Entra tenant.
 Azure management groups support
 [Azure RBAC](../../role-based-access-control/overview.md) for all
 resource access and role definitions. Child resources that
-exist in the hierarchy inherit these permissions. Any Azure role can be assigned to a management group that will inherit down
+exist in the hierarchy inherit these permissions. Any Azure role can be assigned to a management group that inherits down
 the hierarchy to the resources.
 
 For example, you can assign the Azure role VM Contributor to a
-management group. This role has no action on the management group but will inherit to all VMs under
+management group. This role has no action on the management group but inherits to all VMs under
 that management group.
 
 The following chart shows the list of roles and the supported actions on management groups.
@@ -120,7 +120,7 @@ The following chart shows the list of roles and the supported actions on managem
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Owner                       | X      | X      | X        | X      | X             | X             | X     |
 |Contributor                 | X      | X      | X        | X      |               |               | X     |
-|Management Group Contributor\*            | X      | X      | X        | X      |               |               | X     |
+|Management Group Contributor\*            | X      | X      | See moving section        | X      |               |               | X     |
 |Reader                      |        |        |          |        |               |               | X     |
 |Management Group Reader\*                 |        |        |          |        |               |               | X     |
 |Resource Policy Contributor |        |        |          |        |               | X             |       |
@@ -129,14 +129,28 @@ The following chart shows the list of roles and the supported actions on managem
 \*: These roles allow users to perform the specified actions only on the management group scope.
 
 \*\*: Role assignments on the root management group aren't required to move a subscription or a
-management group to and from it.
+management group to and from it. 
 
-For details on moving items within the hierarchy, see [Manage your resources with management groups](manage.md).
+## Moving Subscriptions and Management Groups
+Moving subscriptions and management groups requires different role assignments to be applied. To move a child subscription or management group the following permissions are needed: 
+
+- The child subscription or management group being moved
+  - `Microsoft.management/managementgroups/write`
+  - `Microsoft.management/managementgroups/subscriptions/write` (only for subscriptions)
+  - `Microsoft.Authorization/roleAssignments/write`
+  - `Microsoft.Authorization/roleAssignments/delete`
+  - `Microsoft.Management/register/action`
+- Target parent management group
+  - `Microsoft.management/managementgroups/write`
+- Current parent management group
+  - `Microsoft.management/managementgroups/write`
+  -   
+For more details on moving items within the hierarchy, see [Manage your resources with management groups](manage.md).
 
 ## Azure custom role definition and assignment
 
 You can define a management group as an assignable scope in an Azure custom role definition.
-The Azure custom role will then be available for assignment on that management
+The Azure custom role is available for assignment on that management
 group and any management group, subscription, resource group, or resource under it. The custom role
 will inherit down the hierarchy like any built-in role.
 
