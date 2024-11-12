@@ -6,7 +6,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.date: 11/04/2024
+ms.date: 11/11/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker so that I can control MQTT client interactions.
 ---
@@ -62,14 +62,13 @@ The subscriber queue limit has two settings:
 
 - **Strategy**: The strategy to use when the queue is full. The two strategies are:
 
-  <!-- TODO: check for accuracy -->
-  - **None**: Messages aren't dropped [unless they expire](#message-expiry), and the queue can grow indefinitely. This is the default behavior.
+  - **None**: Messages aren't dropped [unless the session expires](#session-expiry), and the queue can grow indefinitely. This is the default behavior.
 
   - **DropOldest**: The oldest message in the queue is dropped.
 
 The limit only applies to the subscriber's outgoing queue, which holds messages that haven't been assigned packet IDs because the in-flight queue is full. This limit doesn't apply to the in-flight queue.
 
-Since the limit is applied per [backend chain](./howto-configure-availability-scale.md#backend-chain), the broker can't guarantee the total number of outgoing messages for a subscriber across the entire cluster. For example, setting the length to 10,000 doesn't mean the subscriber will receive at most 10,000 messages. Instead, it could receive up to `10,000 * number of chains * number of backend workers` messages.
+Since the limit is applied per [backend partition](./howto-configure-availability-scale.md#backend-chain), the broker can't guarantee the total number of outgoing messages for a subscriber across the entire cluster. For example, setting the length to 10,000 doesn't mean the subscriber will receive at most 10,000 messages. Instead, it could receive up to `10,000 * number of partitions * number of backend workers` messages.
 
 ### Slow subscribers
 
@@ -77,7 +76,13 @@ A slow subscriber is one that can't keep up with the incoming message rate. This
 
 ### Message expiry
 
-The subscriber queue limit works with the `maxSessionExpirySeconds` setting to ensure messages aren't kept in the queue indefinitely. If a message stays in the queue longer than the maximum expiry time, it's dropped. This helps prevent slow subscribers from using too much memory.
+The `maxMessageExpirySeconds` setting controls how long a message can stay in the queue before it expires. If a message stays in the queue longer than the maximum expiry time, it is marked as expired. However, expired messages are only discarded when they reach the beginning of the queue. This passive expiry mechanism helps manage memory usage by ensuring that old messages are eventually removed.
+
+### Session expiry
+
+The `maxSessionExpirySeconds` setting works with the subscriber queue limit to ensure that messages aren't kept in the queue indefinitely. If a session expires, all messages in the queue for that session are dropped. This helps prevent offline subscribers from using too much memory by eventually clearing the entire queue.
+
+Both message expiry and session expiry are important for managing slow and offline subscribers and ensuring efficient memory usage.
 
 ## Next steps
 
