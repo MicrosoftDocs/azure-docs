@@ -183,7 +183,7 @@ Your screen should look something like this:
 
 ### Grant resource access to the MedTech service system-managed identity
 
-There are two post-deployment access steps you must perform or the MedTech service can't read data from the event hub or write data to the FHIR service.
+There are two post-deployment access steps you must perform or the MedTech service can't read data from the event hub, or write data to the FHIR service.
 
 These steps are:
 
