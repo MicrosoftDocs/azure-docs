@@ -27,7 +27,7 @@ The runtime upgrade is designed to update foundational components of the platfor
 
 ### Workflow overview
 
-Starting a runtime upgrade is defined under [Upgrading cluster runtime via Azure CLI](howto-cluster-runtime-upgrade).
+Starting a runtime upgrade is defined under [Upgrading cluster runtime via Azure CLI](./howto-cluster-runtime-upgrade).
 
 The runtime upgrade starts by upgrading the three management servers designated as the control plane nodes. These servers are updated serially and proceed only when each completes. The remaining management servers are upgraded into four different groups and completed one at a time. 
 
