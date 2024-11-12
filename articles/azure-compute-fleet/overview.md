@@ -1,7 +1,7 @@
 ---
 title: Azure Compute Fleet Overview
 description: Learn about Azure Compute Fleet and how to accelerate your access to Azure's capacity.
-author: rajeeshr
+author: rrajeesh
 ms.author: rajeeshr
 ms.topic: overview
 ms.service: azure-compute-fleet
