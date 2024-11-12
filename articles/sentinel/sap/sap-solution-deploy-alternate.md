@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 # Deploy the Microsoft Sentinel for SAP data connector agent container with expert options
 
-This article provides procedures for deploying and configuring the Microsoft Sentinel for SAP data connector agent container using expert, custom, or manual configuration options. For typical deployments we recommend that you use the [portal](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-from-the-portal-preview) instead.
+This article provides procedures for deploying and configuring the Microsoft Sentinel for SAP data connector agent container with expert, custom, or manual configuration options. For typical deployments we recommend that you use the [portal](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-from-the-portal-preview) instead.
 
 Content in this article is intended for your **SAP BASIS** teams. For more information, see [Deploy a SAP data connector agent from the command line](deploy-command-line.md).
 
@@ -82,7 +82,7 @@ For more information, see the [Quickstart: Create a key vault using the Azure CL
 
 ## Perform an expert / custom installation
 
-This procedure describes how to deploy the Microsoft Sentinel for SAP data connector using an expert or custom installation, such as when installing on-premises.
+This procedure describes how to deploy the Microsoft Sentinel for SAP data connector via the CLI using an expert or custom installation, such as when installing on-premises.
 
 **Prerequisites:** Azure Key Vault is the recommended method to store your authentication credentials and configuration data. We recommend that you perform this procedure only after you have a key vault ready with your SAP credentials.
 
@@ -179,7 +179,7 @@ This procedure describes how to deploy the Microsoft Sentinel for SAP data conne
 
 ## Manually configure the Microsoft Sentinel for SAP data connector
 
-The Microsoft Sentinel for SAP data connector is configured in the **systemconfig.json** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-installation). Use the content in this section to manually configure data connector settings.
+When deployed via the CLI, the Microsoft Sentinel for SAP data connector is configured in the **systemconfig.json** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-installation). Use the content in this section to manually configure data connector settings.
 
 For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md), or [Systemconfig.ini file reference](reference-systemconfig.md) for legacy systems.
 

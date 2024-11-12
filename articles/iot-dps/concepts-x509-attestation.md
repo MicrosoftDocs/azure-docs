@@ -69,7 +69,7 @@ The Device Provisioning Service only accepts X.509 certificates that use either 
 If you use ECC methods to generate X.509 certificates for device attestation, we recommend the following elliptic curves:
 
 * nistP256
-* nistP284
+* nistP384
 * nistP521
 
 ### DPS certificate naming requirements
