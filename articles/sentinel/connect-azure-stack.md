@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to connect Azure Stack Hub virtual machines to Microsoft Sentinel so that analysts can efficiently monitor and manage security threats across our hybrid cloud environment.
+
 ---
 
 # Connect Azure Stack Hub virtual machines to Microsoft Sentinel

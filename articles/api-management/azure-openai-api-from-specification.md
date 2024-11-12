@@ -136,8 +136,7 @@ In addition to the `azure-openai-token-limit` and `azure-openai-emit-token-metri
 
 ## Related content
 
+* [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
 * [API Management policy reference](api-management-policies.md)
-* [Azure OpenAI Service as a central capability with Azure API Management](/samples/azure/enterprise-azureai/enterprise-azureai/)
-* [Azure API Management - Azure OpenAI sample](https://github.com/galiniliev/apim-azure-openai-sample)
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]

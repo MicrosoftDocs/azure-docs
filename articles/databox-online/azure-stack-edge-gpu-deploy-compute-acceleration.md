@@ -4,8 +4,7 @@ description: Describes how to use compute acceleration GPU or VPU on your Azure 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: alkohli

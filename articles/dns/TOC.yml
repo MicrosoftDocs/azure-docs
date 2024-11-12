@@ -83,14 +83,14 @@
       href: dns-alias.md
     - name: Delegation with Azure DNS
       href: dns-domain-delegation.md
+    - name: DNSSEC
+      href: dnssec.md
     - name: FAQ
       href: dns-faq.yml
     - name: DNS metrics and alerts
       href: dns-alerts-metrics.md
     - name: Reverse DNS
       href: dns-reverse-dns-overview.md
-    - name: Disaster recovery using Azure DNS and Traffic Manager
-      href: ../networking/disaster-recovery-dns-traffic-manager.md?toc=%2fazure%2fdns%2ftoc.json
   - name: Private DNS
     items:
     - name: What is an Azure Private DNS zone?
@@ -123,6 +123,12 @@
     items:
     - name: Alias records for load balanced web apps
       href: dns-alias-appservice.md
+    - name: Manage DNSSEC
+      items:
+      - name: Sign a DNS zone
+        href: dnssec-how-to.md
+      - name: Unsign a DNS zone
+        href: dnssec-unsign.md
     - name: Manage DNS zones
       items:
       - name: Azure portal

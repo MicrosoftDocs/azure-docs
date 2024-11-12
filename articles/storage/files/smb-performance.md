@@ -4,7 +4,7 @@ description: Learn about ways to improve performance and throughput for premium 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/03/2024
+ms.date: 11/04/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -28,7 +28,7 @@ The following tips might help you optimize performance:
 - Ensure that your storage account and your client are co-located in the same Azure region to reduce network latency.
 - Use multi-threaded applications and spread load across multiple files.
 - Performance benefits of SMB Multichannel increase with the number of files distributing load.
-- Premium share performance is bound by provisioned share size (IOPS/egress/ingress) and single file limits. For details, see [Understanding provisioning for premium file shares](understanding-billing.md#provisioned-model).
+- Premium share performance is bound by provisioned share size (IOPS/egress/ingress) and single file limits. For details, see [Understanding provisioning for premium file shares](understanding-billing.md#provisioned-v1-model).
 - Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) can support a maximum bandwidth of 16,000 MBps (or 2GBps), egress from the VM (writes to storage) is metered, ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, as well as other factors.
 - The initial test is usually a warm-up. Discard the results and repeat the test.
 - If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading load over multiple clients.
@@ -41,26 +41,7 @@ Higher I/O sizes drive higher throughput and will have higher latencies, resulti
 
 ## SMB Multichannel
 
-SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares (file shares in the FileStorage storage account kind) for Windows clients. On the service side, SMB Multichannel is disabled by default in Azure Files, but there's no additional cost for enabling it.
-
-Beginning in July 2024, SMB Multichannel will be enabled by default for all newly created Azure storage accounts in the following regions:
-
-- Australia Central
-- Brazil Southeast
-- Canada East
-- France South
-- East Asia
-- Southeast Asia
-- Central India (Jio)
-- West India (Jio)
-- West India
-- Japan East
-- Japan West
-- Korea South
-- North Europe
-- West Europe
-- Norway West
-- UK South
+SMB Multichannel enables an SMB client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares for Windows clients. On the service side, SMB Multichannel is now enabled by default for all newly created storage accounts in all Azure regions. There's no additional cost for enabling SMB Multichannel.
 
 ### Benefits
 
@@ -183,7 +164,8 @@ This preview feature improves the following metadata APIs and can be used from b
 Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
 
 ### Register for the feature
-To get started, register for the feature using Azure portal or PowerShell.
+
+To get started, register for the feature using the Azure portal or Azure PowerShell.
 
 # [Azure portal](#tab/portal)
 
@@ -202,20 +184,47 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 ```
 ---
 
+> [!IMPORTANT]
+> Allow 1-2 days for accounts to be onboarded once registration is complete.
+
 ### Regional availability
 
 Currently the metadata caching preview is only available in the following Azure regions. To request additional region support, [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview).
 
+- Asia East
 - Australia Central
+- Australia East
+- Australia Southeast
+- Brazil South
+- Canada Central
+- Canada East
+- Europe North
+- France Central
+- Germany West Central
+- Japan East
+- Japan West
 - Jio India West
+- India Central
 - India South
+- India West
+- Israel Central
+- Italy North
+- Korea Central
+- Korea South
 - Mexico Central
 - Norway East
 - Poland Central
+- Qatar Central
 - Spain Central
 - Sweden Central
 - Switzerland North
 - UAE North
+- UK West
+- UK South
+- US North Central
+- US South Central
+- US West Central
+- US West 2
 - US West 3
 
 > [!TIP]

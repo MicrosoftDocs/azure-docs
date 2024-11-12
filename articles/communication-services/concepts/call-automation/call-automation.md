@@ -50,6 +50,8 @@ The following features are currently available in the Azure Communication Servic
 |                       | Stop continuous DTMF recognition                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Send DTMF                                         | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop audio streaming (public preview)       | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop real-time transcription (public preview)| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a participant from group call to another endpoint|  ✔️    | ✔️    |     ✔️         |   ✔️ |
@@ -114,6 +116,11 @@ Your application can perform these actions on calls that are answered or placed 
 
 **Cancel media operations** – Based on business logic your application might need to cancel ongoing and queued media operations. Depending on the media operation canceled and the ones in queue, your application might receive a webhook event indicating that the action was canceled. 
 
+**Start/Stop audio streaming (public preview)** - Audio streaming allows you to subscribe to real-time audio streams from an ongoing call.  For more detailed guidance on how to get started with audio streaming and information about audio streaming callback events, see our [concept](audio-streaming-concept.md) and our [quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md).
+
+**Start/Stop real-time transcription (public preview)** - Real-time transcription allows you to access live transcriptions for the audio of an ongoing call.  For more detailed guidance on how to get started with real-time transcription and information about real-time transcription callback events, see our [concept](real-time-transcription.md) and our [quickstart](../../how-tos/call-automation/real-time-transcription-tutorial.md).
+
+
 ### Query scenarios
 
 **List participants** – Returns a list of all the participants in a call. Recording and transcription bots are omitted from this list.
@@ -145,6 +152,7 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | ----------------- | ------------ |
 | `CallConnected` | The call successfully started (when using `Answer` or `Create` action) or your application successfully connected to an ongoing call (when using `Connect` action). |
 | `CallDisconnected` | Your application has been disconnected from the call. |
+| `CreateCallFailed` | Your application has failed to create the call. |
 | `ConnectFailed` | Your application failed to connect to a call (for `Connect` call action only). |
 | `CallTransferAccepted` | Transfer action successfully completed and the transferee is connected to the target participant. |
 | `CallTransferFailed` | The transfer action failed. |
@@ -189,6 +197,12 @@ Operation Callback URI is an optional parameter in some mid-call APIs that use e
 | `Recognize` | `RecognizeCompleted` / `RecognizeFailed` / `RecognizeCanceled`  |
 | `StopContinuousDTMFRecognition` | `ContinuousDtmfRecognitionStopped` |
 | `SendDTMF` | `ContinuousDtmfRecognitionToneReceived` / `ContinuousDtmfRecognitionToneFailed`  |
+| `Hold` | `HoldFailed` |
+| `StartMediaStreaming` | `MediaStreamingStarted` / `MediaStreamingFailed` |
+| `StopMediaStreaming` | `MediaStreamingStopped` / `MediaStreamingFailed` |
+| `StartTranscription` | `TranscriptionStarted` / `TranscriptionFailed` |
+| `UpdateTranscription` | `TranscriptionUpdated` / `TranscriptionFailed` |
+| `StopTranscription` | `TranscriptionStopped` / `TranscriptionFailed` |
 
 ## Next steps
 

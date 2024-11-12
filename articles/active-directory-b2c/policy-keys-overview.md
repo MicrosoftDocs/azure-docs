@@ -5,12 +5,12 @@ description: Learn about the types of encryption policy keys that can be used in
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: concept-article
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 
@@ -50,8 +50,8 @@ The top-level resource for policy keys in Azure AD B2C is the **Keyset** contain
 | Attribute |  Required | Remarks |
 | --- | --- |--- |
 | `use` | Yes | Usage: Identifies the intended use of the public key. Encrypting data `enc`, or verifying the signature on data `sig`.|
-| `nbf`| No | Activation date and time. |
-| `exp`| No | Expiration date and time. |
+| `nbf`| No | Activation date and time. An override value can be set manually by admins.|
+| `exp`| No | Expiration date and time. An override value can be set manually by admins.|
 
 We recommend setting the key activation and expiration values according to your PKI standards. You might need to rotate these certificates periodically for security or policy reasons. For example, you might have a policy to rotate all your certificates every year.
 
@@ -72,9 +72,21 @@ If an Azure AD B2C keyset has multiple keys, only one of the keys is active at a
 - The key activation is based on the **activation date**.
   - The keys are sorted by activation date in ascending order. Keys with activation dates further into the future appear lower in the list. Keys without an activation date are located at the bottom of the list.
   - When the current date and time is greater than a key's activation date, Azure AD B2C will activate the key and stop using the prior active key.
-- When the current key's expiration time has elapsed and the key container contains a new key with valid *not before* and *expiration* times, the new key will become active automatically.
+- When the current key's expiration time has elapsed and the key container contains a new key with valid *nbf (not before)* and *exp (expiration)* times, the new key will become active automatically. New tokens will be signed with the newly active key. It is possible to keep an expired key published for token validation until disabled by an admin, but this must be requested by [filing a support request](/azure/active-directory-b2c/find-help-open-support-ticket).
+
 - When the current key's expiration time has elapsed and the key container *does not* contain a new key with valid *not before* and *expiration* times, Azure AD B2C won't be able to use the expired key. Azure AD B2C will raise an error message within a dependant component of your custom policy. To avoid this issue, you can create a default key without activation and expiration dates as a safety net.
 - The key's endpoint (JWKS URI) of the OpenId Connect well-known configuration endpoint reflects the keys configured in the Key Container, when the Key is referenced in the [JwtIssuer Technical Profile](./jwt-issuer-technical-profile.md). An application using an OIDC library will automatically fetch this metadata to ensure it uses the correct keys to validate tokens. For more information, learn how to use [Microsoft Authentication Library](../active-directory/develop/msal-b2c-overview.md), which always fetches the latest token signing keys automatically.
+
+:::image type="content" source="media/policy-keys-overview/key-rollover.png" alt-text="A diagram describing the process for key rollover in Azure AD B2C." lightbox="media/policy-keys-overview/key-rollover.png":::
+
+
+## Key caching
+
+When a key is uploaded, the activation flag on the key is set to false by default. You can then set the state of this key to **Enabled**. If a key enabled and valid (current time is between NBF and EXP), then the key will be used.
+
+### Key state
+
+The activation flag property is modifiable within the Azure portal UX allowing admins to disable a key and take it out of rotation. 
 
 ## Policy key management
 

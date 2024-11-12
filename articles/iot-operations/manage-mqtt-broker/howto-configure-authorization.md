@@ -7,9 +7,10 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 09/09/2024
+ms.date: 11/02/2024
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
+ms.service: azure-iot-operations
 ---
 
 # Configure MQTT broker authorization
@@ -32,6 +33,95 @@ To learn more about *BrokerListener*, see [BrokerListener resource](howto-config
 To configure authorization, create a *BrokerAuthorization* resource in your Kubernetes cluster. The following sections provide examples of how to configure authorization for clients that use usernames, attributes, X.509 certificates, and Kubernetes Service Account Tokens (SATs). For a list of the available settings, see the [Broker Authorization](/rest/api/iotoperationsmq/broker-authorization) API reference.
 
 The following example shows how to create a *BrokerAuthorization* resource using both usernames and attributes:
+
+# [Portal](#tab/portal)
+
+1. In the Azure portal, navigate to your IoT Operations instance.
+1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Select the **Authorization** tab.
+1. Choose an existing authentication policy or create a new one by selecting **Create authorization policy**.
+
+    :::image type="content" source="media/howto-configure-authorization/authorization-rules.png" alt-text="Screenshot using Azure portal to create broker authorization rules.":::
+
+# [Bicep](#tab/bicep)
+
+To edit the default endpoint, create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param policyName string = '<POLICY_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: policyName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    authorizationPolicies: {
+      cache: 'Enabled'
+      rules: [
+        {
+          principals: {
+            usernames: [
+              'temperature-sensor'
+              'humidity-sensor'
+            ]
+            attributes: [
+              {
+                city: 'seattle'
+                organization: 'contoso'
+              }
+            ]
+          }
+          brokerResources: [
+            {
+              method: 'Connect'
+            }
+            {
+              method: 'Publish'
+              topics: [
+                '/telemetry/{principal.username}'
+                '/telemetry/{principal.attributes.organization}'
+              ]
+            }
+            {
+              method: 'Subscribe'
+              topics: [
+                '/commands/{principal.attributes.organization}'
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
@@ -61,6 +151,10 @@ spec:
               - "/commands/{principal.attributes.organization}"
 ```
 
+To create this *BrokerAuthorization* resource, apply the YAML manifest to your Kubernetes cluster.
+
+---
+
 This broker authorization allows clients with usernames `temperature-sensor` or `humidity-sensor`, or clients with attributes `organization` with value `contoso` and `city` with value `seattle`, to:
 
 - Connect to the broker.
@@ -72,11 +166,117 @@ This broker authorization allows clients with usernames `temperature-sensor` or 
   - `temperature-sensor` can subscribe to `/commands/contoso`.
   - `some-other-username` can subscribe to `/commands/contoso`.
 
-To create this *BrokerAuthorization* resource, apply the YAML manifest to your Kubernetes cluster.
-
 ### Further limit access based on client ID
 
 Because the `principals` field is a logical OR, you can further restrict access based on client ID by adding the `clientIds` field to the `brokerResources` field. For example, to allow clients with client IDs that start with its building number to connect and publish telemetry to topics scoped with their building, use the following configuration:
+
+# [Portal](#tab/portal)
+
+In the **Broker authorization details** for your authorization policy, use the following configuration:
+
+```json
+[
+    {
+        "brokerResources": [
+            {
+                "clientIds": [
+                    "{principal.attributes.building}*"
+                ],
+                "method": "Connect",
+                "topics": []
+            },
+            {
+                "clientIds": [],
+                "method": "Publish",
+                "topics": [
+                    "sensors/{principal.attributes.building}/{principal.clientId}/telemetry"
+                ]
+            }
+        ],
+        "principals": {
+            "attributes": [
+                {
+                    "building": "building22"
+                },
+                {
+                    "building": "building23"
+                }
+            ]
+        }
+    }
+]
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param policyName string = '<POLICY_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: policyName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    authorizationPolicies: {
+      cache: 'Enabled'
+      rules: [
+        {
+          principals: {
+            attributes: [
+              {
+                building: 'building22'
+              }
+              {
+                building: 'building23'
+              }
+            ]
+          }
+          brokerResources: [
+            {
+              method: 'Connect'
+              clientIds: [
+                '{principal.attributes.building}*' // client IDs must start with building22
+              ]
+            }
+            {
+              method: 'Publish'
+              topics: [
+                'sensors/{principal.attributes.building}/{principal.clientId}/telemetry'
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
@@ -101,7 +301,9 @@ spec:
           - "sensors/{principal.attributes.building}/{principal.clientId}/telemetry"
 ```
 
-Here, if the `clientIds` were not set under the `Connect` method, a client with any client ID could connect as long as it had the `building` attribute set to `building22` or `building23`. By adding the `clientIds` field, only clients with client IDs that start with `building22` or `building23` can connect. This ensures not only that the client has the correct attribute but also that the client ID matches the expected pattern.
+---
+
+Here, if the `clientIds` weren't set under the `Connect` method, a client with any client ID could connect as long as it had the `building` attribute set to `building22` or `building23`. By adding the `clientIds` field, only clients with client IDs that start with `building22` or `building23` can connect. This ensures not only that the client has the correct attribute but also that the client ID matches the expected pattern.
 
 ## Authorize clients that use X.509 authentication
 
@@ -129,6 +331,116 @@ Attribute annotations must begin with `aio-broker-auth/` to distinguish them fro
 
 As the application has an authorization attribute called `authz-sat`, there's no need to provide a `clientId` or `username`. The corresponding *BrokerAuthorization* resource uses this attribute as a principal, for example:
 
+# [Portal](#tab/portal)
+
+In the **Broker authorization details** for your authorization policy, use the following configuration:
+
+```json
+[
+    {
+        "brokerResources": [
+            {
+                "clientIds": [],
+                "method": "Connect",
+                "topics": []
+            },
+            {
+                "clientIds": [],
+                "method": "Publish",
+                "topics": [
+                    "odd-numbered-orders"
+                ]
+            },
+            {
+                "clientIds": [],
+                "method": "Subscribe",
+                "topics": [ 
+                    "orders" 
+                ]
+            }
+        ],
+        "principals": {
+            "attributes": [
+                {
+                    "group": "authz-sat"
+                }
+            ]
+        }
+    }
+]
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param policyName string = '<POLICY_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-09-15-preview' = {
+  parent: defaultBroker
+  name: policyName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    authorizationPolicies: {
+      rules: [
+        {
+          principals: {
+            attributes: [
+              {
+                group: 'authz-sat'
+              }
+            ]
+          }
+          brokerResources: [
+            {
+              method: 'Connect'
+            }
+            {
+              method: 'Publish'
+              topics: [
+                'odd-numbered-orders'
+              ]
+            }
+            {
+              method: 'Subscribe'
+              topics: [
+                'orders'
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerAuthorization
@@ -151,6 +463,8 @@ spec:
             topics:
               - "orders"
 ```
+
+---
 
 To learn more with an example, see [Set up Authorization Policy with Dapr Client](../create-edge-apps/howto-develop-dapr-apps.md).
 
@@ -175,7 +489,22 @@ kubectl edit brokerauthorization my-authz-policies
 
 ## Disable authorization
 
-To disable authorization, omit `authorizationRef` in the `ports` setting of a *BrokerListener* resource.
+# [Portal](#tab/portal)
+
+1. In the Azure portal, navigate to your IoT Operations instance.
+1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Select the broker listener you want to edit from the list.
+1. On the port you want to disable authorization, select **None** in the authorization dropdown.
+
+# [Bicep](#tab/bicep)
+
+To disable authorization, omit `authorizationRef` in the `ports` setting of your *BrokerListener* resource.
+
+# [Kubernetes](#tab/kubernetes)
+
+To disable authorization, omit `authorizationRef` in the `ports` setting of your *BrokerListener* resource.
+
+---
 
 ## Unauthorized publish in MQTT 3.1.1
 
@@ -185,5 +514,3 @@ With MQTT 3.1.1, when a publish is denied, the client receives the PUBACK with n
 
 - About [BrokerListener resource](howto-configure-brokerlistener.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
-- [Configure TLS with manual certificate management](./howto-configure-tls-manual.md)
-- [Configure TLS with automatic certificate management](./howto-configure-tls-auto.md)

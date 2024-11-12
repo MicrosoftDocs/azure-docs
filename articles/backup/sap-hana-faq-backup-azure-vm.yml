@@ -4,7 +4,7 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 09/30/2024
+  ms.date: 10/14/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
   ms.custom: engagement-fy24
@@ -138,7 +138,7 @@ sections:
       - question: |
           What’s the backup and restore throughput performance that Azure Backup provides and how to set up my HANA system to use this maximum throughput?
         answer: |
-          Refer to [the backup and restore throughput performance](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
+          Refer to [the backup and restore throughput performance](./tutorial-backup-sap-hana-db.md#understanding-the-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
           
            - [Select a disk type for Azure IaaS VMs - managed disks](/azure/virtual-machines/disks-types)
            - [Performance tiers for Azure managed disks](/azure/virtual-machines/disks-change-performance)

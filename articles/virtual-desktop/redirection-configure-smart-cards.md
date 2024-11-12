@@ -152,9 +152,9 @@ To allow or disable smart card device redirection using Microsoft Intune:
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Do not allow smart card device redirection**, depending on your requirements:
 
-   - To allow smart card device redirection, toggle the switch to **Disabled**, then select **OK**. 
+   - To allow smart card device redirection, toggle the switch to **Disabled**. 
 
-   - To disable smart card device redirection, toggle the switch to **Enabled**, then select **OK**. 
+   - To disable smart card device redirection, toggle the switch to **Enabled**. 
 
 1. Select **Next**.
 

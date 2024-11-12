@@ -68,6 +68,18 @@ If you're using a dual-stack circuit, there's a maximum of 100 IPv6 prefixes on 
 
 The connection between the ExpressRoute circuit and the gateway disconnects including peered virtual network using gateway transit. Connectivity re-establishes when the prefix limit is no longer exceeded.
 
+## How can I adjust the number of prefixes advertised to the gateway to ensure it is within the maximum limitation?
+
+ExpressRoute supports up to 11,000 routes, covering virtual network address spaces, on-premises networks, and virtual network peering connections. If the ExpressRoute gateway exceeds this limit, please update the prefixes to be within the allowed range.
+
+To make this change in the Azure Portal:
+1. Go to the Advisor resource and select the "Performance" pillar.
+2. Click on the recommendation for "Max prefix reached for ExpressRoute Gateway."
+3. Select the Gateway with this recommendation.
+4. In the Gateway resource, select the "Virtual network" that the Gateway is attached to
+5. In the Virtual Network resource, select "Address Space" blade under settings on the left menu
+6. Reduce the advertised address space to within the limit
+
 ### Can routes from the on-premises network get filtered?
 
 The only way to filter or include routes is on the on-premises edge router. User-defined routes can be added in the VNet to affect specific routing, but is only static and not part of the BGP advertisement.

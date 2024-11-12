@@ -439,7 +439,7 @@ The following PowerShell script adds the Synapse Administrator role assignment t
 New-AzSynapseRoleAssignment `
    -WorkspaceName $workspaceName  `
    -RoleDefinitionName "Synapse Administrator" `
-   -ObjectId 1c02d2a6-ed3d-46ec-b578-6f36da5819c6
+   -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 
 Get-AzSynapseRoleAssignment -WorkspaceName $workspaceName  
 ```

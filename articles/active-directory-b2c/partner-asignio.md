@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn how to configure Azure Active Directory B2C with Asignio for multifactor authentication
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 10/03/2024
+ms.date: 10/11/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 # Customer intent: As a developer integrating Asignio with Azure AD B2C for multifactor authentication. I want to configure an application with Asignio and set it up as an identity provider (IdP) in Azure AD B2C, so I can provide a passwordless, soft biometric, and multifactor authentication experience to customers.
@@ -95,12 +95,10 @@ Learn more: [Application types that can be used in Active Directory B2C](applica
 
 For this tutorial, you're registering  `https://jwt.ms`, a Microsoft web application with decoded token contents that don't leave your browser.
 
-### Register a web application and enable ID token implicit grant
+### Register a web application
 
-Complete [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md?tabs=app-reg-ga)
+Complete the steps in [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md?tabs=app-reg-ga) article.
 
->[!NOTE]
->Enable implicit flow only for testing purposes. Don’t enable implicit flow in production.
 
 ## Configure Asignio as an identity provider in Azure AD B2C
 
@@ -219,17 +217,17 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
             <Item Key="scope">openid profile email</Item>
             <Item Key="UsePolicyInRedirectUri">0</Item>
             <!-- Update the Client ID below to the Asignio Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
 
 
             <!-- trying to add additional claim-->
-            <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->
-            <Item Key="11111111-1111-1111-1111-111111111111"></Item>
-            <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-            <Item Key="22222222-2222-2222-2222-222222222222"></Item>
+            <!--Insert b2c-extensions-app application ID here, for example: 00001111-aaaa-2222-bbbb-3333cccc4444-->
+            <Item Key="00001111-aaaa-2222-bbbb-3333cccc4444"></Item>
+            <!--Insert b2c-extensions-app application ObjectId here, for example: aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb-->
+            <Item Key="aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"></Item>
             <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
-            <!--<Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/11111111-1111-1111-1111-111111111111</Item>-->
+            <!--<Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/00001111-aaaa-2222-bbbb-3333cccc4444</Item>-->
             <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to     sign in. -->
             <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/</Item>
           </Metadata>

@@ -19,7 +19,7 @@ This tutorial demonstrates using text analytics with [SynapseML](https://github.
 > - Detect sentiment labels at the sentence or document level
 > - Identify the language for a given text input
 > - Recognize entities from a text with links to a well-known knowledge base
-> - Extract key phases from a text
+> - Extract key phrases from a text
 > - Identify different entities in text and categorize them into pre-defined classes or types
 > - Identify and redact sensitive entities in a given text
 

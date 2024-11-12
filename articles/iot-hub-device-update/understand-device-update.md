@@ -5,7 +5,8 @@ author: vimeht
 ms.author: vimeht
 ms.date: 10/31/2022
 ms.topic: overview
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # What is Device Update for IoT Hub?

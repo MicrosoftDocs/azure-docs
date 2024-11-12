@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 07/02/2024
 
 #CustomerIntent: As an developer, I want understand how to develop highly available distributed applications for my IoT Operations solution.
+ms.service: azure-iot-operations
 ---
 
 # Develop highly available applications with MQTT broker

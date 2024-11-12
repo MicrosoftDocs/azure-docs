@@ -53,6 +53,8 @@ items:
       href: export-files.md
     - name: Bulk update DICOM files
       href: update-files.md
+    - name: Support for proxy URLs
+      href: dicom-proxy-url-support.md
 - name: API reference
   expanded: true
   items: 

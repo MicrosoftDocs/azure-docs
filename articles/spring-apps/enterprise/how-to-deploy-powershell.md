@@ -37,7 +37,7 @@ The requirements for completing the steps in this article depend on your Azure s
 * If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription by using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet:
 
    ```azurepowershell-interactive
-   Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+   Set-AzContext -SubscriptionId <subscription-ID>
    ```
 
 ## Create a resource group

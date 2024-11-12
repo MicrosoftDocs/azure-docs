@@ -110,7 +110,7 @@ Once your certificate is domain-verified, [you're ready to import it into an App
 By default, App Service certificates have a one-year validity period. Before the expiration date, you can automatically or manually renew App Service certificates in one-year increments. The renewal process effectively gives you a new App Service certificate with the expiration date extended to one year from the existing certificate's expiration date.
 
 > [!NOTE]
-> Starting September 23 2021, if you haven't verified the domain in the last 395 days, App Service certificates require domain verification during a renew or rekey process. The new certificate order remains in "pending issuance" mode during the renew or rekey process until you complete the domain verification.
+> Starting September 23 2021, if you haven't verified the domain in the last 395 days, App Service certificates require domain verification during a renew, auto-renew, or rekey process. The new certificate order remains in "pending issuance" mode during the renew, auto-renew, or rekey process until you complete the domain verification.
 > 
 > Unlike the free App Service managed certificate, purchased App Service certificates don't have automated domain re-verification. Failure to verify domain ownership results in failed renewals. For more information about how to verify your App Service certificate, review [Confirm domain ownership](#confirm-domain-ownership).
 >
@@ -207,6 +207,38 @@ Set-Content -Path appservicecertificate.pfx -Value $CertBytes -AsByteStream
 
 The downloaded PFX file is a raw PKCS12 file that contains both the public and private certificates and has an import password that's an empty string. You can locally install the file by leaving the password field empty. You can't [upload the file as-is into App Service](configure-ssl-certificate.md#upload-a-private-certificate) because the file isn't [password protected](configure-ssl-certificate.md#private-certificate-requirements).
 
+## Use Azure Advisor for App Service certificate
+
+App Service certificate is integrated with [Azure Advisor](/azure/advisor/advisor-overview) to provide reliability recommendations for when your certificate requires domain verification. You must verify domain ownership for your certificate during renew, auto-renew, or rekey process if you haven't verified the domain in the last 395 days. To ensure you do not miss any certificate that requires verification or risk any certificate from expiring, you can utlize Azure Advisor to view and set up alerts for App Service certificate.
+
+### View Advisor recommendation
+
+To view Advisor recommendation for App Service certificate:
+
+1. Navigate to the [Azure Advisor page](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/overview).
+
+1. From the left menu, select **Recommendations** > **Reliability**
+
+1. Select the filter option **Type equals** and search for **App Service Certificates** from the dropdown list. If the value does not exist on the dropdown menu, then that means no recommendation has been generated for your App Service certificate resources because none of them requires domain ownership verification.
+
+### Create Advisor Alerts
+
+You [create Azure Advisor alerts on new recommendations] using different configurations. To set up Advisor Alerts specifically for App Serivice certificate so you can get notifications when your certificate requires domain ownership validation:
+
+1. Navigate to the [Azure Advisor page](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/overview).
+
+1. From the left menu, select **Monitoring** > **Alerts (Preview)**
+
+1. Click on **+ New Advisor Alert** on the action bar at the top. This will open a new blade called "Create Advisor Alerts".
+
+1. Under **Condition** select the following:
+
+   |Configured by| Recommendation Type|
+   |-|-|
+   |Recommendation Type|Domain verification required to issue your App Service Certificate|
+
+1. Fill out the rest of the required fields, then select the **Create alert** button at the bottom.
+   
 ## Delete an App Service certificate
 
 If you delete an App Service certificate, the delete operation is irreversible and final. The result is a revoked certificate, and any binding in App Service that uses the certificate becomes invalid.

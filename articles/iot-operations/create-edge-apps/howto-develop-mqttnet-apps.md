@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 07/02/2024
 
 #CustomerIntent: As an developer, I want to understand how to use MQTTnet to develop distributed apps that talk with MQTT broker.
+ms.service: azure-iot-operations
 ---
 
 # Use MQTTnet to develop distributed application workloads that connect to MQTT broker
@@ -99,7 +100,7 @@ spec:
   # Certificate chain for the application to validate the MQTT broker              
   - name: aio-ca-trust-bundle
     configMap:
-      name: aio-ca-trust-bundle-test-only
+      name: azure-iot-operations-aio-ca-trust-bundle
 
   containers:
   - name: mqtt-client-dotnet

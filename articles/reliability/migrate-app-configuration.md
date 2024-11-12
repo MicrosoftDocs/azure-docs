@@ -1,10 +1,10 @@
 ---
-title: Migrate App Configuration to a region with availability zone support
-description: Learn how to migrate Azure App Configuration to availability zone support.
+title: Migrate App Configuration to availability zone support
+description: Learn how to migrate an Azure App Configuration store to an Azure region with availability zone support.
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 09/10/2022
+ms.date: 10/24/2024
 ms.author: malev
 ms.custom: references_regions, subject-reliability
 ---
@@ -15,7 +15,7 @@ Azure App Configuration supports Azure availability zones. This guide describes 
 
 ## Availability zone support in Azure App Configuration
 
-Azure App Configuration supports Azure availability zones to protect your application and data from single datacenter failures. All availability zone-enabled regions have a minimum of three availability zones, and each availability zone is composed of one or more datacenters equipped with independent power, cooling, and networking infrastructure. In regions where App Configuration supports availability zones, all stores have availability zones enabled by default.
+Azure App Configuration supports Azure availability zones to protect your application and data from single data center failures. All availability zone-enabled regions have a minimum of three availability zones, and each availability zone is composed of one or more data centers equipped with independent power, cooling, and networking infrastructure. In regions where App Configuration supports availability zones, all stores have availability zones enabled by default.
 
 [!INCLUDE [Azure App Configuration availability zones table](../../includes/azure-app-configuration-availability-zones.md)]
 

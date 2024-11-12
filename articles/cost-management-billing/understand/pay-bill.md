@@ -7,7 +7,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/04/2024
+ms.date: 10/08/2024
 ms.author: banders
 ---
 
@@ -116,9 +116,12 @@ Although you can generally use debit cards to pay your Azure bill, consider thes
 
 If the default payment method of your billing profile is wire transfer, follow the payment instructions on your invoice PDF file.
 
+> [!NOTE]
+> When you pay your bill by wire transfer, the payment might take up to 10 business days to get processed.
+
 Alternatively, if your invoice is under the threshold amount for your currency, you can make a one-time payment in the Azure portal with a credit or debit card by using **Pay now**. If your invoice amount exceeds the threshold, you can't pay your invoice with a credit or debit card. You'll find the threshold amount for your currency in the Azure portal after you select **Pay now**.
 
-> [!NOTE]
+>[!NOTE]
 > When multiple invoices are remitted in a single wire transfer, you must specify the invoice numbers for all of the invoices.
 
 ### Bank details used to send wire transfer payments

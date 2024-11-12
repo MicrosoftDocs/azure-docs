@@ -2,7 +2,7 @@
 title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
-ms.date: 09/27/2024
+ms.date: 10/16/2024
 author: cephalin
 ms.author: cephalin
 ---
@@ -375,7 +375,7 @@ WEBSITE_DISABLE_PRELOAD_HANG_MITIGATION
 | Setting name| Description | Example |
 |-|-|-|
 | `WEBSITE_HTTPLOGGING_ENABLED` | Read-only. Shows whether the web server logging for Windows native apps is enabled (`1`) or not (`0`). ||
-| `WEBSITE_HTTPLOGGING_RETENTION_DAYS` | Retention period in days of web server logs for Windows native apps, if web server logs are enabled. | `10` |
+| `WEBSITE_HTTPLOGGING_RETENTION_DAYS` | Retention period in days of web server logs, if web server logs are enabled for a Windows native or Linux app. | `10` |
 | `WEBSITE_HTTPLOGGING_CONTAINER_URL` | SAS URL of the blob storage container to store web server logs for Windows native apps, if web server logs are enabled. If not set, web server logs are stored in the app's file system (default shared storage). | |
 | `DIAGNOSTICS_AZUREBLOBRETENTIONINDAYS` | Retention period in days of application logs for Windows native apps, if application logs are enabled. | `10` |
 | `DIAGNOSTICS_AZUREBLOBCONTAINERSASURL` | SAS URL of the blob storage container to store application logs for Windows native apps, if application logs are enabled. | |

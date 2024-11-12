@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security engineer, I want to customize analytics rule templates in Microsoft Sentinel so that analysts can efficiently detect and respond to security threats across my organization.
+
 ---
 
 # Threat detection in Microsoft Sentinel

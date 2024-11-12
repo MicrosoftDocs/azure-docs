@@ -1,96 +1,99 @@
 ---
-title: Known issues for Oracle Database@Azure
-description: Learn about known issues for Oracle Database@Azure.
+title: Known issues in Oracle Database@Azure
+description: Learn about known issues in Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
 ---
 
-# Known issues for Oracle Database@Azure
+# Known issues in Oracle Database@Azure
 
-In this article, you find known issues for Oracle Database@Azure.
+Learn about known issues in Oracle Database@Azure and how to resolve them.
 
-## Exadata Virtual Machine Cluster Provisioning 
+## Oracle Exadata virtual machine cluster provisioning
 
-### VM cluster provisioning fails because number of available IPs reported by OCI and  don't match 
+### Virtual machine cluster provisioning fails because the number of available IPs doesn't match
 
-**Details**: reports the wrong number of available IPs in the subnet, causing VM cluster provisioning to fail.
+The wrong number of available IPs in the subnet is reported, causing virtual machine cluster provisioning to fail.
 
-**Error message**:
-```
+#### Message
+
+```output
 Error returned by CreateCloudVmCluster operation in Database service.(400, InvalidParameter, false) Cidr block of the subnet must have at least 11 ip addresses available.
 ```
 
-**Diagnosis**: Verify the correct number of available IP addresses in the subnet using the OCI Console. For instructions, see [Listing Private IP Addresses](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/private-ip-address-list.htm).
+#### Resolution
 
-**Workaround**: If the subnet doesn't have enough IP addresses, reconfigure the subnet according to the [prerequisites](oracle-database-plan-ip.md).
+Verify the correct number of available IP addresses in the subnet by using the Oracle Cloud Infrastructure (OCI) console. For more information, see [List private IP addresses](https://docs.oracle.com/iaas/Content/Network/Tasks/private-ip-address-list.htm).
 
-### VM cluster provisioning fails with authorization error 
+If the subnet doesn't have enough IP addresses, reconfigure the subnet according to the [prerequisites](oracle-database-plan-ip.md).
 
-**Details**: Provisioning of an Exadata VM cluster fails with the following error.
+### Virtual machine cluster provisioning fails because of an authorization error
 
-**Error message**:
-```
+Provisioning an Oracle Exadata virtual machine cluster fails and shows the following message.
+
+#### Message
+
+```output
 Authorization Failed
-The client *&lt;client\_name&gt;* with object id *&lt;object\_id&gt;* does not have authorization to perform action 'Oracle.Database/location/operationStatuses/read' over scope <scope_details> or scope is invalid. If access was recently granted, please refresh your credentials.
+The client <client_name> with object id <object_id> does not have authorization to perform action 'Oracle.Database/location/operationStatuses/read' over scope <scope_details> or scope is invalid. If access was recently granted, please refresh your credentials.
 ```
 
-The failure occurs because the user performing the action doesn't have  permissions for the `Microsoft.BareMetal/BareMetalConnections` resource.
+The failure occurs because the user performing the action doesn't have permissions for the Microsoft.BareMetal/BareMetalConnections resource.
 
-**Workaround**:
+#### Resolution
 
-1.  Ensure that no  policy assigned to the user or the subscription is preventing the user from performing the action. If the user has specific permissions assigned to them directly, add the following resources to the authorized list:
+1. Ensure that no policy is assigned to the user or to the subscription that prevents the user from performing the action. If the user has specific permissions directly assigned to them, add the following resources to the authorized list of resources:
 
-    1.  Microsoft.BareMetal/BareMetalConnections
-    2.  Microsoft.Network/privateDnsZones
-2.  Delete the failed VM cluster from the  UI
-3.  After the VM Cluster is fully terminated in both  and, wait 30 minutes. This wait period ensures that all dependent resources are also deleted.
-4.  Provision a new VM cluster.
+   - Microsoft.BareMetal/BareMetalConnections
+   - Microsoft.Network/privateDnsZones
 
-## Buy offer 
+1. Delete the failed virtual machine cluster.
+1. After the virtual machine cluster is fully terminated in both Azure and OCI, wait 30 minutes. This wait period ensures that all dependent resources are also deleted.
+1. Provision a new virtual machine cluster.
 
-### Create 'OracleSubscription' resource fails with 'deny' Policy Action during offer purchase 
+## Buy offer
 
-**Details:** When subscribing to Oracle Database@Azure,  must create a Managed Resource Group (MRG) in the background to contain the `OracleSubscription` object for billing purposes. This MRG must be in the  `EastUS` region with a specific name, and without tags initially.
+### Creating an OracleSubscription resource fails because of 'deny' policy action during offer purchase
 
-Any  policy that blocks the creation of the MRG triggers the error. For example, a policy with any of the following rules could cause the buy to fail:
+When you subscribe to Oracle Database@Azure, you must create a managed resource group in the background to contain the `OracleSubscription` object for billing purposes. The managed resource group must be in the EastUS region. It must have a specific name, and it must initially be created without tags.
 
--   A rule that denies the creation of resources in the `EastUS` region
--   A rule that denies the creation of a resource without tags
--   A rule that enforces specific naming patterns
+Any policy that blocks the creation of the managed resource group triggers the error. For example, a policy that has any of the following rules might cause the purchase to fail:
 
-**Error message:**
+- A rule that denies the creation of resources in the EastUS Azure region
+- A rule that denies the creation of a resource without tags
+- A rule that enforces specific naming patterns
 
-```
+#### Message
+
+```output
 The resource write operation failed to complete successfully, because it reached terminal provisioning state 'Failed'
 ```
 
-**Workaround:**
+#### Resolution
 
-1.  Identify the blocking policy by examining the **Activity log**. In the log, you might see **'deny' Policy action** operation with the "failed" status:
+1. Identify the blocking policy by examining the activity log in the Azure portal. In the log, you might see a **'deny' Policy action** operation with a **failed** status:
 
-    :::image type="content" source="media/deny-known-issue-purchase-failure.png" alt-text="The image shows the Azure activity log with a 'deny' Policy action that has caused a failure for the OracleSubscriptions_Update operation.":::
+    :::image type="content" source="media/deny-known-issue-purchase-failure.png" alt-text="Screenshot that shows the Azure activity log with a 'deny' policy action that caused a failure for the OracleSubscriptions_Update operation.":::
 
-    The following image shows the details of the **'deny' Policy action** in the Azure portal:
+    The following figure shows the details of the **'deny' Policy action** in the Azure portal:
 
-    :::image type="content" source="media/example-known-issue-purchase-failure.png" alt-text="The image shows a JSON file with example policies, including a policy limiting the allowed locations for resource groups.":::
+    :::image type="content" source="media/example-known-issue-purchase-failure.png" alt-text="Screenshot that shows a JSON file with example policies, including a policy that limits the allowed locations for resource groups.":::
 
+1. Create a time-bound policy exemption for the blocking policies before you try to buy the offer, and then create the OracleSubscription resource again.
 
-2.  Create a time-bound policy exemption for the blocking policies before trying to buy the offer and create the **OracleSubscription** resource again. For more information, see [Azure Policy exemption structure](/azure/governance/policy/concepts/exemption-structure) in the Azure documentation.
+   For more information, see [Azure Policy exemption structure](/azure/governance/policy/concepts/exemption-structure).
 
-     >[!TIP] 
-     >A policy exemption can take up to 30 minutes to take effect. Ensure that the time window for the exemption is large enough to finish the buy process for the offer. We recommend at least two hours for the policy exemption.
+   > [!TIP]
+   > A policy exemption can take up to 30 minutes to take effect. Ensure that the time window for the exemption is large enough to finish the buy process for the offer. We recommend a window of time of at least two hours for the policy exemption.
 
-    Select **Create exemption** on the Policy Assignments page in the Azure portal:
+   On the **Policy Assignments** pane in the Azure portal, select **Create exemption**.
 
-    :::image type="content" source="media/exemption-known-issue-purchase-failure.png" alt-text="The image shows the Create exemption button in the Azure portal policy.":::
+   :::image type="content" source="media/exemption-known-issue-purchase-failure.png" alt-text="Screenshot that shows the Create exemption button in the Azure portal.":::
 
-3.  On the **Create exemption** page in the Azure portal, create a policy exemption. Use the **Expiration date** field to limit the time window for the policy exemption.
+1. On the **Create exemption** pane in the Azure portal, create a policy exemption. For **Expiration date**, limit the time window for the policy exemption.
 
-    :::image type="content" source="media/workflow-known-issue-purchase-failure.png" alt-text="The image shows the Azure portal Create exemption workflow.":::
-
-
-
+    :::image type="content" source="media/workflow-known-issue-purchase-failure.png" alt-text="Screenshot that shows the Azure portal Create exemption pane.":::

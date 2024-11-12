@@ -23,9 +23,10 @@ Source services are usually Azure compute services. Service Connector is an [Azu
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Azure App Service      | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
 | Azure App Service slot | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}/slots/{slot}`                                   |
+| Azure Container Apps   | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.App/containerApps/{app}`                                         |
+| Azure Kubernetes Service (AKS) | `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ContainerService/managedClusters/{aks-cluster-name}`                                         |
 | Azure Functions        | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
 | Azure Spring Apps      | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.AppPlatform/Spring/{spring}/apps/{app}/deployments/{deployment}` |
-| Azure Container Apps   | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.App/containerApps/{app}`                                         |
 
 ## Target service
 

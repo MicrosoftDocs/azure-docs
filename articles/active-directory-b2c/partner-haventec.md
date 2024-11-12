@@ -5,12 +5,12 @@ description: Learn to integrate Azure AD B2C with Haventec Authenticate for mult
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 06/21/2024
 
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer integrating Haventec Authenticate with Azure AD B2C. I need instructions to configure integration, so I can enable single-step, multi-factor passwordless authentication for my web and mobile applications.
 ---

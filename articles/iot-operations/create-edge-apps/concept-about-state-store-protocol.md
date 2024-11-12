@@ -5,10 +5,11 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
-ms.date: 07/02/2024
+ms.date: 10/30/2024
 
 # CustomerIntent: As a developer, I want understand what the MQTT broker state store protocol is, so
 # that I can implement a client app to interact with the MQ state store.
+ms.service: azure-iot-operations
 ---
 
 # MQTT broker state store protocol
@@ -197,10 +198,10 @@ The following is the current list of error strings. Your client application shou
 
 | Error string returned from state store | Explanation                                                                                                 |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| the requested timestamp is too far in the future; ensure that the client and broker system clocks are synchronized | Unexpected requested timestamp caused by the state store and client clocks are not in sync. |
+| the request timestamp is too far in the future; ensure that the client and broker system clocks are synchronized | Unexpected request timestamp caused by the state store and client clocks are not in sync. |
 | a fencing token is required for this request                                                                       | Error occurs if a key is marked with a fencing token, but the client doesn't specify the fencing token. |
-| the requested fencing token timestamp is too far in the future; ensure that the client and broker system clocks are synchronized | Unexpected fencing token timestamp caused by the state store and client clocks are not in sync. |
-| the requested fencing token is a lower version that the fencing token protecting the resource             | Incorrect requested fencing token version. For more information, see [Versioning and hybrid logical clocks].(#versioning-and-hybrid-logical-clocks) |
+| the request fencing token timestamp is too far in the future; ensure that the client and broker system clocks are synchronized | Unexpected fencing token timestamp caused by the state store and client clocks are not in sync. |
+| the request fencing token is a lower version that the fencing token protecting the resource             | Incorrect request fencing token version. For more information, see [Versioning and hybrid logical clocks].(#versioning-and-hybrid-logical-clocks) |
 | the quota has been exceeded                                                                               | The state store has a quota of how many keys it can store, which is based on the memory profile of the MQTT broker that's specified. |
 | syntax error                                                                                              | The payload sent doesn't conform to state store's definition.                                               |
 | not authorized                                                                                            | Authorization error                                                                                          |
@@ -416,7 +417,7 @@ Any other failure follows the state store's general error reporting pattern:
 
 When a `keyName` being monitored via `KEYNOTIFY` is modified or deleted, the state store sends a notification to the client. The topic is determined by convention - the client doesn't specify the topic during the `KEYNOTIFY` process.
 
-The topic is defined in the following example. The `clientId` is an upper-case hex encoded representation of the MQTT ClientId of the client that initiated the `KEYNOTIFY` request and `keyName` is a hex encoded representation of the key that changed.
+The topic is defined in the following example. The `clientId` is an upper-case hex encoded representation of the MQTT ClientId of the client that initiated the `KEYNOTIFY` request and `keyName` is a hex encoded representation of the key that changed. The state store follows the Base 16 encoding rules of [RFC 4648 - The Base16, Base32, and Base64 Data Encodings](https://datatracker.ietf.org/doc/html/rfc4648#section-8) for this encoding.
 
 ```console
 clients/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/{clientId}/command/notify/{keyName}

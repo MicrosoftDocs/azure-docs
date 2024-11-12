@@ -4,7 +4,7 @@ summary: Azure IoT Central is an IoT application platform (aPaaS) that simplifie
 metadata:
   title: Azure IoT Central documentation
   description: Azure IoT Central application simplifies the creation of IoT solutions. Learn how to create, customize, administer, and use an Azure IoT Central application.
-  ms.service: iot-central
+  ms.service: azure-iot-central
   ms.topic: landing-page
   author: dominicbetts
   ms.author: dobett

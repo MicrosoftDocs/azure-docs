@@ -1,19 +1,19 @@
 ---
-title: Use availability zones zonal placement for application high availability with Azure NetApp Files
+title: Use availability zone placement for application high availability with Azure NetApp Files
 description: Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 10/22/2024
 ms.author: anfdocs
 ---
-# Use availability zones zonal placement for application high availability with Azure NetApp Files
+# Use availability zone placement for application high availability with Azure NetApp Files
 
 Azure [availability zones](../availability-zones/az-overview.md#availability-zones) are physically separate locations within each supporting Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all [availability zone-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones). 
 
 >[!IMPORTANT]
-> Availability zones are referred to as _logical zones_. Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription, and the mapping is different with different subscriptions. Azure subscriptions are automatically assigned this mapping when a subscription is created. Azure NetApp Files aligns with the generic logical-to-physical availability zone mapping for all Azure services for the subscription. 
+> Availability zones are referred to as _logical zones_. Each data center is assigned to a physical zone. [Physical zones are mapped to logical zones in your Azure subscription](/azure/reliability/availability-zones-overview#physical-and-logical-availability-zones), and the mapping is different with different subscriptions. Azure subscriptions are automatically assigned this mapping when a subscription is created. Azure NetApp Files aligns with the generic logical-to-physical availability zone mapping for all Azure services for the subscription. 
 
 Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Azure availability zones let you design and operate applications and databases that automatically transition between zones without interruption. You can design resilient solutions by using Azure services that use availability zones.  
 

@@ -142,7 +142,7 @@ The Log Analytics workspace that you use for traffic analytics must exist in one
 > [!NOTE]
 > If a network security group is supported for flow logging in a region, but Log Analytics workspace isn't supported in that region for traffic analytics, you can use a Log Analytics workspace from any other supported region as a workaround.
 
-## Next steps
+## Related content
 
 - Learn more about [Traffic analytics](traffic-analytics.md).
-- Learn about [Usage scenarios of traffic analytics](usage-scenarios-traffic-analytics.md).
+- Learn about [Usage scenarios of traffic analytics](traffic-analytics-usage-scenarios.md).

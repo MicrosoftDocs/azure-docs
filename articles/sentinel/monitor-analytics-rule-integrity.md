@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 02/20/2023
+
+
+#Customer intent: As a security analyst, I want to monitor and audit the health and integrity of my analytics rules so that I can ensure uninterrupted and tampering-free threat detection.
+
 ---
 
 # Monitor the health and audit the integrity of your analytics rules

@@ -14,7 +14,10 @@ appliesto:
     - Microsoft Sentinel
     - Copilot for Security
 ms.date: 07/04/2024
-#Customer intent: As a SOC administer or analyst, understand how to use Microsoft Sentinel data with Copilot for Security.
+
+
+#Customer intent: As a security analyst, I want to integrate Copilot for Security with Microsoft Sentinel data so that I can investigate incidents and generate advanced hunting queries at machine speed and scale.
+
 ---
 
 # Microsoft Sentinel incidents in Copilot for Security

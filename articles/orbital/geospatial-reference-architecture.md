@@ -2,7 +2,7 @@
 title: Geospatial reference architecture - Azure Orbital
 description: A high-level approach to using cloud-native capabilities, open-source and commercial software options to architect end-to-end geospatial data on Azure.
 author: TaylorCorbett
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: conceptual
 ms.custom: ga
 ms.date: 06/13/2022

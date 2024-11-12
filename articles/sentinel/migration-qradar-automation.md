@@ -1,10 +1,14 @@
 ---
 title: Migrate IBM Security QRadar SOAR automation to Microsoft Sentinel | Microsoft Docs
 description: Learn how to identify SOAR use cases, and how to migrate your QRadar SOAR automation to Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: As a security engineer, I want to migrate my SOAR automation from IBM Security QRadar to Microsoft Sentinel so that I can streamline incident response and enhance threat remediation using Microsoft Sentinel's advanced automation capabilities.
+
 ---
 
 # Migrate IBM Security QRadar SOAR automation to Microsoft Sentinel

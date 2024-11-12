@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 06/13/2024
 ms.topic: tutorial
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 #customer intent: As a developer, I want to learn how to deploy and use the water quality monitoring application template for IoT Central so that I can build water quality monitoring solutions.

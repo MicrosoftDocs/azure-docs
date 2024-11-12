@@ -2,9 +2,10 @@
 title: Add session hosts to a host pool - Azure Virtual Desktop
 description: Learn how to add session host virtual machines to a host pool in Azure Virtual Desktop.
 ms.topic: how-to
+zone_pivot_groups: azure-virtual-desktop-host-pool-management-approaches
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/08/2024
+ms.date: 10/01/2024
 ---
 
 # Add session hosts to a host pool
@@ -13,35 +14,65 @@ ms.date: 08/08/2024
 > The following features are currently in preview:
 >
 > - Azure Virtual Desktop on Azure Stack HCI for Azure Government and for Azure operated by 21Vianet (Azure in China).
+>
 > - Azure Virtual Desktop on Azure Extended Zones.
+>
+> - Managing session hosts using a session host configuration. This limited preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability.
 >
 > For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 After you create a host pool, a workspace, and an application group, you need to add session hosts to the host pool for your users to connect to. You might also need to add more session hosts for extra capacity.
 
-You can create new virtual machines (VMs) to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. Alternatively, you can create VMs outside the Azure Virtual Desktop service, such as using an automated pipeline, the Azure CLI, or Azure PowerShell, and then add them as session hosts to a host pool separately.
+When you add session hosts to a host pool, the method you use depends on your [host pool's management approach](host-pool-management-approaches.md):
 
-For Azure Stack HCI, you can create new VMs to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. If you want to create the VMs outside the Azure Virtual Desktop service, follow the steps in [Create Azure Arc virtual machines on Azure Stack HCI](/azure-stack/hci/manage/create-arc-virtual-machines), and then add the VMs as session hosts to a host pool separately.
+- For a host pool using a *session host configuration* (preview), you use the Azure portal to specify the number of session hosts you want to add, then Azure Virtual Desktop automatically creates them based on the [session host configuration](host-pool-management-approaches.md#session-host-configuration).
 
+- For a host pool using standard management, you can create new virtual machines (VMs) to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. Alternatively, you can create VMs outside the Azure Virtual Desktop service, such as using an automated pipeline, the Azure CLI, or Azure PowerShell, and then add them as session hosts to a host pool separately.
+
+   For Azure Stack HCI, you can create new VMs to use as session hosts and add them to a host pool natively by using the Azure Virtual Desktop service in the Azure portal. If you want to create the VMs outside the Azure Virtual Desktop service, follow the steps in [Create Azure Arc virtual machines on Azure Stack HCI](/azure-stack/hci/manage/create-arc-virtual-machines), and then add the VMs as session hosts to a host pool separately.
+
+> [!TIP]
+> Select a button at the top of this article to choose between host pools using standard management or host pools using session host configuration to see the relevant documentation.
+
+::: zone pivot="host-pool-session-host-configuration"
+This article shows you how to add session hosts to a host pool using the Azure portal. Azure PowerShell isn't available for adding session hosts to a host pool with a session host configuration.
+::: zone-end
+
+::: zone pivot="host-pool-standard"
 This article shows you how to generate a registration key by using the Azure portal, the Azure CLI, or Azure PowerShell. It also shows you how to add session hosts to a host pool by using the Azure Virtual Desktop service or add them to a host pool separately.
+::: zone-end
 
 ## Prerequisites
 
 For a general idea of what's required, such as supported operating systems, virtual networks, and identity providers, review the [prerequisites for Azure Virtual Desktop](prerequisites.md). In addition:
 
-- You need an existing host pool. You can't mix session hosts on Azure, Azure Stack HCI, or Azure Extended Zones in the same host pool.
+::: zone pivot="host-pool-session-host-configuration"
+- You need an existing host pool with a session host configuration.
+::: zone-end
+
+::: zone pivot="host-pool-standard"
+- You need an existing host pool with standard management. Each host pool must only contain session hosts on Azure or on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.
+::: zone-end
 
 - If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that you used. All session hosts in a host pool should have the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Microsoft Entra ID and some session hosts joined to an Active Directory domain.
 
-- The Azure account that you use must have the following built-in role-based access control (RBAC) roles as a minimum on the resource group:
+::: zone pivot="host-pool-session-host-configuration"
+- The Azure account you use must have the following built-in role-based access control (RBAC) roles or equivalent as a minimum on the resource group:
+
+   | Action | RBAC role |
+   |--|--|
+   | Create and add session hosts using the Azure portal | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+
+::: zone-end
+
+::: zone pivot="host-pool-standard"
+- The Azure account you use must have the following built-in role-based access control (RBAC) roles or equivalent as a minimum on the resource group:
 
    | Action | RBAC role or roles |
    |--|--|
    | Generate a registration key for the host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
    | Create and add session hosts by using the Azure portal (Azure and Azure Extended Zones) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
    | Create and add session hosts by using the Azure portal (Azure Stack HCI) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
-
-   Alternatively, you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role.
 
 - Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when you're creating and adding session hosts by using the Azure portal. [PowerShell DSC](/powershell/dsc/overview) requires it.
 
@@ -61,20 +92,22 @@ For a general idea of what's required, such as supported operating systems, virt
 
   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see [Request access to an Azure Extended Zone](../extended-zones/request-access.md).
 
-  - An existing [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network to which you're deploying the session hosts.
+  - An [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) with an outbound rule on the virtual network to which you're deploying session hosts. You can use an existing load balancer or you create a new one when adding session hosts.
 
 - If you want to use the Azure CLI or Azure PowerShell locally, see [Use the Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) Azure PowerShell module installed. Alternatively, use [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!IMPORTANT]
-> If you want to create Microsoft Entra joined session hosts, we support this action only if you use the Azure portal with the Azure Virtual Desktop service.
+> If you want to create Microsoft Entra joined session hosts, we only support this using the [`AADLoginForWindows`](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows) VM extension, which is added and configured automatically when using the Azure portal or ARM template with the Azure Virtual Desktop service.
+::: zone-end
 
+::: zone pivot="host-pool-standard"
 ## Generate a registration key
 
 When you add session hosts to a host pool, first you need to generate a registration key for that host pool. A registration key authorizes session hosts to join the host pool. It's valid only for the duration that you specify.
 
 To generate a registration key, select the relevant tab for your scenario and follow the steps.
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Here's how to generate a registration key by using the Azure portal:
 
@@ -86,7 +119,7 @@ Here's how to generate a registration key by using the Azure portal:
 
 1. On the host pool overview, select **Registration key**.
 
-1. Select **Generate new key**, enter an expiration date and time, and then select **OK**.
+1. Select **Generate new key**, enter an expiration date and time, and then select **OK**. The registration key is created.
 
 1. Select **Download** to download a text file that contains the newly created registration key, or copy the registration key to your clipboard to use it later. You can also retrieve the registration key later by returning to the host pool overview.
 
@@ -95,6 +128,7 @@ Here's how to generate a registration key by using the Azure portal:
 Here's how to generate a registration key by using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) Azure PowerShell module. In the following examples, be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
 2. Use the `New-AzWvdRegistrationInfo` cmdlet by using the following example to generate a registration key that's valid for 24 hours.
 
    ```azurepowershell
@@ -142,7 +176,29 @@ Here's how to generate a registration key by using the [desktopvirtualization](/
    ```
 
 ---
+:::zone-end
 
+::: zone pivot="host-pool-session-host-configuration"
+## Add session hosts
+
+You can use the Azure portal to specify the number of session hosts you want to add, then Azure Virtual Desktop automatically creates them based on the session host configuration. You can't use PowerShell to add session hosts to a host pool with a session host configuration.
+
+Here's how to add session hosts:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+
+1. Select **Host pools**, then select the name of the host pool you want to add session hosts to.
+
+1. On the host pool overview, select **Session hosts**, then select **+ Add**.
+
+1. For **Number of session hosts to be added**, enter the number of session hosts you want to create. If you want to review the session host configuration that is used, see **View session host configuration**. To edit the session host configuration, see [Schedule an update and edit session host configuration](session-host-update-configure.md#schedule-an-update-and-edit-a-session-host-configuration). 
+
+1. Select **Add**. The number of session hosts you entered is created and added to the host pool.
+::: zone-end
+
+::: zone pivot="host-pool-standard"
 ## Create and register session hosts with the Azure Virtual Desktop service
 
 You can create session hosts and register them to a host pool in a single end-to-end process with the Azure Virtual Desktop service by using the Azure portal or an Azure Resource Manager template (ARM template). You can find some example ARM templates in [this GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
@@ -195,6 +251,7 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Confirm password** | Reenter the password. |
       | **Custom configuration** |  |
       | **Custom configuration script URL** | If you want to run a PowerShell script during deployment, you can enter the URL here. |
+
    </details>
 
    <details>
@@ -222,6 +279,7 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Username** | Enter a name to use as the local administrator account for the new session hosts. |
       | **Password** | Enter a password for the local administrator account. |
       | **Confirm password** | Reenter the password. |
+
    </details>
 
    <details>
@@ -232,14 +290,13 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
       | **Virtual machine type** | Select **Azure virtual machine**. |
-      | **Virtual machine location** | Select the Azure region where you want to deploy your session hosts. It must be the same region that contains your virtual network. Then select **Deploy to an Azure Extended Zone**. |
-      | **Azure Extended Zones** |  |
-      | **Azure Extended Zone** | Select **Los Angeles**. |
-      | **Place the session host(s) behind an existing load balancing solution?** | Select the box. This action shows options for selecting a load balancer and a back-end pool.|
-      | **Select a load balancer** | Select an existing load balancer on the virtual network to which you're deploying the session hosts. |
-      | **Select a backend pool** | Select a back-end pool on the load balancer in which you want to place the sessions hosts. |
-      | **Availability options** | Select from [availability zones](/azure/reliability/availability-zones-overview), [availability set](/azure/virtual-machines/availability-set-overview), or **No infrastructure dependency required**. If you select **availability zones** or **availability set**, complete the extra parameters that appear.  |
-      | **Security type** | Select from **Standard**, [Trusted launch virtual machines](/azure/virtual-machines/trusted-launch), or [Confidential virtual machines](/azure/confidential-computing/confidential-vm-overview).<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
+      | **Virtual machine location** | Select **Deploy to an Azure Extended Zone**. |
+      | **Azure Extended Zone** | Select the Extended Zone you require. |
+      | **Network and security** |  |
+      | **Select a load balancer** | Select an existing Azure load balancer on the same virtual network you want to use for your session hosts, or select **Create a load balancer** to create a new load balancer.|
+      | **Select a backend pool** | Select a backend pool on the load balancer you want to use for your session hosts. If you're creating a new load balancer, select **Create new** to create a new backend pool for the new load balancer. |
+      | **Add outbound rule** | If you're creating a new load balancer, select **Create new** to create a new outbound rule for it. |
+
    </details>
 
    After you complete this tab, select **Next: Tags**.
@@ -257,7 +314,7 @@ Here's how to create session hosts and register them to a host pool by using the
 
 If you created virtual machines by using an alternative method outside Azure Virtual Desktop, such as an automated pipeline, you need to register them separately as session hosts to a host pool.
 
-To register session hosts to a host pool, you need to install the Azure Virtual Desktop Agent and the Azure Virtual Desktop Agent Bootloader on each virtual machine and use the registration key that you generated. You can register session hosts to a host pool by using the agent installers' graphical user interface (GUI) or by using `msiexec` from a command line.
+To register session hosts to a host pool, you need to install the Azure Virtual Desktop Agent and the Azure Virtual Desktop Agent Boot Loader on each virtual machine and use the registration key that you generated. You can register session hosts to a host pool by using the agent installers' graphical user interface (GUI) or by using `msiexec` from a command line.
 
 After you finish, four applications are listed as installed applications:
 
@@ -276,7 +333,7 @@ Select the relevant tab for your scenario and follow the steps.
 
 1. Sign in to your virtual machine as an administrator.
 
-1. Download the installation files for the agent and the agent boot loader by using the following links. If you need to unblock them, right-click each file, select **Properties**, select **Unblock**, and finally select **OK**.
+1. Download the installation files for the Agent and the Agent Boot Loader by using the following links. If you need to unblock them, right-click each file, select **Properties**, select **Unblock**, and finally select **OK**.
 
    - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
    - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
@@ -304,13 +361,13 @@ You can use `msiexec` to install the agent and the boot loader from the command 
 
 1. Make sure the virtual machines that you want to use as session hosts are joined to Microsoft Entra ID or an Active Directory domain (Active Directory Domain Services or Microsoft Entra Domain Services).
 
-1. If your virtual machines are running a Windows Server OS, you need to install the *Remote Desktop Session Host* role by running the following command as an administrator, which also restarts the virtual machines.
+1. If your virtual machines are running a Windows Server OS, you need to install the *Remote Desktop Session Host* role by running the following PowerShell command as an administrator, which also restarts the virtual machines.
 
    ```powershell
    Install-WindowsFeature -Name RDS-RD-Server -Restart
    ```
 
-1. Download the installation files for the agent and the agent boot loader, and unblock them by running the following commands. The files are downloaded to the current working directory.
+1. Download the installation files for the Agent and the Agent Boot Loader, and unblock them by running the following commands. The files are downloaded to the current working directory.
 
    ```powershell
    $uris = @(
@@ -354,6 +411,7 @@ You can use `msiexec` to install the agent and the boot loader from the command 
 1. After the status of the session hosts is **Available**, restart the virtual machines.
 
 ---
+::: zone-end
 
 ## Post-deployment tasks
 

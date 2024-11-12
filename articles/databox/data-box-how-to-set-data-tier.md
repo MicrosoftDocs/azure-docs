@@ -4,8 +4,7 @@ description: Describes how to use Azure Data Box or Azure Data Box Heavy to send
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/24/2019

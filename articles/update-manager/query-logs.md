@@ -4,13 +4,13 @@ description: This article provides details on how Access Azure Update Manager op
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 08/27/2024
+ms.date: 09/10/2024
 ms.topic: overview
 ---
 
 # Access Azure Update Manager operations data using Azure Resource Graph
 
-Logs created from operations like update assessments and installations are stored by Azure Update Manager in [Azure Resource Graph](../governance/resource-graph/overview.md). Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update Manager uses Resource Graph to store its results. You can view the update assessment history for the last 7 days and update installations history for the last 30 days from the Resource Graph.
+Logs created from operations like update assessments and installations are stored by Azure Update Manager in [Azure Resource Graph](../governance/resource-graph/overview.md). Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update Manager uses Resource Graph to store its results. You can view the most recent update assessment history for the last 7 days and update installations history for the last 30 days from the Resource Graph.
 
 This article describes the structure of the logs from Update Manager and how you can use [Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) to analyze them in support of your reporting, visualizing, and export needs.
 

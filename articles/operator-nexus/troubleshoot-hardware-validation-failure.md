@@ -195,6 +195,34 @@ Expanding `result_detail` for a given category shows detailed results.
       }
   ```
 
+    * Firmware versions are logged as informational. The following component firmware versions are typically logged (depending on hardware model):
+        * BIOS
+        * iDRAC
+        * Complex Programmable Logic Device (CPLD)
+        * RAID Controller
+        * Backplane
+
+    * The HWV framework identifies problematic firmware versions and attempts to auto fix. The following example shows a successful iDRAC firmware fix (versions and task ID are illustrational only).
+
+  ```yaml
+      {
+          "system_info": {
+              "system_info_result": "Pass",
+              "result_detail": [
+                  {
+                    "field_name": "Integrated Dell Remote Access Controller - unsupported_firmware_check",
+                    "comparison_result": "Pass",
+                    "expected": "6.00.30.00 - unsupported_firmware",
+                    "fetched": "7.10.30.00"
+                  }
+              ],
+              "result_log": [
+                  "Firmware autofix task /redfish/v1/TaskService/Tasks/JID_274085357727 completed"
+              ]
+          },
+      }
+  ```
+
 ### Drive info category
 
 * Disk Checks Failure
@@ -450,6 +478,17 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+    * Allow listed critical alarms and warning alarms are logged as informational starting with Nexus release 3.14.
+
+    ```yaml
+        {
+            "field_name": "LCLog_Warning_Alarms - Non-Failing",
+            "comparison_result": "Info",
+            "expected": "Warning Alarm",
+            "fetched": "104473 2024-07-26T16:05:19-05:00 The Embedded NIC 1 Port 1 network link is down."
+        }
+    ```
+
     * To check LC logs in BMC webui:
 
         `BMC` -> `Maintenance` -> `Lifecycle Log`
@@ -491,6 +530,17 @@ Expanding `result_detail` for a given category shows detailed results.
     ```
 
     * To troubleshoot server power-on failure attempt a flea drain. If problem persists engage vendor.
+
+* Virtual Flea Drain
+    * HWV attempts a virtual flea drain for most failing checks. Flea drain attempts are logged under `health_info` -> `result_log`.
+
+    ```yaml
+        "result_log": [
+          "flea drain completed successfully",
+        ]
+    ```
+
+    * If the virtual flea drain fails, perform a physical flea drain as a first troubleshooting step.
 
 * RAID cleanup failures
     * As part of RAID cleanup, the RAID controller configuration is reset. Dell server health check fails for RAID controller reset failure. A failed RAID cleanup action indicates an underlying hardware issue. The following example shows a failed RAID controller reset.
@@ -614,11 +664,17 @@ Expanding `result_detail` for a given category shows detailed results.
 ### Device login check
 
 * Device Login Check Considerations
-    * The `device_login` check fails if the iDRAC isn't accessible or if the hardware validation plugin isn't able to sign-in.
+    * The `device_login` check fails if the iDRAC isn't reachable or if the hardware validation plugin isn't able to sign-in.
 
     ```yaml
         {
-            "device_login": "Fail"
+            "device_login": "Fail - Unreachable"
+        }
+    ```
+
+    ```yaml
+        {
+            "device_login": "Fail - Unauthorized"
         }
     ```
 
@@ -638,5 +694,5 @@ Expanding `result_detail` for a given category shows detailed results.
 
 After Hardware is fixed, run BMM Replace following instructions from the following page [BMM actions](howto-baremetal-functions.md).
 
-
-
+If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).

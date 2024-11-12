@@ -2,7 +2,7 @@
 title: Process Synthetic Aperture Radar (SAR) data
 description: View a reference architecture that enables processing SAR/Remote Sensing data on Azure by using Apache Spark on Azure Synapse.
 author: meaghanlewis
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: article
 ms.custom: ga
 ms.date: 10/20/2022
