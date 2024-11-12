@@ -30,7 +30,7 @@ To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operation
 ## Retrieve Custom Endpoint connection details
 Retrieve the [Kafka-compatible connection details for the Custom Endpoint](/fabric/real-time-intelligence/event-streams/add-source-custom-app#kafka). You need:
 
-:::image type="content" source="media/howto-configure-fabric-rti/event-stream-kafka.png" alt-text="Screenshot in Micrsoft Fabric that has the Custom Endpoint connection details.":::
+:::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-kafka.png" alt-text="Screenshot in Micrsoft Fabric that has the Custom Endpoint connection details.":::
 
 #### Hostname
 The bootstrap server address is used for the hostname property in Dataflow endpoint. 
@@ -53,7 +53,7 @@ Azure Key Vault is the recommended way to sync the connection string to the Kube
 1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Microsoft Fabric Real-Time Intelligence** > **New**.
 
-    :::image type="content" source="media/howto-configure-fabric-rti/event-stream-sasl.png" alt-text="Screenshot using operations experience to create a new Fabric Real-Time Intelligence dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-sasl.png" alt-text="Screenshot using operations experience to create a new Fabric Real-Time Intelligence dataflow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
