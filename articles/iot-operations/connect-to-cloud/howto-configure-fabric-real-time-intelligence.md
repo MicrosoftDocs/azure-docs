@@ -30,7 +30,7 @@ To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operation
 ## Retrieve Custom Endpoint connection details
 Retrieve the [Kafka-compatible connection details for the Custom Endpoint](/fabric/real-time-intelligence/event-streams/add-source-custom-app#kafka). You need:
 
-:::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-kafka.png" alt-text="Screenshot in Micrsoft Fabric that has the Custom Endpoint connection details.":::
+:::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-kafka.png" alt-text="Screenshot in Microsoft Fabric that has the Custom Endpoint connection details.":::
 
 #### Hostname
 The bootstrap server address is used for the hostname property in Dataflow endpoint. 
@@ -39,7 +39,7 @@ The bootstrap server address is used for the hostname property in Dataflow endpo
 The event hub name is used as the Kafka topic and is of the form *es_xxxxxxx*.
 
 #### Custom Endpoint connection string
-The connection string string for the primary key. 
+The connection string with the primary key. 
 
 
 ## Create a Microsoft Fabric Real-Time Intelligence dataflow endpoint
