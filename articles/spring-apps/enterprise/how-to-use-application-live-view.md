@@ -74,7 +74,7 @@ Use the following steps to provision an Azure Spring Apps service instance using
        --plan asa-ent-hr-mtr
    ```
 
-1. Select a location. This location must be a location supporting the Azure Spring Apps Enterprise plan. For more information, see the [Azure Spring Apps FAQ](faq.md).
+1. Select a location. This location must be a location supporting the Azure Spring Apps Enterprise plan. For more information, see the [Azure Spring Apps FAQ](../basic-standard/faq.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 1. Use the following command to create a resource group:
 

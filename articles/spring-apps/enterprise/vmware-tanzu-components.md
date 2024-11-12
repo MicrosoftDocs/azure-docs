@@ -104,4 +104,4 @@ For more information, see [Use VMware Tanzu Application Accelerator with the Azu
 
 ## Next steps
 
-- [Launch your first app](./quickstart.md)
+- [Launch your first app](../basic-standard/quickstart.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)

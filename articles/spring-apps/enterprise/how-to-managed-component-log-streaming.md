@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article describes how to use the Azure CLI to get real-time logs of managed components for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md). For more information on streaming logs, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md) and [Stream Azure Spring Apps job logs in real time](./how-to-job-log-streaming.md).
+This article describes how to use the Azure CLI to get real-time logs of managed components for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](../basic-standard/diagnostic-services.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json). For more information on streaming logs, see [Stream Azure Spring Apps application console logs in real time](../basic-standard/how-to-log-streaming.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json) and [Stream Azure Spring Apps job logs in real time](./how-to-job-log-streaming.md).
 
 ## Prerequisites
 
@@ -290,7 +290,7 @@ When you stream logs for multiple instances in a component, the logs of one inst
 
 ## Stream logs in a virtual network injection instance
 
-For an Azure Spring Apps instance deployed in a custom virtual network, you can access log streaming by default from a private network. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md)
+For an Azure Spring Apps instance deployed in a custom virtual network, you can access log streaming by default from a private network. For more information, see [Deploy Azure Spring Apps in a virtual network](../basic-standard/how-to-deploy-in-azure-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 Azure Spring Apps also enables you to access real-time managed component logs from a public network.
 
@@ -307,7 +307,7 @@ Use the following steps to enable a log streaming endpoint on the public network
 
 1. Switch the status of **Dataplane resources on public network** to **Enable** to enable a log streaming endpoint on the public network. This process takes a few minutes.
 
-   :::image type="content" source="media/how-to-managed-component-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of the Azure portal that shows the Networking page with the Vnet injection tab selected and the Troubleshooting section highlighted." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
+   :::image type="content" source="./media/how-to-managed-component-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of the Azure portal that shows the Networking page with the Vnet injection tab selected and the Troubleshooting section highlighted." lightbox="./media/how-to-managed-component-log-streaming/dataplane-public-endpoint.png":::
 
 ### [Azure CLI](#tab/azure-CLI)
 
@@ -344,5 +344,5 @@ The following table shows an example of a basic rule that we recommend. You can 
 
 - [Troubleshoot VMware Spring Cloud Gateway](./how-to-troubleshoot-enterprise-spring-cloud-gateway.md)
 - [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md)
-- [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md)
+- [Stream Azure Spring Apps application console logs in real time](../basic-standard/how-to-log-streaming.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 - [Stream Azure Spring Apps job logs in real time](./how-to-job-log-streaming.md)

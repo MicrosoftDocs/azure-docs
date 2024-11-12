@@ -37,7 +37,7 @@ az spring config-server git set \
 ```
 
 > [!TIP]
-> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](../enterprise/how-to-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json).
+> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](../basic-standard/how-to-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json).
 
 ## Enable Config Server
 

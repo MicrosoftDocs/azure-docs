@@ -20,7 +20,7 @@ This article shows you how to use Application Configuration Service for VMware T
 
 [Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.3/acs/GUID-overview.html) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native `ConfigMap` resources that are populated from properties defined in one or more Git repositories.
 
-With Application Configuration Service, you have a central place to manage external properties for applications across all environments. To understand the differences from Spring Cloud Config Server in the Basic and Standard plans, see the [Use Application Configuration Service for external configuration](./how-to-migrate-standard-tier-to-enterprise-tier.md#use-application-configuration-service-for-external-configuration) section of [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](./how-to-migrate-standard-tier-to-enterprise-tier.md).
+With Application Configuration Service, you have a central place to manage external properties for applications across all environments. To understand the differences from Spring Cloud Config Server in the Basic and Standard plans, see the [Use Application Configuration Service for external configuration](../basic-standard/how-to-migrate-standard-tier-to-enterprise-tier.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#use-application-configuration-service-for-external-configuration) section of [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](../basic-standard/how-to-migrate-standard-tier-to-enterprise-tier.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 Application Configuration Service is offered in two versions: Gen1 and Gen2. The Gen1 version mainly serves existing customers for backward compatibility purposes, and is supported only until April 30, 2024. New service instances should use Gen2. The Gen2 version uses [flux](https://fluxcd.io/) as the backend to communicate with Git repositories, and provides better performance compared to Gen1.
 
@@ -240,7 +240,7 @@ az spring application-configuration-service git repo add \
 
 This step is optional. If you use a self-signed certificate for the Git backend, you must configure the TLS certificate to access the Git backend.
 
-You need to upload the certificate to Azure Spring Apps first. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+You need to upload the certificate to Azure Spring Apps first. For more information, see the [Import a certificate](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ### [Azure portal](#tab/Portal)
 
@@ -451,7 +451,7 @@ You can also use this command with the `--export-path {/path/to/target/folder}` 
 
 After you bind the app to the Application Configuration Service and set the [Pattern](#pattern) for the app deployment, as described in the [Use Application Configuration Service with applications](#use-application-configuration-service-with-applications) section of this article, the `ConfigMap` containing the configuration file for the pattern should be mounted to the application container. Use the following steps to check the configuration files in each instance of the app deployment:
 
-1. Connect to one of the application instances. For more information, see [Connect to an app instance for troubleshooting](./how-to-connect-to-app-instance-for-troubleshooting.md).
+1. Connect to one of the application instances. For more information, see [Connect to an app instance for troubleshooting](../basic-standard/how-to-connect-to-app-instance-for-troubleshooting.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 1. Use the `echo $AZURE_SPRING_APPS_CONFIG_FILE_PATH` command to find the folders containing the configuration files. A list of locations shows up separated by commas, as shown in the following example:
 
