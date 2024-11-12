@@ -2,7 +2,7 @@
 title: About Azure Database for PostgreSQL backup
 description: An overview on Azure Database for PostgreSQL backup
 ms.topic: overview
-ms.date: 09/09/2024
+ms.date: 11/20/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -97,7 +97,7 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
 
 1. Network line of sight access on the Azure PostgreSQL server: Set ‘Allow access to Azure services’ flag to ‘Yes’.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server-inline.png" alt-text="Screenshot showing the option to set network line of sight access on the Azure PostgreSQL server." lightbox="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server.png" alt-text="Screenshot showing the option to set network line of sight access on the Azure PostgreSQL server." lightbox="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server.png":::
 
 ### Access permissions on the Azure Key vault (associated with the PostgreSQL server)
 
@@ -163,7 +163,7 @@ Create new server with a name of your choice. Enter the Host name/address name s
 
 Ensure that you add the _current client ID address_ to the Firewall rules for the connection to go through.
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-inline.png" alt-text="Screenshot showing the process to add the current client I D address to the Firewall rules." lightbox="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules.png" alt-text="Screenshot showing the process to add the current client I D address to the Firewall rules." lightbox="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules.png":::
 
 You can add new databases and database users to the server. For database users, add a new **Login/Group Roles**’. Ensure **Can login?** is set to **Yes**.
 
