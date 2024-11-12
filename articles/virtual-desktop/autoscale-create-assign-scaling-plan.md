@@ -438,11 +438,11 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
     - Maximum host pool size
     
     > [!IMPORTANT]
-    > - If you've enabled autoscale to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions (active and disconnected) to shut down. Autoscale will put the session host in drain mode, send those user sessions a notification telling them they'll be signed out, and then sign out those users after the specified wait time is over. After autoscale signs out those user sessions, it then deallocates the VM.
+    > - If you've enabled autoscale to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions (active and disconnected) to shut down or delete. Autoscale will put the session host in drain mode, send those user sessions a notification telling them they'll be signed out, and then sign out those users after the specified wait time is over. After autoscale signs out those user sessions, it then deallocates or deletes the VM.
     >    
     > - If you haven't enabled forced sign out during ramp-down, you then need to choose whether you want to shut down ‘VMs have no active or disconnected sessions’ or ‘VMs have no active sessions’ during ramp-down.
     >
-    > - Whether you’ve enabled autoscale to force users to sign out during ramp-down or not, the [capacity threshold](autoscale-glossary.md#capacity-threshold) and the [minimum percentage of hosts](autoscale-glossary.md#minimum-percentage-of-hosts) are still respected, autoscale will only shut down VMs if all existing user sessions (active and disconnected) in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
+    > - Whether you’ve enabled autoscale to force users to sign out during ramp-down or not, the [capacity threshold](autoscale-glossary.md#capacity-threshold) and the [minimum percentage of hosts](autoscale-glossary.md#minimum-percentage-of-hosts) are still respected, autoscale will only shut down/delete VMs if all existing user sessions (active and disconnected) in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
     
 1. Likewise, **Off-peak hours** works the same way as **Peak hours**:
     
