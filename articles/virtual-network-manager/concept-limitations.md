@@ -42,6 +42,7 @@ This article provides an overview of the current limitations when you're using [
   * [Azure Payment HSM](/azure/payment-hsm/solution-design)
 * The maximum number of private endpoints per connected group is 1000.
 * You can have virtual networks with overlapping IP spaces in the same connected group. However, communication to an overlapped IP address is dropped.
+* When a connected group’s VNet is peered with an external VNet that has overlapping CIDRs, these overlapping CIDRs become inaccessible within the connected group. Traffic from the peered VNet in the connected group to the overlapping CIDR is routed to the external VNet, while traffic from other VNets in the connected group to the overlapping CIDR is dropped.
 
 ## Limitations for security admin rules
 
