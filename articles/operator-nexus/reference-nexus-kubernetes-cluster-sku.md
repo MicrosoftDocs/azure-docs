@@ -28,6 +28,11 @@ All these SKUs are having the following characteristics:
 
 The general purpose and performance optimized VM SKUs can be used for both worker and control plane nodes within the Azure Operator Nexus Kubernetes cluster. Memory optimized VM SKUs can only be used for worker nodes.
 
+> [!NOTE]
+> To use these VM SKUs, hardware compatibility should be considered. Operator Nexus offers two hardware options: BOM 1.7.3 and BOM 2.0 (More details [here](./reference-operator-nexus-skus.md)). The larger VM SKUs, specifically `NC_G56_224_v1`, `NC_P54_224_v1`, and `NC_E110_448_v1`, can only be supported on hardware BOM 2.0.
+> 
+> Current Nexus Tenant Kubernetes cluster VM SKUs are compatible with BOM 2.0, enabling users to use them alongside these larger SKUs. However, if a user tries to use BOM 2.0-specific SKUs on BOM 1.7.3 hardware, they will encounter an "insufficient resources" error during resource creation.
+
 ## General purpose VM SKUs
 
 | VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) |
