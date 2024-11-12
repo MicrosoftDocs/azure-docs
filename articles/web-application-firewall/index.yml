@@ -119,6 +119,12 @@ landingContent:
         links:
          - text: Azure network security
            url: ../networking/security/index.yml
+      - linkListType: concept
+        links:
+          - text: Azure DDoS Protection
+            url: ../ddos-protection/index.yml
+          - text: Azure Firewall
+            url: ../firewall/index.yml
 
 # Card
   - title: Reference
