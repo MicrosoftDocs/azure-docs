@@ -29,7 +29,7 @@ After registering a new application, you can find the application (client) ID an
 
 [ ![Screenshot of client ID overview panel.](media/register-application-three.png) ](media/register-application-three.png#lightbox)
 
-[ ![Screenshot of client ID](media/register-application-four.png) ](media/register-application-four.png#lightbox)
+[ ![Screenshot of client ID](media/register-application-four-fixNov24.png) ](media/register-application-four-fixNov24.png#lightbox)
 
 ## Authentication setting: confidential vs. public
 
@@ -47,7 +47,7 @@ For tools that require a redirect URL, select **Add a platform** to configure th
 
 For Postman, select **Mobile and desktop applications**. Enter "https://www.getpostman.com/oauth2/callback" in the **Custom redirect URIs** section. Select the **Configure** button to save the setting.
 
-[ ![Screenshot of configure other services.](media/register-application-five-bravo.png) ](media/register-application-five-bravo.png#lightbox)
+[ ![Screenshot of configure other services.](media/register-application-five-bravo-fixNov24.png) ](media/register-application-five-bravo-fixNov24.png#lightbox)
 
 ## Certificates & secrets
 
