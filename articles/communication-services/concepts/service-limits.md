@@ -310,6 +310,4 @@ You can find more information about Microsoft Graph [throttling](/graph/throttli
 
 ## Next steps
 
-- [Azure Communication Services](../overview.md)
-- [Azure AI Studio](/azure/ai-studio/)
 - [Help and support options](../support.md)
