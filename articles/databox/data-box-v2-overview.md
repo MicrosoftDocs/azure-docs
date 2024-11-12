@@ -11,7 +11,7 @@ ms.author: shaas
 ms.custom: references_regions
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
 ---
-# What is Azure Data Box?
+# What is Azure Data Box V2?
 
 The Microsoft Azure Data Box cloud solution lets you send terabytes of data into and out of Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary Data Box storage device. These storage devices come in two variations having a maximum usable storage capacity of 120 TB and 525 TB respectively. These are transported to your data center through a regional carrier. These devices have a rugged casing to protect and secure data during the transit. 
 

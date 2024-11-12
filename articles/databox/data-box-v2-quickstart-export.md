@@ -11,7 +11,7 @@ ms.custom: mode-other
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 
-# Quickstart: Get started with Azure Data Box to export data from Azure
+# Quickstart: Get started with Azure Data Box V2 to export data from Azure
 
 This quickstart describes how to export data out of Azure into your location using the Azure portal. The steps include how to cable, configure, and copy data from Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
