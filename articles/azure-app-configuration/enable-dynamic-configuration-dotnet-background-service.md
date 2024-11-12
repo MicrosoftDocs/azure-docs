@@ -74,11 +74,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. 
-    
-    1. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader role**. Be sure to allow sufficient time for the permission to propagate before running your application.
-
-   1. Update the code in Program.cs.
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader role**. Be sure to allow sufficient time for the permission to propagate before running your application.
  
     ```csharp
     // Existing code in Program.cs
