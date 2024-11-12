@@ -3,7 +3,7 @@ title: Best practices for data collection in Microsoft Sentinel
 description: Learn about best practices to employ when connecting data sources to Microsoft Sentinel.
 author: yelevin
 ms.author: yelevin
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/12/2024
 
 
@@ -48,10 +48,10 @@ Standard configuration for data collection might not work well for your organiza
 
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|
-|**Requires log filtering**     | Use Logstash <br><br>Use Azure Functions <br><br> Use LogicApps <br><br> Use custom code (.NET, Python)  |  While filtering can lead to cost savings, and ingests only the required data, some Microsoft Sentinel features aren't supported, such as [UEBA](identify-threats-with-entity-behavior-analytics.md), [entity pages](entity-pages.md), [machine learning](bring-your-own-ml.md), and [fusion](fusion.md). <br><br>When configuring log filtering, make updates in resources such as threat hunting queries and analytics rules     |
+|**Requires log filtering**     | Use Logstash <br><br>Use Azure Functions <br><br> Use LogicApps <br><br> Use custom code (.NET, Python)  |  While filtering can lead to cost savings, and ingests only the required data, some Microsoft Sentinel features aren't supported, such as [UEBA](identify-threats-with-entity-behavior-analytics.md), [entity pages](entity-pages.md), [machine learning](bring-your-own-ml.md), and [fusion](fusion.md). <br><br>When configuring log filtering, make updates in resources such as threat hunting queries and analytics rules.     |
 |**Agent cannot be installed**     |Use Windows Event Forwarding, supported with the [Azure Monitor Agent](connect-windows-security-events.md#connector-options)       |   Using Windows Event forwarding lowers load-balancing events per second from the Windows Event Collector, from 10,000 events to 500-1000 events.|
 |**Servers do not connect to the internet**     | Use the [Log Analytics gateway](/azure/azure-monitor/agents/gateway)        | Configuring a proxy to your agent requires extra firewall rules to allow the Gateway to work.        |
-|**Requires tagging and enrichment at ingestion**     |Use Logstash to inject a ResourceID <br><br>Use an ARM template to inject the ResourceID into on-premises machines <br><br>Ingest the resource ID into separate workspaces        | Log Analytics doesn't support RBAC for custom tables <br><br>Microsoft Sentinel doesn’t support row-level RBAC <br><br>**Tip**: You might want to adopt cross workspace design and functionality for Microsoft Sentinel.        |
+|**Requires tagging and enrichment at ingestion**     |Use Logstash to inject a ResourceID <br><br>Use an ARM template to inject the ResourceID into on-premises machines <br><br>Ingest the resource ID into separate workspaces        | Log Analytics doesn't support role-based access control (RBAC) for custom tables. <br><br>Microsoft Sentinel doesn’t support row-level RBAC. <br><br>**Tip**: You might want to adopt cross workspace design and functionality for Microsoft Sentinel.        |
 |**Requires splitting operation and security logs**     | Use the [Microsoft Monitor Agent or Azure Monitor Agent](connect-windows-security-events.md) multi-home functionality        |  Multi-home functionality requires more deployment overhead for the agent.       |
 |**Requires custom logs**     |   Collect files from specific folder paths <br><br>Use API ingestion <br><br>Use PowerShell <br><br>Use Logstash     |   You might have issues filtering your logs. <br><br>Custom methods aren't supported. <br><br>Custom connectors might require developer skills.       |
 
@@ -100,10 +100,10 @@ If you need to collect Microsoft Office data, outside of the standard connector 
 |**RBAC, tagging, and enrichment at ingestion**     |    Create custom collection via Logstash or the Log Analytics API.     |  RBAC isn't supported for custom tables <br><br>Row-level RBAC isn't supported for any tables.       |
 
 
-## Next steps
+## Related content
 
 For more information, see:
 
-- [Pre-deployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md)
+- [Predeployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md)
 - [Best practices for Microsoft Sentinel](best-practices.md)
 - [Connect data sources](connect-data-sources.md)
