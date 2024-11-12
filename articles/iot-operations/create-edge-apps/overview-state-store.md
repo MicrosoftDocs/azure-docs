@@ -1,13 +1,13 @@
 ---
 title: Persisting data in the state store
-description: Using the state store to persist data between sessions
+description: Understand how to develop application that persist data between sessions using the state store.
 author: PatAltimore
 ms.subservice: azure-mqtt-broker
 ms.author: patricka
 ms.topic: concept-article
 ms.custom:
   - ignite-2023
-ms.date: 10/22/2024
+ms.date: 11/12/2024
 
 #CustomerIntent: As an developer, I want understand how to develop application that persist data between sessions using the state store.
 ms.service: azure-iot-operations
@@ -25,10 +25,10 @@ The state store is implemented via MQTTv5. Its service is integrated directly in
 
 The state store allows an edge application to persist data on the edge. Typical uses of the state store include:
 
-1. Creating stateless applications
-1. Sharing state between applications
-1. Developing highly available applications
-1. Storing data to be used by dataflows
+* Creating stateless applications
+* Sharing state between applications
+* Developing highly available applications
+* Storing data to be used by dataflows
 
 ## State store authorization
 
