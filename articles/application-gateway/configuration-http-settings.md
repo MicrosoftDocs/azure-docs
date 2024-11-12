@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: conceptual
-ms.date: 09/30/2023
+ms.date: 10/03/2024
 ms.author: greglin
 ---
 
@@ -26,7 +26,7 @@ The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chrom
 
 To support this change, starting February 17 2020, Application Gateway (all the SKU types) will inject another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie. The *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it (*"SameSite=None; Secure"*) so that sticky sessions are maintained even for cross-origin requests.
 
-Note that the default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. If you deploy multiple application gateway instances in the same network topology, you must set unique cookie names for each instance. If you're using a custom affinity cookie name, an additional cookie is added with `CORS` as suffix. For example: *CustomCookieNameCORS*.
+Note that the default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. If in your network topology, you deploy multiple application gateways in line, you must set unique cookie names for each resource. If you're using a custom affinity cookie name, an additional cookie is added with `CORS` as suffix. For example: *CustomCookieNameCORS*.
 
 > [!NOTE]
 > If the attribute *SameSite=None* is set, it is mandatory that the cookie also contains the *Secure* flag, and must be sent over HTTPS.  If session affinity is required over CORS, you must migrate your workload to HTTPS. 
@@ -35,8 +35,7 @@ Please refer to TLS offload and End-to-End TLS documentation for Application Gat
 ## Connection draining
 
 Connection draining helps you gracefully remove backend pool members during planned service updates. It applies to backend instances that are 
-- explicitly removed from the backend pool,
-- removed during scale-in operations, or
+- explicitly removed from the backend pool, or
 - reported as unhealthy by the health probes.
 
 You can apply this setting to all backend pool members by enabling Connection Draining in the Backend Setting. It ensures that all deregistering instances in a backend pool don't receive any new requests/connections while maintaining the existing connections until the configured timeout value. This is also true for WebSocket connections.

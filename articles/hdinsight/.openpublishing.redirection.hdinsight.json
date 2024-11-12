@@ -10,11 +10,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/hdinsight/hdinsight-40-component-versioning.md",
-        "redirect_url": "/azure/hdinsight/hdinsight-overview",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/hdinsight/interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md",
         "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false

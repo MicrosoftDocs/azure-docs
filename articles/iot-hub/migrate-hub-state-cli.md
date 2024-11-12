@@ -5,7 +5,7 @@ description: Use the Azure CLI iot hub state command group to migrate an IoT hub
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/14/2023

@@ -16,9 +16,6 @@ This article describes the prerequisites for Azure Kubernetes Service (AKS) back
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. Based on the least privileged security model, a Backup vault must have *Trusted Access* enabled to communicate with the AKS cluster.
 
->[!Note]
->Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
-
 ## Backup Extension
 
 - The extension enables backup and restore capabilities for the containerized workloads and persistent volumes used by the workloads running in AKS clusters. 
@@ -100,7 +97,7 @@ Also, as part of the backup and restore operations, the following roles are assi
 | Reader                         | Backup vault       | Snapshot resource group | Allows the Backup vault to perform _List_ and _Read_ operations on snapshot resource group. |
 | Contributor                    | AKS cluster        | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group.              |
 | Storage Blob Data Contributor    | Extension Identity | Storage account         | Allows Backup Extension to store cluster resource backups in the blob container.            |
-| Data Operator for Managed Disk | Backup vault       | Snapshot Resource Group | Allows Backup Vault service to move incremental snapshot data to the Vault.                  |
+| Data Operator for Managed Disks | Backup vault       | Snapshot Resource Group | Allows Backup Vault service to move incremental snapshot data to the Vault.                  |
 | Disk Snapshot Contributor      | Backup vault       | Snapshot Resource Group | Allows Backup Vault to access Disks snapshots and perform Vaulting operation.                |
 | Storage Blob Data Reader       | Backup vault       | Storage Account         | Allow Backup Vault to access Blob Container with backup data stored to move to Vault.        |
 | Contributor                    | Backup vault       | Staging Resource Group  | Allows Backup Vault to hydrate backups as Disks stored in Vault Tier.                        |

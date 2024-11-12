@@ -8,6 +8,10 @@ ms.topic: reference
 ms.date: 11/13/2023
 ms.author: austinmc
 
+
+
+#Customer intent: As a developer, I want to reference user interface options to create and customize data connectors using a codeless platform so that I can integrate various data sources into Microsoft Sentinel without writing custom code.
+
 ---
 
 # Data connector definitions reference for the Codeless Connector Platform

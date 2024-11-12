@@ -31,6 +31,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/operator-nexus/reference-operator-nexus-network-cloud-SKUsus.md",
+            "redirect_url": "/azure/operator-nexus/reference-operator-nexus-network-cloud-skus-us",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/operator-nexus/concepts-nexus-network.md",
             "redirect_url": "/azure/operator-nexus/concepts-nexus-networking",
             "redirect_document_id": false

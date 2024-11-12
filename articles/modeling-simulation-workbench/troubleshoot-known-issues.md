@@ -3,7 +3,7 @@ title: Known issues for Azure Modeling and Simulation Workbench
 description: "Troubleshooting guide for known issues on Azure Modeling and Simulation Workbench."
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: troubleshooting-known-issue
 ms.date: 09/29/2024
 
@@ -16,6 +16,26 @@ ms.date: 09/29/2024
 The Modeling and Simulation Workbench is a secure, cloud-based platform for collaborative engineering, design, and simulation workloads that require security and confidentiality. The Workbench provides isolation for separate enterprises, allowing each to bring in code, data, or applications and apply them to a shared environment without exposing confidential intellectual property.
 
 This Known Issues guide provides troubleshooting and advisory information for resolving or acknowledging issues to be addressed. Where applicable, workaround or mitigation steps are provided.
+
+## Cadence dependencies
+
+When a Chamber Admin is attempting installation of some recent releases of Cadence tools, some users report missing dependencies on Modeling and Simulation Workbench. To fix this issue, install missing dependencies.
+
+### Troubleshooting steps
+
+During installation, the Cadence dependency checker `checkSysConf` reports that the following packages are missing from Modeling and Simulation Workbench VMs. Some of those packages are installed, but fail the dependency check due to other dependencies.
+
+* `xterm`
+* `motif`
+* `libXp`
+* `apr`
+* `apr-util`
+
+A Chamber Admin can install these packages with the following command in a terminal:
+
+```bash
+sudo yum install motif apr apr-util xterm
+```
 
 ## EDA license upload failures on server name
 
@@ -57,7 +77,7 @@ VENDOR snpslmd /path/to/snpslmd 27021
 
 ## Users on public IP connector with IP on allowlist can't access workbench desktop or data pipeline
 
-A chamber with a public IP connector configured to allow users who's IP is listed after the first entry of the allowlist can't access the chamber either through the desktop or data pipeline using AzCopy. If the allowlist on a public IP connector contains overlapping networks, in some instances the preprocessor might fail to detect the overlapping networks before attempting to commit them to the active NSG. Failures aren't reported back to the user. Other NSG rules elsewhere - either before or after the interfering rule - might not be processed, defaulting to the "deny all" rule. Access to the connector might be blocked unexpectedly for users that previously had access and appear elsewhere in the list. Access is blocked for all connector interactions including desktop, data pipeline upload, and data pipeline download. The connector still responds to port queries, but doesn't allow interactions from an IP or IP range shown in the connector networking allowlist.
+A chamber with a public IP connector configured to allow users who's IP is listed after the first entry of the allowlist can't be accessed either through the desktop or data pipeline using AzCopy. If the allowlist on a public IP connector contains overlapping networks, in some instances the preprocessor might fail to detect the overlapping networks before attempting to commit them to the active NSG. Failures aren't reported back to the user. Other NSG rules elsewhere - either before or after the interfering rule - might not be processed, defaulting to the "deny all" rule. Access to the connector might be blocked unexpectedly for users that previously had access and appear elsewhere in the list. Access is blocked for all connector interactions including desktop, data pipeline upload, and data pipeline download. The connector still responds to port queries, but doesn't allow interactions from an IP or IP range shown in the connector networking allowlist.
 
 ### Prerequisites
 

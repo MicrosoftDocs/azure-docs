@@ -30,9 +30,6 @@ items:
       href: concept-environment-yaml.md  
     - name: Best practices for designing catalogs
       href: best-practice-catalog-structure.md
-    - name: Use Azure Developer CLI with ADE
-      displayName: AZD, setup AZD, template, AZD compatible, AZD admin
-      href: concept-azure-developer-cli-with-deployment-environments.md  
     - name: Reliability in Azure Deployment Environments
       href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json
     - name: Azure role-based access control
@@ -56,6 +53,13 @@ items:
       href: how-to-create-configure-projects.md
     - name: Configure AZD-compatible templates
       href: how-to-configure-azure-developer-cli-deployment-environments.md
+- name: Create and manage environments
+  expanded: false
+  items: 
+    - name: Manage environments in the developer portal
+      href: how-to-manage-environments.md
+    - name: Create environments with Azure CLI
+      href: how-to-create-access-environments.md
 - name: Configure the ADE extensibility model
   expanded: false
   items:
@@ -64,16 +68,19 @@ items:
       displayName: custom image, container, custom runner, extensibility, ARM, Bicep, Terraform, Pulumi 
     - name: Troubleshoot custom image errors and warnings
       displayName: custom image, container, custom runner, extensibility, ARM, Bicep, Terraform, Pulumi
-      href: troubleshoot-custom-image-logs-errors.md
-- name: Create and manage environments
+      href: troubleshoot-custom-image-logs-errors.md 
+- name: Use Azure Developer CLI with ADE
   expanded: false
-  items: 
-    - name: Create environments with Azure Developer CLI (AZD)
-      href: how-to-create-environment-with-azure-developer.md 
-    - name: Manage environments in the developer portal
-      href: how-to-manage-environments.md
-    - name: Create environments with Azure CLI
-      href: how-to-create-access-environments.md
+  items:
+    - name: Use Azure Developer CLI (azd) with ADE
+      displayName: AZD, setup AZD, template, AZD compatible, AZD admin
+      href: concept-azure-developer-cli-with-deployment-environments.md
+    - name: Create environments with Azure Developer CLI (azd)
+      displayName: AZD, setup AZD, template, AZD compatible, AZD admin
+      href: how-to-create-environment-with-azure-developer.md
+    - name: Configure AZD-compatible templates
+      displayName: AZD, setup AZD, template, AZD compatible, AZD admin
+      href: how-to-configure-azure-developer-cli-deployment-environments.md 
 - name: Manage costs
   expanded: false
   items:

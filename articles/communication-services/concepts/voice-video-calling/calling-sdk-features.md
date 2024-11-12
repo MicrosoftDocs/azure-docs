@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: micahvivion
-ms.date: 07/25/2024
+ms.date: 10/31/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -17,7 +17,7 @@ ms.custom: devx-track-js
 
 Azure Communication Services allows end-user browsers, apps, and services to drive voice and video communication. This page focuses on Calling client SDK, which can be embedded in websites and native applications. This page provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manages and access calls using the [Call Automation APIs](../call-automation/call-automation.md). The [Rooms API](../rooms/room-concept.md) is an optional Azure Communication Services API that adds additional features to a voice or video call, such as roles and permissions.
 
-[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
 
 To build your own user experience with the Calling SDK, check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
 
@@ -119,7 +119,7 @@ The following table represents the set of supported browsers, which are currentl
 | Platform     | Chrome | Safari | Edge  | Firefox |  Webview |  Electron |
 | ------------ | ------ | ------ | ------ | ------- | ------- |  ------- |
 | Android      | ✔️      | ❌      | ✔️           | ❌      | ✔️     | ❌      |
-| iOS          | ✔️      | ✔️      | ❌           | ❌      | ✔️      | ❌      |
+| iOS          | ✔️      | ✔️      | ✔️           | ❌      | ✔️      | ❌      |
 | macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      | ✔️     |
 | Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      | ✔️     |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      | ❌     |

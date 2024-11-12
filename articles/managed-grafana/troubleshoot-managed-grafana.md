@@ -139,36 +139,21 @@ Every Grafana instance comes pre-configured with an Azure Monitor data source. W
 
       :::image type="content" source="media/troubleshoot/troubleshoot-dashboard-resource.png" alt-text="Screenshot of the Managed Grafana workspace: Checking dashboard information.":::
 
-1. Open the Azure Monitor data source set-up page
-
-   1. In your Managed Grafana endpoint, select **Configurations** in the left menu and select **Data Sources**.
-   1. Select **Azure Monitor**
-
-1. If the data source uses Managed Identity, then:
+1. In the Managed Grafana UI, select **Configurations** > **Data Sources** from the left menu, and select **Azure Monitor**.
+1. If the data source is configured to use a managed identity:
 
    1. Select the **Load Subscriptions** button to make a quick test. If **Default Subscription** is populated with your subscription, Managed Grafana can access Azure Monitor within this subscription. If not, then there are permission issues.
 
       :::image type="content" source="media/troubleshoot/troubleshoot-load-subscriptions.png" alt-text="Screenshot of the Managed Grafana workspace: Load subscriptions.":::
 
-   1. Check if the system assigned managed identity option is turned on in the Azure portal. If not, turn it on manually:
-      1. Open your Managed Grafana instance in the Azure portal.
-      1. In the left menu, under **Settings**, select **Identity**.
-      1. Select **Status**: **On** and select **Save**
+      Check if a system-assigned or a user-assigned managed identity is enabled in your workspace by going to **Settings** > **Identity (Preview)**. Go to [Set up Azure Managed Grafana authentication and permissions](how-to-authentication-permissions.md) to learn how to enable and configure the managed identity.
 
-      :::image type="content" source="media/troubleshoot/troubleshoot-managed-identity.png" alt-text="Screenshot of the Azure platform: Turn on system-assigned managed identity.":::
-
-   1. Check if the managed identity has the Monitoring Reader role assigned to the Managed Grafana instance. If not, add it manually from the Azure portal:
-      1. Open your Managed Grafana instance in the Azure portal.
-      1. In the left-menu, under **Settings**, select **Identity**.
-      1. Select **Azure role assignments**.
-      1. There should be a **Monitoring Reader** role displayed, assigned to your Managed Grafana instance. If not, select Add role assignment and add the **Monitoring Reader** role.
-
-      :::image type="content" source="media/troubleshoot/troubleshoot-add-role-assignment.png" alt-text="Screenshot of the Azure platform: Adding role assignment.":::
-
+   1. Once you've selected your subscription, select **Save & test**. If you see *No Log Analytics workspaces found*, you may need to assign the Reader role to the managed identity in the Log Analytics workspace. Open your Log Analytics workspace, go to **Settings** > **Access control (IAM)**, **Add** > **Add role assignment**.. 
+ 
 1. If the data source uses an **App Registration** authentication:
    1. In your Grafana endpoint, go to **Configurations > Data Sources > Azure Monitor** and check if the information for **Directory (tenant) ID** and **Application (client) ID** is correct.
-   1. Check if the service principal has the Monitoring Reader role assigned to the Managed Grafana instance. If not, add it manually from the Azure portal.
-   1. If needed, reapply the Client Secret
+   1. Check if the service principal has the Monitoring Reader role assigned to the Managed Grafana instance. If not, add it from the Azure portal by opening your subscription in the Azure portal and going to **Access control (IAM)** > **Add** > **Add role assignment**.
+   1. If needed, reapply the client secret.
 
       :::image type="content" source="media/troubleshoot/troubleshoot-azure-monitor-app-registration.png" alt-text="Screenshot of the Managed Grafana workspace: Check app registration authentication details.":::
 

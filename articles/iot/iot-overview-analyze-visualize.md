@@ -1,7 +1,7 @@
 ---
 title: Analyze and visualize your IoT data
 description: An overview of the available options to analyze and visualize data in an IoT solution.
-ms.service: iot
+ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett

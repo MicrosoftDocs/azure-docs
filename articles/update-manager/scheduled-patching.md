@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Azure Update Manager
 description: This article details how to use Azure Update Manager to set update schedules that install recurring updates on your machines.
 ms.service: azure-update-manager
-ms.date: 06/24/2024
+ms.date: 10/28/2024
 ms.topic: how-to
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -46,14 +46,14 @@ The registry keys listed in [Configure Automatic Updates by editing the registry
 
 We recommend the following limits for the indicators.
 
-| Indicator    | Limit          |
-|----------|----------------------------|
-| Number of schedules per subscription per region     | 250  |
-| Total number of resource associations to a schedule | 3,000 |
-| Resource associations on each dynamic scope    | 1,000 |
-| Number of dynamic scopes per resource group or subscription per region     | 250  |
-| Number of dynamic scopes per schedule   | 200  |
-| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  |
+| Indicator    | Public Cloud Limit          | Mooncake/Fairfax Limit |
+|----------|----------------------------|--------------------------|
+| Number of schedules per subscription per region     | 250  | 250 |
+| Total number of resource associations to a schedule | 3,000 | 3,000 |
+| Resource associations on each dynamic scope    | 1,000 | 1,000 |
+| Number of dynamic scopes per resource group or subscription per region     | 250  | 250  |
+| Number of dynamic scopes per schedule   | 200  | 30  |
+| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  | 30  |
 
 For more information, see the [service limits for Dynamic scope](dynamic-scope-overview.md#service-limits).
 

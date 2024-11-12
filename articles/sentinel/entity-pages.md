@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to access detailed entity pages in Microsoft Sentinel so that I can efficiently investigate and respond to security incidents.
+
 ---
 
 # Entity pages in Microsoft Sentinel

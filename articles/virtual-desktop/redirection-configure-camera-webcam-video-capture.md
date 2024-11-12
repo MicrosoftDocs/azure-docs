@@ -33,7 +33,7 @@ This article provides information about the supported redirection methods and ho
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the session host, host pool RDP properties, or local device. 
 >
 > - [Microsoft Teams](teams-on-avd.md) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -42,7 +42,7 @@ This article provides information about the supported redirection methods and ho
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the Cloud PC or local device. 
 >
 > - [Microsoft Teams](/windows-365/enterprise/teams-on-cloud-pc) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -51,7 +51,7 @@ This article provides information about the supported redirection methods and ho
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the dev box or local device. 
 >
 > - [Microsoft Teams](/windows-365/enterprise/teams-on-cloud-pc) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -181,9 +181,9 @@ To allow or disable video capture redirection, which includes cameras and webcam
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Do not allow video capture redirection** to **Enabled** or **Disabled**, depending on your requirements:
 
-   - To allow video capture redirection, toggle the switch to **Disabled**, then select **OK**.
+   - To allow video capture redirection, toggle the switch to **Disabled**.
 
-   - To disable video capture redirection, toggle the switch to **Enabled**, then select **OK**.
+   - To disable video capture redirection, toggle the switch to **Enabled**.
 
 1. Select **Next**.
 
@@ -233,7 +233,7 @@ For iOS/iPadOS and Android devices, you can disable camera redirection using Int
 Video encoding redirection controls whether to encode video in a remote session or redirected to the local device, and is configured with a host pool RDP property. The corresponding RDP property is `encode redirected video capture:i:<value>`. For more information, see [Supported RDP properties](rdp-properties.md#device-redirection).
 
 > [!TIP]
-> Redirect video encoding is different to [multimedia redirection](multimedia-redirection-intro.md), which redirects video playback and calls to your local device for faster processing and rendering.
+> Redirect video encoding is different to [multimedia redirection](multimedia-redirection-video-playback-calls.md), which redirects video playback and calls to your local device for faster processing and rendering.
 
 To configure redirect video encoding:
 
