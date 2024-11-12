@@ -18,7 +18,7 @@ Decide whether you're deploying Azure IoT Operations to a single-node or multi-n
 
 ## Platform
 
-Currently, K3s on Ubuntu 24.04 is the only generally available platform for deploying Azure IoT Operations in production.
+Currently, K3s v1.30 on Ubuntu 24.04 is the only generally available platform for deploying Azure IoT Operations in production.
 
 ## Cluster setup
 
@@ -41,8 +41,8 @@ Consider the following measures to ensure your cluster setup is secure before de
 * [Validate images](../secure-iot-ops/howto-validate-images.md) to ensure they're signed by Microsoft.
 * When doing TLS encryption, [bring your own issuer](../secure-iot-ops/concept-default-root-ca.md#bring-your-own-issuer) and integrate with an enterprise PKI.
 * [Use secrets](../secure-iot-ops/howto-manage-secrets.md) for on-premises authentication.
-* Keep your cluster and Azure IoT Operations deployment up to date with the latest patches and minor releases to get all available security and bug fixes.
 * Use [user-assigned managed identities](./howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) for cloud connections.
+* Keep your cluster and Azure IoT Operations deployment up to date with the latest patches and minor releases to get all available security and bug fixes.
 
 ### Networking
 
@@ -79,7 +79,7 @@ In the Azure portal deployment wizard, the broker resource is set up in the **Co
 
 In the Azure portal deployment wizard, the schema registry and its required storage account are set up in the **Dependency management** tab.
 
-* The storage account must have public network access enabled.
+* The storage account is only supported with public network access enabled.
 * The storage account must have hierarchical namespace enabled.
 * The schema registry's managed identity must have contributor permissions for the storage account.
 
