@@ -139,3 +139,23 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ``` console
     Beta is enabled: true
     ```
+
+## Next steps
+
+For the full feature rundown of the JavaScript.NET feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [JavaScript Feature Management](./feature-management-javascript-reference.md)
+
+While a feature flag allows you to activate or deactivate functionality in your app, you may want to customize a feature flag based on your app's logic. Feature filters allow you to enable a feature flag conditionally. For more information, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
+
+Azure App Configuration offers built-in feature filters that enable you to activate a feature flag only during a specific period or to a particular targeted audience of your app. For more information, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Enable features on a schedule](./howto-timewindow-filter.md)
+
+> [!div class="nextstepaction"]
+> [Roll out features to targeted audiences](./howto-targetingfilter.md)

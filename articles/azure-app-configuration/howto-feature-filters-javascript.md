@@ -79,3 +79,8 @@ To learn more about the built-in feature filters, continue to the following tuto
 
 > [!div class="nextstepaction"]
 > [Roll out features to targeted audience](./howto-targetingfilter.md)
+
+For the full feature rundown of the JavaScript feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [.NET Feature Management](./feature-management-javascript-reference.md)
