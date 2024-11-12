@@ -39,7 +39,7 @@ Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a b
 
 1. In the left menu of the Web UI, select the **Data** tab. 
 
-    :::image type="content" source="../media/ingest-data-event-hub/one-click-ingestion-event-hub.png" alt-text="Select one-select ingest data from Event Hubs in the web UI.":::
+    :::image type="content" source="../media/ingest-data-event-hub/one-click-ingestion-event-hub.png" alt-text="Screenshot showing the Azure Data Explorer Data menu with ingest from event hub highlighted.":::
 
 1. In the **Ingest data from Event Hub** card, select **Ingest**. 
 

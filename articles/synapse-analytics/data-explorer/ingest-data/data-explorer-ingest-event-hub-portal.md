@@ -50,24 +50,24 @@ Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a b
         ```
 
 - We recommend using a [user assigned managed identity](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity) or [system assigned managed identity](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) for the data connection (optional).
-- [A sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an Event Hubs. Download the sample app to your system.
+- [A sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an event hub. Download the sample app to your system.
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to run the sample app.
 
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create an Event Hubs
+## Create an event hub
 
-Create an Event Hubs by using an Azure Resource Manager template in the Azure portal.
+Create an event hub by using an Azure Resource Manager template in the Azure portal.
 
-1. To create an Event Hubs, use the following button to start the deployment. Right-click and select **Open in new window**, so you can follow the rest of the steps in this article.
+1. To create an event hub, use the following button to start the deployment. Right-click and select **Open in new window**, so you can follow the rest of the steps in this article.
 
    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.eventhub%2Fevent-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json":::
 
     The **Deploy to Azure** button takes you to the Azure portal.
 
-1. Select the subscription where you want to create the Event Hubs, and create a resource group named *test-hub-rg*.
+1. Select the subscription where you want to create the event hub, and create a resource group named *test-hub-rg*.
 
     ![Create a resource group](../media/ingest-data-event-hub/create-resource-group.png)
 
@@ -115,7 +115,7 @@ Now you connect to the Event Hubs from Data Explorer pool. When this connection 
 
 1. Under the Data Explorer pool you created, select **Databases** > **TestDatabase**.
 
-    :::image type="content" source="../media/ingest-data-event-hub/select-test-database.png" alt-text="Select test database.":::
+    :::image type="content" source="../media/ingest-data-event-hub/select-test-database.png" alt-text="Screenshot of the test database pool, showing select test database.":::
 
 1. Select **Data connections** and **Add data connection**.
 
@@ -125,7 +125,7 @@ Now you connect to the Event Hubs from Data Explorer pool. When this connection 
 
 Fill out the form with the following information, and then select **Create**.
 
-:::image type="content" source="../media/ingest-data-event-hub/data-connection-pane.png" alt-text="Data connection pane Event Hubs - Azure Synapse Data Explorer.":::
+:::image type="content" source="../media/ingest-data-event-hub/data-connection-pane.png" alt-text="Screenshot of the data connection pane in Event Hubs.":::
 
 **Setting** | **Suggested value** | **Field description**
 |---|---|---|
