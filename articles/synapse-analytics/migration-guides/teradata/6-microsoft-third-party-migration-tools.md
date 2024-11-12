@@ -85,7 +85,7 @@ The following sections discuss a range of products and services that Microsoft o
 
 #### AzCopy
 
-[AzCopy](../../../storage/common/storage-use-azcopy-v10.md) is a command line utility that copies files to Azure Blob Storage over a standard internet connection. In a warehouse migration project, you can use AzCopy to upload extracted, compressed, delimited text files before loading them into Azure Synapse using [PolyBase](#polybase). AzCopy can upload individual files, file selections, or file folders. If the exported files are in Parquet format, use a native Parquet reader instead.
+[AzCopy](../../../storage/common/storage-use-azcopy-v10.md) is a command line utility that copies files to Azure Blob Storage over a standard internet, secure VPN or private Expressroute connection. In a warehouse migration project, you can use AzCopy to upload extracted, compressed, delimited text files before loading them into Azure Synapse using [PolyBase](#polybase). AzCopy can upload individual files, file selections, or file folders. If the exported files are in Parquet format, use a native Parquet reader instead.
 
 #### Azure Data Box
 

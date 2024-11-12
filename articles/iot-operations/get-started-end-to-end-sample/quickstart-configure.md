@@ -41,15 +41,13 @@ The data that OPC UA servers expose can have a complex structure and can be diff
 
 This quickstart uses the OPC PLC simulator to generate sample data. To deploy the OPC PLC simulator, run the following command:
 
-<!-- TODO: Change branch to main in two places below before merging the release branch. Don't delete the samples release-m3 branch until the updates are done in the docs repo. -->
-
 ```console
-kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/release-m3/samples/quickstarts/opc-plc-deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-plc-deployment.yaml
 ```
 
 The following snippet shows the YAML file that you applied:
 
-:::code language="yaml" source="~/azure-iot-operations-samples-m3/samples/quickstarts/opc-plc-deployment.yaml":::
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/opc-plc-deployment.yaml":::
 
 > [!CAUTION]
 > This configuration uses a self-signed application instance certificate. Don't use this configuration in a production environment. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
@@ -102,7 +100,7 @@ Run the following commands to download and run the Bicep file that configures yo
 # [Bash](#tab/bash)
 
 ```bash
-wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/release-m3/samples/quickstarts/quickstart.bicep -O quickstart.bicep
+wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/quickstart.bicep -O quickstart.bicep
 
 AIO_EXTENSION_NAME=$(az k8s-extension list -g $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --cluster-type connectedClusters --query "[?extensionType == 'microsoft.iotoperations'].id" -o tsv | awk -F'/' '{print $NF}')
 AIO_INSTANCE_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].name" -o tsv)
@@ -114,7 +112,7 @@ az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RES
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/release-m3/samples/quickstarts/quickstart.bicep -OutFile quickstart.bicep
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/quickstart.bicep -OutFile quickstart.bicep
 
 $AIO_EXTENSION_NAME = (az k8s-extension list -g $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --cluster-type connectedClusters --query "[?extensionType == 'microsoft.iotoperations'].id" -o tsv) -split '/' | Select-Object -Last 1
 $AIO_INSTANCE_NAME = $(az iot ops list -g $RESOURCE_GROUP --query "[0].name" -o tsv)
@@ -189,18 +187,22 @@ If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
     kubectl delete pod aio-opc-opc.tcp-1-849dd78866-vhmz6 -n azure-iot-operations
     ```
 
-The sample tags you added in the previous quickstart generate messages from your asset that look like the following example:
+The sample asset you added earlier in this quickstart generates messages that look like the following example:
 
 ```json
 {
-    "temperature": {
-        "SourceTimestamp": "2024-08-02T13:52:15.1969959Z",
-        "Value": 2696
-    },
-    "Tag 10": {
-        "SourceTimestamp": "2024-08-02T13:52:15.1970198Z",
-        "Value": 2696
-    }
+   "Temperature":{
+      "SourceTimestamp":"2024-11-04T21:30:31.9454188Z",
+      "Value":357
+   },
+   "FillWeight":{
+      "SourceTimestamp":"2024-11-04T21:30:31.9455619Z",
+      "Value":357
+   },
+   "EnergyUse":{
+      "SourceTimestamp":"2024-11-04T21:30:31.9455641Z",
+      "Value":357
+   }
 }
 ```
 
