@@ -489,6 +489,11 @@
             "source_path_from_root": "/articles/virtual-desktop/multimedia-redirection.md",
             "redirect_url": "/azure/virtual-desktop/multimedia-redirection-video-playback-calls",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/azure-stack-hci-overview.md",
+            "redirect_url": "/azure/virtual-desktop/azure-local-overview",
+            "redirect_document_id": true
         }
     ]
 }

@@ -94,9 +94,9 @@
         - name: Bandwidth considerations
           displayName: network, throughput, latency
           href: rdp-bandwidth.md
-        - name: Azure Stack HCI
+        - name: Azure Local
           displayName: session hosts, virtual machines, vms, on-premises, on premises
-          href: azure-stack-hci-overview.md
+          href: azure-local-overview.md
         - name: Azure Extended Zones
           displayName: session hosts, virtual machines, vms, low latency
           href: azure-extended-zones.md
@@ -114,7 +114,7 @@
       displayName: standard, host pools, session host configuration, shc, shu
       href: host-pool-management-approaches.md
     - name: Deploy Azure Virtual Desktop
-      displayName: deploy, create, get started, quickstart, host pool, application group, workspace, assign users, azure stack hci, azure extended zones
+      displayName: deploy, create, get started, quickstart, host pool, application group, workspace, assign users, azure stack hci, azure local, azure extended zones
       href: deploy-azure-virtual-desktop.md
     - name: Quickstart
       displayName: deploy, create, get started, quickstart
@@ -219,7 +219,7 @@
                       displayName: languages, language packs
                       href: windows-11-language-packs.md
         - name: Add session hosts to a host pool
-          displayName: deploy, get started, virtual machines, vms, azure stack hci, azure extended zones
+          displayName: deploy, get started, virtual machines, vms, azure stack hci, azure local, azure extended zones
           href: add-session-hosts-host-pool.md
         - name: Multimedia redirection
           items:
