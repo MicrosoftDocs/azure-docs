@@ -88,7 +88,7 @@ You can add more VNet links if needed, and view all VNet links you added from th
   
 From the Overview blade you can view the private IP addresses of the FHIR server and the VMs connected to peered virtual networks.
 
-  :::image type="content" source="media/private-link/private-link-dns-zone.png" alt-text="Private Link FHIR and VM Private IP Addresses." lightbox="media/private-link/private-link-dns-zone.png":::
+  :::image type="content" source="media/private-link/private-link-dns-zone-fixNov24.png" alt-text="Private Link FHIR and VM Private IP Addresses." lightbox="media/private-link/private-link-dns-zone-fixNov24.png":::
 
 ## Manage private endpoint
 
