@@ -15,7 +15,7 @@ ms.custom: Include file
 
 * One or more API centers in your Azure subscription. 
 
-    * Currently, you need to be assigned the Contributor role or higher permissions to manage APIs with the extension.
+    * Currently, you need to be assigned the Azure API Center Service Contributor role or higher permissions on an API center to manage APIs with the extension.
 
 * [Visual Studio Code](https://code.visualstudio.com/)
     
