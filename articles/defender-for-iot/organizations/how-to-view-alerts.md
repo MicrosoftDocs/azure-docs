@@ -179,7 +179,7 @@ For more information, see [Accelerating OT alert workflows](alerts.md#accelerati
 
 ## Remediate aggregated alerts
 
-To reduce alert fatigue, multiple versions of the same alert with identical parameters are listed as one item in the Alerts inventory. As you investigate alerts, an aggregated alert is identified by the *Multiple violations* message that appears under the Source device IP. Use the **Violations** tab to investigate further and the **Take action** tab to remediate the alerts.
+To reduce alert fatigue, multiple versions of the same alert with identical parameters are listed as one item in the Alerts page. As you investigate alerts, an aggregated alert is identified by the *Multiple violations* message that appears under the Source device IP. Use the **Violations** tab to investigate further and the **Take action** tab to remediate the alerts.
 
 1. Sign into your OT sensor console and select the **Alerts** page on the left.
 
