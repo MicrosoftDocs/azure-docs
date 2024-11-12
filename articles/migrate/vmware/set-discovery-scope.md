@@ -48,7 +48,7 @@ You can assign permissions on VMware vSphere inventory objects using one of two 
 1. Grant read-only access to all the parent objects that host the virtual machines including host, cluster, hosts folder, clusters folder, up to data center. You don't need to propagate the permissions to all child objects.
 1. From vSphere client, make sure that the read permissions are applied to the parent objects both from the Hosts and Clusters view and from the VMs & templates view.
 
-   ![Add permissions](../media/tutorial-assess-vmware/add-permissions.png)
+   ![Screenshot showing Add permission.](../media/tutorial-assess-vmware/add-permissions.png)
 
 1. The role-based access control setup ensures that the corresponding vCenter user account has access to only tenant-specific servers. 
 
