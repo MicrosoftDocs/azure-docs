@@ -1,12 +1,12 @@
 ---
 title: Reliability in Azure App Service
-description: Find out about reliability in  Azure App Service, including availability zones and multi-region deployments.
+description: Find out about reliability in Azure App Service, including availability zones and multi-region deployments.
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-app-service
-ms.date: 11/08/2024
+ms.date: 11/12/2024
 zone_pivot_groups: app-service-sku
 ---
 
@@ -39,9 +39,7 @@ For production deployments, you should:
 
 ## Transient faults
 
-Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests.
-
-All cloud-hosted applications should follow Azure's transient fault handling guidance when communicating with any cloud-hosted APIs, databases, and other components. To learn more about handling transient faults, see [Recommendations for handing transient faults](/azure/well-architected/reliability/handle-transient-faults).
+[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
 Although Microsoft-provided SDKs usually handle transient faults, because you host your own applications on Azure App Service, you need to consider how to avoid causing transient faults by making sure that you:
 
@@ -52,6 +50,8 @@ Although Microsoft-provided SDKs usually handle transient faults, because you ho
 - **Avoid scaling up or down.** Instead, select a tier and instance size that meet your performance requirements under typical load. Only scale out instances to handle changes in traffic volume. Consider that scaling up and down may trigger an application restart.
 
 ## Availability zone support
+
+[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
 Azure App Service can be configured as *zone redundant*, which means that your resources are spread across multiple [availability zones](../reliability/availability-zones-overview.md). Spreading across multiple zones helps your production workloads achieve resiliency and reliability. <!-- Not sure what this means --> Availability zone support is a property of the App Service plan.
 
@@ -64,18 +64,6 @@ Instance spreading with a zone-redundant deployment is determined inside the fol
 When the App Service platform allocates instances for a zone-redundant App Service plan, it uses [best effort zone balancing offered by the underlying Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing). An App Service plan is "balanced" if each zone has either the same number of VMs, or +/- one VM, in all of the other zones used by the App Service plan.
 
 For App Service plans that aren't configured as zone redundant, VM instances are not resilient to availability zone failures. They can experience downtime during an outage in any zone in that region.
-
-### Requirements
-
-::: zone pivot="free-shared-basic,premium"
-
-- You must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans).
-<!-- Is footprint a technical term here?--> 
-- Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, you'll receive an error if availability zones aren't supported for your resource group. To ensure your workloads land on a stamp that supports availability zones, you may need to create a new resource group, App Service plan, and App Service.
-
-::: zone-end
-
-- You must deploy a minimum of three instances of your plan.
 
 ### Regions supported
 
@@ -90,6 +78,20 @@ Zone-redundant App Service plans can be deployed in [any region that supports av
 To see which regions support availability zones for App Service Environment v3, see [Regions](../app-service/environment/overview.md#regions).
 
 ::: zone-end
+
+### Requirements
+
+::: zone pivot="free-shared-basic,premium"
+
+- You must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans).
+<!-- Is footprint a technical term here?--> 
+- Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, you'll receive an error if availability zones aren't supported for your resource group. To ensure your workloads land on a stamp that supports availability zones, you may need to create a new resource group, App Service plan, and App Service.
+
+::: zone-end
+
+- You must deploy a minimum of three instances of your plan.
+
+
 
 ### Considerations
 

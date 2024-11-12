@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-iot-operations
-ms.date: 10/31/2024 
+ms.date: 11/12/2024 
 ---
 
 # Reliability in Azure Device Registry Preview
@@ -18,11 +18,12 @@ Because resiliency is a shared responsibility between you and Microsoft, this ar
 
 ## Transient faults
 
-Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. 
-It's important that your applications handle transient faults, usually by retrying affected requests.
+[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
 
 ## Availability zone support
+
+[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
 Azure Device Registry is zone-redundant, which means that it automatically replicates across multiple [availability zones](../reliability/availability-zones-overview.md). This setup enhances the resiliency of the service by providing high availability. If there's a failure in one zone, the service can continue to operate seamlessly from another zone. 
 
