@@ -128,15 +128,15 @@ The following example shows how to enable fallback to internet resolution for pr
 3. Repeat this setting for each private link zone, and allow time for the virtual network link to update.
 4. Attempt to resolve the FQDN of the storage accounts again. See the following example:
 
-```cmd
-C:\>dig myeaststorageacct1.privatelink.blob.core.windows.net +short
-10.40.40.5
+  ```cmd
+  C:\>dig myeaststorageacct1.privatelink.blob.core.windows.net +short
+  10.40.40.5
 
-C:\>dig myeaststorageacct2.privatelink.blob.core.windows.net +short
-blob.bl5prdstr19c.store.core.windows.net.
-203.0.113.161
-```
-The storage account that wasn't resolving is now successfully resolving via the internet.
+  C:\>dig myeaststorageacct2.privatelink.blob.core.windows.net +short
+  blob.bl5prdstr19c.store.core.windows.net.
+  203.0.113.161
+  ```
+  The storage account that wasn't resolving is now successfully resolving via the internet.
 
 ## Next steps
 
