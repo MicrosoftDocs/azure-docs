@@ -145,13 +145,13 @@ Different environment types have different subnet requirements:
 
     | Subnet Size | Available IP Addresses<sup>1</sup> | Max nodes (Dedicated workload profile)<sup>2</sup>| Max replicas (Consumption workload profile)<sup>2</sup> |
     |--|--|--|--|
-    | /23 | 500 | 250 | 2,500 |
-    | /24 | 244 | 122 | 1,220 |
-    | /25 | 116 | 58 | 580 |
-    | /26 | 52 | 26 | 260 |
-    | /27 | 20 | 10 | 100 |
+    | /23 | 495 | 247 | 2,470 |
+    | /24 | 239 | 119 | 1,190 |
+    | /25 | 111 | 55 | 550 |
+    | /26 | 47 | 23 | 230 |
+    | /27 | 15 | 7 | 70 |
     
-    <sup>1</sup> The available IP addresses is the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure.  
+    <sup>1</sup> The available IP addresses is the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure minux the 5 IP addresses required per subnets.
     <sup>2</sup> This is accounting for apps in single revision mode.  
 
 # [Consumption only environment](#tab/consumption-only-env)
