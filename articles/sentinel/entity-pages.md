@@ -75,13 +75,15 @@ In particular, you'll see on the Sentinel events timeline alerts and events from
 
 The following types of items are included in the timeline.
 
-- **Alerts**: any alerts in which the entity is defined as a **mapped entity**. Note that if your organization has created [custom alerts using analytics rules](./detect-threats-custom.md), you should make sure that the rules' entity mapping is done properly.
+- **Alerts**: any alerts in which the entity is defined as a **mapped entity**. If your organization created [custom alerts using analytics rules](./detect-threats-custom.md), make sure that the rules' entity mapping is done properly.
 
 - **Bookmarks**: any bookmarks that include the specific entity shown on the page.
 
-- **Anomalies**: UEBA detections based on dynamic baselines created for each entity across various data inputs and against its own historical activities, those of its peers, and those of the organization as a whole.
+- **Anomalies**: [UEBA detections](./anomalies-reference.md) based on dynamic baselines created for each entity across various data inputs and against its own historical activities, those of its peers, and those of the organization as a whole.
 
 - **Activities**: aggregation of notable events relating to the entity. A wide range of activities are collected automatically, and you can now [customize this section by adding activities](customize-entity-activities.md) of your own choosing.
+
+    As of November 2024, activity events for the device entity are visible on the main [*Timeline* tab](/defender-xdr/entity-page-device#timeline-tab) of the [device entity page](/defender-xdr/entity-page-device).
 
 :::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of a timeline on an entity page in the Defender portal.":::
 
