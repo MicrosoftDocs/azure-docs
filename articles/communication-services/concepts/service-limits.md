@@ -136,21 +136,21 @@ Azure Communication Services provides rich logs and analytics to help monitor an
 
 [Custom Domains](../quickstarts/email/add-custom-verified-domains.md)
 
-| Operation | Scope | Timeframe (minutes) | Limit (number of emails) |
-|---------|-----|-------------|-------------------|
-|Send Email|Per Subscription|1|30 <br /> You can [request an increase](./email/email-quota-increase.md).|
-|Send Email|Per Subscription|60|100 <br /> You can [request an increase](./email/email-quota-increase.md).|
-|Get Email Status|Per Subscription|1|60 <br /> You can [request an increase](./email/email-quota-increase.md).|
-|Get Email Status|Per Subscription|60|200 <br /> You can [request an increase](./email/email-quota-increase.md).|
+| Operation | Scope | Timeframe (minutes) | Limit (number of emails) | Higher limits available |
+| --- | --- | --- | --- | --- |
+| Send Email | Per Subscription | 1 | 30 | Yes |
+| Send Email | Per Subscription | 60 | 100 | Yes |
+| Get Email Status | Per Subscription | 1 | 60 | Yes |
+| Get Email Status | Per Subscription | 60 | 200 | Yes |
 
 [Azure Managed Domains](../quickstarts/email/add-azure-managed-domains.md)
 
-| Operation | Scope | Timeframe (minutes) | Limit (number of emails) |
-|---------|-----|-------------|-------------------|
-|Send Email|Per Subscription|1|5|
-|Send Email|Per Subscription|60|10|
-|Get Email Status|Per Subscription|1|10|
-|Get Email Status|Per Subscription|60|20|
+| Operation | Scope | Timeframe (minutes) | Limit (number of emails) | Higher limits available |
+| --- | --- | --- | --- | --- |
+| Send Email | Per Subscription | 1 | 5 | No |
+| Send Email | Per Subscription | 60 | 10 | No |
+| Get Email Status | Per Subscription | 1 |10 | No |
+| Get Email Status | Per Subscription | 60 |20 | No |
 
 ### Size Limits for Email
 
