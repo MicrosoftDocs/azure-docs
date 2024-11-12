@@ -12,7 +12,7 @@ You can use Private Endpoint for your functions hosted in the [Flex Consumption]
 If you want to make calls to Private Endpoints, then you must make sure that your DNS lookups resolve to the private endpoint. You can enforce this behavior in one of the following ways: 
 
 * Integrate with Azure DNS private zones. When your virtual network doesn't have a custom DNS server, this is done automatically.
-* Manage the private endpoint in the DNS server used by your app. To do this you must know the private endpoint address and then point the endpoint you are trying to reach to that address using an A record.
+* Manage the private endpoint in the DNS server used by your app. To manage a private endpoint, you must know the endpoint address and use an A record to reference the endpoint you're trying to reach.
 * Configure your own DNS server to forward to [Azure DNS private zones](../articles/dns/private-dns-privatednszone.md).
 
 To learn more, see [using Private Endpoints for Web Apps](../articles/app-service/networking/private-endpoint.md).
