@@ -206,7 +206,7 @@ To disable zone-redundancy for a single database or an elastic pool, you can use
 
 1. Go to the  [Azure portal](https://portal.azure.com) to find and select the database that you no longer want to be zone-redundant.
 
-1. Select **Settings**, and then select **Configure**. 
+1. Under **Settings**, select **Compute + Storage**.
 
 1. Select **No** for **Would you like to make this database zone redundant?**
 
@@ -236,7 +236,7 @@ See [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/datab
 
 1. Go to the  [Azure portal](https://portal.azure.com) to find and select the elastic pool that you no longer want to be zone-redundant.
 
-1. Select **Settings**, and then select **Configure**. 
+1. Under **Settings**, select **Compute + Storage**.
 
 1. Select **No** for **Would you like to make this elastic pool zone redundant?**.
 
