@@ -3,24 +3,12 @@ title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 08/20/2024
+ms.date: 11/12/2024
 ---
 
 # Data types in Bicep
 
 This article describes the data types that are supported in [Bicep](./overview.md). To define custom data types, see [User-defined data types](./user-defined-data-types.md).
-
-## Supported types
-
-Within Bicep, you can use these data types:
-
-* [array](#arrays)
-* [bool](#booleans)
-* [int](#integers)
-* [object](#objects)
-* [secureObject (indicated by a decorator in Bicep](#secure-strings-and-objects))
-* [secureString (indicated by a decorator in Bicep](#secure-strings-and-objects))
-* [string](#strings)
 
 ## Arrays
 
@@ -86,6 +74,17 @@ output foo bool = empty(emptyArray) || emptyArray[0] == 'bar'
 output bar bool = length(numberArray) <= 3 || numberArray[3] == 4
 ```
 
+### Array-related operators
+
+* Use [Comparison operators](./operators-comparison.md) to compare two arrays.
+* Use [Index accessor](./operators-access.md#index-accessor) to get an element from an array.
+* Use [Safe-dereference operator](./operator-safe-dereference.md) to access elements of an array.
+* Use [Spread](./operator-spread.md) to merge arrays.
+
+### Array-related functions
+
+See [Array functions](./bicep-functions-array.md).
+
 ## Booleans
 
 When you specify Boolean values, use `true` or `false`. Don't surround the value with quotation marks.
@@ -93,6 +92,15 @@ When you specify Boolean values, use `true` or `false`. Don't surround the value
 ```bicep
 param exampleBool bool = true
 ```
+
+## Boolean-related operators
+
+* Use [Comparison operators](./operators-comparison.md) to compare boolean values.
+* See [Logical operators](./operators-logical.md).
+
+## Boolean-related functions
+
+See [Logical function](./bicep-functions-logical.md)
 
 ## Integers
 
@@ -128,6 +136,15 @@ output bar 1 | 2 | 3 = 3
 ```
 
 Floating point, decimal, or binary formats aren't currently supported.
+
+### Integer-related operators
+
+* See [Comparison operators](./operators-comparison.md).
+* See [Numeric operators](./operators-numeric.md).
+
+### Integer-related functions
+
+See [Numeric functions](./bicep-functions-numeric.md).
 
 ## Objects
 
@@ -216,6 +233,17 @@ param objectToTest object = {
 
 output bar bool = contains(objectToTest, 'four') && objectToTest.four == 4
 ```
+
+### Object-related operators
+
+* Use [Comparison operators](./operators-comparison.md) to compare objects.
+* Use [Index accessor](./operators-access.md#index-accessor) to get a property from an object.
+* Use [Safe-dereference operator](./operator-safe-dereference.md) to access object members.
+* Use [Spread](./operator-spread.md) to merge objects.
+
+### Object-related functions
+
+See [Object functions](./bicep-functions-object.md).
 
 ## Strings
 
@@ -316,6 +344,13 @@ comments // are included
 var myVar6 = '''interpolation
 is ${blocked}'''
 ```
+
+### String-related operators
+
+* See [Comparison operators](./operators-comparison.md).
+
+### String-related functions
+
 
 ## Union types
 
