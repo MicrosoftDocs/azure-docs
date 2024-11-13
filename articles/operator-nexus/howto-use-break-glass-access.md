@@ -12,17 +12,18 @@ ms.custom: template-how-to, devx-track-azurecli
 # Use Method D v2.0 Breakglass Access
 Breakglass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide will walk you through setting up and using Breakglass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
 
-## Generating SSH Keys Using the Nexusidentity az CLI
+## Generating SSH Keys Using the Nexusidentity Azure CLI
 
-To start with Breakglass IAM configuration, you will need to set up SSH keys using the Nexusidentity CLI. Make sure you have the following prerequisites installed and updated.
+To start with Breakglass IAM configuration, you will need to set up SSH keys using the Nexusidentity extension. Make sure you have the following prerequisites installed and updated.
 
 ### Prerequisites
 
+- **Setup Method D v2.0** using as referred in [article](howto-setup-break-glass-access-.md)
 - **Windows Computer** with PowerShell
 - **OpenSSH**: Version 9.4 or higher
 - **Python**: Version 3.11 or higher (64-bit)
-- **AZ CLI**: Version 2.61 or higher (64-bit)
-- **Nexusidentity Extension**: This extension must be added to AZ CLI.
+- **Azure CLI**: Version 2.61 or higher (64-bit)
+- **Nexusidentity Extension**: This extension must be added to Azure CLI.
 
 ### Steps to Install Nexusidentity Extension and Generate SSH Keys
 
@@ -31,7 +32,7 @@ To start with Breakglass IAM configuration, you will need to set up SSH keys usi
 > [!Note]
 > Use non-admin mode for this process.
 
-2. **Update AZ CLI**:
+2. **Update Azure CLI**:
 
    - Run the following command to update Azure CLI to the latest version:
 
@@ -47,7 +48,7 @@ To start with Breakglass IAM configuration, you will need to set up SSH keys usi
      az extension add --name nexusidentity
      ```
 
-4. **Generate SSH Keys with Nexusidentity**:
+4. **Generate SSH Keys with Nexusidentity extension**:
 
    a. Download the [Yubico Key Manager](https://www.yubico.com/support/download/yubikey-manager) to reset your YubiKey for initial setup.
    
