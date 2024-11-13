@@ -106,4 +106,4 @@ As part of the **Secure Future Initiative (SFI)**, **On-Behalf-Of (OBO) tokens**
 
 ## Next Steps
 
-[How to use break-glass access](howto-use-break-glass-access.md)
+[How to use Method D v2.0 break-glass access](howto-use-break-glass-access.md)
