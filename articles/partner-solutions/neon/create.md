@@ -66,7 +66,7 @@ There are required fields in each section that you need to fill out.
 
     The remaining fields update to reflect the details of the plan you selected for this new organization.
 
-    <!--TODO: update once public preview permits multiple plans to select from-->
+    <!--TODO: update once public preview permits multiple plans-->
 
 1. Select the **Next** button at the bottom of the page.
 
