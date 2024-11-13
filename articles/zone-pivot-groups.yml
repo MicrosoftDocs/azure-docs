@@ -986,13 +986,13 @@ groups:
   - id: callend
     title: Call end
 # Owner: prakulka
-- id: acs-tollfree-shortcode-alphanumeric-10DLC
+- id: acs-tollfree-shortcode-alphanumeric-tendlc
   title: Number Type
   prompt: Choose a Number Type
   pivots:
   - id: tollfree
     title: Toll-Free
-  - id: 10DLC
+  - id: tendlc
     title: 10DLC
   - id: shortcode
     title: Short Code
