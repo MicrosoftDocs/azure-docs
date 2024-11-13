@@ -105,18 +105,18 @@ $subConfig = @{
     AddressPrefix = "10.0.0.0/24"
     VirtualNetwork = $virtualNetwork1
 }
-$subnetConfig = Add-AzVirtualNetworkSubnetConfig @subConfig
+$subnetConfig1 = Add-AzVirtualNetworkSubnetConfig @subConfig
 ```
 
 Create a subnet configuration for Azure Bastion with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet configuration with a **10.0.1.0/24** address prefix:
 
 ```azurepowershell-interactive
-$subConfig = @{
+$subBConfig = @{
     Name = "AzureBastionSubnet"
     AddressPrefix = "10.0.1.0/24"
     VirtualNetwork = $virtualNetwork1
 }
-$subnetConfig = Add-AzVirtualNetworkSubnetConfig @subConfig
+$subnetConfig2 = Add-AzVirtualNetworkSubnetConfig @subBConfig
 ```
 
 Write the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), which creates the subnet:
@@ -162,13 +162,13 @@ Create a second virtual network with [New-AzVirtualNetwork](/powershell/module/a
 >The second virtual network can be in the same region as the first virtual network or in a different region. You don't need a Bastion deployment for the second virtual network. After the network peer, you can connect to both virtual machines with the same Bastion deployment.
 
 ```azurepowershell-interactive
-$vnet1 = @{
+$vnet2 = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS2"
     Name = "vnet-2"
     AddressPrefix = "10.1.0.0/16"
 }
-$virtualNetwork1 = New-AzVirtualNetwork @vnet1
+$virtualNetwork2 = New-AzVirtualNetwork @vnet2
 ```
 
 Create a subnet configuration with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet configuration with a **10.1.0.0/24** address prefix:
@@ -177,9 +177,15 @@ Create a subnet configuration with [Add-AzVirtualNetworkSubnetConfig](/powershel
 $subConfig = @{
     Name = "subnet-1"
     AddressPrefix = "10.1.0.0/24"
-    VirtualNetwork = $virtualNetwork1
+    VirtualNetwork = $virtualNetwork2
 }
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig @subConfig
+```
+
+Write the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), which creates the subnet:
+
+```azurepowershell-interactive
+$virtualNetwork2 | Set-AzVirtualNetwork
 ```
 
 ### [CLI](#tab/cli)
@@ -257,7 +263,7 @@ Repeat the previous steps to create a second virtual machine in the second virtu
 
 ### Create the first VM
 
-Create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named **vm-1** in the **vnet-1** virtual network. The `-AsJob` option creates the VM in the background, so you can continue to the next step. When prompted, enter the user name and password for the virtual machine.
+Create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named **vm-1** in the **vnet-1** virtual network. When prompted, enter the username and password for the virtual machine.
 
 ```azurepowershell-interactive
 # Create a credential object
@@ -313,7 +319,7 @@ Wait for the virtual machines to be created before continuing with the next step
 
 ## Connect to a virtual machine
 
-Use `ping` to test the communication between the virtual machines.
+Use `ping` to test the communication between the virtual machines. Sign-in to the Azure portal to complete the following steps.
 
 1. In the portal, search for and select **Virtual machines**.
 
@@ -329,34 +335,38 @@ Use `ping` to test the communication between the virtual machines.
 
 ## Communicate between VMs
 
-1. At the bash prompt for **vm-1**, enter `ping -c 4 vm-2`.
+1. At the bash prompt for **vm-1**, enter `ping -c 4 10.1.0.4`.
 
    You get a reply similar to the following message:
 
     ```output
-    azureuser@vm-1:~$ ping -c 4 vm-2
-    PING vm-2.3bnkevn3313ujpr5l1kqop4n4d.cx.internal.cloudapp.net (10.1.0.4) 56(84) bytes of data.
-    64 bytes from vm-2.internal.cloudapp.net (10.1.0.4): icmp_seq=1 ttl=64 time=1.83 ms
-    64 bytes from vm-2.internal.cloudapp.net (10.1.0.4): icmp_seq=2 ttl=64 time=0.987 ms
-    64 bytes from vm-2.internal.cloudapp.net (10.1.0.4): icmp_seq=3 ttl=64 time=0.864 ms
-    64 bytes from vm-2.internal.cloudapp.net (10.1.0.4): icmp_seq=4 ttl=64 time=0.890 ms
+    azureuser@vm-1:~$ ping -c 4 10.1.0.4
+    PING 10.1.0.4 (10.1.0.4) 56(84) bytes of data.
+    64 bytes from 10.1.0.4: icmp_seq=1 ttl=64 time=2.29 ms
+    64 bytes from 10.1.0.4: icmp_seq=2 ttl=64 time=1.06 ms
+    64 bytes from 10.1.0.4: icmp_seq=3 ttl=64 time=1.30 ms
+    64 bytes from 10.1.0.4: icmp_seq=4 ttl=64 time=0.998 ms
+
+    --- 10.1.0.4 ping statistics ---
+    4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+    rtt min/avg/max/mdev = 0.998/1.411/2.292/0.520 ms
     ```
 
 1. Close the Bastion connection to **vm-1**.
 
 1. Repeat the steps in [Connect to a virtual machine](#connect-to-a-virtual-machine) to connect to **vm-2**.
 
-1. At the bash prompt for **vm-2**, enter `ping -c 4 vm-1`.
+1. At the bash prompt for **vm-2**, enter `ping -c 4 10.0.0.4`.
 
    You get a reply similar to the following message:
 
     ```output
-    azureuser@vm-2:~$ ping -c 4 vm-1
-    PING vm-1.3bnkevn3313ujpr5l1kqop4n4d.cx.internal.cloudapp.net (10.0.0.4) 56(84) bytes of data.
-    64 bytes from vm-1.internal.cloudapp.net (10.0.0.4): icmp_seq=1 ttl=64 time=0.695 ms
-    64 bytes from vm-1.internal.cloudapp.net (10.0.0.4): icmp_seq=2 ttl=64 time=0.896 ms
-    64 bytes from vm-1.internal.cloudapp.net (10.0.0.4): icmp_seq=3 ttl=64 time=3.43 ms
-    64 bytes from vm-1.internal.cloudapp.net (10.0.0.4): icmp_seq=4 ttl=64 time=0.780 ms
+    azureuser@vm-2:~$ ping -c 4 10.0.0.4
+    PING 10.0.0.4 (10.0.0.4) 56(84) bytes of data.
+    64 bytes from 10.0.0.4: icmp_seq=1 ttl=64 time=1.81 ms
+    64 bytes from 10.0.0.4: icmp_seq=2 ttl=64 time=3.35 ms
+    64 bytes from 10.0.0.4: icmp_seq=3 ttl=64 time=0.811 ms
+    64 bytes from 10.0.0.4: icmp_seq=4 ttl=64 time=1.28 ms
     ```
 
 1. Close the Bastion connection to **vm-2**.
