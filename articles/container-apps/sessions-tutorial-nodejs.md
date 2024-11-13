@@ -124,7 +124,7 @@ az containerapp sessionpool create \
 
 ## Set role assignments for code execution APIs
 
-The interpreter session needs run under an appropriate security context. The role `Azure ContainerApps Session Executor` for the session have the permissions to execute your code.
+To interact with the session pool's API, you must use an identity with the `Azure ContainerApps Session Executor` role assignment. In this tutorial, you use your Entra ID user identity to call the API. Run the following commands to assign the role to your identity:
 
 ```azurecli
 USER_OBJECT_ID=$(az ad signed-in-user show --query id -o tsv)
