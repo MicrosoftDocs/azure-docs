@@ -44,7 +44,7 @@ Refer to [Application DDoS protection](../web-application-firewall/shared/applic
 
 ## Protect Virtual Network Origins
 
-Enable [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) on your origin virtual network to safeguard your public IPs from DDoS attacks. This service offers additional benefits such as cost protection, an SLA guarantee, and access to the DDoS Rapid Response Team for expert assistance during an attack.
+Enable [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) on your origin virtual network to safeguard your public IPs from DDoS attacks. This service offers more benefits such as cost protection, an SLA guarantee, and access to the DDoS Rapid Response Team for expert assistance during an attack.
 
 ## Private Link
 
