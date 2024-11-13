@@ -215,12 +215,8 @@ Azure Container Apps dynamic sessions is currently in preview. The following lim
     | East Asia | ✔ | ✔ |
     | Germany West Central | ✔ | ✔ |
     | Italy North | ✔ | ✔ |
-    | Japan East | ✔ | ✔ |
     | North Central US | ✔ | - |
-    | North Europe | ✔ | ✔ |
-    | Norway East | ✔ | ✔ |
     | Poland Central | ✔ | ✔ |
-    | Sweden Central | ✔ | ✔ |
     | Switzerland North | ✔ | ✔ |
     | West Central US | ✔ | ✔ |
     | West US 2 | ✔ | ✔ |
