@@ -10,7 +10,8 @@ ms.date: 10/03/2024
 # Configure RDP Shortpath for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> RDP Shortpath for public networks via TURN for Azure Virtual Desktop is only available in the Azure public cloud.
+> - RDP Shortpath for public networks via STUN for Azure Virtual Desktop is available in the Azure public cloud and Azure Government cloud.
+> - RDP Shortpath for public networks via TURN for Azure Virtual Desktop is only available in the Azure public cloud.
 
 Users can connect to a remote session from Azure Virtual Desktop using the Remote Desktop Protocol (RDP) with a UDP or TCP-based transport. RDP Shortpath establishes a UDP-based transport between a local device Windows App or the Remote Desktop app on supported platforms and session host. 
 

@@ -106,6 +106,7 @@ Consider the following items when configuring Virtual WAN routing:
 * You can only use Virtual WAN to program routes in a spoke if the prefix is shorter (less specific) than the virtual network prefix. For example, in the diagram above the spoke VNET1 has the prefix 10.1.0.0/16: in this case, Virtual WAN wouldn't be able to inject a route that matches the virtual network prefix (10.1.0.0/16) or any of the subnets (10.1.0.0/24, 10.1.1.0/24). In other words, Virtual WAN can't attract traffic between two subnets that are in the same virtual network.
 * While it's true that two hubs on the same virtual WAN announce routes to each other (as long as the propagation is enabled to the same labels), this only applies to dynamic routing. Once you define a static route, this isn't the case.
 * When configuring static routes, don't use the hub router IPs as the next hop.
+* If you plan to remove Azure BGP communities from VNet and UDR routes, do not advertise these routes back into your virtual WAN. Doing so will create routing issues and outages. 
 
 ## Next steps
 

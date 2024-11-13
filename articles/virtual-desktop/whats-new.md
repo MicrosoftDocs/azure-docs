@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 10/18/2024
+ms.date: 11/08/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -26,11 +26,49 @@ Make sure to check back here often to keep up with new updates.
 
 Here's what changed in October 2024:
 
-### Windows 11, version 24H2 images are now available in Azure Marketplace
+### Yubikey smart card redirection on iOS and iPadOS is now in preview 
 
-Images for Windows 11 Enterprise, version 24H2 and Windows 11 Enterprise multi-session, version 24H2 are now available in the Azure Marketplace. These images also include versions with Microsoft 365 apps. The Azure portal will be updated later this month to allow the convenient selection of 24H2 images when creating session hosts from within the Azure Virtual Desktop service.  
+Yubico and Microsoft have partnered to provide smart card redirection for iOS and iPadOS Windows App users, which is available in preview starting in version 11.0.4. The Yubico integration supports the latest [YubiKey 5 portfolio](https://www.yubico.com/products/yubikey-5-overview/).  
+
+For YubiKey support, contact [Yubico Support Services](https://www.yubico.com/support/support-services/). 
+
+### AVC Mixed mode support for Azure Virtual Desktop and Windows 365 session desktop when multimedia redirection is not enabled 
+
+AVC Mixed Mode is now available in the default graphics profile. When multimedia redirection isn't enabled, AVC/h.264 is used to encode detected image content instead of the RemoteFX image encoder. This improves performance when encoding images relative to bitrate and framerate in network-constrained scenarios. 
+
+For more information, see [Graphics encoding over the Remote Desktop Protocol](graphics-encoding.md).
+
+### New Teams SlimCore changes are now available 
+
+Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality by redirecting it to the local device when using Windows App or the Remote Desktop client on a supported platform. 
+
+There are two versions of Teams, classic Teams and [new Teams](/microsoftteams/new-teams-desktop-admin), and you can use either with Azure Virtual Desktop. New Teams has feature parity with classic Teams, and improves performance, reliability, and security. 
+
+New Teams can use either SlimCore or the WebRTC Redirector Service. SlimCore is now available. If you use SlimCore, you should also install the WebRTC Redirector Service. This allows a user to fall back to WebRTC, such as if they roam between different devices that don't support the new optimization architecture. For more information about SlimCore and how to opt into the preview, see [New VDI solution for Teams](/microsoftteams/vdi-2). 
+
+For more information, see [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md). 
+
+### Multimedia redirection for video playback and calls in a remote session 
+
+Multimedia redirection call redirection is now generally available. Multimedia redirection redirects video playback and calls in a remote session from Azure Virtual Desktop, a Windows 365 Cloud PC, or Microsoft Dev Box to your local device for faster processing and rendering.  
+
+For more information, see [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md?tabs=intune&pivots=azure-virtual-desktop). 
+
+### Standardized naming of selectable images in Azure Virtual Desktop is now available 
+
+Image naming is now consistent when selecting images from the dropdown menu. As all new images published are Gen2, we're dropping this post-fix from the display name in the Azure Virtual Desktop dropdowns and will only add Gen1 when it is required. The change doesn’t impact naming in the Azure Marketplace.  
+
+### Windows 11, version 24H2 images are now available in the Azure Marketplace 
+
+Windows 11 Enterprise and Windows 11 Enterprise multi-session are now available in the Azure Marketplace. The updated images, Windows 11 + Windows 365 apps and Windows 11, are available.  
 
 For additional information to configure languages other than English, see [Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desktop](windows-11-language-packs.md). 
+
+### Configuring client device redirection settings for Windows App on iOS/iPadOS using Microsoft Intune
+
+You can now use Microsoft Intune Mobile Application Management to check for device posture and manage redirections for Windows App on iOS and iPadOS, You can use Microsoft Intune on both corporate managed and personal devices.   
+
+For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
 
 ## September 2024
 

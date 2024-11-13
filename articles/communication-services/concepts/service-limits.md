@@ -23,7 +23,7 @@ When you hit service limitations, you receive an HTTP status code 429 (Too many 
 - Reduce the frequency of calls.
 - Avoid immediate retries because all requests accrue against your usage limits.
 
-You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling). Throttling limits can be increased through a request to Azure Support.
+You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling). To increase throttling limits you need to make a request to [Azure Support](../support.md).
 
 1. Open the [Azure portal](https://ms.portal.azure.com/) and sign in.
 2. Select [Help+Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
@@ -60,8 +60,6 @@ Number purchase limits can be increased through a request to Azure Support.
 7. Review any **Recommended solution** if available, then click **Next**.
 8. Add **Additional details** as needed, then click **Next**.
 9. At **Review + create** check the information, make changes as needed, then click **Create**.
-
-
 
 ## Identity
 
@@ -104,9 +102,9 @@ You can send a limited number of email messages. If you exceed the following lim
 
 The Azure Communication Services email service is designed to support high throughput. However, the service imposes initial rate limits to help customers onboard smoothly and avoid some of the issues that can occur when switching to a new email service. We recommend gradually increasing your email volume using Azure Communication Services Email over a period of two to four weeks, while closely monitoring the delivery status of your emails. This gradual increase enables third-party email service providers to adapt to the change in IP for your domain's email traffic. The gradual change gives you time to protect your sender reputation and maintain the reliability of your email delivery.
 
-We approve higher limits for customers based on use case requirements, domain reputation, traffic patterns, and failure rates. To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are only available for verified custom domains, not Azure-managed domains.
+### Rate Limits for Email
 
-### Rate Limits 
+We approve higher limits for customers based on use case requirements, domain reputation, traffic patterns, and failure rates. To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are only available for verified custom domains, not Azure-managed domains.
 
 [Custom Domains](../quickstarts/email/add-custom-verified-domains.md)
 
@@ -126,7 +124,7 @@ We approve higher limits for customers based on use case requirements, domain re
 |Get Email Status|Per Subscription|1|10|
 |Get Email Status|Per Subscription|60|20|
 
-### Size Limits
+### Size Limits for Email
 
 | **Name** | Limit |
 | --- | --- |
@@ -161,7 +159,7 @@ To increase your email quota, follow the instructions at [Quota increase for ema
 
 ## Chat
 
-### Size Limits
+### Size Limits for Chat
 
 | **Name** | Limit |
 | --- | --- |
@@ -172,7 +170,7 @@ To increase your email quota, follow the instructions at [Quota increase for ema
 |Message Size|28 KB |
 |Number of Azure Communication Services resources per Azure Bot|1000 |
 
-### Rate Limits
+### Rate Limits for Chat
 
 | **Operation** | **Scope** | **Limit per 10 seconds** | **Limit per minute** |
 | --- | --- | --- | --- |

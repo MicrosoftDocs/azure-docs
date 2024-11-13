@@ -596,6 +596,8 @@
     - name: Decompile
       href: decompile.md
       displayName: conversion issues,export,convert,playground
+    - name: Blueprint to deployment stack 
+      href: migrate-blueprint.md
   - name: Contribute to Bicep
     href: contribute.md
 - name: Reference

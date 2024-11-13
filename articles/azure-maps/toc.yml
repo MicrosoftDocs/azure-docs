@@ -415,6 +415,8 @@ items:
       href: power-bi-visual-add-reference-layer.md
     - name: Add a tile layer
       href: power-bi-visual-add-tile-layer.md
+    - name: Add a path layer
+      href: power-bi-visual-add-path-layer.md
     - name: Add a filled map
       href: power-bi-visual-filled-map.md
     - name: On-object interaction

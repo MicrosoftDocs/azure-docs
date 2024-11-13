@@ -1,17 +1,17 @@
 ---
-title: Connector deprecation FAQ 
-description: Get answers to frequently asked questions about connector deprecation.
+title: Connector upgrade FAQ 
+description: Get answers to frequently asked questions about connector upgrade.
 author: KrishnakumarRukmangathan
 ms.author: krirukm
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.date: 10/17/2024
+ms.date: 11/08/2024
 ---
 
-# Connector deprecation FAQ
+# Connector upgrade FAQ
 
-This article provides answers to frequently asked questions about connector deprecation.
+This article provides answers to frequently asked questions about connector upgrade.
 
 ## Why does Azure Data Factory (ADF) release new connectors and ask users to upgrade their existing connectors?
 

@@ -1,20 +1,20 @@
 ---
-title: Host pool management approaches (preview) - Azure Virtual Desktop
-description: Learn about the different host pool management approaches in Azure Virtual Desktop.
+title: Host pool management approaches - Azure Virtual Desktop
+description: Learn about the different host pool management approaches of session host configuration management and standard management in Azure Virtual Desktop.
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 10/01/2024
 ---
 
-# Host pool management approaches for Azure Virtual Desktop (preview)
+# Host pool management approaches for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Host pools with a session host configuration for Azure Virtual Desktop are currently in PREVIEW.  This preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability.
+> Host pools with a session host configuration for Azure Virtual Desktop are currently in PREVIEW.  This preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Host pools are logical groupings of session host virtual machines that have the same configuration and serve the same workload. You can choose one of two host pool management approaches, *standard* and using a *session host configuration*. In this article, you learn about each management approach and the differences between them to help you decide which one to use.
+Host pools are logical groupings of session host virtual machines that have the same configuration and serve the same workload. You can choose one of two host pool management approaches, *standard* and using a *session host configuration* (preview). In this article, you learn about each management approach and the differences between them to help you decide which one to use.
 
 > [!CAUTION]
 > Currently the host pool management approach is set when you create a host pool and can't be changed later. The management approach is stored in the host pool's properties. Later in the preview for using a session host configuration, we plan to enable any host pool to use a session host configuration.
