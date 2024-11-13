@@ -149,7 +149,7 @@ Products are associations of one or more APIs. You can include many APIs and off
 
    ```azurecli
    az apim product api add --resource-group apim-hello-word-resource-group \
-       --api-id petstor-api --product-id contoso-product \
+       --api-id petstore-api --product-id contoso-product \
        --service-name apim-hello-world
    ```
 
