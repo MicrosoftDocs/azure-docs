@@ -1,7 +1,7 @@
 ---
 title: Configure your Azure Compute Fleet
 description: Learn about configuration options for your Compute Fleet.
-author: rajeeshr
+author: rrajeesh
 ms.author: rajeeshr
 ms.topic: concept-article
 ms.service: azure-compute-fleet
