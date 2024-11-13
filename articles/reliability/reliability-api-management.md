@@ -36,18 +36,17 @@ Azure API Management helps organizations publish APIs to external, partner, and 
 
 ## Availability zone support
 
-[!INCLUDE [introduction to AZ](includes/reliability-availability-zones-description-include.md)]
+
+[!INCLUDE[introduction to AZ](includes/reliability-availability-zone-description-include.md)]
 
 Azure API Management supports availability zones in both zonal and zone-redundant configurations:
 
-- *Zonal.* The API Management gateway and the control plane of your API Management instance (management API, developer portal, Git configuration) are deployed in a single zone that you select within an Azure region.  
+- *Zonal* The API Management gateway and the control plane of your API Management instance (management API, developer portal, Git configuration) are deployed in a single zone that you select within an Azure region.  
 
->[!NOTE] 
->Pinning to a single zone doesn’t increase resiliency. To improve resiliency, you need to explicitly deploy resources into multiple zones (zone-redundancy). 
+    >[!NOTE] 
+    >Pinning to a single zone doesn’t increase resiliency. To improve resiliency, you need to explicitly deploy resources into multiple zones (zone-redundancy). 
 
-- *Zone-redundant* -  Enabling zone redundancy for an API Management instance in a supported region provides redundancy for all service components: gateway, management plane, and developer portal. Azure automatically replicates all service components across the zones that you select.
-
-
+- *Zone-redundant* Enabling zone redundancy for an API Management instance in a supported region provides redundancy for all service components: gateway, management plane, and developer portal. Azure automatically replicates all service components across the zones that you select.
 
 ### Requirements
 
@@ -58,7 +57,7 @@ Azure API Management supports availability zones in both zonal and zone-redundan
 
 ###  Region support 
 
-To configure availability zones for API Management, your instance must be in one of the [Azure regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support).          |                    |                | 
+To configure availability zones for API Management, your instance must be in one of the [Azure regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support).       
 
 
 ###  Considerations 
