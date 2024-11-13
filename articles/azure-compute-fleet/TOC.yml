@@ -7,6 +7,8 @@
   - name: Create with ARM template
     href: quickstart-create-rest-api.md
   expand: true 
+- name: Allocation strategies
+  href: allocation-strategies.md
 - name: Attribute based VM selection (Preview)
   href: attribute-based-vm-selection.md
 - name: FAQ
