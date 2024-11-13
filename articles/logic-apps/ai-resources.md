@@ -15,41 +15,13 @@ ms.date: 11/11/2024
 
 This guide provides examples, samples, and other resources to help you learn how you can integrate Azure AI services, such as Azure OpenAI and Azure AI Search, with Standard workflows in Azure Logic Apps.
 
-## AI-related operations documentation
-
-The following sections describe built-in operations and documentation that you can use to build Standard workflows for AI integration scenarios, such as document ingestion and making it possible for customers to "chat with the data". 
-
-### Actions that parse content and chunk text
-
-The **Parse a document** and **Chunk text** actions are built-in or "in-app" operations that help you prepare content for consumption by Azure AI services in your workflows. Connectors for Azure AI services such as **Azure OpenAI** and **Azure AI Search** usually expect tokenized input and can handle only a limited number of tokens.
-
-| Action | Description |
-|--------|-------------|
-| **Parse a document** | This action converts content into tokenized string output so that a workflow can read and parse thousands of documents with file types such as PDF, DOCX, CSV, PPT, HTML, and others in multiple languages. |
-| **Chunk text** | This action splits a tokenized string into pieces for subsequent actions in the same workflow to easily consume. |
-
-Both these actions don't require any custom logic or configuration to use. This no-code approach helps you automate complex workflows whether the task is document parsing, data chunking, or powering generative AI models, which helps you unlock your data's full potential with minimal effort. 
-
-For a guide that shows how to use these actions in your Standard workflow, see [Parse or chunk content for Standard workflows in Azure Logic Apps](/azure/logic-apps/parse-document-chunk-text).
-
-### Operations for Azure OpenAI and Azure AI Search
-
-The **Azure AI Search** and **Azure OpenAI** connectors provide built-in or "in-app" operations that help you integrate the natural language processing capabilities in Azure Open AI with the intelligent search capabilities in Azure AI Search. These connectors simplify backend processes with codeless setup and reduce complexity around integrating AI capabilities into your workflows.
-
-| Connector | Description |
-|-----------|-------------|
-| **Azure OpenAI** | This connector provides operations with AI capabilities such as generate embeddings and chat completion, which are critical for creating sophisticated AI applications. |
-| **Azure AI Search** | This connector provides operations that enhance data retrieval with indexing, advanced vector, and hybrid search operations. |
-
-For a guide that shows how to use these connector operations in your Standard workflow, see [Connect to Azure AI services from Standard workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai).
-
 ## Ingest documents and chat with data
 
 Data is the cornerstone for any AI application and unique for each organization. When you build any AI application, efficient data ingestion is critical for success. Regardless where your data resides and with little or no code, you can more easily integrate AI into new and existing business processes by building Standard workflows with Azure Logic Apps.
 
 With over 1,400 enterprise connectors and operations, Azure Logic Apps makes it possible for you to quickly access and perform tasks with a wide range of services, systems, applications, and databases. When you use these connectors alongside AI services, such as Azure OpenAI and Azure AI Search, your organization can transform workloads such as automating routine tasks, enhancing customer interactions with chat capabilities, providing access to organizational data when necessary, and generating intelligent insights or responses. Along with these operations, Azure Logic Apps also offers prebuilt workflow templates that ingest data from many common data sources, such as SharePoint, Azure File Storage, Blob Storage, SFTP, and more, to help you quickly build and your applications.
 
-For example, when you integrate AI services by using the **Azure OpenAI** and **Azure AI Search** connector operations in your workflows, your organization can seamlessly implement the retrieval-augmented generation (RAG) pattern. This architecture includes an information retrieval system and auguments the training data for a large language model (LLM) by referencing additional domain-specific or authoritative knowledge without having to retrain the model, which minimizes cost. For more information, see the [Retrieval-augmented generation (RAG) section](#rag-details) later in this guide.
+For example, when you integrate AI services by using the **Azure OpenAI** and **Azure AI Search** connector operations in your workflows, your organization can seamlessly implement the retrieval-augmented generation (RAG) pattern. This architecture includes an information retrieval system and augments the training data for a large language model (LLM) by referencing additional domain-specific or authoritative knowledge without having to retrain the model, which minimizes cost. For more information, see the [Retrieval-augmented generation (RAG) section](#rag-details) later in this guide.
 
 The following examples and resources provide more information about these capabilities:
 
@@ -119,7 +91,7 @@ With Azure OpenAI, you can easily build agent-like features into your applicatio
 
 You can now build Assistants by calling Azure Logic Apps workflows as AI functions. Without writing any code, you can discover, import, and invoke workflows in Azure OpenAI Studio from the Azure OpenAI Assistants playground. The Assistants playground enumerates and lists all the workflows in your subscription that are eligible for function calling.
 
-To test Assistants with function calling, you can import workflows as AI functions using a browse and select experience. Function specification generation and other configuration is automatically pulled from Swagger for your workflow. Function calling invokes workflows based on user prompts, while all the appropriate parameters are passed in based on the definition.
+To test Assistants with function calling, you can import workflows as AI functions using a browse and select experience. Function specification generation and other configurations are automatically pulled from Swagger for your workflow. Function calling invokes workflows based on user prompts, while all the appropriate parameters are passed in based on the definition.
 
 | Resource type | Link |
 |---------------|------|
@@ -135,6 +107,34 @@ This lightweight, open-source development kit helps you easily build AI agents a
 |---------------|------|
 | **Blog article** | [Integrate Standard logic app workflows as plugins with Semantic Kernel: Step-by-step guide](https://techcommunity.microsoft.com/blog/integrationsonazureblog/integrate-logic-app-workflows-as-plugins-with-semantic-kernel-step-by-step-guide/4210854) |
 | **GitHub sample** | [Semantic Kernel for Azure Logic Apps](https://github.com/Azure/logicapps/tree/shahparth-lab-patch-2-semantic-kernel/Git-SK) |
+
+## AI-related connector operations documentation
+
+The following sections describe the built-in operations and links to documentation that you can use to build Standard workflows for AI integration scenarios, such as document ingestion and making it possible for customers to "chat with the data". 
+
+### Actions that parse content and chunk text
+
+The **Parse a document** and **Chunk text** actions are built in or "in app" operations that help you prepare content for consumption by Azure AI services in your workflows. Connectors for Azure AI services such as **Azure OpenAI** and **Azure AI Search** usually expect tokenized input and can handle only a limited number of tokens.
+
+| Action | Description |
+|--------|-------------|
+| **Parse a document** | This action converts content into tokenized string output so that a workflow can read and parse thousands of documents with file types such as PDF, DOCX, CSV, PPT, HTML, and others in multiple languages. |
+| **Chunk text** | This action splits a tokenized string into pieces for subsequent actions in the same workflow to easily consume. |
+
+Both these actions don't require any custom logic or configuration to use. This no-code approach helps you automate complex workflows whether the task is document parsing, data chunking, or powering generative AI models, which helps you unlock your data's full potential with minimal effort. 
+
+For a guide that shows how to use these actions in your Standard workflow, see [Parse or chunk content for Standard workflows in Azure Logic Apps](/azure/logic-apps/parse-document-chunk-text).
+
+### Operations for Azure OpenAI and Azure AI Search
+
+The **Azure AI Search** and **Azure OpenAI** connectors provide built in or "in-app" operations that help you integrate the natural language processing capabilities in Azure OpenAI with the intelligent search capabilities in Azure AI Search. These connectors simplify backend processes with codeless setup and reduce complexity around integrating AI capabilities into your workflows.
+
+| Connector | Description |
+|-----------|-------------|
+| **Azure OpenAI** | This connector provides operations with AI capabilities such as generate embeddings and chat completion, which are critical for creating sophisticated AI applications. |
+| **Azure AI Search** | This connector provides operations that enhance data retrieval with indexing, advanced vector, and hybrid search operations. |
+
+For a guide that shows how to use these connector operations in your Standard workflow, see [Connect to Azure AI services from Standard workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai).
 
 ## Related content
 
