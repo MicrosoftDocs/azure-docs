@@ -297,9 +297,17 @@ To remove an API Management service region, see [Remove an Azure API Management 
 ### Traffic routing between regions 
 
 
-####  Regional backend services
+####  Regional backend service routing
 
-By default, each API routes requests to a single backend service URL. Even if you've configured Azure API Management gateways in various regions, the API gateway still forward requests to the same backend service, which is deployed in only one region. In this case, the performance gain will come only from responses cached within Azure API Management in a region specific to the request; contacting the backend across the globe may still cause high latency.
+By default, even if you've configured Azure API Management gateways in various regions, the API gateway still forward requests to the same backend service, which is deployed in only one region. In this case, the performance gain will come only from responses cached within Azure API Management in a region specific to the request; contacting the backend across the globe may still cause high latency.
+
+You can manage regional backends and handle failover through API Management to maintain availability. For example:
+
+- In multi-region deployments, use policies to route requests through regional gateways to regional backends.
+- Configure policies to route requests conditionally to different backends if there's backend failure in a particular region.
+- Use caching to reduce failing calls.
+
+For more information on how API Management backend entities allow you to manage and apply backend properties to improve the availability of backends, see [Backends in API Management](/azure/api-management/backends).
 
 To learn how to setup backend services in multiple regions with or without Traffic Manager, see [Route API calls to regional backend services](/azure/api-management/api-management-howto-deploy-multi-region#-route-api-calls-to-regional-backend-services).
 
@@ -371,7 +379,7 @@ Explain what happens when a region is down. Be precise and clear. Avoid ambiguit
 
 
 ### Failback
-TODO: Add your failback
+
 
 <!-- 6J. Failback  ----------------------------------------------------
 
