@@ -636,6 +636,31 @@ To map the data to another field with optional conversion, you can use the `map`
 
 In the operations experience, mapping is currently supported using **Compute**, **Rename**, and **New property** transforms.
 
+#### Compute
+
+You can use the **Compute** transform to apply a formula to the source data. This operation is used to apply a formula to the source data and store the result field.
+
+1. Under **Transform (optional)**, select **Compute** > **Add**.
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-compute.png" alt-text="Screenshot using operations experience to add a compute transform.":::
+
+1.  Enter the required settings.
+
+    | Setting            | Description                                                                                       |
+    |--------------------|---------------------------------------------------------------------------------------------------|
+    | Select formula     | Choose an existing formula from the dropdown or select **Custom** to enter a formula manually.     |
+    | Output             | Specify the output display name for the result.                          |
+    | Formula            | Enter the formula to be applied to the source data.                                               |
+    | Description        | Provide a description for the transformation.                                                     |
+    | Last known value   | Optionally, use the last known value if the current value isn't available.                       |
+
+
+    You can enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Type `@` or select **Ctrl + Space** to select datapoints from a dropdown. You can also enter $metadata headers using the format `@$metadata.<header>`.
+    
+    The formula can use the fields in the source data. For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` output field. 
+    
+1. Select **Apply**.
+
 #### Rename
 
 You can rename a datapoint using the **Rename** transform. This operation is used to rename a datapoint in the source data to a new name. The new name can be used in the subsequent stages of the dataflow.
@@ -670,31 +695,6 @@ You can add a new property to the source data using the **New property** transfo
     | Property value     | Enter the value for the new property.                                                               |
     | Description        | Provide a description for the new property.                                                         |
 
-1. Select **Apply**.
-
-#### Compute
-
-You can use the **Compute** transform to apply a formula to the source data. This operation is used to apply a formula to the source data and store the result field.
-
-1. Under **Transform (optional)**, select **Compute** > **Add**.
-
-    :::image type="content" source="media/howto-create-dataflow/dataflow-compute.png" alt-text="Screenshot using operations experience to add a compute transform.":::
-
-1.  Enter the required settings.
-
-    | Setting            | Description                                                                                       |
-    |--------------------|---------------------------------------------------------------------------------------------------|
-    | Select formula     | Choose an existing formula from the dropdown or select **Custom** to enter a formula manually.     |
-    | Output             | Specify the output display name for the result.                          |
-    | Formula            | Enter the formula to be applied to the source data.                                               |
-    | Description        | Provide a description for the transformation.                                                     |
-    | Last known value   | Optionally, use the last known value if the current value isn't available.                       |
-
-
-    You can enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Type `@` or select **Ctrl + Space** to select datapoints from a dropdown. You can also enter $metadata headers using the format `@$metadata.<header>`.
-    
-    The formula can use the fields in the source data. For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` output field. 
-    
 1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
