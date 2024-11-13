@@ -5,7 +5,7 @@ description: Learn how to deploy a Premium tier Azure API Management instance to
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/29/2024
+ms.date: 11/13/2024
 ms.author: danlep
 ---
 
@@ -26,13 +26,11 @@ When adding a region, you configure:
 >[!IMPORTANT]
 > The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
 
-## About multi-region deployment
-
-[!INCLUDE [api-management-multi-region-concepts](../../includes/api-management-multi-region-concepts.md)]
 
 ## Prerequisites
 
-* If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
+* Thoroughly understand all requirements and considerations for enabling multi-region deployment in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md). 
+If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
 * If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network and subnet in the location that you plan to add, and within the same subscription. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
 
 ## <a name="add-region"> </a>Deploy API Management service to an additional region

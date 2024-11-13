@@ -93,7 +93,6 @@ Use [capacity metrics](/azure/api-management/api-management-capacity) and your o
 
 
 ### Traffic routing between zones
-TODO: Optional. Add your traffic routing between zones
 
 
 <!-- 5G. Traffic routing between zones ----------------------------------------------------------
@@ -214,21 +213,12 @@ Explain what happens when an availability zone is down. Be precise and clear. Av
 
 
 ### Failback
-TODO: Add your failback
-
-<!-- 5J. Failback  ----------------------------------------------------
-    Explain who initiates a failback. For zonal resources, is it customer-initiated or Microsoft-initiated? Zone-redundant is always Microsoft-initiated. 
--->
-
-**Example:**
-
-> When the availability zone recovers,  [service-name]  automatically restores instances in the availability zone, removes any temporary instances created in the other availability zones, and reroutes traffic between your instances as normal.
 
 
-<!--
-    Optional: If there is any possibility of data synchronization issues or inconsistencies during failback, explain that here, as well as what customers can/should do to resolve the situation. (Most services don’t require this section because data inconsistency isn’t possible between availability zones.) 
+<!-- Is this true? -->
 
--->
+When the availability zone recovers,  API Management automatically restores instances in the availability zone and reroutes traffic between your instances as normal.
+
 
 ### Testing for zone failures  
 TODO: Add your testing for zone failures  
@@ -253,104 +243,49 @@ For zone-redundant services, is there a way for the customer to test a zone fail
 
 
 ## Multi-region support
-TODO: Add your multi-region support.
-
-<!-- 6. Multi-region support ---------------------------------------
-
-    This section ONLY describes native product features for multi-region support.  Don’t talk about patterns or approaches to create multiple instances in different regions – that’s in the “Alternative multi-region approaches” section. 
-
-    If the service has built-in multi-region support that supports resiliency requirements, describe it here. 
-
--->
-
-**Example:**
-
->[service-name] can be configured to use multiple Azure regions. When you configure multi-region support, you select which region should be the primary region, and [service-name] automatically replicates changes in your data to each selected secondary region.
-
-<!--
-
-For a single-region service, which means it’s regionally deployed and has no direct multi-region support, use wording like the following: 
-
--->
-
-**Example:**
-
->[service-name] is a single-region service. If the region is unavailable, your [service-name] resource is also unavailable.
 
 
->[!IMPORTANT]
->For a single-region service, don't include the H3 headings in this section. Skip to “Alternative multi-region approaches”. 
+With a multi-region deployment, you can add regional API gateways to an existing API Management instance in one or more supported Azure regions. Multi-region deployment helps to reduce any request latency that's perceived by geographically distributed API consumers. A multi-region deployment also improves service availability if one region goes offline.
+
+When adding a region, you configure:
+
+- The number of scale units that region will host.
+
+- Optional [availability zones](#availability-zone-support), if that region supports it.
+
+- [Virtual network settings](/azure/api-management/virtual-network-concepts) in the added region, if networking is configured in the existing region or regions.
+
 
 ### Requirements 
 
-<!-- 6A. Requirements ----------------------
-    List any requirements that must be met to use multiple regions with this service. Most commonly, specific SKUs are required. If multiple regions are supported in all SKUs, or if the service has only one default SKU, mention this. Also mention any other requirements that must be met. 
--->
-
-**Example:**
-
-> You must use the Premium tier to enable multi-region support.
+You must use the Premium tier to enable multi-region support.
 
 ### Region support 
 
-<!-- 6B. Region support ----------------------
-    Make it clear if multi-region support relies on Azure region pairs, or if it works across any combination of regions. Also, explain any other regional requirements, such as requiring all regions to be within the same geography, or within a defined latency perimeter. 
--->
+You can select any Azure region for your secondary instances.
 
-**Example:**
+>[!Important]
+>The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
 
-> You can select any Azure region for your secondary instances.
 
 ### Considerations
 
-<!-- 6C. Considerations ----------------------
-    Describe any workflows or scenarios that aren't supported, as well as any gotchas. For example, some services only replicate parts of the solution across regions but not others. 
+- Only the gateway component of your API Management instance is replicated to multiple regions. The instance's management plane and developer portal remain hosted only in the primary region, the region where you originally deployed the service.
 
-    Include information about any expected downtime or effects if you enable multi-region support after deployment. Provide links to any relevant information. 
+- If you want to configure a secondary location for your API Management instance when it's deployed (injected) in a virtual network, the VNet and subnet region should match with the secondary location you're configuring. If you're adding, removing, or enabling the availability zone in the primary region, or if you're changing the subnet of the primary region, then the VIP address of your API Management instance will change. For more information, see [IP addresses of Azure API Management service](/azure/api-management/api-management-howto-ip-addresses#changes-to-the-ip-addresses). However, if you're adding a secondary region, the primary region's VIP won't change because every region has its own private VIP.
 
--->
-
-**Example:**
-
-> When you enable multi-region support, component Z is replicated across regions, but other components aren't replicated. After a region failover, your resource continues to work, but feature A might be unavailable until the region recovers and full service is restored.
+- The gateway in each region (including the primary region) has a regional DNS name that follows the URL pattern of `https://<service-name>-<region>-01.regional.azure-api.net`, for example `https://contoso-westus2-01.regional.azure-api.net`.
 
 
 ### Cost
 
-<!-- 6D. Cost ----------------------
-    Give an idea of what this does to your billing meters. For example, is there an additional charge for enabling multi-region support? Do you need to deploy additional instances of your service in each region? 
-
-    Don't specify prices. Link to the Azure pricing information if needed. 
--->
-
-
-**Example:**
-
-> When you enable multi-region support, you're billed for each region that you select. For more information, see [service pricing information].
-
+Adding regions incurs additional costs. For information, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
 ### Configure multi-region support 
 
-<!-- 6E. Configure multi-region support  ----------------------
+To deploy an API Management instance to multi-region support, see [Deploy an Azure API Management instance to multiple Azure regions](/azure/api-management/api-management-howto-deploy-multi-region#-deploy-api-management-service-to-an-additional-region).
 
-    In this section, link to deployment or migration guides. If you don't have the required guide, you'll need to create one.
-
-    DO NOT provide detailed how-to guidance in this article.
-    
-    Provide links to documents that show how to create a resource or instance with multi-region support. Ideally, the documents should contain examples using the Azure portal, Azure CLI, Azure PowerShell, and Bicep. 
--->   
-
-**Example:**
-
-> To deploy a new multi-region [service-name] resource, see [Create an [service-name] resource with multi-region support].
->
-> To enable multi-region support for an existing [service-name] resource, see [Enable multi-region support in an [service-name] resource]. 
-
-<!--   
-    If your service does NOT support enabling multi-region support after deployment, add an explicit statement to indicate that. 
-    
-    If your service supports disabling multi-region support, provide links to the relevant how-to guides for that scenario. 
--->
+To remove an API Management service region, see [Remove an Azure API Management service region](/azure/api-management/api-management-howto-deploy-multi-region#-remove-an-api-management-service-region).
 
 ### Capacity planning and management 
 <!-- 6F. Capacity planning and management  ----------------------
@@ -360,54 +295,23 @@ For a single-region service, which means it’s regionally deployed and has no d
 -->
 
 ### Traffic routing between regions 
-<!-- 6G. Traffic routing between regions  ----------------------
-    
-    This section explains how work is divided up between instances in multiple regions, during regular day-to-day operations - NOT during a region failure. 
 
-    Common approaches are:
-    
-    - **Active/active.**  Requests are spread across instances in every region, maybe using Traffic Manager or Azure Front Door behind the scenes.
-    
-    - **Active/passive.** Requests always goes to the primary region.
--->   
 
-**Example:**
+####  Regional backend services
 
-> When you configure multi-region support, all requests are routed to an instance in the primary region. The secondary regions are used only in the event of a failover.
+By default, each API routes requests to a single backend service URL. Even if you've configured Azure API Management gateways in various regions, the API gateway still forward requests to the same backend service, which is deployed in only one region. In this case, the performance gain will come only from responses cached within Azure API Management in a region specific to the request; contacting the backend across the globe may still cause high latency.
+
+To learn how to setup backend services in multiple regions with or without Traffic Manager, see [Route API calls to regional backend services](/azure/api-management/api-management-howto-deploy-multi-region#-route-api-calls-to-regional-backend-services).
+
+#### Custom routing
+
+When API Management receives public HTTP requests to the Traffic Manager endpoint (applies for the external VNet and non-networked modes of API Management), traffic is routed to a regional gateway based on lowest latency, which can reduce latency experienced by geographically distributed API consumers.  Although it isn't possible to override this setting in API Management, you can use your own Traffic Manager with custom routing rules. For more information, see [Use custom routing to API Management regional gateways](/azure/api-management/api-management-howto-deploy-multi-region#-use-custom-routing-to-api-management-regional-gateways)
+
+However, in internal VNet mode, customers must configure their own solution to route and load-balance traffic across the regional gateways. For details, see [Networking considerations](azure/api-management/api-management-howto-deploy-multi-region#virtual-networking).
 
 ### Data replication between regions 
 
-<!-- 6H. Data replication between regions  ----------------------
-    
-
-    Optional section. 
-
-    This section is only required for services that perform data replication across regions. 
-    
-    This section explains how data is replicated: synchronously, asynchronously, or some combination between the two.
-    
-    This section should describe how data replication is performed during regular day-to-day operations - NOT during a region failure. 
-
-    Note - the data replication approach across regions is usually different from the approach used across availability zones.
-
-    Most Azure services replicate the data across regions asynchronously, where changes are applied in a single region and then propagated after some time to the other regions. Use wording similar to this to explain this approach and its tradeoffs:
--->      
-
-**Example:**
-
-> When a client changes any data in your [service-name] resource, that change is applied to the primary region. At that point, the write is considered to be complete. Later, the X resource in the secondary region is automatically updated with the change. This approach is called *asynchronous replication.* Asynchronous replication ensures high performance and throughput. However, any data that wasn't replicated between regions could be lost if the primary region experiences a failure.
-
-<!--     
-    Alternatively, some services replicate their data synchronously which means that changes are applied to multiple (or all) regions simultaneously, and the change isn’t considered to be completed until multiple/all regions have acknowledged the change. Use wording similar to the following to explain this approach and its tradeoffs:
--->    
-
-**Example:**
-    
-> When a client changes any data in your [service-name] resource, that change is applied to all instances in all regions simultaneously. This approach is called *synchronous replication.* Synchronous replication ensures a high level of data consistency, which reduces the likelihood of data loss during a region failure. However, because all changes have to be replicated across regions that might be geographically distant, you might experience lower throughput or performance.
-
-<!--     
-    Your service might behave differently to the examples provided above, so adjust or rewrite as much as you need. The accuracy and clarity of this information is critical to our customers, so please make sure you understand and explain the replication process thoroughly. 
--->   
+Gateway configurations such as APIs and policy definitions are regularly synchronized between the primary and secondary regions you add. Propagation of updates to the regional gateways normally takes less than 10 seconds. Multi-region deployment provides availability of the API gateway in more than one region and provides service availability if one region goes offline.
 
 
 ### Region-down experience 
@@ -460,20 +364,11 @@ Explain what happens when a region is down. Be precise and clear. Avoid ambiguit
 
 > You might lose some data during a region failure if that data isn't yet synchronized to another region.
 
-<!--
-    - **Expected downtime** Explain any expected downtime, such as during a failover operation. 
--->
+- **Expected downtime:** If the primary region goes offline, the API Management management plane and developer portal become unavailable, but secondary regions continue to serve API requests using the most recent gateway configuration. 
 
-**Example:**
+- **Traffic rerouting:** If a region goes offline, API requests are automatically routed around the failed region to the next closest gateway.
 
-> Your [service-name] resource might be unavailable for approximately 2 to 5 minutes during the region failover process.
 
-<!--
-    - **Traffic rerouting** Explain how the platform recovers, including how traffic is rerouted to the surviving region. If appropriate, explain how customers should reroute traffic after a region is lost. 
--->
-
-**Example:**
-> When a region failover occurs, [service-name] updates DNS records to point to the secondary region. All subsequent requests are sent to the secondary region.
 
 ### Failback
 TODO: Add your failback
@@ -536,15 +431,11 @@ For example approaches that illustrates this architecture, see:
 
 ## Backups
 
-<!-- 7. Backups   ----------------------
-Required only if the service supports backups. 
+Backup and restore operations can be used for replicating API Management service configuration between operational environments, for example, development and staging. Beware that runtime data such as users and subscriptions are copied as well, which might not always be desirable.
 
-Describe any backup features the service provides. Clearly explain whether they are fully managed by Microsoft, or if customers have any control over backups. Explain where backups are stored and how they can be recovered. Note whether the backups are only accessible within the region or if they’re accessible across regions, such as after a region failure. 
+Backup is supported in Developer, Basic, Standard, and Premium tiers.
 
-You must include the following caveat:
--->
-
-> For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [link to article about how backups contribute to a resiliency strategy].
+For more information on backup in Azure API Management, see [How to implement disaster recovery using service backup and restore in Azure API Management](/azure/api-management/api-management-howto-disaster-recovery-backup-restore).
 
 ## Service-level agreement
 
@@ -557,9 +448,4 @@ Azure API Management provides an SLA of 99.99% when you deploy at least one unit
 
 ## Related content
 
-<!-- 9.Related content ---------------------------------------------------------------------
-Required: Include any related content that points to a relevant task to accomplish,
-or to a related topic. 
-
 - [Reliability in Azure](/azure/availability-zones/overview.md)
--->
