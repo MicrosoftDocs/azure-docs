@@ -47,7 +47,7 @@ sections:
       answer: Azure IoT Operations is available in East US2, West US 3, West Europe, East US, West US, West US 2, North Europe regions.
     - question: |
          Does Azure IoT Operations support connecting via proxy servers? 
-      answer: Azure IoT Operations supports connecting via passthrough proxies that don't require proxy authentication. Proxies that require authentication or inspect TLS connections are currently not supported. 
+      answer: Azure IoT Operations supports connecting via passthrough proxies that don't require proxy authentication. Proxies that require authentication or can inspect encrypted traffic are currently not supported. 
     - question: |
          Does Azure IoT Operations support Azure Private Link and private endpoints? 
       answer: Azure IoT Operations currently does not support Azure Private Link and private endpoints. 
