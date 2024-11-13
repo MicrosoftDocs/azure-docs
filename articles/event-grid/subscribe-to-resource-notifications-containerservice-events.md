@@ -161,11 +161,11 @@ You might want to filter the Azure Kubernetes Cluster Scheduled Events by a spec
 
 ```azurecli-interactive
 az eventgrid system-topic event-subscription create \
- --name firstEventSubscription \
- --resource-group sampletestrg \
- --system-topic-name arnSystemTopicResources \
+ --name EVENTSUBSCRIPTIONNAME \
+ --resource-group RESOURCEGROUPNAME \
+ --system-topic-name SYSTEMTOPICNAME \
  --included-event-types Microsoft.ResourceNotifications.ContainerServiceEventResources.ScheduledEventEmitted \
- --endpoint /subscriptions/000000000-0000-0000-0000-0000000000000/resourceGroups/sampletestrg/providers/Microsoft.EventHub/namespaces/testEventHub/eventhubs/ehforsystemtopicresources \
+ --endpoint /subscriptions/000000000-0000-0000-0000-0000000000000/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventHub/namespaces/EVENTHUBNAMESPACE/eventhubs/EVENTHUBNAME \
  --endpoint-type evenhub \
  --advanced-filter data.resourceInfo.properties.resources StringContains clusterName
 
@@ -174,11 +174,11 @@ az eventgrid system-topic event-subscription create \
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName firstEventSubscription
--ResourceGroupName sampletestrg 
--SystemtopicName arnSystemTopicResources 
+New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIPTIONNAME
+-ResourceGroupName RESOURCEGROUPNAME 
+-SystemtopicName SYSTEMTOPICNAME 
 -IncludedEventType Microsoft.ResourceNotifications.ContainerServiceEventResources.ScheduledEventEmitted  
--Endpoint /subscriptions/000000000-0000-0000-0000-000000000000/resourceGroups/sampletestrg/providers/Microsoft.EventHub/namespaces/testEventHub/eventhubs/ehforsystemtopicresources 
+-Endpoint /subscriptions/000000000-0000-0000-0000-000000000000/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventHub/namespaces/EVENTHUBNAMESPACE/eventhubs/EVENTHUBNAME 
 -EndpointType eventhub 
 -AdvancedFilter @(@{operator = "StringContains"; key = "data.resourceInfo.properties.resources" ; value ="clusterName"})
 
@@ -204,11 +204,11 @@ You might want to filter the Azure Kubernetes Cluster Scheduled Events by a spec
 
 ```azurecli-interactive
 az eventgrid system-topic event-subscription create \
- --name firstEventSubscription \
- --resource-group sampletestrg \
- --system-topic-name arnSystemTopicResources \
+ --name EVENTSUBSCRIPTIONNAME \
+ --resource-group RESOURCEGROUPNAME \
+ --system-topic-name SYSTEMTOPICNAME \
  --included-event-types Microsoft.ResourceNotifications.ContainerServiceEventResources.ScheduledEventEmitted \
- --endpoint /subscriptions/000000000-0000-0000-0000-0000000000000/resourceGroups/sampletestrg/providers/Microsoft.EventHub/namespaces/testEventHub/eventhubs/ehforsystemtopicresources \
+ --endpoint /subscriptions/000000000-0000-0000-0000-0000000000000/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventHub/namespaces/EVENTHUBNAMESPACE/eventhubs/EVENTHUBNAME \
  --endpoint-type evenhub \
  --advanced-filter data.resourceInfo.properties.eventStatus StringContains Completed
 ```
@@ -216,11 +216,11 @@ az eventgrid system-topic event-subscription create \
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName firstEventSubscription
--ResourceGroupName sampletestrg 
--SystemtopicName arnSystemTopicResources 
+New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIPTIONNAME
+-ResourceGroupName RESOURCEGROUPNAME 
+-SystemtopicName SYSTEMTOPICNAME 
 -IncludedEventType Microsoft.ResourceNotifications.ContainerServiceEventResources.ScheduledEventEmitted  
--Endpoint /subscriptions/000000000-0000-0000-0000-000000000000/resourceGroups/sampletestrg/providers/Microsoft.EventHub/namespaces/testEventHub/eventhubs/ehforsystemtopicresources 
+-Endpoint /subscriptions/000000000-0000-0000-0000-000000000000/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventHub/namespaces/EVENTHUBNAMESPACE/eventhubs/EVENTHUBNAME 
 -EndpointType eventhub 
 -AdvancedFilter @(@{operator = "StringContains"; key = "data.resourceInfo.properties.eventStatus" ; value ="Completed"})
 
@@ -242,4 +242,4 @@ Value = Completed
 [!INCLUDE [contact-resource-notifications](./includes/contact-resource-notifications.md)]
 
 ## Next steps
-For detailed information about these events, see [Azure Resource Notifications - Health Resources events](event-schema-health-resources.md).
+For detailed information about these events, see [Azure Resource Notifications - Container Service Events](event-schema-containerservice-resources.md).

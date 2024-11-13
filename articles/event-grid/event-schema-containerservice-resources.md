@@ -6,11 +6,12 @@ ms.date: 09/30/2024
 ---
 
 # Azure Resource Notifications - ContainerService events in Azure Event Grid (Preview)
+<div style="text-align: justify">
 Azure Kubernetes Service (AKS) utilizes the ContainerServiceEventResources system topic to publish advance notifications for scheduled maintenance events on AKS clusters. This feature allows you to receive push notifications on a regular basis for critical maintenance operations for various event statuses such as scheduled, started, completed, cancelled, and failed. Particularly for the scheduled event status, one notification is sent 7 days prior to the actual maintenance operation and a second notification 24 hrs in advance.
 
 These notifications cover:
-•	AKS-initiated maintenances (e.g., Underlay migration, Konnectivity Tunnel Switch)
-•	Customer-initiated maintenances (e.g., Auto upgrade, Node OS upgrade, weekly release window)
+- AKS-initiated maintenances (e.g., Underlay migration, Konnectivity Tunnel Switch)
+- Customer-initiated maintenances (e.g., Auto upgrade, Node OS upgrade, weekly release window)
 These proactive notifications help customers by providing increased ability to plan for disruptions, thereby reducing operational costs
 
 
@@ -27,6 +28,8 @@ ContainerService  offers the following event type for consumption:
 Currently, these events are exclusively emitted at the Azure subscription scope. It implies that the entity creating the event subscription for this topic type receives notifications throughout this Azure subscription. For security reasons, it's imperative to restrict the ability to create event subscriptions on this topic to principals with read access over the entire Azure subscription. To access data via this system topic, in addition to the generic permissions required by Event Grid, the following Azure Resource Notifications specific permission is necessary: ``.
 
 Microsoft.ResourceNotifications/systemTopics/subscribeToContainerServiceEventResources/action
+
+</div>
 
 ## Event schemas
 
@@ -265,4 +268,4 @@ The following example shows the schema of a key-value modified event:
 [!INCLUDE [contact-resource-notifications](./includes/contact-resource-notifications.md)]
 
 ## Next steps
-See [Subscribe to Azure Resource Notifications - Health Resources events](subscribe-to-resource-notifications-containerservice-events.md).
+See [Subscribe to Azure Resource Notifications - Container Service events](subscribe-to-resource-notifications-containerservice-events.md).
