@@ -30,7 +30,7 @@ The plug-in supports both Linux and Windows platforms.
 
 ## Connect pods to a virtual network
 
-Pods are brought up in a virtual machine that's part of a virtual network. A pool of IP addresses for the pods is configured as secondary addresses on a virtual machine's network interface. Azure CNI sets up the basic network connectivity for pods and manages the utilization of the IP addresses in the pool. When a pod comes up in the virtual machine, Azure CNI assigns an available IP address from the pool and connects the pod to a software bridge in the virtual machine. When the pod terminates, the IP address is added back to the pool. The following diagram shows how pods connect to a virtual network.
+Pods are brought up in a virtual machine that's part of a virtual network. A pool of IP addresses for the pods is configured as secondary addresses on a virtual machine's network interface. The Azure CNI sets up the basic network connectivity for pods and manages the utilization of the IP addresses in the pool. When a pod comes up in the virtual machine, the Azure CNI assigns an available IP address from the pool and connects the pod to a software bridge in the virtual machine. When the pod terminates, the IP address is added back to the pool. The following diagram shows how pods connect to a virtual network.
 
 :::image type="content" source="./media/container-networking/container-networking-detail.png" alt-text="Diagram that shows container networking detail.":::
 
