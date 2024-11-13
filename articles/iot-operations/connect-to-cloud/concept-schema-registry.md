@@ -11,7 +11,7 @@ ms.date: 10/30/2024
 
 # Understand message schemas
 
-Schema registry (preview), a feature provided by Azure Device Registry, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. 
+Schema registry, a feature provided by Azure Device Registry, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. 
 
 The connector for OPC UA can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI or using ARM/Bicep templates.
 
@@ -62,7 +62,7 @@ JSON:
 
 Delta:
 
-```delta
+```json
 {
   "$schema": "Delta/1.0",
   "type": "object",
@@ -101,9 +101,18 @@ The operations experience uses the input schema as a starting point for your dat
 
 ### Output schema
 
-Output schemas are associated with dataflow destinations and are only used for dataflows that select local storage, Fabric, Azure Storage (ADLS Gen2), or Azure Data Explorer as the destination endpoint. Currently, Azure IoT Operations experience only supports Parquet output for output schemas.
+Output schemas are associated with dataflow destinations.
+
+In the operations experience portal, you can configure output schemas for the following destination endpoints that support Parquet output:
+
+* local storage
+* Fabric
+* Azure Storage (ADLS Gen2)
+* Azure Data Explorer
 
 Note: The Delta schema format is used for both Parquet and Delta output.
+
+If you use Bicep or Kubernetes, you can configure output schemas using JSON output for MQTT and Kafka destination endpoints. MQTT and Kafka destinations don't support Delta format.
 
 For these dataflows, the operations experience applies any transformations to the input schema then creates a new schema in Delta format. When the dataflow custom resource (CR) is created, it includes a `schemaRef` value that points to the generated schema stored in the schema registry.
 
