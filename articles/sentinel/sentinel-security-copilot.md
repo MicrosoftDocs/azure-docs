@@ -41,10 +41,10 @@ This integration primarily supports the standalone experience accessed through [
 
 Microsoft Sentinel data integrates with Security Copilot in two ways.
 
-1. In Microsoft's unified security operations platform, Copilot in Microsoft Defender XDR benefits from unified incidents integrated with Microsoft Sentinel.
-1. In the standalone experience, Microsoft Sentinel provides two plugins to integrate with Security Copilot:
-   - **Microsoft Sentinel (Preview)**
-   - **Natural language to KQL for Microsoft Sentinel (Preview)**.
+- In Microsoft's unified security operations platform, Copilot in Microsoft Defender XDR benefits from unified incidents integrated with Microsoft Sentinel.
+- In the standalone experience, Microsoft Sentinel provides two plugins to integrate with Security Copilot:
+   <br>**Microsoft Sentinel (Preview)**
+   <br>**Natural language to KQL for Microsoft Sentinel (Preview)**.
 
 > [!IMPORTANT]
 > The "Microsoft Sentinel" and "Natural Language to KQL for Microsoft Sentinel" plugins are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -105,7 +105,7 @@ For more information, see the following resources:
 The Natural language to KQL for Microsoft Sentinel (Preview) plugin generates and runs KQL hunting queries using Microsoft Sentinel data. This capability is available in the standalone experience and the advanced hunting section of the Microsoft Defender portal.
 
 > [!NOTE]
-> In the unified Microsoft Defender portal, you can prompt Security Copilot to generate advanced hunting queries for both Defender XDR and Microsoft Sentinel tables. Not all Microsoft Sentinel tables are currently supported, but support for these tables can be expected in the future.
+> In the unified Microsoft Defender portal, you can prompt Security Copilot to generate advanced hunting queries for both Defender XDR and Microsoft Sentinel tables. Not all Microsoft Sentinel tables are currently supported.
 
 For more information, see [Security Copilot in advanced hunting](/defender-xdr/advanced-hunting-security-copilot).
 
@@ -138,7 +138,7 @@ For each feedback option, you can provide more information in the next dialog bo
 
 ## Privacy and data security in Security Copilot
 
-To understand how Security Copilot handles your prompts and the data that’s retrieved from the service(prompt output), see [Privacy and data security in Microsoft Security Copilot](/security-copilot/privacy-data-security).
+To understand how Security Copilot handles your prompts and the data that's retrieved from the service (prompt output), see [Privacy and data security in Microsoft Security Copilot](/security-copilot/privacy-data-security).
 
 ## Related articles
 
