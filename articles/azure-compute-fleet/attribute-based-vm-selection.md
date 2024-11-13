@@ -336,7 +336,7 @@ The following list are supported VM attrbutes and examples of configurations.
 
 ```JSON
 "cpuManufacturers": { 
-	"value": [ 
+	"value": { 
 		"Microsoft", 
 		"Intel" 
 	} 
