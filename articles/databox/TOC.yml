@@ -7,6 +7,8 @@
       items:
       - name: What is Data Box?
         href: data-box-overview.md
+      - name: What is Data Box V2?
+        href: data-box-v2-overview.md
     - name: Quickstarts
       expanded: true
       items:
@@ -14,8 +16,12 @@
         items:
         - name: For import
           href: data-box-quickstart-portal.md
+        - name: For import - V2
+          href: data-box-v2-quickstart-portal.md
         - name: For export
           href: data-box-quickstart-export.md
+        - name: For export - V2
+          href: data-box-v2-quickstart-export.md
     - name: Tutorials
       items:
       - name: Import data to Azure
@@ -58,6 +64,8 @@
       items:
       - name: Read safety guidelines
         href: data-box-safety.md
+      - name: Read safety guidelines - V2
+        href: data-box-v2-safety.md
       - name: Review tracking and logging
         items:
         - name: For import orders
@@ -82,6 +90,8 @@
           href: ./security-controls-policy.md
         - name: Review security 
           href: data-box-security.md
+        - name: Review security - V2
+          href: data-box-v2-security.md
       - name: Transfer ACLs and metadata
         href: data-box-file-acls-preservation.md 
       - name: FAQ
