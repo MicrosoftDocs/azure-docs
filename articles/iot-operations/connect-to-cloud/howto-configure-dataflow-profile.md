@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 11/11/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can configure a a dataflow profile to control a dataflow behavior.
 ---
@@ -22,6 +22,8 @@ The most important setting is the instance count, which determines the number of
 ## Default dataflow profile
 
 By default, a dataflow profile named "default" is created when Azure IoT Operations is deployed. This dataflow profile has a single instance count. You can use this dataflow profile to get started with Azure IoT Operations.
+
+Currently, when using the [operations experience portal](https://iotoperations.azure.com/), the default dataflow profile is used for all dataflows.
 
 # [Bicep](#tab/bicep)
 
@@ -105,17 +107,13 @@ You can scale the dataflow profile to adjust the number of instances that run th
 
 Scaling can also improve the resiliency of the dataflows by providing redundancy in case of failures.
 
-To manually scale the dataflow profile, specify the maximum number of instances you want to run. For example, to set the instance count to 3:
+To manually scale the dataflow profile, specify the number of instances you want to run. For example, to set the instance count to 3:
 
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
-  parent: aioInstance
-  name: '<NAME>'
-  properties: {
-    instanceCount: 3
-  }
+properties: {
+  instanceCount: 3
 }
 ```
 

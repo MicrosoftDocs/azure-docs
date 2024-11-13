@@ -63,7 +63,7 @@ Once the Azure Event Hubs namespace and event hub is configured, you can create 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
     | Host                 | The hostname of the Kafka broker in the format `<NAMEPSACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
-    | Authentication method| The method used for authentication. We recommend that you choose *System assigned managed identity* or *User assigned managed identity*. |
+    | Authentication method| The method used for authentication. We recommend that you choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
 
 1. Select **Apply** to provision the endpoint.
 
@@ -95,8 +95,8 @@ resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024
     kafkaSettings: {
       host: hostName
       authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
+        // See available authentication methods section for method types
+        // method: <METHOD_TYPE>
       }
       tls: {
         mode: 'Enabled'
@@ -127,8 +127,8 @@ spec:
   kafkaSettings:
     host: <NAMESPACE>.servicebus.windows.net:9093
     authentication:
-      method: SystemAssignedManagedIdentity
-      systemAssignedManagedIdentitySettings: {}
+      # See available authentication methods section for method types
+      # method: <METHOD_TYPE>
     tls:
       mode: Enabled
 ```
@@ -238,7 +238,7 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
     | Host                 | The hostname of the Kafka broker in the format `<Kafa-broker-host>:xxxx`. Include port number in the host setting. |
-    | Authentication method| The method used for authentication. Choose *SASL*. |
+    | Authentication method| The method used for authentication. Choose [*SASL*](#sasl). |
     | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
     | Synced secret name   | The name of the secret. Required if using *SASL*. |
     | Username reference of token secret | The reference to the username in the SASL token secret. Required if using *SASL*. |
@@ -446,7 +446,7 @@ To use user-assigned managed identity for authentication, you must first deploy 
 
 Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to connect to the cloud resource:
 
-1. Go to the cloud resource you need to grant permissions > **Access control (IAM)** > **Add role assignment**.
+1. In Azure portal, go to the cloud resource you need to grant permissions > **Access control (IAM)** > **Add role assignment**.
 1. On the **Role** tab select an appropriate role.
 1. On the **Members** tab, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your user-assigned managed identity.
 

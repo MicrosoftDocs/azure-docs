@@ -32,7 +32,7 @@ For example, consider the following dataset with a few records, represented as J
 }
 ```
 
-The mapper accesses the reference dataset stored in the Azure IoT Operations [distributed state store (DSS)](../create-edge-apps/concept-about-state-store-protocol.md) by using a key value based on a *condition* specified in the mapping configuration. Key names in the DSS correspond to a dataset in the dataflow configuration.
+The mapper accesses the reference dataset stored in the Azure IoT Operations [state store](../create-edge-apps/concept-about-state-store-protocol.md) by using a key value based on a *condition* specified in the mapping configuration. Key names in the state store correspond to a dataset in the dataflow configuration.
 
 # [Bicep](#tab/bicep)
 
@@ -64,7 +64,7 @@ datasets:
 
 When a new record is being processed, the mapper performs the following steps:
 
-* **Data request:** The mapper sends a request to the DSS to retrieve the dataset stored under the key `Position`.
+* **Data request:** The mapper sends a request to the state store to retrieve the dataset stored under the key `Position`.
 * **Record matching:** The mapper then queries this dataset to find the first record where the `Position` field in the dataset matches the `Position` field of the incoming record.
 
 # [Bicep](#tab/bicep)
@@ -102,7 +102,7 @@ When a new record is being processed, the mapper performs the following steps:
 
 ---
 
-In this example, the `WorkingHours` field is added to the output record, while the `BaseSalary` is used conditionally only when the incoming record doesn't contain the `BaseSalary` field (or the value is `null` if it's a nullable field). The request for the contextualization data doesn't happen with every incoming record. The mapper requests the dataset and then it receives notifications from DSS about the changes, while it uses a cached version of the dataset.
+In this example, the `WorkingHours` field is added to the output record, while the `BaseSalary` is used conditionally only when the incoming record doesn't contain the `BaseSalary` field (or the value is `null` if it's a nullable field). The request for the contextualization data doesn't happen with every incoming record. The mapper requests the dataset and then it receives notifications from the state store about the changes, while it uses a cached version of the dataset.
 
 It's possible to use multiple datasets:
 
@@ -169,7 +169,7 @@ inputs: [
 
 ---
 
-The input references use the key of the dataset like `position` or `permission`. If the key in DSS is inconvenient to use, you can define an alias:
+The input references use the key of the dataset like `position` or `permission`. If the key in state store is inconvenient to use, you can define an alias:
 
 # [Bicep](#tab/bicep)
 

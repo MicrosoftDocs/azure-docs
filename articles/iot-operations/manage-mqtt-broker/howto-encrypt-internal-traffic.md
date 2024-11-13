@@ -6,7 +6,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.date: 11/04/2024
+ms.date: 11/12/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker so that I can encrypt internal communication and data.
 ---
@@ -20,25 +20,12 @@ Ensuring the security of internal communications within your infrastructure is i
 > [!IMPORTANT]
 > This setting requires modifying the Broker resource and can only be configured at initial deployment time using the Azure CLI or Azure Portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
-The **encrypt internal traffic** feature is used to encrypt the internal traffic between the MQTT broker frontend and backend pods. To use this feature, cert-manager, which is installed by default when using the Azure IoT Operations, is required.
+The **encrypt internal traffic** feature is used to encrypt the internal traffic in transit between the MQTT broker frontend and backend pods. It's enabled by default when you deploy Azure IoT Operations.
 
-The benefits include:
+To disable encryption, modify the `advanced.encryptInternalTraffic` setting in the Broker resource. This can only be done using the `--broker-config-file` flag during the deployment of Azure IoT Operations with the `az iot ops create` command.
 
-- **Secure internal traffic**: All internal traffic between the frontend and backend pods is encrypted.
-
-- **Secure data at rest**: All data at rest is encrypted.
-
-- **Secure data in transit**: All data in transit is encrypted.
-
-- **Secure data in memory**: All data in memory is encrypted.
-
-- **Secure data in the message buffer**: All data in the message buffer is encrypted.
-
-- **Secure data in the message buffer on disk**: All data in the [message buffer on disk](./howto-disk-backed-message-buffer.md) is encrypted.
-
-By default, encrypting internal traffic enabled. To mitigate security threats, we recommend that you keep the encryption enabled. However, disabling the encryption can improve the performance of the MQTT broker, which can be useful in IoT deployments with high throughput requirements. 
-
-To disable the encryption, change the `advanced.encryptInternalTraffic` setting in the Broker resource. Currently, disabling encryption is only supported using the `--broker-config-file` flag when you deploy the Azure IoT Operations using the `az iot ops create` command. 
+> [!CAUTION]
+> Disabling encryption can improve MQTT broker performance. However, to protect against security threats like man-in-the-middle attacks, we strongly recommend keeping this setting enabled. Only disable encryption in controlled non-production environments for testing.
 
 ```json
 {

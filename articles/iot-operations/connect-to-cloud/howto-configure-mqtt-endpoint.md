@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/07/2024
+ms.date: 11/11/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to understand how to configure dataflow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
@@ -32,7 +32,7 @@ Azure IoT Operations provides a [built-in local MQTT broker](../manage-mqtt-brok
 When you deploy Azure IoT Operations, an MQTT broker dataflow endpoint named "default" is created with default settings. You can use this endpoint as a source or destination for dataflows. 
 
 > [!IMPORTANT]
-> The default endpoint **must always be used as either the source or destination in every dataflow**. To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
+> You must use the default endpoint, or one with the same settings, in every dataflow. It can be the source, the destination, or both. For more details, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
 
 The default endpoint uses the following settings:
 
@@ -126,7 +126,7 @@ You can also create new local MQTT broker endpoints with custom settings. For ex
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                                        |
     | Host                 | The hostname and port of the MQTT broker. Use the format `<hostname>:<port>`                                |
-    | Authentication method | The method used for authentication. Choose *Service account token*, or *X509 certificate* |
+    | Authentication method | The method used for authentication. Choose [*Service account token*](#kubernetes-service-account-token-sat), or [*X509 certificate*](#x509-certificate) |
     | Service audience      | The audience for the service account token. Required if using *Service account token*. |
     | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. |
     | X509 client key       | The private key corresponding to the X.509 client certificate. Required if using *X509 certificate*. |
@@ -252,7 +252,7 @@ Once the Event Grid namespace is configured, you can create a dataflow endpoint 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                                        |
     | Host                 | The hostname and port of the Event Grid MQTT broker. Use the format `<NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883`                                |
-    | Authentication method | The method used for authentication. We recommend that you choose *System assigned managed identity* or *User assigned managed identity*. |
+    | Authentication method | The method used for authentication. We recommend that you choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
 
 1. Select **Apply** to provision the endpoint.
 
@@ -368,11 +368,12 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
     | --------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                  | The name of the dataflow endpoint                                                                 |
     | Host                  | The hostname of the MQTT broker endpoint in the format `<hostname>.<port>`. |
-    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *Service account token*. |
-    | Service audience      | The audience for the service account token. Required if using service account token. |
-    | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
-    | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
-    | Access token secret name | The name of the Kubernetes secret containing the SAS token. Required if using *Access token*. |
+    | Authentication method | The method used for authentication. Choose [*Service account token*](#kubernetes-service-account-token-sat), or [*X509 certificate*](#x509-certificate). |
+    | Service audience      | The audience for the service account token. Required if using *Service account token*. |
+    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. |
+    | X509 client key       | The private key corresponding to the X.509 client certificate. Required if using *X509 certificate*. |
+    | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509 certificate*. |
+    
 
 1. Select **Apply** to provision the endpoint.
 
@@ -419,12 +420,23 @@ The following authentication methods are available for MQTT broker dataflow endp
 
 Many MQTT brokers, like Event Grid, support X.509 authentication. Dataflows can present a client X.509 certificate and negotiate the TLS communication. 
 
-To use with dataflows, the certificate and private key must be in PEM format and not password protected.
+The certificate and private key must be in PEM format and not password protected.
 
 > [!TIP]
 > PEM format is a common format for certificates and keys. Certificates and keys in PEM format are base64-encoded ASCII files with a headers that look like `-----BEGIN CERTIFICATE-----` and `-----BEGIN EC PRIVATE KEY----`
 > 
 > If you have a certificate in another format, you can convert it to PEM format using OpenSSL. To learn more, see [How to convert a certificate into the appropriate format](https://knowledge.digicert.com/solution/how-to-convert-a-certificate-into-the-appropriate-format).
+
+Before configuring the dataflow endpoint, create a secret with the certificate and private key. 
+
+- If you use the operations portal, the secret is automatically formatted and synced to the Kubernetes cluster.
+- If you use Bicep or Kubernetes, manually create the secret with the certificate and private key in the same namespace as the MQTT dataflow endpoint.
+
+  ```bash
+  kubectl create secret generic <X509_SECRET_NAME> -n azure-iot-operations --from-file=client_cert.pem=<CLIENT_CERT_FILE>.pem --from-file=client_key.pem=<PRIVATE_KEY_FILE>.pem --from-file=client_intermediate_certs.pem=<INTERMEDIATE_CERT_FILE>.pem
+  ```
+
+  Here, the secret must have `client_cert.pem` and `client_key.pem` as the key names for the certificate and private key. Optionally, the secret can also have `client_intermediate_certs.pem` as the key name for the intermediate certificates.
 
 # [Portal](#tab/portal)
 
@@ -464,12 +476,6 @@ mqttSettings: {
 ```
 
 # [Kubernetes (preview)](#tab/kubernetes)
-
-To use X.509 certificate authentication, you need to create a secret with the certificate and private key. Create a secret with the certificate and private key in the same namespace as the MQTT dataflow resource.
-
-```bash
-kubectl create secret generic <X509_SECRET_NAME> -n azure-iot-operations --from-file=client_cert.pem=<CLIENT_CERT_FILE>.pem --from-file=client_key.pem=<PRIVATE_KEY_FILE>.pem --from-file=client_intermediate_certs.pem=<INTERMEDIATE_CERT_FILE>.pem
-```
 
 ```yaml
 mqttSettings:
@@ -559,7 +565,7 @@ To use user-assigned managed identity for authentication, you must first deploy 
 
 Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to connect to the cloud resource:
 
-1. Go to the cloud resource you need to grant permissions > **Access control (IAM)** > **Add role assignment**.
+1. In Azure portal, go to the cloud resource you need to grant permissions > **Access control (IAM)** > **Add role assignment**.
 1. On the **Role** tab select an appropriate role.
 1. On the **Members** tab, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your user-assigned managed identity.
 
@@ -687,7 +693,7 @@ mqttSettings: {
   maxInflightMessages: 100
   protocol: WebSockets
   clientIdPrefix: 'dataflow'
-  CloudEventAttributes: 'Propagate' // or 'CreateOrRemap'
+  cloudEventAttributes : 'Propagate' // or 'CreateOrRemap'
 }
 ```
 
@@ -703,7 +709,7 @@ mqttSettings:
   maxInflightMessages: 100
   protocol: WebSockets
   clientIdPrefix: dataflow
-  CloudEventAttributes: Propagate # or CreateOrRemap
+  cloudEventAttributes : Propagate # or CreateOrRemap
 ```
 
 ---
@@ -713,7 +719,7 @@ mqttSettings:
 
 #### TLS mode
 
-To enable or disable TLS for the Kafka endpoint, update the `mode` setting in the TLS settings.
+To enable or disable TLS for the MQTT endpoint, update the `mode` setting in the TLS settings.
 
 # [Portal](#tab/portal)
 
@@ -739,7 +745,7 @@ mqttSettings:
 
 ---
 
-The TLS mode can be set to `Enabled` or `Disabled`. If the mode is set to `Enabled`, the dataflow uses a secure connection to the Kafka broker. If the mode is set to `Disabled`, the dataflow uses an insecure connection to the Kafka broker.
+The TLS mode can be set to `Enabled` or `Disabled`. If the mode is set to `Enabled`, the dataflow uses a secure connection to the MQTT broker. If the mode is set to `Disabled`, the dataflow uses an insecure connection to the MQTT broker.
 
 #### Trusted CA certificate
 
@@ -871,7 +877,7 @@ The *retain* setting only takes effect if the dataflow uses MQTT endpoint as bot
 
 ### Session expiry
 
-You can set the session expiry interval for the dataflow MQTT client. The session expiry interval is the maximum time that an MQTT session is maintained if the dataflow client disconnects. The default is 3600 seconds. To configure the session expiry interval:
+You can set the session expiry interval for the dataflow MQTT client. The session expiry interval is the maximum time that an MQTT session is maintained if the dataflow client disconnects. The default is 600 seconds. To configure the session expiry interval:
 
 # [Portal](#tab/portal)
 
@@ -881,7 +887,7 @@ In the operations experience dataflow endpoint settings page, select the **Advan
 
 ```bicep
 mqttSettings: {
-  sessionExpirySeconds: 3600
+  sessionExpirySeconds: 600
 }
 ```
 
@@ -889,7 +895,7 @@ mqttSettings: {
 
 ```yaml
 mqttSettings:
-  sessionExpirySeconds: 3600
+  sessionExpirySeconds: 600
 ```
 
 ---
@@ -975,7 +981,7 @@ mqttSettings:
 
 [CloudEvents](https://cloudevents.io/) are a way to describe event data in a common way. The CloudEvents settings are used to send or receive messages in the CloudEvents format. You can use CloudEvents for event-driven architectures where different services need to communicate with each other in the same or different cloud providers.
 
-The `CloudEventAttributes` options are `Propagate` or`CreateOrRemap`. To configure CloudEvents settings:
+The `cloudEventAttributes ` options are `Propagate` or`CreateOrRemap`. To configure CloudEvents settings:
 
 # [Portal](#tab/portal)
 
@@ -985,7 +991,7 @@ In the operations experience dataflow endpoint settings page, select the **Advan
 
 ```bicep
 mqttSettings: {
-  CloudEventAttributes: 'Propagate' // or 'CreateOrRemap'
+  cloudEventAttributes : 'Propagate' // or 'CreateOrRemap'
 }
 ```
 
@@ -993,7 +999,7 @@ mqttSettings: {
 
 ```yaml
 mqttSettings:
-  CloudEventAttributes: Propagate # or CreateOrRemap
+  cloudEventAttributes : Propagate # or CreateOrRemap
 ```
 
 ---

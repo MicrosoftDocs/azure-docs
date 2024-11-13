@@ -112,7 +112,7 @@ To set up secrets management:
 
     ```azurecli
     # Variable block
-    INSTANCE_NAME="<INSTANCE_NAME>"
+    AIO_INSTANCE_NAME="<AIO_INSTANCE_NAME>"
     RESOURCE_GROUP="<RESOURCE_GROUP>"
     USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME>"
     KEYVAULT_NAME="<KEYVAULT_NAME>"
@@ -124,7 +124,7 @@ To set up secrets management:
     KEYVAULT_RESOURCE_ID=$(az keyvault show --name $KEYVAULT_NAME --resource-group $RESOURCE_GROUP --query id --output tsv)
     
     #Enable secret synchronization
-    az iot ops secretsync enable --name $INSTANCE_NAME \
+    az iot ops secretsync enable --instance $AIO_INSTANCE_NAME \
                                  --resource-group $RESOURCE_GROUP \
                                  --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID \
                                  --kv-resource-id $KEYVAULT_RESOURCE_ID
@@ -134,7 +134,7 @@ To set up secrets management:
 
     ```azurecli
     # Variable block
-    INSTANCE_NAME="<INSTANCE_NAME>"
+    AIO_INSTANCE_NAME="<AIO_INSTANCE_NAME>"
     $RESOURCE_GROUP="<RESOURCE_GROUP>"
     $USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME>"
     $KEYVAULT_NAME="<KEYVAULT_NAME>"
@@ -146,7 +146,7 @@ To set up secrets management:
     $KEYVAULT_RESOURCE_ID=$(az keyvault show --name $KEYVAULT_NAME --resource-group $RESOURCE_GROUP --query id --output tsv)
     
     # Enable secret synchronization
-    az iot ops secretsync enable --name $INSTANCE_NAME `
+    az iot ops secretsync enable --instance $AIO_INSTANCE_NAME `
                                  --resource-group $RESOURCE_GROUP `
                                  --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID `
                                  --kv-resource-id $KEYVAULT_RESOURCE_ID
@@ -171,7 +171,7 @@ Some Azure IoT Operations components, like dataflow endpoints, use a user-assign
 
     ```azurecli
     # Variable block
-    INSTANCE_NAME="<INSTANCE_NAME>"
+    AIO_INSTANCE_NAME="<AIO_INSTANCE_NAME>"
     RESOURCE_GROUP="<RESOURCE_GROUP>"
     USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME FOR CLOUD CONNECTIONS>"
     
@@ -179,7 +179,7 @@ Some Azure IoT Operations components, like dataflow endpoints, use a user-assign
     USER_ASSIGNED_MI_RESOURCE_ID=$(az identity show --name $USER_ASSIGNED_MI_NAME --resource-group $RESOURCE_GROUP --query id --output tsv)
     
     #Assign the identity to the Azure IoT Operations instance
-    az iot ops identity assign --name $INSTANCE_NAME \
+    az iot ops identity assign --name $AIO_INSTANCE_NAME \
                                --resource-group $RESOURCE_GROUP \
                                --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID
     ```
@@ -188,7 +188,7 @@ Some Azure IoT Operations components, like dataflow endpoints, use a user-assign
 
     ```azurecli
     # Variable block
-    $INSTANCE_NAME="<INSTANCE_NAME>"
+    $AIO_INSTANCE_NAME="<AIO_INSTANCE_NAME>"
     $RESOURCE_GROUP="<RESOURCE_GROUP>"
     $USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME FOR CLOUD CONNECTIONS>"
     
@@ -197,7 +197,7 @@ Some Azure IoT Operations components, like dataflow endpoints, use a user-assign
     
     
     # Assign the identity to the Azure IoT Operations instance
-    az iot ops identity assign --name $INSTANCE_NAME `
+    az iot ops identity assign --name $AIO_INSTANCE_NAME `
                                --resource-group $RESOURCE_GROUP `
                                --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID
     ```
