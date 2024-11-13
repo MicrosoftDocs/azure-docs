@@ -57,7 +57,7 @@ MQTT subscriptions with QoS-1 ensure eventual consistency across identical appli
 
 ## State store
 
-State store is a replicated in-memory *HashMap* for managing application processing state. Unlike *etcd*, for example, state store prioritizes high-velocity throughput, horizontal scaling, and low latency through in-memory data structures, partitioning, and chain-replication. It allows applications to use the the state stores distributed nature and fault tolerance while accessing a consistent state quickly across instances. To use the built-in key-value store provided by the distributed broker:
+State store is a replicated in-memory *HashMap* for managing application processing state. Unlike *etcd*, for example, state store prioritizes high-velocity throughput, horizontal scaling, and low latency through in-memory data structures, partitioning, and chain-replication. It allows applications to use the state stores distributed nature and fault tolerance while accessing a consistent state quickly across instances. To use the built-in key-value store provided by the distributed broker:
 
 * Implement ephemeral storage and retrieval operations using the broker's key-value store API, ensuring proper error handling and data consistency. Ephemeral state is a short-lived data storage used in stateful processing for fast access to intermediate results or metadata during real-time computations. In the context of HA application, an ephemeral state helps recover application states between crashes. It can be written to disk but remains temporary, as opposed to cold storage that's designed for long-term storage of infrequently accessed data.
 
