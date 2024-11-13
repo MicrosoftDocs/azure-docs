@@ -1,7 +1,7 @@
 ---
 title: Multi-Region Compute Fleet (Preview)
 description: Learn about Azure Compute Fleet and how to accelerate your access to Azure's capacity through multi-region deployment.
-author: rajeeshr
+author: rrajeesh
 ms.author: rajeeshr
 ms.topic: concept-article
 ms.service: azure-compute-fleet
