@@ -104,3 +104,5 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 <!-- TODO: double check -->
 - Creating a X.509 secret in the operations experience portal results in a secret with incorrectly encoded data. To work around this issue, create the [multi-line secrets through Azure Key Vault](/azure/key-vault/secrets/multiline-secrets), then select it from the list of secrets in the operations experience portal.
+
+- Errors occur when two Azure Iot Operations instances connect to the same Event Grid MQTT namespace because of client ID conflict. The client IDs for connecting to Event Grid are derived from dataflow resource names. If you deploy dataflows using Bicep templates, the dataflow resource names are likely the same, so the client IDs are the same and cause connections to fail. The workaround is to add some randomness to your dataflow names in the Bicep template.
