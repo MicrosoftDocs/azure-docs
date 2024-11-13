@@ -1,6 +1,5 @@
 ---
 title: Configure role-based access control with Data Access Policy
-titleSuffix: Azure Cache for Redis
 description: Learn how to configure role-based access control with Data Access Policy.
 
 
@@ -29,7 +28,6 @@ Azure Cache for Redis offers three built-in access policies: _Data Owner_, _Data
 ## Prerequisites and limitations
 
 - Redis ACL and Data Access Policies aren't supported on Azure Cache for Redis instances that run Redis version 4.
-- Redis ACL and Data Access Policies aren't supported on Azure Cache for Redis instances that depend on [Cloud Services](cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic).
 - Microsoft Entra authentication and authorization are supported for SSL connections only.
 - Some Redis commands are [blocked](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 
