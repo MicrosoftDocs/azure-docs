@@ -134,7 +134,7 @@ If you haven't configured your Playwright tests yet for running them with servic
 
     :::code language="xml" source="~/playwright-testing-service/samples/.NET/NUnit/.runsettings":::
 
-   This settings in this file enable you to:
+   The settings in this file enable you to:
    - Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
    - Publish test results and artifacts to the service for faster troubleshooting.
 
