@@ -1,7 +1,7 @@
 ---
 title: Attribute based virtual machine selection 
 description: Learn about attribute based virtual machine (VM) selection to configure your VM requirements.
-author: rajeeshr
+author: rrajeesh
 ms.author: rajeeshr
 ms.topic: concept-article
 ms.service: azure-compute-fleet
