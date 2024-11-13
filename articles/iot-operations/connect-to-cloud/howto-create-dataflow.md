@@ -432,7 +432,7 @@ sourceSettings:
 
 ### Specify source schema
 
-When using MQTT or Kafka as the source, you can specify a schema to display the list of data points in the operations experience portal. Note that using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#dataflows).
+When using MQTT or Kafka as the source, you can specify a [schema](concept-schema-registry.md) to display the list of data points in the operations experience portal. Note that using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#dataflows).
 
 If the source is an asset, the schema is automatically inferred from the asset definition.
 
@@ -474,6 +474,8 @@ The transformation operation is where you can transform the data from the source
 1. **Enrich**: Add additional data to the source data given a dataset and condition to match.
 1. **Filter**: Filter the data based on a condition.
 1. **Map**, **Compute**, **Rename**, or add a **New property**: Move data from one field to another with an optional conversion.
+
+This section is an introduction to dataflow transforms. For more detailed information, see [Map data by using dataflows](concept-dataflow-mapping.md), [Convert data by using dataflow conversions](concept-dataflow-conversions.md), and [Enrich data by using dataflows](concept-dataflow-enrich.md).
 
 # [Portal](#tab/portal)
 
