@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/07/2024
+ms.date: 11/11/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to understand how to configure dataflow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
@@ -32,7 +32,7 @@ Azure IoT Operations provides a [built-in local MQTT broker](../manage-mqtt-brok
 When you deploy Azure IoT Operations, an MQTT broker dataflow endpoint named "default" is created with default settings. You can use this endpoint as a source or destination for dataflows. 
 
 > [!IMPORTANT]
-> The default endpoint **must always be used as either the source or destination in every dataflow**. To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
+> You must use the default endpoint, or one with the same settings, in every dataflow. It can be the source, the destination, or both. For more details, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
 
 The default endpoint uses the following settings:
 
@@ -415,12 +415,23 @@ The following authentication methods are available for MQTT broker dataflow endp
 
 Many MQTT brokers, like Event Grid, support X.509 authentication. Dataflows can present a client X.509 certificate and negotiate the TLS communication. 
 
-To use with dataflows, the certificate and private key must in PEM format and not password protected.
+The certificate and private key must in PEM format and not password protected.
 
 > [!TIP]
 > PEM format is a common format for certificates and keys. Certificates and keys in PEM format are base64-encoded ASCII files with a headers that look like `-----BEGIN CERTIFICATE-----` and `-----BEGIN EC PRIVATE KEY----`
 > 
 > If you have a certificate in another format, you can convert it to PEM format using OpenSSL. To learn more, see [How to convert a certificate into the appropriate format](https://knowledge.digicert.com/solution/how-to-convert-a-certificate-into-the-appropriate-format).
+
+Before configuring the dataflow endpoint, create a secret with the certificate and private key. 
+
+- If you use the operations portal, the secret is automatically formatted and synced to the Kubernetes cluster.
+- If you use Bicep or Kubernetes, manually create the secret with the certificate and private key in the same namespace as the MQTT dataflow endpoint.
+
+  ```bash
+  kubectl create secret generic <X509_SECRET_NAME> -n azure-iot-operations --from-file=client_cert.pem=<CLIENT_CERT_FILE>.pem --from-file=client_key.pem=<PRIVATE_KEY_FILE>.pem --from-file=client_intermediate_certs.pem=<INTERMEDIATE_CERT_FILE>.pem
+  ```
+
+  Here, the secret must have `client_cert.pem` and `client_key.pem` as the key names for the certificate and private key. Optionally, the secret can also have `client_intermediate_certs.pem` as the key name for the intermediate certificates.
 
 # [Portal](#tab/portal)
 
@@ -460,12 +471,6 @@ mqttSettings: {
 ```
 
 # [Kubernetes (preview)](#tab/kubernetes)
-
-To use X.509 certificate authentication, you need to create a secret with the certificate and private key. Create a secret with the certificate and private key in the same namespace as the MQTT dataflow resource.
-
-```bash
-kubectl create secret generic <X509_SECRET_NAME> -n azure-iot-operations --from-file=client_cert.pem=<CLIENT_CERT_FILE>.pem --from-file=client_key.pem=<PRIVATE_KEY_FILE>.pem --from-file=client_intermediate_certs.pem=<INTERMEDIATE_CERT_FILE>.pem
-```
 
 ```yaml
 mqttSettings:
@@ -676,7 +681,7 @@ mqttSettings: {
   maxInflightMessages: 100
   protocol: WebSockets
   clientIdPrefix: 'dataflow'
-  CloudEventAttributes: 'Propagate' // or 'CreateOrRemap'
+  cloudEventAttributes : 'Propagate' // or 'CreateOrRemap'
 }
 ```
 
@@ -692,7 +697,7 @@ mqttSettings:
   maxInflightMessages: 100
   protocol: WebSockets
   clientIdPrefix: dataflow
-  CloudEventAttributes: Propagate # or CreateOrRemap
+  cloudEventAttributes : Propagate # or CreateOrRemap
 ```
 
 ---
@@ -702,7 +707,7 @@ mqttSettings:
 
 #### TLS mode
 
-To enable or disable TLS for the Kafka endpoint, update the `mode` setting in the TLS settings.
+To enable or disable TLS for the MQTT endpoint, update the `mode` setting in the TLS settings.
 
 # [Portal](#tab/portal)
 
@@ -728,7 +733,7 @@ mqttSettings:
 
 ---
 
-The TLS mode can be set to `Enabled` or `Disabled`. If the mode is set to `Enabled`, the dataflow uses a secure connection to the Kafka broker. If the mode is set to `Disabled`, the dataflow uses an insecure connection to the Kafka broker.
+The TLS mode can be set to `Enabled` or `Disabled`. If the mode is set to `Enabled`, the dataflow uses a secure connection to the MQTT broker. If the mode is set to `Disabled`, the dataflow uses an insecure connection to the MQTT broker.
 
 #### Trusted CA certificate
 
@@ -860,7 +865,7 @@ The *retain* setting only takes effect if the dataflow uses MQTT endpoint as bot
 
 ### Session expiry
 
-You can set the session expiry interval for the dataflow MQTT client. The session expiry interval is the maximum time that an MQTT session is maintained if the dataflow client disconnects. The default is 3600 seconds. To configure the session expiry interval:
+You can set the session expiry interval for the dataflow MQTT client. The session expiry interval is the maximum time that an MQTT session is maintained if the dataflow client disconnects. The default is 600 seconds. To configure the session expiry interval:
 
 # [Portal](#tab/portal)
 
@@ -870,7 +875,7 @@ In the operations experience dataflow endpoint settings page, select the **Advan
 
 ```bicep
 mqttSettings: {
-  sessionExpirySeconds: 3600
+  sessionExpirySeconds: 600
 }
 ```
 
@@ -878,7 +883,7 @@ mqttSettings: {
 
 ```yaml
 mqttSettings:
-  sessionExpirySeconds: 3600
+  sessionExpirySeconds: 600
 ```
 
 ---
@@ -964,7 +969,7 @@ mqttSettings:
 
 [CloudEvents](https://cloudevents.io/) are a way to describe event data in a common way. The CloudEvents settings are used to send or receive messages in the CloudEvents format. You can use CloudEvents for event-driven architectures where different services need to communicate with each other in the same or different cloud providers.
 
-The `CloudEventAttributes` options are `Propagate` or`CreateOrRemap`. To configure CloudEvents settings:
+The `cloudEventAttributes ` options are `Propagate` or`CreateOrRemap`. To configure CloudEvents settings:
 
 # [Portal](#tab/portal)
 
@@ -974,7 +979,7 @@ In the operations experience dataflow endpoint settings page, select the **Advan
 
 ```bicep
 mqttSettings: {
-  CloudEventAttributes: 'Propagate' // or 'CreateOrRemap'
+  cloudEventAttributes : 'Propagate' // or 'CreateOrRemap'
 }
 ```
 
@@ -982,7 +987,7 @@ mqttSettings: {
 
 ```yaml
 mqttSettings:
-  CloudEventAttributes: Propagate # or CreateOrRemap
+  cloudEventAttributes : Propagate # or CreateOrRemap
 ```
 
 ---

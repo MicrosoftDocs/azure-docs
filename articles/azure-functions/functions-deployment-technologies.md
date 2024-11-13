@@ -3,7 +3,7 @@ title: Deployment technologies in Azure Functions
 description: Learn the different ways you can deploy code to Azure Functions.
 ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023, build-2024
 ms.topic: conceptual
-ms.date: 09/27/2024
+ms.date: 11/07/2024
 ---
 
 # Deployment technologies in Azure Functions
@@ -18,7 +18,7 @@ The following table describes the available deployment methods for your code pro
 
 | Deployment&nbsp;type | Methods | Best for... |
 | --- | --- | --- |
-| Tools-based |	&bull;&nbsp;[Visual&nbsp;Studio&nbsp;Code&nbsp;publish](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Visual Studio publish](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Core Tools publish](functions-run-local.md#publish) | Deployments during development and other improvised deployments. Deploying your code on-demand using [local development tools](functions-develop-local.md#local-development-environments). |
+| Tools-based |	&bull;&nbsp;[Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip)<br/>&bull;&nbsp;[Visual&nbsp;Studio&nbsp;Code&nbsp;publish](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Visual Studio publish](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Core Tools publish](functions-run-local.md#publish) | Deployments during development and other improvised deployments. Deploying your code on-demand using [local development tools](functions-develop-local.md#local-development-environments). |
 | App Service-managed| &bull;&nbsp;[Deployment&nbsp;Center&nbsp;(CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Container&nbsp;deployments](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) |  Continuous deployment (CI/CD) from source control or from a container registry. Deployments are managed by the App Service platform (Kudu).|
 | External pipelines|&bull;&nbsp;[Azure Pipelines](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[GitHub Actions](functions-how-to-github-actions.md) | Production pipelines that include validation, testing, and other actions that must be run as part of an automated deployment. Deployments are managed by the pipeline. |
 
@@ -40,7 +40,7 @@ Each plan has different behaviors. Not all deployment technologies are available
 
 | Deployment technology | Flex Consumption| Consumption | Elastic Premium | Dedicated | Container Apps |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|
-| [OneDeploy](#one-deploy) |✔| | | | |
+| [One deploy](#one-deploy) |✔| | | | |
 | [Zip deploy](#zip-deploy) | |✔|✔|✔| |
 | [External package URL](#external-package-url)<sup>1</sup> | |✔|✔|✔| |
 | [Docker container](#docker-container) | | Linux-only | Linux-only | Linux-only |✔|
@@ -127,7 +127,7 @@ Package-based deployment methods store the package in the storage account associ
 
 ## Deployment technology details
 
-The following deployment methods are available in Azure Functions.
+The following deployment methods are available in Azure Functions. Refer to the [deployment technology availability](#deployment-technology-availability) table to determine which technologies each hosting plan supports.
 
 ### One deploy
 One deploy is the only deployment technology supported for apps on the Flex Consumption plan. The end result is a ready-to-run .zip package that your function app runs on.
@@ -145,7 +145,7 @@ One deploy is the only deployment technology supported for apps on the Flex Cons
 Zip deploy is the default and recommended deployment technology for function apps on the Consumption, Elastic Premium, and App Service (Dedicated) plans. The end result a ready-to-run .zip package that your function app runs on. It differs from [external package URL](#external-package-url) in that our platform is responsible for remote building and storing your app content.
 
 >__How to use it:__ Deploy by using your favorite client tool: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app-1) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage zip deploy. 
-
+>
 >When you deploy by using zip deploy, you can set your app to [run from package](run-functions-from-deployment-package.md). To run from package, set the [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) application setting value to `1`. We recommend zip deployment. It yields faster loading times for your applications, and it's the default for VS Code, Visual Studio, and the Azure CLI.
 
 >__When to use it:__ Zip deploy is the default and recommended deployment technology for function apps on the Windows Consumption, Windows and Linux Elastic Premium, and Windows and Linux App Service (Dedicated) plans.

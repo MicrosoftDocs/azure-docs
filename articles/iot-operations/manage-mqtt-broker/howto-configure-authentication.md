@@ -8,7 +8,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/02/2024
+ms.date: 11/11/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -330,7 +330,7 @@ To learn more about each of the authentication options, see the next sections fo
 
 For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-### X.509
+## X.509
 
 A trusted root CA certificate is required to validate the client certificate. Client certificates must be rooted in this CA for MQTT broker to authenticate them. Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm. If you're importing your own CA certificates, ensure that the client certificate uses the same key algorithm as the CAs. To import a root certificate that can be used to validate client certificates, import the certificate PEM as *ConfigMap* under the key `client_ca.pem`. For example:
 
@@ -363,7 +363,7 @@ BinaryData
 
 Once the trusted client root CA certificate and the certificate-to-attribute mapping are imported, enable X.509 client authentication by adding it as one of the authentication methods as part of a *BrokerAuthentication* resource linked to a TLS-enabled listener. 
 
-#### Certificate attributes for authorization
+### Certificate attributes for authorization
 
 X.509 attributes can be specified in the *BrokerAuthentication* resource, and they're used to authorize clients based on their certificate properties. The attributes are defined in the `authorizationAttributes` field.
 
@@ -476,13 +476,13 @@ The matching for attributes always starts from the leaf client certificate and t
 
 Authorization rules can be applied to clients using X.509 certificates with these attributes. To learn more, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md).
 
-#### Connect mosquitto client to MQTT broker with X.509 client certificate
+### Connect mosquitto client to MQTT broker with X.509 client certificate
 
 A client like mosquitto needs three files to be able to connect to MQTT broker with TLS and X.509 client authentication. For example:
 
 ```bash
 mosquitto_pub -q 1 -t hello -d -V mqttv5 -m world -i thermostat \
--h "<IOT_MQ_EXTERNAL_IP>" \
+-h "<BROKER_HOST>" \
 --cert thermostat_cert.pem \
 --key thermostat_key.pem \
 --cafile chain.pem
@@ -490,13 +490,11 @@ mosquitto_pub -q 1 -t hello -d -V mqttv5 -m world -i thermostat \
 
 In the example:
 
-- The `--cert` parameter specifies the client certificate PEM file.
+- The `--cert` parameter specifies the client certificate PEM file. This file should also include any intermediate certificates to help the MQTT broker build the complete certificate chain.
 - The `--key` parameter specifies the client private key PEM file.
-- The third parameter `--cafile` is the most complex: the trusted certificate database, used for two purposes:
-  - When mosquitto client connects to MQTT broker over TLS, it validates the server certificate. It searches for root certificates in the database to create a trusted chain to the server certificate. Because of this, the server root certificate needs to be copied into this file.
-  - When the MQTT broker requests a client certificate from mosquitto client, it also requires a valid certificate chain to send to the server. The `--cert` parameter tells mosquitto which certificate to send, but it's not enough. MQTT broker can't verify this certificate alone because it also needs the intermediate certificate. Mosquitto uses the database file to build the necessary certificate chain. To support this, the `cafile` must contain both the intermediate and root certificates.
+- The `--cafile` parameter is for server validation. It contains the server root certificate for the MQTT broker, which the mosquitto client uses to validate the server certificate when connecting over TLS.
 
-#### Understand MQTT broker X.509 client authentication flow
+### Understand MQTT broker X.509 client authentication flow
 
 ![Diagram of the X.509 client authentication flow.](./media/howto-configure-authentication/x509-client-auth-flow.svg)
 
@@ -514,7 +512,7 @@ The following are the steps for client authentication flow:
 1. Authentication service returns decision to frontend broker.
 1. The frontend broker knows the client attributes and if it's allowed to connect. If so, then the MQTT connection is completed and the client can continue to send and receive MQTT packets determined by its authorization rules.
 
-### Kubernetes Service Account Tokens
+## Kubernetes Service Account Tokens
 
 Kubernetes Service Account Tokens (SATs) are JSON Web Tokens associated with Kubernetes Service Accounts. Clients present SATs to the MQTT broker to authenticate themselves.
 
@@ -528,7 +526,7 @@ Launched in Kubernetes 1.13, and becoming the default format in 1.21, bound toke
 
 The broker verifies tokens using the [Kubernetes Token Review API](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/token-review-v1/). Enable Kubernetes `TokenRequestProjection` feature to specify `audiences` (default since 1.21). If this feature isn't enabled, SATs can't be used.
 
-#### Create a service account
+### Create a service account
 
 To create SATs, first create a service account. The following command creates a service account called `mqtt-client`.
 
@@ -536,11 +534,11 @@ To create SATs, first create a service account. The following command creates a 
 kubectl create serviceaccount mqtt-client -n azure-iot-operations
 ```
 
-#### Add attributes for authorization
+### Add attributes for authorization
 
 Clients authentication via SAT can optionally have their SATs annotated with attributes to be used with custom authorization policies. To learn more, see [Authorize clients that use Kubernetes Service Account Tokens](./howto-configure-authentication.md).
 
-#### Enable Service Account Token (SAT) authentication
+### Enable Service Account Token (SAT) authentication
 
 Modify the `authenticationMethods` setting in a *BrokerAuthentication* resource to specify `ServiceAccountToken` as a valid authentication method. The `audiences` specifies the list of valid audiences for tokens. Choose unique values that identify the MQTT broker service. You must specify at least one audience, and all SATs must match one of the specified audiences.
 
@@ -620,67 +618,33 @@ Apply your changes with `kubectl apply`. It might take a few minutes for the cha
 
 ---
 
-#### Test SAT authentication
+### Test SAT authentication
 
-SAT authentication must be used from a client in the same cluster as MQTT broker. Only enhanced authentication fields are permitted. Set authentication method to `K8S-SAT` and authentication data to the token.
+SAT authentication must be used from a client in the same cluster as MQTT broker. Only MQTTv5 enhanced authentication fields are permitted. Set authentication method to `K8S-SAT` and authentication data to the token.
 
-The following command specifies a pod that has the mosquitto client and mounts the SAT created in the previous steps into the pod. 
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mqtt-client
-  namespace: azure-iot-operations
-spec:
-  serviceAccountName: mqtt-client
-  containers:
-  - image: efrecon/mqtt-client
-    name: mqtt-client
-    command: ["sleep", "infinity"]
-    volumeMounts:
-    - name: mqtt-client-token
-      mountPath: /var/run/secrets/tokens
-  volumes:
-  - name: mqtt-client-token
-    projected:
-      sources:
-      - serviceAccountToken:
-          path: mqtt-client-token
-          audience: my-audience
-          expirationSeconds: 86400
-```
-
-Here, the `serviceAccountName` field in the pod configuration must match the service account associated with the token being used. Also, The `serviceAccountToken.audience` field in the pod configuration must be one of the `audiences` configured in the *BrokerAuthentication* resource.
-
-Once the pod is created, start a shell in the pod:
+For example using mosquitto (some fields omitted for brevity):
 
 ```bash
-kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
+mosquitto_pub ... -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data <TOKEN>
 ```
 
-Inside the pod's shell, run the following command to publish a message to the broker:
+Here, `<TOKEN>` is the service account token. To get the token, run:
 
 ```bash
-mosquitto_pub --host aio-broker --port 18883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
+kubectl create token <SERVICE_ACCOUNT> -n azure-iot-operations --audience <AUDIENCE>
 ```
 
-The output should look similar to the following:
+Here, `<SERVICE_ACCOUNT>` is the name of the service account you create, and `<AUDIENCE>` is one of the audiences configured in the *BrokerAuthentication* resource.
 
-```Output
-Client (null) sending CONNECT
-Client (null) received CONNACK (0)
-Client (null) sending PUBLISH (d0, q0, r0, m1, 'world', ... (5 bytes))
-Client (null) sending DISCONNECT
-```
+For an example on how to configure a Kubernetes pod to use SAT authentication, see [Connect to the default listener inside the cluster](./howto-test-connection.md#connect-to-the-default-listener-inside-the-cluster).
 
-The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/broker-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA cert mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
+In the pod configuration, the `serviceAccountName` field in must match the service account associated with the token being used, and the `serviceAccountToken.audience` field must be one of the `audiences` configured in the *BrokerAuthentication* resource.
 
-#### Refresh service account tokens
+### Refresh service account tokens
 
 Service account tokens are valid for a limited time and configured with `expirationSeconds`. However, Kubernetes [automatically refreshes the token before it expires](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/). The token is refreshed in the background, and the client doesn't need to do anything other than to fetch it again.
 
-For example, if the client is a pod that uses the token mounted as a volume, like in the [test SAT authentication](#test-sat-authentication) example, then the latest token is available at the same path `/var/run/secrets/tokens/mqtt-client-token`. When making a new connection, the client can fetch the latest token and use it to authenticate. The client should also have a mechanism to handle MQTT unauthorized errors by fetching the latest token and retrying the connection.
+For example, if the client is a pod that uses the token mounted as a volume, like in the [test SAT authentication](#test-sat-authentication) example, then the latest token is available at the same path `/var/run/secrets/tokens/broker-sat`. When making a new connection, the client can fetch the latest token and use it to authenticate. The client should also have a mechanism to handle MQTT unauthorized errors by fetching the latest token and retrying the connection.
 
 ## Custom authentication
 

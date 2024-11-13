@@ -214,7 +214,7 @@ Once configured, the data from the asset reached the dataflow via the local MQTT
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | MQTT topic           | The MQTT topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
-    | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-schema-to-deserialize-data). |
+    | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
 
 1. Select **Apply**.
 
@@ -428,11 +428,11 @@ sourceSettings:
 
 ---
 
-### Specify schema to deserialize data
+### Specify source schema
 
-If the source data has optional fields or fields with different types, specify a deserialization schema to ensure consistency. For example, the data might have fields that aren't present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
+When using MQTT or Kafka as the source, you can specify a schema to display the list of data points in the operations experience portal. Note that using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#dataflows).
 
-Specifying the schema is only relevant when using the MQTT or Kafka source. If the source is an asset, the schema is automatically inferred from the asset definition.
+If the source is an asset, the schema is automatically inferred from the asset definition.
 
 To configure the schema used to deserialize the incoming messages from a source:
 
@@ -462,6 +462,8 @@ sourceSettings:
 ```
 
 ---
+
+To learn more, see [Understand message schemas](concept-schema-registry.md).
 
 ## Transformation
 
