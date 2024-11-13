@@ -338,7 +338,7 @@ If you're importing your own CA certificates, ensure that the client certificate
 kubectl create configmap client-ca --from-file=client_ca.pem -n azure-iot-operations
 ```
 
-In this example, the CA certificate is imported under the key `client_ca.pem`. MQTT broker will trust all CA certificates in the ConfigMap, so the name of the key can be anything.
+In this example, the CA certificate is imported under the key `client_ca.pem`. MQTT broker trusts all CA certificates in the ConfigMap, so the name of the key can be anything.
 
 To check the root CA certificate is properly imported, run `kubectl describe configmap`. The result shows the same base64 encoding of the PEM certificate file.
 
