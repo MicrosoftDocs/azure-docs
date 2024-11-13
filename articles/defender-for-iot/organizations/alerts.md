@@ -52,11 +52,11 @@ Alert options also differ depending on your location and user role. For more inf
 
 ## Aggregating alerts
 
-Alert fatigue caused by excessive number of identical alerts could lead to your team failing to see or remediate vital alerts. Aggregating alerts reduces the number of alerts reported by listing identical alert types with the same parameter settings as one alert. The matching parameters differ depending on the type of alert. For example, the alert *Unpermitted Usage of Modbus Function Code* needs to have the same source and destination IP addresses.
+Alert fatigue caused by a high number of identical alerts could lead to your team failing to see or remediate vital alerts. Aggregating alerts reduces the number of alerts reported by listing identical alert types, with the same parameter settings, as one alert. The matching parameters differ depending on the alert type. For example, the *Unpermitted Usage of Modbus Function Code* alert needs to have the same source and destination IP addresses to produce an aggregated alert violation. The aggregated alert could include alerts with different alert codes, such as read and write codes.
 
-The aggregated alert could include alerts with different alert codes, such as read and write codes. You access this data in the **Violations** tab of the alert details where you download it as a CSV file that lists each alert with the relevant parameters and functions. This data can help teams to identify patterns, assess impacts and prioritize responses more effectively based on the remediation suggestions in the **Take action** tab. Only alerts that have the same remediation process are grouped. Alerts can still be viewed individually within their respective devices.
+You download the aggregated alert violation data, that lists each alert with the relevant parameters and functions, as a CSV file in the **Violations** tab of the alert details. This data can help teams to identify patterns, assess impact and prioritize responses more effectively based on the remediation suggestions in the **Take action** tab. Only alerts that have the same remediation process are aggregated into a single alert. However, individual violation events can still be viewed separately within their respective devices, providing additional clarity.
 
-The alerts that can be aggregated are listed in the [Alert reference](alert-engine-messages.md) policy engine alerts tables under the **Aggregarted** heading.
+The alerts that can be aggregated are listed in the [Alert reference](alert-engine-messages.md#policy-engine-alerts) policy engine alerts tables under the **Aggregarted** heading.
 
 Alert grouping appears in both the OT sensor console and the Azure portal. For more information, see [remediate aggregated alerts in Sensor console](how-to-view-alerts.md#remediate-aggregated-alerts) and [remediate aggregated alerts in Azure portal](how-to-manage-cloud-alerts.md#remediate-aggregated-alerts).
 
