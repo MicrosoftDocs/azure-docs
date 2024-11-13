@@ -21,9 +21,9 @@ This article outlines the various strategies available for your Compute Fleet de
 
 For Standard VMs, you have the following allocation strategies available for your Compute Fleet. 
 
-### Lowest price (recommended)
+### Lowest price (default)
 
-The **lowest price** allocation strategy is the recommended strategy for Standard VMs. 
+The **lowest price** allocation strategy is the default strategy for Standard VMs. 
 
 The Compute Fleet launches the lowest price pay-as-you-go VM from the list of VM types and sizes you specified. The fleet attempts to fulfill the pay-as-you-go capacity, followed by the second and third lowest in price VMs until the desired capacity is fulfilled. 
 
@@ -51,6 +51,8 @@ If you select multiple VMs that happen to offer the ideal capacity to meet your 
 
 With this strategy, Compute Fleet doesn't prioritize pricing over capacity, so your costs may be higher.
 
-### Lowest Price
+### Lowest Price (default) 
+
+The **lowest price** allocation strategy is the default strategy for Spot VMs. 
 
 The Compute Fleet launches VM types and sizes from your specified list of VMs that offer the lowest price for Spot VMs. Followed by the second and third lowest price until the desired capacity is fulfilled.
