@@ -192,18 +192,6 @@ To better serve you in locations where there's high demand, you can select from 
 | Alternative Small GPU (Visualization) | 6 | 55 | [NV6ads_A10_v5](/azure/virtual-machines/nva10v5-series) | (Windows only) Remote visualization, streaming, gaming | NVIDIA A10 (1/6) | 4 |
 | Alternative Medium GPU (Visualization) | 12 | 110 | [NV12ads_A10_v5](/azure/virtual-machines/nva10v5-series) | (Windows only) Remote visualization, streaming, gaming | NVIDIA A10 (1/3) | 8 |
 
-### Classic VM sizes
-
-If you create a lab plan and still have lab accounts in your Azure subscription, you can select from the VM sizes available for lab accounts. In the Azure Lab Services user interface, these VM sizes are marked as *classic* VM sizes.
-
-| Size | vCPUs | Memory (GB) | Series | Suggested use |
-| ---- | ----- |  ----- | ------ | ------------- |
-| Classic Small | 2 | 4 | [A2_v2](/azure/virtual-machines/av2-series) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
-| Classic Medium | 4 | 8 | [A4_v2](/azure/virtual-machines/av2-series) | Best suited for relational databases, in-memory caching, and analytics. |
-| Classic Large | 8 | 16  | [A8_v2](/azure/virtual-machines/av2-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
-| Classic Medium (Nested virtualization) | 4  | 16 | [D4s_v3](/azure/virtual-machines/dv3-dsv3-series) | Best suited for relational databases, in-memory caching, and analytics. This size supports nested virtualization. |
-| Classic Large (Nested virtualization) | 8 | 32 | [D8s_v3](/azure/virtual-machines/dv3-dsv3-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size supports nested virtualization. |
-
 ## RBAC roles
 
 Azure Lab Services provides built-in Azure role-based access control (Azure RBAC) for common management scenarios. An individual who has a profile in Microsoft Entra ID can assign these Azure roles to users, groups, service principals, or managed identities. The roles can grant or deny access to resources and operations on Azure Lab Services resources. Learn more about [Azure role-based access control in Azure Lab Services](./concept-lab-services-role-based-access-control.md).
