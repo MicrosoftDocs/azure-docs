@@ -24,7 +24,7 @@ Brand registration is the process of registering your business as a recognized b
 
 ### How do I complete brand registration with ACS?
 
-To register a brand, you’ll need to provide information such as your business’s name, tax ID, address, industry, and other identifying information. This can be done through the ACS portal by following [this quickstart](../quickstarts/sms/apply-for-ten-digit-long-code.md).
+To register a brand, you’ll need to provide information such as your business’s name, tax ID, address, industry, and other identifying information. This can be done through the ACS portal by following [this quickstart](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
 
 ### What types of information are required for brand registration?
 
@@ -43,8 +43,6 @@ This feature is currently not available but will be supported in the future rele
 ### Is there a fee for brand registration?
 
 Yes, there is a fee. Refer to the [pricing page](https://learn.microsoft.com/azure/communication-services/pricing) for details on fees.
-
----
 
 ### What is vetting, and when is it required?
 
@@ -131,7 +129,6 @@ In the United States, Azure Communication Services doesn't check for landline nu
 Yes, you can make one request with multiple recipients. Follow this [quickstart](../../quickstarts/sms/send.md?pivots=programming-language-csharp) to send messages to multiple recipients.
 
 ### I received an HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone, what do I do now?
-
 
 The 202 returned by the service means that the message you queued to be sent wasn't delivered. Use this [Quickstart: Handle SMS events](../../quickstarts/sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the `deliveryStatus` field of your delivery report to verify delivery success or failure.
 
