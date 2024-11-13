@@ -72,14 +72,6 @@ Begin by preparing the Azure CLI with the latest updates and signing into to Azu
    az login
    ```
 
-1. View supported regions.
-
-    ```azurecli
-    az provider show \
-      -n Microsoft.App \
-      --query "resourceTypes[?resourceType=='sessionPools'].locations"
-    ```
-
 1. Set the variables used in this procedure.
 
     Before you run the following command, make sure to replace the placeholders surrounded by `<>` with your own values.
