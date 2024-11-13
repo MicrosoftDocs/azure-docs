@@ -78,7 +78,8 @@ Each alert has one of the following categories:
 ## Policy engine alerts
 
 Policy engine alerts describe detected deviations from learned baseline behavior.
-The policy engine alerts table contains the **Aggregated** item to indicate that the alert type could be aggregated when listed in the Alerts page. For more information, see [aggregated alerts](alerts.md#aggregating-alerts).
+
+The policy engine alerts table contains the **Aggregated** item to indicate that multiple alerts of this type can be grouped together and listed only once in the Alerts page to reduce alert fatigue. For more information, see [aggregated alerts](alerts.md#aggregating-alerts).
 
 | Title  | Description | Severity | Category | MITRE ATT&CK <br> Tactics and techniques | Learnable | Aggregated |
 |--|--|--|--|--|--|--|
