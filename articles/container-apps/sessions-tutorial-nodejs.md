@@ -48,22 +48,12 @@ Begin by preparing the Azure CLI with the latest updates and signing into to Azu
    az provider register --namespace Microsoft.App
    ```
 
-1. Remove the Azure Container Apps CLI extension and install a preview version of the extension.
-
-    The preview version includes commands to manage dynamic sessions.
-
-    First, remove the existing instance of the `containerapp` extension.
-
-    ```azurecli
-    az extension remove --name containerapp
-    ```
-
-    Then, add the preview version of the extension.
+1. Install the latest version of the Azure Container Apps CLI extension.
 
     ```azurecli
     az extension add \
       --name containerapp \
-      --allow-preview true -y
+      --allow-preview true --upgrade
     ```
 
 1. Sign in to Azure.
