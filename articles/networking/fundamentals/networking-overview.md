@@ -5,7 +5,7 @@ services: networking
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.topic: conceptual
-ms.date: 10/23/2024
+ms.date: 11/08/2024
 ms.author: mbender
 ---
 
@@ -72,7 +72,7 @@ Using Azure DNS, you can host and resolve public domains, manage DNS resolution 
 
 ### <a name="nat"></a>NAT Gateway
 
-Virtual Network NAT(network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
+NAT Gateway simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
 For more information, see [What is Azure NAT gateway](../../virtual-network/nat-gateway/nat-overview.md)?
 
 :::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Diagram of virtual network NAT gateway.":::
@@ -190,6 +190,10 @@ Azure DDoS Protection consists of two tiers:
 
 :::image type="content" source="./media/networking-overview/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
 
+### <a name="container-security"></a> Container network security
+
+Container network security is part of [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview). It provides enhanced control over AKS network security. With features like fully qualified domain name (FQDN) filtering, clusters using Azure CNI Powered by Cilium can implement FQDN-based network policies to achieve a Zero Trust security architecture in AKS.
+
 ## <a name="management"></a>Network Management and monitoring
 
 This section describes network management and monitoring services in Azure - Network Watcher, Azure Monitor, and Azure Virtual Network Manager.
@@ -204,13 +208,17 @@ This section describes network management and monitoring services in Azure - Net
 
 [Azure Monitor](/azure/azure-monitor/overview?toc=%2fazure%2fnetworking%2ftoc.json) maximizes the availability and performance of your applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
 
-
-
 ### <a name="avnm"></a>Azure Virtual Network Manager
 
 [Azure Virtual Network Manager](../../virtual-network-manager/overview.md) is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define [network groups](../../virtual-network-manager/concept-network-groups.md) to identify and logically segment your virtual networks. Then you can determine the [connectivity](../../virtual-network-manager/concept-connectivity-configuration.md) and [security configurations](../../virtual-network-manager/concept-security-admins.md) you want and apply them across all the selected virtual networks in network groups at once.
 
 :::image type="content" source="../../virtual-network-manager/media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager.":::
+
+### <a name="container-monitoring"></a> Container network observability
+
+Container network observability is part of [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview). ACNS uses Hubble’s control plane to provide comprehensive visibility into AKS networking and performance. It offers real-time, detailed insights across node-level, pod-level, TCP, and DNS metrics, ensuring thorough monitoring of your network infrastructure. 
+
+:::image type="content" source="./media/networking-overview/advanced-network-observability.png" alt-text="Diagram of Container Network Observability.":::
 
 ## Next steps
 

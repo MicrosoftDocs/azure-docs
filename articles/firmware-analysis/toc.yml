@@ -4,6 +4,8 @@
     href: overview-firmware-analysis.md
   - name: Firmware analysis frequently asked questions
     href: firmware-analysis-faq.md
+  - name: What's new?
+    href: release-notes.md
 - name: Quickstarts
   items:
   - name: Quickstart to use Firmware analysis with Azure CLI
