@@ -39,11 +39,14 @@ Before deploying the Microsoft Sentinel solution for Microsoft Business Apps, en
     - Audit logging must also enabled in Microsoft Purview. For more information, see [Turn auditing on or off for Microsoft Purview](/microsoft-365/compliance/audit-log-enable-disable)
     - If you're working with Microsoft Dataverse, audit logging is supported only for production environments. For more information, see [Microsoft Dataverse and model-driven apps activity logging requirements](/power-platform/admin/enable-use-comprehensive-auditing#requirements).
 
-- For Microsoft 365 Dynamics Finance and Operations, [Microsoft Dynamics 365 Finance version 10.0.33 or above](/dynamics365/finance/get-started/whats-new-changed-changed-10-0-33) must be enabled and you must have administrative access to the monitored environments.  
+- For Microsoft 365 Dynamics Finance and Operations:
+
+    - [Microsoft Dynamics 365 Finance version 10.0.33 or above](/dynamics365/finance/get-started/whats-new-changed-changed-10-0-33) must be enabled and you must have administrative access to the monitored environments.
+    - You must have your Microsoft Dynamics 365 Finance and Operations environment URL, such as `https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com `. Depending on the environment you're using, such as in a sandbox or a cloud hosted environment, the URL might look different. Remove any trailing slashes: `/`.
 
 ## Install the solution
 
-Start by installing the Microsoft Sentinel solution for Microsoft Business Apps from your Microsoft Sentinel **Content hub**. <!--is this the exact name?-->
+Start by installing the Microsoft Sentinel solution for Microsoft Business Apps from the Microsoft Sentinel **Content hub**. <!--is this the exact name?-->
 
 For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
 
@@ -88,73 +91,55 @@ When working with Microsoft Dataverse, Dataverse activity logging is available o
 
 ## Configure data collection for Dynamics 365 Finance and Operations
 
-### Collect the environment URL from your Finance and Operations cloud environment
+To configure data collection for Dynamics 365 Finance and Operations, you need to deploy an Azure Resource Manager (ARM) template, enable data collection, and enable auditing on the relevant Dynamics 365 Finance and Operations data tables.
 
-1. Open your Dynamics 365 project in [Microsoft Dynamics Lifecycle Services (LCS)](https://lcs.dynamics.com) and select the specific Finance and Operations environment you want to monitor with Microsoft Sentinel. 
-1. In the **Environment version information** section, make sure that you're using application release version 10.0.33 or above. 
+1. In the Microsoft Sentinel **Configuration** > **Dynamics 365 F&O (using Azure Functions)** data connector page, select **Deploy to Azure**. This ARM template deploys a function app to your workspace.
 
-    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png" alt-text="Screenshot of the Finance and Operations environment version information." lightbox="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png":::
+1. Follow the installation wizard to complete deployment. When prompted for the **Finance Operations API Host** parameter, enter your Microsoft Dynamics 365 Finance and Operations environment URL. Make sure to remove any trailing slashes `/`.
 
-1. To collect your environment URL, select **Log on to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-data-connector). For example: ``` https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com ```. 
+### Create a role and user for data collection
 
-    > [!NOTE]
-    > The URL may look different, depending on the environment you use, for example, you could be using a sandbox, or a cloud hosted environment. Remove any trailing slashes: `/`. 
+Create a new role in Finance and Operations with permissions to view the Database Log entity. You'll then assign the role to a dedicated Finance and Operations user, which is mapped to the Microsoft Entra client ID of the Function App's system assigned managed identity.
 
-    :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-details-new.png" alt-text="Screenshot of the Finance and Operations environment details.":::
-
-
-### Deploy the Azure Resource Manager (ARM) template
-
-1. Select **Deploy to Azure**.
-
-1. Follow the installation wizard to complete deployment. The **Finance Operations API Host** parameter in the deployment wizard refers to the environment URL collected in [this step](#collect-the-environment-url-from-your-finance-and-operations-cloud-environment). 
-
-### Enable data collection
-
-To enable data collection, you create a new role in Finance and Operations with permissions to view the Database Log entity. The role is then assigned to a dedicated Finance and Operations user, mapped to the Microsoft Entra client ID of the Function App's system assigned managed identity.
-
-To collect the managed identity application ID from Microsoft Entra ID:
+#### To collect the managed identity application ID from Microsoft Entra ID
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Microsoft Entra ID** > **Enterprise applications**.
 1. Change the application type filter to **Managed Identities**.
-1. Search for and open the Function App created in the [previous step](#deploy-the-azure-resource-manager-arm-template). Copy the Application ID and save it for later use. 
+1. Search for and open the Function App that was created when you [deployed the ARM template to Azure](#create-a-role-and-user-for-data-collection).
+1. Copy the Application ID and save it to use when [registering the managed identity in Finance and Operations](#register-the-managed-identity-in-finance-and-operations).
 
-### Create a role for data collection in Finance and Operations 
+#### To create your role in Finance and Operations
+<!--can we xref to somewhere in dynamics docs for this?-->
 
-1. In the Finance and Operations portal, navigate to **Workspaces > System administration**, and select **Security Configuration**.
-
-1. Under **Roles**, select **Create new** and give the new role a name, for example, *Database Log Viewer*.
-
-1. Select the new role from the list of roles, and select **Privileges** > **Add references**.
-
+1. In the Finance and Operations portal, select **Workspaces > System administration** > **Security Configuration** > **Roles** >**Create new**.
+1. Enter a meaningful name for your role, such as *Database Log Viewer*.
+1. Select the new role from the list of roles, and then select **Privileges** > **Add references**.
 1. Select **Database log Entity View** from the list of privileges. 
-
 1. Select **Unpublished objects**, and select **Publish all** to publish the role. 
 
-### Create a user for data collection in Finance and Operations 
+#### To create a user for data collection
 
-1. In the Finance and Operations portal, navigate to **Modules > System administration**, and select **Users**.
+1. In the Finance and Operations portal, select **Modules > System administration** > **Users**.
+1. Create a new user and assign the role you created in the previous step to your user.
+1. Note the user's user ID for use in [registering the managed identity in Finance and Operations](#register-the-managed-identity-in-finance-and-operations).
 
-1. Create a new user and assign the role you [created in the previous step](#create-a-role-for-data-collection-in-finance-and-operations) to the user. 
+#### Register the managed identity in Finance and Operations
 
-### Register the managed identity in Finance and Operations
-
-1. In the Finance and Operations portal, navigate to **System administration > Setup > Microsoft Entra ID** applications.
+1. In the Finance and Operations portal, select **System administration > Setup > Microsoft Entra ID** applications.
 
 1. Create a new entry in the table:
-    - For the **Client Id**, type the application ID of the managed identity.
-    - For the **Name**, type a name for the application. 
-    - For the **User ID**, type the user ID created in the [previous step](#create-a-user-for-data-collection-in-finance-and-operations). 
+
+    - For the **Client Id**, enter the [application ID](#to-collect-the-managed-identity-application-id-from-microsoft-entra-id) of the managed identity.
+    - For the **Name**, enter a name for the application. 
+    - For the **User ID**, enter the user ID for the user created [earlier](#to-create-a-user-for-data-collection).
 
 ### Enable auditing on the relevant Dynamics 365 Finance and Operations data tables
 
 > [!NOTE]
 > Before you enable auditing on Dynamics 365 F&O, review the [database logging recommended practices](/dynamics365/fin-ops-core/dev-itpro/sysadmin/configure-manage-database-log#database-logging-and-performance).
 
-The analytics rules provided with this solution monitor and detect threats based on logs generated in the System Database Log.
-
-If you're planning to use the analytics rules provided in this solution, enable auditing for the following tables:
+The analytics rules provided with this solution for Microsoft Dynamics 365 Finance and Operations monitor and detect threats based on logs generated in the System Database Log. If you're planning to use the analytics rules provided in this solution, enable auditing for the following tables:
 
 |Category  |Table  |
 |---------|---------|
@@ -181,14 +166,14 @@ After deploying your data connectors and configuring data collection, use the fo
 1. Wait for the following time periods for Microsoft Sentinel to ingest the data, depending on the data connectors you deployed:
 
     - **Power Platform activity logs**: 60 minutes
-    - **Power Playform inventory data**: 24 hours
+    - **Power Platform inventory data**: 24 hours
     - **Dynamics 365 Finance and Operations activity logs**: 15 minutes
 
 ### View ingested data in Microsoft Sentinel
 
 To verify that Microsoft Sentinel is getting the data you expect, run KQL queries against the data tables that collect logs from your data connectors.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), run KQL queries on the **General** > **Logs** oage. In the [Defender portal](https://security.microsoft.com/), run KQL queries in the **Investigation & response** > **Hunting** > **Advanced hunting**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), run KQL queries on the **General** > **Logs** page. In the [Defender portal](https://security.microsoft.com/), run KQL queries in the **Investigation & response** > **Hunting** > **Advanced hunting**.
 
 1. Verify that the results for each table show the activities you generated.
 

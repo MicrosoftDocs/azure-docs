@@ -23,7 +23,7 @@ The Microsoft Sentinel solution for Microsoft Business Apps helps you monitor an
 
 ## Securing Dynamics 365 for Finance and Operations activities
 
-Finance and operations applications enable important business processes like finance, procurement, operations, and supply chain. They store and process sensitive business data, like payments, orders, account receivables, and suppliers, and might be administrered by non-security savvy administrators and used by both internal and external users.
+Finance and operations applications enable important business processes like finance, procurement, operations, and supply chain. They store and process sensitive business data, like payments, orders, account receivables, and suppliers, and might be administered by nonsecurity savvy administrators and used by both internal and external users.
 
 The Microsoft Sentinel solution for Microsoft Business apps helps you secure your Dynamics 365 Finance and Operations environment by providing:
 
@@ -50,7 +50,7 @@ The Microsoft Sentinel solution for Microsoft Business Apps includes the followi
 |---------|---------|---------|
 |Microsoft Power Platform Admin Activity (Preview)|Power Platform administrator activity logs<br><br> For more information, see [View Power Platform administrative logs using auditing solutions in Microsoft Purview (preview)](/power-platform/admin/admin-activity-logging).|PowerPlatformAdminActivity|
 |Microsoft Dataverse (Preview) |    Dataverse and model-driven apps activity logging <br><br>For more information, see [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing).<br><br>If you use the data connector for Dynamics 365, migrate to the data connector for Microsoft Dataverse. This data connector replaces the legacy data connector for Dynamics 365 and supports data collection rules.  |   DataverseActivity      |
-| Dynamics 365 F&O | Dynamics 365 Finance and Operations admin activities and audit logs<br><br>Business process and application activity logs | TBD |
+| Dynamics 365 F&O | Dynamics 365 Finance and Operations admin activities and audit logs<br><br>Business process and application activity logs | FinanceOperationsActivity_CL |
 
 ## Analytics rules
 
