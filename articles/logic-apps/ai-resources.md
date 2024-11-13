@@ -9,7 +9,7 @@ ms.date: 11/11/2024
 #CustomerIntent: I want examples, samples, and other resources to help me learn how to integrate Ai into logic app workflows.
 ---
 
-# AI playbook and examples for Standard workflows in Azure Logic Apps
+# AI playbook, examples, and other resources for Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -19,9 +19,9 @@ This guide provides examples, samples, and other resources to help you learn how
 
 The following sections describe built-in operations and documentation that you can use to build Standard workflows for AI integration scenarios, such as document ingestion and making it possible for customers to "chat with the data". 
 
-### Parse a document and chunk text operations
+### Actions that parse content and chunk text
 
-The **Parse a document** and **Chunk text** built-in or "in-app" actions help you prepare content for Azure AI services to consume in your workflows. Connectors for Azure AI services such as **Azure OpenAI** and **Azure AI Search** usually expect tokenized input and can handle only a limited number of tokens.
+The **Parse a document** and **Chunk text** actions are built-in or "in-app" operations that help you prepare content for consumption by Azure AI services in your workflows. Connectors for Azure AI services such as **Azure OpenAI** and **Azure AI Search** usually expect tokenized input and can handle only a limited number of tokens.
 
 | Action | Description |
 |--------|-------------|
@@ -32,9 +32,9 @@ Both these actions don't require any custom logic or configuration to use. This 
 
 For a guide that shows how to use these actions in your Standard workflow, see [Parse or chunk content for Standard workflows in Azure Logic Apps](/azure/logic-apps/parse-document-chunk-text).
 
-### Azure OpenAI and Azure AI Search operations
+### Operations for Azure OpenAI and Azure AI Search
 
-The **Azure AI Search** and **Azure OpenAI** built-in or "in-app" connectors provide operations that help you integrate the natural language processing capabilities in Azure Open AI with the intelligent search capabilities in Azure AI Search. These connectors simplify backend processes with codeless setup and reduce complexity around integrating AI capabilities into your workflows.
+The **Azure AI Search** and **Azure OpenAI** connectors provide built-in or "in-app" operations that help you integrate the natural language processing capabilities in Azure Open AI with the intelligent search capabilities in Azure AI Search. These connectors simplify backend processes with codeless setup and reduce complexity around integrating AI capabilities into your workflows.
 
 | Connector | Description |
 |-----------|-------------|
