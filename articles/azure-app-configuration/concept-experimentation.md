@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.custom:
   - build-2024
 ms.topic: conceptual
-ms.date: 05/08/2024
+ms.date: 11/12/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -27,11 +27,9 @@ Experimentation is the process of systematically testing hypotheses or changes t
 
 - **Variant Feature Flags**: Represent different versions or configurations of a feature. In an experiment, the variant feature flags are compared in relevance to the metrics you're interested in and the traffic allocated for the application audience.
 
-- **Telemetry**: Telemetry is the data for the variations of a feature and the related metrics to evaluate the feature. For the setup in Azure, the feature flag evaluation/assignment data flows to the telemetry provider. Application Insights is the telemetry provider for the experimentation setup. Data for the defined metrics also flow to the same Application Insights instance.
+- **Telemetry**: Telemetry is the data for the variations of a feature and the related metrics to evaluate the feature.
 
-- **A/B testing**: A/B testing, also known as split testing, is an industry-standard method for evaluating the impact of potential changes within a technology stack.
-
-- **Sampling size**: Sampling size is the size of the sample of users under experiment. It's the number of events sent for any variation of the feature that you're experimenting on.
+- **A/B testing**: A/B testing, also known as experimentation, is an industry-standard method for evaluating the impact of potential changes within a technology stack.
 
 - **Minimum sampling size**: is the minimum number of events required per variation of the feature for the experiment to show you statistically significant results. The larger the sample size, better the statistical significance of the experiment's results.
 
