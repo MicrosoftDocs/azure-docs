@@ -1,7 +1,7 @@
 ---
-title: 'Create a VM with a static private IP address - Azure portal'
-description: Learn how to create a virtual machine with a static private IP address using the Azure portal.
-ms.date: 08/24/2023
+title: 'Create a VM with a static private IP address'
+description: Learn to create a virtual machine with a static private IP address using the Azure portal, Azure PowerShell, or Azure CLI.
+ms.date: 11/19/2024
 ms.author: mbender
 author: mbender-ms
 ms.service: azure-virtual-network
@@ -10,13 +10,33 @@ ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# Create a virtual machine with a static private IP address using the Azure portal
+# Create a virtual machine with a static private IP address
 
 When you create a virtual machine (VM), it's automatically assigned a private IP address from a range that you specify. This IP address is based on the subnet in which the VM is deployed, and the VM keeps this address until the VM is deleted. Azure dynamically assigns the next available private IP address from the subnet you create a VM in. If you want to assign a specific IP address in this subnet for your VM, use a static IP address.
 
 ## Prerequisites
 
+# [Azure portal](#tab/azureportal)
+
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+# [Azure PowerShell](#tab/azurepowershell)
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure PowerShell installed locally or Azure Cloud Shell
+
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
+# [Azure CLI](#tab/azurecli)
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+---
+
+# [Azure portal](#tab/azureportal)
 
 ## Create a VM
 
@@ -60,7 +80,13 @@ Use the following steps to create a VM, and its virtual network and subnet:
 
 [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
+# [Azure PowerShell](#tab/azurepowershell)
+# [Azure CLI](#tab/azurecli)
+
+---
+
 ## Change private IP address to static
+# [Azure portal](#tab/azureportal)
 
 In this procedure, you change the private IP address from **dynamic** to **static** for the VM you created previously:
 
@@ -92,7 +118,13 @@ In this procedure, you change the private IP address from **dynamic** to **stati
 >
 >If you manually set the private IP address within the operating system, make sure it matches the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings). Otherwise, you can lose connectivity to the VM. For more information, see [private IP address settings](virtual-network-network-interface-addresses.md#private).
 
+# [Azure PowerShell](#tab/azurepowershell)
+# [Azure CLI](#tab/azurecli)
+
+---
+
 ## Clean up resources
+# [Azure portal](#tab/azureportal)
 
 When you're finished, delete the resource group and all of the resources it contains:
 
@@ -101,7 +133,10 @@ When you're finished, delete the resource group and all of the resources it cont
 1. From the **myResourceGroup** screen, select **Delete resource group**.
 
 1. Enter *myResourceGroup* for **Enter resource group name to confirm deletion**, and then select **Delete**.
+# [Azure PowerShell](#tab/azurepowershell)
+# [Azure CLI](#tab/azurecli)
 
+---
 ## Next steps
 
 - Learn more about [static public IP addresses](public-ip-addresses.md#ip-address-assignment) in Azure.
