@@ -67,9 +67,9 @@ The following tables illustrate three different routing rules with their fronten
 | B            | foo.contoso.com                           | /users/\*       |
 | C            | www.fabrikam.com, foo.adventure-works.com | /\*, /images/\* |
 
-The table below shows the matching results for the above routing rules:
+The following table shows the matching results for the routing rules in the previous table:
 
-| Incoming frontend host   | Matched routing rule(s) |
+| Incoming frontend host   | Matched routing rules |
 |--------------------------|-------------------------|
 | foo.contoso.com          | A, B                    |
 | www.fabrikam.com         | C                       |
@@ -81,7 +81,7 @@ The table below shows the matching results for the above routing rules:
 
 ### Path matching
 
-After determining the specific frontend host and filtering possible routing rules, Front Door selects the routing rules based on the request path. The following logic is used:
+After Azure Front Door determine the specific frontend host and filtering possible routing rules, it selects the routing rules based on the request path. The following logic is used:
 
 1. Check for routing rules with an exact match to the request path.
 2. If no exact match is found, look for a routing rule with a wildcard path that matches.
@@ -115,7 +115,7 @@ The following table lists routing rules with their frontend host and path combin
 | G            | www.contoso.com  | /abc/def|
 | H            | www.contoso.com  | /path/  |
 
-The table below shows which routing rule matches an incoming request at the Azure Front Door edge:
+The following table shows which routing rule matches an incoming request at the Azure Front Door edge:
 
 | Incoming Request         | Matched Route |
 |--------------------------|---------------|
@@ -150,11 +150,11 @@ The table below shows which routing rule matches an incoming request at the Azur
 
 ### Routing decision
 
-Once Azure Front Door matches a routing rule, it decides how to process the request. If a cached response is available, it is served back to the client.
+Once Azure Front Door matches a routing rule, it decides how to process the request. If a cached response is available, it gets served back to the client.
 
 ::: zone pivot="front-door-standard-premium"
 
-If a [rule set](front-door-rules-engine.md) is configured for the matched routing rule, it is processed in order. Rule sets can [override a route](front-door-rules-engine-actions.md#RouteConfigurationOverride) by directing traffic to a specific origin group. If no rule set is defined, the request is forwarded to the origin group without changes.
+If a [rule set](front-door-rules-engine.md) is configured for the matched routing rule, it gets processed in order. Rule sets can [override a route](front-door-rules-engine-actions.md#RouteConfigurationOverride) by directing traffic to a specific origin group. If no rule set is defined, the request is forwarded to the origin group without changes.
 
 ::: zone-end
 
