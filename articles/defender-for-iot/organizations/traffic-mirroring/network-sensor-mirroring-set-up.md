@@ -7,7 +7,7 @@ ms.date: 10/30/2024
 
 # Network sensor mirroring set up
 
-This guide provides a step-by-step approach to successfully deploying your network sensor deployment, and ensuring comprehensive network monitoring and security. The five deployment steps are as follows:
+This article provides a step-by-step approach to successfully deploying your network sensor, and ensuring the correct traffic mirroring and security are chosen. The five deployment steps are as follows:
 
 1. Network architecture review
 1. Sensor location
@@ -17,9 +17,9 @@ This guide provides a step-by-step approach to successfully deploying your netwo
 
 Follow these guidelines to optimize your sensor performance and achieve accurate and reliable network data collection.
 
-## Network architecture review
+## Review the network architecture
 
-Before the sensor can be applied to the network, it's crucial to review the network architecture. These steps include:
+Before you deploy the sensor to the network, it's crucial to review the network architecture. These steps include:
 
 - Review the network diagram. For more information, see [review architecture](/best-practices/understand-network-architecture.md) or [create a network diagram](/best-practices/plan-prepare-deploy.md#create-a-network-diagram).
 
@@ -29,7 +29,7 @@ Before the sensor can be applied to the network, it's crucial to review the netw
 
 - Determine which OT protocols need to be monitored (Profinet, S7, Modbus etc..). For more information see [supported protocols](concept-supported-protocols.md).
 
-## Choose Sensor locations and the traffic mirroring method
+## Selecting Sensor locations and traffic mirroring method
 
 Using the 
 By selecting the appropriate mirroring method, you ensure that your network sensor captures the necessary Layer 2 (L2) traffic, and provides high-quality data for accurate inventory and traffic analysis.
@@ -48,9 +48,11 @@ Wireshark displays the list of protocols identified by the sensor and the amount
 
 This step is crucial to ensure effective monitoring of OT networks.  For more information, see Theo is there a link for this?
 
-After validating the sensor and mirroring method, install the sensors. For more information see [install software on OT sensors](ot-deploy/install-software-ot-sensor.md).
+## Deploy your sensor
 
-## Post deployment validation
+After validating the sensor and mirroring method, deploy the sensors. For more information see [install software on OT sensors](ot-deploy/install-software-ot-sensor.md).
+
+## Validate in post deployment
 
 It's essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the networks being monitored by the sensor.  
 
