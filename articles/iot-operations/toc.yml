@@ -25,6 +25,8 @@ items:
         href: deploy-iot-ops/howto-manage-update-uninstall.md
       - name: Enable secure settings
         href: deploy-iot-ops/howto-enable-secure-settings.md
+      - name: Production deployment guidelines
+        href: deploy-iot-ops/concept-production-guidelines.md
     - name: Secure your deployment
       items:
       - name: Certificate management
@@ -91,6 +93,8 @@ items:
           href: connect-to-cloud/howto-configure-kafka-endpoint.md
         - name: ADLSv2 Blob Storage
           href: connect-to-cloud/howto-configure-adlsv2-endpoint.md
+        - name: Microsoft Fabric Real-Time Intelligence
+          href: connect-to-cloud/howto-configure-fabric-real-time-intelligence.md
         - name: Microsoft Fabric OneLake
           href: connect-to-cloud/howto-configure-fabric-endpoint.md
         - name: Azure Data Explorer

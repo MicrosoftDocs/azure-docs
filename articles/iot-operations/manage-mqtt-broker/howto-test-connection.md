@@ -97,7 +97,7 @@ kubectl exec --stdin --tty mqtt-client --namespace azure-iot-operations -- sh
 
 Inside the pod's shell, run the following command to publish a message to the broker:
 
-```console
+```bash
 mosquitto_pub --host aio-broker --port 18883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
 ```
 
@@ -122,7 +122,7 @@ The mosquitto client uses the service account token mounted at `/var/run/secrets
 
 To subscribe to the topic, run the following command:
 
-```console
+```bash
 mosquitto_sub --host aio-broker --port 18883 --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
 ```
 
