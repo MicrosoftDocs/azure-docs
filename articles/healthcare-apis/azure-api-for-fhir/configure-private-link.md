@@ -106,7 +106,7 @@ Private endpoints can only be deleted from the Azure portal from the **Overview*
 
 ## Test and troubleshoot private link and VNet peering
 
-To ensure that your FHIR server isn't receiving public traffic after disabling public network access, select the /metadata endpoint for your server from your computer. You should receive a 403 Forbidden. 
+To ensure that your FHIR server isn't receiving public traffic after disabling public network access, select the metadata endpoint for your server from your computer. You should receive a 403 Forbidden. 
 
 > [!NOTE]
 > It can take up to 5 minutes after updating the public network access flag before public traffic is blocked.
