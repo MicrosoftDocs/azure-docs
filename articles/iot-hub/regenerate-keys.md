@@ -76,5 +76,3 @@ Use the [az iot hub device-identity renew-key](/cli/azure/iot/hub/device-identit
 ```azurecli
 az iot hub device-identity renew-key --device-id <DEVICE_NAME> --hub-name <IOT_HUB_NAME> --key-type {both, primary, secondary, swap}
 ```
-
----
