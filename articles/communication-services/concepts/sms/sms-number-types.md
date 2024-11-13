@@ -93,22 +93,18 @@ Azure Communication Services provides the following phone number types:
 
 ## Choosing the right number type for your business
 
-# Geographic Target:
-- North America: Use Toll-Free for broad reach.
-- United States: Use 10DLC for local customer connections.
-- Multiple Countries: Combination of multiple number types based on availability.
-- EMEA/APAC: Alphanumeric Sender IDs for brand visibility.
+| **Factor**                   | **Toll-Free Number**                | **10DLC** (10-Digit Long Code)      | **Short Code**                     | **Alphanumeric Sender ID**                   |
+|------------------------------|-------------------------------------|-------------------------------------|------------------------------------|----------------------------------------------|
+| **Geographic Target**        | United States, Canada              | United States                       | United States, United Kingdom, Canada | Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland, Portugal, Spain, Sweden, Switzerland, Australia, Czech Republic, Finland, Italy, Norway, Slovakia, Slovenia, United Kingdom |
+| **Message Volume**           | Low to moderate                    | Moderate                            | High                               | Moderate (for one-way notifications)        |
+| **Two-Way Communication**    | Supported                          | Supported                           | Supported                      | Not Supported (one-way only)                |
+| **Brand Visibility**         | Low                                | Moderate (localized presence)       | High                               | High (direct brand recognition)             |
+| **Use Case Examples**        | Customer support, notifications    | Local business communications, marketing & promotions | High-volume campaigns, 2FA       | Brand visibility, one-way notifications     |
+| **Subscription Billing Location Eligibility** |                 |  | Supported only in specific EMEA & APAC regions (see Geographic Target) |
+| **Compliance Requirements**  | SMS verification, opt-out support  | Campaign registration, opt-out support | Carrier approval, opt-in proof    | Varies by country (e.g., France restricts marketing messages) |
+| **Format**                   | 1-800-XXX-XXXX                     | XXX-XXX-XXXX                        | 5-6 digits                          | Up to 11 characters (letters/numbers)       |
+| **Example**                  | 1-800-555-1234                     | 212-555-6789                        | 12345                               | MYBRAND123                                  |
 
-# Message Volume:
-- High-volume: Use Short Codes.
-- Moderate/Transactional: Use 10DLC or Toll-Free.
-
-# Two-Way Communication:
-- Required: Use 10DLC or Toll-Free.
-- Not Required: Use Alphanumeric Sender IDs.
-
-# Brand Visibility:
-- Important: Use Alphanumeric Sender IDs.
 
 ## Next steps
 
