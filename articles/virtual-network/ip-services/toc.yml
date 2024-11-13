@@ -131,13 +131,7 @@ items:
         - name: Azure CLI
           href: virtual-network-deploy-static-pip-arm-cli.md
       - name: Create VM - static private IP
-        items:
-        - name: Azure portal
-          href: virtual-networks-static-private-ip-arm-pportal.md
-        - name: Azure PowerShell
-          href: virtual-networks-static-private-ip-arm-ps.md
-        - name: Azure CLI
-          href: virtual-networks-static-private-ip-arm-cli.md
+        href: virtual-networks-static-private-ip-arm-pportal.md
       - name: Create VM - multiple IPs
         items:
         - name: Azure portal

@@ -3729,6 +3729,16 @@
       "source_path_from_root": "/articles/virtual-network/tutorial-create-route-table-cli.md",
       "redirect_url": "/azure/virtual-network/tutorial-create-route-table",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md",
+      "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal",
+      "redirect_document_id": false
     }
   ]
 }
