@@ -220,20 +220,18 @@ In order for dataflows to send or receive messages to Event Grid MQTT broker, yo
 
 To quickly get started and for testing, you can create a topic space with the wildcard topic `#` as the topic template.
 
-#### Assign permission to managed identity
+### Assign permission to managed identity
 
-Now that the topic space is created, you need to assign the managed identity of the Azure IoT Operations Arc extension to the Event Grid namespace or topic space.
-
-<!-- TODO: refactor or make the get managed identity / extension name an include? -->
+Now that the topic space is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to send or receive messages to the Event Grid MQTT broker.
 
 If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
 
 Then, go to the Event Grid namespace > **Access control (IAM)** > **Add role assignment**.
 
-1. On the **Role** tab select an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`. This gives the managed identity the necessary permissions to send or receive messages for all topic spaces in the namespace.
+1. On the **Role** tab select an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`. This gives the managed identity the necessary permissions to send or receive messages for all topic spaces in the namespace. To learn more, see [Microsoft Entra JWT authentication and Azure RBAC authorization to publish or subscribe MQTT messages](../../event-grid/mqtt-client-microsoft-entra-token-and-rbac.md#authorization-to-grant-access-permissions).
 1. On the **Members** tab:
     1. If using system-assigned managed identity, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
-    1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your previously created user-assigned managed identity.
+    1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
 
 Alternatively, you can assign the role at the topic space level. Go to the topic space > **Access control (IAM)** > **Add role assignment**. Assign the managed identity with an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`. This gives the managed identity the necessary permissions to send or receive messages for the specific topic space.
 
@@ -254,7 +252,7 @@ Once the Event Grid namespace is configured, you can create a dataflow endpoint 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                                        |
     | Host                 | The hostname and port of the Event Grid MQTT broker. Use the format `<NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883`                                |
-    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, or *User assigned managed identity*. |
+    | Authentication method | The method used for authentication. We recommend that you choose *System assigned managed identity* or *User assigned managed identity*. |
 
 1. Select **Apply** to provision the endpoint.
 
@@ -421,7 +419,7 @@ The following authentication methods are available for MQTT broker dataflow endp
 
 Many MQTT brokers, like Event Grid, support X.509 authentication. Dataflows can present a client X.509 certificate and negotiate the TLS communication. 
 
-To use with dataflows, the certificate and private key must in PEM format and not password protected.
+To use with dataflows, the certificate and private key must be in PEM format and not password protected.
 
 > [!TIP]
 > PEM format is a common format for certificates and keys. Certificates and keys in PEM format are base64-encoded ASCII files with a headers that look like `-----BEGIN CERTIFICATE-----` and `-----BEGIN EC PRIVATE KEY----`
@@ -485,15 +483,16 @@ mqttSettings:
 
 ### System-assigned managed identity
 
-To use system-assigned managed identity for authentication, you don't need to create a secret. The system-assigned managed identity is used to authenticate with the MQTT broker. 
-
-Before you configure the endpoint, make sure that the Azure IoT Operations system-assigned managed identity has the necessary permissions to connect to the MQTT broker. 
+Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to connect to the cloud resource:
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
 1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
-1. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension. For example, with Azure Event Grid MQTT broker, go to **Access Control (IAM) > Add role assignment**, and on the **Members** tab, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for *azure-iot-operations-xxxx7*.
-1. Assign a role to the Azure IoT Operations Arc extension managed identity that grants permission to connect to the MQTT broker. For example, with Azure Event Grid MQTT broker, assign the managed identity to the Event Grid namespace or topic space with [an appropriate role](../../event-grid/mqtt-client-microsoft-entra-token-and-rbac.md#authorization-to-grant-access-permissions).
-1. Configure the endpoint with system-assigned managed identity settings.
+1. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
+1. Go to the cloud resource you need to grant permissions > **Access control (IAM)** > **Add role assignment**.
+1. On the **Role** tab select an appropriate role.
+1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. For example, *azure-iot-operations-xxxx7*.
+
+Then, configure the dataflow endpoint with system-assigned managed identity settings.
 
 # [Portal](#tab/portal)
 
@@ -556,13 +555,15 @@ mqttSettings:
 
 ### User-assigned managed identity
 
-To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-Before you configure the endpoint, make sure that the user-assigned managed identity has the necessary permissions to connect to the MQTT broker.
+Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to connect to the cloud resource:
 
-1. You need to [create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources) first. 
-1. Assign a role to the user-assigned managed identity that grants permission to connect to the MQTT broker. For example, with Azure Event Grid MQTT broker, in the Azure portal, go to **Access Control (IAM) > Add role assignment** on the Event Grid namespace or topic space, and on the **Role** tab assign [an appropriate role](../../event-grid/mqtt-client-microsoft-entra-token-and-rbac.md#authorization-to-grant-access-permissions). Then, on the **Members** tab, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your previously created user-assigned managed identity.
-1. Specify the user-assigned managed identity authentication method along with the client ID and tenant ID of the managed identity.
+1. Go to the cloud resource you need to grant permissions > **Access control (IAM)** > **Add role assignment**.
+1. On the **Role** tab select an appropriate role.
+1. On the **Members** tab, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your user-assigned managed identity.
+
+Then, configure the dataflow endpoint with user-assigned managed identity settings.
 
 # [Portal](#tab/portal)
 

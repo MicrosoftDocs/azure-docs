@@ -33,18 +33,22 @@ First, [create a Kafka-enabled Azure Event Hubs namespace](../../event-hubs/even
 
 Next, [create an event hub in the namespace](../../event-hubs/event-hubs-create.md#create-an-event-hub). Each individual event hub corresponds to a Kafka topic. You can create multiple event hubs in the same namespace to represent multiple Kafka topics. 
 
-### Assign the managed identity to the Event Hubs namespace
+### Assign permission to managed identity
 
-To configure a dataflow endpoint for a Kafka endpoint, we recommend using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
+Now that the Azure Event Hubs namespace and event hub is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to send or receive messages to the event hub.
 
-1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
-1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
-1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for *azure-iot-operations-xxxx7*.
-1. Assign the Azure IoT Operations Arc extension managed identity to the Event Hubs namespace with the `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver` role.
+If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
+
+Then, go to the Event Hubs namespace > **Access control (IAM)** > **Add role assignment**.
+
+1. On the **Role** tab select an appropriate role like `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver` role. This gives the managed identity the necessary permissions to send or receive messages for all event hubs in the namespace. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
+1. On the **Members** tab:
+    1. If using system-assigned managed identity, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
+    1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
 
 ### Create dataflow endpoint
 
-Finally, create the *DataflowEndpoint* resource. Use your own values to replace the placeholder values like `<ENDPOINT_NAME>`.
+Once the Azure Event Hubs namespace and event hub is configured, you can create a dataflow endpoint for the event hub.
 
 # [Portal](#tab/portal)
 
@@ -59,7 +63,7 @@ Finally, create the *DataflowEndpoint* resource. Use your own values to replace 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
     | Host                 | The hostname of the Kafka broker in the format `<NAMEPSACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
-    | Authentication method| The method used for authentication. Choose *System assigned managed identity* |
+    | Authentication method| The method used for authentication. We recommend that you choose *System assigned managed identity* or *User assigned managed identity*. |
 
 1. Select **Apply** to provision the endpoint.
 
@@ -367,13 +371,16 @@ The secret must be in the same namespace as the Kafka dataflow endpoint. The sec
 
 ### System-assigned managed identity
 
-To use system-assigned managed identity for authentication, assign a role to the Azure IoT Operation managed identity that grants permission to send and receive messages from Event Hubs.
+Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to connect to the cloud resource:
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
 1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
-1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for *azure-iot-operations-xxxx7*.
-1. Assign a role to the Azure IoT Operations Arc extension managed identity that grants permission to send and receive messages such as *Azure Event Hubs Data Owner*, *Azure Event Hubs Data Sender*, or *Azure Event Hubs Data Receiver*. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
-1. Specify the managed identity authentication method in the Kafka settings. In most cases, you don't need to specify other settings. 
+1. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
+1. Go to the cloud resource you need to grant permissions > **Access control (IAM)** > **Add role assignment**.
+1. On the **Role** tab select an appropriate role.
+1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. For example, *azure-iot-operations-xxxx7*.
+
+Then, configure the dataflow endpoint with system-assigned managed identity settings.
 
 # [Portal](#tab/portal)
 
@@ -435,9 +442,15 @@ kafkaSettings:
 
 ### User-assigned managed identity
 
-To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-Then, specify the user-assigned managed identity authentication method in the Kafka settings along with the client ID and tenant ID of the managed identity.
+Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to connect to the cloud resource:
+
+1. Go to the cloud resource you need to grant permissions > **Access control (IAM)** > **Add role assignment**.
+1. On the **Role** tab select an appropriate role.
+1. On the **Members** tab, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your user-assigned managed identity.
+
+Then, configure the dataflow endpoint with user-assigned managed identity settings.
 
 # [Portal](#tab/portal)
 
