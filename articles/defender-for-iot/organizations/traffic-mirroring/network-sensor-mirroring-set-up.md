@@ -21,11 +21,11 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
 Before the sensor can be applied to the network, it's crucial to review the network architecture. These steps include:
 
-- Review the network diagram. For more information, see [review architecture](best-practices/understand-network-architecture.md) or [create a network diagram](best-practices/plan-prepare-deploy.md#create-a-network-diagram).
+- Review the network diagram. For more information, see [review architecture](/best-practices/understand-network-architecture.md) or [create a network diagram](/best-practices/plan-prepare-deploy.md#create-a-network-diagram).
 
-- Estimate the total number of devices to be monitored. For more information, see [calculate devices in your network](best-practices/plan-prepare-deploy.md#calculate-devices-in-your-network).
+- Estimate the total number of devices to be monitored. For more information, see [calculate devices in your network](/best-practices/plan-prepare-deploy.md#calculate-devices-in-your-network).
 
-- Identify VLANs that contain OT networks. For more information, see [customize a VLAN name](how-to-control-what-traffic-is-monitored.md#customize-a-vlan-name).
+- Identify VLANs that contain OT networks. For more information, see [customize a VLAN name](../how-to-control-what-traffic-is-monitored.md#customize-a-vlan-name).
 
 - Determine which OT protocols need to be monitored (Profinet, S7, Modbus etc..). For more information see [supported protocols](concept-supported-protocols.md).
 
