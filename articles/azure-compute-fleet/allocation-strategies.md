@@ -1,7 +1,7 @@
 ---
 title: Allocation stratergies for Azure Compute Fleet
 description: Learn about Compute Fleet allocation strategies for Spot and Standard virtual machines (VM).
-author: rajeeshr
+author: rrajeesh
 ms.author: rajeeshr
 ms.topic: concept-article
 ms.service: azure-compute-fleet
