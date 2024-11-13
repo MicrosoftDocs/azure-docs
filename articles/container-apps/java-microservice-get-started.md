@@ -49,7 +49,7 @@ By the end of this article, you deploy one web application and three backend app
 
 1. Begin by creating variables with your custom values.
 
-    Before you run this command, make sure to replace the placeholder values surrounded by `<>` with your own values.
+    Before you run this command, make sure to replace the placeholder values surrounded by `<>` with your own values. These values are used to define the resource group name and the Container App Environment name that will be created for you in the following steps, and also the location where all of your Azure resources will be provisioned.
 
     ```bash
     export RESOURCE_GROUP=<RESOURCE_GROUP>
@@ -57,7 +57,7 @@ By the end of this article, you deploy one web application and three backend app
     export CONTAINER_APP_ENVIRONMENT=<CONTAINER_APPS_ENVIRONMENT>
     ```
 
-1. Create variables which hold the settings for your microservices app.
+1. Create variables which hold the settings for your microservices app. These values are used to define the names and configurations of the Java components and the Container Apps that will be used to deploy the microservices.
 
     ```bash
     export CONFIG_SERVER_COMPONENT=configserver
