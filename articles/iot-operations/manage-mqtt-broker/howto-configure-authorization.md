@@ -170,7 +170,7 @@ This broker authorization allows clients with client IDs `temperature-sensor` or
 
 To use the MQTT username for authorization, specify them as an array under `principals.usernames`. However, depending on the authentication method, the username might not be verified:
 
-- **Kubernetes SAT** - Username shouldn't be used for authorization because is not verified for MQTTv5 with enhanced authentication.
+- **Kubernetes SAT** - Username shouldn't be used for authorization because it's not verified for MQTTv5 with enhanced authentication.
 - **X.509** - Username matches the CN from certificate and can be used for authorization rules.
 - **Custom** - Username should only be used for authorization rules if custom authentication validates the username.
 
