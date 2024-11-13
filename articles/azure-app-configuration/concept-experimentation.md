@@ -77,12 +77,12 @@ Benefits:
   
 ### A/B testing
 
-Objective: Optimize business metrics by comparing different UI variations and determining the most effective design.
+Objective: Optimize business metrics by comparing different UX variations and determining the most effective design.
 
-Approach: Conduct A/B tests using experimentation to test UI elements, measure user interactions, and analyze performance metrics.
+Approach: Conduct A/B tests using experimentation with different user experiences, measure user interactions, and analyze performance metrics.
 
 Benefits:
-* Improves user experience by implementing UI changes based on empirical evidence.
+* Improves user experience by implementing UX changes based on empirical evidence.
 * Increases conversion rates, engagement levels, and overall effectiveness of digital products or services.
  
 ### For intelligent applications (for example, AI-based features)
