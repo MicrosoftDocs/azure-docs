@@ -29,7 +29,7 @@ Application Gateway for Containers enables you to set weights and shift traffic 
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate traffic splitting / weighted round robin support.
 
     ```bash
-    kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
+    kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
     ```
   
    This command creates the following on your cluster:
