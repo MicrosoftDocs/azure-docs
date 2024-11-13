@@ -2,7 +2,7 @@
 title: Back up Azure File shares in the Azure portal
 description: Learn how to use the Azure portal to back up Azure File shares in the Recovery Services vault
 ms.topic: how-to
-ms.date: 07/29/2024
+ms.date: 11/20/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -25,20 +25,23 @@ Azure File share backup is a native, cloud based backup solution that protects y
 * Ensure that the file share is present in one of the supported storage account types. Review the [support matrix](azure-file-share-support-matrix.md).
 * Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
 * In case you have restricted access to your storage account, check the firewall settings of the account to ensure that the exception "Allow Azure services on the trusted services list to access this storage account" is granted. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
+>[!Important]
+>To perform **Cross Subscription Backup**  for protecting file shares in another subscription, ensure that you register `Microsoft.RecoveryServices` in the **subscription of the file share**. Learn about the [supported regions for Cross Subscription Backup](azure-file-share-support-matrix.md#supported-regions-for-cross-subscription-backup)
+
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Configure the backup
 
-You can configure *snapshot backup* and *vaulted backup (preview)* for Azure File share from *Backup center* or *File share blade*.
+You can configure *snapshot backup* and *vaulted backup (preview)* for Azure File share from the *Recovery Services vault* or *File share blade*.
 
 **Choose an entry point**
 
-# [Backup center](#tab/backup-center)
+# [Recovery Services vault](#tab/recovery-services-vault)
 
-To configure backup for multiple file shares from the Backup center, follow these steps:
+To configure backup for multiple file shares from the Recovery Services vault, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), go to **Backup center** and select **+Backup**.
+1. In the [Azure portal](https://portal.azure.com/), go to the **Recovery Services vault** and select **+Backup**.
 
    :::image type="content" source="./media/backup-afs/backup-center-configure-inline.png" alt-text="Screenshot showing to configure Backup for Azure File." lightbox="./media/backup-afs/backup-center-configure-expanded.png":::
 
@@ -52,7 +55,9 @@ To configure backup for multiple file shares from the Backup center, follow thes
 
    :::image type="content" source="./media/backup-azure-files/azure-file-share-select-storage-account.png" alt-text="Screenshot showing to select a storage account." lightbox="./media/backup-azure-files/azure-file-share-select-storage-account.png":::
 
-1. On the **Select storage account** blade, from the list of discovered storage accounts, select an account, and select **OK**.
+1. On the **Select storage account** blade, by default it list the storage accounts from current subscription. Select an account, and select **OK**.
+
+   If you want to configure the backup operation with a storage account in a different subscription (Cross Subscription Backup), choose the other subscription from the **Subscription** filter. The storage accounts from the selected subscription appear.
 
    :::image type="content" source="./media/backup-azure-files/azure-file-share-confirm-storage-account.png" alt-text="Screenshot showing to select one of the discovered storage accounts." lightbox="./media/backup-azure-files/azure-file-share-confirm-storage-account.png":::
    
@@ -176,11 +181,11 @@ Occasionally, you might want to generate a backup snapshot, or recovery point, o
 
 **Choose an entry point**
 
-# [Backup center](#tab/backup-center)
+# [Recovery Services vault](#tab/recovery-services-vault)
 
 To run an on-demand backup, follow these steps:
 
-1. Go to **Backup center** and select **Backup Instances** from the menu.
+1. Go to the **Recovery Services vault** and select **Backup Instances** from the menu.
 
    Filter for **Azure Files (Azure Storage)** as the datasource type.
 
@@ -200,7 +205,7 @@ To run an on-demand backup, follow these steps:
 
 1. Monitor the portal notifications to keep a track of backup job run completion.
 
-   To monitor the job progress in the **Backup center** dashboard, select **Backup center** -> **Backup Jobs** -> **In progress**.
+   To monitor the job progress in the the**Recovery Services vault** dashboard, go to **Recovery Services vault** > **Backup Jobs** -> **In progress**.
 
 # [File share blade](#tab/file-share-pane)
 
