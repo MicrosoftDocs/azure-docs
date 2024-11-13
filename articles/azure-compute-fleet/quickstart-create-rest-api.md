@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Compute Fleet using an ARM template
 description: Learn how to create an Azure Compute Fleet using an ARM template.
-author: rajeeshr
+author: rrajeesh
 ms.author: rajeeshr
 ms.topic: how-to
 ms.service: azure-compute-fleet
