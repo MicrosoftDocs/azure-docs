@@ -471,9 +471,9 @@ To learn more, see [Understand message schemas](concept-schema-registry.md).
 
 The transformation operation is where you can transform the data from the source before you send it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order in which they're specified in the configuration. The order of the stages is always:
 
-1. **Enrich**, **Rename**, or add a **New property**: Add additional data to the source data given a dataset and condition to match.
+1. **Enrich**: Add additional data to the source data given a dataset and condition to match.
 1. **Filter**: Filter the data based on a condition.
-1. **Map** or **Compute**: Move data from one field to another with an optional conversion.
+1. **Map**, **Compute**, **Rename**, or add a **New property**: Move data from one field to another with an optional conversion.
 
 # [Portal](#tab/portal)
 
@@ -519,43 +519,7 @@ You can load sample data into the state store by using the [DSS set tool sample]
 
 # [Portal](#tab/portal)
 
-In the operations experience, the *Enrich* stage is currently supported using the **Rename** and **New property** transforms.
-
-#### Rename
-
-You can rename a datapoint using the **Rename** transform. This operation is used to rename a datapoint in the source data to a new name. The new name can be used in the subsequent stages of the dataflow.
-
-1. Under **Transform (optional)**, select **Rename** > **Add**. 
-
-    :::image type="content" source="media/howto-create-dataflow/dataflow-rename.png" alt-text="Screenshot using operations experience to rename a datapoint.":::
-
-1.  Enter the required settings.
-
-    | Setting            | Description                                                                                             |
-    |--------------------|---------------------------------------------------------------------------------------------------------|
-    | Datapoint          | Select a datapoint from the dropdown or enter a $metadata header using the format `$metadata.<header>.` |
-    | New datapoint name | Enter the new name for the datapoint.                                                                   |
-    | Description        | Provide a description for the transformation.                                                           |
-
-1. Select **Apply**.
-
-#### New property
-
-You can add a new property to the source data using the **New property** transform. This operation is used to add a new property to the source data. The new property can be used in the subsequent stages of the dataflow.
-
-1. Under **Transform (optional)**, select **New property** > **Add**. 
-
-    :::image type="content" source="media/howto-create-dataflow/dataflow-new-property.png" alt-text="Screenshot using operations experience to add a new property.":::
-
-1.  Enter the required settings.
-
-    | Setting            | Description                                                                                         |
-    |--------------------|-----------------------------------------------------------------------------------------------------|
-    | Property key       | Enter the key for the new property.                                                                 |
-    | Property value     | Enter the value for the new property.                                                               |
-    | Description        | Provide a description for the new property.                                                         |
-
-1. Select **Apply**.
+Currently, the *Enrich* stage isn't operations experience.
 
 # [Bicep](#tab/bicep)
 
@@ -670,7 +634,47 @@ To map the data to another field with optional conversion, you can use the `map`
 
 # [Portal](#tab/portal)
 
-In the operations experience, mapping is currently supported using **Compute** transforms.
+In the operations experience, mapping is currently supported using **Compute**, **Rename**, and **New property** transforms.
+
+#### Rename
+
+You can rename a datapoint using the **Rename** transform. This operation is used to rename a datapoint in the source data to a new name. The new name can be used in the subsequent stages of the dataflow.
+
+1. Under **Transform (optional)**, select **Rename** > **Add**. 
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-rename.png" alt-text="Screenshot using operations experience to rename a datapoint.":::
+
+1.  Enter the required settings.
+
+    | Setting            | Description                                                                                             |
+    |--------------------|---------------------------------------------------------------------------------------------------------|
+    | Datapoint          | Select a datapoint from the dropdown or enter a $metadata header using the format `$metadata.<header>.` |
+    | New datapoint name | Enter the new name for the datapoint.                                                                   |
+    | Description        | Provide a description for the transformation.                                                           |
+
+1. Select **Apply**.
+
+#### New property
+
+You can add a new property to the source data using the **New property** transform. This operation is used to add a new property to the source data. The new property can be used in the subsequent stages of the dataflow.
+
+1. Under **Transform (optional)**, select **New property** > **Add**. 
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-new-property.png" alt-text="Screenshot using operations experience to add a new property.":::
+
+1.  Enter the required settings.
+
+    | Setting            | Description                                                                                         |
+    |--------------------|-----------------------------------------------------------------------------------------------------|
+    | Property key       | Enter the key for the new property.                                                                 |
+    | Property value     | Enter the value for the new property.                                                               |
+    | Description        | Provide a description for the new property.                                                         |
+
+1. Select **Apply**.
+
+#### Compute
+
+You can use the **Compute** transform to apply a formula to the source data. This operation is used to apply a formula to the source data and store the result field.
 
 1. Under **Transform (optional)**, select **Compute** > **Add**.
 
