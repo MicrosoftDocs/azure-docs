@@ -140,6 +140,20 @@ Azure IoT Operations supports clusters that are Arc-enabled in the following reg
 
 This list of supported regions only applies to the region that you use when connecting your cluster to Azure Arc. This list doesn't restrict you from using your preferred Azure region for your cloud resources. Azure IoT Operations components and other resources deployed to your cluster in these supported regions can still connect to cloud resources in different regions.
 
+## Dependencies
+
+Azure IoT Operations depends on the following set of support services and features:
+
+* [Azure Device Registry](./discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
+* [Schema registry](./connect-to-cloud/concept-schema-registry.md)
+* [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview)
+* [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension)
+* [Azure Monitor pipeline](/azure/azure-monitor/essentials/edge-pipeline-configure)
+* Workload identity federation in Azure Arc-enabled Kubernetes
+
+>[!NOTE]
+>These features and services that are used as dependencies by internal Azure IoT Operations systems inherit general availability status from the Azure IoT Operations product license. For more information about the licensing model, see [Microsoft Online Subscription Agreement](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MOSA).
+
 ## Next step
 
 Try the [Quickstart: Get started with an end-to-end sample](get-started-end-to-end-sample/quickstart-deploy.md).
