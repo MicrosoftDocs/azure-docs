@@ -110,7 +110,7 @@ This lightweight, open-source development kit helps you easily build AI agents a
 
 ## AI-related connector operations documentation
 
-The following sections describe the built-in operations and links to documentation that you can use to build Standard workflows for AI integration scenarios, such as document ingestion and making it possible for customers to "chat with the data". 
+The following sections describe the built-in operations and links to documentation that you can use to build Standard workflows for AI integration scenarios, such as document ingestion and making it possible for customers to "chat with the data."
 
 ### Actions that parse content and chunk text
 
