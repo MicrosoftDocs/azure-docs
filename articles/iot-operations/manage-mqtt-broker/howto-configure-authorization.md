@@ -78,7 +78,7 @@ resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authoriz
       rules: [
         {
           principals: {
-            usernames: [
+            clientIds: [
               'temperature-sensor'
               'humidity-sensor'
             ]
@@ -134,7 +134,7 @@ spec:
     cache: Enabled
     rules:
       - principals:
-          usernames:
+          clientIds:
             - "temperature-sensor"
             - "humidity-sensor"
           attributes:
@@ -155,10 +155,10 @@ To create this *BrokerAuthorization* resource, apply the YAML manifest to your K
 
 ---
 
-This broker authorization allows clients with usernames `temperature-sensor` or `humidity-sensor`, or clients with attributes `organization` with value `contoso` and `city` with value `seattle`, to:
+This broker authorization allows clients with client IDs `temperature-sensor` or `humidity-sensor`, or clients with attributes `organization` with value `contoso` and `city` with value `seattle`, to:
 
 - Connect to the broker.
-- Publish messages to telemetry topics scoped with their usernames and organization. For example:
+- Publish messages to telemetry topics scoped with their client IDs and organization. For example:
   - `temperature-sensor` can publish to `/telemetry/temperature-sensor` and `/telemetry/contoso`.
   - `humidity-sensor` can publish to `/telemetry/humidity-sensor` and `/telemetry/contoso`.
   - `some-other-username` can publish to `/telemetry/contoso`.
@@ -168,11 +168,13 @@ This broker authorization allows clients with usernames `temperature-sensor` or 
 
 ### Using username for authorization
 
-Here's a summary of how the username is used for authorization based on the authentication method:
+To use the MQTT username for authorization, specify them as an array under `principals.usernames`. However, depending on the authentication method, the username might not be verified:
 
 - **Kubernetes SAT** - Username shouldn't be used for authorization because is not verified for MQTTv5 with enhanced authentication.
 - **X.509** - Username matches the CN from certificate and can be used for authorization rules.
 - **Custom** - Username should only be used for authorization rules if custom authentication validates the username.
+
+To prevent security issues, only use the MQTT username for broker authorization when it can be verified.
 
 ### Further limit access based on client ID
 
