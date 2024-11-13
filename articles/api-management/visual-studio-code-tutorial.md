@@ -64,7 +64,7 @@ API Management provides [policies](api-management-policies.md) that you can conf
 
 This section shows how to apply common outbound policies to your API that transform the API response. The policies in this example change response headers and hide original backend URLs that appear in the response body.
 
-1. In the Explorer pane, select **Policy** under the *demo-conference-api* that you imported. The policy file opens in the editor window. This file configures policies for all operations in the API.
+1. In the Explorer pane, select **Policy** under the *petstore* API that you imported. The policy file opens in the editor window. This file configures policies for all operations in the API.
 
 1. Update the file with the following content:
     ```xml
@@ -124,7 +124,7 @@ Notice the following detail in the response:
 
 * The **Custom** header is added to the response.
 
-Now test the rate limiting policy. Select **Send request** four times in a row.  After sending the request four times, you get the `429 Too Many Requests` response.     
+Now test the rate limiting policy. Select **Send request** several times in a row. After sending too many requests in the configured period, you get the `429 Too Many Requests` response.     
 
 ### Trace request processing
 
