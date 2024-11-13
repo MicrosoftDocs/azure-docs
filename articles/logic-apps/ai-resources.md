@@ -47,11 +47,11 @@ For a guide that shows how to use these connector operations in your Standard wo
 
 Data is the cornerstone for any AI application and unique for each organization. When you build any AI application, efficient data ingestion is critical for success. Regardless where your data resides and with little or no code, you can more easily integrate AI into new and existing business processes by building Standard workflows with Azure Logic Apps.
 
-With over 1,400 enterprise connectors and operations, Azure Logic Apps makes it possible for you to quickly access and perform tasks with a wide range of services, systems, applications, and databases. When you use these connectors alongside AI services, your organization can transform workloads such as automating routine tasks, enhancing customer interactions, and generating intelligent insights. 
+With over 1,400 enterprise connectors and operations, Azure Logic Apps makes it possible for you to quickly access and perform tasks with a wide range of services, systems, applications, and databases. When you use these connectors alongside AI services, such as Azure OpenAI and Azure AI Search, your organization can transform workloads such as automating routine tasks, enhancing customer interactions with chat capabilities, providing access to organizational data when necessary, and generating intelligent insights or responses. Along with these operations, Azure Logic Apps also offers prebuilt workflow templates that ingest data from many common data sources, such as SharePoint, Azure File Storage, Blob Storage, SFTP, and more, to help you quickly build and your applications.
 
-Along with these operations, Azure Logic Apps also offers prebuilt workflow templates for data ingestion from many common data sources, such as SharePoint, Azure File Storage, Blob Storage, SFTP, and more, to help you quickly build and your applications.
+For example, when you integrate AI services by using the **Azure OpenAI** and **Azure AI Search** connector operations in your workflows, your organization can seamlessly implement the retrieval-augmented generation (RAG) pattern. This architecture includes an information retrieval system and auguments the training data for a large language model (LLM) by referencing additional domain-specific or authoritative knowledge without having to retrain the model, which minimizes cost. For more information, see the [Retrieval-augmented generation (RAG) section](#rag-details) later in this guide.
 
-For example, when you use operations from connectors such as **Azure OpenAI** and **Azure AI Search** in your workflows, your organization can seamlessly implement the retrieval-augmented generation (RAG) pattern. This architecture makes it easier to ingest and retrieve data from multiple sources.
+The following examples and resources provide more information about these capabilities:
 
 | Resource type | Link |
 |---------------|------|
@@ -60,26 +60,31 @@ For example, when you use operations from connectors such as **Azure OpenAI** an
 
 ### Azure OpenAI and Azure AI Search connectors (Generally available)
 
+The following table includes resources provided at these connectors' release for general availability:
 
-  | Resource type | Link |
-  |---------------|------|
-  | **Blog article** | [Azure OpenAI and Azure AI Search connectors are now generally available for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2-announcement-azure-openai-and-azure-ai-search-connectors-are-now-generally-av/4163682) |
-  | **Demo video** | [Build an end-to-end RAG-based AI application with Azure Logic Apps (Standard)](https://youtu.be/6QO4hKBmTR0) |
-  | **GitHub sample** | [Create a chat with your data - Azure Logic Apps project](https://github.com/Azure/logicapps/tree/master/LogicApps-AI-RAG-Demo). |
+| Resource type | Link |
+|---------------|------|
+| **Blog article** | [Azure OpenAI and Azure AI Search connectors are now generally available for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2-announcement-azure-openai-and-azure-ai-search-connectors-are-now-generally-av/4163682) |
+| **Demo video** | [Build an end-to-end RAG-based AI application with Azure Logic Apps (Standard)](https://youtu.be/6QO4hKBmTR0) |
+| **GitHub sample** | [Create a chat with your data - Azure Logic Apps project](https://github.com/Azure/logicapps/tree/master/LogicApps-AI-RAG-Demo). |
 
 For more information, see [Automate RAG indexing: Azure Logic Apps & AI Search for source document processing](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/automate-rag-indexing-azure-logic-apps--ai-search-for-source-document-processing/4266083).
 
 ### Azure OpenAI and Azure AI Search connectors (Public Preview)
 
-  | Resource type | Link |
-  |---------------|------|
-  | **Blog article** | [Azure OpenAI and Azure AI Search connectors are in public preview for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/public-preview-of-azure-openai-and-ai-search-in-app-connectors-for-logic-apps-st/4049584) |
-  | **Demo video** | [Ingest document data into Azure AI Search and chat with data using Azure Logic Apps](https://youtu.be/tiU5yCvMW9o) |
-  | **GitHub sample** | [Create a chat with your data - Azure Logic Apps project](https://github.com/Azure/logicapps/tree/master/ai-sample). |
+The following table includes resources provided at these connectors' release for public preview:
+
+| Resource type | Link |
+|---------------|------|
+| **Blog article** | [Azure OpenAI and Azure AI Search connectors are in public preview for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/public-preview-of-azure-openai-and-ai-search-in-app-connectors-for-logic-apps-st/4049584) |
+| **Demo video** | [Ingest document data into Azure AI Search and chat with data using Azure Logic Apps](https://youtu.be/tiU5yCvMW9o) |
+| **GitHub sample** | [Create a chat with your data - Azure Logic Apps project](https://github.com/Azure/logicapps/tree/master/ai-sample). |
+
+<a name="rag-details"></a>
 
 ## Retrieval-augmented generation (RAG)
 
-To generate original output for tasks such as answering questions and completing sentences, generative AI models or large language models (LLM) such as ChatGPT are trained using vast volumes of static data and billions of parameters. [Retrieval-augmented generation](/azure/search/retrieval-augmented-generation-overview) is a way to add information retrieval capabilities to an LLM and modify its interactions so that the LLM can respond to user queries by referencing specified documents, which augment the model's own training data. With this capability, an LLM can use domain-specific or updated information and implement use cases for providing chatbot access to internal company data or factual information provided by an authoritative source.
+To generate original output for tasks such as answering questions and completing sentences, generative AI models or large language models (LLM) such as ChatGPT are trained using vast volumes of static data and billions of parameters. [Retrieval-augmented generation](/azure/search/retrieval-augmented-generation-overview) is a way to add information retrieval capabilities to an LLM and modify its interactions so that the LLM can respond to user queries by referencing content that augments the model's own training data. With this capability, an LLM can use domain-specific or updated information and implement use cases for providing chatbot access to internal company data or factual information provided by an authoritative source.
 
 RAG extends an LLM's already powerful capabilities to specific domains or an organization's internal knowledge base without having to retrain the model. The RAG architecture also provides a cost-effective approach to improve and keep LLM output relevant, accurate, and useful.
 
@@ -132,3 +137,6 @@ This lightweight, open-source development kit helps you easily build AI agents a
 | **GitHub sample** | [Semantic Kernel for Azure Logic Apps](https://github.com/Azure/logicapps/tree/shahparth-lab-patch-2-semantic-kernel/Git-SK) |
 
 ## Related content
+
+- [Parse or chunk content for Standard workflows in Azure Logic Apps](/azure/logic-apps/parse-document-chunk-text)
+- [Connect to Azure AI services from Standard workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai)
