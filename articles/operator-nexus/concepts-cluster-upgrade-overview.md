@@ -11,25 +11,20 @@ ms.custom: template-concept
 
 # Azure Operator Nexus runtime upgrades
 
-The Nexus platform runtime upgrade is disruptive upgrade, managed by customers, to update the underlying software on the servers in an Operator Nexus instance. 
-
-While runtime upgrades are produced monthly, there are different types of runtime releases.
-
-* Major/Minor releases: Provides minor versions of kubernetes and new functionality
-* Patch releases: Security focused and are optional to upgrade to customers
+The Nexus platform runtime upgrade is disruptive upgrade, managed by customers, to update the underlying software on the servers in an Operator Nexus instance. The disruption occurs to the compute servers within a rack being upgraded. Management server upgrades are considered non-disruptive.
 
 > [!Note]
 > Microsoft may communicate patch releases customers need to take to resolve critical security or functional issues. 
 
 ## Scope of runtime releases
 
-The runtime upgrade is designed to update foundational components of the platform for each server in the instance. Some examples of components updated during the runtime upgrade are the Operating System (OS), undercloud kubernetes cluster, compute firmware, the etcd cluster, and the CNI (Container Network Interface). Each server is reimaged to get the latest. 
+The runtime upgrade is designed to update foundational components of the platform for each server in the instance. Some examples of components updated during the runtime upgrade are the Operating System (OS), undercloud kubernetes cluster, compute firmware, the etcd cluster, and the CNI (Container Network Interface). Each server is reimaged to load the selected runtime version image. 
 
 ### Workflow overview
 
 Starting a runtime upgrade is defined under [Upgrading cluster runtime via Azure CLI](./howto-cluster-runtime-upgrade.md).
 
-The runtime upgrade starts by upgrading the three management servers designated as the control plane nodes. These servers are updated serially and proceed only when each completes. The remaining management servers are upgraded into four different groups and completed one at a time. 
+The runtime upgrade starts by upgrading the three management servers designated as the control plane nodes. These servers are updated serially and proceed only when each completes. The remaining management servers are upgraded into four different groups and completed one group at a time. 
 
 Once all management servers are upgraded, the upgrade progresses to the compute servers. Each rack is upgraded in alphanumeric order, and there are various configurations customers can use to dictate how the computes are upgrade to best limit disruption. As each rack progresses, there are various health checks performed in order to ensure the release successfully upgrades and a sufficient number of computes in a rack returns to operational status. When a rack completes, a customer defined waits time starts to provide extra time for workloads to come online. Once each rack upgrades, the upgrade completes and the cluster returns to `Running` status. 
 
@@ -74,5 +69,7 @@ az networkcloud baremetalmachine list -g $mrg --subscription $sub --query "sort_
 --output table
 
 ```
-<!-- LINKS - External -->
-[installation-instruction]: https://aka.ms/azcli
+## BareMetalMachine keyset operations during cluster runtime upgrade
+
+During the runtime upgrade, BMM keyset is not available until the upgrade is completed successfully. In the event of accessing the node, customer should rely on the console user.
+
