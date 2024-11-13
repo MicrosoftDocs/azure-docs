@@ -269,7 +269,7 @@ Here's version of the `.runsettings` file with all the available options:
     - **Default Value**: true
     - **Example**:
       ```xml
-      <Logger friendlyName="microsoft-playwright-testing" enabled="True" />
+      <Logger friendlyName="microsoft-playwright-testing" enabled="true" />
       ```
 
 * **`EnableGitHubSummary`**:

@@ -62,7 +62,7 @@ To get the service endpoint URL and store it as a CI workflow secret, perform th
 ::: zone pivot="playwright-test-runner"
 ## Add service configuration file
 
-If you haven't configured your Playwright tests yet for running them on cloud-hosted browsers, add a service configuration file to your repository. In the next step, you then specify this service configuration file on the Playwright CLI.
+If you haven't configured your Playwright tests yet for running them with service, add a service configuration file to your repository. In the next step, you then specify this service configuration file on the Playwright CLI.
 
 1. Create a new file `playwright.service.config.ts` alongside the `playwright.config.ts` file.
 
@@ -112,7 +112,7 @@ In the `playwright.config.ts` file of your project, make sure you are collecting
 
 3. Save and commit the file to your source code repository.
 
-## Update .scproj file for your project 
+## Update .csproj file for your project 
 
 Update the `csproj` file in your repository to add details about Microsoft Playwright Testing service package in `ItemGroup` section.
 
@@ -121,6 +121,27 @@ Update the `csproj` file in your repository to add details about Microsoft Playw
     <PackageReference Include="Azure.Developer.MicrosoftPlaywrightTesting.NUnit" Version="1.0.0-beta.2" />
   </ItemGroup>
 ```
+
+## Add or update `.runsettings` file for your project. 
+
+If you haven't configured your Playwright tests yet for running them with service, add `.runsettings` file to your repository. In the next step, you then specify this service configuration file on the Playwright CLI.
+
+1. Create a new `.runsettings` file.
+
+    Optionally, use the `.runsettings` file in the [sample repository](https://aka.ms/mpt/nunit-runsettings).
+
+2. Add the following content to it:
+
+    :::code language="xml" source="~/playwright-testing-service/samples/.NET/NUnit/.runsettings":::
+
+   This settings in this file enable you to:
+   - Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
+   - Publish test results and artifacts to the service for faster troubleshooting.
+
+   However, you can choose to use either of these features or both. See [How to use service features](./how-to-use-service-features.md#manage-features-while-running-tests) and update the service configuration file as per your requirements. 
+
+3. Save and commit the file to your source code repository.
+
 ## Enable artifacts in your Playwright setup 
 
 Enable artifacts such as screenshot, videos and traces to be captured by Playwright. 
@@ -128,7 +149,7 @@ Enable artifacts such as screenshot, videos and traces to be captured by Playwri
 - For videos, see [record videos for your tests](https://playwright.dev/dotnet/docs/videos#introduction)
 - For traces, see [recording a trace](https://playwright.dev/dotnet/docs/trace-viewer-intro#recording-a-trace)
 
-Once you collect these artifacts, make sure you attach them to the test path. For more information, see our [sample](https://aka.ms/mpt/nunit-sample)
+Once you collect these artifacts, attach them to the `TestContext` to ensure they are available in your test reports. For more information, see our [sample project for NUnit](https://aka.ms/mpt/nunit-sample)
 ::: zone-end
 
 ## Update the workflow definition

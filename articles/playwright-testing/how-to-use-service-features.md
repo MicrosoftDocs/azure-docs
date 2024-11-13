@@ -109,7 +109,7 @@ export default defineConfig(
     <LoggerRunSettings>
         <Loggers>
             <!--microsoft playwright testing service logger for reporting -->
-            <Logger friendlyName="microsoft-playwright-testing" enabled="True" />
+            <Logger friendlyName="microsoft-playwright-testing" enabled="true" />
             <!--could enable any logger additionally -->
             <Logger friendlyName="trx" enabled="false" />
         </Loggers>
@@ -131,7 +131,7 @@ export default defineConfig(
     - **Default Value**: true
     - **Example**:
       ```xml
-      <Logger friendlyName="microsoft-playwright-testing" enabled="True" />
+      <Logger friendlyName="microsoft-playwright-testing" enabled="true" />
       ```
 ::: zone-end
 ## Related content

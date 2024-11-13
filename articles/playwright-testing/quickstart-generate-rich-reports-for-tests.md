@@ -228,7 +228,7 @@ Enable artifacts such as screenshot, videos and traces to be captured by Playwri
 - For videos, see [record videos for your tests](https://playwright.dev/dotnet/docs/videos#introduction)
 - For traces, see [recording a trace](https://playwright.dev/dotnet/docs/trace-viewer-intro#recording-a-trace)
 
-Once you collect these artifacts, make sure you attach them to the test path. For more information, see [sample configuration for NUnit](https://aka.ms/mpt/nunit-sample)
+Once you collect these artifacts, attach them to the `TestContext` to ensure they are available in your test reports. For more information, see our [sample project for NUnit](https://aka.ms/mpt/nunit-sample)
 
 ::: zone-end
 
