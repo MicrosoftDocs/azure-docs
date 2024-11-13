@@ -25,7 +25,7 @@ Identify the best location to place the sensor in the network, to monitor the ne
 | OT Protocols | OT protocols are essential for extracting detailed information about devices within the network. These protocols provide crucial data that leads to accurate device classification. By analyzing OT protocol traffic, the sensor can gather comprehensive details about each device, such as its model, firmware version, and other relevant characteristics. This level of detail is necessary for maintaining an accurate and up-to-date inventory of all devices, which is crucial for network management and security. |
 | Inner Subnet Communication | OT networks devices communicate within a subnet, and the information found within the inner subnet communication ensures the quality of the data collected by the sensors. Sensors are placed where they have access to the inner subnet communication in order to monitor device interactions, which often include critical data. By capturing these data packets, the sensors build a detailed and accurate picture of the network.|
 
-For more information, see [placing OT sensors in your network](/best-practices/understand-network-architecture.md#placing-ot-sensors-in-your-network).
+For more information, see [placing OT sensors in your network](../best-practices/understand-network-architecture.md#placing-ot-sensors-in-your-network).
 
 ### Traffic Mirroring Methods
 

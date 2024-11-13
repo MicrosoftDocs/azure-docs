@@ -21,20 +21,20 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
 Before you deploy the sensor to the network, it's crucial to review the network architecture. These steps include:
 
-- Review the network diagram. For more information, see [review architecture](/best-practices/understand-network-architecture.md) or [create a network diagram](/best-practices/plan-prepare-deploy.md#create-a-network-diagram).
+- Review the network diagram. For more information, see [review architecture](../best-practices/understand-network-architecture.md) or [create a network diagram](../best-practices/plan-prepare-deploy.md#create-a-network-diagram).
 
-- Estimate the total number of devices to be monitored. For more information, see [calculate devices in your network](/best-practices/plan-prepare-deploy.md#calculate-devices-in-your-network).
+- Estimate the total number of devices to be monitored. For more information, see [calculate devices in your network](../best-practices/plan-prepare-deploy.md#calculate-devices-in-your-network).
 
 - Identify VLANs that contain OT networks. For more information, see [customize a VLAN name](../how-to-control-what-traffic-is-monitored.md#customize-a-vlan-name).
 
-- Determine which OT protocols need to be monitored (Profinet, S7, Modbus etc..). For more information see [supported protocols](concept-supported-protocols.md).
+- Determine which OT protocols need to be monitored (Profinet, S7, Modbus etc..). For more information, see [supported protocols](../concept-supported-protocols.md).
 
 ## Selecting Sensor locations and traffic mirroring method
 
 Using the 
 By selecting the appropriate mirroring method, you ensure that your network sensor captures the necessary Layer 2 (L2) traffic, and provides high-quality data for accurate inventory and traffic analysis.
 
-For more information, see [traffic mirroring process](traffic-mirroring/traffic-mirroring-overview.md#traffic-mirroring-processes).
+For more information, see [traffic mirroring process](traffic-mirroring-overview.md#traffic-mirroring-processes).
 
 ## Validate the sensor location
 
@@ -50,7 +50,7 @@ This step is crucial to ensure effective monitoring of OT networks.  For more in
 
 ## Deploy your sensor
 
-After validating the sensor and mirroring method, deploy the sensors. For more information see [install software on OT sensors](ot-deploy/install-software-ot-sensor.md).
+After validating the sensor and mirroring method, deploy the sensors. For more information see [install software on OT sensors](../ot-deploy/install-software-ot-sensor.md).
 
 ## Validate in post deployment
 

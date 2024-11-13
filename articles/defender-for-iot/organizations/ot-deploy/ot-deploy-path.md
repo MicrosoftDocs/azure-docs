@@ -83,7 +83,7 @@ The following image shows the steps included in the site networking setup phrase
 
 Use the plans you'd created [earlier](#prepare-for-an-ot-site-deployment) to configure traffic mirroring at the places in your network where you'll be deploying OT sensors and mirroring traffic to Defender for IoT.
 
-A brief summary of the information needed to choose the best location for your OT sensor and deploy it on your network is available in [traffic mirroring set up overview](/traffic-mirroring/network-sensor-mirroring-set-up.md).
+A brief summary of the information needed to choose the best location for your OT sensor and deploy it on your network is available in [traffic mirroring set up overview](../traffic-mirroring/network-sensor-mirroring-set-up.md).
 
 For more information, see:
 
@@ -191,7 +191,7 @@ Once Defender for IoT has been deployed, send security alerts and manage OT/IoT 
 Integrate Defender for IoT alerts with your organizational SIEM by [integrating with Microsoft Sentinel](../iot-advanced-threat-monitoring.md) and leveraging the out-of-the-box Microsoft Defender for IoT solution, or by [creating forwarding rules](../how-to-forward-alert-information-to-partners.md) to other SIEM systems.
 Defender for IoT integrates out-of-the-box with Microsoft Sentinel, as well as [a broad range of SIEM systems](../integrate-overview.md), such as Splunk, IBM QRadar, LogRhythm, Fortinet, and more.
 
-A brief summary of the information needed to choose the best location for your OT sensor and deploy it on your network is available in [traffic mirroring set up overview](traffic-mirroring/network-sensor-mirroring-set-up.md).
+A brief summary of the information needed to choose the best location for your OT sensor and deploy it on your network is available in [traffic mirroring set up overview](../traffic-mirroring/network-sensor-mirroring-set-up.md).
 
 For more information, see:
 

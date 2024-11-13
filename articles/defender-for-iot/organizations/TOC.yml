@@ -92,7 +92,7 @@
     items:
     - name: Configure traffic mirroring
       items:
-      - name: Traffic mirroring set up overview
+      - name: Traffic mirroring overview
         href: traffic-mirroring/traffic-mirroring-overview.md
       - name: Traffic mirroring set up
         href: traffic-mirroring/network-sensor-mirroring-set-up.md 
