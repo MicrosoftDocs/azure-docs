@@ -13,7 +13,7 @@ ms.custom: mvc, mode-other
 
 # Integrate an Azure Storage account with Azure Front Door
 
-Azure Front Door can be used to deliver high-bandwidth content by caching blobs from Azure Storage. In this article, you'll create an Azure Storage account and enable Front Door to cache and accelerate content from Azure Storage.
+Azure Front Door can be used to deliver high-bandwidth content by caching blobs from Azure Storage. In this article, you create an Azure Storage account and enable Front Door to cache and accelerate content from Azure Storage.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ A storage account provides access to Azure Storage services. It represents the h
     | Pricing tier | Select **Standard** for content delivery or **Premium** for content delivery with security features. |
     | Caching | *Optional* - Toggle on to [enable caching](front-door-caching.md) for your static content. Choose an appropriate query string behavior and enable compression if needed. |
     | WAF | *Optional* - Toggle on to protect your endpoint from vulnerabilities, malicious actors, and bots with [Web Application Firewall](web-application-firewall.md). Use an existing policy from the WAF policy dropdown or create a new one. |
-    | Private link | *Optional* - Toggle on to keep your storage account private, not exposed to the public internet. Select the region that matches your storage account or is closest to your origin. Choose **blob** as the target sub-resource. |
+    | Private link | *Optional* - Toggle on to keep your storage account private, not exposed to the public internet. Select the region that matches your storage account or is closest to your origin. Choose **blob** as the target subresource. |
 
     :::image type="content" source="./media/integrate-storage-account/security-settings.png" alt-text="Screenshot of the caching, WAF, and private link settings for an endpoint.":::
 
@@ -79,7 +79,7 @@ A storage account provides access to Azure Storage services. It represents the h
 > * The endpoint list will only show Front Door and CDN profiles within the same subscription.
 
 ## Extra features
-From the storage account **Front Door and CDN** page, select the endpoint from the list to open the Front Door endpoint configuration page. Here, you can enable additional Front Door features such as the [rules engine](front-door-rules-engine.md) and configure traffic [load balancing](routing-methods.md).
+From the storage account **Front Door and CDN** page, select the endpoint from the list to open the Front Door endpoint configuration page. Here, you can enable other Azure Front Door features such as the [rules engine](front-door-rules-engine.md) and configure traffic [load balancing](routing-methods.md).
 
 For best practices, refer to [Use Azure Front Door with Azure Storage blobs](scenario-storage-blobs.md).
 
@@ -119,7 +119,7 @@ If you no longer want to cache an object in Azure Front Door, you can purge the 
 
 1. Select the Azure Front Door endpoint from the list to open the Azure Front Door endpoint configuration page.
 
-1. Click on the **Purge cache** option at the top of the page.
+1. Select on the **Purge cache** option at the top of the page.
 
 1. Select the endpoint, domain, and path you want to purge.
 
