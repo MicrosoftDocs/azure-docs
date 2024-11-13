@@ -519,7 +519,7 @@ You can load sample data into the state store by using the [DSS set tool sample]
 
 # [Portal](#tab/portal)
 
-Currently, the *Enrich* stage isn't operations experience.
+Currently, the *Enrich* stage isn't supported in the operations experience.
 
 # [Bicep](#tab/bicep)
 
