@@ -62,7 +62,7 @@ Register the **Microsoft.NexusIdentity** resource provider.
 
 #### Step 2: Assign necessary permissions for Network Fabric access
 
-As part of the **Secure Future Initiative (SFI)**, **On-Behalf-Of (OBO) tokens** are now required to grant access to customer resources. This token grants NexusIdentity permissions scoped at the subscription, resource group, or network fabric level to enable **read access** to Network Fabric role assignments. The following role permissions should be assigned to end users or groups responsible for NF create, NF upgrade, and NF delete operations. These permissions can be granted temporarily, limited to the duration required to perform these operations.
+As part of the **Secure Future Initiative (SFI)**, **On-Behalf-Of (OBO) tokens** are now required to grant access to customer resources. This token grants NexusIdentity permissions scoped at the subscription, resource group, or network fabric level to enable **read access** to Network Fabric role assignments. The following role permissions should be assigned to end users responsible for NF create, NF upgrade, and NF delete operations. These permissions can be granted temporarily, limited to the duration required to perform these operations.
 
 ##### Required permissions
 
@@ -77,7 +77,7 @@ As part of the **Secure Future Initiative (SFI)**, **On-Behalf-Of (OBO) tokens**
 
    :::image type="content" source="media/breakglass-role-assignment.png" alt-text="Screenshot of adding role-assignment":::
 
-2. In the **Members** tab, add the identity of the user or security group responsible for performing NF create, update, and delete operations.
+2. In the **Members** tab, add the identity of the user responsible for performing NF create, update, and delete operations.
    
    :::image type="content" source="media/breakglass-add-member-nexusidenitityrp.png" alt-text="Screenshot of adding member to role assignment":::
 
@@ -102,7 +102,7 @@ As part of the **Secure Future Initiative (SFI)**, **On-Behalf-Of (OBO) tokens**
    - To activate the role, select **Role Based Access Control Administrator** from Eligible assignments tab.
 
 > [!NOTE]
->Ensure that **Role Based Access Control Administrator** is sucessfully activated.
+> Ensure that **Role Based Access Control Administrator** is sucessfully activated.
 
 ## Next Steps
 
