@@ -4,7 +4,7 @@ description: Learn how to ingest incidents, alerts, and raw event data from Micr
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 06/25/2023
+ms.date: 11/12/2024
 appliesto:
 - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
@@ -37,6 +37,8 @@ For on-premises Active Directory sync via Microsoft Defender for Identity:
 
 - Your tenant must be onboarded to Microsoft Defender for Identity.
 - You must have the Microsoft Defender for Identity sensor installed.
+
+For more information, see [Deploy Microsoft Defender for Identity](/defender-for-identity/deploy/deploy-defender-identity).
 
 ## Connect to Microsoft Defender XDR
 
@@ -78,7 +80,7 @@ Use Microsoft Defender for Identity to sync user entities from your on-premises 
 
 1. Mark the **Active Directory (Preview)** check box and select **Apply**.
 
-    :::image type="content" source="media/connect-microsoft-365-defender/ueba-configuration-page.png" alt-text="Screenshot of UEBA configuration page for connecting user entities to Sentinel.":::
+    :::image type="content" source="media/connect-microsoft-365-defender/ueba-configuration-page.png" alt-text="Screenshot of UEBA configuration page for connecting user entities to Microsoft Sentinel.":::
 
 ### Connect events
 
@@ -175,7 +177,7 @@ let Now = now();
 | render timechart
 ```
 
-## Next steps
+## Next step
 
 In this document, you learned how to integrate Microsoft Defender XDR incidents, alerts, and advanced hunting event data from Microsoft Defender services, into Microsoft Sentinel, by using the Microsoft Defender XDR connector.
 
