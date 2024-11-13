@@ -1,17 +1,17 @@
 ---
-title: Spot VM configuration
+title: Spot VM configuration for Azure Compute Fleet
 description: Learn about Spot VM configuration on your Compute Fleet.
-author: rajeeshr
+author: rrajeesh
 ms.author: rajeeshr
-ms.topic: overview
+ms.topic: concept-article
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 11/10/2024
+ms.date: 11/13/2024
 ms.reviewer: jushiman
 ---
 
-## Spot VM specific fleet configuration 
+# Spot VM configuration for Azure Compute Fleet
 
 ## Capacity preference 
 
