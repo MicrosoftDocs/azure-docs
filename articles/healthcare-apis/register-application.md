@@ -27,9 +27,9 @@ In this article, you'll learn how to register a client application in Microsoft 
 
 After registering a new application, you can find the application (client) ID and Directory (tenant) ID from the overview menu option. Make a note of the values for use later.
 
-[ ![Screenshot of client ID overview panel.](media/register-application-three.png) ](media/register-application-three.png#lightbox)
+[![Screenshot of client ID overview panel.](media/register-application-three.png) ](media/register-application-three.png#lightbox)
 
-[ ![Screenshot of client ID](media/register-application-four-fixNov24.png) ](media/register-application-four-fixNov24.png#lightbox)
+[![Screenshot of client ID.](media/register-application-four-fixNov24.png) ](media/register-application-four-fixNov24.png#lightbox)
 
 ## Authentication setting: confidential vs. public
 
