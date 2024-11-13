@@ -84,7 +84,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 ### Install and import the SDK
 
-You have two options for installing the SDK package: it can be installed as a [managed dependency](./../functions-reference-powershell.md#dependency-management), or as a [custom module](./../functions-reference-powershell.md#custom-modules).
+You have two options for installing the SDK package: it can be installed using [Managed Dependencies](./../functions-reference-powershell.md#managed-dependencies-feature), or [bundled with your app content](./../functions-reference-powershell.md#including-modules-in-app-content).
 In this section, we describe both options, but only one of them is needed.
 
 #### Installation option 1: Use managed dependencies

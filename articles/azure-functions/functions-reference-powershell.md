@@ -588,6 +588,23 @@ You can configure how Managed Dependencies are downloaded and installed using th
 - **Internet Access**: Managed Dependencies require access to `https://www.powershellgallery.com` to download modules. Ensure that your environment allows this access, including modifying firewall/VNet rules as needed.
 - **License Acceptance**: Managed Dependencies doesn't support modules that require license acceptance.
 - **Flex Consumption Plan**: The Managed Dependencies feature isn't supported in the Flex Consumption plan. Use custom modules instead.
+- **Module Locations**: On your local computer, modules are typically installed in one of the globally available folders in your `$env:PSModulePath`. When running in Azure, the `$env:PSModulePath` for a PowerShell function app differs from `$env:PSModulePath` in a regular PowerShell script and will contain both the `Modules` folder uploaded with your app contents and a separate location managed by Managed Dependencies.
+
+## Environment variables
+
+In Functions, [app settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings using `$env:NAME_OF_ENV_VAR`, as shown in the following example:
+
+```powershell
+param($myTimer)
+
+Write-Host "PowerShell timer trigger function ran! $(Get-Date)"
+Write-Host $env:AzureWebJobsStorage
+Write-Host $env:WEBSITE_SITE_NAME
+```
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+When running locally, app settings are read from the [local.settings.json](functions-develop-local.md#local-settings-file) project file.
 
 ## Concurrency
 
@@ -699,7 +716,7 @@ When developing Azure Functions in the [serverless hosting model](consumption-pl
 
 Running `Install-Module` in your function script on each invocation can cause performance issues. Instead, use `Save-Module` or `Save-PSResource` before publishing your function app to bundle the necessary modules.
 
-For more information, see the [Module Management](#module-management) section.
+For more information, see the [Dependency Management](#dependency-management) section.
 
 ## Next steps
 
