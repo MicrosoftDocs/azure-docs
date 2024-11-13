@@ -183,7 +183,7 @@ To reduce alert fatigue, multiple versions of the same alert with identical para
 
 1. Sign into your OT sensor console and select the **Alerts** page on the left.
 
-    1. For an Aggregated alert the *Multiple violations* message appears underneath the Source device IP address, and the **Violations** tab is displayed.  <!-- add OT sensor image :::image type="content" source="media/how-to-manage-cloud-alerts/alert-details-aggregated.png" alt-text="Screenshot of the alerts detail pane showing the aggregated alerts message, the ViolationsCount and the Violations tab.":::-->
+    1. For an aggregated alert the *Multiple violations* message appears underneath the Source device IP address, and the **Violations** tab is displayed.  <!-- add OT sensor image :::image type="content" source="media/how-to-manage-cloud-alerts/alert-details-aggregated.png" alt-text="Screenshot of the alerts detail pane showing the aggregated alerts message, the ViolationsCount and the Violations tab.":::-->
 
 1. Select the **Violations** tab.
 
