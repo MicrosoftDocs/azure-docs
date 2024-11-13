@@ -13,9 +13,7 @@ ms.date: 11/13/2024
 
 # Deploy the Microsoft Sentinel solution for Microsoft Business Apps
 
-The Microsoft Sentinel solution for Power Platform allows you to monitor and detect suspicious or malicious activities in your Power Platform environment. The solution collects activity logs from different Power Platform components and inventory data. For more information, see [Microsoft Sentinel solution for Microsoft Power Platform overview](power-platform-solution-overview.md).
-
-This article describes how to deploy the Microsoft Sentinel solution for Dynamics 365 Finance and Operations. The solution monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](dynamics-365-finance-operations-solution-overview.md).
+This article describes how to deploy the Microsoft Sentinel solution for Microsoft Business Apps, which supports both Power Platform and Dynamics 365 Finance and Operations environments. The solution helps you monitor and protect your Power Platform and Dynamics 365 Finance and Operations environments by collecting audit and activity logs to detect threats, suspicious activities, illegitimate activities, and more.
 
 > [!IMPORTANT]
 >
@@ -215,7 +213,7 @@ FinanceOperationsActivity_CL
 
 For example:
 
-:::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/query-finance-operations-table.png" alt-text="Screenshot of viewing a new Finance and Operations incident in Microsoft Sentinel.":::
+:::image type="content" source="../dynamics-365/media/deploy-dynamics-365-finance-operations-solution/query-finance-operations-table.png" alt-text="Screenshot of viewing a new Finance and Operations incident in Microsoft Sentinel":::
 
 ## Related content
 

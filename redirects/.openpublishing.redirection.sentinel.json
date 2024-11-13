@@ -31,11 +31,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/sap/select-ingestion-profiles.md",
-            "redirect_url": "/azure/sentinel/sap/reference-systemconfig-json",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/sentinel/sap/configure-audit.md",
             "redirect_url": "/azure/sentinel/sap/preparing-sap#configure-sap-auditing",
             "redirect_document_id": false
