@@ -363,7 +363,7 @@ BinaryData
 ====
 ```
 
-Once the trusted CA certificate is imported, enable X.509 client authentication by adding it as one of the authentication methods in a *BrokerAuthentication* resource linked to a TLS-enabled listener. 
+Once the trusted CA certificate is imported, enable X.509 client authentication by adding it as one of the authentication methods in a *BrokerAuthentication* resource linked to a TLS-enabled listener port. 
 
 ### Certificate attributes for authorization
 
