@@ -347,7 +347,7 @@
       - name: Launch your first Java app
         href: java-get-started.md
         displayName: java
-      - name: Launch your first Java Microservice apps with managed Java components
+      - name: Launch your first Java microservice apps with managed Java components
         href: java-microservice-get-started.md
         displayName: java
       - name: Get started using IntelliJ
