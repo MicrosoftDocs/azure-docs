@@ -1,7 +1,7 @@
 ---
 title: Target capacity
 description: Learn about specifying target capcity for your Compute Fleet.
-author: rajeeshr
+author: rrajeesh
 ms.author: rajeeshr
 ms.topic: overview
 ms.service: azure-compute-fleet
