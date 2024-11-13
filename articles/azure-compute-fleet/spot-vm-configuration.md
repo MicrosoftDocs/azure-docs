@@ -13,9 +13,11 @@ ms.reviewer: jushiman
 
 # Spot VM configuration for Azure Compute Fleet
 
+This article covers everything you need to know for Spot VM configuration for your Compute Fleet. 
+
 ## Capacity preference 
 
-Preferences are only available when creating your Compute Fleet using Spot VMs. 
+Capacity preferences are only available when creating your Compute Fleet using Spot VMs and can't be adjusted after the fleet is running.  
 
 ### Maintain capacity
 
@@ -38,6 +40,3 @@ You can configure your Compute Fleet with Spot VMs to set the max hourly price y
 **Deallocate:** Compute Fleet deletes your running Spot VM, all other resources attached to the VM and data stored on persistent disk storage isn't deleted.
 
 The Deallocated Spot VM adds up to your Spot target capacity and billing continues for resources attached to the deallocated VMs. 
-
-#### Next topic: Fleet allocation stratergies
-#### Previous Topic: Configuring Compute Fleet
