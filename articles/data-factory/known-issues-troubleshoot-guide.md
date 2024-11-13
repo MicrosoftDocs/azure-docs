@@ -18,7 +18,7 @@ This page lists the known issues in Azure Data factory. Before submitting [an Az
 |ADF Component|Known Issue |Status|
 |:---------|:---------|:---------|
 |Snow Flake Connector Issue|[Intermittent data retrieval issue with LookUp using the Snowflake Connector V2](#intermittent-data-retrieval-issue-with-lookup-using-the-snowflake-connector-v2)|Has workaround|
-|Self-Hosted IR IP Address Retrieval Issue in Azure Data Factory Studio|[Intermittent data retrieval issue with LookUp using the Snowflake Connector V2](#issue-retrieving-ip-address-for-self-hosted-ir-in-azure-data-factory-studio)|Has workaround|
+|Self-Hosted IR IP Address Retrieval Issue in Azure Data Factory Studio|[Issue Retrieving IP Address for Self-hosted IR in Azure Data Factory Studio](#issue-retrieving-ip-address-for-self-hosted-ir-in-azure-data-factory-studio)|Has workaround|
 
 
 ## Recently ADF Closed known issues
@@ -33,6 +33,7 @@ Intermittently, lookup queries against Snowflake return no values even when resu
 
 **Workaround**: Add an If-condition activity after the Lookup to check its output. If the Lookup returns data, proceed without further action. If no data is returned, re-execute the Lookup activity.
 :::image type="content" source="media/known-issue/snowflake-rcs.png" alt-text="Diagram of Snowflake v2 Known issue.":::
+
 ### Issue Retrieving IP Address for Self-hosted IR in Azure Data Factory Studio
 
 When attempting to retrieve the IP address for a Self-hosted Integration Runtime in Azure Data Factory Studio by navigating to Manage -> Integration Runtimes -> selecting the specific Self-hosted IR -> Nodes -> Get IP Address, users may encounter a 'Failed' message
