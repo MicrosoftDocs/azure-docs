@@ -40,9 +40,9 @@ You can use Visual Studio to create a new console app project.
 
 1. Start Visual Studio, and select **File** > **New** > **Project**.
 
-1. In **Create a new project**, filter on the **Console** project type and select **Console App**. If you want to create a .NET Framework app, please select **Console App (.NET Framework)** instead. Click **Next**.
+1. In **Create a new project**, filter on the **Console** project type and select **Console App**. If you want to create a .NET Framework app, select **Console App (.NET Framework)** instead. Click **Next**.
 
-1. In **Configure your new project**, enter a project name. If you are creating a .NET Framework app, please select **.NET Framework 4.7.2** or higher under **Framework**. Click **Create**.
+1. In **Configure your new project**, enter a project name. If you're creating a .NET Framework app, select **.NET Framework 4.7.2** or higher under **Framework**. Click **Create**.
 
 ## Use the feature flag
 
@@ -130,7 +130,7 @@ You can use Visual Studio to create a new console app project.
     setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
+    Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
 
     ### [PowerShell](#tab/powershell)
 
