@@ -33,9 +33,9 @@ Each FIDO2 token serves as a physical USB device, typically with a fingerprint r
 
 This guide is divided into two sections 
 
-1.	**MethodDV2 infrastructure setup** - Mandatory for both existing and new NF deployments running Runtime Fabric version 4.0.0. 
+1.	**Method D V2.0 infrastructure setup** - Mandatory for both existing and new NF deployments running Runtime Fabric version 4.0.0. 
 
-2. [**Using MethodDV2 breakglass access**](howto-use-break-glass-access.md))
+2. [**Using Method D V2.0 breakglass access**](howto-use-break-glass-access.md)
 
 
 ### MethodDV2 infrastructure setup
