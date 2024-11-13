@@ -1,20 +1,20 @@
 ---
-title: Multi-Region Compute Fleet
-description: Learn about Azure Compute Fleet and how to accelerate your access to Azure's capacity.
+title: Multi-Region Compute Fleet (Preview)
+description: Learn about Azure Compute Fleet and how to accelerate your access to Azure's capacity through multi-region deployment.
 author: rajeeshr
 ms.author: rajeeshr
-ms.topic: overview
+ms.topic: concept-article
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 11/10/2024
+ms.date: 11/13/2024
 ms.reviewer: jushiman
 ---
 
-# What is Multi-region Compute Fleet? (Preview)
+# Multi-Region Compute Fleet (Preview)
 
 > [!IMPORTANT]
-> Multi Region Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+> Multi-Region Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
 Multi region Compute Fleet is a new cloud deployment capability that allows you to dynamically distribute workloads across several regions. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity bringing unmatched flexibility and reliability on accessing compute capacity for your cloud workloads. This new feature eliminates the constraints of regional dependencies, letting your applications thrive wherever the demand takes them. 
 
