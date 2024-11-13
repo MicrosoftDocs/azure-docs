@@ -24,7 +24,7 @@ In this tutorial, you'll use a variant feature flag to manage experiences for di
 * An [App Configuration store](./quickstart-azure-app-configuration-create.md).
 * [Use variant feature flags](./use-variant-feature-flags.md)
 
-### Create an ASP.NET Core web app
+## Create an ASP.NET Core web app
 
 1. Open a command prompt and run the following code. This creates a new Razor Pages application in ASP.NET Core, using Individual account auth, and places it in an output folder named *QuoteOfTheDay*.
 
@@ -89,12 +89,6 @@ In this tutorial, you'll use a variant feature flag to manage experiences for di
 
 ## Use the variant feature flag
 
-1. In *QuoteOfTheDay* > *Pages* > *Shared* > *_Layout.cshtml*, under where `QuoteOfTheDay.styles.css` is added, add the following reference to the font-awesome CSS library.
-
-    ```css
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    ```
-
 1. Open *QuoteOfTheDay* > *Pages* > *Index.cshtml.cs* and replace the content with the following code.
 
     ```csharp
@@ -158,7 +152,13 @@ In this tutorial, you'll use a variant feature flag to manage experiences for di
     }
     ```
 
-    This `PageModel` picks a random quote, uses `GetVariantAsync` to get the variant for the current user, and sets a variable called "GreetingMessage" to the variant's value. The `PageModel` also handles likes, which are sent as post requests. 
+    You call `GetVariantAsync` to retrieve the variant of the *Greeting* feature flag for the current user and assign its value to the `GreetingMessage` property of the page model. This page model also includes a handler for POST requests, which are triggered when users like the quote and click the heart button.
+
+1. In *QuoteOfTheDay* > *Pages* > *Shared* > *_Layout.cshtml*, under where `QuoteOfTheDay.styles.css` is added, add the following reference to the font-awesome CSS library.
+
+    ```css
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    ```
 
 1. Open *index.cshtml* and replace its content with the following code.
 
@@ -265,7 +265,7 @@ In this tutorial, you'll use a variant feature flag to manage experiences for di
     </script>
     ```
 
-    This code corresponds to the UI to show the QuoteOfTheDay and handle using the heart action on a quote. It uses the previously mentioned `Model.GreetingMessage` value to show different things to different users, depending on their variant.
+    This code displays the UI of the *Quote of the Day* application and shows the `GreetingMessage` from the page model. The JavaScript handler `heartClicked` is triggered when the heart button is clicked.
 
 ### Build and run the app
 
@@ -289,21 +289,20 @@ In this tutorial, you'll use a variant feature flag to manage experiences for di
 
     > [!NOTE]
     > It's important for the purpose of this tutorial to use these names exactly. As long as the feature has been configured as expected, the two users should see different variants.
-@
+
 1. Select **Login** at the top right to sign in as usera@contoso.com.
 
     :::image type="content" source="media/use-variant-feature-flags-aspnet-core/login.png" alt-text="Screenshot of the Quote of the day app, showing **Login**.":::
 
-1. Once logged in, you should see that usera@contoso.com sees the long message when viewing the app, and userb@contoso.com sees the simple message.
+1. Once logged in, you see a long greeting message for **usera@contoso.com**
 
-    :::image type="content" source="media/use-variant-feature-flags-aspnet-core/special-message.png" alt-text="Screenshot of the Quote of the day app, showing a special message for the user.":::
+    :::image type="content" source="media/use-variant-feature-flags-aspnet-core/long-variant.png" alt-text="Screenshot of the Quote of the day app, showing a long message for the user.":::
+
+1. Click *Logout* and login as **userb@contoso.com**, you see the simple greeting message.
+
+    :::image type="content" source="media/use-variant-feature-flags-aspnet-core/simple-variant.png" alt-text="Screenshot of the Quote of the day app, showing a simple message for the user.":::
 
 ## Next steps
-
-To learn more about the experimentation concepts, refer to the following document.
-
-> [!div class="nextstepaction"]
-> [Experimentation](./concept-experimentation.md)
 
 For the full feature rundown of the .NET feature management library, refer to the following document.
 
