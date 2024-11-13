@@ -108,7 +108,7 @@ You can use the Portal to check or update the current settings in Application In
 1. Select **Application Insights**.
 1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
 
-   :::image type="content" source="media/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of the Azure portal Azure that shows the Azure Spring Apps instance with the Application Insights page and the 'Edit binding' option.":::
+   :::image type="content" source="media/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps instance with the Application Insights page and the 'Edit binding' option.":::
 
 1. Edit **Application Insights** or **Sampling rate**, then select **Save**.
 
