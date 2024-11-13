@@ -171,7 +171,7 @@ This broker authorization allows clients with usernames `temperature-sensor` or 
 Here's a summary of how the username is used for authorization based on the authentication method:
 
 - **Kubernetes SAT** - Username shouldn't be used for authorization because is not verified for MQTTv5 with enhanced authentication.
-- **x.509** - Username matches the CN from certificate and can be used for authorization rules.
+- **X.509** - Username matches the CN from certificate and can be used for authorization rules.
 - **Custom** - Username should only be used for authorization rules if custom authentication validates the username.
 
 ### Further limit access based on client ID
