@@ -67,7 +67,7 @@ In this task, you use the [az network nic-ip-config update](/cli/azure/network/n
 
 The following example dissociates a public IP address named *myVMPublicIP* from an IP configuration named *ipconfigmyVM* of an existing network interface named *myVMNic* that is attached to a VM named *myVM* in a resource group named *myResourceGroup*.
   
-```azurecli-interactive
+```azurecli
 # Dissociate the public IP address from the IP configuration
 az network nic ip-config update \
  --name ipconfigmyVM \
@@ -80,7 +80,7 @@ az network nic ip-config update \
 
 If you don't know the name of the network interface attached to your VM, use the [az vm nic list](/cli/azure/vm/nic#az-vm-nic-list) command to view them. For example, the following command lists the names of the network interfaces attached to a VM named *myVM* in a resource group named *myResourceGroup*:
 
-```azurecli-interactive
+```azurecli
 # List the network interfaces attached to a VM
 az vm nic list --vm-name myVM --resource-group myResourceGroup
 ```
@@ -97,7 +97,7 @@ In the previous example, *myVMVic* is the name of the network interface.
 
 If you don't know the name of the IP configuration of a network interface, use the [az network nic ip-config list](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-list) command to retrieve them. For example, the following command lists the names of the IP configurations for a network interface named *myVMNic* in a resource group named *myResourceGroup*:
 
-```azurecli-interactive
+```azurecli
 # List the IP configurations of a network interface
 az network nic ip-config list --nic-name myVMNic --resource-group myResourceGroup --out table
 ```
@@ -116,7 +116,7 @@ In the previous example, *ipconfigmyVM* is the name of the IP configuration.
 
 If you don't know the name of the public IP address associated to an IP configuration, use the [az network nic ip-config show](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-show) command to retrieve them. For example, the following command lists the names of the public IP addresses for a network interface named *myVMNic* in a resource group named *myResourceGroup*:
 
-```azurecli-interactive
+```azurecli
 # Get the name of public IP address associated to an IP configuration
 az network nic ip-config show --name ipconfigmyVM --nic-name myVMNic --resource-group myResourceGroup --query publicIpAddress.id
 ```
@@ -165,7 +165,7 @@ In the previous example, *myVMNic* is the name of the network interface.
 
 If you don't know the name of an IP configuration for a network interface, use the [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) command to retrieve them. For example, the following command lists the names of the IP configurations for a network interface named *myVMNic* in a resource group named *myResourceGroup*:
 
-```azurepowershell-interactive
+```azurepowershell
 # Get the name of the IP configuration for a network interface
 $nic = Get-AzNetworkInterface -Name myVMNic -ResourceGroupName myResourceGroup
 $nic.IPConfigurations.Id
@@ -183,7 +183,7 @@ In the previous example, *ipconfigmyVM* is the name of the IP configuration.
 
 If you don't know the name of the public IP address associated to an IP configuration, use the [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) command to retrieve them. For example, the following command lists the name of the public IP addresses for a network interface named *myVMNic* in a resource group named *myResourceGroup*:
 
-```azurepowershell-interactive
+```azurepowershell
 # Get the name of the public IP address associated to an IP configuration
 $nic = Get-AzNetworkInterface -Name myVMNic -ResourceGroupName myResourceGroup
 $nic.IPConfigurations.PublicIpAddress.Id
