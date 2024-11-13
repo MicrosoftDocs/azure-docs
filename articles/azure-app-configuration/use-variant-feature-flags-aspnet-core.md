@@ -13,7 +13,7 @@ ms.date: 10/10/2024
 
 # Tutorial: Use variant feature flags from Azure App Configuration in an ASP.NET application
 
-In this tutorial, you'll use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You'll utilize the variant feature flag created in [Use variant feature flags](./use-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
+In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./use-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
 > [!div class="checklist"]
 > * Set up an ASP.NET app to consume variant feature flags
@@ -26,19 +26,19 @@ In this tutorial, you'll use a variant feature flag to manage experiences for di
 
 ## Create an ASP.NET Core web app
 
-1. Open a command prompt and run the following code. This creates a new Razor Pages application in ASP.NET Core, using Individual account auth, and places it in an output folder named *QuoteOfTheDay*.
+1. Run the following code in a command prompt. This command creates a new Razor Pages application in ASP.NET Core, using Individual account auth, and places it in an output folder named *QuoteOfTheDay*.
 
     ```dotnetcli
     dotnet new razor --auth Individual -o QuoteOfTheDay
     ```
 
-1. In the command prompt, navigate to the *QuoteOfTheDay* folder and run the following command to create a [user secret](/aspnet/core/security/app-secrets) for the application. This secret holds the endpoint for App Configuration.
+1. Navigate to the *QuoteOfTheDay* folder and run the following command to create a [user secret](/aspnet/core/security/app-secrets) for the application. This secret holds the endpoint for App Configuration.
 
     ```dotnetcli
     dotnet user-secrets set Endpoints:AppConfiguration "<App Configuration Endpoint>"
     ```
 
-1. Add the latest versions of the required libraries.
+1. Add the latest versions of the required packages.
 
     ```dotnetcli
     dotnet add package Azure.Identity
@@ -58,7 +58,7 @@ In this tutorial, you'll use a variant feature flag to manage experiences for di
 
 1. In *Program.cs*, under the line `var builder = WebApplication.CreateBuilder(args);`, add the App Configuration provider, which pulls down the configuration from Azure App Configuration when the application starts. By default, the `UseFeatureFlags` method pulls down all feature flags with no label.
 
-    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
     builder.Configuration
