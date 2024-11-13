@@ -29,16 +29,17 @@ Before you deploy the sensor to the network, it's crucial to review the network 
 
 - Determine which OT protocols need to be monitored (Profinet, S7, Modbus etc..). For more information, see [supported protocols](../concept-supported-protocols.md).
 
-## Selecting Sensor locations and traffic mirroring method
+## Selecting sensor locations and traffic mirroring method
 
-Using the 
-By selecting the appropriate mirroring method, you ensure that your network sensor captures the necessary Layer 2 (L2) traffic, and provides high-quality data for accurate inventory and traffic analysis.
+Based on the network architecture and the chosen mirroring method, select the best locations for your network sensors ensuring that they capture the necessary Layer 2 (L2) traffic.
 
-For more information, see [traffic mirroring process](traffic-mirroring-overview.md#traffic-mirroring-processes).
+Complile a list all of the locations to place the sensors.<!-- should we write this about 1 sensor or a bunch of sensors? Theo -->
+
+For more information, see [identifying interesting traffic points](../best-practices/understand-network-architecture.md#identifying-interesting-traffic-points).
 
 ## Validate the sensor location
 
-After deciding on a potential location for the sensor, users should validate the presence of L2 and OT protocols. It's recommended to use tools like Wireshark to verify these protocols at the potential sensor location. For example:
+After deciding on a potential location for the sensor, users should validate the presence of L2 <!-- traffic - theo -->and OT protocols. It's recommended to use tools like Wireshark to verify these protocols at the potential sensor location. For example:
 
 :::image type="content" source="media/guide/deployment-guide-analyzer.png" alt-text="Screenshot of the wireshark program used to confirm and validate OT sensor set up and network protocols communicating with the newly deployed OT sensor":::
 
@@ -46,27 +47,27 @@ Wireshark displays the list of protocols identified by the sensor and the amount
 
 :::image type="content" source="media/guide/deployment-guide-protocols.png" alt-text="Screenshot of the wireshark program protocol output used to confirm and validate OT sensor set up and network protocols communicating with the newly deployed OT sensor":::
 
-This step is crucial to ensure effective monitoring of OT networks.  For more information, see Theo is there a link for this?
+This step is crucial to ensure effective monitoring of your OT networks.  For more information, see [is this a good example](configure-mirror-span.md#validate-traffic-mirroring)....<!-- Theo is there a link for this? -->
 
 ## Deploy your sensor
 
 After validating the sensor and mirroring method, deploy the sensors. For more information see [install software on OT sensors](../ot-deploy/install-software-ot-sensor.md).
 
-## Validate in post deployment
+## Validate after deployment
 
-It's essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the networks being monitored by the sensor.  
+It's essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the networks being monitored by the sensor.
 
 :::image type="content" source="media/guide/deployment-guide-post-deployment-system-settings.png" alt-text="Screenshot of the OT sensor systems settings screen, highlighting the Deployment box to be used to help validate the post OT sensor deployment.":::
 
-Key steps include:
+To validate your sensor:
 
-- Verify that the number of devices in the inventory is reasonable.
+1. Verify that the number of devices in the inventory is reasonable.
 
-- Check the type classification for devices listed in the inventory.
+1. Check the type classification for devices listed in the inventory.
 
-- Confirm the visibility of OT protocol names on the device's inventory.
+1. Confirm the visibility of OT protocol names on the device's inventory.
 
-- Ensure L2 protocols are monitored by identifying MAC addresses in the inventory.
+1. Ensure L2 protocols are monitored by identifying MAC addresses in the inventory.
 
 If information doesn't appear, review the SPAN configuration and recheck the deployment tool in the sensor which provides visibility of the subnets monitored and the status of the OT protocols, for example:
 

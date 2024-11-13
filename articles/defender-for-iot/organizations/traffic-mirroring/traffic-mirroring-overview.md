@@ -27,7 +27,7 @@ Identify the best location to place the sensor in the network, to monitor the ne
 
 For more information, see [placing OT sensors in your network](../best-practices/understand-network-architecture.md#placing-ot-sensors-in-your-network).
 
-### Traffic Mirroring Methods
+### Traffic mirroring methods
 
 There are three types of traffic mirroring methods each designed for specific usage scenarios. Choose the best method based on the usage and size of your network.
 
@@ -64,10 +64,7 @@ Use one of the following procedures to configure traffic mirroring in your netwo
 
 Defender for IoT also supports traffic mirroring with TAP configurations. For more information, see [Active or passive aggregation (TAP)](../best-practices/traffic-mirroring-methods.md#active-or-passive-aggregation-tap).
 
-## Next steps 
+## Next steps
 
 > [!div class="step-by-step"]
-> [« Onboard OT sensors to Defender for IoT](../onboard-sensors.md)
-
-> [!div class="step-by-step"]
-> [Provision OT sensors for cloud management »](../ot-deploy/provision-cloud-management.md)
+> [Network sensor mirroring set up](network-sensor-mirroring-set-up.md)
