@@ -332,7 +332,7 @@ For more information about enabling secure settings by configuring an Azure Key 
 
 In X.509 authentication, MQTT broker uses a trusted CA certificate to validate client certificates. Clients present a certificate rooted in this CA for MQTT broker to authenticate them. Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm. Since X.509 relies on TLS client certificates, TLS must be enabled for ports using X.509 authentication.
 
-If you're importing your own CA certificates, ensure that the client certificate uses the same key algorithm as the CAs. To import a root certificate that can be used to validate client certificates, import the certificate PEM as *ConfigMap*. For example:
+To import a root certificate that can be used to validate client certificates, store the certificate PEM in a *ConfigMap*. For example:
 
 ```bash
 kubectl create configmap client-ca --from-file=client_ca.pem -n azure-iot-operations
