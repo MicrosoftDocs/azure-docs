@@ -384,6 +384,8 @@
           - name: Query managed component logs
             href: java-component-logs.md
             displayName: java
+          - name: Configure Application Performance Management (APM) Java agent with init-container
+            href: java-application-performance-management-config.md
           - name: Create a highly available Eureka server component cluster
             href: java-eureka-server-highly-available.md
             displayName: java
