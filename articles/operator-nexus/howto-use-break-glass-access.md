@@ -101,7 +101,7 @@ Once these roles are assigned, the corresponding username and public SSH key wil
 > [!Note]
 > Breakglass user accounts are reconciled every 4 hours. For immediate reconciliation, open a support ticket with the network fabric support team.
 
-## 3. Using break-glass access
+## 3. Break-glass access to Network Fabric device
 
 Once permissions are granted, users can access network fabric devices with their FIDO-2 hardware token (e.g., YubiKey). Follow the steps below to use Breakglass access.
 
