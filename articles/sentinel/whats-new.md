@@ -22,6 +22,37 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## November 2024
+
+- [Unified Microsoft Sentinel solution for Microsoft Business Apps](#unified-microsoft-sentinel-solution-for-microsoft-business-apps)
+
+### Unified Microsoft Sentinel solution for Microsoft Business Apps
+
+Microsoft Sentinel now provides a unified solution for both Microsoft Power Platform and Dynamics 365 Business Applications, including data connectors and security content for both platforms. This update adds new analytics rules for <!--TBD - what security content are we *adding* here?-->.
+
+The update also removes the Power Platform Inventory data connector while we <!--how to explain this?-->. While customers who are already using the Power Platform Inventory data connector can continue to use it, it won't be available to install or deploy for new customers. <!--what happens if they don't update to the new solution - they'd still have the data connector, right?-->
+
+For more information, see:
+
+- [What is the Microsoft Sentinel solution for Microsoft Business Apps?](business-applications/solution-overview.md)
+- [Deploy the Microsoft Sentinel solution for Microsoft Business Apps](business-applications/deploy-business-applications-solution.md)
+- [Security content reference for Dynamics 365 Finance and Operations](dynamics-365/dynamics-365-finance-operations-security-content.md)
+- [Security content reference for Microsoft Power Platform](business-applications/power-platform-solution-security-content.md)
+
+## October 2024
+
+- [Updates for the Microsoft Sentinel solution for Microsoft Power Platform](#updates-for-the-microsoft-sentinel-solution-for-microsoft-power-platform)
+
+### Updates for the Microsoft Sentinel solution for Microsoft Power Platform
+
+Starting on October 17, 2024, audit logging data for Power Apps, Power Platform DLP, and Power Platform Connectors is routed to the `PowerPlatformAdminActivity` table instead of the `PowerAppsActivity`, `PowerPlatformDlpActivity` and `PowerPlatformConnectorActivity` tables.
+
+Security content in the Microsoft Sentinel solution for Microsoft Power Platform is updated with the new table and schemas for the Power Apps, Power Platform DLP, and Power Platform Connectors. We recommend that you update the Power Platform solution in your workspace to the latest version and apply the updated analytics rule templates to benefit from the changes. For more information, see [Install or update content](../sentinel-solutions-deploy.md#install-or-update-content).
+
+Customers using deprecated data connectors for Power Apps, Power Platform DLP, and Power Platform Connectors can safely disconnect and remove these connectors from their Microsoft Sentinel workspace. All associated data flows are ingested using Power Platform Admin Activity connector.
+
+For more information, see [Message center](https://portal.office.com/adminportal/home?#/MessageCenter/:/messages/MC912045).
+
 ## September 2024
 
 - [Schema mapping added to the SIEM migration experience](#schema-mapping-added-to-the-siem-migration-experience)

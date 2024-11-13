@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel solution for Microsoft Power Platform - security content reference
+title: Security content reference for Microsoft Power Platform
 description: Learn about the built-in security content provided by the Microsoft Sentinel solution for Power Platform.
 author: batamig
 ms.author: bagol
@@ -11,7 +11,7 @@ ms.date: 02/28/2024
 
 ---
 
-# Microsoft Sentinel solution for Microsoft Power Platform: security content reference
+# Security content reference for Microsoft Power Platform
 
 This article details the security content available for the Microsoft Sentinel solution for Power Platform. For more information about this solution, see [Microsoft Sentinel solution for Microsoft Power Platform overview](power-platform-solution-overview.md).
  

@@ -217,28 +217,16 @@
           href: sap/deploy-sap-btp-solution.md
     - name: Integrate Microsoft business applications
       items:
-      - name: Dynamics 365 Finance and Operations
-        items:
-        - name: Overview
-          href: dynamics-365/dynamics-365-finance-operations-solution-overview.md
-        - name: Content overview
-          href: dynamics-365/dynamics-365-finance-operations-security-content.md
-        - name: Deploy solution
-          href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
-      - name: Microsoft Power Platform
-        items:
-        - name: Overview
-          href: business-applications/power-platform-solution-overview.md 
-          displayName: Power Platform
-        - name: Content overview
-          displayName: Power Platform
-          href: business-applications/power-platform-solution-security-content.md
-        - name: Deploy solution
-          displayName: Power Platform
-          href: business-applications/deploy-power-platform-solution.md
-        - name: Troubleshoot
-          displayName: Power Platform
-          href: business-applications/power-platform-solution-troubleshoot.md
+      - name: Overview
+        href: business-applications/solution-overview.md
+        displayName: business applications
+      - name: Deploy
+        href: business-applications/deploy-business-applications-solution.md
+        displayName: business applications
+      - name: Security content for Power Platform
+        href: business-applications/power-platform-solution-security-content.md
+      - name: Security content for Dynamics 365 Finance and Operations
+        href: dynamics-365/dynamics-365-finance-operations-security-content.md
   - name: Integrate Microsoft Defender for IoT
     items:
     - name: Connect Defender for IoT data with Microsoft Sentinel
