@@ -115,7 +115,7 @@ The Data Box device has the following features in this release.
 | Data transfer                                      | Both import and export are supported.  |
 | Data transfer media                                     | RJ45, QSFP28 copper |
 | Security                                                | Rugged device casing with tamper-proof custom screws <br> Intrusion detection system in device <br> Secure boot <br>Hardware Root of Trust <br> TPM 2.0  |
-| Data transfer rate                                      | Approx. 7 GB/s using SMB Direct on RDMA (100-GbE) for large files.. Both data ports can be used, though not required. Performance might differ depending on the source and size of your files.      |
+| Data transfer rate                                      | Approx. 7 GB/s using SMB Direct on RDMA (100-GbE) for large files. Both data ports can be used, though not required. Performance might differ depending on the source and size of your files.      |
 | Management                                              | Local web UI - one-time initial setup and configuration <br> Azure portal - day-to-day device management        |
 
 ## Next generation Data Box performance improvements
@@ -132,18 +132,18 @@ The Data Box includes the following components:
 
 * **Data Box device** - a physical device that provides primary storage, manages communication with cloud storage, and helps to ensure the security and confidentiality of all data stored on the device. The Data Box device has a usable storage capacity of 120 TB/ 525 TB, depending upon the SKU selected.
 
-    :::image type="content" source="media/data-box-v2-overview/data-box-v2-merged-front-back.png" alt-text="An image showing an Azure Data Box V2 device."::: :::image type="content" source="media/data-box-v2-overview/data-box-v2-merged-back.png" alt-text="An image showing the rear views of an Azure Data Box V2 device."::: 
+    :::image type="content" source="media/data-box-v2-overview/data-box-v2-merged-front-back.png" alt-text="Photograph showing an Azure Data Box V2 device."::: :::image type="content" source="media/data-box-v2-overview/data-box-v2-merged-back.png" alt-text="Photograph showing the rear views of an Azure Data Box V2 device."::: 
 
     
 * **Data Box service** – an extension of the Azure portal that lets you manage a Data Box device from a web interface that you can access from different geographical locations. Use the Data Box service to perform daily administration of your Data Box device. The service tasks include how to create and manage orders, view and manage alerts, and manage shares.  
 
-    ![The Data Box service in Azure portal](media/data-box-overview/data-box-service.png) front and back 
+    :::image type="content" source="media/data-box-v2-overview/data-box-service.png" alt-text="Screenshot of the Data Box service in Azure portal.":::
 
     For more information, go to [Use the Data Box service to administer your Data Box device](data-box-portal-ui-admin.md).
 
 * **Local web user interface** – a web-based UI that is used to configure the device so that it can connect to the local network, and then register the device with the Data Box service. Use the local web UI also to shut down and restart the Data Box device, view copy logs, and contact Microsoft Support to file a service request.
 
-    ![The Data Box local web UI](media/data-box-overview/data-box-local-web-ui.png)
+    :::image type="content" source="media/data-box-v2-overview/data-box-local-web-ui.png" alt-text="Screenshot of the Data Box local web UI.":::
 
     The local web UI on the device currently supports the following languages with their corresponding language codes:
 

@@ -69,7 +69,7 @@ When you receive the Data Box, do the following steps to cable, connect to, and 
 1. Remove and place the device on a flat surface.
 1. Cable the device as shown below.  
 
-    ![Data Box device backplane cabled](media/data-box-v2-quickstart-export/data-box-cabled-dhcp.png)  
+    :::image type="content" source="media/data-box-v2-quickstart-export/data-box-cabled-dhcp.png" alt-text="Photograph of a Data Box device backplane cabled.":::
 
     1. Connect the power cable to the device.
     2. Use the RJ-45 CAT 6 network cable to connect your host computer to the MGMT port on the device.
