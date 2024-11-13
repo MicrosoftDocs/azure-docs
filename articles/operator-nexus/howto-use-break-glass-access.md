@@ -12,15 +12,9 @@ ms.custom: template-how-to, devx-track-azurecli
 # Method D v2.0 Breakglass Access
 Breakglass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide will walk you through setting up and using Breakglass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
 
-# How to Use Method D v2.0 Breakglass Access
+## Generating SSH Keys Using the Nexusidentity az CLI
 
-Breakglass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide will walk you through setting up and using Breakglass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
-
----
-
-## 1. Generating SSH Keys Using the Nexusidentity az CLI
-
-To start with Breakglass IAM configuration, you’ll need to set up SSH keys using the Nexusidentity CLI. Make sure you have the following prerequisites installed and updated.
+To start with Breakglass IAM configuration, you will need to set up SSH keys using the Nexusidentity CLI. Make sure you have the following prerequisites installed and updated.
 
 ### Prerequisites
 
@@ -34,8 +28,8 @@ To start with Breakglass IAM configuration, you’ll need to set up SSH keys usi
 
 1. **Open PowerShell**:
 
->[!Note:] 
->Use non-admin mode for this process.
+> [!Note]
+> Use non-admin mode for this process.
 
 2. **Update AZ CLI**:
 
@@ -103,7 +97,8 @@ To enable Breakglass access for an Entra user on a network fabric, assign the ap
 
 Once these roles are assigned, the corresponding username and public SSH key will be automatically provisioned across all devices within the designated fabric instance.
 
-> [Note:] Breakglass user accounts are reconciled every 4 hours. For immediate reconciliation, open a support ticket with the network fabric support team.
+> [!Note]
+> Breakglass user accounts are reconciled every 4 hours. For immediate reconciliation, open a support ticket with the network fabric support team.
 
 ## 3. Using break-glass access
 
@@ -123,5 +118,5 @@ Once permissions are granted, users can access network fabric devices with their
    ssh -J JumpBoxUsername@JumpBoxIp EntraUsername@FabricDeviceIP
    ```
 
->[!Note:]
->This command establishes a secure connection, using the jump server as an intermediary for authentication.
+> [!Note]
+> This command establishes a secure connection, using the jump server as an intermediary for authentication.

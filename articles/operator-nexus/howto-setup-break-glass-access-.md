@@ -1,6 +1,6 @@
 ---
-title:  How to set up secure break-glass access
-description: Process of setting up secure 
+title:  How to set up Method D v2.0 secure break-glass access
+description: Process of setting up secure break-glass access using Method D v2.0
 author: sushantjrao 
 ms.author: sushrao
 ms.service: azure-operator-nexus
@@ -101,7 +101,7 @@ As part of the **Secure Future Initiative (SFI)**, **On-Behalf-Of (OBO) tokens**
 
    - To activate the role, select **Role Based Access Control Administrator** from Eligible assignments tab.
 
->[!NOTE:] 
+> [!NOTE]
 >Ensure that **Role Based Access Control Administrator** is sucessfully activated.
 
 ## Next Steps
