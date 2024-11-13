@@ -1,7 +1,7 @@
 ---
 title: Compute Fleet quota
 description: Learn about quota limits on your Azure Compute Fleet.
-author: rajeeshr
+author: rrajeesh
 ms.author: rajeeshr
 ms.topic: overview
 ms.service: azure-compute-fleet
