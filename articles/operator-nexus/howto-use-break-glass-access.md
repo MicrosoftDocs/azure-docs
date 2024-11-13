@@ -9,7 +9,7 @@ ms.date: 11/04/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Method D v2.0 Breakglass Access
+# Use Method D v2.0 Breakglass Access
 Breakglass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide will walk you through setting up and using Breakglass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
 
 ## Generating SSH Keys Using the Nexusidentity az CLI

@@ -9,38 +9,38 @@ ms.date: 11/04/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Secure break-glass access
+# Set up Method D v2.0 secure break-glass access
 
 The Break-Glass mechanism provides temporary and emergency access to Azure Operator Nexus devices or services, primarily for disaster recovery, incident response, or essential maintenance. Access is granted under controlled Identity Access Management (IAM) policies, maintaining security even during emergencies.
 
-For Network Fabric environments, the current break-glass model, known as Method D v1.5, relies on shared password authentication. This model, however, is limited to 15 shared accounts and poses significant security risks. Method D v2.0 introduces a modernized approach, implementing FIDO-2 devices and SSH keys to secure break-glass access. Key improvements include:
+For Network Fabric environments, the current break-glass model, known as Method D v1.5, relies on password authentication. This model, however, is limited to 15 shared accounts and poses significant security risks. Method D v2.0 introduces a modernized approach, implementing FIDO-2 devices and SSH keys to secure break-glass access. Key improvements include:
 
 - **Strict access control**: Customer administrators control access through individual assignments instead of shared accounts.
 
-- **Strong authentication**: Break-glass access is managed via Microsoft Entra with Multi-Factor Authentication (MFA) and Single Sign-On (SSO), eliminating local account dependencies.
+- **Strong authentication**: Break-glass access is managed via Microsoft Entra with Multi-Factor Authentication (MFA) eliminating local account dependencies.
 
-- **Enhanced security**: Unauthorized access attempts are logged for audit and investigation purposes.
+- **Enhanced security**: All access attempts are logged for audit and investigation purposes.
 
 ## FIDO2 token 
 
-In the Method D v2.0 model, break-glass users are issued a FIDO2 token to create and upload a public key linked to their Entra identity. This provides secure SSH access to Fabric devices. Entra RBAC manages authorization, allowing administrators to assign appropriate access levels to users or teams.
+In the Method D v2.0 model, break-glass users uses a FIDO2 token to create and upload a public key linked to their Entra identity. This provides secure SSH access to Fabric devices. Entra RBAC manages authorization, allowing administrators to assign appropriate access levels to users.
 
-For offline accessibility, usernames, public keys, and permissions are pre-provisioned on all Fabric devices, allowing break-glass SSH login without requiring an active Azure connection.
+For offline accessibility, usernames, public keys, and permissions are pre-provisioned on all the Network Fabric devices, allowing break-glass SSH login without requiring an active Azure connection.
 
-Each FIDO2 token serves as a physical USB device, typically with a fingerprint reader, offering unphishable, multi-factor authentication through user presence and PIN verification.
+Each FIDO2 token serves usually as a physical USB device, offering unphishable, multi-factor authentication through user presence and PIN verification.
 
 ## Method D v2.0 setup and operations
 
 This guide is divided into two sections 
 
-1.	**Method D V2.0 infrastructure setup** - Mandatory for both existing and new NF deployments running Runtime Fabric version 4.0.0. 
+1.	**Method D v2.0 infrastructure setup** - Mandatory for both existing and new NF deployments running Runtime Fabric version 4.0.0. 
 
-2. [**Using Method D V2.0 breakglass access**](howto-use-break-glass-access.md)
+2. [**Using Method D v2.0 breakglass access**](howto-use-break-glass-access.md)
 
 
-### MethodDV2 infrastructure setup
+### Method D v2.0 infrastructure setup
 
-This guide provides an overview of the mandatory infrastructure setup for both existng and new environments using NF Runtime version 4.0.0.
+This guide provides an overview of the infrastructure setup mandatory for both existng and new deployments which will be using NF Runtime version 4.0.0.
 
 #### Step 1: Register NexusIdentity Resource Provider
 
