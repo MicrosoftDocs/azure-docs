@@ -62,7 +62,7 @@ To edit the OpenAPI format, right-click the API name in the Explorer pane and se
 
 API Management provides [policies](api-management-policies.md) that you can configure for your APIs. Policies are a collection of statements. These statements are run sequentially on the request or response of an API. Policies can be global, which apply to all APIs in your API Management instance, or specific to a product, an API, or an API operation.
 
-This section shows how to apply common outbound policies to your API that transform the API response. The policies in this example change response headers and hide original backend URLs that appear in the response body.
+This section shows how to apply common inbound and outbound policies to your API.
 
 1. In the Explorer pane, select **Policy** under the *petstore* API that you imported. The policy file opens in the editor window. This file configures policies for all operations in the API.
 
@@ -108,7 +108,7 @@ You need a subscription key for your API Management instance to test the importe
 
 ### Test an API operation
 
-1. In the Explorer pane, expand the **Operations** node under the *petstore* that you imported.
+1. In the Explorer pane, expand the **Operations** node under the *petstore* API that you imported.
 1. Select an operation such as *[GET] Find pet by ID*, and then right-click the operation and select **Test Operation**.
 1. In the editor window, substitute `5` for the `petId` parameter in the request URL.
 1. In the editor window, next to **Ocp-Apim-Subscription-Key**, replace `{{SubscriptionKey}}` with the subscription key that you copied.
@@ -122,7 +122,7 @@ When the request succeeds, the backend responds with **200 OK** and some data.
 
 Notice the following detail in the response:
 
-* The **Custom** header is added to the response.
+* The `Custom` header is added to the response.
 
 Now test the rate limiting policy. Select **Send request** several times in a row. After sending too many requests in the configured period, you get the `429 Too Many Requests` response.     
 
