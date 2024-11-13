@@ -83,7 +83,7 @@ Adding units incurs additional costs. For information, see [API Management prici
 ### Configure availability zone support 
 
 
-To enable zone redundancy for an API Management instance, see [Enable zone redundancy for an API Management instance](/azure/api-management/enable-availability-zones).
+To enable zone redundancy for an API Management instance, see [Enable zone redundancy for an API Management instance](/azure/api-management/enable-zone-redundancy).
 
 
 ### Capacity planning and management 
@@ -314,7 +314,7 @@ To learn how to setup backend services in multiple regions with or without Traff
 
 When API Management receives public HTTP requests to the Traffic Manager endpoint (applies for the external VNet and non-networked modes of API Management), traffic is routed to a regional gateway based on lowest latency, which can reduce latency experienced by geographically distributed API consumers.  Although it isn't possible to override this setting in API Management, you can use your own Traffic Manager with custom routing rules. For more information, see [Use custom routing to API Management regional gateways](/azure/api-management/api-management-howto-deploy-multi-region#-use-custom-routing-to-api-management-regional-gateways)
 
-However, in internal VNet mode, customers must configure their own solution to route and load-balance traffic across the regional gateways. For details, see [Networking considerations](azure/api-management/api-management-howto-deploy-multi-region#virtual-networking).
+However, in internal VNet mode, customers must configure their own solution to route and load-balance traffic across the regional gateways. For details, see [Networking considerations](/azure/api-management/api-management-howto-deploy-multi-region#virtual-networking).
 
 ### Data replication between regions 
 
@@ -455,4 +455,4 @@ Azure API Management provides an SLA of 99.99% when you deploy at least one unit
 
 ## Related content
 
-- [Reliability in Azure](/azure/availability-zones/overview.md)
+- [Reliability in Azure](/azure/availability-zones/overview)
