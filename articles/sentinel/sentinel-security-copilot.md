@@ -135,7 +135,6 @@ Your feedback is vital to guide the current and planned development of the produ
 
 For each feedback option, you can provide more information in the next dialog box that appears. Whenever possible, and especially when the result is **Needs improvement**, write a few words explaining what can be done to improve the outcome. If you entered prompts specific to Azure Firewall and the results aren't related, then include that information.
 
-
 ## Privacy and data security in Security Copilot
 
 To understand how Security Copilot handles your prompts and the data that's retrieved from the service (prompt output), see [Privacy and data security in Microsoft Security Copilot](/security-copilot/privacy-data-security).
