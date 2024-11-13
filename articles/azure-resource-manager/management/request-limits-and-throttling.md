@@ -62,7 +62,7 @@ The limits may be smaller for free or trial customers.
 For example, suppose you have a bucket size of 250 tokens for read requests and refill rate of 25 tokens per second. If you send 250 read requests in a second, the bucket is empty and your requests are throttled. Each second, 25 tokens become available until the bucket reaches its maximum capacity of 250 tokens. You can use tokens as they become available.
 
 
-Reading metrics using the `*/providers/microsoft.insights/metrics` API contributes significantly to overall Azure Resource Manager traffic and is a common cause of subscription throttling events. If you use this API heavily, we recommend that you switch to the `getBatch` API. You can query multiple resources in a single REST request, which improves performance and reduces throttling. For more information about converting your operations, see [How to migrate from the metrics API to the getBatch API]("/azure/azure-monitor/essentials/migrate-to-batch-api").
+Reading metrics using the `*/providers/microsoft.insights/metrics` API contributes significantly to overall Azure Resource Manager traffic and is a common cause of subscription throttling events. If you use this API heavily, we recommend that you switch to the `getBatch` API. You can query multiple resources in a single REST request, which improves performance and reduces throttling. For more information about converting your operations, see [How to migrate from the metrics API to the getBatch API]("/azure/azure-monitor/essentials/migrate-to-batch-api.md").
 
 ### How do I know if my subscription uses the new throttling experience?
 
