@@ -23,9 +23,10 @@ When you create a virtual machine (VM), it's automatically assigned a private IP
 # [Azure PowerShell](#tab/azurepowershell)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure PowerShell installed locally or Azure Cloud Shell
-
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+- Azure PowerShell installed locally or Azure Cloud Shell.
+    - If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. 
+    - Run `Get-Module -ListAvailable Az` to find the installed version. 
+    - If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 # [Azure CLI](#tab/azurecli)
 
@@ -35,12 +36,11 @@ If you choose to install and use PowerShell locally, this article requires the A
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ---
+## Create a resource group and a virtual machine
 
 # [Azure portal](#tab/azureportal)
 
-## Create a VM
-
-Use the following steps to create a VM, and its virtual network and subnet:
+Use the following steps to create a virtual network along with a resource group and necessary network resources:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -81,14 +81,69 @@ Use the following steps to create a VM, and its virtual network and subnet:
 [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 # [Azure PowerShell](#tab/azurepowershell)
+
+Use the following steps to create a resource group and a virtual machine.
+
+### Create a resource group
+
+The following command creates a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
+
+```azurepowershell-interactive
+## Create resource group. ##
+$rg =@{
+    Name = 'myResourceGroup'
+    Location = 'eastus2'
+}
+New-AzResourceGroup @rg
+
+```
+### Create a virtual machine
+
+The following command creates a Windows Server virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm). When prompted, provide a username and password to be used as the credentials for the virtual machine:
+
+```azurepowershell-interactive
+## Create virtual machine. ##
+$vm = @{
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'East US 2'
+    Name = 'myVM'
+    PublicIpAddressName = 'myPublicIP'
+}
+New-AzVM @vm
+```
+
 # [Azure CLI](#tab/azurecli)
 
+Use the following steps to create a resource group and a virtual machine.
+
+### Create a resource group
+
+The following command creates a resource group with [az group create](/cli/azure/group#az-group-create):
+
+```azurecli
+  az group create --name myResourceGroup --location eastus2
+```
+
+### Create a virtual machine
+
+The following command creates a Windows Server virtual machine with [az vm create](/cli/azure/vm#az-vm-create). When prompted, provide a username and password to be used as the credentials for the virtual machine:
+
+```azurecli-interactive
+  az vm create \
+    --name myVM \
+    --resource-group myResourceGroup \
+    --public-ip-address myPublicIP \
+    --public-ip-sku Standard \
+    --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest \
+    --admin-username azureuser
+```
 ---
 
 ## Change private IP address to static
+
 # [Azure portal](#tab/azureportal)
 
-In this procedure, you change the private IP address from **dynamic** to **static** for the VM you created previously:
+In the following steps, you change the private IP address **static** for the VM created previously:
 
 1. In the portal, search for and select **Virtual machines**.
 
@@ -96,7 +151,7 @@ In this procedure, you change the private IP address from **dynamic** to **stati
 
 3. On the **myVM** page, under **Settings**, select **Networking**.
 
-4. In **Networking**, select the name of the network interface next to **Network interface**. In this example, the name of the NIC is **myvm472**.
+4. In **Networking**, select the name of the network interface next to **Network interface**. In this example, the name of the network interface is **myvm472**.
 
     :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/select-nic.png" alt-text="Screenshot of select network interface.":::
 
@@ -119,22 +174,107 @@ In this procedure, you change the private IP address from **dynamic** to **stati
 >If you manually set the private IP address within the operating system, make sure it matches the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings). Otherwise, you can lose connectivity to the VM. For more information, see [private IP address settings](virtual-network-network-interface-addresses.md#private).
 
 # [Azure PowerShell](#tab/azurepowershell)
+
+Azure PowerShell cmdlets used to change the private IP address to static are as follows:
+| Command | Description |
+|---------|-------------|
+| `Get-AzVirtualNetwork` | Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to place the virtual network configuration into a variable. |
+| `Get-AzVirtualNetworkSubnetConfig` | Use [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) to place the subnet configuration into a variable. |
+| `Get-AzNetworkInterface` | Use [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) to obtain the network interface configuration and place into a variable. |
+| `Set-AzNetworkInterfaceIpConfig` | Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to set the configuration of the network interface. |
+| `Set-AzNetworkInterface` | Finally, use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to set the configuration for the virtual machine. |
+
+With the following commands, you change the private IP address of the virtual machine to **static**:
+
+```azurepowershell-interactive
+## Place virtual network configuration into a variable. ##
+$net = @{
+    Name = 'myVM'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Place subnet configuration into a variable. ##
+$sub = @{
+    Name = 'myVM'
+    VirtualNetwork = $vnet
+}
+$subnet = Get-AzVirtualNetworkSubnetConfig @sub
+
+## Get name of network interface and place into a variable ##
+$int1 = @{
+    Name = 'myVM'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vm = Get-AzVM @int1
+
+## Place network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -ResourceId $vm.NetworkProfile.NetworkInterfaces.Id
+
+## Set interface configuration. ##
+$config =@{
+    Name = 'myVM'
+    PrivateIpAddress = '192.168.1.4'
+    Subnet = $subnet
+}
+$nic | Set-AzNetworkInterfaceIpConfig @config -Primary
+
+## Save interface configuration. ##
+$nic | Set-AzNetworkInterface
+```
+
+> [!WARNING]
+> From within the operating system of a VM, you shouldn't statically assign the *private* IP that's assigned to the Azure VM. Only do static assignment of a private IP when it's necessary, such as when [assigning many IP addresses to VMs](virtual-network-multiple-ip-addresses-portal.md). 
+>
+>If you manually set the private IP address within the operating system, make sure it matches the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings). Otherwise, you can lose connectivity to the VM. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings.
+
 # [Azure CLI](#tab/azurecli)
+
+Use [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) to update the network interface configuration.
+
+With the following commands, you change the private IP address of the virtual machine to **static**:
+
+```azurecli-interactive
+  az network nic ip-config update \
+    --name ipconfigmyVM \
+    --resource-group myResourceGroup \
+    --nic-name myVMVMNic \
+    --private-ip-address 10.0.0.4
+```
+
+> [!WARNING]
+> From within the operating system of a VM, you shouldn't statically assign the *private* IP that's assigned to the Azure VM. Only do static assignment of a private IP when it's necessary, such as when [assigning many IP addresses to VMs](virtual-network-multiple-ip-addresses-portal.md). 
+>
+>If you manually set the private IP address within the operating system, make sure it matches the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings). Otherwise, you can lose connectivity to the VM. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings.
 
 ---
 
 ## Clean up resources
 # [Azure portal](#tab/azureportal)
 
-When you're finished, delete the resource group and all of the resources it contains:
+When all the resources are no longer need, delete the resource group and all of the resources it contains:
 
 1. In the portal, search for and select **myResourceGroup**.
 
 1. From the **myResourceGroup** screen, select **Delete resource group**.
 
 1. Enter *myResourceGroup* for **Enter resource group name to confirm deletion**, and then select **Delete**.
+1. 
 # [Azure PowerShell](#tab/azurepowershell)
+
+When all the resources are no longer need, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 # [Azure CLI](#tab/azurecli)
+
+When all the resources are no longer need, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all of the resources it contains:
+
+```azurecli-interactive
+  az group delete --name myResourceGroup --yes
+```
 
 ---
 ## Next steps
