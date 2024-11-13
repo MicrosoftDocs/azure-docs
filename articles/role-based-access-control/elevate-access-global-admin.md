@@ -339,9 +339,9 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 ## View elevate access log entries
 
-When access is elevated, an entry is added to the logs. As a Global Administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it. Elevate access log entries appear in both the Directory audit logs (Preview) and the Directory Activity logs. This section describes different ways that you can view the elevate access log entries.
+When access is elevated, an entry is added to the logs. As a Global Administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it. Elevate access log entries appear in both the Directory audit logs and the Directory Activity logs. This section describes different ways that you can view the elevate access log entries.
 
-# [Directory audit logs (Preview)](#tab/directory-audit-logs)
+# [Directory audit logs](#tab/directory-audit-logs)
 
 > [!IMPORTANT]
 > Elevate access log entries in the Directory audit logs is currently in preview.
@@ -350,7 +350,7 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 
-1. Browse to **Microsoft Entra ID** > **Monitoring ** > **Audit logs**.
+1. Browse to **Microsoft Entra ID** > **Monitoring** > **Audit logs**.
 
 1. In the **Service** filter, select **Azure RBAC (Elevated Access)** and then select **Apply**.
 
