@@ -34,7 +34,7 @@ Azure Lab Services has two GPU-based virtual machines size categories:
 
 ### Compute GPU sizes
 
-The *compute* GPU size is intended for compute-intensive applications.  For example, the [Deep Learning in Natural Language Processing class type](./class-type-deep-learning-natural-language-processing.md) uses the **Small GPU (Compute)** size.  The compute GPU is suitable for this type of class, because lab users apply deep learning frameworks and tools that are provided by the [Data Science Virtual Machine image](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) to train deep learning models with large sets of data.
+The *compute* GPU size is intended for compute-intensive applications. 
 
 | Size | vCPUs | Memory (GB) | Series | Suggested use | GPU/Accelerator | Accelerator Memory (GB) |
 | - | - | - | - | - | - | - |
@@ -43,7 +43,7 @@ The *compute* GPU size is intended for compute-intensive applications.  For exam
 
 ### Visualization GPU sizes
 
-The *visualization* GPU sizes are intended for graphics-intensive applications.  For example, the [SOLIDWORKS engineering class type](./class-type-solidworks.md) shows using the **Small GPU (Visualization)** size.  The visualization GPU is suitable for this type of class, because lab users interact with the SOLIDWORKS 3D computer-aided design (CAD) environment for modeling and visualizing solid objects.
+The *visualization* GPU sizes are intended for graphics-intensive applications.
 
 | Size | vCPUs | Memory (GB) | Series | Suggested use | GPU/Accelerator | Accelerator Memory (GB) |
 | - | - | - | - | - | - | - |
@@ -167,6 +167,4 @@ To verify driver installation for Linux images, see [verify driver installation 
 
 ## Next steps
 
-- Learn how to [create and manage labs](how-to-manage-labs.md).
-- Create a lab with the [SOLIDWORKS computer-aided design (CAD)](class-type-solidworks.md) software.
-- Create a lab with the [MATLAB (matrix laboratory)](class-type-matlab.md) software.
+- Learn how to [create and manage labs](how-to-manage-labs.md)
