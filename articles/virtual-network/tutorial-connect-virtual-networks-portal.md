@@ -260,29 +260,47 @@ Repeat the previous steps to create a second virtual machine in the second virtu
 Create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named **vm-1** in the **vnet-1** virtual network. The `-AsJob` option creates the VM in the background, so you can continue to the next step. When prompted, enter the user name and password for the virtual machine.
 
 ```azurepowershell-interactive
-$vm1 = @{
+# Create a credential object
+$cred = Get-Credential
+
+# Define the VM parameters
+$vmParams = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS2"
+    Name = "vm-1"
+    ImageName = "Canonical:ubuntu-24_04-lts:server-gen1:latest"
+    Size = "Standard_DS1_v2"
+    Credential = $cred
     VirtualNetworkName = "vnet-1"
     SubnetName = "subnet-1"
-    ImageName = "Win2019Datacenter"
-    Name = "vm-1"
+    PublicIpAddressName = $null  # No public IP address
 }
-New-AzVm @vm1 -AsJob
+
+# Create the VM
+New-AzVM @vmParams
 ```
 
 ### Create the second VM
 
 ```azurepowershell-interactive
-$vm2 = @{
+# Create a credential object
+$cred = Get-Credential
+
+# Define the VM parameters
+$vmParams = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS2"
+    Name = "vm-2"
+    ImageName = "Canonical:ubuntu-24_04-lts:server-gen1:latest"
+    Size = "Standard_DS1_v2"
+    Credential = $cred
     VirtualNetworkName = "vnet-2"
     SubnetName = "subnet-1"
-    ImageName = "Win2019Datacenter"
-    Name = "vm-2"
+    PublicIpAddressName = $null  # No public IP address
 }
-New-AzVm @vm2
+
+# Create the VM
+New-AzVM @vmParams
 ```
 
 The VM takes a few minutes to create. Don't continue with the later steps until Azure creates **vm-2** and returns output to PowerShell.
@@ -348,6 +366,15 @@ Use `ping` to test the communication between the virtual machines.
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ### [PowerShell](#tab/powershell)
+
+When no longer needed, use [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains.
+
+```azurepowershell-interactive
+$rgParams = @{
+    Name = "test-rg"
+}
+Remove-AzResourceGroup @rgParams -Force
+```
 
 ### [CLI](#tab/cli)
 
