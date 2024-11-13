@@ -3717,7 +3717,7 @@
     },
     {
 
-      "source_path_from_root": "/articles/reliability/resiliency-recommendations/migrate-api-mgt.md",
+      "source_path_from_root": "/articles/reliability/migrate-api-mgt.md",
       "redirect_url": "/azure/api-management/enable-zone-redundancy",
       "redirect_document_id": false
     },
