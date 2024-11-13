@@ -23,7 +23,7 @@ You'll learn how to:
 - Export the HoloLens Visual Studio project.
 - Deploy the app and run it on a HoloLens device.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

@@ -1,12 +1,12 @@
 ---
 title: Account Administrator tasks in the Azure portal
-description: Describes how to perform payment operations in Azure portal
+description: Describes how to perform payment operations in the Azure portal
 author: bandersmsft
 ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 05/20/2024
 ms.author: banders
 ---
 
@@ -56,11 +56,11 @@ You can change the active payment method by adding a new credit card or choosing
 
     :::image type="content" border="true" source="./media/account-admin-tasks/subscription-payment-methods-plus.png" alt-text="Screenshot that shows the plus symbol.":::
 
-1. Enter credit card details in the form on the right.
+1. Enter credit card details in the form on the right side of the window.
 
     :::image type="content" border="true" source="./media/account-admin-tasks/subscription-add-payment-method-x.png" alt-text="Screenshot that shows add credit card form.":::
 
-1. To make this card your active payment method, check the box next to **Make this my active payment method** above the form. This card will become the active payment instrument for all subscriptions using the same card as the selected subscription.
+1. To make this card your active payment method, check the box next to **Make this my active payment method** above the form. This card becomes the active payment instrument for all subscriptions using the same card as the selected subscription.
 
     :::image type="content" border="true" source="./media/account-admin-tasks/subscription-make-active-payment-method-x.png" alt-text="Screenshot that shows check box for making card active payment method.":::
 
@@ -78,7 +78,7 @@ To change the active payment method to a credit card that is already saved:
 
 ### Edit credit card details
 
-To edit credit card details such as the expiration date or address, select the credit card that you'd like to edit. A credit card form will appear on the right.
+To edit credit card details such as the expiration date or address, select the credit card that you'd like to edit. A credit card form appears on the right side of the window.
 
 :::image type="content" border="true" source="./media/account-admin-tasks/subscription-edit-payment-method-x.png" alt-text="Screenshot that shows credit card selected.":::
 
@@ -98,7 +98,7 @@ If your credit card is the active payment method for any of your Microsoft subsc
 
 ### Switch to invoice payment
 
-If you are eligible to pay by invoice (wire transfer), you can switch your subscription to invoice payment (wire transfer) in the Azure portal.
+If you're eligible to pay by invoice (wire transfer), you can switch your subscription to invoice payment (wire transfer) in the Azure portal.
 
 1. Select **Pay by invoice** in the command bar.
 
@@ -111,11 +111,11 @@ If you want to be approved to pay by invoice, see [learn how to pay by invoice](
 
 ### Edit invoice payment address
 
-To edit the address of your invoice payment method, select **Invoice** in the list of payment methods for your subscription. The address form will open on the right.
+To edit the address of your invoice payment method, select **Invoice** in the list of payment methods for your subscription. The address form opens on the right side of the window.
 
 ## Remove spending limit
 
-The spending limit in Azure prevents spending over your credit amount. You can remove the spending limit at any time as long as there's a valid payment method associated with your Azure subscription. For subscription types that have credit over multiple months such as Visual Studio Enterprise and Visual Studio Professional, you can choose to re-enable the spending limit at the beginning of your next billing period.
+The spending limit in Azure prevents spending over your credit amount. You can remove the spending limit at any time as long as there's a valid payment method associated with your Azure subscription. If you have a subscription type like Visual Studio Enterprise or Visual Studio Professional, which provides credit over several months, you can reactivate the spending limit at the start of your upcoming billing cycle.
 
 The spending limit isn’t available for subscriptions with commitment plans or with pay-as-you-go pricing.
 
@@ -139,13 +139,13 @@ The spending limit isn’t available for subscriptions with commitment plans or 
 
    :::image type="content" border="true" source="./media/account-admin-tasks/remove-spending-limit-blade-x.png" alt-text="Screenshot that shows the remove spending limit page and options.":::
 
-1. Select **Select payment method** to choose a payment method for your subscription. This will become the active payment method for your subscription.
+1. Select **Select payment method** to choose a payment method for your subscription. It becomes the active payment method for your subscription.
 
 1. Select **Finish**.
 
 ## Add credits to Azure in Open subscription
 
-If you have an Azure in Open Licensing subscription, you can add credits to your subscription in the Azure portal by redeeming a product key or purchasing credits with a credit card.
+If you have an Azure in Open Licensing subscription, you can add credits to your subscription. In the Azure portal, enter a product key or buy credits directly with a credit card.
 
 1. Sign in to the Azure portal as the Account Administrator.
 1. Search for **Cost Management + Billing**.
@@ -169,7 +169,7 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
 
 1. Select a payment method type in the drop-down. You can either add a product key or purchase credits with a credit card.
 
-    :::image type="content" border="true" source="./media/account-admin-tasks/add-credits-select-payment-method.png" alt-text="Screenshot that shows payment method drop down in add credits blade.":::
+    :::image type="content" border="true" source="./media/account-admin-tasks/add-credits-select-payment-method.png" alt-text="Screenshot that shows payment method list in add credits window.":::
 
 1. If you chose product key:
     - Enter the product key
@@ -177,13 +177,13 @@ If you have an Azure in Open Licensing subscription, you can add credits to your
 
 1. If you chose credit card:
     - Select **Select payment method** to add a credit card or select an existing one.
-    - Specify the amount of credits you want to add.
+    - Specify the credit amount you want to add.
 
 1. Select **Apply**
 
 ## Usage details files comparison
 
-Use the following information to find the mapping between the fields available in the v1 and v2 versions of the files from the Accounts portal and the latest version of the usage details file in the Azure portal.
+Use the following information to find the mapping between the fields available in the v1 and v2 versions of the files from the Accounts portal. It also has the latest version of the usage details file in the Azure portal.
 
 | V1 | V2 | Azure portal |
 | --- | --- | --- |
@@ -213,11 +213,11 @@ Use the following information to find the mapping between the fields available i
 
 For more information about the fields available in the latest usage details file, see [Understand the terms in your Azure usage and charges file](../understand/understand-usage.md).
 
-The following fields are from v1 and v2 versions of the files from the Accounts portal. They are no longer available in the latest usage details file.
+The following fields are from v1 and v2 versions of the files from the Accounts portal. They're no longer available in the latest usage details file.
 
 | V1 | V2 |
 | --- | --- |
-| Order Id | Order Id |
+| Order ID | Order ID |
 | Description | Description |
 | Billing Date(Anniversary Date) | Billing Date(Anniversary Date) |
 | Offer Name | Offer Name |
@@ -234,7 +234,7 @@ The following fields are from v1 and v2 versions of the files from the Accounts 
 | Component |  |
 
 ## Troubleshooting
-We do not support virtual or prepaid cards. If you are getting errors when adding or updating a valid credit card, try opening your browser in private mode.
+We don't support virtual or prepaid cards. If you're getting errors when adding or updating a valid credit card, try opening your browser in private mode.
 
 ## Next steps
 - Learn more about [analyzing unexpected charges](../understand/analyze-unexpected-charges.md)

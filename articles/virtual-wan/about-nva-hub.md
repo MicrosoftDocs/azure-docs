@@ -3,7 +3,7 @@ title: 'About Network Virtual Appliances - Virtual WAN hub'
 titleSuffix: Azure Virtual WAN
 description: Learn about Network Virtual Appliances in a Virtual WAN hub.
 author: wtnlee
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 11/02/2023
 ms.author: wellee
@@ -31,7 +31,7 @@ Deploying NVAs into a Virtual WAN hub provides the following benefits:
 > [!IMPORTANT]
 > To ensure you get the best support for this integrated solution, make sure you have similar levels of support entitlement with both Microsoft and your Network Virtual Appliance provider.
 
-## Partners
+## <a name="partners"></a> Partners
 
 The following tables describe the Network Virtual Appliances that are eligible to be deployed in the Virtual WAN hub and the relevant use cases (connectivity and/or firewall). The Virtual WAN NVA Vendor Identifier column corresponds to the NVA Vendor that is displayed in Azure portal when you deploy a new NVA or view existing NVAs deployed in the Virtual hub.
  
@@ -55,7 +55,7 @@ Customers can deploy an Azure Firewall along side their connectivity-based NVAs.
 
 ### Security provided by NVA firewalls
 
-Customers can also deploy NVAs into a Virtual WAN hub that perform both SD-WAN connectivity and Next-Generation Firewall capabilities. Customers can connect on-premises devices to the NVA in the hub and also use the same appliance to inspect all North-South, East-West, and Internet-bound traffic. Routing to enable these scenarios can be configured via [Routing Intent and Routing Policies](./how-to-routing-policies.md).
+Customers can also deploy NVAs into a Virtual WAN hub that performs both SD-WAN connectivity and Next-Generation Firewall capabilities. Customers can connect on-premises devices to the NVA in the hub and also use the same appliance to inspect all North-South, East-West, and Internet-bound traffic. Routing to enable these scenarios can be configured via [Routing Intent and Routing Policies](./how-to-routing-policies.md).
 
 Partners that support these traffic flows are listed as **dual-role SD-WAN connectivity and security (Next-Generation Firewall) Network Virtual Appliances** in the [Partners section](#partners).
 

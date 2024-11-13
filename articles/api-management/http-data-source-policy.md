@@ -4,9 +4,9 @@ description: Reference for the http-data-source resolver policy available for us
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 05/02/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 

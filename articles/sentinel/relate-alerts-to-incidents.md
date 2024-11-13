@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 01/17/2023
+
+
+#Customer intent: As a security analyst, I want to relate alerts to incidents in Microsoft Sentinel so that I can refine and expand the scope of my investigations efficiently.
+
 ---
 
 # Relate alerts to incidents in Microsoft Sentinel

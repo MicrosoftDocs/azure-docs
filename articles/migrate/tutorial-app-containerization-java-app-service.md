@@ -1,18 +1,14 @@
 ---
 title: Containerization and migration of Java web applications to Azure App Service.
 description: Tutorial:Containerize & migrate Java web applications to Azure App Service.
-author: vijain
-ms.author: vijain
-ms.manager: kmadnani
+author: anraghun
+ms.author: anraghun
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.custom: devx-track-extended-java
-ms.date: 04/03/2024
+ms.date: 09/19/2024
 ---
 # Java web app containerization and migration to Azure App Service
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 In this article, you'll learn how to containerize Java web applications (running on Apache Tomcat) and migrate them to [Azure App Service](https://azure.microsoft.com/services/app-service/) using the Azure Migrate: App Containerization tool. The containerization process doesn’t require access to your codebase and provides an easy way to containerize existing applications. The tool works by using the running state of the applications on a server to determine the application components and helps you package them in a container image. The containerized application can then be deployed on Azure App Service.
 
@@ -62,7 +58,7 @@ Before you begin this tutorial, you should:
 --- | ---
 **Identify a machine to install the tool** | A Windows machine to install and run the Azure Migrate: App Containerization tool. The Windows machine could be a server (Windows Server 2016 or later) or client (Windows 10) operating system, meaning that the tool can run on your desktop as well. <br/><br/> The Windows machine running the tool should have network connectivity to the servers/virtual machines hosting the Java web applications to be containerized.<br/><br/> Ensure that 6-GB space is available on the Windows machine running the Azure Migrate: App Containerization tool for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy.
 **Application servers** | Enable Secure Shell (SSH) connection on port 22 on the server(s) running the Java application(s) to be containerized. <br/>
-**Java web application** | The tool currently supports: <br/><br/> - Applications running on Tomcat 8 or Tomcat 9.<br/> - Application servers on Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> - Applications using Java 7 or Java 8. <br/> If you have version outside of this,  find an image that supports your required versions and modify the dockerfile to replace image <br/><br/> The tool currently doesn't support: <br/><br/> - Application servers running multiple Tomcat instances <br/>  
+**Java web application** | The tool currently supports: <br/><br/> - Applications running on Tomcat 8 or Tomcat 9.<br/> - Application servers on Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, Red Hat Enterprise Linux 5/6/7. <br/> - Applications using Java 7 or Java 8. <br/> If you have version outside of this,  find an image that supports your required versions and modify the dockerfile to replace image <br/><br/> The tool currently doesn't support: <br/><br/> - Application servers running multiple Tomcat instances <br/>  
 
 
 ## Prepare an Azure user account
@@ -95,6 +91,8 @@ If you just created a free Azure account, you're the owner of your subscription.
 9. In **User settings**, verify if Microsoft Entra users can register applications (set to **Yes** by default).
 
   ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
+
+   [!INCLUDE [global-admin-usage.md](includes/global-admin-usage.md)]
 
 10. In case the 'App registrations' setting is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Microsoft Entra App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
@@ -196,12 +194,12 @@ Parameterizing the configuration makes it available as a deployment time paramet
 ## Build container image
 
 
-1. **Select Azure Container Registry**: Use the dropdown to select an [Azure Container Registry](../container-registry/index.yml) that will be used to build and store the container images for the apps. You can use an existing Azure Container Registry or choose to create a new one using the Create new registry option.
+1. **Select Azure Container Registry**: Use the dropdown to select an [Azure Container Registry](/azure/container-registry/) that will be used to build and store the container images for the apps. You can use an existing Azure Container Registry or choose to create a new one using the Create new registry option.
 
     ![Screenshot for app ACR selection.](./media/tutorial-containerize-apps-aks/build-java-app.png)
 
 > [!NOTE]
-> Only Azure container registries with admin user enabled are displayed. The admin account is currently required for deploying an image from an Azure container registry to Azure App Service. [Learn more](../container-registry/container-registry-authentication.md#admin-account).
+> Only Azure container registries with admin user enabled are displayed. The admin account is currently required for deploying an image from an Azure container registry to Azure App Service. [Learn more](/azure/container-registry/container-registry-authentication#admin-account).
 
 2. **Review the Dockerfile**: The Dockerfile needed to build the container images for each selected application are generated at the beginning of the build step. Click **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before starting the build process.
 

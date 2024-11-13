@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 02/06/2024
-ms.custom: engagement-fy24
+ms.date: 08/07/2024
+ms.custom: engagement-fy25
 ---
 
 
@@ -57,8 +57,9 @@ Check that the zipped file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  Verify the latest appliance version and hash value:
 
-[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]  
-
+| **Download** | **Hash value** |
+  | --- | --- |
+  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] |
 
 ### Run the script
 
@@ -115,10 +116,10 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  Verify the latest appliance version and hash value:
-
-    **Download** | **Hash value**
-    --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857 
+    
+    | **Download** | **Hash value** |
+    | --- | --- |
+    | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] |
 
 ### Run the script
 
@@ -176,9 +177,9 @@ Check that the zipped file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  Verify the latest appliance version and hash value:
 
-[!INCLUDE [security-hash-value.md](
-includes/security-hash-value.md
-)]
+  | **Download** | **Hash value** |
+  | --- | --- |
+  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] |
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for Azure Government cloud with either public or private endpoint connectivity.
@@ -222,6 +223,4 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 After deploying the appliance, you need to configure it for the first time, and register it with the project.
 
-- Set up the appliance for [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance).
-- Set up the appliance for [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
-- Set up the appliance for [physical servers](how-to-set-up-appliance-physical.md).
+- Set up the appliance for [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance), [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance), or [physical servers](how-to-set-up-appliance-physical.md).

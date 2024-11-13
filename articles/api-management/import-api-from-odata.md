@@ -4,9 +4,11 @@ description: Learn how to import an OData API to an API Management instance usin
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
+ms.custom:
+  - build-2024
 ms.topic: how-to
-ms.date: 01/03/2024
+ms.date: 05/06/2024
 ms.author: danlep
 ---
 # Import an OData API
@@ -20,9 +22,6 @@ In this article, you learn how to:
 > * Import an OData metadata description using the Azure portal
 > * Manage the OData schema in the portal
 > * Secure the OData API
-
-> [!NOTE]
-> Importing an OData service as an API from its metadata description is in preview. 
 
 ## Prerequisites
 

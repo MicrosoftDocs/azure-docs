@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: xiada
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 07/11/2023
@@ -46,7 +46,7 @@ The main resources required to run this sample are an Azure Spring Apps instance
 
 ### 3.1. Sign in to the Azure portal
 
-Go to the [Azure portal](https://portal.azure.com/) and enter your credentials to sign in to the portal. The default view is your service dashboard.
+Go to the [Azure portal](https://portal.azure.com/), enter your credentials, and sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create an Azure Spring Apps instance
 
@@ -81,7 +81,7 @@ Use the following steps to connect your service instances:
    - **PostgreSQL database**: Select the database you created.
    - **Client type**: **SpringBoot**
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-basics.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the created connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-basics.png":::
 
 1. Configure the **Next: Authentication** tab with the following information:
 
@@ -90,7 +90,7 @@ Use the following steps to connect your service instances:
    - **Username**: *myadmin*
    - **Password**: Enter your password.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the created connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
 
 1. Select **Next: Networking**. Use the default option **Configure firewall rules to enable access to target service.**.
 
@@ -242,7 +242,7 @@ Now that the cloud environment is prepared, the application is ready to deploy. 
 az spring app deploy \
     --service ${AZURE_SPRING_APPS_NAME} \
     --name ${APP_NAME} \
-    --artifact-path web/target/simple-todo-web-0.0.2-SNAPSHOT.jar
+    --artifact-path web/target/simple-todo-web.jar
 ```
 
 ---

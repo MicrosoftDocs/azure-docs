@@ -46,7 +46,7 @@ Access to the ANQ service instance is enabled through VNet injection from a dedi
 
 The solution architecture comprises the following components:
 
-- [Azure Native Qumulo Scalable File Service (ANQ)](https://qumulo.com/azure) to provide consolidated, cloud-based VNA archive services
+- [Azure Native Qumulo (ANQ) Scalable File Service](https://qumulo.com/azure) to provide consolidated, cloud-based VNA archive services
 - [Leostream](https://leostream.com/media-entertainment/) connection Broker for connecting incoming clients to resource groups within the solution
 - [GPU-optimized virtual machines](/azure/virtual-machines/sizes-gpu)
 - Media Asset Manager for tracking and organizing content

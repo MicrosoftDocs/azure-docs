@@ -3,9 +3,10 @@ title: Using a system-assigned managed identity for an Azure Automation account
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/26/2021
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Using a system-assigned managed identity for an Azure Automation account
@@ -128,8 +129,8 @@ If there are multiple user-assigned identities defined, to retain them and only 
   "identity" : {
     "type": "SystemAssigned, UserAssigned",
     "userAssignedIdentities": {
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmkID": {},
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmkID2": {}
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmkID": {},
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmkID2": {}
     }
   }
 }
@@ -139,7 +140,7 @@ If there are multiple user-assigned identities defined, to retain them and only 
 The syntax of the API is as follows:
 
 ```http
-PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
+PATCH https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
 ```
 
 #### Example

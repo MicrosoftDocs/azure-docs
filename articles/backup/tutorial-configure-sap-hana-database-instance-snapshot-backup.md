@@ -4,7 +4,7 @@ description: In this tutorial, learn how to configure the SAP HANA database inst
 ms.topic: tutorial
 ms.date: 11/02/2023
 ms.custom:
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

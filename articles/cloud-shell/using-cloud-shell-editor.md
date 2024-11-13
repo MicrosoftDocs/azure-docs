@@ -2,7 +2,7 @@
 description: Overview of how to use the Azure Cloud Shell editor.
 ms.contributor: jahelmic
 ms.date: 11/14/2022
-ms.topic: article
+ms.topic: how-to
 tags: azure-resource-manager
 title: Using the Azure Cloud Shell editor
 ---

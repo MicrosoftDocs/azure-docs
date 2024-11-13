@@ -4,14 +4,14 @@ description: Learn how to mount disk images for testing and troubleshooting outs
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/25/2024
+ms.date: 03/04/2024
 ---
 
 # Test MSIX packages for app attach
 
-This article shows you how to mount MSIX packages outside of Azure Virtual Desktop to help test your packages for app attach. The APIs that power app attach are available for Windows 11 Enterprise and Windows 10 Enterprise. These APIs can be used outside of Azure Virtual Desktop for testing, however there's no management plane for MSIX app attach or app attach outside of Azure Virtual Desktop.
+This article shows you how to mount MSIX packages outside of Azure Virtual Desktop to help test your packages for app attach. The APIs that power app attach are available for Windows 11 Enterprise and Windows 10 Enterprise. These APIs can be used outside of Azure Virtual Desktop for testing, however there's no management plane for app attach or MSIX app attach outside of Azure Virtual Desktop.
 
-For more information about MSIX app attach and app attach, see [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md).
+For more information about app attach and MSIX app attach, see [app attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md).
 
 ## Prerequisites
 
@@ -208,7 +208,7 @@ Now that your MSIX package is registered, your application should be available f
 
 ## Deregister an MSIX package
 
-Once you're finished with your MSIX package and are ready to remove it, first you need to deregister it. To deregister the MSIX package, run the following commands in the same PowerShell session. These commands get the disk's `DeviceId` parameter again, and removes the package using the `$msixPackageFullName` variable created in a previous section.
+Once you're finished with your MSIX package and are ready to remove it, first you need to deregister it. To deregister the MSIX package, run the following commands in the same PowerShell session. These commands get the disk's `DeviceId` parameter again, and remove the package using the `$msixPackageFullName` variable created in a previous section.
 
 ```powershell
 $appPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') $msixPackageFullName
@@ -267,7 +267,7 @@ You create a script for each phase:
 
 ## Use packages offline
 
-If you're using packages from the [Microsoft Store for Business](https://businessstore.microsoft.com/) or the [Microsoft Store for Education](https://educationstore.microsoft.com/) on devices that aren't connected to the internet, you need to get the package licenses from the Microsoft Store and install them on your device to successfully run the app. If your device is online and can connect to the Microsoft Store for Business, the required licenses should download automatically, but if you're offline, you need to set up the licenses manually.
+If you're using packages on devices that aren't connected to the internet, you need to make sure the package licenses are installed on your device to successfully run the app. If your device is online, the required licenses should download automatically.
 
 To install the license files, you need to use a PowerShell script that calls the `MDM_EnterpriseModernAppManagement_StoreLicenses02_01` class in the WMI Bridge Provider.
 
@@ -317,7 +317,7 @@ You can find demonstration scripts for all four stages of testing MSIX packages 
 
 ## Next steps
 
-Learn more about MSIX app attach and app attach in Azure Virtual Desktop:
+Learn more about app attach and MSIX app attach in Azure Virtual Desktop:
 
-- [MSIX app attach and app attach](app-attach-overview.md).
-- [Add and manage MSIX app attach and app attach applications](app-attach-setup.md).
+- [app attach and MSIX app attach](app-attach-overview.md).
+- [Add and manage app attach and MSIX app attach applications](app-attach-setup.md).

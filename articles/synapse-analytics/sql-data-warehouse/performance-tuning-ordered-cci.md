@@ -5,18 +5,21 @@ author: XiaoyuMSFT
 ms.author: xiaoyul
 ms.reviewer: nibruno; wiassaf
 ms.date: 02/13/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
   - azure-synapse
 ---
 
-# Performance tuning with ordered clustered columnstore index
+# Performance tuning with ordered clustered columnstore index in Azure Synapse Analytics
 
-**Applies to:** Azure Synapse Analytics dedicated SQL pools, SQL Server 2022 (16.x) and later
+**Applies to:** Azure Synapse Analytics dedicated SQL pools
 
 When users query a columnstore table in dedicated SQL pool, the optimizer checks the minimum and maximum values stored in each segment. Segments that are outside the bounds of the query predicate aren't read from disk to memory. A query can finish faster if the number of segments to read and their total size are small.
+
+> [!NOTE]
+> This article applies to Azure Synapse Analytics dedicated SQL pools. For information on ordered columnstore indexes in SQL Server and other SQL platforms, see [Performance tuning with ordered clustered columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview#ordered-columnstore-indexes).
 
 ## Ordered vs. non-ordered clustered columnstore index
 

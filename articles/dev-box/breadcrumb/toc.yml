@@ -1,0 +1,11 @@
+items: 
+- name: Azure
+  tocHref: /windows-app/
+  topicHref: /azure/index
+  items:
+  - name: Dev Box
+    tocHref: /dev-box/
+    topicHref: /azure/dev-box/index
+  - name: Dev Box
+    tocHref: /windows-app/
+    topicHref: /azure/dev-box/index

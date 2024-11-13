@@ -34,7 +34,7 @@ For detailed step-by-step instructions, see [Event delivery with a managed ident
 
 
 ## Authenticate event delivery to webhook endpoints
-The following sections describe how to authenticate event delivery to webhook endpoints. Use a validation handshake mechanism irrespective of the method you use. See [Webhook event delivery](webhook-event-delivery.md) for details. 
+The following sections describe how to authenticate event delivery to webhook endpoints. Use a validation handshake mechanism irrespective of the method you use. See [Webhook event delivery](end-point-validation-cloud-events-schema.md) for details. 
 
 
 ### Using Microsoft Entra ID
@@ -45,13 +45,13 @@ You can also secure your webhook endpoint by adding query parameters to the webh
 
 As query parameters could contain client secrets, they're handled with extra care. They're stored as encrypted and aren't accessible to service operators. They aren't logged as part of the service logs/traces. When retrieving the Event Subscription properties, destination query parameters aren't returned by default. For example: [--include-full-endpoint-url](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-show) parameter is to be used in Azure [CLI](/cli/azure).
 
-For more information on delivering events to webhooks, see [Webhook event delivery](webhook-event-delivery.md)
+For more information on delivering events to webhooks, see [Webhook event delivery](end-point-validation-cloud-events-schema.md)
 
 > [!IMPORTANT]
 > Azure Event Grid only supports **HTTPS** webhook endpoints. 
 
 ## Endpoint validation with CloudEvents v1.0
-If you're already familiar with Event Grid, you might be aware of the endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](webhook-event-delivery.md) by using the **HTTP OPTIONS** method. To read more about it, see [HTTP 1.1 Web Hooks for event delivery - Version 1.0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When you use the CloudEvents schema for output, Event Grid uses the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism. For more information, see [Use CloudEvents v1.0 schema with Event Grid](cloudevents-schema.md). 
+If you're already familiar with Event Grid, you might be aware of the endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](end-point-validation-cloud-events-schema.md) by using the **HTTP OPTIONS** method. To read more about it, see [HTTP 1.1 Web Hooks for event delivery - Version 1.0](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When you use the CloudEvents schema for output, Event Grid uses the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism. For more information, see [Use CloudEvents v1.0 schema with Event Grid](cloud-event-schema.md). 
 
 
 ## Next steps

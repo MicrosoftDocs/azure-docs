@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial - Migrate a web app from Google Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Google Maps to Microsoft Azure Maps
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 09/28/2023
 ms.topic: tutorial
 ms.service: azure-maps
-ms.custom:
+ms.subservice: web-sdk
 ---
 
 # Tutorial: Migrate a web app from Google Maps

@@ -4,14 +4,17 @@ titleSuffix: Azure API Management
 description: Learn how to enable user sign-in to the API Management developer portal by using Microsoft Entra ID.
 
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 12/08/2023
+ms.date: 09/19/2024
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Authorize developer accounts by using Microsoft Entra ID in Azure API Management
+
+[!INCLUDE [premium-dev-standard-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-standardv2-basicv2.md)]
+
 
 In this article, you'll learn how to:
 > [!div class="checklist"]
@@ -32,8 +35,6 @@ For an overview of options to secure the developer portal, see [Secure access to
 - [Import and publish](import-and-publish.md) an API in the Azure API Management instance.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -75,14 +76,7 @@ After the Microsoft Entra provider is enabled:
 1. Save the **Redirect URL** for later.
     
     :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Screenshot of adding identity provider in Azure portal.":::
-
-    > [!NOTE]
-    > There are two redirect URLs:<br/>
-    > * **Redirect URL** points to the latest developer portal of the API Management.
-    > * **Redirect URL (deprecated portal)** points to the deprecated developer portal of API Management.
-    >
-    > We recommended you use the latest developer portal Redirect URL.
-   
+  
 1. In your browser, open the Azure portal in a new tab. 
 1. Navigate to [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register an app in Active Directory.
 1. Select **New registration**. On the **Register an application** page, set the values as follows:
@@ -103,9 +97,6 @@ After the Microsoft Entra provider is enabled:
     * Select any option for **Expires**.
     * Choose **Add**. 
 1. Copy the client **Secret value** before leaving the page. You will need it later. 
-1. Under **Manage** in the side menu, select **Authentication**.
-    1. Under the **Implicit grant and hybrid flows** section, select the **ID tokens** checkbox.
-    1. Select **Save**.
 1. Under **Manage** in the side menu, select **Token configuration** > **+ Add optional claim**.
     1. In **Token type**, select **ID**.
     1. Select (check) the following claims: **email**, **family_name**, **given_name**.
@@ -116,21 +107,14 @@ After the Microsoft Entra provider is enabled:
     > [!IMPORTANT]
     > Update the **Client secret** before the key expires. 
 
-1. In the **Add identity provider** pane's **Allowed tenants** field, specify the Microsoft Entra instance's domains to which you want to grant access to the API Management service instance APIs. 
-    * You can separate multiple domains with newlines, spaces, or commas.
-
-    > [!NOTE]
-    > You can specify multiple domains in the **Allowed Tenants** section. A global administration must grant the application access to directory data before users can sign in from a different domain than the original app registration domain. To grant permission, the global administrator should:
-    > 1. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, `https://contoso.portal.azure-api.net/aadadminconsent`).
-    > 1. Enter the domain name of the Microsoft Entra tenant to which they want to grant access.
-    > 1. Select **Submit**. 
-
+1. In **Signin tenant**, specify a tenant name or ID to use for sign-in to Microsoft Entra. If no value is specified, the Common endpoint is used.
+1. In **Allowed tenants**, add specific Microsoft Entra tenant names or IDs for sign-in to Microsoft Entra. 
 1. After you specify the desired configuration, select **Add**.
 1. Republish the developer portal for the Microsoft Entra configuration to take effect. In the left menu, under **Developer portal**, select **Portal overview** > **Publish**. 
 
 After the Microsoft Entra provider is enabled:
 
-* Users in the specified Microsoft Entra instance can [sign into the developer portal by using a Microsoft Entra account](#log_in_to_dev_portal).
+* Users in the specified Microsoft Entra tenant(s) can [sign into the developer portal by using a Microsoft Entra account](#log_in_to_dev_portal).
 * You can manage the Microsoft Entra configuration on the **Developer portal** > **Identities** page in the portal.
 * Optionally configure other sign-in settings by selecting **Identities** > **Settings**. For example, you might want to redirect anonymous users to the sign-in page.
 * Republish the developer portal after any configuration change.
@@ -159,7 +143,7 @@ For steps, see [Switch redirect URIs to the single-page application type](../act
 ## Add an external Microsoft Entra group
 
 Now that you've enabled access for users in a Microsoft Entra tenant, you can:
-* Add Microsoft Entra groups into API Management. 
+* Add Microsoft Entra groups into API Management. Groups added must be in the tenant where your API Management instance is deployed.
 * Control product visibility using Microsoft Entra groups.
 
 1. Navigate to the App Registration page for the application you registered in [the previous section](#enable-user-sign-in-using-azure-ad---portal). 

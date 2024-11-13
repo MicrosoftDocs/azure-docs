@@ -3,9 +3,9 @@ title: Monitor Azure Container Apps metrics
 description: Monitor your running apps metrics.
 services: container-apps
 author: v-jaswel
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 11/01/2024
 ms.author: v-wellsjason
 ---
 
@@ -19,28 +19,39 @@ The metrics explorer in the Azure portal allows you to visualize the data. You c
 
 Container Apps provides these basic metrics.
 
-| Category | Title | Description | Metric ID | Unit |
+| Title | Dimensions | Description | Metric ID | Unit |
 |--|--|--|--|--|
-| Basic | CPU Usage | CPU consumed by the container app, in nano cores (1,000,000,000 nanocores = 1 core) | UsageNanoCores | `nanocores` |
-| Basic | Memory Working Set Bytes | Container app working set memory used in bytes | `WorkingSetBytes` | bytes |
-| Basic | Network In Bytes | Network received bytes | `RxBytes` | bytes |
-| Basic | Network Out Bytes | Network transmitted bytes | `TxBytes` | bytes |
-| Basic | Replica count | Number of active replicas | `Replicas` | n/a |
-| Basic | Replica Restart Count | Restarts count of container app replicas | `RestartCount` | n/a |
-| Basic | Requests | Requests processed | `Requests` | n/a |
-| Basic | Reserved Cores | Number of reserved cores for container app revisions | `CoresQuotaUsed` | n/a |
-| Basic | Resiliency Connection Timeouts | Total connection timeouts | `ResiliencyConnectTimeouts` | n/a |
-| Basic | Resiliency Ejected Hosts | Number of currently ejected hosts | `ResiliencyEjectedHosts` | n/a |
-| Basic | Resiliency Ejections Aborted | Number of ejections aborted due to the max ejection % | `ResiliencyEjectionsAborted` | n/a |
-| Basic | Resiliency Request Retries | Total request retries | `ResiliencyRequestRetries` | n/a |
-| Basic | Resiliency Request Timeouts | Total requests that timed out waiting for a response | `ResiliencyRequestTimeouts` | n/a |
-| Basic | Resiliency Requests Pending Connection Pool | Total requests pending a connection pool connection | `ResiliencyRequestsPendingConnectionPool` | n/a |
-| Basic | Total Reserved Cores | Total cores reserved for the container app | `TotalCoresQuotaUsed` | n/a |
+| CPU Usage | Replica, Revision | CPU consumed by the container app, in nano cores (1,000,000,000 nanocores = 1 core) | `UsageNanoCores` | Nanocores |
+| Memory Working Set Bytes | Replica, Revision | Container app working set memory used in bytes | `WorkingSetBytes` | Bytes |
+| Network In Bytes | Replica, Revision | Network received bytes | `RxBytes` | Bytes |
+| Network Out Bytes | Replica, Revision | Network transmitted bytes | `TxBytes` | Bytes |
+| Replica count | Revision | Number of active replicas | `Replicas` | Count |
+| Replica Restart Count | Replica, Revision | Restarts count of container app replicas | `RestartCount` | Count |
+| Requests | Replica, Revision, Status Code, Status Code Category | Requests processed | `Requests` | Count |
+| Reserved Cores | Revision | Number of reserved cores for container app revisions | `CoresQuotaUsed` | Count |
+| Resiliency Connection Timeouts | Revision | Total connection timeouts | `ResiliencyConnectTimeouts` | Count |
+| Resiliency Ejected Hosts | Revision | Number of currently ejected hosts | `ResiliencyEjectedHosts` | Count |
+| Resiliency Ejections Aborted | Revision | Number of ejections aborted due to the max ejection % | `ResiliencyEjectionsAborted` | Count |
+| Resiliency Request Retries | Revision | Total request retries | `ResiliencyRequestRetries` | Count |
+| Resiliency Request Timeouts | Revision | Total requests that timed out waiting for a response | `ResiliencyRequestTimeouts` | Count |
+| Resiliency Requests Pending Connection Pool | Replica | Total requests pending a connection pool connection | `ResiliencyRequestsPendingConnectionPool` | Count |
+| Total Reserved Cores | None | Total cores reserved for the container app | `TotalCoresQuotaUsed` | Count |
+| Average Response Time (Preview) | Status Code, Status Code Category | Average response time per status code | `ResponseTime` | Milliseconds |
+| CPU Usage Percentage (Preview) | Replica | Percentage of CPU limit used, in percentage points | `CpuPercentage` | Percent |
+| Memory Percentage (Preview) | Replica | Percentage of memory limit used, in percentage points | `MemoryPercentage` | Percent |
 
-The metrics namespace is `microsoft.app/containerapps`.
+The metrics namespace is `Microsoft.App/containerapps`.
 
 > [!NOTE]
 > Replica restart count is the aggregate restart count over the specified time range, not the number of restarts that occurred at a point in time.
+
+Container Apps environments provides this basic metric. You can only view this metric in [Azure Monitor metrics](https://ms.portal.azure.com/?feature.allrts=true#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/metrics). 
+
+| Title | Dimensions | Description | Metric ID | Unit |
+|--|--|--|--|--|
+| Workload Profile Node Count (Preview) | Workload Profile Name | The node count per workload profile | `NodeCount` | Count |
+
+The metrics namespace is `Microsoft.App/managedEnvironments`.
 
 More runtime specific metrics are available, [Java metrics](./java-metrics.md).
 
@@ -56,7 +67,7 @@ From this view, you can pin one or more charts to your dashboard or select a cha
 
 The Azure Monitor metrics explorer lets you create charts from metric data to help you analyze your container app's resource and network usage over time. You can pin charts to a dashboard or in a shared workbook.
 
-1. Open the metrics explorer in the Azure portal by selecting **Metrics** from the sidebar menu on your container app's page. To learn more about metrics explorer, see [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md).
+1. Open the metrics explorer in the Azure portal by selecting **Metrics** from the sidebar menu on your container app's page. To learn more about metrics explorer, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 1. Create a chart by selecting **Metric**. You can modify the chart by changing aggregation, adding more metrics, changing time ranges and intervals, adding filters, and applying splitting.
 :::image type="content" source="media/observability/metrics-main-page.png" alt-text="Screenshot of the metrics explorer from the container app resource page.":::

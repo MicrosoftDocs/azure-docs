@@ -4,7 +4,7 @@ description: Find out about reliability in Azure DNS Private Resolver #Required;
 author: greg-lindsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: greglin #Required; Microsoft alias of author; optional team alias.
 ms.custom: subject-reliability
-ms.service: dns
+ms.service: azure-dns
 ms.topic: conceptual
 ms.date: 11/30/2023 #Required; mm/dd/yyyy format.
 #Customer intent: As a customer, I want to understand reliability support for Azure DNS Private Resolver. I need to avoid failures and respond to them so that I can minimize down time and data loss.
@@ -49,7 +49,7 @@ In the event of a regional outage, use the same design as that described in [Set
 
 All instances of Azure DNS Private Resolver run as Active-Active within the same region.
 
-The service health is onboarded to [Azure Resource Health](../service-health/resource-health-overview.md), so you'll be able to check for health notifications when you subscribe to them. For more information, see [Create activity log alerts on service notifications using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md).
+The service health is onboarded to [Azure Resource Health](/azure/service-health/resource-health-overview), so you'll be able to check for health notifications when you subscribe to them. For more information, see [Create activity log alerts on service notifications using the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
 
 Also see the [SLA for Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/).
 

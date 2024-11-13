@@ -3,19 +3,19 @@ title: Azure Firewall Manager filtering in network rules
 description: How to use FQDN filtering in network rules
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.topic: article
-ms.date: 04/06/2023
+ms.date: 06/21/2024
 ms.author: victorh
 ---
 
 # FQDN filtering in network rules
 
-A fully qualified domain name (FQDN) represents a domain name of a host or IP address(es). You can use FQDNs in network rules based on DNS resolution in Azure Firewall and Firewall policy. This capability allows you to filter outbound traffic with any TCP/UDP protocol (including NTP, SSH, RDP, and more). You must enable DNS Proxy to use FQDNs in your network rules. For more information, see [Azure Firewall policy DNS settings](dns-settings.md).
+A fully qualified domain name (FQDN) represents a domain name of a host or one or more IP addresses. You can use FQDNs in network rules based on DNS resolution in Azure Firewall and Firewall policy. This capability allows you to filter outbound traffic with any TCP/UDP protocol (including NTP, SSH, RDP, and more). You must enable DNS Proxy to use FQDNs in your network rules. For more information, see [Azure Firewall policy DNS settings](dns-settings.md).
 
 ## How it works
 
-Once you define which DNS server your organization needs (Azure DNS or your own custom DNS), Azure Firewall translates the FQDN to an IP address(es) based on the selected DNS server. This translation happens for both application and network rule processing.
+Once you define which DNS server your organization needs (Azure DNS or your own custom DNS), Azure Firewall translates the FQDN to one or more IP addresses based on the selected DNS server. This translation happens for both application and network rule processing.
 
 What’s the difference between using domain names in application rules compared to that of network rules? 
 

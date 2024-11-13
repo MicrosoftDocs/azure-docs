@@ -4,12 +4,14 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create, change, or disable Azure Network Watcher NSG flow logs using REST API.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 06/01/2023
+ms.date: 09/26/2024
 ---
 
 # Manage NSG flow logs using REST API
+
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
 Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](nsg-flow-logs-overview.md).
 
@@ -43,7 +45,7 @@ armclient login
 *Microsoft.Insights* provider must be registered to successfully log traffic flowing through a network security group. If you aren't sure if the *Microsoft.Insights* provider is registered, use [Providers - Register](/rest/api/resources/providers/register) REST API to register it.
 
 ```powershell
-$subscriptionId = "00000000-0000-0000-0000-000000000000"
+$subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
 armclient post "https://management.azure.com//subscriptions/${subscriptionId}/providers/Microsoft.Insights/register?api-version=2021-04-01"
 ```
 
@@ -52,9 +54,9 @@ armclient post "https://management.azure.com//subscriptions/${subscriptionId}/pr
 The command to enable flow logs version 2 is shown in the following example. For version 1, replace the 'version' field with '1':
 
 ```powershell
-$subscriptionId = "00000000-0000-0000-0000-000000000000"
-$targetUri = "" # example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName/providers/Microsoft.Network/networkSecurityGroups/{nsgName}"
-$storageId = "/subscriptions/00000000-0000-0000-0000-000000000000/{resourceGroupName/providers/Microsoft.Storage/storageAccounts/{saName}"
+$subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
+$targetUri = "" # example /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resourceGroupName/providers/Microsoft.Network/networkSecurityGroups/{nsgName}"
+$storageId = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/{resourceGroupName/providers/Microsoft.Storage/storageAccounts/{saName}"
 $resourceGroupName = "NetworkWatcherRG"
 $networkWatcherName = "NetworkWatcher_westcentralus"
 $requestBody = @"
@@ -82,9 +84,9 @@ The response returned from the preceding example is as follows:
 
 ```json
 {
-  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
+  "targetResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
   "properties": {
-    "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
+    "storageId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
     "enabled": true,
     "retentionPolicy": {
       "days": 5,
@@ -107,9 +109,9 @@ The response returned from the preceding example is as follows:
 Use the following example to disable flow logs. The call is the same as enabling flow logs, except **false** is set for the enabled property.
 
 ```powershell
-$subscriptionId = "00000000-0000-0000-0000-000000000000"
-$targetUri = "" # example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName/providers/Microsoft.Network/networkSecurityGroups/{nsgName}"
-$storageId = "/subscriptions/00000000-0000-0000-0000-000000000000/{resourceGroupName/providers/Microsoft.Storage/storageAccounts/{saName}"
+$subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
+$targetUri = "" # example /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resourceGroupName/providers/Microsoft.Network/networkSecurityGroups/{nsgName}"
+$storageId = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/{resourceGroupName/providers/Microsoft.Storage/storageAccounts/{saName}"
 $resourceGroupName = "NetworkWatcherRG"
 $networkWatcherName = "NetworkWatcher_westcentralus"
 $requestBody = @"
@@ -137,9 +139,9 @@ The response returned from the preceding example is as follows:
 
 ```json
 {
-  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
+  "targetResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
   "properties": {
-    "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
+    "storageId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
     "enabled": false,
     "retentionPolicy": {
       "days": 5,
@@ -162,8 +164,8 @@ The response returned from the preceding example is as follows:
 The following REST call queries the status of flow logs on a network security group.
 
 ```powershell
-$subscriptionId = "00000000-0000-0000-0000-000000000000"
-$targetUri = "" # example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName/providers/Microsoft.Network/networkSecurityGroups/{nsgName}"
+$subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
+$targetUri = "" # example /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resourceGroupName/providers/Microsoft.Network/networkSecurityGroups/{nsgName}"
 $resourceGroupName = "NetworkWatcherRG"
 $networkWatcherName = "NetworkWatcher_westcentralus"
 $requestBody = @"
@@ -179,9 +181,9 @@ The following example shows the response returned:
 
 ```json
 {
-  "targetResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
+  "targetResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{nsgName}",
   "properties": {
-    "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
+    "storageId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{saName}",
     "enabled": true,
    "retentionPolicy": {
       "days": 5,

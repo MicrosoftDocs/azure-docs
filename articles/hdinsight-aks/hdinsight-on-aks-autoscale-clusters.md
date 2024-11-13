@@ -1,14 +1,18 @@
 ---
 title: Automatically scale Azure HDInsight on AKS clusters
 description: Use the Auto scale feature to automatically scale Azure HDInsight clusters on AKS based on a schedule or load based metrics.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 02/06/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Auto Scale HDInsight on AKS Clusters
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 The sizing of any cluster to meet job performance and manage costs ahead of time is always tricky, and hard to determine! One of the lucrative benefits of building data lake house over Cloud is its elasticity, which means to use autoscale feature to maximize the utilization of resources at hand. Auto scale with Kubernetes is one key to establishing a cost optimized ecosystem. With varied usage patterns in any enterprise, there could be variations in cluster loads over time that could lead to clusters being under-provisioned (lousy performance) or overprovisioned (unnecessary costs due to idle resources).  
 
@@ -128,7 +132,7 @@ The default value is set to **180 seconds**
 
    :::image type="content" source="./media/hdinsight-on-aks-autoscale-clusters/add-permissions-concept-step-5.png" alt-text="Screenshot showing how to add role assignment." border="true" lightbox="./media/hdinsight-on-aks-autoscale-clusters/add-permissions-concept-step-5.png":::
    
-1. Select the **add role assignment**, 
+1. Select **add role assignment**, 
    1. Assignment type: Privileged administrator roles
    1. Role: **Owner** or **Contributor**
    1. Members: Choose Managed identity and select the **User-assigned managed identity**, which was given during cluster creation phase. 

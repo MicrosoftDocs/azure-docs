@@ -5,11 +5,10 @@ description: This article describes system variables supported by Azure Data Fac
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # System variables supported by Azure Data Factory and Azure Synapse Analytics

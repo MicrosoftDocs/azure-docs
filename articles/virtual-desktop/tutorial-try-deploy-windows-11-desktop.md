@@ -79,11 +79,11 @@ To create a personal host pool, workspace, application group, and session host V
    | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab. |
    | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This name prefix is used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />The prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where you want to deploy your session host VMs. It must be the same region that your virtual network is in. |
-   | Availability options | Select **No infrastructure dependency required**. This means that your session host VMs aren't deployed in an availability set or in availability zones. |
+   | Availability options | Select **No infrastructure redundancy required**. This means that your session host VMs aren't deployed in an availability set or in availability zones. |
    | Security type | Select **Trusted launch virtual machines**. Leave the subsequent defaults of **Enable secure boot** and **Enable vTPM** checked, and **Integrity monitoring** unchecked. For more information, see [Trusted launch](security-guide.md#trusted-launch). |
-   | Image | Select **Windows 11 Enterprise, version 22H2**. |
+   | Image | Select **Windows 11 Enterprise, version 23H2**. |
    | Virtual machine size | Accept the default SKU. If you want to use a different SKU, select **Change size**, then select from the list. |
-   | Number of VMs | Enter **1** as a minimum. You can deploy up to 400 session host VMs at this point if you wish, or you can add more separately.<br /><br />With a personal host pool, each session host can only be assigned to one user, so you need one session host for each user connecting to this host pool. Once you've completed this tutorial, you can create a pooled host pool, where multiple users can connect to the same session host. |
+   | Number of VMs | Enter **1** as a minimum. You can deploy up to 500 session host VMs at this point if you wish, or you can add more separately.<br /><br />With a personal host pool, each session host can only be assigned to one user, so you need one session host for each user connecting to this host pool. Once you've completed this tutorial, you can create a pooled host pool, where multiple users can connect to the same session host. |
    | OS disk type | Select **Premium SSD** for best performance. |
    | Boot Diagnostics | Select **Enable with managed storage account (recommended)**. |
    | **Network and security** |  |
@@ -207,7 +207,7 @@ Now that you've created and connected to a Windows 11 desktop with Azure Virtual
 
 - [Publish applications](manage-app-groups.md).
 
-- Manage user profiles using [FSLogix profile containers and Azure Files](create-profile-container-azure-ad.yml).
+- [User profile management for Azure Virtual Desktop with FSLogix profile containers](create-profile-container-azure-ad.yml).
 
 - [Understand network connectivity](network-connectivity.md).
 

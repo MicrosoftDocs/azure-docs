@@ -3,10 +3,9 @@ title: Overview and architecture of the SAP CDC capabilities
 titleSuffix: Azure Data Factory
 description: Learn about the SAP change data capture (CDC) capabilities in Azure Data Factory and understand its architecture.
 author: ukchrist
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ms.author: ulrichchrist
 ---
 

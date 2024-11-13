@@ -1,18 +1,18 @@
 ---
-title: Copy a blob with asynchronous scheduling using JavaScript
+title: Copy a blob with asynchronous scheduling using JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to copy a blob with asynchronous scheduling in Azure Storage by using the JavaScript client library.
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 05/08/2023
+ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# Copy a blob with asynchronous scheduling using JavaScript
+# Copy a blob with asynchronous scheduling using JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-copy-async](../../../includes/storage-dev-guides/storage-dev-guide-selector-copy-async.md)]
 
@@ -47,7 +47,15 @@ If the copy source is a blob in a different storage account, the operation can c
 
 The following example shows a scenario for copying a source blob from a different storage account with asynchronous scheduling. In this example, we create a source blob URL with an appended user delegation SAS token. The example shows how to generate the SAS token using the client library, but you can also provide your own. The example also shows how to lease the source blob during the copy operation to prevent changes to the blob from a different client. The `Copy Blob` operation saves the `ETag` value of the source blob when the copy operation starts. If the `ETag` value is changed before the copy operation finishes, the operation fails.
 
+## [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob.js" id="Snippet_copy_from_azure_async":::
+
+## [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/copy-blob.ts" id="Snippet_copy_from_azure_async":::
+
+---
 
 > [!NOTE]
 > User delegation SAS tokens offer greater security, as they're signed with Microsoft Entra credentials instead of an account key. To create a user delegation SAS token, the Microsoft Entra security principal needs appropriate permissions. For authorization requirements, see [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key#authorization).
@@ -56,7 +64,15 @@ The following example shows a scenario for copying a source blob from a differen
 
 You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following example shows a scenario for copying a blob from an accessible source object URL.
 
+## [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob.js" id="Snippet_copy_blob_external_source_async":::
+
+## [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/copy-blob.ts" id="Snippet_copy_blob_external_source_async":::
+
+---
 
 ## Check the status of a copy operation
 
@@ -64,7 +80,15 @@ To check the status of an asynchronous `Copy Blob` operation, you can poll the [
 
 The following code example shows how to check the status of a pending copy operation:
 
+## [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob.js" id="Snippet_check_copy_status_async":::
+
+## [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/copy-blob.ts" id="Snippet_check_copy_status_async":::
+
+---
 
 ## Abort a copy operation
 
@@ -76,11 +100,23 @@ To abort a pending copy operation, call the following operation:
 
 This method wraps the [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) REST API operation, which cancels a pending `Copy Blob` operation. The following code example shows how to abort a pending `Copy Blob` operation:
 
+## [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob.js" id="Snippet_abort_copy_async":::
+
+## [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/copy-blob.ts" id="Snippet_abort_copy_async":::
+
+---
 
 ## Resources
 
 To learn more about copying blobs with asynchronous scheduling using the Azure Blob Storage client library for JavaScript, see the following resources.
+
+### Code samples
+
+- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/copy-blob.ts) code samples from this article (GitHub)
 
 ### REST API operations
 
@@ -89,8 +125,6 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 - [Copy Blob](/rest/api/storageservices/copy-blob) (REST API)
 - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob.js)
-
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-javascript](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-javascript.md)]

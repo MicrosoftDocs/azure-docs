@@ -1,9 +1,9 @@
 ---
 ms.topic: include
-ms.date: 01/05/2023
-author: micahl
-ms.author: micahl
-ms.service: iot-edge
+ms.date: 06/10/2024
+author: PatAltimore
+ms.author: patricka
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---

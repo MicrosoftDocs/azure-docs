@@ -6,12 +6,12 @@ description: Provide sign-up and sign-in to customers with Azure AD B2C accounts
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 10/11/2023
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: fasttrack-edit, 
 zone_pivot_groups: b2c-policy-type
 

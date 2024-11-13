@@ -2,7 +2,7 @@
 title: "Troubleshoot Azure Digital Twins: Error 403 (Forbidden)"
 titleSuffix: Azure Digital Twins
 description: Learn how to diagnose and resolve error 403 (Forbidden) failed service requests from Azure Digital Twins.
-ms.service: digital-twins
+ms.service: azure-digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting

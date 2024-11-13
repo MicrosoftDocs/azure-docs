@@ -1,11 +1,11 @@
 ---
 title: Transform data for an IoT Central application
-description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data both on the way in and out of IoT Central.
+description: IoT devices send data in various formats that you might need to transform. This article describes how to transform data both on the way in and out of IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/27/2023
+ms.date: 10/14/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 # This topic applies to solution builders.
@@ -13,7 +13,7 @@ services: iot-central
 
 # Transform data externally for IoT Central
 
-IoT devices send data in various formats. To use the device data with your IoT Central application, you may need to use a transformation to:
+IoT devices send data in various formats. To use the device data with your IoT Central application, you might need to use a transformation to:
 
 - Make the format of the data compatible with your IoT Central application.
 - Convert units.
@@ -142,13 +142,13 @@ To build the custom module in the [Azure Cloud Shell](https://shell.azure.com/):
     az acr build --registry $REGISTRY_NAME --image transformmodule:0.0.1-amd64 -f Dockerfile.amd64 .
     ```
 
-    The previous commands may take several minutes to run.
+    The previous commands might take several minutes to run.
 
 ### Set up an IoT Edge device
 
 This scenario uses an IoT Edge gateway device to transform the data from any downstream devices. This section describes how to create IoT Central device template for the gateway device in your IoT Central application. IoT Edge devices use a deployment manifest to configure their modules.
 
-In this example, the downstream device doesn't need a device template. The downstream device is registered in IoT Central so you can generate the credentials it needs to connect the IoT Edge device. Because the IoT Edge module transforms the data, all the downstream device telemetry arrives in IoT Central as if the IoT Edge device has sent it.
+In this example, the downstream device doesn't need a device template. The downstream device is registered in IoT Central so you can generate the credentials it needs to connect the IoT Edge device. Because the IoT Edge module transforms the data, all the downstream device telemetry arrives in IoT Central as if the IoT Edge device sent it.
 
 To create a device template for the IoT Edge gateway device:
 
@@ -162,7 +162,7 @@ To create a device template for the IoT Edge gateway device:
 
 1. In your IoT Central application, navigate to the **Edge manifests** page.
 
-1. Select **+ New**. Enter a name such as *Transformer* for your deployment manifest, and then upload the *moduledeployment.json* file you downloaded previously. The deployment manifest includes a custom module called *transformmodule*.
+1. Select **+ New**. Enter a name such as *Transformer* for your deployment manifest, and then upload the *moduledeployment.json* file you downloaded previously. The deployment manifest includes a custom module called *transform module*.
 
 1. Select **Next** and then **Create**.
 
@@ -306,7 +306,7 @@ To generate the demo certificates and install them on your gateway device:
     After you run the previous commands, the following files are ready to use in the next steps:
 
     - *~/certs/certs/azure-iot-test-only.root.ca.cert.pem* - The root CA certificate used to make all the other demo certificates for testing an IoT Edge scenario.
-    - *~/certs/certs/iot-edge-device-mycacert-full-chain.cert.pem* - A device CA certificate that's referenced from the *config.yaml* file. In a gateway scenario, this CA certificate is how the IoT Edge device verifies its identity to downstream devices.
+    - *~/certs/certs/iot-edge-device-mycacert-full-chain.cert.pem* - A device CA certificate that the *config.yaml* file references. In a gateway scenario, this CA certificate is how the IoT Edge device verifies its identity to downstream devices.
     - *~/certs/private/iot-edge-device-mycacert.key.pem* - The private key associated with the device CA certificate.
 
     To learn more about these demo certificates, see [Create demo certificates to test IoT Edge device features](../../iot-edge/how-to-create-test-certificates.md).
@@ -432,7 +432,7 @@ You can connect your devices to IoT Central, export the device data to a compute
 
 You can use the [IoT Central device bridge](https://github.com/Azure/iotc-device-bridge) as compute engine to transform data exported from IoT Central.
 
-An advantage of transforming data at egress is that your devices connect directly to IoT Central, which makes it easy to send commands to devices or update device properties. However, with this method, you may use more messages than your monthly allotment and increase the cost of using Azure IoT Central.
+An advantage of transforming data at egress is that your devices connect directly to IoT Central, which makes it easy to send commands to devices or update device properties. However, with this method, you might use more messages than your monthly allotment and increase the cost of using Azure IoT Central.
 
 ### Use the IoT Central device bridge to transform device data
 
@@ -552,7 +552,7 @@ To configure the device bridge to transform the exported device data:
     npm install
     ```
 
-    This command may take a few minutes to run.
+    This command might take a few minutes to run.
 
 1. Return to the **Azure Function Overview** page and restart the function:
 
@@ -600,11 +600,11 @@ Set up the data export to send data to your Device bridge:
 
 ### Verify
 
-The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and npm installed on your local machine. If you don't want to install these prerequisites, use the [Azure Cloud Shell](https://shell.azure.com/) where they are preinstalled.
+The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and npm installed on your local machine. If you don't want to install these prerequisites, use the [Azure Cloud Shell](https://shell.azure.com/) where they're preinstalled.
 
 To run a sample device that tests the scenario:
 
-1. Clone the GitHub repository that contains the sample code, run the following command:
+1. Clone the GitHub repository that contains the sample code and then run the following command:
 
     ```bash
     git clone https://github.com/Azure/iot-central-compute
@@ -644,7 +644,7 @@ To run a sample device that tests the scenario:
     send status: MessageEnqueued [{"data":"40.5, 36.41, 14.6043, 14.079"}]
     ```
 
-1. In your IoT Central application, navigate to the device called **computeDevice**. On the **Raw data** view, there are two different telemetry streams that show up around every five seconds. The stream with unmodeled data is the original telemetry, the stream with modeled data is the data that the function transformed:
+1. In your IoT Central application, navigate to the device called **computeDevice**. On the **Raw data** view, there are two different telemetry streams that show up around every five seconds. The stream with unmodeled data is the original telemetry. The stream with modeled data is the data that the function transformed:
 
     :::image type="content" source="media/howto-transform-data/egress-telemetry.png" alt-text="Screenshot that shows original and transformed raw data.":::
 
@@ -654,11 +654,9 @@ If you no longer need the Azure resources you created while following the steps 
 
 The two resource groups you used in this guide are **ingress-scenario** and **egress-scenario**.
 
-## Next steps
+## Summary
 
 In this article, you learned about the different options for transforming device data for IoT Central, both at ingress and egress. The article included walkthroughs for two specific scenarios:
 
 - Use an IoT Edge module to transform data from downstream devices before the data is sent to your IoT Central application.
 - Use Azure Functions to transform data outside of IoT Central. In this scenario, IoT Central uses a data export to send incoming data to an Azure function to be transformed. The function sends the transformed data back to your IoT Central application.
-
-Now that you've learned how to transform device data outside of your Azure IoT Central application, you can learn [How to use data explorer to analyze device data in IoT Central](howto-create-analytics.md).

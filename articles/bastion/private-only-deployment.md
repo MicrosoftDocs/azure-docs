@@ -2,9 +2,9 @@
 title: 'Deploy private-only Bastion'
 description: Learn how to deploy Bastion for a private-only scenario.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 05/30/2024
 ms.author: cherylmc
 
 ---
@@ -20,9 +20,6 @@ The following diagram shows the Bastion private-only deployment architecture. A 
 Items to consider:
 
 [!INCLUDE [private-only bastion considerations](../../includes/bastion-private-only-considerations.md)]
-
-> [!NOTE]
-> The Private-only Deployment (Preview) feature is currently rolling out.
 
 ## Prerequisites
 
@@ -60,7 +57,7 @@ You can use the following example values when creating this configuration, or yo
 This section helps you deploy Bastion as private-only to your virtual network.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to your virtual network. If you don't already have one, you can [create a virtual network](../virtual-network/quick-create-portal.md). If you're creating a virtual network for this exercise, you can create the AzureBastionSubnet (from the next step) at the same time you create your virtual network.
 

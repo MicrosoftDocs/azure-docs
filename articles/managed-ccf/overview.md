@@ -3,7 +3,7 @@ title: Overview of Azure Managed Confidential Consortium Framework
 description: An overview of Azure Managed Confidential Consortium Framework, a highly secure service for deploying confidential application.
 services: managed-confidential-consortium-framework
 author: msftsettiy
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: overview
 ms.date: 09/07/2023
 ms.author: settiy

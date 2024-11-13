@@ -3,7 +3,7 @@ title: Troubleshooting the embedded device tutorials
 description: Steps to help you troubleshoot common issues when using the Eclipse ThreadX embedded device tutorials
 author: timlt
 ms.author: timlt
-ms.service: iot
+ms.service: azure-iot
 ms.topic: troubleshooting
 ms.date: 04/08/2024
 ---

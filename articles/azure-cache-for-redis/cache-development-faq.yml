@@ -2,9 +2,9 @@
 metadata:
   title: Azure Cache for Redis development FAQs
   description: Learn the answers to common questions that help you develop for Azure Cache for Redis.
-  author: flang-msft
-  ms.author: franlanglois
-  ms.service: cache
+  
+  
+  
   ms.topic: faq
   ms.devlang: csharp
   ms.custom: devx-track-csharp
@@ -51,15 +51,18 @@ sections:
           ### Timeout values
             * Consider your workload and set the values to match. If you're storing large values, set the timeout to a higher value.
             * Set `AbortOnConnectFail` to false and let StackExchange.Redis reconnect for you.
-            * Use a single, long-lived `ConnectionMultiplexer` instance rather than creating a new connection for each request. For an example of how to manage a connection, see the `RedisConnection`` class in [Connect to the cache with RedisConnection](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache-with-redisconnection).
+            * Use a single, long-lived `ConnectionMultiplexer` instance rather than creating a new connection for each request. For an example of how to manage a connection, see the `RedisConnection` class in [Connect to the cache by using RedisConnection](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache-by-using-redisconnection).
             * Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
             * Use multiple `ConnectionMultiplexer` instances for custom workloads.
-              * You can follow this model if you have varying load in your application. For example:
+
+              You can follow this model if you have varying loads in your application. For example:  
+
               * You can have one multiplexer for dealing with large keys.
               * You can have one multiplexer for dealing with small keys.
-              * You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
+              * You can set different values for connection timeouts and retry logic for each `ConnectionMultiplexer` that you use.
               * Set the `ClientName` property on each multiplexer to help with diagnostics.
-              * This guidance might lead to more streamlined latency per `ConnectionMultiplexer`.
+              
+              Following this guidance might lead to more streamlined latency per `ConnectionMultiplexer`.
           
       - question: |
           What Azure Cache for Redis clients can I use?
@@ -71,7 +74,7 @@ sections:
       - question: |
           Is there a local emulator for Azure Cache for Redis?
         answer: |
-          There's no local emulator for Azure Cache for Redis. You can run the MSOpenTech version of redis-server.exe from the [Redis command-line tools](https://github.com/MSOpenTech/redis/releases/) on your local machine. Then, connect to it to get a similar experience to a local cache emulator, as shown in the following example:
+          There's no local emulator for Azure Cache for Redis. You can, however, run a copy of community Redis on your local machine and connect to it to get a similar experience to a local cache emulator, as shown in the following example:
           
             ```csharp
             private static Lazy<ConnectionMultiplexer>
@@ -91,7 +94,7 @@ sections:
             }
             ```
                     
-          You can optionally configure a [redis.conf](https://redis.io/topics/config) file to more closely match the [default cache settings](cache-configure.md#default-redis-server-configuration) for your online Azure Cache for Redis if you want.
+          Redis runs natively on Linux, but you can also use Windows Subsystem for Linux to run Redis on a windows machine. For more information, see [Install Redis on Windows](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-windows/) You can optionally configure a [redis.conf](https://redis.io/topics/config) file to more closely match the [default cache settings](cache-configure.md#default-redis-server-configuration) for your online Azure Cache for Redis if you want.
           
       - question: |
           How can I run Redis commands?
@@ -100,19 +103,7 @@ sections:
           
            If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). The Redis console provides a secure way to run Redis commands in the Azure portal.
           
-          You can also use the Redis command-line tools. To use them, do the following steps:
-          1. Download the [Redis command-line tools](/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool#install-redis-cli).
-
-          1. Connect to the cache using `redis-cli.exe`. 
-          
-          1. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example:
-          
-               `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
-          
-          > [!NOTE]
-          > The Redis command-line tools don't work with the TLS port, but you can use a utility such as `stunnel` to securely connect the tools to the TLS port by following the directions in the [How to use the Redis command-line tool with Azure Cache for Redis](./cache-how-to-redis-cli-tool.md) article.
-          >
-          >
+          You can also use the Redis command-line tools. To use them, see [Use the Redis command-line tool with Azure Cache for Redis](cache-how-to-redis-cli-tool.md)          
           
       - question: |
           Why doesn't Azure Cache for Redis have an MSDN class library reference?

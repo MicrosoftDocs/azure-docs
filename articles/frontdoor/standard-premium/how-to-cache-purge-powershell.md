@@ -4,7 +4,7 @@ description: This article helps you understand how to purge cache on an Azure Fr
 services: frontdoor
 author: duongau
 manager: KumudD
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.date: 09/20/2022
@@ -22,9 +22,9 @@ Best practice is to make sure your users always obtain the latest copy of your a
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 * Review [Caching with Azure Front Door](../front-door-caching.md) to understand how caching works.
 * Have a functioning Azure Front Door profile. Refer [Create a Front Door - PowerShell](../create-front-door-powershell.md)to learn how to create one.

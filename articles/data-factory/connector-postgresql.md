@@ -3,11 +3,10 @@ title: Copy data From PostgreSQL
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/17/2024
+ms.date: 10/09/2024
 ms.author: jianleishen
 ---
 # Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -16,7 +15,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!IMPORTANT]
->The new PostgreSQL connector provides improved native PostgreSQL support and better performance. If you are using the legacy PostgreSQL connector in your solution, supported as-is for backward compatibility only, refer to [PostgreSQL connector (legacy)](connector-postgresql-legacy.md) article.
+>The new PostgreSQL connector provides improved native PostgreSQL support. If you are using the legacy PostgreSQL connector in your solution, please [upgrade your PostgreSQL connector](#upgrade-the-postgresql-linked-service) before **October 31, 2024**. Refer to this [section](#differences-between-postgresql-and-postgresql-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
@@ -309,9 +308,9 @@ When copying data from PostgreSQL, the following mappings are used from PostgreS
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the PostgreSQL linked service
+## <a name="upgrade-the-postgresql-linked-service"></a> Upgrade the PostgreSQL connector
 
-Here are steps that help you upgrade your PostgreSQL linked service:
+Here are steps that help you upgrade your PostgreSQL connector:
 
 1. Create a new PostgreSQL linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 

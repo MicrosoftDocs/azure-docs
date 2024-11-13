@@ -5,12 +5,12 @@ description: Learn how to prepopulate the sign-in name or redirect straight to a
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 
@@ -69,9 +69,9 @@ The domain hint query string parameter can set to one of the following domains:
 - linkedin.com
 - microsoft.com
 - qq.com
-- twitter.com
 - wechat.com
 - weibo.com 
+- x.com
 - For [Generic OpenID Connect](identity-provider-generic-openid-connect.md), see [Domain hint](identity-provider-generic-openid-connect.md#response-mode).
 
 ::: zone-end

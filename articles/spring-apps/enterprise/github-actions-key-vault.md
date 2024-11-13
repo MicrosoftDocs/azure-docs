@@ -3,16 +3,15 @@ title: Authenticate Azure Spring Apps with Key Vault in GitHub Actions
 description: How to use Azure Key Vault with a CI/CD workflow for Azure Spring Apps with GitHub Actions
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Authenticate Azure Spring Apps with Azure Key Vault in GitHub Actions
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 

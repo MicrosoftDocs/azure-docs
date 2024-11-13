@@ -3,7 +3,6 @@ title: Azure Private Link for Azure Data Factory
 description: Learn about how Azure Private Link works in Azure Data Factory.
 ms.author: lle
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 01/05/2024
@@ -219,7 +218,7 @@ You must also create or assign an existing virtual machine to run the self-hoste
 1. Select **Review + create**.
 1. Review the settings, and then select **Create**.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ### Create a private endpoint
 

@@ -24,7 +24,7 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 * You should trigger the restore operation when there are no baseline backups. Otherwise, the restore might increase the load on the Azure Blob account where your data is backed up. 
 
-* For large volumes (greater than 10 TB), it can take multiple hours to transfer all the data from the backup media.
+* For volumes greater than 10 TiB, it can take multiple hours to transfer all the data from the backup media.
 
 * Restoring a backup to a new volume is not dependent on the networking type used by the source volume. You can restore the backup of a volume configured with Basic networking to a volume configured with Standard networking and vice versa.
 
@@ -36,7 +36,7 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 > [!IMPORTANT]
 > Running multiple concurrent volume restores using Azure NetApp Files backup may increase the time it takes for each individual, in-progress restore to complete. As such, if time is a factor to you, you should prioritize and sequentialize the most important volume restores and wait until the restores are complete before starting another, lower priority, volume restores.  
 
-See [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md) for more considerations about using Azure NetApp Files backup.
+See [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md) for more considerations about using Azure NetApp Files backup. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) for information about minimums and maximums. 
 
 ## Steps
 
@@ -58,7 +58,7 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
         However, if you restore a volume from the backup list at the NetApp account level, you need to specify the Protocol field. The Protocol field must match the protocol of the original volume. Otherwise, the restore operation fails with the following error:  
         `Protocol Type value mismatch between input and source volume of backupId <backup-id of the selected backup>. Supported protocol type : <Protocol Type of the source volume>`
 
-    * The **Quota** value must be **at least 20% greater** than the size of the backup from which the restore is triggered (minimum 100 GiB). Once the restore is complete, the volume can be resized depending on the size used. 
+    * The **Quota** value must be **at least 20% greater** than the size of the backup from which the restore is triggered. Once the restore is complete, the volume can be resized depending on the size used. 
 
     * The **Capacity pool** that the backup is restored into must have sufficient unused capacity to host the new restored volume. Otherwise, the restore operation fails.   
 

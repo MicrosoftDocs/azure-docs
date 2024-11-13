@@ -4,7 +4,7 @@ description: Create a free certificate, import an App Service certificate, impor
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 07/28/2023
+ms.date: 09/19/2024
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -12,15 +12,17 @@ author: msangapu-msft
 
 # Add and manage TLS/SSL certificates in Azure App Service
 
-You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [secure custom DNS names](configure-ssl-bindings.md) in [Azure App Service](overview.md), which provides a highly scalable, self-patching web hosting service. Currently called Transport Layer Security (TLS) certificates, also previously known as Secure Socket Layer (SSL) certificates, these private or public certificates help you secure internet connections by encrypting data sent between your browser, websites that you visit, and the website server.
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
+You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [help secure custom DNS names](configure-ssl-bindings.md) in [Azure App Service](overview.md), which provides a highly scalable, self-patching web hosting service. Currently called Transport Layer Security (TLS) certificates, also previously known as Secure Socket Layer (SSL) certificates, these private or public certificates help you secure internet connections by encrypting data sent between your browser, websites that you visit, and the website server.
 
 The following table lists the options for you to add certificates in App Service:
 
 |Option|Description|
 |-|-|
-| Create a free App Service managed certificate | A private certificate that's free of charge and easy to use if you just need to secure your [custom domain](app-service-web-tutorial-custom-domain.md) in App Service. |
+| Create a free App Service managed certificate | A private certificate that's free of charge and easy to use if you just need to improve security for your [custom domain](app-service-web-tutorial-custom-domain.md) in App Service. |
 | Import an App Service certificate | A private certificate that's managed by Azure. It combines the simplicity of automated certificate management and the flexibility of renewal and export options. |
-| Import a certificate from Key Vault | Useful if you use [Azure Key Vault](../key-vault/index.yml) to manage your [PKCS12 certificates](https://wikipedia.org/wiki/PKCS_12). See [Private certificate requirements](#private-certificate-requirements). |
+| Import a certificate from Key Vault | Useful if you use [Azure Key Vault](/azure/key-vault/) to manage your [PKCS12 certificates](https://wikipedia.org/wiki/PKCS_12). See [Private certificate requirements](#private-certificate-requirements). |
 | Upload a private certificate | If you already have a private certificate from a third-party provider, you can upload it. See [Private certificate requirements](#private-certificate-requirements). |
 | Upload a public certificate | Public certificates aren't used to secure custom domains, but you can load them into your code if you need them to access remote resources. |
 
@@ -34,17 +36,17 @@ The following table lists the options for you to add certificates in App Service
 
   - Map the domain where you want the certificate to App Service. For information, see [Tutorial: Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md).
   
-  - For a root domain (like contoso.com), make sure your app doesn't have any [IP restrictions](app-service-ip-restrictions.md) configured. Both certificate creation and its periodic renewal for a root domain depends on your app being reachable from the internet.
+  - For a root domain (like contoso.com), make sure your app doesn't have any [IP restrictions](app-service-ip-restrictions.md) configured. Both certificate creation and its periodic renewal for a root domain depend on your app being reachable from the internet.
 
 ## Private certificate requirements
 
 The [free App Service managed certificate](#create-a-free-managed-certificate) and the [App Service certificate](configure-ssl-app-service-certificate.md) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
 
-* Exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions), encrypted using triple DES.
+* Exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions), encrypted using triple DES
 * Contains private key at least 2048 bits long
-* Contains all intermediate certificates and the root certificate in the certificate chain.
+* Contains all intermediate certificates and the root certificate in the certificate chain
 
-To secure a custom domain in a TLS binding, the certificate has more requirements:
+If you want to help secure a custom domain in a TLS binding, the certificate must meet these additional requirements:
 
 * Contains an [Extended Key Usage](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) for server authentication (OID = 1.3.6.1.5.5.7.3.1)
 * Signed by a trusted certificate authority
@@ -59,7 +61,7 @@ To secure a custom domain in a TLS binding, the certificate has more requirement
 
 ## Create a free managed certificate
 
-The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. Without any action from you, this TLS/SSL server certificate is fully managed by App Service and is automatically renewed continuously in six-month increments, 45 days before expiration, as long as the prerequisites that you set up stay the same. All the associated bindings are updated with the renewed certificate. You create and bind the certificate to a custom domain, and let App Service do the rest.
+The free App Service managed certificate is a turn-key solution for helping to secure your custom DNS name in App Service. Without any action from you, this TLS/SSL server certificate is fully managed by App Service and is automatically renewed continuously in six-month increments, 45 days before expiration, as long as the prerequisites that you set up stay the same. All the associated bindings are updated with the renewed certificate. You create and bind the certificate to a custom domain, and let App Service do the rest.
 
 > [!IMPORTANT]
 > Before you create a free managed certificate, make sure you have [met the prerequisites](#prerequisites) for your app.
@@ -74,18 +76,19 @@ The free certificate comes with the following limitations:
 - Doesn't support usage as a client certificate by using certificate thumbprint, which is planned for deprecation and removal.
 - Doesn't support private DNS.
 - Isn't exportable.
-- Isn't supported in an App Service Environment (ASE).
+- Isn't supported in an App Service Environment.
 - Only supports alphanumeric characters, dashes (-), and periods (.).
 - Only custom domains of length up to 64 characters are supported. 
 
 ### [Apex domain](#tab/apex)
 - Must have an A record pointing to your web app's IP address.
-- Isn't supported on apps that aren't publicly accessible.
+- Must be on apps that are publicly accessible.
 - Isn't supported with root domains that are integrated with Traffic Manager.
-- Must meet all the above for successful certificate issuances and renewals.
+- Must meet all of the above for successful certificate issuances and renewals.
 
 ### [Subdomain](#tab/subdomain)
 - Must have CNAME mapped _directly_ to `<app-name>.azurewebsites.net` or [trafficmanager.net](configure-domain-traffic-manager.md#enable-custom-domain). Mapping to an intermediate CNAME value blocks certificate issuance and renewal.
+- Must be on apps that are publicly accessible.
 - Must meet all the above for successful certificate issuance and renewals.
 
 ---
@@ -100,13 +103,13 @@ The free certificate comes with the following limitations:
 
    When the operation completes, the certificate appears in the **Managed certificates** list.
 
-    :::image type="content" source="media/configure-ssl-certificate/create-free-cert-finished.png" alt-text="Screenshot of 'Managed certificates' pane with newly created certificate listed.":::
+    :::image type="content" source="media/configure-ssl-certificate/create-free-cert-finished.png" alt-text="Screenshot of the Managed certificates pane with the new certificate listed.":::
 
-1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+1. To provide security for a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 ## Import an App Service certificate
 
-To import an App Service certificate, first [buy and configure an App Service certificate](configure-ssl-app-service-certificate.md#buy-and-configure-an-app-service-certificate), then follow the steps here.
+To import an App Service certificate, first [buy and configure an App Service certificate](configure-ssl-app-service-certificate.md#buy-and-configure-an-app-service-certificate), and then follow the steps here.
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<app-name>**.
 
@@ -123,7 +126,7 @@ To import an App Service certificate, first [buy and configure an App Service ce
 
     :::image type="content" source="media/configure-ssl-certificate/import-app-service-cert-finished.png" alt-text="Screenshot of 'Bring your own certificates (.pfx)' pane with purchased certificate listed.":::
 
-1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+1. To help secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 ## Import a certificate from Key Vault
 
@@ -131,15 +134,30 @@ If you use Azure Key Vault to manage your certificates, you can import a PKCS12 
 
 ### Authorize App Service to read from the vault
 
-By default, the App Service resource provider doesn't have access to your key vault. To use a key vault for a certificate deployment, you must [authorize read access for the resource provider to the key vault](../key-vault/general/assign-access-policy-cli.md). 
+By default, the App Service resource provider doesn't have access to your key vault. To use a key vault for a certificate deployment, you must authorize read access for the resource provider (App Service) to the key vault. You can grant access either with access policy or RBAC. 
+
+### [RBAC permissions](#tab/RBAC)
+| Resource provider | Service principal app ID / assignee | Key vault RBAC role |
+|--|--|--|
+| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for public Azure cloud environment <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Government cloud environment | Certificate User |
+
+The service principal app ID or assignee value is the ID for the App Service resource provider. To learn how to authorize key vault permissions for the App Service resource provider using an access policy, see the [provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control documentation](/azure/key-vault/general/rbac-guide?tabs=azure-portal#key-vault-scope-role-assignment).
 
 > [!NOTE]
-> Currently, the Azure portal does not allow you to configure an App Service certificate in Key Vault to use the RBAC model. You can, however, use Azure CLI, Azure PowerShell, or an ARM template deployment to perform this configuration.  For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md?tabs=azure-cli).
+> Do not delete these RBAC permissions from key vault. If you do, App Service will not be able to sync your web app with the latest key vault certificate version.
 
-| Resource provider | Service principal AppId | Key vault secret permissions | Key vault certificate permissions |
+### [Access policy permissions](#tab/accesspolicy)
+
+| Resource provider | Service principal app ID | Key vault secret permissions | Key vault certificate permissions |
 |--|--|--|--|
-| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd`, which is the same for all Azure subscriptions <br><br>- For Azure Government cloud environment, use `6a02c803-dafd-4136-b4c3-5a6f318b4714`. | Get | Get |
-| **Microsoft.Azure.CertificateRegistration** |  | Get<br/>List<br/>Set<br/>Delete | Get<br/>List |
+| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for public Azure cloud environment <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Government cloud environment | Get | Get |
+
+The service principal app ID or assignee value is the ID for the App Service resource provider. To learn how to authorize key vault permissions for the App Service resource provider using an access policy, see the [assign a Key Vault access policy documentation](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
+
+> [!NOTE]
+> Do not delete these access policy permissions from key vault. If you do, App Service will not be able to sync your web app with the latest key vault certificate version.
+
+---
 
 ### Import a certificate from your vault to your app
 
@@ -151,7 +169,7 @@ By default, the App Service resource provider doesn't have access to your key va
 
 1. Select **Select key vault certificate**.
 
-    :::image type="content" source="media/configure-ssl-certificate/import-key-vault-cert.png" alt-text="Screenshot of app management page with 'Certificates', 'Bring your own certificates (.pfx)', and 'Import from Key Vault' selected":::
+    :::image type="content" source="media/configure-ssl-certificate/import-key-vault-cert.png" alt-text="Screenshot of the app management page with 'Certificates', 'Bring your own certificates (.pfx)', and 'Import from Key Vault' selected.":::
 
 1. To help you select the certificate, use the following table:
 
@@ -161,7 +179,7 @@ By default, the App Service resource provider doesn't have access to your key va
    | **Key vault** | The key vault that has the certificate you want to import. |
    | **Certificate** | From this list, select a PKCS12 certificate that's in the vault. All PKCS12 certificates in the vault are listed with their thumbprints, but not all are supported in App Service. |
 
-1. When finished with your selection, select **Select**, **Validate**, then **Add**.
+1. When finished with your selection, select **Select**, **Validate**, and then **Add**.
 
    When the operation completes, the certificate appears in the **Bring your own certificates** list. If the import fails with an error, the certificate doesn't meet the [requirements for App Service](#private-certificate-requirements).
 
@@ -170,7 +188,7 @@ By default, the App Service resource provider doesn't have access to your key va
    > [!NOTE]
    > If you update your certificate in Key Vault with a new certificate, App Service automatically syncs your certificate within 24 hours.
 
-1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+1. To helps secure custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 ## Upload a private certificate
 
@@ -204,13 +222,13 @@ If your certificate authority gives you multiple certificates in the certificate
    -----END CERTIFICATE-----
    ```
 
-#### Export merged private certificate to PFX
+#### Export the merged private certificate to PFX
 
 Now, export your merged TLS/SSL certificate with the private key that was used to generate your certificate request. If you generated your certificate request using OpenSSL, then you created a private key file.
 
 > [!NOTE]
-> OpenSSL v3 changed default cipher from 3DES to AES256, but this can be overridden on the command line -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -macalg SHA1.
-> OpenSSL v1 uses 3DES as default, so the PFX files generated are supported without any special modifications.
+> OpenSSL v3 changed the default cipher from 3DES to AES256, but this can be overridden on the command line: -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -macalg SHA1.
+> OpenSSL v1 uses 3DES as the default, so the PFX files generated are supported without any special modifications.
 
 1. To export your certificate to a PFX file, run the following command, but replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_ with the paths to your private key and your merged certificate file.
 
@@ -222,7 +240,7 @@ Now, export your merged TLS/SSL certificate with the private key that was used t
 
 1. If you used IIS or _Certreq.exe_ to generate your certificate request, install the certificate to your local computer, and then [export the certificate to a PFX file](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
 
-#### Upload certificate to App Service
+#### Upload the certificate to App Service
 
 You're now ready upload the certificate to App Service.
 
@@ -230,7 +248,7 @@ You're now ready upload the certificate to App Service.
 
 1. From your app's navigation menu, select **Certificates** > **Bring your own certificates (.pfx)** > **Upload Certificate**.
 
-    :::image type="content" source="media/configure-ssl-certificate/upload-private-cert.png" alt-text="Screenshot of 'Certificates', 'Bring your own certificates (.pfx)', 'Upload Certificate' selected.":::
+    :::image type="content" source="media/configure-ssl-certificate/upload-private-cert.png" alt-text="Screenshot of the app management page with 'Certificates', 'Bring your own certificates (.pfx)', and 'Upload Certificate' selected.":::
 
 1. To help you upload the .pfx certificate, use the following table:
 
@@ -240,20 +258,20 @@ You're now ready upload the certificate to App Service.
    | **Certificate password** | Enter the password that you created when you exported the PFX file. |
    | **Certificate friendly name** | The certificate name that will be shown in your web app. |
 
-1. When finished with your selection, select **Select**, **Validate**, then **Add**.
+1. When finished with your selection, select **Select**, **Validate**, and then **Add**.
 
    When the operation completes, the certificate appears in the **Bring your own certificates** list.
 
-    :::image type="content" source="media/configure-ssl-certificate/import-app-service-cert-finished.png" alt-text="Screenshot of 'Bring your own certificates' pane with uploaded certificate listed.":::
+    :::image type="content" source="media/configure-ssl-certificate/import-app-service-cert-finished.png" alt-text="Screenshot of the 'Bring your own certificates' pane with the uploaded certificate listed.":::
 
-1. To secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+1. To provide security for a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 ## Upload a public certificate
 
 Public certificates are supported in the *.cer* format.
 
 > [!NOTE]
-> After you upload a public certificate to an app, it is only accessible by the app it is uploaded to. Public certificates must be uploaded to each individual web app that needs access. For App Service Environment specific scenarios, refer to [the documentation for certificates and the App Service Environment](../app-service/environment/overview-certificates.md)
+> After you upload a public certificate to an app, it's only accessible by the app it's uploaded to. Public certificates must be uploaded to each individual web app that needs access. For App Service Environment specific scenarios, refer to [the documentation for certificates and the App Service Environment](../app-service/environment/overview-certificates.md).
 >
 > You can upload up to 1000 public certificates per App Service Plan.
 
@@ -270,7 +288,7 @@ Public certificates are supported in the *.cer* format.
 
 1. When you're done, select **Add**.
 
-    :::image type="content" source="media/configure-ssl-certificate/upload-public-cert.png" alt-text="Screenshot of name and public key certificate to upload.":::
+    :::image type="content" source="media/configure-ssl-certificate/upload-public-cert.png" alt-text="Screenshot of the app management page. It shows the public key certificate to upload and its name.":::
 
 1. After the certificate is uploaded, copy the certificate thumbprint, and then review [Make the certificate accessible](configure-ssl-certificate-in-code.md#make-the-certificate-accessible).
 
@@ -278,19 +296,19 @@ Public certificates are supported in the *.cer* format.
 
 Before a certificate expires, make sure to add the renewed certificate to App Service, and update any certificate bindings where the process depends on the certificate type. For example, a [certificate imported from Key Vault](#import-a-certificate-from-key-vault), including an [App Service certificate](configure-ssl-app-service-certificate.md), automatically syncs to App Service every 24 hours and updates the TLS/SSL binding when you renew the certificate. For an [uploaded certificate](#upload-a-private-certificate), there's no automatic binding update. Based on your scenario, review the corresponding section:
 
-- [Renew an uploaded certificate](#renew-uploaded-certificate)
+- [Renew an uploaded certificate](#renew-an-uploaded-certificate)
 - [Renew an App Service certificate](configure-ssl-app-service-certificate.md#renew-an-app-service-certificate)
 - [Renew a certificate imported from Key Vault](#renew-a-certificate-imported-from-key-vault)
 
-#### Renew uploaded certificate
+#### Renew an uploaded certificate
 
-When you replace an expiring certificate, the way you update the certificate binding with the new certificate might adversely affect user experience. For example, your inbound IP address might change when you delete a binding, even if that binding is IP-based. This result is especially impactful when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, and to avoid downtime for your app due to HTTPS errors, follow these steps in the specified sequence:
+When you replace an expiring certificate, the way you update the certificate binding with the new certificate might adversely affect the user experience. For example, your inbound IP address might change when you delete a binding, even if that binding is IP-based. This result is especially impactful when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, and to avoid downtime for your app due to HTTPS errors, follow these steps in the specified sequence:
 
 1. [Upload the new certificate](#upload-a-private-certificate).
 
-1. Go to the **Custom domains** page for your app, select the **...** actions button, and select **Update binding**.
+1. Go to the **Custom domains** page for your app, select the **...** button, and then select **Update binding**.
 
-1. Select the new certificate and select **Update**.
+1. Select the new certificate and then select **Update**.
 
 1. Delete the existing certificate.
 
@@ -299,28 +317,29 @@ When you replace an expiring certificate, the way you update the certificate bin
 > [!NOTE]
 > To renew an App Service certificate, see [Renew an App Service certificate](configure-ssl-app-service-certificate.md#renew-an-app-service-certificate).
 
-To renew a certificate that you imported into App Service from Key Vault, review [Renew your Azure Key Vault certificate](../key-vault/certificates/overview-renew-certificate.md).
+To renew a certificate that you imported into App Service from Key Vault, review [Renew your Azure Key Vault certificate](/azure/key-vault/certificates/overview-renew-certificate).
 
-After the certificate renews inside your key vault, App Service automatically syncs the new certificate, and updates any applicable certificate binding within 24 hours. To sync manually, follow these steps:
+After the certificate renews in your key vault, App Service automatically syncs the new certificate and updates any applicable certificate binding within 24 hours. To sync manually, follow these steps:
 
 1. Go to your app's **Certificate** page.
 
-1. Under **Bring your own certificates (.pfx)**, select the **...** details button for the imported key vault certificate, and then select **Sync**. 
+1. Under **Bring your own certificates (.pfx)**, select the **...** button for the imported key vault certificate, and then select **Sync**. 
 
 ## Frequently asked questions
 
-- [How can I automate adding a bring-your-owncertificate to an app?](#how-can-i-automate-adding-a-bring-your-owncertificate-to-an-app)
-- [Frequently asked questions for App Service certificates](configure-ssl-app-service-certificate.md#frequently-asked-questions)
-#### How can I automate adding a bring-your-owncertificate to an app?
+### How can I automate adding a bring-your-own certificate to an app?
 
 - [Azure CLI: Bind a custom TLS/SSL certificate to a web app](scripts/cli-configure-ssl-certificate.md)
-- [Azure PowerShell Bind a custom TLS/SSL certificate to a web app using PowerShell](scripts/powershell-configure-ssl-certificate.md)
+- [Azure PowerShell: Bind a custom TLS/SSL certificate to a web app using PowerShell](scripts/powershell-configure-ssl-certificate.md)
 
-#### Can I configure a private CA certificate on my app?
-
-App Service has a list of Trusted Root Certificates which you cannot modify in the multi-tenant variant version of App Service, but you can load your own CA certificate in the Trusted Root Store in an App Service Environment (ASE), which is a single-tenant environment in App Service. (The Free, Basic, Standard, and Premium App Service Plans are all multi-tenant, and the Isolated Plans are single-tenant.)
-- [Private client certificate](environment/overview-certificates.md)
-
+### Can I use a private CA (certificate authority) certificate for inbound TLS on my app?
+You can use a private CA certificate for inbound TLS in [App Service Environment version 3](./environment/overview-certificates.md). This isn't possible in App Service (multi-tenant). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+ 
+### Can I make outbound calls using a private CA client certificate from my app?
+This is only supported for Windows container apps in multi-tenant App Service. In addition, you can make outbound calls using a private CA client certificate with both code-based and container-based apps in [App Service Environment version 3](./environment/overview-certificates.md). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+ 
+### Can I load a private CA certificate in my App Service Trusted Root Store?
+You can load your own CA certificate into the Trusted Root Store in [App Service Environment version 3](./environment/overview-certificates.md). You can't modify the list of Trusted Root Certificates in App Service (multi-tenant). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
 
 ## More resources
 
@@ -328,4 +347,4 @@ App Service has a list of Trusted Root Certificates which you cannot modify in t
 * [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [Use a TLS/SSL certificate in your code in Azure App Service](configure-ssl-certificate-in-code.md)
-* [FAQ : App Service Certificates](./faq-configuration-and-management.yml)
+* [FAQ: App Service Certificates](./faq-configuration-and-management.yml)

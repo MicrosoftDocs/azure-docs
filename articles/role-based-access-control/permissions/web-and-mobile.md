@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -324,6 +324,7 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/SignalR/replicas/read | View the SignalR replica's settings and configurations in the management portal or through API |
 > | Microsoft.SignalRService/SignalR/replicas/write | Modify the SignalR replica's settings and configurations in the management portal or through API |
 > | Microsoft.SignalRService/SignalR/replicas/delete | Delete the SignalR replica resource |
+> | Microsoft.SignalRService/SignalR/replicas/restart/action |  |
 > | Microsoft.SignalRService/SignalR/replicas/operationResults/read |  |
 > | Microsoft.SignalRService/SignalR/replicas/operationStatuses/read |  |
 > | Microsoft.SignalRService/SignalR/replicas/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
@@ -373,6 +374,7 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/WebPubSub/replicas/read | View the WebPubSub replica's settings and configurations in the management portal or through API |
 > | Microsoft.SignalRService/WebPubSub/replicas/write | Modify the WebPubSub replica's settings and configurations in the management portal or through API |
 > | Microsoft.SignalRService/WebPubSub/replicas/delete | Delete the WebPubSub replica resource |
+> | Microsoft.SignalRService/WebPubSub/replicas/restart/action |  |
 > | Microsoft.SignalRService/WebPubSub/replicas/operationResults/read |  |
 > | Microsoft.SignalRService/WebPubSub/replicas/operationStatuses/read |  |
 > | Microsoft.SignalRService/WebPubSub/replicas/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
@@ -390,6 +392,7 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/SignalR/auth/clientToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default |
 > | Microsoft.SignalRService/SignalR/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default |
 > | Microsoft.SignalRService/SignalR/auth/accessToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default |
+> | Microsoft.SignalRService/SignalR/clientConnection/generateToken/action | Generate a JWT Token for client to connect to the service |
 > | Microsoft.SignalRService/SignalR/clientConnection/send/action | Send messages directly to a client connection |
 > | Microsoft.SignalRService/SignalR/clientConnection/read | Check client connection existence |
 > | Microsoft.SignalRService/SignalR/clientConnection/write | Close client connection |
@@ -397,6 +400,7 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/SignalR/group/read | Check group existence or user existence in group |
 > | Microsoft.SignalRService/SignalR/group/write | Join / Leave group |
 > | Microsoft.SignalRService/SignalR/hub/send/action | Broadcast messages to all client connections in the hub |
+> | Microsoft.SignalRService/SignalR/hub/execute/action | Run multiple actions in the hub |
 > | Microsoft.SignalRService/SignalR/hub/write | Close all client connections in the hub |
 > | Microsoft.SignalRService/SignalR/livetrace/read | Read live trace tool results |
 > | Microsoft.SignalRService/SignalR/livetrace/write | Create live trace connections |
@@ -578,6 +582,7 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | microsoft.web/locations/deleteVirtualNetworkOrSubnets/action | Vnet or subnet deletion notification for Locations. |
 > | microsoft.web/locations/validateDeleteVirtualNetworkOrSubnets/action | Validates deleting Vnet or subnet for Locations |
 > | Microsoft.Web/locations/previewstaticsiteworkflowfile/action | Preview Static Site Workflow File |
+> | Microsoft.Web/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notify Network Security Perimeter Updates. |
 > | microsoft.web/locations/apioperations/read | Get Locations API Operations. |
 > | microsoft.web/locations/connectiongatewayinstallations/read | Get Locations Connection Gateway Installations. |
 > | Microsoft.Web/locations/deletedSites/Read | Get the properties of a Deleted Web App at location |
@@ -602,11 +607,6 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | Microsoft.Web/serverfarms/eventGridFilters/delete | Delete Event Grid Filter on server farm. |
 > | Microsoft.Web/serverfarms/eventGridFilters/read | Get Event Grid Filter on server farm. |
 > | Microsoft.Web/serverfarms/eventGridFilters/write | Put Event Grid Filter on server farm. |
-> | microsoft.web/serverfarms/firstpartyapps/keyvaultsettings/read | Get first party Azure Key vault referenced settings for App Service Plan. |
-> | microsoft.web/serverfarms/firstpartyapps/keyvaultsettings/write | Create or Update first party Azure Key vault referenced settings for App Service Plan. |
-> | microsoft.web/serverfarms/firstpartyapps/settings/delete | Delete App Service Plans First Party Apps Settings. |
-> | microsoft.web/serverfarms/firstpartyapps/settings/read | Get App Service Plans First Party Apps Settings. |
-> | microsoft.web/serverfarms/firstpartyapps/settings/write | Update App Service Plans First Party Apps Settings. |
 > | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/read | Get App Service Plans Hybrid Connection Namespaces Relays. |
 > | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/delete | Delete App Service Plans Hybrid Connection Namespaces Relays. |
 > | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/sites/read | Get App Service Plans Hybrid Connection Namespaces Relays Web Apps. |
@@ -660,6 +660,8 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | microsoft.web/sites/restorefrombackupblob/action | Restore Web App From Backup Blob. |
 > | microsoft.web/sites/listbackups/action | List Web App backups. |
 > | microsoft.web/sites/slotcopy/action | Copy content from deployment slot. |
+> | Microsoft.Web/Sites/networkSecurityPerimeterConfigurations/action | Reconcile Web App Network Security Perimeter Configurations. |
+> | Microsoft.Web/Sites/joinPerimeter/action | Determines if a user is allowed to associate an Azure Web App with a Network Security Perimeter. |
 > | microsoft.web/sites/analyzecustomhostname/read | Analyze Custom Hostname. |
 > | microsoft.web/sites/backup/read | Get Web Apps Backup. |
 > | microsoft.web/sites/backup/write | Update Web Apps Backup. |
@@ -670,10 +672,6 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | microsoft.web/sites/backups/write | Update Web Apps Backups. |
 > | Microsoft.Web/sites/basicPublishingCredentialsPolicies/Read | List which publishing methods are allowed for a Web App |
 > | Microsoft.Web/sites/basicPublishingCredentialsPolicies/Write | List which publishing methods are allowed for a Web App |
-> | Microsoft.Web/sites/basicPublishingCredentialsPolicies/ftp/Read | Get whether FTP publishing credentials are allowed for a Web App |
-> | Microsoft.Web/sites/basicPublishingCredentialsPolicies/ftp/Write | Update whether FTP publishing credentials are allowed for a Web App |
-> | Microsoft.Web/sites/basicPublishingCredentialsPolicies/scm/Read | Get whether SCM publishing credentials are allowed for a Web App |
-> | Microsoft.Web/sites/basicPublishingCredentialsPolicies/scm/Write | Update whether SCM publishing credentials are allowed for a Web App |
 > | Microsoft.Web/sites/config/Read | Get Web App configuration settings |
 > | Microsoft.Web/sites/config/list/Action | List Web App's security sensitive settings, such as publishing credentials, app settings and connection strings |
 > | Microsoft.Web/sites/config/Write | Update Web App's configuration settings |
@@ -774,6 +772,7 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | microsoft.web/sites/instances/extensions/processes/read | Get Web Apps Instances Extensions Processes. |
 > | microsoft.web/sites/instances/processes/delete | Delete Web Apps Instances Processes. |
 > | microsoft.web/sites/instances/processes/read | Get Web Apps Instances Processes. |
+> | microsoft.web/sites/instances/processes/stop/action | Stop Web Apps Instances Processes. |
 > | microsoft.web/sites/instances/processes/modules/read | Get Web Apps Instances Processes Modules. |
 > | microsoft.web/sites/instances/processes/threads/read | Get Web Apps Instances Processes Threads. |
 > | microsoft.web/sites/metricdefinitions/read | Get Web Apps Metric Definitions. |
@@ -784,6 +783,10 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | microsoft.web/sites/networkConfig/write | Update App Service Network Configuration. |
 > | microsoft.web/sites/networkConfig/delete | Delete App Service Network Configuration. |
 > | microsoft.web/sites/networkfeatures/read | Get Web App Features. |
+> | Microsoft.Web/Sites/networkSecurityPerimeterAssociationProxies/write | Create or Update Web App Network Security Perimeter Association Proxies. |
+> | Microsoft.Web/Sites/networkSecurityPerimeterAssociationProxies/read | Get Web App Network Security Perimeter Association Proxies. |
+> | Microsoft.Web/Sites/networkSecurityPerimeterAssociationProxies/delete | Delete Web App Network Security Perimeter Association Proxies. |
+> | Microsoft.Web/Sites/networkSecurityPerimeterConfigurations/read | Get Web App Network Security Perimeter Configurations. |
 > | microsoft.web/sites/networktraces/operationresults/read | Get Web Apps Network Trace Operation Results. |
 > | microsoft.web/sites/operationresults/read | Get Web Apps Operation Results. |
 > | microsoft.web/sites/operations/read | Get Web Apps Operations. |
@@ -859,10 +862,6 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | microsoft.web/sites/slots/backups/delete | Delete Web Apps Slots Backups. |
 > | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/Read | List which publishing credentials are allowed for a Web App Slot |
 > | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/Write | List which publishing credentials are allowed for a Web App Slot |
-> | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/ftp/Read | Get whether FTP publishing credentials are allowed for a Web App Slot |
-> | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/ftp/Write | Update whether FTP publishing credentials are allowed for a Web App Slot |
-> | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/scm/Read | Get whether SCM publishing credentials are allowed for a Web App Slot |
-> | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/scm/Write | Update whether SCM publishing credentials are allowed for a Web App Slot |
 > | Microsoft.Web/sites/slots/config/Read | Get Web App Slot's configuration settings |
 > | Microsoft.Web/sites/slots/config/list/Action | List Web App Slot's security sensitive settings, such as publishing credentials, app settings and connection strings |
 > | Microsoft.Web/sites/slots/config/Write | Update Web App Slot's configuration settings |
@@ -940,6 +939,7 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | microsoft.web/sites/slots/instances/read | Get Web Apps Slots Instances. |
 > | microsoft.web/sites/slots/instances/deployments/read | Get Web Apps Slots Instances Deployments. |
 > | microsoft.web/sites/slots/instances/processes/read | Get Web Apps Slots Instances Processes. |
+> | microsoft.web/sites/slots/instances/processes/stop/action | Stop Web Apps Slots Instances Processes. |
 > | microsoft.web/sites/slots/instances/processes/delete | Delete Web Apps Slots Instances Processes. |
 > | microsoft.web/sites/slots/metricdefinitions/read | Get Web Apps Slots Metric Definitions. |
 > | microsoft.web/sites/slots/metrics/read | Get Web Apps Slots Metrics. |

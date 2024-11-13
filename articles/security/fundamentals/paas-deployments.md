@@ -2,13 +2,13 @@
 title: Best practices for secure PaaS deployments - Microsoft Azure
 description: "Learn best practices for designing, building, and managing secure cloud applications on Azure and understand the security advantages of PaaS versus other cloud service models."
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 03/31/2023
-ms.author: terrylan
+ms.date: 06/27/2024
+ms.author: mbaldwin
 
 ---
 # Securing PaaS deployments
@@ -63,7 +63,7 @@ Principles and patterns for the network perimeter have been available for decade
 The following are best practices for managing the identity perimeter.
 
 **Best practice**: Secure your keys and credentials to secure your PaaS deployment.
-**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](../../key-vault/general/overview.md) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
+**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](/azure/key-vault/general/overview) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
 
 **Best practice**: Don't put credentials and other secrets in source code or GitHub.
 **Detail**: The only thing worse than losing your keys and credentials is having an unauthorized party gain access to them. Attackers can take advantage of bot technologies to find keys and secrets stored in code repositories such as GitHub. Do not put key and secrets in these public code repositories.
@@ -108,7 +108,7 @@ Following are best practices for using App Service.
 **Detail**: Restricting access is imperative for organizations that want to enforce security policies for data access. You can use Azure RBAC to assign permissions to users, groups, and applications at a certain scope. To learn more about granting users access to applications, see [Get started with access management](../../role-based-access-control/overview.md).
 
 **Best practice**: Protect your keys.
-**Detail**: Azure Key Vault helps safeguard cryptographic keys and secrets that cloud applications and services use. With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs. See [Azure Key Vault](../../key-vault/general/overview.md) to learn more. You can also use Key Vault to manage your TLS certificates with auto-renewal.
+**Detail**: Azure Key Vault helps safeguard cryptographic keys and secrets that cloud applications and services use. With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs. See [Azure Key Vault](/azure/key-vault/general/overview) to learn more. You can also use Key Vault to manage your TLS certificates with auto-renewal.
 
 **Best practice**: Restrict incoming source IP addresses.
 **Detail**: [App Service Environment](../../app-service/environment/intro.md) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups. Virtual networks enable you to place Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).
@@ -131,7 +131,7 @@ Web applications are increasingly targets of malicious attacks that exploit comm
 ## Monitor the performance of your applications
 Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your application. An effective monitoring strategy helps you understand the detailed operation of the components of your application. It helps you increase your uptime by notifying you of critical issues so that you can resolve them before they become problems. It also helps you detect anomalies that might be security related.
 
-Use [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) to monitor availability, performance, and usage of your application, whether it's hosted in the cloud or on-premises. By using Application Insights, you can quickly identify and diagnose errors in your application without waiting for a user to report them. With the information that you collect, you can make informed choices on your application's maintenance and improvements.
+Use [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor availability, performance, and usage of your application, whether it's hosted in the cloud or on-premises. By using Application Insights, you can quickly identify and diagnose errors in your application without waiting for a user to report them. With the information that you collect, you can make informed choices on your application's maintenance and improvements.
 
 Application Insights has extensive tools for interacting with the data that it collects. Application Insights stores its data in a common repository. It can take advantage of shared functionality such as alerts, dashboards, and deep analysis with the Kusto query language.
 

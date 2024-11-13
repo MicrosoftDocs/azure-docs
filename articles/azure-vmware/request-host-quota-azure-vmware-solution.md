@@ -32,20 +32,23 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
    - **Service:** All services > Azure VMware Solution
    - **Resource:** General question 
    - **Summary:** Need capacity
-   - **Problem type:** Deployment
-   - **Problem subtype:** AVS Quota request
+   - **Problem type:** AVS Quota request
+
+   > [!NOTE]
+   > If the *Problem Type* is not is not visible from the short-list offered, select **None of the Above**. *AVS Quota requests* will be in the offered list of *Problem Types*.
 
 1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
- 
+
    - Region Name
    - Number of hosts
    - Host SKU type
-   - Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage.
-
-   >[!NOTE]
+   - Any other details, including Stretched Cluster, Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage.
+      
+   > [!NOTE]
    > - Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
-   > - **New** The unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
-
+   > - Any unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
+   > - **NEW** If requesting quota to leverage Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) pricing, add the following statement as is, by replacing \<N\> with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution.
+    ***"I acknowledge that I have procured portable VCF license from Broadcom for \<N\> cores to use with Azure VMware Solution."***  
 1. Select **Review + Create** to submit the request.
 
 
@@ -53,7 +56,7 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
 
 CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](/partner-center/azure-plan-lp) as an example to illustrate the purchase procedure for partners.
 
-Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from Partner Center.
+Access the Azure portal using the **Admin On Behalf Of (AOBO)** procedure from Partner Center.
 
 >[!IMPORTANT] 
 >Azure VMware Solution service does not provide multi-tenancy support. Hosting partners requiring it are not supported. 
@@ -74,7 +77,7 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
 
 1. After you configure the Azure plan and you have the needed [Azure RBAC permissions](/partner-center/azure-plan-manage) in place for the subscription, you'll request the quota for your Azure plan subscription. 
 
-   1. Access Azure portal from [Microsoft Partner Center](https://partner.microsoft.com) using the **Admin On Behalf Of** (AOBO) procedure.
+   1. Access Azure portal from [Microsoft Partner Center](https://partner.microsoft.com) using the **Admin On Behalf Of (AOBO)** procedure.
    
    1. Select **CSP** to access the **Customers** area.
    
@@ -93,14 +96,16 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    
       - Region Name
       - Number of hosts
+      - Host SKU type
       - Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage.
       - Is intended to host multiple customers?
-   
-      >[!NOTE]
+
+      > [!NOTE]
       > - Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
-      > - **New** The unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
-   
-   1. Select **Review + Create** to submit the request.
+      > - Any unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
+      > - **NEW** If requesting quota to leverage Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) pricing, add the following statement as is, by replacing \<N\> with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution.
+        ***"I acknowledge that I have procured portable VCF license from Broadcom for \<N\> cores to use with Azure VMware Solution."***
+1. Select **Review + Create** to submit the request.
 
 
 ## Next steps

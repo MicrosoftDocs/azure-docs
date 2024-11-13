@@ -84,7 +84,7 @@ While Azure Files supports setting `nconnect` up to the maximum setting of 16, w
 
 #### Size virtual machines carefully
 
-Depending on your workload requirements, it’s important to correctly size the client virtual machines (VMs) to avoid being restricted by their [expected network bandwidth](../../virtual-network/virtual-machine-network-throughput.md#expected-network-throughput). You don't need multiple network interface controllers (NICs) in order to achieve the expected network throughput. While it's common to use [general purpose VMs](../../virtual-machines/sizes-general.md) with Azure Files, various VM types are available depending on your workload needs and region availability. For more information, see [Azure VM Selector](https://azure.microsoft.com/pricing/vm-selector/).
+Depending on your workload requirements, it’s important to correctly size the client virtual machines (VMs) to avoid being restricted by their [expected network bandwidth](../../virtual-network/virtual-machine-network-throughput.md#expected-network-throughput). You don't need multiple network interface controllers (NICs) in order to achieve the expected network throughput. While it's common to use [general purpose VMs](/azure/virtual-machines/sizes-general) with Azure Files, various VM types are available depending on your workload needs and region availability. For more information, see [Azure VM Selector](https://azure.microsoft.com/pricing/vm-selector/).
 
 #### Keep queue depth less than or equal to 64
 
@@ -123,7 +123,7 @@ If a workload requires mounting multiple shares with one or more storage account
 
 We used the following resources and benchmarking tools to achieve and measure the results outlined in this article.
 
-- **Single client:** Azure VM ([DSv4-Series](../../virtual-machines/dv4-dsv4-series.md#dsv4-series)) with single NIC
+- **Single client:** Azure VM ([DSv4-Series](/azure/virtual-machines/dv4-dsv4-series#dsv4-series)) with single NIC
 - **OS:** Linux (Ubuntu 20.40)
 - **NFS storage:** Azure Files premium file share (provisioned 30 TiB, set `nconnect=4`)
 

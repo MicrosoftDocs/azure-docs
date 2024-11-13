@@ -3,23 +3,23 @@ title: Azure Automation Hybrid Runbook Worker overview
 description: Know about Hybrid Runbook Worker. How to install and run the  runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/17/2023
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: overview 
+ms.service: azure-automation
 ---
 
 # Automation Hybrid Runbook Worker overview
 
-> [!IMPORTANT]
->  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 November 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+[!INCLUDE [./agent-based-user-hybrid-runbook-worker-retirement.md](./includes/agent-based-user-hybrid-runbook-worker-retirement.md)]
 
 Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
 
-Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine (VM) extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs on Windows and Linux VMs, and [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on Non-Azure machines including [Azure Arc-enabled Servers](../azure-arc/servers/overview.md) and [Azure Arc-enabled VMware vSphere (preview)](../azure-arc/vmware-vsphere/overview.md). Now there are two Hybrid Runbook Workers installation platforms supported by Azure Automation.
+Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine (VM) extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs on Windows and Linux VMs, and [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) on Non-Azure machines including [Azure Arc-enabled Servers](/azure/azure-arc/servers/overview) and [Azure Arc-enabled VMware vSphere (preview)](/azure/azure-arc/vmware-vsphere/overview). Now there are two Hybrid Runbook Workers installation platforms supported by Azure Automation.
  
 | Platform | Description |
 |---|---|
 |**Extension-based (V2)**  |Installed using the [Hybrid Runbook Worker VM extension](./extension-based-hybrid-runbook-worker-install.md), without any dependency on the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace. **This is the recommended platform**.|
-|**Agent-based (V1)** |Installed after the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md) is completed.|
+|**Agent-based (V1)** |Installed after the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) reporting to an Azure Monitor [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) is completed.|
 
 :::image type="content" source="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform-inline.png" alt-text="Screenshot of hybrid worker group showing platform field." lightbox="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform-expanded.png":::
 
@@ -45,7 +45,7 @@ There are two types of Runbook Workers - system and user. The following table de
 |**System** |Supports a set of hidden runbooks used by the Update Management feature that are designed to install user-specified updates on Windows and Linux machines.<br> This type of Hybrid Runbook Worker isn't a member of a Hybrid Runbook Worker group, and therefore doesn't run runbooks that target a Runbook Worker group. |
 |**User** |Supports user-defined runbooks intended to run directly on the Windows and Linux machines. |
 
-Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md). The workspace isn't only to collect monitoring data from the machine, but also to download the components required to install the agent-based Hybrid Runbook Worker.
+Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) reporting to an Azure Monitor [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview). The workspace isn't only to collect monitoring data from the machine, but also to download the components required to install the agent-based Hybrid Runbook Worker.
 
 When Azure Automation [Update Management](./update-management/overview.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker. To configure it as a user Windows Hybrid Runbook Worker, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](automation-windows-hrw-install.md) and for Linux, see [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md).
 
@@ -110,7 +110,7 @@ If you use a proxy server for communication between Azure Automation and machine
 
 ### Firewall use
 
-If you use a firewall to restrict access to the Internet, you must configure the firewall to permit access. If using the Log Analytics gateway as a proxy, ensure that it's configured for Hybrid Runbook Workers. See [Configure the Log Analytics gateway for Automation Hybrid Runbook Workers](../azure-monitor/agents/gateway.md).
+If you use a firewall to restrict access to the Internet, you must configure the firewall to permit access. If using the Log Analytics gateway as a proxy, ensure that it's configured for Hybrid Runbook Workers. See [Configure the Log Analytics gateway for Automation Hybrid Runbook Workers](/azure/azure-monitor/agents/gateway).
 
 ### Service tags
 
@@ -166,9 +166,9 @@ After the Update Management feature is enabled on Windows or Linux machines, you
 If you have more than 2,000 hybrid workers, to get a list of all of them, you can run the following PowerShell script:
 
 ```powershell
-"Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
+Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
 $workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
-$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
+$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation
 ```
 
 ## Next steps

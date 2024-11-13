@@ -13,7 +13,7 @@ ms.custom: engagement-fy23, linux-related-content
 
 # What is BlobFuse? - BlobFuse2
 
-BlobFuse is a virtual file system driver for Azure Blob Storage. Use BlobFuse to access your existing Azure block blob data through the Linux file system.
+BlobFuse is a virtual file system driver for Azure Blob Storage. Use BlobFuse to access your existing Azure **block blob** data through the Linux file system. **Page blob**s are not supported.
 
 ## About the BlobFuse2 open source project
 
@@ -33,7 +33,7 @@ The BlobFuse2 project is [licensed under the MIT license](https://github.com/Azu
 
 A full list of BlobFuse2 features is in the [BlobFuse2 README](https://github.com/Azure/azure-storage-fuse/blob/main/README.md#features). These are some of the key tasks you can perform by using BlobFuse2:
 
-- Mount an Azure Blob Storage container or Azure Data Lake Storage Gen2 file system on Linux.  (BlobFuse2 supports storage accounts with either flat namespaces or hierarchical namespace configured.)
+- Mount an Azure Blob Storage container or Azure Data Lake Storage file system on Linux.  (BlobFuse2 supports storage accounts with either flat namespaces or hierarchical namespace configured.)
 - Use basic file system operations like `mkdir`, `opendir`, `readdir`, `rmdir`, `open`, `read`, `create`, `write`, `close`, `unlink`, `truncate`, `stat`, and `rename`.
 - Use local file caching to improve subsequent access times.
 - Gain insights into mount activities and resource usage by using BlobFuse2 Health Monitor.
@@ -43,6 +43,10 @@ Other key features in BlobFuse2 include:
 - Streaming to support reading and writing large files
 - Parallel downloads and uploads to improve access time for large files
 - Multiple mounts to the same container for read-only workloads
+
+> [!IMPORTANT]
+> If you are using versions 2.2.0, 2.2.1, or 2.3.0, refrain from using the `Block-cache` mode and switch to the `file-cache` mode till [known issues](https://github.com/Azure/azure-storage-fuse/wiki/Blobfuse2-Known-issues) are fixed.
+
 
 ## BlobFuse2 enhancements from BlobFuse v1
 
@@ -99,7 +103,7 @@ BlobFuse2 is different from the Linux file system in some key ways:
 
 - **chown and chmod**:
 
-  Data Lake Storage Gen2 storage accounts support per object permissions and ACLs, but flat namespace (FNS) block blobs don't. As a result, BlobFuse2 doesn't support the `chown` and `chmod` operations for mounted block blob containers. The operations are supported for Data Lake Storage Gen2.
+  Data Lake Storage storage accounts support per object permissions and ACLs, but flat namespace (FNS) block blobs don't. As a result, BlobFuse2 doesn't support the `chown` and `chmod` operations for mounted block blob containers. The operations are supported for Data Lake Storage.
 
 - **Device files or pipes**:
 
@@ -133,18 +137,18 @@ Reading the same blob from multiple simultaneous threads is supported. However, 
 
 When a container is mounted with the default options, all files get 770 permissions and are accessible only by the user who does the mounting. To allow any user to access the BlobFuse2 mount, mount BlobFuse2 by using the `--allow-other` option. You also can configure this option in the YAML config file.
 
-As stated earlier, the `chown` and `chmod` operations are supported for Data Lake Storage Gen2, but not for FNS block blobs. Running a `chmod` operation against a mounted FNS block blob container returns a success message, but the operation doesn't actually succeed.
+As stated earlier, the `chown` and `chmod` operations are supported for Data Lake Storage, but not for FNS block blobs. Running a `chmod` operation against a mounted FNS block blob container returns a success message, but the operation doesn't actually succeed.
 
 ## Feature support
 
 This table shows how this feature is supported in your account and the effect on support when you enable certain capabilities.
 
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | Network File System (NFS) 3.0 <sup>1</sup> | SSH File Transfer Protocol (SFTP) <sup>1</sup> |
+| Storage account type | Blob Storage (default support) | Data Lake Storage <sup>1</sup> | Network File System (NFS) 3.0 <sup>1</sup> | SSH File Transfer Protocol (SFTP) <sup>1</sup> |
 |--|--|--|--|--|
 | Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2, the NFS 3.0 protocol, and SFTP support all require a storage account that has a hierarchical namespace enabled.
+<sup>1</sup> Data Lake Storage, the NFS 3.0 protocol, and SFTP support all require a storage account that has a hierarchical namespace enabled.
 
 ## See also
 

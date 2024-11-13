@@ -4,7 +4,7 @@ description: Learn about protecting your health data and applications from disru
 ms.topic: conceptual
 author: msjasteppe
 ms.author: ounyman
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
 ms.date: 09/07/2023
@@ -35,7 +35,7 @@ The support team handles the backups and restores of the FHIR database. To resto
 - Name of the service.
 - Restore point date and time within the last seven days. If the requested restore point is not available, we will use the nearest one available, unless you tell us otherwise. Include this information in your support request.
 
-Learn more: [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+Learn more: [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 
 For a large or active database, the restore might take several hours to several days. The restoration process involves taking a snapshot of your database at a certain time and then creating a new database to point your FHIR service to. During the restoration process, the server may return an HTTP Status code response with 503, meaning the service is temporarily unavailable and can't handle the request at the moment. After the restoration process completes, the support team updates the ticket with a status that the operation has been completed to restore the requested service.
 

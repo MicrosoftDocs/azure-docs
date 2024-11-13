@@ -1,9 +1,9 @@
 ---
 title: Supported regions for Change tracking and inventory using Azure Monitoring Agent
 description: This article describes the supported region mappings between an Automation account and monitoring agent workspace as it relates to certain features of Azure Automation.
-ms.date: 03/13/2024
+ms.date: 09/09/2024
 services: automation
-ms.topic: conceptual
+ms.topic: overview
 ms.custom: references_regions
 ---
 

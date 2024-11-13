@@ -3,7 +3,7 @@ title: 'Quickstart: Create an any-to-any configuration using an ARM template'
 titleSuffix: Azure Virtual WAN
 description: Learn how to create an any-to-any configuration using an Azure Resource Manager template (ARM template).
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: quickstart
 ms.date: 08/24/2023
 ms.author: cherylmc
@@ -14,7 +14,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an any-to-any scenario where any spoke can reach another spoke.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -31,7 +31,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 In this quickstart, you'll create an Azure Virtual WAN multi-hub deployment, including all gateways and VNet connections. The list of input parameters has been purposely kept at a minimum. The IP addressing scheme can be changed by modifying the variables inside of the template. The scenario is explained further in the [Any-to-any scenario](scenario-any-to-any.md) article.
 
-:::image type="content" source="./media/routing-scenarios/any-any/figure-1.png" alt-text="Deployment architecture":::
+:::image type="content" source="./media/routing-scenarios/any-any/figure-1.png" alt-text="Screenshot of deployment architecture." lightbox="./media/routing-scenarios/any-any/figure-1.png":::
 
 This template creates a fully functional Azure Virtual WAN environment with the following resources:
 

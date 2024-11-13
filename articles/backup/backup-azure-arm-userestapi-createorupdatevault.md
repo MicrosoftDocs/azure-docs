@@ -1,7 +1,7 @@
 ---
 title: Create Recovery Services vaults using REST API for Azure Backup
 description: In this article, learn how to manage backup and restore operations of Azure VM Backup using REST API.
-ms.service: backup
+ms.service: azure-backup
 ms.topic: how-to
 ms.date: 04/09/2024
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439

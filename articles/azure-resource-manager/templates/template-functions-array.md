@@ -1,7 +1,7 @@
 ---
 title: Template functions - arrays
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with arrays.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-arm-template
 ms.date: 01/11/2024
 ---

@@ -14,7 +14,7 @@ ms.devlang: azurecli
 
 This quickstart shows you how to connect to the Azure Web PubSub instance and publish messages to the connected clients using the [Azure CLI](/cli/azure).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

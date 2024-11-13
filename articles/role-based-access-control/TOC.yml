@@ -99,6 +99,12 @@
     - name: ARM template
       displayName: Resource Manager
       href: role-assignments-template.md
+  - name: Eligible and time-bound
+    items:
+    - name: Eligible and time-bound
+      href: pim-integration.md
+    - name: Activate eligible roles
+      href: role-assignments-eligible-activate.md
   - name: Delegate
     items:
     - name: Subscription administrator with conditions
@@ -167,6 +173,8 @@
     items:
     - name: Built-in roles
       href: built-in-roles.md
+    - name: Privileged
+      href: built-in-roles/privileged.md
     - name: General
       href: built-in-roles/general.md
     - name: Compute

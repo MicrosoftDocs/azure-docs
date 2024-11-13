@@ -1,18 +1,14 @@
 ---
 title: Billing model for Azure Active Directory B2C
 description: Learn about Azure AD B2C's monthly active users (MAU) billing model, how to link an Azure AD B2C tenant to an Azure subscription, and how to select the appropriate premium tier pricing.
-
 author: kengaderdus
 manager: CelesteDG
-
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: reference
-
-ms.date: 01/11/2024
+ms.date: 09/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: fasttrack-edit
-
 
 #Customer intent: As a business decision maker managing an Azure AD B2C tenant, I want to understand the billing model based on monthly active users (MAU), so that I can determine the cost and pricing structure for my Azure AD B2C tenant.
 
@@ -33,7 +29,7 @@ A monthly active user (MAU) is a unique user that performs an authentication wit
 
 If Azure AD B2C [Go-Local add-on](data-residency.md#go-local-add-on) is available in your country/region, and you enable it, you'll be charged per MAU, which is an added charge to your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/) license. Learn more [About Local Data Residency add-on](#about-go-local-add-on)  
 
-Also, if you choose to provide higher levels of assurance by using Multi-factor Authentication (MFA) for Voice and SMS, you'll be charged a worldwide flat fee for each MFA attempt that month, whether the sign in is successful or unsuccessful. 
+Also, if you choose to provide higher levels of assurance by using multifactor authentication (MFA) for Voice and SMS, you'll be charged a worldwide flat fee for each MFA attempt that month, whether the sign in is successful or unsuccessful. 
  
 
 > [!IMPORTANT]
@@ -93,7 +89,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 1. Select **Create a resource**, and then, in the **Search services and Marketplace** field, search for and select **Azure Active Directory B2C**.
 1. Select **Create**.
 1. Select **Link an existing Azure AD B2C Tenant to my Azure subscription**.
-1. Select an **Azure AD B2C Tenant** from the dropdown. Only tenants for which you're a global administrator and that aren't already linked to a subscription are shown. The **Azure AD B2C Resource name** field is populated with the domain name of the Azure AD B2C tenant you select.
+1. Select an **Azure AD B2C Tenant** from the dropdown. Only tenants for which you're a Global Administrator and that aren't already linked to a subscription are shown. The **Azure AD B2C Resource name** field is populated with the domain name of the Azure AD B2C tenant you select.
 1. Select an active Azure **Subscription** of which you're an owner.
 1. Under **Resource group**, select **Create new**, and then specify the **Resource group location**. The resource group settings here have no impact on your Azure AD B2C tenant location, performance, or billing status.
 1. Select **Create**.
@@ -214,7 +210,7 @@ Before you start the move, be sure to read the entire article to fully understan
 
 If the source and destination subscriptions are associated with different Microsoft Entra tenants, you can't perform the move via Azure Resource Manager as explained above. However, you can still achieve the same result by unlinking the Azure AD B2C tenant from the source subscription and relinking it to the destination subscription. This method is safe because the only object you delete is the *billing link*, not the Azure AD B2C tenant itself. None of the users, apps, user flows, etc. will be affected.
 
-1. In the Azure AD B2C directory itself, [invite a guest user](user-overview.md#guest-user) from the destination Microsoft Entra tenant (the one that the destination Azure subscription is linked to) and ensure this user has the **Global administrator** role in Azure AD B2C.
+1. In the Azure AD B2C directory itself, [invite a guest user](user-overview.md#guest-user) from the destination Microsoft Entra tenant (the one that the destination Azure subscription is linked to) and ensure this user has the *Global Administrator* role in Azure AD B2C.
 1. Navigate to the *Azure resource* representing Azure AD B2C in your source Azure subscription as explained in the [Manage your Azure AD B2C tenant resources](#manage-your-azure-ad-b2c-tenant-resources) section above. Don't switch to the actual Azure AD B2C tenant.
 1. Select the **Delete** button on the **Overview** page. This action *doesn't* delete the related Azure AD B2C tenant's users or applications. It merely removes the billing link from the source subscription.
 1. Sign in to the Azure portal with the user account that was added as an administrator in Azure AD B2C in step 1. Then navigate to the destination Azure subscription, which is linked to the destination Microsoft Entra tenant. 

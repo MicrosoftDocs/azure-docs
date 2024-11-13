@@ -1,0 +1,24 @@
+items:
+- name: Split Experimentation Workspace (preview)
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Split Experimentation Workspace?
+    href: overview.md
+- name: Quickstart
+  expanded: true
+  items:
+  - name: Create a Split Experimentation Workspace
+    href: create.md
+- name: How to
+  items:
+  - name: Manage Split Experimentation Workspace
+    href: manage.md
+  - name: Set up data access control
+    href: how-to-set-up-data-access.md
+  - name: Troubleshoot
+    href: troubleshoot.md
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/splitexperimentation

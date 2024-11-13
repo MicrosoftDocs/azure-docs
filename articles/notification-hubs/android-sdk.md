@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.date: 05/08/2024
 ms.topic: tutorial
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.reviewer: heathertian
 ms.lastreviewed: 03/14/2024
 ms.custom: devx-track-csharp

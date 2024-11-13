@@ -3,7 +3,7 @@ title: Control access with Microsoft Entra ID
 titleSuffix: Azure IoT Hub
 description: Understand how Azure IoT Hub uses Microsoft Entra ID to authenticate identities and authorize access to IoT hubs and devices. 
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.author: kgremban
 ms.topic: conceptual
@@ -15,32 +15,34 @@ ms.custom: ["Role: Cloud Development", "Role: IoT Device", "Role: System Archite
 
 You can use Microsoft Entra ID to authenticate requests to Azure IoT Hub service APIs, like **create device identity** and **invoke direct method**. You can also use Azure role-based access control (Azure RBAC) to authorize those same service APIs. By using these technologies together, you can grant permissions to access IoT Hub service APIs to a Microsoft Entra security principal. This security principal could be a user, group, or application service principal.
 
-Authenticating access by using Microsoft Entra ID and controlling permissions by using Azure RBAC provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you [enforce Microsoft Entra authentication whenever possible](#enforce-azure-ad-authentication). 
+Authenticating access by using Microsoft Entra ID and controlling permissions by using Azure RBAC provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you [enforce Microsoft Entra authentication](#enforce-azure-ad-authentication)  whenever possible.
 
 > [!NOTE]
 > Authentication with Microsoft Entra ID isn't supported for the IoT Hub *device APIs* (like device-to-cloud messages and update reported properties). Use [symmetric keys](authenticate-authorize-sas.md) or [X.509](authenticate-authorize-x509.md) to authenticate devices to IoT Hub.
 
 ## Authentication and authorization
 
-*Authentication* is the process of proving that you are who you say you are. Authentication verifies the identity of a user or device to IoT Hub. It's sometimes shortened to *AuthN*. *Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*.
+*Authentication* is the process of proving that you are who you say you are. Authentication verifies the identity of a user or device to IoT Hub. It's sometimes shortened to *AuthN*.
 
-When a Microsoft Entra security principal requests access to an IoT Hub service API, the principal's identity is first *authenticated*. For authentication, the request needs to contain an OAuth 2.0 access token at runtime. The resource name for requesting the token is `https://iothubs.azure.net`. If the application runs in an Azure resource like an Azure VM, Azure Functions app, or Azure App Service app, it can be represented as a [managed identity](../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md). 
+*Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*.
+
+When a Microsoft Entra security principal requests access to an IoT Hub service API, the principal's identity is first *authenticated*. For authentication, the request needs to contain an OAuth 2.0 access token at runtime. The resource name for requesting the token is `https://iothubs.azure.net`. If the application runs in an Azure resource like an Azure VM, Azure Functions app, or Azure App Service app, it can be represented as a [managed identity](/entra/identity/managed-identities-azure-resources/how-managed-identities-work-vm).
 
 After the Microsoft Entra principal is authenticated, the next step is *authorization*. In this step, IoT Hub uses the Microsoft Entra role assignment service to determine what permissions the principal has. If the principal's permissions match the requested resource or API, IoT Hub authorizes the request. So this step requires one or more Azure roles to be assigned to the security principal. IoT Hub provides some built-in roles that have common groups of permissions.
 
 ## Manage access to IoT Hub by using Azure RBAC role assignment
 
-With Microsoft Entra ID and RBAC, IoT Hub requires the principal requesting the API to have the appropriate level of permission for authorization. To give the principal the permission, give it a role assignment. 
+With Microsoft Entra ID and RBAC, IoT Hub requires that the principal requesting the API have the appropriate level of permission for authorization. To give the principal the permission, give it a role assignment.
 
 - If the principal is a user, group, or application service principal, follow the guidance in [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
-- If the principal is a managed identity, follow the guidance in [Assign a managed identity access to a resource by using the Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
+- If the principal is a managed identity, follow the guidance in [Assign a managed identity access to a resource](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource).
 
 To ensure least privilege, always assign the appropriate role at the lowest possible [resource scope](#resource-scope), which is probably the IoT Hub scope.
 
 IoT Hub provides the following Azure built-in roles for authorizing access to IoT Hub service APIs by using Microsoft Entra ID and RBAC:
 
-| Role | Description | 
-| ---- | ----------- | 
+| Role | Description |
+| ---- | ----------- |
 | [IoT Hub Data Contributor](../role-based-access-control/built-in-roles.md#iot-hub-data-contributor) | Allows full access to IoT Hub data plane operations. |
 | [IoT Hub Data Reader](../role-based-access-control/built-in-roles.md#iot-hub-data-reader) | Allows full read access to IoT Hub data plane properties. |
 | [IoT Hub Registry Contributor](../role-based-access-control/built-in-roles.md#iot-hub-registry-contributor) | Allows full access to the IoT Hub device registry. |
@@ -54,7 +56,7 @@ Before you assign an Azure RBAC role to a security principal, determine the scop
 
 This list describes the levels at which you can scope access to IoT Hub, starting with the narrowest scope:
 
-- **The IoT hub.** At this scope, a role assignment applies to the IoT hub. There's no scope smaller than an individual IoT hub. Role assignment at smaller scopes, like individual device identity or twin section, isn't supported.
+- **The IoT hub.** At this scope, a role assignment applies to the IoT hub. There's no scope smaller than an individual IoT hub. Role assignment at smaller scopes, like individual device identity, isn't supported.
 - **The resource group.** At this scope, a role assignment applies to all IoT hubs in the resource group.
 - **The subscription.** At this scope, a role assignment applies to all IoT hubs in all resource groups in the subscription.
 - **A management group.** At this scope, a role assignment applies to all IoT hubs in all resource groups in all subscriptions in the management group.
@@ -66,16 +68,16 @@ The following table describes the permissions available for IoT Hub service API 
 | RBAC action | Description |
 |-|-|
 | `Microsoft.Devices/IotHubs/devices/read` | Read any device or module identity. |
-| `Microsoft.Devices/IotHubs/devices/write`  | Create or update any device or module identity.  |
+| `Microsoft.Devices/IotHubs/devices/write`  | Create or update any device or module identity. |
 | `Microsoft.Devices/IotHubs/devices/delete` | Delete any device or module identity. |
 | `Microsoft.Devices/IotHubs/twins/read` | Read any device or module twin. |
 | `Microsoft.Devices/IotHubs/twins/write` | Write any device or module twin. |
 | `Microsoft.Devices/IotHubs/jobs/read` | Return a list of jobs. |
 | `Microsoft.Devices/IotHubs/jobs/write` | Create or update any job. |
 | `Microsoft.Devices/IotHubs/jobs/delete` | Delete any job. |
-| `Microsoft.Devices/IotHubs/cloudToDeviceMessages/send/action` | Send a cloud-to-device message to any device.  |
+| `Microsoft.Devices/IotHubs/cloudToDeviceMessages/send/action` | Send a cloud-to-device message to any device. |
 | `Microsoft.Devices/IotHubs/cloudToDeviceMessages/feedback/action` | Receive, complete, or abandon a cloud-to-device message feedback notification. |
-| `Microsoft.Devices/IotHubs/cloudToDeviceMessages/queue/purge/action` | Delete all the pending commands for a device.  |
+| `Microsoft.Devices/IotHubs/cloudToDeviceMessages/queue/purge/action` | Delete all the pending commands for a device. |
 | `Microsoft.Devices/IotHubs/directMethods/invoke/action` | Invoke a direct method on any device or module. |
 | `Microsoft.Devices/IotHubs/fileUpload/notifications/action`  | Receive, complete, or abandon file upload notifications. |
 | `Microsoft.Devices/IotHubs/statistics/read` | Read device and service statistics. |
@@ -86,28 +88,35 @@ The following table describes the permissions available for IoT Hub service API 
 | `Microsoft.Devices/IotHubs/configurations/testQueries/action` | Validate the target condition and custom metric queries for a configuration. |
 
 > [!TIP]
+>
 > - The [Bulk Registry Update](/rest/api/iothub/service/bulkregistry/updateregistry) operation requires both `Microsoft.Devices/IotHubs/devices/write` and `Microsoft.Devices/IotHubs/devices/delete`.
 > - The [Twin Query](/rest/api/iothub/service/query/gettwins) operation requires `Microsoft.Devices/IotHubs/twins/read`.
 > - [Get Digital Twin](/rest/api/iothub/service/digitaltwin/getdigitaltwin) requires `Microsoft.Devices/IotHubs/twins/read`. [Update Digital Twin](/rest/api/iothub/service/digitaltwin/updatedigitaltwin) requires `Microsoft.Devices/IotHubs/twins/write`.
 > - Both [Invoke Component Command](/rest/api/iothub/service/digitaltwin/invokecomponentcommand) and [Invoke Root Level Command](/rest/api/iothub/service/digitaltwin/invokerootlevelcommand) require `Microsoft.Devices/IotHubs/directMethods/invoke/action`.
 
 > [!NOTE]
-> To get data from IoT Hub by using Microsoft Entra ID, [set up routing to a custom Event Hubs endpoint](iot-hub-devguide-messages-d2c.md). To access the [the built-in Event Hubs compatible endpoint](iot-hub-devguide-messages-read-builtin.md), use the connection string (shared access key) method as before. 
+> To get data from IoT Hub by using Microsoft Entra ID, [set up routing to a custom Event Hubs endpoint](iot-hub-devguide-messages-d2c.md). To access the [the built-in Event Hubs compatible endpoint](iot-hub-devguide-messages-read-builtin.md), use the connection string (shared access key) method as before.
 
 <a name='enforce-azure-ad-authentication'></a>
 
 ## Enforce Microsoft Entra authentication
 
-By default, IoT Hub supports service API access through both Microsoft Entra ID and [shared access policies and security tokens](authenticate-authorize-sas.md). To minimize potential security vulnerabilities inherent in security tokens, you can disable access with shared access policies. 
+By default, IoT Hub supports service API access through both Microsoft Entra ID and [shared access policies and security tokens](authenticate-authorize-sas.md). To minimize potential security vulnerabilities inherent in security tokens, you can disable access with shared access policies.
 
-   > [!WARNING]
-   > By denying connections using shared access policies, all users and services that connect using this method lose access immediately. Notably, since Device Provisioning Service (DPS) only supports linking IoT hubs using shared access policies, all device provisioning flows will fail with "unauthorized" error. Proceed carefully and plan to replace access with Microsoft Entra role based access. **Do not proceed if you use DPS**.
+> [!WARNING]
+>
+> By denying connections using shared access policies, all users and services that connect using this method lose access immediately. Notably, since Device Provisioning Service (DPS) only supports linking IoT hubs using shared access policies, all device provisioning flows will fail with "unauthorized" error. Proceed carefully and plan to replace access with Microsoft Entra role based access.
+>
+> **Do not proceed if you use Device Provisioning Service**.
 
 1. Ensure that your service clients and users have [sufficient access](#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment) to your IoT hub. Follow the [principle of least privilege](../security/fundamentals/identity-management-best-practices.md).
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 1. On the left pane, select **Shared access policies**.
 1. Under **Connect using shared access policies**, select **Deny**, and review the warning.
+
     :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Screenshot that shows how to turn off IoT Hub shared access policies." border="true":::
+
+1. Select **Save**.
 
 Your IoT Hub service APIs can now be accessed only through Microsoft Entra ID and RBAC.
 
@@ -149,7 +158,6 @@ For more information, see the [Azure IoT extension for Azure CLI release page](h
 
 ## Next steps
 
-- For more information on the advantages of using Microsoft Entra ID in your application, see [Integrating with Microsoft Entra ID](../active-directory/develop/how-to-integrate.md).
-- For more information on requesting access tokens from Microsoft Entra ID for users and service principals, see [Authentication scenarios for Microsoft Entra ID](../active-directory/develop/authentication-vs-authorization.md).
+- For more information on the advantages of using Microsoft Entra ID in your application, see [Integrating with the Microsoft identity platform](/entra/identity-platform/how-to-integrate).
+- To learn how access tokens, refresh tokens, and ID tokens are used in authorization and authentication, see [Security tokens](/entra/identity-platform/security-tokens).
 
-Use the Device Provisioning Service to [Provision multiple X.509 devices using enrollment groups](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).

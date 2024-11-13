@@ -3,17 +3,16 @@ title: Expose applications on Azure Spring Apps to the internet from a public ne
 description: Describes how to expose applications on Azure Spring Apps to the internet from a public network.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java
 ms.devlang: azurecli
 ---
 
 # Expose applications on Azure Spring Apps to the internet from a public network
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 This article describes how to expose applications on Azure Spring Apps to the internet from a public network.
 
@@ -58,7 +57,7 @@ az spring app update \
 
 ## Use a public URL to access your application from both inside and outside the virtual network
 
-You can use a public URL to access your application both inside and outside the virtual network. Follow the steps in [Access your application in a private network](./access-app-virtual-network.md) to bind the domain `.private.azuremicroservices.io` to the service runtime Subnet private IP address in your private DNS zone while keeping the **Assign Endpoint** in a disable state. You can then access the app using the **public URL** from both inside and outside the virtual network. 
+You can use a public URL to access your application both inside and outside the virtual network. Follow the steps in [Access your application in a private network](./access-app-virtual-network.md) to bind the domain `.private.azuremicroservices.io` to the service runtime Subnet private IP address in your private DNS zone while keeping the **Assign Endpoint** in a disable state. You can then access the app using the **public URL** from both inside and outside the virtual network.
 
 ## Secure traffic to the public endpoint
 

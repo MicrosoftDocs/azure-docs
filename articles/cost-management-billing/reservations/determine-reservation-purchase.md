@@ -38,7 +38,7 @@ Here's an example of the usage file showing the usage file with filters applied.
 
 :::image type="content" source="./media/determine-reservation-purchase/example-usage-file-details.png" alt-text="Screenshot showing the usage file with filters applied." lightbox="./media/determine-reservation-purchase/example-usage-file-details.png" :::
 
-If you want to analyze at the instance size family level, you can get the instance size flexibility values from [Instance size flexibility ratios](https://aka.ms/isf). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
+If you want to analyze at the instance size family level, you can get the instance size flexibility values from [Instance size flexibility ratios](https://aka.ms/isf). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](/azure/virtual-machines/reserved-vm-instance-size-flexibility).
 
 ### Analyze usage for an Azure Synapse Analytics reserved instance purchase
 

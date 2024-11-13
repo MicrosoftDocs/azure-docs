@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article provides a list of the server variables available in Azure Front Door rule sets.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 05/07/2024
 ms.author: duau
@@ -51,7 +51,7 @@ When you work with Rule Set actions, specify server variables by using the follo
     * Offsets and lengths within range: `{var:0:5}` = `AppId`, `{var:7:7}` = `1f59297`, `{var:7:-7}` = `1f592979c584d0f9d679db3e`
     * Zero lengths: `{var:0:0}` = null,  `{var:4:0}` = null 
     * Offsets within range and lengths out of range: `{var:0:100}` = `AppId=01f592979c584d0f9d679db3e66a3e5e`, `{var:5:100}` = `=01f592979c584d0f9d679db3e66a3e5e`,  `{var:0:-48}` = null,  `{var:4:-48}` = null
-* `{url_path:seg#}`: Allow users to capture and use the desired URL path segment in URL Redirect, URL Rewrite, or any meaningful action. User can also capture multiple segments by using the same style as substring capture `{url_path:seg1:3}`. For example, for a source pattern `/id/12345/default` and a URL rewrite Destination `/{url_path:1}/home`, the expected URL path after rewrite is `/12345/home`. for a multiple-segment capture, when the source pattern is `/id/12345/default/location/test`, a URL rewrite destination `/{url_path:seg1:3}/home` results in `/12345/default/location/home`. Segment capture includes the location path, so if route is `/match/*`, segment 0 will be match.
+* `{url_path:seg#}`: Allow users to capture and use the desired URL path segment in URL Redirect, URL Rewrite, or any meaningful action. User can also capture multiple segments by using the same style as substring capture `{url_path:seg1:3}`. For example, for a source pattern `/id/12345/default` and a URL rewrite Destination `/{url_path:seg1}/home`, the expected URL path after rewrite is `/12345/home`. For a multiple-segment capture, when the source pattern is `/id/12345/default/location/test`, a URL rewrite destination `/{url_path:seg1:3}/home` results in `/12345/default/location/home`. Segment capture includes the location path, so if route is `/match/*`, segment 0 will be match.
 
     Offset corresponds to the index of the start segment, and length refers to how many segments to capture, including the one at index = offset.
     

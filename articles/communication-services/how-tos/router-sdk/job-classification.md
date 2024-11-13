@@ -2,8 +2,8 @@
 title: Classify a Job
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to change the properties of a job
-author: jasonshave
-ms.author: jassha
+author: sroons
+ms.author: serooney
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 10/14/2021

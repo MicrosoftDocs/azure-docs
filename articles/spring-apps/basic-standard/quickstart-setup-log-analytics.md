@@ -3,7 +3,7 @@ title: "Quickstart - Set up a Log Analytics workspace in Azure Spring Apps"
 description: This article describes the setup of a Log Analytics workspace for app deployment.
 author: KarlErickson
 ms.author: felixsong
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 04/23/2024
 ms.custom: devx-track-java, fasttrack-edit, mode-other, devx-track-azurecli
@@ -12,8 +12,7 @@ ms.devlang: azurecli
 
 # Quickstart: Set up a Log Analytics workspace
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
@@ -25,13 +24,13 @@ You can set up Azure Monitor Logs for your application in Azure Spring Apps to c
 
 ## Prerequisites
 
-Complete the previous quickstart in this series: [Provision an Azure Spring Apps service](./quickstart-provision-service-instance.md).
+Complete the previous quickstart in this series: [Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md).
 
 #### [Portal](#tab/Azure-Portal)
 
 ## Create a Log Analytics workspace
 
-To create a workspace, follow the steps in [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
+To create a workspace, follow the steps in [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
 ## Set up Log Analytics for a new service
 
@@ -50,7 +49,7 @@ In the wizard for creating an Azure Spring Apps service instance, you can config
 1. Fill out the form on the **Diagnostic setting** page:
 
    - **Diagnostic setting name**: Set a unique name for the configuration.
-   - **Logs** > **Categories**: Select **ApplicationConsole** and **SystemLogs**. For more information on log categories and contents, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md).
+   - **Logs** > **Categories**: Select **ApplicationConsole** and **SystemLogs**. For more information on log categories and contents, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
    - **Destination details**: Select **Send to Log Analytics workspace** and specify the Log Analytics workspace that you created previously.
 
    :::image type="content" source="media/quickstart-setup-log-analytics/diagnostic-settings-edit-form.png" alt-text="Screenshot that shows an example of set-up diagnostic settings." lightbox="media/quickstart-setup-log-analytics/diagnostic-settings-edit-form.png":::
@@ -95,7 +94,7 @@ Setting up for a new service isn't applicable when you're using the Azure CLI.
        --query id --output tsv
     ```
 
-1. Configure the diagnostic settings. For more information on log categories and contents, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md).
+1. Configure the diagnostic settings. For more information on log categories and contents, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
    ```azurecli
    az monitor diagnostic-settings create \

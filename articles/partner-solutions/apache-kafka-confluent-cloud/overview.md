@@ -54,33 +54,6 @@ There are two billing options available: pay-as-you-go monthly plan and commitme
 
 You decide which billing option to use when you create the service.
 
-## Confluent links
-
-For more help with using Apache Kafka & Apache Flink on Confluent Cloud, see the following links to the [Confluent site](https://docs.confluent.io/home/overview.html).
-
-To learn about billing options, see:
-
-* [Azure Marketplace with Pay As You Go](https://docs.confluent.io/cloud/current/billing/ccloud-azure-payg.html)
-* [Azure Marketplace with Commitments](https://docs.confluent.io/cloud/current/billing/ccloud-azure-ubb.html)
-
-To learn about managing the solutions, see:
-
-* [Create a Cluster in Confluent Cloud](https://docs.confluent.io/cloud/current/clusters/create-cluster.html)
-* [Confluent Cloud Environments](https://docs.confluent.io/current/cloud/using/environments.html)
-* [Confluent Cloud Basics](https://docs.confluent.io/current/cloud/using/cloud-basics.html)
-
-For support and terms, see:
-
-* [Confluent support](https://support.confluent.io)
-* [Terms of Service](https://www.confluent.io/confluent-cloud-tos)
-
-To learn more, see Confluent blog articles about Azure services that integrate with Confluent Cloud:
-
-* [Use Azure Cosmos DB sink connector](https://www.confluent.io/blog/announcing-confluent-cloud-azure-cosmos-db-connector)
-* [Set up secure networking with Azure Private Link](https://www.confluent.io/blog/how-to-set-up-secure-networking-in-confluent-with-azure-private-link)
-* [Search using Azure Cache for Redis and Azure Spring Cloud](https://www.confluent.io/blog/real-time-search-and-analytics-with-confluent-cloud-azure-redis-spring-cloud)
-* [Consume data with Confluent and Azure Databricks](https://www.confluent.io/blog/consume-avro-data-from-kafka-topics-and-secured-schema-registry-with-databricks-confluent-cloud-on-azure)
-
 ## Next steps
 
 - To create an instance of Apache Kafka & Apache Flink on Confluent Cloud, see [QuickStart: Get started with Confluent Cloud on Azure](create.md).

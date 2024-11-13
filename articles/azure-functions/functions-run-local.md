@@ -4,7 +4,7 @@ description: Learn how to code and test Azure Functions from the command prompt 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 11/14/2023
-ms.custom: devx-track-csharp, 80e4ff38-5174-43, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-csharp, 80e4ff38-5174-43, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -55,7 +55,7 @@ For help with version-related issues, see [Core Tools versions](#v2).
 In the terminal window or from a command prompt, run the following command to create a project in the `MyProjFolder` folder:
 
 ::: zone pivot="programming-language-csharp"
-### [Isolated process](#tab/isolated-process)
+### [Isolated worker model](#tab/isolated-process)
 
 ```console
 func init MyProjFolder --worker-runtime dotnet-isolated 
@@ -63,7 +63,7 @@ func init MyProjFolder --worker-runtime dotnet-isolated
 
 By default this command creates a project that runs in-process with the Functions host on the current [Long-Term Support (LTS) version of .NET Core]. You can use the `--target-framework` option to target a specific supported version of .NET, including .NET Framework. For more information, see the [`func init`](functions-core-tools-reference.md#func-init) reference.
 
-### [In-process](#tab/in-process)
+### [In-process model](#tab/in-process)
 
 ```console
 func init MyProjFolder --worker-runtime dotnet 
@@ -199,7 +199,27 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-csharp"  
+
+### [Isolated worker model](#tab/isolated-process)
+
+```
+func start
+```
+
+### [In-process model](#tab/in-process)
+
+```
+func start
+```
+
+> [!IMPORTANT]
+> Starting with version 4.0.6517 of the Core Tools, in-process model projects must reference [version 4.5.0 or later of `Microsoft.NET.Sdk.Functions`](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/4.5.0). If an earlier version is used, the `func start` command will error.
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ```
 func start
 ```
@@ -226,7 +246,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 
 Keep in mind the following considerations when running your functions locally:
 
-+ By default, authorization isn't enforced locally for HTTP endpoints. This means that all local HTTP requests are handled as `authLevel = "anonymous"`. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys). You can use the `--enableAuth` option to require authorization when running locally. For more information, see [`func start`](./functions-core-tools-reference.md?tabs=v2#func-start)
++ By default, authorization isn't enforced locally for HTTP endpoints. This means that all local HTTP requests are handled as `authLevel = "anonymous"`. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). You can use the `--enableAuth` option to require authorization when running locally. For more information, see [`func start`](./functions-core-tools-reference.md?tabs=v2#func-start)
 
 + You can use the local Azurite emulator when locally running functions that require access to Azure Storage services (Queue Storage, Blob Storage, and Table Storage) without having to connect to these services in Azure. When using local emulation, make sure to start Azurite before starting the local host (func.exe). For more information, see [Local storage emulation](functions-develop-local.md#local-storage-emulator).
 ::: zone pivot="programming-language-python"
@@ -274,7 +294,7 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data "{'name':'Azu
 
 The following considerations apply when calling HTTP endpoints locally:
 
-+ You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool that supports POST requests.
++ You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use a HTTP testing tool that also keeps your data secure. For more information, see [HTTP test tools](functions-develop-local.md#http-test-tools). 
 
 + Make sure to use the same server name and port that the Functions host is listening on. You see an endpoint like this in the output generated when starting the Function host. You can call this URL using any HTTP method supported by the trigger.
 
@@ -316,7 +336,7 @@ The following considerations apply when using the administrator endpoint for loc
 
 + You can call the `functions` administrator endpoint (`http://localhost:{port}/admin/functions/`) to return a list of administrator URLs for all available functions, both HTTP triggered and non-HTTP triggered.
 
-+ Authentication and authorization are bypassed when running locally. The same APIs exist in Azure, but when you try to call the same administrator endpoints in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). 
++ Authentication and authorization are bypassed when running locally. The same APIs exist in Azure, but when you try to call the same administrator endpoints in Azure, you must provide an access key. To learn more, see [Work with access keys](function-keys-how-to.md). 
 
 + Access keys are valuable shared secrets. When used locally, they must be securely stored outside of source control. Because authentication and authorization aren't required by Functions when running locally, you should avoid using and storing access keys unless your scenarios require it.
 
@@ -345,7 +365,7 @@ If you don't have these tools installed, you need to instead [get a valid access
 ## <a name="project-file-deployment"></a>Deploy project files
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
-To publish your local code to a function app in Azure, use the [`func azure functionapp publish publish`](./functions-core-tools-reference.md#func-azure-functionapp-publish) command, as in the following example:
+To publish your local code to a function app in Azure, use the [`func azure functionapp publish`](./functions-core-tools-reference.md#func-azure-functionapp-publish) command, as in the following example:
 
 ```
 func azure functionapp publish <FunctionAppName>
@@ -497,7 +517,7 @@ When the settings file is encrypted and decrypted, the file's `IsEncrypted` sett
 [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. To be able to use a specific binding extension, that extension must be installed in the project.
 
 ::: zone pivot="programming-language-javascript,programming-language-csharp"
-This section doesn't apply to version 1.x of the Functions runtime. In version 1.x, supported binding were included in the core product extension.
+This section doesn't apply to version 1.x of the Functions runtime. In version 1.x, supported bindings were included in the core product extension.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -512,6 +532,11 @@ If you must use a binding extension or an extension version not in a supported b
 ## <a name="v2"></a>Core Tools versions
 
 Major versions of Azure Functions Core Tools are linked to specific major versions of the Azure Functions runtime. For example, version 4.x of Core Tools supports version 4.x of the Functions runtime. This version is the recommended major version of both the Functions runtime and Core Tools. You can determine the latest release version of Core Tools in the [Azure Functions Core Tools repository](https://github.com/Azure/azure-functions-core-tools/releases/latest).
+
+::: zone pivot="programming-language-csharp"
+<a name="in-process-minimum-version"></a> 
+Starting with version 4.0.6517 of the Core Tools, in-process model projects must reference [version 4.5.0 or later of `Microsoft.NET.Sdk.Functions`](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/4.5.0). If an earlier version is used, the `func start` command will error.
+::: zone-end
 
 Run the following command to determine the version of your current Core Tools installation:
 

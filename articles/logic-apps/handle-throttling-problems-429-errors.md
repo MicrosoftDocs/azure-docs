@@ -112,7 +112,7 @@ The following Consumption workflow example shows where you can find this informa
 
 Although the retry history provides error information, you might have trouble differentiating between connector throttling and [destination throttling](#destination-throttling). In this case, you might have to review the response's details or perform some throttling interval calculations to identify the source.
 
-For Consumption logic app workflows in multi-tenant Azure Logic Apps, throttling happens at the *connection* level. For logic app workflows that run in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), throttling still happens for non-ISE connections because they run in the multi-tenant Azure Logic Apps. However, ISE connections, which are created by ISE connectors, aren't throttled because they run in your ISE.
+For Consumption logic app workflows in multitenant Azure Logic Apps, throttling happens at the *connection* level.
 
 To handle throttling at this level, you have the following options:
 

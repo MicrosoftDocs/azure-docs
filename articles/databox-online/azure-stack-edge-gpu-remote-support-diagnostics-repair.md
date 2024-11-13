@@ -4,8 +4,7 @@ description: Describes how to enable remote support on your Azure Stack Edge dev
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 07/27/2023
 ms.author: alkohli
@@ -53,7 +52,7 @@ The following illustration shows how the remote support works.
 
 Once the connection is established, all the communication occurs over this secure connection. 
 
-The operations that Microsoft Support can perform over this connection are *restricted* based on the access level granted using [just enough administration](/powershell/scripting/learn/remoting/jea/overview) (JEA). For more information about cmdlets that Microsoft Support can execute during a remote support session, see the [list of allowed Microsoft Support operations](#operations-allowed-in-remote-support) in this article.
+The operations that Microsoft Support can perform over this connection are *restricted* based on the access level granted using [just enough administration (JEA)](/powershell/scripting/learn/remoting/jea/overview). For more information about cmdlets that Microsoft Support can execute during a remote support session, see the [list of allowed Microsoft Support operations](#operations-allowed-in-remote-support) in this article.
 
 
 ## Enable remote support

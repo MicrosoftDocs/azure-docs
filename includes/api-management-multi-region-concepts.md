@@ -1,6 +1,6 @@
 ---
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
 ms.date: 02/12/2024
 ms.author: danlep
@@ -13,7 +13,7 @@ ms.author: danlep
 
 * Gateway configurations such as APIs and policy definitions are regularly synchronized between the primary and secondary regions you add. Propagation of updates to the regional gateways normally takes less than 10 seconds. Multi-region deployment provides availability of the API gateway in more than one region and provides service availability if one region goes offline.
 
-* When API Management receives public HTTP requests to the traffic manager endpoint (applies for the external VNet and non-networked modes of API Management), traffic is routed to a regional gateway based on lowest latency, which can reduce latency experienced by geographically distributed API consumers.
+* When API Management receives public HTTP requests to the traffic manager endpoint (applies for the external VNet and non-networked modes of API Management), traffic is routed to a regional gateway based on lowest latency, which can reduce latency experienced by geographically distributed API consumers. In internal VNet mode, customers must configure their own solution to route and load-balance traffic across the regional gateways. For details, see [Networking considerations](/azure/api-management/api-management-howto-deploy-multi-region#virtual-networking).
 
 *  The gateway in each region (including the primary region) has a regional DNS name that follows the URL pattern of `https://<service-name>-<region>-01.regional.azure-api.net`, for example `https://contoso-westus2-01.regional.azure-api.net`.
 

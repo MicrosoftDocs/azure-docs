@@ -1,12 +1,12 @@
 ---
 title: Geographic coverage information in Microsoft Azure Maps
 description: Details of where geographic data is available within Microsoft Azure Maps.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 6/23/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Geographic coverage information

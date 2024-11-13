@@ -4,9 +4,9 @@ description: Introduction to key scenarios, capabilities, and concepts of the Az
 services: api-management
 author: dlepow
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: overview
-ms.date: 03/28/2024
+ms.date: 05/21/2024
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -117,18 +117,21 @@ API Management is offered in a variety of pricing tiers to meet the needs of dif
 
 API Management integrates with many complementary Azure services to create enterprise solutions, including:
 
-* [Azure Key Vault](../key-vault/general/overview.md) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
-* [Azure Monitor](api-management-howto-use-azure-monitor.md) for logging, reporting, and alerting on management operations, systems events, and API requests​
-* [Application Insights](api-management-howto-app-insights.md) for live metrics, end-to-end tracing, and troubleshooting
-* [Virtual networks](virtual-network-concepts.md), [private endpoints](private-endpoint.md), and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​
-* [Azure Defender for APIs](protect-with-defender-for-apis.md) and [Azure DDoS Protection](protect-with-ddos-protection.md) for runtime protection against malicious attacks​
-* Microsoft Entra ID for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
-* [Event Hubs](api-management-howto-log-event-hubs.md) for streaming events​
-* Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.yml), and others including Azure OpenAI service.​
+* **[Azure API Center](../api-center/overview.md)** to build a complete inventory of APIs​ in the organization - regardless of their type, lifecycle stage, or deployment location​ - for API discovery, reuse, and governance
+* **[Copilot in Azure](/azure/copilot/overview)** to help author API Management policies or explain already configured policies​
+* **[Azure Key Vault](/azure/key-vault/general/overview)** for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
+* **[Azure Monitor](api-management-howto-use-azure-monitor.md)** for logging, reporting, and alerting on management operations, systems events, and API requests​
+* **[Application Insights](api-management-howto-app-insights.md)** for live metrics, end-to-end tracing, and troubleshooting
+* **[Virtual networks](virtual-network-concepts.md)**, **[private endpoints](private-endpoint.md)**, **[Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md)**, and **[Azure Front Door](front-door-api-management.md)** for network-level protection​
+* **[Azure Defender for APIs](protect-with-defender-for-apis.md)** and **[Azure DDoS Protection](protect-with-ddos-protection.md)** for runtime protection against malicious attacks​
+* **Microsoft Entra ID** for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
+* **[Event Hubs](api-management-howto-log-event-hubs.md)** for streaming events​
+* Several Azure compute offerings commonly used to build and host APIs on Azure, including **[Functions](import-function-app-as-api.md)**, **[Logic Apps](import-logic-app-as-api.md)**, **[Web Apps](import-app-service-as-api.md)**, **[Service Fabric](how-to-configure-service-fabric-backend.yml)**, and others including **[Azure OpenAI](azure-openai-api-from-specification.md)** service.​
 
 **More information**:
 * [Basic enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 * [Landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+* [Import APIs to API Center from API Management](../api-center/import-api-management-apis.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 ## Key concepts
 
@@ -154,20 +157,17 @@ When a product is ready for use by developers, it can be published. Once publish
 
 ### Groups
 
-Groups are used to manage the visibility of products to developers. API Management has the following built-in groups:
-
-* **Administrators** -  Manage API Management service instances and create the APIs, operations, and products that are used by developers.
-
-    Azure subscription administrators are members of this group. 
+Groups are used to manage the visibility of products to developers. API Management has the following built-in groups for developers: 
 
 * **Developers** - Authenticated developer portal users that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API. 
 
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-Administrators can also create custom groups or use external groups in an [associated Microsoft Entra tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
+API Management service owners can also create custom groups or use external groups in an [associated Microsoft Entra tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
 
 **More information**: 
 * [How to create and use groups][How to create and use groups]
+* [How to manage user accounts](api-management-howto-create-or-invite-developers.md)
 
 ### Developers
 
@@ -181,7 +181,7 @@ When developers subscribe to a product, they're granted the primary and secondar
 
 ### Workspaces
 
-Workspaces allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC).
+Workspaces allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). Each workspace is associated with a workspace gateway that routes API traffic to its backend services.
 
 **More information**:
 

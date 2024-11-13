@@ -49,7 +49,7 @@ This guide will help you get started with playing audio files to participants by
 
 ## Known limitations
 - Text-to-Speech text prompts support a maximum of 400 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
-- For scenarios where you exceed your Speech service quota limit, you can request to increase this lilmit by following the steps outlined [here](../../../ai-services/speech-service/speech-services-quotas-and-limits.md).
+- For scenarios where you exceed your Speech service quota limit, you can request to increase this lilmit by following the steps outlined [here](/azure/ai-services/speech-service/speech-services-quotas-and-limits).
 
 ## Clean up resources
 

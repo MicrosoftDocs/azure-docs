@@ -9,8 +9,8 @@ metadata:
   manager: CelesteDG
   ms.author: kengaderdus
   ms.date: 03/01/2024
-  ms.service: active-directory
-  ms.subservice: B2C
+  ms.service: azure-active-directory
+  ms.subservice: b2c
   ms.topic: landing-page
 
 landingContent:
@@ -21,7 +21,7 @@ landingContent:
       - linkListType: sample
         links:
           - text: Node console application
-            url: https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter2
+            url: https://github.com/Azure-Samples/ms-identity-docs-code-javascript
           - text: .NET Core console application
             url: https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management
   

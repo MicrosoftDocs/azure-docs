@@ -1,9 +1,9 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 03/01/2024
-ms.service: active-directory
-ms.subservice: B2C
+ms.date: 11/04/2024
+ms.service: azure-active-directory
+ms.subservice: b2c
 ms.topic: whats-new
 
 ms.author: kengaderdus
@@ -19,35 +19,27 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
 
-## February 2024
-
-### New articles
-
-- [Enable CAPTCHA in Azure Active Directory B2C](add-captcha.md)
-- [Define a CAPTCHA technical profile in an Azure Active Directory B2C custom policy](captcha-technical-profile.md)
-- [Verify CAPTCHA challenge string using CAPTCHA display control](display-control-captcha.md)
+## October 2024
 
 ### Updated articles
 
-- [Enable custom domains in Azure Active Directory B2C](custom-domain.md) - Updated steps to block the default B2C domain
-- [Manage Azure AD B2C custom policies with Microsoft Graph PowerShell](manage-custom-policies-powershell.md) - Microsoft Graph PowerShell updates 
-- [Localization string IDs](localization-string-ids.md) - CAPTCHA updates
-- [Page layout versions](page-layout.md) - CAPTCHA updates
+- [Secure APIs used for API connectors in Azure AD B2C](secure-rest-api.md) - ROPC flow updates
+- [Application types that can be used in Active Directory B2C](application-types.md) - Implicit grant flow updates
+- [Configure authentication in a sample single-page application by using Azure AD B2C](configure-authentication-sample-spa-app.md) - Implicit grant flow updates
+- [Single-page application sign-in using the OAuth 2.0 implicit flow in Azure Active Directory B2C](implicit-flow-single-page-application.md) - Implicit grant flow updates
+- [Register a single-page application in Azure Active Directory B2C](tutorial-register-spa.md) - Implicit grant flow updates
 
-## January 2024
-
-### Updated articles
-
-- [Tutorial: Configure Nok Nok Passport with Azure Active Directory B2C for passwordless FIDO2 authentication](partner-nok-nok.md) - Updated Nok Nok instructions 
-- [Configure Transmit Security with Azure Active Directory B2C for passwordless authentication](partner-bindid.md) - Updated Transmit Security instructions
-- [About claim resolvers in Azure Active Directory B2C custom policies](claim-resolver-overview.md) - Updated claim resolvers and user journey
-
-## December 2023
+## September 2024
 
 ### Updated articles
 
-- [Set up a resource owner password credentials flow in Azure Active Directory B2C](add-ropc-policy.md) - Updated ROPC flow limitations
-- [Add user attributes and customize user input in Azure Active Directory B2C](configure-user-input.md) - Updated instructional steps
-- [Set up sign-up and sign-in with a Google account using Azure Active Directory B2C](identity-provider-google.md) - Editorial updates
-- [Localization string IDs](localization-string-ids.md) - Updated the localization string IDs
+- [Developer notes for Azure Active Directory B2C](custom-policy-developer-notes.md) - Updated feature availability for China cloud
+
+## August 2024
+
+This month, we changed Twitter to X in numerous articles and code samples.
+
+### Updated articles
+
+- [Tutorial: Configure Keyless with Azure Active Directory B2C](partner-keyless.md) - Editorial updates
 

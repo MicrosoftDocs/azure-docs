@@ -1,18 +1,18 @@
 ---
-title: Service discovery resiliency (preview)
+title: Service discovery resiliency
 titleSuffix: Azure Container Apps
 description: Learn how to apply container app to container app resiliency when using the application's service name in Azure Container Apps.
 services: container-apps
 author: hhunter-ms
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 08/02/2024
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023, ignite-2023, devx-track-azurecli
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
-# Service discovery resiliency (preview)
+# Service discovery resiliency
 
 With Azure Container Apps resiliency, you can proactively prevent, detect, and recover from service request failures using simple resiliency policies. In this article, you learn how to configure Azure Container Apps resiliency policies when initiating requests using Azure Container Apps service discovery.
 
@@ -106,7 +106,7 @@ resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-11-02-
 
 ### Before you begin
 
-Log-in to the Azure CLI:
+Log in to the Azure CLI:
 
 ```azurecli
 az login
@@ -238,7 +238,7 @@ az containerapp resiliency delete --group MyResourceGroup --name MyResiliency --
 
 # [Azure portal](#tab/portal)
 
-Navigate into your container app in the Azure portal. In the left side menu under **Settings**, select **Resiliency (preview)** to open the resiliency pane.
+Navigate into your container app in the Azure portal. In the left side menu under **Settings**, select **Resiliency** to open the resiliency pane.
 
 :::image type="content" source="media/service-discovery-resiliency/resiliency-pane.png" alt-text="Screenshot demonstrating how to access the service discovery resiliency pane.":::
 

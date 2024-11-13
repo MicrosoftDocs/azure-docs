@@ -2,17 +2,17 @@
 title: Get started using DICOM data in analytics workloads - Azure Health Data Services
 description: Learn how to use Azure Data Factory and Microsoft Fabric to perform analytics on DICOM data.
 services: healthcare-apis
-author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+author: varunbms
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: quickstart
 ms.date: 10/13/2023
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Get started using DICOM data in analytics workloads
 
-This article describes how to get started by using DICOM&reg; data in analytics workloads with Azure Data Factory and Microsoft Fabric.
+This article describes how to get started using DICOM&reg; data in analytics workloads with Azure Data Factory and Microsoft Fabric.
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ The pipeline in this example reads data from a DICOM service and writes its outp
 
 1. For **Authentication type**, select **System Assigned Managed Identity**.
 
-1. Enter the storage account details by entering the URL to the storage account manually. Or you can select the Azure subscription and storage account from dropdowns.
+1. Enter the storage account details by entering the URL to the storage account manually. You can also select the Azure subscription and storage account from the dropdowns.
 
 1. After you fill in the required fields, select **Test connection** to ensure the identity's roles are correctly configured.
 
@@ -107,7 +107,7 @@ Data Factory pipelines are a collection of _activities_ that perform a task, lik
 
 ### Create a pipeline for DICOM data
 
-If you created the DICOM service with Azure Data Lake Storage, you need to use a custom template to include a new `fileName` parameter in the metadata pipeline.  Instead of using the template from the template gallery, follow these steps to configure the pipeline.
+If you created the DICOM service with Azure Data Lake Storage, instead of using the template from the template gallery, you need to use a custom template to include a new `fileName` parameter in the metadata pipeline. To configure the pipeline follow these steps.
 
 1. Download the [template](https://github.com/microsoft/dicom-server/blob/main/samples/templates/Copy%20DICOM%20Metadata%20Changes%20to%20ADLS%20Gen2%20in%20Delta%20Format.zip) from GitHub. The template file is a compressed (zipped) folder. You don't need to extract the files because they're already uploaded in compressed form.  
 
@@ -123,7 +123,7 @@ If you created the DICOM service with Azure Data Lake Storage, you need to use a
 
 ## Schedule a pipeline
 
-Pipelines are scheduled by _triggers_. There are different types of triggers. _Schedule triggers_ allow pipelines to be triggered on a wall-clock schedule, which means they run at specific times of the day, such as every hour or every day at midnight. _Manual triggers_ trigger pipelines on demand, which means they run whenever you want them to.
+Pipelines are scheduled by _triggers_. There are different types of triggers. _Schedule triggers_ allow pipelines to be triggered to run at specific times of the day, such as every hour, or every day at midnight. _Manual triggers_ trigger pipelines on demand, which means they run whenever you want them to.
 
 In this example, a _tumbling window trigger_ is used to periodically run the pipeline given a starting point and regular time interval. For more information about triggers, see [Pipeline execution and triggers in Azure Data Factory or Azure Synapse Analytics](../../data-factory/concepts-pipeline-execution-triggers.md).
 
@@ -151,10 +151,10 @@ In this example, a _tumbling window trigger_ is used to periodically run the pip
 
 ### Configure trigger run parameters
 
-Triggers define when to run a pipeline. They also include [parameters](../../data-factory/how-to-use-trigger-parameterization.md) that are passed to the pipeline execution. The **Copy DICOM Metadata Changes to Delta** template defines a few parameters that are described in the following table. If no value is supplied during configuration, the listed default value is used for each parameter.
+Triggers define when a pipeline runs. They also include [parameters](../../data-factory/how-to-use-trigger-parameterization.md) that are passed to the pipeline execution. The **Copy DICOM Metadata Changes to Delta** template defines parameters that are described in the following table. If no value is supplied during configuration, the listed default value is used for each parameter.
 
 | Parameter name    | Description                            | Default value |
-| :---------------- | :------------------------------------- | :------------ |
+| ----------------- | -------------------------------------- | ------------- |
 | BatchSize         | The maximum number of changes to retrieve at a time from the change feed (maximum 200) | `200` |
 | ApiVersion        | The API version for the Azure DICOM service (minimum 2) | `2` |
 | StartTime         | The inclusive start time for DICOM changes | `0001-01-01T00:00:00Z` | 
@@ -175,12 +175,12 @@ Triggers define when to run a pipeline. They also include [parameters](../../dat
 
     > [!NOTE]
     > Only tumbling window triggers support the system variables:
-    > *  `@trigger().outputs.windowStartTime` and 
-    > * `@trigger().outputs.windowEndTime`
+    > * `@trigger().outputs.windowStartTime` and 
+    > * `@trigger().outputs.windowEndTime`.
     >
     > Schedule triggers use different system variables:
     > * `@trigger().scheduledTime` and 
-    > * `@trigger().startTime`
+    > * `@trigger().startTime`.
     >
     > Learn more about [trigger types](../../data-factory/concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
@@ -192,13 +192,13 @@ After the trigger is published, it can be triggered manually by using the **Trig
 
 ## Monitor pipeline runs
 
-You can monitor trigger runs and their associated pipeline runs on the **Monitor** tab. Here, you can browse when each pipeline ran and how long it took to run. You can also potentially debug any problems that arose.
+You can monitor triggered runs and their associated pipeline runs on the **Monitor** tab. Here, you can browse when each pipeline ran and how long it took to run. You can also potentially debug any problems that arose.
 
 :::image type="content" source="media/data-factory-monitor.png" alt-text="Screenshot that shows the Monitor view with a list of pipeline runs." lightbox="media/data-factory-monitor.png":::
 
 ## Microsoft Fabric
 
-[Fabric](https://www.microsoft.com/microsoft-fabric) is an all-in-one analytics solution that sits on top of [Microsoft OneLake](/fabric/onelake/onelake-overview). With the use of a [Fabric lakehouse](/fabric/data-engineering/lakehouse-overview), you can manage, structure, and analyze data in OneLake in a single location. Any data outside of OneLake, written to Data Lake Storage Gen2, can be connected to OneLake as shortcuts to take advantage of Fabric's suite of tools.
+[Fabric](https://www.microsoft.com/microsoft-fabric) is an all-in-one analytics solution that sits on top of [Microsoft OneLake](/fabric/onelake/onelake-overview). With the use of a [Fabric lakehouse](/fabric/data-engineering/lakehouse-overview), you can manage, structure, and analyze data in OneLake in a single location. Any data outside of OneLake, written to Data Lake Storage Gen2, can be connected to OneLake using shortcuts to take advantage of Fabric's suite of tools.
 
 ### Create shortcuts to metadata tables
 
@@ -259,7 +259,7 @@ If you're using a [DICOM service with Data Lake Storage](dicom-data-lake.md), yo
 
 1. Enter a **Shortcut Name** that describes the DICOM data. For example, **contoso-dicom-files**.
 
-1. Enter the **Sub Path** that matches the name of the storage container and folder used by the DICOM service. For example, if you wanted to link to the root folder the Sub Path would be **/dicom/AHDS**. Note that the root folder is always `AHDS`, but you can optionally link to a child folder for a specific workspace or DICOM service instance.  
+1. Enter the **Sub Path** that matches the name of the storage container and folder used by the DICOM service. For example, if you wanted to link to the root folder the Sub Path would be **/dicom/AHDS**. The root folder is always `AHDS`, but you can optionally link to a child folder for a specific workspace or DICOM service instance.  
 
 1. Select **Create** to create the shortcut.
 
@@ -269,7 +269,7 @@ If you're using a [DICOM service with Data Lake Storage](dicom-data-lake.md), yo
 
 After the tables are created in the lakehouse, you can query them from [Fabric notebooks](/fabric/data-engineering/how-to-use-notebook). You can create notebooks directly from the lakehouse by selecting **Open Notebook** from the menu bar.
 
-On the notebook page, the contents of the lakehouse can still be viewed on the left side, including the newly added tables. At the top of the page, select the language for the notebook. The language can also be configured for individual cells. The following example uses Spark SQL.
+On the notebook page, the contents of the lakehouse can be viewed on the left side, including newly added tables. At the top of the page, select the language for the notebook. The language can also be configured for individual cells. The following example uses Spark SQL.
 
 #### Query tables by using Spark SQL
 
@@ -283,13 +283,13 @@ This query selects all the contents from the `instance` table. When you're ready
 
 :::image type="content" source="media/fabric-notebook.png" alt-text="Screenshot that shows a notebook with a sample Spark SQL query." lightbox="media/fabric-notebook.png":::
 
-After a few seconds, the results of the query appear in a table underneath the cell like the example shown here. The amount of time might be longer if this Spark query is the first in the session because the Spark context needs to be initialized.
+After a few seconds, the results of the query appear in a table underneath the cell like the following example shown. The time might be longer if this Spark query is the first in the session because the Spark context needs to be initialized.
 
 :::image type="content" source="media/fabric-notebook-results.png" alt-text="Screenshot that shows a notebook with a sample Spark SQL query and results." lightbox="media/fabric-notebook-results.png":::
 
 #### Access DICOM file data in notebooks
 
-If you used the template to create the pipeline and created a shortcut to the DICOM file data, you can use the `filePath` column in the `instance` table to correlate instance metadata to file data.  
+If you used a template to create the pipeline and created a shortcut to the DICOM file data, you can use the `filePath` column in the `instance` table to correlate instance metadata to the file data.  
 
 ``` SQL
 SELECT sopInstanceUid, filePath from instance

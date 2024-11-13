@@ -5,7 +5,6 @@ description: Learn about how to optimize and improve performance of the Azure In
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.date: 01/05/2024

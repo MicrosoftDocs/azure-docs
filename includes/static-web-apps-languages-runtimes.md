@@ -1,8 +1,8 @@
 ---
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: include
-ms.date: 08/30/2023
+ms.date: 05/28/2024
 ms.author: cshoe
 ---
 
@@ -19,6 +19,7 @@ To configure the API language runtime version, set the `apiRuntime` property in 
 | Node.js 14.x | Linux | 4.x | `node:14` | - |
 | Node.js 16.x | Linux | 4.x | `node:16` | - |
 | Node.js 18.x | Linux | 4.x | `node:18` | - |
+| Node.js 20.x (preview) | Linux | 4.x | `node:20` | - |
 | Python 3.8 | Linux | 4.x | `python:3.8` | - |
 | Python 3.9 | Linux | 4.x | `python:3.9` | - |
 | Python 3.10 | Linux | 4.x | `python:3.10` | - |

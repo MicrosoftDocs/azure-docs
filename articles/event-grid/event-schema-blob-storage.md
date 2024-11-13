@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 10/25/2024
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -101,6 +101,8 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 		"contentType": "image/jpeg",
 		"contentLength": 105891,
 		"blobType": "BlockBlob",
+		"accessTier": "Archive",
+		"previousTier": "Cool",
 		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
 		"sequencer": "000000000000000000000000000089A4000000000018d6ea",
 		"storageDiagnostics": {
@@ -208,6 +210,8 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 		"contentType": "image/jpeg",
 		"contentLength": 105891,
 		"blobType": "BlockBlob",
+		"accessTier": "Archive",
+        	"previousTier": "Cool",
 		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
 		"sequencer": "000000000000000000000000000089A4000000000018d6ea",
 		"storageDiagnostics": {
@@ -621,7 +625,7 @@ These events are triggered if you enable a hierarchical namespace on the storage
 
 |Event name|Description|
 |----------|-----------|
-| [Microsoft.Storage.BlobCreated](#microsoftstorageblobcreated-event-sftp) |Triggered when a blob is created or overwritten. <br>Specifically, this event is triggered when clients use the `put` operation, which corresponds to the `SftpCreate` and `SftpCommit` APIs. An empty blob is created when the file is opened and the uploaded contents are committed when the file is closed.|
+| [Microsoft.Storage.BlobCreated](#microsoftstorageblobcreated-event-sftp) |Triggered when a blob is created or overwritten. <br>Specifically, this event is triggered when clients use the `put` operation, which corresponds to the `SftpCreate` and `SftpCommit` APIs. An empty blob is created when the file is opened and the uploaded contents are committed when the file is closed. If the `SFTP Resumable Uploads` preview feature is enabled then some `SftpWrite` events will also be triggered during the upload.|
 | [Microsoft.Storage.BlobDeleted](#microsoftstorageblobdeleted-event-sftp) |Triggered when a blob is deleted. <br>Specifically, this event is also triggered when clients call the `rm` operation, which corresponds to the `SftpRemove` API.|
 | [Microsoft.Storage.BlobRenamed](#microsoftstorageblobrenamed-event-sftp) |Triggered when a blob is renamed. <br>Specifically, this event is triggered when clients use the `rename` operation on files, which corresponds to the `SftpRename` API.|
 | [Microsoft.Storage.DirectoryCreated](#microsoftstoragedirectorycreated-event-sftp) |Triggered when a directory is created. <br>Specifically, this event is triggered when clients use the `mkdir` operation, which corresponds to the `SftpMakeDir` API.|
@@ -640,7 +644,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
 
 * The `dataVersion` key is set to a value of `3`.
 
-* The `data.api` key is set to the string `SftpCreate` or `SftpCommit`.
+* The `data.api` key is set to the string `SftpCreate`, `SftpWrite`, or `SftpCommit`.
 
 * The `clientRequestId` key isn't included.
 
@@ -651,7 +655,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
 
 > [!NOTE]
-> SFTP uploads will generate 2 events. One `SftpCreate` for an initial empty blob created when opening the file and one `SftpCommit` when the file contents are written.
+> SFTP uploads will generate 2 events. One `SftpCreate` for an initial empty blob created when opening the file and one `SftpCommit` when the file contents are committed at the end of the upload. If the `SFTP Resumable Uploads` preview feature is enabled then some `SftpWrite` events will also be triggered during the upload.
 
 ```json
 [{
@@ -1132,6 +1136,11 @@ When an event is triggered, the Event Grid service sends data about that event t
             "successCount": 0,
             "errorList": ""
         },
+        "tierToColdSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
         "tierToArchiveSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
@@ -1184,6 +1193,11 @@ When an event is triggered, the Event Grid service sends data about that event t
             "errorList": ""
         },
         "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToColdSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
             "errorList": ""
@@ -1246,6 +1260,8 @@ The data object has the following properties:
 | `contentType` | string | The content type specified for the blob. |
 | `contentLength` | integer | The size of the blob in bytes. |
 | `blobType` | string | The type of blob. Valid values are either "BlockBlob" or "PageBlob". |
+| `accessTier`     | string    | The target tier of the blob. Appears only for the event BlobTierChanged.                                                                                                                                     |
+| `previousTier`   | string    | The source tier of the blob. Appears only for the event BlobTierChanged. If the blob is inferring the tier from the storage account, this field will not appear.                                          |
 | `contentOffset` | number | The offset in bytes of a write operation taken at the point where the event-triggering application completed writing to the file. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
 | `destinationUrl` |string | The url of the file that will exist after the operation completes. For example, if a file is renamed, the `destinationUrl` property contains the url of the new file name. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
 | `sourceUrl` |string | The url of the file that exists before the operation is done. For example, if a file is renamed, the `sourceUrl` contains the url of the original file name before the rename operation. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |

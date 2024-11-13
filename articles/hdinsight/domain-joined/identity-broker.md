@@ -1,9 +1,9 @@
 ---
 title: Azure HDInsight ID Broker (HIB)
 description: Learn about Azure HDInsight ID Broker to simplify authentication for domain-joined Apache Hadoop clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 06/05/2023
+ms.date: 06/14/2024
 ---
 
 # Azure HDInsight ID Broker (HIB)
@@ -120,7 +120,7 @@ To troubleshoot authentication issues, see [this guide](./domain-joined-authenti
 In the HDInsight ID Broker set up, custom apps and clients that connect to the gateway can be updated to acquire the required OAuth token first. For more information, see [How to authenticate .NET applications with Azure services](/dotnet/azure/sdk/authentication). The key values required for authorizing access to an HDInsight gateway are:
 
 * OAuth resource uri: `https://hib.azurehdinsight.net`
-* AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
+* AppId: 00001111-aaaa-2222-bbbb-3333cccc4444
 * Permission: (name: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 After you acquire the OAuth token, use it in the authorization header of the HTTP request to the cluster gateway (for example, https://\<clustername\>-int.azurehdinsight.net). A sample curl command to Apache Livy API might look like this example:

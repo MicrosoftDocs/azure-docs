@@ -5,9 +5,9 @@ description: Learn about Virtual WAN routing scenarios to prevent selected VNets
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 10/17/2024
 ms.author: cherylmc
 
 ---

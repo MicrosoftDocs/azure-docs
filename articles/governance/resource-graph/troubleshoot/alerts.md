@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Resource Graph alerts
 description: Learn how to troubleshoot issues with Azure Resource Graph alerts integration with Log Analytics.
-ms.date: 11/07/2023
+ms.date: 06/18/2024
 ms.topic: troubleshooting
 ---
 
@@ -46,7 +46,7 @@ Azure Resource Graph has pagination in its dedicated APIs. But with the way Log 
 
 The managed identity for your alert must have the role [Log Analytics Contributor](../../../role-based-access-control/built-in-roles.md#log-analytics-contributor) or [Log Analytics Reader](../../../role-based-access-control/built-in-roles.md#log-analytics-reader). The role provides the permissions to get monitoring information.
 
-When you set up an alert, the results can be different than the result after the alert is fired. The reason is that a fired alert is run using a managed identity, but when you manually test an alert it uses the user's identity.
+When you set up an alert, the results can be different than the result after the alert is fired. The reason is that a fired alert is run using a managed identity. But when you manually test an alert, it uses the user's identity.
 
 ## Table names
 

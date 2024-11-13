@@ -3,7 +3,7 @@ title: Enable replication for on-premises machines with private endpoints
 description: This article describes how to configure replication for on-premises machines by using private endpoints in Site Recovery. 
 author: ankitaduttaMSFT
 ms.author: ankitadutta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 04/08/2024
 ms.custom: subject-rbac-steps, engagement-fy23
@@ -218,7 +218,7 @@ The following steps describe how to add a role assignment to your storage accoun
 1. Select **Access control (IAM)**.
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select one of the roles listed in the beginning of this section.
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.

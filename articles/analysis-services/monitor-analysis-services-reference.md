@@ -20,7 +20,7 @@ See [Monitor Azure Analysis Services](monitor-analysis-services.md) for details 
 ### Supported metrics for Microsoft.AnalysisServices/servers
 The following table lists the metrics available for the Microsoft.AnalysisServices/servers resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.AnalysisServices/servers](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-analysisservices-servers-metrics-include.md)]
+[!INCLUDE [Microsoft.AnalysisServices/servers](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-analysisservices-servers-metrics-include.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
@@ -29,7 +29,7 @@ Analysis Services metrics have the dimension `ServerResourceType`.
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.AnalysisServices/servers
-[!INCLUDE [Microsoft.AnalysisServices/servers](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-analysisservices-servers-logs-include.md)]
+[!INCLUDE [Microsoft.AnalysisServices/servers](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-analysisservices-servers-logs-include.md)]
 
 When you set up logging for Analysis Services, you can select **Engine** or **Service** events to log.
 

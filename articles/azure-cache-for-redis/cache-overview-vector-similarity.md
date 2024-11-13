@@ -1,16 +1,16 @@
 ---
 title: About Vector Embeddings and Vector Search in Azure Cache for Redis
 description: Learn about Azure Cache for Redis to store vector embeddings and provide similarity search.
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: overview
 ms.date: 04/24/2024
 ---
 
 # What are Vector Embeddings and Vector Search in Azure Cache for Redis
 
-Vector similarity search (VSS) has become a popular technology for AI-powered intelligent applications. Azure Cache for Redis can be used as a vector database by combining it models like [Azure OpenAI](../ai-services/openai/overview.md) for Retrieval-Augmented Generative AI and analysis scenarios. This article is a high-level introduction to the concept of vector embeddings, vector similarity search, and how Redis can be used as a vector database powering intelligent applications.
+Vector similarity search (VSS) has become a popular technology for AI-powered intelligent applications. Azure Cache for Redis can be used as a vector database by combining it models like [Azure OpenAI](/azure/ai-services/openai/overview) for Retrieval-Augmented Generative AI and analysis scenarios. This article is a high-level introduction to the concept of vector embeddings, vector similarity search, and how Redis can be used as a vector database powering intelligent applications.
 
 For tutorials and sample applications on how to use Azure Cache for Redis and Azure OpenAI to perform vector similarity search, see the following:
 
@@ -44,7 +44,7 @@ Vectors can be compared using various metrics. The most popular way to compare v
 
 ### Generating embeddings
 
-Many machine learning models support embeddings APIs. For an example of how to create vector embeddings using Azure OpenAI Service, see [Learn how to generate embeddings with Azure OpenAI](../ai-services/openai/how-to/embeddings.md).
+Many machine learning models support embeddings APIs. For an example of how to create vector embeddings using Azure OpenAI Service, see [Learn how to generate embeddings with Azure OpenAI](/azure/ai-services/openai/how-to/embeddings).
 
 ## What is a vector database?
 
@@ -76,7 +76,7 @@ Vector similarity search can be used in multiple applications. Some common use-c
 - **Document Retrieval**. Use the deeper semantic understanding of text provided by LLMs to provide a richer document search experience where traditional keyword-based search falls short. [Document Retrieval Example](https://github.com/RedisVentures/redis-arXiv-search)
 - **Product Recommendation**. Find similar products or services to recommend based on past user activities, like search history or previous purchases. [Product Recommendation Example](https://github.com/RedisVentures/LLM-Recommender)
 - **Visual Search**. Search for products that look similar to a picture taken by a user or a picture of another product. [Visual Search Example](https://github.com/RedisVentures/redis-product-search)
-- **Semantic Caching**. Reduce the cost and latency of LLMs by caching LLM completions. LLM queries are compared using vector similarity. If a new query is similar enough to a previously cached query, the cached query is returned. [Semantic Caching example using LangChain](https://python.langchain.com/docs/integrations/llms/llm_caching#redis-cache)
+- **Semantic Caching**. Reduce the cost and latency of LLMs by caching LLM completions. LLM queries are compared using vector similarity. If a new query is similar enough to a previously cached query, the cached query is returned. [Semantic Caching example using LangChain](https://python.langchain.com/docs/integrations/llm_caching/#redis-cache)
 - **LLM Conversation Memory**. Persist conversation history with an LLM as embeddings in a vector database. Your application can use vector search to pull relevant history or "memories" into the response from the LLM. [LLM Conversation Memory example](https://github.com/continuum-llms/chatgpt-memory)
 
 ## Why choose Azure Cache for Redis for storing and searching vectors?
@@ -109,9 +109,9 @@ Additionally, Redis is often an economical choice because it's already so common
 
 There are multiple other solutions on Azure for vector storage and search. Other solutions include:
 
-- [Azure AI Search](../search/vector-search-overview.md)
-- [Azure Cosmos DB](../cosmos-db/mongodb/vcore/vector-search.md) using the MongoDB vCore API
-- [Azure Database for PostgreSQL - Flexible Server](../postgresql/flexible-server/how-to-use-pgvector.md) using `pgvector`
+- [Azure AI Search](/azure/search/vector-search-overview)
+- [Azure Cosmos DB](/azure/cosmos-db/mongodb/vcore/vector-search) using the MongoDB vCore API
+- [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-use-pgvector) using `pgvector`
 
 ## Related content
 

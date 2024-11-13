@@ -1,8 +1,8 @@
 ---
 title: Deploy Resource Manager templates by using GitHub Actions
 description: Describes how to deploy Azure Resource Manager templates (ARM templates) by using GitHub Actions.
-ms.topic: conceptual
-ms.date: 06/23/2023
+ms.topic: how-to
+ms.date: 09/26/2024
 ms.custom: github-actions-azure, devx-track-arm-template
 ---
 
@@ -46,7 +46,7 @@ Add a Resource Manager template to your GitHub repository. This template creates
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
 ```
 
-You can put the file anywhere in the repository. The workflow sample in the next section assumes the template file is named **azuredeploy.json**, and it is stored at the root of your repository.
+You can put the file anywhere in the repository. The workflow sample in the next section assumes the template file is named **azuredeploy.json**, and it's stored at the root of your repository.
 
 ## Create workflow
 
@@ -94,7 +94,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
   The first section of the workflow file includes:
 
   - **name**: The name of the workflow.
-  - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
+  - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there's a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
 
   # [OpenID Connect](#tab/openid)
 
@@ -135,7 +135,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
   The first section of the workflow file includes:
 
   - **name**: The name of the workflow.
-  - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
+  - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there's a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
   ---
 
 1. Select **Start commit**.
@@ -146,7 +146,7 @@ Because the workflow is configured to be triggered by either the workflow file o
 
 ## Check workflow status
 
-1. Select the **Actions** tab. You will see a **Create deployStorageAccount.yml** workflow listed. It takes 1-2 minutes to run the workflow.
+1. Select the **Actions** tab. You see a **Create deployStorageAccount.yml** workflow listed. It takes 1-2 minutes to run the workflow.
 1. Select the workflow to open it.
 1. Select **Run ARM deploy** from the menu to verify the deployment.
 

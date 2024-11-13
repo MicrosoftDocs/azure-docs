@@ -3,7 +3,7 @@ title: Use an App Service Environment
 description: Learn how to use your App Service Environment to host isolated applications.
 author: madsd
 ms.topic: article
-ms.date: 03/27/2023
+ms.date: 06/26/2024
 ms.author: madsd
 ---
 
@@ -47,9 +47,9 @@ Every App Service app runs in an App Service plan. App Service Environments hold
 
 When you scale an App Service plan, the needed infrastructure is added automatically. Be aware that there's a time delay to scale operations while the infrastructure is being added. For example, when you scale an App Service plan, and you have another scale operation of the same operating system and size running, there might be a delay of a few minutes until the requested scale starts.
 
-A scale operation on one size and operating system won't affect scaling of the other combinations of size and operating system. For example, if you are scaling a Windows I2v2 App Service plan, a scale operation to a Windows I3v2 App Service plan starts immediately. Scaling normally takes less than 15 minutes.
+A scale operation on one size and operating system won't affect scaling of the other combinations of size and operating system. For example, if you are scaling a Windows I2v2 App Service plan, a scale operation to a Windows I3v2 App Service plan starts immediately. Scaling normally takes less than 15 minutes but can take up to 45 minutes.
 
-In a multi-tenant App Service, scaling is immediate, because a pool of shared resources is readily available to support it. App Service Environment is a single-tenant service, so there's no shared buffer, and resources are allocated based on need.
+In a multitenant App Service, scaling is immediate, because a pool of shared resources is readily available to support it. App Service Environment is a single-tenant service, so there's no shared buffer, and resources are allocated based on need.
 
 ## App access
 
@@ -147,7 +147,7 @@ If you integrate with Azure Monitor Logs, you can see the logs by selecting **Lo
 
 ### Create an alert
 
-To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts by using Azure Monitor](../../azure-monitor/alerts/alerts-log.md). In brief:
+To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts by using Azure Monitor](/azure/azure-monitor/alerts/alerts-log). In brief:
 
 1. Open the **Alerts** page in your App Service Environment portal.
 1. Select **New alert rule**.
@@ -177,7 +177,7 @@ If you have multiple App Service Environments, you might want some of them to be
 
 Select the value you want, and then select **Save**.
 
-![Screenshot that shows the App Service Environment configuration portal.][5]
+![Screenshot that shows the App Service Environment upgrade preference setting.][7]
 
 This feature makes the most sense when you have multiple App Service Environments, and you might benefit from sequencing the upgrades. For example, you might set your development and test App Service Environments to be early, and your production App Service Environments to be late.
 
@@ -199,6 +199,7 @@ To delete:
 [4]: ./media/using/using-logs.png
 [5]: ./media/using/using-configuration.png
 [6]: ./media/using/using-ip-addresses.png
+[7]: ./media/using/using-upgrade-preference.png
 
 <!--Links-->
 
@@ -215,4 +216,4 @@ To delete:
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/alerts/alerts-log.md
+[logalerts]: /azure/azure-monitor/alerts/alerts-log

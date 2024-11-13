@@ -5,11 +5,12 @@ author: kgremban
 ms.author: kgremban
 ms.date: 12/14/2021
 ms.topic: quickstart
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 zone_pivot_groups: iot-dps-set1
-ms.custom: mvc, amqp, mqtt, mode-other, devx-track-extended-java, devx-track-python
+ms.custom: mvc, amqp, mqtt, mode-other, devx-track-extended-java, devx-track-python, devx-track-js
 #Customer intent: As a new IoT developer, I want simulate a TPM device to learn how secure provisioning works.
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Quickstart: Provision a simulated TPM device
@@ -76,7 +77,7 @@ The following prerequisites are for a Windows development environment. For Linux
 ::: zone-end
 ::: zone pivot="programming-language-csharp, programming-language-ansi-c, programming-language-nodejs, programming-language-java"
 
-* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
+* Install the latest version of [Git](https://git-scm.com/downloads). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/downloads) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
 <a id="setupdevbox"></a>
 

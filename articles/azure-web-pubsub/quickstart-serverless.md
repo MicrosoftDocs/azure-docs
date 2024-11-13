@@ -75,7 +75,7 @@ In this tutorial, you learn how to:
 
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [create-instance-portal](includes/create-instance-portal.md)]
 
@@ -817,7 +817,7 @@ Here we choose `Microsoft` as identify provider, which uses `x-ms-client-princip
 - [Microsoft Entra ID](../app-service/configure-authentication-provider-aad.md)
 - [Facebook](../app-service/configure-authentication-provider-facebook.md)
 - [Google](../app-service/configure-authentication-provider-google.md)
-- [Twitter](../app-service/configure-authentication-provider-twitter.md)
+- [X](../app-service/configure-authentication-provider-twitter.md)
 
 ## Try the application
 

@@ -4,7 +4,7 @@ description: Overview of Azure Modeling and Simulation Workbench user personas.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
 # Customer intent: As a Modeling and Simulation Workbench user, I want to understand the user personas.
@@ -28,6 +28,6 @@ The Project Manager, also known as the *Chamber Admin*, is responsible for insta
 
 The Design Engineer is responsible for execution of the workflows and simulations leading up to the final design approval. This role is referred to as the *Chamber User*. Chamber Users have a lower level of access to the environment, but can deploy workloads, execute scripts and schedulers based on their access permissions to chamber storages. They can also use the [data pipeline](./concept-data-pipeline.md), to bring data into the chamber and request data to be exported from chamber.
 
-## Next steps
+## Related content
 
 - [Chamber](./concept-chamber.md)

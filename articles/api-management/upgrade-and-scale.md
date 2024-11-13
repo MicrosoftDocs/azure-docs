@@ -4,9 +4,9 @@ description: This article describes how to upgrade and scale an Azure API Manage
 author: dlepow
 
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 07/02/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -80,6 +80,15 @@ You can use the portal to scale your API Management instance. How you scale depe
 1. Specify the new number of **Units** - use the slider, or select or type the number.
 1. Select **Save**.
 
+### Add or remove units - workspace gateway
+
+1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
+1. In the left menu, under **APIs**, select **Workspaces** > the name of your workspace.
+1. In the left menu, under **Deployment + infrastructure**, select **Gateways** > the name of your gateway.
+1. In the left menu, under **Deployment and infrastructure**,  select **Scale**.
+1. Specify the new number of **Units** - use the slider, or select or type the number.
+1. Select **Save**.
+
 ## Change your API Management service tier
 
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
@@ -92,7 +101,7 @@ If you're scaling from or to the **Developer** tier, there will be downtime. Oth
 
 ## Compute isolation
 
-If your security requirements include [compute isolation](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), you can use the **Isolated** pricing tier. This tier ensures the compute resources of an API Management service instance consume the entire physical host and provide the necessary level of isolation required to support, for example, US Department of Defense Impact Level 5 (IL5) workloads. To get access to the Isolated tier, [create a support request](../azure-portal/supportability/how-to-create-azure-support-request.md). 
+If your security requirements include [compute isolation](../azure-government/azure-secure-isolation-guidance.md#compute-isolation), you can use the **Isolated** pricing tier. This tier ensures the compute resources of an API Management service instance consume the entire physical host and provide the necessary level of isolation required to support, for example, US Department of Defense Impact Level 5 (IL5) workloads. To get access to the Isolated tier, [create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). 
 
 ## Related content
 

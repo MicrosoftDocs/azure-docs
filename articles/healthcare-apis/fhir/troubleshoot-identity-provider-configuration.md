@@ -3,7 +3,7 @@ title: Troubleshoot identity provider configuration for the FHIR service in Azur
 description: Learn how to troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services, including Azure Active Directory B2C. Use API version 2023-12-01 to configure two non-Microsoft identity providers for scoped access.
 services: healthcare-apis
 author: namalu
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 01/15/2024
@@ -12,11 +12,11 @@ ms.author: namalu
 
 # Troubleshoot identity provider configuration for the FHIR service
 
-API version 2023-12-01 of the FHIR&reg; service in Azure Health Data Services supports two identity providers in addition to [Microsoft Entra ID](/entra/identity/). To provide scoped access to users, you configure the two identity providers by populating the `smartIdentityProviders` section of the `authenticationConfiguration` object.
+API version 2023-12-01 of the FHIR&reg; service in Azure Health Data Services supports two identity providers in addition to [Microsoft Entra ID](/entra/identity/). To provide scoped access to users, configure the two identity providers by populating the `smartIdentityProviders` section of the `authenticationConfiguration` object.
 
 ## Error messages
 
-Here are the error messages that occur if the FHIR service SMART identity providers fail, and recommended actions to take to resolve the issue.
+Here are the error messages that occur if the FHIR service SMART identity providers fail, with recommended actions to take to resolve the issue.
 
 | Error | Cause | Fix |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ Here are the error messages that occur if the FHIR service SMART identity provid
 | **One or more SMART applications are null.** | The `applications` element for one or more identity providers is null or contains no applications. | Ensure all identity provider configurations have at least one application configured. |
 | **One or more SMART application `allowedDataActions` contain duplicate elements.** | The `allowedDataActions` array in one or more application configurations contains duplicate values. | Remove any duplicate values in the `allowedDataActions` arrays. |
 | **One or more SMART application `allowedDataActions` values are invalid.** | The only acceptable value in the `allowedDataActions` array is `Read`.| Remove any nonconforming values from the `allowedDataActions` arrays. |
-| **One or more SMART application `allowedDataActions` values are null, empty, or invalid.** | The `allowedDataActions` array in one or more application configurations is null, empty, or malformed. | The only acceptable value in the `allowedDataActions` array is `Read`. |
+| **One or more SMART application `allowedDataActions` values are null or empty.** | The `allowedDataActions` array in one or more application configurations is null or empty. | The only acceptable value in the `allowedDataActions` array is `Read`. |
 | **One or more SMART application `audience` values are null, empty, or invalid.** | The `audience` string in one or more application configurations is null, empty, or malformed. | Ensure the `audience` string isn't null or empty and that the value is a string type. |
 | **All SMART identity provider application client ids must be unique.** | The `clientId` value in one or more application configurations is the same value as another `clientId` value. | Ensure all `clientId` values are unique (including across identity provider configurations). |
 | **One or more SMART application client id values are null, empty, or invalid.** | The `clientId` string in one or more application configurations is null, empty, or malformed. | Ensure the `clientId` string isn't null or empty and that the value is a string type. |
@@ -53,7 +53,7 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
 
 4. **Verify the `clientId` string is correct**. Ensure the `clientId` string matches the client ID (or application ID) of the resource application defined in the identity provider.
 
-5. **Verify the request method is GET**. The only supported request type is `GET`, because the `allowedDataActions` values only supports `Read`.
+5. **Verify the request method is GET**. The only supported request type is `GET`, because the `allowedDataActions` values only support `Read`.
 
 6. **Verify the JSON web token (JWT) claims**. If the access token is available, decode it by using online tools such as [jwt.ms](https://jwt.ms). After the token is decoded, the claims can be inspected for correctness.
 
@@ -82,7 +82,7 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
 
 ## Schema for configuring identity providers
 
-The `smartIdentityProviders` element is a JSON array that contains one or two `identity provider configurations`. An `identity provider configuration` consists of:
+The `smartIdentityProviders` element is a JSON array that contains one or two `identity provider configurations`. An `identity provider configuration` consists of
 
 - An `authority` string value that must be the fully qualified URL of the identity providers token authority.
 

@@ -9,7 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 01/17/2024
+ms.date: 10/16/2024
 ms.author: radeltch
 ---
 
@@ -180,10 +180,7 @@ During VM configuration, you have an option to create or select exiting load bal
 
 ---
 
-For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or SAP Note [2388694](https://launchpad.support.sap.com/#/notes/2388694).
-
-> [!IMPORTANT]
-> Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
+For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or SAP Note [2388694](https://launchpad.support.sap.com/#/notes/2388694).  
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) instance of Standard Azure Load Balancer, there's no outbound internet connectivity, unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Standard Azure Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
@@ -274,7 +271,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
     sudo echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     ```
 
-   ​For more information on how to change the `nfs_disable_idmapping` parameter, see the [Red Hat Knowledge Base](https://access.redhat.com/solutions/1749883).
+   For more information on how to change the `nfs_disable_idmapping` parameter, see the [Red Hat Knowledge Base](https://access.redhat.com/solutions/1749883).
 
 ## SAP HANA installation
 
@@ -422,7 +419,7 @@ Follow the steps in [Set up Pacemaker on Red Hat Enterprise Linux](./high-availa
 
 ### Implement the Python system replication hook SAPHanaSR
 
-This step is an important one to optimize the integration with the cluster and improve the detection when a cluster failover is needed. We highly recommend that you configure the SAPHanaSR Python hook. Follow the steps in [Implement the Python system replication hook SAPHanaSR](sap-hana-high-availability-rhel.md#implement-the-python-system-replication-hook-saphanasr).
+This step is an important one to optimize the integration with the cluster and improve the detection when a cluster failover is needed. We highly recommend that you configure the SAPHanaSR Python hook. Follow the steps in [Implement the Python system replication hook SAPHanaSR](sap-hana-high-availability-rhel.md#implement-sap-hana-system-replication-hooks).
 
 ### Configure file system resources
 
@@ -510,22 +507,43 @@ In this example, each cluster node has its own HANA NFS file systems `/hana/shar
    Location rule constraints are set so that the SAP HANA resources can run on a node only if all of the node's NFS mounts are mounted.
 
     ```bash
-    sudo pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+   sudo pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
     ```
 
     On RHEL 7.x:
 
     ```bash
-    sudo pcs constraint location SAPHana_HN1_03-master rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+   sudo pcs constraint location SAPHana_HN1_03-master rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
     ```
 
     On RHEL 8.x/9.x:
 
     ```bash
-    sudo pcs constraint location SAPHana_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+   sudo pcs constraint location SAPHana_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
     ```
 
-    Take the cluster out of maintenance mode.
+1. **[1]** Configure ordering constraints so that the SAP resources on a node will stop ahead of a stop for any of the NFS mounts.
+
+   ```bash
+   pcs constraint order stop SAPHanaTopology_HN1_03-clone then stop hanadb1_nfs
+   pcs constraint order stop SAPHanaTopology_HN1_03-clone then stop hanadb2_nfs
+   ```
+
+   On RHEL 7.x:
+
+   ```bash
+   pcs constraint order stop SAPHana_HN1_03-master then stop hanadb1_nfs
+   pcs constraint order stop SAPHana_HN1_03-master then stop hanadb2_nfs
+   ```
+
+   On RHEL 8.x/9.x:
+
+   ```bash
+   pcs constraint order stop SAPHana_HN1_03-clone then stop hanadb1_nfs
+   pcs constraint order stop SAPHana_HN1_03-clone then stop hanadb2_nfs
+   ```
+
+   Take the cluster out of maintenance mode.
 
     ```bash
     sudo pcs property set maintenance-mode=false
@@ -613,27 +631,27 @@ This section describes how you can test your setup.
     ```output
     Full list of resources:
      rsc_hdb_azr_agt        (stonith:fence_azure_arm):      Started hanadb1
-
+   
      Resource Group: hanadb1_nfs
          hana_data1 (ocf::heartbeat:Filesystem):    Started hanadb1
          hana_log1  (ocf::heartbeat:Filesystem):    Started hanadb1
          hana_shared1       (ocf::heartbeat:Filesystem):    Started hanadb1
-
+   
     Resource Group: hanadb2_nfs
          hana_data2 (ocf::heartbeat:Filesystem):    Started hanadb2
          hana_log2  (ocf::heartbeat:Filesystem):    Started hanadb2
          hana_shared2       (ocf::heartbeat:Filesystem):    Started hanadb2
-
+   
      hana_nfs1_active       (ocf::pacemaker:attribute):     Started hanadb1
      hana_nfs2_active       (ocf::pacemaker:attribute):     Started hanadb2
-
+   
      Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
          Started: [ hanadb1 hanadb2 ]
-
+   
      Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
          Masters: [ hanadb1 ]
          Slaves: [ hanadb2 ]
-
+   
      Resource Group: g_ip_HN1_03
          nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hanadb1
          vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hanadb1
@@ -655,30 +673,30 @@ This section describes how you can test your setup.
 
     ```output
     Full list of resources:
-
+   
      rsc_hdb_azr_agt        (stonith:fence_azure_arm):      Started hanadb2
-
+   
      Resource Group: hanadb1_nfs
          hana_data1 (ocf::heartbeat:Filesystem):    Stopped
          hana_log1  (ocf::heartbeat:Filesystem):    Stopped
          hana_shared1       (ocf::heartbeat:Filesystem):    Stopped
-
+   
      Resource Group: hanadb2_nfs
          hana_data2 (ocf::heartbeat:Filesystem):    Started hanadb2
          hana_log2  (ocf::heartbeat:Filesystem):    Started hanadb2
          hana_shared2       (ocf::heartbeat:Filesystem):    Started hanadb2
-
+   
      hana_nfs1_active       (ocf::pacemaker:attribute):     Stopped
      hana_nfs2_active       (ocf::pacemaker:attribute):     Started hanadb2
-
+   
      Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
          Started: [ hanadb2 ]
          Stopped: [ hanadb1 ]
-
+   
      Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
          Masters: [ hanadb2 ]
          Stopped: [ hanadb1 ]
-
+   
      Resource Group: g_ip_HN1_03
          nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hanadb2
          vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hanadb2

@@ -6,12 +6,12 @@ description: Define a technical profile for a Security Assertion Markup Language
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer configuring SAML token issuance in Azure AD B2C, I want to define a technical profile for a SAML token issuer, so that I can emit a SAML token that is returned to the relying party application.

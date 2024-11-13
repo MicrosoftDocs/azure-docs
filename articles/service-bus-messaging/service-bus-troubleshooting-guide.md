@@ -271,7 +271,7 @@ You see an error that the entity is no longer available.
 The resource might have been deleted. Follow these steps to identify why the entity was deleted. 
 
 - Check the activity log to see if there's an Azure Resource Manager request for deletion. 
-- Check the operational log to see if there was a direct API call for deletion. To learn how to collect an operational log, see [Collection and routing](monitor-service-bus.md#collection-and-routing). For the schema and an example of an operation log, see [Operation logs](monitor-service-bus-reference.md#operational-logs)
+- Check the operational log to see if there was a direct API call for deletion. To learn how to collect an operational log, see [Monitor Azure Service Bus](monitor-service-bus.md#data-storage). For the schema and an example of an operation log, see [Operation logs](monitor-service-bus-reference.md#operational-logs)
 - Check the operation log to see if there was an `autodeleteonidle` related deletion. 
 
 
