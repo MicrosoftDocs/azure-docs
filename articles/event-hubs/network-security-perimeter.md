@@ -41,3 +41,5 @@ Operating as a service under Azure Private Link, the Network Security Perimeter 
 - For a quickstart on creating network security perimeter via Azure PowerShell, see [Quickstart: Create a network security perimeter - Azure PowerShell](../private-link/create-network-security-perimeter-powershell.md)
 
 - For a quickstart on creating network security perimeter via Azure CLI, see [Quickstart: Create a network security perimeter - Azure CLI](../private-link/create-network-security-perimeter-cli.md)
+
+- For additional information on using private endpoints, see [Use Private Endpoints](https://learn.microsoft.com/en-us/azure/event-hubs/private-link-service)
