@@ -3714,6 +3714,11 @@
       "source_path_from_root": "/articles/reliability/resiliency-recommendations/recommend-cosmos-db-nosql.md",
       "redirect_url": "/azure/reliability/reliability-cosmos-db-nosql",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/resiliency-recommendations/migrate-api-mgt.md",
+      "redirect_url": "/azure/api-management/enable-zone-redundancy",
+      "redirect_document_id": false
     }
   ]
 }
