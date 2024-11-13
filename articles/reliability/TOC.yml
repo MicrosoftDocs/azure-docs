@@ -17,7 +17,7 @@
     - name: Migration guides by service
       items:
       - name: Azure API Management
-        href: migrate-api-mgt.md
+        href: /azure/api-management/enable-zone-redundancy?toc=/azure/reliability
       - name: Azure App Configuration
         href: migrate-app-configuration.md
       - name: Azure Application Gateway
@@ -39,13 +39,13 @@
       - name: Azure Container instances
         href: migrate-container-instances.md
       - name: Azure Container Registry
-        href: /azure/container-registry/zone-redundancy?toc=/azure/reliability
+        href: /azure/container-registry/zone-redundancy?toc=/azure/reliability?toc=/azure/reliability
       - name: Azure Cosmos DB for NoSQL
         href: migrate-cosmos-nosql.md
       - name: Azure Database for MySQL - Flexible Server
         href: migrate-database-mysql-flex.md
       - name: Azure Database for PostgreSQL
-        href: /azure/postgresql/flexible-server/how-to-manage-high-availability-portal#enable-high-availability-during-server-creation
+        href: /azure/postgresql/flexible-server/how-to-manage-high-availability-portal?toc=/azure/reliability#enable-high-availability-during-server-creation
       - name: Azure Elastic SAN
         href: reliability-elastic-san.md#availability-zone-migration
       - name: Azure Functions
