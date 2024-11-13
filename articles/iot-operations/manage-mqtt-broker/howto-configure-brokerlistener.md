@@ -500,7 +500,7 @@ The prior command creates an issuer for issuing TLS server certificates. Note th
 
 # [Production](#tab/prod)
 
-For production, check cert-manager documentation to see which Issuer works best for you. For example, with thet [Vault Issuer](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-cert-manager):
+For production, check cert-manager documentation to see which Issuer works best for you. For example, with the [Vault Issuer](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-cert-manager):
 
 1. Deploy HashiCorp Vault in an environment of choice, like [Kubernetes](https://developer.hashicorp.com/vault/tutorials/kubernetes/kubernetes-raft-deployment-guide). Initialize and unseal the Vault accordingly.
 1. Create and configure the PKI secrets engine by importing your CA certificate.
