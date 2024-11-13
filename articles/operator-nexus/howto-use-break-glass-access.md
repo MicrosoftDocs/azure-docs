@@ -10,6 +10,7 @@ ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Use Method D v2.0 Breakglass Access
+
 Breakglass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide will walk you through setting up and using Breakglass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
 
 ## Generating SSH Keys Using the Nexusidentity Azure CLI
@@ -68,11 +69,13 @@ To start with Breakglass IAM configuration, you will need to set up SSH keys usi
 
    e. During this process:
 
-      - If prompted to overwrite keys, press **Enter**.
+      - If prompted to overwrite keys in token, press **Enter**.
 
       - Select the **Security Key** in the popup window and follow the prompts.
 
       - Enter your **YubiKey PIN** and touch the device when prompted.
+
+      - If prompted to overwrite keys- press **Enter**
 
       - If prompted to enter a passphrase, press **Enter**.
    
@@ -84,7 +87,7 @@ To start with Breakglass IAM configuration, you will need to set up SSH keys usi
 
 ## Granting break-glass permissions to an Entra user on a Network Fabric
 
-To enable Breakglass access for an Entra user on a network fabric, assign the appropriate roles to the user. Below are the role options and their permissions:
+To enable Breakglass access administrator can assign below roles to Entra users on a Network Fabric device.
 
 - **Nexus Network Fabric Service Reader**:
 
@@ -111,7 +114,7 @@ Once permissions are granted, users can access network fabric devices with their
 
 2. **Use SSH with the `-J` option**:
 
-   - The `-J` option enables you to log in through a jump server and access a fabric device directly. This involves authentication through both the jump server and the fabric device using SSH keys.
+   - The `-J` option enables you to log in through a jump server and access a fabric device directly. This involves authentication  first with the jump server and then with the fabric device (using ssh keys).
 
    Use the following command format to access a fabric device:
 
