@@ -51,7 +51,7 @@ Variant feature flags have two variant defaults, **DefaultWhenEnabled** and **De
 1. The **DefaultWhenEnabled** variant takes effect if the flag is enabled but the allocation does assign all percentiles. Any user placed in an unassigned percentile receives the **DefaultWhenEnabled** variant.
 1. The **DefaultWhenDisabled** variant takes effect if the flag is disabled, done by setting the **Enabled** field to false, also known as using the "kill switch". 
 
-The **kill switch** is used to stop users from allocating. Usually it's used when one or more of the variants have a problem- whether it's a bug, regression, or bad performance. To use the kill switch, set the **Enabled** field of the variant flag to false. Regardless which percentiles users were a part of, all users now are given the **DefaultWhenDisabled** variant.
+The **kill switch** is used to stop users from allocating. Used when one or more of the variants have a problem- whether it's a bug, regression, or bad performance. To use the kill switch, set the **Enabled** field of the variant flag to false. All users now are given the **DefaultWhenDisabled** variant, regardless of which percentiles they were a part of.
 
 ## Build an app with a variant feature flag
 

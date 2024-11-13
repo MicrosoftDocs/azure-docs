@@ -32,7 +32,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     dotnet new razor --auth Individual -o QuoteOfTheDay
     ```
 
-1. Navigate to the *QuoteOfTheDay* folder and run the following command to create a [user secret](/aspnet/core/security/app-secrets) for the application. This secret holds the endpoint for App Configuration.
+1. Create a [user secret](/aspnet/core/security/app-secrets) for the application by navigating into the *QuoteOfTheDay* folder and run the following command. This secret holds the endpoint for your App Configuration.
 
     ```dotnetcli
     dotnet user-secrets set Endpoints:AppConfiguration "<App Configuration Endpoint>"
