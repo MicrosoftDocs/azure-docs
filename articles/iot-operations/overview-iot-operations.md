@@ -144,8 +144,8 @@ This list of supported regions only applies to the region that you use when conn
 
 Azure IoT Operations depends on the following set of support services and features:
 
-* [Azure Device Registry](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
-* [Schema registry](../connect-to-cloud/concept-schema-registry.md)
+* [Azure Device Registry](./discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
+* [Schema registry](./connect-to-cloud/concept-schema-registry.md)
 * [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview)
 * [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension)
 * [Azure Monitor pipeline](/azure/azure-monitor/essentials/edge-pipeline-configure)
