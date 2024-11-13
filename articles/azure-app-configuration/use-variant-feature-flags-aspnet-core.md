@@ -48,7 +48,17 @@ In this tutorial, you'll use a variant feature flag to manage experiences for di
 
 ## Connect to App Configuration for feature management
 
-1. In *Program.cs*, under the line `var builder = WebApplication.CreateBuilder(args);`, add the App Configuration provider, which pulls down the configuration from Azure App Configuration when the application starts. See the [.NET provider quickstart](./quickstart-dotnet-core-app?tabs=entra-id#connect-to-an-app-configuration-store) for more on authenticating with the provider. By default, the UseFeatureFlags method includes all feature flags with no label.
+1. In *Program.cs*, add the following using statements.
+
+    ```csharp
+    using Azure.Identity;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    using Microsoft.FeatureManagement;
+    ```
+
+1. In *Program.cs*, under the line `var builder = WebApplication.CreateBuilder(args);`, add the App Configuration provider, which pulls down the configuration from Azure App Configuration when the application starts. By default, the `UseFeatureFlags` method pulls down all feature flags with no label.
+
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
     builder.Configuration
@@ -59,12 +69,6 @@ In this tutorial, you'll use a variant feature flag to manage experiences for di
 
             options.UseFeatureFlags();
         });
-    ```
-
-1. In *Program.cs*, add the following using statements.
-
-    ```csharp
-    using Microsoft.FeatureManagement;
     ```
 
 1. Add Azure App Configuration and feature management services and enable targeting for feature management.
