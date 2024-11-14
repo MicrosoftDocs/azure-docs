@@ -218,10 +218,13 @@ CONFIG_PATH="<Replace with path to config.json file>"
 ACCEPT_EULA="N"
 
 ```
-
-The argument `ACCEPT_EULA` confirms the [Microsoft Software License Terms](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/EMULATOR_EULA.txt). Be sure to place the .env file in the same directory as the *docker-compose.yaml* file.
-
 > [!IMPORTANT]
+> By passing the value "Y" to the environment variable "ACCEPT_EULA", you are acknowledging and accepting the terms and conditions of the End User License Agreement (EULA) for both Service bus emulator and SQL edge. For more details, refer 
+> Set the MSSQL_SA_PASSWORD environment variable to a strong password of at least eight characters that meets the [password requirements](https://learn.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-ver16).
+
+Be sure to place the .env file in the same directory as the *docker-compose.yaml* file.
+
+> [!TIP]
 > When you're specifying file paths in Windows, use double backslashes (`\\`) instead of single backslashes (`\`) to avoid confusion with escape characters.
 
 1. Run the following command to run the emulator:
