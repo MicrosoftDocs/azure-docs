@@ -355,7 +355,7 @@ Recommendations for the management of chat ID:
     ```js
     startCall(MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)[])
     ```
-  * Use Graph API to get existing chat ID with only Teams user as a participant or create a new group chat with participants: Teams user ID and "00aa00aa-bb11-cc22-dd33-44ee44ee44ee".
+  * Use Graph API to get existing chat ID with only Teams user as a participant or create a new group chat with participants: Teams user ID and "00000000-0000-0000-0000-000000000000".
 - Start group call with more than 2 Microsoft 365 users:
   * (Optional way) When making a group call with more than 2 Microsoft 365 users using ACS Calling SDK, the SDK will automatically create the thread by default.
     ```js
