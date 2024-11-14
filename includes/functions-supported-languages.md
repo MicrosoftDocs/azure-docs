@@ -70,14 +70,14 @@ Running C# functions in an isolated worker process isn't supported by version 1.
 ::: zone pivot="programming-language-java"  
 The following table shows the language versions supported for Java functions. Select your preferred development language at the top of the article.
 
-| Supported version | Support level | Expected community EOL date |
+| Supported version | Support level | Supported until |
 | ---- | ---- |--- |
-| [Java 21](/java/openjdk/support#release-and-servicing-roadmap) (Linux-only) | Preview | September 2028 |
-| [Java 17](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
-| [Java 11](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
-| [Java 8](https://endoflife.date/eclipse-temurin) | GA | November 30, 2026 |
+| [Java 21](/java/openjdk/support#release-and-servicing-roadmap) (Linux-only) | Preview | [See documentation]((/java/openjdk/support#release-and-servicing-roadmap)) |
+| [Java 17](/java/openjdk/support#release-and-servicing-roadmap) | GA | [See documentation]((/java/openjdk/support#release-and-servicing-roadmap)) |
+| [Java 11](/java/openjdk/support#release-and-servicing-roadmap) | GA | [See documentation]((/java/openjdk/support#release-and-servicing-roadmap)) |
+| [Java 8](https://endoflife.date/eclipse-temurin) | GA | [See documentation]((/java/openjdk/support#release-and-servicing-roadmap)) |
 
-For more information, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
+For more information on developing and running Java functions, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
