@@ -30,11 +30,7 @@ Sessions without a `metriccategory` are tagged as "category=uncategorized".
 
 ## Messaging metrics
 
-All metrics include the `hostname` tag to distinguish the pod that generated the metrics. The tags listed in the individual metric descriptions are additional to this tag.
-
-## Messaging metrics
-
-All metrics include the `hostname` tag to distinguish the pod that generated the metrics. The tags listed in the individual metric descriptions are additional to this tag.
+All metrics include the `hostname` tag to identify the pod that generated the metrics. The tags listed in the individual metric descriptions are added to this tag.
 
 | Metric | Description | Tags |
 |--------|-------------|------|
@@ -75,12 +71,12 @@ These metrics provide observability for the connections and subscriptions on the
 
 | Metric | Description | Tags |
 |--------|-------------|------|
-| `aio_broker_total_sessions` | On the frontend and single node broker, this metric represents how many client sessions there are. This doesn't include disconnected persistent sessions, because a client might reconnect to a different frontend node. For the backend, this metric represents its connections to the other nodes in its chain. On the operator, this metric represents how many front and backend nodes are connected. For the authentication server, this metric represents how many frontend workers are connected (1 per frontend per thread). | `mqtt_version`: [v3/v5] <br> Backend Node Only Tags: <br> `is_tail`: [true/false] <br> `chain_id`: [n] |
+| `aio_broker_total_sessions` | On the frontend and single node broker, this metric represents how many client sessions there are. This count doesn't include disconnected persistent sessions, because a client might reconnect to a different frontend node. For the backend, this metric represents its connections to the other nodes in its chain. On the operator, this metric represents how many front and backend nodes are connected. For the authentication server, this metric represents how many frontend workers are connected (1 per frontend per thread). | `mqtt_version`: [v3/v5] <br> Backend Node Only Tags: <br> `is_tail`: [true/false] <br> `chain_id`: [n] |
 | `aio_broker_store_total_sessions` | This metric represents how many sessions are in backend chain. Backend nodes in the same chain should report the same number of sessions, and the sum of each chain should equal the sum of the frontend's total_sessions. | `is_persistent`: [true/false] <br> `is_tail`: [true/false] <br> `chain_id`: [n] |
 | `aio_broker_connected_sessions` | Same as `aio_broker_total_sessions`, except only sessions that have an active connection. | |
-| `aio_broker_store_connected_sessions` | Same as `aio_broker_store_total_sessions`, except only sessions that have an active connection. If is_persistent is false, this should be equal to total sessions. | |
-| `aio_broker_total_subscriptions` | On the frontend, this metric represents how many subscriptions the currently connected sessions have. This doesn't include disconnected persistent sessions, because a client might reconnect to a different frontend node. On the operator, this metric represents the frontend and backend nodes. For the authentication server, this metric represents how many frontend workers are connected (1 per frontend per thread). | |
-| `aio_broker_store_total_subscriptions` | This metric represents how many subscriptions are in backend chain. Backend nodes in the same chain should report the same number of subscriptions. This will not necessarily match the frontend's total_subscriptions, since this metric tracks disconnected persistent sessions as well. | |
+| `aio_broker_store_connected_sessions` | Same as `aio_broker_store_total_sessions`, except only sessions that have an active connection. If `is_persistent` is false, this count should be equal to total sessions. | |
+| `aio_broker_total_subscriptions` | On the frontend, this metric represents how many subscriptions the currently connected sessions have. This count doesn't include disconnected persistent sessions, because a client might reconnect to a different frontend node. On the operator, this metric represents the frontend and backend nodes. For the authentication server, this metric represents how many frontend workers are connected (1 per frontend per thread). | |
+| `aio_broker_store_total_subscriptions` | This metric represents how many subscriptions are in backend chain. Backend nodes in the same chain should report the same number of subscriptions. This count doesn't necessarily match the frontend's `total_subscriptions`, since this metric tracks disconnected persistent sessions as well. | |
 
 ## State store metrics
 
@@ -92,7 +88,7 @@ This set of metrics tracks the overall state of the [state store](../create-edge
 | `aio_broker_state_store_insertions` | This metric counts the number of new key insert requests received, including both successful insertions and errors. | |
 | `aio_broker_state_store_keynotify_requests` | This metric counts the number of requests to monitor key changes (KEYNOTIFY) received, including both successful modifications and errors. | |
 | `aio_broker_state_store_modifications` | This metric counts the number of modify key requests received, including both successful modifications and errors. | |
-| `aio_broker_state_store_notifications_sent` | This metric counts the number of notification messages sent by the state store in response to key value changes when a client is registered via KEYNOTIFY. | |
+| `aio_broker_state_store_notifications_sent` | This metric counts the number of notification messages the state store sends when a key value changes and a client is registered via KEYNOTIFY. | |
 | `aio_broker_state_store_retrievals` | This metric counts the number of key value retrieval requests received, including both successful retrievals and errors. | |
 
 ## Disk-backed message buffer metrics
@@ -118,12 +114,12 @@ These metrics provide observability for the [disk-backed message buffer](../mana
 | `aio_broker_store_transfer_ack_event_receiver_message_count` | This metric reports the number of ack event messages received by the store transfer receiver. This count should be equal to the number of ack event messages sent by the store transfer sender. |
 | `aio_broker_store_transfer_ack_event_sender_message_count` | This metric reports the number of ack event messages sent by the store transfer sender. |
 | `aio_broker_store_transfer_ack_event_sender_transfer_bytes` | This metric reports the number of bytes sent by the store transfer sender for ack events. |
-| `aio_broker_store_transfer_patch_tracker_receiver_message_count` | This metric reports the number of patch tracker messages received by the store transfer receiver. This should be equal to the number of patch tracker messages sent by the store transfer sender. |
+| `aio_broker_store_transfer_patch_tracker_receiver_message_count` | This metric reports the number of patch tracker messages received by the store transfer receiver. This count should be equal to the number of patch tracker messages sent by the store transfer sender. |
 | `aio_broker_store_transfer_patch_tracker_sender_message_count` | This metric reports the number of patch tracker messages sent by the store transfer sender. |
 
 ## Developer metrics
 
-These are metrics that are useful for debugging purposes for developers.
+These metrics are useful for developer debugging.
 
 | Metric | Description |
 |--------|-------------|
