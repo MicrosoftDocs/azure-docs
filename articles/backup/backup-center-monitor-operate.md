@@ -127,7 +127,7 @@ You can also see a summary of open alerts in the last 24 hours in the **Overview
 
 Currently, the following types of alerts are displayed in Backup center:
 
-* **Default Azure Monitor alerts for Azure Backup (preview)**: This includes the built-in security alerts and configured alerts that Azure Backup provides via Azure Monitor. [Learn more about the alert scenarios supported by this solution](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup).
+* **Default Azure Monitor alerts for Azure Backup (preview)**: This includes the built-in security alerts and configured alerts that Azure Backup provides via Azure Monitor. [Learn more about the alert scenarios supported by this solution](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup).
 * **Metric alerts for Azure Backup (preview)**: This includes alerts fired based on the metric alert rules you created. [Learn more about Azure Backup metric alerts](metrics-overview.md)
 
 >[!NOTE]

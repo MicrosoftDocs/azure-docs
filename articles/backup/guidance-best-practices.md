@@ -2,7 +2,7 @@
 title: Guidance and best practices
 description: Discover the best practices and guidance for backing up cloud and on-premises workload to the cloud
 ms.topic: overview
-ms.date: 09/11/2024
+ms.date: 11/30/2024
 ms.reviewer: dapatil
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -329,7 +329,7 @@ As a backup user or administrator, you should be able to monitor all backup solu
 
 ### Monitor
 
-* Azure Backup provides **built-in job monitoring** for operations such as configuring backup, back up, restore, delete backup, and so on. This is scoped to the vault, and ideal for monitoring a single vault. [Learn more here](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center).
+* Azure Backup provides **built-in job monitoring** for operations such as configuring backup, back up, restore, delete backup, and so on. This is scoped to the vault, and ideal for monitoring a single vault. [Learn more here](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-azure-business-continuity-center).
 
 * If you need to monitor operational activities at scale, then **Backup Explorer** provides an aggregated view of your entire backup estate, enabling detailed drill-down analysis and troubleshooting. It's a built-in Azure Monitor workbook that gives a single, central location to help you monitor operational activities across the entire backup estate on Azure, spanning tenants, locations, subscriptions, resource groups, and vaults. [Learn more here](monitor-azure-backup-with-backup-explorer.md).
   * Use it to identify resources that aren't configured for backup, and ensure that you don't ever miss protecting critical data in your growing estate.
