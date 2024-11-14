@@ -65,10 +65,11 @@ resource assetEndpoint 'Microsoft.DeviceRegistry/assetEndpointProfiles@2024-11-0
   }
   properties: {
     targetAddress: targetAddress
-    endpointProfileType: 'Media'
+    endpointProfileType: 'Microsoft.Media'
     authentication: {
       method: 'Anonymous'
     }
+    additionalConfiguration: '{"$schema": "https://aiobrokers.blob.core.windows.net/aio-media-connector/1.0.0.json"}'
   }
 }
 /*****************************************************************************/
