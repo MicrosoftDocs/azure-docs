@@ -141,7 +141,7 @@ These parameters configure:
 
 The default MQTT topic name that the connector publishes to is `<connector namespace>/data/<asset name>`.
 
-To apply the previous configuration, save the examples above as files, and run the following command:
+To apply the previous configuration, save the previous examples as files, and run the following command:
 
 ```azurecli
 az deployment group create --resource-group <your resource group> --template-file aep-camera-anonymous.bicep --parameters snapshot-to-mqtt-autostart.json --parameters customLocationName=<your custom location>
@@ -149,11 +149,11 @@ az deployment group create --resource-group <your resource group> --template-fil
 
 [!INCLUDE [discover-custom-location](../includes/discover-custom-location.md)]
 
-This asset configuration publishes snapshots from the video stream to an MQTT topic. To view the snapshots, you can subscribe to the MQTT topic. To learn more about how to subscribe to an MQTT topic in a non-production environment, see [Test connectivity to MQTT broker with MQTT clients](../manage-mqtt-broker/howto-test-connection.md).
+This asset configuration publishes snapshots from the video stream to an MQTT topic. To view the snapshots, you can subscribe to the MQTT topic. To learn more about how to subscribe to an MQTT topic in a nonproduction environment, see [Test connectivity to MQTT broker with MQTT clients](../manage-mqtt-broker/howto-test-connection.md).
 
 ## Dataset configuration
 
-The `datasetsDataPoints` parameter specifies the action the the media connector takes on the asset. The previous example configures the camera to capture snapshots to publish to an MQTT broker topic. A camera asset supports the following five task types:
+The `datasetsDataPoints` parameter specifies the action the media connector takes on the asset. The previous example configures the camera to capture snapshots to publish to an MQTT broker topic. A camera asset supports the following five task types:
 
 | Task type | Description |
 |-----------|-------------|

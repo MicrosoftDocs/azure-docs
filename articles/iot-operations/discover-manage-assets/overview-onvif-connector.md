@@ -7,14 +7,19 @@ ms.service: azure-iot-operations
 ms.topic: overview
 ms.date: 11/04/2024
 
-#CustomerIntent: As an industrial edge IT or operations user, I want understand what the connector for ONVIF is so that I can determine whether I can use it in my industrial IoT solution.
+#CustomerIntent: As an industrial edge IT or operations user, I want to understand what the connector for ONVIF is so that I can determine whether I can use it in my industrial IoT solution.
 ---
 
 # What is the Azure IoT Operations connector for ONVIF (preview)?
 
-The connector for ONVIF (preview) for Azure IoT Operations discovers [ONVIF conformant](https://www.onvif.org/profiles-add-ons-specifications/) cameras connected to your Azure IoT Operations instance and registers them in the Azure Device Registry. Once registered, you can manage these cameras by getting and setting properties through the connector. The [media connector](overview-media-connector.md) can access the media sources exposed by these cameras.
+The connector for ONVIF (preview) for Azure IoT Operations discovers [ONVIF conformant](https://www.onvif.org/profiles-add-ons-specifications/) cameras connected to your Azure IoT Operations instance and registers them in the Azure Device Registry. After the camera is registered, examples of management operations include:
 
-Together, the media connector and connector for ONVIF enable you to use Azure IoT Operations to implement use cases such as:
+- Retrieving and updating the configuration of the camera to adjust the output image configuration.
+- Controlling the camera pan, tilt, and zoom (PTZ).
+
+The [media connector](overview-media-connector.md) can access the media sources exposed by these cameras.
+
+Together, the media connector, connector for ONVIF, Azure IoT Operations, and companion services enable you to use Azure IoT Operations to implement use cases such as:
 
 - Wait and dwell time tracking to track the time spent in line by customers.
 - Order accuracy to track that the correct orders are packed by comparing items to POS receipt.
@@ -26,17 +31,17 @@ Together, the media connector and connector for ONVIF enable you to use Azure Io
 The connector for ONVIF enables you to:
 
 - Read camera information and capabilities.
-- Discover the media URIs exposed by a camera.
+- Discover the media URIs exposed by the ONVIF camera.
 - Configure ONVIF devices, for example by updating setting or selecting presets.
-- Respond to events from the cameras, for example when motion is detected.
+- Control the camera hardware by using PTZ commands.
 
 ## How does it relate to Azure IoT Operations?
 
 The connector for ONVIF is part of Azure IoT Operations. The connector deploys to an Arc-enabled Kubernetes cluster on the edge as part of an Azure IoT Operations deployment. The connector interacts with other Azure IoT Operations elements, such as:
 
-- _Asset endpoints_, that are custom resources in your Kubernetes cluster, define connections to assets such as cameras. An asset endpoint configuration includes the URL of the media source, the type of media source, and any credentials needed to access the media source. The media connector uses an asset endpoint to access the media source.
+- _Asset endpoints_ that are custom resources in your Kubernetes cluster, define connections to assets such as cameras. An asset endpoint configuration includes the URL of the media source, the type of media source, and any credentials needed to access the media source. The media connector uses an asset endpoint to access the media source.
 
-- _Assets_, in Azure IoT Operations are logical entities that you create to represent a real assets such as cameras. An Azure IoT Operations ONVIF camera asset identifies the ONVIF network service the camera exposes, such as pan-tilt-zoom (PTZ).
+- _Assets_, in Azure IoT Operations are logical entities that you create to represent real assets such as cameras. An Azure IoT Operations ONVIF camera asset identifies the ONVIF network service the camera exposes, such as PTZ.
 
 - The Azure IoT Operations experience web UI provides a unified experience for you to manage assets such as cameras. You can use the operations experience to configure the assets and asset endpoints that the media connector uses to access media sources.
 
@@ -57,7 +62,7 @@ The connector enables support for the following capabilities:
 
 - Discovery of device information and capabilities.
 - Monitoring events from devices.
-- Discovery of the media URIs exposed by a device. The connector for ONVIF makes these available to the media connector.
+- Discovery of the media URIs exposed by a device. The connector for ONVIF makes these URIs available to the media connector.
 - Imaging control such as filters and receiving  motion and tampering events.
 - Controlling device PTZ.
 

@@ -156,7 +156,7 @@ The following JSON snippet shows a set of parameter values to use:
 
 These parameters configure:
 
-- The name of the asset to create.
+- The name of the asset to create. The `-ptz` suffix is a reuired convention to indicate that the asset represents the PTZ capabilities of the camera.
 - The associated asset endpoint you created previously.
 
 To apply the previous configuration, save the examples above as files, and run the following command:
