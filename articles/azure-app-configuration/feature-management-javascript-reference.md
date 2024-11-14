@@ -120,9 +120,12 @@ The Azure App Configuration service also delivers the feature flags to your appl
 The App Configuration JavaScript provider provides feature flags in as a `Map` object. The built-in `ConfigurationMapFeatureFlagProvider` helps to load feature flags in this case.
 
 ``` javascript
+import { DefaultAzureCredential } from "@azure/identity";
 import { load } from "@azure/app-configuration-provider";
 
-const appConfig = await load(connectionString, {featureFlagOptions: { enabled: true }}); // load feature flags from Azure App Configuration service
+const appConfig = await load("YOUR_APP-CONFIG-ENDPOINT",
+                             new DefaultAzureCredential(), // For more information: https://learn.microsoft.com/javascript/api/overview/azure/identity-readme
+                             {featureFlagOptions: { enabled: true }}); // load feature flags from Azure App Configuration service
 const featureProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
 const featureManager = new FeatureManager(featureProvider);
 ```
