@@ -5,7 +5,7 @@ description: Learn how to manage storage account resources with the Azure Storag
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 11/13/2024
+ms.date: 11/14/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
@@ -148,7 +148,7 @@ You can pass an [ArmClientOptions](/dotnet/api/azure.resourcemanager.armclientop
 
 ### Example: Configure retry options
 
-The following code example shows how to configure the `ArmClient` object to change the default retry policy:
+The following code example shows how to configure the `ArmClient` object to use a custom retry policy:
 
 :::code language="csharp" source="~/storage-mgmt-devguide-dotnet/StorageAccountManagement/Program.cs" id="Snippet_CreateArmClient":::
 
