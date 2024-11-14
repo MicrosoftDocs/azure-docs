@@ -144,12 +144,6 @@
       href: manage-subnet-delegation.md
     - name: Create VNet peering
       items:
-      - name: Same deployment model - same subscription
-        items:
-        - name: Azure PowerShell
-          href: tutorial-connect-virtual-networks-powershell.md
-        - name: Azure CLI
-          href: tutorial-connect-virtual-networks-cli.md
       - name: Same deployment model - different subscriptions
         href: create-peering-different-subscriptions.md
       - name: Same deployment model - different subscriptions - SPN
