@@ -220,12 +220,15 @@
       - name: Overview
         href: business-applications/solution-overview.md
         displayName: business applications
-      - name: Deploy
-        href: business-applications/deploy-business-applications-solution.md
+      - name: Deploy for Power Platform
+        href: business-applications/deploy-power-platform-solution.md
         displayName: business applications
-      - name: Security content for Power Platform
+      - name: Power Platform security content reference
         href: business-applications/power-platform-solution-security-content.md
-      - name: Security content for Dynamics 365 Finance and Operations
+      - name: Deploy for Dynamics 365 Finance and Operations
+        href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
+        displayName: business applications
+      - name: Dynamics 365 Finance and Operations security content reference
         href: dynamics-365/dynamics-365-finance-operations-security-content.md
   - name: Integrate Microsoft Defender for IoT
     items:
