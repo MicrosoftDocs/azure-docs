@@ -378,7 +378,7 @@ X.509 attributes can be specified in the *BrokerAuthentication* resource for aut
 1. Add a new method by selecting **Add method**.
 1. Choose the method type **X.509** from the dropdown list then select **Add details** to configure the method.
 
-    :::image type="content" source="media/howto-configure-authentication/x509-method.png" alt-text="Screenshot using Azure portal to set MQTT broker X.509 authentication method.":::
+    :::image type="content" source="media/howto-configure-authentication/x509-method.png" alt-text="Screenshot using Azure portal to set MQTT broker X.509 authentication method." lightbox="media/howto-configure-authentication/x509-method.png":::
 
 # [Bicep](#tab/bicep)
 

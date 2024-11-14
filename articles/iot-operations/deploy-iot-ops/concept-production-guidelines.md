@@ -18,7 +18,7 @@ Decide whether you're deploying Azure IoT Operations to a single-node or multi-n
 
 ## Platform
 
-Currently, K3s on Ubuntu 20.04 is the only generally available platform for deploying Azure IoT Operations in production.
+Currently, K3s on Ubuntu 24.04 is the only generally available platform for deploying Azure IoT Operations in production.
 
 ## Cluster setup
 

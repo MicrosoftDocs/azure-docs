@@ -93,7 +93,7 @@ metadata:
   name: <ENDPOINT_NAME>
   namespace: azure-iot-operations
 spec:
-  endpointType: localStorage
+  endpointType: LocalStorage
   localStorageSettings:
     persistentVolumeClaimRef: <PVC_NAME>
 ```
