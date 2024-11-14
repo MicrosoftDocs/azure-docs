@@ -29,7 +29,7 @@ run simple actions on bare metal machines without using the Azure console or com
 
 ## Overview
 
-`nexusctl` is a stand-alone program that can be run using `nc-toolbox` from an `ssh` session on any control-plane or management-plane node. Since `nexusctl` is contained in the `nc-toolbox-breakglass` container image and isn't installed directly on the host, it must be run with a command-line like:
+`nexusctl` is a stand-alone program that can be run using `nc-toolbox` from an `ssh` session on any control-plane node. Since `nexusctl` is contained in the `nc-toolbox-breakglass` container image and isn't installed directly on the host, it must be run with a command-line like:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl <command> [subcommand] [options]
