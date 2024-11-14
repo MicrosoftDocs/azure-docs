@@ -22,18 +22,6 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## November 2024
-
-- [Microsoft Sentinel workbooks now available directly in the Microsoft Defender portal](microsoft-sentinel-workbooks-now-available-directly-in-the-microsoft-defender-portal)
-
-### Microsoft Sentinel workbooks now available directly in the Microsoft Defender portal
-
-Microsoft Sentinel workbooks are now available directly in the Microsoft Defender portal with Microsoft's unified security operations (SecOps) platform. Now, in the Defender portal, when you select **Microsoft Sentinel > Threat management> Workbooks**, you remain in the Defender portal instead of a new tab being opened for workbooks in the Azure portal.
-
-After you connect your data sources to Microsoft Sentinel, visualize and monitor the data using workbooks in Microsoft Sentinel. Microsoft Sentinel workbooks are based on Azure Monitor workbooks, and help you visualize and monitor the data ingested to Microsoft Sentinel. Workbooks add tables and charts with analytics for your logs and queries to the tools already available.
-
-For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](monitor-your-data.md) and [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard).
-
 ## September 2024
 
 - [Schema mapping added to the SIEM migration experience](#schema-mapping-added-to-the-siem-migration-experience)
