@@ -68,9 +68,6 @@ Snap to Roads takes GPS point data (lat, lon), and returns a list of objects tha
 
 ### Download file locally
 
-> [!IMPORTANT]
-> **Open issue: Need a permanent location to store the data file.**
-
 Download the sample data (mockData_20240919.csv) from GitHub to your local storage device, it's uploaded into lakehouse in the next section. This file contains an array of GPS coordinates that the Snap to Roads service modifies as needed to ensure that each coordinate points to a valid road.
 
 <!-------------------  Step #1 load data in lake house   ------------------------------>
