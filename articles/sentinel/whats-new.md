@@ -24,9 +24,9 @@ The listed features were released in the last three months. For information abou
 
 ## November 2024
 
-- [Microsoft Sentinel workbooks now available directly in the Microsoft Defender portal](microsoft-sentinel-workbooks-now-available-directly-in-the-microsoft-defender-portal)
+- [Microsoft Sentinel workbooks now available to view directly in the Microsoft Defender portal](microsoft-sentinel-workbooks-now-available-to-view-directly-in-the-microsoft-defender-portal)
 
-### Microsoft Sentinel workbooks now available directly in the Microsoft Defender portal
+### Microsoft Sentinel workbooks now available to view directly in the Microsoft Defender portal
 
 Microsoft Sentinel workbooks are now available for viewing directly in the Microsoft Defender portal with Microsoft's unified security operations (SecOps) platform. Now, in the Defender portal, when you select **Microsoft Sentinel > Threat management> Workbooks**, you remain in the Defender portal instead of a new tab being opened for workbooks in the Azure portal. Continue tabbing out to the Azure portal only when you need to edit your workbooks.
 
