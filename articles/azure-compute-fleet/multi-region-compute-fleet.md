@@ -37,3 +37,8 @@ To use Multi-Region Compute Fleet, you must [sign-up for Azure Compute Fleet pre
 ## Region availability
 
 Multi-Region Compute Fleet is available in all Azure Public Regions, except those located in China. 
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Find answers to frequently asked questions.](faq.yml)
