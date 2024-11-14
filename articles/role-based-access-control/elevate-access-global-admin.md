@@ -339,9 +339,9 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 ## View elevate access log entries
 
-When access is elevated, an entry is added to the logs. As a Global Administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it. Elevate access log entries appear in both the directory audit logs and the directory activity logs. This section describes different ways that you can view the elevate access log entries.
+When access is elevated, an entry is added to the logs. As an administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it. Elevate access log entries appear in both the directory audit logs and the directory activity logs. This section describes different ways that you can view the elevate access log entries.
 
-### Difference between log types
+### Differences between log types
 
 Elevated access log entries for directory audit logs and directory activity logs include similar information. However, the directory audit logs are easier to filter and export. The export capability enables you to stream access events, which can be used for your alert and detection solutions such as Microsoft Sentinel or other systems.
 
