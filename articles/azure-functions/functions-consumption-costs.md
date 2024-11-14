@@ -10,41 +10,29 @@ ms.custom:
 
 # Estimating consumption-based costs
 
-This article shows you how to estimate plan costs for the Consumption and Flex Consumption hosting plans. 
+This article shows you how to estimate plan costs for the Flex Consumption and Consumption hosting plans. 
 
-Azure Functions currently offers four different hosting plans for your function apps, with each plan having its own pricing model: 
+Azure Functions currently offers these different hosting options for your function apps, with each option having its own hosting plan pricing model: 
 
 | Plan | Description |
 | ---- | ----------- |
-| [**Consumption**](consumption-plan.md) | You're only charged for the time that your function app runs. This plan includes a [free grant][pricing page] on a per subscription basis.|
-| [**Flex Consumption plan**](flex-consumption-plan.md)| You pay for execution time on the instances on which your functions are running, plus any _always ready_ instances. Instances are dynamically added and removed based on the number of incoming events. Also supports virtual network integration. |
+| [**Flex Consumption plan**](flex-consumption-plan.md)| You pay for execution time on the instances on which your functions are running, plus any _always ready_ instances. Instances are dynamically added and removed based on the number of incoming events. This is the recommended dynamic scale plan, which also supports virtual network integration. |
 | [**Premium**](functions-premium-plan.md) | Provides you with the same features and scaling mechanism as the Consumption plan, but with enhanced performance and virtual network integration. Cost is based on your chosen pricing tier. To learn more, see [Azure Functions Premium plan](functions-premium-plan.md). |
 | [**Dedicated (App Service)**](dedicated-plan.md) <br/>(basic tier or higher) | When you need to run in dedicated VMs or in isolation, use custom images, or want to use your excess App Service plan capacity. Uses [regular App Service plan billing](https://azure.microsoft.com/pricing/details/app-service/). Cost is based on your chosen pricing tier.|
+| [**Container Apps**](functions-container-apps-hosting.md) | Create and deploy containerized function apps in a fully managed environment hosted by Azure Container Apps, which lets you rRun your functions alongside other microservices, APIs, websites, and workflows as container-hosted programs. |  
+| [**Consumption**](consumption-plan.md) | You're only charged for the time that your function app runs. This plan includes a [free grant][pricing page] on a per subscription basis.|
 
 [!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 
-You should always choose the plan that best supports the feature, performance, and cost requirements for your function executions. To learn more, see [Azure Functions scale and hosting](functions-scale.md).
+You should always choose the option that best supports the feature, performance, and cost requirements for your function executions. To learn more, see [Azure Functions scale and hosting](functions-scale.md).
 
-This article focuses on Consumption and Flex Consumption plans because in these plans billing depends on active periods of executions inside each instance. 
+This article focuses on Flex Consumption and Consumption plans because in these plans billing depends on active periods of executions inside each instance. 
 
 Durable Functions can also run in both of these plans. To learn more about the cost considerations when using Durable Functions, see [Durable Functions billing](./durable/durable-functions-billing.md).
 
 ## Consumption-based costs
 
 The way that consumption-based costs are calculated, including free grants, depends on the specific plan. For the most current cost and grant information, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
-
-### [Consumption plan](#tab/consumption-plan)
-
-The execution *cost* of a single function execution is measured in *GB-seconds*. Execution cost is calculated by combining its memory usage with its execution time. A function that runs for longer costs more, as does a function that consumes more memory. 
-
-Consider a case where the amount of memory used by the function stays constant. In this case, calculating the cost is simple multiplication. For example, say that your function consumed 0.5 GB for 3 seconds. Then the execution cost is `0.5GB * 3s = 1.5 GB-seconds`. 
-
-Since memory usage changes over time, the calculation is essentially the integral of memory usage over time. The system does this calculation by sampling the memory usage of the process (along with child processes) at regular intervals. As mentioned on the [pricing page], memory usage is rounded up to the nearest 128-MB bucket. When your process is using 160 MB, you're charged for 256 MB. The calculation takes into account concurrency, which is multiple concurrent function executions in the same process.
-
-> [!NOTE]
-> While CPU usage isn't directly considered in execution cost, it can have an impact on the cost when it affects the execution time of the function.
-
-For an HTTP-triggered function, when an error occurs before your function code begins to execute you aren't charged for an execution. This means that 401 responses from the platform due to API key validation or the App Service Authentication / Authorization feature don't count against your execution cost. Similarly, 5xx status code responses aren't counted when they occur in the platform before your function processes the request. A 5xx response generated by the platform after your function code has started to execute is still counted as an execution, even when the error isn't raised from your function code.
 
 ### [Flex Consumption plan](#tab/flex-consumtion-plan)
 
@@ -59,7 +47,7 @@ In addition to execution time, when using one or more always ready instances, yo
 >[!IMPORTANT]
 >In this article, prices are only provided to help understand example calculations. Always check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) when estimating costs you might incur while running your functions in the Flex Consumtion plan. 
 
-For the examples in this section, consider the example prices in this table for pay-as-you-go in East US.
+For the examples in this section, consider the discounted preview pricing in this table for pay-as-you-go in East US.
 
 | Mode        | Meter             | Free monthly grants        | Consumption rates        |
 | ------------| ----------------- | -------------------------- | ------------------------ | 
@@ -94,6 +82,19 @@ In a situation like this, the pricing depends more on the kind of work being don
 
     In this scenario, the total hourly cost of running on-demand on a single instance is `$0.1152 + $0.0288 = $0.144 USD`. 
 
+### [Consumption plan](#tab/consumption-plan)
+
+The execution _cost_ of a single function execution is measured in _GB-seconds_. Execution cost is calculated by combining its memory usage with its execution time. A function that runs for longer costs more, as does a function that consumes more memory. 
+
+Consider a case where the amount of memory used by the function stays constant. In this case, calculating the cost is simple multiplication. For example, say that your function consumed 0.5 GB for 3 seconds. Then the execution cost is `0.5GB * 3s = 1.5 GB-seconds`. 
+
+Since memory usage changes over time, the calculation is essentially the integral of memory usage over time. The system does this calculation by sampling the memory usage of the process (along with child processes) at regular intervals. As mentioned on the [pricing page], memory usage is rounded up to the nearest 128-MB bucket. When your process is using 160 MB, you're charged for 256 MB. The calculation takes into account concurrency, which is multiple concurrent function executions in the same process.
+
+> [!NOTE]
+> While CPU usage isn't directly considered in execution cost, it can have an impact on the cost when it affects the execution time of the function.
+
+For an HTTP-triggered function, when an error occurs before your function code begins to execute you aren't charged for an execution. This means that 401 responses from the platform due to API key validation or the App Service Authentication / Authorization feature don't count against your execution cost. Similarly, 5xx status code responses aren't counted when they occur in the platform before your function processes the request. A 5xx response generated by the platform after your function code has started to execute is still counted as an execution, even when the error isn't raised from your function code.
+
 ---
 
 ## Other related costs
@@ -107,7 +108,7 @@ When estimating the overall costs of your function app and related services, use
 | Related cost | Description |
 | ------------ | ----------- |
 | **Storage account** | Each function app requires that you have an associated General Purpose [Azure Storage account](../storage/common/storage-introduction.md#types-of-storage-accounts), which is [billed separately](https://azure.microsoft.com/pricing/details/storage/). This account is used internally by the Functions runtime, but you can also use it for Storage triggers and bindings. If you don't have a storage account, one is created for you when the function app is created. To learn more, see [Storage account requirements](storage-considerations.md#storage-account-requirements).|
-| **Application Insights** | Functions relies on [Application Insights](../azure-monitor/app/app-insights-overview.md) to provide a high-performance monitoring experience for your function apps. While not required, you should [enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration). A free grant of telemetry data is included every month. To learn more, see [the Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). |
+| **Application Insights** | Functions relies on [Application Insights](/azure/azure-monitor/app/app-insights-overview) to provide a high-performance monitoring experience for your function apps. While not required, you should [enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration). A free grant of telemetry data is included every month. To learn more, see [the Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). |
 | **Network bandwidth** | You can incur costs for data transfer depending on the direction and scenario of the data movement. To learn more, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/). |
 
 ## Behaviors affecting execution time
@@ -134,7 +135,7 @@ Function execution units are a combination of execution time and your memory usa
 
 If you haven't already done so, [enable Application Insights in your function app](configure-monitoring.md#enable-application-insights-integration). With this integration enabled, you can [query this telemetry data in the portal](analyze-telemetry-data.md#query-telemetry-data). 
 
-You can use either [Azure Monitor metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) in the [Azure portal] or REST APIs to get Monitor Metrics data.
+You can use either [Azure Monitor metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started) in the [Azure portal] or REST APIs to get Monitor Metrics data.
 
 [!INCLUDE [functions-consumption-metrics-queries](../../includes/functions-consumption-metrics-queries.md)]
 

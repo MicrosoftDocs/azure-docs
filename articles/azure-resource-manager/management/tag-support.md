@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 02/05/2024
+ms.date: 09/26/2024
 ---
 
 # Tag support for Azure resources
@@ -825,8 +825,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | availabilitySets | Yes | Yes |
-> | capacityReservationGroups | Yes | Yes |
-> | capacityReservationGroups / capacityReservations | Yes | Yes |
+> | capacityReservationGroups | No | No |
+> | capacityReservationGroups / capacityReservations | No | No |
 > | cloudServices | Yes | Yes |
 > | cloudServices / networkInterfaces | No | No |
 > | cloudServices / publicIPAddresses | No | No |
@@ -846,7 +846,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | hostGroups / hosts | Yes | Yes |
 > | images | Yes | Yes |
 > | proximityPlacementGroups | Yes | Yes |
-> | restorePointCollections | Yes | Yes |
+> | restorePointCollections | Yes | No |
 > | restorePointCollections / restorePoints | No | No |
 > | restorePointCollections / restorePoints / diskRestorePoints | No | No |
 > | sharedVMExtensions | Yes | Yes |
@@ -871,6 +871,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 
 > [!NOTE]
 > You can't add a tag to a virtual machine that has been marked as generalized. You mark a virtual machine as generalized with [Set-AzVm -Generalized](/powershell/module/Az.Compute/Set-AzVM) or [az vm generalize](/cli/azure/vm#az-vm-generalize).
+> Tags on virtual machine extensions can only be updated when the VM is running.
 
 
 ## Microsoft.ConfidentialLedger
@@ -1469,6 +1470,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | cassandraClusters | Yes | Yes |
+> | mongoClusters | Yes | No |
 > | databaseAccountNames | No | No |
 > | databaseAccounts | Yes | Yes |
 > | databaseAccounts / encryptionScopes | No | No |

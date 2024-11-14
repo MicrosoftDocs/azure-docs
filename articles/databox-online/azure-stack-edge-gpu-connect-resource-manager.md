@@ -4,8 +4,7 @@ description: Describes how to connect to the Azure Resource Manager running on y
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 04/10/2024
 ms.author: alkohli

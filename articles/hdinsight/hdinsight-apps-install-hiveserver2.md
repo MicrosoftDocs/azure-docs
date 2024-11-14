@@ -2,11 +2,11 @@
 title: Scale HiveServer2 on Azure HDInsight
 description: Horizontally scale HiveServer2 on Azure HDInsight clusters using edge nodes to increase fault tolerance and availability.
 services: hdinsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.author: kecheung
 author: kcheeeung
-ms.date: 10/16/2023
+ms.date: 10/17/2024
 ---
 
 # Scale HiveServer2 on Azure HDInsight Clusters for High Availability
@@ -44,6 +44,6 @@ In this section, you install an additional HiveServer2 onto your target hosts.
 In this article, you've learned how to install HiveServer2 onto your cluster. To learn more about edge nodes and applications, see the following articles:
 
 * [Install edge node](hdinsight-apps-use-edge-node.md): Learn how to install an edge node onto your HDInsight cluster.
-* [Install HDInsight applications](hdinsight-apps-install-applications.md): Learn how to install an HDInsight application to your clusters.
+* [Install HDInsight applications](hdinsight-apps-install-applications.md): Learn how to install a HDInsight application to your clusters.
 * [Azure SQL DTU Connection Limits](/azure/azure-sql/database/resource-limits-dtu-single-databases): Learn about Azure SQL database limits using DTU.
 * [Azure SQL vCore Connection Limits](/azure/azure-sql/database/resource-limits-vcore-elastic-pools): Learn about Azure SQL database limits using vCores.

@@ -3,7 +3,7 @@ title: Use SQL Database reference data in an Azure Stream Analytics job
 description: This article describes how to use a SQL Database as reference data input for an Azure Stream Analytics job in the Azure portal and in Visual Studio.
 author: ahartoon
 ms.author: anboisve
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 04/20/2022
 ---

@@ -1,7 +1,7 @@
 ---
 
 author: prmitt
-ms.service: network-function-manager
+ms.service: azure-network-function-manager
 ms.topic: include
 ms.date: 10/19/2021
 ms.author: prmitt

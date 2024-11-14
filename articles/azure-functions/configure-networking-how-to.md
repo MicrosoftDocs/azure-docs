@@ -93,6 +93,8 @@ You're now ready to route your function app's traffic to go through the virtual 
 
 1. Enable [content share routing](../app-service/overview-vnet-integration.md#content-share) to enable your function app to communicate with your new storage account through its virtual network. In the same page as the previous step, under **Configuration routing**, select **Content storage**.
 
+[!INCLUDE [functions-content-over-vnet-shared-storage-note](../../includes/functions-content-over-vnet-shared-storage-note.md)]
+
 ### 4. Update application settings
 
 Finally, you need to update your application settings to point to the new secure storage account:

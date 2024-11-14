@@ -3,7 +3,7 @@ title: 'Configure a virtual network gateway for ExpressRoute using PowerShell'
 description: This tutorial walks you through adding a virtual network gateway to a VNet for ExpressRoute using Azure PowerShell.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 09/11/2023
 ms.author: duau

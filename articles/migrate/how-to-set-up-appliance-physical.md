@@ -62,7 +62,9 @@ Check that the zipped file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  Verify the latest appliance version and hash value:
 
-[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
+  | **Download** | **Hash value** |
+  | --- | --- |
+  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] |
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud.

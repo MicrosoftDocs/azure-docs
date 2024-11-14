@@ -3,15 +3,15 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/29/2024
+ms.date: 08/30/2024
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell, linux-related-content
+ms.service: azure-automation
 ---
 
 # Troubleshoot Update Management issues
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 This article discusses issues that you might run into when using the Update Management feature to assess and manage updates on your machines. There's an agent troubleshooter for the Hybrid Runbook Worker agent to help determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other feature deployment issues, see [Troubleshoot feature deployment issues](onboarding.md).
 
@@ -182,7 +182,7 @@ This issue can be caused by local configuration issues or by improperly configur
 
 1. Run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline), depending on the OS.
 
-2. Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this aspect, see [Verify agent connectivity to Azure Monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
+2. Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this aspect, see [Verify agent connectivity to Azure Monitor](/azure/azure-monitor/agents/agent-windows#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
 
 3. Make sure that the machines show up in the Log Analytics workspace linked to your Automation account. Run the following query in the Log Analytics workspace.
 
@@ -191,7 +191,7 @@ This issue can be caused by local configuration issues or by improperly configur
    | summarize by Computer, Solutions
    ```
 
-    If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/agents/agent-windows.md).
+    If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](/azure/azure-monitor/agents/agent-windows).
 
     If your machine is listed in the query results, verify under the **Solutions** property that **updates** is listed. This verifies it is registered with Update Management. If it is not, check for scope configuration problems. The [scope configuration](../update-management/scope-configuration.md) determines which machines are configured for Update Management. To configure the scope configuration for the target the machine, see [Enable machines in the workspace](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
@@ -314,7 +314,7 @@ Follow the steps below to find out if your queries are working correctly.
    Here is an example:
 
     ```kusto
-    where (subscriptionId in~ ("20780d0a-b422-4213-979b-6c919c91ace1", "af52d412-a347-4bc6-8cb7-4780fbb00490") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "Windows" and resourceGroup in~ ("testRG","withinvnet-2020-01-06-10-global-resources-southindia") and location in~ ("australiacentral","australiacentral2","brazilsouth") )
+    where (subscriptionId in~ ("aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e", "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "Windows" and resourceGroup in~ ("testRG","withinvnet-2020-01-06-10-global-resources-southindia") and location in~ ("australiacentral","australiacentral2","brazilsouth") )
     | project id, location, name, tags = todynamic(tolower(tostring(tags)))
     | where  (tags[tolower("ms-resource-usage")] =~ "azure-cloud-shell" and tags[tolower("temp")] =~ "temp")
     | project id, location, name, tags
@@ -411,7 +411,7 @@ If you're using a cloned image, different computer names have the same source co
 You encounter the following error when you try to create an update deployment for machines in another Azure tenant:
 
 ```error
-The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
+The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
 ```
 
 ### Cause
@@ -682,5 +682,5 @@ KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/
 If you don't see your problem or can't resolve your issue, try one of the following channels for additional support.
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience.
+* Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience.
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: This article lists out commonly added questions on  retirement of Application gateway V1 SKUs and Migration
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 04/18/2024
 ms.author: greglin

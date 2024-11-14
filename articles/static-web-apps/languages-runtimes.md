@@ -3,7 +3,7 @@ title: Supported languages and runtimes in Azure Static Web Apps
 description: Supported languages and runtimes in Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 05/28/2024
 ms.author: cshoe

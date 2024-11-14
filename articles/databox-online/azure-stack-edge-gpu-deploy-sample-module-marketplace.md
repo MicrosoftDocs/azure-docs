@@ -4,8 +4,7 @@ description: Describes how to deploy GPU enabled IoT module on your Azure Stack 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/19/2022
 ms.author: alkohli

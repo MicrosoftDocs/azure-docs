@@ -3,7 +3,7 @@ title: Configure ExpressRoute and S2S VPN coexisting connections with Azure Powe
 description: Configure ExpressRoute and a site-to-site VPN connection that can coexist for the Resource Manager model using Azure PowerShell.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/15/2023

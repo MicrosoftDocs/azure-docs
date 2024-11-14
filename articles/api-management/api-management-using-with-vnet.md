@@ -4,7 +4,7 @@ description: Learn how to deploy (inject) your Azure API instance to a virtual n
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/15/2024
 ms.author: danlep

@@ -4,7 +4,7 @@ description: Learn how to configure and use an external Redis-compatible cache i
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/19/2022
 ms.author: danlep
@@ -26,6 +26,8 @@ Using an external cache allows you to overcome a few limitations of the built-in
 * Enable caching in the [API Management self-hosted gateway](self-hosted-gateway-overview.md)
 
 For more detailed information about caching, see [API Management caching policies](api-management-policies.md#caching) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 ![Bring your own cache to APIM](media/api-management-howto-cache-external/overview.png)
 

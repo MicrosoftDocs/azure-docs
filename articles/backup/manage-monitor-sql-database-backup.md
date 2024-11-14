@@ -1,9 +1,9 @@
 ---
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
-ms.topic: conceptual
-ms.date: 03/05/2024
-ms.service: backup
+ms.topic: how-to
+ms.date: 09/11/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -122,7 +122,7 @@ You can run different types of on-demand backups:
 >The retention period of this backup is determined by the type of on-demand backup you have run.
 >
 >- *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
->- *On-demand copy only full* accepts any v0alue for retaintion.
+>- *On-demand copy only full* accepts any value for retaintion.
 >- *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
 >- *On-demand log* retains backups as per the retention of scheduled logs set in policy.
 

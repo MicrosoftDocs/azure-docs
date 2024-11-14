@@ -24,7 +24,7 @@ In this quickstart, you do the following steps:
 
 
 > [!NOTE]
-> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to an Event Grid Namespace Topic and then receiving them. For an overview of the .NET client library, see [Azure Event Grid client library for .NET](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.17.0-beta.1/sdk/eventgrid/Azure.Messaging.EventGridV2/src/Generated/EventGridClient.cs). For more samples, see [Event Grid .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/feature/eventgrid/namespaces/sdk/eventgrid/Azure.Messaging.EventGrid/samples).
+> This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to an Event Grid Namespace Topic and then receiving them. For an overview of the .NET client library, see [Azure Event Grid client library for .NET](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.17.0-beta.1/sdk/eventgrid/Azure.Messaging.EventGridV2/src/Generated/EventGridClient.cs). For more samples, see [Event Grid .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.Messaging.EventGrid.Namespaces/samples).
 
 ## Prerequisites
 

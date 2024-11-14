@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
-ms.date: 01/22/2024
+ms.date: 11/01/2024
 ---
 
 # Troubleshoot Azure IoT Operations Preview
@@ -19,58 +19,39 @@ This article contains troubleshooting tips for Azure IoT Operations Preview.
 
 For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations *check* and *support* commands.
 
-[Azure CLI version 2.46.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
+[Azure CLI version 2.52.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
 
 - Use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate Azure IoT Operations service deployment for health, configuration, and usability. The *check* command can help you find problems in your deployment and configuration.
 
 - Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The *support create-bundle* command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
-## Data Processor pipeline deployment troubleshooting
+## Secret management
 
-If your Data Processor pipeline deployment status is showing as **Failed**, use the following commands to find the pipeline error codes.
+If you see the following error message related to secret management, you need to update your Azure Key Vault contents:
 
-To list the Data Processor pipeline deployments, run the following command:
-
-```bash
-kubectl get pipelines -A
+```output
+rpc error: code = Unknown desc = failed to mount objects, error: failed to get objectType:secret,
+objectName:nbc-eventhub-secret, objectVersion:: GET https://aio-kv-888f27b078.vault.azure.net/secrets/nbc-eventhub-secret/--------------------------------------------------------------------------------
+RESPONSE 404: 404 Not FoundERROR CODE: SecretNotFound--------------------------------------------------------------------------------{ "error": { "code": "SecretNotFound", "message": "A secret with (name/id) nbc-eventhub-secret was not found in this key vault.
+If you recently deleted this secret you may be able to recover it using the correct recovery command.
+For help resolving this issue, please see https://go.microsoft.com/fwlink/?linkid=2125182" }
 ```
 
-The output from the pervious command looks like the following example:
+This error occurs when Azure IoT Operations tries to synchronize a secret from Azure Key Vault that doesn't exist. To resolve this issue, you need to add the secret in Azure Key Vault before you create resources such as a secret provider class.
 
-```text
-NAMESPACE                NAME                           AGE
-azure-iot-operations     passthrough-data-pipeline      2d20h
-azure-iot-operations     reference-data-pipeline        2d20h
-azure-iot-operations     contextualized-data-pipeline   2d20h
-```
+## Connector for OPC UA
 
-To view detailed information for a pipeline, run the following command:
+An OPC UA server connection fails with a `BadSecurityModeRejected` error if the connector tries to connect to a server that only exposes endpoints with no security. There are two options to resolve this issue:
 
-```bash
-kubectl describe pipelines passthrough-data-pipeline -n azure-iot-operations
-```
+- Overrule the restriction by explicitly setting the following values in the additional configuration for the asset endpoint profile:
 
-The output from the previous command looks like the following example:
+    | Property | Value |
+    |----------|-------|
+    | `securityMode` | `none` |
+    | `securityPolicy` | `http://opcfoundation.org/UA/SecurityPolicy#None` |
 
-```text
-...
-Status:
-  Provisioning Status:
-    Error
-      Code:  <ErrorCode>
-      Message: <ErrorMessage>
-    Status:        Failed
-Events:            <none>
-```
+- Add a secure endpoint to the OPC UA server and set up the certificate mutual trust to establish the connection.
 
-If you see the following message when you try to access the **Pipelines** tab in the Azure IoT Operations (preview) portal:
-
-_Data Processor not found in the current deployment. Please re-deploy with the additional argument to include the Data Processor._
-
-You need to deploy Azure IoT Operations with the optional Data Processor component included. To do this, you need to add the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. You must use the `--include-dp` argument to include the Data Processor component when you first deploy Azure IoT Operations. You can't add this optional component to an existing deployment.
-
-> [!TIP]
-> If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, use the [az iot ops delete](/cli/azure/iot/ops?az-iot-ops-delete) command.
 
 ## Azure IoT Layered Network Management Preview troubleshooting
 
@@ -80,7 +61,7 @@ The troubleshooting guidance in this section is specific to Azure IoT Operations
 
 If the Layered Network Management operator install fails or you can't apply the custom resource for a Layered Network Management instance:
 
-1. Verify the regions are supported for public preview. Public preview supports eight regions. For more information, see [Quickstart: Deploy Azure IoT Operations Preview](../get-started/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc).
+1. Verify the regions are supported for public preview. Public preview supports eight regions. For more information, see [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc).
 1. If there are any other errors in installing Layered Network Management Arc extensions, follow the guidance included with the error. Try uninstalling and installing the extension.
 1. Verify the Layered Network Management operator is in the *Running and Ready* state.
 1. If applying the custom resource `kubectl apply -f cr.yaml` fails, the output of this command lists the reason for error. For example, CRD version mismatch or wrong entry in CRD.

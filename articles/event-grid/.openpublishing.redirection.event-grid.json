@@ -1,6 +1,16 @@
 {
   "redirections": [    
     {
+      "source_path": "webhook-event-delivery.md",
+      "redirect_url": "/azure/event-grid/end-point-validation-cloud-events-schema",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "cloudevents-schema.md",
+      "redirect_url": "/azure/event-grid/cloud-event-schema",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "storage-upload-process-images.md",
       "redirect_url": "/azure/event-grid/blob-event-quickstart-portal",
       "redirect_document_id": false

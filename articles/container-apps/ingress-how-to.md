@@ -3,7 +3,7 @@ title: Configure Ingress for your app in Azure Container Apps
 description: How to configure ingress for your container app
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 06/13/2024
 ms.author: cshoe
@@ -203,7 +203,12 @@ type: Microsoft.App/containerApps
 
 ::: zone pivot="azure-portal"
 
-This feature isn't supported in the Azure portal.
+:::image type="content" source="media/ingress/additional-tcp-ingress-ports-portal.png" lightbox="media/ingress/additional-tcp-ingress-ports-portal.png" alt-text="Screenshot of adding additional TCP ports for Container Apps ingress through the portal.":::
+
+1. Expand the **Additional TCP ports** section within the Ingress blade.
+2. Add in additional TCP ports that your application will be accepting traffic on in the _Target port_ field. If _Exposed port_ is left empty, this will take from the same value set in _Target port_.
+3. Change the _Ingress traffic_ field as needed. This will configure where ingress traffic will be limited to for each port.
+4. When finished, click **Save**.
 
 ::: zone-end
 

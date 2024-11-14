@@ -7,7 +7,7 @@ metadata:
   manager: femila
   keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
   
-  ms.service: notification-hubs
+  ms.service: azure-notification-hubs
   ms.tgt_pltfrm: mobile-multiple
   ms.topic: faq
   ms.date: 04/24/2024
@@ -201,13 +201,13 @@ sections:
       - question: |
           What telemetry features are available?
         answer: |
-          Azure Notification Hubs enables viewing telemetry data in the [Azure portal](https://portal.azure.com). Details of the metrics are available on the [Notification Hubs Metrics](../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs) page.
+          Azure Notification Hubs enables viewing telemetry data in the [Azure portal](https://portal.azure.com). Details of the metrics are available on the [Notification Hubs Metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftnotificationhubsnamespacesnotificationhubs) page.
           
           You can also programmatically access metrics. For more information, see the following articles:
           
           - [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). This sample uses the user name and password. To use a certificate, overload the FromServicePrincipal method to provide a certificate as shown in [this example](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
           - [Getting metrics and activity logs for a resource](/azure/frontdoor/front-door-diagnostics?pivots=front-door-standard-premium)
-          - [Azure Monitoring REST API walkthrough](../azure-monitor/essentials/rest-api-walkthrough.md)
+          - [Azure Monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough)
           
           > [!NOTE]
           > Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNs for iOS and macOS or FCM for Android devices). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  

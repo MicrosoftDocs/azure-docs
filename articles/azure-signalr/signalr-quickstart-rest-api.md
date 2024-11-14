@@ -2,9 +2,9 @@
 title: Quickstart - Azure SignalR Service REST API
 description: Learn how to use REST API with Azure SignalR Service following samples. Find details of REST API specification.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 09/03/2024
 ms.author: lianwei
 ms.custom: mode-api
 ---
@@ -37,7 +37,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Clone the sample application
 
-While the service is being deployed, let's switch to prepare the code. Clone the [sample app from GitHub](https://github.com/aspnet/AzureSignalR-samples.git), set the SignalR Service connection string, and run the application locally.
+While the service is being deployed, let's get the code ready. First, clone the [sample app from GitHub](https://github.com/aspnet/AzureSignalR-samples.git). Next, set the SignalR Service connection string to the app. Finally, run the application locally.
 
 1. Open a git terminal window. Change to a folder where you want to clone the sample project.
 

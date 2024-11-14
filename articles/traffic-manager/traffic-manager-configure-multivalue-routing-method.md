@@ -3,7 +3,7 @@ title: Configure MultiValue traffic routing - Azure Traffic Manager
 description: This article explains how to configure Traffic Manager to route traffic to A/AAAA endpoints.
 services: traffic-manager
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 05/07/2023
 ms.author: greglin

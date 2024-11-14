@@ -5,7 +5,7 @@ author: vijaysr
 ms.author: vijaysr
 ms.reviewer: shravan
 ms.date: 06/24/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: overview
 ms.custom:

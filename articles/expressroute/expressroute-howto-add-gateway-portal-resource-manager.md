@@ -3,7 +3,7 @@ title: 'Configure a virtual network gateway for ExpressRoute using Azure portal'
 description: This article walks you through adding a virtual network gateway to a virtual network for ExpressRoute using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 10/31/2023
 ms.author: duau

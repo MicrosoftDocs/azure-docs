@@ -2,7 +2,7 @@
 title: Configure Avere vFXT storage - Azure
 description: Learn how to add a back-end storage system for a cluster in Avere vFXT for Azure. If you created an Azure Blob container with the cluster, it is ready to use.
 author: ekpgh
-ms.service: avere-vfxt
+ms.service: azure-avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
@@ -45,8 +45,6 @@ Follow these steps to add a NAS core filer:
 1. Click **Core Filer** > **Manage Core Filers** on the left.
 
 1. Click **Create**.
-
-   ![Screenshot of the Add new core filer page with a cursor over the Create button](media/avere-vfxt-add-core-filer-start.png)
 
 1. Fill in the required information in the wizard:
 

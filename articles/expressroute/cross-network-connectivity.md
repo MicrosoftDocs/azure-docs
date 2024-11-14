@@ -2,8 +2,8 @@
 title: 'Azure cross-network connectivity'
 description: This page describes an application scenario for cross network connectivity and solution based on Azure networking features.
 author: duongau
-ms.service: expressroute
-ms.topic: article
+ms.service: azure-expressroute
+ms.topic: concept-article
 ms.date: 06/30/2023
 ms.author: duau
 

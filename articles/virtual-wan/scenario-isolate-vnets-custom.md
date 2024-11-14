@@ -5,9 +5,9 @@ description: Learn about Virtual WAN routing custom isolation scenarios to preve
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 10/25/2024
 ms.author: cherylmc
 
 ---

@@ -3,11 +3,10 @@ title: Fault tolerance of copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to add fault tolerance to copy activity in Azure Data Factory and Synapse Analytics pipelines by skipping the incompatible data.
 author: dearandyxu
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/09/2023
+ms.date: 09/26/2024
 ms.author: yexu
 ---
 #  Fault tolerance of copy activity in Azure Data Factory and Synapse Analytics pipelines

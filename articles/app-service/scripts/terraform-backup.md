@@ -4,7 +4,7 @@ description: In this quickstart, you create an Azure Windows web app with a back
 ms.topic: quickstart
 ms.date: 07/02/2024
 ms.custom: devx-track-terraform
-ms.service: app-service
+ms.service: azure-app-service
 author: msangapu-msft
 ms.author: msangapu
 customer intent: As a Terraform user, I want to see how to create an Azure Windows web app with a backup schedule and a .NET application stack.

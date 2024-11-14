@@ -3,8 +3,8 @@ title: How to use the MedTech service monitoring and health check tabs - Azure H
 description: Learn how to use the MedTech service monitoring and health check tabs.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
-ms.subservice: iomt
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: how-to
 ms.date: 06/19/2023
 ms.author: chrupa
@@ -38,7 +38,7 @@ In this article, learn how to use the MedTech service monitoring and health chec
    :::image type="content" source="media\how-to-use-monitoring-and-health-checks-tabs\pin-metrics-to-dashboard.png" alt-text="Screenshot the MedTech service monitoring tile with red box around the pin icon." lightbox="media\how-to-use-monitoring-and-health-checks-tabs\pin-metrics-to-dashboard.png":::
    
    > [!TIP]
-   > To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
+   > To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 ## Available metrics for the MedTech service
 

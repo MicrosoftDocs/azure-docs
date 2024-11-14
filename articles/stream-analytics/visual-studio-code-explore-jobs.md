@@ -1,7 +1,7 @@
 ---
 title: Export and manage Azure Stream Analytics jobs in Visual Studio Code
 description: This article shows you how to export and manage an Azure Stream Analytics job with the Azure Stream Analytics extension for Visual Studio Code. 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 author: alexlzx
 ms.author: zhenxilin
 ms.date: 05/24/2023

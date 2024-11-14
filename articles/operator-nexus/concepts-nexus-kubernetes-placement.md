@@ -1,11 +1,11 @@
 ---
 title: "Resource Placement in Azure Operator Nexus Kubernetes"
 description: An explanation of how Operator Nexus schedules Nexus Kubernetes resources.
-author: jaypipes
-ms.author: jaypipes
+author: dramasamy
+ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 08/07/2024
 ms.custom: template-concept
 ---
 
@@ -56,6 +56,12 @@ following sorting rules:
    VMs from different NKS Clusters on the same bare metal servers*. This rule
    "bin packs" the extra-large VMs in order to reduce fragmentation of the
    available compute resources.
+
+1. The "bin packing" rule mentioned above also applies to smaller VMs in addition to
+   large VMs.This helps to "pack" smaller VMs from different clusters onto the same
+   baremetal machines, increasing the overall placement efficiency.
+   For example control plane nodes & small-SKU Nodes (agent pool) from different
+   clusters affine together.
 
 ## Example placement scenarios
 
@@ -303,3 +309,12 @@ insufficient resource failures. Instead of reducing the VM SKU size, consider
 reducing the Count of the Agent Pool to 20. There's a better chance your
 request fits within the target environment's resource capacity and your overall
 deployment has more CPU cores than if you downsized the VM SKU.
+
+## Memory-optimized VM SKUs
+
+NC_E94_448_v1 consumes the all the customer-available resources of the physical
+machine. NC_E70_336_v1 consumes 75% of customer-available resources, however,
+it is not guarenteed that this will be exactly one-full and one-half NUMA cells.
+This means that an NC_G24_112_v1 may or may not be able to schedule on a machine
+running an NC_E70_336_v1 depending on how the NC_E70_336_v1 VM is scheduled
+across the NUMA-cells.

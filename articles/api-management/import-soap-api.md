@@ -2,10 +2,10 @@
 title: Import SOAP API to Azure API Management | Microsoft Docs
 description: Learn how to import a SOAP API to Azure API Management as a WSDL specification using the Azure portal, Azure CLI, or Azure PowerShell. Then, test the API in the Azure portal.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-ms.date: 10/26/2022
+ms.date: 11/05/2024
 ms.author: danlep
 ---
 # Import SOAP API to API Management
@@ -120,7 +120,11 @@ To define a wildcard SOAP action:
 1. In the portal, select the API you created in the previous step.
 1. In the **Design** tab, select **+ Add Operation**.
 1. Enter a **Display name** for the operation.
-1. In the URL, select `POST` and enter `/soapAction={any}` in the resource. The template parameter inside the curly brackets is arbitrary and doesn't affect the execution.
+1. In the URL, select `POST` and enter `/?soapAction={any}` in the resource. The template parameter inside the curly brackets is arbitrary and doesn't affect the execution.
+
+> [!NOTE]
+> Don't use the **OpenAPI specification** editor in the **Design** tab to modify a SOAP API.
+
 
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]

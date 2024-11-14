@@ -43,7 +43,7 @@ resources missing the tag.
 
    :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="Screenshot of selecting the Assignments node from the Policy Overview page." border="false":::
 
-1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
+1. Select **Assign Policy** from the top of the **Policy | Assignments** page.
 
    :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Screenshot of selecting the 'Assign policy' button on the Assignments page." border="false":::
 
@@ -51,8 +51,6 @@ resources missing the tag.
    and selecting either a management group or subscription. Optionally, select a resource group. A
    scope determines what resources or grouping of resources the policy assignment gets enforced on.
    Then select **Select** at the bottom of the **Scope** page.
-
-   This example uses the **Contoso** subscription. Your subscription will differ.
 
 1. Resources can be excluded based on the **Scope**. **Exclusions** start at one level lower than
    the level of the **Scope**. **Exclusions** are optional, so leave it blank for now.
@@ -67,6 +65,8 @@ resources missing the tag.
 
    :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Screenshot of the search filter while selecting a policy definition.":::
 
+1. The **Version** is automatically populated to the latest major version of the definition and set to autoinjest any non-breaking changes. You may change the version to others, if available or adjust your ingesting settings, but no change is required. **Overrides** are optional, so leave it blank for now. 
+
 1. The **Assignment name** is automatically populated with the policy name you selected, but you can
    change it. For this example, leave _Inherit a tag from the resource group if missing_. You can
    also add an optional **Description**. The description provides details about this policy
@@ -76,8 +76,6 @@ resources missing the tag.
    outcome of the policy without triggering the effect. For more information, see
    [enforcement mode](../concepts/assignment-structure.md#enforcement-mode).
 
-1. **Assigned by** is automatically filled based on who is logged in. This field is optional, so
-   custom values can be entered.
 
 1. Select the **Parameters** tab at the top of the wizard.
 
@@ -90,7 +88,7 @@ resources missing the tag.
    [remediate resources](../how-to/remediate-resources.md).
 
 1. **Create a Managed Identity** is automatically checked since this policy definition uses the
-   [modify](../concepts/effects.md#modify) effect. **Permissions** is set to _Contributor_
+   [modify](../concepts/effect-modify.md) effect. **Type of Managed Identity** is set to _System Assigned_. **Permissions** is set to _Contributor_
    automatically based on the policy definition. For more information, see
    [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md)
    and
@@ -367,6 +365,7 @@ in the following format:
 {
     "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
     "displayName": "Allowed locations",
+    "version": "1.0.0"
     "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
     "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
     "policyRule": {
@@ -553,9 +552,9 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 1. Fill out the **Get Secure: Assign Initiative** page by entering the following example
    information. You can use your own information.
 
-   - Scope: The management group or subscription you saved the initiative to becomes the default.
+   - Scope: The management group or subscription you saved the initiative to become the default.
      You can change scope to assign the initiative to a subscription or resource group within the
-     save location.
+     saved location.
    - Exclusions: Configure any resources within the scope to prevent the initiative assignment from
      being applied to them.
    - Initiative definition and Assignment name: Get Secure (pre-populated as name of initiative

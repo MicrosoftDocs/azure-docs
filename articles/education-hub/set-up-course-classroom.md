@@ -15,7 +15,7 @@ In this quickstart, you create a course in the Azure Education Hub. You also lea
 
 ## Prerequisites
 
-- An academic grant with an approved credit amount
+- An academic sponsorship with an approved credit amount
 - A subscription that will access your Azure credit
 
 ### Subscriptions

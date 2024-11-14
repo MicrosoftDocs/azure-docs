@@ -2,12 +2,12 @@
 title: Azure availability zone migration baseline
 description: Learn how to assess the availability-zone readiness of your application for the purposes of migrating from non-availability zone to availability zone support.
 author: sonmitt
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 04/06/2023
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Azure availability zone migration baseline
@@ -129,7 +129,6 @@ If you require multi-region, or if your Azure region doesn't support availabilit
 
 - Each data center in a region is assigned to a physical zone. Physical zones are mapped to the logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. You can use the dedicated ARM REST API, [listLocations](/rest/api/resources/subscriptions/list-locations?tabs=HTTP) and set the API version to 2022-12-01 to list the logical zone mapping to physical zone for your subscription. This information is important for critical application components that require co-location with Azure resources categorized as [Strategic services](/azure/reliability/availability-service-by-category#strategic-services) that may not be available in all physical zones.
 
-- Inter-zone bandwidth charges apply when traffic moves across zones. To learn more about bandwidth pricing, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).  
 
 ## Next steps
 

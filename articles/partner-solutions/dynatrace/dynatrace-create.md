@@ -102,11 +102,11 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
 
     - **Send Azure resource logs for all defined sources** - Azure resource logs provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
-   - **Send Microsoft Entra logs** – Microsoft Entra logs allow you to route the audit, sign-in, and provisioning logs to Dynatrace. The details are listed in [Microsoft Entra activity logs in Azure Monitor](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md). The global administrator or security administrator for your Microsoft Entra tenant can enable Microsoft Entra logs.
+   - **Send Microsoft Entra logs** – Microsoft Entra logs allow you to route the audit, sign-in, and provisioning logs to Dynatrace. The details are listed in [Microsoft Entra activity logs in Azure Monitor](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md). The administrator or security administrator for your Microsoft Entra tenant can enable Microsoft Entra logs.
 
 1. To send subscription level logs to Dynatrace, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Dynatrace.
 
-1. To send Azure resource logs to Dynatrace, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).
+1. To send Azure resource logs to Dynatrace, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
    When the checkbox for Azure resource logs is selected, by default, logs are forwarded for all resources. To filter the set of Azure resources sending logs to Dynatrace, use inclusion and exclusion rules and set the Azure resource tags:
 

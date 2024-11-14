@@ -21,7 +21,7 @@ ms.author: radeltch
 [sap-ha-partner-information]:https://scn.sap.com/docs/DOC-8541
 [azure-sla]:https://azure.microsoft.com/support/legal/sla/
 [azure-storage-redundancy]:/azure/storage/common/storage-redundancy
-[azure-storage-managed-disks-overview]:../../virtual-machines/managed-disks-overview.md
+[azure-storage-managed-disks-overview]:/azure/virtual-machines/managed-disks-overview
 
 ## Terminology definitions
 
@@ -75,7 +75,7 @@ When two or more VMs are part of the same availability set, each virtual machine
 * **Update domains** guarantee that multiple VMs aren't rebooted at the same time during the planned maintenance of an Azure infrastructure. Only one VM is rebooted at a time.
 * **Fault domains** guarantee that VMs are deployed on hardware components that don't share a common power source and network switch. When servers, a network switch, or a power source undergo an unplanned downtime, only one VM is affected.
 
-For more information, see [manage the availability of virtual machines in Azure using availability set](../../virtual-machines/availability-set-overview.md).
+For more information, see [manage the availability of virtual machines in Azure using availability set](/azure/virtual-machines/availability-set-overview).
 
 ### Azure Availability Zones
 
@@ -83,7 +83,7 @@ Azure is in process of rolling out a concept of [Azure Availability Zones](../..
 
 On using Availability Zones, there are some things to consider. The considerations list like:
 
-* You can't deploy Azure Availability Sets within an Availability Zone. Only possibility to combine Availability sets and Availability Zones is with [proximity placement groups](../../virtual-machines/co-location.md). For more information, see article [Combine availability sets and availability zones with proximity placement groups](./proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups).
+* You can't deploy Azure Availability Sets within an Availability Zone. Only possibility to combine Availability sets and Availability Zones is with [proximity placement groups](/azure/virtual-machines/co-location). For more information, see article [Combine availability sets and availability zones with proximity placement groups](./proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups).
 * You can't use the [Basic Load Balancer](../../load-balancer/load-balancer-overview.md) to create failover cluster solutions based on Windows Failover Cluster Services or Linux Pacemaker. Instead you need to use the [Azure Standard Load Balancer SKU](../../load-balancer/load-balancer-standard-availability-zones.md).
 * Azure Availability Zones aren't giving any guarantees of certain distance between the different zones within one region.
 * The network latency between different Azure Availability Zones within the different Azure regions might be different from Azure region to region. There would be cases, where you as a customer can reasonably run the SAP application layer deployed across different zones since the network latency from one zone to the active DBMS VM is still acceptable from a business process impact. Whereas there could be customer scenarios where the latency between the active DBMS VM in one zone and an SAP application instance in a VM in another zone can be too intrusive and not acceptable for the SAP business processes. As a result, the deployment architectures need to be different with an active/active architecture for the application or active/passive architecture if latency is too high.
@@ -93,7 +93,7 @@ On using Availability Zones, there are some things to consider. The consideratio
 
 In Azure, Virtual Machine Scale Sets with Flexible orchestration offers a means of achieving high availability for SAP workloads, much like other deployment frameworks such as availability sets and availability zones. With flexible scale set, VMs can be distributed across various availability zones and fault domains, making it a suitable option for deploying highly available SAP workloads.
 
-Virtual machine scale set with flexible orchestration offers the flexibility to create the scale set within a region or span it across availability zones. On creating, the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute the VMs across different zones and the scale set would also [distribute VMs across different fault domains within each zone on a best effort basis](../../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md). **For SAP workload only flexible scale set with FD=1 is supported.**
+Virtual machine scale set with flexible orchestration offers the flexibility to create the scale set within a region or span it across availability zones. On creating, the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute the VMs across different zones and the scale set would also [distribute VMs across different fault domains within each zone on a best effort basis](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains). **For SAP workload only flexible scale set with FD=1 is supported.**
 
 The advantage of using flexible scale sets with FD=1 for cross zonal deployment, instead of traditional availability zone deployment is that the VMs deployed with the scale set would be distributed across different fault domains within the zone in a best-effort manner. To avoid the limitations associated with utilizing [proximity placement group](./proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups) for ensuring VMs availability across all Azure datacenters or under each network spine, it's advised to deploy SAP workload across availability zones using flexible scale set with FD=1. This deployment strategy ensures that VMs deployed in each zone aren't restricted to a single datacenter or network spine, and all SAP system components, such as databases, ASCS/ERS, and application tier are scoped at zonal level.
 
@@ -106,7 +106,7 @@ Two types of Azure platform events can affect the availability of your virtual m
 * **Planned maintenance** events are periodic updates made by Microsoft to the underlying Azure platform. The updates improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on.
 * **Unplanned maintenance** events occur when the hardware or physical infrastructure underlying your virtual machine has failed in some way. It might include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform automatically migrates your virtual machine from the unhealthy physical server that hosts your virtual machine to a healthy physical server. Such events are rare, but they might also cause your virtual machine to reboot.
 
-For more information, see [maintenance of virtual machines in Azure](../../virtual-machines/maintenance-and-updates.md).
+For more information, see [maintenance of virtual machines in Azure](/azure/virtual-machines/maintenance-and-updates).
 
 ### Azure Storage redundancy
 
@@ -138,9 +138,9 @@ Here's a quick summary of the various deployment types that are available for SA
 
 > [!NOTE]
 >
-> * Update domains have been deprecated in Flexible Orchestration mode. For more information, see [Migrate deployments and resources to Virtual Machine Scale Sets in Flexible orchestration](../../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-migration-resources.md)
-> * For more information on compute to storage fault domain alignment, see [Choosing the right number of fault domains for Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md) and [How do availability sets work?](../../virtual-machines/availability-set-overview.md#how-do-availability-sets-work).
-> * To enable capacity reservation, it is important to check the capacity reservation's [limitations and restrictions](../../virtual-machines/capacity-reservation-overview.md#limitations-and-restrictions).
+> * Update domains have been deprecated in Flexible Orchestration mode. For more information, see [Migrate deployments and resources to Virtual Machine Scale Sets in Flexible orchestration](/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-migration-resources)
+> * For more information on compute to storage fault domain alignment, see [Choosing the right number of fault domains for Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains) and [How do availability sets work?](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work).
+> * To enable capacity reservation, it is important to check the capacity reservation's [limitations and restrictions](/azure/virtual-machines/capacity-reservation-overview#limitations-and-restrictions).
 
 ## High availability deployment options for SAP workload
 
@@ -250,7 +250,7 @@ In an SAP system, the DBMS servers as the single point of failure as well. So, i
 | Database      | DR recommendation                                            |
 | ------------- | ------------------------------------------------------------ |
 | SAP HANA      | [HANA System Replication (HSR)](sap-hana-availability-across-regions.md) |
-| Oracle        | [Oracle Data Guard](../../virtual-machines/workloads/oracle/oracle-reference-architecture.md#disaster-recovery-for-oracle-databases) |
+| Oracle        | [Oracle Data Guard](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture#disaster-recovery-for-oracle-databases) |
 | IBM DB2       | [High availability disaster recovery (HADR)](dbms-guide-ha-ibm.md) |
 | Microsoft SQL | [Microsoft SQL Always On](dbms-guide-sqlserver.md#sql-server-always-on) |
 | SAP ASE       | [ASE HADR Always On](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199) |

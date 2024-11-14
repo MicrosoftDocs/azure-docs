@@ -3,7 +3,7 @@ title: Enable an authentication token store in Azure Container Apps
 description: Learn to secure authentication tokens independent of your application.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 04/04/2024
 ms.author: cshoe

@@ -3,10 +3,10 @@ title: 'Quickstart: Create Interactive Query cluster using Bicep - Azure HDInsig
 description: This quickstart shows how to use Bicep to create an Interactive Query cluster in Azure HDInsight.
 author: reachnijel
 ms.author: nijelsf
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 10/16/2023
+ms.date: 10/17/2024
 #Customer intent: As a developer new to Interactive Query on Azure, I need to see how to create an Interactive Query cluster.
 ---
 
@@ -29,7 +29,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 Two Azure resources are defined in the Bicep file:
 
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): create an Azure Storage Account.
-* [Microsoft.HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters): create an HDInsight cluster.
+* [Microsoft.HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters): create a HDInsight cluster.
 
 ### Deploy the Bicep file
 
@@ -55,13 +55,13 @@ Two Azure resources are defined in the Bicep file:
     You need to provide values for the parameters:
 
     * Replace **\<cluster-name\>** with the name of the HDInsight cluster to create.
-    * Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to log in to cluster dashboards.
-    * Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. The username can not be admin username.
+    * Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to sign-in to cluster dashboards.
+    * Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. The username can’t be admin username.
 
-    You are prompted to enter the following password:
+    You're prompted to enter the following password:
 
-    * **clusterLoginPassword**, which must be at least 10 characters long and contain one digit, one uppercase letter, one lowercase letter, and one non-alphanumeric character except single-quote, double-quote, backslash, right-bracket, full-stop. It also must not contain three consecutive characters from the cluster username or SSH username.
-    * **sshPassword**, which must be 6-72 characters long and must contain at least one digit, one uppercase letter, and one lowercase letter. It must not contain any three consecutive characters from the cluster login name.
+    * **clusterLoginPassword**, which must be at least 10 characters long and contain one digit, one uppercase letter, one lowercase letter, and one nonalphanumeric character except single-quote, double-quote, backslash, right-bracket, full-stop. It also must not contain three consecutive characters from the cluster username or SSH username.
+    * **sshPassword**, which must be 6-72 characters long and must contain at least one digit, one uppercase letter, and one lowercase letter. It must not contain any three consecutive characters from the cluster sign in name.
 
     > [!NOTE]
     > When the deployment finishes, you should see a message indicating the deployment succeeded.

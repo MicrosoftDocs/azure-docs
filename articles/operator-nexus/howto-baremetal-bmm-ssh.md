@@ -12,7 +12,8 @@ ms.custom: template-how-to, devx-track-azurecli
 # Manage emergency access to a bare metal machine using the `az networkcloud cluster baremetalmachinekeyset`
 
 > [!CAUTION]
-> Please note this process is used in emergency situations when all other troubleshooting options using Azure are exhausted. SSH access to these bare metal machines is restricted to users managed via this method from the specified jump host list.
+> Please note this process is used in emergency situations when all other troubleshooting options using Azure have been exhausted. Any write or edit actions executed on the BMM node(s) will require users to ['reimage'](./howto-baremetal-functions.md) in order to restore Microsoft support to the impacted BMM node(s). 
+Please note that SSH access to these bare metal machines is restricted to users managed via this method from the specified jump host list.
 
 There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways via Azure are exhausted. Azure Operator Nexus provides the `az networkcloud cluster baremetalmachinekeyset` command so users can manage SSH access to these bare metal machines. On keyset creation, users are validated against Microsoft Entra ID for proper authorization by cross referencing the User Principal Name provided for a user against the supplied Microsoft Entra Group ID `--azure-group-id <Entra Group ID>`.
 

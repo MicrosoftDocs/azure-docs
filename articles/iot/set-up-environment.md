@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/23/2024
 ms.topic: tutorial
-ms.service: iot
+ms.service: azure-iot
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -13,6 +13,8 @@ ms.devlang: azurecli
 # Tutorial: Set up your environment for the IoT Plug and Play quickstarts and tutorials
 
 Before you can complete any of the IoT Plug and Play quickstarts and tutorials, you need to configure an IoT hub and the Device Provisioning Service (DPS) in your Azure subscription. You'll also need local copies of the model files used by the sample applications and the Azure IoT explorer tool.
+
+[!INCLUDE [iot-authentication-service-connection-string](../../includes/iot-authentication-service-connection-string.md)]
 
 ## Prerequisites
 

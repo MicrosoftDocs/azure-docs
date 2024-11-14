@@ -3,7 +3,7 @@
  description: include file
  services: virtual-network
  author: asudbring
- ms.service: virtual-network
+ ms.service: azure-virtual-network
  ms.topic: include
  ms.date: 07/01/2024
  ms.author: allensu
@@ -27,7 +27,7 @@ The following procedure creates a virtual network with a resource subnet.
     | Name | Enter **vnet-1**. |
     | Region | Select **East US 2**. |
 
-    :::image type="content" source="./media/virtual-network-create/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal." lightbox="./media/virtual-network-create/create-virtual-network-basics.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/includes/media/virtual-network-create/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal." lightbox="~/reusable-content/ce-skilling/azure/includes/media/virtual-network-create/create-virtual-network-basics.png":::
 
 1. Select **Next** to proceed to the **Security** tab.
 
@@ -44,7 +44,7 @@ The following procedure creates a virtual network with a resource subnet.
 
 1. Leave the rest of the settings as their defaults. Select **Save**.
 
-    :::image type="content" source="./media/virtual-network-create/address-subnet-space.png" alt-text="Screenshot of default subnet rename and configuration." lightbox="./media/virtual-network-create/address-subnet-space.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/includes/media/virtual-network-create/address-subnet-space.png" alt-text="Screenshot of default subnet rename and configuration." lightbox="~/reusable-content/ce-skilling/azure/includes/media/virtual-network-create/address-subnet-space.png":::
 
 1. Select **Save**.
 

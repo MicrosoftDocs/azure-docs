@@ -1,0 +1,48 @@
+### YamlMime:Landing
+
+title: Azure Extended Zones documentation # < 60 chars
+summary: Azure Extended Zones are small-footprint extensions of Azure to serve low latency or data residency workloads.
+
+metadata:
+  title: Azure Extended Zones documentation
+  description: Azure Extended Zones are small-footprint extensions of Azure to serve low latency or data residency workloads. Learn how to use Azure Extended Zones with our quickstarts, tutorials, and samples. # Required; article description that is displayed in search results. < 160 chars.
+  author: halkazwini
+  ms.author: halkazwini
+  ms.service: azure-extended-zones
+  ms.topic: landing-page
+  ms.date: 08/02/2024
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card 
+  - title: About Extended Zones
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Extended Zones?
+            url: overview.md
+
+  # Card 
+  - title: Deploy and manage virtual machines in Azure Extended Zones
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy a virtual machine in an Extended Zone using the Azure portal
+            url: deploy-vm-portal.md
+      - linkListType: tutorial
+        links:
+          - text: Back up an Azure Extended Zone virtual machine
+            url: backup-virtual-machine.md
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/edge-zones
+          - text: Azure PowerShell
+            url: /powershell/module/az.edgezones

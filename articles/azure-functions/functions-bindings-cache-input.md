@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 05/20/2024
+ms.date: 07/12/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

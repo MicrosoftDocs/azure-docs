@@ -6,7 +6,7 @@ metadata:
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 06/28/2024
-  ms.service: static-web-apps
+  ms.service: azure-static-web-apps
   ms.topic: how-to
   ms.custom:
     - engagement-fy23

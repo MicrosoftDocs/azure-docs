@@ -3,7 +3,7 @@ title: 'Removing Azure Virtual Network Manager components checklist'
 description: This article is a checklist for deleting components within Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: conceptual
 ms.date: 03/15/2024
 ---

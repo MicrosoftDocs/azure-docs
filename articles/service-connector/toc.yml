@@ -96,10 +96,12 @@ items:
         href: tutorial-python-aks-keyvault-csi-driver.md
       - name: Connect to Azure Storage using workload identity
         href: tutorial-python-aks-storage-workload-identity.md
-      - name: Connect to Azure OpenAI in AKS using a connection string
+      - name: Connect to Azure OpenAI using a connection string
         href: tutorial-python-aks-openai-connection-string.md
-      - name: Connect to Azure OpenAI in AKS using workload identity
+      - name: Connect to Azure OpenAI using workload identity
         href: tutorial-python-aks-openai-workload-identity.md  
+      - name:  Connect to Azure SQL Database
+        href: tutorial-python-aks-sql-database-connection-string.md
 - name: Concepts
   expanded: false
   items: 
@@ -140,6 +142,8 @@ items:
       href: how-to-troubleshoot-front-end-error.md
 - name: Samples
   items: 
+    - name: Azure AI services
+      href: how-to-integrate-ai-services.md
     - name: Azure App Configuration
       href: how-to-integrate-app-configuration.md
     - name: Azure Blob Storage
@@ -166,6 +170,10 @@ items:
       href: how-to-integrate-storage-file.md
     - name: Azure Key Vault
       href: how-to-integrate-key-vault.md
+    - name: Azure multi-service Cognitive Services
+      href: how-to-integrate-cognitive-services.md
+    - name: Azure OpenAI
+      href: how-to-integrate-openai.md
     - name: Azure Queue Storage
       href: how-to-integrate-storage-queue.md
     - name: Azure Service Bus

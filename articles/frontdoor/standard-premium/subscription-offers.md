@@ -4,7 +4,7 @@ description: Learn about Azure Front Door Standard/Premium availability for a sp
 services: front-door
 author: duongau
 manager: kumud
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: troubleshooting
 ms.date: 10/11/2023
 ms.author: duau

@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: Learn how to create a custom probe for Application Gateway by using PowerShell in Resource Manager
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: greglin 

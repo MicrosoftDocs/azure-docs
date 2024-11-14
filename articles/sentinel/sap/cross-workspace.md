@@ -1,21 +1,26 @@
 ---
-title: Microsoft Sentinel solution for SAP apps across multiple workspaces
+title: Integrate SAP across multiple workspaces
 description: Learn how to work with the Microsoft Sentinel solution for SAP applications in multiple workspaces for different deployment scenarios.
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 09/15/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 
-# customer intent: As a security admin or SAP admin, I want to know how to use the Microsoft Sentinel solution for SAP applications in multiple workspaces so that I can plan a deployment.
+#Customer intent: As a security manager, I want to use Microsoft Sentinel for SAP applications across multiple workspaces so that I can ensure compliance with data residency requirements and facilitate collaboration between SOC and SAP teams.
+
 ---
 
-# Work with the Microsoft Sentinel solution for SAP applications in multiple workspaces
+# Integrate SAP across multiple workspaces
 
-When you set up your Microsoft Sentinel workspace, you have [multiple architecture options](../design-your-workspace-architecture.md#decision-tree) and factors to consider. Taking into account geography, regulation, access control, and other factors, you might choose to have multiple Microsoft Sentinel workspaces in your organization.
+When you set up your Log Analytics workspace enabled for Microsoft Sentinel, you have [multiple architecture options](/azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) and factors to consider. Taking into account geography, regulation, access control, and other factors, you might choose to have multiple workspaces in your organization.
 
-This article discusses how to work with the Microsoft Sentinel solution for SAP applications in multiple workspaces for different deployment scenarios.
+When working with SAP, your SAP and SOC teams might need to work in separate workspaces to maintain security boundaries. You might not want the SAP team to have visibility into all other security logs across your organization. However, the SAP BASIS team plays a critical role in successfully implementing and maintaining the Microsoft Sentinel solution for SAP applications. Their technical knowledge is essential for effectively monitoring SAP systems, configuring security settings, and ensuring that proper incident response procedures are in place. For this reason, the SAP BASIS team must have access to the Log Analytics workspace enabled for Microsoft Sentinel, allowing them to collaborate with the SOC team while focusing specifically on SAP-related security monitoring.
 
-The Microsoft Sentinel solution for SAP applications natively supports a cross-workspace architecture to support improved flexibility for:
+This article discusses how to work with the Microsoft Sentinel solution for SAP applications in multiple workspaces, with improved flexibility for:
 
 - Managed security service providers (MSSPs) or a global or federated security operations center (SOC).
 - Data residency requirements.
@@ -25,65 +30,52 @@ The Microsoft Sentinel solution for SAP applications natively supports a cross-w
 > [!IMPORTANT]
 > Working with multiple workspaces is currently in preview. This feature is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can define multiple workspaces when you [deploy SAP security content](deploy-sap-security-content.md#deploy-the-security-content-from-the-content-hub).  
+## SAP and SOC data maintained in separate workspaces
 
-## Collaboration between the SOC and SAP teams in your organization
+If your SAP and SOC teams have separate Log Analytics workspaces enabled for Microsoft Sentinel where team data is kept, we recommend that you provide some or all SOC team members with the **Sentinel Reader** role for the SAP BASIS team's workspace. This enables both teams to see SAP data by using cross-workspace queries.
 
-A common use case is one in which collaboration between the SOC and SAP teams in your organization requires a multi-workspace setup.
+:::image type="content" source="media/cross-workspace/sap-cross-workspace-separate.png" alt-text="Diagram of separate workspaces for your SAP and SOC teams." border="false":::
 
-Your organization's SAP team has technical knowledge that's critical to successfully and effectively implement the Microsoft Sentinel solution for SAP applications. Therefore, it's important for the SAP team see the relevant data and to collaborate with the SOC about the required configuration and incident response procedures.
+Maintaining separate workspaces for the SAP and SOC data has the following benefits:
 
-There are two possible scenarios for SOC and SAP team collaboration, depending on your organization's needs:
+|Benefit  |Description  |
+|---------|---------|
+|**Alerts**     |   Microsoft Sentinel can trigger alerts that include both SOC and SAP data, and it can run those alerts on the SOC workspace.  |
+|**Data isolation**     |   The SAP BASIS team has its own workspace that includes all features except detections that include both SOC and SAP data.   <br><br>The SOC can see and investigate SAP incidents. If the SAP BASIS team faces an event that it can't explain by using existing data, the team can assign the incident to the SOC.   |
+|**Flexibility**     |   The SAP BASIS team can focus on the control of internal threats in its landscape, and the SOC can focus on external threats.     |
+|**Pricing**     |  There's no extra charge for ingestion fees, because data is ingested only once into Microsoft Sentinel. However, each workspace has its own [pricing tier](../design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).       |
 
-- Scenario 1: **SAP data and SOC data maintained in separate workspaces**. Both teams can see the SAP data by using [cross-workspace queries](#scenario-1-sap-data-and-soc-data-maintained-in-separate-workspaces).
+The following table maps data and feature access for SAP and SOC teams when they each maintain their own workspace:
 
-- Scenario 2: **SAP data kept only in the SOC workspace**. The SAP team can query the data by using [resource context queries](#scenario-2-sap-data-kept-only-in-the-soc-workspace).
-
-## Scenario 1: SAP data and SOC data maintained in separate workspaces
-
-In this scenario, the SAP team and the SOC team have separate Microsoft Sentinel workspaces where team data is kept.
-
-:::image type="content" source="media/cross-workspace/sap-cross-workspace-separate.png" alt-text="Diagram that shows working with the Microsoft Sentinel solution for SAP applications in separate workspaces for SAP and SOC data." border="false":::
-
-When your organization [deploys the Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md#deploy-the-microsoft-sentinel-solution-for-sap-applications-from-the-content-hub), each team specifies its SAP workspace.
-
-A common practice is to provide some or all SOC team members with the Sentinel Reader role for the SAP workspace.
-
-Creating separate workspaces for the SAP and SOC data has these benefits:
-
-- Microsoft Sentinel can trigger alerts that include both SOC and SAP data, and it can run those alerts on the SOC workspace.
-
-   > [!NOTE]
-   > For larger SAP landscapes, running queries that are made by the SOC on data from the SAP workspace can affect performance. The SAP data must travel to the SOC workspace when it's being queried. For improved performance and cost optimizations, consider having both the SOC and SAP workspaces on the same [dedicated cluster](../../azure-monitor/logs/logs-dedicated-clusters.md?tabs=cli#cluster-pricing-model).
-
-- The SAP team has its own Microsoft Sentinel workspace that includes all features except detections that include both SOC and SAP data.
-- Flexibility. The SAP team can focus on the control of internal threats in its landscape, and the SOC can focus on external threats.
-- There's no additional charge for ingestion fees, because data is ingested only once into Microsoft Sentinel. However, each workspace has its own [pricing tier](../design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).
-- The SOC can see and investigate SAP incidents. If the SAP team faces an event that it can't explain by using existing data, the team can assign the incident to the SOC.
-
-The following table maps the access of data and features for the SAP and SOC teams in this scenario:
-
-|Function  |SOC team  |SAP team  |
+|Function  |SOC team  |SAP BASIS team  |
 |---------|---------|---------|
 |SOC workspace access     | &#x2705;         | &#10060;     |
-|SAP workspace data, analytics rules, functions, watchlists, and workbooks access     | &#x2705;         | &#x2705;<sup>1</sup>         |
-|SAP incident access and collaboration     | &#x2705;          | &#x2705;<sup>1</sup>          |
+|SAP workspace data, analytics rules, functions, watchlists, and workbooks access     | &#x2705;         | &#x2705;<sup>*</sup>         |
+|SAP incident access and collaboration     | &#x2705;          | &#x2705;<sup>*</sup>          |
 
-<sup>1</sup> The SOC team can see these functions in both workspaces. The SAP team can see these functions only in the SAP workspace.
+<sup>*</sup> The SOC team can see these functions in both workspaces. The SAP BASIS team can see these functions only in the SAP workspace.
 
-## Scenario 2: SAP data kept only in the SOC workspace
+> [!NOTE]
+> Running cross-workspace queries across larger SAP landscapes can affect performance. For improved performance and cost optimizations, consider having both the SOC and SAP workspaces on the same dedicated cluster. For more information, see [Create and manage a dedicated cluster in Azure Monitor Logs](/azure/azure-monitor/logs/logs-dedicated-clusters?tabs=cli#cluster-pricing-model).
 
-In this scenario, you want to keep all the data in one workspace and to apply access controls. You can do this by using Log Analytics in Azure Monitor to [manage access to data by resource](../resource-context-rbac.md). You can also associate SAP resources with an Azure resource ID by specifying the required `azure_resource_id` field in the [connector configuration section](reference-systemconfig.md#connector-configuration-section) on the data collector that you use to ingest data from the SAP system into Microsoft Sentinel.
+## SAP and SOC data maintained in the same workspace
+
+You might want to keep all data in a single workspace and apply access controls to determine who on your team is able to access the data.
+
+To do this, use the following steps:
+
+- **Use Log Analytics in Azure Monitor to manage access to data by resource**. For more information, see [Manage access to Microsoft Sentinel data by resource](../resource-context-rbac.md).
+
+- **Associate SAP resources with an Azure resource ID**. This option is supported only for a data connector agent deployed via CLI. Specify the required `azure_resource_id` field in the connector configuration section on the data collector that you use to ingest data from the SAP system into Microsoft Sentinel. For more information, see [Deploy an SAP data connector agent from the command line](deploy-command-line.md) and [Connector configuration](reference-systemconfig-json.md#connector-configuration).
 
 :::image type="content" source="media/cross-workspace/sap-cross-workspace-combined.png" alt-text="Diagram that shows how to work with the Microsoft Sentinel solution for SAP applications by using the same workspace for SAP and SOC data." border="false":::
 
-After the data collector agent is configured with the correct resource ID, the SAP team can access the specific SAP data in the SOC workspace by using a resource-scoped query. The SAP team can't read any of the other, non-SAP data types.
+After the data collector agent is configured with the correct resource ID, the SAP BASIS team can access the specific SAP data in the SOC workspace by using a resource-scoped query. The SAP BASIS team can't read any of the other, non-SAP data types.
 
-There are no costs associated with this approach because the data is ingested only once into Microsoft Sentinel. When you use this mode of access, the SAP team sees only raw and unformatted data. The SAP team can't use any Microsoft Sentinel features. In addition to accessing the raw data via Log Analytics, the SAP team can access the same data [via Power BI](../resource-context-rbac.md).
+There are no costs associated with this approach because the data is ingested only once into Microsoft Sentinel.
 
-## Next step
+When you manage access by resource, the SAP BASIS team sees only raw and unformatted data, accessible via Log Analytics or Power BI. The SAP BASIS team can't use any Microsoft Sentinel features.
 
-In this article, you learned about working with Microsoft Sentinel solution for SAP applications in multiple workspaces for different deployment scenarios. Next, learn how to deploy the solution:
+## Related content
 
-> [!div class="nextstepaction"]
-> [Deploy the Microsoft Sentinel solution for SAP applications](deployment-overview.md)
+For more information, see [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).

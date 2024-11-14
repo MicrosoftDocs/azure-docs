@@ -120,8 +120,6 @@ When you deploy a template, you can specify a resource group to contain the reso
 > [!NOTE]
 > Samples for the Azure CLI are written for the bash shell. To run this sample in Windows PowerShell or the Command Prompt, you may need to remove the back slashes and write the command as one line such as:
 
-```az group create --name myResourceGroup --location "Central US"```
-
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell

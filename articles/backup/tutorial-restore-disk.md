@@ -4,7 +4,7 @@ description: Learn how to restore a disk and create a recover a VM in Azure with
 ms.topic: tutorial
 ms.date: 10/28/2022
 ms.custom: mvc, devx-track-azurecli
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -121,7 +121,7 @@ az backup restore restore-disks \
 
 ### Cross-zonal restore
 
-You can restore [Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) in any [availability zones](../availability-zones/az-overview.md) of the same region.
+You can restore [Azure zone pinned VMs](/azure/virtual-machines/windows/create-portal-availability-zone) in any [availability zones](../availability-zones/az-overview.md) of the same region.
 
 To restore a VM to another zone, specify the `TargetZoneNumber` parameter in the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command.
 

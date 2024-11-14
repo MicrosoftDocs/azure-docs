@@ -3,7 +3,7 @@ title: Manually scale a cluster - Azure HDInsight
 description: Manually scale an Apache Hadoop cluster elastically to match your workload in Azure HDInsight
 ms.author: sairamyeturi
 author: yeturis
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 05/21/2024
 ---

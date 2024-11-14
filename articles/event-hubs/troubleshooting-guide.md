@@ -2,11 +2,24 @@
 title: Troubleshoot connectivity issues - Azure Event Hubs | Microsoft Docs
 description: This article provides information on troubleshooting connectivity issues with Azure Event Hubs. 
 ms.topic: article
-ms.date: 12/15/2022
+ms.date: 07/29/2024
 ---
 
 # Troubleshoot connectivity issues - Azure Event Hubs
-There are various reasons for client applications not able to connect to an event hub. The connectivity issues might be permanent or transient. If the issue happens all the time (permanent), you might want to check the connection string, your organization's firewall settings, IP firewall settings, network security settings (service endpoints, private endpoints, etc.), and more. For transient issues, upgrading to latest version of the SDK, running commands to check dropped packets, and obtaining network traces might help with troubleshooting the issues. This article provides tips for troubleshooting connectivity issues with Azure Event Hubs. 
+There are various reasons for client applications not able to connect to an event hub. The connectivity issues might be permanent or transient. 
+
+If the issue happens all the time (**permanent**), check these settings and other options mentioned in the [Troubleshoot permanent connectivity issues](#troubleshoot-permanent-connectivity-issues) section in this article.
+
+- Connection string
+- Your organization's firewall settings
+- IP firewall settings
+- Network security settings (service endpoints, private endpoints, etc.), and more  
+
+For **transient issues**, try the following options that can help with troubleshooting the issues. For more information, see [Troubleshoot transient connectivity issues](#troubleshoot-transient-connectivity-issues).
+
+- Upgrade to latest version of the SDK
+- Run commands to check dropped packets
+- Obtain network traces. 
 
 ## Troubleshoot permanent connectivity issues
 If the application isn't able to connect to the event hub at all, follow steps from this section to troubleshoot the issue. 
@@ -22,7 +35,7 @@ For Kafka clients, verify that producer.config or consumer.config files are conf
 [!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
 
 ### Verify that Event Hubs service tag is allowed in your network security groups
-If your application is running inside a subnet and there's an associated network security group, confirm whether the internet outbound is allowed or Event Hubs service tag (`EventHub`) is allowed. See [Virtual network service tags](../virtual-network/service-tags-overview.md) and search for `EventHub`.
+If your application is running inside a subnet and there's an associated network security group, confirm whether the internet outbound traffic is allowed or Event Hubs service tag (`EventHub`) is allowed. See [Virtual network service tags](../virtual-network/service-tags-overview.md) and search for `EventHub`.
 
 ### Check if the application needs to be running in a specific subnet of a virtual network
 Confirm that your application is running in a virtual network subnet that has access to the namespace. If it's not, run the application in the subnet that has access to the namespace or add the IP address of the machine on which application is running to the [IP firewall](event-hubs-ip-filtering.md). 

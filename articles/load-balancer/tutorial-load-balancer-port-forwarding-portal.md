@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Learn to configure port forwarding using Azure Load Balancer and NAT gateway to create a connection to a single virtual machine in an Azure virtual network.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 10/24/2023
 ms.custom: template-tutorial, engagement-fy23, FY23 content-maintenance

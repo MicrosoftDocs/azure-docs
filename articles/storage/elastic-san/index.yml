@@ -30,7 +30,23 @@ landingContent:
   # Card (optional)
   - title: Get started
     linkLists:
-      - linkListType: get-started
+      - linkListType: how-to-guide
         links:
           - text: Deploy an Elastic SAN
             url: elastic-san-create.md
+          - text: Connect an Elastic SAN volume to a Windows VM
+            url: elastic-san-connect-windows.md
+          - text: Connect an Elastic SAN volume to a Linux VM
+            url: elastic-san-connect-linux.md
+
+# Card (optional)
+  - title: Performance and scalability
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: How Elastic SAN performance works with VMs
+            url: elastic-san-performance.md
+          - text: Scale targets for Azure Elastic SAN
+            url: elastic-san-scale-targets.md
+          - text: Optimize the performance of your Elastic SAN
+            url: elastic-san-best-practices.md

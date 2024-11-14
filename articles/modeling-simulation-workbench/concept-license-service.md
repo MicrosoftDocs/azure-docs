@@ -4,7 +4,7 @@ description: Overview of Azure Modeling and Simulation Workbench license service
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
 #Customer intent: As a Modeling and Simulation Workbench user, I want to understand the license service component.
@@ -12,7 +12,7 @@ ms.date: 01/01/2023
 
 # License service: Azure Modeling and Simulation Workbench
 
-A license service automates the installation of a license manager to help customers accelerate their engineering design.  A license service is integrated into Azure Modeling and Simulation Workbench.
+A license service automates the installation of a license manager to help customers accelerate their engineering design. A license service is integrated into Azure Modeling and Simulation Workbench.
 
 ## Overview
 
@@ -20,16 +20,14 @@ Engineering design tools are widely used across industries to enable design team
 
 Here's how the license service works:
 
-- For each deployed chamber within the workbench, we set up a license server and expose the FLEXlm HostID's to procure licenses.
-- Users request tool licenses for the specific HostID.
-- Once the license file is received from the tool vendor, users import it to enable the license service.
+For each deployed chamber within the workbench, we set up a license server and expose the FLEXlm HostID's to procure licenses. Users then request tool licenses referencing the specific HostID. Once the license file is received from the tool vendor, users import it to the chamber license server to enable the license service.
 
 ## Additional information
 
-For silicon EDA, our service automation deploys license servers for each of the four common software vendors (Synopsys, Cadence, Siemens, and Ansys) as part of resource creation to enable multi-vendor flows. The workbench also supports license service beyond these common EDA tool vendors with some manual configuration.
+For semiconductor Electronic Design Automation (EDA), our service automation deploys license servers for each of the four common software vendors (Synopsys, Cadence, Siemens, and Ansys) as part of resource creation to enable multi-vendor flows. The workbench also supports license service beyond these common EDA tool vendors with some manual configuration.
 
-This flow is extendible and can also include other software vendors across industry verticals."
+This flow is extendible and can also include other software vendors across industry verticals.
 
-## Next steps
+## Related content
 
-- [Manage users in Azure Modeling and Simulation Workbench](./how-to-guide-manage-users.md)
+- Learn more about the benefits and key features of using [shared storage](./shared-storage.md).

@@ -1,13 +1,16 @@
 ---
 title: Microsoft Fabric with Apache Flink® in HDInsight on AKS
 description: An introduction to lakehouse on Microsoft Fabric with Apache Flink® on HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 03/23/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 # Connect to OneLake in Microsoft Fabric with HDInsight on AKS cluster for Apache Flink®
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This example demonstrates on how to use HDInsight on AKS cluster for Apache Flink® with [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview).
 

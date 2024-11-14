@@ -18,6 +18,8 @@ In this tutorial you'll learn how to:
 > - Investigate security recommendation details
 > - Investigate recommendations in a Log Analytics workspace
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -76,7 +78,7 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
     :::image type="content" source="media/how-to-configure-agent-based-solution/recommendation-alert.png" alt-text="Screenshot showing how to view a recommendation in the log analytics workspace.":::
 
-For more information on querying data from Log Analytics, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
+For more information on querying data from Log Analytics, see [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
 
 ## Clean up resources
 

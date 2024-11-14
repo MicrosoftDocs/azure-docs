@@ -2,11 +2,11 @@
 title: Deploy Azure Cloud Services (extended support) - ARM template
 description: Deploy Azure Cloud Services (extended support) by using an ARM template.
 ms.topic: quickstart
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 06/18/2024
+ms.date: 07/24/2024
 ---
 
 # Deploy Cloud Services (extended support) by using an ARM template
@@ -27,7 +27,7 @@ Complete the following steps as prerequisites to creating your deployment by usi
 
 1. (Optional) Create a key vault and upload the certificates.
 
-    - You can attach certificates to your deployment for secure communication to and from the service. If you use certificates, the certificate thumbprints must be specified in your configuration (.cscfg) file and be uploaded to a key vault. You can create a key vault by using the [Azure portal](../key-vault/general/quick-create-portal.md) or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
+    - You can attach certificates to your deployment for secure communication to and from the service. If you use certificates, the certificate thumbprints must be specified in your configuration (.cscfg) file and be uploaded to a key vault. You can create a key vault by using the [Azure portal](/azure/key-vault/general/quick-create-portal) or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
     - The associated key vault must be in the same region and subscription as your Cloud Services (extended support) deployment.
     - The associated key vault must have the relevant permissions so that Cloud Services (extended support) resources can retrieve certificates from the key vault. For more information, see [Use certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
     - The key vault must be referenced in the `osProfile` section of the ARM template as shown in a later step.
@@ -107,7 +107,7 @@ To deploy Cloud Services (extended support) by using a template:
           ] 
     ```
 
-1. Create a Cloud Services (extended support) object. Add relevant `dependsOn` references if you are deploying virtual networks or public IP addresses in your template.
+1. Create a Cloud Services (extended support) object. Add relevant `dependsOn` references if you deploy virtual networks or public IP addresses in your template.
 
     ```json
     {
@@ -476,7 +476,7 @@ To deploy Cloud Services (extended support) by using a template:
     }
     ```
 
-1. Deploy the template and parameter file (to define parameters in the template file) to create the Cloud Services (extended support) deployment. You can use these [sample templates](https://github.com/Azure-Samples/cloud-services-extended-support).
+1. To create the Cloud Services (extended support) deployment, deploy the template and parameter file (to define parameters in the template file). You can use these [sample templates](https://github.com/Azure-Samples/cloud-services-extended-support).
 
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName "ContosOrg" -TemplateFile "file path to your template file" -TemplateParameterFile "file path to your parameter file"

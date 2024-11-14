@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 08/21/2024
 ms.author: phjensen
 ---
 
@@ -36,10 +36,11 @@ This workflow provides the main steps to install, setup and configure AzAcSnap a
 
 The following technical articles describe how to set up AzAcSnap as part of a data protection strategy:
 
-- [Manual Recovery Guide for SAP HANA on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
-- [Manual Recovery Guide for SAP HANA on Azure Large Instance from storage snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-large-instance-from/ba-p/3242347)
-- [Manual Recovery Guide for SAP Oracle 19c on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-oracle-19c-on-azure-vms-from-azure/ba-p/3242408)
-- [Manual Recovery Guide for SAP Db2 on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-db2-on-azure-vms-from-azure-netapp/ba-p/3865379)
+- [Backup and Recovery Guide for SAP HANA on Azure VMs with Azure NetApp Files snapshots by AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
+- [Backup and Recovery Guide for SAP Oracle 19c on Azure VMs with Azure NetApp Files snapshots by AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-oracle-19c-on-azure-vms-from-azure/ba-p/3242408)
+- [Backup and Recovery Guide for SAP Db2 on Azure VMs with Azure NetApp Files snapshots by AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-db2-on-azure-vms-from-azure-netapp/ba-p/3865379)
+- [Backup and Recovery Guide for SAP ASE 16.0 on Azure VMs with Azure NetApp Files snapshots by AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-ase-16-0-on-azure-netapp-files-for-sap-workloads-on-sles15/ba-p/3729496)
+- [Backup and Recovery Guide for SAP HANA on Azure Large Instance from storage snapshots by AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-large-instance-from/ba-p/3242347)
 - [SAP Oracle 19c System Refresh Guide on Azure VMs using Azure NetApp Files Snapshots with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-oracle-19c-system-refresh-guide-on-azure-vms-using-azure/ba-p/3708172)
 - [Protecting HANA databases configured with HSR on Azure NetApp Files with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/protecting-hana-databases-configured-with-hsr-on-azure-netapp/ba-p/3654620)
 - [Automating SAP system copy operations with Libelle SystemCopy](https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/libelle-sc-overview.html)

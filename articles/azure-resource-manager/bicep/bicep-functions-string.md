@@ -3,7 +3,7 @@ title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/02/2024
+ms.date: 07/11/2024
 ---
 
 # String functions for Bicep
@@ -331,7 +331,7 @@ The output from the preceding example with the default values is:
 
 `empty(itemToTest)`
 
-Determines if an array, object, or string is empty.
+Determines if an array, object, or string is empty or null.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -339,11 +339,11 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |array, object, or string |The value to check if it's empty. |
+| itemToTest |Yes |array, object, or string |The value to check if it's empty or null. |
 
 ### Return value
 
-Returns `True` if the value is empty; otherwise, `False`.
+Returns **True** if the value is empty or null; otherwise, **False**.
 
 ### Examples
 
@@ -353,10 +353,12 @@ The following example checks whether an array, object, and string are empty.
 param testArray array = []
 param testObject object = {}
 param testString string = ''
+param testNullString string?
 
 output arrayEmpty bool = empty(testArray)
 output objectEmpty bool = empty(testObject)
 output stringEmpty bool = empty(testString)
+output stringNull bool = empty(testNullString)
 ```
 
 The output from the preceding example with the default values is:
@@ -366,6 +368,7 @@ The output from the preceding example with the default values is:
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
+| stringNull | Bool | True |
 
 ## endsWith
 
@@ -834,7 +837,7 @@ param guidValue string = newGuid()
 
 var storageName = 'storage${uniqueString(guidValue)}'
 
-resource myStorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
+resource myStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageName
   location: 'West US'
   sku: {
@@ -1355,7 +1358,7 @@ uniqueString(resourceGroup().id, deployment().name)
 The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name isn't unique if constructed the same way.
 
 ```bicep
-resource mystorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }

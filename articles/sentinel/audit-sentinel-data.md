@@ -1,10 +1,12 @@
 ---
 title: Audit Microsoft Sentinel queries and activities | Microsoft Docs
 description: This article describes how to audit queries and activities performed in Microsoft Sentinel.
-author: limwainstein
+author: batamig
 ms.topic: how-to
-ms.date: 01/09/2023
-ms.author: lwainstein
+ms.date: 09/26/2024
+ms.author: bagol
+
+#Customer intent: As a security analyst, I want to audit queries and activities in my SOC environment so that I can ensure compliance and monitor security operations effectively.
 ---
 
 # Audit Microsoft Sentinel queries and activities
@@ -22,17 +24,23 @@ Microsoft Sentinel provides access to:
 >
 > In the Microsoft Sentinel **Workbooks** area, search for the **Workspace audit** workbook.
 
+## Prerequisites
+
+- Before you can successfully run the sample queries in this article, you need to have relevant data in your Microsoft Sentinel workspace to query on and access to Microsoft Sentinel.
+
+  For more information, see [Configure Microsoft Sentinel content](configure-content.md) and [Roles and permissions in Microsoft Sentinel](roles.md).
+
 ## Auditing with Azure Activity logs
 
-Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md), where the **AzureActivity** table includes all actions taken in your Microsoft Sentinel workspace.
+Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](/azure/azure-monitor/essentials/platform-logs-overview), where the **AzureActivity** table includes all actions taken in your Microsoft Sentinel workspace.
 
 You can use the **AzureActivity** table when auditing activity in your SOC environment with Microsoft Sentinel.
 
 **To query the AzureActivity table**:
 
-1. Connect the [Azure Activity](./data-connectors/azure-activity.md) data source to start streaming audit events into a new table in the **Logs** screen called AzureActivity.
+1. Connect the [Azure Activity](./data-connectors/azure-activity.md) data source to start streaming audit events into a new table called `AzureActivity`. In the Azure portal, query this table in the **[Logs](hunts-custom-queries.md)** page. In the Defender portal, query this table in the **Investigation & response > Hunting > [Advanced hunting](/defender-xdr/advanced-hunting-overview)** page. For more information, see 
 
-1. Then, query the data using KQL, like you would any other table.
+1. Query the data using KQL, like you would any other table.
 
     The **AzureActivity** table includes data from many services, including Microsoft Sentinel. To filter in only data from Microsoft Sentinel, start your query with the following code:
 
@@ -79,7 +87,7 @@ AzureActivity
 
 ### Microsoft Sentinel data included in Azure Activity logs
 
-Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md), and include the following types of information:
+Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](/azure/azure-monitor/essentials/platform-logs-overview), and include the following types of information:
 
 |Operation  |Information types  |
 |---------|---------|
@@ -114,7 +122,7 @@ For example, the following table lists selected operations found in Azure Activi
 |Update settings |Microsoft.SecurityInsights/settings|
 
 
-For more information, see [Azure Activity Log event schema](../azure-monitor/essentials/activity-log-schema.md).
+For more information, see [Azure Activity Log event schema](/azure/azure-monitor/essentials/activity-log-schema).
 
 ## Auditing with LAQueryLogs
 
@@ -129,14 +137,15 @@ LAQueryLogs data includes information such as:
 - Performance data on each query run
 
 > [!NOTE]
-> - The **LAQueryLogs** table only includes queries that have been run in the Logs blade of Microsoft Sentinel. It does not include the queries run by scheduled analytics rules, using the **Investigation Graph** or in the Microsoft Sentinel **Hunting** page.
+> - The **LAQueryLogs** table only includes queries that have been run in the Logs blade of Microsoft Sentinel. It does not include the queries run by scheduled analytics rules, using the **Investigation Graph**, in the Microsoft Sentinel **Hunting** page, or in the Defender portal's **Advanced hunting** page. <!--is this correct?-->
+>
 > - There may be a short delay between the time a query is run and the data is populated in the **LAQueryLogs** table. We recommend waiting about 5 minutes to query the **LAQueryLogs** table for audit data.
 
 **To query the LAQueryLogs table**:
 
 1. The **LAQueryLogs** table isn't enabled by default in your Log Analytics workspace. To use **LAQueryLogs** data when auditing in Microsoft Sentinel, first enable the **LAQueryLogs** in your Log Analytics workspace's **Diagnostics settings** area.
 
-    For more information, see [Audit queries in Azure Monitor logs](../azure-monitor/logs/query-audit.md).
+    For more information, see [Audit queries in Azure Monitor logs](/azure/azure-monitor/logs/query-audit).
 
 1. Then, query the data using KQL, like you would any other table.
 
@@ -207,14 +216,9 @@ LAQueryLogs
 
 Use Microsoft Sentinel's own features to monitor events and actions that occur within Microsoft Sentinel.
 
-- **Monitor with workbooks**. The following workbooks were built to monitor workspace activity:
+- **Monitor with workbooks**. Several built-in Microsoft Sentinel workbooks can help you monitor workspace activity, including information about the users working in your workspace, the analytics rules being used, the MITRE tactics most covered, stalled or stopped ingestions, and SOC team performance.
 
-  - **Workspace Auditing**. Includes information about which users in the environment are performing actions, which actions they have performed, and more.
-  - **Analytics Efficiency**. Provides insight into which analytic rules are being used, which MITRE tactics are most covered, and incidents generated from the rules.
-  - **Security Operations Efficiency**. Presents metrics on SOC team performance, incidents opened, incidents closed, and more. This workbook can be used to show team performance and highlight any areas that might be lacking that require attention.
-  - **Data collection health monitoring**. Helps watch for stalled or stopped ingestions.
-
-  For more information, see [Commonly used Microsoft Sentinel workbooks](top-workbooks.md).
+  For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](monitor-your-data.md) and [Commonly used Microsoft Sentinel workbooks](top-workbooks.md)
 
 - **Watch for ingestion delay**.  If you have concerns about ingestion delay, [set a variable in an analytics rule](ingestion-delay.md) to represent the delay.
 

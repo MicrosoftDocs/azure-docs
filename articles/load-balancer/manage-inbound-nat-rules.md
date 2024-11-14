@@ -3,7 +3,7 @@ title: Manage inbound NAT rules for Azure Load Balancer
 description: In this article, you learn how to add and remove and inbound NAT rule using the Azure portal, PowerShell and CLI.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/26/2024
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli,engagement-fy23
@@ -15,9 +15,9 @@ An inbound NAT rule is used to forward traffic from a load balancer frontend to 
 
 There are two types of inbound NAT rule:
 
-* Single virtual machine - An inbound NAT rule that targets a single machine in the backend pool of the load balancer
+* Inbound NAT rule V1 for VMs - Targets a single machine in the backend pool of the load balancer
 
-* Multiple virtual machines - An inbound NAT rule that targets multiple virtual machines in the backend pool of the load balancer
+* Inbound NAT rule V2 for VMs and VMSS- Targets multiple virtual machines in the backend pool of the load balancer
 
 In this article, you learn how to add and remove an inbound NAT rule for both types. You learn how to change the frontend port allocation in a multiple instance inbound NAT rule. You can choose from the Azure portal, PowerShell, or CLI examples.
 
@@ -25,12 +25,12 @@ In this article, you learn how to add and remove an inbound NAT rule for both ty
 
 ## Prerequisites
 
-- A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
+- A public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
 - If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
-## Add a single VM inbound NAT rule
+## Inbound NAT rule V1 for VMs
 
 Choose this option to configure a rule for a single VM. Select Azure portal, PowerShell, or CLI for instructions.
 
@@ -165,7 +165,7 @@ Use [az network nic ip-config inbound-nat-rule add](/cli/azure/network/nic/ip-co
 ```
 ---
 
-## Add a multiple VMs inbound NAT rule
+## Inbound NAT rule V2 for VM and VMSS
 Choose this option to configure a rule with a range of ports to a backend pool of virtual machines. Select Azure portal, PowerShell, or CLI for instructions.
 
 # [**Portal**](#tab/inbound-nat-rule-portal)

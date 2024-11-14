@@ -6,7 +6,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 03/21/2024
+ms.date: 09/11/2024
 ms.author: banders
 ---
 
@@ -43,8 +43,8 @@ To [create subscriptions under an enrollment account](programmatically-create-su
     {
       "value": [
         {
-          "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-          "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "id": "/providers/Microsoft.Billing/enrollmentAccounts/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+          "name": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
           "type": "Microsoft.Billing/enrollmentAccounts",
           "properties": {
             "principalName": "SignUpEngineering@contoso.com"
@@ -62,7 +62,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
     }
     ```
 
-    Use the `principalName` property to identify the account that you want to grant Azure RBAC Owner access to. Copy the `name` of that account. For example, if you wanted to grant Azure RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. It's the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
+    Use the `principalName` property to identify the account that you want to grant Azure RBAC Owner access to. Copy the `name` of that account. For example, if you wanted to grant Azure RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb```. It's the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
 
     # [PowerShell](#tab/azure-powershell)
 
@@ -76,11 +76,11 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     ```azurepowershell
     ObjectId                               | PrincipalName
-    747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+    aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb   | SignUpEngineering@contoso.com
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Use the `principalName` property to identify the account you want to grant Azure RBAC Owner access to. Copy the `ObjectId` of that account. For example, if you wanted to grant Azure RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Paste this object ID somewhere so that you can use it in the next step as the `enrollmentAccountObjectId`.
+    Use the `principalName` property to identify the account you want to grant Azure RBAC Owner access to. Copy the `ObjectId` of that account. For example, if you wanted to grant Azure RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb```. Paste this object ID somewhere so that you can use it in the next step as the `enrollmentAccountObjectId`.
 
     # [Azure CLI](#tab/azure-cli)
 
@@ -95,13 +95,13 @@ To [create subscriptions under an enrollment account](programmatically-create-su
     ```json
     [
       {
-        "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "id": "/providers/Microsoft.Billing/enrollmentAccounts/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+        "name": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
         "principalName": "SignUpEngineering@contoso.com",
         "type": "Microsoft.Billing/enrollmentAccounts",
       },
       {
-        "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "id": "/providers/Microsoft.Billing/enrollmentAccounts/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
         "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "principalName": "BillingPlatformTeam@contoso.com",
         "type": "Microsoft.Billing/enrollmentAccounts",
@@ -111,7 +111,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     ---
 
-    Use the `principalName` property to identify the account that you want to grant Azure RBAC Owner access to. Copy the `name` of that account. For example, if you wanted to grant Azure RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. It's the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
+    Use the `principalName` property to identify the account that you want to grant Azure RBAC Owner access to. Copy the `name` of that account. For example, if you wanted to grant Azure RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb```. It's the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
 
 1. <a id="userObjectId"></a>Get object ID of the user or group you want to give the Azure RBAC Owner role to
 
@@ -126,7 +126,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     # [REST](#tab/rest-2)
 
-    Run the following command, replacing ```<enrollmentAccountObjectId>``` with the `name` you copied in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Replace ```<userObjectId>``` with the object ID you copied from the second step.
+    Run the following command, replacing ```<enrollmentAccountObjectId>``` with the `name` you copied in the first step (```aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb```). Replace ```<userObjectId>``` with the object ID you copied from the second step.
 
     ```json
     PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
@@ -146,7 +146,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
       "properties": {
         "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
         "principalId": "<userObjectId>",
-        "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "scope": "/providers/Microsoft.Billing/enrollmentAccounts/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
         "createdOn": "2018-03-05T08:36:26.4014813Z",
         "updatedOn": "2018-03-05T08:36:26.4014813Z",
         "createdBy": "<assignerObjectId>",
@@ -160,7 +160,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     # [PowerShell](#tab/azure-powershell-2)
 
-    Run the following [New-AzRoleAssignment](../../role-based-access-control/role-assignments-powershell.md) command, replacing ```<enrollmentAccountObjectId>``` with the `ObjectId` collected in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Replace ```<userObjectId>``` with the object ID collected in the second step.
+    Run the following [New-AzRoleAssignment](../../role-based-access-control/role-assignments-powershell.md) command, replacing ```<enrollmentAccountObjectId>``` with the `ObjectId` collected in the first step (```aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb```). Replace ```<userObjectId>``` with the object ID collected in the second step.
 
     ```azurepowershell-interactive
     New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
@@ -168,13 +168,13 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     # [Azure CLI](#tab/azure-cli-2)
 
-    Run the following [az role assignment create](../../role-based-access-control/role-assignments-cli.md) command, replacing ```<enrollmentAccountObjectId>``` with the `name` you copied in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Replace ```<userObjectId>``` with the object ID collected in the second step.
+    Run the following [az role assignment create](../../role-based-access-control/role-assignments-cli.md) command, replacing ```<enrollmentAccountObjectId>``` with the `name` you copied in the first step (```aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb```). Replace ```<userObjectId>``` with the object ID collected in the second step.
 
     ```azurecli-interactive
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Once a user becomes an Azure RBAC Owner for your enrollment account, they can [programmatically create subscriptions](programmatically-create-subscription-enterprise-agreement.md) under it. A subscription created by a delegated user still has the original Account Owner as Service Admin, but it also has the delegated user as an Azure RBAC Owner by default.
+    Once a user becomes an Azure RBAC Owner for your enrollment account, they can [programmatically create subscriptions](programmatically-create-subscription-enterprise-agreement.md) under it. When a delegated user creates a subscription, they get the Azure RBAC [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the subscription.
 
     ---
 

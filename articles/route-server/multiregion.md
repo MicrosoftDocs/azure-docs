@@ -4,7 +4,7 @@ description: Learn how Azure Route Server enables multi-region designs.
 services: route-server
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 03/13/2024
 

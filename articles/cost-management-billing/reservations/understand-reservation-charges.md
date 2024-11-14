@@ -52,7 +52,7 @@ If you have questions or need help,  [create a support request](https://go.micro
 To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved virtual machine Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved virtual machine Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand reservation usage for your pay-as-you-go subscription](understand-reserved-instance-usage.md)

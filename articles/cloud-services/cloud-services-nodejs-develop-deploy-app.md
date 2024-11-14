@@ -1,9 +1,9 @@
 ---
 title: Node.js Getting Started Guide
-description: Learn how to create a simple Node.js web application and deploy it to an Azure cloud service.
+description: Learn how to create a Node.js web application and deploy it to an Azure cloud service.
 ms.topic: article
-ms.service: cloud-services
-ms.date: 02/21/2023
+ms.service: azure-cloud-services-classic
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -14,16 +14,14 @@ ms.custom: compute-evergreen, devx-track-js
 
 [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
-This tutorial shows how to create a simple Node.js application running in an Azure Cloud Service. Cloud Services are the building blocks of scalable cloud applications in Azure. They allow the separation and independent management and scale-out of front-end and back-end components of your application.  Cloud Services provide a robust dedicated virtual machine for hosting each role reliably.
-
-For more information on Cloud Services, and how they compare to Azure Websites and Virtual machines, see [Azure Websites, Cloud Services and Virtual Machines comparison].
+This tutorial shows how to create a Node.js application running in an Azure Cloud Service. Cloud Services are the building blocks of scalable cloud applications in Azure. They allow the separation and independent management and scale-out of front-end and back-end components of your application. Cloud Services provide a robust dedicated virtual machine for hosting each role reliably.
 
 > [!TIP]
-> Looking to build a simple website? If your scenario involves just a simple website front-end, consider [using a lightweight web app]. You can easily upgrade to a Cloud Service as your web app grows and your requirements change.
+> Looking to build a website? If your scenario involves just a simple website front-end, consider [using a lightweight web app]. You can easily upgrade to a Cloud Service as your web app grows and your requirements change.
 
-By following this tutorial, you will build a simple web application hosted inside a web role. You will use the compute emulator to test your application locally, then deploy it using PowerShell command-line tools.
+By following this tutorial, you build a web application hosted inside a web role. You use the compute emulator to test your application locally, then deploy it using PowerShell command-line tools.
 
-The application is a simple "hello world" application:
+The application is a "hello world" application:
 
 ![A web browser displaying the Hello World web page][A web browser displaying the Hello World web page]
 
@@ -41,7 +39,7 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 
 1. Run **Windows PowerShell** as Administrator; from the **Start Menu** or **Start Screen**, search for **Windows PowerShell**.
 2. [Connect PowerShell] to your subscription.
-3. Enter the following PowerShell cmdlet to create to create the project:
+3. Enter the following PowerShell cmdlet to create the project:
 
    ```powershell
    New-AzureServiceProject helloworld
@@ -74,7 +72,7 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
    > [!NOTE]
    > If you do not specify a role name, a default name is used. You can provide a name as the first cmdlet parameter: `Add-AzureNodeWebRole MyRole`
 
-The Node.js app is defined in the file **server.js**, located in the directory for the web role (**WebRole1** by default). Here is the code:
+The Node.js app is defined in the file **server.js**, located in the directory for the web role (**WebRole1** by default). Here's the code:
 
 ```js
 var http = require('http');
@@ -101,7 +99,7 @@ To deploy your application to Azure, you must first download the publishing sett
     Get-AzurePublishSettingsFile
     ```
 
-   This will use your browser to navigate to the publish settings download page. You may be prompted to log in with a Microsoft Account. If so, use the account associated with your Azure subscription.
+   This command uses your browser to navigate to the publish settings download page. You may be prompted to sign in with a Microsoft Account. If so, use the account associated with your Azure subscription.
 
    Save the downloaded profile to a file location you can easily access.
 2. Run following cmdlet to import the publishing profile you downloaded:
@@ -121,18 +119,18 @@ $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
 Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 ```
 
-* **-ServiceName** specifies the name for the deployment. This must be a unique name, otherwise the publish process will fail. The **Get-Date** command tacks on a date/time string that should make the name unique.
-* **-Location** specifies the datacenter that the application will be hosted in. To see a list of available datacenters, use the **Get-AzureLocation** cmdlet.
-* **-Launch** opens a browser window and navigates to the hosted service after deployment has completed.
+* **-ServiceName** specifies the name for the deployment. This value must be a unique name; otherwise, the publish process fails. The **Get-Date** command tacks on a date/time string that should make the name unique.
+* **-Location** specifies the datacenter that hosts the application. To see a list of available datacenters, use the **Get-AzureLocation** cmdlet.
+* **-Launch** opens a browser window and navigates to the hosted service after the deployment completes.
 
-After publishing succeeds, you will see a response similar to the following:
+After publishing succeeds, you see a response similar to the screenshot:
 
 ![The output of the Publish-AzureService command][The output of the Publish-AzureService command]
 
 > [!NOTE]
 > It can take several minutes for the application to deploy and become available when first published.
 
-Once the deployment has completed, a browser window will open and navigate to the cloud service.
+Once the deployment completes, a browser window opens and navigates to the cloud service.
 
 ![A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.][A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]
 
@@ -141,12 +139,12 @@ Your application is now running on Azure.
 The **Publish-AzureServiceProject** cmdlet performs the following steps:
 
 1. Creates a package to deploy. The package contains all the files in your application folder.
-2. Creates a new **storage account** if one does not exist. The Azure storage account is used to store the application package during deployment. You can safely delete the storage account after deployment is done.
-3. Creates a new **cloud service** if one does not already exist. A **cloud service** is the container in which your application is hosted when it is deployed to Azure. For more information, see [Overview of Creating a Hosted Service for Azure].
+2. Creates a new **storage account** if one doesn't exist. The Azure storage account is used to store the application package during deployment. You can safely delete the storage account after deployment is done.
+3. Creates a new **cloud service** if one doesn't already exist. A **cloud service** is the container in which your application is hosted when it deploys to Azure. For more information, see [Overview of Creating a Hosted Service for Azure].
 4. Publishes the deployment package to Azure.
 
 ## Stopping and deleting your application
-After deploying your application, you may want to disable it so you can avoid extra costs. Azure bills web role instances per hour of server time consumed. Server time is consumed once your application is deployed, even if the instances are not running and are in the stopped state.
+After deploying your application, you may want to disable it so you can avoid extra costs. Azure bills web role instances per hour of server time consumed. Server time is consumed once your application is deployed, even if the instances aren't running and are in the stopped state.
 
 1. In the Windows PowerShell window, stop the service deployment created in the previous section with the following cmdlet:
 
@@ -154,7 +152,7 @@ After deploying your application, you may want to disable it so you can avoid ex
     Stop-AzureService
     ```
 
-   Stopping the service may take several minutes. When the service is stopped, you receive a message indicating that it has stopped.
+   Stopping the service may take several minutes. When the service is stopped, you receive a message indicating that it stopped.
 
    ![The status of the Stop-AzureService command][The status of the Stop-AzureService command]
 2. To delete the service, call the following cmdlet:
@@ -165,7 +163,7 @@ After deploying your application, you may want to disable it so you can avoid ex
 
    When prompted, enter **Y** to delete the service.
 
-   Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
+   Deleting the service may take several minutes. After you delete the service, you receive a message indicating that the service was deleted.
 
    ![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
 

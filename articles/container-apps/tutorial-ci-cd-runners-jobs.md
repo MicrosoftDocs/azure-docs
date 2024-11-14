@@ -3,10 +3,10 @@ title: 'Tutorial: Run GitHub Actions runners and Azure Pipelines agents with Azu
 description: Learn to create self-hosted CI/CD runners and agents with jobs in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 10/16/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 ---
@@ -197,6 +197,9 @@ The workflow runs on the `ubuntu-latest` GitHub-hosted runner and prints a messa
 ## Get a GitHub personal access token
 
 To run a self-hosted runner, you need to create a personal access token (PAT) in GitHub. Each time a runner starts, the PAT is used to generate a token to register the runner with GitHub. The PAT is also used by the GitHub Actions runner scale rule to monitor the repository's workflow queue and start runners as needed.
+
+> [!NOTE]
+> Personal Access Tokens (PATs) have an expiration date. Regularly rotate your tokens to ensure they remain valid (not expired) to maintain uninterrupted service.
 
 1. In GitHub, select your profile picture in the upper-right corner and select **Settings**.
 
@@ -504,6 +507,9 @@ Create a new agent pool to run the self-hosted runner.
 
 To run a self-hosted runner, you need to create a personal access token (PAT) in Azure DevOps. The PAT is used to authenticate the runner with Azure DevOps. It's also used by the scale rule to determine the number of pending pipeline runs and trigger new job executions.
 
+[!NOTE]
+> Personal Access Tokens (PATs) have an expiration date. Regularly rotate your tokens to ensure they remain valid (not expired) to maintain uninterrupted service.
+
 1. In Azure DevOps, select *User settings* next to your profile picture in the upper-right corner.
 
 1. Select **Personal access tokens**.
@@ -533,6 +539,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     AZP_TOKEN="<AZP_TOKEN>"
     ORGANIZATION_URL="<ORGANIZATION_URL>"
     AZP_POOL="container-apps"
+    REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     # [Azure PowerShell](#tab/azure-powershell)
@@ -540,6 +547,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     $AZP_TOKEN="<AZP_TOKEN>"
     $ORGANIZATION_URL="<ORGANIZATION_URL>"
     $AZP_POOL="container-apps"
+    $REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     ---
@@ -550,6 +558,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     |---|---|---|
     | `<AZP_TOKEN>` | The Azure DevOps PAT you generated. | |
     | `<ORGANIZATION_URL>` | The URL of your Azure DevOps organization. Make sure no trailing `/` is present at the end of the URL. | For example, `https://dev.azure.com/myorg` or `https://myorg.visualstudio.com`. |
+    | `<YOUR_REGISTRATION_TOKEN_API_URL>` | The registration token API URL in the *entrypoint.sh* file. | For example, 'https://myapi.example.com/get-token' |
 
 ## Build the Azure Pipelines agent container image
 

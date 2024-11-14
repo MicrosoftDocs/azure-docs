@@ -4,7 +4,7 @@ description: Learn to use the Azure SDK for JavaScript and TypeScript library fo
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/11/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-js, devx-track-ts
 ---
@@ -29,7 +29,7 @@ This quickstart uses the Azure Identity library, along with Azure CLI or Azure P
 
 ### Sign in to Azure
 
-[!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
+[!INCLUDE [Sign in to Azure](~/reusable-content/ce-skilling/azure/includes/confidential-ledger-sign-in-azure.md)]
 
 ### Initialize a new npm project
 In a terminal or command prompt, create a suitable project folder and initialize an `npm` project. You may skip this step if you have an existing node project. 

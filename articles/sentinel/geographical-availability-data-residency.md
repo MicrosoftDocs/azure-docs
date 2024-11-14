@@ -4,9 +4,12 @@ description: In this article, you learn about geographical availability and data
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 06/09/2024
+ms.date: 08/29/2024
 ms.custom: references_regions
-#Customer intent: As a security operator setting up Microsoft Sentinel, I want to understand where data is stored, so I can meet compliance guidelines.
+
+
+#Customer intent: As a compliance officer or a security operator setting up Microsoft Sentinel, I want to understand the geographical availability and data residency of Microsoft Sentinel so that I can ensure our data meets regional compliance requirements.
+
 ---
 
 # Geographical availability and data residency in Microsoft Sentinel
@@ -17,7 +20,7 @@ When you set up Microsoft Sentinel or prepare for compliance checks, you need th
 
 After your data is collected, stored, and processed, compliance can become an important design requirement, with a significant impact on your Microsoft Sentinel architecture. Having the ability to validate and prove who has access to what data under all conditions is a critical data sovereignty requirement in many countries and regions, and assessing risks and getting insights in Microsoft Sentinel workflows is a priority for many customers.
 
-Learn more about [compliance considerations](best-practices-workspace-architecture.md#compliance-considerations).
+Learn more about [compliance considerations](/azure/azure-monitor/logs/workspace-design#azure-regions?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json).
 
 ## Where Microsoft Sentinel data is stored
 
@@ -35,6 +38,26 @@ Microsoft Sentinel is a [non-regional service](https://azure.microsoft.com/explo
 
 Microsoft Sentinel can run on workspaces in the following regions:
 
-|North America  |South America |Asia  |Europe  |Australia  |Africa |
-|---------|---------|---------|---------|---------|---------|
-|**US**<br><br>• Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West<br><br>**Azure government**<br><br>• USGov Arizona<br>• USGov Virginia<br><br>**Canada**<br><br>• Canada Central<br>• Canada East    |• Brazil South<br>• Brazil Southeast |• East Asia<br>• Southeast Asia<br>• Qatar Central<br><br>**Japan**<br><br>• Japan East<br>• Japan West<br><br>**China 21Vianet**<br><br>• China East 2<br>• China North 3<br><br>**India**<br><br>• Central India<br>• Jio India West<br>• Jio India Central<br><br>**Korea**<br><br>• Korea Central<br>• Korea South<br><br>**UAE**<br><br>• UAE Central<br>• UAE North         |• North Europe<br>• West Europe<br><br>**France**<br><br>• France Central<br>• France South<br><br>**Germany**<br><br>• Germany West Central<br><br>**Italy**<br><br>• Italy North<br><br>**Norway**<br><br>• Norway East<br>• Norway West<br><br>**Sweden**<br><br>• Sweden Central <br><br>**Switzerland**<br><br>• Switzerland North<br>• Switzerland West<br><br>**UK**<br><br>• UK South<br>• UK West	       |• Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	         |• South Africa North	 |
+|Continent | Country | Region |
+|---------|---------|---------|
+| **North America**| **Canada** | • Canada Central<br>• Canada East |
+| |   **United States** | • Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br><br>**Azure government** <br>• USGov Arizona<br>• USGov Virginia<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West|
+|**South America** | **Brazil** | • Brazil South<br>• Brazil Southeast |
+|**Asia and Middle East** | |• East Asia<br>• Southeast Asia |
+| | **China 21Vianet**| • China East 2<br>• China North 3|
+| | **India**| • Central India<br>• Jio India West<br>• Jio India Central|
+| | **Israel** | • Israel Central |
+| | **Japan** | • Japan East<br>• Japan West|
+| | **Korea**| • Korea Central<br>• Korea South| 
+| | **Quatar** | • Qatar Central|
+| | **UAE**| • UAE Central<br>• UAE North        |
+|**Europe**| | • North Europe<br>• West Europe|
+| |**France**| • France Central<br>• France South|
+| |**Germany**| • Germany West Central|
+| | **Italy** |• Italy North|
+| | **Norway**|• Norway East<br>• Norway West|
+| |**Sweden**| • Sweden Central | 
+| | **Switzerland**| • Switzerland North<br>• Switzerland West| 
+| | **UK**| • UK South<br>• UK West |
+|**Australia** | **Australia**| • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|
+|**Africa** | **South Africa**| • South Africa North |

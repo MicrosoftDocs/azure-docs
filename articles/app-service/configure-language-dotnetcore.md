@@ -72,6 +72,9 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## Customize build automation
 
+> [!NOTE]
+> Building .NET 9 (STS) apps with Windows App Service using MSBuild or SCM_DO_BUILD is not yet supported. Support for these build scenarios will come after the initial GA date and by December 4th, 2024. Deployments that build outside of App Service through Visual Studio, Visual Studio Code, GitHub Actions and Azure DevOps are fully supported.
+
 If you deploy your app using Git, or zip packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation steps through the following sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
@@ -124,6 +127,9 @@ namespace SomeNamespace
 ```
 
 If you configure an app setting with the same name in App Service and in *appsettings.json*, for example, the App Service value takes precedence over the *appsettings.json* value. The local *appsettings.json* value lets you debug the app locally, but the App Service value lets you run the app in production with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
+
+> [!NOTE]
+> Consider more secure connectivity options that don't require connection secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
 
 ::: zone pivot="platform-linux"
 > [!NOTE]
@@ -221,6 +227,10 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 For more information, see [Configure ASP.NET Core to work with proxy servers and load balancers](/aspnet/core/host-and-deploy/proxy-load-balancer).
 
 ::: zone pivot="platform-linux"
+
+## Rewrite or redirect URL
+
+To rewrite or redirect URL, use the [URL rewriting middleware in ASP.NET Core](/aspnet/core/fundamentals/url-rewriting).
 
 ## Open SSH session in browser
 

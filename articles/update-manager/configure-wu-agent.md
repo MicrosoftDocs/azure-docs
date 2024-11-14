@@ -2,8 +2,8 @@
 title: Configure Windows Update settings in Azure Update Manager
 description: This article tells how to configure Windows update settings to work with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 01/19/2024
-ms.topic: conceptual
+ms.date: 09/06/2024
+ms.topic: how-to
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.custom: engagement-fy24
@@ -68,7 +68,7 @@ The Windows update client on Windows servers can get their patches from either o
 
 ### Edit the registry
 
-If scheduled patching is configured on your machine using the Azure Update Manager, the Auto update on the client is disabled. To edit the registry and configure the setting, see [First party updates on Windows](support-matrix.md#first-party-updates-on-windows).
+If scheduled patching is configured on your machine using the Azure Update Manager, the Auto update on the client is disabled. To edit the registry and configure the setting, see [First party updates on Windows](support-matrix.md).
 
 ### Patching using group policy on Azure Update Manager
 

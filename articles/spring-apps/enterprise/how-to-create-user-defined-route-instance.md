@@ -3,13 +3,15 @@ title:  Control egress traffic for an Azure Spring Apps instance
 description: Learn how to control egress traffic for an Azure Spring Apps instance.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: article
 ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Control egress traffic for an Azure Spring Apps instance
+
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 

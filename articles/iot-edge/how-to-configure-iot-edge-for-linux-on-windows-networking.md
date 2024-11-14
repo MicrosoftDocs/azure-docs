@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: fcabrera
 ms.date: 05/31/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -119,6 +119,88 @@ Read-only role for Digital Twins data-plane properties
     }
   ],
   "roleName": "Azure Digital Twins Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Device Provisioning Service Data Contributor
+
+Allows for full access to Device Provisioning Service data-plane operations.
+
+[Learn more](/azure/iot-dps/concepts-control-access-dps-azure-ad)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](../permissions/internet-of-things.md#microsoftdevices)/provisioningServices/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full access to Device Provisioning Service data-plane operations.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/dfce44e4-17b7-4bd1-a6d1-04996ec95633",
+  "name": "dfce44e4-17b7-4bd1-a6d1-04996ec95633",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/provisioningServices/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Provisioning Service Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Device Provisioning Service Data Reader
+
+Allows for full read access to Device Provisioning Service data-plane properties.
+
+[Learn more](/azure/iot-dps/concepts-control-access-dps-azure-ad)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Devices](../permissions/internet-of-things.md#microsoftdevices)/provisioningServices/*/read |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for full read access to Device Provisioning Service data-plane properties.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/10745317-c249-44a1-a5ce-3a4353c0bbd8",
+  "name": "10745317-c249-44a1-a5ce-3a4353c0bbd8",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Devices/provisioningServices/*/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Provisioning Service Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -449,6 +531,53 @@ Gives you read access to management and content operations, but does not allow m
     }
   ],
   "roleName": "Device Update Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Firmware Analysis Admin
+
+Upload and analyze firmware images in Defender for IoT
+
+[Learn more](/azure/defender-for-iot/device-builders/defender-iot-firmware-analysis-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Upload and analyze firmware images in Defender for IoT",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/9c1607d1-791d-4c68-885d-c7b7aaff7c8a",
+  "name": "9c1607d1-791d-4c68-885d-c7b7aaff7c8a",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.IoTFirmwareDefense/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Firmware Analysis Admin",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 06/10/2024
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
 content_well_notification: 
@@ -66,7 +66,7 @@ To create a hierarchy of IoT Edge devices, you need:
    * 443: Used between parent and child edge hubs for REST API calls and to pull docker container images.
    * 5671, 8883: Used for AMQP and MQTT.
 
-   For more information, see [how to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md).
+   For more information, see [how to open ports to a virtual machine with the Azure portal](/azure/virtual-machines/windows/nsg-quickstart-portal).
 
    >[!TIP]
    >You use the SSH handle and either the FQDN or IP address of each virtual machine for configuration in later steps, so keep track of this information. 
@@ -164,7 +164,7 @@ In addition to the provisioning of your devices, the configuration steps establi
 
 To configure the IoT Edge runtime, you need to apply the configuration bundles to your devices. The configurations differ between the *top layer device* and a *lower layer device*, so be mindful of the device configuration file you're applying to each device.
 
-1. Copy each configuration bundle archive file to its corresponding device. You can use a USB drive, a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/). Choose one of these methods that best matches your scenario. 
+1. Copy each configuration bundle archive file to its corresponding device. You can use a USB drive, a service like [Azure Key Vault](/azure/key-vault/general/overview), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/). Choose one of these methods that best matches your scenario. 
 
    For example, to send the *parent-1* configuration bundle to the home directory on the *parent-1* VM, you could use a command like the following example:
 

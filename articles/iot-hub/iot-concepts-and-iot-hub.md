@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how Azure IoT Hub helps users connect IoT applications and their attached devices.
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
 ms.date: 02/22/2024
@@ -27,7 +27,7 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 
 - [Azure Logic Apps](../logic-apps/index.yml) to automate business processes.
 
-- [Azure Machine Learning](../machine-learning/index.yml) to add machine learning and AI models to your solution.
+- [Azure Machine Learning](/azure/machine-learning/) to add machine learning and AI models to your solution.
 
 - [Azure Stream Analytics](../stream-analytics/index.yml) to run real-time analytic computations on the data streaming from your devices.
 

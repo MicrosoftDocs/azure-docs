@@ -3,7 +3,7 @@ title: 'Add or modify multiple Azure Firewall rules using Azure PowerShell'
 description: In this article, you learn how to add or modify multiple Azure Firewall rules using the Azure PowerShell. 
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.custom: devx-track-azurepowershell
 ms.date: 02/23/2022
 ms.author: victorh

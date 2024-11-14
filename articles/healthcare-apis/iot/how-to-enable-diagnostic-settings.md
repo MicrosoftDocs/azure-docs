@@ -3,8 +3,8 @@ title: How to enable the MedTech service diagnostic settings - Azure Health Data
 description: Learn how to enable the MedTech service diagnostic settings.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
-ms.subservice: iomt
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: how-to
 ms.date: 06/07/2023
 ms.author: chrupa
@@ -45,7 +45,7 @@ In this article, learn how to enable diagnostic settings for the MedTech service
    3. Under **Metrics**, select the **AllMetrics** option.
 
       > [!Note]
-      > To view a complete list of MedTech service metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisworkspacesiotconnectors). 
+      > To view a complete list of MedTech service metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisworkspacesiotconnectors). 
 
    4. Under **Destination details**, select the destination or destinations you want to use for your exported MedTech service logs and metrics. In this example, we've selected an Azure Log Analytics workspace named *la-azuredocsdemo*. You'll select a destination of your own choosing.
    
@@ -58,7 +58,7 @@ In this article, learn how to enable diagnostic settings for the MedTech service
 
       |Destination|Description|
       |-----------|-----------|
-      |[Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md)|Metrics are converted to log form. Sending the metrics to the Azure Monitor Logs store (which is searchable via Log Analytics) enables you to integrate them into queries, alerts, and visualizations with existing log data.|
+      |[Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview)|Metrics are converted to log form. Sending the metrics to the Azure Monitor Logs store (which is searchable via Log Analytics) enables you to integrate them into queries, alerts, and visualizations with existing log data.|
       |[Azure storage account](../../storage/index.yml)|Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive, and logs can be kept there indefinitely.|
       |[Azure event hub](../../event-hubs/index.yml)|Sending logs and metrics to an event hub allows you to stream data to external systems such as third-party Security Information and Event Managements (SIEMs) and other Log Analytics solutions.|
       |Azure Monitor partner integrations|Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you're already using one of the partners.|
@@ -86,9 +86,9 @@ In this article, learn how to enable diagnostic settings for the MedTech service
    :::image type="content" source="media/how-to-enable-diagnostic-settings/view-and-edit-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings options." lightbox="media/how-to-enable-diagnostic-settings/view-and-edit-diagnostic-settings.png"::: 
  
    > [!TIP]
-   > To learn about how to work with diagnostic settings, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal).
+   > To learn about how to work with diagnostic settings, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
    > 
-   > To learn about how to work with diagnostic logs, see [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
+   > To learn about how to work with diagnostic logs, see [Overview of Azure platform logs](/azure/azure-monitor/essentials/platform-logs-overview).
 
 ## Use the Azure Log Analytics workspace to view the MedTech service logs
 
@@ -124,10 +124,10 @@ If you choose to include your Log Analytics workspace as a destination option fo
 > [!WARNING]
 > The above custom query is not saved and will have to be recreated if you leave your Log Analytics workspace without saving the custom query.
 >
-> To learn how to save a custom query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](../../azure-monitor/logs/save-query.md) 
+> To learn how to save a custom query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](/azure/azure-monitor/logs/save-query) 
 
 > [!TIP]
-> To learn how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
+> To learn how to use the Log Analytics workspace, see [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 >
 > For assistance troubleshooting MedTech service errors, see [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md).
 
@@ -153,10 +153,10 @@ The MedTech service comes with predefined queries that can be used anytime in yo
 > [!WARNING]
 > Any changes that you've made to the predefined queries are not saved and will have to be recreated if you leave your Log Analytics workspace without saving custom changes you've made to the predefined queries.
 >
-> To learn how to save a query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](../../azure-monitor/logs/save-query.md) 
+> To learn how to save a query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](/azure/azure-monitor/logs/save-query) 
 
 > [!TIP]
-> To learn how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
+> To learn how to use the Log Analytics workspace, see [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 >
 > For assistance troubleshooting MedTech service errors, see [Troubleshoot errors using the MedTech service logs](troubleshoot-errors-logs.md).  
 

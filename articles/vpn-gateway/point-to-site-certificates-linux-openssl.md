@@ -3,7 +3,7 @@ title: 'Generate and export certificates for point-to-site: Linux - OpenSSL'
 description: Learn how to create a self-signed root certificate, export the public key, and generate client certificates using OpenSSL.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 06/24/2024
@@ -28,7 +28,7 @@ This section helps you generate a self-signed root certificate. After you genera
    openssl req -x509 -new -nodes -key caKey.pem -subj "/CN=VPN CA" -days 3650 -out caCert.pem
    ```
 
-1. Print the self-signed root certificate public data in base64 format. This is the format that's supported by Azure. Upload this certificate to Azure as part of your [P2S configuration](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile) steps.
+1. Print the self-signed root certificate public data in base64 format. This is the format that's supported by Azure. Upload this certificate to Azure as part of your [P2S configuration](point-to-site-certificate-gateway.md#uploadfile) steps.
 
    ```CLI
    openssl x509 -in caCert.pem -outform der | base64 -w0 && echo
@@ -62,4 +62,4 @@ In this section, you generate the user certificate (client certificate). Certifi
 
 ## Next steps
 
-To continue configuration steps, see [Point-to-site certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+To continue configuration steps, see [Point-to-site certificate authentication](point-to-site-certificate-gateway.md#uploadfile).

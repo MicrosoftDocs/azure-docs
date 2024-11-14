@@ -3,7 +3,7 @@ title: 'Tutorial: Create and use a PostgreSQL service for development'
 description: Create and use a PostgreSQL service for development
 services: container-apps
 author: ahmelsayed
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/06/2023

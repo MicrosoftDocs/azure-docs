@@ -37,7 +37,7 @@ To find the SQL Server configuration from the Azure portal:
 
 1. In the Azure VMware Solution portal, go to **vCenter Server Inventory** and **Virtual Machines** by clicking through one of the Azure Arc-enabled VMs. The **Machine-Azure Arc (AVS)** page appears.
 1. On the left pane, under **Operations**, select **SQL Server Configuration**.
-1. Follow the steps in the section [Subscribe to Extended Security Updates enabled by Azure Arc](/sql/sql-server/end-of-support/sql-server-extended-security-updates?#subscribe-to-extended-security-updates-enabled-by-azure-arc). This section also provides syntax to configure by using Azure PowerShell or the Azure CLI.
+1. Follow the steps in the section [Configure SQL Server enabled by Azure Arc - Modify SQL Server configuration](/sql/sql-server/azure-arc/manage-configuration?view=sql-server-ver16&tabs=azure#modify-sql-server-configuration). This section also provides syntax to configure by using Azure PowerShell or the Azure CLI.
 
 #### View ESU subscription status
 
@@ -46,12 +46,14 @@ For machines that run SQL Server where guest management is enabled, the Azure Ex
 - Use the Azure portal:
 
     1. In the Azure VMware Solution portal, go to **vCenter Server Inventory** and **Virtual Machines** by clicking through one of the Azure Arc-enabled VMs. The **Machine-Azure Arc (AVS)** page appears.
-    1. As part of the **Overview** section on the left pane, the **Properties/Extensions** view lists the `WindowsAgent.SqlServer` (*Microsoft.HybridCompute/machines/extensions*), if installed. Alternatively, you can expand **Settings** on the left pane and select **Extensions**. The `WindowsAgent.SqlServer` name and type appear, if configured.
+    1. As part of the **Overview** section on the left pane, the **Properties/Extensions** view lists the `WindowsAgent.SqlServer` (*Microsoft.HybridCompute/machines/extensions*), if installed. Alternatively, you can expand **Settings** on the left pane and select **Extensions**. The `WindowsAgent.SqlServer` name and type appear, if installed. 
+    
+    If you don't see the extension installed you can manually install by choosing **Extensions**, the Add button, and Azure Extension for SQL Server.  
 
 - Use Azure Resource Graph queries:
 
-   - You can use the query [VM ESU subscription status](/sql/sql-server/end-of-support/sql-server-extended-security-updates?#view-esu-subscriptions) as an example to show that you can view eligible SQL Server ESU instances and their ESU subscription status.
-
+  - You can use the query [List Arc-enabled SQL Server instances subscribed to ESU](/sql/sql-server/azure-arc/manage-configuration?view=sql-server-ver16&tabs=azure&branch=main#list-arc-enabled-sql-server-instances-subscribed-to-esu) as an example to show how you can view eligible SQL Server ESU instances and their ESU subscription status.
+    
 ### Windows Server
 
 To enable ESUs for Windows Server environments that run in VMs in Azure VMware Solution, contact [Microsoft Support] for configuration assistance.
@@ -61,7 +63,7 @@ When you contact Support, raise the ticket under the Azure VMware Solution categ
 - Customer name and tenant ID
 - Number of VMs you want to register
 - OS versions
-- ESU years of coverage (for example, Year 1, Year 2, or Year 3)
+- ESU year of coverage (for example, Year 1, Year 2, or Year 3). See [ESU Availability and End Dates](/lifecycle/faq/extended-security-updates?msclkid=65927660d02011ecb3792e8849989799#esu-availability-and-end-dates) for ESU End Date and Year. The support ticket provides you  with ESU keys for one year. You'll need to raise a new support request for other years. It's recommended to raise a new request as your current ESU End Date Year date is approaching.
 
 > [!WARNING]
 > If you create ESU licenses for Windows through Azure Arc, you're charged for the ESUs.

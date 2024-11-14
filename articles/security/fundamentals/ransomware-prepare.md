@@ -17,7 +17,7 @@ A good place to start is to adopt the [Microsoft cloud security benchmark (MCSB)
 
 :::image type="content" source="./media/ransomware/ransomware-13.png" alt-text="Screenshot of the NS-1: Establish Network Segmentation Boundaries security control":::
 
-The Microsoft cloud security benchmark provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. Organizations can use [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) to monitor their live Azure environment status with all the MCSB controls.
+The Microsoft cloud security benchmark provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. Organizations can use [Microsoft Defender for Cloud](/azure/defender-for-cloud/) to monitor their live Azure environment status with all the MCSB controls.
 
 Ultimately, the Framework is aimed at reducing and better managing cybersecurity risks.
 

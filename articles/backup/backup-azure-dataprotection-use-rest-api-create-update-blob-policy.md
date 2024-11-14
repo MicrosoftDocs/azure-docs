@@ -2,9 +2,9 @@
 title: Create Azure Backup policies for blobs using data protection REST API
 description: In this article, you'll learn how to create and manage backup policies for blobs using REST API.
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 07/24/2024
 ms.assetid: 472d6a4f-7914-454b-b8e4-062e8b556de3
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -94,7 +94,7 @@ The policy says:
 }
 ```
 
-To configure a backup policy with the vaulted backup (preview), use the following JSON script:
+To configure a backup policy with the vaulted backup, use the following JSON script:
 
 ```json
 {

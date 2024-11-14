@@ -1,13 +1,15 @@
 ---
 title: Deploy Geospatial Consumption Zone on top of Azure Data Manager for Energy using Azure portal
 description: Learn how to deploy Geospatial Consumption Zone on top of your Azure Data Manager for Energy instance using the Azure portal.
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: eihaugho
 author: EirikHaughom
 ms.date: 05/30/2024
 ---
+
+## Deploy Geospatial Consumption Zone (GCZ) on a Windows Virtual Machine
 
 Learn how to deploy Geospatial Consumption Zone (GCZ) on Windows. This deployment option is recommended for development and testing environments, as it's easier to set up and configure, and requires less maintenance.
 

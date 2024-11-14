@@ -12,7 +12,8 @@ When you migrate your function app, you have the opportunity to choose the targe
 
 | .NET version | [.NET Official Support Policy] release type |  Functions process model<sup>1,2</sup> | 
 | --- | --- | --- |
-| .NET 8 | LTS (end of support November 10, 2026) | [Isolated worker model],<br/>[In-process model]<sup>2,3</sup>  | 
+| .NET 9 | Preview<sup>3</sup>  | [Isolated worker model] | 
+| .NET 8 | LTS (end of support November 10, 2026) | [Isolated worker model],<br/>[In-process model]<sup>2</sup>  | 
 | .NET 6 | LTS (end of support November 12, 2024) |  [Isolated worker model],<br/>[In-process model]<sup>2</sup>  | 
 | .NET Framework 4.8 | [See policy][netfxpolicy] | [Isolated worker model] |  
 
@@ -20,9 +21,7 @@ When you migrate your function app, you have the opportunity to choose the targe
 
 <sup>2</sup> Support ends for the in-process model on November 10, 2026. For more information, see [this support announcement](https://aka.ms/azure-functions-retirements/in-process-model). For continued full support, you should  [migrate your apps to the isolated worker model](../articles/azure-functions/migrate-dotnet-to-isolated-model.md).
 
-<sup>3</sup> Targeting .NET 8 with the in-process model is not yet enabled for Linux, for apps hosted in App Service Environments, or for apps in sovereign clouds. Updates will be communicated on [this tracking thread on GitHub](https://github.com/Azure/azure-functions-host/issues/9951).
-
-<!-- <sup>2</sup> See [Preview .NET versions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#preview-net-versions) for details on support, current restrictions, and instructions for using the preview version. -->
+<sup>3</sup> See [Preview .NET versions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#preview-net-versions) for details on support, current restrictions, and instructions for using the preview version.
 
 [.NET Official Support Policy]: https://dotnet.microsoft.com/platform/support/policy
 [netfxpolicy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework

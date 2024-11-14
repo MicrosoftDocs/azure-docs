@@ -5,6 +5,7 @@ ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-windows-clients
 author: dknappettmsft
 ms.author: daknappe
+ms.custom: "se-defect-target"
 ms.date: 02/21/2024
 ---
 

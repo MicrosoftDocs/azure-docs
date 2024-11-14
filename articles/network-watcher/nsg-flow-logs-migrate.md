@@ -4,15 +4,16 @@ titleSuffix: Azure Network Watcher
 description: Learn how to migrate your Azure Network Watcher network security group flow logs to virtual network flow logs using the Azure portal and a PowerShell script.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 05/10/2024
-ms.custom:
+ms.date: 10/28/2024
 
 #CustomerIntent: As an Azure administrator, I want to migrate my network security group flow logs to the new virtual network flow logs so that I can use all the benefits of virtual network flow logs, which overcome some of the network security group flow logs limitations.
 ---
 
 # Migrate from network security group flow logs to virtual network flow logs
+
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
 In this article, you learn how to migrate your existing network security group flow logs to virtual network flow logs using a migration script. Virtual network flow logs overcome some of the limitations of network security group flow logs. For more information, see [Virtual network flow logs](vnet-flow-logs-overview.md).
 
@@ -32,7 +33,7 @@ In this article, you learn how to migrate your existing network security group f
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- PowerShell installed on your machine. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
+- PowerShell 7 installed on your machine. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
 
 - Necessary RBAC permissions for the subscriptions of the flow logs and Log Analytics workspaces (if traffic analytics is enabled for any of the network security group flow logs). For more information, see [Network Watcher permissions](required-rbac-permissions.md).
 

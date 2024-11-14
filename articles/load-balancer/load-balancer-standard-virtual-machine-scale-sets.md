@@ -3,7 +3,7 @@ title: Guidance for virtual machine scale sets with Azure Standard Load Balancer
 description: Learn about working with virtual machine scale sets and Azure Standard Load Balancer.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 06/26/2024
 ms.author: mbender
@@ -26,13 +26,13 @@ When you use the Virtual Machine Scale Set in the backend pool of the load balan
 
 ## Virtual Machine Scale Set instance-level IPs
 
-When Virtual Machine Scale Sets with [public IPs per instance](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md) are created with a load balancer in front,  the SKU of the Load Balancer (that is, Basic or Standard) determines the SKU of the instance IPs.
+When Virtual Machine Scale Sets with [public IPs per instance](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking) are created with a load balancer in front,  the SKU of the Load Balancer (that is, Basic or Standard) determines the SKU of the instance IPs.
 
 ## Outbound rules
 
 To create an outbound rule for a backend pool that's already referenced by a load-balancing rule, select **No** under **Create implicit outbound rules** in the Azure portal when the inbound load-balancing rule is created.
 
-  :::image type="content" source="./media/vm-scale-sets/load-balancer-and-vm-scale-sets.png" alt-text="Screenshot that shows load-balancing rule creation." border="true":::
+  :::image type="content" source="./media/load-balancer-standard-virtual-machine-scale-sets/load-balancer-and-vm-scale-sets.png" alt-text="Screenshot that shows load-balancing rule creation." border="true":::
 
 Use the following methods to deploy a Virtual Machine Scale Sets with an existing instance of Load Balancer:
 

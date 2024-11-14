@@ -1,7 +1,7 @@
 ---
 title: Connect to Kafka using virtual networks - Azure HDInsight 
 description: Learn how to directly connect to Kafka on HDInsight through an Azure Virtual Network. Learn how to connect to Kafka from development clients using a VPN gateway, or from clients in your on-premises network by using a VPN gateway device.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python, devx-track-azurepowershell
 ms.date: 06/14/2024
@@ -364,7 +364,7 @@ For more information on using HDInsight with a virtual network, see the [Plan a 
 
 For more information on creating an Azure Virtual Network with Point-to-Site VPN gateway, see the following documents:
 
-* [Configure a Point-to-Site connection using the Azure portal](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Configure a Point-to-Site connection using the Azure portal](../../vpn-gateway/point-to-site-certificate-gateway.md)
 
 * [Configure a Point-to-Site connection using Azure PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 

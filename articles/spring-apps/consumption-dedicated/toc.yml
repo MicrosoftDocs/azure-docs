@@ -6,6 +6,10 @@ items:
 - name: Overview
   expanded: true
   items:
+  - name: Retirement announcement
+    href: ../basic-standard/retirement-announcement.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+  - name: Migrate to Azure Container Apps
+    href: overview-migration.md
   - name: What is Azure Spring Apps?
     href: ../enterprise/overview.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
   - name: What's new
@@ -16,10 +20,6 @@ items:
     href: ../enterprise/cost-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
   - name: Compare Java application hosting options on Azure
     href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
-  - name: Migrate Spring Boot to Azure Spring Apps
-    href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
-  - name: Migrate Spring Cloud to Azure Spring Apps
-    href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -53,7 +53,7 @@ items:
   - name: Memory
     items:
     - name: Java memory management
-      href: ../enterprise/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+      href: ../basic-standard/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
     - name: Tools to troubleshoot memory issues
       href: ../enterprise/tools-to-troubleshoot-memory-issues.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
     - name: Fix app restart issues caused by OOM

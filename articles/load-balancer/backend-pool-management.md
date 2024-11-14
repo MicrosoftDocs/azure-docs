@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Get started learning how to configure and manage the backend pool of an Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/26/2024
 ms.author: mbender 
@@ -216,9 +216,10 @@ az vm create \
 ### Limitations
   * IP based backends can only be used for Standard Load Balancers
   * The backend resources must be in the same virtual network as the load balancer for IP based LBs
+  * IP-based load balancers backend instances must still be virtual machines or virtual machine scale sets. Attaching other PaaS services to the backend pool of an IP based Load Balancer is not supported. 
   * A load balancer with IP based Backend Pool can’t function as a Private Link service
   * [Private endpoint resources](../private-link/private-endpoint-overview.md) can't be placed in an IP based backend pool
-  * IP-based load balancers don't support ACI containers
+  * IP-based load balancers doesn't support ACI containers
   * Load balancers or services such as Application Gateway can’t be placed in the backend pool of the load balancer
   * Inbound NAT Rules can’t be specified by IP address
   * You can configure IP based and NIC based backend pools for the same load balancer. You can’t create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.

@@ -3,7 +3,7 @@ title: 'Tutorial: Create a secured hub and spoke network'
 description: In this tutorial, you learn how to create a hub and spoke network topology for your virtual networks using Azure Virtual Network Manager. Then you secure your network by blocking outbound traffic on ports 80 and 443.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: tutorial
 ms.date: 06/26/2024
 ms.custom: FY23 content-maintenance, engagement-FY24
@@ -271,7 +271,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
 ### Verify from a VM
 
-1. [Deploy a test virtual machine](../virtual-machines/linux/quick-create-portal.md) into **vnet-learn-prod-eastus-001**.
+1. [Deploy a test virtual machine](/azure/virtual-machines/linux/quick-create-portal) into **vnet-learn-prod-eastus-001**.
 
 1. Go to the test VM created in *vnet-learn-prod-eastus-001* and select **Networking** under *Settings*. Select **Outbound port rules** and verify the **DENY_INTERNET** rule is applied.
 

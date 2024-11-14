@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to integrate Azure OpenAI on the Azure Spring Apps Enterprise plan.
 author: KarlErickson  # external contributor maly7
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 11/02/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -13,8 +13,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Quickstart: Integrate Azure OpenAI
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 

@@ -2,7 +2,7 @@
 title: Validate Azure API Management service updates
 description: Apply the Azure safe deployment approach with your Azure API Management instances to validate service updates and avoid disruptions to your production environments.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/25/2022
 ms.author: danlep
@@ -60,11 +60,11 @@ As a first step, ensure that you know about service updates that are expected or
 
 * API Management updates are announced on the [API Management GitHub repo](https://github.com/Azure/API-Management/releases). We recommend that you subscribe to receive notifications from this repository to know when update rollouts begin. 
 
-* Monitor service updates that are taking place in your API Management instance by using the Azure [Activity log](../azure-monitor/essentials/activity-log.md). The "Scheduled maintenance" event is emitted when an update begins.
+* Monitor service updates that are taking place in your API Management instance by using the Azure [Activity log](/azure/azure-monitor/essentials/activity-log). The "Scheduled maintenance" event is emitted when an update begins.
 
     :::image type="content" source="media/validate-service-updates/scheduled-maintenance.png" alt-text="Scheduled maintenance event in Activity log":::
 
-    To receive notifications automatically, [set up an alert](../azure-monitor/alerts/alerts-activity-log.md) on the Activity log.
+    To receive notifications automatically, [set up an alert](/azure/azure-monitor/alerts/alerts-activity-log) on the Activity log.
 
 * Updates roll out to regions in the following phases: Azure EUAP regions, followed by West Central US, followed by remaining regions in several later phases. The sequence of regions updated in the later deployment phases differs from service to service. You can expect at least 24 hours between each phase of the production rollout.
 

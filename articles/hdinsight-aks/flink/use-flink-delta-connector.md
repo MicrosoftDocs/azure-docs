@@ -1,14 +1,17 @@
 ---
 title: How to use Apache Flink® on HDInsight on AKS with Flink/Delta connector
 description: Learn how to use Flink/Delta Connector.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # How to use Flink/Delta Connector
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 By using Apache Flink and Delta Lake together, you can create a reliable and scalable data lakehouse architecture. The Flink/Delta Connector allows you to write data to Delta tables with ACID transactions and exactly once processing. It means that your data streams are consistent and error-free, even if you restart your Flink pipeline from a checkpoint. The Flink/Delta Connector ensures that your data isn't lost or duplicated, and that it matches the Flink semantics.
 
@@ -38,7 +41,6 @@ Connector's version	    Flink's version
 0.7.0	                X >= 1.16.1         --- We use this in Flink 1.17.0
 ```
 
-For more information, see [Flink/Delta Connector](https://github.com/delta-io/connectors/blob/master/flink/README.md).
 
 ## Prerequisites
 
@@ -90,7 +92,6 @@ import org.apache.hadoop.conf.Configuration;
     }
 ```
 
-For other continuous model example, see [Data Source Modes](https://github.com/delta-io/connectors/blob/master/flink/README.md#modes).
 
 ## Writing to Delta sink
 
@@ -140,7 +141,7 @@ public static DataStream<RowData> createDeltaSink(
         return stream;
     }
 ```
-For other Sink creation example, see [Data Sink Metrics](https://github.com/delta-io/connectors/blob/master/flink/README.md#modes).
+
 
 ## Full code
 
@@ -353,14 +354,12 @@ Once the data is in delta sink, you can run the query in Power BI desktop and cr
 
     :::image type="content" source="./media/use-flink-delta-connector/adls-gen-2-details.png" alt-text="Screenshot shows ADLS Gen2-details.":::
 
-1. Create M-query for the source and invoke the function, which queries the data from storage account. Refer [Delta Power BI connectors](https://github.com/delta-io/connectors/tree/master/powerbi).
+2. Create M-query for the source and invoke the function, which queries the data from storage account.
 
-1. Once the data is readily available, you can create reports.
+3. Once the data is readily available, you can create reports.
 
     :::image type="content" source="./media/use-flink-delta-connector/create-reports.png" alt-text="Screenshot shows how to create reports.":::
 
 ## References
 
-* [Delta connectors](https://github.com/delta-io/connectors/tree/master/flink).
-* [Delta Power BI connectors](https://github.com/delta-io/connectors/tree/master/powerbi).
 * Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

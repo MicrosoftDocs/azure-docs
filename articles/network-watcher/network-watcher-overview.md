@@ -3,7 +3,7 @@ title: Azure Network Watcher overview
 description: Learn about Azure Network Watcher's monitoring, diagnostics, logging, and metrics capabilities in a virtual network.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: overview
 ms.date: 06/12/2024
 
@@ -58,7 +58,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### NSG diagnostics
 
-**NSG diagnostics** allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level. It checks if a packet is allowed or denied to or from an IP address, IP prefix, or a service tag. It tells you which security rule allowed or denied the traffic. It also allows you to add a new security rule with a higher priority to allow or deny the traffic. For more information, see [NSG diagnostics overview](network-watcher-network-configuration-diagnostics-overview.md) and [Diagnose network security rules](diagnose-network-security-rules.md).
+**NSG diagnostics** allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level. It checks if a packet is allowed or denied to or from an IP address, IP prefix, or a service tag. It tells you which security rule allowed or denied the traffic. It also allows you to add a new security rule with a higher priority to allow or deny the traffic. For more information, see [NSG diagnostics overview](nsg-diagnostics-overview.md) and [Diagnose network security rules](diagnose-network-security-rules.md).
 
 ### Next hop
 
@@ -92,6 +92,8 @@ Network Watcher offers two traffic tools that help you log and visualize network
 **Flow logs** allows you to log information about your Azure IP traffic and stores the data in Azure storage. You can log IP traffic flowing through a network security group or Azure virtual network. For more information, see:
 - [Network security group flow logs](nsg-flow-logs-overview.md) and [Manage network security group flow logs](nsg-flow-logs-portal.md).
 - [Virtual network flow logs](vnet-flow-logs-overview.md) and [Manage virtual network flow logs](vnet-flow-logs-portal.md).
+
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
 ### Traffic analytics
 

@@ -20,6 +20,7 @@ When you want the function to write multiple messages, the Service Bus output bi
 | --- | --- |
 | `T[]` where `T` is one of the single message types | An array containing multiple message. Each entry represents one message. | 
 
-For other output scenarios, create and use types from [Azure.Messaging.ServiceBus] directly.
+For other output scenarios, create and use a [ServiceBusClient] with other types from [Azure.Messaging.ServiceBus] directly. See [Register Azure clients](../articles/azure-functions/dotnet-isolated-process-guide.md#register-azure-clients) for an example of using dependency injection to create a client type from the Azure SDK.
 
 [Azure.Messaging.ServiceBus]: /dotnet/api/azure.messaging.servicebus
+[ServiceBusClient]: /dotnet/api/azure.messaging.servicebus.servicebusclient

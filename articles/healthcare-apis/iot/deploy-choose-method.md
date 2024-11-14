@@ -2,8 +2,8 @@
 title: Choose a deployment method for the MedTech service - Azure Health Data Services
 description: Learn about the different methods for deploying the MedTech service.
 author: chachachachami
-ms.service: healthcare-apis
-ms.subservice: iomt
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.topic: quickstart
 ms.date: 07/05/2023

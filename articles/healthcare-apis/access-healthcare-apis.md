@@ -3,12 +3,12 @@ title: Access Azure Health Data Services
 description: Learn how to access the FHIR, DICOM, and MedTech services in Azure Health Data Services by using Postman, cURL, REST Client, and programming languages like Python and C# for efficient data management.
 services: healthcare-apis
 author: msjasteppe
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: devx-track-python
 ms.topic: conceptual
 ms.date: 04/29/2024
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Access Azure Health Data Services

@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to upgrade a packet core instance using an Azure Resource Manager template (ARM template). 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 05/16/2022
 ms.custom: template-how-to, devx-track-arm-template
@@ -69,7 +69,7 @@ To use Azure Resource Health to confirm the packet core instance is healthy:
 1. Select **Resource Health** under the **Help** section on the left side.
 1. Check that the resource is healthy and there are no unexpected alerts.
 1. If there are any unexpected alerts, follow the recommended steps listed to recover the system.
-1. To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
+1. To learn more about health and the status types that may appear, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
 
 ## Upgrade the packet core instance

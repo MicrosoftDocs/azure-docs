@@ -4,7 +4,7 @@ description: Learn how to deploy Azure File Sync storage sync service using the 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/03/2024
+ms.date: 08/02/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -27,12 +27,16 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
     -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
     -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section. 
 3. At least one supported instance of **Windows Server** to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](file-sync-planning.md#windows-file-server-considerations).
-4. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
+4. The following Windows updates must be installed on the **Windows Server**: 
+    - Windows Server 2012 R2: [KB5021653](https://support.microsoft.com/topic/kb5021653-out-of-band-update-for-windows-server-2012-r2-november-17-2022-8e6ec2e9-6373-46d7-95bc-852f992fd1ff)
+    - Windows Server 2016: [KB5040562](https://support.microsoft.com/topic/kb5040562-servicing-stack-update-for-windows-10-version-1607-and-server-2016-july-9-2024-281c97b9-c566-417e-8406-a84efd30f70c)
+    - Windows Server 2019: [KB5005112](https://support.microsoft.com/topic/kb5005112-servicing-stack-update-for-windows-10-version-1809-august-10-2021-df6a9e0d-8012-41f4-ae74-b79f1c1940b2) and [KB5040430](https://support.microsoft.com/topic/july-9-2024-kb5040430-os-build-17763-6054-0bb10c24-db8c-47eb-8fa9-9ebc06afa4e7)
+5. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
 
     > [!NOTE]
     > The only scenario supported by Azure File Sync is Windows Server Failover Cluster with Clustered Disks. See [Failover Clustering](file-sync-planning.md#failover-clustering) for Azure File Sync.
 
-5. Although cloud management can be done with the Azure portal, advanced registered server functionality is provided through PowerShell cmdlets that are intended to be run locally in either PowerShell 5.1 or PowerShell 6+. On Windows Server 2012 R2, you can verify that you're running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
+6. Although cloud management can be done with the Azure portal, advanced registered server functionality is provided through PowerShell cmdlets that are intended to be run locally in either PowerShell 5.1 or PowerShell 6+. On Windows Server 2012 R2, you can verify that you're running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -51,13 +55,16 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
     -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
     -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select **Configuration** under the **Settings** section. 
 3. At least one supported instance of **Windows Server** to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](file-sync-planning.md#windows-file-server-considerations).
-
-4. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
+4. The following Windows updates must be installed on the **Windows Server**: 
+    - Windows Server 2012 R2: [KB5021653](https://support.microsoft.com/topic/kb5021653-out-of-band-update-for-windows-server-2012-r2-november-17-2022-8e6ec2e9-6373-46d7-95bc-852f992fd1ff)
+    - Windows Server 2016: [KB5040562](https://support.microsoft.com/topic/kb5040562-servicing-stack-update-for-windows-10-version-1607-and-server-2016-july-9-2024-281c97b9-c566-417e-8406-a84efd30f70c)
+    - Windows Server 2019: [KB5005112](https://support.microsoft.com/topic/kb5005112-servicing-stack-update-for-windows-10-version-1809-august-10-2021-df6a9e0d-8012-41f4-ae74-b79f1c1940b2) and [KB5040430](https://support.microsoft.com/topic/july-9-2024-kb5040430-os-build-17763-6054-0bb10c24-db8c-47eb-8fa9-9ebc06afa4e7)
+5. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
 
     > [!NOTE]
     > The only scenario supported by Azure File Sync is Windows Server Failover Cluster with Clustered Disks. See [Failover Clustering](file-sync-planning.md#failover-clustering) for Azure File Sync.
 
-5. PowerShell 5.1 or PowerShell 6+. You may use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems, however the server registration cmdlet must always be run on the Windows Server instance you're registering (you can do this directly or via PowerShell remoting). On Windows Server 2012 R2, verify that you're running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
+6. PowerShell 5.1 or PowerShell 6+. You may use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems, however the server registration cmdlet must always be run on the Windows Server instance you're registering (you can do this directly or via PowerShell remoting). On Windows Server 2012 R2, verify that you're running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -67,7 +74,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
     PowerShell 6+ can be used with any supported system, and can be downloaded via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
 
-6. If you have opted to use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. Learn more about [.NET Framework versions and dependencies](/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
+7. If you have opted to use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. Learn more about [.NET Framework versions and dependencies](/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
 
     > [!IMPORTANT]
     > If you're installing .NET 4.7.2+ on Windows Server Core, you must install with the `quiet` and `norestart` flags, or the installation will fail. For example, if installing .NET 4.8, the command would look like the following:
@@ -75,7 +82,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-7. The Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
+8. The Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
     > [!NOTE]
     > The Az.StorageSync module is now installed automatically when you install the Az PowerShell module.
@@ -89,13 +96,16 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
     -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
     -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section. 
 3. At least one supported instance of **Windows Server** to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](file-sync-planning.md#windows-file-server-considerations).
-
-4. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
+4. The following Windows updates must be installed on the **Windows Server**: 
+    - Windows Server 2012 R2: [KB5021653](https://support.microsoft.com/topic/kb5021653-out-of-band-update-for-windows-server-2012-r2-november-17-2022-8e6ec2e9-6373-46d7-95bc-852f992fd1ff)
+    - Windows Server 2016: [KB5040562](https://support.microsoft.com/topic/kb5040562-servicing-stack-update-for-windows-10-version-1607-and-server-2016-july-9-2024-281c97b9-c566-417e-8406-a84efd30f70c)
+    - Windows Server 2019: [KB5005112](https://support.microsoft.com/topic/kb5005112-servicing-stack-update-for-windows-10-version-1809-august-10-2021-df6a9e0d-8012-41f4-ae74-b79f1c1940b2) and [KB5040430](https://support.microsoft.com/topic/july-9-2024-kb5040430-os-build-17763-6054-0bb10c24-db8c-47eb-8fa9-9ebc06afa4e7)
+5. **Optional**: If you intend to use Azure File Sync with a Windows Server Failover Cluster, the **File Server for general use** role must be configured prior to installing the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a Failover Cluster, see [Deploying a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
 
     > [!NOTE]
     > The only scenario supported by Azure File Sync is Windows Server Failover Cluster with Clustered Disks. See [Failover Clustering](file-sync-planning.md#failover-clustering) for Azure File Sync.
 
-5. [Install the Azure CLI](/cli/azure/install-azure-cli)
+6. [Install the Azure CLI](/cli/azure/install-azure-cli)
 
    If you prefer, you can also use Azure Cloud Shell to complete the steps in this tutorial.  Azure Cloud Shell is an interactive shell environment that you use through your browser.  Start Cloud Shell by using one of these methods:
 
@@ -105,7 +115,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
    - Select the **Cloud Shell** button on the menu bar at the upper right corner in the [Azure portal](https://portal.azure.com)
 
-6. Sign in.
+7. Sign in.
 
    Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
 
@@ -115,7 +125,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
     Follow the steps displayed in your terminal to complete the authentication process.
 
-7. Install the [az filesync](/cli/azure/storagesync) Azure CLI extension.
+8. Install the [az filesync](/cli/azure/storagesync) Azure CLI extension.
 
    ```azurecli
    az extension add --name storagesync
@@ -127,7 +137,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
    The installed extension 'storagesync' is experimental and not covered by customer support. Please use with discretion.
    ```
 
-8. Although cloud management can be done with the Azure CLI, advanced registered server functionality is provided through PowerShell cmdlets that are intended to be run locally in either PowerShell 5.1 or PowerShell 6+. On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
+9. Although cloud management can be done with the Azure CLI, advanced registered server functionality is provided through PowerShell cmdlets that are intended to be run locally in either PowerShell 5.1 or PowerShell 6+. On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -266,7 +276,7 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 
 # [Portal](#tab/azure-portal)
 
-You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation.
+You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation or to silently install the agent, see [How to perform a silent installation for a new Azure File Sync agent installation](file-sync-agent-silent-installation.md). 
 
 > [!IMPORTANT]
 > If you're using Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must be registered to work with Azure File Sync. 

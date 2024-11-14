@@ -3,7 +3,7 @@ title: 'Tutorial: Connect to an Azure Cache for Redis service in Azure Container
 description: Connect a service in development and then promote to production in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/13/2023

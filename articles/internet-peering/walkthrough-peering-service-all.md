@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 08/09/2023
+ms.date: 10/23/2024
 ---
 
 # Internet peering for Azure Peering Service partner walkthrough
@@ -161,9 +161,9 @@ When your customers onboard to Peering Service, customers must follow the steps 
 
 **Q.**	I need to set the prefix limit, how many routes Microsoft would be announcing?
 
-**A.** Microsoft announces roughly 280 prefixes on internet, and it may increase by 10-15% in future. So, a safe limit of 400-500 can be good to set as “Max prefix count”
+**A.** Microsoft announces roughly 280 prefixes on internet, and it might increase by 10-15% in future. So, a safe limit of 400-500 can be good to set as “Max prefix count”
 
-**Q.** Will Microsoft re-advertise the Peer prefixes to the Internet?
+**Q.** Will Microsoft readvertise the Peer prefixes to the Internet?
 
 **A.** No.
 

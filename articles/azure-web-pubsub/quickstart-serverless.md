@@ -817,7 +817,7 @@ Here we choose `Microsoft` as identify provider, which uses `x-ms-client-princip
 - [Microsoft Entra ID](../app-service/configure-authentication-provider-aad.md)
 - [Facebook](../app-service/configure-authentication-provider-facebook.md)
 - [Google](../app-service/configure-authentication-provider-google.md)
-- [Twitter](../app-service/configure-authentication-provider-twitter.md)
+- [X](../app-service/configure-authentication-provider-twitter.md)
 
 ## Try the application
 

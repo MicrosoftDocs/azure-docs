@@ -2,7 +2,14 @@
 title: Azure OpenAI embeddings store output binding for Azure Functions
 description: Learn how to use the Azure OpenAI embeddings store output binding to write searchable content to a semantic document store during function execution in Azure Functions.
 ms.topic: reference
-ms.custom: build-2024, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.custom: 
+  - build-2024
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+ms.collection: 
+  - ce-skilling-ai-copilot
 ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -14,7 +21,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 The Azure OpenAI embeddings store output binding allows you to write files to a semantic document store that can be referenced later in a semantic search.
 
-For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about semantic ranking in Azure AI Search, see [Semantic ranking in Azure AI Search](../search/semantic-search-overview.md).
+For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about semantic ranking in Azure AI Search, see [Semantic ranking in Azure AI Search](/azure/search/semantic-search-overview).
 
 [!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
@@ -45,7 +52,7 @@ This example writes an HTTP input stream to a semantic document store at the pro
 ::: zone pivot="programming-language-typescript"
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/nodejs/src/app.ts" range="7-38":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="7-38":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

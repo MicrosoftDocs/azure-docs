@@ -1,7 +1,6 @@
 ---
 author: stevenmatthew
-ms.service: databox
-ms.subservice: heavy   
+ms.service: azure-data-box-heavy
 ms.topic: include
 ms.date: 05/22/2019
 ms.author: shaas

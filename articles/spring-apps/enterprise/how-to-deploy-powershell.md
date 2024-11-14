@@ -4,7 +4,7 @@ description: How to create and deploy applications in Azure Spring Apps by using
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.devlang: azurepowershell
 ms.date: 04/23/2024
 ms.custom: devx-track-azurepowershell, devx-track-java
@@ -12,8 +12,7 @@ ms.custom: devx-track-azurepowershell, devx-track-java
 
 # Create and deploy applications by using PowerShell
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -38,7 +37,7 @@ The requirements for completing the steps in this article depend on your Azure s
 * If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription by using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet:
 
    ```azurepowershell-interactive
-   Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+   Set-AzContext -SubscriptionId <subscription-ID>
    ```
 
 ## Create a resource group

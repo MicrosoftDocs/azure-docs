@@ -5,7 +5,7 @@ description: Set up OAuth 2.0 user authorization for the test console in the Azu
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/01/2024
 ms.author: danlep

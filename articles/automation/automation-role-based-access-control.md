@@ -7,6 +7,7 @@ ms.date: 01/09/2023
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 #Customer intent: As an administrator, I want to understand permissions so that I use the least necessary set of permissions.
+ms.service: azure-automation
 ---
 
 # Manage role permissions and security in Azure Automation
@@ -388,14 +389,14 @@ Get-AzRoleAssignment -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Res
 The following is the example output:
 
 ```powershell
-RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
-                     ers/Microsoft.Authorization/roleAssignments/cc594d39-ac10-46c4-9505-f182a355c41f
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Automation/automationAccounts/myAutomationAccount
+RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
+                     ers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Automation/automationAccounts/myAutomationAccount
 DisplayName        : admin@contoso.com
 SignInName         : admin@contoso.com
 RoleDefinitionName : Automation Operator
 RoleDefinitionId   : d3881f73-407a-4167-8283-e981cbba0404
-ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
+ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 ObjectType         : User
 ```
 
@@ -410,14 +411,14 @@ New-AzRoleAssignment -SignInName <sign-in Id of a user you wish to grant access>
 The following is the example output:
 
 ```azurepowershell
-RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/Providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
-                     ers/Microsoft.Authorization/roleAssignments/25377770-561e-4496-8b4f-7cba1d6fa346
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/Providers/Microsoft.Automation/automationAccounts/myAutomationAccount
+RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myResourceGroup/Providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
+                     ers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myResourceGroup/Providers/Microsoft.Automation/automationAccounts/myAutomationAccount
 DisplayName        : admin@contoso.com
 SignInName         : admin@contoso.com
 RoleDefinitionName : Automation Operator
 RoleDefinitionId   : d3881f73-407a-4167-8283-e981cbba0404
-ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
+ObjectId           : bbbbbbbb-1111-2222-3333-cccccccccccc
 ObjectType         : User
 ```
 

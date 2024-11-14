@@ -1,14 +1,14 @@
 ---
 title: Open-source components and versions - Azure HDInsight 
 description: Learn about the open-source components and versions in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 11/04/2024
 ---
 
 # Azure HDInsight versions
 
-HDInsight bundles open-source components and HDInsight platform into a package that deployed on a cluster. For more information, see [how HDInsight versioning works](hdinsight-overview-versioning.md).
+HDInsight bundles open-source components and HDInsight platform into a package that's deployed on a cluster. For more information, see [how HDInsight versioning works](hdinsight-overview-versioning.md).
 
 ## Supported HDInsight versions
 
@@ -22,7 +22,7 @@ This table lists the versions of HDInsight that are available in the Azure porta
 
 **Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. You might not be able to create clusters from the Azure portal.
 
-**Retirement** means that existing clusters of an HDInsight version continue to run as is. You can't create new clusters of this version through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, not guaranteed to work after retirement date. Support isn't available for retired versions.
+**Retirement** means that existing clusters of a HDInsight version continue to run as is. You can't create new clusters of this version through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, aren't guaranteed to work after retirement date. Support isn't available for retired versions.
 
 ### Spark versions supported in Azure HDInsight
 
@@ -36,9 +36,24 @@ Azure HDInsight supports the following Apache Spark versions.
 
 ## Support options for HDInsight versions
 
-Support defined as a time period that an HDInsight version supported by Microsoft Customer Service and Support. HDInsight offers two types of support: 
+Support is defined as a time period that a HDInsight version supported by Microsoft Customer Service and Support. HDInsight offers two types of support: 
 - **Standard support**
 - **Basic support**
+
+### Support Summary
+
+| Action | Standard Support| Basic support | Retirement |
+| -- | -- |--|--|
+| Use existing cluster without support | Yes | Yes | Yes |
+| Create Cluster | Yes | Yes | No |
+| Scale up/down cluster | Yes | Yes | No |
+| Troubleshoot runtime issues | Yes | No | No |
+| RCA | Yes | No | No |
+| Performance Tuning | Yes | No | No |
+| Assistance in onboarding | Yes | No | No |
+| Spark core issues/updates | Yes | No | No |
+| Security/CVE updates | Yes | No | No |
+
 
 ### Standard support
 

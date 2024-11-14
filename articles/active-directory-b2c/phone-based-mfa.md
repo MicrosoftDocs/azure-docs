@@ -5,11 +5,11 @@ description: Learn tips for securing phone-based multifactor authentication in y
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 03/01/2024
+ms.date: 10/23/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 
@@ -93,7 +93,7 @@ Take the following actions to help mitigate fraudulent sign-ups.
 
 - Remove country codes that aren't relevant to your organization from the drop-down menu where the user verifies their phone number (this change will apply to future sign-ups):
     
-   1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of your Azure AD B2C tenant.
+   1. Sign in to the [Azure portal](https://portal.azure.com) as the [External ID User Flow Administrator](/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-administrator) of your Azure AD B2C tenant.
    1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
    1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
    1. Select the user flow, and then select **Languages**. Select the language for your organization's geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
@@ -110,7 +110,7 @@ Take the following actions to help mitigate fraudulent sign-ups.
  
       ![Country code drop-down](media/phone-based-mfa/country-code-drop-down.png)
 
-## Next steps
+## Related content
 
 - Learn about [Identity Protection and Conditional Access for Azure AD B2C](conditional-access-identity-protection-overview.md) 
 

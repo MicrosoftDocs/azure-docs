@@ -2,7 +2,7 @@
 author: cherylmc
 ms.author: cherylmc
 ms.date: 06/14/2023
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: include
 
 #This include is used in multiple articles. Before modifying, verify that any changes apply to all articles that use this include.

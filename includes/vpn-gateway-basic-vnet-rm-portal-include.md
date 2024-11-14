@@ -1,9 +1,9 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: include
-ms.date: 04/16/2024
+ms.date: 11/07/2024
 ---
 
 1. Sign in to the Azure portal.
@@ -25,7 +25,7 @@ ms.date: 04/16/2024
    * **IPv4 address space**: By default, an address space is automatically created. You can select the address space and adjust it to reflect your own values. You can also add a different address space and remove the default that was automatically created. For example, you can specify the starting address as **10.1.0.0** and specify the address space size as **/16**. Then select **Add** to add that address space.
    * **+ Add subnet**: If you use the default address space, a default subnet is created automatically. If you change the address space, add a new subnet within that address space. Select **+ Add subnet** to open the **Add subnet** window. Configure the following settings, and then select **Add** at the bottom of the page to add the values.
 
-     * **Subnet name**: An example is **FrontEnd**.
+     * **Subnet name**: You can use the default, or specify the name. Example: **FrontEnd**.
      * **Subnet address range**: The address range for this subnet. Examples are **10.1.0.0** and **/24**.
 
 1. Review the **IP addresses** page and remove any address spaces or subnets that you don't need.

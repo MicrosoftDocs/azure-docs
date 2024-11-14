@@ -1,6 +1,6 @@
 ---
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
 ms.date: 02/13/2024
 ms.author: danlep
@@ -18,4 +18,3 @@ If you have questions, get fast answers from community experts in [Microsoft Q&A
 1. Under **Resource**, select the Azure resource that you’re creating a support request for.  
 1. For **Problem type**, select **Administration and Management**. 
 1. For **Problem subtype**, select **Upgrade, Scale or SKU Changes**. 
-

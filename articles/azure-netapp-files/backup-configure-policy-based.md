@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/27/2024
+ms.date: 11/05/2024
 ms.author: anfdocs
 ---
 # Configure policy-based backups for Azure NetApp Files 
@@ -22,13 +22,13 @@ Assigning a policy creates a baseline snapshot that is the current state of the 
 
 [!INCLUDE [consideration regarding deleting backups after deleting resource or subscription](includes/disable-delete-backup.md)]
 
-[!INCLUDE [Backup registration heading](includes/backup-registration.md)]
-
 ## Configure a backup policy
 
 A backup policy enables a volume to be protected on a regularly scheduled interval. It does not require snapshot policies to be configured. Backup policies will continue the daily cadence based on the time of day when the backup policy is linked to the volume, using the time zone of the Azure region where the volume exists. Weekly schedules are preset to occur each Monday after the daily cadence.  Monthly schedules are preset to occur on the first day of each calendar month after the daily cadence. If backups are needed at a specific time/day, consider using [manual backups](backup-configure-manual.md). 
 
 You need to create a backup policy and associate the backup policy to the volume that you want to back up. A single backup policy can be attached to multiple volumes. Backups can be temporarily suspended by disabling the policy. A backup policy can't be deleted if it's attached to any volumes.
+
+Before creating the policy, review [Azure NetApp Files resource limits](azure-netapp-files-resource-limits.md).    
 
 To enable a policy-based (scheduled) backup: 
 

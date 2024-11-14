@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a firewall with Azure DDoS Protection'
 description: In this tutorial, you learn how to deploy and configure Azure Firewall and policy rules using the Azure portal with Azure DDoS protection.
 services: firewall
 author: asudbring
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: tutorial
 ms.date: 06/06/2023
 ms.author: allensu

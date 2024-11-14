@@ -1,6 +1,6 @@
 ---
 author: baanders
-ms.service: digital-twins
+ms.service: azure-digital-twins
 description: include for the embeddable viewer component in 3D Scenes Studio
 ms.topic: include
 ms.date: 06/02/2022

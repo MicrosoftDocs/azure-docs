@@ -5,7 +5,7 @@ description: How to use Azure IoT Hub direct methods with the Node.js SDK for de
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 08/20/2019
@@ -26,7 +26,7 @@ This article shows you how to create:
 
 ## Prerequisites
 
-* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 * A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
 
@@ -43,6 +43,8 @@ In this section, you:
 * Trigger a simulated device reboot.
 
 * Use the reported properties to enable device twin queries to identify devices and when they last rebooted.
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 1. Create an empty folder called **managed-device**.  In the **managed-device** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
 
@@ -143,6 +145,8 @@ In this section, you:
 ## Create a service app to trigger a reboot
 
 In this section, you create a Node.js console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 1. Create an empty folder called **trigger-reboot-on-device**. In the **trigger-reboot-on-device** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
 

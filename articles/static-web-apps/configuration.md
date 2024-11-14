@@ -4,7 +4,7 @@ description: Learn how to configure routes and enforce security rules and global
 services: static-web-apps
 ms.custom: engagement-fy23
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 05/24/2024
 ms.author: cshoe
@@ -533,7 +533,7 @@ By default, when the `trailingSlash` configuration is omitted, Static Web Apps a
       "rewrite": "/.auth/login/github"
     },
     {
-      "route": "/.auth/login/twitter",
+      "route": "/.auth/login/x",
       "statusCode": 404
     },
     {
@@ -588,7 +588,7 @@ Based on the above configuration, review the following scenarios.
 | _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a `401` error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrator_ role are sent to the API. Authenticated users not in the _administrator_ role and unauthenticated users are served a `401` error. |
 | _/customers/contoso_ | Authenticated users who belong to either the _administrator_ or _customers_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrator_ or _customers_contoso_ roles are served a `403` error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
 | _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
-| _/.auth/login/twitter_ | Since the route rule disables Twitter (X) authorization, a `404` error is returned. This error then falls back to serving _/index.html_ with a `200` status code. |
+| _/.auth/login/x | Since the route rule disables X authorization, a `404` error is returned. This error then falls back to serving _/index.html_ with a `200` status code. |
 | _/logout_ | Users are logged out of any authentication provider. |
 | _/calendar/2021/01_ | The browser is served the _/calendar.html_ file. |
 | _/specials_ | The browser is permanently redirected to _/deals_. |

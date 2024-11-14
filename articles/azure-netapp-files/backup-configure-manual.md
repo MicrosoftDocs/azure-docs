@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 11/05/2024
 ms.author: anfdocs
 ---
 # Configure manual backups for Azure NetApp Files 
@@ -28,9 +28,6 @@ The following list summarizes manual backup behaviors:
 
 >[!NOTE]
 >The option to disable backups is no longer available beginning with the 2023.09 API version. If your workflows require the disable function, you can still use an API version earlier than 2023.09 or the Azure CLI. 
-
-[!INCLUDE [Backup registration heading](includes/backup-registration.md)]
-
 
 ## Requirements
 

@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure Spring Apps
   description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure.
-  ms.service: spring-apps
+  ms.service: azure-spring-apps
   ms.topic: hub-page
   author: KarlErickson
   ms.author: karler
@@ -19,13 +19,12 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
+    - title: Retirement announcement
+      itemType: overview
+      url: basic-standard/retirement-announcement.md
     - title: What is Azure Spring Apps?
       itemType: overview
       url: enterprise/overview.md
-    # Card
-    - title: Enterprise plan
-      itemType: overview
-      url: enterprise/index.yml
     # Card
     - title: Basic/Standard plan
       itemType: overview
@@ -56,130 +55,6 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   # Supports up to 3 subsections
   sections:
-    - title: Enterprise plan # < 60 chars (Optional; Remove if not applicable.)
-      items:
-        # Card
-        - title: Get started
-          links:
-            - text: Launch your first app
-              url: enterprise/quickstart.md?pivots=sc-enterprise
-              itemType: quickstart
-            - text: Launch your first web app
-              url: enterprise/quickstart-deploy-web-app.md?pivots=sc-enterprise
-              itemType: quickstart
-            - text: Launch your first RESTful API app
-              url: enterprise/quickstart-deploy-restful-api-app.md?pivots=sc-enterprise
-              itemType: quickstart
-            - text: Launch your first Spring Batch app
-              url: enterprise/quickstart-deploy-spring-batch-app.md
-              itemType: quickstart
-            - text: Launch your first microservice apps
-              url: enterprise/quickstart-deploy-microservice-apps.md?pivots=sc-enterprise
-              itemType: quickstart
-            - text: Launch your first event-driven app
-              url: enterprise/quickstart-deploy-event-driven-app.md?pivots=sc-enterprise
-              itemType: quickstart
-            - text: Launch your first Java Native Image app
-              url: enterprise/quickstart-deploy-java-native-image-app.md
-              itemType: quickstart
-            - text: Run polyglot apps
-              url: enterprise/quickstart-sample-app-acme-fitness-store-introduction.md
-              itemType: tutorial
-            - text: VMware Tanzu components
-              url: enterprise/vmware-tanzu-components.md
-              itemType: concept
-            - text: Enterprise plan in Azure Marketplace
-              url: enterprise/how-to-enterprise-marketplace-offer.md
-              itemType: concept
-          # footerLink (Optional; Remove if not applicable.)
-          footerLink:
-            text: See more
-            url: enterprise/index.yml
-        # Card
-        - title: Develop and deploy apps
-          links:
-            - text: Deploy apps using IntelliJ
-              url: how-to-intellij-deploy-apps.md
-              itemType: how-to-guide
-            - text: Deploy apps using VS Code
-              url: https://code.visualstudio.com/docs/java/java-spring-apps
-              itemType: how-to-guide
-            - text: CI/CD with Azure DevOps
-              url: enterprise/how-to-cicd.md?pivots=programming-language-java
-              itemType: how-to-guide
-            - text: CI/CD with GitHub Actions
-              url: enterprise/how-to-github-actions.md?pivots=programming-language-java
-              itemType: how-to-guide
-            - text: Deploy in a virtual network
-              url: enterprise/how-to-deploy-in-azure-virtual-network.md
-              itemType: how-to-guide
-            - text: Blue-green deployment strategies
-              url: enterprise/concepts-blue-green-deployment-strategies.md
-              itemType: concept
-            - text: Deploy polyglot apps
-              url: enterprise/how-to-enterprise-deploy-polyglot-apps.md
-              itemType: how-to-guide
-          # footerLink (Optional; Remove if not applicable.)
-          footerLink:
-            text: See more
-            url: enterprise/index.yml
-        # Card
-        - title: Manage and monitor apps
-          links:
-            - text: Start or stop a service
-              url: enterprise/how-to-start-stop-service.md
-              itemType: how-to-guide
-            - text: Start, stop, and delete an app
-              url: how-to-start-stop-delete.md
-              itemType: how-to-guide
-            - text: Use custom DNS names
-              url: enterprise/how-to-custom-domain.md
-              itemType: how-to-guide
-            - text: Java memory management
-              url: enterprise/concepts-for-java-memory-management.md
-              itemType: concept
-            - text: Use structured application logs
-              url: enterprise/structured-app-log.md
-              itemType: how-to-guide
-            - text: Analyze logs and metrics
-              url: enterprise/diagnostic-services.md
-              itemType: how-to-guide
-            - text: Configure planned maintenance
-              url: how-to-configure-planned-maintenance.md
-              itemType: how-to-guide
-          # footerLink (Optional; Remove if not applicable.)
-          footerLink:
-            text: See more
-            url: enterprise/index.yml
-        # Card
-        - title: Secure apps
-          links:
-            - text: Deploy Spring app with passwordless connections
-              url: enterprise/how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise
-              itemType: how-to-guide
-            - text: Use passwordless connections to Azure SQL DB
-              url: enterprise/connect-managed-identity-to-azure-sql.md
-              itemType: how-to-guide
-            - text: Secure communications for Spring Boot apps
-              url: enterprise/access-app-virtual-network.md
-              itemType: how-to-guide
-            - text: Deploy in a virtual network
-              url: enterprise/how-to-deploy-in-azure-virtual-network.md
-              itemType: how-to-guide
-            - text: Set up SSO using Microsoft Entra ID for Spring Cloud Gateway and API Portal
-              url: enterprise/how-to-set-up-sso-with-azure-ad.md
-              itemType: how-to-guide
-            - text: Create roles and permissions
-              url: enterprise/how-to-permissions.md
-              itemType: how-to-guide
-            - text: Load application secrets using Key Vault
-              url: enterprise/quickstart-key-vault-enterprise.md
-              itemType: quickstart
-          # footerLink (Optional; Remove if not applicable.)
-          footerLink:
-            text: See more
-            url: enterprise/index.yml
-
     - title: Basic/Standard plan # < 60 chars (Optional; Remove if not applicable.)
       items:
         # Card
@@ -268,6 +143,127 @@ conceptualContent:
             text: See more
             url: basic-standard/index.yml
 
+    - title: Enterprise plan # < 60 chars (Optional; Remove if not applicable.)
+      items:
+        # Card
+        - title: Get started
+          links:
+            - text: Launch your first app
+              url: enterprise/quickstart.md?pivots=sc-enterprise
+              itemType: quickstart
+            - text: Launch your first web app
+              url: enterprise/quickstart-deploy-web-app.md?pivots=sc-enterprise
+              itemType: quickstart
+            - text: Launch your first RESTful API app
+              url: enterprise/quickstart-deploy-restful-api-app.md?pivots=sc-enterprise
+              itemType: quickstart
+            - text: Launch your first Spring Batch app
+              url: enterprise/quickstart-deploy-spring-batch-app.md
+              itemType: quickstart
+            - text: Launch your first microservice apps
+              url: enterprise/quickstart-deploy-microservice-apps.md?pivots=sc-enterprise
+              itemType: quickstart
+            - text: Launch your first event-driven app
+              url: enterprise/quickstart-deploy-event-driven-app.md?pivots=sc-enterprise
+              itemType: quickstart
+            - text: Launch your first Java Native Image app
+              url: enterprise/quickstart-deploy-java-native-image-app.md
+              itemType: quickstart
+            - text: Run polyglot apps
+              url: enterprise/quickstart-sample-app-acme-fitness-store-introduction.md
+              itemType: tutorial
+            - text: VMware Tanzu components
+              url: enterprise/vmware-tanzu-components.md
+              itemType: concept
+            - text: Enterprise plan in Azure Marketplace
+              url: enterprise/how-to-enterprise-marketplace-offer.md
+              itemType: concept
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: enterprise/index.yml
+        # Card
+        - title: Develop and deploy apps
+          links:
+            - text: Deploy apps using IntelliJ
+              url: how-to-intellij-deploy-apps.md
+              itemType: how-to-guide
+            - text: Deploy apps using VS Code
+              url: https://code.visualstudio.com/docs/java/java-spring-apps
+              itemType: how-to-guide
+            - text: CI/CD with Azure DevOps
+              url: enterprise/how-to-cicd.md?pivots=programming-language-java
+              itemType: how-to-guide
+            - text: CI/CD with GitHub Actions
+              url: enterprise/how-to-github-actions.md?pivots=programming-language-java
+              itemType: how-to-guide
+            - text: Deploy in a virtual network
+              url: enterprise/how-to-deploy-in-azure-virtual-network.md
+              itemType: how-to-guide
+            - text: Blue-green deployment strategies
+              url: enterprise/concepts-blue-green-deployment-strategies.md
+              itemType: concept
+            - text: Deploy polyglot apps
+              url: enterprise/how-to-enterprise-deploy-polyglot-apps.md
+              itemType: how-to-guide
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: enterprise/index.yml
+        # Card
+        - title: Manage and monitor apps
+          links:
+            - text: Start or stop a service
+              url: enterprise/how-to-start-stop-service.md
+              itemType: how-to-guide
+            - text: Start, stop, and delete an app
+              url: how-to-start-stop-delete.md
+              itemType: how-to-guide
+            - text: Use custom DNS names
+              url: enterprise/how-to-custom-domain.md
+              itemType: how-to-guide
+            - text: Use structured application logs
+              url: enterprise/structured-app-log.md
+              itemType: how-to-guide
+            - text: Analyze logs and metrics
+              url: enterprise/diagnostic-services.md
+              itemType: how-to-guide
+            - text: Configure planned maintenance
+              url: how-to-configure-planned-maintenance.md
+              itemType: how-to-guide
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: enterprise/index.yml
+        # Card
+        - title: Secure apps
+          links:
+            - text: Deploy Spring app with passwordless connections
+              url: enterprise/how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise
+              itemType: how-to-guide
+            - text: Use passwordless connections to Azure SQL DB
+              url: enterprise/connect-managed-identity-to-azure-sql.md
+              itemType: how-to-guide
+            - text: Secure communications for Spring Boot apps
+              url: enterprise/access-app-virtual-network.md
+              itemType: how-to-guide
+            - text: Deploy in a virtual network
+              url: enterprise/how-to-deploy-in-azure-virtual-network.md
+              itemType: how-to-guide
+            - text: Set up SSO using Microsoft Entra ID for Spring Cloud Gateway and API Portal
+              url: enterprise/how-to-set-up-sso-with-azure-ad.md
+              itemType: how-to-guide
+            - text: Create roles and permissions
+              url: enterprise/how-to-permissions.md
+              itemType: how-to-guide
+            - text: Load application secrets using Key Vault
+              url: enterprise/quickstart-key-vault-enterprise.md
+              itemType: quickstart
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: enterprise/index.yml
+
     - title: Standard consumption and dedicated plan # < 60 chars (Optional; Remove if not applicable.)
       items:
         # Card
@@ -327,7 +323,7 @@ conceptualContent:
         - title: Manage and monitor apps
           links:
             - text: Java memory management
-              url: enterprise/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+              url: basic-standard/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
               itemType: concept
             - text: Analyze logs and metrics
               url: consumption-dedicated/quickstart-analyze-logs-and-metrics-standard-consumption.md

@@ -1,14 +1,17 @@
 ---
 title: Azure Data Factory Workflow Orchestration Manager (powered by Apache Airflow) with Apache Spark® on HDInsight on AKS
 description: Learn how to perform Apache Spark® job orchestration using Azure Data Factory Workflow Orchestration Manager
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 11/28/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Apache Spark® job orchestration using Azure Data Factory Workflow Orchestration Manager (powered by Apache Airflow)
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This article covers managing a Spark job using [Apache Spark Livy API](https://livy.incubator.apache.org/docs/latest/rest-api.html) and orchestration data pipeline with Azure Data Factory Workflow Orchestration Manager. [Azure Data Factory Workflow Orchestration Manager](/azure/data-factory/concepts-workflow-orchestration-manager) service is a simple and efficient way to create and manage [Apache Airflow](https://airflow.apache.org/) environments, enabling you to run data pipelines at scale easily.
 

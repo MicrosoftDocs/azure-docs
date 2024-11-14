@@ -3,7 +3,7 @@ title: 'Quickstart: Create an any-to-any configuration using an ARM template'
 titleSuffix: Azure Virtual WAN
 description: Learn how to create an any-to-any configuration using an Azure Resource Manager template (ARM template).
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: quickstart
 ms.date: 08/24/2023
 ms.author: cherylmc

@@ -6,7 +6,7 @@ ms.date: 11/18/2022
 author: shsagir
 ms.author: shsagir
 ms.reviewer: shsagir
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
 ms.custom: mode-other
 ---

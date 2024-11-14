@@ -123,7 +123,10 @@ With service endpoints, you can configure your app with application gateways or 
 
    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Screenshot of the 'Add Restriction' pane with the Service Tag type selected.":::
 
-All available service tags are supported in access restriction rules. Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags]. Use Azure Resource Manager templates or scripting to configure more advanced rules like regional scoped rules.
+All publicly available service tags are supported in access restriction rules. Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags]. Use Azure Resource Manager templates or scripting to configure more advanced rules like regional scoped rules.
+
+> [!NOTE]
+> When creating service tag-based rules through Azure portal or Azure CLI you will need read access at the subscription level to get the full list of service tags for selection/validation. In addition, the `Microsoft.Network` resource provider needs to be registered on the subscription.
 
 ### Edit a rule
 

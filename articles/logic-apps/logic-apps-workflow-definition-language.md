@@ -235,7 +235,7 @@ When you're done, the expression appears for the corresponding property in your 
   "inputs": {
     "host": {
       "connection": {
-        "name": "@parameters('$connections')['twitter']['connectionId']"
+        "name": "@parameters('$connections')['x']['connectionId']"
       }
     }
   },

@@ -18,7 +18,7 @@ ms.custom: mode-other
 - A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
 - Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started).
 - Create and connect [a Multi-service Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
-- Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
+- Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource. 
 - [Python](https://www.python.org/downloads/) 3.7+.
 - (Optional) A Microsoft Teams user with a phone license that is `voice` enabled. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options).  For more information to enable `voice` on your phone system, see [setting up your phone system](/microsoftteams/setting-up-your-phone-system).
 

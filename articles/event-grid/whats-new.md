@@ -14,12 +14,13 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 The following features of Event Grid Namespaces moved from public preview to general availability (GA):
 
 - [Last Will and Testament (LWT)](mqtt-support.md#last-will-and-testament-lwt-messages)
+- [Push delivery to Azure Event Hubs](namespace-handler-event-hubs.md)
 
 The following features of Event Grid Namespaces are released as public preview features:
 
 - [OAuth 2.0 (JSON Web Token) authentication](oauth-json-web-token-authentication.md)
 - [Custom domain names support](custom-domains-namespaces.md)
-
+- [Push delivery to Webhooks](namespace-handler-webhook.md)
 
 ## November 2023 
 

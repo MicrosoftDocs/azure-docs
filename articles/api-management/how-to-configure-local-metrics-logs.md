@@ -4,7 +4,7 @@ description: Learn how to configure local metrics and logs for Azure API Managem
 services: api-management
 author: dlepow
 manager: gwallace
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/12/2024
 ms.author: danlep
@@ -25,7 +25,7 @@ The self-hosted gateway supports [StatsD](https://github.com/statsd/statsd), whi
 The following sample YAML configuration deploys StatsD and Prometheus to the Kubernetes cluster where a self-hosted gateway is deployed. It also creates a [Service](https://kubernetes.io/docs/concepts/services-networking/service/) for each. The self-hosted gateway then publishes metrics to the StatsD Service. We'll access the Prometheus dashboard via its Service.
 
 > [!NOTE]
-> The following example pulls public container images from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the images in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
+> The following example pulls public container images from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the images in a private Azure container registry. [Learn more about working with public images.](/azure/container-registry/buffer-gate-public-content)
 
 ```yaml
 apiVersion: v1
@@ -201,7 +201,7 @@ The self-hosted gateway outputs logs to `stdout` and `stderr` by default. You ca
 kubectl logs <pod-name>
 ```
 
-If your self-hosted gateway is deployed in Azure Kubernetes Service, you can enable [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) to collect `stdout` and `stderr` from your workloads and view the logs in Log Analytics.
+If your self-hosted gateway is deployed in Azure Kubernetes Service, you can enable [Azure Monitor for containers](/azure/azure-monitor/containers/container-insights-overview) to collect `stdout` and `stderr` from your workloads and view the logs in Log Analytics.
 
 The self-hosted gateway also supports many protocols including `localsyslog`, `rfc5424`, and `journal`. The following table summarizes all the options supported.
 
@@ -296,14 +296,14 @@ spec:
 
 When configuring to use local syslog on Azure Kubernetes Service, you can choose two ways to explore the logs:
 
-- Use [Syslog collection with Container Insights](./../azure-monitor/containers/container-insights-syslog.md)
+- Use [Syslog collection with Container Insights](/azure/azure-monitor/containers/container-insights-syslog)
 - Connect & explore logs on the worker nodes
 
 #### Consuming logs from worker nodes
 
 You can easily consume them by getting access to the worker nodes:
 
-1. Create an SSH connection to the node ([docs](./../aks/node-access.md))
+1. Create an SSH connection to the node ([docs](/azure/aks/node-access))
 2. Logs can be found under `host/var/log/syslog`
 
 For example, you can filter all syslogs to just the ones from the self-hosted gateway:

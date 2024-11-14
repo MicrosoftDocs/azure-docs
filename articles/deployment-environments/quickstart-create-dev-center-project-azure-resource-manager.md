@@ -2,7 +2,7 @@
 title: Create dev center and project for Azure Deployment Environment by using Azure Resource Manager template (ARM template)
 description: Learn how to create and configure Dev Center and Project for Azure Deployment Environment by using Azure Resource Manager template (ARM template).
 services: deployment-environments
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 author: thophan-microsoft
 ms.author: thophan
 ms.topic: quickstart-arm

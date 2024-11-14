@@ -3,7 +3,7 @@ title: Customize the ingress configuration in Azure Spring Apps
 description: Learn how to customize the ingress configuration in Azure Spring Apps.
 author: KarlErickson
 ms.author: haital
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -11,19 +11,22 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # Customize the ingress configuration in Azure Spring Apps
 
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to set and update an application's ingress settings in Azure Spring Apps by using the Azure portal and Azure CLI.
 
 The Azure Spring Apps service uses an underlying ingress controller to handle application traffic management. The following ingress settings are supported for customization.
 
-| Name                 | Ingress setting        | Default value | Valid range       | Description                                                              |
-|----------------------|------------------------|---------------|-------------------|--------------------------------------------------------------------------|
-| `ingress-read-timeout` | `proxy-read-timeout`     | 300           | \[1,1800\]        | The timeout in seconds for reading a response from a proxied server.     |
-| `ingress-send-timeout` | `proxy-send-timeout`     | 60            | \[1,1800\]        | The timeout in seconds for transmitting a request to the proxied server. |
-| `session-affinity`     | `affinity`               | None          | Session, None     | The type of the affinity that will make the request come to the same pod replica that was responding to the previous request. Set `session-affinity` to Cookie to enable session affinity. In the portal only, you must choose the enable session affinity box.    |
-| `session-max-age`      | `session-cookie-max-age` | 0             | \[0, 604800\]      | The time in seconds until the cookie expires, corresponding to the `Max-Age` cookie directive. If you set `session-max-age` to 0, the expiration period is equal to the browser session period. |
-| `backend-protocol`     | `backend-protocol`       | Default       | Default, GRPC     | Sets the backend protocol to indicate how NGINX should communicate with the backend service. Default means HTTP/HTTPS/WebSocket. The `backend-protocol` setting only applies to client-to-app traffic. For app-to-app traffic within the same service instance, choose any protocol for app-to-app traffic without modifying the `backend-protocol` setting. The protocol doesn't restrict your choice of protocol for app-to-app traffic within the same service instance.  |
+| Name                   | Ingress setting          | Default value | Valid range       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|------------------------|--------------------------|---------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ingress-read-timeout` | `proxy-read-timeout`     | 300           | \[1,1800\]        | The timeout in seconds for reading a response from a proxied server.                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `ingress-send-timeout` | `proxy-send-timeout`     | 60            | \[1,1800\]        | The timeout in seconds for transmitting a request to the proxied server.                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `session-affinity`     | `affinity`               | None          | `Session`, `None` | The type of the affinity that makes the request come to the same pod replica that was responding to the previous request. Set `session-affinity` to Cookie to enable session affinity. In the portal only, you must choose the enable session affinity box.                                                                                                                                                                                                                 |
+| `session-max-age`      | `session-cookie-max-age` | 0             | \[0, 604800\]     | The time in seconds until the cookie expires, corresponding to the `Max-Age` cookie directive. If you set `session-max-age` to 0, the expiration period is equal to the browser session period.                                                                                                                                                                                                                                                                             |
+| `backend-protocol`     | `backend-protocol`       | Default       | Default, `GRPC`   | Sets the backend protocol to indicate how NGINX should communicate with the backend service. Default means HTTP/HTTPS/WebSocket. The `backend-protocol` setting only applies to client-to-app traffic. For app-to-app traffic within the same service instance, choose any protocol for app-to-app traffic without modifying the `backend-protocol` setting. The protocol doesn't restrict your choice of protocol for app-to-app traffic within the same service instance. |
+| `client-auth`          | `client-auth`            | 0 selected    | -                 | Select the certificates with the public key you uploaded in the TLS/SSL settings. Ingress concatenates these certificates into one and then uses it for client authentication.                                                                                                                                                                                                                                                                                              |
 
 ## Prerequisites
 
@@ -44,13 +47,17 @@ Use the following Azure CLI command to set the ingress configuration when you cr
 az spring app create \
     --resource-group <resource-group-name> \
     --service <service-name> \
-    --name <service-name> \
+    --name <app-name> \
     --ingress-read-timeout 300 \
     --ingress-send-timeout 60 \
     --session-affinity Cookie \
     --session-max-age 1800 \
     --backend-protocol Default \
+    --client-auth-certs <cert-id>
 ```
+
+> [!NOTE]
+> The `cert-id` value is in the format `/subscriptions/<your-sub-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AppPlatform/Spring/<service-name>/certificates/<cert-name>`. To get the `cert-id` value, use the following command: `az spring certificate show --service <service-instance-name> --resource-group <resource-group-name> --name <certificate-name> --query id`
 
 This command creates an app with the following settings:
 
@@ -59,6 +66,7 @@ This command creates an app with the following settings:
 - Session affinity: Cookie
 - Session cookie max age: 1800 seconds
 - Backend protocol: Default
+- Client Auth: cert-name
 
 ## Update the ingress settings for an existing app
 
@@ -81,12 +89,13 @@ Use the following command to update the ingress settings for an existing app.
 az spring app update \
     --resource-group <resource-group-name> \
     --service <service-name> \
-    --name <service-name> \
+    --name <app-name> \
     --ingress-read-timeout 600 \
     --ingress-send-timeout 600 \
     --session-affinity None \
     --session-max-age 0 \
     --backend-protocol GRPC \
+    --client-auth-certs ''
 ```
 
 This command updates the app with the following settings:
@@ -96,6 +105,7 @@ This command updates the app with the following settings:
 - Session affinity: None
 - Session cookie max age: 0
 - Backend protocol: GRPC
+- Client Auth: 0 selected
 
 ---
 
@@ -107,13 +117,13 @@ This command updates the app with the following settings:
 
 - How do you enable WebSocket?
 
-  WebSocket is enabled by default if you set the backend protocol to *Default*. The WebSocket connection limit is 20000. When you reach that limit, the connection will fail.
+  WebSocket is enabled by default if you set the backend protocol to *Default*. The WebSocket connection limit is 20000. When you reach that limit, the connection fails.
 
   You can also use RSocket based on WebSocket.
 
 - What is the difference between ingress config and ingress settings?
 
-  Ingress config can still be used in the Azure CLI and SDK, and that setting will apply to all apps within the service instance. Once an app has been configured by ingress settings, the Ingress config won't affect it. We don't recommend that new scripts use ingress config since we plan to stop supporting it in the future.
+  Ingress config can still be used in the Azure CLI and SDK, and that setting applies to all apps within the service instance. After ingress settings configure an app, the Ingress config can't affect it. We don't recommend that new scripts use ingress config since we plan to stop supporting it in the future.
 
 - When ingress settings are used together with App Gateway/APIM, what happens when you set the timeout in both Azure Spring Apps ingress and the App Gateway/APIM?
 

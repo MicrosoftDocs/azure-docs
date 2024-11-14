@@ -1,7 +1,7 @@
 ---
 title: Apache Hadoop & secure transfer storage - Azure HDInsight
 description: Learn how to create HDInsight clusters with secure transfer enabled Azure storage accounts.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
 ms.date: 03/23/2024

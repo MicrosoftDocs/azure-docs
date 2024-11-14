@@ -3,7 +3,7 @@ title: How to use service accounts in Azure Managed Grafana
 description: In this guide, learn how to use service accounts in Azure Managed Grafana.
 author: maud-lv
 ms.author: malev
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.custom: devx-track-azurecli
 ms.topic: how-to 
 ms.date: 02/22/2024
@@ -222,7 +222,7 @@ To delete a service account token, select a service account and under **Tokens**
 To delete a service account, run the `az grafana service-account token delete` command. Replace the placeholders `<azure-managed-grafana-name>`, `<service-account-name>` and `<token-name>` with your own information.
 
 ```azurecli-interactive
-az grafana service-account token delete --name <azure-managed-grafana-name> --service-account <service-account-name> --toke <token-name>
+az grafana service-account token delete --name <azure-managed-grafana-name> --service-account <service-account-name> --token <token-name>
 ```
 
 ---

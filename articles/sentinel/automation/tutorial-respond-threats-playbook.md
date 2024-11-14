@@ -9,7 +9,8 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a SOC engineer, I'd like to understand a sample scenario of how I might use a playbook and automation rule to help make my SOC team more efficient.
+#Customer intent: As a security engineer, I want to use playbooks and automation rules to quickly and effectively stop potentially compromised users from moving around the network and stealing information.
+
 ---
 
 # Use a Microsoft Sentinel playbook to stop potentially compromised users

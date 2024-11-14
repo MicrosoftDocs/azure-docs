@@ -2,28 +2,31 @@
 title: Diagnose a VM network routing problem - Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: In this article, you learn how to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
-services: network-watcher
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: network-watcher
-ms.date: 01/07/2021
+ms.date: 10/29/2024
 ms.author: halkazwini
 ms.custom: devx-track-azurepowershell
+
 # Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
 ---
 
-# Diagnose a virtual machine network routing problem - Azure PowerShell
+# Diagnose a virtual machine network routing problem using PowerShell
 
-In this article, you deploy a virtual machine (VM), and then check communications to an IP address and URL. You determine the cause of a communication failure and how you can resolve it.
+In this article, you learn how to use Azure Network Watcher [next hop](network-watcher-next-hop-overview.md) tool to troubleshoot and diagnose a virtual machine (VM) routing problem that's preventing it from correctly communicating with other resources. 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
 
-[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-If you choose to install and use PowerShell locally, this article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-InstalledModule -Name Az`. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+- Azure Cloud Shell or Azure PowerShell.
 
-## Create a VM
+    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. Run [Get-Module -ListAvailable Az](/powershell/module/microsoft.powershell.core/get-module) to find the installed version. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+
+## Create a virtual machine
 
 Before you can create a VM, you must create a resource group to contain the VM. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 

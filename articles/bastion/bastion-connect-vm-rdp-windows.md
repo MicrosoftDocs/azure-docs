@@ -3,7 +3,7 @@ title: 'Connect to a Windows VM using RDP'
 titleSuffix: Azure Bastion
 description: Learn how to use Azure Bastion to connect to Windows VM using RDP.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 04/05/2024
 ms.author: cherylmc

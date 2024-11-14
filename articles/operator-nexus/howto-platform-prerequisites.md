@@ -378,13 +378,23 @@ ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
 | NEW_NAME        | Port label name             |
 | PORT_#          | Terminal Server port number |
 
+
 ### Step 9: Settings required for PURE Array serial connections
 
-For configuring PURE Array serial connections, use the following commands:
+Pure Storage arrays purchased prior to 2024 have revision R3 controllers which use rollover console cables and require the custom serial port connection commands below:
 
+**Pure Stoarge R3 Controllers:**
 ```bash
 ogcli update port ports-<PORT_#> 'baudrate="115200"' <PORT_#> Pure Storage Controller console
 ogcli update port ports-<PORT_#> 'pinout="X1"' <PORT_#>	Pure Storage Controller console
+```
+
+Newer Pure Storage appliances, and systems upgraded from R3 to R4 Pure Storage controllers, will use straight-through console cables with the updated settings below:
+
+**Pure Storage R4 Controllers:**
+```bash
+ogcli update port ports-<PORT_#> 'baudrate="115200"' <PORT_#> Pure Storage Controller console
+ogcli update port ports-<PORT_#> 'pinout="X2"' <PORT_#>	Pure Storage Controller console
 ```
 
 **Parameters:**
@@ -393,7 +403,10 @@ ogcli update port ports-<PORT_#> 'pinout="X1"' <PORT_#>	Pure Storage Controller 
 | ----------------| --------------------------- |
 | PORT_#          | Terminal Server port number |
 
-These commands set the baudrate and pinout for connecting to the Pure Storage Controller console.
+These commands set the baud rate and pinout for connecting to the Pure Storage Controller console.
+
+>[!NOTE]
+>All other Terminal Server port configurations settings should remain the same and work by default with a straight-through RJ45 console cable.
 
 ### Step 10: Verifying settings
 
@@ -463,7 +476,7 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
    - Installation Address:
    - FIC/Rack/Grid Location:
 4. Data provided to the operator and shared with storage array technician, which will be common to all installations:
-   - Purity Code Level: 6.5.1
+   - Purity Code Level: Refer to [supported Purity versions](./reference-near-edge-storage-supported-versions.md)
    - Safe Mode: Disabled
    - Array Time zone: UTC
    - DNS (Domain Name System) Server IP Address: 172.27.255.201

@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Create a Web App (cache-aside) - Azure Cache for Redis'
 description: Learn how to create a Web App with Azure Cache for Redis that uses the cache-aside pattern.
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: tutorial
 ms.devlang: csharp
 ms.custom: "devx-track-csharp, mvc"

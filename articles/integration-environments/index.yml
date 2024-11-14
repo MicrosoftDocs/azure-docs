@@ -6,11 +6,12 @@ summary: Centrally organize Azure resources for integration solutions by using A
 metadata:
   title: Azure Integration Environments documentation
   description: Centrally organize Azure resources for integration solutions.
-  ms.service: integration-environments
+  ms.service: azure
   ms.topic: landing-page
   author: ecfan
-  ms.author: estfan; azla
+  ms.author: estfan
   ms.date: 06/07/2024
+  ms.subservice: azure-integration-environments
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

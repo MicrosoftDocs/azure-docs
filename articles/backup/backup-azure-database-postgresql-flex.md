@@ -3,7 +3,7 @@ title: Back up Azure Database for PostgreSQL Flexible server with long-term rete
 description: Learn about Azure Database for PostgreSQL Flexible server backup with long-term retention.
 ms.topic: how-to
 ms.date: 06/14/2024
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

@@ -5,7 +5,7 @@ author: danzhang-msft
 ms.author: danzhang
 ms.reviewer: wiassaf
 ms.date: 02/28/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: conceptual
 ---

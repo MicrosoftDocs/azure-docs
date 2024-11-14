@@ -2,11 +2,11 @@
 metadata:
   title: Azure Virtual Desktop FAQ - Azure
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
-  author: Heidilohr
+  author: dknappettmsft
   ms.topic: faq
-  ms.service: virtual-desktop
   ms.date: 10/23/2023
-  ms.author: helohr 
+  ms.author: daknappe
+  ms.custom: docs_inherited 
 title: Azure Virtual Desktop FAQ
 summary: This article answers frequently asked questions and explains best practices for Azure Virtual Desktop.
 
@@ -24,6 +24,7 @@ sections:
           To restrict an admin to only manage user sessions, such as sending messages to users, signing out users, and so on, you can create custom roles. For example:
           
           ```json
+          {
               "actions": [
                   "Microsoft.Resources/deployments/operations/read",
                   "Microsoft.Resources/tags/read",
@@ -107,20 +108,6 @@ sections:
       - question: |
          Can I change from pooled to personal host pools?
         answer: Once you create a host pool, you can't change its type. However, you can move any VMs you register to a host pool to a different type of host pool.
-
-      - question: |
-         What's the largest profile size FSLogix can handle?
-        answer: |
-          Limitations or quotas in FSLogix depend on the storage fabric used to store user profile VHD(X) files.
-          
-          The following table gives an example of how many IOPS an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile.
-          
-          | Resource | Requirement |
-          |---|---|
-          | Steady state IOPS | 10 |
-          | Sign in/sign out IOPS | 50 |
-          
-          The example in this table is of a single user, but can be used to estimate requirements for the total number of users in your environment. For example, you'd need around 1,000 IOPS for 100 users, and around 5,000 IOPS when signing in and signing out.
           
       - question: |
          Is there a scale limit for host pools created in the Azure portal?
@@ -129,7 +116,7 @@ sections:
           
           - The Azure template is limited to 800 objects. To learn more, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#template-limits). Each VM also creates about six objects, so that means you can create around 132 VMs each time you run the template.
           
-          - There are restrictions on how many vCPUs you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, by default you can create 350 vCPUs. You need to divide 350 by either the default number of vCPUs per VM or your own vCPU limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager) and [Check vCPU quotas](../virtual-machines/quotas.md).
+          - There are restrictions on how many vCPUs you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, by default you can create 350 vCPUs. You need to divide 350 by either the default number of vCPUs per VM or your own vCPU limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager) and [Check vCPU quotas](/azure/virtual-machines/quotas).
           
           - The VM prefix name can't exceed 11 characters, so that when a sequential number is added the total name is a maximum of 15 characters. To learn more, see [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
           
@@ -183,7 +170,7 @@ sections:
       - question: |
          Are ephemeral OS disks for Azure VMs supported with Azure Virtual Desktop?
         answer: |
-          No. [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md) aren't supported with Azure Virtual Desktop.
+          No. [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks) aren't supported with Azure Virtual Desktop.
 
       - question: |
          If I store my host pools and VMs in different regions, what would happen in a disaster scenario where the host pool region goes down but the VM region stays online?
@@ -193,8 +180,8 @@ sections:
       - question: |
          What happens when you try to add more than 200 VMs to an availability set in Azure Virtual Desktop? 
         answer: |
-         If you try to go over 200 VMs in an availability set in Azure Virtual Desktop, you receive an error message that says "Can't create VM because the limit of 200 VMs has already been reached." For more information, see the [Availability sets overview](../virtual-machines/availability-set-overview.md).
+         If you try to go over 200 VMs in an availability set in Azure Virtual Desktop, you receive an error message that says "Can't create VM because the limit of 200 VMs has already been reached." For more information, see the [Availability sets overview](/azure/virtual-machines/availability-set-overview).
 
       - question: Can I do an in-place upgrade of a session host's operating system?
         answer: |
-          Session hosts in a pooled host pool aren't supported for in-place upgrade. Session hosts in a personal host pool are supported for in-place upgrade. For more information, see [In-place upgrade for supported VMs running Windows in Azure](/troubleshoot/azure/virtual-machines/in-place-system-upgrade) and [In-place upgrade for VMs running Windows Server in Azure](../virtual-machines/windows-in-place-upgrade.md).
+          Session hosts in a pooled host pool aren't supported for in-place upgrade. Session hosts in a personal host pool are supported for in-place upgrade. For more information, see [In-place upgrade for supported VMs running Windows in Azure](/troubleshoot/azure/virtual-machines/in-place-system-upgrade) and [In-place upgrade for VMs running Windows Server in Azure](/azure/virtual-machines/windows-in-place-upgrade).

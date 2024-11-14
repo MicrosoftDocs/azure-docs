@@ -27,7 +27,7 @@ Table storage contains the following components:
 
 * **Accounts:** All access to Azure Storage is done through a storage account. For more information about storage accounts, see [Storage account overview](../articles/storage/common/storage-account-overview.md).
 
-    All access to Azure Cosmos DB is done through an Azure Cosmos DB for Table account. For more information, see [Create an Azure Cosmos DB for Table account](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account).
+    All access to Azure Cosmos DB is done through an Azure Cosmos DB for Table account. For more information, see [Create an Azure Cosmos DB for Table account](/azure/cosmos-db/create-table-dotnet#create-a-database-account).
 
 * **Table**: A table is a collection of entities. Tables don't enforce a schema on entities, which means a single table can contain entities that have different sets of properties.
 

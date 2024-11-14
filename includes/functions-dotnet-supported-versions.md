@@ -19,7 +19,7 @@ The following table shows the highest level of .NET or .NET Framework that can b
 
 | Functions runtime version | [Isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md) | [In-process model](../articles/azure-functions/functions-dotnet-class-library.md)<sup>5</sup> |
 | ---- | --- | ---- |
-| Functions 4.x<sup>1</sup> | .NET 8.0<br/>.NET 6.0<sup>2</sup><br/>.NET Framework 4.8<sup>3</sup> | .NET 8.0<br/>.NET 6.0<sup>2</sup>  |
+| Functions 4.x<sup>1</sup> | .NET 9.0 (preview)<br/>.NET 8.0<br/>.NET 6.0<sup>2</sup><br/>.NET Framework 4.8<sup>3</sup> | .NET 8.0<br/>.NET 6.0<sup>2</sup>  |
 | Functions 1.x<sup>4</sup> | n/a | .NET Framework 4.8 |
 
 <sup>1</sup> .NET 7 was previously supported on the isolated worker model but reached the [end of official support] on May 14, 2024.

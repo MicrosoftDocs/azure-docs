@@ -3,7 +3,7 @@ title: Azure Firewall Basic features
 description: Learn about Azure Firewall Basic features.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: conceptual
 ms.date: 06/14/2024
 ms.author: victorh

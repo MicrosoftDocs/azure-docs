@@ -18,6 +18,9 @@ Azure Cache for Redis supports zone redundancy in its Premium, Enterprise, and E
 
 Currently, the only way to convert a resource from non-availability zone support to availability zone support is to redeploy your current cache.
 
+ > [!NOTE]
+   > Zone redundancy isn't supported with geo-replication.
+
 ## Prerequisites
 
 To migrate to availability zone support, you must have an Azure Cache for Redis resource in either the Premium, Enterprise, or Enterprise Flash tiers.

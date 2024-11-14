@@ -2,8 +2,8 @@
 title: Restore options with Microsoft Azure Recovery Services (MARS) agent
 description: Learn about the restore options available with the Microsoft Azure Recovery Services (MARS) agent.
 ms.reviewer: mepand
-ms.topic: conceptual
-ms.date: 05/31/2024
+ms.topic: overview
+ms.date: 09/09/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.custom: engagement-fy24

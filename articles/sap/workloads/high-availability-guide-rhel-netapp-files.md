@@ -112,7 +112,7 @@ The SAP NetWeaver architecture presented in this article uses a single Azure Net
    1. Volume sap**QAS** (nfs://192.168.24.5/usrsap**qas**/usrsap**QAS**pas)
    1. Volume sap**QAS** (nfs://192.168.24.5/usrsap**qas**/usrsap**QAS**aas)
 
-In this example, we used Azure NetApp Files for all SAP NetWeaver file systems to demonstrate how you can use Azure NetApp Files. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). In this example, **a-e** must be on Azure NetApp Files and **f-g** (that is, /usr/sap/**QAS**/D**02** and /usr/sap/**QAS**/D**03**) could be deployed as Azure disk storage.
+In this example, we used Azure NetApp Files for all SAP NetWeaver file systems to demonstrate how you can use Azure NetApp Files. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). In this example, **a-e** must be on Azure NetApp Files and **f-g** (that is, /usr/sap/**QAS**/D**02** and /usr/sap/**QAS**/D**03**) could be deployed as Azure disk storage.
 
 ### Important considerations
 
@@ -953,5 +953,5 @@ Thoroughly test your Pacemaker cluster. For more information, see [Execute the t
 * See [Azure Virtual Machines planning and implementation for SAP][planning-guide].
 * See [Azure Virtual Machines deployment for SAP][deployment-guide].
 * See [Azure Virtual Machines DBMS deployment for SAP][dbms-guide].
-* To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](../../virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md).
+* To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
 * To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure Virtual Machines, see [High availability of SAP HANA on Azure Virtual Machines][sap-hana-ha].

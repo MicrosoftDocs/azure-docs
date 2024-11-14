@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 05/01/2024
+ms.date: 09/03/2024
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: fryu
@@ -97,14 +97,14 @@ Storage accounts have a default access tier setting that indicates the online ti
 
 The default access tier for a new general-purpose v2 storage account is set to the hot tier by default. You can change the default access tier setting when you create a storage account or after it's created. If you don't change this setting on the storage account or explicitly set the tier when uploading a blob, then a new blob is uploaded to the hot tier by default.
 
-A blob that doesn't have an explicitly assigned tier infers its tier from the default account access tier setting. If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)** or **Cool (inferred)**.
+A blob that doesn't have an explicitly assigned tier infers its tier from the default account access tier setting. If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)**, **Cool (inferred)**, or **Cold (inferred)**.
 
 Changing the default access tier setting for a storage account applies to all blobs in the account for which an access tier hasn't been explicitly set. If you toggle the default access tier setting to a cooler tier in a general-purpose v2 account, then you're charged for write operations (per 10,000) for all blobs for which the access tier is inferred. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle to a warmer tier in a general-purpose v2 account.
 
 When you create a legacy Blob Storage account, you must specify the default access tier setting as hot or cool at create time. There's no charge for changing the default account access tier setting to a cooler tier in a legacy Blob Storage account. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle to a warmer tier in a Blob Storage account. Microsoft recommends using general-purpose v2 storage accounts rather than Blob Storage accounts when possible.
 
 > [!NOTE]
-> The cold tier and the archive tier are not supported as the default access tier for a storage account.
+> The archive tier is not supported as the default access tier for a storage account.
 
 ## Setting or changing a blob's tier
 
@@ -204,11 +204,7 @@ Changing the access tier for a blob when versioning is enabled, or if the blob h
 
 ## Cold tier
 
-### Limitations and known issues
-
-- The default access tier setting of the account can't be set to cold tier.
-
-### Required versions of REST, SDKs, and tools
+The cold tier requires the following minimum versions of REST, SDKs, and tools
 
 | Environment | Minimum version |
 |---|---|

@@ -1,18 +1,18 @@
 ---
-title: Upload a blob with JavaScript
+title: Upload a blob with JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the JavaScript client library.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 06/20/2023
+ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# Upload a blob with JavaScript
+# Upload a blob with JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-upload](../../../includes/storage-dev-guides/storage-dev-guide-selector-upload.md)]
 
@@ -40,25 +40,57 @@ Each of these methods can be called using a [BlockBlobClient](/javascript/api/@a
 
 The following example uploads a block blob from a local file path:
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-local-file-path.js" id="Snippet_UploadBlob":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-local-file-path.ts" id="Snippet_UploadBlob" :::
+
+---
 
 ## Upload a block blob from a stream
 
 The following example uploads a block blob by creating a readable stream and uploading the stream:
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js" id="Snippet_UploadBlob":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-stream.ts" id="Snippet_UploadBlob" :::
+
+---
 
 ## Upload a block blob from a buffer
 
 The following example uploads a block blob from a Node.js buffer:
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-buffer.js" id="Snippet_UploadBlob":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-buffer.ts" id="Snippet_UploadBlob" :::
+
+---
 
 ## Upload a block blob from a string
 
 The following example uploads a block blob from a string:
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-string.js" id="Snippet_UploadBlob":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-string.ts" id="Snippet_UploadBlob" :::
+
+---
 
 ## Upload a block blob with configuration options
 
@@ -76,7 +108,15 @@ You can configure properties in [BlockBlobParallelUploadOptions](/javascript/api
 
 The following code example shows how to set values for [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) and include the options as part of an upload method call. The values provided in the samples aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-transfer-options.js" id="Snippet_UploadBlobTransferOptions":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-with-transfer-options.ts" id="Snippet_UploadBlobTransferOptions":::
+
+---
 
 To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with JavaScript](storage-blobs-tune-upload-download-javascript.md).
 
@@ -86,13 +126,29 @@ Blob index tags categorize data in your storage account using key-value tag attr
 
 The following example uploads a block blob with index tags set using [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions):
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-index-tags.js" id="Snippet_UploadBlobIndexTags":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-with-index-tags.ts" id="Snippet_UploadBlobIndexTags":::
+
+---
 
 ### Set a blob's access tier on upload
 
 You can set a blob's access tier on upload by using the [BlockBlobParallelUploadOptions](/javascript/api/@azure/storage-blob/blockblobparalleluploadoptions) interface. The following code example shows how to set the access tier when uploading a blob:
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-access-tier.js" id="Snippet_UploadAccessTier":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-with-access-tier.ts" id="Snippet_UploadAccessTier":::
+
+---
 
 Setting the access tier is only allowed for block blobs. You can set the access tier for a block blob to `Hot`, `Cool`, `Cold`, or `Archive`. To set the access tier to `Cold`, you must use a minimum [client library](/javascript/api/preview-docs/@azure/storage-blob/) version of 12.13.0.
 
@@ -113,13 +169,13 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 
 View code samples from this article (GitHub):
 
-- [Upload from local file path](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-local-file-path.js)
-- [Upload from buffer](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-buffer.js)
-- [Upload from stream](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js)
-- [Upload from string](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-string.js)
-- [Upload with transfer options](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-transfer-options.js)
-- [Upload with index tags](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-index-tags.js)
-- [Upload with access tier](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-access-tier.js)
+- Upload from local file path for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-local-file-path.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-local-file-path.ts)
+- Upload from buffer for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-buffer.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-buffer.ts)
+- Upload from stream for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-stream.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-stream.ts)
+- Upload from string for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-from-string.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-from-string.ts)
+- Upload with transfer options for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-transfer-options.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-with-transfer-options.ts)
+- Upload with index tags for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-index-tags.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-with-index-tags.ts)
+- Upload with access tier for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-access-tier.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-upload-with-access-tier.ts)
 
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
 
@@ -127,3 +183,5 @@ View code samples from this article (GitHub):
 
 - [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-javascript](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-javascript.md)]
