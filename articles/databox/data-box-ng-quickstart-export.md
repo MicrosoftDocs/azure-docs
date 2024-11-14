@@ -1,17 +1,17 @@
 ---
-title: Export data for Microsoft Azure Data Box V2
-description: Learn how to quickly export data to your Azure Data Box next gen device in Azure portal
+title: Export data for Microsoft Azure Next Gen Data Box
+description: Learn how to quickly export data to your Azure Next Gen Data Box device in Azure portal
 services: databox
 author: stevenmatthew
 ms.service: azure-databox
 ms.topic: quickstart
-ms.date: 11/06/2024
+ms.date: 11/13/2024
 ms.author: shaas
 ms.custom: mode-other
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 
-# Quickstart: Get started with Azure Data Box V2 to export data from Azure
+# Quickstart: Get started exporting data from Azure with Azure Next Gen Data Box
 
 This quickstart describes how to export data out of Azure into your location using the Azure portal. The steps include how to cable, configure, and copy data from Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
@@ -69,7 +69,7 @@ When you receive the Data Box, do the following steps to cable, connect to, and 
 1. Remove and place the device on a flat surface.
 1. Cable the device as shown below.  
 
-    :::image type="content" source="media/data-box-v2-quickstart-export/data-box-cabled-dhcp.png" alt-text="Photograph of a Data Box device backplane cabled.":::
+    :::image type="content" source="media/data-box-ng-quickstart-export/data-box-cabled-dhcp.png" alt-text="Photograph of a Data Box device backplane cabled.":::
 
     1. Connect the power cable to the device.
     2. Use the RJ-45 CAT 6 network cable to connect your host computer to the MGMT port on the device.

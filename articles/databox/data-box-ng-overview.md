@@ -1,17 +1,17 @@
 ---
-title: Microsoft Azure Data Box V2 overview | Microsoft Docs in data 
-description: Describes Azure Data Box V2, a cloud solution that enables you to transfer massive amounts of data into Azure
+title: Microsoft Azure Next Gen Data Box overview | Microsoft Docs in data 
+description: Describes Azure Next Gen Data Box, a cloud solution that enables you to transfer massive amounts of data into Azure
 services: databox
 author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: overview
-ms.date: 11/06/2024
+ms.date: 11/13/2024
 ms.author: shaas
 ms.custom: references_regions
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
 ---
-# What is Azure Data Box V2?
+# What is Next Gen Azure Data Box?
 
 The Microsoft Azure Data Box cloud solution lets you send terabytes of data into and out of Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary Data Box storage device. These storage devices come in two variations having a maximum usable storage capacity of 120 TB and 525 TB respectively. These are transported to your data center through a regional carrier. These devices have a rugged casing to protect and secure data during the transit. 
 
@@ -132,18 +132,18 @@ The Data Box includes the following components:
 
 * **Data Box device** - a physical device that provides primary storage, manages communication with cloud storage, and helps to ensure the security and confidentiality of all data stored on the device. The Data Box device has a usable storage capacity of 120 TB/ 525 TB, depending upon the SKU selected.
 
-    :::image type="content" source="media/data-box-v2-overview/data-box-v2-merged-front-back.png" alt-text="Photograph showing an Azure Data Box V2 device."::: :::image type="content" source="media/data-box-v2-overview/data-box-v2-merged-back.png" alt-text="Photograph showing the rear views of an Azure Data Box V2 device."::: 
+    :::image type="content" source="media/data-box-ng-overview/data-box-ng-merged-front-back.png" alt-text="Photograph showing an Azure Data Box Next Gen device."::: :::image type="content" source="media/data-box-ng-overview/data-box-ng-merged-back.png" alt-text="Photograph showing the rear views of an Azure Data Box Next Gen device."::: 
 
     
 * **Data Box service** – an extension of the Azure portal that lets you manage a Data Box device from a web interface that you can access from different geographical locations. Use the Data Box service to perform daily administration of your Data Box device. The service tasks include how to create and manage orders, view and manage alerts, and manage shares.  
 
-    :::image type="content" source="media/data-box-v2-overview/data-box-service.png" alt-text="Screenshot of the Data Box service in Azure portal.":::
+    :::image type="content" source="media/data-box-ng-overview/data-box-service.png" alt-text="Screenshot of the Data Box service in Azure portal.":::
 
     For more information, go to [Use the Data Box service to administer your Data Box device](data-box-portal-ui-admin.md).
 
 * **Local web user interface** – a web-based UI that is used to configure the device so that it can connect to the local network, and then register the device with the Data Box service. Use the local web UI also to shut down and restart the Data Box device, view copy logs, and contact Microsoft Support to file a service request.
 
-    :::image type="content" source="media/data-box-v2-overview/data-box-local-web-ui.png" alt-text="Screenshot of the Data Box local web UI.":::
+    :::image type="content" source="media/data-box-ng-overview/data-box-local-web-ui.png" alt-text="Screenshot of the Data Box local web UI.":::
 
     The local web UI on the device currently supports the following languages with their corresponding language codes:
 

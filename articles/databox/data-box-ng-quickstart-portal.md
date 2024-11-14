@@ -1,17 +1,17 @@
 ---
-title: Quickstart for Microsoft Azure Data Box Microsoft Docs
-description: In this quickstart, learn how to deploy Azure Data Box V2 using the Azure portal for an import order. Configure Azure Data Box next-gen device and copy data to upload to Azure.
+title: Quickstart for Microsoft Azure Next Gen Data Box Microsoft Docs
+description: Learn how to deploy Azure  Next Gen Data Box using the Azure portal for an import order. Configure Azure Data Box device and copy data to upload to Azure.
 services: databox
 author: stevenmatthew
 ms.service: azure-databox
 ms.topic: quickstart
-ms.date: 11/06/2024
+ms.date: 11/13/2024
 ms.author: shaas
 ms.custom: mode-other
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 
-# Get started with Azure Data Box V2
+# Get started with Azure Next Gen Data Box
 
 ::: zone target="docs"
 
@@ -104,7 +104,7 @@ When you receive the Data Box, perform the following steps to cable, connect, an
 	
 4. Cable the device as described in the following steps.
 
-    :::image type="content" source="media/data-box-v2-quickstart-import/data-box-cabled-dhcp.png" alt-text="Photograph of a Data Box device backplane cabled.":::
+    :::image type="content" source="media/data-box-ng-quickstart-import/data-box-cabled-dhcp.png" alt-text="Photograph of a Data Box device backplane cabled.":::
 
     1. Connect the power cable to the device.
     2. Use the RJ-45 CAT 6 network cable to connect your host computer to the management port (MGMT) on the device. 

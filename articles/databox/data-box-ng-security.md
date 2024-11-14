@@ -1,15 +1,15 @@
 ---
-title: Microsoft Azure Data Box next gen security overview | Microsoft Docs in data 
-description: Describes Azure Data Box next gen security features in the device, service, and data that resides on Data Box.
+title: Microsoft Azure Data Box Next Gen security overview | Microsoft Docs in data 
+description: Describes Azure Data Box Next Gen security features in the device, service, and data that resides on Data Box.
 services: databox
 author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: overview
-ms.date: 11/06/2024
+ms.date: 11/13/2024
 ms.author: shaas
 ---
-# Azure Data Box next generation security and data protection
+# Azure Data Box Next Generation security and data protection
 
 Data Box provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. This article describes the Azure Data Box security features that help protect each of the Data Box solution components and the data stored on them.
 
@@ -27,11 +27,11 @@ The Microsoft Azure Data Box solution consists of four main components that inte
 
 The following diagram indicates the flow of data through the Azure Data Box solution from on-premises to Azure and the various security features in place as the data flows through the solution. This flow is for an import order for your Data Box.
 
-:::image type="content" source="media/data-box-v2-review-security/data-box-security-import.png" alt-text="Diagram explaining Data Box import security.":::
+:::image type="content" source="media/data-box-ng-security/data-box-security-import.png" alt-text="Diagram explaining Data Box import security.":::
 
 The following diagram is for the export order for your Data Box.
 
-:::image type="content" source="media/data-box-v2-review-security/data-box-security-export.png" alt-text="Diagram explaining Data Box export security.":::
+:::image type="content" source="media/data-box-ng-security/data-box-security-export.png" alt-text="Diagram explaining Data Box export security.":::
 
 As the data flows through this solution, events are logged and logs are generated. For more information, go to:
 
@@ -49,8 +49,8 @@ The Data Box device is protected by the following features:
 - A rugged device casing that withstands shocks, adverse transportation, and environmental conditions. 
 - Hardware and software tampering detection that prevents further device operations.
 - Built-in intrusion detection system that detects any unauthorized physical access to the devices.
-- Semper Secure Flash technology integrated with a hardware Root of Trust (RoT) within the flash memory chip, ensuring BMC firmware integrity and secure updates without hardware modifications.
-- A Trusted Platform Module (TPM) 2.0 that performs hardware-based, security-related functions. Specifically, the TPM manages and protects secrets and data that needs to be persisted on the device.
+- Hardware Root of Trust (RoT) to ensure BMC firmware integrity and secure updates.
+- Trusted Platform Module (TPM) 2.0 that uses the TPM device to protect secrets and support platform [attestation](https://learn.microsoft.com/en-us/windows/security/hardware-security/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation).
 - Runs only Data Box-specific software.
 - Boots up in a locked state.
 - Controls device access via a device unlock passkey. This passkey is protected by an encryption key. You can use your own customer-managed key to protect the passkey. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
@@ -110,12 +110,11 @@ For more information, review the Microsoft Privacy policy at [Trust Center](http
 The following security guidelines are implemented in Data Box:
 
 |Guideline   |Description   |
-|---------|---------|
-|[IEC 60529 IP52](https://www.iec.ch/)    | For water and dust protection         |
-|[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | For adverse transport conditions endurance          |
-|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | For secure firmware update         |
-|[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | For data protection         |
-|Appendix A, for ATA Hard Disk Drives in [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | For data sanitization         |
+|------------|--------------|
+|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)                                       | For secure firmware update |
+|[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)                            | For data protection |
+|[NIST SP 800-193](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-193.pdf)                                           | For platform firmware resiliency |
+|Appendix A, for ATA Hard Disk Drives in [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf) | For data sanitization |
 
 ## Next steps
 
