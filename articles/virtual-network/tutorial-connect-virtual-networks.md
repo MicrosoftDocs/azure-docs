@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to connect virtual networks with vi
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: tutorial
-ms.date: 11/11/2024
+ms.date: 11/14/2024
 ms.author: allensu
 ms.custom: 
   - template-tutorial
@@ -308,7 +308,7 @@ Resources in one virtual network cannot communicate with resources in the other 
 
 ### [CLI](#tab/cli)
 
-# Peer virtual networks
+## Peer virtual networks
 
 Peerings are established between virtual network IDs. Obtain the ID of each virtual network with [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) and store the ID in a variable.
 
