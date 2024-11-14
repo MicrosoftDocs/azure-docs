@@ -34,13 +34,16 @@ Patch runtime release is produced monthly in between the minor releases. These r
 
 Starting a runtime upgrade is defined under [Upgrading cluster runtime via Azure CLI](./howto-cluster-runtime-upgrade.md).
 
-The runtime upgrade starts by upgrading the three management servers designated as the control plane nodes. These servers are updated serially and proceed only when each completes. The remaining management servers are upgraded into four different groups and completed one group at a time. 
+The runtime upgrade starts by upgrading the three management servers designated as the control plane nodes. The spare control plane server will remain down during this time. These servers are updated serially and proceed only when each completes. The remaining management servers are upgraded into four different groups and completed one group at a time. 
+
+> [!Note]
+> Customers may observe the spare server with a different runtime version. This is expected.
 
 Once all management servers are upgraded, the upgrade progresses to the compute servers. Each rack is upgraded in alphanumeric order, and there are various configurations customers can use to dictate how the computes are upgrade to best limit disruption. As each rack progresses, there are various health checks performed in order to ensure the release successfully upgrades and a sufficient number of computes in a rack returns to operational status. When a rack completes, a customer defined waits time starts to provide extra time for workloads to come online. Once each rack upgrades, the upgrade completes and the cluster returns to `Running` status. 
 
 ## Runtime upgrade strategies
 
-Each of the strategies explained provide users various controls for how and when compute racks are upgraded. Each strategy uses a `thresholdType` and `thresholdValue` to define the number or percent of successfully upgraded compute servers in a rack before proceeding to the next rack. 
+Each of the strategies explained provide users various controls for how and when compute racks are upgraded. These values are applicable only to the compute servers and not the management servers. Each strategy uses a `thresholdType` and `thresholdValue` to define the number or percent of successfully upgraded compute servers in a rack before proceeding to the next rack. 
 
 The threshold values are a calculation performed during the upgrade to determine the number of compute servers available after completing the upgrade.
 
@@ -73,3 +76,6 @@ az networkcloud baremetalmachine list -g $mrg --subscription $sub --query "sort_
 
 During the runtime upgrade, BareMetalMachine (BMM) keyset isn't available until the upgrade is completed successfully. If attempting to access the node, customer should rely on the console user.
 
+## Servers not upgraded successfully
+
+A server remains cordoned if they fail upgrade or provisioning from possible hardware issue during reboot or issue with cloud-init (networking, chronyd, etc.). The underlying condition needs to be resolved and either bmm replace/reimage would need to be executed. Likely Uncordoning the bmm manually will not resolve.
