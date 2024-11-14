@@ -371,14 +371,13 @@ The secret must be in the same namespace as the Kafka dataflow endpoint. The sec
 
 ### System-assigned managed identity
 
-Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to connect to the cloud resource:
+Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to connect to the Kafka broker:
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
 1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
-1. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
-1. Go to the cloud resource you need to grant permissions > **Access control (IAM)** > **Add role assignment**.
+1. Go to the cloud resource you need to grant permissions. For example, go to the Event Hubs namespace > **Access control (IAM)** > **Add role assignment**.
 1. On the **Role** tab select an appropriate role.
-1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. For example, *azure-iot-operations-xxxx7*.
+1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the Azure IoT Operations managed identity. For example, *azure-iot-operations-xxxx7*.
 
 Then, configure the dataflow endpoint with system-assigned managed identity settings.
 
@@ -444,9 +443,9 @@ kafkaSettings:
 
 To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to connect to the cloud resource:
+Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to connect to the Kafka broker:
 
-1. In Azure portal, go to the cloud resource you need to grant permissions > **Access control (IAM)** > **Add role assignment**.
+1. In Azure portal, go to the cloud resource you need to grant permissions. For example, go to the Event Grid namespace > **Access control (IAM)** > **Add role assignment**.
 1. On the **Role** tab select an appropriate role.
 1. On the **Members** tab, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your user-assigned managed identity.
 
