@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 10/17/2024
+ms.date: 11/20/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -18,6 +18,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 - November 2024
+  - [Cross Subscription Backup support for Azure File Share (preview)](#cross-subscription-backup-support-for-azure-file-share-preview)
   - [Vaulted backup and Cross Region Restore support for AKS is generally available.](#vaulted-backup-and-cross-region-restore-support-for-aks-is-generally-available)
 - October 2024
     - [GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.](#grs-and-crr-support-for-azure-vms-using-premium-ssd-v2-and-ultra-disk-is-now-generally-available)
@@ -94,6 +95,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Cross Subscription Backup support for Azure File Share (preview)
+
+Azure Backup now supports Cross Subscription Backup (CSB) for Azure File Shares, allowing you to back up data across different subscriptions within the same tenant or Microsoft Entra ID. This capability offers greater flexibility and control, essentially for enterprises managing multiple subscriptions with varying purposes and security policies.
+
+For more information, see [About Azure File share backup](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-file-share-preview-works).
 
 ## Vaulted backup and Cross Region Restore support for AKS is generally available
  

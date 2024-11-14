@@ -26,7 +26,7 @@ Azure File share backup is a native, cloud based backup solution that protects y
 * Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
 * In case you have restricted access to your storage account, check the firewall settings of the account to ensure that the exception "Allow Azure services on the trusted services list to access this storage account" is granted. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
 >[!Important]
->To perform **Cross Subscription Backup**  for protecting file shares in another subscription, ensure that you register `Microsoft.RecoveryServices` in the **subscription of the file share**. Learn about the [supported regions for Cross Subscription Backup](azure-file-share-support-matrix.md#supported-regions-for-cross-subscription-backup)
+>To perform [Cross Subscription Backup (preview)  for protecting Azure File share](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-file-share-preview-works) in another subscription, ensure that you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the above prerequisites. Learn about the [supported regions for Cross Subscription Backup (preview)](azure-file-share-support-matrix.md#supported-regions-for-cross-subscription-backup-preview).
 
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
@@ -57,7 +57,7 @@ To configure backup for multiple file shares from the Recovery Services vault, f
 
 1. On the **Select storage account** blade, by default it list the storage accounts from current subscription. Select an account, and select **OK**.
 
-   If you want to configure the backup operation with a storage account in a different subscription (Cross Subscription Backup), choose the other subscription from the **Subscription** filter. The storage accounts from the selected subscription appear.
+   If you want to configure the backup operation with a storage account in a different subscription ([Cross Subscription Backup - preview](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-file-share-preview-works)), choose the other subscription from the **Subscription** filter. The storage accounts from the selected subscription appear.
 
    :::image type="content" source="./media/backup-azure-files/azure-file-share-confirm-storage-account.png" alt-text="Screenshot showing to select one of the discovered storage accounts." lightbox="./media/backup-azure-files/azure-file-share-confirm-storage-account.png":::
    
