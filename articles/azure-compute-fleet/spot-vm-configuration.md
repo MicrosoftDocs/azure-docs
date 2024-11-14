@@ -13,6 +13,9 @@ ms.reviewer: jushiman
 
 # Spot VM configuration for Azure Compute Fleet
 
+> [!IMPORTANT]
+> [Azure Compute Fleet](overview.md) is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+
 Compute Fleet has a few important configuration options to consider when it comes to Spot virtual machines (VMs). 
 
 To learn general information about Spot VMs and their configuration, see [Use Azure Spot Virtual Machines](/azure/virtual-machines/spot-vms). This article covers some important configuration considerations to note about Spot VMs when it comes to using Compute Fleet. 
