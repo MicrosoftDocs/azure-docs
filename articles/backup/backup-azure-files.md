@@ -43,7 +43,7 @@ To configure backup for multiple file shares from the Recovery Services vault, f
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Recovery Services vault** and select **+Backup**.
 
-   :::image type="content" source="./media/backup-afs/backup-center-configure-inline.png" alt-text="Screenshot showing to configure Backup for Azure File." lightbox="./media/backup-afs/backup-center-configure-expanded.png":::
+   :::image type="content" source="./media/backup-afs/azure-file-configure-backup.png" alt-text="Screenshot showing to configure Backup for Azure File." lightbox="./media/backup-afs/azure-file-configure-backup.png":::
 
 1. On the **Start: Configure Backup** blade, select **Azure Files (Azure Storage)** as the datasource type, select the vault that you want to protect the file shares with, and then select **Continue**.
 
@@ -185,11 +185,9 @@ Occasionally, you might want to generate a backup snapshot, or recovery point, o
 
 To run an on-demand backup, follow these steps:
 
-1. Go to the **Recovery Services vault** and select **Backup Instances** from the menu.
+1. Go to the **Recovery Services vault** and select **Backup items** from the menu.
 
-   Filter for **Azure Files (Azure Storage)** as the datasource type.
-
-   :::image type="content" source="./media/backup-afs/azure-file-share-backup-instances-inline.png" alt-text="Screenshot showing to select Backup instances." lightbox="./media/backup-afs/azure-file-share-backup-instances-expanded.png":::
+1. On the **Backup items** blade, select the **Backup Management Type** as **Azure Storage (Azure Files)**.
 
 1. Select the item for which you want to run an on-demand backup job.
 
