@@ -27,7 +27,7 @@ An ONVIF compliant camera connected to your Azure IoT Operations cluster. If you
 
 The connector for ONVIF (preview) uses [asset endpoint and asset](concept-assets-asset-endpoints.md) custom resources to represent the connection and the camera.
 
-For example, use the following Bicep and parameters to to create an asset endpoint that enables discovery of an ONVIF compliant camera at `http://onvif-rtsp-simulator:8000`:
+For example, use the following Bicep and parameters to create an asset endpoint that enables discovery of an ONVIF compliant camera at `http://onvif-rtsp-simulator:8000`:
 
 ```bicep
 metadata description = 'Asset endpoint profile for ONVIF discovery'
@@ -100,7 +100,7 @@ Each **DiscoveredAsset** custom resource represents one of the [ONVIF services](
 
 Each **DiscoveredAssetEndpointProfile** custom resource represents a video stream format that the camera exposes.
 
-Currently, during public preview, you must manually create the **Asset** and **AssetEndpointProfile** custom resources that represent the capabilities of the camera and it's video streams.
+Currently, during public preview, you must manually create the **Asset** and **AssetEndpointProfile** custom resources that represent the capabilities of the camera and its video streams.
 
 To create an asset that represents the PTZ capabilities of the camera discovered above, use the following Bicep and parameters:
 
@@ -156,7 +156,7 @@ The following JSON snippet shows a set of parameter values to use:
 
 These parameters configure:
 
-- The name of the asset to create. The `-ptz` suffix is a reuired convention to indicate that the asset represents the PTZ capabilities of the camera.
+- The name of the asset to create. The `-ptz` suffix is a required convention to indicate that the asset represents the PTZ capabilities of the camera.
 - The associated asset endpoint you created previously.
 
 To apply the previous configuration, save the examples above as files, and run the following command:

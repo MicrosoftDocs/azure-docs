@@ -28,7 +28,7 @@ You can create, edit, and delete asset endpoints and assets by using the Azure I
 
 Before you can create an asset, you need to define an asset endpoint profile. An *asset endpoint* is a profile that describes southbound edge connectivity information for one or more assets.
 
-Currently, the only southbound connectors available in Azure IoT Operations are the connector for OPC UA, the media connector (preview), and the connector for ONVIF (preview). Asset endpoints are configurations for a connector that enable it to connect to an assets. For example:
+Currently, the only southbound connectors available in Azure IoT Operations are the connector for OPC UA, the media connector (preview), and the connector for ONVIF (preview). Asset endpoints are configurations for a connector that enable it to connect to an asset. For example:
 
 - An asset endpoint for OPC UA stores the information you need to connect to an OPC UA server.
 - An asset endpoint for the media connector stores the information you need to connect to a media source.
