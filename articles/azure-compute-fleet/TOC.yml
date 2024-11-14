@@ -9,6 +9,8 @@
   expand: true 
 - name: Allocation strategies
   href: allocation-strategies.md
+- name: Modify your Compute Fleet
+  href: modify-compute-fleet.md
 - name: Attribute based VM selection (Preview)
   href: attribute-based-vm-selection.md
 - name: FAQ
