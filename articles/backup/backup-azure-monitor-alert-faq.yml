@@ -44,7 +44,7 @@ sections:
           - **Alert processing rule (earlier called Action rule)**: Refers to a user-created rule that specifies the notification channels a particular fired alert should be routed to. You can also use alert processing rules to suppress notifications for a period of time. [Learn more](/azure/azure-monitor/alerts/alerts-action-rules?tabs=portal)
           - **Action group**: Refers to the notification channel (such as email, ITSM endpoint, logic app, webhook, and so on) that a fired alert can be routed to. [Learn more](/azure/azure-monitor/alerts/action-groups)
 
-          In case of built-in Azure Monitor alerts, as alerts already generate by default, you don't need to create an alert rule. To route these alerts to a notification channel, you should create an alert processing rule and an action group for these alerts. [See example](backup-azure-monitoring-built-in-monitor.md#configure-notifications-for-alerts)
+          In case of built-in Azure Monitor alerts, as alerts already generate by default, you don't need to create an alert rule. To route these alerts to a notification channel, you should create an alert processing rule and an action group for these alerts. [See example](backup-azure-monitoring-alerts.md#configure-notifications-for-alerts)
 
           In case of metric alerts, as alerts don't generate by default, you need to first create an alert rule to specify the condition for which an alert should be fired. To route these alerts to a notification channel, you can directly link the alert rule to an action group, or use an alert processing rule. [See example](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
 
