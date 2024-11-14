@@ -14,7 +14,7 @@ ms.service: dev-box
 
 1. If you don't have any dev boxes, you see this screen. Select **New environment**.
 
-   :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-deployment-environment.png" alt-text="Screenshot of the developer portal with new environment highlighted.":::
+   :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-deployment-environment.png" alt-text="Screenshot of the developer portal with new environment highlighted." lightbox="../media/developer-portal-landing-page/developer-portal-new-deployment-environment.png":::
 
 #### [Existing environments](#tab/existing-environments)
 
