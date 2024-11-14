@@ -4,7 +4,7 @@ description: Learn how schema registry handles message schemas to work with Azur
 author: kgremban
 ms.author: kgremban
 ms.topic: conceptual
-ms.date: 10/30/2024
+ms.date: 11/14/2024
 
 #CustomerIntent: As an operator, I want to understand how I can use message schemas to filter and transform messages.
 ---
@@ -106,13 +106,13 @@ Output schemas are associated with dataflow destinations.
 In the operations experience portal, you can configure output schemas for the following destination endpoints that support Parquet output:
 
 * local storage
-* Fabric
+* Fabric OneLake
 * Azure Storage (ADLS Gen2)
 * Azure Data Explorer
 
 Note: The Delta schema format is used for both Parquet and Delta output.
 
-If you use Bicep or Kubernetes, you can configure output schemas using JSON output for MQTT and Kafka destination endpoints. MQTT and Kafka destinations don't support Delta format.
+If you use Bicep or Kubernetes, you can configure output schemas using JSON output for MQTT and Kafka destination endpoints. MQTT- and Kafka-based destinations don't support Delta format.
 
 For these dataflows, the operations experience applies any transformations to the input schema then creates a new schema in Delta format. When the dataflow custom resource (CR) is created, it includes a `schemaRef` value that points to the generated schema stored in the schema registry.
 
@@ -139,6 +139,13 @@ The following example creates a schema called `myschema` from inline content and
 ```azurecli
 az iot ops schema create -n myschema -g myresourcegroup --registry myregistry --format delta --type message --version-content '{\"hello\": \"world\"}' --ver 14 
 ```
+
+>[!TIP]
+>If you don't know your registry name, use the `schema registry list` command to query for it. For example:
+>
+>```azurecli
+>az iot ops schema registry list -g myresourcegroup --query "[].{Name:name}" -o tsv
+>```
 
 Once the `create` command is completed, you should see a blob in your storage account container with the schema content. The name for the blob is in the format `schema-namespace/schema/version`.
 
