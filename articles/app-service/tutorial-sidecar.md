@@ -108,7 +108,7 @@ You configure environment variables for the containers like any App Service app,
 
 In this step, you create the autoinstrumentation for your app according to the steps outlined in the [OpenTelemetry .NET zero-code instrumentation](https://opentelemetry.io/docs/zero-code/net/getting-started/#instrumentation).
 
-1. Back in the Cloud Shell, craete *startup.sh* with the following lines.
+1. Back in the Cloud Shell, create *startup.sh* with the following lines.
 
     ```azurecli-interactive
     cat > startup.sh << 'EOF'
@@ -157,7 +157,7 @@ In this step, you create the autoinstrumentation for your app according to the s
 The otel-collector sidecar should export data to Application Insights now.
 
 1. Back in the browser tab for `https://<app-name>.azurewebsites.net`, refresh the page a few times to generate some web requests.
-1. Go back to the resource group overview page, select the Application Insights resource. You should now see some data in the default charts.
+1. Go back to the resource group overview page, then select the Application Insights resource. You should now see some data in the default charts.
 
     :::image type="content" source="media/tutorial-sidecar/app-insights-view.png" alt-text="Screenshot of the Application Insights page showing data in the default charts.":::
 

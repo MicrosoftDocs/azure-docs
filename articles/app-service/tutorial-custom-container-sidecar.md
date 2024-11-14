@@ -136,7 +136,7 @@ You configure environment variables for the containers like any App Service app,
 The otel-collector sidecar should export data to Application Insights now.
 
 1. Back in the browser tab for `https://<app-name>.azurewebsites.net`, refresh the page a few times to generate some web requests.
-1. Go back to the resource group overview page, select the Application Insights resource. You should now see some data in the default charts.
+1. Go back to the resource group overview page, then select the Application Insights resource. You should now see some data in the default charts.
 
     :::image type="content" source="media/tutorial-custom-container-sidecar/app-insights-view.png" alt-text="Screenshot of the Application Insights page showing data in the default charts.":::
 
