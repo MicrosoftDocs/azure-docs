@@ -279,8 +279,6 @@ Now that you've prepared the resources prepared, you can initiate the move.
     - Resource Mover re-creates other resources by using the prepared ARM templates. There's usually no downtime.
     - After you've moved the resources, their status changes to *Commit move pending*.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Screenshot of a list of resources with a 'Commit move pending' status." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
-
 
 ## Discard or commit the move
 

@@ -140,17 +140,16 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 |     | Software - Windows Server licensing | License cost | Calculated per two core pack license pricing of Windows Server. |
 |     | Windows Server - Extended Security Update (ESU) | License cost | Calculated for 3 years after the end of support of Windows server license: <br/><br/> ESU (Year 1) – 75% of the license cost <br/><br/> ESU (Year 2) – 100% of the license cost <br/><br/> ESU (Year 3) – 125% of the license cost <br/><br/>|
 |     |     | Software Assurance | Calculated per year as in settings. |
-|     | Virtualization software for servers running in VMware environment | Virtualization Software (VMware license cost + support) | License cost for vSphere Standard license + Production support for vSphere Standard license. *Not included- other hypervisor software cost* or  *Antivirus / Monitoring Agents*.|
+|     | Virtualization software for servers running in VMware environment | Virtualization Software (VMware license cost) | License cost based on VMware Cloud Foundation licensing.|
 | Storage | Storage Hardware |     | The total storage hardware acquisition cost is calculated by multiplying the Total volume of storage attached to  per GB cost. Default is USD 2 per GB per month. |
 |     | Storage Maintenance |     | Default is 10% of storage hardware acquisition cost. |
 | Network | Network Hardware and software | Network equipment (Cabinets, switches, routers, load balancers etc.) and software | As an industry standard and used by sellers in Business cases, it's a % of compute and storage cost. Default is 10% of storage and compute cost. |
 |     | Maintenance | Maintenance | Defaulted to 15% of network hardware and software cost. |
 | Security | General Servers | Server security cost | Default is USD 250 per year per server. This is multiplied with number of servers (General servers)|
 |     | SQL Servers | SQL protection cost | Default is USD 1000 per year per server. This is multiplied with number of servers running SQL |
-| Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
+| Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | The Facilities cost is based on a colocation model, which includes space, power, and lease costs per kWh.<br> Annual facilities cost = Total energy capacity * Average colocation costs * 12. (Assume 40% of datacenter energy capacity remains unused.) <br> Total energy capacity = Energy consumption by current workloads / (1 - unused energy capacity). <br>To determine energy consumption for your workloads: <br>- Compute resources: Total physical cores * On-Prem TDP (0.009 kWh per core) * Load factor (2.00) * On-Prem PUE (1.80).<br> - Storage resources: Total storage in TB * On-Prem storage power rating (10 kWh per TB) * Conversion factor (0.0001) * Load factor (2.00) * On-Prem PUE (1.80). |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
 | Management | Management Software licensing | System center Management software | Used for cost of the System center management software that includes monitoring, hardware and virtual machine provisioning, automation, backup and configuration management capabilities. Cost of Microsoft system center management software is added when the system center agents are identified on any of the discovered resources. This is applicable only for windows servers and SQL servers related scenarios and includes Software assurance. |
-|     |    | VMware Vcenter Management software | This is the cost associated with VMware management software i.e. Management software cost for vSphere Standard + production support cost of management software. Not included- other hypervisor software cost or Antivirus/Monitoring Agents. |
 |     |    | Other Management software | This is the cost of the management software for Partner management products. |
 |     | Management cost other than software | Monitoring cost | Specify costs other than monitoring software. Default is USD 430 per year per server. This is multiplied with the number of servers. The default used is the cost associated with a monitoring administrator. |
 |     |    | Patch Management cost | Specify costs other than patch management software. Default is USD 430 per year per server. This is multiplied with the number of servers. Default is the cost associated with a patch management administrator. |
@@ -160,7 +159,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 #### Azure cost
 
 | **Cost heads** | **Category** | **Component** | **Logic** |
- --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Compute | Compute (IaaS) | Azure VM, SQL Server on Azure VM | Compute cost (with AHUB) from Azure VM assessment, Compute cost (with AHUB) from Azure SQL assessment  |
 |     | Compute (PaaS) | Azure SQL MI or Azure SQL DB | Compute cost (with AHUB) from Azure SQL assessment. |
 |     | Compute(PaaS) | Azure App Service or Azure Kubernetes Service | Plan cost from Azure App Service and/or Node pool cost from Azure Kubernetes Service. |
@@ -185,7 +184,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | Storage  | Storage Hardware |      | Estimated as a sum of total storage hardware acquisition cost + software maintenance cost. <br> Total storage hardware acquisition cost = Total volume of storage attached to VMs (across all machines) * Cost per GB per month * 12. Cost per GB can be customized in the assumptions similar to the current On-premises storage cost. |
 | Network | Network Hardware and software   | Network equipment (Cabinets, switches, routers, load balancers etc.) and software  | Estimated as a sum of total network hardware and software cost + network maintenance cost  Total network hardware and software cost is defaulted to 10%* (compute and licensing +storage cost) and can be customized in the assumptions. Network maintenance cost is defaulted to 15%*(Total network hardware and software cost) and can be customized in the assumptions Same as current On-premises networking cost. |
 | Security | General Servers  | Server security cost | Estimated as sum of total protection cost for general servers and SQL workloads using MDC via Azure Arc. MDC Servers plan 2 is assumed for servers. Microsoft Defender for SQL on Azure-connected databases is assumed for SQL Server |
-| Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Based on user input. Same as current On-premises facilities cost. |
+| Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | The facilities cost is based on a colocation model, which includes space, power, and lease costs per kWh.<br> Annual facilities cost = Total energy capacity * Average colocation costs * 12. (Assume 40% of datacenter energy capacity remains unused.) <br> Total energy capacity = Energy consumption by current workloads / (1 - unused energy capacity). <br>To determine energy consumption for your workloads: <br>- Compute resources: Total physical cores * On-Prem TDP (0.009 kWh per core) * Load factor (2.00) * On-Prem PUE (1.80).<br>- Storage resources: Total storage in TB * On-Prem storage power rating (10 kWh per TB) * Conversion factor (0.0001) * Load factor (2.00) * On-Prem PUE (1.80). |
 | Labor | Labor  | IT admin | Same as current On-premises labor cost.|
 | Management | Management Software licensing | System center or other management software | Estimated as sum of total management cost for general servers. This includes monitoring and patching. Patching is assumed to be free via Azure Update Manager as it is included in MDC Servers plan 2. Monitoring cost is calculated per day based on log storage and alerts and multiplied*365 Estimated as 70% of on-premises management labor cost by default as it is assumed that 30% of labor effects could be redirected to other high impact projects for the company due to productivity improvements.  Labor costs can be customized in Azure Arc setting under Azure cost assumptions.|
 
@@ -202,7 +201,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 **CAPEX & OPEX**
 
 |   Component  | Sub component  | Assumptions | Azure retained |
- --- | --- | --- | --- |
+|--- | --- | --- | --- |
 | **Capital Asset Expense (CAPEX) (A)** |     |     |     |
 | Server Depreciation | (Total server hardware acquisition cost)/(Depreciable life) | Depreciable life = 4 years |     |
 | Storage Depreciation | (Total storage hardware acquisition cost)/(Depreciable life) | Depreciable life = 4 years |     |

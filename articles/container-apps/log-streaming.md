@@ -62,14 +62,14 @@ You can stream the system or console logs for your container app. To stream the 
 
 #### View container app system log stream
 
-This example uses the `--tail` argument to display the last 50 system log messages from the container app. Replace the \<placeholders\> with your container app's values.
+This example uses the `--tail` argument to display the last 50 system log messages from the container app. Replace the `<PLACEHOLDERS>` with your container app's values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp logs show \
-  --name <ContainerAppName> \
-  --resource-group <ResourceGroup> \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
   --type system \
   --tail 50
 ```
@@ -78,22 +78,22 @@ az containerapp logs show \
 
 ```azurecli
 az containerapp logs show `
-  --name <ContainerAppName> `
-  --resource-group <ResourceGroup> `
+  --name <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP> `
   --type system `
   --tail 50
 ```
 
 ---
 
-This example displays a continuous live stream of system log messages from the container app using the `--follow` argument. Replace the \<placeholders\> with your container app's values.
+This example displays a continuous live stream of system log messages from the container app using the `--follow` argument. Replace the `<PLACEHOLDERS>` with your container app's values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp logs show \
-  --name <ContainerAppName> \
-  --resource-group <ResourceGroup> \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
   --type system \
   --follow
 ```
@@ -102,8 +102,8 @@ az containerapp logs show \
 
 ```azurecli
 az containerapp logs show `
-  --name <ContainerAppName> `
-  --resource-group <ResourceGroup> `
+  --name <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP> `
   --type system `
   --follow
 ```
@@ -122,14 +122,14 @@ To connect to a container's console log stream in a container app with multiple 
 | `--replica` | The replica name in the revision. |
 | `--container` | The container name to connect to. |
 
-You can get the revision names with the `az containerapp revision list` command. Replace the \<placeholders\> with your container app's values.
+You can get the revision names with the `az containerapp revision list` command. Replace the `<PLACEHOLDERS>` with your container app's values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp revision list \
-  --name <ContainerAppName> \
-  --resource-group <ResourceGroup> \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
   --query "[].name"
 ```
 
@@ -137,22 +137,22 @@ az containerapp revision list \
 
 ```azurecli
 az containerapp revision list `
-  --name <ContainerAppName> `
-  --resource-group <ResourceGroup> `
+  --name <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP> `
   --query "[].name"
 ```
 
 ---
 
-Use the `az containerapp replica list` command to get the replica and container names. Replace the \<placeholders\> with your container app's values.
+Use the `az containerapp replica list` command to get the replica and container names. Replace the `<PLACEHOLDERS>` with your container app's values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp replica list \
-  --name <ContainerAppName> \
-  --resource-group <ResourceGroup> \
-  --revision <RevisionName> \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --revision <REVISION_NAME> \
   --query "[].{Containers:properties.containers[].name, Name:name}"
 ```
 
@@ -160,25 +160,25 @@ az containerapp replica list \
 
 ```azurecli
 az containerapp replica list `
-  --name <ContainerAppName> `
-  --resource-group <ResourceGroup> `
-  --revision <RevisionName> `
+  --name <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP> `
+  --revision <REVISION_NAME> `
   --query "[].{Containers:properties.containers[].name, Name:name}"
 ```
 
 ---
 
-Live stream the container console using the `az container app show` command with the `--follow` argument. Replace the \<placeholders\> with your container app's values.
+Live stream the container console using the `az container app show` command with the `--follow` argument. Replace the `<PLACEHOLDERS>` with your container app's values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp logs show \
-  --name <ContainerAppName> \
-  --resource-group <ResourceGroup> \
-  --revision <RevisionName> \
-  --replica <ReplicaName> \
-  --container <ContainerName> \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --revision <REVISION_NAME> \
+  --replica <REPLICA_NAME> \
+  --container <CONTAINER_NAME> \
   --type console \
   --follow
 ```
@@ -187,11 +187,11 @@ az containerapp logs show \
 
 ```azurecli
 az containerapp logs show  `
-  --name <ContainerAppName> `
-  --resource-group <ResourceGroup> `
-  --revision <RevisionName> `
-  --replica <ReplicaName> `
-  --container <ContainerName> `
+  --name <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP> `
+  --revision <REVISION_NAME> `
+  --replica <REPLICA_NAME> `
+  --container <CONTAINER_NAME> `
   --type console `
   --follow
 ```
@@ -200,17 +200,17 @@ az containerapp logs show  `
 
 Use `Ctrl-C` or `Cmd-C` to stop the live stream.
 
-View the last 50 console log messages using the `az containerapp logs show` command with the `--tail` argument. Replace the \<placeholders\> with your container app's values.
+View the last 50 console log messages using the `az containerapp logs show` command with the `--tail` argument. Replace the `<PLACEHOLDERS>` with your container app's values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp logs show \
-  --name <ContainerAppName> \
-  --resource-group <ResourceGroup> \
-  --revision <RevisionName> \
-  --replica <ReplicaName> \
-  --container <ContainerName> \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --revision <REVISION_NAME> \
+  --replica <REPLICA_NAME> \
+  --container <CONTAINER_NAME> \
   --type console \
   --tail 50
 ```
@@ -219,11 +219,11 @@ az containerapp logs show \
 
 ```azurecli
 az containerapp logs show  `
-  --name <ContainerAppName> `
-  --resource-group <ResourceGroup> `
-  --revision <RevisionName> `
-  --replica <ReplicaName> `
-  --container <ContainerName> `
+  --name <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP> `
+  --revision <REVISION_NAME> `
+  --replica <REPLICA_NAME> `
+  --container <CONTAINER_NAME> `
   --type console `
   --tail 50
 ```
@@ -232,14 +232,14 @@ az containerapp logs show  `
 
 ### View environment system log stream
 
-Use the following command with the `--follow` argument to view the live system log stream from the Container Apps environment. Replace the \<placeholders\> with your environment values.
+Use the following command with the `--follow` argument to view the live system log stream from the Container Apps environment. Replace the `<PLACEHOLDERS>` with your environment values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp env logs show \
-  --name <ContainerAppEnvironmentName> \
-  --resource-group <ResourceGroup> \
+  --name <ENVIRONMENT_NAME> \
+  --resource-group <RESOURCE_GROUP> \
   --follow
 ```
 
@@ -247,8 +247,8 @@ az containerapp env logs show \
 
 ```azurecli
 az containerapp env logs show  `
-  --name <ContainerAppEnvironmentName> `
-  --resource-group <ResourceGroup> `
+  --name <ENVIRONMENT_NAME> `
+  --resource-group <RESOURCE_GROUP> `
   --follow
 ```
 
@@ -256,14 +256,14 @@ az containerapp env logs show  `
 
 Use `Ctrl-C` or `Cmd-C` to stop the live stream.
 
-This example uses the `--tail` argument to display the last 50 environment system log messages. Replace the \<placeholders\> with your environment values.
+This example uses the `--tail` argument to display the last 50 environment system log messages. Replace the `<PLACEHOLDERS>` with your environment values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
 az containerapp env logs show \
-  --name <ContainerAppName> \
-  --resource-group <ResourceGroup> \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
   --tail 50
 ```
 
@@ -271,8 +271,8 @@ az containerapp env logs show \
 
 ```azurecli
 az containerapp env logs show `
-  --name <ContainerAppName> `
-  --resource-group <ResourceGroup> `
+  --name <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP> `
   --tail 50
 ```
 

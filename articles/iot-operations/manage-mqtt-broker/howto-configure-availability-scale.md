@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 10/18/2024
+ms.date: 11/01/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ms.service: azure-iot-operations
@@ -28,7 +28,7 @@ For a list of the available settings, see the [Broker](/rest/api/iotoperationsmq
 > [!IMPORTANT]
 > At this time, the *Broker* resource can only be configured at initial deployment time using the Azure CLI, Portal or GitHub Action. A new deployment is required if *Broker* configuration changes are needed. 
 
-To configure the scaling settings MQTT broker, you need to specify the `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
+To configure the scaling settings MQTT broker, you need to specify the `cardinality` fields in the specification of the *Broker* custom resource. For more information on setting the mode and cardinality settings using Azure CLI, see [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create).
 
 ### Automatic deployment cardinality
 
@@ -55,7 +55,7 @@ When you increase these values, the broker's capacity to handle more connections
 > [!IMPORTANT]
 > At this time, the *Broker* resource can only be configured at initial deployment time using the Azure CLI, Portal or GitHub Action. A new deployment is required if *Broker* configuration changes are needed.
 
-To configure the memory profile settings MQTT broker, specify the `memoryProfile` fields in the spec of the *Broker* custom resource. For more information on setting the memory profile setting using Azure CLI, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
+To configure the memory profile settings MQTT broker, specify the `memoryProfile` fields in the spec of the *Broker* custom resource. For more information on setting the memory profile setting using Azure CLI, see [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create).
 
 `memoryProfile`: This subfield defines the settings for the memory profile. There are a few profiles for the memory usage you can choose:
 
@@ -101,43 +101,6 @@ By default, Azure IoT Operations Preview deploys a default Broker resource named
 
 ```bash
 kubectl get broker default -n azure-iot-operations -o yaml
-```
-
-### Modify default broker by redeploying
-
-Only [cardinality](#configure-scaling-settings) and [memory profile](#configure-memory-profile) are configurable with Azure portal or Azure CLI during initial deployment. Other settings and can only be configured by modifying the YAML file and redeploying the broker.
-
-To delete the default broker, run the following command:
-
-```bash
-kubectl delete broker default -n azure-iot-operations
-```
-
-Then, create a YAML file with desired settings. For example, the following YAML file configures the broker with name `default` in namespace `azure-iot-operations` with `medium` memory profile and `distributed` mode with two frontend replicas and two backend chains with two partitions and two workers each. Also, the [encryption of internal traffic option](#configure-encryption-of-internal-traffic) is disabled.
-
-```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
-kind: Broker
-metadata:
-  name: default
-  namespace: azure-iot-operations
-spec:
-  memoryProfile: medium
-  cardinality:
-    backendChain:
-      partitions: 2
-      redundancyFactor: 2
-      workers: 2
-    frontend:
-      replicas: 2
-      workers: 2
-  encryptInternalTraffic: false
-```
-
-Then, run the following command to deploy the broker:
-
-```bash
-kubectl apply -f <path-to-yaml-file>
 ```
 
 ## Configure MQTT broker advanced settings
@@ -188,7 +151,7 @@ Here's an example of a *Broker* custom resource with metrics and tracing enabled
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
-  name: broker
+  name: default
   namespace: azure-iot-operations
 spec:
   diagnostics:
@@ -218,7 +181,7 @@ spec:
 ## Configure encryption of internal traffic
 
 > [!IMPORTANT]
-> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment. To modify this setting, you need to modify the YAML file and [redeploy the broker](#modify-default-broker-by-redeploying).
+> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment.
 
 The **encryptInternalTraffic** feature is used to encrypt the internal traffic between the frontend and backend pods. To use this feature, cert-manager must be installed in the cluster, which is installed by default when using the Azure IoT Operations.
 
@@ -241,7 +204,7 @@ By default, the **encryptInternalTraffic** feature is enabled. To disable the fe
 ## Configure disk-backed message buffer behavior
 
 > [!IMPORTANT]
-> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment. To modify this setting, you need to modify the YAML file and [redeploy the broker](#modify-default-broker-by-redeploying).
+> At this time, this feature can't be configured using the Azure CLI or Azure portal during initial deployment.
 
 The **diskBackedMessageBufferSettings** feature is used for efficient management of message queues within the MQTT broker distributed MQTT broker. The benefits include:
 

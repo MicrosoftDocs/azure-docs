@@ -5,7 +5,7 @@ description: Find out about reliability and high availability in Azure Database 
 author: sunilagarwal
 ms.author: anaharris
 ms.reviewer: maghan, anaharris
-ms.date: 12/21/2023
+ms.date: 11/5/2024
 ms.service: azure-database-postgresql
 ms.topic: conceptual
 ms.custom:
@@ -80,6 +80,19 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 - Ability to restart the server to pick up any static server parameter changes.
 
 - Periodic maintenance activities such as minor version upgrades happen at the standby first and, to reduce downtime, the standby is promoted to primary so that workloads can keep on, while the maintenance tasks are applied on the remaining node.
+
+
+### Monitor High-Availability Health
+
+High Availability (HA) health status monitoring in Azure Database for PostgreSQL - Flexible Server provides a continuous overview of the health and readiness of HA-enabled instances. This monitoring feature leverages [Azure’s Resource Health Check (RHC)](/azure/service-health/resource-health-overview) framework to detect and alert on any issues that may impact your database's failover readiness or overall availability. By assessing key metrics like connection status, failover state, and data replication health, HA health status monitoring enables proactive troubleshooting and helps maintain your database’s uptime and performance.
+
+Customers can use HA health status monitoring to:
+
+- Gain real-time insights into the health of both primary and standby replicas, with status indicators that reveal potential issues, such as degraded performance or network blocking.
+- Configure alerts for timely notifications on any changes in HA status, ensuring immediate action to address potential disruptions.
+- Optimize failover readiness by identifying and addressing issues before they impact database operations.
+
+For a detailed guide on configuring and interpreting HA health statuses, refer to the main article [High Availability (HA) health status monitoring for Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/how-to-monitor-high-availability).
 
 ### High availability limitations
 

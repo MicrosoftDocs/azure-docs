@@ -8,7 +8,7 @@ ms.subservice: fhir
 ms.custom: devx-track-python
 ms.topic: conceptual
 ms.date: 04/29/2024
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Access Azure Health Data Services

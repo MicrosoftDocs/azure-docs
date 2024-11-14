@@ -46,16 +46,17 @@ In this article, you learn how to add and configure a time window filter for you
 
 1. The time window filter is now listed in the feature filter details, under **Feature filters**. Select **Apply** to save the feature flag with the new feature filter.
 
-For more information about the time window feature filter, refer to the [Microsoft.TimeWindow feature reference](/azure/azure-app-configuration/feature-management-dotnet-reference?pivots=stable-version).
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, applying new time window filter.](./media/feature-filters/feature-flag-edit-apply-timewindow-filter.png)
+
+    Now, you successfully added a time window filter to a feature flag.
+
+1. Continue to the following instructions to use the feature flag with a time window filter in your application for the language or platform you are using.
+
+    - [ASP.NET Core](./howto-timewindow-filter-aspnet-core.md)
+    - [Node.js](./howto-timewindow-filter-javascript.md)
 
 ## Next steps
-
-In this tutorial, you learned the concept of the time window filter and added it to a feature flag.
-
-To learn how to use the feature flag with a time window filter in your application, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [ASP.NET Core](./howto-timewindow-filter-aspnet-core.md)
 
 To learn more about the feature filters, continue to the following tutorials:
 

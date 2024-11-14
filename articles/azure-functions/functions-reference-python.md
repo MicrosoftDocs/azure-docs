@@ -1104,7 +1104,7 @@ In Azure Functions, [application settings](functions-app-settings.md), such as s
 | Method | Description |
 | --- | --- |
 | **`os.environ["myAppSetting"]`** | Tries to get the application setting by key name, and raises an error when it's unsuccessful.  |
-| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, and returns `null` when it's unsuccessful.  |
+| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, and returns `None` when it's unsuccessful.  |
 
 Both of these ways require you to declare `import os`.
 
@@ -1131,7 +1131,7 @@ In Azure Functions, [application settings](functions-app-settings.md), such as s
 | Method | Description |
 | --- | --- |
 | **`os.environ["myAppSetting"]`** | Tries to get the application setting by key name, and raises an error when it's unsuccessful.  |
-| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, and returns `null` when it's unsuccessful.  |
+| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, and returns `None` when it's unsuccessful.  |
 
 Both of these ways require you to declare `import os`.
 
