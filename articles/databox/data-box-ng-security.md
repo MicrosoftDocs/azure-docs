@@ -50,7 +50,7 @@ The Data Box device is protected by the following features:
 - Hardware and software tampering detection that prevents further device operations.
 - Built-in intrusion detection system that detects any unauthorized physical access to the devices.
 - Hardware Root of Trust (RoT) to ensure BMC firmware integrity and secure updates.
-- Trusted Platform Module (TPM) 2.0 that uses the TPM device to protect secrets and support platform [attestation](/windows/security/hardware-security/tpm/tpm-fundamentals.md#measured-boot-with-support-for-attestation).
+- Trusted Platform Module (TPM) 2.0 that uses the TPM device to protect secrets and support platform [attestation](/windows/security/hardware-security/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation).
 - Runs only Data Box-specific software.
 - Boots up in a locked state.
 - Controls device access via a device unlock passkey. This passkey is protected by an encryption key. You can use your own customer-managed key to protect the passkey. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
