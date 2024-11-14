@@ -212,7 +212,7 @@ items:
       - name: Available metrics for observability
         items:
         - name: MQTT broker
-          href: reference/observability-metrics-mq.md
+          href: reference/observability-metrics-mqtt-broker.md
         - name: Connector for OPC UA
           href: reference/observability-metrics-opcua-broker.md
         - name: Layered Network Management

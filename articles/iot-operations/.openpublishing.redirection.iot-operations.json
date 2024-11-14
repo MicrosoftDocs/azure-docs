@@ -534,6 +534,11 @@
             "source_path_from_root": "/articles/iot-operations/reference/glossary.md",
             "redirect_url": "/azure/iot/iot-glossary?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/reference/observability-metrics-mq.md",
+            "redirect_url": "/azure/iot-operations/reference/observability-metrics-mqtt-broker",
+            "redirect_document_id": false
         }
     ]
 }
