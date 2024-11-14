@@ -13,6 +13,9 @@ items:
     items:
       - name: Portal
         href: quickstart.md
+      - name: ARM template
+        displayName: ARM,Resource Manager,Template
+        href: quickstart-arm.md
       - name: Bicep
         href: quickstart-bicep.md
         displayName: Resource Manager,ARM,template

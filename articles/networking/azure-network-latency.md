@@ -670,7 +670,7 @@ Use the following tabs to view latency statistics for each region.
 
 
 > [!NOTE]
-> Round-trip latency to West India from other Azure regions is included in the table. However, West India is not a source region so roundtrips from West India are not included in the table.]
+> Round-trip latency to West India from other Azure regions is included in the table. However, West India is not a source region so roundtrips from West India are not included in the table.
 
 #### [Asia](#tab/Asia/APAC)
 
