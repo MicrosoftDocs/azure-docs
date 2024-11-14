@@ -60,7 +60,7 @@ By using dataflows, you can efficiently manage your data paths. You can ensure t
 
 ## Schema registry
 
-Schema registry, a feature provided by Azure Device Registry, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. Southbound connectors like the OPC UA connector can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI.
+Schema registry, a feature provided by Azure Device Registry, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. Southbound connectors like the connector for OPC UA can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI.
 
 Dataflows uses messages schemas to transform the message into the format expected by the destination endpoint.
 
