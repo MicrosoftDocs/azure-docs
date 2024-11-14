@@ -57,6 +57,17 @@ We recommend you consider the following configuration options when creating your
 | [Compute Fleet allocation strategies](allocation-strategies.md) | Choose an allocation strategy for Spot and Standard VMs to optimize your Compute Fleet for the lowest price, capacity, or a combination of both. |
 | [Attribute based VM selection](attribute-based-vm-selection.md) | Specify your VM sizes and types for your fleet or let Azure Compute Fleet decide based on your application requirements. |
 
+## Compute Fleet quota 
+
+Azure Compute Fleet has applicable Standard and Spot VM quotas. The following table outlines quota limits, depending on your scenario.
+
+| Scenario | Quota |
+| -------- | ----- |
+| The number of **Compute Fleets** per Region in `active`, `deleted_running` | 500 fleets |
+| The **target capacity** per Compute Fleet | 10,000 VMs |
+| The **target capacity** across all Compute Fleets in a given Region | 100,000 VMs |
+| A Compute Fleet can span across multiple **Regions** | 3 regions |
+
 ## Target capacity 
 
 Set individual target capacity for Spot and pay-as-you-go VM types with Compute Fleet. This capacity could be managed individually based on your workloads or application requirement. You specify target capacity using VM instances. 
