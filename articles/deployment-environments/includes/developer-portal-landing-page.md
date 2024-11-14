@@ -20,6 +20,6 @@ ms.service: dev-box
 
 1. Select **New** > **New environment**.
  
-   :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-environment-menu.png" alt-text="Screenshot of the developer portal with the New menu and Dev box option highlighted":::
+   :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-environment-menu.png" alt-text="Screenshot of the developer portal with the New menu and Dev box option highlighted" lightbox="../media/developer-portal-landing-page/developer-portal-new-environment-menu.png":::
  
 ---
