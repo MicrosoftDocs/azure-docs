@@ -56,3 +56,8 @@ With this strategy, Compute Fleet doesn't prioritize pricing over capacity, so y
 The **lowest price** allocation strategy is the default strategy for Spot VMs. 
 
 The Compute Fleet launches VM types and sizes from your specified list of VMs that offer the lowest price for Spot VMs. Followed by the second and third lowest price until the desired capacity is fulfilled.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Find answers to frequently asked questions.](faq.yml)
