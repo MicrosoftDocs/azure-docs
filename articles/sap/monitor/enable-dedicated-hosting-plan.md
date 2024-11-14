@@ -38,7 +38,7 @@ The Dedicated hosting plan has a significant improvement in cost and scaling eff
 ## Steps to revert to Elastic Plan on unhealthy AMS
 If the deployment fails with code FunctionAppRestoreFailed or if restoration to Elastic Premium Plan is needed after multiple failure, then follow the below steps to revert to Elastic Premium Plan.
 
-1.	Install Azure CLI, refer [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
+1.	Install Azure CLI, refer [Install Azure CLI](https://go.microsoft.com/fwlink/?linkid=2297461).
 2.	Run `az account set --subscription "<Subscription Name>"` to set subscription.
 3.	Run `az extension add --name workloads` to install Workloads CLI extension.
 5.	Execute az monitor create with required properties as per your AMS.
