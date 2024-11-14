@@ -218,6 +218,7 @@ az network vnet subnet create \
     --resource-group test-rg \
     --name AzureBastionSubnet \
     --address-prefix 10.0.1.0/24
+```
 
 ### Create Azure Bastion
 
@@ -240,7 +241,7 @@ az network bastion create \
     --name bastion \
     --vnet-name vnet-1 \
     --public-ip-address public-ip-bastion \
-    --location eastus2
+    --location eastus2 \
     --no-wait
 ```
 
@@ -447,7 +448,7 @@ az vm create \
     --subnet subnet-1 \
     --admin-username azureuser \
     --authentication-type password \
-  --no-wait
+    --no-wait
 ```
 
 ### Create the second VM
