@@ -274,6 +274,7 @@ The following example shows the use of some of the user interface elements in th
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidInput">{0} has invalid input.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMissingRequiredElement">Missing required element: {0}</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfValidationError">Error in validation by: {0}</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="InvalidUserInput"> An Invalid value was presented for a property</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
