@@ -72,10 +72,6 @@ After you select a site, the operations experience displays a list of the Azure 
 > [!TIP]
 > You can use the filter box to search for instances.
 
-After you select your instance, the operations experience displays the **Overview** page for the instance. The **Overview** page shows the status of the instance and the resources, such as assets, that are associated with it:
-
-:::image type="content" source="media/howto-manage-assets-remotely/instance-overview.png" alt-text="Screenshot that shows the instance overview in the operations experience.":::
-
 # [Azure CLI](#tab/cli)
 
 Before you use the `az iot ops asset` commands, sign in to the subscription that contains your Azure IoT Operations deployment:
@@ -176,6 +172,7 @@ To add an asset in the operations experience:
     - Asset endpoint. Select your asset endpoint from the list.
     - Asset name
     - Description
+    - The MQTT topic that the asset publishes to. The default is `<namespace>/data/<asset-name>`.
 
 1. Configure the set of properties that you want to associate with the asset. You can accept the default list of properties or add your own. The following properties are available by default:
 
