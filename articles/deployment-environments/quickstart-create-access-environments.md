@@ -28,11 +28,7 @@ An environment in Azure Deployment Environments is a collection of Azure resourc
 
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
-1. Sign in to the [developer portal](https://devportal.microsoft.com).
-
-1. From the **New** menu at the top left, select **New environment**.
- 
-   :::image type="content" source="media/quickstart-create-access-environments/dev-new-environment.png" alt-text="Screenshot showing the new menu with new environment highlighted." lightbox="media/quickstart-create-access-environments/dev-new-environment-expanded.png":::
+[!INCLUDE [developer-portal-landing-page](includes/developer-portal-landing-page.md)]
  
 1. In the **Add an environment** pane, select the following information:
 
