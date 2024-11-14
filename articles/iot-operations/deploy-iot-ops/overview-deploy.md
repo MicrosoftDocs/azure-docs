@@ -12,7 +12,7 @@ ms.date: 11/06/2024
 
 # Deployment details
 
-When you deploy Azure IoT Operations, you install a suite of services on an Azure Arc-enabled Kubernetes cluster. This article provides an overview of the different deployment options to consider for your scenario.
+When you deploy Azure IoT Operations, you install a suite of services on an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview). This article provides an overview of the different deployment options to consider for your scenario.
 
 ## Supported environments
 
@@ -44,22 +44,13 @@ A deployment with only test settings:
 
 * Doesn't configure secrets or user-assigned managed identity capabilities.
 * Is meant to enable the end-to-end quickstart sample for evaluation purposes, so supports the OPC PLC simulator and connects to cloud resources using system-assigned managed identity.
-* Can be upgraded to use secure settings.
-
-The quickstart scenario, [Quickstart: Run Azure IoT Operations in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md), uses test settings.
-
-At any point, you can upgrade an Azure IoT Operations instance to use secure settings by following the steps in [Enable secure settings](howto-enable-secure-settings.md).
+* Can be upgraded to use secure settings by following the steps in [Enable secure settings](howto-enable-secure-settings.md).
 
 ### Secure settings deployment
 
 A deployment with secure settings:
 
 * Enables secrets and user-assignment managed identity, both of which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow endpoint.
-
-To deploy Azure IoT Operations with secure settings, follow these articles:
-
-1. Start with [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable your cluster.
-1. Then, [Deploy Azure IoT Operations](./howto-deploy-iot-operations.md).
 
 ## Required permissions
 
