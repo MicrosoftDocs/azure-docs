@@ -4,7 +4,7 @@ description: Learn about the built-in security content provided by the Microsoft
 author: batamig
 ms.author: bagol
 ms.topic: reference
-ms.date: 05/14/2023
+ms.date: 11/14/2024
 
 
 #Customer intent: As a security analyst, I want to understand the security content available for Dynamics 365 Finance and Operations so that I can effectively monitor and respond to potential threats.

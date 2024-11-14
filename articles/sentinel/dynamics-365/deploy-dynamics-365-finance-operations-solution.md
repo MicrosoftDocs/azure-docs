@@ -1,13 +1,13 @@
 ---
 title: Connect Microsoft Dynamics 365 Finance and Operations to Microsoft Sentinel
-description: Learn how to deploy the Microsoft Sentinel solution for Business Applications with Microsoft Dynamics 365 Finance and Operations
+description: Learn how to deploy the Microsoft Sentinel solution for Business Applications with Microsoft Dynamics 365 Finance and Operations.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 11/14/2024
 
 
-#Customer intent: As a security administrator, I want to deploy a monitoring solution for Dynamics 365 Finance and Operations so that I can detect and respond to threats and suspicious activities in real-time.
+#Customer intent: As a security administrator, I want to deploy a monitoring solution for Microsoft Dynamics 365 Finance and Operations so that I can detect and respond to threats and suspicious activities in real-time.
 
 ---
 
