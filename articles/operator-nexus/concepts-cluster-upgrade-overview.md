@@ -34,7 +34,7 @@ Patch runtime release is produced monthly in between the minor releases. These r
 
 Starting a runtime upgrade is defined under [Upgrading cluster runtime via Azure CLI](./howto-cluster-runtime-upgrade.md).
 
-The runtime upgrade starts by upgrading the three management servers designated as the control plane nodes. The spare control plane server will remain down during this time. These servers are updated serially and proceed only when each completes. The remaining management servers are upgraded into four different groups and completed one group at a time. 
+The runtime upgrade starts by upgrading the three management servers designated as the control plane nodes. The spare control plane server is the first server to upgrade. The last control plane server deprovisions and transitions to `Available` state. These servers are updated serially and proceed only when each completes. The remaining management servers are upgraded into four different groups and completed one group at a time. 
 
 > [!Note]
 > Customers may observe the spare server with a different runtime version. This is expected.
@@ -78,4 +78,4 @@ During the runtime upgrade, BareMetalMachine (BMM) keyset isn't available until 
 
 ## Servers not upgraded successfully
 
-A server remains cordoned if they fail upgrade or provisioning from possible hardware issue during reboot or issue with cloud-init (networking, chronyd, etc.). The underlying condition needs to be resolved and either bmm replace/reimage would need to be executed. Likely Uncordoning the bmm manually will not resolve.
+A server remains cordoned if they fail upgrade or provisioning from possible hardware issue during reboot or issue with cloud-init (networking, chronyd, etc.). The underlying condition needs to be resolved and either baremetalmachine replace/reimage would need to be executed. Uncordoning the server manually won't resolve the issues.
