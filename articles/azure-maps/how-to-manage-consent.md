@@ -3,7 +3,7 @@ title: Microsoft Azure Maps consent management
 description: This article describes how to configure the global data processing settings to comply with data residency laws in Azure Maps.
 author: pbrasil
 ms.author: peterbr
-ms.date: 11/11/2024
+ms.date: 11/15/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: manage-account
@@ -18,22 +18,35 @@ This article guides you on configuring global data processing settings in your A
 > [!IMPORTANT]
 > If your scenarios don't involve South Korea data, there is no need to enable cross-region processing. This requirement is specific to South Korea due to its data residency laws.
 
-## Configure global data processing
+## Configure global data processing in the Azure Portal
 
 The Azure Maps Resource location is enabled by default and can be configured in the **Process Data Globally** page of the Azure portal.
 
 To give consent to one or more regions:
 
 1. Sign in to your Azure Maps Account in the [Azure portal].
-1. In settings, select **Process data globally**.
-1. In the map that appears, select the regions you wish to add or remove.
+1. In **Settings**, select **Process data globally**.
+
+   A map of the world appears with a plus sign for each region that can be selected.
 
    :::image type="content" source="./media/consent-management/process-data-globally.png" lightbox="./media/consent-management/process-data-globally.png" alt-text="Screenshot showing the process data globally screen in the Azure portal.":::
 
-1. Select all desired regions, then **Save**.
+1. Additionally you can select **Add region**, then select the region you wish to add or remove.
+
+   :::image type="content" source="./media/consent-management/select-korea-central.png" lightbox="./media/consent-management/select-korea-central.png" alt-text="Screenshot showing the process data globally screen in the Azure portal with the Korea Central region selected.":::
+
+1. Once you have chosen all desired regions, select **Save**.
+
+   :::image type="content" source="./media/consent-management/save-selection.png" lightbox="./media/consent-management/save-selection.png" alt-text="Screenshot showing the save button highlighted in process data globally screen in the Azure portal.":::
+
+Once your updates are saved, the new selection(s) appear in the list of regions.
+
+:::image type="content" source="./media/consent-management/new-region-added.png" lightbox="./media/consent-management/new-region-added.png" alt-text="Screenshot showing the process data globally screen in the Azure portal with the Korea Central region added to the list of supported regions.":::
 
 > [!NOTE]
 > Your data is always stored in the region you created your Azure Maps Account, regardless of your global data processing settings.
+
+<!--## Configure global data processing using ARM deployment template-->
 
 ## Next steps
 
