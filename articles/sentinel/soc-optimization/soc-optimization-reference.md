@@ -60,7 +60,7 @@ The following table lists the available threat-based SOC optimization recommenda
 
 |Observation  |Action  |
 |---------|---------|
-|There are data sources, but detections are missing.     |   Turn on analytics rule templates based on the threat: Create a rule using an analytics rule template, and adjust the name, description, and query logic to suit your environment. <br><br>For more information, see [Threat detection in Microsoft Sentinel](threat-detection.md). |
+|There are data sources, but detections are missing.     |   Turn on analytics rule templates based on the threat: Create a rule using an analytics rule template, and adjust the name, description, and query logic to suit your environment. <br><br>For more information, see [Threat detection in Microsoft Sentinel](../threat-detection.md). |
 |Templates are turned on, but data sources are missing.     |    Connect new data sources.     |
 |There are no existing detections or data sources.     |   Connect detections and data sources or install a solution.      |
 
