@@ -13,18 +13,15 @@ ms.reviewer: jushiman
 
 # Spot VM configuration for Azure Compute Fleet
 
-This article covers everything you need to know for Spot virtual machine (VM) configuration for your Compute Fleet. 
+Compute Fleet has a few important configuration options to consider when it comes to Spot virtual machines (VMs). 
 
-To learn more about Spot VMs and their configuration, see [spot overview](something.md). Some important considerations to note about Spot VMs when it comes to using Compute Fleet are:
-- Capacity preferences is the same (see section below), but Maintain capacity (a subset of preference) is unique to Fleet.
-- Max hourly price is outlined in spot, not unique to compute fleet.
-- eviction is same stuff, but the default is different for fleet. 
+To learn general information about Spot VMs and their configuration, see [Use Azure Spot Virtual Machines](/azure/virtual-machines/spot-vms). This article covers some important configuration considerations to note about Spot VMs when it comes to using Compute Fleet. 
 
-## Capacity preference 
+## Maintain capacity 
 
-Capacity preferences are only available when creating your Compute Fleet using Spot virtual machines (VMs) and can't be adjusted after the fleet is running. 
+The capacity preference configuration for Compute Fleet offers a **Maintain capacity** option, which is unique to Compute Fleet.
 
-### Maintain capacity
+Capacity preferences are only available when creating your Compute Fleet using Spot VMs and can't be adjusted after the fleet is running. If you are [creating a Compute Fleet in the Azure portal](quickstart-create-portal.md), during the creation process, set the **Capacity preference** to *Maintain capacity* in the **Basics** tab to allow for updates after creation.
 
 Enabling the capacity preference allows for automatic VM replacement in your Compute Fleet. Running Spot VMs are replaced with any of the VM types or sizes you specified if a Spot eviction for price increase or VM failure occurs. Compute Fleet continues to goal-seek to replace your evicted Spot VMs until your target capacity is met. 
 
@@ -36,20 +33,14 @@ Not enabling this preference stops your Compute Fleet from goal-seeking to repla
 
 ## Max hourly price
 
-Same as Spot Overview == https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms#eviction-policy
-all info is the same. 
-
-Set the maximum hourly price you agree to pay per hour when you configure your Compute Fleet with Spot VMs. Compute Fleet doesn't deploy new Spot VMs in your specified list if the price of the Spot VM increases over the specified maximum hourly price.
+Set the maximum hourly price you agree to pay per hour when you configure your Compute Fleet with Spot VMs. Compute Fleet doesn't deploy new Spot VMs in your specified list if the price of the Spot VM increases over the specified maximum hourly price. For a table with more information about max hourly price, see [Spot VMs - eviction policy](/azure/virtual-machines/spot-vms#eviction-policy).
 
 ## Spot eviction policy 
 
-Same as Spot overview, but DELETE is the default, not Deallocate when it comes to Fleet. 
+For regular Spot VMs, the default [eviction policy](/azure/architecture/guide/spot/spot-eviction#eviction-policy) is set to *Deallocate*. However, when it comes to Compute Fleet, the **Spot eviction policy** default is *Delete*. 
 
-**Delete (default):** Compute Fleet deletes your running Spot VM and all other resources attached to the VM. Data stored on persistent disk storage is also deleted.
-
-**Deallocate:** Compute Fleet deletes your running Spot VM, all other resources attached to the VM and data stored on persistent disk storage isn't deleted.
-
-The Deallocated Spot VM adds up to your Spot target capacity and billing continues for resources attached to the deallocated VMs. 
+- **Delete (default):** Compute Fleet deletes your running Spot VM and all other resources attached to the VM. Data stored on persistent disk storage is also deleted.
+- **Deallocate:** Compute Fleet deletes your running Spot VM, all other resources attached to the VM and data stored on persistent disk storage isn't deleted. The deallocated Spot VM adds up to your Spot target capacity, and billing continues for resources attached to the deallocated VM. 
 
 ## Next steps
 
