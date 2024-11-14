@@ -85,9 +85,9 @@ os.environ['AZURE_TENANT_ID'] = tenantID
 # Acquire a credential object
 credential = DefaultAzureCredential()
 
-# Use Entra to auth IoT Hub service
+# Use Entra to authorize IoT Hub service
 print("Connecting to IoTHubRegistryManager...")
 iothub_registry_manager = IoTHubRegistryManager.from_token_credential(
-url="{Your Entra domain URL}.azure-devices.net",
+url="MyAzureDomain.azure-devices.net",
 token_credential=credential)
 ```
