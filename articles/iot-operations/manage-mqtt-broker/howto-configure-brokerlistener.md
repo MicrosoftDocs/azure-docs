@@ -563,7 +563,7 @@ The following is an example of a BrokerListener resource that enables TLS on por
     | Duration       | Total lifetime of the TLS server certificate Defaults to 90 days.                             |
     | Renew before   | When to begin renewing the certificate.                                                       |
 
-1. Select **Save** to save the TLS settings.
+1. Select **Apply** to save the TLS settings.
 
 # [Bicep](#tab/bicep)
 
@@ -767,7 +767,7 @@ The following is an example of a BrokerListener resource that enables TLS on por
     | TLS            | Select the *Add* button.                                                                      |
     | Secret name    | Kubernetes secret containing an X.509 client certificate.                                     |
 
-1. Select **Save** to save the TLS settings.
+1. Select **Apply** to save the TLS settings.
 
 # [Bicep](#tab/bicep)
 
