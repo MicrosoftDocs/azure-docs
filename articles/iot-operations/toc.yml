@@ -23,6 +23,8 @@ items:
         href: deploy-iot-ops/howto-deploy-iot-operations.md
       - name: Manage, update, or uninstall
         href: deploy-iot-ops/howto-manage-update-uninstall.md
+      - name: Upgrade or rollback versions
+        href: deploy-iot-ops/howto-upgrade.md
       - name: Enable secure settings
         href: deploy-iot-ops/howto-enable-secure-settings.md
       - name: Production deployment guidelines
@@ -57,6 +59,18 @@ items:
           href: discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md
         - name: Configure OPC UA user authentication
           href: discover-manage-assets/howto-configure-opcua-authentication-options.md
+      - name: Connect to media sources
+        items:
+        - name: What is the media connector?
+          href: discover-manage-assets/overview-media-connector.md
+        - name: Use the media connector
+          href: discover-manage-assets/howto-use-media-connector.md
+      - name: Control ONVIF assets
+        items:
+        - name: What is the connector for ONVIF?
+          href: discover-manage-assets/overview-onvif-connector.md
+        - name: Use the connector for ONVIF
+          href: discover-manage-assets/howto-use-onvif-connector.md
     - name: Manage MQTT broker
       items:
       - name: Broker overview
@@ -149,6 +163,12 @@ items:
       items:
       - name: Edge apps overview
         href: create-edge-apps/edge-apps-overview.md
+      - name: State store
+        items:
+        - name: State store overview
+          href: create-edge-apps/overview-state-store.md
+        - name: About the state store protocol 
+          href: create-edge-apps/concept-about-state-store-protocol.md
       - name: Dapr apps
         items:
         - name: Deploy Dapr
@@ -157,8 +177,6 @@ items:
           href: create-edge-apps/howto-develop-dapr-apps.md
         - name: Build an event-driven app with Dapr
           href: create-edge-apps/tutorial-event-driven-with-dapr.md
-      - name: About the MQ state store protocol 
-        href: create-edge-apps/concept-about-state-store-protocol.md
       - name: Develop MQTTnet apps
         href: create-edge-apps/howto-develop-mqttnet-apps.md
     - name: Tutorials

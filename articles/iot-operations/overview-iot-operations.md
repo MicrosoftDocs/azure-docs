@@ -75,12 +75,11 @@ Azure IoT Operations uses the Azure Device Registry to store information about l
 
 ## Automatic asset discovery
 
-Automatic asset discovery using Akri services is not available in the current version of Azure IoT Operations. To learn more, see the [Release notes](https://github.com/Azure/azure-iot-operations/releases) for the current version.
+Automatic asset discovery using Akri services, Azure Device Registry, the connector for OPC UA, the connection for ONVIF (preview), and the media connector (preview) is available in the current version of Azure IoT Operations. Currently, there are no user configurable scenarios for Akri in the operations experience web UI.
 
-> [!NOTE]
-> Some Akri services are still deployed as part of the current Azure IoT Operations release, but they don't support any user configurable scenarios.
+To learn more, see the [release notes](https://github.com/Azure/azure-iot-operations/releases) for the current version.
 
-If you're using a previous version of Azure IoT Operations, you can find the Akri documentation on the [previous versions site](/previous-versions/azure/iot-operations/discover-manage-assets/overview-akri).
+If you're using a previous preview version of Azure IoT Operations, you can find the Akri documentation on the [previous versions site](/previous-versions/azure/iot-operations/discover-manage-assets/overview-akri).
 
 ## Publish and subscribe with MQTT
 
@@ -139,6 +138,20 @@ Azure IoT Operations supports clusters that are Arc-enabled in the following reg
 | North Europe | northeurope |
 
 This list of supported regions only applies to the region that you use when connecting your cluster to Azure Arc. This list doesn't restrict you from using your preferred Azure region for your cloud resources. Azure IoT Operations components and other resources deployed to your cluster in these supported regions can still connect to cloud resources in different regions.
+
+## Dependencies
+
+Azure IoT Operations depends on the following set of support services and features:
+
+* [Azure Device Registry](./discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
+* [Schema registry](./connect-to-cloud/concept-schema-registry.md)
+* [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview)
+* [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension)
+* [Azure Monitor pipeline](/azure/azure-monitor/essentials/edge-pipeline-configure)
+* Workload identity federation in Azure Arc-enabled Kubernetes
+
+>[!NOTE]
+>These features and services that are used as dependencies by internal Azure IoT Operations systems inherit general availability status from the Azure IoT Operations product license. For more information about the licensing model, see [Microsoft Online Subscription Agreement](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MOSA).
 
 ## Next step
 

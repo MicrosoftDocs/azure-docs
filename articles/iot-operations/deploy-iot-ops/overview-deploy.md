@@ -79,21 +79,6 @@ If you use the Azure portal to assign privileged admin roles to a user or princi
 
 :::image type="content" source="./media/howto-deploy-iot-operations/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
 
-## Included components
-
-Azure IoT Operations is a suite of data services that run on Azure Arc-enabled edge Kubernetes clusters. It also depends on a set of support services that are also installed as part of a deployment.
-
-* Azure IoT Operations core services
-  * Dataflows
-  * MQTT Broker
-  * Connector for OPC UA
-  * Akri
-
-* Installed dependencies
-  * [Azure Device Registry](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
-  * [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview)
-  * [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension)
-
 ## Organize instances by using sites
 
 Azure IoT Operations supports Azure Arc sites for organizing instances. A _site_ is a cluster resource in Azure like a resource group, but sites typically group instances by physical location and make it easier for OT users to locate and manage assets. An IT administrator creates sites and scopes them to a subscription or resource group. Then, any Azure IoT Operations deployed to an Arc-enabled cluster is automatically collected in the site associated with its subscription or resource group
