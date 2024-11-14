@@ -65,7 +65,7 @@ To use a dynamic scaling plan, make sure you follow these guidelines:
 ::: zone pivot="power-management"
 ## Assign the Desktop Virtualization Power On Off Contributor role with the Azure portal
 
-Before creating your first scaling plan, you'll need to assign the *Desktop Virtualization Power On Off Contributor* RBAC role to the Azure Virtual Desktop service principal with your Azure subscription as the assignable scope. Assigning this role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. This role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in those subscriptions. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. 
+Before creating your first scaling plan, you'll need to assign the *Desktop Virtualization Power On Off Contributor* RBAC role to the Azure Virtual Desktop service principal with your Azure subscription as the assignable scope. Assigning this role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. This role and assignment allows Azure Virtual Desktop to manage the power state of any VMs in those subscriptions. It also lets the service apply actions on both host pools and VMs when there are no active user sessions. 
 
 To learn how to assign the *Desktop Virtualization Power On Off Contributor* role to the Azure Virtual Desktop service principal, see [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
 ::: zone-end
@@ -73,7 +73,7 @@ To learn how to assign the *Desktop Virtualization Power On Off Contributor* rol
 ::: zone pivot="dynamic"
 ## Assign the Desktop Virtualization Power On Off Contributor and Desktop Virtualization Virtual Machine Contributor roles with the Azure portal
 
-Before creating your first scaling plan, you'll need to assign the *Desktop Virtualization Power On Off Contributor* and *Desktop Virtualization Virtual Machine Contributor* RBAC roles to the Azure Virtual Desktop service principal with your Azure subscription as the assignable scope. Assigning these roles at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. These roles and assignments will allow Azure Virtual Desktop to manage the power state of any VMs and to create, delete, update, start, and stop any VMs in those subscriptions. They'll also let the service apply actions on both host pools and VMs when there are no active user sessions. 
+Before creating your first scaling plan, you'll need to assign the *Desktop Virtualization Power On Off Contributor* and *Desktop Virtualization Virtual Machine Contributor* RBAC roles to the Azure Virtual Desktop service principal with your Azure subscription as the assignable scope. Assigning these roles at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. These roles and assignments allow Azure Virtual Desktop to manage the power state of any VMs and to create, delete, update, start, and stop any VMs in those subscriptions. They also let the service apply actions on both host pools and VMs when there are no active user sessions. 
 
 To learn how to assign the *Desktop Virtualization Power On Off Contributor* role to the Azure Virtual Desktop service principal, see [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
 ::: zone-end
@@ -115,7 +115,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
 
     #### Pooled host pools
 
-    In each phase of the schedule, autoscale only turns off VMs when in doing so the used host pool capacity won't exceed the capacity threshold. The default values you'll see when you try to create a schedule are the suggested values for weekdays, but you can change them as needed. 
+    In each phase of the schedule, autoscale only turns off VMs when in doing so the used host pool capacity won't exceed the capacity threshold. The default values you see when you try to create a schedule are the suggested values for weekdays, but you can change them as needed. 
     
     To create or change a schedule:
     
@@ -234,7 +234,7 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Create a scaling plan for your pooled or personal host pool(s) using the [New-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/new-azwvdscalingplan) cmdlet:
+2. Create a scaling plan for your pooled or personal host pools using the [New-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/new-azwvdscalingplan) cmdlet:
     
     ```azurepowershell
     $scalingPlanParams = @{
@@ -355,8 +355,6 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
 ::: zone-end
 
 ::: zone pivot="dynamic"
-### [Azure portal](#tab/portal)
-
 Now that you've assigned the *Desktop Virtualization Power On Off Contributor* role to the service principal on your subscriptions, you can create a dynamic scaling plan. To create a dynamic scaling plan using the portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -399,7 +397,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
 
     - Define the virtual machine limit:
 
-        - **Minimum percentage of active hosts (%)**: The percentage of minimum number of running session host VMs based on the minimum host pool size that are always available. For example, if the minimum percentage of active hosts (%) is specified as 10 and the minimum host pool size is specified as 10, autoscale will ensure one session host is always available to take user connections. 
+        - **Minimum percentage of active hosts (%)**: The percentage of minimum number of running session host VMs based on the minimum host pool size that is always available. For example, if the minimum percentage of active hosts (%) is specified as 10 and the minimum host pool size is specified as 10, autoscale will ensure one session host is always available to take user connections. 
 
         - **Minimum host pool size**: The number of session host VMs to always be part of the host pool. These session hosts can either be in a running state or a stopped state. 
 
@@ -450,7 +448,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
     - Load-balancing algorithm. We recommend choosing **depth-first** to gradually reduce the number of session hosts based on sessions on each VM.
     - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** will carry over.
     
-1. Select **Next** to take you to the **Host pool assignments** tab. Select the check box next to each host pool you want to include. If you don't want to enable autoscale, unselect all check boxes. You can always return to this setting later and change it. You can only assign the dynamic scaling plan to pooled host pool(s) with session host configuration.
+1. Select **Next** to take you to the **Host pool assignments** tab. Select the check box next to each host pool you want to include. If you don't want to enable autoscale, unselect all check boxes. You can always return to this setting later and change it. You can only assign the dynamic scaling plan to pooled host pools with session host configuration.
 
     > [!NOTE]
     > - When you create or update a scaling plan that's already assigned to host pools, its changes will be applied immediately.
@@ -462,85 +460,8 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
 
 1. Once you're done, go to the **Review + create** tab and select **Create** to create and assign your scaling plan to the host pools you selected.
 
-### [Azure PowerShell](#tab/powershell)
-
-Here's how to create a dynamic scaling plan using the Az.DesktopVirtualization PowerShell module. The following examples show you how to create a scaling plan and scaling plan schedule. Be sure to change the `<placeholder>` values for your own.
-
-[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
-
-2. Create a scaling plan for your pooled or personal host pool(s) using the [New-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/new-azwvdscalingplan) cmdlet:
-    
-    ```azurepowershell
-    $scalingPlanParams = @{
-        ResourceGroupName = '<resourceGroup>'
-        Name = '<scalingPlanName>'
-        Location = '<AzureRegion>'
-        Description = '<Scaling plan description>'
-        FriendlyName = '<Scaling plan friendly name>'
-        HostPoolType = '<Pooled>'
-        TimeZone = '<Time zone, such as Pacific Standard Time>'
-        HostPoolReference = @(@{'hostPoolArmPath' = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/<resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/<hostPoolName>'; 'scalingPlanEnabled' = $true;})
-    }
-
-    $scalingPlan = New-AzWvdScalingPlan @scalingPlanParams
-    ``` 
-    
-
-3. Create a dynamic scaling plan schedule using the [New-AzWvdScalingPlanPooledSchedule](/powershell/module/az.desktopvirtualization/new-azwvdscalingplanpooledschedule) cmdlet. This example creates a pooled scaling plan that runs on Monday through Friday, ramps up at 6:30 AM, starts peak hours at 8:30 AM, ramps down at 4:00 PM, and starts off-peak hours at 10:45 PM. 
-
-
-    ```azurepowershell
-    $scalingPlanPooledScheduleParams = @{
-        ResourceGroupName = 'resourceGroup'
-        ScalingPlanName = 'dynamicScalingPlan'
-        ScalingPlanScheduleName = 'dynamicAutoscalingSchedule1'
-        DaysOfWeek = 'Monday','Tuesday','Wednesday','Thursday','Friday'
-        RampUpStartTimeHour = '6'
-        RampUpStartTimeMinute = '30'
-        RampUpLoadBalancingAlgorithm = 'BreadthFirst'
-        RampUpMinimumHostsPct = '20'
-        RampUpCapacityThresholdPct = '20'
-        PeakStartTimeHour = '8'
-        PeakStartTimeMinute = '30'
-        PeakLoadBalancingAlgorithm = 'DepthFirst'
-        RampDownStartTimeHour = '16'
-        RampDownStartTimeMinute = '0'
-        RampDownLoadBalancingAlgorithm = 'BreadthFirst'
-        RampDownMinimumHostsPct = '20'
-        RampDownCapacityThresholdPct = '20'
-        RampDownForceLogoffUser = $true
-        RampDownWaitTimeMinute = '30'
-        RampDownNotificationMessage = 'Log out now, please.'
-        RampDownStopHostsWhen = 'ZeroSessions'
-        OffPeakStartTimeHour = '22'
-        OffPeakStartTimeMinute = '45'
-        OffPeakLoadBalancingAlgorithm = 'DepthFirst'
-        ScalingMethod = 'CreateDeleteDynamic'
-        CreateDeleteRampUpMaximumHostPoolSize = '10' 
-        CreateDeleteRampUpMinimumHostPoolSize = '5' 
-        CreateDeleteRampDownMaximumHostPoolSize = '5' 
-        CreateDeleteRampDownMinimumHostPoolSize = '1'  
-    }
-        
-    $scalingPlanPooledSchedule = New-AzWvdScalingPlanPooledSchedule @scalingPlanPooledScheduleParams
-    ```
-    
-
-4. Use [Get-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/get-azwvdscalingplan) to get the host pool(s) that your scaling plan is assigned to.
-
-   ```azurepowershell
-   $params = @{
-       ResourceGroupName = 'resourceGroup'
-       Name = 'scalingPlanPersonal'
-   }
-    
-   (Get-AzWvdScalingPlan @params).HostPoolReference | FL HostPoolArmPath,ScalingPlanEnabled
-   ```
-
-    
- You have now created a new dynamic scaling plan, one or more schedules, assigned it to your automated pooled host pool(s), and enabled autoscale. 
-
----
+> [!IMPORTANT] 
+> When you deploy session hosts in the portal using session host configuration, it currently by default doesn't automatically delete the NIC and/or disk when deleting the VM. Scaling honors the setting therefore NIC and disks for the VMs created manually in the portal won't be automatically deleted. This default setting will be changed so that NIC and disk for the VMs created by the scaling service will be automatically deleted together with the VMs.
 
 ::: zone-end
 

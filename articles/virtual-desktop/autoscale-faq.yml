@@ -156,6 +156,26 @@ sections:
          No. You only need to define the virtual machine limit with the minimum host pool size, the maximum host pool size, and the minimum percentage of active hosts (%). When the actual number of VMs needed isn't larger than the minimum host pool size, autoscale will turn on VMs if the used host pool capacity exceeds your defined capacity threshold. When the actual number of VMs needed is larger than the minimum host pool size, autoscale will turn on the stopped VMs and create additional VMs given the total number of active VMs won’t exceed the maximum host pool size defined in the scaling plan if the used host pool capacity exceeds your defined capacity threshold. 
 
       - question: |
-         test 
+         Which image version will be used for the VMs created by autoscale?
         answer: |
-         test
+         Autoscale will create VMs with the latest image version defined in the active session host configuration, if you don’t already have an active session host configuration. 
+      
+      - question: |
+         How can I configure my scaling plan to only turn on and deallocate session host VMs? 
+        answer: |
+         You can either choose **Power management autoscaling** as the scaling method when you create your scaling plan, or you can set the same value for **Minimum host pool size** and **Maximum host pool size** if you chose **Dynamic autoscaling**.
+
+      - question: |
+         How can I configure my scaling plan to only create and delete session host VMs? 
+        answer: |
+         You can set the **Minimum percentage of active hosts (%)** to 100. Autoscale will only create or delete session host VMs if the Used host pool capacity exceeds or drops below your defined capacity threshold. 
+
+      - question: |
+         What happens if the number of session host VMs in the host pool exceeds the maximum host pool size?
+        answer: |
+         This might happen if the **Maximum host pool size** is configured differently in each phase. Autoscale will delete the active deallocated session host VMs with no sessions to honor the **Maximum host pool size** setting in the current phase, and then continue to delete/deallocate session host VMs based on the schedule and capacity threshold except in the ramp-up phase. No delete/deallocate action will be taken as long as the number of session host VMs in the host pool doesn't exceed the maximum host pool size. This behavior is consistent with the power management autoscaling scaling method, where session host VMs aren't deallocated in the ramp-up phase for pooled host pools. 
+
+      - question: |
+         Can I still manually create and delete session host VMs?
+        answer: |
+         Yes, but when the scaling service deletes a session host VM that you manually created, it will honor the settings you set whether to automatically delete the NIC and/or disk. 
