@@ -12,7 +12,7 @@ keywords: azure app service, web app, linux, windows, docker, container, sidecar
 
 In this tutorial, you add an OpenTelemetry collector as a sidecar container to a Linux custom container app in Azure App Service. 
 
-In Azure App Service, you can add up to 4 sidecar containers for each sidecar-enabled custom container app. Sidecar containers let you deploy extra services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
+In Azure App Service, you can add up to four sidecar containers for each sidecar-enabled custom container app. Sidecar containers let you deploy extra services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
 
 For more information about sidecars, see [Sidecar pattern](/azure/architecture/patterns/sidecar).
 
@@ -20,7 +20,7 @@ For more information about sidecars, see [Sidecar pattern](/azure/architecture/p
 
 ## 1. Set up the needed resources
 
-First you create the resources that the tutorial uses (for more information, see [Cloud Shell Overview](../cloud-shell/overview.md)). They're used for this particular scenario and aren't required for sidecar containers in general.
+First you create the resources that the tutorial uses. They're used for this particular scenario and aren't required for sidecar containers in general.
 
 1. In the [Azure Cloud Shell](https://shell.azure.com), run the following commands:
 
@@ -155,7 +155,7 @@ azd down
 
 Sidecar containers share the same network host as the main container, so the main container (and other sidecar containers) can reach any port on the sidecar with `localhost:<port>`. This is exactly how the Nginx container sends data to the sidecar (see the [OpenTelemetry module configuration for the sample Nginx image](https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs/blob/main/images/nginx/opentelemetry_module.conf)).
 
-The **Port** box is not used by App Service currently. You can use it as part of the sidecar metadata.
+In the **Edit container** dialog, the **Port** box isn't currently used by App Service. You can use it as part of the sidecar metadata, such as to indicate which port the sidecar is listening to.
 
 ## Differences for sidecar-enabled apps
 
