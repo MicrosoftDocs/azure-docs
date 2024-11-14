@@ -40,7 +40,7 @@ To collect events from any system that isn't an Azure virtual machine, ensure th
 
 Use the portal setup option to configure the connector using a single Data Collection Rule (DCR) per workspace. Afterwards, use advanced filters to filter out specific events or information, uploading only the valuable data you want to monitor, reducing costs and bandwidth usage.
 
-If you need to create multiple DCRs, [use the API](#set-up-the-connector-with-the-api) instead. Using the API to create multiple DCRs will still show only one DCR in the portal.
+If you need to create multiple DCRs, [use the API](#configure-the-windows-dns-over-ama-connector-via-api) instead. Using the API to create multiple DCRs will still show only one DCR in the portal.
 
 **To configure the connector**:
 
@@ -166,7 +166,7 @@ Use the following procedure to create filters via the portal. For more informati
     - To create compound filters, use different fields with an AND relation.  
     - To combine different filters, use an OR relation between them.
 
-    Filters also support wildcards as follows:
+    <a name="use-wildcards"></a>Filters also support wildcards as follows:
 
     - Add a dot after each asterisk (`*.`).
     - Don't use spaces between the list of domains.
