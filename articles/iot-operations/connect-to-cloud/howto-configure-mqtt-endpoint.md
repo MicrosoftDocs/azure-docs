@@ -222,7 +222,9 @@ To quickly get started and for testing, you can create a topic space with the wi
 
 ### Assign permission to managed identity
 
-Now that the topic space is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to send or receive messages to the Event Grid MQTT broker.
+To configure a dataflow endpoint for Event Grid MQTT broker, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
+
+After the topic space is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to send or receive messages to the Event Grid MQTT broker.
 
 If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
 
@@ -235,7 +237,7 @@ Then, go to the Event Grid namespace > **Access control (IAM)** > **Add role ass
 
 Alternatively, you can assign the role at the topic space level. Go to the topic space > **Access control (IAM)** > **Add role assignment**. Assign the managed identity with an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`. This gives the managed identity the necessary permissions to send or receive messages for the specific topic space.
 
-### Create dataflow endpoint
+### Create dataflow endpoint for Event Grid MQTT broker
 
 Once the Event Grid namespace is configured, you can create a dataflow endpoint for the Event Grid MQTT broker.
 
@@ -332,9 +334,7 @@ kubectl apply -f <FILE>.yaml
 
 Once the endpoint is created, you can use it in a dataflow to connect to the Event Grid MQTT broker as a source or destination. The MQTT topics are configured in the dataflow.
 
-### Use X.509 certificate authentication with Event Grid
-
-We recommended using managed identity for authentication. You can also use X.509 certificate authentication with the Event Grid MQTT broker.
+#### Use X.509 certificate authentication with Event Grid
 
 When you use X.509 authentication with an Event Grid MQTT broker, go to the Event Grid namespace > **Configuration** and check these settings:
 
@@ -415,77 +415,6 @@ To customize the MQTT endpoint settings, see the following sections for more inf
 ## Available authentication methods
 
 The following authentication methods are available for MQTT broker dataflow endpoints.
-
-### X.509 certificate
-
-Many MQTT brokers, like Event Grid, support X.509 authentication. Dataflows can present a client X.509 certificate and negotiate the TLS communication. 
-
-The certificate and private key must be in PEM format and not password protected.
-
-> [!TIP]
-> PEM format is a common format for certificates and keys. Certificates and keys in PEM format are base64-encoded ASCII files with a headers that look like `-----BEGIN CERTIFICATE-----` and `-----BEGIN EC PRIVATE KEY----`
-> 
-> If you have a certificate in another format, you can convert it to PEM format using OpenSSL. To learn more, see [How to convert a certificate into the appropriate format](https://knowledge.digicert.com/solution/how-to-convert-a-certificate-into-the-appropriate-format).
-
-Before configuring the dataflow endpoint, create a secret with the certificate and private key. 
-
-- If you use the operations portal, the secret is automatically formatted and synced to the Kubernetes cluster.
-- If you use Bicep or Kubernetes, manually create the secret with the certificate and private key in the same namespace as the MQTT dataflow endpoint.
-
-  ```bash
-  kubectl create secret generic <X509_SECRET_NAME> -n azure-iot-operations --from-file=client_cert.pem=<CLIENT_CERT_FILE>.pem --from-file=client_key.pem=<PRIVATE_KEY_FILE>.pem --from-file=client_intermediate_certs.pem=<INTERMEDIATE_CERT_FILE>.pem
-  ```
-
-  Here, the secret must have `client_cert.pem` and `client_key.pem` as the key names for the certificate and private key. Optionally, the secret can also have `client_intermediate_certs.pem` as the key name for the intermediate certificates.
-
-# [Portal](#tab/portal)
-
-> [!IMPORTANT]
-> To use the operations experience portal to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
-
-> [!IMPORTANT]
-> The operations experience portal currently has a known issue where creating a X.509 secret results in a secret with incorrectly encoded data. To learn more and the workaround, see [known issues](../troubleshoot/known-issues.md).
-
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
-
-Here, under **Synced secret name**, enter a name for the secret. This name is used to reference the secret in the dataflow endpoint settings and is the name of the secret as stored in the Kubernetes cluster.
-
-Then, under *X509 client certificate*, *X509 client key*, and *X509 intermediate certificates*, select **Add reference** to add the certificate, private key, and intermediate certificates. On the next page, select the secret from Azure Key Vault with **Add from Azure Key Vault** or **Create new** secret.
-
-If you select **Create new**, enter the following settings:
-
-| Setting | Description |
-| ------- | ----------- |
-| Secret name | The name of the secret in Azure Key Vault. Pick a name that is easy to remember to select the secret later from the list. |
-| Secret value | The certificate, private key, or intermediate certificates in PEM format. |
-| Set activation date | If turned on, the date when the secret becomes active. |
-| Set expiration date | If turned on, the date when the secret expires. |
-
-To learn more about secrets, see [Create and manage secrets in Azure IoT Operations Preview](../secure-iot-ops/howto-manage-secrets.md).
-
-# [Bicep](#tab/bicep)
-
-```bicep
-mqttSettings: {
-  authentication: {
-    method: 'X509Certificate'
-      x509CertificateSettings:
-        secretRef: '<X509_SECRET_NAME>'
-  }
-}
-```
-
-# [Kubernetes (preview)](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  authentication:
-    method: X509Certificate
-    x509CertificateSettings:
-      secretRef: <X509_SECRET_NAME>
-```
-
----
 
 ### System-assigned managed identity
 
@@ -638,6 +567,77 @@ mqttSettings:
     method: ServiceAccountToken
     serviceAccountTokenSettings:
       audience: <YOUR_SERVICE_ACCOUNT_AUDIENCE>
+```
+
+---
+
+### X.509 certificate
+
+Many MQTT brokers, like Event Grid, support X.509 authentication. Dataflows can present a client X.509 certificate and negotiate the TLS communication. 
+
+The certificate and private key must be in PEM format and not password protected.
+
+> [!TIP]
+> PEM format is a common format for certificates and keys. Certificates and keys in PEM format are base64-encoded ASCII files with a headers that look like `-----BEGIN CERTIFICATE-----` and `-----BEGIN EC PRIVATE KEY----`
+> 
+> If you have a certificate in another format, you can convert it to PEM format using OpenSSL. To learn more, see [How to convert a certificate into the appropriate format](https://knowledge.digicert.com/solution/how-to-convert-a-certificate-into-the-appropriate-format).
+
+Before configuring the dataflow endpoint, create a secret with the certificate and private key. 
+
+- If you use the operations portal, the secret is automatically formatted and synced to the Kubernetes cluster.
+- If you use Bicep or Kubernetes, manually create the secret with the certificate and private key in the same namespace as the MQTT dataflow endpoint.
+
+  ```bash
+  kubectl create secret generic <X509_SECRET_NAME> -n azure-iot-operations --from-file=client_cert.pem=<CLIENT_CERT_FILE>.pem --from-file=client_key.pem=<PRIVATE_KEY_FILE>.pem --from-file=client_intermediate_certs.pem=<INTERMEDIATE_CERT_FILE>.pem
+  ```
+
+  Here, the secret must have `client_cert.pem` and `client_key.pem` as the key names for the certificate and private key. Optionally, the secret can also have `client_intermediate_certs.pem` as the key name for the intermediate certificates.
+
+# [Portal](#tab/portal)
+
+> [!IMPORTANT]
+> To use the operations experience portal to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+
+> [!IMPORTANT]
+> The operations experience portal currently has a known issue where creating a X.509 secret results in a secret with incorrectly encoded data. To learn more and the workaround, see [known issues](../troubleshoot/known-issues.md).
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
+
+Here, under **Synced secret name**, enter a name for the secret. This name is used to reference the secret in the dataflow endpoint settings and is the name of the secret as stored in the Kubernetes cluster.
+
+Then, under *X509 client certificate*, *X509 client key*, and *X509 intermediate certificates*, select **Add reference** to add the certificate, private key, and intermediate certificates. On the next page, select the secret from Azure Key Vault with **Add from Azure Key Vault** or **Create new** secret.
+
+If you select **Create new**, enter the following settings:
+
+| Setting | Description |
+| ------- | ----------- |
+| Secret name | The name of the secret in Azure Key Vault. Pick a name that is easy to remember to select the secret later from the list. |
+| Secret value | The certificate, private key, or intermediate certificates in PEM format. |
+| Set activation date | If turned on, the date when the secret becomes active. |
+| Set expiration date | If turned on, the date when the secret expires. |
+
+To learn more about secrets, see [Create and manage secrets in Azure IoT Operations Preview](../secure-iot-ops/howto-manage-secrets.md).
+
+# [Bicep](#tab/bicep)
+
+```bicep
+mqttSettings: {
+  authentication: {
+    method: 'X509Certificate'
+      x509CertificateSettings:
+        secretRef: '<X509_SECRET_NAME>'
+  }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+mqttSettings:
+  authentication:
+    method: X509Certificate
+    x509CertificateSettings:
+      secretRef: <X509_SECRET_NAME>
 ```
 
 ---

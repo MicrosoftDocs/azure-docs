@@ -35,20 +35,22 @@ Next, [create an event hub in the namespace](../../event-hubs/event-hubs-create.
 
 ### Assign permission to managed identity
 
-Now that the Azure Event Hubs namespace and event hub is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to send or receive messages to the event hub.
+To configure a dataflow endpoint for Azure Event Hubs, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
+
+After the Azure Event Hubs namespace and event hub is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to send or receive messages to the event hub.
 
 If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
 
 Then, go to the Event Hubs namespace > **Access control (IAM)** > **Add role assignment**.
 
-1. On the **Role** tab select an appropriate role like `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver` role. This gives the managed identity the necessary permissions to send or receive messages for all event hubs in the namespace. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
+1. On the **Role** tab select an appropriate role like `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver`. This gives the managed identity the necessary permissions to send or receive messages for all event hubs in the namespace. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
 1. On the **Members** tab:
     1. If using system-assigned managed identity, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
     1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
 
-### Create dataflow endpoint
+### Create dataflow endpoint for Azure Event Hubs
 
-Once the Azure Event Hubs namespace and event hub is configured, you can create a dataflow endpoint for the event hub.
+Once the Azure Event Hubs namespace and event hub is configured, you can create a dataflow endpoint for the Kafka-enabled Azure Event Hubs namespace.
 
 # [Portal](#tab/portal)
 
@@ -144,7 +146,7 @@ kubectl apply -f <FILE>.yaml
 > [!NOTE]
 > The Kafka topic, or individual event hub, is configured later when you create the dataflow. The Kafka topic is the destination for the dataflow messages.
 
-### Use connection string for authentication to Event Hubs
+#### Use connection string for authentication to Event Hubs
 
 # [Portal](#tab/portal)
 
@@ -306,68 +308,7 @@ To customize the endpoint settings, use the following sections for more informat
 
 ## Available authentication methods
 
-The following authentication methods are available for Kafka broker dataflow endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
-
-### SASL
-
-To use SASL for authentication, specify the SASL authentication method and configure SASL type and a secret reference with the name of the secret that contains the SASL token.
-
-# [Portal](#tab/portal)
-
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **SASL**.
-
-Enter the following settings for the endpoint:
-
-| Setting                        | Description                                                                                       |
-| ------------------------------ | ------------------------------------------------------------------------------------------------- |
-| SASL type                      | The type of SASL authentication to use. Supported types are `Plain`, `ScramSha256`, and `ScramSha512`. |
-| Synced secret name             | The name of the Kubernetes secret that contains the SASL token.                                   |
-| Username reference or token secret | The reference to the username or token secret used for SASL authentication.                     |
-| Password reference of token secret | The reference to the password or token secret used for SASL authentication.                     |
-
-# [Bicep](#tab/bicep)
-
-```bicep
-kafkaSettings: {
-  authentication: {
-    method: 'Sasl' // Or ScramSha256, ScramSha512
-    saslSettings: {
-      saslType: 'Plain' // Or ScramSha256, ScramSha512
-      secretRef: '<SECRET_NAME>'
-    }
-  }
-}
-```
-
-# [Kubernetes (preview)](#tab/kubernetes)
-
-```bash
-kubectl create secret generic sasl-secret -n azure-iot-operations \
-  --from-literal=token='<YOUR_SASL_TOKEN>'
-```
-
-```yaml
-kafkaSettings:
-  authentication:
-    method: Sasl
-    saslSettings:
-      saslType: Plain # Or ScramSha256, ScramSha512
-      secretRef: <SECRET_NAME>
-```
-
----
-
-The supported SASL types are:
-
-- `Plain`
-- `ScramSha256`
-- `ScramSha512`
-
-The secret must be in the same namespace as the Kafka dataflow endpoint. The secret must have the SASL token as a key-value pair. For example:
-
-
-<!-- TODO: double check! -->
-
+The following authentication methods are available for Kafka broker dataflow endpoints.
 
 ### System-assigned managed identity
 
@@ -490,6 +431,64 @@ kafkaSettings:
 ---
 
 Here, the scope is the audience of the managed identity. The default value is the same as the Event Hubs namespace host value in the form of `https://<NAMESPACE>.servicebus.windows.net`. However, if you need to override the default audience, you can set the scope field to the desired value using Bicep or Kubernetes.
+
+### SASL
+
+To use SASL for authentication, specify the SASL authentication method and configure SASL type and a secret reference with the name of the secret that contains the SASL token.
+
+# [Portal](#tab/portal)
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **SASL**.
+
+Enter the following settings for the endpoint:
+
+| Setting                        | Description                                                                                       |
+| ------------------------------ | ------------------------------------------------------------------------------------------------- |
+| SASL type                      | The type of SASL authentication to use. Supported types are `Plain`, `ScramSha256`, and `ScramSha512`. |
+| Synced secret name             | The name of the Kubernetes secret that contains the SASL token.                                   |
+| Username reference or token secret | The reference to the username or token secret used for SASL authentication.                     |
+| Password reference of token secret | The reference to the password or token secret used for SASL authentication.                     |
+
+# [Bicep](#tab/bicep)
+
+```bicep
+kafkaSettings: {
+  authentication: {
+    method: 'Sasl' // Or ScramSha256, ScramSha512
+    saslSettings: {
+      saslType: 'Plain' // Or ScramSha256, ScramSha512
+      secretRef: '<SECRET_NAME>'
+    }
+  }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```bash
+kubectl create secret generic sasl-secret -n azure-iot-operations \
+  --from-literal=token='<YOUR_SASL_TOKEN>'
+```
+
+```yaml
+kafkaSettings:
+  authentication:
+    method: Sasl
+    saslSettings:
+      saslType: Plain # Or ScramSha256, ScramSha512
+      secretRef: <SECRET_NAME>
+```
+
+---
+
+The supported SASL types are:
+
+- `Plain`
+- `ScramSha256`
+- `ScramSha512`
+
+The secret must be in the same namespace as the Kafka dataflow endpoint. The secret must have the SASL token as a key-value pair.
+<!-- TODO: double check! Provide an example? -->
 
 ### Anonymous
 
