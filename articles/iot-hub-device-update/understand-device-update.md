@@ -27,19 +27,20 @@ Device Update is a cloud-hosted solution for connecting virtually any device. De
 
 Device Update supports a broad range of IoT operating systems, including [Eclipse ThreadX](https://github.com/eclipse-threadx) real-time operating system, and is extensible via open source. Device Update for IoT Hub also supports updating Azure IoT Edge devices. 
 
-Microsoft co-developed Device Update for IoT Hub offerings with semiconductor partners including STMicroelectronics, NXP, Renesas, and Microchip. To learn how to configure, build, and deploy over-the-air updates to microcontroller unit (MCU) class devices, download the [Eclipse ThreadX samples](https://github.com/eclipse-threadx/samples/tree/PublicPreview/ADU) for key semiconductor evaluation boards. Both a Device Update agent simulator binary and Raspberry Pi reference Yocto images are provided. For getting started guides, see [Get started with Eclipse ThreadX and Azure IoT](https://github.com/eclipse-threadx/getting-started).
+Microsoft codeveloped Device Update for IoT Hub offerings with semiconductor partners including STMicroelectronics, NXP, Renesas, and Microchip. To learn how to configure, build, and deploy over-the-air updates to microcontroller unit (MCU) class devices, download the [Eclipse ThreadX samples](https://github.com/eclipse-threadx/samples/tree/PublicPreview/ADU) for key semiconductor evaluation boards. Both a Device Update agent simulator binary and Raspberry Pi reference Yocto images are provided. For getting started guides, see [Get started with Eclipse ThreadX and Azure IoT](https://github.com/eclipse-threadx/getting-started).
 
 Device Update agents are built and provided for various [Linux operating systems](support.md#linux-operating-systems). Device Update for IoT Hub also provides open-source code if you're not running Eclipse ThreadX or supported Linux platforms. You can port the agent to the distribution you're running.
 
 Device Update works with IoT Plug and Play and can manage any device that supports the required IoT Plug and Play interfaces. For more information, see [Device Update for IoT Hub and IoT Plug and Play](device-update-plug-and-play.md).
 
+<a name="support-for-a-wide-range-of-update-artifacts"></a>
 ## Supported update types
 
 Device Update for IoT Hub supports two forms of updates, *package-based* and *image-based*. The method you choose depends on your specific use case and device environment.
 
 - Package-based updates are targeted to alter only a specific device component or application. Package-based updates have lower bandwidth consumption and shorter download and install times, allowing for less device downtime. Package-based updates avoid the overhead of creating images.
 
-- Image-based updates provide a high level of confidence in the device end-state, allowing easier replication between pre-production and production environments or between A/B failover models. Image-based updates avoid the challenges of managing packages and their dependencies.
+- Image-based updates provide a high level of confidence in the device end-state, allowing easier replication between preproduction and production environments or between A/B failover models. Image-based updates avoid the challenges of managing packages and their dependencies.
 
 ## Flexible features
 
@@ -47,7 +48,7 @@ You can use Device Update for IoT Hub management and deployment controls to maxi
 
 ### Management and reporting tools
 
-- An update management experience that's integrated with Azure IoT Hub
+- An update management experience integrated with Azure IoT Hub
 - Programmatic APIs to enable automation and custom portal experiences
 - Subscription- and role-based access controls available through the Azure portal
 - At-a-glance update compliance and status views across heterogenous device fleets
