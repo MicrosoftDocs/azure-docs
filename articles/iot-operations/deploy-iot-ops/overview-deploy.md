@@ -21,8 +21,10 @@ Microsoft supports the following environments for Azure IoT Operations deploymen
 | Environment | Minimum version | Availability |
 | ----------- | --------------- | ------------ |
 | K3s on Ubuntu 24.04 | K3s version 1.31.1 | General availability |
-| Azure Kubernetes Service (AKS) Edge Essentials on Windows 11 IoT Enterprise | AksEdge-K3s-1.29.6-1.8.202.0 | Public preview |
-| Azure Kubernetes Service (AKS) on Azure Local | Azure Stack HCI OS, version 23H2, build 2411 | Public preview |
+| Azure Kubernetes Service (AKS) Edge Essentials on Windows 11 IoT Enterprise <sup>1</sup> | AksEdge-K3s-1.29.6-1.8.202.0 | Public preview |
+| Azure Kubernetes Service (AKS) on Azure Local <sup>1</sup> | Azure Stack HCI OS, version 23H2, build 2411 | Public preview |
+
+<sup>1</sup> Regardless of the host system environment, Azure IoT Operations only supports deployment to Kubernetes clusters running on Linux nodes.
 
 >[!NOTE]
 >Billing usage records are collected on any environment where Azure IoT Operations is installed, regardless of support or availability levels.
@@ -87,7 +89,7 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
 
 * Endpoints in [Azure CLI endpoints](/cli/azure/azure-cli-endpoints?tabs=azure-cloud#endpoints).
 
-  You need `graph.windows.net`, `*.azurecr.io`, `*.blob.core.windows.net`, `*.vault.azure.net` from this endpoint list.
+  Azure IoT Operations uses `graph.windows.net`, `*.azurecr.io`, `*.blob.core.windows.net`, `*.vault.azure.net` from this endpoint list.
 
 * The following endpoints are required specifically for Azure IoT Operations:
 
@@ -102,6 +104,7 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
   * Event Grid: [Troubleshoot connectivity issues - Azure Event Grid](/azure/event-grid/troubleshoot-network-connectivity).
   * Azure Data Lake Storage Gen 2: [Storage account standard endpoints](/azure/storage/common/storage-account-overview#standard-endpoints).
 
+Currently, Azure IoT Operations doesn't support proxies that perform TLS inspection.
 
 ## Next steps
 
