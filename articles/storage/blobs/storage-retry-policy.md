@@ -31,7 +31,7 @@ The following table lists the properties of the [RetryOptions](/dotnet/api/azure
 | [NetworkTimeout](/dotnet/api/azure.core.retryoptions.networktimeout) | [TimeSpan](/dotnet/api/system.timespan) | The timeout applied to an individual network operation. | 100 seconds |
 
 > [!NOTE]
-> `StorageClientOptions` bumps up the default value for `MaxRetries` from 3 to 5. All other properties have the same default values as `RetryOptions`.
+> `StorageClientOptions` increases the default value for `MaxRetries` from 3 to 5. All other properties have the same default values as `RetryOptions`.
 
 In this code example for Blob Storage, we configure the retry options in the `Retry` property of the [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions) class. Then, we create a client object for the blob service using the retry options.
 
