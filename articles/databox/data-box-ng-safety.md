@@ -32,24 +32,23 @@ Hazard symbols identified in the manual are:
 
 | Icon | Description |
 |:---- |:----------- |
-| :::image type="icon" source="media\data-box-ng-safety-guidelines\icon-safety-read-all-instructions-sml.png" border="false"::: or :::image type="icon" source="media\data-box-ng-safety-guidelines\icon-safety-read-all-instructions-sml-2.png" border="false"::: | Read all instructions first |
+| :::image type="icon" source="media/data-box-ng-safety/icon-safety-read-all-instructions-sml.png" border="false"::: or :::image type="icon" source="media/data-box-ng-safety/icon-safety-read-all-instructions-sml-2.png" border="false"::: | Read all instructions first |
 | :::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::: | Hazard symbol |
-| :::image type="icon" source="media\data-box-ng-safety-guidelines\icon-safety-tip-hazard.png" border="false":::  | Tip hazard|
-| :::image type="icon" source="media\data-box-ng-safety-guidelines\icon-overload-tip-hazard.jpg" border="false":::  | Overload tip hazard|
-| :::image type="icon" source="media\data-box-ng-safety-guidelines\icon-heavy-weight-hazard.png" border="false":::  | Overload tip hazard|
-| :::image type="icon" source="media\data-box-ng-safety-guidelines\icon-safety-electric-shock.png" border="false"::: | Electric shock hazard |
-| :::image type="icon" source="media\data-box-ng-safety-guidelines\icon-hot-surface.jpg" border="false"::: | Hot surface hazard |
-| :::image type="icon" source="media\data-box-ng-safety-guidelines\icon-rotating-fan-blade.png" border="false"::: | Rotating Fan Blade hazard |
-| :::image type="icon" source="media\data-box-ng-safety-guidelines\icon-safety-do-not-access.png" border="false"::: | No user serviceable parts. Don't access unless properly trained. |
-| :::image type="icon" source="media\data-box-ng-safety-guidelines\icon-pinching-points.png" border="false":::  | Crush or pinching hazard |
-| :::image type="icon" source="media\data-box-ng-safety-guidelines\icon-multiple-persons.png" border="false":::  | Multiple persons or mechanical aid might be necessary due to weight hazard. |
+| :::image type="icon" source="media/data-box-ng-safety/icon-safety-tip-hazard.png" border="false":::  | Tip hazard|
+| :::image type="icon" source="media/data-box-ng-safety/icon-overload-tip-hazard.jpg" border="false":::  | Overload tip hazard|
+| :::image type="icon" source="media/data-box-ng-safety/icon-heavy-weight-hazard.png" border="false":::  | Overload tip hazard|
+| :::image type="icon" source="media/data-box-ng-safety/icon-safety-electric-shock.png" border="false"::: | Electric shock hazard |
+| :::image type="icon" source="media/data-box-ng-safety/icon-hot-surface.jpg" border="false"::: | Hot surface hazard |
+| :::image type="icon" source="media/data-box-ng-safety/icon-rotating-fan-blade.png" border="false"::: | Rotating Fan Blade hazard |
+| :::image type="icon" source="media/data-box-ng-safety/icon-safety-do-not-access.png" border="false"::: | No user serviceable parts. Don't access unless properly trained. |
+| :::image type="icon" source="media/data-box-ng-safety/icon-pinching-points.png" border="false":::  | Crush or pinching hazard |
+| :::image type="icon" source="media/data-box-ng-safety/icon-multiple-persons.png" border="false":::  | Multiple persons or mechanical aid might be necessary due to weight hazard. |
 
 ## Installation and handling precautions
 
 :::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false":::**DANGER:**
 * Before you begin to unpack the equipment, to prevent hazardous situations resulting in death, serious injury and/or property damage, read, and follow all warnings and instructions.
 * Inspect the as-received equipment for damages. If the equipment enclosure is damaged, [contact Microsoft Support](./index.yml) to obtain a replacement. Don't attempt to operate the device.
-
 
 :::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false":::**CAUTION:**
 * If you suspect the device is malfunctioning, [contact Microsoft Support](./index.yml) to obtain a replacement. Don't attempt to service the equipment. 
