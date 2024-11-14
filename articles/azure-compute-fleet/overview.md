@@ -47,6 +47,16 @@ Using Azure Compute Fleet, you can:
 - Compute Fleet is available in all Azure public regions, expect those located in the China.
 - Compute Fleet can span across multiple-regions.
 
+## Configure your Compute Fleet 
+
+We recommend you consider the following configuration options when creating your Compute Fleet.
+
+| Configuration option | Description |
+|----------------------|-------------|
+| [Spot VM](spot-vm-configuration.md) | Compute Fleet will submit a one-time request for a desired capacity or a fleet that maintains target capacity over time. |
+| [Compute Fleet allocation strategies](allocation-strategies.md) | Choose an allocation strategy for Spot and Standard VMs to optimize your Compute Fleet for the lowest price, capacity, or a combination of both. |
+| [Attribute based VM selection](attribute-based-vm-selection.md) | Specify your VM sizes and types for your fleet or let Azure Compute Fleet decide based on your application requirements. |
+
 ## Target capacity 
 
 Set individual target capacity for Spot and pay-as-you-go VM types with Compute Fleet. This capacity could be managed individually based on your workloads or application requirement. You specify target capacity using VM instances. 
