@@ -445,6 +445,61 @@ Two Kubernetes built-in [types of Secrets](https://kubernetes.io/docs/concepts/c
 |---|---|
 |.kubernetes.secret.type|kubernetes.io/tls|
 
+The following examples show how the data is populated in the generated Secrets with different types.
+
+Assuming an App Configuration store has these Key Vault references:
+
+|key|value|tags|
+|---|---|---|
+|app1-secret1|uri1|`{}`|
+|app1-secret2|uri2|`{}`|
+|app1-certificate|uri3|`{".kubernetes.secret.type": "kubernetes.io/tls"}`|
+
+The following sample generates Secrets of both Opaque and TLS types.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: app1*
+  secret:
+    target:
+      secretName: secret-created-by-appconfig-provider
+    auth:
+      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
+```
+
+The generated Secrets are populated with the following data:
+
+#### [Opaque](#tab/Opaque)
+
+```yaml
+name: secret-created-by-appconfig-provider
+type: Opaque
+data:
+  app1-secret1: value1
+  app1-secret2: value2
+```
+
+#### [TLS](#tab/TLS)
+
+```yaml
+name: app1-certificate
+type: kubernetes.io/tls
+data:
+  tls.crt: |
+    crt data
+  tls.key: |
+    key data
+```
+
 #### Refresh of secrets from Key Vault
 
 Refreshing secrets from Key Vaults usually requires reloading the corresponding Key Vault references from Azure App Configuration. However, with the `spec.secret.refresh` property, you can refresh the secrets from Key Vault independently. This is especially useful for ensuring that your workload automatically picks up any updated secrets from Key Vault during secret rotation. Note that to load the latest version of a secret, the Key Vault reference must not be a versioned secret.
