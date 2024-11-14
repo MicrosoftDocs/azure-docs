@@ -14,28 +14,8 @@ ms.custom: template-how-to, engagement-fy23
 
 When you create a virtual machine (VM), it's automatically assigned a private IP address from a range that you specify. This IP address is based on the subnet in which the VM is deployed, and the VM keeps this address until the VM is deleted. Azure dynamically assigns the next available private IP address from the subnet you create a VM in. If you want to assign a specific IP address in this subnet for your VM, use a static IP address.
 
-## Prerequisites
+[!INCLUDE [ip-services-prerequisites](../../../includes/ip-services-prerequisites.md)]
 
-# [Azure portal](#tab/azureportal)
-
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-# [Azure PowerShell](#tab/azurepowershell)
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure PowerShell installed locally or Azure Cloud Shell.
-    - If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. 
-    - Run `Get-Module -ListAvailable Az` to find the installed version. 
-    - If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-
-# [Azure CLI](#tab/azurecli)
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
----
 ## Create a resource group and a virtual machine
 
 # [Azure portal](#tab/azureportal)
@@ -43,11 +23,8 @@ When you create a virtual machine (VM), it's automatically assigned a private IP
 Use the following steps to create a virtual network along with a resource group and necessary network resources:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
 1. In the portal, search for and select **Virtual machines**.
-
 1. Select **Create** > **Azure virtual machine**.
-
 1. On the **Basics** tab of the **Create a virtual machine** screen, enter or select the following values:
 
    - **Subscription**: Keep the default or select a different subscription.
