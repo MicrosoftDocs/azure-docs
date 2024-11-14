@@ -7,7 +7,7 @@ ms.date: 09/30/2024
 
 # Azure Resource Notifications - ContainerService events in Azure Event Grid (Preview)
 
-Azure Kubernetes Service (AKS) utilizes the ContainerServiceEventResources system topic to publish advance notifications for scheduled maintenance events on AKS clusters. This feature allows you to receive push notifications on a regular basis for critical maintenance operations for various event statuses such as scheduled, started, completed, cancelled, and failed. Particularly for the scheduled event status, one notification is sent 7 days prior to the actual maintenance operation and a second notification 24 hrs in advance.
+Azure Kubernetes Service (AKS) utilizes the Container Service Event Resources system topic to publish advance notifications for scheduled maintenance events on AKS clusters. This feature allows you to receive push notifications on a regular basis for critical maintenance operations for various event statuses such as scheduled, started, completed, cancelled, and failed. Particularly for the scheduled event status, one notification is sent 7 days prior to the actual maintenance operation and a second notification 24 hrs in advance.
 
 These notifications cover:
 - AKS-initiated maintenances (e.g., Underlay migration, Konnectivity Tunnel Switch)
