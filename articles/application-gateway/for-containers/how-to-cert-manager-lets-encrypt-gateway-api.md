@@ -11,7 +11,7 @@ ms.author: greglin
 
 # Cert-manager and Let's Encrypt with Application Gateway for Containers - Gateway API
 
-This guide demonstrates how to use cert-manager to automatically issue and renew SSL/TLS certificates to the frontend(s) of your Azure Application Gateway for Containers deployment. We use the Gateway API to configure the necessary resources.
+This guide demonstrates how to use cert-manager to automatically issue and renew SSL/TLS certificates to one or more frontends of your Azure Application Gateway for Containers deployment. We use the Gateway API to configure the necessary resources.
 
 For the purposes of this example, we have cert-manager configure certificates issued from Let's Encrypt to demonstrate an end-to-end deployment, where Application Gateway for Containers is providing TLS offloading.
 
@@ -38,7 +38,7 @@ More details on cert-manager and Let's Encrypt with AKS in general may be found 
    - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
    - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
-### Step 1: Create a Gateway resource
+### Create a Gateway resource
 
 Create a new `Gateway` resource that listens for HTTP requests from Let's Encrypt during the challenge process.
 
@@ -165,7 +165,7 @@ status:
       kind: HTTPRoute
 ```
 
-### Step 2: Install Cert-Manager
+### Install Cert-Manager
 
 Install cert-manager using Helm:
 
@@ -182,9 +182,9 @@ helm install \
 
 The helm installation creates three deployments and some services and pods in a new namespace called `cert-manager`. It also installs cluster-scoped supporting resources, such as RBAC roles and Custom Resource Definitions.
 
-### Step 3: Create a ClusterIssuer
+### Create a ClusterIssuer
 
-Create a ClusterIssuer resource to define how cert-manager will communicate with Let's Encrypt.  For this example, an HTTP challenge will be used.  During challenge, cert-manager creates an `HTTPRoute` resource and corresponding pod presenting a validation endpoint to prove ownership of the domain.
+Create a ClusterIssuer resource to define how cert-manager will communicate with Let's Encrypt. For this example, an HTTP challenge is used. During challenge, cert-manager creates an `HTTPRoute` resource and corresponding pod presenting a validation endpoint to prove ownership of the domain.
 
 >[!Tip]
 >Other challenges supported by Let's Encrypt are documented on [letsencrypt.org - Challenge Types](https://letsencrypt.org/docs/challenge-types/)
@@ -236,7 +236,7 @@ The status should show `True` and type `Ready`.
       type: Ready
 ```
 
-### Step 4: Create a certificate
+### Create a certificate
 
 ```bash
 kubectl apply -f - <<EOF
@@ -261,13 +261,16 @@ Execute the following command to validate issuance of the certificate. If the ce
 kubectl get certificate letsencrypt-cert -n test-infra
 ```
 
-If the certificate wasn't issued, you can execute the following command to validate the status of a challenge.  Note, if the certificate has been successfully issued, the challenge will no longer be listed.
+If the certificate wasn't issued, you can execute the following command to validate the status of a challenge.
+
+>[!Note]
+> If the certificate has been successfully issued, the challenge will no longer be listed.
 
 ```bash
 kubectl get challenges -n test-infra -o yaml
 ```
 
-### Step 5: Enable HTTPS on the Gateway resource
+### Enable HTTPS on the Gateway resource
 
 Modify the gateway to add a second listener to terminate HTTPS requests with the issued Let's Encrypt certificate.
 
@@ -359,7 +362,7 @@ EOF
 
 ---
 
-### Step 6: Create a HTTPRoute that listens for your hostname
+### Create a HTTPRoute that listens for your hostname
 
 Create a HTTPRoute to handle requests received by the `https-listener` listener.
 
