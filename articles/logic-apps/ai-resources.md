@@ -17,38 +17,25 @@ This guide provides examples, samples, and other resources to help you learn how
 
 ## AI building blocks
 
-This section describes built-in operations and links to documentation that you can use to build Standard workflows for AI integration scenarios, such as document ingestion and making it possible for customers to "chat with the data." For example, the **Azure OpenAI** and **Azure AI Search** connectors provide operations that simplify backend processes with codeless setup and reduce complexity around integrating AI capabilities into your workflows. These operations don't require any custom code, logic, or configuration to use. This no-code approach helps you automate complex workflows whether the task is document parsing, data chunking, or powering generative AI models, which helps you unlock your data's full potential with minimal effort.
+This section describes built-in operations and links to documentation that you can use to build Standard workflows for AI integration scenarios, such as document ingestion and making it possible for customers to "chat with the data."
 
-### Parse a document
+For example, the **Azure OpenAI** and **Azure AI Search** connectors provide operations that simplify backend processes with codeless setup and reduce complexity around integrating AI capabilities into your workflows. These operations don't require any custom code, logic, or configuration to use. This no-code approach helps you automate complex workflows whether the task is document parsing, data chunking, or powering generative AI models, which helps you unlock your data's full potential with minimal effort.
 
-The **Parse a document** action is a built in or "in app" operation that converts content into tokenized string output so that a workflow can read and parse thousands of documents with file types such as PDF, DOCX, CSV, PPT, HTML, and others in multiple languages. This action helps you prepare content for consumption by Azure AI services in your workflows. For example, connector operations for Azure AI services such as **Azure OpenAI** and **Azure AI Search** usually expect tokenized input and can handle only a limited number of tokens.
+| Name | Connector or operation? | Capabilities | Documentation |
+|------|------------------------|--------------|---------------|
+| **Parse a document** | Action <br>(built in)| Converts content into tokenized string output so that a workflow can read and parse thousands of documents with file types such as PDF, DOCX, CSV, PPT, HTML, and others in multiple languages. <br><br>This action helps you prepare content for consumption by Azure AI services in your workflows. For example, connector operations for Azure AI services such as **Azure OpenAI** and **Azure AI Search** usually expect tokenized input and can handle only a limited number of tokens. | [Parse or chunk content for Standard workflows in Azure Logic Apps](/azure/logic-apps/parse-document-chunk-text) |
+| **Chunk text** | Action <br>(built in) | Splits a tokenized string into pieces for subsequent actions to more easily consume in the same workflow. <br><br>This action helps you prepare content for consumption by Azure AI services in your workflows. For example, connector operations for Azure AI services such as **Azure OpenAI** and **Azure AI Search** usually expect tokenized input and can handle only a limited number of tokens. | [Parse or chunk content for Standard workflows in Azure Logic Apps](/azure/logic-apps/parse-document-chunk-text) |
+| **Azure OpenAI** | Connector <br>(built in) | Provides operations for AI capabilities such as ingesting data, generating embeddings, and chat completion, which are critical for creating sophisticated AI applications. You can integrate the natural language processing capabilities in Azure OpenAI with the intelligent search capabilities in Azure AI Search and other connectors that help you access and work with vector stores without having to write code. | - [Connect to Azure AI services from Standard workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai)<br><br>- [Azure OpenAI built-in operations reference](/azure/logic-apps/connectors/built-in/reference/openai) |
 
-For more information, see [Parse or chunk content for Standard workflows in Azure Logic Apps](/azure/logic-apps/parse-document-chunk-text).
-
-### Chunk text
-
-The **Chunk text** action is a built in or "in app" operation that splits a tokenized string into pieces for subsequent actions in the same workflow to easily consume. This action helps you prepare content for consumption by Azure AI services in your workflows. For example, connector operations for Azure AI services such as **Azure OpenAI** and **Azure AI Search** usually expect tokenized input and can handle only a limited number of tokens.
-
-For more information, see [Parse or chunk content for Standard workflows in Azure Logic Apps](/azure/logic-apps/parse-document-chunk-text).
-
-### Azure OpenAI connector
-
-The **Azure OpenAI** connector provides built in or "in-app" operations for AI capabilities such as ingesting data, generating embeddings, and chat completion, which are critical for creating sophisticated AI applications. You can integrate the natural language processing capabilities in Azure OpenAI with the intelligent search capabilities in Azure AI Search and other connectors that help you access and work with vector stores without having to write code.
-
-For more information, see the following documentation:
-
-- [Connect to Azure AI services from Standard workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai)
-- [Azure OpenAI built-in operations reference](/azure/logic-apps/connectors/built-in/reference/openai)
-
-### Connectors for vector stores
+#### Connectors for vector stores
 
 The following connectors provide AI operations for data indexing and retrieval, working with vector databases, search, and standard databases.
 
-| Connector | Capabilities |
-|-----------|--------------|
-| **Azure AI Search** | Provides built in or "in-app" operations for AI capabilities such as enhancing data retrieval with indexing, advanced vector operations, and hybrid search operations. For more information, see the following documentation: <br><br>- [Connect to Azure AI services from Standard workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai) <br>- [Azure AI Search built-in operations reference](/azure/logic-apps/connectors/built-in/reference/azureaisearch) |
-| **SQL Server** | Provides built in or "in-app" operations for working with rows, tables, and stored procesures in a SQL database. For more information, see the following documentation: <br><br>- [Connect to SQL database from workflows in Azure Logic Apps](/azure/connectors/connectors-create-api-sqlazure?tabs=standard) <br>- [SQL Server built-in operations reference](/azure/logic-apps/connectors/built-in/reference/sql) |
-| **Azure Cosmos DB** | Provides multitenant Azure-hosted operations for working with documents and stored procedures in globally distributed, elastic and independently scalable, multi-model database. For more information, see the following documentation: <br><br>- [Process and create documents in Azure Cosmos DB with Azure Logic Apps](/azure/connectors/connectors-create-api-cosmos-db?tabs=standard) <br>- [Azure Cosmos DB connector reference](/connectors/documentdb) <br><br>**Note**: This service was previously named Azure DocumentDB. |
+| Name | Connector | Capabilities | Documentation |
+|------|-----------|--------------|---------------|
+| **Azure AI Search** | Connector <br>(built in) | Provides built in or "in-app" operations for AI capabilities such as enhancing data retrieval with indexing, advanced vector operations, and hybrid search operations. | - [Connect to Azure AI services from Standard workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai) <br><br>- [Azure AI Search built-in operations reference](/azure/logic-apps/connectors/built-in/reference/azureaisearch) |
+| **SQL Server** | Connector <br>(built in) | Provides built in or "in-app" operations for working with rows, tables, and stored procesures in a SQL database. | - [Connect to SQL database from workflows in Azure Logic Apps](/azure/connectors/connectors-create-api-sqlazure?tabs=standard) <br><br>- [SQL Server built-in operations reference](/azure/logic-apps/connectors/built-in/reference/sql) |
+| **Azure Cosmos DB** | Connector <br>(Azure-managed and hosted) | Provides multitenant Azure-hosted operations for working with documents and stored procedures in globally distributed, elastic and independently scalable, multi-model database. <br><br>**Note**: This service was previously named Azure DocumentDB. | - [Process and create documents in Azure Cosmos DB with Azure Logic Apps](/azure/connectors/connectors-create-api-cosmos-db?tabs=standard) <br><br>- [Azure Cosmos DB connector reference](/connectors/documentdb) |
 
 ## Ingest documents and chat with data
 
