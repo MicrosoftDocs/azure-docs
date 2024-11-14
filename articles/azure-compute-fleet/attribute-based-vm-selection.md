@@ -28,19 +28,16 @@ To use attribute based VM selection, you must [sign-up for Azure Compute Fleet p
 
 ## Benefits
 
-**Optimal flexibility for Spot VMs**: Compute Fleet offer optimal flexibility when deploying Spot Virtual Machines by selecting from a broad range of VM sizes. This process aligns with best practices for Spot usage by ensuring flexibility in VM size selection, which improves the likelihood of Azure Spot VMs meeting and allocating the required compute capacity.
-
-**Simplified VM type selection**: With the vast array of VM sizes available, finding the best match for your workload can be a complex task. By specifying VM attributes, Azure Virtual Machine Scale Sets can automatically select the VM sizes that fulfill your workload’s requirements. This automation simplifies the process and ensures the right resources are chosen.
-
-**Automatic adoption of new VM sizes**: Azure Virtual Machine Scale Sets can automatically incorporate newer generation VM sizes as they become available. When these new VM sizes meet your specified requirements and align with your chosen allocation strategies, they are seamlessly used by your scale set, ensuring your deployment benefits from the latest advancements without manual updates.
+- **Optimal flexibility for Spot VMs**: Compute Fleet offer optimal flexibility when deploying Spot Virtual Machines by selecting from a broad range of VM sizes. This process aligns with best practices for Spot usage by ensuring flexibility in VM size selection, which improves the likelihood of Azure Spot VMs meeting and allocating the required compute capacity.
+- **Simplified VM type selection**: With the vast array of VM sizes available, finding the best match for your workload can be a complex task. By specifying VM attributes, Azure Virtual Machine Scale Sets can automatically select the VM sizes that fulfill your workload’s requirements. This automation simplifies the process and ensures the right resources are chosen.
+- **Automatic adoption of new VM sizes**: Azure Virtual Machine Scale Sets can automatically incorporate newer generation VM sizes as they become available. When these new VM sizes meet your specified requirements and align with your chosen allocation strategies, they are seamlessly used by your scale set, ensuring your deployment benefits from the latest advancements without manual updates.
 
 ## Process
 
 How does attribute based VM selection work? The process involves two main steps: *VM type determination*, followed by *allocation strategy application*. 
 
-**VM type determination**: Attribute based selection generates a list of VM types based on specified attributes, chosen Azure regions, and Availability Zones.
-
-**Allocation strategy application**: The Compute Fleet applies the selected allocation strategy to the generated list of VMs.
+- **VM type determination**: Attribute based selection generates a list of VM types based on specified attributes, chosen Azure regions, and Availability Zones.
+- **Allocation strategy application**: The Compute Fleet applies the selected allocation strategy to the generated list of VMs.
 
 For Azure Spot VMs, attribute based selection supports both capacity-optimized and lowest-price allocation strategies. For Standard VMs, attribute based selection supports the lowest-price allocation strategy. The Compute Fleet resolves attribute configurations into a list of suitable VM types and initially launches the lowest-priced VM to meet the On-Demand portion of the capacity request, proceeding to the next lowest-priced VM if necessary.
 
