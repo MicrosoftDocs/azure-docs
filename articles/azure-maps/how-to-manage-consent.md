@@ -18,7 +18,7 @@ This article guides you on configuring global data processing settings in your A
 > [!IMPORTANT]
 > If your scenarios don't involve South Korea data, there is no need to enable cross-region processing. This requirement is specific to South Korea due to its data residency laws.
 
-## Configure global data processing in the Azure Portal
+## Configure global data processing in the Azure portal
 
 The Azure Maps Resource location is enabled by default and can be configured in the **Process Data Globally** page of the Azure portal.
 
@@ -35,11 +35,11 @@ To give consent to one or more regions:
 
    :::image type="content" source="./media/consent-management/select-korea-central.png" lightbox="./media/consent-management/select-korea-central.png" alt-text="Screenshot showing the process data globally screen in the Azure portal with the Korea Central region selected.":::
 
-1. Once you have chosen all desired regions, select **Save**.
+1. Once you all desired regions are chosen, select **Save**.
 
    :::image type="content" source="./media/consent-management/save-selection.png" lightbox="./media/consent-management/save-selection.png" alt-text="Screenshot showing the save button highlighted in process data globally screen in the Azure portal.":::
 
-Once your updates are saved, the new selection(s) appear in the list of regions.
+Once your updates are saved, one or more new selections appear in the list of regions.
 
 :::image type="content" source="./media/consent-management/new-region-added.png" lightbox="./media/consent-management/new-region-added.png" alt-text="Screenshot showing the process data globally screen in the Azure portal with the Korea Central region added to the list of supported regions.":::
 
