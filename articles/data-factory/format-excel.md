@@ -145,6 +145,9 @@ source(allowSchemaDrift: true,
     firstRowAsHeader: true) ~> ExcelSourceInlineDataset
 ```
 
+>[!NOTE]
+> Mapping data flow does not support reading protected Excel files, as these files may contain confidentiality notices or enforce specific access restrictions that limit access to their contents.
+
 ## Handling very large Excel files
 
 The Excel connector does not support streaming read for the Copy activity and must load the entire file into memory before data can be read.  To import schema, preview data, or refresh an Excel dataset, the data must be returned before the http request timeout (100s). For large Excel files, these operations may not finish within that timeframe, causing a timeout error.  If you want to move large Excel files (>100MB) into another data store, you can use one of following options to work around this limitation:
