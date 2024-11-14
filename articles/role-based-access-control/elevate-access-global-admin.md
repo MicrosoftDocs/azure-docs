@@ -339,11 +339,11 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 ## View elevate access log entries
 
-When access is elevated, an entry is added to the logs. As an administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it. Elevate access log entries appear in both the directory audit logs and the directory activity logs. This section describes different ways that you can view the elevate access log entries.
+When access is elevated or removed, an entry is added to the logs. As an administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it.
 
-### Differences between log types
+Elevate access log entries appear in both the directory audit logs and the directory activity logs. Elevated access log entries for directory audit logs and directory activity logs include similar information. However, the directory audit logs are easier to filter and export. Also, the export capability enables you to stream access events, which can be used for your alert and detection solutions, such as Microsoft Sentinel or other systems.
 
-Elevated access log entries for directory audit logs and directory activity logs include similar information. However, the directory audit logs are easier to filter and export. The export capability enables you to stream access events, which can be used for your alert and detection solutions such as Microsoft Sentinel or other systems.
+This section describes different ways that you can view the elevate access log entries.
 
 # [Directory audit logs](#tab/directory-audit-logs)
 
@@ -362,17 +362,14 @@ Elevated access log entries for directory audit logs and directory activity logs
 
     :::image type="content" source="./media/elevate-access-global-admin/entra-id-audit-logs-filter.png" alt-text="Screenshot of directory audit logs with Service filter set to Azure RBAC (Elevated Access)." lightbox="./media/elevate-access-global-admin/entra-id-audit-logs-filter.png":::
 
-1. To view when access was elevated, select one of the following audit logs to view the details.
+1. To view details when access was elevated or removed, select these audit log entries.
 
     `User has elevated their access to User Access Administrator for their Azure Resources`
+    `The role assignment of User Access Administrator has been removed from the user`
 
     :::image type="content" source="./media/elevate-access-global-admin/entra-id-audit-logs-elevated-details.png" alt-text="Screenshot of directory audit logs that shows audit log details when access is elevated." lightbox="./media/elevate-access-global-admin/entra-id-audit-logs-elevated-details.png":::
 
-1. To view when elevated access was removed, select one of the following audit logs to view the details.
-
-    `The role assignment of User Access Administrator has been removed from the user`
-
-1. To download and view the payload of the events in the JSON format, select **Download** and **JSON**.
+1. To download and view the payload of the log entries in JSON format, select **Download** and **JSON**.
 
     :::image type="content" source="./media/elevate-access-global-admin/entra-id-audit-logs-download.png" alt-text="Screenshot of directory audit logs that shows the Download Audit Logs pane to download logs." lightbox="./media/elevate-access-global-admin/entra-id-audit-logs-download.png":::
 
