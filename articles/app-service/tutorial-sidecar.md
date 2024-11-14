@@ -166,11 +166,11 @@ The otel-collector sidecar should export data to Application Insights now.
 
 ## 6. Clean up resources
 
-When you no longer need the environment, you can delete the resource group, App service, and all related resources. Just run this command in the Cloud Shell, in the cloned repository:
+When you no longer need the environment, you can delete the resource group, App service, and all related resources. Just run this command in the Cloud Shell:
 
 ```azurecli-interactive
 cd ~/MyFirstAzureWebApp
-az group delete
+az group delete --yes
 cd ~/app-service-sidecar-tutorial-prereqs
 azd down
 ```
