@@ -50,3 +50,8 @@ Same as Spot overview, but DELETE is the default, not Deallocate when it comes t
 **Deallocate:** Compute Fleet deletes your running Spot VM, all other resources attached to the VM and data stored on persistent disk storage isn't deleted.
 
 The Deallocated Spot VM adds up to your Spot target capacity and billing continues for resources attached to the deallocated VMs. 
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Find answers to frequently asked questions.](faq.yml)
