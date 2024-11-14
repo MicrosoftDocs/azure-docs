@@ -47,14 +47,23 @@ Using Azure Compute Fleet, you can:
 - Compute Fleet is available in all Azure public regions, expect those located in the China.
 - Compute Fleet can span across multiple-regions.
 
-## SDK - Compute Fleet
+## Software Development Kits
 
-| SDK | Documentation |
-|-----|---------------|
-| [Java](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-computefleet_1.0.0/sdk/computefleet/azure-resourcemanager-computefleet/) | [Java SDK documentation](https://docs.microsoft.com/javascript/api/overview/azure/arm-computefleet-readme) |
-| [[Java-Script](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computefleet_1.0.0/sdk/computefleet/arm-computefleet/) | [Java-Script SDK documentation](https://docs.microsoft.com/javascript/api/overview/azure/arm-computefleet-readme) |
-| [Python](https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-computefleet_1.0.0/sdk/computefleet/azure-mgmt-computefleet/) | [Python SDK documentation](https://docs.microsoft.com/javascript/api/overview/azure/arm-computefleet-readme) |
-| [Java](https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-computefleet_1.0.0/sdk/computefleet/azure-resourcemanager-computefleet/) | [Java SDK documentation](https://docs.microsoft.com/javascript/api/overview/azure/arm-computefleet-readme) |
+Compute Fleet provides a powerful and flexible way to manage compute resources. It can be seamlessly integrated into your applications using Software Development Kits (SDKs) across multiple programming languages, such as Java, JavaScript, Go, or Python. Each SDK provides robust tools and APIs to interact with your fleet. Using multiple SDKs allows you to integrate Compute Fleet functionalities into a wide range of applications, from backend systems and web services, to data pipelines and real-time applications. Each SDK is designed to align with the conventions of its respective language, ensuring a consistent yet idiomatic development experience.
+
+### Benefits of Compute Fleet SDKs
+
+- **Language flexibility:** Different teams can use the SDK in their preferred programming language, enhancing collaboration across diverse development environments.
+- **Seamless integration:** SDKs provide prebuilt functions to interact with Compute Fleet, reducing the need to write low-level API calls and speeding up development.
+- **Cross-platform compatibility:** Whether building server-side applications, browser-based solutions, or embedded systems - Compute Fleet SDKs cater to a variety of platforms and use cases.
+- **Scalability and automation:** SDKs support automated provisioning and scaling of compute resources, making it easy to manage workloads dynamically across various environments.
+
+### Use Compute Fleet SDKs
+
+To access documentation on how to use Compute Fleet SDKS, follow these steps:
+1. Go to [Azure SDKs](https://azure.github.io/azure-sdk/releases/latest/index.html).
+2. In the search bar located at the top center of the page, type *Compute Fleet*.
+3. Available SDKs for Compute Fleet show up under the various programming languages, such as Java, JavaScript, Go, or Python.
 
 ## Next steps
 
