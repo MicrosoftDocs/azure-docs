@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-bastion
-ms.date: 10/25/2024
+ms.date: 11/19/2024
 ---
 
 # Reliability in Azure Bastion
@@ -37,7 +37,7 @@ You can configure Azure Bastion to be *zone redundant* so that your resources ar
 
 You can specify which availability zone or zones an Azure Bastion resource should be deployed to. Azure Bastion spreads your instances across those zones. The following diagram shows Azure Bastion instances spread across three zones:
 
-:::image type="content" source="media/reliability-bastion/bastion-instances-zones.png" alt-text="Diagram that shows Azure Bastion with three instances, each in a separate availability zone." border="false":::
+:::image type="content" source="media/bastion/bastion-instances-zones.svg" alt-text="Diagram that shows Azure Bastion with three instances, each in a separate availability zone." border="false":::
 
 > [!NOTE]
 > If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can. If an availability zone is unavailable, the instance in the faulty zone is replaced with another instance in a healthy zone.
