@@ -75,7 +75,7 @@ The following table shows the language versions supported for Java functions. Se
 | [Java 21](/java/openjdk/support#release-and-servicing-roadmap) (Linux-only) | Preview | [See documentation]((/java/openjdk/support#release-and-servicing-roadmap)) |
 | [Java 17](/java/openjdk/support#release-and-servicing-roadmap) | GA | [See documentation]((/java/openjdk/support#release-and-servicing-roadmap)) |
 | [Java 11](/java/openjdk/support#release-and-servicing-roadmap) | GA | [See documentation]((/java/openjdk/support#release-and-servicing-roadmap)) |
-| [Java 8](https://endoflife.date/eclipse-temurin) | GA | [See documentation]((/java/openjdk/support#release-and-servicing-roadmap)) |
+| [Java 8](https://adoptium.net/support/) | GA | [See documentation]((/java/openjdk/support#release-and-servicing-roadmap)) |
 
 For more information on developing and running Java functions, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
