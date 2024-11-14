@@ -135,7 +135,7 @@ The following table shows which routing rule the incoming request gets matched t
 | www\.contoso.com/path/zzz | B |
 
 >[!WARNING]
-> If there are no routing rules for an exact-match frontend host with a catch-all route Path (`/*`), then there will not be a match to any routing rule.
+> If there are no routing rules for an exact-match frontend host without a catch-all route path (/*), then no routing rule will be matched.
 >
 > Example configuration:
 >

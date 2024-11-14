@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
 ms.date: 09/09/2024
+
+
+#Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
+
 ---
 
 # What's new in Microsoft Sentinel
@@ -163,7 +167,7 @@ Microsoft Sentinel now provides the ability to create dynamic summaries using [A
 
 - Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
 - Run high performance Kusto Query Language (KQL) queries on summarized data.
-- Use summary rule results for longer in investigations, hunting, and compliance activities.
+- Use summary rule results for longer periods in investigations, hunting, and compliance activities.
 
 For more information, see [Aggregate Microsoft Sentinel data with summary rules](summary-rules.md).
 

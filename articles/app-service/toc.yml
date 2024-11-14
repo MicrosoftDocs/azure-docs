@@ -9,7 +9,9 @@
   - name: About App Service Environments
     href: environment/overview.md
   - name: Compare web hosting options
-    href: /azure/architecture/guide/technology-choices/compute-decision-tree
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Compare JBoss EAP options
+    href: /azure/developer/java/ee/jboss-on-azure?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -41,7 +43,9 @@
     - name: Use settings from App Configuration
       href: app-service-configuration-references.md
     - name: App settings reference
-      href: reference-app-settings.md      
+      href: reference-app-settings.md  
+    - name: Configure error pages
+      href: configure-error-pages.md   
     - name: Configure specific languages
       items:
         - name: Configure ASP.NET
@@ -164,10 +168,12 @@
           href: tutorial-python-postgresql-app.md
         - name: Python with Postgres (FastAPI)
           href: tutorial-python-postgresql-app-fastapi.md
-        - name: Tomcat with MySQL
-          href: tutorial-java-tomcat-mysql-app.md            
         - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
+        - name: Tomcat with MySQL
+          href: tutorial-java-tomcat-mysql-app.md            
+        - name: JBoss with MySQL
+          href: tutorial-java-jboss-mysql-app.md            
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to learn how to build a real-time dashboard in Microsoft Fabric using MQTT data from the MQTT broker.
+ms.service: azure-iot-operations
 ---
 
 # Build a real-time dashboard in Microsoft Fabric using MQTT data from the MQTT broker
@@ -34,28 +35,23 @@ This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codesp
 
 ## Deploy edge and cloud Azure resources
 
-The MQTT broker and north-bound cloud connector components can be deployed as regular Azure resources as they have Azure Resource Provider (RPs) implementations. A single Bicep template file from the *explore-iot-operations* repository deploys all the required edge and cloud resources and Azure role-based access assignments. Run this command in your Codespace terminal:
+<!-- TODO Add deployment for edge and cloud resources using a single bicep file -->
+
+1. [Create a Microsoft Fabric Workspace](/fabric/get-started/create-workspaces).
+ 
+1. [Create a Microsoft Fabric Lakehouse](/fabric/onelake/create-lakehouse-onelake).
+
+1. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, `eventGridHostName`, and `persistentVCName`.
+
+1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
 ```azurecli
-CLUSTER_NAME=<arc-connected-cluster-name>
-TEMPLATE_FILE_NAME='tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep'
-
- az deployment group create \ 
-    --name az-resources \
-    --resource-group $RESOURCE_GROUP \
-    --template-file $TEMPLATE_FILE_NAME \
-    --parameters clusterName=$CLUSTER_NAME
+az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
 ```
 
 > [!IMPORTANT]
 > The deployment configuration is for demonstration or development purposes only. It's not suitable for production environments.
 
-The resources deployed by the template include: 
-* [Event Hubs related resources](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L349) 
-* [IoT Operations MQTT broker Arc extension](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L118)
-* [MQTT broker Broker](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L202)
-* [Kafka north-bound connector and topicmap](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L282)
-* [Azure role-based access assignments](https://github.com/Azure-Samples/explore-iot-operations/blob/88ff2f4759acdcb4f752aa23e89b30286ab0cc99/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L379)
 
 ## Send test MQTT data and confirm cloud delivery
 
@@ -65,9 +61,9 @@ The resources deployed by the template include:
     kubectl apply -f tutorials/mq-realtime-fabric-dashboard/simulate-data.yaml
     ```
 
-1. The Kafka north-bound connector is [preconfigured in the deployment](https://github.com/Azure-Samples/explore-iot-operations/blob/e4bf8375e933c29c49bfd905090b37caef644135/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L331) to pick up messages from the MQTT topic where messages are being published to Event Hubs in the cloud.
+2. The Kafka north-bound connector is [preconfigured in the deployment](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to pick up messages from the MQTT topic where messages are being published to Event Hubs in the cloud.
 
-1. After about a minute, confirm the message delivery in Event Hubs metrics.
+3. After about a minute, confirm the message delivery in Event Hubs metrics.
 
     :::image type="content" source="media/tutorial-real-time-dashboard-fabric/event-hub-messages.png" alt-text="Screenshot of confirming Event Hubs messages." lightbox="media/tutorial-real-time-dashboard-fabric/event-hub-messages.png":::
 
@@ -104,7 +100,3 @@ In a few seconds, you should see the data being ingested into KQL Database.
     :::image type="content" source="media/tutorial-real-time-dashboard-fabric/powerbi-dash-show.png" alt-text="Screenshot of a Power BI report." lightbox="media/tutorial-real-time-dashboard-fabric/powerbi-dash-show.png":::
 
 In this walkthrough, you learned how to build a real-time dashboard in Microsoft Fabric using simulated MQTT data that is published to the MQTT broker.
-
-## Next steps
-
-[Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)

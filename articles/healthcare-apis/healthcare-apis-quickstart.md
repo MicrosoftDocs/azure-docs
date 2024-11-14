@@ -6,7 +6,7 @@ ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: quickstart
 ms.date: 06/07/2024
-ms.author: jasteppe
+ms.author: kesheth
 ms.custom: mode-api
 ---
 

@@ -3,7 +3,7 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: overview
 ms.service: azure-backup
-ms.date: 07/30/2024
+ms.date: 10/01/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -56,6 +56,7 @@ The following table lists the scenarios and recommendations:
 | Backup of workloads in Azure VM (SQL, SAP HANA), Backup using MARS Agent, DPM server. | Use of private endpoints is recommended to allow backup and restore without needing to add to an allowlist any IPs/FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Microsoft Entra IPs or FQDNs. |
 | Azure VM backup | VM backup doesn't require you to allow access to any IPs or FQDNs. So, it doesn't require private endpoints for backup and restore of disks. <br><br> However, file recovery from a vault containing private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br> When using ACL’ed unmanaged disks, ensure the storage account containing the disks allows access to trusted Microsoft services if it's ACL'ed.  |
 | Azure Files backup | Azure Files backups are stored in the local storage account. So it doesn't require private endpoints for backup and restore. |
+| **Changed Vnet for Private endpoint in the Vault and Virtual Machine** | Stop backup protection and configure backup protection in a new vault with Private Endpoints enabled. |
 
 >[!Note]
 >Private endpoints are supported with only DPM server 2022, MABS v4, and later.

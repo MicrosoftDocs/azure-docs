@@ -5,7 +5,7 @@ description: Use the Azure IoT service SDK to import and export device identitie
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 01/25/2024
 ms.custom: devx-track-csharp, references_regions

@@ -3,7 +3,7 @@ title: Known issues for Azure Modeling and Simulation Workbench
 description: "Troubleshooting guide for known issues on Azure Modeling and Simulation Workbench."
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: troubleshooting-known-issue
 ms.date: 09/29/2024
 
@@ -16,6 +16,26 @@ ms.date: 09/29/2024
 The Modeling and Simulation Workbench is a secure, cloud-based platform for collaborative engineering, design, and simulation workloads that require security and confidentiality. The Workbench provides isolation for separate enterprises, allowing each to bring in code, data, or applications and apply them to a shared environment without exposing confidential intellectual property.
 
 This Known Issues guide provides troubleshooting and advisory information for resolving or acknowledging issues to be addressed. Where applicable, workaround or mitigation steps are provided.
+
+## Cadence dependencies
+
+When a Chamber Admin is attempting installation of some recent releases of Cadence tools, some users report missing dependencies on Modeling and Simulation Workbench. To fix this issue, install missing dependencies.
+
+### Troubleshooting steps
+
+During installation, the Cadence dependency checker `checkSysConf` reports that the following packages are missing from Modeling and Simulation Workbench VMs. Some of those packages are installed, but fail the dependency check due to other dependencies.
+
+* `xterm`
+* `motif`
+* `libXp`
+* `apr`
+* `apr-util`
+
+A Chamber Admin can install these packages with the following command in a terminal:
+
+```bash
+sudo yum install motif apr apr-util xterm
+```
 
 ## EDA license upload failures on server name
 

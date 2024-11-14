@@ -1,5 +1,5 @@
 ---
-title: Use Microsoft OneDrive with a RemoteApp (preview) - Azure Virtual Desktop
+title: Use Microsoft OneDrive with a RemoteApp - Azure Virtual Desktop
 description: Learn how to use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop.
 ms.topic: how-to
 author: dknappettmsft

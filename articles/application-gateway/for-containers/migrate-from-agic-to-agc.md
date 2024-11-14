@@ -3,10 +3,9 @@ title: Migration Overview - Move Application Gateway Ingress Controller (AGIC) s
 description: Learn how to migrate services from AGIC to Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: conceptual
-ms.date: 9/16/2024
+ms.date: 10/28/2024
 ms.author: greglin
 ---
 
@@ -67,7 +66,7 @@ Here's a summarized list of AGIC annotations and whether Application Gateway for
 | [Private frontend](migrate-from-agic-to-agc.md#private-frontend) | appgw.ingress.kubernetes.io/use-private-ip | Not supported | Not supported |
 | [WAF](migrate-from-agic-to-agc.md#waf) | appgw.ingress.kubernetes.io/waf-policy-for-path | Not supported | Not supported |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-hostname | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
-| [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-port | Not supported | Not supported |
+| [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-port |  [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-path | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-status-codes | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |
 | [Custom health probe](migrate-from-agic-to-agc.md#custom-health-probes) | appgw.ingress.kubernetes.io/health-probe-interval | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) | [HealthCheckPolicy](migrate-from-agic-to-agc.md#healthcheckpolicy) |

@@ -2,7 +2,7 @@
 title: Organize spaceborne geospatial data with STAC
 description: Create an implementation of SpatioTemporal Asset Catalog (STAC) creation to structure geospatial data.
 author: taiyee
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: conceptual
 ms.custom: ga
 ms.date: 09/29/2022

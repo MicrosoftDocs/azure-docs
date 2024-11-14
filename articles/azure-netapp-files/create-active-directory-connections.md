@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 10/21/2024
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -358,4 +358,3 @@ Alternately, navigate to the **Volumes** menu. Identify the volume for which you
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm) 
 * [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
 * [AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
-* [Access SMB volumes from Microsoft Entra joined Windows virtual machines](access-smb-volume-from-windows-client.md)

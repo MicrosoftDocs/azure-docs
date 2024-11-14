@@ -44,7 +44,7 @@ Some USB peripherals might have functions that use opaque low-level USB redirect
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the session host, host pool RDP properties, or local device. 
 >
 > - [Microsoft Teams](teams-on-avd.md) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -53,7 +53,7 @@ Some USB peripherals might have functions that use opaque low-level USB redirect
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the Cloud PC or local device. 
 >
 > - [Microsoft Teams](/windows-365/enterprise/teams-on-cloud-pc) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -62,7 +62,7 @@ Some USB peripherals might have functions that use opaque low-level USB redirect
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the dev box or local device. 
 >
 > - [Microsoft Teams](/windows-365/enterprise/teams-on-cloud-pc) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 

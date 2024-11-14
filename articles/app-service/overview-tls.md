@@ -45,7 +45,7 @@ You can use Azure Policy to help audit your resources when it comes to minimum T
 
 ### Minimum TLS Version and SCM Minimum TLS Version 
 
-App Service also allows you to set minimum TLS version for incoming requests to your web app and to SCM site. By default, the minimum TLS version for incoming requests to your web app and to SCM would be set to 1.2 on both portal and API. 
+App Service also allows you to set minimum TLS version for incoming requests to your web app and to SCM site. By default, the minimum TLS version for incoming requests to your web app and to SCM is set to 1.2 on both portal and API. 
 
 ### TLS 1.3
 A [Minimum TLS Cipher Suite](#minimum-tls-cipher-suite-preview) setting is available with TLS 1.3. This includes two cipher suites at the top of the cipher suite order:
@@ -54,12 +54,12 @@ A [Minimum TLS Cipher Suite](#minimum-tls-cipher-suite-preview) setting is avail
 
 ### TLS 1.0 and 1.1 
 
-TLS 1.0 and 1.1 are considered legacy protocols and are no longer considered secure. It's generally recommended for customers to use TLS 1.2 or above as the minimum TLS version. When creating a web app, the default minimum TLS version would be TLS 1.2.
+TLS 1.0 and 1.1 are considered legacy protocols and are no longer considered secure. It's generally recommended for customers to use TLS 1.2 or above as the minimum TLS version. When creating a web app, the default minimum TLS version is TLS 1.2.
 
 To ensure backward compatibility for TLS 1.0 and TLS 1.1, App Service will continue to support TLS 1.0 and 1.1 for incoming requests to your web app. However, since the default minimum TLS version is set to TLS 1.2, you need to update the minimum TLS version configurations on your web app to either TLS 1.0 or 1.1 so the requests won't be rejected. 
 
 > [!IMPORTANT]
-> Incoming requests to web apps and incoming requests to Azure are treated differently. App Service will continue to support TLS 1.0 and 1.1 for incoming requests to the web apps. For incoming requests directly to Azure, for example through ARM or API, it's not recommended to use TLS 1.0 or 1.1.
+> Incoming requests to web apps and incoming requests to Azure are treated differently. App Service will continue to support TLS 1.0 and 1.1 for incoming requests to the web apps. For incoming requests directly to the Azure control plane, for example through ARM or API calls, it is not recommended to use TLS 1.0 or 1.1.
 >
 
 ## Minimum TLS cipher suite (preview)

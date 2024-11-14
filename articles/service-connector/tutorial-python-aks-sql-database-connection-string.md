@@ -8,6 +8,8 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 07/23/2024
+zone_pivot_group_filename: service-connector/zone-pivot-groups.json
+zone_pivot_groups: aks-authtype
 ---
 
 # Tutorial: Connect an AKS app to Azure SQL Database (preview)
@@ -21,8 +23,6 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
 > * Update your application code
 > * Clean up Azure resources.
 
-> [!WARNING]
-> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable. See the [tutorial using a managed identity](tutorial-python-aks-storage-workload-identity.md).
 
 ## Prerequisites
 
@@ -62,7 +62,59 @@ az provider register --namespace Microsoft.KubernetesConfiguration
 
 ### Create a new connection
 
-Create a service connection between your AKS cluster and your SQL database in the Azure portal or the Azure CLI.
+::: zone pivot="workload-id"
+
+Create a service connection between your AKS cluster and your SQL database using Microsoft Entra Workload ID
+
+### [Azure portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your AKS cluster resource.
+2. Select **Settings** > **Service Connector (Preview)** > **Create**.
+3. On the **Basics** tab, configure the following settings:
+
+    * **Kubernetes namespace**: Select **default**.
+    * **Service type**: Select **SQL Database**.
+    * **Connection name**: Use the connection name provided by Service Connector or enter your own connection name.
+    * **Subscription**: Select the subscription that includes the Azure SQL Database service.
+    * **SQL server**: Select your SQL server.
+    * **SQL database**: Select your SQL database.
+    * **Client type**: The code language or framework you use to connect to the target service, such as **Python**.
+    
+    :::image type="content" source="media/tutorial-ask-sql/create-connection.png" alt-text="Screenshot of the Azure portal showing the form to create a new connection to a SQL database in AKS.":::
+
+4. Select **Next: Authentication**.  On the **Authentication** tab, select **Workload Identity** and choose one **User assigned managed identity**.
+5. Select **Next: Networking** > **Next: Review + create** >**Create On Cloud Shell**.
+6. The Cloud Shell will be launched and execute the commands to create a connection. You may need to confirm some configuration changes during the command processing. Once command runs successfully, it will show connection information, and you can click refresh button in **Service Connector** pane to show the latest result.
+
+### [Azure CLI](#tab/azure-cli)
+
+Create a service connection to the SQL database using the [`az aks connection create sql`](/cli/azure/aks/connection/create#az-aks-connection-create-sql) command. You can run this command in two different ways:
+    
+   * generate the new connection step by step.
+     
+       ```azurecli-interactive
+       az aks connection create sql
+       ```
+ 
+   * generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, and `<***>`.
+    
+       ```azurecli-interactive
+       az aks connection create sql \
+          --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
+          --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Sql/servers/<server>/databases/<database> \
+          --workload-identity /subscriptions/<identity-subscription>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity_name>
+       ```
+
+---
+
+::: zone-end
+
+::: zone pivot="connection-string"
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable. Select the authentication method *[Workload ID (Recommended)](tutorial-python-aks-sql-database-connection-string.md?pivots=workload-id#create-a-new-connection)*.
+
+Create a service connection between your AKS cluster and your SQL database using a connection string
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -104,6 +156,8 @@ Create a service connection to the SQL database using the [`az aks connection cr
        ```
 
 ---
+
+::: zone-end
 
 ## Update your container
 

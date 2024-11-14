@@ -4,7 +4,7 @@ description: Learn to monitor and troubleshoot common errors with device connect
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: troubleshooting
 ms.date: 07/30/2024
 ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support', fasttrack-edit, iot]

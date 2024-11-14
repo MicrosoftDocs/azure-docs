@@ -3,7 +3,7 @@ title: Authentication concepts in Microsoft Azure Data Manager for Energy
 description: This article describes various concepts of authentication in Azure Data Manager for Energy.
 author: shikhagarg1
 ms.author: shikhagarg
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: conceptual
 ms.date: 02/10/2023
 ms.custom: template-concept

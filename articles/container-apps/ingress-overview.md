@@ -83,7 +83,7 @@ With TCP ingress enabled, your container app:
 In addition to the main HTTP/TCP port for your container apps, you might expose additional TCP ports to enable applications that accept TCP connections on multiple ports.
 
 > [!NOTE]
-> This feature requires using the latest preview version of the container apps CLI extension.
+> To use this feature, you must have the container apps CLI extension. Run `az extension add -n containerapp` in order to install the latest version of the container apps CLI extension.
 
 The following apply to additional TCP ports:
 - Additional TCP ports can only be external if the app itself is set as external and the container app is using a custom VNet.

@@ -84,7 +84,7 @@ The following example is a JSON string passed to the **SoftwareUpdateConfigurati
         "box2.contoso.com"
      ],
      "AzureVirtualMachines": [
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/vm-01"
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/vm-01"
      ],
      "Duration": "02:00:00",
      "PSComputerName": "localhost",
@@ -111,9 +111,9 @@ The following example is a JSON string passed to the **SoftwareUpdateConfigurati
         "rebootSetting": "IfRequired"
       },
       "azureVirtualMachines": [
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-01",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-02",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-03"
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-01",
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-02",
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-03"
       ],
       "nonAzureComputerNames": [
         "box1.contoso.com",

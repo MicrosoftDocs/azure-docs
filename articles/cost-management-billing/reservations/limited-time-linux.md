@@ -86,6 +86,7 @@ The offer is available based on the following criteria:
   - Enterprise (MS-AZR-0017P or MS-AZR-0148P)
   - Pay-as-you-go (MS-AZR-0003P or MS-AZR-0023P)
   - Microsoft Customer Agreement
+  - 21v Customer Agreement
 - Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations?source=azlto1) to purchase Azure Reservations. You can't purchase a reservation if you have a custom role that mimics owner role or reservation purchaser role on an Azure subscription. You must use the built-in owner or built-in reservation purchaser role.
 - For more information about who can purchase a reservation, see [Buy an Azure reservation](prepare-buy-reservation.md?source=azlto2).
 

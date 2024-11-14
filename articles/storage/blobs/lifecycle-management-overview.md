@@ -5,7 +5,7 @@ description: Use Azure Blob Storage lifecycle management policies to create auto
 author: normesta
 
 ms.author: normesta
-ms.date: 09/30/2024
+ms.date: 10/25/2024
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: yzheng
@@ -186,13 +186,13 @@ The run conditions are based on age. Current versions use the last modified time
 
 ## Lifecycle policy runs
 
-When you configure or edit a lifecycle policy., it can take up to 24 hours for changes to go into effect and for the first execution to start. The time taken for policy actions to complete depends on the number of blobs evaluated and operated on.
+When you configure or edit a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. The time taken for policy actions to complete depends on the number of blobs evaluated and operated on.
 
 If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. See [Regional availability and pricing](#regional-availability-and-pricing).  
 
 ### Lifecycle policy completed event
+The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. The following json shows an example `LifecyclePolicyCompleted` event for a policy. Because the policy definition includes the `delete`, `tierToCool`, `tierToCold`, and `tierToArchive` actions, a summary section appears for each one. 
 
-The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. The following json shows an example `LifecyclePolicyCompleted` event.
 
 ```json
 {
@@ -209,6 +209,11 @@ The `LifecyclePolicyCompleted` event is generated when the actions defined by a 
             "errorList": ""
         },
         "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToColdSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
             "errorList": ""
@@ -231,6 +236,7 @@ The following table describes the schema of the `LifecyclePolicyCompleted` event
 |scheduleTime|string|The time that the lifecycle policy was scheduled|
 |deleteSummary|vector\<byte\>|The results summary of blobs scheduled for delete operation|
 |tierToCoolSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cool operation|
+|tierToColdSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cold operation|
 |tierToArchiveSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-archive operation|
 
 ## Examples of lifecycle policies

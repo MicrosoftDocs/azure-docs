@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 09/04/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
@@ -75,7 +75,7 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 
 | Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
 | ---------------- | ----- | ------- | ----- | -------------- |
-| [Debian 12](https://www.debian.org/releases/bookworm/) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  | [June 2028](https://wiki.debian.org/LTS) |
+| [Debian 12](https://www.debian.org/releases/bookworm/) | ![Debian + AMD64](./media/support/green-check.png) | ![Debian + ARM32v7](./media/support/green-check.png) | ![Debian + ARM64](./media/support/green-check.png) | [June 2028](https://wiki.debian.org/LTS) |
 | [Debian 11](https://www.debian.org/releases/bullseye/) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  | [June 2026](https://wiki.debian.org/LTS) |
 | [Red Hat Enterprise Linux 9](https://access.redhat.com/articles/3078) | ![Red Hat Enterprise Linux 9 + AMD64](./media/support/green-check.png) | | | [May 2032](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
 | [Red Hat Enterprise Linux 8](https://access.redhat.com/articles/3078) | ![Red Hat Enterprise Linux 8 + AMD64](./media/support/green-check.png) | | | [May 2029](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
@@ -134,7 +134,6 @@ The systems listed in the following table are considered compatible with Azure I
 
 | Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
 | ---------------- | ----- | ------- | ----- | -------------- |
-| [Debian 12](https://www.debian.org/releases/bookworm/) | ![Debian 12 + AMD64](./media/support/green-check.png) |  | ![Debian 12 + ARM64](./media/support/green-check.png) | [June 2028](https://wiki.debian.org/LTS) |
 | [Debian 11](https://www.debian.org/releases/bullseye/) | ![Debian 11 + AMD64](./media/support/green-check.png) |  | ![Debian 11 + ARM64](./media/support/green-check.png) | [June 2026](https://wiki.debian.org/LTS) |
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/support/green-check.png) |  |
 | [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/support/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/support/green-check.png) |  |

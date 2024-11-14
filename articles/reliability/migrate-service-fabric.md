@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 03/23/2023
 ms.author: tomcassidy
 ms.reviewer: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Migrate your Service Fabric cluster to availability zone support

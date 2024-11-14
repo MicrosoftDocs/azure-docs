@@ -48,14 +48,14 @@ BackendAddressPools :
 BackendAddressPoolsText : [
 {
                               "BackendAddressPool": {
-                                "Id": "/subscriptions/536d30b8-665b-40fc-bd7e-68c65f816365/resourceGroups/rgOne/providers/Microsoft.Network/applicationGateways/appgw1/b
+                                "Id": "/subscriptions/aaaa0000-bb11-2222-33cc-444444dddddd/resourceGroups/rgOne/providers/Microsoft.Network/applicationGateways/appgw1/b
                           ackendAddressPools/appGatewayBackendPool"
                               },
                               "BackendHttpSettingsCollection": [
                                 {
                                   "BackendHttpSettings": {
                                     "TrustedRootCertificates": [],
-                                    "Id": "/subscriptions/536d30b8-665b-40fc-bd7e-68c65f816365/resourceGroups/rgOne/providers/Microsoft.Network/applicationGateways/appg
+                                    "Id": "/subscriptions/aaaa0000-bb11-2222-33cc-444444dddddd/resourceGroups/rgOne/providers/Microsoft.Network/applicationGateways/appg
                           w1/backendHttpSettingsCollection/appGatewayBackendHttpSettings"
                                   },
                                   "Servers": [
@@ -417,7 +417,7 @@ This behavior can occur for one or more of the following reasons:
    Next hop: Azure Firewall private IP address
 
 > [!NOTE]
-> If the application gateway is not able to access the CRL endpoints, it marks the backend health status as "unknown" and cause fast update failures. To prevent these issues, check that your application gateway subnet is able to access `crl.microsoft.com` and `crl3.digicert.com`. This can be done by configuring your Network Security Groups to send traffic to the CRL endpoints. 
+> If the application gateway is not able to access the CRL endpoints, it might mark the backend health status as "unknown". To prevent these issues, check that your application gateway subnet is able to access `crl.microsoft.com` and `crl3.digicert.com`. This can be done by configuring your Network Security Groups to send traffic to the CRL endpoints. 
 
 ## Next steps
 

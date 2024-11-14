@@ -4,8 +4,7 @@ description: Overview of Azure Application Load Balancer Application Gateway for
 services: application-gateway
 author: greglin
 ms.custom: references_regions
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: overview
 ms.date: 9/16/2024
 ms.author: greglin

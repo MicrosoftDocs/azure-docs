@@ -341,7 +341,7 @@ For any reason, if the VPN connection becomes the primary medium for the virtual
 
 ### Does ExpressRoute support Equal-Cost Multi-Path (ECMP) routing in Virtual WAN?
 
-When multiple ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across all ExpressRoute circuits advertising the same on-premises routes. To enable ECMP for your Virtual WAN hub, please reach out to virtual-wan-ecmp@microsoft.com with your Virtual WAN hub resource ID. 
+When multiple ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across all ExpressRoute circuits advertising the same on-premises routes. ECMP is currently not enabled by default for Virtual WAN hubs. 
 
 ### <a name="expressroute-bow-tie"></a>When two hubs (hub 1 and 2) are connected and there's an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
 
@@ -435,34 +435,6 @@ No. Virtual WAN doesn't support ASN changes for VPN gateways.
 ### If I connect an ExpressRoute Local circuit to a Virtual WAN hub, will I only be able to access regions in the same metro location as the Local circuit? 
 
 Local circuits can only be connected to ExpressRoute gateways in their corresponding Azure region. However, there is no limitation to route traffic to spoke virtual networks in other regions. 
-
-
-### <a name="update-router"></a>Why am I seeing a message and button called "Update router to latest software version" in portal?
-
-> [!NOTE]
-> As of July 1 2024, hubs on the old version will be retired in phases and stop functioning as expected. 
->
-
-Azure-wide Cloud Services-based infrastructure is deprecating. As a result, the Virtual WAN team has been working on upgrading virtual routers from their current Cloud Services infrastructure to Virtual Machine Scale Sets based deployments. **All newly created Virtual Hubs will automatically be deployed on the latest Virtual Machine Scale Sets based infrastructure.** If you navigate to your Virtual WAN hub resource and see this message and button, then you can upgrade your router to the latest version by clicking on the button. If you would like to take advantage of new Virtual WAN features, such as [BGP peering with the hub](create-bgp-peering-hub-portal.md), you'll have to update your virtual hub router via Azure portal. If the button isn't visible, open a support case.
-
-You’ll only be able to update your virtual hub router if all the resources (gateways/route tables/VNet connections) in your hub are in a succeeded state. Make sure all your spoke virtual networks are in active/enabled subscriptions and that your spoke virtual networks aren't deleted. Additionally, as this operation requires deployment of new virtual machine scale sets based virtual hub routers, you’ll face an expected downtime of 1-2 minutes for VNet-to-VNet traffic through the same hub and 5-7 minutes for all other traffic flows through the hub. Please plan a maintenance window of at least 30 minutes, as downtime can last up to 30 minutes in the worst-case scenario. Within a single Virtual WAN resource, hubs should be updated one at a time instead of updating multiple at the same time. When the Router Version says “Latest”, then the hub is done updating. There will be no routing behavior changes after this update. 
-
-There are several things to note with the virtual hub router upgrade:
-
-* If you have already configured BGP peering between your Virtual WAN hub and an NVA in a spoke VNet, then you'll have to [delete and then recreate the BGP peer](create-bgp-peering-hub-portal.md). Since the virtual hub router's IP addresses change after the upgrade, you'll also have to reconfigure your NVA to peer with the virtual hub router's new IP addresses. These IP addresses are represented as the "virtualRouterIps" field in the Virtual Hub's Resource JSON.
-
-* If you have a network virtual appliance (NVA) in the virtual hub, you'll have to work with your NVA partner to obtain instructions on how to upgrade your Virtual WAN hub.
-
-* If your virtual hub is configured with more than 15 routing infrastructure units, please scale in your virtual hub to 2 routing infrastructure units before attempting to upgrade. You can scale back out your hub to more than 15 routing infrastructure units after upgrading your hub. 
-
-If the update fails for any reason, your hub will be auto recovered to the old version to ensure there's still a working setup.
-
-Additional things to note:
-* The user will need to have an **owner** or **contributor** role to see an accurate status of the hub router version. If a user is assigned a **reader** role to the Virtual WAN resource and subscription, the Azure portal displays to that user that the hub router needs to be upgraded to the latest version, even if the hub is already on the latest version. 
-
-* If you change your spoke virtual network's subscription status from disabled to enabled and then upgrade the virtual hub, you'll need to update your virtual network connection after the virtual hub upgrade (Ex: you can configure the virtual network connection to propagate to a dummy label).
-
-* If your hub is connected to a large number of spoke virtual networks (60 or more), then you might notice that 1 or more spoke VNet peerings will enter a failed state after the upgrade. To restore these VNet peerings to a successful state after the upgrade, you can configure the virtual network connections to propagate to a dummy label, or you can delete and recreate these respective VNet connections. 
 
 ### Why does the virtual hub router require a public IP address with opened ports?
 These public endpoints are required for Azure's underlying SDN and management platform to communicate with the virtual hub router. Because the virtual hub router is considered part of the customer's private network, Azure's underlying platform is unable to directly access and manage the hub router via its private endpoints due to compliance requirements. Connectivity to the hub router's public endpoints is authenticated via certificates, and Azure conducts routine security audits of these public endpoints. As a result, they do not constitute a security exposure of your virtual hub. 

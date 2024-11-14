@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to understand the data sources and enrichments used by the User and Entity Behavior Analytics service so that I can effectively detect and investigate anomalies in user and entity behavior.
+
 ---
 
 # Microsoft Sentinel UEBA reference
@@ -209,9 +213,7 @@ After you [enable UEBA](enable-entity-behavior-analytics.md) for your Microsoft 
 
 While the initial synchronization may take a few days, once the data is fully synchronized:
 
-- Changes made to your user profiles in Microsoft Entra ID are updated in the **IdentityInfo** table within 15 minutes.
-
-- Group and role information is synchronized between the **IdentityInfo** table and Microsoft Entra ID daily.
+- Changes made to your user profiles, groups, and roles in Microsoft Entra ID are updated in the **IdentityInfo** table within 15-30 minutes.
 
 - Every 14 days, Microsoft Sentinel re-synchronizes with your entire Microsoft Entra ID to ensure that stale records are fully updated.
 

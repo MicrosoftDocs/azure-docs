@@ -328,7 +328,7 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot shows Explorer pane with project folder, workflow folder, and workflow.json file.](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
 
-   [!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
+   [!INCLUDE [Visual Studio Code - logic app project structure](includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
    > [!NOTE]
    > 

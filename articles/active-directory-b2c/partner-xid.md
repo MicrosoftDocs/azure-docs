@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Configure Azure Active Directory B2C with xID for passwordless authentication
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 10/03/2024
+ms.date: 10/11/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: As an Azure AD B2C administrator, I want to configure xID as an identity provider, so users can sign in using xID and authenticate with their digital identity on their device.
 ---
@@ -74,12 +74,9 @@ Learn more: [Application types that can be used in Active Directory B2C](applica
 
 For testing, you register `https://jwt.ms`, a Microsoft web application with decoded token contents, which don't leave your browser.
 
-### Register a web application and enable ID token implicit grant
+### Register a web application
 
-Complete [Tutorial: Register a web application in Azure AD B2C](tutorial-register-applications.md?tabs=app-reg-ga) 
-
->[!NOTE]
->Enable implicit flow only for testing purposes. Don’t enable implicit flow in production.
+Complete the steps in [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md?tabs=app-reg-ga) article.
 
 <a name='create-a-xid-policy-key'></a>
 
@@ -135,7 +132,7 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
           <Metadata>
             <Item Key="METADATA">https://oidc-uat.x-id.io/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the X-ID Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid verification</Item>
             <Item Key="response_mode">query</Item>

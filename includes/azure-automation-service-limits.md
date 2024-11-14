@@ -69,11 +69,11 @@ The following are the Dynamic scope recommended limits for **each dynamic scope*
 
 The following are the limits for schedule patching:
 
-| Indicator    | Limit          |
-|----------|----------------------------|
-| Number of schedules per subscription per region     | 250  |
-| Total number of resource associations to a schedule | 3,000 |
-| Resource associations on each dynamic scope    | 1,000 |
-| Number of dynamic scopes per resource group or subscription per region     | 250  |
-| Number of dynamic scopes per schedule   | 200  |
-| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  |
+| Indicator    | Public Cloud Limit          | Mooncake/Fairfax Limit |
+|----------|----------------------------|--------------------------|
+| Number of schedules per subscription per region     | 250  | 250 |
+| Total number of resource associations to a schedule | 3,000 | 3,000 |
+| Resource associations on each dynamic scope    | 1,000 | 1,000 |
+| Number of dynamic scopes per resource group or subscription per region     | 250  | 250  |
+| Number of dynamic scopes per schedule   | 200  | 30  |
+| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  | 30  |

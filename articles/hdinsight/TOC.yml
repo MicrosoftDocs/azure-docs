@@ -172,7 +172,9 @@ items:
       - name: Ambari user configs migration
         href: ./migrate-ambari-recent-version-hdinsight.md
       - name: Upgrade to Apache Ranger in Azure HDInsight
-        href: ./hdinsight-ranger-5-1-migration.md   
+        href: ./hdinsight-ranger-5-1-migration.md
+      - name: Load balancer migration guidelines for Azure HDInsight
+        href: ./load-balancer-migration-guidelines.md
       - name: Hadoop
         items:
         - name: Motivation and benefits
@@ -289,6 +291,12 @@ items:
       items:
       - name: Monitor Azure HDInsight
         href: monitor-hdinsight.md
+      - name: Use Azure Monitor Agent  
+        items:    
+        - name: Azure Monitor Agent Migration
+          href: ./azure-monitor-agent.md
+        - name: Selective Logging
+          href: ./selective-logging-analysis.md  
       - name: Use Azure Monitor logs  
         items:
         - name: New Azure Monitor experience Migration
@@ -297,12 +305,6 @@ items:
           href: ./selective-logging-analysis-azure-logs.md
         - name: Enable new Azure Monitor integration
           href: ./log-analytics-migration.md  
-      - name: Use Azure Monitor Agent  
-        items:    
-        - name: Azure Monitor Agent Migration
-          href: ./azure-monitor-agent.md
-        - name: Selective Logging
-          href: ./selective-logging-analysis.md
       - name: Use queries with Azure Monitor logs
         href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
       - name: Monitor cluster performance
@@ -387,6 +389,8 @@ items:
       href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
     - name: Get help on the Microsoft Q&A question page
       href: /answers/topics/azure-hdinsight.html
+    - name: Preview features
+      href: ./what-are-preview-features.md
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Windows tools for HDInsight
