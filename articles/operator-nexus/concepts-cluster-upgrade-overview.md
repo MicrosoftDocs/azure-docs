@@ -65,7 +65,7 @@ Once the cordon and drain process of the tenant cluster node is completed, the u
 
 It's important to note that the Nexus Kubernetes cluster node won't be shut down after the cordon and drain process. The server is rebooted with the new image as soon as all the Nexus Kubernetes cluster nodes are cordoned and drained, after 10 minutes if the drain process isn't completed. Additionally, the cordon and drain isn't initiated for power-off or restart actions of the server; it exclusively activates only during a runtime upgrade.
 
-It's important to note that following the runtime upgrade, there could be instance where a Nexus Kubernetes Cluster node remains cordoned. For such scenario, you manually uncordon the node by executing the following command.
+It's important to note that following the runtime upgrade, there could be instance where a Nexus Kubernetes Cluster node remains cordoned. For such scenario, you locate uncordon nodes by executing the following command.
 
 ```azurecli
 az networkcloud baremetalmachine list -g $mrg --subscription $sub --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,powerState:powerState,tags:tags.Status,machineRoles:join(', ', machineRoles),cordonStatus:cordonStatus,createdAt:systemData.createdAt}, &name)" 
@@ -78,4 +78,4 @@ During the runtime upgrade, BareMetalMachine (BMM) keyset isn't available until 
 
 ## Servers not upgraded successfully
 
-A server remains cordoned if they fail upgrade or provisioning from possible hardware issue during reboot or issue with cloud-init (networking, chronyd, etc.). The underlying condition needs to be resolved and either baremetalmachine replace/reimage would need to be executed. Uncordoning the server manually won't resolve the issues.
+A server remains unavailable if they fail upgrade or provisioning from possible hardware issue during reboot or issue with cloud-init (networking, chronyd, etc.). The underlying condition needs to be resolved and either baremetalmachine replace/reimage would need to be executed. Uncordoning the server manually won't resolve the issues.
