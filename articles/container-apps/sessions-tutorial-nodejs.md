@@ -9,7 +9,7 @@ ms.date: 11/08/2024
 ms.author: iasthana
 ---
 
-# Tutorial: Run JavaScript code in a code interpreter session in Azure Container Apps (Preview)
+# Tutorial: Run JavaScript code in a code interpreter session in Azure Container Apps (preview)
 
 This tutorial demonstrates how to execute JavaScript code in Azure Container Apps dynamic sessions using an HTTP API.
 
@@ -21,7 +21,7 @@ In this tutorial you:
 > * Pass in JavaScript code for the container app to run
 
 > [!NOTE]
-> The JavaScript code interpreter feature in Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](./sessions.md#preview-limitations) for more information.
+> The JavaScript code interpreter feature in Azure Container Apps dynamic sessions is currently in preview. For more information, see [preview limitations](./sessions.md#preview-limitations).
 
 ## Prerequisites
 
@@ -32,8 +32,7 @@ You need the following resources before you begin this tutorial.
 | Azure account | You need an Azure account with an active subscription. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
 
-## Setup
-
+## Setup	
 
 Begin by preparing the Azure CLI with the latest updates and signing into to Azure.
 
@@ -62,20 +61,25 @@ Begin by preparing the Azure CLI with the latest updates and signing into to Azu
    ```azurecli
    az login
    ```
+   
+1. Query for your Azure subscription ID and set the value to a variable.
 
+    ```bash
+    SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+    ```
+    
 1. Set the variables used in this procedure.
 
     Before you run the following command, make sure to replace the placeholders surrounded by `<>` with your own values.
 
     ```bash
-    SUBSCRIPTION_ID=<SUBSCRIPTION_GUID>
-    RESOURCE_GROUP=<RESOURCE_GROUP>
+    RESOURCE_GROUP=<RESOURCE_GROUP_NAME>
     LOCATION=<LOCATION>
     SESSION_POOL_NAME=<SESSION_POOL_NAME>
     ```
 
-    You use the subcriptions id, resource group name and location to create a resource group in the next step. The session pool name is used throughout the following commands to create and manage the dynamic session pool.
-
+   You use these variables to create the resources in the following steps.
+   
 1. Set the subscription you want to use for creating the resource group
    
     ```azurecli
@@ -107,36 +111,41 @@ az containerapp sessionpool create \
 
 ## Set role assignments for code execution APIs
 
-To interact with the session pool's API, you must use an identity with the `Azure ContainerApps Session Executor` role assignment. In this tutorial, you use your Entra ID user identity to call the API. Run the following commands to assign the role to your identity:
+To interact with the session pool's API, you must use an identity with the `Azure ContainerApps Session Executor` role assignment. In this tutorial, you use your Microsoft Entra ID user identity to call the API.
 
-```azurecli
-USER_OBJECT_ID=$(az ad signed-in-user show --query id -o tsv)
-```
+1. Query your user object ID.
 
-```azurecli
-az role assignment create \
-  --role "Azure ContainerApps Session Executor" \
-  --assignee-object-id $USER_OBJECT_ID \
-  --assignee-principal-type User \
-  --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME"
-```
+   ```azurecli
+   USER_OBJECT_ID=$(az ad signed-in-user show --query id -o tsv)
+   ```
+   
+1. Assign the role to your identity.
+
+    ```azurecli
+    az role assignment create \
+      --role "Azure ContainerApps Session Executor" \
+      --assignee-object-id $USER_OBJECT_ID \
+      --assignee-principal-type User \
+      --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.App/sessionPools/$SESSION_POOL_NAME"
+    ```
 
 ## Get a bearer token
 
-For direct access to the session pool’s API, generate an access token to include in the `Authorization` header of your requests. Ensure the token contains an audience (`aud`) claim with the value `https://dynamicsessions.io`.
-More details on auth can be found at [Authentication and authorization](https://learn.microsoft.com/azure/container-apps/sessions?tabs=azure-cli#authentication)
+For direct access to the session pool’s API, generate an access token to include in the `Authorization` header of your requests. Ensure the token contains an audience (`aud`) claim with the value `https://dynamicsessions.io`. For more information, see [authentication and authorization](https://learn.microsoft.com/azure/container-apps/sessions?tabs=azure-cli#authentication) rules.
 
-```bash
-JWT_ACCESS_TOKEN=$(az account get-access-token --resource https://dynamicsessions.io --query accessToken -o tsv)
-```
+1. Get an access token.
 
-Now with your bearer token defined, you can create a variable to hold the request header.
+    ```bash
+    JWT_ACCESS_TOKEN=$(az account get-access-token --resource https://dynamicsessions.io --query accessToken -o tsv)
+    ```
 
-```bash
-AUTH_HEADER="Authorization: Bearer $JWT_ACCESS_TOKEN"
-```
+1. Create a variable to hold the request header.
 
-This header accompanies the request you make to your application's endpoint.
+    ```bash
+    AUTH_HEADER="Authorization: Bearer $JWT_ACCESS_TOKEN"
+    ```
+
+   This header accompanies the request you make to your application's endpoint.
 
 ## Get the session pool management endpoint
 
@@ -150,12 +159,12 @@ This endpoint is the location where you make API calls to execute your code payl
 
 ## Execute code in your session
 
-Now that you have a bearer token to establish the security context, and the session pool endpoint, you can issue a request to the application to execute your code block.
+Now that you have a bearer token to establish the security context, and the session pool endpoint, you can send a request to the application to execute your code block.
 
 Run the following command to run the JavaScript code to log "hello world" in your application.
 
 ```bash
-curl -v -X 'POST' -H "$AUTH_HEADER" "$SESSION_POOL_MANAGEMENT_ENDPOINT/code/execute?api-version=2024-10-02-preview&identifier=test" -H 'Content-Type: application/json' -d '
+curl -v -X 'POST' -H "$AUTH_HEADER" "$SESSION_POOL_MANAGEMENT_ENDPOINT/code/execute?api-version=2024-02-02-preview&identifier=test" -H 'Content-Type: application/json' -d '
 {
     "properties": {
         "codeInputType": "inline",
@@ -164,22 +173,23 @@ curl -v -X 'POST' -H "$AUTH_HEADER" "$SESSION_POOL_MANAGEMENT_ENDPOINT/code/exec
     }
 }'
 ```
-You should see "status":"Success" and "stdout" with "hello world\n" as the output.
 
-```bash
+You should see output that resembles the following example.
+
+```json
 {
-	"properties": {
-		"$id": "<guid>",
-		"status": "Success",
-		"stdout": "hello-world\n",
-		"stderr": "",
-		"executionResult": "",
-		"executionTimeInMilliseconds": 5
-	}
+  "properties": {
+    "$id": "<guid>",
+    "status": "Success",
+    "stdout": "hello-world\n",
+    "stderr": "",
+    "executionResult": "",
+    "executionTimeInMilliseconds": 5
+  }
 }
 ```
 
-More samples can be found at [Code Interpreter API Samples](https://github.com/Azure-Samples/container-apps-dynamic-sessions-samples/blob/main/code-interpreter/api-samples.md)
+You can find more [code interpreter API samples](https://github.com/Azure-Samples/container-apps-dynamic-sessions-samples/blob/main/code-interpreter/api-samples.md) on GitHub.
 
 ## Clean up resources
 
