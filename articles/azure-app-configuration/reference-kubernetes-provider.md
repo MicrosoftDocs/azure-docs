@@ -12,7 +12,7 @@ ms.author: junbchen
 
 # Azure App Configuration Kubernetes Provider reference
 
-The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.0.0`. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.1.0`. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
 
 ## Properties
 
@@ -23,6 +23,7 @@ An `AzureAppConfigurationProvider` resource has the following top-level child pr
 |endpoint|The endpoint of Azure App Configuration, which you would like to retrieve the key-values from.|alternative|string|
 |connectionStringReference|The name of the Kubernetes Secret that contains Azure App Configuration connection string.|alternative|string|
 |replicaDiscoveryEnabled|The setting that determines whether replicas of Azure App Configuration are automatically discovered and used for failover. If the property is absent, a default value of `true` is used.|false|bool|
+|loadBalancingEnabled|The setting that enables your workload to distribute requests to App Configuration across all available replicas. If the property is absent, a default value of `false` is used.|false|bool|
 |target|The destination of the retrieved key-values in Kubernetes.|true|object|
 |auth|The authentication method to access Azure App Configuration.|false|object|
 |configuration|The settings for querying and processing key-values in Azure App Configuration.|false|object|
@@ -79,7 +80,7 @@ The `spec.configuration.refresh` property has the following child properties.
 |Name|Description|Required|Type|
 |---|---|---|---|
 |enabled|The setting that determines whether key-values from Azure App Configuration is automatically refreshed. If the property is absent, a default value of `false` is used.|false|bool|
-|monitoring|The key-values monitored for change detection, aka sentinel keys. The key-values from Azure App Configuration are refreshed only if at least one of the monitored key-values is changed.|true|object|
+|monitoring|The key-values monitored for change detection, aka sentinel keys. The key-values from Azure App Configuration are refreshed only if at least one of the monitored key-values is changed. If this property is absent, all the selected key-values will be monitored for refresh. |false|object|
 |interval|The interval at which the key-values are refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds is used.|false|duration string|
 
 The `spec.configuration.refresh.monitoring.keyValues` is an array of objects, which have the following child properties.

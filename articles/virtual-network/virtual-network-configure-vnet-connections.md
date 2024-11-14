@@ -138,7 +138,7 @@ The point-to-site VPN connection is initiated from the client computer through t
 
 Point-to-site connections don't require a VPN device. They create the VPN connection over Secure Socket Tunneling Protocol (SSTP). You can connect a point-to-site connection to a virtual network by using various deployment tools and deployment models:
 
-* [Configure a point-to-site connection to a virtual network by using the Azure portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Configure a point-to-site connection to a virtual network by using the Azure portal](../vpn-gateway/point-to-site-certificate-gateway.md)
 * [Configure a point-to-site connection to a virtual network by using the Azure portal (classic)](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 * [Configure a point-to-site connection to a virtual network by using PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 

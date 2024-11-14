@@ -417,7 +417,7 @@ Any other failure follows the state store's general error reporting pattern:
 
 When a `keyName` being monitored via `KEYNOTIFY` is modified or deleted, the state store sends a notification to the client. The topic is determined by convention - the client doesn't specify the topic during the `KEYNOTIFY` process.
 
-The topic is defined in the following example. The `clientId` is an upper-case hex encoded representation of the MQTT ClientId of the client that initiated the `KEYNOTIFY` request and `keyName` is a hex encoded representation of the key that changed.
+The topic is defined in the following example. The `clientId` is an upper-case hex encoded representation of the MQTT ClientId of the client that initiated the `KEYNOTIFY` request and `keyName` is a hex encoded representation of the key that changed. The state store follows the Base 16 encoding rules of [RFC 4648 - The Base16, Base32, and Base64 Data Encodings](https://datatracker.ietf.org/doc/html/rfc4648#section-8) for this encoding.
 
 ```console
 clients/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/{clientId}/command/notify/{keyName}
