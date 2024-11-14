@@ -315,9 +315,9 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/write | Create or update trusted access role bindings for managed cluster |
 > | Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/delete | Delete trusted access role bindings for managed cluster |
 > | Microsoft.ContainerService/managedClusters/upgradeProfiles/read | Gets the upgrade profile of the cluster |
-> | Microsoft.ContainerService/managedclustersnapshots/read | Get a managed cluster snapshot |
-> | Microsoft.ContainerService/managedclustersnapshots/write | Creates a new managed cluster snapshot |
-> | Microsoft.ContainerService/managedclustersnapshots/delete | Deletes a managed cluster snapshot |
+> | Microsoft.ContainerService/managedClusters/snapshots/read | Get a managed cluster snapshot |
+> | Microsoft.ContainerService/managedClusters/snapshots/write | Creates a new managed cluster snapshot |
+> | Microsoft.ContainerService/managedClusters/snapshots/delete | Deletes a managed cluster snapshot |
 > | Microsoft.ContainerService/openShiftClusters/read | Get an Open Shift Cluster |
 > | Microsoft.ContainerService/openShiftClusters/write | Creates a new Open Shift Cluster or updates an existing one |
 > | Microsoft.ContainerService/openShiftClusters/delete | Delete an Open Shift Cluster |
