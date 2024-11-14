@@ -65,13 +65,13 @@ You can filter network traffic to and from resources in a virtual network by usi
 - A network security group contains several default security rules that allow or deny traffic to or from resources. You can associate a network security group to a network interface, the subnet the network interface is in, or both. To simplify management of security rules, we recommend that you associate a network security group to individual subnets rather than individual network interfaces within the subnet whenever possible.
 - If different VMs within a subnet need different security rules applied to them, you can associate the network interface in the VM to one or more application security groups. A security rule can specify an application security group in its source, destination, or both. That rule then applies only to the network interfaces that are members of the application security group. Learn more about [network security groups](./network-security-groups-overview.md) and [application security groups](./network-security-groups-overview.md#application-security-groups).
 - When a network security group is associated at the subnet level, it applies to all the network interface controllers in the subnet, not just to the traffic coming from outside the subnet. The traffic between the VMs contained in the subnet might also be affected.
-- Azure creates several default security rules within each network security group. One default rule allows all traffic to flow between all resources in a virtual network. To override this behavior, use network security groups, custom routing to route traffic to an NVA, or both. We recommend that you familiarize yourself with all of Azure's [default security rules](./network-security-groups-overview.md#default-security-rules) and understand how network security group rules are applied to a resource.
+- Azure creates several default security rules within each network security group. One default rule allows all traffic to flow between all resources in a virtual network. To override this behavior, use network security groups, custom routing to route traffic to an NVA, or both. We recommend that you familiarize yourself with all the Azure [default security rules](./network-security-groups-overview.md#default-security-rules) and understand how network security group rules are applied to a resource.
 
 You can view sample designs for implementing a perimeter network (also known as a DMZ) between Azure and the internet by using an [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 ### Traffic routing
 
-Azure creates several default routes for outbound traffic from a subnet. You can override Azure's default routing by creating a route table and associating it to a subnet. Common reasons for overriding Azure's default routing are:
+Azure creates several default routes for outbound traffic from a subnet. You can override the Azure default routing by creating a route table and associating it to a subnet. Common reasons for overriding the Azure default routing are:
 
 - You want traffic between subnets to flow through an NVA. Learn more about how to [configure route tables to force traffic through an NVA](tutorial-create-route-table-portal.md).
 - You want to force all internet-bound traffic through an NVA, or on-premises, through an Azure VPN gateway. Forcing internet traffic on-premises for inspection and logging is often referred to as forced tunneling. Learn more about how to configure [forced tunneling](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
@@ -86,7 +86,7 @@ You can connect a virtual network to other virtual networks by using virtual net
 
 When you use [virtual network peering](virtual-network-peering-overview.md), you can have virtual networks in the same or different supported Azure regions. You can have virtual networks in the same or different Azure subscriptions (even subscriptions that belong to different Microsoft Entra tenants).
 
-Before you create a peering, we recommend that you familiarize yourself with all of the peering [requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). Bandwidth between resources in virtual networks peered in the same region is the same as if the resources were in the same virtual network.
+Before you create a peering, we recommend that you familiarize yourself with all the peering [requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). Bandwidth between resources in virtual networks peered in the same region is the same as if the resources were in the same virtual network.
 
 ### VPN gateway
 
@@ -96,7 +96,7 @@ You can combine peering and a VPN gateway to create [hub-and-spoke networks](/az
 
 ### Name resolution
 
-Resources in one virtual network can't resolve the names of resources in a peered virtual network by using Azure's [built-in DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md). To resolve names in a peered virtual network, [deploy your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) or use Azure DNS [private domains](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Resolving names between resources in a virtual network and on-premises networks also requires you to deploy your own DNS server.
+Resources in one virtual network can't resolve the names of resources in a peered virtual network by using the Azure [built-in Domain Name System (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md). To resolve names in a peered virtual network, [deploy your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) or use Azure DNS [private domains](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Resolving names between resources in a virtual network and on-premises networks also requires you to deploy your own DNS server.
 
 ## Permissions
 
