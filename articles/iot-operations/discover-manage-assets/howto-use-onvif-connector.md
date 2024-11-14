@@ -171,7 +171,7 @@ az deployment group create --resource-group <your resource group> --template-fil
 
 To interact with the ONVIF camera, you can publish MQTT messages that the connector for ONVIF subscribes to. The message format is based on the [ONVIF network interface specifications](https://www.onvif.org/profiles/specifications/).
 
-The [Azure IoT Operations ONVIF Connector PTZ Demo](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/aio-onvif-connector-ptz-demo) sample application shows how to use the connector for ONVIF to interact with the PTZ capabilities of an ONVIF camera.
+The [Azure IoT Operations connector for ONVIF PTZ Demo](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/aio-onvif-connector-ptz-demo) sample application shows how to use the connector for ONVIF to interact with the PTZ capabilities of an ONVIF camera.
 
 The sample application uses the Azure IoT Operations MQTT broker to send commands to the connector for ONVIF. To learn more, see [Secure MQTT broker communication using BrokerListener](../manage-mqtt-broker/howto-configure-brokerlistener.md).
 
