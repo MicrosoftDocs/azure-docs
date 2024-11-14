@@ -153,6 +153,7 @@ In the following steps, you change the private IP address **static** for the VM 
 # [Azure PowerShell](#tab/azurepowershell)
 
 Azure PowerShell cmdlets used to change the private IP address to static are as follows:
+
 | Command | Description |
 |---------|-------------|
 | `Get-AzVirtualNetwork` | Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to place the virtual network configuration into a variable. |
