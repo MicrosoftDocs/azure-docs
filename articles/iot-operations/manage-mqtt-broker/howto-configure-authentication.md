@@ -672,10 +672,6 @@ The custom authentication server must present a server certificate, and MQTT bro
 
 ### Enable custom authentication for a listener
 
-
-# [Portal](#tab/portal)
-
-
 Modify the `authenticationMethods` setting in a *BrokerAuthentication* resource to specify `Custom` as a valid authentication method. Then, specify the parameters required to communicate with a custom authentication server.
 
 This example shows all possible parameters. The exact parameters required depend on each custom server's requirements.
