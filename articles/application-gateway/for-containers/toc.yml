@@ -55,6 +55,8 @@
     items:
     - name: Backend MTLS
       href: how-to-backend-mtls-gateway-api.md
+    - name: cert-manager integration
+      href: how-to-cert-manager-lets-encrypt-gateway-api.md
     - name: Frontend MTLS
       href: how-to-frontend-mtls-gateway-api.md
     - name: End-to-End TLS
