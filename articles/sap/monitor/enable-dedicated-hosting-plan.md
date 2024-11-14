@@ -12,14 +12,17 @@ ms.author: vaidehikher
 
 # Enable Dedicated Hosting Plan
 
-One of the features of Azure Monitor for SAP solutions is that it uses an Azure function to collect and process the data from your SAP systems. The Azure function is deployed and managed by the service, and you do not need to configure or maintain it. However, you may want to optimize the cost and reliability of the Azure function based on your monitoring needs and usage patterns. 
+One of the features of Azure Monitor for SAP solutions is that it uses an Azure function to collect and process the data from your SAP systems. The service deploys and manages the Azure function, so you do not need to configure or maintain it. However, you may want to optimize the cost and reliability of the Azure function based on your monitoring needs and usage patterns. 
 
-To enable this, we are introducing a new feature that allows you to switch the hosting plan of the Azure function that is used inside of Azure Monitor for SAP solutions. With this feature, you can migrate to the dedicated plan for the Azure functions. The hosting plan of the Azure function determines how the function app is scaled and billed.
+This new feature allows you to switch the hosting plan of the Azure function that is used inside of Azure Monitor for SAP solutions. With this feature, you can migrate to the dedicated plan for the Azure functions. The hosting plan of the Azure function determines how the function app is scaled and billed.
 
 The Dedicated hosting plan has a significant improvement in cost and scaling efficiency when used on AMS
 
 ## Prerequisites
-1.	Ensure the storage account has public network access: Go to the storage account in the managed resource group of the AMS, click on the security and networking tab and then click on the networking tab, under public network access, ensure ‘enabled from all networks’ option is selected.
+1.	Ensure the storage account has public network access:
+    1. Go to the storage account in the AMS managed resource group.
+    2. Click on the security and networking tab, then click on the networking tab.
+    3. Under public network access, ensure the 'enabled from all networks' option is selected."
 
 2.	Ensure there are no locks on monitor subnet's Resource Group
 
@@ -35,10 +38,10 @@ The Dedicated hosting plan has a significant improvement in cost and scaling eff
 ## Steps to revert to Elastic Plan on unhealthy AMS
 If the deployment fails with code FunctionAppRestoreFailed or if restoration to Elastic Premium Plan is needed after multiple failure, then follow the below steps to revert to Elastic Premium Plan.
 
-1.	Install Azure CLI, refer install Azure CLI . Run the below command to set subscription. az account set --subscription "<Subscription Name>"
-2.	Install Workloads CLI extension.
-az extension add --name workloads
-3.	Execute az monitor create with required properties as per your AMS.
-az workloads monitor create -g <rg-name> -n <ams_name> -l <location> --app-location <app-location> --managed-rg-name <managed_rg_name> --monitor-subnet <subnet_arm_id> --routing-preference <routing_preference> --identity type=None
-4.	Monitor will be restored once operation completes.
+1.	Install Azure CLI, refer [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
+2.	Run `az account set --subscription "<Subscription Name>"` to set subscription.
+3.	Run `az extension add --name workloads` to install Workloads CLI extension.
+5.	Execute az monitor create with required properties as per your AMS.
+   `az workloads monitor create -g <rg-name> -n <ams_name> -l <location> --app-location <app-location> --managed-rg-name <managed_rg_name> --monitor-subnet <subnet_arm_id> --routing-preference <routing_preference> --identity type=None`
+7.	Monitor will be restored once operation completes.
 
