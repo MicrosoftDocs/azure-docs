@@ -162,7 +162,7 @@ If you don't specify a custom retry policy, the default retry values are used. T
 | [Mode](/dotnet/api/azure.core.retryoptions.mode) | [RetryMode](/dotnet/api/azure.core.retrymode) | The approach to use for calculating retry delays. | Exponential |
 | [NetworkTimeout](/dotnet/api/azure.core.retryoptions.networktimeout) | [TimeSpan](/dotnet/api/system.timespan) | The timeout applied to an individual network operation. | 100 seconds |
 
-As you configure retry options for an `ArmClient` object, it's important to note that [scale targets](scalability-targets-resource-provider.md) are different between the Storage resource provider (management plane) and the data plane. Be sure to configure retry options with these limits in mind.
+As you configure retry options for an `ArmClient` object, it's important to note that the [scale targets](scalability-targets-resource-provider.md) are different between the Storage resource provider (management plane) and the data plane. Be sure to configure retry options with these limits in mind.
 
 If you exceed the rate limit for Azure Storage management plane APIs, you receive an HTTP status code `429 Too Many Requests`, which indicates that the request is being throttled. The response includes a `Retry-After` value, which specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value elapses, your request isn't processed and a new `Retry-After` value is returned.
 
