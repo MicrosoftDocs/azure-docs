@@ -13,6 +13,9 @@ ms.reviewer: jushiman
 
 # Modify a Compute Fleet 
 
+> [!IMPORTANT]
+> [Azure Compute Fleet](overview.md) is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+
 While your Compute Fleet is in a running state, it allows you to modify the target capacity and virtual machine (VM) size selection based on how you configured your Compute Fleet. This article explains how you can modify the target capacity and the VM size selection of your Compute Fleet. 
 
 ## Modify target capacity 
