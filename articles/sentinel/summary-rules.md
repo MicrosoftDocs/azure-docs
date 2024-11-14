@@ -167,7 +167,7 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
 
 **Solution**: We recommend using summary rules to do the following:
 
-1. **Create a summary rule**:
+1. **Create a summary rule**: 
 
     1. Extend your query to extract key fields, such as the source address, destination address, and destination port from  CommonSecurityLog_CL, which is the *CommonSecurityLog* table with the Auxilairy plan.
 
