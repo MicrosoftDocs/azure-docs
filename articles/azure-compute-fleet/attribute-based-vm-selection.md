@@ -389,3 +389,8 @@ The following list are supported VM attrbutes and examples of configurations.
 	} 
 }
 ```   
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Find answers to frequently asked questions.](faq.yml)
