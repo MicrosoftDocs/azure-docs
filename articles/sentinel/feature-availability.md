@@ -21,7 +21,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 > These lists and tables do not include feature or bundle availability in the Azure Government Secret or Azure Government Top Secret clouds. 
 > For more information about specific availability for air-gapped clouds, please contact your account team.
 
-## Experience in the Defender portal
+## Experience in the Defender portal 
 
 Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md) as Microsoft's unified security operations (SecOps) platform. In the Defender portal, all features in general availability are available in both commercial and GCC High and DoD clouds. Features still in preview are available only in the commercial cloud.
 
