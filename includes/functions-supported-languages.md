@@ -49,7 +49,7 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| .NET 9 | GA | [May 12. 2026][dotnet-policy] |
+| .NET 9 | GA | [May 12, 2026][dotnet-policy] |
 | .NET 8 | GA | [November 10, 2026][dotnet-policy] |
 | .NET Framework 4.8.1 | GA | [See policy][dotnet-framework-policy] |
 
