@@ -81,7 +81,7 @@ The following steps explain how to add a data source to lakehouse.
 
     :::image type="content" source="./media/tutorial-snap-to-road/file-upload.png" lightbox="./media/tutorial-snap-to-road/file-upload.png" alt-text="A screenshot showing the upload files menu option.":::
 
-1. Bring up the file open dialog by selecting the _folder_ icon. Select the desired file then the **Open** button. Once the file open dialog box closes and the correct filename appears in the **Upload files** control, select the **Upload** button to upload the file into lakehouse.
+1. Bring up the file open dialog by selecting the _folder_ icon. Select the mockData_20240919.csv file you downloaded in the [previous section](#download-data-file) then the **Open** button. Once the file open dialog box closes and the correct filename appears in the **Upload files** control, select the **Upload** button to upload the file into lakehouse.
 
     :::image type="content" source="./media/tutorial-snap-to-road/upload-files.png" lightbox="./media/tutorial-snap-to-road/upload-files.png" alt-text="A screenshot showing the upload files panel.":::
 
@@ -98,13 +98,13 @@ You first need to load the required packages:
 !pip install geojson
 ```
 
-1. Enter the pip install statements into the first cell of your notebook, then to execute the statements select the _run arrow_.
+1. Enter the pip install statements into the first cell of your notebook, then execute the statements by selecting the _run arrow_.
 
     :::image type="content" source="./media/tutorial-snap-to-road/install-packages.png" lightbox="./media/tutorial-snap-to-road/install-packages.png" alt-text="A screenshot showing the install packages code in a cell of the notebook.":::
 
 ### Load data
 
-Next, load the sample data you previously uploaded into your lakehouse.
+Next, load the sample data you [previously uploaded](#upload-data-file-into-lakehouse) into your lakehouse.
 
 1. Hover your pointer just below the cell used to install the packages. Options appear to add code or markdown. Select **Code** to add another code cell to your notebook.
 
@@ -132,7 +132,7 @@ Next, load the sample data you previously uploaded into your lakehouse.
 
 ### Enhance with Snap to Roads
 
-The code in this notebook cell reads raw GPS data from the lakehouse file and calls the Azure Maps Snap to Road API. With interpolation enabled, the API adds points between GPS locations to complete the route path along the road. It also provides attributes like road names and speed limits when available.
+The code in this notebook cell reads raw GPS data from the data file in lakehouse and passes it to the Azure Maps Snap to Road API. With interpolation enabled, the API adds points between GPS locations to complete the route path along the road. It also provides attributes like road names and speed limits when available.
 
 1. Hover your pointer just below the cell used to install the packages in the previous step. Options appear to add code or markdown. Select **Code** to add another code cell to your notebook.
 1. Once the new cell is created, add the following code. Make sure you add your subscription key.
@@ -226,6 +226,8 @@ The following code takes the output created in the previous code cell and create
     process_route(df, outputFilePath)
     ```
 
+1. Execute the code by selecting the _run arrow_. This saves _SnapRoadResponses.csv_ with updated GPS coordinates to the lakehouse.
+
 > [!TIP]
 > If the new file does not appear after running the notebook code, you may need to refresh your browser.
 
@@ -253,7 +255,7 @@ Create an eventhouse to manage the telemetry data for your fleet or moving asset
 
     :::image type="content" source="./media/tutorial-snap-to-road/new-table.png" lightbox="./media/tutorial-snap-to-road/new-table.png" alt-text="A screenshot showing the new table option.":::
 
-1. Enter the ABFS path to the Lakehouse data file in the **OneLake file** control that you [saved previously](#copy-file-path), then select the plus sign (**+**) to add it to the list.
+1. Enter the ABFS path to the Lakehouse data file (_SnapRoadResponses.csv_) in the **OneLake file** control that you [saved previously](#copy-file-path), then select the plus sign (**+**) to add it to the list.
 
     :::image type="content" source="./media/tutorial-snap-to-road/select-file.png" lightbox="./media/tutorial-snap-to-road/select-file.png" alt-text="A screenshot showing entering a OneLake filename with the next button highlighted.":::
 
@@ -279,13 +281,13 @@ A [Real-Time Dashboard] can be created to connect to your dataset in the eventho
 
 1. Go to your [My Workspace] and select **New item**.
 1. When the **New item** screen appears, search for, or scroll down and select **Real-Time Dashboard**.
-1. In the **New Real-Time Dashboard** screen, enter the name _SnapToRoadDashboard_, the select **Create**.
+1. In the **New Real-Time Dashboard** screen, enter the name _SnapToRoadDashboard_, then select **Create**.
 1. In the new **Real-Time Dashboard** screen, select **New data source**.
-1. Select the **Add +** button, then select **OneLake data hub**.
+1. Select the **Add** button, then select **OneLake data hub**.
 
     :::image type="content" source="./media/tutorial-snap-to-road/real-time-dashboard-data-source.png" lightbox="./media/tutorial-snap-to-road/real-time-dashboard-data-source.png" alt-text="A screenshot showing the Real-Time Dashboard add data source screen.":::
 
-1. Select your data source, the **Connect**.
+1. Select your data source, then **Connect**.
 
     :::image type="content" source="./media/tutorial-snap-to-road/connect-data-source.png" lightbox="./media/tutorial-snap-to-road/connect-data-source.png" alt-text="A screenshot showing the data file selected with the connect button highlighted.":::
 
@@ -295,15 +297,15 @@ A [Real-Time Dashboard] can be created to connect to your dataset in the eventho
 
 1. Close the **Data sources** panel.
 
-Now that you
+Now that you have added the datasource for your real-time dashboard, you can add a query and map visual.
 
 ### Add query and map visual
 
-1. Select **+ Add tile**.
+1. Select **Add tile**.
 
     :::image type="content" source="./media/tutorial-snap-to-road/add-tile.png" lightbox="./media/tutorial-snap-to-road/add-tile.png" alt-text="A screenshot showing the add tile button highlighted.":::
 
-1. Enter `GPSData` then select **> Run**. Once you verified that the query works, select **+ Add visual**.
+1. Enter `GPSData` in the query then select **Run**. Once you verified that the query works, select **Add visual**.
 
     :::image type="content" source="./media/tutorial-snap-to-road/run-query.png" lightbox="./media/tutorial-snap-to-road/run-query.png" alt-text="A screenshot showing the results in the run query screen.":::
 
@@ -319,7 +321,9 @@ Now that you
 1. Update the map info card by selecting a value from the **Label column** drop-down. Select **SpeedLimitInKilometersPerHour**.
 1. Select **Apply changes**
 
-    :::image type="content" source="./media/tutorial-snap-to-road/map-visual.png" lightbox="./media/tutorial-snap-to-road/map-visual.png" alt-text="A screenshot showing the completed map visual with an info card displayed showing the speed limit in kilometers per hour.":::
+Your map visual appears. You can select any point on the map to get the coordinates and _Speed Limit In Kilometers Per Hour_ for that location.
+
+:::image type="content" source="./media/tutorial-snap-to-road/map-visual.png" lightbox="./media/tutorial-snap-to-road/map-visual.png" alt-text="A screenshot showing the completed map visual with an info card displayed showing the speed limit in kilometers per hour.":::
 
 ## Next steps
 
