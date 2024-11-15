@@ -1,8 +1,9 @@
 ---
-title: Configure processing units for a premium Azure Event Hubs namespace
-description: Provides instructions for configuring processing units for a premium tier Event Hubs namespace. 
-ms.topic: article
-ms.date: 05/26/2021
+title: Configure processing units 
+description: This article provides instructions for configuring processing units for a premium tier Event Hubs namespace. 
+ms.topic: how-to
+ms.date: 11/15/2024
+# Customer intent: As an administrator, I want to know how to scale processing units for a namespace up and down. 
 ---
 
 # Configure processing units for a premium tier Azure Event Hubs namespace
@@ -21,7 +22,7 @@ To update the number of PUs for an existing premium namespace, follow these step
 
     :::image type="content" source="media/configure-processing-units-premium-namespace/scale-settings-premium.png" alt-text="Screenshot of the Scale page of an existing premium namespace with processing units are configured.":::
 
-## Next steps
+## Related content
 To learn more about processing units and Event Hubs premium tier, see the following articles.
 
 - [Event Hubs Premium](event-hubs-premium-overview.md)
