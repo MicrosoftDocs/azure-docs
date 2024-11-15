@@ -19,6 +19,7 @@ ms.custom: monitoring, devx-track-azurepowershell
 > [!NOTE]
 > We recommend that you use Azure Storage logs in Azure Monitor instead of Storage Analytics logs. See any of the following articles:
 >
+> - [Create diagnostic settings in Azure Monitor](articles/azure-monitor/essentials/create-diagnostic-settings.md)
 > - [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md)
 > - [Monitoring Azure Files](../files/storage-files-monitoring.md)
 > - [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md)
