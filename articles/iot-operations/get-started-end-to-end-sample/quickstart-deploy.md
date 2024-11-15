@@ -148,7 +148,7 @@ To connect your cluster to Azure Arc:
 1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable custom location support on your cluster. This command uses the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command on the machine where you deployed the Kubernetes cluster:
 
    ```azurecli
-   az connectedk8s enable-features -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
+   az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
    ```
 
 ## Create storage account and schema registry
@@ -168,9 +168,9 @@ Run the following CLI commands in your Codespaces terminal.
    | <SCHEMA_REGISTRY_NAMESPACE> | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. |
 
    ```azurecli
-   export STORAGE_ACCOUNT=<STORAGE_ACCOUNT_NAME>
-   export SCHEMA_REGISTRY=<SCHEMA_REGISTRY_NAME>
-   export SCHEMA_REGISTRY_NAMESPACE=<SCHEMA_REGISTRY_NAMESPACE>
+   STORAGE_ACCOUNT=<STORAGE_ACCOUNT_NAME>
+   SCHEMA_REGISTRY=<SCHEMA_REGISTRY_NAME>
+   SCHEMA_REGISTRY_NAMESPACE=<SCHEMA_REGISTRY_NAMESPACE>
    ```
 
 1. Create a storage account with hierarchical namespace enabled.
