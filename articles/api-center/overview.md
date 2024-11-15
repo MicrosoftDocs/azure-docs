@@ -5,7 +5,7 @@ author: dlepow
  
 ms.service: azure-api-center
 ms.topic: overview
-ms.date: 04/15/2024
+ms.date: 11/15/2024
 ms.author: danlep 
 ms.custom: references_regions
 ---
@@ -17,8 +17,10 @@ Azure API Center enables tracking all of your APIs in a centralized location for
 With an API center, stakeholders throughout your organization - including API program managers, IT administrators, application developers, and API developers - can discover, reuse, and govern APIs.  
 
 > [!NOTE]
-> Azure API Center is a solution for design-time API governance and centralized API discovery. Azure also offers the API Management service, a solution for runtime API governance and observability using an API gateway. [Learn more](frequently-asked-questions.yml#what-s-the-difference-between-azure-api-management-and-azure-api-center) about the differences and how Azure API Center and API Management can work together.
+> Azure API Center is a solution for design-time API governance and centralized API discovery. Azure also offers complementary service such as Azure API Management, a solution for runtime API governance and observability using an API gateway. [Learn more](frequently-asked-questions.yml#what-s-the-difference-between-azure-api-management-and-azure-api-center) about the differences and how Azure API Center and API Management can work together.
 
+
+<!--
 ## Benefits
 
 * **Create and maintain an organizational inventory​** - Organizations can build a **complete inventory of APIs** available in their organization. Register APIs managed in all of your API management solutions, including Azure API Management and platforms from other providers. Also include your unmanaged APIs and APIs under development. Foster communication and let API program managers and developers collaborate for increased API reuse, quality, security, compliance, and developer productivity.​
@@ -28,16 +30,21 @@ With an API center, stakeholders throughout your organization - including API pr
 * **Easy API discovery** - Organizations want to promote API reuse to maximize developer productivity and ensure developers are using the right APIs. Azure API Center helps program managers and developers discover the API inventory and filter using built-in and custom metadata. ​
 
 * **Accelerate API consumption** - Maximize developer productivity when consuming APIs and ensure they are consumed in a secure manner consistent with organizational standards. 
+-->
 
 ## Key capabilities
 
 Create and use an API center for the following:
 
-* **API inventory management** - API developers and API program managers can register all of your organization's APIs for inclusion in a centralized inventory using the Azure portal, the Azure CLI, or developer tooling including the Azure API Center extension for Visual Studio Code and CI/CD pipelines. 
+* **API inventory management** - API developers and API program managers can register all of your organization's APIs for inclusion in a centralized inventory using the Azure portal, the Azure CLI, developer tooling including the Azure API Center extension for Visual Studio Code and CI/CD pipelines, and linking to API sources such as Azure API Management services. 
+
+    
 
 * **Real-world API representation** - Add real-world information about each API including versions and definitions such as OpenAPI definitions. List API deployments and associate them with runtime environments, for example, representing Azure API Management or other API management solutions.
 
-* **API governance** - Organize and filter APIs and related resources using built-in and custom metadata, to help with API governance and discovery by API consumers. Set up [linting and analysis](enable-managed-api-analysis-linting.md) to enforce API definition quality. API developers can shift-left API design conformance checks into Visual Studio Code with integrated linting support and breaking change detection. Integrate with tools such as Dev Proxy to ensure that apps don't use unregistered [shadow APIs](discover-shadow-apis-dev-proxy.md) or APIs that don't meet organizational standards.
+* **API governance** - Organize and filter APIs and related resources using built-in and custom metadata, to help with API governance and discovery by API consumers. Set up [linting and analysis](enable-managed-api-analysis-linting.md) to enforce API definition quality. 
+
+    API developers can shift-left API design conformance checks into Visual Studio Code with integrated linting support and breaking change detection. Integrate with tools such as Dev Proxy to ensure that apps don't use unregistered [shadow APIs](discover-shadow-apis-dev-proxy.md) or APIs that don't meet organizational standards.
 
 * **API discovery and reuse** - Enable enterprise developers and API program managers to discover APIs via an API Center portal or an [API platform catalog](enable-platform-api-catalog-vscode-extension.md) that's accessed using the Azure API Center Visual Studio Code extension.
 
