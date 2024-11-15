@@ -226,7 +226,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 - To receive OS updates on your end of support VM that was migrated to Azure, upgrade to the latest version by following the steps [here](https://access.redhat.com/support/policy/updates/errata/).
 - To extend support for your end of support VM that was migrated to Azure with the existing OS version, update the [license option](https://learn.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux?tabs=ahbNewPortal%2CahbExistingPortal%2Clicenseazcli%2CslesAzcliByosConv%2Cslesazclipaygconv%2Crhelpaygconversion%2Crhelcompliance#byos-to-payg-conversions) to get extended support.
-- To receive specialized OS updates on your migrated VM, update the license option as described [here](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/azure-hybrid-benefit-linux?tabs=ahbNewPortal%2CahbExistingPortal%2Clicenseazcli%2CslesAzcliByosConv%2Cslesazclipaygconv%2Crhelpaygconversion%2Crhelcompliance#byos-to-payg-conversions).
+- To receive specialized OS updates on your migrated VM, update the license option as described [here](https://learn.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux?tabs=ahbNewPortal%2CahbExistingPortal%2Clicenseazcli%2CslesAzcliByosConv%2Cslesazclipaygconv%2Crhelpaygconversion%2Crhelcompliance#byos-to-payg-conversions).
 
 
 ## Post-migration best practices
