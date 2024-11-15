@@ -16,17 +16,6 @@ zone_pivot_groups: feature-management
 
 # Python feature management
 
-:::zone target="docs" pivot="stable-version"
-
-[![Feature Management](https://img.shields.io/pypi/v/FeatureManagement?color=blue)](https://pypi.org/project/FeatureManagement/)<br>
-:::zone-end
-
-:::zone target="docs" pivot="preview-version"
-
-[![Feature Management](https://img.shields.io/pypi/v/FeatureManagement/2.0.0b2?color=blue)](https://pypi.org/project/FeatureManagement/2.0.0b2/)<br>
-
-:::zone-end
-
 Python feature management library provides a way to develop and expose application functionality based on feature flags. Once a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships, and also integrates into common Python code patterns to make exposing these features possible.
 
 Feature flags provide a way for Python applications to turn features on or off dynamically. Developers can use feature flags in simple use cases like conditional statements.
@@ -312,8 +301,6 @@ When defining an audience, users and groups can be excluded from the audience. E
 ```
 
 In the above example, the feature is enabled for users named `Jeff` and `Alicia`. It's also enabled for users in the group named `Ring0`. However, if the user is named `Mark`, the feature is disabled, regardless of if they are in the group `Ring0` or not. Exclusions take priority over the rest of the targeting filter.
-
-:::zone target="docs" pivot="preview-version"
 
 ## Variants
 
@@ -601,8 +588,6 @@ When a feature flag is evaluated and telemetry is enabled, the feature manager c
 | `enabled` | Whether the feature flag is evaluated as enabled. |
 | `Variant` | The assigned variant. |
 | `VariantAssignmentReason` | The reason why the variant is assigned. |
-
-:::zone-end
 
 ## Next steps
 
