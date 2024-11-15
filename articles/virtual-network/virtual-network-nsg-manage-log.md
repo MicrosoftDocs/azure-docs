@@ -34,7 +34,7 @@ You can use the [Azure portal](#azure-portal), [Azure PowerShell](#azure-powersh
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box at the top of the Azure portal, enter **network security groups**. Select **Network security groups** in the search results.
-1. Select the NSG for which to enable logging.
+1. Select the NSG for which you want to enable logging.
 1. Under **Monitoring**, select **Diagnostic settings**, and then select **Add diagnostic setting**.
 
    :::image type="content" source="./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png" alt-text="Screenshot that shows the diagnostic settings for an NSG with Add diagnostic setting highlighted." lightbox="./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png":::
@@ -115,7 +115,7 @@ nsgId=$(az network nsg show \
   --output tsv)
 ```
 
-You can write resource logs to different destination types. For more information, see [Log destinations](#log-destinations). In this article, logs are sent to a *Log Analytics workspace* destination, as an example. For more information, see [Log categories](#log-categories).
+You can write resource logs to different destination types. For more information, see [Log destinations](#log-destinations). In this article, logs are sent to a Log Analytics workspace destination, as an example. For more information, see [Log categories](#log-categories).
 
 Enable resource logging for the NSG with [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). The following example logs both event and counter category data to an existing workspace named `myWorkspace`, which exists in a resource group named `myWorkspaces`. It uses the ID of the NSG that you saved by using the previous command.
 
@@ -149,7 +149,7 @@ JSON-formatted data is written for the following log categories: event and rule 
 
 ### Event
 
-The event log contains information about which NSG rules are applied to virtual machines, based on a MAC address. The following data is logged for each event. In the following example, the data is logged for a virtual machine with the IP address 192.168.1.4 and a MAC address of 00-0D-3A-92-6A-7C:
+The event log contains information about which NSG rules are applied to virtual machines, based on a MAC address. The following data is logged for each event. In the following example, the data is logged for a virtual machine with the IP address 192.168.1.4 and a MAC address of 00-0D-3A-92-6A-7C.
 
 ```json
 {
@@ -180,7 +180,7 @@ The event log contains information about which NSG rules are applied to virtual 
 
 ### Rule counter
 
-The rule counter log contains information about each rule applied to resources. The following example data is logged each time a rule is applied. In the following example, the data is logged for a virtual machine with the IP address 192.168.1.4 and a MAC address of 00-0D-3A-92-6A-7C:
+The rule counter log contains information about each rule applied to resources. The following example data is logged each time a rule is applied. In the following example, the data is logged for a virtual machine with the IP address 192.168.1.4 and a MAC address of 00-0D-3A-92-6A-7C.
 
 ```json
 {

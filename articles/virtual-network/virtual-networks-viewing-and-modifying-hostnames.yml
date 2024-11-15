@@ -59,7 +59,7 @@ procedureSection:
         ```
 
         For more information on GET requests for VMs, see
-        [Virtual Machines - GET](/rest/api/compute/virtual-machines/get).
+        [Virtual machines - GET](/rest/api/compute/virtual-machines/get).
       - |
         Look for the `osProfile` and then the `computerName` element to find the host name.
 
