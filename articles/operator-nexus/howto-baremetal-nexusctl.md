@@ -53,7 +53,7 @@ etc.
 
 ## Power off a bare metal machine
 
-A single bare metal machine can be powered off by connecting to a control-plane or management-plane node via ssh and running the command:
+A single bare metal machine can be powered off by connecting to a control-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal power-off --name <machine name>
@@ -69,7 +69,7 @@ The status is blank until the operation completes and reaches either a "succeede
 
 ## Start a bare metal machine
 
-A single bare metal machine can be started by connecting to a control-plane or management-plane node via ssh and running the command:
+A single bare metal machine can be started by connecting to a control-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal start --name <machine name>
@@ -85,7 +85,7 @@ The status is blank until the operation completes and reaches either a "succeede
 
 ## Unmanage a bare metal machine (set to unmanaged state)
 
-A single bare metal machine can be switched to an unmanaged state by connecting to a control-plane or management-plane node via ssh and running the command:
+A single bare metal machine can be switched to an unmanaged state by connecting to a control-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal unmanage --name <machine name>
@@ -97,7 +97,7 @@ While in an unmanaged state, no actions are permitted for that machine, except f
 
 ## Manage a bare metal machine (set to managed state)
 
-A single bare metal machine can be switched to a managed state by connecting to a control-plane or management-plane node via ssh and running the command:
+A single bare metal machine can be switched to a managed state by connecting to a control-plane node via ssh and running the command:
 
 ```
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal manage --name <machine name>
