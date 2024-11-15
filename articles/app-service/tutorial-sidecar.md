@@ -155,7 +155,7 @@ In this section, you add a sidecar container to your custom container app. The p
     > }
     > ```
 
-1. Configure the template with the following information:
+1. Configure the template input with the following information:
 
     - **Resource Group**: Select the resource group with the App Service app you created with `az webapp up` earlier.
     - **App Name**: Type the name of the App Service app.
