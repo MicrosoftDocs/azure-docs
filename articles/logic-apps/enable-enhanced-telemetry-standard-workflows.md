@@ -136,7 +136,7 @@ To show how data gets into these fields, suppose you have the following example 
 
 ![Screenshot shows Azure portal and Standard workflow designer with trigger and actions.](media/enable-enhanced-telemetry-standard-workflows/workflow-overview.png)
 
-The trigger's settings has a parameter named **Custom Tracking Id**. The parameter value is set to an expression that pulls the **orderId** property value from the body of an incoming message:
+The trigger's settings have a parameter named **Custom Tracking Id**. The parameter value is set to an expression that pulls the **orderId** property value from the body of an incoming message:
 
 ![Screenshot shows Azure portal, Standard workflow, Request trigger selected, Settings tab, and custom tracking Id.](media/enable-enhanced-telemetry-standard-workflows/requests-table/request-trigger-custom-tracking-id.png)
 
