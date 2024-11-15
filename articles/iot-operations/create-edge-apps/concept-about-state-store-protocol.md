@@ -465,7 +465,7 @@ $3<CR><LF>
 abc<CR><LF>
 ```
 
-The `KEYNOTIFY` notification message contains the timestamp of the value when notifying a client about a SET request (value updated) or when notifying a client about a DEL or VDEL request (value deleted). The timestamp is included as part of the message's MQTT v5 User Property __ts. For more information about, see the section [Versions as Hybrid Logical Clocks](#versions-as-hybrid-logical-clocks).
+The `KEYNOTIFY` notification message contains the timestamp of the value when notifying a client about a SET request (value updated) or when notifying a client about a DEL or VDEL request (value deleted). The timestamp is included as part of the message's MQTT v5 User Property __ts. For more information, see the section [Versions as Hybrid Logical Clocks](#versions-as-hybrid-logical-clocks).
 
 ## Related content
 
