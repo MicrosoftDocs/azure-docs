@@ -29,25 +29,47 @@ The feature works with Spark 3.1. The following table shows the supported Hive M
 ## Set up linked service to Hive Metastore 
 
 > [!NOTE]
-> Only Azure SQL Database and Azure Database for MySQL are supported as an external Hive Metastore. And currently we only support User-Password authentication. If the provided database is blank, please provision it via [Hive Schema Tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool) to create database schema.
+> Only Azure SQL Database and Azure Database for MySQL are supported as an external Hive Metastore. SQL(User-Password) authentication is supported for both Azure SQL Database and Azure Database for MySQL. Managed Identity(including System-Assigned and User-assigned) authentication are also supported only for Azure SQL Database. If the provided database is blank, please provision it via [Hive Schema Tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool) to create database schema.
 
 Follow below steps to set up a linked service to the external Hive Metastore in Synapse workspace.
+
+### [Azure SQL Database](#tab/azure-sql-database)
 
 1. Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
 
    :::image type="content" source="./media/use-external-metastore/set-up-hive-metastore-linked-service.png" alt-text="Set up Hive Metastore linked service" border="true":::
 
-2. Choose **Azure SQL Database** or **Azure Database for MySQL** based on your database type, click **Continue**.
+2. Choose **Azure SQL Database**, click **Continue**.
 
 3. Provide **Name** of the linked service. Record the name of the linked service, this info will be used to configure Spark shortly.
 
-4. You can either select **Azure SQL Database**/**Azure Database for MySQL** for the external Hive Metastore from Azure subscription list, or enter the info manually.
+4. Choose **Legacy** version.
+
+5. You can either select **Azure SQL Database** for the external Hive Metastore from Azure subscription list, or enter the info manually.
+
+6. Provide **User name** and **Password** to set up the connection.
+
+7. **Test connection** to verify the username and password.
+
+8. Click **Create** to create the linked service. 
+
+### [Azure Database for MySQL](#tab/azure-database-for-mysql)
+
+1. Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
+
+   :::image type="content" source="./media/use-external-metastore/set-up-hive-metastore-linked-service.png" alt-text="Set up Hive Metastore linked service" border="true":::
+
+2. Choose **Azure Database for MySQL**, click **Continue**.
+
+3. Provide **Name** of the linked service. Record the name of the linked service, this info will be used to configure Spark shortly.
+
+4. You can either select **Azure Database for MySQL** for the external Hive Metastore from Azure subscription list, or enter the info manually.
 
 5. Provide **User name** and **Password** to set up the connection.
 
 6. **Test connection** to verify the username and password.
 
-7. Click **Create** to create the linked service. 
+7. Click **Create** to create the linked service.
 
 ### Test connection and get the metastore version in notebook
 Some network security rule settings may block access from Spark pool to the external Hive Metastore DB. Before you configure the Spark pool, run below code in any Spark pool notebook to test connection to the external Hive Metastore DB. 
