@@ -54,7 +54,7 @@ You can deploy dataflows as soon as you have an instance of [Azure IoT Operation
 
 ### Dataflow profile
 
-The dataflow profile specifies the number of instances for the dataflows under it to use. If you don't need multiple groups of dataflows with different scaling settings, you can use the default dataflow profile. To learn how to configure a dataflow profile, see [Configure dataflow profiles](howto-configure-dataflow-profile.md).
+If you don't need different scaling settings for your dataflows, use the [default dataflow profile](./howto-configure-dataflow-profile.md#default-dataflow-profile) provided by Azure IoT Operations. To learn how to configure a dataflow profile, see [Configure dataflow profiles](howto-configure-dataflow-profile.md).
 
 ### Dataflow endpoints
 
