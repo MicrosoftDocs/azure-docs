@@ -4,7 +4,7 @@ description: Learn how to filter and view Azure DNS traffic
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 11/11/2024
+ms.date: 11/14/2024
 ms.author: greglin
 ---
 
