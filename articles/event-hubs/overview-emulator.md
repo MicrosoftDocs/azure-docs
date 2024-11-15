@@ -37,7 +37,13 @@ The emulator provides these features:
 
 The current version of the emulator has the following limitations:
 
-- When using Kafka, only producer and consumer APIs are compatible with Event Hubs emulator.   
+- When using Kafka, only producer and consumer APIs are compatible with Event Hubs emulator.
+- Under Kafka configuration, `securityProtocol` and `saslmechanism` can only have the following values:
+  ```
+    SecurityProtocol = SecurityProtocol.SaslPlaintext,
+    SaslMechanism = SaslMechanism.Plain
+  ```
+
 - It doesn't support on-the-fly management operations through a client-side SDK.
 
 > [!NOTE]
@@ -73,7 +79,7 @@ Like the Event Hubs cloud service, the emulator provides the following quotas fo
 | Maximum number of consumer groups in an event hub| 20 |Yes
 | Maximum number of partitions in an event hub |32 |Yes
 | Maximum size of an event being published to an event hub (batch/nonbatch) |1 MB |No
-| Minimum event retention time | 1 h | No
+| Minimum event retention time | 1 hr | No
 
 ## Quota configuration changes
 
