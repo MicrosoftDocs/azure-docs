@@ -79,7 +79,7 @@ To run the Event Hubs emulator locally on Linux or macOS:
 
    ```
 
-1. Save the following .yaml file as *docker-compose.yaml* to spin up containers for the Event Hubs emulator:
+2. Save the following .yaml file as *docker-compose.yaml* to spin up containers for the Event Hubs emulator:
 
    ```
    name: microsoft-azure-eventhubs
@@ -91,6 +91,7 @@ To run the Event Hubs emulator locally on Linux or macOS:
          - "${CONFIG_PATH}:/Eventhubs_Emulator/ConfigFiles/Config.json"
        ports:
          - "5672:5672"
+         - "9092:9092"
        environment:
          BLOB_SERVER: azurite
          METADATA_SERVER: azurite
@@ -116,7 +117,7 @@ To run the Event Hubs emulator locally on Linux or macOS:
      eh-emulator:
    ```
 
-1. Create an .env file to declare the environment variables for the Event Hubs emulator:
+3. Create an .env file to declare the environment variables for the Event Hubs emulator:
 
    ```
    # Centralized environment variables store for docker-compose
@@ -134,7 +135,7 @@ To run the Event Hubs emulator locally on Linux or macOS:
    > [!IMPORTANT]
    > When you're specifying file paths in Windows, use double backslashes (`\\`) instead of single backslashes (`\`) to avoid confusion with escape characters.
 
-1. Run the following command to run the emulator:
+4. Run the following command to run the emulator:
 
    ```
     docker compose -f <PathToDockerComposeFile> up -d
@@ -154,7 +155,6 @@ You can use the following connection string to connect to the Event Hubs emulato
 
  - When the emulator container and interacting application are running natively on local machine, use following connection string:
 ```
-
 "Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
 ```
   - Applications (Containerized/Non-containerized) on the different machine and same local network can interact with Emulator using the IPv4 address of the machine. Use following connection string:
@@ -175,10 +175,18 @@ You can use the following connection string to connect to the Event Hubs emulato
 While interacting with Kafka, ensure to set the Producer and consumer config as below:
 
 ```
-“security.protocol”: "SASL_PLAINTEXT"
-“sasl.mechanism”: "PLAIN"
+
+        {
+            BootstrapServers = localhost:9092, //Value of bootstrap servers would depend on kind of connection string being used
+            SecurityProtocol = SecurityProtocol.SaslPlaintext,
+            SaslMechanism = SaslMechanism.Plain,
+            SaslUsername = "$ConnectionString",
+            SaslPassword = eventHubsConnectionString
+        };
 
 ```
+Value of BootstrapServers and SaslPassword would depend on your setup topology. Please refer to [Interact with Emulator](#Interact-with-the-emulator) section for details. 
+
 > [!IMPORTANT]
 > When using Kafka, only Producer and consumer APIs are compatible with Event Hubs emulator. 
 
