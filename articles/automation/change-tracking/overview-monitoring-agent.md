@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/14/2024
+ms.date: 11/15/2024
 ms.topic: overview
 ms.service: azure-automation
 ---
@@ -119,7 +119,7 @@ Change Tracking and Inventory supports recursion, which allows you to specify wi
 
 ## Change Tracking and Inventory data collection
 
-The next table shows the data collection frequency for the types of changes supported by Change Tracking and Inventory. For every type, the data snapshot of the current state is also refreshed at least every 24 hours.
+The next table shows the data collection frequency for the types of changes supported by Change Tracking and Inventory. Inventory logs will be populated every 10 hours by default for all data types. Additionally, when there is a change registered for any of the data types, the inventory and change logs will be generated for this instance.
 
 | **Change Type** | **Frequency** |
 | --- | --- |
