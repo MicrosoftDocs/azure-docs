@@ -29,12 +29,11 @@ Azure API Management helps organizations publish APIs to external, partner, and 
 
 ## Transient faults 
 
-<!-- Insert include here -->
+[!INCLUDE[introduction to transient faults](includes/reliability-transient-faults-description-include.md)]
 
-<!-- TODO
-API clients should follow retry guidance
-Proactively monitor the capacity of your gateway to avoid getting saturated - use [capacity metrics](/azure/api-management/api-management-capacity)
--->
+All applications should follow Azure's transient fault handling guidance when communicating with any cloud-hosted APIs, databases, and other components. To learn more about handling transient faults, see [Recommendations for handing transient faults](/azure/well-architected/reliability/handle-transient-faults).
+
+You should also proactively monitor the capacity of your gateway. Azure API Management gateways provide [capacity metrics](/azure/api-management/api-management-capacity) that can indicate when your instance is approaching its maximum capacity. By monitoring the capacity, you can scale your instance before it reaches its maximum capacity, which can cause requests to fail as well as timeouts and latency problems.
 
 ## Availability zone support
 
@@ -79,7 +78,7 @@ Adding units incurs additional costs. For information, see [API Management prici
 
 ### Configure availability zone support 
 
-To enable zone redundancy for an API Management instance, see [Enable zone redundancy for an API Management instance](/azure/api-management/enable-zone-redundancy). <!-- TODO we should probably make this cover both zonal and zone redundant configuration? -->
+To enable zone redundancy for an API Management instance, see [Enable zone redundancy for an API Management instance](/azure/api-management/enable-zone-redundancy). <!-- TODO should this instead be called "Select availability zones for an API Management instance"? -->
 
 [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
