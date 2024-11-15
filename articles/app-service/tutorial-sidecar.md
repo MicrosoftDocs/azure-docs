@@ -10,7 +10,7 @@ keywords: azure app service, web app, linux, windows, docker, sidecar
 
 # Tutorial: Configure a sidecar container for a Linux app in Azure App Service
 
-In this tutorial, you add an OpenTelemetry collector as a sidecar container to a Linux app in Azure App Service. 
+In this tutorial, you add an OpenTelemetry collector as a sidecar container to a Linux (bring-your-own-code) app in Azure App Service. For custom containers, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md).
 
 In Azure App Service, you can add up to nine sidecar containers for each Linux app. Sidecar containers let you deploy extra services and features to your Linux apps without making them tightly coupled to the main (built-in) container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
 
