@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.date: 11/15/2024
 
-#CustomerIntent: As an operator, I want to learn how to build a dashboard in Microsoft Fabric using OPC UA data Azure IoT Operations.
+#CustomerIntent: As an operator, I want to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations so that I can store the data for further analysis and processing.
 ms.service: azure-iot-operations
 ---
 
@@ -15,7 +15,7 @@ ms.service: azure-iot-operations
 
 In the quickstart, you created a dataflow that sends data from Azure IoT Operations to Event Hubs, and then to Microsoft Fabric via EventStreams.
 
-However, it's also possible to send the data directly to a storage endpoint without using Event Hubs.
+However, it's also possible to send the data directly to a storage endpoint without using Event Hubs. This approach requires creating a Delta Lake schema that represents the data, uploading the schema to Azure IoT Operations, and then creating a dataflow that reads the data from the OPC UA server and writes it to the storage endpoint.
 
 This tutorial builds on the quickstart setup and demonstrates how to bifurcate the data to Azure Data Lake Storage Gen 2. This approach allows you to store the data directly in a scalable and secure data lake, which can be used for further analysis and processing.
 
@@ -203,6 +203,8 @@ az iot ops schema version list -g <RESOURCE_GROUP> --schema opcua-schema --regis
 
 ## Create dataflow endpoint
 
+The dataflow endpoint is the destination where the data is sent. In this case, the data is sent to Azure Data Lake Storage Gen 2. The authentication method is system assigned managed identity, which you set up to have right permissions to write to the storage account.
+
 Create a dataflow endpoint using Bicep. Replace the placeholders with your values.
 
 ```bicep
@@ -249,6 +251,8 @@ az deployment group create -g <RESOURCE_GROUP> --template-file adls-gen2-endpoin
 ```
 
 ## Create a dataflow
+
+To send data to Azure Data Lake Storage Gen 2, you need to create a dataflow that reads data from the OPC UA server and writes it to the storage account. No transformation is needed in this case, so the data is written as-is.
 
 Create a dataflow using Bicep. Replace the placeholders with your values.
 
