@@ -37,7 +37,9 @@ You can configure Azure Bastion to be *zone redundant* so that your resources ar
 
 You can specify which availability zone or zones an Azure Bastion resource should be deployed to. Azure Bastion spreads your instances across those zones. The following diagram shows Azure Bastion instances spread across three zones:
 
+<!-- Art Library Source# ConceptArt-0-000-015- -->
 :::image type="content" source="media/bastion/bastion-instances-zones.svg" alt-text="Diagram that shows Azure Bastion with three instances, each in a separate availability zone." border="false":::
+
 
 > [!NOTE]
 > If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can. If an availability zone is unavailable, the instance in the faulty zone is replaced with another instance in a healthy zone.
@@ -83,7 +85,8 @@ When you initiate an SSH or RDP session, it can be routed to an Azure Bastion in
 
 A session might be sent to an Azure Bastion instance in an availability zone that's different from the virtual machine you're connecting to. In the following diagram, a request from the user is sent to an Azure Bastion instance in zone 2, although the virtual machine is in zone 1:
 
-:::image type="content" source="./media/reliability-bastion/bastion-cross-zone.png" alt-text="Diagram that shows Azure Bastion with three instances. A user request goes to an Azure Bastion instance in zone 2 and is sent to a VM in zone 1." border="false":::
+<!-- Art Library Source# ConceptArt-0-000-015- -->
+:::image type="content" source="./media/reliability-bastion/bastion-cross-zone.svg" alt-text="Diagram that shows Azure Bastion with three instances. A user request goes to an Azure Bastion instance in zone 2 and is sent to a VM in zone 1." border="false":::
 
 In most scenarios, the small amount of cross-zone latency isn't significant. However, if you have unusually stringent latency requirements for your Azure Bastion workloads, you should deploy a dedicated single-zone Azure Bastion instance in the virtual machine's availability zone. This configuration doesn't provide zone redundancy, and we don't recommend it for most customers.
 
