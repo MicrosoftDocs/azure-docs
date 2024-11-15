@@ -21,7 +21,6 @@ To send data to Azure Data Lake Storage Gen2 in Azure IoT Operations, you can co
 ## Prerequisites
 
 - An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- A [configured dataflow profile](howto-configure-dataflow-profile.md)
 - An [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md)
 - A pre-created storage container in the storage account
 

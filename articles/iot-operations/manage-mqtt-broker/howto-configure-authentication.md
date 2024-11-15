@@ -240,6 +240,7 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
       {
         method: 'X509'
         x509Settings: {
+          trustedClientCaCert: 'client-ca'
           authorizationAttributes: {
             root: {
               attributes: {
@@ -303,8 +304,8 @@ spec:
         - my-audience
     - method: X509
       x509Settings:
+        trustedClientCaCert: client-ca
         authorizationAttributes:
-          trustedClientCaCert: client-ca
           root:
             attributes:
               organization: contoso
