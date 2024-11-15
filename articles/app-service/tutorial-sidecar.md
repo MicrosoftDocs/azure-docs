@@ -82,7 +82,7 @@ In this section, you add a sidecar container to your custom container app. The p
 1. In the app's management page, from the left menu, select **Deployment Center**.
 1. Select the banner **Interested in adding containers to run alongside your app? Click here to give it a try.**
     
-    If you can't see the banner, then the portal UI isn't rolled out for your subscription yet. Select the **Use ARM template** here instead and continue.
+    If you can't see the banner, then the portal UI isn't rolled out for your subscription yet. Select the **Use ARM template** tab here instead and continue.
 
 1. When the page reloads, select the **Containers (new)** tab.
 1. Select **Add** and configure the new container as follows:
