@@ -1,5 +1,5 @@
 ---
-title: Send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations
+title: "Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations"
 description: Learn how to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations.
 author: PatAltimore
 ms.subservice: azure-mqtt-broker
@@ -11,7 +11,7 @@ ms.date: 11/15/2024
 ms.service: azure-iot-operations
 ---
 
-# Send data from an OPC UA server to Azure Data Lake Storage Gen 2
+# Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2
 
 In the quickstart, you created a dataflow that sends data from Azure IoT Operations to Event Hubs, and then to Microsoft Fabric via EventStreams.
 
@@ -368,4 +368,4 @@ The content doesn't render properly in the Azure portal, but you can download th
 
 ## Related content
 
-- Fabric tutorial
+- [Fabric tutorial](../end-to-end-tutorials/tutorial-add-assets.md)
