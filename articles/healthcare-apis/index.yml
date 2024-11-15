@@ -32,7 +32,7 @@ highlightedContent:
          url: /training/browse/?term=iot&terms=health%20data%20services
        - title: Regional availability of services and features
          itemType: reference
-         url: ./services-features-availability-zones?.md  
+         url: ./services-features-availability-zones.md  
 
 conceptualContent:
   items: 
