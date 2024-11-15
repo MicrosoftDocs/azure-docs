@@ -7,12 +7,15 @@ ms.date: 11/14/2024
 
 # Azure Resource Notifications - ContainerService events in Azure Event Grid (Preview)
 
-Azure Kubernetes Service (AKS) utilizes the Container Service Event Resources system topic to publish advance notifications for scheduled maintenance events on AKS clusters. This feature allows you to receive push notifications on a regular basis for critical maintenance operations for various event statuses such as scheduled, started, completed, canceled, and failed. Particularly for the scheduled event status, one notification is sent 7 days before the actual maintenance operation and a second notification 24 hrs in advance.
+The Azure Kubernetes Service (AKS) uses the Container Service Event Resources system topic to deliver preemptive notifications for scheduled maintenance activities on AKS clusters. This functionality enables the reception of push notifications for essential maintenance tasks across different event stages, including scheduled, initiated, completed, canceled, and failed. Notably, for scheduled stage, notifications are dispatched 7 days and 24 hours before the actual maintenance activity.
 
-These notifications cover:
-- AKS-initiated maintenance operations (for example, Underlay migration, Konnectivity Tunnel Switch)
-- Customer-initiated maintenance operations (for example, Auto upgrade, Node OS upgrade, weekly release window)
-These proactive notifications help customers by providing increased ability to plan for disruptions, thereby reducing operational costs
+
+Notifications encompass:
+- Maintenance initiated by AKS (for instance, Underlay migration, Konnectivity Tunnel Switch)
+- Maintenance initiated by customers (such as Auto upgrade, Node OS upgrade, and weekly release windows)
+
+These forward-looking notifications assist customers by offering the opportunity to better prepare for potential disruptions, ultimately aiming to minimize operational expenses.
+
 
 
 This article provides the properties and the schema for Azure Resource Notifications ContainerService events. For an introduction to event schemas in general, see [Azure Event Grid event schema](event-schema.md). In addition, you can find samples of generated events and a link to a related article on how to create system topic for this topic type. 
