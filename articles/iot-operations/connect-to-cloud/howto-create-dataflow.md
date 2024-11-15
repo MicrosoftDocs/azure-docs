@@ -169,39 +169,11 @@ Review the following sections to learn how to configure the operation types of t
 
 ## Source
 
-To configure a source for the dataflow, specify the endpoint reference and a list of data sources for the endpoint.
+To configure a source for the dataflow, specify the endpoint reference and a list of data sources for the endpoint. Choose one of the following options as the source for the dataflow.
 
-### Use asset as source
+If the default endpoint isn't used as the source, it must be used as the [destination](#destination). To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
 
-# [Portal](#tab/portal)
-
-You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. Using an asset as a source is only available in the operations experience.
-
-1. Under **Source details**, select **Asset**.
-1. Select the asset you want to use as the source endpoint.
-1. Select **Proceed**.
-
-    A list of datapoints for the selected asset is displayed.
-
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using operations experience to select an asset as the source endpoint.":::
-
-1. Select **Apply** to use the asset as the source endpoint.
-
-# [Bicep](#tab/bicep)
-
-Configuring an asset as a source is only available in the operations experience.
-
-# [Kubernetes (preview)](#tab/kubernetes)
-
-Configuring an asset as a source is only available in the operations experience.
-
----
-
-When using an asset as the source, the asset definition is used to infer the schema for the dataflow. The asset definition includes the schema for the asset's datapoints. To learn more, see [Manage asset configurations remotely](../discover-manage-assets/howto-manage-assets-remotely.md).
-
-Once configured, the data from the asset reached the dataflow via the local MQTT broker. So, when using an asset as the source, the dataflow uses the local MQTT broker default endpoint as the source in actuality.
-
-### Use default MQTT endpoint as source
+### Option 1: Use default MQTT endpoint as source
 
 # [Portal](#tab/portal)
 
@@ -250,9 +222,37 @@ Because `dataSources` allows you to specify MQTT or Kafka topics without modifyi
 
 ---
 
-If the default endpoint isn't used as the source, it must be used as the [destination](#destination). To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
+### Option 2: Use asset as source
 
-### Use custom MQTT or Kafka dataflow endpoint as source
+# [Portal](#tab/portal)
+
+You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. Using an asset as a source is only available in the operations experience.
+
+1. Under **Source details**, select **Asset**.
+1. Select the asset you want to use as the source endpoint.
+1. Select **Proceed**.
+
+    A list of datapoints for the selected asset is displayed.
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using operations experience to select an asset as the source endpoint.":::
+
+1. Select **Apply** to use the asset as the source endpoint.
+
+# [Bicep](#tab/bicep)
+
+Configuring an asset as a source is only available in the operations experience.
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+Configuring an asset as a source is only available in the operations experience.
+
+---
+
+When using an asset as the source, the asset definition is used to infer the schema for the dataflow. The asset definition includes the schema for the asset's datapoints. To learn more, see [Manage asset configurations remotely](../discover-manage-assets/howto-manage-assets-remotely.md).
+
+Once configured, the data from the asset reached the dataflow via the local MQTT broker. So, when using an asset as the source, the dataflow uses the local MQTT broker default endpoint as the source in actuality.
+
+### Option 3: Use custom MQTT or Kafka dataflow endpoint as source
 
 If you created a custom MQTT or Kafka dataflow endpoint (for example, to use with Event Grid or Event Hubs), you can use it as the source for the dataflow. Remember that storage type endpoints, like Data Lake or Fabric OneLake, can't be used as source.
 
@@ -384,14 +384,16 @@ sourceSettings:
 ---
 
 
-If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, shared subscription is automatically enabled for all dataflows that use MQTT source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses an MQTT endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. If you want to use a different shared subscription group ID, you can override it in the topic, like `$shared/mygroup/topic1`.
+If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all dataflows that use MQTT source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses an MQTT endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
+
+You can explicitly create a topic named `$shared/mygroup/topic` in your configuration. However, adding the `$shared` topic explicitly isn't recommended since the `$shared` prefix is automatically added when needed. Dataflows can make optimizations with the group name if it isn't set. For example, `$share` isn't set and dataflows only has to operate over the topic name.
 
 > [!IMPORTANT]
-> Dataflows requireing shared subscription when instance count is greater than 1 is important when using Event Grid MQTT broker as a source since it [doesn't support shared subscriptions](../../event-grid/mqtt-support.md#mqttv5-current-limitations). To avoid missing messages, set the dataflow profile instance count to 1 when using Event Grid MQTT broker as the source. That is when the dataflow is the subscriber and receiving messages from the cloud.
+> Dataflows requiring shared subscription when instance count is greater than one is important when using Event Grid MQTT broker as a source since it [doesn't support shared subscriptions](../../event-grid/mqtt-support.md#mqttv5-current-limitations). To avoid missing messages, set the dataflow profile instance count to one when using Event Grid MQTT broker as the source. That is when the dataflow is the subscriber and receiving messages from the cloud.
 
 #### Kafka topics
 
-When the source is a Kafka (Event Hubs included) endpoint, specify the individual kafka topics to subscribe to for incoming messages. Wildcards are not supported, so you must specify each topic statically.
+When the source is a Kafka (Event Hubs included) endpoint, specify the individual Kafka topics to subscribe to for incoming messages. Wildcards are not supported, so you must specify each topic statically.
 
 > [!NOTE]
 > When using Event Hubs via the Kafka endpoint, each individual event hub within the namespace is the Kafka topic. For example, if you have an Event Hubs namespace with two event hubs, `thermostats` and `humidifiers`, you can specify each event hub as a Kafka topic.
@@ -430,7 +432,7 @@ sourceSettings:
 
 ### Specify source schema
 
-When using MQTT or Kafka as the source, you can specify a schema to display the list of data points in the operations experience portal. Note that using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#dataflows).
+When using MQTT or Kafka as the source, you can specify a [schema](concept-schema-registry.md) to display the list of data points in the operations experience portal. Note that using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#dataflows).
 
 If the source is an asset, the schema is automatically inferred from the asset definition.
 
@@ -469,9 +471,11 @@ To learn more, see [Understand message schemas](concept-schema-registry.md).
 
 The transformation operation is where you can transform the data from the source before you send it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order in which they're specified in the configuration. The order of the stages is always:
 
-1. **Enrich**, **Rename**, or add a **New property**: Add additional data to the source data given a dataset and condition to match.
+1. **Enrich**: Add additional data to the source data given a dataset and condition to match.
 1. **Filter**: Filter the data based on a condition.
-1. **Map** or **Compute**: Move data from one field to another with an optional conversion.
+1. **Map**, **Compute**, **Rename**, or add a **New property**: Move data from one field to another with an optional conversion.
+
+This section is an introduction to dataflow transforms. For more detailed information, see [Map data by using dataflows](concept-dataflow-mapping.md), [Convert data by using dataflow conversions](concept-dataflow-conversions.md), and [Enrich data by using dataflows](concept-dataflow-enrich.md).
 
 # [Portal](#tab/portal)
 
@@ -517,43 +521,7 @@ You can load sample data into the state store by using the [state store CLI](htt
 
 # [Portal](#tab/portal)
 
-In the operations experience, the *Enrich* stage is currently supported using the **Rename** and **New property** transforms.
-
-#### Rename
-
-You can rename a datapoint using the **Rename** transform. This operation is used to rename a datapoint in the source data to a new name. The new name can be used in the subsequent stages of the dataflow.
-
-1. Under **Transform (optional)**, select **Rename** > **Add**. 
-
-    :::image type="content" source="media/howto-create-dataflow/dataflow-rename.png" alt-text="Screenshot using operations experience to rename a datapoint.":::
-
-1.  Enter the required settings.
-
-    | Setting            | Description                                                                                             |
-    |--------------------|---------------------------------------------------------------------------------------------------------|
-    | Datapoint          | Select a datapoint from the dropdown or enter a $metadata header using the format `$metadata.<header>.` |
-    | New datapoint name | Enter the new name for the datapoint.                                                                   |
-    | Description        | Provide a description for the transformation.                                                           |
-
-1. Select **Apply**.
-
-#### New property
-
-You can add a new property to the source data using the **New property** transform. This operation is used to add a new property to the source data. The new property can be used in the subsequent stages of the dataflow.
-
-1. Under **Transform (optional)**, select **New property** > **Add**. 
-
-    :::image type="content" source="media/howto-create-dataflow/dataflow-new-property.png" alt-text="Screenshot using operations experience to add a new property.":::
-
-1.  Enter the required settings.
-
-    | Setting            | Description                                                                                         |
-    |--------------------|-----------------------------------------------------------------------------------------------------|
-    | Property key       | Enter the key for the new property.                                                                 |
-    | Property value     | Enter the value for the new property.                                                               |
-    | Description        | Provide a description for the new property.                                                         |
-
-1. Select **Apply**.
+Currently, the *Enrich* stage isn't supported in the operations experience.
 
 # [Bicep](#tab/bicep)
 
@@ -668,7 +636,11 @@ To map the data to another field with optional conversion, you can use the `map`
 
 # [Portal](#tab/portal)
 
-In the operations experience, mapping is currently supported using **Compute** transforms.
+In the operations experience, mapping is currently supported using **Compute**, **Rename**, and **New property** transforms.
+
+#### Compute
+
+You can use the **Compute** transform to apply a formula to the source data. This operation is used to apply a formula to the source data and store the result field.
 
 1. Under **Transform (optional)**, select **Compute** > **Add**.
 
@@ -689,6 +661,42 @@ In the operations experience, mapping is currently supported using **Compute** t
     
     The formula can use the fields in the source data. For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` output field. 
     
+1. Select **Apply**.
+
+#### Rename
+
+You can rename a datapoint using the **Rename** transform. This operation is used to rename a datapoint in the source data to a new name. The new name can be used in the subsequent stages of the dataflow.
+
+1. Under **Transform (optional)**, select **Rename** > **Add**. 
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-rename.png" alt-text="Screenshot using operations experience to rename a datapoint.":::
+
+1.  Enter the required settings.
+
+    | Setting            | Description                                                                                             |
+    |--------------------|---------------------------------------------------------------------------------------------------------|
+    | Datapoint          | Select a datapoint from the dropdown or enter a $metadata header using the format `$metadata.<header>.` |
+    | New datapoint name | Enter the new name for the datapoint.                                                                   |
+    | Description        | Provide a description for the transformation.                                                           |
+
+1. Select **Apply**.
+
+#### New property
+
+You can add a new property to the source data using the **New property** transform. This operation is used to add a new property to the source data. The new property can be used in the subsequent stages of the dataflow.
+
+1. Under **Transform (optional)**, select **New property** > **Add**. 
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-new-property.png" alt-text="Screenshot using operations experience to add a new property.":::
+
+1.  Enter the required settings.
+
+    | Setting            | Description                                                                                         |
+    |--------------------|-----------------------------------------------------------------------------------------------------|
+    | Property key       | Enter the key for the new property.                                                                 |
+    | Property value     | Enter the value for the new property.                                                               |
+    | Description        | Provide a description for the new property.                                                         |
+
 1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
