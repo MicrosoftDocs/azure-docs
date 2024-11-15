@@ -86,7 +86,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
     | Humidity | decimal |
     | Timestamp | datetime |
 
-1. After the *OPCUA* table has been created, select it and use the **Explore your data** button to open a query window for the table.
+1. After the *OPCUA* table has been created, select your database and use the **Explore your data** button to open a query window.
 
     :::image type="content" source="media/tutorial-get-insights/explore-your-data.png" alt-text="Screenshot showing the Explore your data button.":::
 
