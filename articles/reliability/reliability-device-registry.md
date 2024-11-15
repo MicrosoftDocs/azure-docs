@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-iot-operations
-ms.date: 11/12/2024 
+ms.date: 11/19/2024 
 ---
 
 # Reliability in Azure Device Registry
