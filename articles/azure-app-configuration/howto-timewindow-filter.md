@@ -21,33 +21,39 @@ In this article, you learn how to add and configure a time window filter for you
 
 1. Create a feature flag named *Beta* in the **Feature Manager** menu of your App Configuration store and move to the right end of the feature flag you want to modify, then select the **More actions** ellipsis (**...**) action and **Edit**. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md).
 
-1. In the **Edit** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
+1. In the **Edit** pane that opens, check the **Enable feature flag** checkbox if it's currently unchecked,then check the **Use feature filter** checkbox and select **Create**.
 
-    :::image type="content" source="media/feature-filters/edit-a-feature-flag.png" alt-text="Screenshot of the Azure portal showing how to edit a feature flag.":::
+    :::image type="content" source="media/time-window-filters/edit-a-feature-flag.png" alt-text="Screenshot of the Azure portal showing how to edit a feature flag.":::
 
-1. The pane **Create a new filter** opens. Under **Filter type**, select the **Time window filter** in the dropdown.
+1. The **Create a new filter** pane opens on the side. Under **Filter type**, select **Time window filter** in the dropdown.
 
-    :::image type="content" source="media/feature-filters/add-timewindow-filter.png" alt-text="Screenshot of the Azure portal showing time window feature filter configuration.":::
+    :::image type="content" source="media/time-window-filters/add-timewindow-filter.png" alt-text="Screenshot of the Azure portal showing time window feature filter configuration.":::
 
-1. A time window filter includes a start time and/or an end time. The start time indicates when the feature flag is activated, and the end time indicates when the flag is deactivated. Both **Start time** and **End time** checkboxes are checked by default. Enter a start time a few minutes ahead of your current time and enter an end time.
+1. A time window filter includes a start time and/or an end time. Both **Start time** and **End time** checkboxes are checked by default.
+   - Setting a start time allows you to enable the feature flag on a specific date and time. A time window filter with no start time is active straight away. 
+   - Setting an end time allows you to disable the feature flag at a specific date and time. A time window filter with no end time remains active until you deactivate it.
 
-    > [!NOTE]
-    > If you don't want the feature flag to automatically deactivate, uncheck the **End time** box. However, both start time and end time must be set to enable feature recurrence.
+    Uncheck the end time and enter a start time a few minutes ahead of your current time to simply create a time window which begins shortly and never ends.
 
 1. A time zone is selected by default, based on your browser's current time zone. Optionally select another time zone.
 
 ## Configure recurrence
 
-1. Select the **Enable recurrence** checkbox to set up a recurring schedule for the feature flag. This allows you to automate the activation and deactivation of the feature flag based on a regular schedule, such as during periods of low or high traffic. Choose a daily or weekly frequency, the specific days, and the expiration time.
+Recurrence allows you to define a repeating time window, ensuring that the feature flag is automatically activated and deactivated according to your specified schedule, such as during periods of low or high traffic. 
 
-    :::image type="content" source="media/feature-filters/add-timewindow-filter-recurrence.png" alt-text="Screenshot of the Azure portal showing feature filter recurrence.":::
+1. Select the **Enable recurrence** checkbox to set up a recurring schedule for the feature flag. Choose a daily or weekly frequency, the specific days, and the expiration time.
+
+    :::image type="content" source="media/time-window-filters/add-timewindow-filter-recurrence.png" alt-text="Screenshot of the Azure portal showing feature filter recurrence.":::
+
+    > [!NOTE]
+    > Both start time and end time must be set to enable feature recurrence.
 
 1. Select **Add** to save the configuration of the time window filter and return to the **Edit feature flag** screen.
 
 1. The time window filter is now listed in the feature filter details, under **Feature filters**. Select **Apply** to save the feature flag with the new feature filter.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, applying new time window filter.](./media/feature-filters/feature-flag-edit-apply-timewindow-filter.png)
+    > ![Screenshot of the Azure portal, applying new time window filter.](./media/time-window-filters/feature-flag-edit-apply-timewindow-filter.png)
 
     Now, you successfully added a time window filter to a feature flag.
 
