@@ -116,6 +116,8 @@ Here are known issues and limitations:
 
 - Avoid modifying a session host configuration in a host pool with no session hosts at the same time a session host is being created as this can result in a host pool with inconsistent session host properties.
 
+- Updates with large batch sizes can result in intermittent failures with the error code `AgentRegistrationFailureGeneric`. If this occurs for a subset of session hosts being updated, [retrying the update](session-host-update-configure.md#pause-resume-cancel-or-retry-an-update) typically resolves the issue.
+
 ## Next steps
 
 - Learn how to [update session hosts in a host pool with a session host configuration using session host update](session-host-update-configure.md).
