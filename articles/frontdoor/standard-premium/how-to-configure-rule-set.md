@@ -86,10 +86,6 @@ This article demonstrates how to create rule sets and your first set of rules us
 
 If you no longer need a rule set in your Azure Front Door profile, follow these steps to remove it:
 
-## Delete a rule set
-
-To remove a rule set from your Azure Front Door profile, follow these steps:
-
 1. Navigate to the **Rule set** page under *Settings*.
 
 1. Select the **...** next to the rule set you want to remove and select **Disassociate from all routes**.
