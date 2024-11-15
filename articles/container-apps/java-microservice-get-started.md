@@ -49,7 +49,7 @@ By the end of this article, you deploy one web application and three backend app
 
 1. Begin by creating variables with your custom values.
 
-    Before you run this command, make sure to replace the placeholder values surrounded by `<>` with your own values. These values are used to define the resource group name and the Container App Environment name that will be created for you in the following steps, and also the location where all of your Azure resources will be provisioned.
+    Before you run this command, make sure to replace the placeholder values surrounded by `<>` with your own values.
 
     ```bash
     export RESOURCE_GROUP=<RESOURCE_GROUP>
