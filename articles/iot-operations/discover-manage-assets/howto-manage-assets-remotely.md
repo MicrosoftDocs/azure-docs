@@ -4,7 +4,7 @@ description: Use the operations experience web UI or the Azure CLI to manage you
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 10/22/2024
+ms.date: 11/15/2024
 ms.custom:
   - ignite-2023
   - devx-track-azurecli
@@ -81,6 +81,10 @@ az login
 ```
 
 ---
+
+After you select your instance, the operations experience displays the **Overview** page for the instance. The **Overview** page shows the status of the instance and the resources, such as assets, that are associated with it:
+
+:::image type="content" source="media/howto-manage-assets-remotely/instance-overview.png" alt-text="Screenshot that shows the overview page for an instance in the operations experience.":::
 
 ## Create an asset endpoint
 
