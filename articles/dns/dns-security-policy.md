@@ -5,7 +5,7 @@ author: greg-lindsay
 manager: KumuD
 ms.service: azure-dns
 ms.topic: article
-ms.date: 11/06/2024
+ms.date: 11/14/2024
 ms.author: greglin
 ---
 
