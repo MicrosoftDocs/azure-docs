@@ -16,22 +16,22 @@ This article shows you how to set the [ResolutionPolicy](/java/api/com.azure.res
 
 > [!NOTE]
 > Fallback to internet for Azure Private DNS is in PREVIEW.<br> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.<br>
-> This DNS security policy preview is offered without a requirement to enroll in a preview.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.<br><br>
+> This DNS security policy preview is offered without a requirement to enroll in a pre-release feature preview. However, to access the Azure portal user interface for this policy prior to the next portal update, you must use the [Azure portal preview-enabled link](https://ms.portal.azure.com/?feature.FallbacktoInternet=true&feature.canmodifystamps=true&Microsoft_Azure_PrivateDNS=staging).
 
 ## Problem
 
-Private DNS queries for Azure Private Link and network isolation scenarios across different tenants and resource groups have unique name resolution paths. This affects the ability to reach Private Link-enabled resources outside a tenant's control. VM-based workarounds exist to address this issue, but these solutions increase operational complexity and are associated with security risks and higher costs.
+Private DNS queries for Azure Private Link and network isolation scenarios across different tenants and resource groups have unique name resolution paths. This can affect the ability to reach Private Link-enabled resources outside a tenant's control. VM-based workarounds exist to address this issue, but these solutions increase operational complexity and are associated with security risks and higher costs.
 
 ## Solution
 
-The [ResolutionPolicy](/java/api/com.azure.resourcemanager.privatedns.models.resolutionpolicy) property in Azure Private DNS is a fully managed native solution. This property enables public recursion via Azure’s recursive resolver fleet when an authoritative NXDOMAIN response is received for a private link zone. Resolution policy is enabled at the virtual network link level with the **NxDomainRedirect** setting. In the Azure portal, **NxDomainRedirect** is enabled by selecting **Enable fallback to internet** in virtual network link configuration.
+The [ResolutionPolicy](/azure/templates/microsoft.network/privatednszones/virtualnetworklinks?pivots=deployment-language-bicep#virtualnetworklinkproperties) property in Azure Private DNS is a fully managed native solution. This property enables public recursion via Azure’s recursive resolver fleet when an authoritative NXDOMAIN response is received for a private link zone, and the private address fails to resolve. Resolution policy is enabled at the virtual network link level with the **NxDomainRedirect** setting. In the Azure portal, **NxDomainRedirect** is enabled by selecting **Enable fallback to internet** in virtual network link configuration.
 
-## Policy definition
+### Policy definition
 
-This policy is available in API version 2024-06-01 or higher. In the following example, **resolutionPolicy** is set to **NxDomainRedirect** at the **virtualNetworkLinks** resource level:
+The [ResolutionPolicy](/java/api/com.azure.resourcemanager.privatedns.models.resolutionpolicy) property is available in API version 2024-06-01 or higher. In the following example, **resolutionPolicy** is set to **NxDomainRedirect** at the **virtualNetworkLinks** resource level:
 
-```
+```Bicep
 {
   "id": "'string'",
   "name": '"string'",
@@ -50,7 +50,7 @@ This policy is available in API version 2024-06-01 or higher. In the following e
 
 This setting is available in the Azure portal at: **Private DNS zones** > **Virtual Network Links** > **Enable fallback to internet**.
 
-## How it works
+### How it works
 
 An NXDOMAIN (RCODE3) response means the (Private Link) queried domain name doesn't exist. This negative answer typically prevents resolvers from retrying the query until the cached negative answer expires.
 
@@ -70,20 +70,20 @@ Aliases:  remoteprivateendpoint.blob.core.windows.net
           remoteprivateendpoint.privatelink.blob.core.windows.net
 ```
 
-## Limitations
+### Limitations
 
 * This policy is only available for Private DNS zones associated to Private Link resources.
 * The ResolutionPolicy parameter only accepts **Default** or **NxDomainRedirect** as possible values.
 
 ## Demonstrate fallback to internet resolution
 
-The following example shows how to enable fallback to internet resolution for private link zones (for example: privatelink.blob.core.windows.net).
+The following example shows how to enable fallback to internet resolution for a private link zone (for example: privatelink.blob.core.windows.net).
 
 ## Prerequisites
 
 * At least two resource groups: each with a virtual network, and a private endpoint. 
   * The resource groups can be in different regions, or the same region.
-  * Storage accounts are used with private endpoints in this example.
+  * Storage accounts are used with private endpoints in this example, but other PaaS services can be linked. 
 * At least one virtual machine in one of the virtual networks is required to run DNS queries.
   * The virtual network where the virtual machine resides should be linked to one of the private link zones.
 
@@ -121,7 +121,7 @@ This guide assumes you have provisioned the prerequisite resources before procee
 
 ## Configure fallback to internet resolution
 
-1. Select each of the private DNS zones again, select **Virtual Network Links**, and then select the "edit" icon. See the following example:
+1. Select each of the private DNS zones again, select **Virtual Network Links**, and then select the pencil "edit" icon. See the following example:
 
    ![Screenshot of the editing the virtual network link.](./media/private-dns-fallback/edit-link.png)
 
@@ -129,7 +129,7 @@ This guide assumes you have provisioned the prerequisite resources before procee
 
    ![Screenshot of how to enable fallback.](./media/private-dns-fallback/enable-fallback.png)
 
-3. Repeat this setting for each private link zone, and allow time for the virtual network link to update.
+3. Repeat these steps for each private link zone, and allow time for the virtual network links to update.
 4. Attempt to resolve the FQDN of the storage accounts again. See the following example:
 
     ```cmd
@@ -140,7 +140,108 @@ This guide assumes you have provisioned the prerequisite resources before procee
     blob.bl5prdstr19c.store.core.windows.net.
     203.0.113.161
     ```
-    The storage account that wasn't resolving is now successfully resolving via the internet.
+    The storage account that wasn't resolving is now successfully resolving via the internet, enabling you to reach this Private Link-enabled resource.
+
+## Query fallback-enabled virtual network links
+
+You can use [Azure Resource Graph Explorer](/azure/governance/resource-graph/overview) or the Azure CLI to query for fallback-enabled virtual network links. See the following examples: 
+
+```Kusto
+resources
+| where tostring(properties.resolutionPolicy) contains 'NxDomainRedirect'
+| extend privateDnsZone = extract("/privateDnsZones/([^/]+)/", 1, id)
+| project privateDnsZone, resourceGroup, properties.resolutionPolicy
+```
+![Screenshot of a resource graph query.](./media/private-dns-fallback/resource-graph-query.png)
+
+**Input**:
+```azurecli
+az graph query -q "resources
+| where tostring(properties.resolutionPolicy) contains 'NxDomainRedirect'
+| extend privateDnsZone = extract('/privateDnsZones/([^/]+)/', 1, id)
+| project privateDnsZone, resourceGroup, properties.resolutionPolicy"
+```
+
+**Output**:
+```azurecli
+{
+  "count": 4,
+  "data": [
+    {
+      "privateDnsZone": "privatelink.blob.core.windows.net",
+      "properties_resolutionPolicy": "NxDomainRedirect",
+      "resourceGroup": "myresourcegroup"
+    },
+    {
+      "privateDnsZone": "privatelink.blob.core.windows.net",
+      "properties_resolutionPolicy": "NxDomainRedirect",
+      "resourceGroup": "mywestrg2"
+    },
+    {
+      "privateDnsZone": "privatelink.blob.core.windows.net",
+      "properties_resolutionPolicy": "NxDomainRedirect",
+      "resourceGroup": "mywestrg"
+    },
+    {
+      "privateDnsZone": "privatelink.blob.core.windows.net",
+      "properties_resolutionPolicy": "NxDomainRedirect",
+      "resourceGroup": "myeastrg"
+    }
+  ],
+  "skip_token": null,
+  "total_records": 4
+}
+```
+
+To display the resolution policy values for all private link enabled zones, you can use the following query:
+
+```Kusto
+resources
+| where tostring(properties) contains 'resolutionPolicy'
+| extend privateDnsZone = extract("/privateDnsZones/([^/]+)/", 1, id)
+| project privateDnsZone, resourceGroup, properties.resolutionPolicy
+```
+The following Azure CLI example has one of the private link enabled zones set to **Default** (fallback disabled) to demonstrate how this is displayed.
+
+**Input**:
+```azurecli
+az graph query -q "resources
+| where tostring(properties) contains 'resolutionPolicy'
+| extend privateDnsZone = extract('/privateDnsZones/([^/]+)/', 1, id)
+| project privateDnsZone, resourceGroup, properties.resolutionPolicy"
+```
+
+**Output**:
+```azurecli
+{
+  "count": 4,
+  "data": [
+    {
+      "privateDnsZone": "privatelink.blob.core.windows.net",
+      "properties_resolutionPolicy": "Default",
+      "resourceGroup": "mywestrg"
+    },
+    {
+      "privateDnsZone": "privatelink.blob.core.windows.net",
+      "properties_resolutionPolicy": "NxDomainRedirect",
+      "resourceGroup": "myresourcegroup"
+    },
+    {
+      "privateDnsZone": "privatelink.blob.core.windows.net",
+      "properties_resolutionPolicy": "NxDomainRedirect",
+      "resourceGroup": "mywestrg2"
+    },
+    {
+      "privateDnsZone": "privatelink.blob.core.windows.net",
+      "properties_resolutionPolicy": "NxDomainRedirect",
+      "resourceGroup": "myeastrg"
+    }
+  ],
+  "skip_token": null,
+  "total_records": 4
+}
+```
+
 
 ## Next steps
 
