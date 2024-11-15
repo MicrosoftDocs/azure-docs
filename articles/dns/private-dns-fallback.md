@@ -193,7 +193,7 @@ az graph query -q "resources
 }
 ```
 
-To display the resolution policy values for all private link enabled zones, you can use the following query:
+To display the resolution policy values for all private link enabled zones, you can use the following Azure Resource Graph Explorer and Azure CLI queries:
 
 ```Kusto
 resources
@@ -201,7 +201,6 @@ resources
 | extend privateDnsZone = extract("/privateDnsZones/([^/]+)/", 1, id)
 | project privateDnsZone, resourceGroup, properties.resolutionPolicy
 ```
-The following Azure CLI example has one of the private link enabled zones set to **Default** (fallback disabled) to demonstrate how this is displayed.
 
 **Input**:
 ```azurecli
@@ -210,6 +209,8 @@ az graph query -q "resources
 | extend privateDnsZone = extract('/privateDnsZones/([^/]+)/', 1, id)
 | project privateDnsZone, resourceGroup, properties.resolutionPolicy"
 ```
+
+The following Azure CLI example output has one of the private link enabled zones set to **Default** (fallback disabled) to demonstrate how this is displayed.
 
 **Output**:
 ```azurecli
