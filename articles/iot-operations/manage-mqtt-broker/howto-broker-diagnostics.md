@@ -20,7 +20,7 @@ Diagnostic settings allow you to configure metrics, tracing, logging, and self-c
 
 ## Metrics
 
-Metrics provide information about the resource utilization and throughput of MQTT broker. These metrics are available in Prometheus format and can be scraped by Prometheus or Azure Monitor through OpenTelemetry Collector. To learn more, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
+Metrics provide information about the current and past health and status of the MQTT broker. These metrics are emitted in OpenTelemetry format (OTLP). They can be converted to Prometheus format using an OpenTelemetry Collector and routed to Azure Managed Grafana Dashboards using Azure Monitor Managed Service for Prometheus. To learn more, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
 
 For the full list of metrics available, see [MQTT broker metrics](../reference/observability-metrics-mqtt-broker.md).
 
@@ -34,17 +34,17 @@ To learn more, see [Configure observability and monitoring](../configure-observa
 
 ## Self-check
 
-The self-check probe is a part of the MQTT broker and is enabled by default. It uses OpenTelemetry (OTel) events to monitor the system. The probe sends test messages to check the system's behavior and timing.
+The MQTT Broker's self-check mechanism is enabled by default. It uses the Diagnostics Probe and OpenTelemetry (OTel) traces to monitor the broker. The probe sends test messages to check the system's behavior and timing.
 
 The validation process checks if the system works correctly by comparing the test results with expected outcomes. These outcomes include:
 
 1. The paths messages take through the system.
 2. The system's timing behavior.
 
-The system uses MQTT for messaging, including the replication protocol. The probe generates test traffic for all MQTT operations (CONNECT, PUBLISH, SUBSCRIBE, PING) and monitors them to ensure they follow the correct paths.
+The Diagnostics Probe periodically executes MQTT operations (PING, CONNECT, PUBLISH, SUBSCRIBE, UNSUBSCRIBE) on the AIO Broker and monitors the corresponding ACKs and traces to check for latency, message loss, and correctness of the replication protocol.
 
 > [!IMPORTANT]
-> The self-check probe publishes messages to the `azedge/dmqtt/selftest` topic. Don't publish or subscribe to diagnostic probe topics that start with `azedge/dmqtt/selftest`. Publishing or subscribing to these topics might affect the probe or self-test checks resulting in invalid results. Invalid results might be listed in diagnostic probe logs, metrics, or dashboards. For example, you might see the issue *Path verification failed for probe event with operation type 'Publish'* in the diagnostics-probe logs. For more information, see [Known Issues](../troubleshoot/known-issues.md#mqtt-broker).
+> The self-check Diagnostics Probe publishes messages to the `azedge/dmqtt/selftest` topic. Don't publish or subscribe to diagnostic probe topics that start with `azedge/dmqtt/selftest`. Publishing or subscribing to these topics might affect the probe or self-test checks resulting in invalid results. Invalid results might be listed in diagnostic probe logs, metrics, or dashboards. For example, you might see the issue *Path verification failed for probe event with operation type 'Publish'* in the diagnostics-probe logs. For more information, see [Known Issues](../troubleshoot/known-issues.md#mqtt-broker).
 
 ## Change diagnostics settings
 
