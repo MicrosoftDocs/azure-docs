@@ -66,7 +66,12 @@ Snap to Roads takes GPS point data (lat, lon), and returns a list of objects tha
 
 ### Download data file
 
-Download the sample data (mockData_20240919.csv) from GitHub to your local storage device, it's uploaded into lakehouse in the next section. This file contains an array of GPS coordinates that the Snap to Roads service modifies as needed to ensure that each coordinate points to a valid road.
+Download the sample data (mockData_20240919.csv) from GitHub to your local storage device to upload into lakehouse in the next section. This file contains an array of GPS coordinates that the Snap to Roads service modifies as needed to ensure that each coordinate points to a valid road.
+
+1. Open the file [mockData_20240919.csv] in GitHub.
+1. Select the **Download raw file** button in the upper-right corner of the screen and save the file locally.
+
+    :::image type="content" source="./media/tutorial-snap-to-road/download-mock-data.png" alt-text="A screenshot showing how to download the data file named mockData_20240919.csv from the GitHub repository.":::
 
 ### Upload data file into lakehouse
 
@@ -337,6 +342,7 @@ This tutorial created a dashboard for post trip route analysis. For a step-by-st
 [Microsoft Fabric Lakehouse]: /fabric/data-engineering/lakehouse-overview
 [Microsoft Fabric notebook]: /fabric/data-engineering/how-to-use-notebook
 [Microsoft Fabric]: https://www.microsoft.com/en-us/microsoft-fabric/getting-started#Resources
+[mockData_20240919.csv]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/Snap%20to%20Roads/mockData_20240919.csv
 [My Workspace]: https://msit.powerbi.com/groups/me/list?experience=power-bi
 [Real-Time Dashboard]: /fabric/real-time-intelligence/dashboard-real-time-create
 [Real-Time Intelligence]: /fabric/real-time-intelligence/overview
