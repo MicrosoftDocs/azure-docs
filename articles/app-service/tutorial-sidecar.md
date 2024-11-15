@@ -133,7 +133,7 @@ In this section, you add a sidecar container to your custom container app. The p
                     "image": "[concat(parameters('azureContainerRegistryName'), '.azurecr.io/', parameters('azureContainerRegistryImageName'))]",
                     "isMain": false,
                     "authType": "UserCredentials",
-                    "userName": "[parameters('azureContainerRegistryImageName')]",
+                    "userName": "[parameters('azureContainerRegistryName')]",
                     "volumeMounts": [],
                     "environmentVariables": []
                 }
@@ -150,6 +150,8 @@ In this section, you add a sidecar container to your custom container app. The p
     - **Azure Container Regsitry Image Name**: Leave the default value of *otel-collector:latest*. This points to the OpenTelemtry image in the registry.
 
 1. Select **Review + Create**, then select **Create**.
+
+    Since the portal UI isn't available to you, you won't 
 
 -----
 
