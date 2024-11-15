@@ -13,7 +13,7 @@ ms.date: 11/15/2024
 # Use external Hive Metastore for Synapse Spark Pool
 
 > [!NOTE]
-> External Hive metastores will no longer be supported in [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) and subsequent versions in Synapse.
+> External Hive metastores will no longer be supported in subsequent versions after [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) in Synapse.
 
 Azure Synapse Analytics allows Apache Spark pools in the same workspace to share a managed HMS (Hive Metastore) compatible metastore as their catalog. When customers want to persist the Hive catalog metadata outside of the workspace, and share catalog objects with other computational engines outside of the workspace, such as HDInsight and Azure Databricks, they can connect to an external Hive Metastore. In this article, you can learn how to connect Synapse Spark to an external Apache Hive Metastore. 
 
@@ -29,7 +29,7 @@ The feature works with Spark 3.3. The following table shows the supported Hive M
 ## Set up linked service to Hive Metastore 
 
 > [!NOTE]
-> Only **Azure SQL Database** and **Azure Database for MySQL** are supported as an external Hive Metastore. SQL(User-Password) authentication is supported for both kinds of databases. Additionally, managed Identity(including System-Assigned and User-assigned) authentication is supported only for Azure SQL Database and Spark 3.4. If the provided database is blank, please provision it via [Hive Schema Tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool) to create database schema.
+> Only **Azure SQL Database** and **Azure Database for MySQL** are supported as an external Hive Metastore. SQL(User-Password) authentication is supported for both kinds of databases. Additionally, managed identity(including system-sssigned and user-assigned) authentication is supported only for Azure SQL Database and Spark 3.4. If the provided database is blank, please provision it via [Hive Schema Tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool) to create database schema.
 
 Follow below steps to set up a linked service to the external Hive Metastore in Synapse workspace.
 
@@ -47,7 +47,7 @@ Follow below steps to set up a linked service to the external Hive Metastore in 
 
 5. Either select **Azure SQL Database** for the external Hive Metastore from Azure subscription list, or enter the info manually.
 
-6. Set **Authentication type** as one of `SQL Authentication`, `System-assigned managed identity` or `User-assigned managed identity`. For `SQL Authentication`, provide **User name** and **Password** to set up the connection. For `System-assigned managed identity`, it will automatically populate the management identity associated with the current workspace. For `User-assigned managed identity`, pick or create a credential bound with your user-assigned managed identity.
+6. Set **Authentication type** as one of `SQL Authentication`, `System-assigned managed identity` or `User-assigned managed identity`. For `SQL Authentication`, provide **User name** and **Password** to set up the connection. For `System-assigned managed identity`, the page will automatically populate the management identity associated with the current workspace. For `User-assigned managed identity`, pick or create a credential bound with your user-assigned managed identity.
 
 7. **Test connection** to verify the authentication.
 
