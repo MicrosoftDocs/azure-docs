@@ -39,10 +39,12 @@ The following table lists key services that are available in Azure Extended Zone
 
 | Service category | Available Azure services and features |
 | ------------------ | ------------------- |
-| **Compute** | [Azure Kubernetes Service (preview)](/azure/aks/what-is-aks) <br> [Azure Virtual Desktop (preview)](../virtual-desktop/overview.md) <br> [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) <br> [Virtual machines](/azure/virtual-machines/overview) (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series) |
-| **Networking** | [DDoS](../ddos-protection/ddos-protection-overview.md) (Standard protection) <br> [ExpressRoute (preview)](../expressroute/expressroute-introduction.md) <br> [Private Link](../private-link/private-link-overview.md) <br> [Standard Load Balancer](../load-balancer/load-balancer-overview.md) <br> [Standard public IP](../virtual-network/ip-services/public-ip-addresses.md) <br> [Virtual Network](../virtual-network/virtual-networks-overview.md) <br> [Virtual network peering](../virtual-network/virtual-network-peering-overview.md) |
+| **Compute** | [Azure Kubernetes Service](/aks/extended-zones?tabs=azure-resource-manager)* <br> [Azure Virtual Desktop](../virtual-desktop/azure-extended-zones.md)* <br> [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) <br> [Virtual machines](/azure/virtual-machines/overview) (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series) |
+| **Networking** | [DDoS](../ddos-protection/ddos-protection-overview.md) (Standard protection) <br> [ExpressRoute](../expressroute/expressroute-introduction.md)* <br> [Private Link](../private-link/private-link-overview.md) <br> [Standard Load Balancer](../load-balancer/load-balancer-overview.md) <br> [Standard public IP](../virtual-network/ip-services/public-ip-addresses.md) <br> [Virtual Network](../virtual-network/virtual-networks-overview.md) <br> [Virtual network peering](../virtual-network/virtual-network-peering-overview.md) |
 | **Storage** | [Managed disks](/azure/virtual-machines/managed-disks-overview) <br> [Premium Page Blobs](../storage/blobs/storage-blob-pageblob-overview.md) <br> [Premium Block Blobs](../storage/blobs/storage-blob-block-blob-premium.md) <br> [Premium Files](../storage/files/storage-files-introduction.md) <br> [Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) <br> [Hierarchical Namespace](../storage/blobs/data-lake-storage-namespace.md) <br>Data Lake Storage Gen2 Flat Namespace <br> [Change Feed](/azure/cosmos-db/change-feed) <br> Blob Features <br> - [SFTP](../storage/blobs/secure-file-transfer-protocol-support.md) <br> - [NFS](../storage/files/files-nfs-protocol.md) |
-| **BCDR** | [Azure Site Recovery (preview)](../site-recovery/site-recovery-overview.md) <br> [Azure Backup](../backup/backup-overview.md) |
+| **BCDR** | [Azure Site Recovery](../site-recovery/site-recovery-overview.md)* <br> [Azure Backup](../backup/backup-overview.md) |
+
+\* While these services are GA in Azure Regions, they are currently in Preview in Azure Extended Zones. 
 
 ## Availability
 

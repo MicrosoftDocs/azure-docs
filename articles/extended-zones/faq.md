@@ -18,7 +18,7 @@ An Azure Extended Zone might be associated with a parent region in the same or a
 
 ## Are all Azure services offered at the Azure Extended Zone?
 
-No, given the size, hardware, and targeted use cases for the Azure Extended Zone, only a [subset of the Azure services](overview.md#service-offerings-for-azure-extended-zones) can be offered at the Azure Extended Zone. Access to the complete set of Azure services is available in the parent region.
+No, given the size, hardware, and targeted use cases for the Azure Extended Zone, only a [subset of the Azure services](overview.md#service-offerings-for-azure-extended-zones) are offered at the Azure Extended Zone. Access to the complete set of Azure services is available in the parent region.
 
 ## What are the available Azure Extended Zones?
 
