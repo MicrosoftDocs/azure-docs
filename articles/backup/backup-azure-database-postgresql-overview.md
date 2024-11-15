@@ -163,7 +163,7 @@ Create new server with a name of your choice. Enter the Host name/address name s
 
 Ensure that you add the _current client ID address_ to the Firewall rules for the connection to go through.
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules.png" alt-text="Screenshot showing the process to add the current client I D address to the Firewall rules." lightbox="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules.png" alt-text="Screenshot showing the process to add the current client ID address to the Firewall rules." lightbox="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules.png":::
 
 You can add new databases and database users to the server. For database users, add a new **Login/Group Roles**’. Ensure **Can login?** is set to **Yes**.
 
