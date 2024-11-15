@@ -7,7 +7,7 @@ ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 services: logic-apps
 ms.service: azure-logic-apps
-ms.date: 11/08/2024
+ms.date: 11/19/2024
 #Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Logic Apps works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different situations.
 
 ---
@@ -27,12 +27,14 @@ Azure Logic Apps is a cloud platform where you can create and run automated work
 
 For production deployments, you should:
 
-- [Enable zone redundancy](#availability-zone-support), which spreads logic app resources across multiple availability zones.
+- For Enterprise and Secure workflows with isolation or network security requirements, we highly recommended that you use Logic Apps Standard instead of Logic Apps Consumption. For more information, see [Create and deploy to different environments](/azure/logic-apps/logic-apps-overview#create-and-deploy-to-different-environments). And yes for Logic Apps Standard, some of the App Services and Functions guide applies.
+
+- [Enable zone redundancy](#availability-zone-support) to spreads logic app resources across multiple availability zones.
 
 
 ## Transient faults 
 
-Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests.
+Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests. For more information on how to change or disable the retry policy for your logic app, see [Handle errors and exceptions in Azure Logic Apps](/azure/logic-apps/error-exception-handling?tabs=standard).
 
 
 ## Availability zone support
@@ -59,9 +61,15 @@ To enable zone redundancy for your logic app, you must use make sure that you me
 
 ###  Considerations 
 
-<!-- may need some more clarity on this -->
-Zone redundancy is available only for built-in connectors, which are designed to run directly and natively inside Azure Logic Apps runtime. Zone redundancy isn't available for managed Azure-hosted connector operations. For more information on connector types, see [Built-in connectors versus managed connectors](/azure/connectors/introduction#built-in-connectors-versus-managed-connectors).
+- **Connectors**. For Standard SKU and so its built-in connectors, you can choose zone redundancy when you create a Logic App Standard app. For Consumption SKU and Managed connectors, zone redundancy is available regions that support availability zones. 
 
+- [Premium SKU integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-overview) are zone redundant by default.
+
+<!--
+This was in the docs (and still is):
+
+Zone redundancy is available only for built-in connectors, which are designed to run directly and natively inside Azure Logic Apps runtime. Zone redundancy isn't available for managed Azure-hosted connector operations. For more information on connector types, see [Built-in connectors versus managed connectors](/azure/connectors/introduction#built-in-connectors-versus-managed-connectors).
+-->
 
 ### Cost
 
@@ -84,7 +92,7 @@ Zone redundancy is available only for built-in connectors, which are designed to
 
 ### Zone-down experience
 
-The Logic Apps platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
+The Logic Apps platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover. It is possible that during a zone outage, that you may experience some [transient fault](#transient-faults) or latency issues as new VMs are added to the available zones.
 
 
 ### Failback
