@@ -2,7 +2,7 @@
 title: 'Tutorial: Configure a sidecar container'
 description: Add sidecar containers to your linux app in Azure App Service. Add or update services to your application without changing your application code.
 ms.topic: tutorial
-ms.date: 11/13/2024
+ms.date: 11/19/2024
 ms.author: msangapu
 author: msangapu-msft
 keywords: azure app service, web app, linux, windows, docker, sidecar
@@ -12,9 +12,12 @@ keywords: azure app service, web app, linux, windows, docker, sidecar
 
 In this tutorial, you add an OpenTelemetry collector as a sidecar container to a Linux app in Azure App Service. 
 
-In Azure App Service, you can add up to four sidecar containers for each sidecar-enabled custom container app. Sidecar containers let you deploy extra services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
+In Azure App Service, you can add up to nine sidecar containers for each sidecar-enabled custom container app. Sidecar containers let you deploy extra services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
 
-For more information about sidecars, see [Sidecar pattern](/azure/architecture/patterns/sidecar).
+For more information about side container in App Service, see:
+
+- [Introducing Sidears for Azure App Service for Linux: Now Generally Available](https://azure.github.io/AppService/2024/11/08/Global-Availability-Sidecars.html)
+- [Announcing the general availability of sidecar extensibility in Azure App Service](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-the-general-availability-of-sidecar-extensibility-in-azure-app-servic/4267985)
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
@@ -71,11 +74,16 @@ This basic web application is deployed as MyFirstAzureWebApp.dll to App Service.
 
 ## 3. Add a sidecar container
 
-In this section, you add a sidecar container to your custom container app.
+In this section, you add a sidecar container to your custom container app. The portal experience is still being rolled out. If it's not available to you yet, continue with the **Use ARM template** tab below.
+
+### [Use portal UI](#tab/portal) 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the app's management page
 1. In the app's management page, from the left menu, select **Deployment Center**.
-1. Select the message **Interested in adding containers to run alongside your app? Click here to give it a try.**
+1. Select the banner **Interested in adding containers to run alongside your app? Click here to give it a try.**
+    
+    If you can't see the banner, then the portal UI isn't rolled out for your subscription yet. Select the **Use ARM template** here instead and continue.
+
 1. When the page reloads, select the **Containers (new)** tab.
 1. Select **Add** and configure the new container as follows:
     - **Name**: *otel-collector*
@@ -87,6 +95,63 @@ In this section, you add a sidecar container to your custom container app.
 1. Select **Apply**.
 
     :::image type="content" source="media/tutorial-sidecar/add-sidecar-container.png" alt-text="Screenshot showing how to configure a sidecar container in a web app's deployment center.":::
+
+### [Use ARM template](#tab/template) 
+
+1. Navigate to the [custom deployment](https://portal.azure.com/#create/Microsoft.Template) template in the portal.
+
+1. Select **Build your own template in the editor**.
+
+1. Replace the content in the textbox with the following JSON code and select **Save**:
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "appName": {
+                "type": "String"
+            },
+            "sidecarName": {
+                "defaultValue": "otel-collector",
+                "type": "String"
+            },
+            "azureContainerRegistryName": {
+                "type": "String"
+            },
+            "azureContainerRegistryImageName": {
+                "defaultValue": "otel-collector:latest",
+                "type": "String"
+            }
+        },
+        "resources": [
+            {
+                "type": "Microsoft.Web/sites/sitecontainers",
+                "apiVersion": "2023-12-01",
+                "name": "[concat(parameters('appName'), '/', parameters('sidecarName'))]",
+                "properties": {
+                    "image": "[concat(parameters('azureContainerRegistryName'), '.azurecr.io/', parameters('azureContainerRegistryImageName'))]",
+                    "isMain": false,
+                    "authType": "UserCredentials",
+                    "userName": "[parameters('azureContainerRegistryImageName')]",
+                    "volumeMounts": [],
+                    "environmentVariables": []
+                }
+            }
+        ]
+    }
+    ```
+
+1. Configure the template with the following information:
+
+    - **Resource Group**: Select the resource group with the App Service app you created with `az webapp up` earlier.
+    - **App Name**: Type the name of the App Service app.
+    - **Azure Container Registry Name**: Type the name of the registry you created with `azd up` earlier.
+    - **Azure Container Regsitry Image Name**: Leave the default value of *otel-collector:latest*. This points to the OpenTelemtry image in the registry.
+
+1. Select **Review + Create**, then select **Create**.
+
+-----
 
 ## 4. Configure environment variables
 
