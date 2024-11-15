@@ -12,7 +12,7 @@ ms.custom:
 
 # Analyze APIs in your API center - Microsoft managed
 
-Your organization's [API center](overview.md) includes built-in linting capabilities (preview) to analyze API definitions for adherence to organizational style rules, generating both individual and summary reports. API analysis identifies and helps you correct common errors and inconsistencies in your API definitions.
+Your organization's [API center](overview.md) includes built-in, Microsoft-managed linting capabilities (preview) to analyze API definitions for adherence to organizational style rules, generating both individual and summary reports. API analysis identifies and helps you correct common errors and inconsistencies in your API definitions.
 
 With API analysis:
 
@@ -22,7 +22,7 @@ With API analysis:
 
 
 > [!IMPORTANT]
-> You can also enable linting and analysis [manually](enable-api-analysis-linting.md) using a custom Azure function. **Disable any function used for manual linting before using managed API analysis.**
+> If you prefer, you can [manually enable](enable-api-analysis-linting.md) linting and analysis using a custom Azure function, overriding the built-in capabilities. **Disable any function used for manual linting before using managed API analysis.**
 
 ## Limitations
 
