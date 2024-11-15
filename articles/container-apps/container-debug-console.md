@@ -13,21 +13,21 @@ ms.author: fangjimmy
 
 # Connect to a container debug console in Azure Container Apps
 
-Azure Container Apps platform offers debug console to help you troubleshoot your application under the following circumstances:
+Azure Container Apps platform offers a debugging console to help you troubleshoot your application under the following circumstances:
 
-- You cannot connect to the target container when you use distroless image.
+- You cannot connect to the target container when you use a container that only includes the application and its runtime dependencies, or a "distroless" image.
 - When encounter networking issues, your images do not have debugging utilities to investigate them.
 
 You can connect to debug console using the Azure CLI.
 
 > [!NOTE]
-> Debug Console will create a separate container, which will share underlying resources with the container your app is running on. If a debug container already exists, Debug Console will reuse the existing one instead of creating a new one. There will be at most 1 running debug container per Container App replica. If you do not need to keep a debug container running any more, please type **exit** or press **Ctrl + D** in Debug Console session.
+> The debug console creates a separate container, which shares the underlying resources with the container where your app is running. If a debug container already exists, the debug console reuses the existing one instead of creating a new one. There is at most one running debug container per container app replica. If you do not need to keep a debug container running, please enter **exit** or use **Ctrl/Cmd + D** in the debug console session.
 
 ## Azure CLI
 
-To connect to a container debug console, Use the `az containerapp debug` command. To exit the console, enter **exit** or press **Ctrl + D**.
+To connect to a container the debug console, use the `az containerapp debug` command. To exit the console, enter **exit** or use **Ctrl/Cmd + D**.
 
-For example, connect to a container debug console in a container app with a single container using the following command. Replace the \<PLACEHOLDERS\> with your container app's values.
+For example, connect to a container debug console in a container app with a single container using the following command. Before you run this command, replace the `<PLACEHOLDERS>` with your container app's values.
 
 # [Bash](#tab/bash)
 
@@ -51,11 +51,11 @@ To connect to a container debug console in a container app with multiple revisio
 
 | Argument | Description |
 |----------|-------------|
-| `--revision` | The revision names of the container to connect to. |
-| `--replica` | The replica name of the container to connect to. |
-| `--container` | The container name of the container to connect to. |
+| `--revision` | The revision name of the container to debug. |
+| `--replica` | The replica name of the container to debug. |
+| `--container` | The container name of the container to debug. |
 
-You can get the revision names with the `az containerapp revision list` command. Replace the \<PLACEHOLDERS\> with your container app's values.
+You can get the revision names with the `az containerapp revision list` command.  Before you run this command, replace the `<PLACEHOLDERS>` with your container app's values.
 
 # [Bash](#tab/bash)
 
@@ -77,7 +77,7 @@ az containerapp revision list `
 
 ---
 
-Use the `az containerapp replica list` command to get the replica and container names. Replace the \<PLACEHOLDERS\> with your container app's values.
+Use the `az containerapp replica list` command to get the replica and container names.  Before you run this command, replace the `<PLACEHOLDERS>` with your container app's values.
 
 # [Bash](#tab/bash)
 
@@ -101,7 +101,7 @@ az containerapp replica list `
 
 ---
 
-Connect to the container debug console with the `az containerapp debug` command. Replace the \<PLACEHOLDERS\> with your container app's values.
+Connect to the container debug console with the `az containerapp debug` command.  Before you run this command, replace the `<PLACEHOLDERS>` with your container app's values.
 
 # [Bash](#tab/bash)
 
@@ -129,7 +129,7 @@ az containerapp debug `
 
 ## Built-in tools in Debug Console
 
-We preinstalled below diagnostic tools to help you troubleshoot issues more easily in debug console.
+The following diagnostic tools are preinstalled to the debug console to help you troubleshoot issues:
 
 - [ip-utils](https://github.com/iputils/iputils)
 - [net-tools](https://github.com/ecki/net-tools)
@@ -144,9 +144,9 @@ We preinstalled below diagnostic tools to help you troubleshoot issues more easi
 - [bind-utils](https://www.linuxfromscratch.org/~ken/inkscape-python-deps/blfs-book-sysv/basicnet/bind-utils.html)
 - [tcpping](http://www.vdberg.org/~richard/tcpping.html)
 
-If you want to install other tools, you can run `tdnf install -y <TOOL_NAME>` command. Replace the \<PLACEHOLDERS\> with your tool's values.
+If you want to install other tools, run the `tdnf install -y <TOOL_NAME>` command. Before you run this command, replace the `<PLACEHOLDERS>` with your container app's values.
 
-For example, install JDK in debug console in a container app using the following command:
+For example, install JDK in the debug console using the following command:
 
 ```bash
 tdnf install -y msopenjdk-17
@@ -158,7 +158,7 @@ tdnf install -y msopenjdk-17
 
 By default, debug console runs as root user.
 
-You can access /proc/1 to access container's file system if your container runs as root user. If your container does not run as root user, run below command to switch user before accessing /proc/1 directory, or you'll get permission denied error.
+You can access `/proc/1` to access container's file system if your container runs as root user. If your container does not run as root user, run below command to switch user before accessing `/proc/1` directory, or you'll get a permission denied error.
 
 ```bash
 switch-to-app-user
