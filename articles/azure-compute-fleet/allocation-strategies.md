@@ -1,5 +1,5 @@
 ---
-title: Allocation stratergies for Azure Compute Fleet
+title: Allocation strategies for Azure Compute Fleet
 description: Learn about Compute Fleet allocation strategies for Spot and Standard virtual machines (VM).
 author: rrajeesh
 ms.author: rajeeshr
@@ -11,7 +11,7 @@ ms.date: 11/13/2024
 ms.reviewer: jushiman
 ---
 
-# Allocation stratergies for Azure Compute Fleet 
+# Allocation strategies for Azure Compute Fleet 
 
 > [!IMPORTANT]
 > [Azure Compute Fleet](overview.md) is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
@@ -54,7 +54,7 @@ If you select multiple VMs that happen to offer the ideal capacity to meet your 
 
 With this strategy, Compute Fleet doesn't prioritize pricing over capacity, so your costs may be higher.
 
-### Lowest Price (default) 
+### Lowest price (default) 
 
 The **lowest price** allocation strategy is the default strategy for Spot VMs. 
 
