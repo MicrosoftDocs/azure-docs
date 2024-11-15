@@ -18,7 +18,7 @@ ms.reviewer: jushiman
 
 The attribute based virtual machine (VM) selection feature enables you to configure your instance requirements as a set of VM attributes, such as memory, vCPU, and storage. These requirements are matched with all suitable Azure VM sizes, simplifying the creation and maintenance of VM configurations. This feature also allows you to seamlessly utilize newer VM generations as they become available. You also gain access to a wider range of capacity through Azure Spot Virtual Machines. The Compute Fleet service selects and launches VMs that match the specified attributes, eliminating the need to manually choose VM sizes.
 
-:::image type="content" source="./media/vm-attribute/attribute-based-vm-selection-diagram.png" lightbox="./media/vm-attribute/attribute-based-vm-selection-diagram.png" alt-text="Screenshot that shows the flow diagram for Atrribute Based VM Selection.":::
+:::image type="content" source="./media/vm-attribute/attribute-based-vm-selection-diagram.png" lightbox="./media/vm-attribute/attribute-based-vm-selection-diagram.png" alt-text="Screenshot that shows the flow diagram for Atribute Based VM Selection.":::
 
 Attribute based VM selection is ideal for scenarios such as stateless web services, large-scale batch processing, big data clusters, or continuous integration pipelines. Workloads like financial risk modeling, log processing, and image rendering can take advantage of the ability to run hundreds of thousands of concurrent cores or instances. When leveraging Spot Virtual Machines, instead of specifying numerous VM sizes and types individually, a simple attribute configuration can now encompass all relevant options, including new ones as they are released.
 
@@ -47,7 +47,7 @@ With attribute based selection, managing VM size configurations becomes easier a
 
 ## Supported VM attributes
 
-The following list are supported VM attrbutes and examples of configurations. 
+The following list of VM attribute are supported and provide examples of configurations. 
 
 ### vCpuCount
 
@@ -312,13 +312,13 @@ The following list are supported VM attrbutes and examples of configurations.
 
 - Optional
 - `architectureTypes` is specified as a list
-- Valid values are *X64* and *ARM64* 
+- Valid values are *X64* and *Arm64* 
 - The default for `architectureTypes`, if not specified, is "ANY" of the valid values
 
 ```JSON
 "architectureTypes": { 
 	"value": { 
-		"ARM64", 
+		"Arm64", 
 		"x64" 
 	} 
 }
