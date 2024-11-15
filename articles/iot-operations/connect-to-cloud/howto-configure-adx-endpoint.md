@@ -49,13 +49,19 @@ To send data to Azure Data Explorer in Azure IoT Operations, you can configure a
 
    Alternatively, enable streaming ingestion on the entire cluster. See [Enable streaming ingestion on an existing cluster](/azure/data-explorer/ingest-data-streaming#enable-streaming-ingestion-on-an-existing-cluster).
 
-1. In Azure portal, go to the Arc-connected Kubernetes cluster and select **Settings** > **Extensions**. In the extension list, find the name of your Azure IoT Operations extension. Copy the name of the extension.
+## Assign permission to managed identity
 
-1. In your Azure Data Explorer database (not cluster), under **Overview** select **Permissions** > **Add** > **Ingestor**. Search for the Azure IoT Operations extension name then add it.
+To configure a dataflow endpoint for Azure Data Explorer, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
 
-## Create an Azure Data Explorer dataflow endpoint
+After the Azure Data Explorer database is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to write to the database.
 
-Create the dataflow endpoint resource with your cluster and database information. We suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management. Replace the placeholder values like `<ENDPOINT_NAME>` with your own.
+If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
+
+1. In your Azure Data Explorer database (not cluster), under **Overview** select **Permissions** > **Add** and then select **Ingestor** as the role. This gives the managed identity the necessary permissions to write to the Azure Data Explorer database. To learn more, see [Role-based access control](/kusto/access-control/role-based-access-control?view=azure-data-explorer&preserve-view=true&branch=main).
+1. Search for the name of your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) or the system-assigned managed identity. For example, *azure-iot-operations-xxxx7*.
+1. Then, select **Select**.
+
+## Create dataflow endpoint for Azure Data Explorer
 
 <!-- TODO: use the data ingest URI for host? -->
 
@@ -72,9 +78,11 @@ Create the dataflow endpoint resource with your cluster and database information
     | --------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                  | The name of the dataflow endpoint.                                                        |
     | Host                  | The hostname of the Azure Data Explorer endpoint in the format `<cluster>.<region>.kusto.windows.net`. |
-    | Authentication method | The method used for authentication. Choose *System assigned managed identity* or *User assigned managed identity*  |
+    | Authentication method | The method used for authentication. Choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
     | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
     | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+
+1. Select **Apply** to provision the endpoint.
 
 # [Bicep](#tab/bicep)
 
@@ -106,8 +114,8 @@ resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-1
       host: hostName
       database: databaseName
       authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
+        // See available authentication methods section for method types
+        // method: <METHOD_TYPE>
       }
     }
   }
@@ -136,8 +144,8 @@ spec:
     host: 'https://<CLUSTER>.<region>.kusto.windows.net'
     database: <DATABASE_NAME>
     authentication:
-      method: SystemAssignedManagedIdentity
-      systemAssignedManagedIdentitySettings: {}
+      # See available authentication methods section for method types
+      # method: <METHOD_TYPE>
 ```
 
 Then apply the manifest file to the Kubernetes cluster.
@@ -150,17 +158,19 @@ kubectl apply -f <FILE>.yaml
 
 ## Available authentication methods
 
-The following authentication methods are available for Azure Data Explorer endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
-
-### Permissions
-
-To use these authentication methods, the Azure IoT Operations Arc extension must be given **Ingestor** permission on the Azure Data Explorer database. For more information, see [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions).
+The following authentication methods are available for Azure Data Explorer endpoints.
 
 ### System-assigned managed identity
 
-Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication.
+Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to write to the Azure Data Explorer database:
 
-In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
+1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
+1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
+1. Go to Azure Data Explorer database (not cluster), under **Overview** select **Permissions** > **Add** and then select an appropriate role.
+1. Search for the name of your system-assigned managed identity. For example, *azure-iot-operations-xxxx7*.
+1. Select **Select**.
+
+Then, configure the dataflow endpoint with system-assigned managed identity settings.
 
 # [Portal](#tab/portal)
 
@@ -193,7 +203,7 @@ If you need to override the system-assigned managed identity audience, you can s
 
 # [Portal](#tab/portal)
 
-In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
+In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
 
 # [Bicep](#tab/bicep)
 
@@ -222,9 +232,15 @@ dataExplorerSettings:
 
 ### User-assigned managed identity
 
-To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-Then, specify the user-assigned managed identity authentication method along with the client ID, tenant ID, and scope of the managed identity.
+Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to write to the Azure Data Explorer database:
+
+1. In Azure portal, go to Azure Data Explorer database (not cluster), under **Overview** select **Permissions** > **Add** and then select an appropriate role.
+1. Search for the name of your user-assigned managed identity.
+1. Select **Select**.
+
+Then, configure the dataflow endpoint with user-assigned managed identity settings.
 
 # [Portal](#tab/portal)
 
