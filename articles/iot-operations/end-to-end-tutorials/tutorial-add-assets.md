@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 10/22/2024
+ms.date: 11/14/2024
 
 #CustomerIntent: As an OT user, I want to create assets in Azure IoT Operations so that I can subscribe to asset data points, and then process the data before I send it to the cloud.
 ---

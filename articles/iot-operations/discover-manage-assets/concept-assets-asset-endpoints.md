@@ -28,21 +28,29 @@ You can create, edit, and delete asset endpoints and assets by using the Azure I
 
 Before you can create an asset, you need to define an asset endpoint profile. An *asset endpoint* is a profile that describes southbound edge connectivity information for one or more assets.
 
-Currently, the only southbound connector available in Azure IoT Operations is the connector for OPC UA. Asset endpoints are configurations for the connector for OPC UA that tell it how to connect to an OPC UA server. For more information, see [What is the connector for OPC UA?](./overview-opcua-broker.md)
+Currently, the only southbound connectors available in Azure IoT Operations are the connector for OPC UA, the media connector (preview), and the connector for ONVIF (preview). Asset endpoints are configurations for a connector that enable it to connect to an asset. For example:
+
+- An asset endpoint for OPC UA stores the information you need to connect to an OPC UA server.
+- An asset endpoint for the media connector stores the information you need to connect to a media source.
+
+For more information, see [What is the connector for OPC UA?](./overview-opcua-broker.md)
 
 The following table highlights some important properties that are included in an asset endpoint definition.
 
 | Property | Description |
 | -------- | ----------- |
 | **Cluster** or **Location** | The custom location or cluster name for the Azure IoT Operations instance where the asset endpoint custom resource will be created. In the operations experience, this property is set by choosing the instance before you create the asset endpoint. |
-| **Target address** | The local IP address of the OPC UA server. |
+| **Target address** | The local IP address of the OPC UA server or IP camera. |
 | **User authentication** | Can be anonymous authentication or username/password authentication. For username/password authentication, provide pointers to where both values are stored as secrets in Azure Key Vault. |
 
 ## Assets
 
 An *asset* is a logical entity that represents a device or component in the cloud as an Azure Resource Manager resource and at the edge as a Kubernetes custom resource. When you create an asset, you can define its metadata and the datapoints (also called tags) and events that it emits.
 
-Currently, an asset in Azure IoT Operations can be anything that connects to an OPC UA server.
+Currently, an asset in Azure IoT Operations can be an:
+
+- Something connected to an OPC UA server such as a robotic arm.
+- A media source such as a camera.
 
 When you define an asset using either the operations experience or Azure IoT Operations CLI, you can configure *tags* and *events* for each asset.
 

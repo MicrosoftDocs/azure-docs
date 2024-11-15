@@ -6,7 +6,7 @@ metadata:
   ms.author: patricka
   ms.topic: faq
   ms.custom: references_regions
-  ms.date: 10/30/2024
+  ms.date: 11/13/2024
 
 title: Azure IoT Operations frequently asked questions
 summary: |
@@ -38,13 +38,21 @@ sections:
       answer: Azure IoT Operations is only officially supported on two platforms now Ubuntu using K3s, Windows IoT using AKS Edge Essentials. For more information, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
     - question: |
          Can I migrate my IoT Edge workloads to Azure IoT Operations?
-      answer: Currently, there's no documented migration path from IoT Edge to Azure IoT Operations. If you have any feature asks for Azure IoT Operations as part of your migration plans, share your requests on the [Azure IoT Operations public feedback forum](https://feedback.azure.com/d365community/forum/20152d6e-6a76-ee11-8179-000d3a1abe9e).
+      answer: Azure IoT Edge isn't an Azure Arc-enabled service like Azure IoT Operations is. Instead, IoT Edge is deeply integrated with and relies on Azure IoT Hub primitives such as device twins and direct methods for its functionality. While Azure IoT Operations can achieve outcomes similar to IoT Edge in some scenarios, the two services have fundamentally different architectures. As a result, there isn't a direct migration path for transitioning IoT Edge workload modules to Azure IoT Operations. 
     - question: |
          For IoT Operations, which device communication protocols supported.
       answer: Currently, Azure IoT Operations supports OPC-UA and MQTT for device communication.
     - question: |
          Which Azure regions is Azure IoT Operations currently available in?
       answer: Azure IoT Operations is available in East US2, West US 3, West Europe, East US, West US, West US 2, North Europe regions.
+    - question: |
+         Does Azure IoT Operations support connecting via proxy servers? 
+      answer: Azure IoT Operations supports connecting via passthrough proxies that don't require proxy authentication. Proxies that require authentication or can inspect encrypted traffic are currently not supported. 
+    - question: |
+         Does Azure IoT Operations support Azure Private Link and private endpoints? 
+      answer: Azure IoT Operations currently does not support Azure Private Link and private endpoints. 
+
+
 additionalContent: |
     ## Related content
 

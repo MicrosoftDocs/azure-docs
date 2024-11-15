@@ -12,14 +12,14 @@ ms.date: 10/22/2024
 
 # What is Azure IoT Operations?
 
-_Azure IoT Operations_ is a unified data plane for the edge. It's a collection of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters such as [AKS Edge Essentials](#validated-environments). It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
+_Azure IoT Operations_ is a unified data plane for the edge. It's a collection of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters such as [AKS Edge Essentials](#supported-environments). It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
 
 Azure IoT Operations:
 
 * Is built from ground up by using Kubernetes native applications.
 * Includes an industrial-grade, edge-native MQTT broker that powers event-driven architectures.
 * Is highly extensible, scalable, resilient, and secure.
-* Lets you manage edge services and resources from the cloud by using Azure Arc.
+* Lets you manage edge services and resources from the cloud by using [Azure Arc](/azure/azure-arc/overview).
 * Can integrate customer workloads into the platform to create a unified solution.
 * Supports GitOps configuration as code for deployment and updates.
 * Natively integrates with [Azure Event Hubs](../event-hubs/azure-event-hubs-kafka-overview.md), [Azure Event Grid's MQTT broker](../event-grid/mqtt-overview.md), and [Microsoft Fabric](/fabric/) in the cloud.
@@ -75,12 +75,11 @@ Azure IoT Operations uses the Azure Device Registry to store information about l
 
 ## Automatic asset discovery
 
-Automatic asset discovery using Akri services is not available in the current version of Azure IoT Operations. To learn more, see the [Release notes](https://github.com/Azure/azure-iot-operations/releases) for the current version.
+Automatic asset discovery using Akri services, Azure Device Registry, the connector for OPC UA, the connection for ONVIF (preview), and the media connector (preview) is available in the current version of Azure IoT Operations. Currently, there are no user configurable scenarios for Akri services in the operations experience web UI for automatic asset discovery.
 
-> [!NOTE]
-> Some Akri services are still deployed as part of the current Azure IoT Operations release, but they don't support any user configurable scenarios.
+To learn more, see the [release notes](https://github.com/Azure/azure-iot-operations/releases) for the current version.
 
-If you're using a previous version of Azure IoT Operations, you can find the Akri documentation on the [previous versions site](/previous-versions/azure/iot-operations/discover-manage-assets/overview-akri).
+If you're using a previous preview version of Azure IoT Operations, you can find the Akri services documentation on the [previous versions site](/previous-versions/azure/iot-operations/discover-manage-assets/overview-akri).
 
 ## Publish and subscribe with MQTT
 
@@ -120,9 +119,15 @@ To visualize and analyze telemetry from your devices and assets, you can use clo
 
 To secure communication between devices and the cloud through isolated network environments based on the ISA-95/Purdue Network architecture, use the Azure IoT Layered Network Management (preview) component.
 
-## Validated environments
+## Supported environments
 
-[!INCLUDE [validated-environments](includes/validated-environments.md)]
+Microsoft supports the following environments for Azure IoT Operations deployments.
+
+| Environment | Minimum version | Availability |
+| ----------- | --------------- | ------------ |
+| K3s on Ubuntu 24.04 | K3s version 1.31.1 | General availability |
+| Azure Kubernetes Service (AKS) Edge Essentials on Windows 11 IoT Enterprise | AksEdge-K3s-1.29.6-1.8.202.0 | Public preview |
+| Azure Kubernetes Service (AKS) on Azure Local | Azure Stack HCI OS, version 23H2, build 2411 | Public preview |
 
 ## Supported regions
 
@@ -139,6 +144,20 @@ Azure IoT Operations supports clusters that are Arc-enabled in the following reg
 | North Europe | northeurope |
 
 This list of supported regions only applies to the region that you use when connecting your cluster to Azure Arc. This list doesn't restrict you from using your preferred Azure region for your cloud resources. Azure IoT Operations components and other resources deployed to your cluster in these supported regions can still connect to cloud resources in different regions.
+
+## Dependencies
+
+Azure IoT Operations depends on the following set of support services and features:
+
+* [Azure Device Registry](./discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
+* [Schema registry](./connect-to-cloud/concept-schema-registry.md)
+* [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview)
+* [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension)
+* [Azure Monitor pipeline](/azure/azure-monitor/essentials/edge-pipeline-configure)
+* Workload identity federation in Azure Arc-enabled Kubernetes
+
+>[!NOTE]
+>These features and services that are used as dependencies by internal Azure IoT Operations systems inherit general availability status from the Azure IoT Operations product license. For more information about the licensing model, see [Microsoft Online Subscription Agreement](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MOSA).
 
 ## Next step
 
