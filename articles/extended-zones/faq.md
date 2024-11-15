@@ -18,7 +18,7 @@ An Azure Extended Zone might be associated with a parent region in the same or a
 
 ## Are all Azure services offered at the Azure Extended Zone?
 
-No, given the size, hardware, and targeted use cases for the Azure Extended Zone, only a small subset of the Azure services can be offered at the Azure Extended Zone. Access to the complete set of Azure services is available in the parent region.
+No, given the size, hardware, and targeted use cases for the Azure Extended Zone, only a [subset of the Azure services](overview.md#service-offerings-for-azure-extended-zones) can be offered at the Azure Extended Zone. Access to the complete set of Azure services is available in the parent region.
 
 ## What are the available Azure Extended Zones?
 
@@ -26,11 +26,7 @@ Currently, Los Angeles is the only available Azure Extended Zone.
 
 ## How will I be charged for resources I create in an Azure Extended Zone?
 
-The billing process of Los Angeles Azure Extended Zone is consistent with the West US Region. Resources created in the Los Angeles Extended Zone follow the same billing pricing as those created in the West US Region.
-
-## Will there be SKUs specific to the Azure Extended Zones?
-
-No, SKUs are consistent across the corresponding Azure Region, so VMs offered in the Azure Extended Zones don't have specific SKUs.
+The pricing and billing process of Los Angeles Azure Extended Zone is consistent with the West US Region. Resources created in the Los Angeles Extended Zone follow the same billing pricing as those created in the West US Region.
 
 ## Can I use the parent region network security groups (NSGs) or user defined routes (UDRs)?
 

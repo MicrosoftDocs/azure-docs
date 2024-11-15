@@ -39,10 +39,10 @@ The following table lists key services that are available in Azure Extended Zone
 
 | Service category | Available Azure services and features |
 | ------------------ | ------------------- |
-| **Compute** | Azure Kubernetes Service <br> Azure Virtual Desktop <br> Virtual Machine Scale Sets <br> Virtual machines (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series) |
-| **Networking** | DDoS (Standard protection) <br> ExpressRoute <br> Private Link <br> Standard Load Balancer <br> Standard public IP <br> Virtual Network <br> Virtual network peering |
+| **Compute** | Azure Kubernetes Service (preview) <br> Azure Virtual Desktop (preview) <br> Virtual Machine Scale Sets <br> Virtual machines (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series) |
+| **Networking** | DDoS (Standard protection) <br> ExpressRoute (preview) <br> Private Link <br> Standard Load Balancer <br> Standard public IP <br> Virtual Network <br> Virtual network peering |
 | **Storage** | Managed disks <br> Premium Page Blobs <br> Premium Block Blobs <br> Premium Files <br> Data Lake Storage Gen2<br> Hierarchical Namespace <br>Data Lake Storage Gen2 Flat Namespace <br> Change Feed <br> Blob Features <br> - SFTP <br> - NFS |
-| **BCDR** | Azure Site Recovery <br> Azure Backup |
+| **BCDR** | Azure Site Recovery (preview) <br> Azure Backup |
 
 ## Availability
 
@@ -50,7 +50,7 @@ Currently, Los Angeles is the only available Extended Zone.
 
 ## Pricing
 
-The billing process of Los Angeles Azure Extended Zone is consistent with the West US Region. Resources created in the Los Angeles Extended Zone follow the same billing pricing as those created in the West US Region.
+The pricing and billing process of Los Angeles Azure Extended Zone is consistent with the West US Region. Resources created in the Los Angeles Extended Zone follow the same billing pricing as those created in the West US Region.
 
 ## Frequently asked questions (FAQ)
 
