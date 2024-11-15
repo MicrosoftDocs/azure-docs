@@ -74,8 +74,8 @@ Begin by preparing the Azure CLI with the latest updates and signing into to Azu
 
     ```bash
     RESOURCE_GROUP=<RESOURCE_GROUP_NAME>
-    LOCATION=<LOCATION>
     SESSION_POOL_NAME=<SESSION_POOL_NAME>
+    LOCATION="northcentralus"
     ```
 
    You use these variables to create the resources in the following steps.
@@ -131,7 +131,7 @@ To interact with the session pool's API, you must use an identity with the `Azur
 
 ## Get a bearer token
 
-For direct access to the session pool’s API, generate an access token to include in the `Authorization` header of your requests. Ensure the token contains an audience (`aud`) claim with the value `https://dynamicsessions.io`. For more information, see [authentication and authorization](https://learn.microsoft.com/azure/container-apps/sessions?tabs=azure-cli#authentication) rules.
+For direct access to the session pool’s API, generate an access token to include in the `Authorization` header of your requests. Ensure the token contains an audience (`aud`) claim with the value `https://dynamicsessions.io`. For more information, see [authentication and authorization](./sessions?tabs=azure-cli#authentication) rules.
 
 1. Get an access token.
 
@@ -179,7 +179,6 @@ You should see output that resembles the following example.
 ```json
 {
   "properties": {
-    "$id": "<guid>",
     "status": "Success",
     "stdout": "hello-world\n",
     "stderr": "",
