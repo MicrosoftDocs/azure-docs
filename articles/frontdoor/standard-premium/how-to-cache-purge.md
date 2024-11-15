@@ -10,7 +10,7 @@ ms.date: 11/15/2024
 ms.author: duau
 ---
 
-## Cache purging in Azure Front Door
+# Cache purging in Azure Front Door
 
 Azure Front Door caches assets until their time-to-live (TTL) expires. When a client requests an asset with an expired TTL, Azure Front Door retrieves and caches a new copy of the asset to serve the request.
 
