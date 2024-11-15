@@ -1249,7 +1249,9 @@ When using a connection string instead of managed identities, you need to instea
 
 ### Deployment package
 
-The Flex Consumption plan uses _one deploy_ for deploying your code project. The code package itself is the same as you would use for zip deployment in other Functions hosting plans. To include one deployment in your template, use the `/onedeploy` resource definition for the remote URL that contains the deployment package. The Functions host must be able to access both this remote package source and the deployment container.  
+The Flex Consumption plan uses _one deploy_ for deploying your code project. The code package itself is the same as you would use for zip deployment in other Functions hosting plans. However, the name of the package file itself must be `released-package.zip`. 
+
+To include a one deploy package in your template, use the `/onedeploy` resource definition for the remote URL that contains the deployment package. The Functions host must be able to access both this remote package source and the deployment container.  
 
 This example adds a one deploy source to an existing app:  
 
@@ -1262,7 +1264,7 @@ param functionAppName string
 @description('The location into which the resources should be deployed.')
 param location string = resourceGroup().location
 
-@description('The zip content url.')
+@description('The zip content URL for released-package.zip.')
 param packageUri string
 
 resource functionAppName_OneDeploy 'Microsoft.Web/sites/extensions@2022-09-01' = {
@@ -1297,7 +1299,7 @@ resource functionAppName_OneDeploy 'Microsoft.Web/sites/extensions@2022-09-01' =
     "packageUri": {
       "type": "string",
       "metadata": {
-        "description": "The zip content url."
+        "description": "The zip content URL for released-package.zip."
       }
     }
   },
