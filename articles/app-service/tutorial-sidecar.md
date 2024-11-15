@@ -164,7 +164,7 @@ In this section, you add a sidecar container to your custom container app. The p
 
 1. Select **Review + Create**, then select **Create**.
 
-    Since the portal UI isn't available to you, you won't 
+    Since the portal UI isn't available to you, you can't see this sidecar container as part of the app, but you should be able to [see related start-up logs for the sidecar](troubleshoot-diagnostic-logs.md).
 
 -----
 
