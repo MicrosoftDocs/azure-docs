@@ -1020,7 +1020,7 @@ For Consumption workflows where you want to disable SAS authentication, follow t
 
 1. Take the output from the **Workflows - Get** operation, and manually add the following elements:
 
-   1. In the **`properties`** object, add an **`accessControl`** object that contains a **`triggers`** object, if none exist.
+   1. In the **`properties`** object, add an **`accessControl`** object that contains a **`triggers`** object, if none exists.
 
    1. In the **`triggers`** object, add an **`sasAuthenticationPolicy`** object that contains the **`state`** property set to **`Disabled`**.
 
