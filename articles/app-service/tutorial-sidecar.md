@@ -142,6 +142,19 @@ In this section, you add a sidecar container to your custom container app. The p
     }
     ```
 
+    > [!TIP]
+    > To use a container in a public registry, modify `properties` like the following example:
+    >
+    > ```JSON
+    > "properties": {
+    >     "image": "mcr.microsoft.com/appsvc/docs/sidecars/sample-experiment:otel-appinsights-1.0",
+    >     "isMain": false,
+    >     "authType": "Anonymous",
+    >     "volumeMounts": [],
+    >     "environmentVariables": []
+    > }
+    > ```
+
 1. Configure the template with the following information:
 
     - **Resource Group**: Select the resource group with the App Service app you created with `az webapp up` earlier.
