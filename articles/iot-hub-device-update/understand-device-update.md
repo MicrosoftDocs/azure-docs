@@ -17,11 +17,11 @@ As Internet of Things (IoT) solutions become increasingly widespread, it's essen
 
 To realize the full benefits of IoT-enabled digital transformation, Device Update for IoT Hub provides capabilities to operate, maintain, and update devices at scale, such as:
 
-- Rapidly responding to security threats.
-- Deploying new features to achieve business objectives.
-- Avoiding the development and maintenance costs of creating an update platform.
+- Rapid response to security threats.
+- New feature deployments to achieve business objectives.
+- Elimination of development and maintenance cost to create an update platform.
 
-## IoT device support
+## Supported IoT devices
 
 Device Update is a cloud-hosted solution for connecting virtually any device. Device Update for IoT Hub offers optimized update deployment and streamlined operations through integration with [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), making it easy to adopt on any existing IoT Hub-based solution.
 
@@ -42,7 +42,7 @@ Device Update for IoT Hub supports two forms of updates, *package-based* and *im
 
 - Image-based updates provide a high level of confidence in the device end-state, allowing easier replication between preproduction and production environments or between A/B failover models. Image-based updates avoid the challenges of managing packages and their dependencies.
 
-## Flexible features
+## Management and deployment controls
 
 You can use Device Update for IoT Hub management and deployment controls to maximize productivity and save valuable time. Device Update for IoT Hub provides many powerful and flexible features.
 
@@ -54,7 +54,7 @@ You can use Device Update for IoT Hub management and deployment controls to maxi
 - At-a-glance update compliance and status views across heterogenous device fleets
 - Azure CLI support for creating and managing Device Update resources, groups, and deployments
 
-### Control over update deployment details
+### Control over deployment details
 
 - Gradual update rollout through device grouping and update scheduling controls
 - Support for resilient device updates (A/B) to deliver seamless rollback
@@ -62,13 +62,13 @@ You can use Device Update for IoT Hub management and deployment controls to maxi
 - Delta updates (public preview) that allow you to generate smaller updates representing only the changes between the current image and target image, which can reduce bandwidth and download time
 - On-premises content cache and nested edge support to enable updating cloud disconnected devices
 
-### Troubleshooting features
-
-Troubleshooting features including agent check and device sync can help you diagnose and repair devices. When an update failure happens, Device Update can identify the devices that failed to update and provide related failure details. The ability to identify which devices failed to update means you save manual hours trying to pinpoint the source.
-
 ### Automatic device grouping
 
 Device Update for IoT Hub includes the ability to group devices based on compatibility properties and device twin tags, and specify which devices to update. Users also can view the status of deployments and make sure each device updates successfully.
+
+### Troubleshooting features
+
+Troubleshooting features include agent check and device sync to help you diagnose and repair devices. When an update failure happens, Device Update can identify the devices that failed to update and provide related failure details. The ability to identify which devices failed to update means you save manual hours trying to pinpoint the source.
 
 ## Global security
 
@@ -88,7 +88,7 @@ The following diagram shows how the Device Update management service uses IoT Hu
 
 1. Device Update management sets the update command property value to `applyDeployment`, or `cancel` to reset.
 1. The Device Update agent reads the update command property value and executes the desired command.
-1. The agent sets the update status property value to `DeploymentInprogress`. When the agent is inactive, it sets the property value to `Idle.
+1. The agent sets the update status property value to `DeploymentInprogress`. When the agent is inactive, it sets the property value to `Idle`.
 
 For more information, see [Device Update for IoT Hub agent overview](device-update-agent-overview.md).
 
@@ -117,8 +117,7 @@ After you import an update, you can view compatible updates for your devices and
 
 Device Update supports the concept of *groups* via tags in IoT Hub. Deploying an update to a test group first is a good way to reduce the risk of issues during a production rollout. For more information about Device Update groups, see [Device groups](device-update-groups.md).
 
-In Device Update, *deployments* are the way to connect the right content to a specific set of compatible devices. Device Update orchestrates the process of sending commands to each device, instructing the devices to download and install the updates, and getting status back. For information about measuring update compliance, see [Device Update compliance](device-update-compliance.md).
-
+In Device Update, *deployments* connect the right content to a specific set of compatible devices. Device Update orchestrates the process of sending commands to each device, instructing the devices to download and install updates, and getting status back. For information about measuring update compliance, see [Device Update compliance](device-update-compliance.md).
 
 The following diagram illustrates the Device Update grouping and deployment workflow.
 
@@ -134,7 +133,7 @@ The following diagram illustrates the Device Update grouping and deployment work
 
 ## Related content
 
-[Tutorial: Device Update using the simulator agent](device-update-simulator.md)
-[Device Update REST API](/rest/api/deviceupdate/)
-[Device Update for IoT Hub supported platforms](support.md)
-[Eclipse ThreadX](https://github.com/eclipse-threadx)
+- [Tutorial: Device Update using the simulator agent](device-update-simulator.md)
+- [Device Update REST API](/rest/api/deviceupdate/)
+- [Device Update for IoT Hub supported platforms](support.md)
+- [Eclipse ThreadX](https://github.com/eclipse-threadx)
