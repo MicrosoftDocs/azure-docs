@@ -216,6 +216,9 @@ The following steps guide you through creating an Azure SQL Database single data
    export DB_RESOURCE_GROUP_NAME=<db-resource-group>
    ```
 
+> [!NOTE]
+> This article guides you to create an Azure SQL Database single database with SQL authentication. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. Azure Red Hat OpenShift doesn't currently support [Microsoft Entra Workload ID](/entra/workload-id/workload-identities-overview), so SQL authentication is the only available option.
+
 Now that you created the database and Azure Red Hat OpenShift cluster, you can prepare the Azure Red Hat OpenShift cluster to host your WebSphere Liberty application.
 
 ## Configure and deploy the sample application
