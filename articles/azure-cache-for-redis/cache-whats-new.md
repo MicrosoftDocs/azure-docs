@@ -7,11 +7,17 @@ ms.custom: references_regions
 
 
 ms.topic: conceptual
-ms.date: 10/03/2024
+ms.date: 11/15/2024
 
 ---
 
 # What's New in Azure Cache for Redis
+
+## November 2024
+
+### Cache creation with zone redundancy by default
+
+For the Standard and Premium tiers, Azure Cache for Redis now creates caches with zone redundancy by default using _Automatic_Zonal_Allocation_ in all regions that support zones. For Premium caches, you can still choose to manually select availability zones or choose not to use zone redundancy. For more information, see [Enable zone redundancy for Azure Cache for Redis](cache-how-to-zone-redundancy.md).
 
 ## September 2024
 

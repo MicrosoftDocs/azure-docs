@@ -5,7 +5,7 @@ description: Learn about Azure Cache for Redis to enable cache-aside, content ca
 
 
 ms.topic: overview
-ms.date: 04/19/2024
+ms.date: 11/15/2024
 ---
 
 # What is Azure Cache for Redis?
@@ -56,7 +56,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Scaling](cache-how-to-scale.md) |Yes|Yes|Yes|Yes|Yes|
 | OSS clustering |No|No|Yes|Yes|Yes|
 | [Data persistence](cache-how-to-premium-persistence.md) |No|No|Yes|Preview|Preview|
-| [Zone redundancy](cache-how-to-zone-redundancy.md) |No|Preview|Preview|Available|Available|
+| [Zone redundancy](cache-how-to-zone-redundancy.md) |No|Available|Available|Available|Available|
 | [Geo-replication](cache-how-to-geo-replication.md) |No|No|Yes (Passive) |Yes (Active) |Yes (Active) |
 | [Connection audit logs](cache-monitor-diagnostic-settings.md) |No|No|Yes (Poll-based)|Yes (Event-based)|Yes (Event-based)|
 | [Redis Modules](cache-redis-modules.md) |No|No|No|Yes|Preview|

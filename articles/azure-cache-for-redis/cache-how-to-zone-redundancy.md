@@ -5,7 +5,7 @@ description: Learn how to set up zone redundancy for your Premium and Enterprise
 
 
 ms.topic: conceptual
-ms.date: 11/05/2024
+ms.date: 11/15/2024
 
 ---
 
@@ -39,45 +39,61 @@ To create a cache, follow these steps:
     | **Location** | Select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that use your cache. |
     | **Cache type** | Select a [Premium or Enterprise tier](https://azure.microsoft.com/pricing/details/cache/) cache. |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
 
-1. For Standard or Premium tier cache, select **Advanced** in the Resource menu. To enable zone resiliency with automatic zone allocation, select **(Preview) Select zones automatically**.
+1. For Standard or Premium tier cache, select **Advanced** in the Resource menu. In regions that support zones, Zone redundancy for these tiers can be enabled using couple of ways. (In regions that don't support zones, the option to enable zone redundancy is disabled.)
+    1. Using [Automatic Zonal Allocation](#automatic-zonal-allocation):
+        - **Allocate zones automatically** is the default option selected for **Availability Zones** for both the above tiers.
+        - _Automatic Zonal Allocation_ is the only option available for **Standard** tier caches with _Availability zones_ and it is not possible for the user to create non-zonal or manually select zones for Standard caches.
+            :::image type="content" source="media/cache-how-to-zone-redundancy/create-standard-cache-default-as-az.png" alt-text="Screenshot showing the Advanced tab with a red box around Availability zones for Standard cache.":::
+        - However, for **Premium** tier caches, _Availability zones_ is an editable option.
+            :::image type="content" source="media/cache-how-to-zone-redundancy/create-premium-cache-default-as-az.png" alt-text="Screenshot showing the Advanced tab with a red box around Availability zones for Premium cache.":::
+    1. Using **UserDefined Zonal Allocation**:
+        - For **Premium** tier caches, _Availability zones_ field can be edited by the user, using which they can select non-zonal or manually select zones for the cache.
+			- Selecting NoZones:
+                :::image type="content" source="media/cache-how-to-zone-redundancy/create-premium-cache-as-non-az.png" alt-text="Screenshot showing the Advanced tab with a red box around Availability zones and its None option for Premium cache.":::
+			- When choosing zones manually, the number of availability zones must always be less than or equal to the total number of nodes for the cache:
+                 :::image type="content" source="media/cache-how-to-zone-redundancy/cache-premium-replica-count.png" alt-text="Screenshot showing Availability zones set to one and Replica count set to three.":::
 
-    > [!NOTE]
-    > On the Premium caches, only _automatic zone selection_ is in public preview. Manual selection of availability zones us unchanged. Manual selection is GA (General Availability).
-
-   :::image type="content" source="media/cache-how-to-zone-redundancy/cache-availability-zone.png" alt-text="Screenshot showing the Advanced tab with a red box around Availability zones.":::
-
-   For an Enterprise tier cache, select **Advanced** in the Resource menu. For **Zone redundancy**, select **Zone redundant (recommended)**.
-
-   :::image type="content" source="media/cache-how-to-zone-redundancy/cache-enterprise-create-zones.png" alt-text="Screenshot showing the Advanced tab with a red box around Zone redundancy.":::
-
-   Automatic zone allocation increases the overall availability of your cache by automatically spreading it across multiple availability zones. Using availability zones makes the cache more resilient to outages in a data center. For more information, see [Zone redundancy](cache-high-availability.md#zone-redundancy).
-
-    > [!IMPORTANT]
-    > Automatic Zone Allocation cannot be modified once enabled for a cache.
-
-    > [!IMPORTANT]
-    > Enabling Automatic Zone Allocation (preview) is currently NOT supported for Geo-replicated caches or caches with VNET injection.
-
-1. Availability zones can be selected manually for Premium tier caches. The number of availability zones must always be less than or equal to the total number of nodes for the cache. 
-
-   :::image type="content" source="media/cache-how-to-zone-redundancy/cache-premium-replica-count.png" alt-text="Screenshot showing Availability zones set to one and Replica count set to three.":::
+1. For an Enterprise tier cache, select **Advanced** in the Resource menu. For **Zone redundancy**, select **Zone redundant (recommended)**.
+:::image type="content" source="media/cache-how-to-zone-redundancy/cache-enterprise-create-zones.png" alt-text="Screenshot showing the Advanced tab with a red box around Zone redundancy.":::
 
 1. Configure your settings for clustering and/or RDB persistence.  
 
    > [!NOTE]
    > Zone redundancy doesn't support Append-only File (AOF) persistence with multiple replicas (more than one replica).
-   > Zone redundancy doesn't work with geo-replication currently.
-   >
 
 1. Select **Create**.
 
     It takes a while for the cache to be created. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
+## Automatic Zonal Allocation
+
+- Azure Cache for Redis automatically allocates zones to the cache on behalf of the user based on the number of nodes per shard and region's zonal support such that the cache is spread across multiple zones for high availability.
+- With this type of allocation, users need not worry about choosing the zones manually for the cache and the capacity issues associated with the zones as Azure will handle them.
+- The actual zones that are allocated to the cache are abstracted from the user.
+- The property which indicates the zonal allocation policy for the cache is _zonalAllocationPolicy_, which can be sent in the request body and can be fetched from the response body while creating or updating the cache.
+- The supported values for the property are:
+    1. Automatic
+        - This will be selected as default option for Premium, Standard caches starting with 2024-11-01 API version if 'zonalAllocationPolicy' is not passed in the request in the regions that support zones.
+        - This is the only option supported for Standard caches with Availability zones.
+    1. UserDefined
+        - This value can be passed in the request body for Premium caches while manually selecting the zones for the cache.
+        - This is supported only for Premium caches.
+    1. NoZones
+        - This value should be passed in the request body for Premium caches in order to create a non-zonal cache.
+        - This is supported only for Premium caches.
+- REST API spec for this feature can be found at: [ZonalAllocationPolicy (2024-11-01)](https://learn.microsoft.com/en-us/rest/api/redis/redis/create?view=rest-redis-2024-11-01&tabs=HTTP#zonalallocationpolicy)
+
+ > [!IMPORTANT]
+    > Automatic Zonal Allocation cannot be modified once enabled for a cache.
+    > Starting with 2024-11-01 API version, Automatic Zonal Allocation is chosen as default option for Premium, Standard caches. In rare cases, when sufficient zonal capacity is unavailable to at-least allocate two zones, and user does not pass 'zonalAllocationPolicy' in the request, Azure will create a non-zonal cache which user can verify by checking the _zonalAllocationPolicy_ property in the response.
+        > Hence it is recommended not to pass 'zonalAllocationPolicy' in the request body while creating the cache as it will enable Azure to choose the best option among _Automatic_, _NoZones_ for the cache based on the region's zonal supportability and capacity until and unless user explicitly wants to use a specific zonal allocation policy.
+    > Users can update their existing non-zonal or cache with manually selected zones to use Automatic Zonal Allocation by updating the cache with 'zonalAllocationPolicy' set to 'Automatic'. For more information regarding the update process, see [Migrate an Azure Cache for Redis instance to availability zone support](#can-i-update-my-existing-standard-or-premium-cache-to-use-zone-redundancy).
+
 ## Zone Redundancy FAQ
 
 - [Why can't I enable zone redundancy when creating a Premium cache?](#why-cant-i-enable-zone-redundancy-when-creating-a-premium-cache)
 - [Why can't I select all three zones during cache create?](#why-cant-i-select-all-three-zones-during-cache-create)
-- Can I update my existing Standard or Premium cache to use zone redundancy?]
+- [Can I update my existing Standard or Premium cache to use zone redundancy?](#can-i-update-my-existing-standard-or-premium-cache-to-use-zone-redundancy)
 - [How much does it cost to replicate my data across Azure Availability Zones?](#how-much-does-it-cost-to-replicate-my-data-across-azure-availability-zones)
 
 ### Why can't I enable zone redundancy when creating a Premium cache?
@@ -90,13 +106,15 @@ A Premium cache has one primary and one replica node by default. To configure zo
 
 ### Can I update my existing Standard or Premium cache to use zone redundancy?
 
-Yes, updating an existing Standard or Premium cache to use zone redundancy is supported. You can enable it by selecting **Allocate Zones automatically** from the **Advanced settings** on the Resource menu. You can't disable zone redundancy once you enable it.
+- Yes, updating an existing Standard or Premium cache to use zone redundancy is supported. You can enable it by selecting **Allocate Zones automatically** from the **Advanced settings** on the Resource menu. You can't disable zone redundancy once you enable it.
+- This can also be done by passing 'zonalAllocationPolicy' as 'Automatic' in the request body while updating the cache. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](https://learn.microsoft.com/en-us/rest/api/redis/redis/update?view=rest-redis-2024-11-01&tabs=HTTP#zonalallocationpolicy).
+    - Updating 'zonalAllocationPolicy' to any other value than 'Automatic' is not supported.
 
   > [!IMPORTANT]
-  > Automatic Zone Allocation cannot be modified once enabled for a cache.
+  > Automatic Zonal Allocation cannot be modified once enabled for a cache.
 
   > [!IMPORTANT]
-  > Enabling Automatic Zone Allocation is currently NOT supported for Geo Replicated caches or caches with VNet injection.
+  > Enabling Automatic Zonal Allocation for an existing cache with a different zonal allocation is currently NOT supported for Geo Replicated caches or caches with VNet injection.
 
 ### How much does it cost to replicate my data across Azure Availability Zones?
 
