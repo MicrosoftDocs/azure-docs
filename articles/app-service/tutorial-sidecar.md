@@ -16,7 +16,7 @@ In Azure App Service, you can add up to nine sidecar containers for each sidecar
 
 For more information about side container in App Service, see:
 
-- [Introducing Sidears for Azure App Service for Linux: Now Generally Available](https://azure.github.io/AppService/2024/11/08/Global-Availability-Sidecars.html)
+- [Introducing Sidecars for Azure App Service for Linux: Now Generally Available](https://azure.github.io/AppService/2024/11/08/Global-Availability-Sidecars.html)
 - [Announcing the general availability of sidecar extensibility in Azure App Service](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-the-general-availability-of-sidecar-extensibility-in-azure-app-servic/4267985)
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
@@ -160,7 +160,7 @@ In this section, you add a sidecar container to your custom container app. The p
     - **Resource Group**: Select the resource group with the App Service app you created with `az webapp up` earlier.
     - **App Name**: Type the name of the App Service app.
     - **Azure Container Registry Name**: Type the name of the registry you created with `azd up` earlier.
-    - **Azure Container Regsitry Image Name**: Leave the default value of *otel-collector:latest*. This points to the OpenTelemtry image in the registry.
+    - **Azure Container Registry Image Name**: Leave the default value of *otel-collector:latest*. This points to the OpenTelemtry image in the registry.
 
 1. Select **Review + Create**, then select **Create**.
 
