@@ -21,7 +21,6 @@ To set up bi-directional communication between Azure IoT Operations and Apache K
 ## Prerequisites
 
 - An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- A [configured dataflow profile](howto-configure-dataflow-profile.md)
 
 ## Azure Event Hubs
 
