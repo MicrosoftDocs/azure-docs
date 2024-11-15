@@ -5,7 +5,7 @@ author: greg-lindsay
 manager: KumuD
 ms.service: azure-dns
 ms.topic: article
-ms.date: 11/14/2024
+ms.date: 11/19/2024
 ms.author: greglin
 ---
 
@@ -29,10 +29,8 @@ A DNS security policy has the following associated elements and properties:
 - Virtual network links: You can link one security policy per VNet. A security policy can be associated to multiple VNets.
 - DNS domain lists: Location-based lists of DNS domains.
 
-You can
-
-On the first option, the security policy is created with diagnostics set to be sent towards a storage account (your DNS query logs are visible there).
-On the second option, you configure the security policy via Portal and have instructions on how to create and manage the security policy, plus setting the diagnostic options to send the DNS query details to a log analytics workspace.
+You can create a security policy with diagnostics sent to a storage account (your DNS query logs are visible there).
+You can create a security policy via Portal and have instructions on how to create and manage the security policy, plus setting the diagnostic options to send the DNS query details to a log analytics workspace.
 
 You should now be able to log your DNS traffic to one or multiple locations (storage account, log analytics workspace). DNS security policy should log all DNS queries initiated from your VNET. You can try following two scenarios for your testing.
 1. Create an Azure DNS private zone and link it to the virtual network where you have deployed the resolver. Next create some DNS records in the DNS zone and try to resolve these records from on-prem machines and Azure VMs. You can use nslookup command or Resolve-DnsName PowerShell command to lookup specific DNS records. You can also try variation of this scenario by creating different types of DNS records like AAAA, TXT, CNAME etc.
