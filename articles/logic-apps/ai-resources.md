@@ -45,7 +45,7 @@ The following connectors provide operations for data indexing and retrieval, wor
 |------|-----------|--------------|
 | **Azure AI Search** | Connector <br>(built in) | Provides operations for AI capabilities such as enhancing data retrieval with indexing, advanced vector operations, and hybrid search operations. |
 | **SQL Server** | Connector <br>(built in) | Provides operations for working with rows, tables, and stored procedures in an SQL database. |
-| **Azure Cosmos DB** | Connector <br>(Azure-managed and hosted) | Provides operations for working with documents and stored procedures in globally distributed, elastic and independently scalable, multi-model database. <br><br>**Note**: This service was previously named Azure DocumentDB. |
+| **Azure Cosmos DB** | Connector <br>(Azure-managed and hosted) | Provides operations for working with documents and stored procedures in a globally distributed, elastic, independently scalable, and multi-model database. <br><br>**Note**: This service was previously named Azure DocumentDB. |
 
 #### More resources
 
@@ -158,7 +158,7 @@ Data is the cornerstone for any AI application and unique for each organization.
 
 With over 1,400 enterprise connectors and operations, Azure Logic Apps makes it possible for you to quickly access and perform tasks with a wide range of services, systems, applications, and databases. When you use these connectors alongside AI services, such as Azure OpenAI and Azure AI Search, your organization can transform workloads such as automating routine tasks, enhancing customer interactions with chat capabilities, providing access to organizational data when necessary, and generating intelligent insights or responses. Along with these operations, Azure Logic Apps also offers prebuilt workflow templates that ingest data from many common data sources, such as SharePoint, Azure File Storage, Blob Storage, SFTP, and more, to help you quickly build and your applications.
 
-For example, when you integrate AI services by using the **Azure OpenAI** and **Azure AI Search** connector operations in your workflows, your organization can seamlessly implement the retrieval-augmented generation (RAG) pattern. This architecture includes an information retrieval system and augments the training data for a large language model (LLM) by referencing additional domain-specific or authoritative knowledge without having to retrain the model, which minimizes cost. For more information, see the [Retrieval-augmented generation (RAG) section](#rag-details) later in this guide.
+For example, when you integrate AI services by using the **Azure OpenAI** and **Azure AI Search** connector operations in your workflows, your organization can seamlessly implement the retrieval-augmented generation (RAG) pattern. This architecture includes an information retrieval system and augments the training data for a large language model (LLM) by referencing domain-specific or authoritative knowledge without having to retrain the model, which minimizes cost. For more information, see the [Retrieval-augmented generation (RAG) section](#rag-details) later in this guide.
 
 For more information, see the following resources:
 
@@ -176,8 +176,8 @@ The following table describes some example workflow templates:
 | Document source | Template description | AI services |
 |-----------------|----------------------|-------------|
 | SharePoint Online | Ingest and index files using the RAG pattern. | - Azure OpenAI <br>- Azure AI Search |
-| OneDrive for Business | Ingest and index files using the RAG pattern. | - Azure OpenAI <br>- Azure AI Search |
-| Azure Blob Storage | Retrieve, parse, and chunk a file from a blob storage container. Process each chunk to generate embeddings, map embeddings to an Azuer SQL DB table schema. Finally, index the files in a SQL DB vector table for retrieval and analysis. | - Azure OpenAI |
+| OneDrive | Ingest and index files using the RAG pattern. | - Azure OpenAI <br>- Azure AI Search |
+| Azure Blob Storage | Retrieve, parse, and chunk a file from a blob storage container. Process each chunk to generate embeddings, map embeddings to an Azure SQL DB table schema. Finally, index the files in a SQL DB vector table for retrieval and analysis. | - Azure OpenAI |
 
 For more information, see the following resources:
 
