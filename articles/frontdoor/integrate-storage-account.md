@@ -97,7 +97,6 @@ http://<*endpoint-name-with-hash-value*\>.z01.azurefd.net/<*myPublicContainer*\>
 > After enabling Azure Front Door access to a storage account, all publicly available objects are eligible for Front Door POP (Point-of-presence) caching. If you modify an object that is currently cached in Front Door, the new content won't be available until Front Door refreshes its content after the time-to-live period expires.
 
 ## Add a custom domain
-## Add a custom domain
 
 Using a custom domain with Azure Front Door allows your own domain name to be visible in end-user requests, which can enhance customer convenience and support branding efforts.
 
