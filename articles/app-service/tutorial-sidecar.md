@@ -232,6 +232,8 @@ In this step, you create the autoinstrumentation for your app according to the s
 
 1. Select **Save**, then **Continue**.
 
+    :::image type="content" source="media/tutorial-sidecar/configure-startup-file.png" alt-text="Screenshot that shows how to configure a custom startup file for an App Service app in the Azure portal.":::
+
 ## 5. Verify in Application Insights
 
 The otel-collector sidecar should export data to Application Insights now.
