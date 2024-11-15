@@ -29,7 +29,7 @@ The feature works with Spark 3.3. The following table shows the supported Hive M
 ## Set up linked service to Hive Metastore 
 
 > [!NOTE]
-> Only **Azure SQL Database** and **Azure Database for MySQL** are supported as an external Hive Metastore. SQL(User-Password) authentication is supported for both kinds of databases. Additionally, managed identity(including system-sssigned and user-assigned) authentication is supported only for Azure SQL Database and Spark 3.4. If the provided database is blank, please provision it via [Hive Schema Tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool) to create database schema.
+> Only **Azure SQL Database** and **Azure Database for MySQL** are supported as an external Hive Metastore. SQL(username-password) authentication is supported for both kinds of databases. Additionally, managed identity(including system-sssigned and user-assigned) authentication is supported only for Azure SQL Database and Spark 3.4. If the provided database is blank, please provision it via [Hive Schema Tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool) to create database schema.
 
 Follow below steps to set up a linked service to the external Hive Metastore in Synapse workspace.
 
@@ -121,7 +121,7 @@ Here are the configurations and descriptions:
 | `spark.sql.hive.metastore.version`                               | Supported versions: <ul><li>`2.3`</li><li>`3.1`</li></ul> Make sure you use the first 2 parts without the 3rd part                                                                                                                                               |
 | `spark.sql.hive.metastore.jars`                                  | <ul><li>Version 2.3: `/opt/hive-metastore/lib-2.3/*:/usr/hdp/current/hadoop-client/lib/*:/usr/hdp/current/hadoop-client/*` </li><li>Version 3.1: `/opt/hive-metastore/lib-3.1/*:/usr/hdp/current/hadoop-client/lib/*:/usr/hdp/current/hadoop-client/*`</li></ul> |
 | `spark.hadoop.hive.synapse.externalmetastore.linkedservice.name` | Name of your linked service                                                                                                                                                                                                                                      |
-| `spark.sql.hive.metastore.sharedPrefixes`                        | `com.mysql.jdbc,com.microsoft.sqlserver,com.microsoft.vegas`                                                                                                                                                                                                     |
+| `spark.sql.hive.metastore.sharedPrefixes`                        | `com.mysql.jdbc,com.microsoft.vegas`                                                                                                                                                                                                     |
 
 
 ### Configure at Spark pool level
@@ -135,7 +135,7 @@ Update metastore version and linked service name, and save below configs in a te
 spark.sql.hive.metastore.version <your hms version, Make sure you use the first 2 parts without the 3rd part>
 spark.hadoop.hive.synapse.externalmetastore.linkedservice.name <your linked service name>
 spark.sql.hive.metastore.jars /opt/hive-metastore/lib-<your hms version, 2 parts>/*:/usr/hdp/current/hadoop-client/lib/*
-spark.sql.hive.metastore.sharedPrefixes com.mysql.jdbc,com.microsoft.sqlserver,com.microsoft.vegas
+spark.sql.hive.metastore.sharedPrefixes com.mysql.jdbc,com.microsoft.vegas
 ```
 
 Here is an example for metastore version 2.3 with linked service named as HiveCatalog21:
@@ -144,7 +144,7 @@ Here is an example for metastore version 2.3 with linked service named as HiveCa
 spark.sql.hive.metastore.version 2.3
 spark.hadoop.hive.synapse.externalmetastore.linkedservice.name HiveCatalog21
 spark.sql.hive.metastore.jars /opt/hive-metastore/lib-2.3/*:/usr/hdp/current/hadoop-client/lib/*
-spark.sql.hive.metastore.sharedPrefixes com.mysql.jdbc,com.microsoft.sqlserver,com.microsoft.vegas
+spark.sql.hive.metastore.sharedPrefixes com.mysql.jdbc,com.microsoft.vegas
 ```
 
 ### Configure at Spark session level
@@ -157,7 +157,7 @@ For notebook session, you can also configure the Spark session in notebook using
         "spark.sql.hive.metastore.version":"<your hms version, 2 parts>",
         "spark.hadoop.hive.synapse.externalmetastore.linkedservice.name":"<your linked service name>",
         "spark.sql.hive.metastore.jars":"/opt/hive-metastore/lib-<your hms version, 2 parts>/*:/usr/hdp/current/hadoop-client/lib/*",
-        "spark.sql.hive.metastore.sharedPrefixes":"com.mysql.jdbc,com.microsoft.sqlserver,com.microsoft.vegas"
+        "spark.sql.hive.metastore.sharedPrefixes":"com.mysql.jdbc,com.microsoft.vegas"
     }
 }
 ```
