@@ -187,8 +187,8 @@ items:
           href: end-to-end-tutorials/tutorial-get-insights.md
       - name: Bi-directional messaging with Event Grid
         href: connect-to-cloud/tutorial-mqtt-bridge.md
-      - name: Send data to Microsoft Fabric OneLake
-        href: connect-to-cloud/tutorial-adx.md
+      - name: Send data to Data Lake Storage
+        href: connect-to-cloud/tutorial-adlsv2.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot
