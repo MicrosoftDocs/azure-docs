@@ -58,8 +58,14 @@ Finally, create the *DataflowEndpoint* resource. Use your own values to replace 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
-    | Host                 | The hostname of the Kafka broker in the format `<NAMEPSACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
-    | Authentication method| The method used for authentication. Choose *System assigned managed identity* |
+    | Host                 | The hostname of the Kafka broker in the format `<NAMESPACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
+    | Authentication method| The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *SASL*. |
+    | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | SASL type                      | Choose `Plain`. |
+    | Synced secret name             | Enter a name of the Kubernetes secret that contains the connection string. Required if using *SASL*.  |
+    | Username reference or token secret | The reference to the username or token secret used for SASL authentication. Either pick it from the Key Vault list or create a new one. The value must be `$ConnectionString`. |
+    | Password reference of token secret | The reference to the password or token secret used for SASL authentication. Either pick it from the Key Vault list or create a new one. The value must be in the format of `Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY-NAME>;SharedAccessKey=<KEY>`. |
 
 1. Select **Apply** to provision the endpoint.
 
@@ -234,7 +240,7 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
     | Host                 | The hostname of the Kafka broker in the format `<Kafa-broker-host>:xxxx`. Include port number in the host setting. |
-    | Authentication method| The method used for authentication. Choose *SASL*. |
+    | Authentication method| The method used for authentication. Choose *SASL* or *None*. |
     | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
     | Synced secret name   | The name of the secret. Required if using *SASL*. |
     | Username reference of token secret | The reference to the username in the SASL token secret. Required if using *SASL*. |

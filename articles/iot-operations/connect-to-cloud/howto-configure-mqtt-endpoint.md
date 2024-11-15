@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/11/2024
+ms.date: 11/14/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to understand how to configure dataflow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
@@ -126,8 +126,8 @@ You can also create new local MQTT broker endpoints with custom settings. For ex
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                                        |
     | Host                 | The hostname and port of the MQTT broker. Use the format `<hostname>:<port>`                                |
-    | Authentication method | The method used for authentication. Choose *Service account token*, or *X509 certificate* |
-    | Service audience      | The audience for the service account token. Required if using *Service account token*. |
+    | Authentication method | The method used for authentication. Choose *Kubernetes service account token*, *X509 certificate*, or *None*. |
+    | Service audience      | The audience for the service account token. Required if using *Kubernetes service account token*. |
     | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. |
     | X509 client key       | The private key corresponding to the X.509 client certificate. Required if using *X509 certificate*. |
     | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509 certificate*. |
@@ -249,7 +249,12 @@ Once the Event Grid namespace is configured, you can create a dataflow endpoint 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                                        |
     | Host                 | The hostname and port of the Event Grid MQTT broker. Use the format `<NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883`                                |
-    | Authentication method | The method used for authentication. Choose *System assigned managed identity* |
+    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *X509 certificate* |
+    | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. |
+    | X509 client key       | The private key corresponding to the X.509 client certificate. Required if using *X509 certificate*. |
+    | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509 certificate*. |
 
 1. Select **Apply** to provision the endpoint.
 
@@ -366,8 +371,8 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
     | --------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                  | The name of the dataflow endpoint                                                                 |
     | Host                  | The hostname of the MQTT broker endpoint in the format `<hostname>.<port>`. |
-    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *Service account token*. |
-    | Service audience      | The audience for the service account token. Required if using service account token. |
+    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *Kubernetes service account token*, or *None*. |
+    | Service audience      | The audience for the service account token. Required if using Kubernetes service account token. |
     | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
     | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
     | Access token secret name | The name of the Kubernetes secret containing the SAS token. Required if using *Access token*. |

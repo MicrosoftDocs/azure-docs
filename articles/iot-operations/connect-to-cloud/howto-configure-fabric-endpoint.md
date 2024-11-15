@@ -168,9 +168,9 @@ fabricOneLakeSettings:
 
 The following authentication methods are available for Microsoft Fabric OneLake dataflow endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-Before you create the dataflow endpoint, assign workspace *Contributor* role to the IoT Operations extension that grants permission to write to the Fabric lakehouse. 
+Before you create the dataflow endpoint, assign workspace *Contributor* role to the IoT Operations extension that grants permission to write to the Fabric lakehouse. You can find the extension name in the Azure IoT Operations instance overview page under **Essentials** > **Arc extension**.
 
-![Screenshot of IoT Operations extension name to grant workspace access to.](media/howto-configure-fabric-endpoint/extension-name.png)
+![Screenshot of IoT Operations extension name to grant workspace access. ](media/howto-configure-fabric-endpoint/extension-name.png)
 
 To learn more, see [Give access to a workspace](/fabric/get-started/give-access-workspaces).
 
