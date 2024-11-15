@@ -176,7 +176,7 @@ The following authentication methods are available for Microsoft Fabric OneLake 
 
 ### System-assigned managed identity
 
-Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to write to the Fabric lakehouse.:
+Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to write to the Fabric lakehouse:
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
 1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
