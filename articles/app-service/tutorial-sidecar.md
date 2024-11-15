@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure a sidecar container'
-description: Add sidecar containers to your linux app in Azure App Service. Add or update services to your application without changing your application code.
+description: Add sidecar containers to your Linux app in Azure App Service. Add or update services to your application without changing your application code.
 ms.topic: tutorial
 ms.date: 11/19/2024
 ms.author: msangapu
@@ -8,11 +8,11 @@ author: msangapu-msft
 keywords: azure app service, web app, linux, windows, docker, sidecar
 ---
 
-# Tutorial: Configure a sidecar container for a linux app in Azure App Service
+# Tutorial: Configure a sidecar container for a Linux app in Azure App Service
 
 In this tutorial, you add an OpenTelemetry collector as a sidecar container to a Linux app in Azure App Service. 
 
-In Azure App Service, you can add up to nine sidecar containers for each sidecar-enabled custom container app. Sidecar containers let you deploy extra services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
+In Azure App Service, you can add up to nine sidecar containers for each Linux app. Sidecar containers let you deploy extra services and features to your Linux apps without making them tightly coupled to the main (built-in) container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
 
 For more information about side container in App Service, see:
 
@@ -74,7 +74,7 @@ This basic web application is deployed as MyFirstAzureWebApp.dll to App Service.
 
 ## 3. Add a sidecar container
 
-In this section, you add a sidecar container to your custom container app. The portal experience is still being rolled out. If it's not available to you yet, continue with the **Use ARM template** tab below.
+In this section, you add a sidecar container to your Linux app. The portal experience is still being rolled out. If it's not available to you yet, continue with the **Use ARM template** tab below.
 
 ### [Use portal UI](#tab/portal) 
 
@@ -145,7 +145,7 @@ In this section, you add a sidecar container to your custom container app. The p
     > [!TIP]
     > To use a container in a public registry, modify `properties` like the following example:
     >
-    > ```JSON
+    > ```json
     > "properties": {
     >     "image": "mcr.microsoft.com/appsvc/docs/sidecars/sample-experiment:otel-appinsights-1.0",
     >     "isMain": false,
