@@ -179,5 +179,3 @@ If Azure Front Door (classic) doesn't have a cached response, it checks for a [U
 - Learn about the [Azure Front Door routing architecture](front-door-routing-architecture.md).
 
 ::: zone-end
-
-::: zone-end
