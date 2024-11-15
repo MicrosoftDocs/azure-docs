@@ -54,7 +54,7 @@ You can deploy dataflows as soon as you have an instance of [Azure IoT Operation
 
 ### Dataflow profile
 
-The dataflow profile specifies the number of instances for the dataflows under it to use. If you don't need multiple groups of dataflows with different scaling settings, you can use the default dataflow profile. To learn how to configure a dataflow profile, see [Configure dataflow profiles](howto-configure-dataflow-profile.md).
+If you don't need different scaling settings for your dataflows, use the [default dataflow profile](./howto-configure-dataflow-profile.md#default-dataflow-profile) provided by Azure IoT Operations. To learn how to configure a dataflow profile, see [Configure dataflow profiles](howto-configure-dataflow-profile.md).
 
 ### Dataflow endpoints
 
@@ -515,9 +515,9 @@ builtInTransformationSettings:
 
 ### Enrich: Add reference data
 
-To enrich the data, you can use the reference dataset in the Azure IoT Operations [state store](../create-edge-apps/concept-about-state-store-protocol.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
+To enrich the data, first add reference dataset in the Azure IoT Operations [state store](../create-edge-apps/overview-state-store.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
-You can load sample data into the state store by using the [DSS set tool sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dss_set) (Linux/x86 only). Key names in the state store correspond to a dataset in the dataflow configuration.
+You can load sample data into the state store by using the [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/state-store-cli). Key names in the state store correspond to a dataset in the dataflow configuration.
 
 # [Portal](#tab/portal)
 

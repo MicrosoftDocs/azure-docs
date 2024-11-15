@@ -18,7 +18,7 @@ Decide whether you're deploying Azure IoT Operations to a single-node or multi-n
 
 ## Platform
 
-Currently, K3s on Ubuntu 20.04 is the only generally available platform for deploying Azure IoT Operations in production.
+Currently, K3s on Ubuntu 24.04 is the only generally available platform for deploying Azure IoT Operations in production.
 
 ## Cluster setup
 
@@ -31,7 +31,7 @@ Create an Arc-enabled K3s cluster that meets the system requirements.
 * [Configure the cluster](./howto-prepare-cluster.md) according to documentation.
 * If you expect intermittent connectivity for your cluster, ensure that you've allocated enough disk space to the cluster cache data and messages while the [cluster is offline](../overview-iot-operations.md#offline-support).
 * If possible, have a second cluster as a staging area for testing new changes before deploying to the primary production cluster.
-* [Turn off auto-upgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster.
+* [Turn off auto-upgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
 * *For multi-node clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-multi-node-clusters-for-azure-container-storage) to prepare for enabling fault tolerance during deployment.
 
 ### Security
@@ -64,7 +64,7 @@ In the Azure portal deployment wizard, the broker resource is set up in the **Co
 
   | Setting | Single node | Multi node |
   | ------- | ----------- | ---------- |
-  | **frontendReplicas** | 2 | 5 |
+  | **frontendReplicas** | 1 | 5 |
   | **frontendWorkers** | 4 | 8 |
   | **backendRedundancyFactor** | 2 | 2 |
   | **backendWorkers** | 1 | 4 |

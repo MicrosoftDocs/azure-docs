@@ -84,7 +84,7 @@ This section provides steps to create clusters in validated environments on Linu
 
 To prepare a K3s Kubernetes cluster on Ubuntu:
 
-1. Install K3s following the instructions in the [K3s quick-start guide](https://docs.k3s.io/quick-start).
+1. Create a single-node or multi-node K3s cluster. For examples, see the [K3s quick-start guide](https://docs.k3s.io/quick-start) or [K3s related projects](https://docs.k3s.io/related-projects).
 
 1. Check to see that kubectl was installed as part of K3s. If not, follow the instructions to [Install kubectl on Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
 
@@ -161,8 +161,10 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group.
 
    ```azurecli
-   az connectedk8s connect --name <CLUSTER_NAME> -l <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID> --enable-oidc-issuer --enable-workload-identity
+   az connectedk8s connect --name <CLUSTER_NAME> -l <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID> --enable-oidc-issuer --enable-workload-identity --disable-auto-upgrade
    ```
+
+   To prevent unplanned updates to Azure Arc and the system Arc extensions that Azure IoT Operations uses as dependencies, this command disables auto-upgrade. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
 
 1. Get the cluster's issuer URL.
 
@@ -216,7 +218,9 @@ For instructions on running the script, see [Configure an AKS Edge Essentials cl
 
 ### [AKS on Azure Local](#tab/azure-local)
 
-For instructions on creating and Arc-enabling a cluster on Azure Local, see [Create Kubernetes clusters using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli).
+For instructions on creating and Arc-enabling an AKS cluster on Azure Local, see [Create Kubernetes clusters using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli). By default, a Kubernetes cluster is created with a node pool that can run Linux containers. If you add additional node pools after creation, make sure the OS is set to Linux. Azure IoT Operations doesn't support deployment to Windows nodes.
+
+Then, once you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](howto-deploy-iot-operations.md).
 
 ---
 

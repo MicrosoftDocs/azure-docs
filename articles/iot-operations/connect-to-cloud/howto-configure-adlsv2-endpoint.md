@@ -21,13 +21,25 @@ To send data to Azure Data Lake Storage Gen2 in Azure IoT Operations, you can co
 ## Prerequisites
 
 - An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- A [configured dataflow profile](howto-configure-dataflow-profile.md)
-- A [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md)
+- An [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md)
 - A pre-created storage container in the storage account
 
-## Create an Azure Data Lake Storage Gen2 dataflow endpoint
+## Assign permission to managed identity
 
-To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management. Alternatively, you can authenticate with the storage account using an access token. When using an access token, you would need to create a Kubernetes secret containing the SAS token.
+To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
+
+After the Azure Data Lake Storage Gen2 is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to write to the storage account.
+
+If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
+
+Then, go to the Azure Storage account > **Access control (IAM)** > **Add role assignment**.
+
+1. On the **Role** tab select an appropriate role like `Storage Blob Data Contributor`. This gives the managed identity the necessary permissions to write to the Azure Storage blob containers. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
+1. On the **Members** tab:
+    1. If using system-assigned managed identity, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
+    1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
+
+## Create dataflow endpoint for Azure Data Lake Storage Gen2
 
 # [Portal](#tab/portal)
 
@@ -42,7 +54,7 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
     | --------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                  | The name of the dataflow endpoint.                                                              |
     | Host                  | The hostname of the Azure Data Lake Storage Gen2 endpoint in the format `<account>.blob.core.windows.net`. Replace the account placeholder with the endpoint account name. |
-    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *Access token*.     |
+    | Authentication method | The method used for authentication. We recommend that you choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
     | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
     | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
     | Access token secret name | The name of the Kubernetes secret containing the SAS token. Required if using *Access token*. |
@@ -77,8 +89,8 @@ resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2
     dataLakeStorageSettings: {
       host: host
       authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
+        // See available authentication methods section for method types
+        // method: <METHOD_TYPE>
       }
     }
   }
@@ -106,8 +118,8 @@ spec:
   dataLakeStorageSettings:
     host: https://<ACCOUNT>.blob.core.windows.net
     authentication:
-      method: SystemAssignedManagedIdentity
-      systemAssignedManagedIdentitySettings: {}
+      # See available authentication methods section for method types
+      # method: <METHOD_TYPE>
 ```
 
 Then apply the manifest file to the Kubernetes cluster.
@@ -117,8 +129,6 @@ kubectl apply -f <FILE>.yaml
 ```
 
 ---
-
-If you need to override the system-assigned managed identity audience, see the [System-assigned managed identity](#system-assigned-managed-identity) section.
 
 ### Use access token authentication
 
@@ -206,19 +216,17 @@ kubectl apply -f <FILE>.yaml
 
 The following authentication methods are available for Azure Data Lake Storage Gen2 endpoints.
 
-For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
-
 ### System-assigned managed identity
 
-Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication.
-
-Before creating the dataflow endpoint, assign a role to the managed identity that has write permission to the storage account. For example, you can assign the *Storage Blob Data Contributor* role. To learn more about assigning roles to blobs, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
+Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to write to the storage account:
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
 1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
-1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for *azure-iot-operations-xxxx7*.
-1. Assign a role to the Azure IoT Operations Arc extension managed identity that grants permission to write to the storage account, such as *Storage Blob Data Contributor*. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
-1. Create the *DataflowEndpoint* resource and specify the managed identity authentication method. 
+1. Go to the cloud resource you need to grant permissions. For example, go to the Azure Storage account > **Access control (IAM)** > **Add role assignment**.
+1. On the **Role** tab select an appropriate role.
+1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the Azure IoT Operations managed identity. For example, *azure-iot-operations-xxxx7*.
+
+Then, configure the dataflow endpoint with system-assigned managed identity settings.
 
 # [Portal](#tab/portal)
 
@@ -278,6 +286,57 @@ dataLakeStorageSettings:
 ```
 
 ---
+
+### User-assigned managed identity
+
+To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+
+Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to write to the storage account:
+
+1. In Azure portal, go to the cloud resource you need to grant permissions. For example, go to the Azure Storage account > **Access control (IAM)** > **Add role assignment**.
+1. On the **Role** tab select an appropriate role.
+1. On the **Members** tab, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your user-assigned managed identity.
+
+Then, configure the dataflow endpoint with user-assigned managed identity settings.
+
+# [Portal](#tab/portal)
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+
+Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+dataLakeStorageSettings: {
+  authentication: {
+    method: 'UserAssignedManagedIdentity'
+    userAssignedManagedIdentitySettings: {
+      cliendId: '<ID>'
+      tenantId: '<ID>'
+      // Optional, defaults to 'https://storage.azure.com/.default'
+      // scope: 'https://<SCOPE_URL>'
+    }
+  }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+dataLakeStorageSettings:
+  authentication:
+    method: UserAssignedManagedIdentity
+    userAssignedManagedIdentitySettings:
+      clientId: <ID>
+      tenantId: <ID>
+      # Optional, defaults to 'https://storage.azure.com/.default'
+      # scope: https://<SCOPE_URL>
+```
+
+---
+
+Here, the scope is optional and defaults to `https://storage.azure.com/.default`. If you need to override the default scope, specify the `scope` setting via the Bicep or Kubernetes manifest.
 
 ### Access token
 
@@ -346,51 +405,6 @@ dataLakeStorageSettings:
 ```
 
 ---
-
-### User-assigned managed identity
-
-To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
-
-Then, specify the user-assigned managed identity authentication method along with the client ID, tenant ID, and scope of the managed identity.
-
-# [Portal](#tab/portal)
-
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
-
-Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-dataLakeStorageSettings: {
-  authentication: {
-    method: 'UserAssignedManagedIdentity'
-    userAssignedManagedIdentitySettings: {
-      cliendId: '<ID>'
-      tenantId: '<ID>'
-      // Optional, defaults to 'https://storage.azure.com/.default'
-      // scope: 'https://<SCOPE_URL>'
-    }
-  }
-}
-```
-
-# [Kubernetes (preview)](#tab/kubernetes)
-
-```yaml
-dataLakeStorageSettings:
-  authentication:
-    method: UserAssignedManagedIdentity
-    userAssignedManagedIdentitySettings:
-      clientId: <ID>
-      tenantId: <ID>
-      # Optional, defaults to 'https://storage.azure.com/.default'
-      # scope: https://<SCOPE_URL>
-```
-
----
-
-Here, the scope is optional and defaults to `https://storage.azure.com/.default`. If you need to override the default scope, specify the `scope` setting via the Bicep or Kubernetes manifest.
 
 ## Advanced settings
 
