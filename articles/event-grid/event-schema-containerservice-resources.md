@@ -2,16 +2,16 @@
 title: Azure Resource Notifications - ContainerService events in Azure Event Grid
 description: This article provides information on Azure Event Grid events supported by Azure Resource Notifications ContainerService events. It provides the schema and links to how-to articles. 
 ms.topic: conceptual
-ms.date: 09/30/2024
+ms.date: 11/14/2024
 ---
 
 # Azure Resource Notifications - ContainerService events in Azure Event Grid (Preview)
 
-Azure Kubernetes Service (AKS) utilizes the Container Service Event Resources system topic to publish advance notifications for scheduled maintenance events on AKS clusters. This feature allows you to receive push notifications on a regular basis for critical maintenance operations for various event statuses such as scheduled, started, completed, cancelled, and failed. Particularly for the scheduled event status, one notification is sent 7 days prior to the actual maintenance operation and a second notification 24 hrs in advance.
+Azure Kubernetes Service (AKS) utilizes the Container Service Event Resources system topic to publish advance notifications for scheduled maintenance events on AKS clusters. This feature allows you to receive push notifications on a regular basis for critical maintenance operations for various event statuses such as scheduled, started, completed, canceled, and failed. Particularly for the scheduled event status, one notification is sent 7 days before the actual maintenance operation and a second notification 24 hrs in advance.
 
 These notifications cover:
-- AKS-initiated maintenances (e.g., Underlay migration, Konnectivity Tunnel Switch)
-- Customer-initiated maintenances (e.g., Auto upgrade, Node OS upgrade, weekly release window)
+- AKS-initiated maintenance operations (for example, Underlay migration, Konnectivity Tunnel Switch)
+- Customer-initiated maintenance operations (for example, Auto upgrade, Node OS upgrade, weekly release window)
 These proactive notifications help customers by providing increased ability to plan for disruptions, thereby reducing operational costs
 
 
@@ -153,7 +153,7 @@ The `resourceInfo` object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- | 
 | `id` | String | Publisher defined path to the event subject |
-| `name` | String | This field indicates the Event-id. It always takes the value of the last section of the `id` field. |
+| `name` | String | This field indicates the event ID. It always takes the value of the last section of the `id` field. |
 | `type` | String | The type of event that is being emitted.|
 | `location` | String | Location or region where the resource is located. |
 | `properties` | Object | Payload of the resource. For more information, see the next table. |
@@ -165,18 +165,18 @@ The `operationalInfo` object has the following properties:
 | -------- | ---- | ----------- | 
 | `resourceEventTime` | DateTime | Date and time when the resource was updated. |
 
-The `ScheduledEventEmitted` event, has the following properties: 
+The `ScheduledEventEmitted` event has the following properties: 
 
 | Property | Type | Description |
 | -------- | ---- | ----------- | 
 | `description` | String | The description of the event. |
-| `eventId` | String | The event id of the event. |
+| `eventId` | String | The event ID of the event. |
 | `eventSource` | String | The source of the event. |
-| `eventStatus` | Enum (String) | Status of the event which can be – Scheduled, Started, Completed, Cancelled, Failed. |
+| `eventStatus` | Enum (String) | Status of the event which can be – Scheduled, Started, Completed, Canceled, Failed. |
 | `eventDetails` | String | The details of the event. |
 | `scheduledTime`| String (date-time format) | The time of the event is scheduled to start.|
 |`lastUpdateTime`| String (date-time format)| The last time the state of the event was updated.|
-|`resources`| Array of Strings (arm-id format)| The list of resources impacted by the event.|
+|`resources`| Array of Strings (Azure Resource Manager ID format)| The list of resources impacted by the event.|
 |`resourceType`| String | The resource type of the event
 
 

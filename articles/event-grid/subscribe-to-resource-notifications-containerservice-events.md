@@ -3,7 +3,7 @@ title: Subscribe to Azure Resource Notifications - ContainerService events
 description: This article explains how to subscribe to events published by Azure Resource Notifications - ContainerService Events. 
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/30/2024
+ms.date: 11/14/2024
 ---
 
 # Subscribe to events raised by Azure Resource Notifications - ContainerService Event Resources system topic (Preview)
@@ -59,7 +59,7 @@ This article explains the steps needed to subscribe to events published by Azure
 ## Subscribe to events
 
 # [Azure CLI](#tab/azure-cli)
-Create an event subscription for the above topic using the [`az eventgrid system-topic event-subscription create`](/cli/azure/eventgrid/system-topic/event-subscription#az-eventgrid-system-topic-event-subscription-create) command.
+Create an event subscription for the above topic by using the [`az eventgrid system-topic event-subscription create`](/cli/azure/eventgrid/system-topic/event-subscription#az-eventgrid-system-topic-event-subscription-create) command.
 
 The following sample command creates an event subscription for the **ScheduledEventEmitted** event. 
 
@@ -155,7 +155,7 @@ Remove-AzEventGridSystemTopic -ResourceGroupName RESOURCEGROUPNAME -Name SYSTEMT
 ## Filtering examples
 
 ### Subscribe to Azure Kubernetes Cluster Scheduled Events by a Specific Cluster
-You might want to filter the Azure Kubernetes Cluster Scheduled Events by a specific cluster on the subscriber end. This filtering helps ensure that you only receive notifications from clusters that are of interest to you..
+You might want to filter the Azure Kubernetes Cluster Scheduled Events by a specific cluster on the subscriber end. This filtering helps ensure that you only receive notifications from clusters that are of interest to you.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -198,7 +198,7 @@ New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIP
 ---
 
 ### Subscribe to Azure Kubernetes Cluster Scheduled Events by "Completed" Event Status
-You might want to filter the Azure Kubernetes Cluster Scheduled Events by a specific status, for example, "Completed", on the subscriber end. This filtering helps ensure that you only receive notifications from events that are of interest to you.
+You might want to filter the Azure Kubernetes Cluster Scheduled Events by a specific status, for example, "Completed" on the subscriber end. This filtering helps ensure that you only receive notifications from events that are of interest to you.
 
 # [Azure CLI](#tab/azure-cli)
 
