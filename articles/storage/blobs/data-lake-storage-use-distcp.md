@@ -7,9 +7,8 @@ author: normesta
 ms.service: azure-data-lake-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 12/06/2018
+ms.date: 11/15/2024
 ms.author: normesta
-ms.reviewer: stewu
 ---
 
 # Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage
