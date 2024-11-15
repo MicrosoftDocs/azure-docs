@@ -149,10 +149,6 @@ items:
           href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
         - name: Connect Azure Arc-enabled servers
           href: manage-layered-network/howto-connect-arc-enabled-servers.md
-    - name: View and analyze telemetry
-      items:
-      - name: Build a real-time dashboard in Microsoft Fabric 
-        href: view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md
     - name: Configure observability and monitoring
       items:
       - name: Deploy observability resources
@@ -190,7 +186,9 @@ items:
         - name: Get insights from your data
           href: end-to-end-tutorials/tutorial-get-insights.md
       - name: Bi-directional messaging with Event Grid
-        href: connect-to-cloud\tutorial-mqtt-bridge.md
+        href: connect-to-cloud/tutorial-mqtt-bridge.md
+      - name: Send data to Microsoft Fabric OneLake
+        href: connect-to-cloud/tutorial-adx.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot
