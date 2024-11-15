@@ -19,7 +19,7 @@ Azure IoT Operations:
 * Is built from ground up by using Kubernetes native applications.
 * Includes an industrial-grade, edge-native MQTT broker that powers event-driven architectures.
 * Is highly extensible, scalable, resilient, and secure.
-* Lets you manage edge services and resources from the cloud by using Azure Arc.
+* Lets you manage edge services and resources from the cloud by using [Azure Arc](/azure/azure-arc/overview).
 * Can integrate customer workloads into the platform to create a unified solution.
 * Supports GitOps configuration as code for deployment and updates.
 * Natively integrates with [Azure Event Hubs](../event-hubs/azure-event-hubs-kafka-overview.md), [Azure Event Grid's MQTT broker](../event-grid/mqtt-overview.md), and [Microsoft Fabric](/fabric/) in the cloud.
@@ -75,11 +75,11 @@ Azure IoT Operations uses the Azure Device Registry to store information about l
 
 ## Automatic asset discovery
 
-Automatic asset discovery using Akri services, Azure Device Registry, the connector for OPC UA, the connection for ONVIF (preview), and the media connector (preview) is available in the current version of Azure IoT Operations. Currently, there are no user configurable scenarios for Akri in the operations experience web UI.
+Automatic asset discovery using Akri services, Azure Device Registry, the connector for OPC UA, the connection for ONVIF (preview), and the media connector (preview) is available in the current version of Azure IoT Operations. Currently, there are no user configurable scenarios for Akri services in the operations experience web UI for automatic asset discovery.
 
 To learn more, see the [release notes](https://github.com/Azure/azure-iot-operations/releases) for the current version.
 
-If you're using a previous preview version of Azure IoT Operations, you can find the Akri documentation on the [previous versions site](/previous-versions/azure/iot-operations/discover-manage-assets/overview-akri).
+If you're using a previous preview version of Azure IoT Operations, you can find the Akri services documentation on the [previous versions site](/previous-versions/azure/iot-operations/discover-manage-assets/overview-akri).
 
 ## Publish and subscribe with MQTT
 

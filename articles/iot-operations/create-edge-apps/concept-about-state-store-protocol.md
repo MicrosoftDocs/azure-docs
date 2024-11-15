@@ -3,13 +3,13 @@ title: Learn about the MQTT broker state store protocol
 description: Learn how to implement an MQTT broker state store protocol client
 author: PatAltimore
 ms.author: patricka
+ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
-ms.date: 10/30/2024
+ms.date: 11/15/2024
 
 # CustomerIntent: As a developer, I want understand what the MQTT broker state store protocol is, so
 # that I can implement a client app to interact with the state store.
-ms.service: azure-iot-operations
 ---
 
 # State store protocol
@@ -464,6 +464,8 @@ VALUE<CR><LF>
 $3<CR><LF>
 abc<CR><LF>
 ```
+
+The `KEYNOTIFY` notification message contains the timestamp of the value when notifying a client about a SET request (value updated) or when notifying a client about a DEL or VDEL request (value deleted). The timestamp is included as part of the message's MQTT v5 User Property __ts. For more information, see the section [Versions as Hybrid Logical Clocks](#versions-as-hybrid-logical-clocks).
 
 ## Related content
 
