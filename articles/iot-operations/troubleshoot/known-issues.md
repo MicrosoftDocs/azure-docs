@@ -90,7 +90,7 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 - You can't use anonymous authentication for MQTT and Kafka endpoints when you deploy dataflow endpoints from the operations experience UI. The current workaround is to use a YAML configuration file and apply it by using `kubectl`.
 
-- Changing the instance count in a dataflow profile on an active dataflow might result in new messages being discarded or in messages being duplicated on the destination.
+- Currently in public preview, adjusting the instance count (instanceCount) in a dataflow profile may result in messages being discarded or duplicated on the destination. At this time, it's recommended to not adjust the instance count for a profile with active dataflows.
 
 - When you create a dataflow, if you set the `dataSources` field as an empty list, the dataflow crashes. The current workaround is to always enter at least one value in the data sources.
 

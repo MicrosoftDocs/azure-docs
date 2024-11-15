@@ -52,12 +52,6 @@ A cluster host:
 
   If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](./howto-manage-update-uninstall.md#upgrade).
 
-* Verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command on the cluster host:
-
-  ```azurecli
-  az iot ops verify-host
-  ```
-
 * (Optional) Prepare your cluster for observability before deploying Azure IoT Operations: [Configure observability](../configure-observability-monitoring/howto-configure-observability.md).
 
 ## Deploy
@@ -184,7 +178,7 @@ Use these steps if you chose the **Secure settings** option on the **Dependency 
    | Parameter | Value |
    | --------- | ----- |
    | **Subscription** | Select the subscription that contains your Azure key vault. |
-   | **Azure Key Vault** | Select an Azure key vault select **Create new**.<br><br>Ensure that your key vault has **Vault access policy** as its permission model. To check this setting, select **Manage selected vault** > **Settings** > **Access configuration**. |
+   | **Azure Key Vault** | Select an Azure key vault select **Create new**.<br><br>Ensure that your key vault has **Azure role-based access control** as its permission model. To check this setting, select **Manage selected vault** > **Settings** > **Access configuration**. |
    | **User assigned managed identity for secrets** | Select an identity or select **Create new**. |
    | **User assigned managed identity for AIO components** | Select an identity or select **Create new**. Don't use the same managed identity as the one you selected for secrets. |
 

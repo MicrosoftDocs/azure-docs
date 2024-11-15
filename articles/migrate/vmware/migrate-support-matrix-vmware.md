@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 11/04/2024
 ms.custom: vmware-scenario-422, engagement-fy24
-zone_pivot_groups: vmware-discovery-requirements
 ---
 
 # Support matrix for VMware discovery
@@ -20,8 +19,6 @@ To assess servers, first, create an Azure Migrate project. The Azure Migrate: Di
 As you plan your migration of VMware servers to Azure, see the [migration support matrix](../migrate-support-matrix-vmware-migration.md).
 
 
-::: zone pivot="vmware-requirements"
-
 ## VMware requirements
 
 VMware | Details
@@ -29,9 +26,6 @@ VMware | Details
 vCenter Server | Servers that you want to discover and assess must be managed by vCenter Server version 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses aren't supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
 Permissions | The Azure Migrate: Discovery and assessment tool requires a vCenter Server read-only account.<br /><br /> If you want to use the tool for software inventory, agentless dependency analysis, web apps, and SQL discovery, the account must have privileges for guest operations on VMware virtual machines (VMs).
 
-:::zone-end
-
-::: zone pivot="server-requirements"
 
 ## Server requirements
 
@@ -40,9 +34,6 @@ VMware | Details
 Operating systems | All Windows and Linux operating systems can be assessed for migration.
 Storage | Disks attached to SCSI, IDE, and SATA-based controllers are supported.
 
-:::zone-end
-
-::: zone pivot="migrate-appliance-requirements"
 
 ## Azure Migrate appliance requirements
 
@@ -53,11 +44,6 @@ Here are more requirements for the appliance:
 - In Azure Government, you must deploy the appliance by using a [script](../deploy-appliance-script-government.md).
 - The appliance must be able to access specific URLs in [public clouds](../migrate-appliance.md#public-cloud-urls) and [government clouds](../migrate-appliance.md#government-cloud-urls).
 
-:::zone-end
-
-
-::: zone pivot="port-access-requirements"
-
 ## Port access requirements
 
 Device | Connection
@@ -66,10 +52,6 @@ Azure Migrate appliance | Inbound connections on TCP port 3389 to allow remote d
 vCenter Server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br /><br /> The appliance connects to vCenter on port 443 by default. If vCenter Server listens on a different port, you can modify the port when you set up discovery.
 ESXi hosts | For [discovery of software inventory](../how-to-discover-applications.md) or [agentless dependency analysis](../concepts-dependency-visualization.md#agentless-analysis), the appliance connects to ESXi hosts on TCP port 443 to discover software inventory and dependencies on the servers.
 
-::: zone-end
-
-
-::: zone pivot="software-inventory-requirements"
 
 ## Software inventory requirements
 
@@ -84,10 +66,6 @@ vCenter Server account | To interact with the servers for software inventory, th
 Server access | You can add multiple domain and nondomain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-sudo access) for all Linux servers.
 Port access | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory. <br /><br /> If you use domain credentials, the Azure Migrate appliance must be able to connect to the following TCP and UDP ports: <br /> <br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
 Discovery | Software inventory is performed from vCenter Server by using VMware Tools installed on the servers.<br/><br/> The appliance gathers the information about the software inventory from the server running vCenter Server through vSphere APIs.<br/><br/> Software inventory is agentless. No agent is installed on the server, and the appliance doesn't connect directly to the servers.
-
-::: zone-end
-
-::: zone pivot="sql-server-instance-database-discovery-requirements"
 
 ## SQL Server instance and database discovery requirements
 
@@ -294,9 +272,6 @@ Use the following sample scripts to create a login and provision it with the nec
   --GO
    ```
 
-::: zone-end
-
-::: zone pivot="web-apps-discovery"
 
 ## Web apps discovery requirements
 
@@ -318,10 +293,6 @@ Required privileges | Local admin. | Root or sudo user.
 > [!NOTE]
 > Data is always encrypted at rest and during transit.
 
-::: zone-end
-
-
-::: zone pivot="dependency-analysis-agentless-requirements"
 
 ## Dependency analysis requirements (agentless)
 
@@ -342,9 +313,6 @@ Discovery method |  Dependency information between servers is gathered by using 
 > [!Note]
 > In some recent Linux OS versions, the netstat command was replaced by the `ss` command; have that in mind when preparing the servers.
 
-::: zone-end
-
-::: zone pivot="dependency-analysis-agent-based-requirements"
 
 ## Dependency analysis requirements (agent-based)
 
@@ -362,7 +330,6 @@ Management | When you register agents to the workspace, use the ID and key provi
 Internet connectivity | If servers aren't connected to the internet, install the Log Analytics gateway on the servers.
 Azure Government | Agent-based dependency analysis isn't supported.
 
-::: zone-end
 
 ## Limitations
 

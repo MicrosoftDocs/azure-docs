@@ -191,6 +191,24 @@
             href: howto-put-device-in-maintenance-mode.md
           - name: How to upgrade Network Fabric
             href: howto-upgrade-nexus-fabric.md
+    - name: Cluster
+      expanded: false
+      items:
+        - name: BareMetal Actions
+          expanded: false
+          items:
+              - name: BareMetal BMM Access Setup
+                href: howto-baremetal-bmm-ssh.md
+              - name: BareMetal BMC Access Setup
+                href: howto-baremetal-bmc-ssh.md
+              - name: BareMetal Functions
+                href: howto-baremetal-functions.md
+              - name: BareMetal Run-Read Execution
+                href: howto-baremetal-run-read.md
+              - name: BareMetal Run-Data-Extract Execution
+                href: howto-baremetal-run-data-extract.md
+              - name: Running BareMetal actions directly with nexusctl
+                href: howto-baremetal-nexusctl.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
@@ -286,21 +304,6 @@
           href: troubleshoot-accepted-cluster-hydration.md
         - name: Troubleshoot Out of Memory Pods
           href: troubleshoot-memory-limits.md
-        - name: BareMetal Actions
-          expanded: false
-          items:
-              - name: BareMetal BMM Access Setup
-                href: howto-baremetal-bmm-ssh.md
-              - name: BareMetal BMC Access Setup
-                href: howto-baremetal-bmc-ssh.md
-              - name: BareMetal Functions
-                href: howto-baremetal-functions.md
-              - name: BareMetal Run-Read Execution
-                href: howto-baremetal-run-read.md
-              - name: BareMetal Run-Data-Extract Execution
-                href: howto-baremetal-run-data-extract.md
-              - name: Running BareMetal actions directly with nexusctl
-                href: howto-baremetal-nexusctl.md
     - name: Storage Array
       expanded: false
       items:

@@ -108,20 +108,24 @@
     items:
     - name: Networking options
       href: virtual-network-concepts.md
-    - name: Virtual network injection (classic tiers) - requirements
-      href: virtual-network-injection-resources.md
-    - name: Virtual network injection (v2 tiers) - requirements
-      href: inject-vnet-v2.md
-    - name: Virtual network integration (v2 tiers) - requirements
-      href: integrate-vnet-outbound.md
+    - name: Network isolation - classic tiers
+      items:  
+      - name: Virtual network injection (classic tiers) - requirements
+        href: virtual-network-injection-resources.md
+      - name: Deploy to virtual network - external
+        href: api-management-using-with-vnet.md
+      - name: Deploy to virtual network - internal
+        href: api-management-using-with-internal-vnet.md
+      - name: Integrate Application Gateway in internal virtual network
+        href: api-management-howto-integrate-internal-vnet-appgateway.md
+    - name: Network isolation - v2 tiers
+      items:
+      - name: Virtual network injection (v2 tiers) 
+        href: inject-vnet-v2.md
+      - name: Virtual network integration (v2 tiers)
+        href: integrate-vnet-outbound.md
     - name: Virtual network integration (workspace gateway) - requirements
       href: virtual-network-workspaces-resources.md
-    - name: Deploy to virtual network - external
-      href: api-management-using-with-vnet.md
-    - name: Deploy to virtual network - internal
-      href: api-management-using-with-internal-vnet.md
-    - name: Integrate Application Gateway in internal virtual network
-      href: api-management-howto-integrate-internal-vnet-appgateway.md
     - name: Connect privately using private endpoint
       href: private-endpoint.md
     - name: Retrieve IP addresses
