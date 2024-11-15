@@ -24,7 +24,7 @@
   - name: Filter network traffic
     href: tutorial-filter-network-traffic.md
   - name: Route network traffic
-    href: tutorial-create-route-table-portal.md
+    href: tutorial-create-route-table.md
   - name: Restrict network access to resources
     href: tutorial-restrict-network-access-to-resources.md
   - name: Connect virtual networks
@@ -128,12 +128,6 @@
     items:
     - name: Route network traffic
       items:
-      - name: Azure portal
-        href: tutorial-create-route-table-portal.md
-      - name: Azure PowerShell
-        href: tutorial-create-route-table-powershell.md
-      - name: Azure CLI
-        href: tutorial-create-route-table-cli.md
       - name: Ansible
         href: /azure/developer/ansible/route-table-configure
       - name: Manage route tables
