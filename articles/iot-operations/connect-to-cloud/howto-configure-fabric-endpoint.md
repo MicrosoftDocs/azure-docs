@@ -28,14 +28,20 @@ To send data to Microsoft Fabric OneLake in Azure IoT Operations, you can config
   - If shown, ensure *Lakehouse schemas (Public Preview)* is **unchecked**.
   - Make note of the workspace and lakehouse names.
 
-## Create a Microsoft Fabric OneLake dataflow endpoint
+## Assign permission to managed identity
 
-To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
+To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
 
-1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
-1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
-1. In the Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**. Search for the Azure IoT Operations Arc extension by its name and select it. Select **Contributor** as the role, then select **Add**.
-1. Create the *DataflowEndpoint* resource and specify the managed identity authentication method. 
+After the Microsoft Fabric OneLake is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to write to the Fabric lakehouse.
+
+If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
+
+Go to Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**. 
+
+1. Search for the name of your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) or the system-assigned managed identity. For example, *azure-iot-operations-xxxx7* .
+1. Select **Contributor** as the role, then select **Add**. This gives the managed identity the necessary permissions to write to the Fabric lakehouse. To learn more, see [Roles in workspaces in Microsoft Fabric](/fabric/get-started/roles-workspaces).
+
+## Create dataflow endpoint for Microsoft Fabric OneLake
 
 # [Portal](#tab/portal)
 
@@ -52,7 +58,7 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
     | Lakehouse name       | The name of the lakehouse where the data should be stored.    |
     | Workspace name       | The name of the workspace associated with the lakehouse.      |
     | OneLake path type    | The type of path used in OneLake. Select *Files* or *Tables*. |
-    | Authentication method | The method used for authentication. Choose *System assigned managed identity* or *User assigned managed identity* |
+    | Authentication method | The method used for authentication. Choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
     | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
     | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
 
@@ -88,8 +94,8 @@ resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@20
       // The default Fabric OneLake host URL in most cases
       host: 'https://onelake.dfs.fabric.microsoft.com'
       authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
+        // See available authentication methods section for method types
+        // method: <METHOD_TYPE>
       }
       oneLakePathType: 'Tables'
       names: {
@@ -123,8 +129,8 @@ spec:
     # The default Fabric OneLake host URL in most cases
     host: https://onelake.dfs.fabric.microsoft.com
     authentication:
-      method: SystemAssignedManagedIdentity
-      systemAssignedManagedIdentitySettings: {}
+      # See available authentication methods section for method types
+      # method: <METHOD_TYPE>
     oneLakePathType: Tables
     names:
       workspaceName: <WORKSPACE_NAME>
@@ -166,19 +172,19 @@ fabricOneLakeSettings:
 
 ## Available authentication methods
 
-The following authentication methods are available for Microsoft Fabric OneLake dataflow endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
-
-Before you create the dataflow endpoint, assign workspace *Contributor* role to the IoT Operations extension that grants permission to write to the Fabric lakehouse. 
-
-![Screenshot of IoT Operations extension name to grant workspace access to.](media/howto-configure-fabric-endpoint/extension-name.png)
-
-To learn more, see [Give access to a workspace](/fabric/get-started/give-access-workspaces).
+The following authentication methods are available for Microsoft Fabric OneLake dataflow endpoints.
 
 ### System-assigned managed identity
 
-Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication.
+Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to write to the Fabric lakehouse.:
 
-In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience.
+1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
+1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
+1. Go to Microsoft Fabric workspace, select **Manage access** > **+ Add people or groups**. 
+1. Search for the name of your system-assigned managed identity. For example, *azure-iot-operations-xxxx7* .
+1. Select an appropriate role, then select **Add**.
+
+Then, configure the dataflow endpoint with system-assigned managed identity settings.
 
 # [Portal](#tab/portal)
 
@@ -240,9 +246,15 @@ fabricOneLakeSettings:
 
 ### User-assigned managed identity
 
-To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-Then, specify the user-assigned managed identity authentication method along with the client ID, tenant ID, and scope of the managed identity.
+Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to write to the Fabric lakehouse.:
+
+1. Go to Microsoft Fabric workspace, select **Manage access** > **+ Add people or groups**. 
+1. Search for the name of your user-assigned managed identity.
+1. Select an appropriate role, then select **Add**.
+
+Then, configure the dataflow endpoint with user-assigned managed identity settings.
 
 # [Portal](#tab/portal)
 
