@@ -17,7 +17,12 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-real-time-dashboard-fabric.md",
-            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric",
+            "redirect_url": "/azure/iot-operations/end-to-end-tutorials/tutorial-add-assets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md",
+            "redirect_url": "/azure/iot-operations/end-to-end-tutorials/tutorial-add-assets",
             "redirect_document_id": false
         },
         {
@@ -268,11 +273,6 @@
         {
             "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-upload-mqtt-lakehouse.md",
             "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-upload-mqtt-lakehouse",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-real-time-dashboard-fabric.md",
-            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric",
             "redirect_document_id": true
         },
         {
@@ -533,11 +533,6 @@
         {
             "source_path_from_root": "/articles/iot-operations/reference/glossary.md",
             "redirect_url": "/azure/iot/iot-glossary?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md",
-            "redirect_url": "/azure/iot-operations/end-to-end-tutorials/tutorial-add-assets",
             "redirect_document_id": false
         }
     ]

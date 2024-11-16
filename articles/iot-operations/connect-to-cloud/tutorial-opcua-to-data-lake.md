@@ -2,13 +2,13 @@
 title: "Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations"
 description: Learn how to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations.
 author: PatAltimore
+ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.author: patricka
 ms.topic: how-to
 ms.date: 11/15/2024
 
 #CustomerIntent: As an operator, I want to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations so that I can store the data for further analysis and processing.
-ms.service: azure-iot-operations
 ---
 
 # Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2
@@ -21,7 +21,7 @@ This tutorial builds on the quickstart setup and demonstrates how to bifurcate t
 
 ## Prerequisites
 
-Finish the [second step of the quickstart](../get-started-end-to-end-sample/quickstart-configure.md) which gets you the data from the OPC UA server to the Azure IoT Operations MQTT broker. Make sure you can see the data in Event Hub.
+Finish the [second step of the quickstart](../get-started-end-to-end-sample/quickstart-configure.md) which gets you the data from the OPC UA server to the Azure IoT Operations MQTT broker. Make sure you can see the data in Event Hubs.
 
 ## Create a storage account with Data Lake Storage capability
 
@@ -40,7 +40,7 @@ At the **Review** step, verify the settings and select **Create** to create the 
 
 In Azure portal, find the Azure IoT Operations instance you created in the quickstart. In the **Overview** blade, find the **Arc extension** section and see the name of the extension. It should look like `azure-iot-operations-xxxxx`.
 
-![Screenshot of Azure portal showing where to find the extension name](image.png)
+![Screenshot of Azure portal showing where to find the extension name](media/tutorial-opcua-to-data-lake.md/extension-name.png)
 
 This extension name is used in the next steps to assign permissions to the storage account.
 
@@ -103,7 +103,7 @@ In the quickstart, the data that comes from the oven asset looks like:
 }
 ```
 
-The required schema format for Delta Lake is a JSON object that follows the Delta Lake schema serialization format. The schema should define the structure of the data, including the types and properties of each field. For more details on the schema format, refer to the [Delta Lake schema serialization format documentation](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#schema-serialization-format).
+The required schema format for Delta Lake is a JSON object that follows the Delta Lake schema serialization format. The schema should define the structure of the data, including the types and properties of each field. For more details on the schema format, see [Delta Lake schema serialization format documentation](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#schema-serialization-format).
 
 To create a Delta schema that represents the data from the oven asset, create a JSON file with the following content:
 
@@ -360,7 +360,7 @@ In the storage account, go to the **Containers** blade and select the container 
 
 ![Screenshot of Azure portal showing the files in the container](media/tutorial-adlsv2/adlsv2-files.png)
 
-To see the content of the files, click each file and select **Edit**. 
+To see the content of the files, select each file and select **Edit**. 
 
 ![Screenshot of Azure portal show the parquet file itself](media/tutorial-adlsv2/parquet.png)
 
