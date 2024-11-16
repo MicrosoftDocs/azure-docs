@@ -25,7 +25,7 @@ Finish the [second step of the quickstart](../get-started-end-to-end-sample/quic
 
 ## Create a storage account with Data Lake Storage capability
 
-First, follow steps to [create a storage account with Data Lake Storage Gen 2 capability](../../storage/blobs/create-data-lake-storage-account).
+First, follow steps to [create a storage account with Data Lake Storage Gen 2 capability](../../storage/blobs/create-data-lake-storage-account.md).
 
 - Choose a memorable but unique name for the storage account, since it's needed in the next steps. 
 - For best results, use a location that's close to the Kubernetes cluster where Azure IoT Operations is running.
