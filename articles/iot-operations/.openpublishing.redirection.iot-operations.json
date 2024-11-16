@@ -534,6 +534,11 @@
             "source_path_from_root": "/articles/iot-operations/reference/glossary.md",
             "redirect_url": "/azure/iot/iot-glossary?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md",
+            "redirect_url": "/azure/iot-operations/end-to-end-tutorials/tutorial-add-assets",
+            "redirect_document_id": false
         }
     ]
 }

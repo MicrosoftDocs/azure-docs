@@ -40,7 +40,7 @@ At the **Review** step, verify the settings and select **Create** to create the 
 
 In Azure portal, find the Azure IoT Operations instance you created in the quickstart. In the **Overview** blade, find the **Arc extension** section and see the name of the extension. It should look like `azure-iot-operations-xxxxx`.
 
-![Screenshot of Azure portal showing where to find the extension name](media/tutorial-opcua-to-data-lake.md/extension-name.png)
+![Screenshot of Azure portal showing where to find the extension name](media/tutorial-opcua-to-data-lake/extension-name.png)
 
 This extension name is used in the next steps to assign permissions to the storage account.
 
