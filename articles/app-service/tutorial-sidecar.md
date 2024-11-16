@@ -173,9 +173,9 @@ You configure environment variables for the containers like any App Service app,
 
     :::image type="content" source="media/tutorial-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
 
-## 5. Configure autoinstrumentation at startup
+## 5. Configure instrumentation at startup
 
-In this step, you create the autoinstrumentation for your app according to the steps outlined in the [OpenTelemetry .NET zero-code instrumentation](https://opentelemetry.io/docs/zero-code/net/getting-started/#instrumentation).
+In this step, you create the instrumentation for your app according to the steps outlined in the [OpenTelemetry .NET zero-code instrumentation](https://opentelemetry.io/docs/zero-code/net/getting-started/#instrumentation).
 
 1. Back in the Cloud Shell, create *startup.sh* with the following lines.
 
@@ -206,7 +206,7 @@ In this step, you create the autoinstrumentation for your app according to the s
     EOF
     ```
 
-1. Deploy this file to your app with the following Azure CLI command. If you're still in the `~/MyFirstAzureWebApp`, then no other parameters are necessary because the resource group and web app were saved as defaults by `az webapp up`.
+1. Deploy this file to your app with the following Azure CLI command. If you're still in the *~/MyFirstAzureWebApp* directory, then no other parameters are necessary because `az webapp up` already set defaults for the resource group and the app name.
 
     ```azurecli-interactive
     az webapp deploy --src-path startup.sh --target-path /home/site/startup.sh --type static
@@ -237,7 +237,7 @@ The otel-collector sidecar should export data to Application Insights now.
 
 ## 6. Clean up resources
 
-When you no longer need the environment, you can delete the resource group, App service, and all related resources. Just run this command in the Cloud Shell:
+When you no longer need the environment, you can delete the resource groups and all related resources. Just run these commands in the Cloud Shell:
 
 ```azurecli-interactive
 cd ~/MyFirstAzureWebApp
