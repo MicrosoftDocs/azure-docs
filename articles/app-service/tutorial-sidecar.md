@@ -3,8 +3,8 @@ title: 'Tutorial: Configure a sidecar container'
 description: Add sidecar containers to your Linux app in Azure App Service. Add or update services to your application without changing your application code.
 ms.topic: tutorial
 ms.date: 11/19/2024
-ms.author: msangapu
-author: msangapu-msft
+ms.author: cephalin
+author: cephalin
 keywords: azure app service, web app, linux, windows, docker, sidecar
 ---
 
@@ -25,12 +25,12 @@ For more information about side container in App Service, see:
 
 First you create the resources that the tutorial uses. They're used for this particular scenario and aren't required for sidecar containers in general.
 
-1. In the [Azure Cloud Shell](https://shell.azure.com), run the following commands:
+1. In the [Azure Cloud Shell](https://shell.azure.com), run the following commands. Be sure to supply the `<environment-name>`
 
     ```azurecli-interactive
     git clone https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs
     cd app-service-sidecar-tutorial-prereqs
-    azd env new my-sidecar-environment
+    azd env new <environment-name>
     azd provision
     ```
 
@@ -43,16 +43,19 @@ First you create the resources that the tutorial uses. They're used for this par
 
     <pre>
     APPLICATIONINSIGHTS_CONNECTION_STRING = <b>InstrumentationKey=...;IngestionEndpoint=...;LiveEndpoint=...</b>
-
-    Open resource group in the portal: <b>https://portal.azure.com/#@/resource/subscriptions/.../resourceGroups/my-sidecar-env_group</b>
+    Azure container registry name = <b>&lt;registry-name&gt;</b>
+    Managed identity resource ID = <b>&lt;managed-identity-resource-id&gt;</b>
+    Managed identity client ID = <b>&lt;managed-identity-client-id&gt;</b>
+    
+    Open resource group in the portal: <b>https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-id&gt;/resourceGroups/&lt;group-name&gt;</b>
     </pre>
 
-1. Open the resource group link in a browser tab. You'll need to use the connection string later.
+1. Open the resource group link in a browser tab. You'll need these output values later.
 
     > [!NOTE]
     > `azd provision` uses the included templates to create the following Azure resources:
     > 
-    > - A resource group called *my-sidecar-env_group*.
+    > - A resource group based on the environment name.
     > - A [container registry](/azure/container-registry/container-registry-intro) with two images deployed:
     >     - An Nginx image with the OpenTelemetry module.
     >     - An OpenTelemetry collector image, configured to export to [Azure Monitor](/azure/azure-monitor/overview).
@@ -70,7 +73,7 @@ cd MyFirstAzureWebApp
 az webapp up --name <app-name> --os-type linux
 ```
 
-This basic web application is deployed as MyFirstAzureWebApp.dll to App Service.
+After a few minutes, this basic web application is deployed as MyFirstAzureWebApp.dll to App Service.
 
 ## 3. Add a sidecar container
 
@@ -88,6 +91,7 @@ In this section, you add a sidecar container to your Linux app. The portal exper
 1. Select **Add** and configure the new container as follows:
     - **Name**: *otel-collector*
     - **Image source**: **Azure Container Registry**
+    - **Authentication**: **Admin Credentials**
     - **Registry**: The registry created by `azd provision`
     - **Image**: **otel-collector**
     - **Tag**: **latest**
@@ -98,42 +102,34 @@ In this section, you add a sidecar container to your Linux app. The portal exper
 
 ### [Use ARM template](#tab/template) 
 
+1. In the Cloud Shell, run the following command to add to the web app the user-assigned managed identity that `azd provision` created. This identity already has the permissions to pull from the container registry. Use the value of `<managed-identity-resource-id>` in the `azd provision` output.
+
+    ```azurecli-interactive
+    az webapp identity assign --identities <managed-identity-resource-id>
+    ```
+
+    If you run this command inside *~/MyFirstAzureWebApp*, you don't need to add any other parameters because `az webapp up` set defaults already for the resource group and the app name. 
+
 1. Navigate to the [custom deployment](https://portal.azure.com/#create/Microsoft.Template) template in the portal.
 
 1. Select **Build your own template in the editor**.
 
-1. Replace the content in the textbox with the following JSON code and select **Save**:
+1. Replace the content in the textbox with the following JSON code and select **Save**. For `<registry-name>` and `<managed-identity-client-id>`, use the output values from `azd provision` earlier. For `<app-name>`, use the app name in `az webapp up earlier`. For `<sidecar-name>`, supply a name for the sidecar container.
 
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {
-            "appName": {
-                "type": "String"
-            },
-            "sidecarName": {
-                "defaultValue": "otel-collector",
-                "type": "String"
-            },
-            "azureContainerRegistryName": {
-                "type": "String"
-            },
-            "azureContainerRegistryImageName": {
-                "defaultValue": "otel-collector:latest",
-                "type": "String"
-            }
-        },
         "resources": [
             {
                 "type": "Microsoft.Web/sites/sitecontainers",
-                "apiVersion": "2023-12-01",
-                "name": "[concat(parameters('appName'), '/', parameters('sidecarName'))]",
+                "apiVersion": "2024-04-01",
+                "name": "<app-name>/<sidecar-name>",
                 "properties": {
-                    "image": "[concat(parameters('azureContainerRegistryName'), '.azurecr.io/', parameters('azureContainerRegistryImageName'))]",
+                    "image": "<registry-name>.azurecr.io/otel-collector:latest",
                     "isMain": false,
-                    "authType": "UserCredentials",
-                    "userName": "[parameters('azureContainerRegistryName')]",
+                    "authType": "UserAssigned",
+                    "userManagedIdentityClientId": "<managed-identity-client-id>",
                     "volumeMounts": [],
                     "environmentVariables": []
                 }
@@ -155,14 +151,7 @@ In this section, you add a sidecar container to your Linux app. The portal exper
     > }
     > ```
 
-1. Configure the template input with the following information:
-
-    - **Resource Group**: Select the resource group with the App Service app you created with `az webapp up` earlier.
-    - **App Name**: Type the name of the App Service app.
-    - **Azure Container Registry Name**: Type the name of the registry you created with `azd up` earlier.
-    - **Azure Container Registry Image Name**: Leave the default value of *otel-collector:latest*. This points to the OpenTelemtry image in the registry.
-
-1. Select **Review + Create**, then select **Create**.
+1. For the template input, select the resource group that has the web app. Select **Review + Create**, then select **Create**.
 
     Since the portal UI isn't available to you, you can't see this sidecar container as part of the app, but you should be able to [see related start-up logs for the sidecar](troubleshoot-diagnostic-logs.md).
 
@@ -217,7 +206,7 @@ In this step, you create the autoinstrumentation for your app according to the s
     EOF
     ```
 
-1. Deploy this file to your app with the following Azure CLI command:
+1. Deploy this file to your app with the following Azure CLI command. If you're still in the `~/MyFirstAzureWebApp`, then no other parameters are necessary because the resource group and web app were saved as defaults by `az webapp up`.
 
     ```azurecli-interactive
     az webapp deploy --src-path startup.sh --target-path /home/site/startup.sh --type static
