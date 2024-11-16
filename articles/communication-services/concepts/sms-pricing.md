@@ -7,7 +7,7 @@ ms.author: prakulka
 ms.date: 11/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-zone_pivot_groups: acs-tollfree-shortcode-alphanumeric
+zone_pivot_groups: acs-tollfree-shortcode-alphanumeric-tendlc
 ---
 # SMS Pricing 
 
@@ -16,7 +16,7 @@ zone_pivot_groups: acs-tollfree-shortcode-alphanumeric
 ::: zone-end
 
 ::: zone pivot="tendlc"
-[!INCLUDE [10DLC](./includes/sms-ten-digit-longcode.md)]
+[!INCLUDE [10DLC](./includes/sms-ten-digit-longcode-pricing.md)]
 ::: zone-end
 
 ::: zone pivot="shortcode"
