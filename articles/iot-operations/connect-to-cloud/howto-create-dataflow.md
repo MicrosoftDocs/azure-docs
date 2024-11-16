@@ -786,7 +786,9 @@ If you want to serialize the data before sending it to the destination, you need
 
 # [Portal](#tab/portal)
 
-Currently, specifying the output schema and serialization isn't supported in the operations experience.
+For operations experience, you specify the schema and serialization format in the dataflow endpoint details. The endpoints that support serialization formats are Microsoft Fabric OneLake, Azure Data Lake Storage Gen 2, and Azure Data Explorer. For example, to serialize the data in Delta format, you need to upload a schema to the schema registry and reference it in the dataflow destination endpoint configuration.
+
+:::image type="content" source="media/howto-create-dataflow/destination-serialization.png" alt-text="Screenshot using the operations experience to set the dataflow destination endpoint serialization.":::
 
 # [Bicep](#tab/bicep)
 
