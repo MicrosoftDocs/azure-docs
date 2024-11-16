@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.topic: reference
 ms.custom:
   - ignite-2023
-ms.date: 11/14/2024
+ms.date: 11/15/2024
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
 # on the health of my industrial assets and edge environment.
@@ -26,7 +26,7 @@ For example, if the self-check probe connects with `metriccategory=broker_selfte
 
 This feature helps dashboards show traffic sources without the high cardinality issues of tagging metrics with topics.
 
-Sessions without a `metriccategory` are tagged as "category=uncategorized".
+Sessions without a `metriccategory` are tagged as "category=uncategorized."
 
 ## Messaging metrics
 
@@ -49,12 +49,47 @@ All metrics include the `hostname` tag to identify the pod that generated the me
 | aio_broker_store_retained_bytes | This metric counts how many bytes are stored via retained messages on the broker. | |
 | aio_broker_store_will_messages | This metric counts how many will messages are stored on the broker. | |
 | aio_broker_store_will_bytes | This metric counts how many bytes are stored via will messages on the broker. | |
+| aio_broker_number_of_routes | Counts number of routes. | |
+| aio_broker_connect_route_replication_correctness | Describes if a connection request from a self test client is replicated correctly along a specific route. | |
+| aio_broker_connect_latency_route_ms | Describes the time interval between a self test client sending a CONNECT packet and receiving a CONNACK packet. This metric is generated per route. The metric is generated only if a CONNECT is successful. | |
+| aio_broker_connect_latency_last_value_ms | An estimated p99 of `connect_latency_route_ms`. | |
+| aio_broker_connect_latency_mu_ms | The mean value of `connect_latency_route_ms`. | |
+| aio_broker_connect_latency_sigma_ms | The standard deviation of `connect_latency_route_ms`. | |
+| aio_broker_subscribe_route_replication_correctness | Describes if a subscribe request from a self test client is replicated correctly along a specific route. | |
+| aio_broker_subscribe_latency_route_ms | Describes time interval between a self test client sending a SUBSCRIBE packet and receiving a SUBACK packet. This metric is generated per route. The metric is generated only if a SUBSCRIBE is successful. | |
+| aio_broker_subscribe_latency_last_value_ms | An estimated p99 of `subscribe_latency_route_ms`. | |
+| aio_broker_subscribe_latency_mu_ms | The mean value of `subscribe_latency_route_ms`. | |
+| aio_broker_subscribe_latency_sigma_ms | The standard deviation of `subscribe_latency_route_ms`. | |
+| aio_broker_unsubscribe_route_replication_correctness | Describes if an unsubscribe request from a self test client is replicated correctly along a specific route. | |
+| aio_broker_unsubscribe_latency_route_ms | Describes the time interval between a self test client sending a UNSUBSCRIBE packet and receiving a UNSUBACK packet. This metric is generated per route. The metric is generated only if a UNSUBSCRIBE is successful. | |
+| aio_broker_unsubscribe_latency_last_value_ms | An estimated p99 of `unsubscribe_latency_route_ms`. | |
+| aio_broker_unsubscribe_latency_mu_ms | The mean value of `unsubscribe_latency_route_ms`. | |
+| aio_broker_unsubscribe_latency_sigma_ms | The standard deviation of `subscribe_latency_route_ms`. | |
+| aio_broker_publish_route_replication_correctness | Describes if an unsubscribe request from a self test client is replicated correctly along a specific route. | |
+| aio_broker_publish_latency_route_ms | Describes the time interval between a self test client sending a PUBLISH packet and receiving a PUBACK packet. This metric is generated per route. The metric is generated only if a PUBLISH is successful. | |
+| aio_broker_publish_latency_last_value_ms | An estimated p99 of `publish_latency_route_ms`. | |
+| aio_broker_publish_latency_mu_ms | The mean value of `publish_latency_route_ms`. | |
+| aio_broker_publish_latency_sigma_ms | The standard deviation of `publish_latency_route_ms`. | |
+| aio_broker_payload_check_latency_last_value_ms | An estimated p99 of latency check of the last value. | |
+| aio_broker_payload_check_latency_mu_ms | The mean value of latency check. | |
+| aio_broker_payload_check_latency_sigma_ms | The standard deviation of latency of the payload. | |
+| aio_broker_payload_check_total_messages_lost | The count of payload total message lost. | |
+| aio_broker_payload_check_total_messages_received | The count of total number of messages received. | |
+| aio_broker_payload_check_total_messages_sent | The count of total number of messages sent. | |
+| aio_broker_ping_correctness | Describes whether the ping from self-test client works correctly. | |
+| aio_broker_ping_latency_last_value_ms | An estimated p99 of ping operation of the last value. | |
+| aio_broker_ping_latency_mu_ms | The mean value of ping check. | |
+| aio_broker_ping_latency_route_ms | The ping latency in milliseconds for a specific route. | |
+| aio_broker_ping_latency_sigma_ms | The standard deviation of latency of the ping operation. | |
+| aio_broker_publishes_processed_count | Describes the processed counts of message published. | |
+| aio_broker_publishes_received_per_second | Counts the number of published messages received per second. | |
+| aio_broker_publishes_sent_per_second | Counts the number of sent messages received per second. | |
 
 ## Broker operator health metrics
 
 This set of metrics tracks the [cardinality state of the broker](../manage-mqtt-broker/howto-configure-availability-scale.md). Each desired metric is paired with a reported metric to show the current state. These metrics indicate the number of healthy pods from the broker's perspective, which might differ from Kubernetes' reports.
 
-For example, if a backend node restarts but doesn't reconnect to its chain, there can be a discrepancy in health reports. Kubernetes might report the pod as healthy, while the broker reports it as down because it is not functioning properly.
+For example, if a backend node restarts but doesn't reconnect to its chain, there can be a discrepancy in health reports. Kubernetes might report the pod as healthy, while the broker reports it as down because it isn't functioning properly.
 
 | Desired Metric | Reported Metric |
 |----------------|-----------------|
@@ -88,7 +123,7 @@ This set of metrics tracks the overall state of the [state store](../create-edge
 | aio_broker_state_store_insertions | This metric counts the number of new key insert requests received, including both successful insertions and errors. | |
 | aio_broker_state_store_keynotify_requests | This metric counts the number of requests to monitor key changes (KEYNOTIFY) received, including both successful modifications and errors. | |
 | aio_broker_state_store_modifications | This metric counts the number of modify key requests received, including both successful modifications and errors. | |
-| aio_broker_state_store_notifications_sent | This metric counts the number of notification messages the state store sends when a key value changes and a client is registered via KEYNOTIFY. | |
+| aio_broker_state_store_notifications_sent | This metric counts the number of notification messages the state store sends when a key value changes and a client are registered via KEYNOTIFY. | |
 | aio_broker_state_store_retrievals | This metric counts the number of key value retrieval requests received, including both successful retrievals and errors. | |
 
 ## Disk-backed message buffer metrics
