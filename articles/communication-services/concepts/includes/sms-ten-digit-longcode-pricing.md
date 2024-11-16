@@ -14,7 +14,7 @@ ms.author: prakulka
 ---
 ## SMS Pricing for Azure Communication Services
 
-This page provides an overview of the pricing for 10DLC SMS services available through Azure Communication Services (ACS). Pricing is divided into different categories based on the service type, such as brand registration, campaign registration, phone number leasing, and message usage.
+This page provides an overview of the pricing for 10DLC SMS services available through Azure Communication Services (ACS). Pricing is split into different types of services: brand registration, campaign registration, phone number leasing, and message usage.
 
 ### 1. **Registration Fees**
 The following fees apply to the registration of brands and campaigns.
@@ -41,7 +41,8 @@ Monthly leasing fees for phone numbers.
 
 
 ### Usage Fee
-SMS offers pay-as-you-go pricing. The price is a per-message segment* charge based on the destination of the message. Messages can be sent by 10DLC phone numbers to phone numbers located within the United States.
+SMS offers pay-as-you-go pricing. The price is a per-message segment* charge based on the destination of the message. 10DLC phone numbers can send messages to phone numbers located within the United States.
+
 
 The following prices are exclusive of the required communications taxes and fees:
 
@@ -64,4 +65,4 @@ Additional carrier charges apply for outbound and inbound messages, depending on
 | C-Spire (Outbound) | per message segment                   |  $0     |
 | Commnet (Outbound) | per message segment                   |  $0     |
 
-*Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
+*See our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
