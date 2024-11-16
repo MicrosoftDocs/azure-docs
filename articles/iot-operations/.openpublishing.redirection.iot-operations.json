@@ -536,6 +536,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-operations/reference/observability-metrics-mq.md",
+            "redirect_url": "/azure/iot-operations/reference/observability-metrics-mqtt-broker",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md",
             "redirect_url": "/azure/iot-operations/end-to-end-tutorials/tutorial-add-assets",
             "redirect_document_id": false

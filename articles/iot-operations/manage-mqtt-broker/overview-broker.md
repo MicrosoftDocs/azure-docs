@@ -181,8 +181,9 @@ Customizing the default Broker resource isn't required for most setups. The sett
 - [**Cardinality**](./howto-configure-availability-scale.md#configure-scaling-settings): Determines the broker's capacity to handle more connections and messages, and it enhances high availability if there are pod or node failures.
 - [**Memory profile**](./howto-configure-availability-scale.md#configure-memory-profile): Sets the maximum memory usage of the broker and how to handle memory usage as the broker scales up.
 - [**Disk-backed message buffer**](./howto-disk-backed-message-buffer.md): Configuration for buffering messages to disk as RAM fills up.
-- [**Encryption of internal traffic**](./howto-encrypt-internal-traffic.md): Configuration for encrypting internal traffic between broker frontend and backend pods.
+- [**Diagnostics settings**](./howto-broker-diagnostics.md): Configuration for diagnostic settings like log level and metrics endpoint.
 - [**Advanced MQTT client options**](./howto-broker-mqtt-client-options.md): Configuration for advanced MQTT client options like session expiry, message expiry, and keep-alive settings.
+- [**Encryption of internal traffic**](./howto-encrypt-internal-traffic.md): Configuration for encrypting internal traffic between broker frontend and backend pods.
 
 Customizing the default broker must be done during initial deployment time using Azure CLI or Azure portal. A new deployment is required if different Broker configuration settings are needed.
 
