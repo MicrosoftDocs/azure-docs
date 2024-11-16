@@ -25,7 +25,7 @@ For more information about side container in App Service, see:
 
 First you create the resources that the tutorial uses. They're used for this particular scenario and aren't required for sidecar containers in general.
 
-1. In the [Azure Cloud Shell](https://shell.azure.com), run the following commands. Be sure to supply the `<environment-name>`
+1. In the [Azure Cloud Shell](https://shell.azure.com), run the following commands. Be sure to supply the `<environment-name>`.
 
     ```azurecli-interactive
     git clone https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs
@@ -59,6 +59,7 @@ First you create the resources that the tutorial uses. They're used for this par
     > - A [container registry](/azure/container-registry/container-registry-intro) with two images deployed:
     >     - An Nginx image with the OpenTelemetry module.
     >     - An OpenTelemetry collector image, configured to export to [Azure Monitor](/azure/azure-monitor/overview).
+    > - A user-assigned managed identity with the `AcrPull` permission on the resource group (to pull images from the registry).
     > - A [log analytics workspace](/azure/azure-monitor/logs/log-analytics-overview).
     > - An [Application Insights](/azure/azure-monitor/app/app-insights-overview) component.
     
@@ -73,7 +74,7 @@ cd MyFirstAzureWebApp
 az webapp up --name <app-name> --os-type linux
 ```
 
-After a few minutes, this basic web application is deployed as MyFirstAzureWebApp.dll to App Service.
+After a few minutes, this .NET web application is deployed as MyFirstAzureWebApp.dll to a new App Service app.
 
 ## 3. Add a sidecar container
 
@@ -102,7 +103,7 @@ In this section, you add a sidecar container to your Linux app. The portal exper
 
 ### [Use ARM template](#tab/template) 
 
-1. In the Cloud Shell, run the following command to add to the web app the user-assigned managed identity that `azd provision` created. This identity already has the permissions to pull from the container registry. Use the value of `<managed-identity-resource-id>` in the `azd provision` output.
+1. In the Cloud Shell, run the following command to add to the web app the user-assigned managed identity that `azd provision` created. Use the value of `<managed-identity-resource-id>` in the `azd provision` output.
 
     ```azurecli-interactive
     az webapp identity assign --identities <managed-identity-resource-id>
@@ -153,7 +154,7 @@ In this section, you add a sidecar container to your Linux app. The portal exper
 
 1. For the template input, select the resource group that has the web app. Select **Review + Create**, then select **Create**.
 
-    Since the portal UI isn't available to you, you can't see this sidecar container as part of the app, but you should be able to [see related start-up logs for the sidecar](troubleshoot-diagnostic-logs.md).
+    Since the portal UI isn't available to you, you can't see this sidecar container as part of the app, but you should be able to see related start-up logs for the sidecar in the [App Service app's logs](troubleshoot-diagnostic-logs.md).
 
 -----
 
@@ -163,7 +164,9 @@ For the sample scenario, the otel-collector sidecar is configured to export the 
 
 You configure environment variables for the containers like any App Service app, by configuring [app settings](configure-common.md#configure-app-settings). The app settings are accessible to all the containers in the app.
 
-1. In the app's management page, from the left menu, select **Environment variables**.
+1. Navigate to the App Service app's management page.
+
+1. From the left menu, select **Environment variables**.
 
 1. Add an app setting by selecting **Add** and configure it as follows:
     - **Name**: *APPLICATIONINSIGHTS_CONNECTION_STRING*
@@ -213,7 +216,7 @@ In this step, you create the instrumentation for your app according to the steps
     ```
 
     > [!TIP]
-    > This approach deploys the startup.sh file separately from your application. That way, the instrumentation configuration is separate from your application code. However, you can use other deployment methods to deploy the script together with your application.
+    > This approach deploys the *startup.sh* file separately from your application. That way, the instrumentation configuration is separate from your application code. However, you can use other deployment methods to deploy the script together with your application.
 
 1. Back in the app's management page, from the left menu, select **Configuration**.
 
