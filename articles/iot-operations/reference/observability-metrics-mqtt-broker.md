@@ -20,13 +20,13 @@ To configure options for these metrics, see [Configure MQTT broker diagnostic se
 
 ## MQTT Connect `metriccategory` user property
 
-When a client connects to the broker, it can include a user property called `metriccategory` in the connect packet. The broker then tags all session-driven metrics (like publishes and subscribes) with this `metriccategory` as "category."
+When a client connects to the broker, it can include a user property called `metriccategory` in the connect packet. The broker then tags all session-driven metrics (like publishes and subscribes) with this `metriccategory` as `category`.
 
-For example, if the self-check probe connects with `metriccategory=broker_selftest`, the broker tags all metrics from these sessions with "category=broker_selftest".
+For example, if the self-check probe connects with `metriccategory=broker_selftest`, the broker tags all metrics from these sessions with `category=broker_selftest`.
 
 This feature helps dashboards show traffic sources without the high cardinality issues of tagging metrics with topics.
 
-Sessions without a `metriccategory` are tagged as "category=uncategorized."
+Sessions without a `metriccategory` are tagged as `category=uncategorized`.
 
 ## Messaging metrics
 
