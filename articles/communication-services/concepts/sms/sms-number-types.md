@@ -40,9 +40,9 @@ Azure Communication Services provides the following phone number types:
   - Customer Support: Encourages customers to reach out without worrying about charges.
    - Notifications and Alerts: Ideal for sending notifications, alerts, and confirmations in NOAM.
 - **Regulations**:
-  - Toll-free numbers used for messaging require [toll-free verification](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/apply-for-toll-free-verification).
+  - Toll-free numbers used for messaging require [toll-free verification](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/apply-for-toll-free-verification).
   - Opt-Out Management: Businesses must support opt-out keywords (e.g., STOP, UNSUBSCRIBE) and manage customer requests to stop receiving messages.
-- **Purchase eligibility**: Check subscription and location eligibility [here](https://learn.microsoft.com/en-us/azure/communication-services/concepts/numbers/sub-eligibility-number-capability).
+- **Purchase eligibility**: Check subscription and location eligibility [here](https://learn.microsoft.com/azure/communication-services/concepts/numbers/sub-eligibility-number-capability).
 
 ### 10DLC (10-Digit Long Code)
 
@@ -56,7 +56,7 @@ Azure Communication Services provides the following phone number types:
 - **Regulations**:
   - Requires 10DLC campaign registration in the US for compliance.
   - Opt-Out Management: Businesses must handle opt-out requests (e.g., STOP) to comply with US regulations.
-- **Purchase eligibility**: Check subscription and location eligibility [here](https://learn.microsoft.com/en-us/azure/communication-services/concepts/numbers/sub-eligibility-number-capability).
+- **Purchase eligibility**: Check subscription and location eligibility [here](https://learn.microsoft.com/azure/communication-services/concepts/numbers/sub-eligibility-number-capability).
 
 ### Short Codes
 
@@ -70,7 +70,7 @@ Azure Communication Services provides the following phone number types:
 - **Regulations**:
   - Requires carrier approval; usage is subject to carrier and industry guidelines.
   - Opt-Out Management: Businesses must provide clear opt-out instructions (e.g., "Reply STOP to unsubscribe").
-- **Purchase eligibility**: Check subscription and location eligibility [here](https://learn.microsoft.com/en-us/azure/communication-services/concepts/numbers/sub-eligibility-number-capability).
+- **Purchase eligibility**: Check subscription and location eligibility [here](https://learn.microsoft.com/azure/communication-services/concepts/numbers/sub-eligibility-number-capability).
 
 
 ### Alphanumeric Sender IDs
@@ -89,7 +89,7 @@ Azure Communication Services provides the following phone number types:
   - France: Alphanumeric IDs are permitted only for transactional messaging, not marketing.
   - Australia: Alphanumeric Sender IDs are permitted, but opt-out instructions should be provided.
 - **Limitations**: Does not support receiving responses; subject to local regulations.
-- **Purchase eligibility**: Check subscription and location eligibility [here](https://learn.microsoft.com/en-us/azure/communication-services/concepts/numbers/sub-eligibility-number-capability).
+- **Purchase eligibility**: Check subscription and location eligibility [here](https://learn.microsoft.com/azure/communication-services/concepts/numbers/sub-eligibility-number-capability).
 
 ## Choosing the right number type for your business
 
