@@ -279,7 +279,7 @@ Set up a local PowerShell repository and install the Az.DnsResolver PowerShell m
     Write-Host $diagnosticSetting.ToJsonString()
 
     Write-Host "Creating domain list"
-    $domainList = New-AzDnsResolverDomainList -Location $region -ResourceGroupName $resourceGroupName -Name $domainListName -Domain @("contoso.com.", "example.com.")
+    $domainList = New-AzDnsResolverDomainList -Location $region -ResourceGroupName $resourceGroupName -Name $domainListName -Domain @("contoso.com.", "adatum.com.")
     Write-Host $domainList.ToJsonString()
 
     Write-Host "Creating DNS security policy rule"
@@ -345,9 +345,27 @@ Set up a local PowerShell repository and install the Az.DnsResolver PowerShell m
     Write-Host $rule.ToJsonString()
     ```
 
+## Test DNS security policy
+
+To test your new security policy, connect to a host device inside the virtual network and issue a query for the domains that you blocked. In this example the domainlist is **contoso.com** and **adatum.com**.
+
+Input:
+```PowerShell
+Resolve-DnsName -Name contoso.com -Type NS
+```
+
+Output:
+```PowerShell
+Resolve-DnsName : contoso.com : DNS server failure
+At line:1 char:1
++ Resolve-DnsName -Name contoso.com -Type NS
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (contoso.com:String) [Resolve-DnsName], Win32Exception
+    + FullyQualifiedErrorId : RCODE_SERVER_FAILURE,Microsoft.DnsClient.Commands.ResolveDnsName
+```
 ---
 
-## Next steps
+## Related content
 
 - Review concepts related to [DNS security policy](dns-security-policy.md).
 - Review [Azure Private DNS zones scenarios](private-dns-scenarios.md).
