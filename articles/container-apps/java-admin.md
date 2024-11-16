@@ -101,14 +101,14 @@ To create each of the resources necessary to create a container app, follow thes
 
 1. On the **Basics** tab, enter the following values:
 
-   | Property                  | Value                                                                             |
-   |---------------------------|-----------------------------------------------------------------------------------|
-   | Subscription              | Select your Azure subscription.                                                   |
-   | Resource group            | Select **Create new** to create a new resource group named **my-resource-group**. |
-   | Container app name        | Enter **sample-admin-client**.                                                    |
-   | Deployment source         | Select **Container image**.                                                       |
-   | Region                    | Select the region nearest you.                                                    |
-   | Container app environment | Select **Create new** to create a new environment.                                |
+   | Property                  | Value                                                                           |
+   |---------------------------|---------------------------------------------------------------------------------|
+   | Subscription              | Select your Azure subscription.                                                 |
+   | Resource group            | Select **Create new** to create a new resource group named `my-resource-group`. |
+   | Container app name        | Enter **sample-admin-client**.                                                  |
+   | Deployment source         | Select **Container image**.                                                     |
+   | Region                    | Select the region nearest you.                                                  |
+   | Container app environment | Select **Create new** to create a new environment.                              |
 
 1. On the **Create Container Apps environment** window, enter the following values:
 
@@ -182,7 +182,7 @@ Now that you have an existing environment and admin client container app, you ca
 
 1. On the service menu, under **Services**, select **Services**.
 
-1. Select the **+ Configure** dropdown, and select **Java component**.
+1. Select the **Configure** dropdown, then select **Java component**.
 
 1. On the **Configure Java component** pane, enter the following values:
 
@@ -224,7 +224,7 @@ Now that you have an existing environment and admin client container app, you ca
 
 1. From the list, select **admin**.
 
-1. Under **Bindings**, select the **App name** dropdown, and select **sample-admin-client**.
+1. Under **Bindings**, select the **App name** dropdown, then select **sample-admin-client**.
 
 1. Select the **Review** tab.
 
@@ -265,7 +265,7 @@ az containerapp update \
 
 1. From the list, select **admin**.
 
-1. Under **Bindings**, find the line for **sample-admin-client**, select it, and select **Delete**.
+1. Under **Bindings**, find the line for **sample-admin-client**, select it, and then select **Delete**.
 
 1. Select **Next**.
 
@@ -309,7 +309,7 @@ az containerapp update \
 
 1. Assign the role to your account.
 
-   Before you run this command, replace the placeholder in between the `<>` brackets with your user or service principal ID.
+   Before you run this command, replace the placeholder - as indicated by the `<>` brackets - with your user or service principal ID or role name.
 
    ```azurecli
    az role assignment create \
@@ -319,7 +319,7 @@ az containerapp update \
    ```
 
    > [!NOTE]
-   > The <USER_OR_SERVICE_PRINCIPAL_ID> property usually should be the identity that you use to access the Azure portal. The <ROLE_NAME> property is the name that you assigned in step 1.
+   > The `<USER_OR_SERVICE_PRINCIPAL_ID>` value should be the identity that you use to access the Azure portal. The `<ROLE_NAME>` value is the name that you assigned in step 1.
 
 1. Get the URL of the Admin for Spring dashboard.
 
@@ -328,7 +328,8 @@ az containerapp update \
        --environment $ENVIRONMENT \
        --resource-group $RESOURCE_GROUP \
        --name $JAVA_COMPONENT_NAME \
-       --query properties.ingress.fqdn -o tsv
+       --query properties.ingress.fqdn \
+       --output tsv
    ```
 
    This command returns the URL that you can use to access the Admin for Spring dashboard. With the dashboard, you can also see your container app, as shown in the following screenshot.
@@ -380,7 +381,7 @@ The following list details the admin component properties you can configure for 
 | `spring.boot.admin.monitor.timeout.*`                           | Key-value pairs with the timeout per `endpointId`.                                                                                                                                                                                                                                                                                                                                                  | Defaults to `default-timeout` value.                                                                                                                                     |
 | `spring.boot.admin.monitor.default-retries`                     | Default number of retries for failed requests. Requests that modify data (`PUT`, `POST`, `PATCH`, `DELETE`) are never retried. Individual values for specific endpoints can be overridden using `spring.boot.admin.monitor.retries.*`.                                                                                                                                                              | `0`                                                                                                                                                                      |
 | `spring.boot.admin.monitor.retries.*`                           | Key-value pairs with the number of retries per `endpointId`. Requests that modify data (`PUT`, `POST`, `PATCH`, `DELETE`) are never retried.                                                                                                                                                                                                                                                        | Defaults to `default-retries` value.                                                                                                                                     |
-| `spring.boot.admin.metadata-keys-to-sanitize`                   | Metadata values for the keys matching these regex patterns used to sanitize in all JSON output. Starting from Spring Boot 3, all actuator values are masked by default. For more information about how to configure the unsanitization process, see [Sanitize Sensitive Values](https://docs.spring.io/spring-boot/reference/actuator/endpoints.html#actuator.endpoints.sanitization).    | `".*password$", ".*secret$", ".*key$", ".*token$", ".*credentials.*", ".*vcap_services$"`                                                                          |
+| `spring.boot.admin.metadata-keys-to-sanitize`                   | Metadata values for the keys matching these regex patterns used to sanitize in all JSON output. Starting from Spring Boot 3, all actuator values are masked by default. For more information about how to configure the unsanitization process, see [Sanitize Sensitive Values](https://docs.spring.io/spring-boot/reference/actuator/endpoints.html#actuator.endpoints.sanitization).    | `".*password$", ".*secret$", ".*key$", ".*token$", ".*credentials.*", ".*vcap_services$"`                                                                                          |
 | `spring.boot.admin.probed-endpoints`                            | For Spring Boot 1.x client applications, Spring Boot Admin probes for the specified endpoints using an `OPTIONS` request. If the path differs from the ID, you can specify this value as `id:path` - for example, `health:ping`.                                                                                                                                                                    | `"health", "env", "metrics", "httptrace:trace", "threaddump:dump", "jolokia", "info", "logfile", "refresh", "flyway", "liquibase", "heapdump", "loggers", "auditevents"` |
 | `spring.boot.admin.instance-proxy.ignored-headers`              | Headers not to forwarded when making requests to clients.                                                                                                                                                                                                                                                                                                                                           | `"Cookie", "Set-Cookie", "Authorization"`                                                                                                                                |
 | `spring.boot.admin.ui.title`                                    | The displayed page title.                                                                                                                                                                                                                                                                                                                                                                           | `"Spring Boot Admin"`                                                                                                                                                    |

@@ -6,19 +6,19 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 07/15/2024
+ms.date: 11/19/2024
 ms.author: cshoe
 ---
 
 # Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps
 
-This tutorial will guide you through the process of integrating a managed Admin for Spring with a Eureka Server for Spring within Azure Container Apps.
+This tutorial guides you through the process of integrating a managed Admin for Spring with a Eureka Server for Spring within Azure Container Apps.
 
 This article contains some content similar to the "Connect to a managed Admin for Spring in Azure Container Apps" tutorial, but with Eureka Server for Spring, you can bind Admin for Spring to Eureka Server for Spring, so that it can get application information through Eureka, instead of having to bind individual applications to Admin for Spring.
 
-By following this guide, you'll set up a Eureka Server for service discovery and then create an Admin for Spring to manage and monitor your Spring applications registered with the Eureka Server. This setup ensures that other applications only need to bind to the Eureka Server, simplifying the management of your microservices.
+By following this guide, you set up a Eureka Server for service discovery and then create an Admin for Spring to manage and monitor your Spring applications registered with the Eureka Server. This setup ensures that other applications only need to bind to the Eureka Server, simplifying the management of your microservices.
 
-In this tutorial, you will learn to:
+In this tutorial, you learn to:
 
 1. Create a Eureka Server for Spring.
 2. Create an Admin for Spring and link it to the Eureka Server.
@@ -59,7 +59,7 @@ Before you begin, create the necessary resources by executing the following comm
    | `ENVIRONMENT`           | The Azure Container Apps environment name for your demo application.               |
    | `EUREKA_COMPONENT_NAME` | The name of the Eureka Server Java component.                                      |
    | `ADMIN_COMPONENT_NAME`  | The name of the Admin for Spring Java component.                                   |
-   | `CLIENT_APP_NAME`       | The name of the container app that will bind to the Eureka Server.                 |
+   | `CLIENT_APP_NAME`       | The name of the container app that binds to the Eureka Server.                     |
    | `CLIENT_IMAGE`          | The container image used in your Eureka Server container app.                      |
 
 1. Log in to Azure with the Azure CLI.
@@ -113,7 +113,7 @@ az containerapp env java-component admin-for-spring create \
 
 ## Bind other apps to the Eureka Server
 
-With the Eureka Server set up, you can now bind other applications to it for service discovery. And you can also monitor and manage these applications in the dashboard of Admin for Spring. Follow the steps below to create and bind a container app to the Eureka Server:
+With the Eureka Server set up, you can now bind other applications to it for service discovery. And you can also monitor and manage these applications in the dashboard of Admin for Spring. Use the following steps to create and bind a container app to the Eureka Server:
 
 Create the container app and bind it to the Eureka Server.
 
@@ -152,11 +152,11 @@ az containerapp create \
    }'
    ```
 
-   Make sure to replace placeholder in between the `<>` brackets in the `AssignableScopes` value with your subscription ID.
+   Make sure to replace the `<SUBSCRIPTION_ID>` placeholder in the `AssignableScopes` value with your subscription ID.
 
 1. Assign the custom role to your account on managed environment resource.
 
-   Get the resource id of the managed environment.
+   Get the resource ID of the managed environment.
 
    ```azurecli
    export ENVIRONMENT_ID=$(az containerapp env show \
@@ -167,7 +167,7 @@ az containerapp create \
 
 1. Assign the role to your account.
 
-   Before running this command, replace the placeholder in between the `<>` brackets with your user or service principal ID.
+   Before running this command, replace the `<USER_OR_SERVICE_PRINCIPAL_ID>` placeholder with your user or service principal ID.
 
    ```azurecli
    az role assignment create \
@@ -200,9 +200,9 @@ az containerapp create \
 
    This command returns the URL you can use to access the Eureka Server for Spring dashboard. Through the dashboard, your container app is also to you as shown in the following screenshot.
 
-   :::image type="content" source="media/java-components/spring-boot-admin.png" alt-text="Screenshot of the Admin for Spring dashboard."  lightbox="media/java-components/spring-boot-admin.png":::
+   :::image type="content" source="media/java-components/spring-boot-admin.png" alt-text="Screenshot of the Admin for Spring dashboard." lightbox="media/java-components/spring-boot-admin.png":::
 
-   :::image type="content" source="media/java-components/eureka.png" alt-text="Screenshot of the Eureka Server for Spring dashboard."  lightbox="media/java-components/eureka.png":::
+   :::image type="content" source="media/java-components/eureka.png" alt-text="Screenshot of the Eureka Server for Spring dashboard." lightbox="media/java-components/eureka.png":::
 
 ## Clean up resources
 
