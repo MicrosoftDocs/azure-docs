@@ -341,14 +341,14 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 When access is elevated or removed, an entry is added to the logs. As an administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it.
 
-Elevate access log entries appear in both the directory audit logs and the directory activity logs. Elevated access log entries for directory audit logs and directory activity logs include similar information. However, the directory audit logs are easier to filter and export. Also, the export capability enables you to stream access events, which can be used for your alert and detection solutions, such as Microsoft Sentinel or other systems.
+Elevate access log entries appear in both the Microsoft Entra directory audit logs and the Azure activity logs. Elevated access log entries for directory audit logs and activity logs include similar information. However, the directory audit logs are easier to filter and export. Also, the export capability enables you to stream access events, which can be used for your alert and detection solutions, such as Microsoft Sentinel or other systems. For information about how to send logs to different destinations, see [Configure Microsoft Entra diagnostic settings for activity logs](/entra/identity/monitoring-health/howto-configure-diagnostic-settings).
 
 This section describes different ways that you can view the elevate access log entries.
 
-# [Directory audit logs](#tab/directory-audit-logs)
+# [Microsoft Entra audit logs](#tab/entra-audit-logs)
 
 > [!IMPORTANT]
-> Elevate access log entries in the directory audit logs is currently in preview.
+> Elevate access log entries in the Microsoft Entra directory audit logs is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -373,7 +373,7 @@ This section describes different ways that you can view the elevate access log e
 
     :::image type="content" source="./media/elevate-access-global-admin/entra-id-audit-logs-download.png" alt-text="Screenshot of directory audit logs that shows the Download Audit Logs pane to download logs." lightbox="./media/elevate-access-global-admin/entra-id-audit-logs-download.png":::
 
-# [Directory activity logs](#tab/directory-activity-logs)
+# [Azure activity logs](#tab/azure-activity-logs)
 
 ### View elevate access log entries using the Azure portal
 
@@ -387,7 +387,7 @@ This section describes different ways that you can view the elevate access log e
 
     `Assigns the caller to User Access Administrator role`
 
-    ![Screenshot showing directory activity logs in Monitor.](./media/elevate-access-global-admin/monitor-directory-activity.png)
+    ![Screenshot that shows activity logs for the directory in Azure Monitor.](./media/elevate-access-global-admin/monitor-directory-activity.png)
 
 ### View elevate access log entries using Azure CLI
 
