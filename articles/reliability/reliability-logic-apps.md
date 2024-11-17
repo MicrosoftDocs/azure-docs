@@ -20,6 +20,8 @@ Resiliency is a shared responsibility between you and Microsoft, and so this art
 
 Azure Logic Apps is a cloud platform where you can create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, you can quickly build a workflow that integrates and manages your apps, data, services, and systems.
 
+<!-- TODO add a brief description of plans -->
+
 ## Production deployment recommendations
 
 ::: zone pivot="consumption"
@@ -92,19 +94,13 @@ You must deploy a minimum of three instances of your plan.
 
 ::: zone pivot="standard-workflow-service-plan,standard-app-service-environment"
 
-- **Storage**. Configure for ZRS. TODO link to storage info?
+- **Storage**. When you configure external storage for stateful workflows, you must configure your storage account for zone redundancy. For more information, see [Storage considerations for Azure Functions](../azure-functions/storage-considerations.md#storage-account-requirements).
 
 ::: zone-end
 
-- **Connectors**. Connectors are automatically zone redundant when your logic app is zone redundant.
+- **Connectors**. Built-in connectors are automatically zone redundant when your logic app is zone redundant.
 
 - **Integration accounts**. [Premium SKU integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-overview) are zone redundant by default.
-
-<!--
-This was in the docs (and still is):
-
-Zone redundancy is available only for built-in connectors, which are designed to run directly and natively inside Azure Logic Apps runtime. Zone redundancy isn't available for managed Azure-hosted connector operations. For more information on connector types, see [Built-in connectors versus managed connectors](/azure/connectors/introduction#built-in-connectors-versus-managed-connectors).
--->
 
 ### Cost
 
@@ -134,20 +130,13 @@ Consumption logic apps support zone redundancy automatically, so no configuratio
 
 ::: zone-end
 
-::: zone pivot="standard-workflow-service-plan"
+::: zone pivot="standard-workflow-service-plan,standard-app-service-environment"
 
 **Create a new workflow with zone-redundancy.** To enable zone-redundancy for Standard logic apps, see [Enable zone redundancy for your logic app](../logic-apps/set-up-zone-redundancy-availability-zones.md).
 
-**Migration.** It's not possible to enable zone-redundancy to an existing workflow after it's created. Instead, you need to create the Azure Logic App workflow in the new region and delete the old one.
+**Migration.** It's not possible to enable zone redundancy to on existing plan after it's created. Instead, you need to create a new plan with zone redundancy enabled and delete the old one.
 
-<!-- is this true? -->
-**Disable zone redundancy.** If you need to disable zone redundancy for a logic app, you can't do this after the logic app is created. Instead, you need to create a new logic app in the same region without zone redundancy enabled.
-
-::: zone-end
-
-<!-- TODO is there an ASE how-to? -->
-
-::: zone pivot="standard-workflow-service-plan,standard-app-service-environment"
+**Disable zone redundancy.** It's not possible to disable zone redundancy on an existing plan after it's created. Instead, you need to create a new plan with zone redundancy disabled and delete the old one.
 
 ### Capacity planning and management
 
@@ -170,7 +159,7 @@ It's possible that during a zone outage, that you may experience some [transient
 
 ### Failback
 
-<!-- is this true? -->
+<!-- TODO verify with PG -->
 When the availability zone recovers, Logic Apps automatically restores instances in the availability zone, removes any temporary instances created in the other availability zones, and reroutes traffic between your instances as normal.
 
 ### Testing for zone failures  
