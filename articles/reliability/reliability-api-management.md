@@ -7,9 +7,9 @@ ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-api-management
 ms.date: 11/13/2024
+# TODO Should we add a zone pivots to hide the AZ details for all tiers except Premium, like we did with App Service?
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure API Management works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations. 
 ---
-<!-- TODO Zone pivots for SKUs, like we did with App Service? -->
 
 # Reliability in Azure API Management
 
@@ -131,7 +131,7 @@ You must use the Premium tier to enable multi-region support.
 
 You can select any Azure region for your secondary instances.
 
-<!-- TODO this might be better described elsewhere? -->
+<!-- TODO this might be better described elsewhere and linked from here? -->
 > [!IMPORTANT]
 > The feature to enable storing customer data in a single region is currently only available in the Southeast Asia region (Singapore) of the Asia Pacific geography. For all other regions, customer data is stored within the geography, not within a specific region.
 
@@ -159,7 +159,11 @@ In a region-down scenario, there's no guarantee that requests for additional cap
 
 ### Traffic routing between regions 
 
-Azure API Management automatically routes requests to regional gateways. <!-- TODO more in this section -->
+Azure API Management automatically routes incoming requests to a regional gateway. A request is routed to the regional gateway with the lowest latency from the client. If you need to use a different routing approach, you can configure your own Traffic Manager with custom routing rules. For more information, see [Use custom routing to API Management regional gateways](../api-management/api-management-howto-deploy-multi-region.md#use-custom-routing-to-api-management-regional-gateways).
+
+When a request reaches an Azure API Management regional gateway, it's usually routed to the backend API (unless a policy returns a response directly from the gateway, such as a cached response or an error code). In a multi-region solution, you need to take care to route to an instance of the backend API that meets your performance requirements. For more information, see [Route API calls to regional backend services](../api-management/api-management-howto-deploy-multi-region.md#route-api-calls-to-regional-backend-services).
+
+<!-- TODO should we keep these subsections or just the links above? -->
 
 #### Regional backend service routing
 
