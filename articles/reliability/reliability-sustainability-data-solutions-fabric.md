@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
-# ms.service: # TODO what should this be?
+ms.service: microsoft-cloud-sustainability
 ms.date: 11/13/2024
 ---
 
