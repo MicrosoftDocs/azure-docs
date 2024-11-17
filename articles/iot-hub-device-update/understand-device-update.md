@@ -11,23 +11,19 @@ ms.subservice: device-update
 
 # Device Update for IoT Hub
 
-
-
 As Internet of Things (IoT) solutions become increasingly widespread, it's essential that the devices forming these solutions are easy to connect and manage at scale. Device Update for Azure IoT Hub is a service that enables you to deploy over-the-air updates for your IoT devices.
 
 Device Update for IoT Hub is an end-to-end platform for publishing, distributing, and managing over-the-air updates for everything from tiny sensors to gateway-level devices. To realize the full benefits of IoT-enabled digital transformation, Device Update provides capabilities to operate, maintain, and update devices at scale, such as:
 
 - Rapid response to security threats.
 - New feature deployments to achieve business objectives.
-- No added costs for developing and maintaining an update platform.
+- Integrated updates with no added costs for developing and maintaining an update platform.
 
 ## Supported IoT devices
 
 Device Update for IoT Hub is a cloud-hosted solution for connecting virtually any device. Device Update offers optimized update deployment and streamlined operations through integration with [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), making it easy to adopt on any existing IoT Hub-based solution, including Azure IoT Edge devices.
 
-Device Update supports a broad range of IoT operating systems, including [Eclipse ThreadX](https://github.com/eclipse-threadx) real-time operating system. For configuring, building, and deploying over-the-air updates for common microcontroller unit (MCU) class devices, Eclipse ThreadX offers [Device Update samples](https://github.com/eclipse-threadx/samples/tree/PublicPreview/ADU) codeveloped with semiconductor partners including STMicroelectronics, NXP, Renesas, and Microchip.
-
-Device Update also provides a [Raspberry Pi](device-update-raspberry-pi.md) tutorial and reference Yocto image, and a [Device Update agent simulator](device-update-simulator.md) tutorial and binary.
+Device Update supports configuring, building, and deploying over-the-air updates for a broad range of IoT operating systems and common microcontroller unit (MCU) class devices. [Eclipse ThreadX](https://github.com/eclipse-threadx) real-time operating system offers [Device Update samples](https://github.com/eclipse-threadx/samples/tree/PublicPreview/ADU) codeveloped with semiconductor partners including STMicroelectronics, NXP, Renesas, and Microchip. Device Update also provides a [Raspberry Pi](device-update-raspberry-pi.md) reference Yocto image and a [Device Update agent simulator](device-update-simulator.md) binary.
 
 Device Update agents are built and provided for various [Linux operating systems](support.md#linux-operating-systems). Device Update is also extensible via provided open-source code if you're not running Eclipse ThreadX or supported Linux platforms. You can port the agent to the distribution you're running.
 
@@ -38,7 +34,7 @@ Device Update works with IoT Plug and Play and can manage any device that suppor
 
 Device Update for IoT Hub supports two forms of updates, *package-based* and *image-based*. The method you choose depends on your specific use case and device environment.
 
-- Package-based updates are targeted to alter only a specific device component or application. These updates have lower bandwidth consumption and shorter download and install times, allowing for less device downtime, and avoid the overhead of creating images.
+- Package-based updates are targeted to alter only a specific device component or application. These updates have lower bandwidth consumption and shorter download and install times, allowing for less device downtime and avoiding the overhead of creating images.
 
 - Image-based updates provide a high level of confidence in the device end-state, allowing easier replication between preproduction and production environments or between A/B failover models. Image-based updates avoid the challenges of managing packages and their dependencies.
 
@@ -48,19 +44,19 @@ You can use Device Update management and deployment controls to maximize product
 
 ### Management and reporting tools
 
-- An update management experience integrated with Azure IoT Hub
-- Programmatic APIs to enable automation and custom portal experiences
-- Subscription- and role-based access controls available through the Azure portal
-- At-a-glance update compliance and status views across heterogenous device fleets
-- Azure CLI support for creating and managing Device Update resources, groups, and deployments
+- An update management experience integrated with Azure IoT Hub.
+- Programmatic APIs to enable automation and custom portal experiences.
+- Subscription- and role-based access controls available through the Azure portal.
+- At-a-glance update compliance and status views across heterogenous device fleets.
+- Azure CLI support for creating and managing Device Update resources, groups, and deployments.
 
 ### Control over deployment details
 
-- Gradual update rollout through device grouping and update scheduling controls
-- Support for resilient device updates (A/B) to deliver seamless rollback
-- Automatic rollback to a defined fallback version for managed devices that meet the rollback criteria
-- Delta updates (public preview) that allow you to generate smaller updates representing only the changes between the current image and target image, which can reduce bandwidth and download time
-- On-premises content cache and nested edge support to enable updating cloud disconnected devices
+- Gradual update rollout through device grouping and update scheduling controls.
+- Support for resilient device updates (A/B) to deliver seamless rollback.
+- Automatic rollback to a defined fallback version for managed devices that meet the rollback criteria.
+- Delta updates (public preview) that allow you to generate smaller updates representing only the changes between the current image and target image, which can reduce bandwidth and download time.
+- On-premises content cache and nested edge support to enable updating cloud disconnected devices.
 
 ### Global security
 
@@ -72,7 +68,7 @@ Device Update for IoT Hub includes the ability to group devices based on compati
 
 ### Troubleshooting features
 
-Troubleshooting features include agent check and device sync to help you diagnose and repair devices. When an update failure happens, Device Update can identify the devices that failed to update and provide related failure details. The ability to identify which devices failed to update means you save time trying to manually pinpoint the source.
+Troubleshooting features include agent check and device sync to help you diagnose and repair devices. When an update failure happens, Device Update can identify the devices that failed to update and provide related failure details. This ability saves you from having to spend time trying to manually pinpoint the source.
 
 ## Device Update workflows
 
