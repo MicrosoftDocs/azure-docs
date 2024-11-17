@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 11/17/2024
 # Customer intent: As a developer, I want to monitor the health for my Standard logic app workflows in single-tenant Azure Logic Apps by setting up Health Check, which is an Azure App Service feature.
 ---
 
@@ -122,6 +122,34 @@ After Health Check removes the unhealthy instance, the feature continues to ping
    - Confirm that the **Workflows.HealthCheckWorkflowName** property and your health workflow name appear correctly.
 
    - Confirm that the specified path matches the workflow and **Request** trigger name.
+
+## Common health problems
+
+### I have a logic app with no workflow at all, but it still scales out to many instances which incur huge cost.
+
+This can happen if the logic app is not healthy. Typically it happens when the access to the storage account is not successful. You may want to check whether the storage account has networking setting blocking the access, or whether your network firewall policy blocking the access. 
+
+### I have some workflows in my logic app, but they are not running or running a lit. Hoever itmy logic app still scales out to many instances which incur huge cost.
+
+First, please check the storage access as mentioned in previous point.
+
+Second, make sure to correctly set up and test any service provider-based trigger to confirm successful operation. A failed service provider-based trigger might create unnecessary scaling, which can dramatically increase your billing costs. For example, a common mistake is setting a trigger without giving your logic app permission or access to the destination, such as a Service Bus queue, Azure Storage blob container, and so on. Also, make sure that you monitor such triggers at all times so you can promptly detect and fix any issues.
+
+### My workflow runs fine in general, but intermittently it stops processing messages for hours.
+
+If your Standard logic app uses the hosting option named Workflow Service Plan, not hosted in App Service Environment, make **Runtime Scale Monitoring** is turned on and **Always Ready Instances** is set correcto at least 1.
+
+1. On the logic app menu, under Settings, select **Configuration**.
+
+1. On the Workflow runtime settings tab, for **Runtime Scale Monitoring**, select **On**.
+
+1. On the Configuration toolbar, select **Save**.
+
+1. On the logic app menu, under Settings, select **Scale Out**.
+
+1. Make sure **Always Ready Instances** is not set to 0. 
+
+
 
 ## Related content
 
