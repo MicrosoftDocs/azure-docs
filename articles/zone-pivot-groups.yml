@@ -1712,3 +1712,14 @@ groups:
     title: Interactive
   - id: terraform
     title: Terraform
+# Owner: jodowns
+- id: logic-app-hosting-types
+  title: Logic Apps hosting model
+  prompt: Choose a Logic Apps hosting model
+  pivots:
+  - id: consumption
+    title: Consumption
+  - id: standard-workflow-service-plan
+    title: Standard (Workflow Service Plan)
+  - id: standard-app-service-environment
+    title: Standard (App Service Environment v3)
