@@ -7,15 +7,15 @@ ms.date: 10/30/2024
 
 # Network sensor mirroring set up
 
-This article provides a step-by-step approach to successfully deploying your network sensor, and ensuring the correct traffic mirroring and security are chosen. The five deployment steps are as follows:
+This article provides a step-by-step guide to deploying your network sensor, ensuring the correct traffic mirroring options are chosen to achieve accurate and reliable network data collection.
 
-1. Network architecture review
-1. Sensor location
-1. Traffic Mirroring Methods
-1. Deploy the sensors
-1. Post-deployment validation
+The five deployment steps are as follows:
 
-Follow these guidelines to optimize your sensor performance and achieve accurate and reliable network data collection.
+1. [Review the network architecture](#review-the-network-architecture)
+1. [Select the sensor locations and traffic mirroring method](#select-the-sensor-locations-and-traffic-mirroring-method)
+1. [Validate the sensor location](#validate-the-sensor-location)
+1. [Deploy your sensors](#deploy-your-sensor)
+1. [Validate after deployment](#validate-after-deployment)
 
 ## Review the network architecture
 
@@ -29,17 +29,18 @@ Before you deploy the sensor to the network, it's crucial to review the network 
 
 - Determine which OT protocols need to be monitored (Profinet, S7, Modbus etc..). For more information, see [supported protocols](../concept-supported-protocols.md).
 
-## Selecting sensor locations and traffic mirroring method
+## Select the sensor locations and traffic mirroring method
+
+HOw to choose the mirroring method? Assess the size, architecture and tracking needs of your network and use the table to choose the method that best meets your requirements.
+How do we put this into effect?
 
 Based on the network architecture and the chosen mirroring method, select the best locations for your network sensors ensuring that they capture the necessary Layer 2 (L2) traffic.
 
-Complile a list all of the locations to place the sensors.<!-- should we write this about 1 sensor or a bunch of sensors? Theo -->
-
-For more information, see [identifying interesting traffic points](../best-practices/understand-network-architecture.md#identifying-interesting-traffic-points).
+Complile a list all of the locations in the network where the sensors should be placed. For more information, see [identifying interesting traffic points](../best-practices/understand-network-architecture.md#identifying-interesting-traffic-points).
 
 ## Validate the sensor location
 
-After deciding on a potential location for the sensor, users should validate the presence of L2 <!-- traffic - theo -->and OT protocols. It's recommended to use tools like Wireshark to verify these protocols at the potential sensor location. For example:
+After deciding on a potential location for the sensor, users should validate the presence of L2 and OT protocols. It's recommended to use tools like Wireshark to verify these protocols at the potential sensor location. For example:
 
 :::image type="content" source="media/guide/deployment-guide-analyzer.png" alt-text="Screenshot of the wireshark program used to confirm and validate OT sensor set up and network protocols communicating with the newly deployed OT sensor":::
 
@@ -55,7 +56,7 @@ After validating the sensor and mirroring method, deploy the sensors. For more i
 
 ## Validate after deployment
 
-It's essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the networks being monitored by the sensor.
+It's essential to validate the monitoring interfaces and activate<!-- --> them. We recommend using the Deployment tool in the sensor system setting to monitor the networks being monitored by the sensor.
 
 :::image type="content" source="media/guide/deployment-guide-post-deployment-system-settings.png" alt-text="Screenshot of the OT sensor systems settings screen, highlighting the Deployment box to be used to help validate the post OT sensor deployment.":::
 

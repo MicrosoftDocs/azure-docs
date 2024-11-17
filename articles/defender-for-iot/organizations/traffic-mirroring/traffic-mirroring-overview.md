@@ -13,7 +13,7 @@ This article is one in a series of articles describing the [deployment path](../
 
 ## Prerequisites
 
-Before you configure traffic mirroring, make sure that you've decided on your sensor locations and the traffic mirroring method.<!-- For more information, see [Prepare an OT site deployment](../best-practices/plan-prepare-deploy.md). keep this link or remove because it is below -->
+Before you configure traffic mirroring, make sure that you've decided on your sensor locations and the traffic mirroring method.<!-- For more information, see [Prepare an OT site deployment](../best-practices/plan-prepare-deploy.md). keep this link or remove because this is the content below -->
 
 ### Sensor location
 
@@ -39,7 +39,7 @@ There are three types of traffic mirroring methods each designed for specific us
 | **Benefits** | - Simplicity: Easy to configure and manage. <br> - Low Latency: Since it’s confined to a single switch, it introduces minimal delay.|- Extended Coverage: Allows for monitoring across multiple switches.<br> - Flexibility: Can be used to monitor traffic from different parts of the network. | - Broad Coverage: Enables monitoring across different IP networks and locations. <br> - Flexibility: Can be used in scenarios where traffic needs to be monitored over long distances or through complex network paths.|
 | **Limitations** | Local Scope: Limited to monitoring within the same switch, which might not be sufficient for larger networks.|Network Load: Potentially increases the load on the network due to the RSPAN VLAN traffic.| |
 
-When selecting a mirroring method, consider the following factors:
+When selecting a mirroring method, also consider the following factors:
 
 |Factors| Description |
 |---|---|
@@ -67,4 +67,4 @@ Defender for IoT also supports traffic mirroring with TAP configurations. For mo
 ## Next steps
 
 > [!div class="step-by-step"]
-> [Network sensor mirroring set up](network-sensor-mirroring-set-up.md)
+> [Network sensor mirroring set up >>](network-sensor-mirroring-set-up.md)
