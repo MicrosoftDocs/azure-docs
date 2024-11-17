@@ -12,7 +12,7 @@ When you create a function app in Azure, you must choose a hosting option for yo
 
 | Hosting option | Service | Availability | Container support |
 | --- | --- | --- | --- | 
-| **[Flex Consumption plan]** | Azure Functions | GA  |   None | 
+| **[Flex Consumption plan]** | Azure Functions | GA  |  None | 
 | **[Premium plan]** | Azure Functions | GA | Linux |
 | **[Dedicated plan]** | Azure Functions | GA | Linux |
 | **[Container Apps]** | Azure Container Apps | GA | Linux |
