@@ -88,7 +88,7 @@ Before you begin, create the necessary resources by executing the following comm
 
 ## Optional: Create the Eureka Server for Spring
 
-If you don't have an existing Eureka Server for Spring, follow the command below to create the Eureka Server Java component. For more information, see [Create the Eureka Server for Spring](java-eureka-server.md#create-the-eureka server-for-spring-java-component).
+If you don't have an existing Eureka Server for Spring, follow the command below to create the Eureka Server Java component. For more information, see [Create the Eureka Server for Spring](java-eureka-server.md#create-the-eureka-server-for-spring-java-component).
 
 ```azurecli
 az containerapp env java-component eureka-server-for-spring create \
