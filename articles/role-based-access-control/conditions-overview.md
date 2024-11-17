@@ -142,6 +142,10 @@ Here are the known issues with conditions:
 
 - If you are using Microsoft Entra Privileged Identity Management (PIM) and [custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md), **Principal** does not appear in **Attribute source** when adding a condition.
 
+## Hybrid approach
+
+The hybrid RBAC-ABAC approach integrates the benefits of both access control models. RBAC is more straightforward to implement due to its close alignment with business logic, while ABAC offers greater flexibility. By combining these two methods, organizations can achieve a more nuanced level of authorization. 
+
 ## Next steps
 
 - [FAQ for Azure role assignment conditions](conditions-faq.md)
