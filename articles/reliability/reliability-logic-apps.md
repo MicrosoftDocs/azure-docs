@@ -20,7 +20,17 @@ Resiliency is a shared responsibility between you and Microsoft, and so this art
 
 Azure Logic Apps is a cloud platform where you can create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, you can quickly build a workflow that integrates and manages your apps, data, services, and systems.
 
-<!-- TODO add a brief description of plans -->
+::: zone pivot="consumption"
+
+Azure Logic Apps Consumption manages the compute infrastructure and resources for your workflows automatically. You don't need to configure or manage any virtual machines (VMs). Logic Apps Consumption shares compute infrastructure between many customers.
+
+::: zone-end
+
+::: zone pivot="standard-workflow-service-plan,standard-app-service-environment"
+
+Azure Logic Apps Standard runs your workflows on compute resources that are dedicated to you, called *plans*. Each plan can have multiple instances, and those instances can optionally be spread across multiple availability zones. Your workflows run on instances of your plan.
+
+::: zone-end
 
 ## Production deployment recommendations
 
@@ -147,20 +157,17 @@ To prepare for availability zone failure, you should over-provision capacity of 
 ### Traffic routing between zones
 
 <!-- TODO verify; also how does this work for consumption? -->
-During normal operations, workflow invocations are spread between all of your available Workflow Service plan instances across all availability zones.
+During normal operations, workflow invocations are spread among all of your available plan instances across all availability zones.
 
 ### Zone-down experience
 
 **Detection and response:** The Logic Apps platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 
-**Active requests:** When an availability zone is unavailable, any workflow invocations in progress that are running on a node in the faulty availability zone are terminated. The Logic Apps platform automatically resumes the workflow on another node in a different availability zone.
-
-It's possible that during a zone outage, that you may experience some [transient fault](#transient-faults) or latency issues as new VMs are added to the remaining availability zones.
+**Active requests:** When an availability zone is unavailable, any workflow invocations in progress that are running on a VM in the faulty availability zone are terminated. The Azure Logic Apps platform automatically resumes the workflow on another VM in a different availability zone. Because of this behavior, active workflows might experience some [transient faults](#transient-faults) or higher latency as new VMs are added to the remaining availability zones.
 
 ### Failback
 
-<!-- TODO verify with PG -->
-When the availability zone recovers, Logic Apps automatically restores instances in the availability zone, removes any temporary instances created in the other availability zones, and reroutes traffic between your instances as normal.
+When the availability zone recovers, Azure Logic Apps automatically restores instances in the availability zone, removes any temporary instances created in the other availability zones, and reroutes traffic between your instances as normal.
 
 ### Testing for zone failures  
 
@@ -172,7 +179,7 @@ Each logic app is deployed into a single Azure region. If the region becomes una
 
 ### Alternative multi-region approaches 
 
-For higher resiliency, you can deploy a standby or backup logic app in an another (secondary) region, and fail over to the secondary region if the primary region is unavailable. To do this, you should:
+For higher resiliency, you can deploy a standby or backup logic app in another (secondary) region, and fail over to the secondary region if the primary region is unavailable. To do this, you should:
 
 - Deploy your logic app in both both primary and secondary regions.
 - Reconfigure connections to resources as needed.
