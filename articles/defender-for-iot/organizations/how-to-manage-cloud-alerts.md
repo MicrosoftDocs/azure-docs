@@ -145,7 +145,7 @@ You might want to export a selection of alerts to a CSV file for offline sharing
 
 The file is generated, and you're prompted to save it locally.
 
-## Remediate aggregated alerts
+## Remediate aggregated alert violations
 
 To reduce alert fatigue, multiple versions of the same alert with identical parameters are listed as one item in the Alerts page. As you investigate alerts, an aggregated alert is identified by the *Multiple violations* message that appears under the Source device IP. Use the **Violations** tab to investigate further and the **Take action** tab to remediate the alerts.
 

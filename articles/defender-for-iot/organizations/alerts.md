@@ -50,9 +50,9 @@ For more information, see:
 
 Alert options also differ depending on your location and user role. For more information, see [Azure user roles and permissions](roles-azure.md) and [On-premises users and roles](roles-on-premises.md).
 
-## Aggregating alerts
+## Aggregating alert violations
 
-Alert fatigue caused by a high number of identical alerts could lead to your team failing to see or remediate vital alerts. Aggregating alerts reduces the number of alerts reported by listing identical alert types, with the same parameter settings, as one alert. The matching parameters differ depending on the alert type. For example, the *Unpermitted Usage of Modbus Function Code* alert needs to have the same source and destination IP addresses to produce an aggregated alert violation. The aggregated alert could include alerts with different alert codes, such as read and write codes.
+Alert fatigue caused by a high number of identical alerts could lead to your team failing to see or remediate vital alerts. Each alert listed in the Alerts page is a result of a network violation, for example the *Unpermitted Usage of Modbus Function Code*. Aggregating violations with the same parameters and remediation requirements into one single alert listing, reduces the number of alerts displayed on the Alerts page. The matching parameters differ depending on the alert type. For example, the *Unpermitted Usage of Modbus Function Code* alert needs to have the same source and destination IP addresses to produce an aggregated alert violation. The aggregated alert could include alerts with different violation codes, such as read and write codes.
 
 You download the aggregated alert violation data, that lists each alert with the relevant parameters and functions, as a CSV file in the **Violations** tab of the alert details. This data can help teams to identify patterns, assess impact and prioritize responses more effectively based on the remediation suggestions in the **Take action** tab. Only alerts that have the same remediation process are aggregated into a single alert. However, individual violation events can still be viewed separately within their respective devices, providing additional clarity.
 

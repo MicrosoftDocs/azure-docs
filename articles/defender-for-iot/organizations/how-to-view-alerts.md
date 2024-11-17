@@ -177,7 +177,7 @@ If your admin has [created custom comments](how-to-accelerate-alert-incident-res
 
 For more information, see [Accelerating OT alert workflows](alerts.md#accelerating-ot-alert-workflows).
 
-## Remediate aggregated alerts
+## Remediate aggregated alert violations
 
 To reduce alert fatigue, multiple versions of the same alert with identical parameters are listed as one item in the Alerts page. As you investigate alerts, an aggregated alert is identified by the *Multiple violations* message that appears under the Source device IP. Use the **Violations** tab to investigate further and the **Take action** tab to remediate the alerts.
 
