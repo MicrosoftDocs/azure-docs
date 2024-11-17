@@ -31,8 +31,8 @@ For more information about IoT Edge releases, see [Azure IoT Edge supported syst
 Azure IoT Edge for Linux on Windows (EFLOW) supports the following versions:
 * **EFLOW Continuous Release (CR)** based on the latest non-LTS Azure IoT Edge version, it contains new features and capabilities that are in the latest stable release. For more information, see the [EFLOW release notes](https://github.com/Azure/iotedge-eflow/releases).
 * **EFLOW 1.1 (LTS)** based on Azure IoT Edge 1.1. It's no longer supported. The [documentation is archived](/previous-versions/azure/iot-edge).
-* **EFLOW 1.4 (LTS)** based on Azure IoT Edge 1.4. It's the previous long-term support version. This version will be stable through the supported lifetime of this version and won't include new features released in later versions. This version will be supported until Nov 2024 to match the IoT Edge 1.4 LTS release lifecycle. 
-* **EFLOW 1.5 (LTS)** based on Azure IoT Edge 1.5. It's the latest long-term support version. This version will be stable through the supported lifetime of this version and won't include new features released in later versions. This version will be supported until November 2026 to match the IoT Edge 1.5 LTS release lifecycle. 
+* **EFLOW 1.4 (LTS)** based on Azure IoT Edge 1.4. It's the previous long-term support version. This version will be stable through the supported lifetime of this version and won't include new features released in later versions. This version is supported until Nov 2024 to match the IoT Edge 1.4 LTS release lifecycle. 
+* **EFLOW 1.5 (LTS)** based on Azure IoT Edge 1.5. It's the latest long-term support version. This version will be stable through the supported lifetime of this version and won't include new features released in later versions. This version is supported until November 2026 to match the IoT Edge 1.5 LTS release lifecycle. 
 
 All new releases are made available in the [Azure IoT Edge for Linux on Windows project](https://github.com/Azure/iotedge-eflow).
 
