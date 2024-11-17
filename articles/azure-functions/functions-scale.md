@@ -16,7 +16,7 @@ When you create a function app in Azure, you must choose a hosting option for yo
 | **[Premium plan]** | Azure Functions | GA | Linux |
 | **[Dedicated plan]** | Azure Functions | GA | Linux |
 | **[Container Apps]** | Azure Container Apps | GA | Linux |
-**[Consumption plan]** | Azure Functions | Generally available (GA) | None |
+| **[Consumption plan]** | Azure Functions | Generally available (GA) | None |
 
 Azure Functions hosting options are facilitated by Azure App Service infrastructure on both Linux and Windows virtual machines. The hosting option you choose dictates the following behaviors:
 
