@@ -9,11 +9,7 @@ ms.date: 03/29/2024
 ## Customer intent: As a developer, I want to automate builds and deployments for my Standard logic app workflows.
 ---
 
-# Automate build and deployment for Standard logic app workflows with Azure DevOps (preview)
-
-> [!NOTE]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Automate build and deployment for Standard logic app workflows with Azure DevOps
 
 For Standard logic app workflows that run in single-tenant Azure Logic Apps, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension to locally develop, test, and store your logic app project using any source control system. However, to get the full benefits of easily and consistently deploying your workflows across different environments and platforms, you must also automate your build and deployment process.
 
