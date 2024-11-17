@@ -1,18 +1,18 @@
 ---
-title: Planned connector deprecations for Azure Data Factory
-description: This page describes future deprecations for some connectors of Azure Data Factory.
+title: Upgrade plan for Azure Data Factory connectors
+description: This article describes future upgrades for some connectors of Azure Data Factory.
 author: jianleishen
 ms.author: jianleishen
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 10/16/2024
+ms.date: 11/06/2024
 ---
 
-# Planned connector deprecations for Azure Data Factory
+# Upgrade plan for Azure Data Factory connectors
 
-This article describes future deprecations for some connectors of Azure Data Factory.
+This article describes future upgrades for some connectors of Azure Data Factory.
 
 > [!NOTE]
 > "Deprecated" means we intend to remove the connector from a future release. Unless they are in *Preview*, connectors remain fully supported until they are officially deprecated. This deprecation notification can span a few months or longer. After removal, the connector will no longer work. This notice is to allow you sufficient time to plan and update your code before the connector is deprecated.

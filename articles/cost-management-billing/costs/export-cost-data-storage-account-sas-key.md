@@ -18,8 +18,10 @@ Often, partners don't have their own Azure subscriptions in the tenant associate
 
 ## Requirements
 
+- **Availability:** This feature is available only in the public cloud. 
+
 - You must be a partner with a Microsoft Partner Agreement. Your customers on the Azure plan must have a signed Microsoft Customer Agreement.
-    - SAS key-based export isn't supported for indirect enterprise agreements.
+- SAS key-based export isn't supported for indirect enterprise agreements.
 - SAS key-based export is available for partners that sign in to the Azure portal from a partner tenant. However, the SAS key option isn't supported if you're using Azure Lighthouse for customer management.
 - You must be global admin for your partner organization's billing account.
 - You must have access to configure a storage account that's in a different tenant of your partner organization. You're responsible for maintaining permissions and data access when your export data to your storage account.

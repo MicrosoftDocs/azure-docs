@@ -201,7 +201,7 @@ Schema field descriptions are based on the field descriptions in the relevant [S
 
 ### ABAP DB table data log (PREVIEW)
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.json** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.json** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel). This log isn't supported when using the recommended procedure to [install the data connector agent from the portal](deploy-data-connector-agent-container.md).
 
 - **Microsoft Sentinel function for querying this log**: SAPTableDataLog
 
@@ -234,7 +234,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### ABAP Gateway log (PREVIEW)
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.json** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.json** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel). This log isn't supported when using the recommended procedure to [install the data connector agent from the portal](deploy-data-connector-agent-container.md).
 
 - **Microsoft Sentinel function for querying this log**: SAPOS_GW
 
@@ -255,7 +255,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### ABAP ICM log (PREVIEW)
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.json** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.json** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel). This log isn't supported when using the recommended procedure to [install the data connector agent from the portal](deploy-data-connector-agent-container.md).
 
 - **Microsoft Sentinel function for querying this log**: SAPOS_ICM
 
@@ -476,7 +476,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### ABAP Syslog
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.json** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.json** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel). This log isn't supported when using the recommended procedure to [install the data connector agent from the portal](deploy-data-connector-agent-container.md).
 
 - **Microsoft Sentinel function for querying this log**: SAPOS_Syslog
 
@@ -553,7 +553,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### ABAP WorkProcess log
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.json** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.json** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel). This log isn't supported when using the recommended procedure to [install the data connector agent from the portal](deploy-data-connector-agent-container.md).
 
 - **Microsoft Sentinel function for querying this log**: SAPOS_WP
 
@@ -602,7 +602,7 @@ Collecting the HANA DB Audit Trail log is an example of how Microsoft Sentinel c
 
 ### JAVA files
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.json** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.json** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel). This log isn't supported when using the recommended procedure to [install the data connector agent from the portal](deploy-data-connector-agent-container.md).
 
 - **Microsoft Sentinel function for querying this log**: SAPJAVAFilesLogs
 
@@ -664,8 +664,6 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 ## Reference of tables retrieved directly from SAP systems
 
 This section lists the data tables that are retrieved directly from the SAP system and ingested into Microsoft Sentinel exactly as they are.
-
-To have the data from these tables ingested into Microsoft Sentinel, configure the relevant settings in the **systemconfig.json** file. For more information, see [Configuring user master data collection](sap-solution-deploy-alternate.md#configuring-user-master-data-collection).
 
 The data retrieved from these tables provides a clear view of the authorization structure, group membership, and user profiles. It also allows you to track the process of authorization grants and revokes, and identify and govern the risks associated with those processes.
 

@@ -47,7 +47,7 @@ Using snapshot technology, you can replicate your Azure NetApp Files across desi
 - Data availability and redundancy for remote data processing and user access 
 - Efficient storage-based data replication without load on compute infrastructure 
 
-To learn more, see [How volumes and snapshots are replicated cross-region for DR](snapshots-introduction.md#how-volumes-and-snapshots-are-replicated-cross-region-for-dr). To get started with cross-region replication, see [Create cross-region replication for Azure NetApp Files](cross-region-replication-create-peering.md). 
+To learn more, see [How volumes and snapshots are replicated cross-region for DR](snapshots-introduction.md#how-volumes-and-snapshots-are-replicated-cross-region-for-disaster-recovery). To get started with cross-region replication, see [Create cross-region replication for Azure NetApp Files](cross-region-replication-create-peering.md). 
 
 ## Cross-zone replication 
 

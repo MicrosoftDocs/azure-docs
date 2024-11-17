@@ -187,18 +187,22 @@ If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
     kubectl delete pod aio-opc-opc.tcp-1-849dd78866-vhmz6 -n azure-iot-operations
     ```
 
-The sample tags you added in the previous quickstart generate messages from your asset that look like the following example:
+The sample asset you added earlier in this quickstart generates messages that look like the following example:
 
 ```json
 {
-    "temperature": {
-        "SourceTimestamp": "2024-08-02T13:52:15.1969959Z",
-        "Value": 2696
-    },
-    "Tag 10": {
-        "SourceTimestamp": "2024-08-02T13:52:15.1970198Z",
-        "Value": 2696
-    }
+   "Temperature":{
+      "SourceTimestamp":"2024-11-04T21:30:31.9454188Z",
+      "Value":357
+   },
+   "FillWeight":{
+      "SourceTimestamp":"2024-11-04T21:30:31.9455619Z",
+      "Value":357
+   },
+   "EnergyUse":{
+      "SourceTimestamp":"2024-11-04T21:30:31.9455641Z",
+      "Value":357
+   }
 }
 ```
 

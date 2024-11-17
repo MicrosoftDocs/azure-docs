@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/10/2024
+ms.date: 11/12/2024
 ms.author: anfdocs
 ---
 
@@ -39,6 +39,7 @@ The storage with cool access feature provides options for the “coolness period
 * Considerations for [moving volumes to another capacity pool](dynamic-change-volume-service-level.md):
     * If you move a cool access volume to another capacity pool (service level change), you must also enable that pool for cool access.
     * If you disable cool access and turn off tiering on a cool access volume (that is, the volume no longer uses cool access), you can't move it to a non-cool-access capacity pool. In a cool access capacity pool, you can move all volumes, *whether they're enabled for cool access or not*, only to another cool access capacity pool.  
+* Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
 
 ## Enable cool access 
 
