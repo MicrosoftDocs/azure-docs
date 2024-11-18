@@ -26,10 +26,11 @@ To send data to Microsoft Fabric OneLake in Azure IoT Operations, you can config
   - [Create a lakehouse](/fabric/onelake/create-lakehouse-onelake).
   - If shown, ensure *Lakehouse schemas (Public Preview)* is **unchecked**.
   - Make note of the workspace and lakehouse names.
+- Ensure that [service principals can use Fabric APIs](/fabric/admin/service-admin-portal-developer).
 
 ## Assign permission to managed identity
 
-To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
+To configure a dataflow endpoint for Microsoft Fabric OneLake, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
 
 After the Microsoft Fabric OneLake is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to write to the Fabric lakehouse.
 
