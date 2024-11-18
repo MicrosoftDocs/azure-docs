@@ -239,7 +239,7 @@ Be sure to place the .env file in the same directory as the *docker-compose.yaml
 
 After the steps are successful, you can find the containers running in Docker.
 
-:::image type="content" source="./media/test-locally-with-event-hub-emulator/test-locally-with-event-hub-emulator.png" alt-text="Screenshot that shows the Service Bus emulator running in a container.":::
+:::image type="content" source="./media/test-locally-with-service-bus-emulator/test-locally-with-service-bus-emulator.png" alt-text="Screenshot that shows the Service Bus emulator running in a container.":::
 
 ## Interact with the emulator
 
