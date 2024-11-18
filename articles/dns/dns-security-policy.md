@@ -41,7 +41,8 @@ A security policy can only apply to VNets in the same region. You can create any
 
 ![Screenshot of the list of DNS security policies.](./media/dns-security-policy/policy-list.png)
 
-Keep in mind that >the policy:VNet relationship is 1:N. When you associate a VNet with a security policy (via virtual network links), that VNet can't then be associated with another security policy. A single DNS security policy can be associated with multiple VNets in the same region. 
+> [!IMPORTANT]
+> The **policy:VNet** relationship is **1:N**. When you associate a VNet with a security policy (via virtual network links), that VNet can't then be associated with another security policy. A single DNS security policy can be associated with multiple VNets in the same region. 
 
 ## DNS traffic rules
 
@@ -53,7 +54,7 @@ To display DNS traffic rules in the Azure portal, select a DNS security policy a
 
 - Rules are processed in order of **Priority** in the range 100-65000. Lower numbers are higher priority.
     * If a domain name is blocked in a lower priority rule, and the same domain is allowed in a higher priority rule, the domain name is allowed.
-    * Rule priority takes precedence over the number of labels in a domain name. If contoso.com is allowed in a higher priority rule, then sub.contoso.com is allowed, even if sub.contoso.com is blocked in a lower priority rule.
+    * Rules follow the DNS hierarchy. If contoso.com is allowed in a higher priority rule, then sub.contoso.com is allowed, even if sub.contoso.com is blocked in a lower priority rule.
 - You can dynamically add and delete rules from the list. Be sure to **Save** after editing rules in the portal.
 - During preview, up to 10 traffic rules are allowed per security policy. This limit will be increased to 100 for general availability.
 - Multiple **DNS Domain Lists** are allowed per rule. You must have at least one DNS domain list. 
@@ -80,6 +81,9 @@ DNS domain lists are lists of DNS domains that you associate to traffic rules. S
 You can associate a domain list to multiple DNS traffic rules in different security policies. 
 
 ![Screenshot of domains inside a domain list.](./media/dns-security-policy/domain-list-detailed.png)
+
+> [!IMPORTANT]
+> Be careful when creating wildcard domain lists. For example, if you create a domain list that applies to all domains (by entering `.` as the DNS domain) and then configure a DNS traffic rule to block queries to this domain list, you can prevent required services from working.
 
 When viewing a DNS domain list in the Azure portal, you can also select **Settings** > **Associated DNS Traffic Rules** to see a list of all traffic rules and the associated DNS security policies that reference the DNS domain list.
 
