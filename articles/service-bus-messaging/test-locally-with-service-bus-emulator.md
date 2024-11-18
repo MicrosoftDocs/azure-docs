@@ -223,7 +223,7 @@ MSSQL_SA_PASSWORD: ""
 > 
 >  - Ensure to place .env file in same directory to docker-compose.yaml file.
 >
->   - Set the MSSQL_SA_PASSWORD environment variable to a strong password of at least eight characters that meets the [password requirements](https://learn.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-ver16).
+>   - Set the MSSQL_SA_PASSWORD environment variable to a strong password of at least eight characters that meets the ([password requirements](/sql/relational-databases/security/password-policy)).
 >   -  When specifying file paths in Windows, use double backslashes (`\\`) instead of single backslashes (`\`) to avoid issues with escape characters.
 
 
