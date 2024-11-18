@@ -18,7 +18,7 @@ items:
     href: device-update-ubuntu-agent.md
   - name: Update device components or connected sensors
     href: device-update-howto-proxy-updates.md
-  - name: Device Update for Azure Real Time Operating System
+  - name: Device Update for Eclipse ThreadX
     href: device-update-azure-real-time-operating-system.md
 - name: Concepts
   items:
