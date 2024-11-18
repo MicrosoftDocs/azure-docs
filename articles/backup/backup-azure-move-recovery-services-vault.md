@@ -2,7 +2,7 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 11/30/2024
 ms.custom: references_regions, engagement-fy24
 ms.reviewer: caishwarya
 ms.service: azure-backup
@@ -40,7 +40,8 @@ All public regions and sovereign regions are supported, except France South, Fra
 - If you move a vault containing VM backup data, across subscriptions, you must move your VMs to the same subscription, and use the same target VM resource group name (as it was in old subscription) to continue backups.
 
 > [!NOTE]
-> Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br><br>
+>- Moving a CMK encrypted Recovery Services vault across resource groups and subscriptions isn't currently supported.
+>- Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br><br>
 > If you've configured any VMs (Azure IaaS, Hyper-V, VMware) or physical machines for disaster recovery using **Azure Site Recovery**, the move operation will be blocked. If you want to move vaults for Azure Site Recovery, review [this article](../site-recovery/move-vaults-across-regions.md) to learn about moving vaults manually.
 
 ## Use Azure portal to move Recovery Services vault to different resource group
