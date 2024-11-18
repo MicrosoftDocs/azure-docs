@@ -155,7 +155,7 @@ If your Standard logic app uses the hosting option named Workflow Service Plan, 
 
 1. On the **Configuration** page toolbar, select **Save**.
 
-1. On the logic app menu, under Settings, select **Scale Out**.
+1. On the logic app menu, under **Settings**, select **Scale out (App Service plan)**.
 
 1. Make sure **Always Ready Instances** is not set to 0. 
 
