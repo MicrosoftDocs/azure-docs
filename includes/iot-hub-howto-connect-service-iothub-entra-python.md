@@ -53,7 +53,7 @@ credential = DefaultAzureCredential()
 The resulting [AccessToken](/python/api/azure-core/azure.core.credentials.accesstoken) can then be passed to `from_token_credential` to connect to IoT Hub method for any SDK client that accepts Microsoft Entra credentials:
 
 * [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-token-credential) to create a service connection to IoT Hub using an Entra token credential.
-* [IoTHubJobManager](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?view=azure-python&#azure-iot-hub-iothubjobmanager-from-token-credential)
+* [IoTHubJobManager](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-from-token-credential)
 * [DigitalTwinClient](/python/api/azure-iot-hub/azure.iot.hub.digitaltwinclient?#azure-iot-hub-digitaltwinclient-from-token-credential)
 * [IoTHubHttpRuntimeManager](/python/api/azure-iot-hub/azure.iot.hub.iothubhttpruntimemanager?#azure-iot-hub-iothubhttpruntimemanager-from-token-credential)
 * [IoTHubConfigurationManager](/python/api/azure-iot-hub/azure.iot.hub.iothubconfigurationmanager?#azure-iot-hub-iothubconfigurationmanager-from-token-credential)

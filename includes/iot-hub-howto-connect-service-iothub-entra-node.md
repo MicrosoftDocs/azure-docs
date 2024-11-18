@@ -53,15 +53,11 @@ import { DefaultAzureCredential } from "@azure/identity";
 const credential = new DefaultAzureCredential();
 ```
 
-The resulting credential token can then be passed to a connection method to connect to IoT Hub method for any SDK client that accepts Microsoft Entra credentials:
+The resulting credential token can then be passed to [fromTokenCredential](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromtokencredential) to connect to IoT Hub for any SDK client that accepts Microsoft Entra credentials:
 
 * [Registry](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromtokencredential)
 * [Client](/javascript/api/azure-iothub/client?#azure-iothub-client-fromtokencredential)
 * [JobClient](/javascript/api/azure-iothub/jobclient?#azure-iothub-jobclient-fromtokencredential)
-
-##### Connect to IoT Hub
-
-Use [fromTokenCredential](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromtokencredential) to create a service connection to IoT Hub using a Microsoft Entra token credential.
 
 `fromTokenCredential` requires two parameters:
 
