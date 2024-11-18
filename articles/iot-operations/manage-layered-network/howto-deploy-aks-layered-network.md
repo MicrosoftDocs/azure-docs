@@ -48,7 +48,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To validate the installation was successful, run:
 
     ```bash
-    kubectl get pods -n azure-iot-operations
+    kubectl get pods
     ```
 
     You should see an output that looks like the following example:
@@ -65,7 +65,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
     kind: Lnm
     metadata:
       name: level4
-      namespace: azure-iot-operations
+      namespace: default
     spec:
       image:
         pullPolicy: IfNotPresent
@@ -78,43 +78,97 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
       allowList:
         enableArcDomains: true
         domains:
-        - destinationUrl: "*.ods.opinsights.azure.com"
+        - destinationUrl: "*.arc.azure.net"
           destinationType: external
-        - destinationUrl: "*.oms.opinsights.azure.com"
+        - destinationUrl: "*.data.mcr.microsoft.com"
           destinationType: external
-        - destinationUrl: "*.monitoring.azure.com"
+        - destinationUrl: "*.dp.kubernetesconfiguration.azure.com"
           destinationType: external
-        - destinationUrl: "*.handler.control.monitor.azure.com"
+        - destinationUrl: "*.guestnotificationservice.azure.com"
           destinationType: external
-        - destinationUrl: "quay.io"
+        - destinationUrl: "*.his.arc.azure.com"
           destinationType: external
-        - destinationUrl: "*.quay.io"
+        - destinationUrl: "*.login.microsoft.com"
           destinationType: external
-        - destinationUrl: "docker.io"
+        - destinationUrl: "*.login.microsoftonline.com"
           destinationType: external
-        - destinationUrl: "*.docker.io"
+        - destinationUrl: "*.obo.arc.azure.com"
           destinationType: external
-        - destinationUrl: "*.docker.com"
+        - destinationUrl: "*.servicebus.windows.net"
           destinationType: external
-        - destinationUrl: "gcr.io"
-          destinationType: external
-        - destinationUrl: "*.googleapis.com"
+        - destinationUrl: "graph.microsoft.com"
           destinationType: external
         - destinationUrl: "login.windows.net"
+          destinationType: external
+        - destinationUrl: "management.azure.com"
+          destinationType: external
+        - destinationUrl: "mcr.microsoft.com"
+          destinationType: external
+        - destinationUrl: "sts.windows.net"
+          destinationType: external
+        - destinationUrl: "*.ods.opinsights.azure.com"
           destinationType: external
         - destinationUrl: "graph.windows.net"
           destinationType: external
         - destinationUrl: "msit-onelake.pbidedicated.windows.net"
           destinationType: external
-        - destinationUrl: "*.vault.azure.net"
+        - destinationUrl: "*.azurecr.io"
           destinationType: external
-        - destinationUrl: "*.k8s.io"
+        - destinationUrl: "*.azureedge.net"
           destinationType: external
-        - destinationUrl: "*.pkg.dev"
+        - destinationUrl: "*.blob.core.windows.net"
+          destinationType: external
+        - destinationUrl: "*.prod.hot.ingestion.msftcloudes.com"
+          destinationType: external
+        - destinationUrl: "*.prod.microsoftmetrics.com"
+          destinationType: external
+        - destinationUrl: "adhs.events.data.microsoft.com"
+          destinationType: external
+        - destinationUrl: "dc.services.visualstudio.com"
+          destinationType: external
+        - destinationUrl: "go.microsoft.com"
+          destinationType: external
+        - destinationUrl: "packages.microsoft.com"
+          destinationType: external
+        - destinationUrl: "www.powershellgallery.com"
+          destinationType: external
+        - destinationUrl: "*.gw.arc.azure.com"
+          destinationType: external
+        - destinationUrl: "*.gcs.prod.monitoring.core.windows.net"
+          destinationType: external
+        - destinationUrl: "*.prod.warm.ingest.monitor.core.windows.net"
+          destinationType: external
+        - destinationUrl: "*.prod.hot.ingest.monitor.core.windows.net"
+          destinationType: external
+        - destinationUrl: "azure.archive.ubuntu.com"
+          destinationType: external
+        - destinationUrl: "crl.microsoft.com"
+          destinationType: external
+        - destinationUrl: "*.table.core.windows.net"
+          destinationType: external
+        - destinationUrl: "*.blob.storage.azure.net"
+          destinationType: external
+        - destinationUrl: "*.docker.com"
+          destinationType: external
+        - destinationUrl: "*.docker.io"
+          destinationType: external
+        - destinationUrl: "*.googleapis.com"
           destinationType: external
         - destinationUrl: "github.com"
           destinationType: external
-        - destinationUrl: "raw.githubusercontent.com"
+        - destinationUrl: "collect.traefik.io"
+          destinationType: external
+        - destinationUrl: "contracts.canonical.com"
+          destinationType: external
+        - destinationUrl: "database.clamav.net"
+          destinationType: external
+        - destinationUrl: "esm.ubuntu.com"
+          destinationType: external
+        - destinationUrl: "livepatch.canonical.com"
+          destinationType: external
+        - destinationUrl: "motd.ubuntu.com"
+          destinationType: external
+        - destinationUrl: "update.traefik.io"
           destinationType: external
         sourceIpRange:
         - addressPrefix: "0.0.0.0"
@@ -131,7 +185,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To validate the instance, run:
 
     ```bash
-    kubectl get pods -n azure-iot-operations
+    kubectl get pods
     ```
 
     The output should look like:
@@ -145,7 +199,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To view the service, run:
 
     ```bash
-    kubectl get services -n azure-iot-operations
+    kubectl get services
     ```
 
     The output should look like the following example:
@@ -157,7 +211,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To view the config maps, run:
 
     ```bash
-    kubectl get cm -n azure-iot-operations
+    kubectl get cm
     ```
     The output should look like the following example:
     ```
@@ -177,7 +231,7 @@ In level 3, you create a K3S Kubernetes cluster on a Linux virtual machine. To s
 1. On the Linux VM, install and configure K3S using the following commands:
 
     ```bash
-    curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
+    curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
     ```
 1. Configure network isolation for level 3. Use the following steps to configure the level 3 cluster to only send traffic to Layered Network Management in level 4.
     - Browse to the **network security group** of the VM's network interface.

@@ -9,22 +9,14 @@ items:
     href: /azure/virtual-machines/workloads/oracle/
 - name: Oracle Database@Azure
   items:
-  - name: What's new
-    href: oracle-db/oracle-database-what-is-new.md
-  - name: Region availability
-    href: oracle-db/oracle-database-regions.md
   - name: Get started
     href: oracle-db/oracle-database-get-started.md
-  - name: Compliance information
-    href: oracle-db/oracle-database-compliance.md
   - name: Overview
     href: oracle-db/database-overview.md
+  - name: Region availability
+    href: oracle-db/oracle-database-regions.md
   - name: Network planning
     href: oracle-db/oracle-database-network-plan.md
-  - name: Groups and roles
-    href: oracle-db/oracle-database-groups-roles.md
-  - name: Troubleshoot
-    href: oracle-db/oracle-database-troubleshoot.md
   - name: Known issues
     href: oracle-db/oracle-database-known-issues.md
   - name: Onboarding
@@ -39,47 +31,13 @@ items:
       href: oracle-db/oracle-database-plan-ip.md
     - name: Delegated subnet limits
       href: oracle-db/oracle-database-delegated-subnet-limits.md      
-  - name: Exadata services
-    items:
-    - name: What's new in Exadata services
-      href: oracle-db/exadata-whats-new-services.md
-    - name: Provision an Exadata infrastructure
-      href: oracle-db/exadata-provision-infrastructure.md
-    - name: Manage Exadata resources
-      href: oracle-db/exadata-manage-resources.md
-    - name: Operations processes for Exadata services
-      href: oracle-db/exadata-operations-processes-services.md
-    - name: OCI multicloud landing zone for Azure
-      href: oracle-db/exadata-multicloud-landing-zone-azure-services.md
-    - name: Terraform/OpenTofu examples for Exadata services
-      href: oracle-db/exadata-examples-services.md
-    - name: Troubleshoot Exadata services
-      href: oracle-db/exadata-troubleshoot-services.md
-  - name: Autonomous Database services
-    items:
-    - name: What's new in Autonomous Database services
-      href: oracle-db/oracle-database-whats-new-autonomous-database-services.md
-    - name: Provision an autonomous database
-      href: oracle-db/provision-autonomous-oracle-databases.md
-    - name: Manage Autonomous Database resources
-      href: oracle-db/oracle-database-manage-autonomous-database-resources.md
-    - name: Autonomous Database services in Azure
-      href: oracle-db/oracle-database-autonomous-database-services.md
-    - name: Operations processes for Autonomous Database services
-      href: oracle-db/oracle-database-processes-autonomous-database-services.md
-    - name: Provision an Autonomous Database instance
-      href: oracle-db/oracle-database-provision-autonomous-database.md
-    - name: OCI multicloud landing zone for Azure
-      href: oracle-db/oracle-cloud-infrastructure-azure-autonomous-database-services.md
-    - name: Terraform/OpenTofu examples for Autonomous Database services
-      href: oracle-db/oracle-database-examples-autonomous-database-services.md
-    - name: Troubleshoot Autonomous Database services
-      href: oracle-db/oracle-database-troubleshoot-autonomous-database-services.md     
-  - name: Link Oracle Database@Azure to multiple Azure subscriptions
-    href: oracle-db/link-oracle-database-multiple-subscription.md
-  - name: Support
-    href: oracle-db/oracle-database-support.md
-  - name: FAQ
-    href: oracle-db/faq-oracle-database-azure.md
-  
- 
+- name: FAQ
+  href: oracle-db/faq-oracle-database-azure.md
+- name: References
+  items:
+  - name: Well Architected Framework (WAF)
+    href: /azure/well-architected/
+  - name: Cloud Adoption Framework (CAF)
+    href: /azure/cloud-adoption-framework/
+  - name: Azure VMware Solution landing zone accelerator
+    href: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone

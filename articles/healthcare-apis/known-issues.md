@@ -20,6 +20,7 @@ Refer to the table for details about resolution dates or possible workarounds.
 
 |Issue | Date discovered | Workaround | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
+|Customers can't access FHIR, DICOM, or Medtech through the portal. | October 31, 2024 1:00 pm PST | ARM calls are still operational, and there's no disruption to existing services. | -- |
 |For FHIR instances created after August 19,2024, diagnostic logs aren't available in log analytics workspace. |September 19,2024 9:00 am PST| -- | October 17,2024 9:00 am PST |
 |For FHIR instances created after August 19,2024, in metrics blade - Total requests, Total latency, and Total errors metrics are not being populated. |September 19,2024 9:00 am PST| -- | October 28,2024 9:00 am PST |
 |For FHIR instances created after August 19,2024, changes in private link configuration at the workspace level causes FHIR service to be stuck in 'Updating' state. |September 24,2024 9:00 am PST| Accounts deployed prior to September 27,2024 and facing this issue can follow the steps: <br> 1. Remove private endpoint from the Azure Health Data Services workspace having this issue. On Azure blade, go to Workspace and then click on Networking blade. In networking blade, select existing private link connection and click on 'Remove' <br> 2. Create new private connection to link to the workspace.| September 27,2024 9:00 am PST |
