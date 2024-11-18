@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: confidential containers, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 11/20/2024
 ms.custom: template-how-to
 ---
 
@@ -624,25 +624,25 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
 
 You can configure the following attestation policy settings:
 
-**Reference values**
+**Reference values** (Optional)
 
 You can configure reference values for the Reference Value Provider Service (RVPS) by specifying the trusted digests of your hardware platform.
 
 The client collects measurements from the running software, the Trusted Execution Environment (TEE) hardware and firmware and it submits a quote with the claims to the Attestation Server. These measurements must match the trusted digests registered to the Trustee. This process ensures that the confidential VM (CVM) is running the expected software stack and hasn't been tampered with.
 
-**Secrets for clients**
+**Secret with custom keys for clients** (Optional)
 
-You must create one or more secrets to share with attested clients.
+You can create a secret that contains one or more custom keys for Trustee clients.
 
-**Resource access policy**
+**Resource access policy** (Optional)
 
 You must configure a policy for the Trustee policy engine to determine which resources to access.
 
 Don't confuse the Trustee policy engine with the Attestation Service policy engine, which determines the validity of TEE evidence.
 
-**Attestation policy**
+**Attestation policy** (Optional)
 
-Optional: You can overwrite the default attestation policy by creating your own attestation policy.
+You can overwrite the default attestation policy by creating your own attestation policy.
 
 **Provisioning Certificate Caching Service for TDX**
 
@@ -786,9 +786,83 @@ If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provi
     `$ oc apply -f tdx-config.yaml`
 
 
+**Create a secret for container image signature verification**
+
+If you use container image signature verification, you must create a secret that contains the public container image signing key. The Key Broker Service on the Trustee cluster uses the secret to verify the signature, ensuring that only trusted and authenticated container images are deployed in your environment.
+
+1. Create a secret for container image signature verification by running the following command:
+
+    ```
+    $ oc apply secret generic <type>
+        --from-file=<tag>=./<public_key_file>
+        -n trustee-operator-system
+     ```
+    
+    - Specify the KBS secret type, for example, `img-sig`.
+    - Specify the secret tag, for example, `pub-key`, and the public container image signing key.
+    
+1. Record the `<type>` value. You must add this value to the spec.kbsSecretResources key when you create the KbsConfig custom resource.
+
+**Create the container image signature verification policy**
+
+You create the container image signature verification policy because signature verification is always enabled. **If this policy is missing, the pods will not start.** If you are not using container image signature verification, you create the policy without signature verification.
+
+1. Create a security-policy-config.json file according to the following examples:
+
+    Without signature verification:
+    
+    ```
+    {
+            "default": [
+            {
+            "type": "insecureAcceptAnything"
+            }],
+            "transports": {}
+        }
+    ```
+        
+    With signature verification:
+    
+    ```
+    {
+            "default": [
+            {
+            "type": "insecureAcceptAnything"
+            ],
+            "transports": {
+            "<transport>": {
+            "<registry>/<image>":
+            [
+            {
+            "type": "sigstoreSigned",
+            "keyPath": "kbs:///default/<type>/<tag>"
+            }
+            ]
+            }
+            }
+        }
+    ```
+        
+    - Specify the image repository for transport, for example, "docker":. For more information, see containers-transports 5.
+    - Specify the container registry and image, for example, "quay.io/my-image".
+    - Specify the type and tag of the container image signature verification secret that you created, for example, img-sig/pub-key.
+    
+1. Create the security policy by running the following command:
+
+    ```
+    $ oc apply secret generic security-policy \
+        --from-file=osc=./<security-policy-config.json> \
+        -n trustee-operator-system
+    ```
+    
+    Do not alter the secret type, security-policy, or the key, osc.
+    
+    The security-policy secret is specified in the `spec.kbsSecretResources` key of the KbsConfig custom resource.
+    
+
 ### Create the KbsConfig custom resource
 
-You must create the KbsConfig custom resource to launch Trustee. Then, you check the Trustee pods and pod logs to verify the configuration.
+You must create the KbsConfig custom resource to launch Trustee.
 
 1.	Create a `kbsconfig-cr.yaml` manifest file:
 
@@ -817,7 +891,9 @@ You must create the KbsConfig custom resource to launch Trustee. Then, you check
 
     `$ oc apply -f kbsconfig-cr.yaml`
 
-#### Verification
+#### Verify the Trustee configuration
+
+Verity the Trustee configuration by checking the Trustee pods and logs
 
 1.	Set the default project by running the following command:
 
