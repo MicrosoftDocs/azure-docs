@@ -34,6 +34,10 @@
         - name: Command line
           href: deploy-artifact.md
           displayName: java
+      - name: Deploy your first AI application
+        items:
+        - name: Azd automation
+          href: first-ai-application.md
       - name: Run a job
         items:
         - name: Azure portal
