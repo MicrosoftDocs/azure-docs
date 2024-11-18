@@ -19,7 +19,7 @@ Sustainability data solutions in Fabric has multiple capabilities to help you to
 
 ## Transient faults
 
-[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+[!INCLUDE[introduction to transient faults](includes/reliability-transient-faults-description-include.md)]
 
 In the event of a transient fault during ingestion of emissions data, you need to manually trigger the job again. You can monitor the ingestion job from the Microsoft Fabric monitoring hub.
 
