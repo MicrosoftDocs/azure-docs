@@ -61,13 +61,17 @@ This procedure describes how to onboard an OT network sensor with Defender for I
     1. (Optional) Toggle on the **Automatic Threat Intelligence updates** to have Defender for IoT automatically push [threat intelligence packages](how-to-work-with-threat-intelligence-packages.md) to your OT sensor.
 
     1. In the **Site** section, enter the following details:
-        
+
         |Field name |Description  |
         |---------|---------|
         |**Resource name**     |  Select the site you want to attach your sensors to, or select **Create site** to create a new site.  <br><br>**If you're creating a new site**: <br>1. In the **New site** field, enter your site's name and select the checkmark button. <br>2.  From the **Site size** menu, select your site's size. The sizes listed in this menu are the sizes that you're licensed for, based on the licenses [you'd purchased](how-to-manage-subscriptions.md) in the Microsoft 365 admin center.  <br><br>If you're working with a legacy OT plan, the **Site size** field isn't included.   |
         |**Display name**     |    Enter a meaningful name for your site to be shown across Defender for IoT.   |
         |**Tags**     |   Enter tag key and values to help you identify and locate your site and sensor in the Azure portal.      |
         |**Zone**     | Select the zone you want to use for your OT sensor, or select **Create zone** to create a new one.        |
+
+    For example:
+
+    :::image type="content" source="media/onboard-sensors/onboard-ot-sensor.png" alt-text="{alt-text}":::
 
 1. When you're done with all other fields, select **Register**. A success message appears and your activation file is automatically downloaded.
 
