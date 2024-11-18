@@ -243,18 +243,31 @@ After the steps are successful, you can find the containers running in Docker.
 
 ## Interact with the emulator
 
+By default, emulator uses [config.json](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/ServiceBus-Emulator/Config/Config.json) configuration file. You can configure entities by making changes to configuration file. To know more, visit [make configuration changes](overview-emulator#quota-configuration-changes)
+
 You can use the following connection string to connect to the Service Bus emulator:
 
+ - When the emulator container and interacting application are running natively on local machine, use following connection string:
 ```
-
 "Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
-
+```
+  - Applications (Containerized/Non-containerized) on the different machine and same local network can interact with Emulator using the IPv4 address of the machine. Use following connection string:
+```
+"Endpoint=sb://192.168.y.z;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+```
+  - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes the name of Emulator container is "servicebus-emulator":
+```
+"Endpoint=sb://servicebus-emulator;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+```
+  - Application containers on the different bridge network can interact with Emulator using the "host.docker.internal" as host. Use following connection string:
+```
+"Endpoint=sb://host.docker.internal;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
 ```
 
 With the latest client SDK releases, you can interact with the emulator in various programming languages. For details, see
 [Client SDKs](./sdks.md).
 
-To get started, refer to the [Service Bus emulator samples on GitHub](https://github.com/Azure/azure-event-hubs-emulator-installer/tree/main/Sample-Code-Snippets/dotnet/EventHubs-Emulator-Demo/EventHubs-Emulator-Demo).
+To get started, refer to the [Service Bus emulator samples on GitHub](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/ServiceBus-Emulator/Config/Config.json).
 
 ## Related content
 
