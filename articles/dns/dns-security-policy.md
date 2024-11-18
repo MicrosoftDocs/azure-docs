@@ -29,13 +29,13 @@ DNS logs can be sent to a storage account, log analytics workspace, or event hub
 
 A DNS security policy has the following associated elements and properties:
 - **[Location](#location)**: The Azure region where the security policy is created and deployed.
-- **[DNS traffic rules](#dns-traffic-rules)**: Rules that allow, block, or alert based on priority and domain lists. Rules can be enabled or disabled.
-- **[Virtual network links](#virtual-network-links)**: A link that associates the security policy to a VNet. You can link one security policy per VNet. A single security policy can be associated to multiple VNets.
+- **[DNS traffic rules](#dns-traffic-rules)**: Rules that allow, block, or alert based on priority and domain lists. 
+- **[Virtual network links](#virtual-network-links)**: A link that associates the security policy to a VNet. 
 - **[DNS domain lists](#dns-domain-lists)**: Location-based lists of DNS domains.
 
 DNS Security Policy can be configured using Azure PowerShell or the Azure portal.
 
-### Location
+## Location
 
 A security policy can only apply to VNets in the same region. You can create any number of security policies in the same region. In the following example, two policies are created in each of two different regions (East US and Central US). 
 
@@ -43,7 +43,9 @@ A security policy can only apply to VNets in the same region. You can create any
 
 Keep in mind that >the policy:VNet relationship is 1:N. When you associate a VNet with a security policy (via virtual network links), that VNet can't then be associated with another security policy. A single DNS security policy can be associated with multiple VNets in the same region. 
 
-### DNS traffic rules
+## DNS traffic rules
+
+DNS traffic rules determine the action that is taken for a DNS query. Rules can be enabled or disabled.
 
 To display DNS traffic rules in the Azure portal, select a DNS security policy and then under **Settings**, select **DNS Traffic Rules**. See the following example:
 
@@ -61,7 +63,7 @@ To display DNS traffic rules in the Azure portal, select a DNS security policy a
     * Alert: Permit the query to the associated domain lists and log an alert.
 - Rules can be individually **Enabled** or **Disabled**.
 
-### Virtual network links
+## Virtual network links
 
 DNS security policies only apply to VNets that are linked to the security policy. You can link a single security policy to multiple VNets, however a single VNet can only be linked to one DNS security policy. See the following example.
 
@@ -69,7 +71,7 @@ DNS security policies only apply to VNets that are linked to the security policy
 
 You can only link VNets that are in the same region as the security policy. When you link a VNet to a DNS security policy using a virtual network link, the DNS security policy applies to all resources inside the VNet.
 
-### DNS domain lists
+## DNS domain lists
 
 DNS domain lists are lists of DNS domains that you associate to traffic rules. Select **DNS Domain Lists** under **Settings** for a DNS security policy to view the current domain lists associated with the policy. See the following example:
 
@@ -85,8 +87,12 @@ When viewing a DNS domain list in the Azure portal, you can also select **Settin
 
 ## Requirements and restrictions
 
+Preview access
+- This DNS security policy preview is offered without a requirement to enroll in a pre-release feature preview. However, to access the Azure portal user interface for this policy prior to the next portal update, you must use the [Azure portal preview-enabled link](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_DnsSecurityPolicy=staging&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_DnsSecurityPolicyHidden#browse/Microsoft.Network%2FdnsResolverDomainLists).
+
 Virtual network restrictions:
-- DNS security policies can only be applied to virtual networks in the same region as the DNS security policy.
+- DNS security policies can only be applied to VNets in the same region as the DNS security policy.
+- You can link one security policy per VNet. A single security policy can be associated to multiple VNets.
 
 ## Related content
 
