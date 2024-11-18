@@ -223,7 +223,7 @@ MSSQL_SA_PASSWORD: ""
 > 
 >  - Ensure to place .env file in same directory to docker-compose.yaml file.
 >
->   - Set the MSSQL_SA_PASSWORD environment variable to a strong password of at least eight characters that meets the ([password requirements](/sql/relational-databases/security/password-policy)).
+>   - Set the MSSQL_SA_PASSWORD environment variable to a strong password of at least eight characters that meets the [password requirements](/sql/relational-databases/security/password-policy).
 >   -  When specifying file paths in Windows, use double backslashes (`\\`) instead of single backslashes (`\`) to avoid issues with escape characters.
 
 
@@ -243,7 +243,7 @@ After the steps are successful, you can find the containers running in Docker.
 
 ## Interact with the emulator
 
-By default, emulator uses [config.json](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/ServiceBus-Emulator/Config/Config.json) configuration file. You can configure entities by making changes to configuration file. To know more, visit [make configuration changes](overview-emulator#quota-configuration-changes)
+By default, emulator uses [config.json](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/ServiceBus-Emulator/Config/Config.json) configuration file. You can configure entities by making changes to configuration file. To know more, visit [make configuration changes](overview-emulator.md#quota-configuration-changes)
 
 You can use the following connection string to connect to the Service Bus emulator:
 
