@@ -212,12 +212,9 @@ The creation wizard generated the connectivity string for you already as [.NET c
         1. Select the **Networking** tab.
         1. Unselect **Enable public access**.
         1. Select **Create a private endpoint**.
-        1. In **Resource Group**, select **msdocs-core-sql-tutorial**.
-        1. In **Key vault name**, type a name that consists of only letters and numbers.
-        1. In **Region**, set it to the sample location as the resource group.
-        1. In the dialog, in **Location**, select the same location as your App Service app.
-        1. In **Resource Group**, select **msdocs-core-sql-tutorial**.
+        1. In **Resource group**, select **msdocs-core-sql-tutorial**.
         1. In **Name**, type **msdocs-core-sql-XYZVvaultEndpoint**.
+        1. In **Location**, select the same location as your App Service app.
         1. In **Virtual network**, select **msdocs-core-sql-XYZVnet**.
         1. In **Subnet**, **msdocs-core-sql-XYZSubnet**.
         1. Select **OK**.
@@ -247,7 +244,7 @@ The creation wizard generated the connectivity string for you already as [.NET c
     :::column span="2":::
         **Step 5:** In the **Create connection** dialog for the Key Vault connection:
         1. In **Key Vault**, select the key vault you created earlier.
-        1. Select **Review + Create**. You should see that **System assigned managed identity** is set to **Selected**.
+        1. Select **Review + Create**.
         1. When validation completes, select **Create**.
     :::column-end:::
     :::column:::
@@ -268,7 +265,7 @@ The creation wizard generated the connectivity string for you already as [.NET c
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7:** In the Service Connectors page:
+        **Step 7:** In the Service Connector page:
         1. Select checkbox next to the Cache for Redis connector, then select **Edit**.
         1. Select the **Authentication** tab.
         1. Select **Store Secret in Key Vault**.
@@ -418,7 +415,7 @@ With the SQL Database protected by the virtual network, the easiest way to run [
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Back in the App Service page, in the left menu, select **Development Tools** > **SSH**, then select **Go**.
+        **Step 1:** Back in the App Service page, in the left menu, select **Development Tools** > **SSH**, then select **Go**. The start up takes a few minutes.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-db-schema-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-db-schema-1.png":::
