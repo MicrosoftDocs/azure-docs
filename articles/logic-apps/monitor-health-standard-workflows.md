@@ -133,7 +133,7 @@ This behavior can happen if the logic app resource isn't healthy, or typically, 
 
 1. Check whether the resource can access the associated storage account.
 
-   For example, does the storage account has a networking setting that blocks access? Do you have a networking firewall policy that blocks access?
+   For example, does the storage account have a networking setting that blocks access? Do you have a networking firewall policy that blocks access?
 
 1. If your workflow starts with a [service provider-based trigger](/azure/connectors/built-in#service-provider-based-built-in-connectors), make sure that the trigger successfully works as expected.
 
