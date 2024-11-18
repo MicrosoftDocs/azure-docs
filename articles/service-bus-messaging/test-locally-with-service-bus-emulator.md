@@ -163,7 +163,7 @@ To run the Service Bus emulator locally on Linux or macOS:
 
    ```
 
-2. Save the following .yaml file as _docker-compose.yaml_ to spin up containers for the Service Bus emulator:
+2.To spin up containers for Service Bus emuator, save the following .yaml file as _docker-compose.yaml_
 
 ```
 name: microsoft-azure-messaging-servicebus-emulator
@@ -227,7 +227,7 @@ Be sure to place the .env file in the same directory as the *docker-compose.yaml
 > [!TIP]
 > When you're specifying file paths in Windows, use double backslashes (`\\`) instead of single backslashes (`\`) to avoid confusion with escape characters.
 
-1. Run the following command to run the emulator:
+4. To run the emulator, execute following command:
 
 ```
 
