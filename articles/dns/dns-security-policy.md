@@ -22,7 +22,7 @@ This article provides an overview of DNS security policy. Also see the following
 ## What DNS security policy?
 
 DNS security policy offers the ability to filter and log DNS queries at the virtual network (VNet) level. With DNS security policy you can:
-- Create rules to protect against DNS-based attacks by blocking block name resolution of known or malicious domains. 
+- Create rules to protect against DNS-based attacks by blocking name resolution of known or malicious domains. 
 - Save and view detailed DNS logs to gain inside into your DNS traffic.
 
 DNS logs can be sent to a storage account, log analytics workspace, or event hubs. You can choose to allow, alert, or block DNS queries.
@@ -37,7 +37,7 @@ DNS Security Policy can be configured using Azure PowerShell or the Azure portal
 
 ### Location
 
-A security policy can only apply to VNets in the same region. You can create any number of security policies in the same region. In the following example, two polices are created in each of two different regions (East US and Central US). 
+A security policy can only apply to VNets in the same region. You can create any number of security policies in the same region. In the following example, two policies are created in each of two different regions (East US and Central US). 
 
 ![Screenshot of the list of DNS security policies.](./media/dns-security-policy/policy-list.png)
 
@@ -79,7 +79,7 @@ You can associate a domain list to multiple DNS traffic rules in different secur
 
 ![Screenshot of domains inside a domain list.](./media/dns-security-policy/domain-list-detailed.png)
 
-When viewing a DNS domain list in the Azure portal, you can also select **Settings** > **Associated DNS Traffic Rules** to see a list of all traffic rules and thye associated DNS security policies that reference the DNS domain list.
+When viewing a DNS domain list in the Azure portal, you can also select **Settings** > **Associated DNS Traffic Rules** to see a list of all traffic rules and the associated DNS security policies that reference the DNS domain list.
 
 ![Screenshot of associated domain list traffic rules.](./media/dns-security-policy/domain-list-traffic-rules.png)
 

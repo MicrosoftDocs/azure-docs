@@ -41,7 +41,7 @@ To create a DNS security policy using the Azure portal:
     ![Screenshot of the Basics tab for security policy.](./media/dns-traffic-log-how-to/secpol-basics.png)
 
 5. Select **Next: Virtual Networks Link** and then select **+ Add**.  
-6. VNets in the same region as the security policy are displayed. Select one or more available VNets and then select **Add**. You can't choose a VNet that is already associated with another security policy. In the following example, two VNets have already been associated with a security policy, leaving two VNets available to select.
+6. VNets in the same region as the security policy are displayed. Select one or more available VNets and then select **Add**. You can't choose a VNet that is already associated with another security policy. In the following example, two VNets are associated with a security policy, leaving two VNets available to select.
 
     ![Screenshot of the Virtual Network Links tab for security policy.](./media/dns-traffic-log-how-to/secpol-vnet-links.png)
 
@@ -52,7 +52,7 @@ To create a DNS security policy using the Azure portal:
      > [!NOTE]
      > Virtual network links are created for all VNets displayed in the list, whether or not they are *selected*. Use checkboxes to select VNets for removal from the list.
 
-8. Select **Review + create** and then select **Create**. Choosing **Next: DNS Traffic Rules** is skipped here, but you also have the option to create traffic rules now. In this guide, traffic rules and DNS domain lists are created and applied to DNS security policy later.
+8. Select **Review + create** and then select **Create**. Choosing **Next: DNS Traffic Rules** is skipped here, but you can also create traffic rules now. In this guide, traffic rules and DNS domain lists are created and applied to DNS security policy later.
 
 ## Create a log analytics workspace
 
@@ -102,9 +102,9 @@ To create a DNS domain list using the Azure portal:
 
     ![Screenshot of creating a DNS Domain List.](./media/dns-traffic-log-how-to/create-domain-list.png)
 
-7. When you have completed entering domain names, select **Review + create** and then select **Create**.
+7. When you complete entering domain names, select **Review + create** and then select **Create**.
 
-Repeat this section to create additional domain lists if desired. Each domain list can be associated to a traffic rule that has one of three actions:
+Repeat this section to create more domain lists if desired. Each domain list can be associated to a traffic rule that has one of three actions:
 
 - **Allow**: Permit the DNS query and log it.
 - **Block**: Block the DNS query and log the block action.
@@ -150,7 +150,7 @@ See the following example:
 
 [ ![Screenshot of an example log analytics query.](./media/dns-traffic-log-how-to/test-query.png) ](./media/dns-traffic-log-how-to/test-query.png#lightbox)
 
-Recall that the traffic rule containing contoso.com was set to **Allow** queries. The query from the VM results in a successful response:
+Recall that the traffic rule containing contoso.com was set to **Allow** queries. The query from the virtual machine results in a successful response:
 
 ```cmd
 C:\>dig db.sec.contoso.com +short
@@ -165,7 +165,7 @@ Expanding the query details in log analytics displays data such as:
 * ResolutionPath: PrivateDnsResolution
 * ResolverPolicyRuleAction: Allow
 
-If the traffic rule is edited and set to **Block** contoso.com queries, the query from the VM results in a failed response. Be sure to select **Save** when you change the components of a rule.
+If the traffic rule is edited and set to **Block** contoso.com queries, the query from the virtual machine results in a failed response. Be sure to select **Save** when you change the components of a rule.
 
 ![Screenshot of editing a traffic rule.](./media/dns-traffic-log-how-to/edit-rule.png)
 
