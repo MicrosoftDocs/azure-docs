@@ -13,7 +13,7 @@ This article is one in a series of articles describing the [deployment path](../
 
 ## Prerequisites
 
-Before you configure traffic mirroring, make sure that you've decided on your sensor locations and the traffic mirroring method.<!-- For more information, see [Prepare an OT site deployment](../best-practices/plan-prepare-deploy.md). keep this link or remove because this is the content below -->
+Before you configure traffic mirroring, make sure that you've decided on your sensor locations and the traffic mirroring method.
 
 ### Sensor location
 

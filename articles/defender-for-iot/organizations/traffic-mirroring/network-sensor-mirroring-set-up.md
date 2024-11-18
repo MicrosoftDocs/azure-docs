@@ -31,9 +31,6 @@ Before you deploy the sensor to the network, it's crucial to review the network 
 
 ## Select the sensor locations and traffic mirroring method
 
-HOw to choose the mirroring method? Assess the size, architecture and tracking needs of your network and use the table to choose the method that best meets your requirements.
-How do we put this into effect?
-
 Based on the network architecture and the chosen mirroring method, select the best locations for your network sensors ensuring that they capture the necessary Layer 2 (L2) traffic.
 
 Complile a list all of the locations in the network where the sensors should be placed. For more information, see [identifying interesting traffic points](../best-practices/understand-network-architecture.md#identifying-interesting-traffic-points).
@@ -48,7 +45,7 @@ Wireshark displays the list of protocols identified by the sensor and the amount
 
 :::image type="content" source="media/guide/deployment-guide-protocols.png" alt-text="Screenshot of the wireshark program protocol output used to confirm and validate OT sensor set up and network protocols communicating with the newly deployed OT sensor":::
 
-This step is crucial to ensure effective monitoring of your OT networks.  For more information, see [is this a good example](configure-mirror-span.md#validate-traffic-mirroring)....<!-- Theo is there a link for this? -->
+This step is crucial to ensure effective monitoring of your OT networks.  For more information, see [validate traffic mirroring](configure-mirror-span.md#validate-traffic-mirroring).
 
 ## Deploy your sensor
 
@@ -56,7 +53,7 @@ After validating the sensor and mirroring method, deploy the sensors. For more i
 
 ## Validate after deployment
 
-It's essential to validate the monitoring interfaces and activate<!-- --> them. We recommend using the Deployment tool in the sensor system setting to monitor the networks being monitored by the sensor.
+It's essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the networks being monitored by the sensor.
 
 :::image type="content" source="media/guide/deployment-guide-post-deployment-system-settings.png" alt-text="Screenshot of the OT sensor systems settings screen, highlighting the Deployment box to be used to help validate the post OT sensor deployment.":::
 
