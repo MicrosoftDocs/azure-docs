@@ -24,7 +24,8 @@ The following list presents the set of features which are currently available in
 
 | Group of features | Capability                                                                            | .NET  | JS | Java | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
-| Core Capabilities | Get Number Type                                                          | ✔️   | ✔️    | ✔️    | ✔️      |
+| Core Capabilities | Get Number Format                                                          | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Get Number Type                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Get Carrier registered name                                         | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Get associated Mobile Network Code, if available (two or three decimal digits used to identify network operator within a country) | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Get associated Mobile Country Code, if available (three decimal digits used to identify the country of a mobile operator) | ✔️   | ✔️    | ✔️    | ✔️      |
