@@ -40,7 +40,7 @@ After deploying OpenShift Sandboxed Containers, deploy Confidential Containers. 
     
 1.	Create the Trustee config map. 
 
-1.	Configure attestation policies (optional).
+1.	Configure attestation policies
 
 1.	Create the KbsConfig custom resource.
 
@@ -622,13 +622,38 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
 
 ### Configure attestation policies
 
-You can configure the following attestation policy settings:
+Configure the following attestation policy settings:
 
-**Reference values** (Optional)
+**Configure reference values**
 
 You can configure reference values for the Reference Value Provider Service (RVPS) by specifying the trusted digests of your hardware platform.
 
 The client collects measurements from the running software, the Trusted Execution Environment (TEE) hardware and firmware and it submits a quote with the claims to the Attestation Server. These measurements must match the trusted digests registered to the Trustee. This process ensures that the confidential VM (CVM) is running the expected software stack and hasn't been tampered with.
+
+1.	Create an `rvps-configmap.yaml` manifest file:
+
+    ```
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: rvps-reference-values
+      namespace: trustee-operator-system
+    data:
+      reference-values.json: |
+        [ 
+        ]
+    ```
+    
+    For `reference-values.json` specify the trusted digests for your hardware platform if required. Otherwise, leave it empty.
+
+1.	Create the RVPS config map by running the following command:
+
+    `$ oc apply -f rvps-configmap.yaml`
+
+
+
+
+<!--
 
 **Secret with custom keys for clients** (Optional)
 
@@ -640,13 +665,105 @@ You must configure a policy for the Trustee policy engine to determine which res
 
 Don't confuse the Trustee policy engine with the Attestation Service policy engine, which determines the validity of TEE evidence.
 
-**Attestation policy** (Optional)
+-->
+
+**Attestation policy**
 
 You can overwrite the default attestation policy by creating your own attestation policy.
+
+1.	Create an attestation-policy.yaml manifest file according to the following example:
+    
+    ```
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: attestation-policy
+      namespace: trustee-operator-system
+    data:
+      default.rego: |
+         package policy
+         import future.keywords.every
+    
+         default allow = false
+    
+         allow {
+            every k, v in input {
+                judge_field(k, v)
+            }
+         }
+    
+         judge_field(input_key, input_value) {
+            has_key(data.reference, input_key)
+            reference_value := data.reference[input_key]
+            match_value(reference_value, input_value)
+         }
+    
+         judge_field(input_key, input_value) {
+            not has_key(data.reference, input_key)
+         }
+    
+         match_value(reference_value, input_value) {
+            not is_array(reference_value)
+            input_value == reference_value
+         }
+    
+         match_value(reference_value, input_value) {
+            is_array(reference_value)
+            array_include(reference_value, input_value)
+         }
+    
+         array_include(reference_value_array, input_value) {
+            reference_value_array == []
+         }
+    
+         array_include(reference_value_array, input_value) {
+            reference_value_array != []
+            some i
+            reference_value_array[i] == input_value
+         }
+    
+         has_key(m, k) {
+            _ = m[k]
+         }
+    ```
+
+    For `package policy`, The attestation policy follows the Open Policy Agent specification. In this example, the attestation policy compares the claims provided in the attestation report to the reference values registered in the RVPS database. The attestation process is successful only if all the values match.
+
+1.	Create the attestation policy config map by running the following command:
+
+    `$ oc apply -f attestation-policy.yaml`
+
 
 **Provisioning Certificate Caching Service for TDX**
 
 If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provisioning Certificate Caching Service (PCCS). The PCCS retrieves Provisioning Certification Key (PCK) certificates and caches them in a local database.
+
+1.	Create a tdx-config.yaml manifest file:
+
+    ```
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: tdx-config
+      namespace: trustee-operator-system
+    data:
+      sgx_default_qcnl.conf: | \
+          {
+            "collateral_service": "https://api.trustedservices.intel.com/sgx/certification/v4/",
+            "pccs_url": "<pccs_url>"
+          }
+    ```
+
+    For `pccs_url`, specify the PCCS URL, for example, https://localhost:8081/sgx/certification/v4/.
+
+1.	Create the TDX config map by running the following command:
+
+    `$ oc apply -f tdx-config.yaml`
+
+
+
+<!--
+
 
 1.	Create an `rvps-configmap.yaml` manifest file:
 
@@ -701,7 +818,7 @@ If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provi
 
     `$ oc apply -f resourcepolicy-configmap.yaml`
 
-1.	Optional: Create an attestation-policy.yaml manifest file according to the following example:
+1.	Create an attestation-policy.yaml manifest file according to the following example:
     
     ```
     apiVersion: v1
@@ -785,6 +902,7 @@ If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provi
 
     `$ oc apply -f tdx-config.yaml`
 
+-->
 
 **Create a secret for container image signature verification**
 
