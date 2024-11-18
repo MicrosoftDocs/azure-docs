@@ -436,6 +436,9 @@ When using MQTT or Kafka as the source, you can specify a [schema](concept-schem
 
 If the source is an asset, the schema is automatically inferred from the asset definition.
 
+> [!TIP]
+> To generate the schema from a sample data file, use the [Azure IoT Operations Schema Generator](https://azure-samples.github.io/explore-iot-operations/).
+
 To configure the schema used to deserialize the incoming messages from a source:
 
 # [Portal](#tab/portal)
@@ -784,6 +787,9 @@ builtInTransformationSettings:
 
 If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data is serialized in JSON with the types inferred. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency. Supported serialization formats are Parquet and Delta.
 
+> [!TIP]
+> To generate the schema from a sample data file, use the [Azure IoT Operations Schema Generator](https://azure-samples.github.io/explore-iot-operations/).
+
 # [Portal](#tab/portal)
 
 For operations experience, you specify the schema and serialization format in the dataflow endpoint details. The endpoints that support serialization formats are Microsoft Fabric OneLake, Azure Data Lake Storage Gen 2, and Azure Data Explorer. For example, to serialize the data in Delta format, you need to upload a schema to the schema registry and reference it in the dataflow destination endpoint configuration.
@@ -822,7 +828,7 @@ To configure a destination for the dataflow, specify the endpoint reference and 
 To send data to a destination other than the local MQTT broker, create a dataflow endpoint. To learn how, see [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md). If the destination isn't the local MQTT broker, it must be used as a source. To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
 
 > [!IMPORTANT]
-> Storage endpoints require a schema reference. If you've created storage destination endpoints for Microsoft Fabric OneLake, ADLS Gen 2, Azure Data Explorer and Local Storage, you must specify schema reference.
+> Storage endpoints require a [schema for serialization](./concept-schema-registry.md). To use dataflow with Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage, you must [specify schema reference](#serialize-data-according-to-a-schema).
 
 # [Portal](#tab/portal)
 

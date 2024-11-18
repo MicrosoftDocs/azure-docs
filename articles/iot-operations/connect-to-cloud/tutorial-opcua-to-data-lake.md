@@ -105,7 +105,10 @@ In the quickstart, the data that comes from the oven asset looks like:
 
 The required schema format for Delta Lake is a JSON object that follows the Delta Lake schema serialization format. The schema should define the structure of the data, including the types and properties of each field. For more details on the schema format, see [Delta Lake schema serialization format documentation](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#schema-serialization-format).
 
-To create a Delta schema that represents the data from the oven asset, create a JSON file with the following content:
+> [!TIP]
+> To generate the schema from a sample data file, use the [Azure IoT Operations Schema Generator](https://azure-samples.github.io/explore-iot-operations/).
+
+For this tutorial, the schema for the data looks like this:
 
 ```json
 {
@@ -121,19 +124,19 @@ To create a Delta schema that represents the data from the oven asset, create a 
           "fields": [
             {
               "name": "SourceTimestamp",
-              "type": "string",
-              "nullable": true,
+              "type": "timestamp",
+              "nullable": false,
               "metadata": {}
             },
             {
               "name": "Value",
               "type": "integer",
-              "nullable": true,
+              "nullable": false,
               "metadata": {}
             }
           ]
         },
-        "nullable": true,
+        "nullable": false,
         "metadata": {}
       },
       {
@@ -143,19 +146,19 @@ To create a Delta schema that represents the data from the oven asset, create a 
           "fields": [
             {
               "name": "SourceTimestamp",
-              "type": "string",
-              "nullable": true,
+              "type": "timestamp",
+              "nullable": false,
               "metadata": {}
             },
             {
               "name": "Value",
               "type": "integer",
-              "nullable": true,
+              "nullable": false,
               "metadata": {}
             }
           ]
         },
-        "nullable": true,
+        "nullable": false,
         "metadata": {}
       },
       {
@@ -165,19 +168,19 @@ To create a Delta schema that represents the data from the oven asset, create a 
           "fields": [
             {
               "name": "SourceTimestamp",
-              "type": "string",
-              "nullable": true,
+              "type": "timestamp",
+              "nullable": false,
               "metadata": {}
             },
             {
               "name": "Value",
               "type": "integer",
-              "nullable": true,
+              "nullable": false,
               "metadata": {}
             }
           ]
         },
-        "nullable": true,
+        "nullable": false,
         "metadata": {}
       }
     ]

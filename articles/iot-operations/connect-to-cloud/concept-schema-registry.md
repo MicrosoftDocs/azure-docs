@@ -81,6 +81,12 @@ Delta:
 }
 ```
 
+### Generate a schema
+
+To generate the schema from a sample data file, use the [Azure IoT Operations Schema Generator](https://azure-samples.github.io/explore-iot-operations/).
+
+For a tutorial that uses the schema generator, see [Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2](./tutorial-opcua-to-data-lake.md).
+
 ## How dataflows use message schemas
 
 Message schemas are used in all three phases of a dataflow: defining the source input, applying data transformations, and creating the destination output.
