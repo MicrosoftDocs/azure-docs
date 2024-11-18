@@ -10,7 +10,7 @@ ms.date: 11/04/2024
 ms.custom: template-how-to
 ---
 
-# Deploy Confidential Containers in an Azure Red Hat OpenShift (ARO) cluster
+# Deploy Confidential Containers in an Azure Red Hat OpenShift (ARO) cluster (Preview)
 
 This article describes the steps required to deploy Confidential Containers for an ARO cluster. This process involves two main parts and multiple steps:
 

@@ -148,6 +148,8 @@ landingContent:
           url: quickstart-feature-flag-spring-boot.md
         - text: Python app
           url: quickstart-feature-flag-python.md
+        - text: Node.js app
+          url: quickstart-feature-flag-javascript.md
       - linkListType: tutorial
         links: 
         - text: Use feature flags in ASP.NET Core
