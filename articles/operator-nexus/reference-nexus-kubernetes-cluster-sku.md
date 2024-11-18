@@ -31,7 +31,7 @@ The general purpose and performance optimized VM SKUs can be used for both worke
 > [!NOTE]
 > To use these VM SKUs, hardware compatibility should be considered. Operator Nexus offers two hardware options: BOM 1.7.3 and BOM 2.0 (More details [here](./reference-operator-nexus-skus.md#compute-skus)). The larger VM SKUs, specifically `NC_G56_224_v1`, `NC_P54_224_v1`, and `NC_E110_448_v1`, can only be supported on hardware BOM 2.0.
 > 
-> Nexus Tenant Kubernetes cluster VM SKUs are compatible with BOM 2.0, enabling users to use them alongside the larger SKUs. However, if a user tries to use BOM 2.0-specific SKUs on BOM 1.7.3 hardware, they will encounter an "insufficient resources" error during resource creation.
+> Nexus Tenant Kubernetes cluster VM SKUs are compatible with BOM 2.0, enabling users to use them alongside the larger VM SKUs. However, if a user tries to use BOM 2.0-specific VM SKUs on BOM 1.7.3 compute hardware, they will encounter an "insufficient resources" error during resource creation.
 
 ## General purpose VM SKUs
 
