@@ -55,20 +55,20 @@ Your codespace will now get created in your browser window. Once creation is don
 
 * Install Tools
 
-| Requirement  | Instructions |
-|--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* + *User Access Administrator* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
-| GitHub Account | Get one for [free](https://github.com/join). |
-| git | [Install git](https://git-scm.com/downloads) |
-| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| Java | Install the [JDK](/java/openjdk/install), recommend 17, or later|
-| Maven | Install the [Maven](https://maven.apache.org/download.cgi).|
-| Azd | [Install Azd](/azure/developer/azure-developer-cli/install-azd).|
+   | Requirement  | Instructions |
+   |--|--|
+   | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* + *User Access Administrator* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
+   | GitHub Account | Get one for [free](https://github.com/join). |
+   | git | Install [git](https://git-scm.com/downloads) |
+   | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
+   | Java | Install the [JDK](/java/openjdk/install), recommend 17, or later|
+   | Maven | Install the [Maven](https://maven.apache.org/download.cgi).|
+   | Azd | Install [Azd](/azure/developer/azure-developer-cli/install-azd).|
 
 * Install extensions
 
    ```bash
-   az extensions add -n containerapp -y
+   az extension add -n containerapp -y
    ```
 
 * Clone the repository
@@ -83,9 +83,10 @@ Your environment is nwo ready to run the next steps. See [Deploy your first AI a
 
 ## Deploy your first AI application
 
-This template uses [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) deployment mododules **gpt-4o** and **text-embedding-ada-002** which may not be available in all Azure regions. Check for [up-to-date region availability](https://learn.microsoft.com/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly
+{: .note }
+> This template uses [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) deployment mododules **gpt-4o** and **text-embedding-ada-002** which may not be available in all Azure regions. Check for [up-to-date region availability](https://learn.microsoft.com/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly
 
-We recommend using **East US**, **East US 2**, **North Central US**, **South Central US**, **Sweden Central**, **West US** and **West US 3**.
+We recommend using region **East US**, **East US 2**, **North Central US**, **South Central US**, **Sweden Central**, **West US** and **West US 3**.
 
 * Login to azd with command
 
@@ -148,17 +149,30 @@ We recommend using **East US**, **East US 2**, **North Central US**, **South Cen
   :::image type="content" source="media/first-ai-application/chat-diag.png" alt-text="Screenshot of AI chat assitant.":::
 
   You can get help by having a natural language chat with the AI assistant. The AI assistant can assist you with the following tasks:
-  1. Querying the registered pet owners
-  1. Adding a new pet owner
-  1. Updating the pet owner's information
-  1. Adding a new pet
-  1. Querying the vets' information
+  - Querying the registered pet owners
+  - Adding a new pet owner
+  - Updating the pet owner's information
+  - Adding a new pet
+  - Querying the vets' information
 
   Please note that the capabilities of the AI assistant depend on the model you deploy in Azure OpenAI.
 
-## General architecture
+## General architecture structure
+
+Here is the architecture structure of the first AI application on Azure Container Apps:
+
+:::image type="content" source="media/first-ai-application/arch-chart.png" alt-text="The architecture structure of first AI application.":::
+
+The key component of this sample:
+- [Azure Container Apps Environment](https://learn.microsoft.com/en-us/azure/container-apps/environment), to run the container apps instances.
+- [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview).
+- [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-intro), to build and save images for the application.
+- [Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/overview) instance for this application.
+- [Managed Identities](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview) for security connections.
 
 ## Key Code changes
+
+
 
 ## Clean up resources
 
