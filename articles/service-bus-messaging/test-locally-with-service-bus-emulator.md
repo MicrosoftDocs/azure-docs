@@ -3,7 +3,7 @@ title: Test locally by using the Azure Service Bus emulator
 description: This article describes how to develop and test locally by using the Service Bus emulator.
 ms.topic: how-to
 ms.author: Saglodha
-ms.date: 05/05/2024
+ms.date: 11/18/2024
 ---
 
 # Test locally by using the Azure Service Bus emulator
@@ -264,7 +264,7 @@ You can use the following connection string to connect to the Service Bus emulat
 "Endpoint=sb://host.docker.internal;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
 ```
 
-You can use the latest client SDKs to interact with the Service Bus emulator across various programming languages. To get started, refer to the [Service Bus emulator samples on GitHub](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/ServiceBus-Emulator/Config/Config.json).
+You can use the latest client SDKs to interact with the Service Bus emulator across various programming languages. To get started, refer to the [Service Bus emulator samples on GitHub](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/Sample-Code-Snippets/NET/ServiceBus.Emulator.Console.Sample).
 
 ## Related content
 
