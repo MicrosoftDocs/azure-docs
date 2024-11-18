@@ -19,8 +19,6 @@ ms.author: patricka
 
 As the IoT Edge for Linux on Windows (EFLOW) application releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge for Linux on Windows devices when a new version is available.
 
-> [!IMPORTANT]
-> Upgrading from EFLOW 1.4 LTS to EFLOW 1.5 LTS is supported using any of the methods described in this article. No special steps are needed to upgrade from EFLOW 1.4 LTS to EFLOW 1.5 LTS.
 
 With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is preinstalled with IoT Edge, and has no package manager, so you can't manually update or change any of the VM components. Instead, the virtual machine is managed with Microsoft Update to keep the components up to date automatically.
 
@@ -31,6 +29,9 @@ Each update consists of two main components that may get updated to latest versi
 The second component is the group of Windows runtime components needed to run and interop with the EFLOW virtual machine. The virtual machine lifecycle and interop is managed through different components: WSSDAgent, EFLOWProxy service, and the PowerShell module. 
 
 EFLOW updates are sequential and you need to update to every version in order. In order to get to the latest version, you'll have to either do a fresh installation using the latest available version, or apply all the previous servicing updates up to the desired version. 
+
+> [!IMPORTANT]
+> Upgrading from EFLOW 1.4 LTS to EFLOW 1.5 LTS is supported using any of the methods described in this article. No special steps are needed to upgrade from EFLOW 1.4 LTS to EFLOW 1.5 LTS.
 
 To find the latest version of Azure IoT Edge for Linux on Windows, see [EFLOW releases](https://aka.ms/AzEFLOW-Releases).
 
