@@ -79,7 +79,7 @@ This procedure describes how to onboard an OT network sensor with Defender for I
 
     For example:
 
-    :::image type="content" source="media/onboard-sensors/onboard-ot-sensor.png" alt-text="Screenshot of the process for onboarding an OT sensor, assigning the site and zone and ":::
+    :::image type="content" source="media/onboard-sensors/onboard-ot-sensor.png" alt-text="Screenshot of the process for onboarding an OT sensor, assigning the site and zone setting." lightbox="media/onboard-sensors/onboard-ot-sensor.png":::
 
 1. When you're done with all other fields, select **Register**. A success message appears and your activation file is automatically downloaded.
 
