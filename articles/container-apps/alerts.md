@@ -30,7 +30,7 @@ After creating a metric chart, you can create a new alert rule.
 1. Select the condition.
     :::image type="content" source="media/observability/metrics-alert-create-condition.png" alt-text="Screenshot of the metric explorer alert rule editor. A condition is automatically created based on the chart settings.":::
 1. Modify the **Alert logic** section to set the alert criteria. You can set the alert to trigger when the metric value is greater than, less than, or equal to a threshold value. You can also set the alert to trigger when the metric value is outside of a range of values. 
-    :::image type="content" source="media/observability/screenshot-configure-alert-signal-logic.png" alt-text="Screenshot of the **configure alert signal logic** in Azure Container Apps.":::
+    :::image type="content" source="media/observability/screenshot-configure-alert-signal-logic.png" alt-text="Screenshot of the configure alert signal logic in Azure Container Apps.":::
 1. Select **Done**.
 1. You can add more conditions to the alert rule by selecting **Add condition** on the **Create an alert rule** page. 
 1. Select the **Details** tab.
@@ -56,7 +56,7 @@ To add more conditions to your alert rule:
 
 Example of selecting a dimension to split an alert.
 
-:::image type="content" source="media/observability/metrics-alert-split-by-dimension.png" alt-text="Screenshot of the metrics explorer alert rule editor. This example shows the Split by dimensions options in the **Configure signal logic** pane.":::
+:::image type="content" source="media/observability/metrics-alert-split-by-dimension.png" alt-text="Screenshot of the metrics explorer alert rule editor. This example shows the Split by dimensions options in the Configure signal logic pane.":::
 
  To learn more about configuring alerts, visit [Create a metric alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-metric-alert)
 
