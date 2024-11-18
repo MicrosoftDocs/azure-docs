@@ -35,7 +35,7 @@ The general purpose and performance optimized VM SKUs can be used for both worke
 
 ## General purpose VM SKUs
 
-| VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) | Compatible Hardware |
+| VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) | Compatible Compute SKUs |
 |---------------|------|--------------|-----------------|---------------------|
 | NC_G56_224_v1 | 56   | 224          | 300             | BOM 2.0             |
 | NC_G48_224_v1 | 48   | 224          | 300             | BOM 1.7.3, BOM 2.0  |
