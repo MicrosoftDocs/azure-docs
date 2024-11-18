@@ -135,7 +135,13 @@ This behavior can happen if the logic app resource isn't healthy, or typically, 
 
    For example, does the storage account has a networking setting that blocks access? Do you have a networking firewall policy that blocks access?
 
-Second, make sure to correctly set up and test any service provider-based trigger to confirm successful operation. A failed service provider-based trigger might create unnecessary scaling, which can dramatically increase your billing costs. For example, a common mistake is setting a trigger without giving your logic app permission or access to the destination, such as a Service Bus queue, Azure Storage blob container, and so on. Also, make sure that you monitor such triggers at all times so you can promptly detect and fix any issues.
+1. If your workflow starts with a [service provider-based trigger](/azure/connectors/built-in#service-provider-based-built-in-connectors), make sure that the trigger successfully works as expected.
+
+   - A failed service provider-based trigger might create unnecessary scaling, which can dramatically increase costs.
+   
+     For example, a common oversight is setting a trigger without giving your logic app permission or access to the destination, such as a Service Bus queue, Storage blob container, and so on.
+   
+   - Make sure to monitor such triggers at all times, so that you can promptly detect and fix any issues.
 
 ### My workflow runs fine in general, but intermittently it stops processing messages for hours.
 
