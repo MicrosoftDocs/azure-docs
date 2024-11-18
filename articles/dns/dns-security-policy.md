@@ -21,36 +21,72 @@ This article provides an overview of DNS security policy. Also see the following
  
 ## What DNS security policy?
 
-DNS security policy offers the ability to filter and log DNS queries at the virtual network (VNet) level and view detailed DNS logs. Think of it like a DNS firewall for your cloud resources. You can allow, alert, or block name resolution of known or malicious domains. The logging capability enables you to gain detailed insight into your DNS traffic. DNS logs can be sent to a storage account, log analytics workspace, or event hubs.
+DNS security policy offers the ability to filter and log DNS queries at the virtual network (VNet) level. With DNS security policy you can:
+- Create rules to protect against DNS-based attacks by blocking block name resolution of known or malicious domains. 
+- Save and view detailed DNS logs to gain inside into your DNS traffic.
+
+DNS logs can be sent to a storage account, log analytics workspace, or event hubs. You can choose to allow, alert, or block DNS queries.
 
 A DNS security policy has the following associated elements and properties:
-- **Location**: A security policy can only apply to VNets in the same region.
-- **DNS traffic rules**: Rules that allow, block, or alert based on priority and domain lists. Rules can be enabled or disabled.
-- **Virtual network links**: You can link one security policy per VNet. A security policy can be associated to multiple VNets.
-- **DNS domain lists**: Location-based lists of DNS domains.
+- **[Location](#location)**: The Azure region where the security policy is created and deployed.
+- **[DNS traffic rules](#dns-traffic-rules)**: Rules that allow, block, or alert based on priority and domain lists. Rules can be enabled or disabled.
+- **[Virtual network links](#virtual-network-links)**: A link that associates the security policy to a VNet. You can link one security policy per VNet. A single security policy can be associated to multiple VNets.
+- **[DNS domain lists](#dns-domain-lists)**: Location-based lists of DNS domains.
 
 DNS Security Policy can be configured using Azure PowerShell or the Azure portal.
 
 ### Location
 
-You can create any number of security policies in the same region. In the following example, two polices are created in each of two different regions (East US and Central US). Keep in mind that the policy:VNet relationship is 1:N. When you associate a VNet with a security policy (via virtual network links), that VNet can't then be associated with another security policy. However, a single DNS security policy can be associated with multiple VNets in the same region. 
+A security policy can only apply to VNets in the same region. You can create any number of security policies in the same region. In the following example, two polices are created in each of two different regions (East US and Central US). 
 
 ![Screenshot of the list of DNS security policies.](./media/dns-security-policy/policy-list.png)
 
+Keep in mind that >the policy:VNet relationship is 1:N. When you associate a VNet with a security policy (via virtual network links), that VNet can't then be associated with another security policy. A single DNS security policy can be associated with multiple VNets in the same region. 
+
 ### DNS traffic rules
+
+To display DNS traffic rules in the Azure portal, select a DNS security policy and then under **Settings**, select **DNS Traffic Rules**. See the following example:
+
+[  ![Screenshot of the list of DNS traffic rules.](./media/dns-security-policy/traffic-rules.png) ](./media/dns-security-policy/traffic-rules.png#lightbox)
+
+- Rules are processed in order of **Priority** in the range 100-65000. Lower numbers are higher priority.
+    * If a domain name is blocked in a lower priority rule, and the same domain is allowed in a higher priority rule, the domain name is allowed.
+    * Rule priority takes precedence over the number of labels in a domain name. If contoso.com is allowed in a higher priority rule, then sub.contoso.com is allowed, even if sub.contoso.com is blocked in a lower priority rule.
+- You can dynamically add and delete rules from the list. Be sure to **Save** after editing rules in the portal.
+- During preview, up to 10 traffic rules are allowed per security policy. This limit will be increased to 100 for general availability.
+- Multiple **DNS Domain Lists** are allowed per rule. You must have at least one DNS domain list. 
+- Each rule is associated with one of three **Traffic Actions**: **Allow**, **Block**, or **Alert**.
+    * Allow: Permit the query to the associated domain lists and log the query.
+    * Block: Block the query to the associated domain lists and log the block action.
+    * Alert: Permit the query to the associated domain lists and log an alert.
+- Rules can be individually **Enabled** or **Disabled**.
 
 ### Virtual network links
 
+DNS security policies only apply to VNets that are linked to the security policy. You can link a single security policy to multiple VNets, however a single VNet can only be linked to one DNS security policy. See the following example.
+
+[  ![Screenshot of the list of virtual network links.](./media/dns-security-policy/virtual-network-links.png) ](./media/dns-security-policy/virtual-network-links.png#lightbox)
+
+You can only link VNets that are in the same region as the security policy. When you link a VNet to a DNS security policy using a virtual network link, the DNS security policy applies to all resources inside the VNet.
+
 ### DNS domain lists
 
+DNS domain lists are lists of DNS domains that you associate to traffic rules. Select **DNS Domain Lists** under **Settings** for a DNS security policy to view the current domain lists associated with the policy. See the following example:
+
+[  ![Screenshot of the list of DNS domain lists.](./media/dns-security-policy/domain-list.png) ](./media/dns-security-policy/domain-list.png#lightbox)
+
+You can associate a domain list to multiple DNS traffic rules in different security policies. 
+
+![Screenshot of domains inside a domain list.](./media/dns-security-policy/domain-list-detailed.png)
+
+When viewing a DNS domain list in the Azure portal, you can also select **Settings** > **Associated DNS Traffic Rules** to see a list of all traffic rules and thye associated DNS security policies that reference the DNS domain list.
+
+![Screenshot of associated domain list traffic rules.](./media/dns-security-policy/domain-list-traffic-rules.png)
 
 ## Requirements and restrictions
 
 Virtual network restrictions:
 - DNS security policies can only be applied to virtual networks in the same region as the DNS security policy.
-- DNS security policy cannot be deleted unless the virtual network links under it are deleted.
-
-
 
 ## Related content
 
