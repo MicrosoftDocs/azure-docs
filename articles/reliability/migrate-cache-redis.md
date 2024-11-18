@@ -4,7 +4,7 @@ description: Learn how to migrate an Azure Cache for Redis instance to availabil
 author: anaharris-ms
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 11/15/2024
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions, subject-reliability
@@ -14,32 +14,31 @@ ms.custom: references_regions, subject-reliability
 
 This guide describes how to migrate your Azure Cache for Redis instance from non-availability zone support to availability zone support.
 
-Azure Cache for Redis supports zone redundancy in its Premium, Enterprise, and Enterprise Flash tiers. A zone-redundant cache runs on VMs spread across multiple availability zone to provide high resilience and availability.  
+Azure Cache for Redis supports zone redundancy in its Standard, Premium, Enterprise, and Enterprise Flash tiers. A zone-redundant cache runs on VMs spread across multiple availability zone to provide high resilience and availability.  
 
-Currently, the only way to convert a resource from non-availability zone support to availability zone support is to redeploy your current cache.
+## Enabling Zone Redundancy for Enterprise, and Enterprise Flash tiers
 
- > [!NOTE]
-   > Zone redundancy isn't supported with geo-replication.
+Currently, the only way to convert a enterprise / enterprise flash resource from non-availability zone support to availability zone support is to redeploy your current cache.
 
-## Prerequisites
+### Prerequisites
 
-To migrate to availability zone support, you must have an Azure Cache for Redis resource in either the Premium, Enterprise, or Enterprise Flash tiers.
+To migrate to availability zone support, you must have an Azure Cache for Redis resource in either the Enterprise, or Enterprise Flash tiers.
 
-## Downtime requirements
+### Downtime requirements
 
 There are multiple ways to migrate data to a new cache. Many of them require some downtime.   
 
-## Migration guidance: redeployment
+### Migration guidance: redeployment
 
-### When to use redeployment
+#### When to use redeployment
 
-Azure Cache for Redis currently doesn’t allow adding availability zone support to an existing cache. The best way to convert a non-zone redundant cache to a zone redundant cache is to deploy a new cache using the availability zone configuration you need, and then migrate your data from the current cache to the new cache. 
+Azure Cache for Redis currently doesn’t allow adding availability zone support to an existing enterprise / enterprise flash cache. The best way to convert a non-zone redundant cache to a zone redundant cache is to deploy a new cache using the availability zone configuration you need, and then migrate your data from the current cache to the new cache. 
 
-### Redeployment considerations
+#### Redeployment considerations
 
 Running multiple caches simultaneously as you convert your data to the new cache creates extra expenses.
 
-### How to redeploy
+#### How to redeploy
 
 1.  To create a new zone redundant cache that meets your requirements, follow the steps in [Enable zone redundancy for Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md). 
 
@@ -51,6 +50,20 @@ Running multiple caches simultaneously as you convert your data to the new cache
 1. Configure your application to point to the new zone redundant cache
 
 1. Delete your old cache
+
+## Enabling Zone Redundancy for Standard and Premium tiers
+
+Updating an existing Standard or Premium cache to use zone redundancy is supported in-place. Users can enable it by selecting **Allocate Zones automatically** from the **Advanced settings** on the Resource menu.
+Users can't disable zone redundancy once it is enabled.
+
+This can also be done by passing 'zonalAllocationPolicy' as 'Automatic' in the request body while updating the cache. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](https://learn.microsoft.com/en-us/rest/api/redis/redis/update?view=rest-redis-2024-11-01&tabs=HTTP#zonalallocationpolicy).
+    - Updating 'zonalAllocationPolicy' to any other value than 'Automatic' is not supported.
+
+  > [!IMPORTANT]
+  > Automatic Zonal Allocation cannot be modified once enabled for a cache.
+
+  > [!IMPORTANT]
+  > Enabling Automatic Zonal Allocation for an existing cache with a different zonal allocation is currently NOT supported for Geo Replicated caches or caches with VNet injection.
 
 ## Next Steps
 
