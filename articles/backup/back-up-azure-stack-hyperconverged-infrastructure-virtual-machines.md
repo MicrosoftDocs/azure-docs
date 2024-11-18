@@ -19,13 +19,13 @@ MABS can back up Azure Local virtual machines in the following scenarios:
 
 - **Azure Local Host**: Back up and recover System State/BMR of the Azure Local host. The MABS protection agent must be installed on the host.
 
-- **Virtual machines in system with local or direct storage**: Back up guest virtual machines in a system that has local or directly attached storage. For example, a hard drive, a storage area network (SAN) device, or a network attached storage (NAS) device.
+- **Virtual machines in cluster with local or direct storage**: Back up guest virtual machines in a cluster that has local or directly attached storage. For example, a hard drive, a storage area network (SAN) device, or a network attached storage (NAS) device.
 
-- **Virtual machines in a system with SSV storage**: Back up guest virtual machines hosted on an Azure Local instance with System Shared Volume (SSV) storage. The MABS protection agent is installed on each system node.
+- **Virtual machines in a cluster with CSV storage**: Back up guest virtual machines hosted on an Azure Local instance with Cluster Shared Volume (CSV) storage. The MABS protection agent is installed on each cluster node.
 
-- **VM Move within a system**: When VMs are moved within a stretched/normal system, MABS continues to protect the virtual machines as long as the MABS protection agent is installed on the Azure Local host. The way in which MABS protects the virtual machines depends on the type of live migration involved. With a VM Move within a system, MABS detects the migration, and backs up the virtual machine from the new system node without any requirement for user intervention. Because the storage location hasn't changed, MABS continues with express full backups. 
+- **VM Move within a cluster**: When VMs are moved within a stretched/normal cluster, MABS continues to protect the virtual machines as long as the MABS protection agent is installed on the Azure Local host. The way in which MABS protects the virtual machines depends on the type of live migration involved. With a VM Move within a cluster, MABS detects the migration, and backs up the virtual machine from the new cluster node without any requirement for user intervention. Because the storage location hasn't changed, MABS continues with express full backups. 
 
-- **VM Move to a different stretched/normal system**: VM Move to a different stretched/normal system is not supported.
+- **VM Move to a different stretched/normal cluster**: VM Move to a different stretched/normal cluster is not supported.
 
 
 
@@ -44,7 +44,7 @@ MABS can back up Azure Local virtual machines in the following scenarios:
 
 ## Host versus guest backup
 
-MABS can do a host or guest-level backup of VMs on Azure Local. At the host level, the MABS protection agent is installed on the Azure Local host machine or system and protects the entire VMs and data files running on that host.   At the guest level, the agent is installed on each virtual machine and protects the workload present on that machine.
+MABS can do a host or guest-level backup of VMs on Azure Local. At the host level, the MABS protection agent is installed on the Azure Local host machine or cluster and protects the entire VMs and data files running on that host.   At the guest level, the agent is installed on each virtual machine and protects the workload present on that machine.
 
 Both methods have pros and cons:
 
@@ -61,8 +61,8 @@ These are the prerequisites for backing up virtual machines with MABS:
 
 | Prerequisite | Details |
 | ------------ | ------- |
-| MABS prerequisites | <ul> <li>If you want to perform item-level recovery for virtual machines (recover files, folders, volumes), then you'll need to install the  Hyper-V role on the MABS server. If you only want to recover the virtual machine and not item-level, then the role isn't required.</li> <li>You can protect up to 800 virtual machines of 100 GB each on one MABS server and allow multiple MABS servers that support larger systems.</li> <li>MABS excludes the page file from incremental backups to improve virtual machine backup performance.</li> <li>MABS can back up a  server or system in the same domain as the MABS server, or in a child or trusted domain. If you want to back up VMs in a workgroup or an untrusted domain, you'll need to set up authentication. For a single  server, you can use NTLM or certificate authentication. For a system, you can use certificate authentication only.</li> <li>Using host-level backup to back up virtual machine data on passthrough disks isn't supported. In this scenario, we recommend you use host-level backup to back up VHD files and guest-level backup to back up the other data that isn't visible on the host.</li> <li>You can back up VMs stored on deduplicated volumes.</li> </ul> |
-| VM | <ul> <li> The version of Integration Components that's running on the virtual machine should be the same as the version of the Azure Local host. </li> <li> For each virtual machine backup you'll need free space on the volume hosting the virtual hard disk files to allow  enough room for differencing disks (AVHDs) during backup. The space must be at least equal to the calculation Initial disk size*Churn rate*Backup window time. If you're running multiple backups on a system, you'll need enough storage capacity to accommodate the AVHDs for each of the virtual machines using this calculation. </li> </ul> |
+| MABS prerequisites | <ul> <li>If you want to perform item-level recovery for virtual machines (recover files, folders, volumes), then you'll need to install the  Hyper-V role on the MABS server. If you only want to recover the virtual machine and not item-level, then the role isn't required.</li> <li>You can protect up to 800 virtual machines of 100 GB each on one MABS server and allow multiple MABS servers that support larger clusters.</li> <li>MABS excludes the page file from incremental backups to improve virtual machine backup performance.</li> <li>MABS can back up a  server or cluster in the same domain as the MABS server, or in a child or trusted domain. If you want to back up VMs in a workgroup or an untrusted domain, you'll need to set up authentication. For a single  server, you can use NTLM or certificate authentication. For a cluster, you can use certificate authentication only.</li> <li>Using host-level backup to back up virtual machine data on passthrough disks isn't supported. In this scenario, we recommend you use host-level backup to back up VHD files and guest-level backup to back up the other data that isn't visible on the host.</li> <li>You can back up VMs stored on deduplicated volumes.</li> </ul> |
+| VM | <ul> <li> The version of Integration Components that's running on the virtual machine should be the same as the version of the Azure Local host. </li> <li> For each virtual machine backup you'll need free space on the volume hosting the virtual hard disk files to allow  enough room for differencing disks (AVHDs) during backup. The space must be at least equal to the calculation Initial disk size*Churn rate*Backup window time. If you're running multiple backups on a cluster, you'll need enough storage capacity to accommodate the AVHDs for each of the virtual machines using this calculation. </li> </ul> |
 | Linux prerequisites | <ul><li> You can back up Linux virtual machines using MABS. Only file-consistent snapshots are supported.</li></ul> |
 
 ## Back up virtual machines
@@ -74,13 +74,13 @@ These are the prerequisites for backing up virtual machines with MABS:
    - Total size of 800 VMs - 80 TB
    - Required space for backup storage - 80 TB
 
-2. Set up the MABS protection agent on the server or each system node.
+2. Set up the MABS protection agent on the server or each cluster node.
 
 3. To deploy the agent, choose one of the following methods:
 
    - **Attach agents**: Select an agent that's already installed.
    - **Install agent**: If you don't have the agent installed:
-     1. To install the agent on each system node, run the following command:
+     1. To install the agent on each cluster node, run the following command:
      
         ```
         Install DPMAgentInstaller.exe`
@@ -106,7 +106,7 @@ These are the prerequisites for backing up virtual machines with MABS:
 
      :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-hyper-v-vm.png" alt-text="Screenshot shows the selection of Hyper-V VMs." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-hyper-v-vm.png":::
 
-   - **Clustered HA VMs**: Select this VM type from the system.
+   - **Clustered HA VMs**: Select this VM type from the cluster.
 
      :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-clustered-vm.png" alt-text="Screenshot shows the selection of Clustered VMs." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-clustered-vm.png":::
 
@@ -171,7 +171,7 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
     - **Recover to original instance**: When you recover to the original instance, the original VHD and all associated checkpoints are deleted. MABS recovers the VHD and other configuration files to the original location using Hyper-V VSS writer. At the end of the recovery process, virtual machines are still highly available.
         The resource group must be present for recovery. If it isn't available, recover to an alternate location and then make the virtual machine highly available.
 
-    - **Recover as virtual machine to any host**: MABS supports alternate location recovery (ALR), which provides a seamless recovery of a protected Azure Local virtual machine to a different host within the same system,  independent of processor architecture. Azure Local virtual machines that are recovered to a system node won't be highly available. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
+    - **Recover as virtual machine to any host**: MABS supports alternate location recovery (ALR), which provides a seamless recovery of a protected Azure Local virtual machine to a different host within the same cluster,  independent of processor architecture. Azure Local virtual machines that are recovered to a cluster node won't be highly available. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
     
         >[!NOTE]
         >- There's limited support for Alternate location recovery (ALR) for Arc VMs. The VM is recovered as a Hyper-V VM, instead of an Arc VM. Currently, conversion of Hyper-V VMs to Arc VMs isn't supported once you create them.
