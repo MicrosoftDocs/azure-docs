@@ -166,19 +166,19 @@ To run the Service Bus emulator locally on Linux or macOS:
 2.To spin up containers for Service Bus emuator, save the following .yaml file as _docker-compose.yaml_
 
 ```
-name: microsoft-azure-messaging-servicebus-emulator
+name: microsoft-azure-servicebus-emulator
 services:
   emulator:
+    container_name: "servicebus-emulator"
     image: mcr.microsoft.com/azure-messaging/servicebus-emulator:latest
     volumes:
-      - "./Config.json:/ServiceBus_Emulator/ConfigFiles/Config.json"
+      - "${CONFIG_PATH}:/ServiceBus_Emulator/ConfigFiles/Config.json"
     ports:
-      - "55672:55672"
+      - "5672:5672"
     environment:
-      # SQL_SERVER: sqledge 
-      SQL_SERVER: sqledge:1533  #Mounting SQL Edge on a custom port as Dev might have SQLExpress Windows Service Running
-      MSSQL_SA_PASSWORD: ""  # Password should be same as what is set for SQL Edge  
-      ACCEPT_EULA: "Y"
+      SQL_SERVER: sqledge  
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
+      ACCEPT_EULA: ${ACCEPT_EULA}
     depends_on:
       - sqledge
     networks:
@@ -188,44 +188,44 @@ services:
   sqledge:
         container_name: "sqledge"
         image: "mcr.microsoft.com/azure-sql-edge:latest"
-        ports:
-          # - "1433:1433"
-          - "1533:1433"  #Mounting SQL Edge on a custom port as Dev might have SQLExpress Windows Service Running
         networks:
           sb-emulator:
             aliases:
               - "sqledge"
         environment:
-          ACCEPT_EULA: "Y"
-          MSSQL_SA_PASSWORD: "" # To be filled by user as per policy : https://learn.microsoft.com/en-us/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
-
+          ACCEPT_EULA: ${ACCEPT_EULA}
+          MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
 networks:
   sb-emulator:
 ```
- 
-3. Create an .env file to declare the environment variables for the Service Bus emulator:
+
+3. Create .env file to declare the environment variables for Service Bus emulator and ensure all of the following environment variables are set.
 
 ```
+# Environment file for user defined variables in docker-compose.yml
 
-# Centralized environment variables store for docker-compose
+# 1. CONFIG_PATH: Path to Config.json file
+# Ex: CONFIG_PATH="C:\\Config\\Config.json"
+CONFIG_PATH="<Replace with path to Config.json file>"
 
-# 1. CONFIG_PATH: Path to config.json file
-
-CONFIG_PATH="<Replace with path to config.json file>"
-
-# 2. ACCEPT_EULA: Pass 'Y' to accept license terms.
-
+# 2. ACCEPT_EULA: Pass 'Y' to accept license terms for Azure SQL Edge and Azure Service Bus emulator.
+# Service Bus emulator EULA : https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/EMULATOR_EULA.txt
+# SQL Edge EULA : https://go.microsoft.com/fwlink/?linkid=2139274
 ACCEPT_EULA="N"
 
+# 3. MSSQL_SA_PASSWORD to be filled by user as per policy : https://learn.microsoft.com/en-us/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
+MSSQL_SA_PASSWORD: ""
 ```
+
 > [!IMPORTANT]
-> By passing the value "Y" to the environment variable "ACCEPT_EULA", you are acknowledging and accepting the terms and conditions of the End User License Agreement (EULA) for both Service bus emulator and SQL edge. For more details, refer 
-> Set the MSSQL_SA_PASSWORD environment variable to a strong password of at least eight characters that meets the [password requirements](https://learn.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-ver16).
+> 
+> - By passing the value "Y" to the environment variable "ACCEPT_EULA", you are acknowledging and accepting the terms and conditions of the End User License Agreement (EULA) for both [Azure Service Bus emulator](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/EMULATOR_EULA.txt) and [Azure SQL Edge](https://go.microsoft.com/fwlink/?linkid=2139274).
+> 
+>  - Ensure to place .env file in same directory to docker-compose.yaml file.
+>
+>   - Set the MSSQL_SA_PASSWORD environment variable to a strong password of at least eight characters that meets the [password requirements](https://learn.microsoft.com/en-us/sql/relational-databases/security/password-policy?view=sql-server-ver16).
+>   -  When specifying file paths in Windows, use double backslashes (`\\`) instead of single backslashes (`\`) to avoid issues with escape characters.
 
-Be sure to place the .env file in the same directory as the *docker-compose.yaml* file.
-
-> [!TIP]
-> When you're specifying file paths in Windows, use double backslashes (`\\`) instead of single backslashes (`\`) to avoid confusion with escape characters.
 
 4. To run the emulator, execute following command:
 
