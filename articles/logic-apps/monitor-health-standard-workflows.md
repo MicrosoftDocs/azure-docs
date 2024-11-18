@@ -151,7 +151,7 @@ If your Standard logic app uses the hosting option named Workflow Service Plan, 
 
 1. On the **Workflow runtime settings** tab, next to **Runtime Scale Monitoring**, select **On**.
 
-1. On the Configuration toolbar, select **Save**.
+1. On the **Configuration** page toolbar, select **Save**.
 
 1. On the logic app menu, under Settings, select **Scale Out**.
 
