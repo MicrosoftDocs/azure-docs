@@ -32,9 +32,6 @@ Two settings are available for network features:
 ## Considerations
 
 * Regardless of the network features option you set (*Standard* or *Basic*), an Azure VNet can only have one subnet delegated to Azure NetApp files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations). 
- 
-    * If the Standard volume capability is supported for the region, the Network Features field of the Create a Volume page defaults to *Standard*. You can change this setting to *Basic*. 
-    * If the Standard volume capability isn't available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you can't modify the setting.
 
 * The ability to locate storage compatible with the desired type of network features depends on the VNet specified. If you can't create a volume because of insufficient resources, you can try a different VNet for which compatible storage is available.
 
@@ -53,13 +50,7 @@ This section shows you how to set the network features option when you create a 
 
 1. During the process of creating a new [NFS](azure-netapp-files-create-volumes.md), [SMB](azure-netapp-files-create-volumes-smb.md), or [dual-protocol](create-volumes-dual-protocol.md) volume, you can set the **Network Features** option to **Basic** or **Standard** under the Basic tab of the Create a Volume screen.
 
-    The following screenshot shows a volume creation example for a region that supports the Standard network features capabilities: 
-
     ![Screenshot that shows volume creation for Standard network features.](./media/configure-network-features/network-features-create-standard.png)
-
-    The following screenshot shows a volume creation example for a region that does *not* support the Standard network features capabilities: 
-
-    ![Screenshot that shows volume creation for Basic network features.](./media/configure-network-features/network-features-create-basic.png)
 
 2. Before completing the volume creation process, you can display the specified network features setting in the **Review + Create** tab of the Create a Volume screen. Select **Create** to complete the volume creation.
 
