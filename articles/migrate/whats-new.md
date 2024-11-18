@@ -18,8 +18,7 @@ ms.custom: mvc, engagement-fy24
 
 - AVS assessments now support cost assessments with AV64 SKU and Azure NetApp Files (ANF) as an external storage option. [Learn more](how-to-create-azure-vmware-solution-assessment.md).
 - Support for cost of SKUs when porting on-premises VCF subscription to AVS.
-- Envision savings with Azure Hybrid Benefit by bringing your existing Enterprise Linux subscriptions (RHEL and SLES) in VMware and Hyper-V environments to Azure.[Learn more](tutorial-migrate-hyper-v.md).
-
+- Support for migrating Enterprise Linux machines (RHEL and SLES) in VMware and Hyper-V environments to Azure, leveraging Azure Hybrid benefit. [Learn more](tutorial-migrate-hyper-v.md).
 
 ## Update (October 2024)
 
