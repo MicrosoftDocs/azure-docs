@@ -54,7 +54,7 @@ Then, complete the following steps:
 
 Next, set up the AKS workload to connect to Azure Cache for Redis after you configure the AKS cluster.
 
-1. Download the code for the [sample app](https://github.com/Azure-Samples/azure-cache-redis-sample/connect-from-aks).
+1. Download the code for the [sample app](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/connect-from-aks/ConnectFromAKS).
 
 1. Build and push docker image to your Azure Container Registry using [az acr build](/cli/azure/acr#az-acr-build) command.
 
