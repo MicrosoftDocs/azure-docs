@@ -1,6 +1,6 @@
 ---
-title: Use dynamic DNS to register host names in Azure
-description: Learn how to set up dynamic DNS to register host names in your own DNS servers.
+title: Use dynamic DNS to register hostnames in Azure
+description: Learn how to set up dynamic DNS to register hostnames in your own DNS servers.
 services: dns
 author: greg-lindsay
 manager: kumud
@@ -12,15 +12,15 @@ ms.date: 04/27/2023
 ms.author: greglin
 ---
 
-# Use dynamic DNS to register host names in your own DNS server
+# Use dynamic DNS to register hostnames in your own DNS server
 
 [Azure provides name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) for virtual machines (VMs) and role instances. When your name resolution needs exceed the capabilities provided by the Azure default Domain Name System (DNS), you can provide your own DNS servers. Using your own DNS servers gives you the ability to tailor your DNS solution to suit your own specific needs. For example, you might need to access on-premises resources via your Active Directory domain controller.
 
-When your custom DNS servers are hosted as Azure VMs, you can forward host-name queries for the same virtual network to Azure to resolve host names. If you don't want to use this option, you can register your VM host names in your DNS server by using dynamic DNS (DDNS). Azure doesn't have the credentials to directly create records in your DNS servers, so alternative arrangements are often needed. This article describes some common scenarios, with alternatives.
+When your custom DNS servers are hosted as Azure VMs, you can forward host-name queries for the same virtual network to Azure to resolve hostnames. If you don't want to use this option, you can register your VM hostnames in your DNS server by using dynamic DNS (DDNS). Azure doesn't have the credentials to directly create records in your DNS servers, so alternative arrangements are often needed. This article describes some common scenarios, with alternatives.
 
 ## Windows clients
 
-Non-domain-joined Windows clients attempt unsecured DDNS updates when they boot or when their IP address changes. The DNS name is the host name plus the primary DNS suffix. Azure leaves the primary DNS suffix blank, but you can set the suffix in the VM, via the [user interface](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794784(v=ws.10)) or [PowerShell](/powershell/module/dnsclient/set-dnsclient).
+Non-domain-joined Windows clients attempt unsecured DDNS updates when they boot or when their IP address changes. The DNS name is the hostname plus the primary DNS suffix. Azure leaves the primary DNS suffix blank, but you can set the suffix in the VM, via the [user interface](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794784(v=ws.10)) or [PowerShell](/powershell/module/dnsclient/set-dnsclient).
 
 Domain-joined Windows clients register their IP addresses with the domain controller by using secure DDNS. The domain-join process sets the primary DNS suffix on the client and creates and maintains the trust relationship.
 
