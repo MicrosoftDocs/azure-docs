@@ -11,7 +11,7 @@ ms.author: duau
 
 # Designing for high availability with Azure ExpressRoute
 
-Azure ExpressRoute is designed for high availability, providing carrier-grade private network connectivity to Microsoft resources. This means there is no single point of failure within the Microsoft network. To maximize availability, both the customer and service provider segments of your Azure ExpressRoute circuit should also be architected for high availability. This article covers network architecture considerations for building robust connectivity using Azure ExpressRoute and fine-tuning features to improve the high availability of your Azure ExpressRoute circuit.
+Azure ExpressRoute is designed for high availability, providing carrier-grade private network connectivity to Microsoft resources. This means there's no single point of failure within the Microsoft network. To maximize availability, both the customer and service provider segments of your Azure ExpressRoute circuit should also be architected for high availability. This article covers network architecture considerations for building robust connectivity using Azure ExpressRoute and fine-tuning features to improve the high availability of your Azure ExpressRoute circuit.
 
 > [!NOTE]
 > The concepts described in this article apply equally whether an Azure ExpressRoute circuit is created under Virtual WAN or outside of it.
@@ -57,11 +57,11 @@ Microsoft peering is designed for communication between public endpoints. Typica
 
 NAT is applied after splitting traffic between the primary and secondary connections. Independent NAT pools are used for the primary and secondary devices to meet stateful NAT requirements. Return traffic arrives on the same edge device through which the flow egressed.
 
-If an Azure ExpressRoute connection fails, the corresponding NAT pool becomes unreachable, breaking all network flows. These flows must be re-established by TCP or the application layer following the window timeout. During the failure, Azure cannot reach on-premises servers using the corresponding NAT until connectivity is restored.
+If an Azure ExpressRoute connection fails, the corresponding NAT pool becomes unreachable, breaking all network flows. These flows must be re-established by TCP or the application layer following the window timeout. During the failure, Azure can't reach on-premises servers using the corresponding NAT until connectivity is restored.
 
 #### Option 2:
 
-A common NAT pool is used before splitting traffic between the primary and secondary connections. This does not introduce a single point of failure, thus maintaining high availability.
+A common NAT pool is used before splitting traffic between the primary and secondary connections. This doesn't introduce a single point of failure, thus maintaining high availability.
 
 The NAT pool remains reachable even if the primary or secondary connection fails, allowing the network layer to reroute packets and recover faster.
 
