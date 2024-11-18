@@ -1,18 +1,29 @@
-items:
-  - name: Firmware analysis
-    items:
-    - name: Firmware analysis frequently asked questions
-      href: firmware-analysis-faq.md
-    - name: Firmware analysis role-based access control
-      href: firmware-analysis-rbac.md
-    - name: Overview of Firmware analysis
-      href: overview-firmware-analysis.md
-    - name: Quickstart to use Firmware analysis with Azure CLI
-      href: quickstart-upload-firmware-using-azure-command-line-interface.md
-    - name: Quickstart to use Firmware analysis with Azure PowerShell
-      href: quickstart-upload-firmware-using-powershell.md
-    - name: Quickstart to use Firmware analysis with a Python script
-      href: quickstart-upload-firmware-using-python.md
-    - name: Tutorial using Firmware analysis with the Azure portal
-      href: tutorial-analyze-firmware.md
-      
+- name: "Overview"
+  items:
+  - name: Overview of Firmware analysis
+    href: overview-firmware-analysis.md
+  - name: Firmware analysis frequently asked questions
+    href: firmware-analysis-faq.md
+  - name: What's new?
+    href: release-notes.md
+- name: Quickstarts
+  items:
+  - name: Quickstart to use Firmware analysis with Azure CLI
+    href: quickstart-upload-firmware-using-azure-command-line-interface.md
+  - name: Quickstart to use Firmware analysis with Azure PowerShell
+    href: quickstart-upload-firmware-using-powershell.md
+  - name: Quickstart to use Firmware analysis with a Python script
+    href: quickstart-upload-firmware-using-python.md
+- name: Tutorial using Firmware analysis with the Azure portal
+  href: tutorial-analyze-firmware.md
+- name: Concepts
+  items:
+  - name: Firmware analysis role-based access control
+    href: firmware-analysis-rbac.md
+- name: How-to guides
+  items:
+  - name: Automate firmware analysis using service principals
+    href: automate-firmware-analysis-service-principals.md
+  - name: Interpreting extractor paths from analysis results
+    href: interpreting-extractor-paths.md
+    

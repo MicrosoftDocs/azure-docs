@@ -156,15 +156,13 @@ You have a choice of operating systems (OS) that you can use for session hosts t
 To learn more about licenses you can use, including per-user access pricing, see [Licensing Azure Virtual Desktop](licensing.md).
 
 > [!IMPORTANT]
-> - The following items are not supported:
+> - The following items aren't supported for session hosts:
 >   - 32-bit operating systems.
 >   - N, KN, LTSC, and other editions of Windows operating systems not listed in the previous table.
 >   - [Ultra disks](/azure/virtual-machines/disks-types#ultra-disks) for the OS disk type.
 >   - [Ephemeral OS disks for Azure VMs](/azure/virtual-machines/ephemeral-os-disks).
 >   - [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
-> 
-> - Support for Windows 7 ended on January 10, 2023.
-> - Support for Windows Server 2012 R2 ended on October 10, 2023.
+>   - Arm64-based Azure VMs.
 
 For Azure, you can use operating system images provided by Microsoft in the [Azure Marketplace](https://azuremarketplace.microsoft.com), or create your own custom images stored in an Azure Compute Gallery or as a managed image. Using custom image templates for Azure Virtual Desktop enables you to easily create a custom image that you can use when deploying session host virtual machines (VMs). To learn more about how to create custom images, see:
 

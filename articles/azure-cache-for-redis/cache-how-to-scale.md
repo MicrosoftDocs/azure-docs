@@ -27,9 +27,9 @@ There are fundamentally two ways to scale an Azure Cache for Redis Instance:
 
 |Tier     | Basic and Standard | Premium  | Enterprise and Enterprise Flash  |
 |---------|---------|---------|----------|
-|Scale Up  | Yes    | Yes  | Yes (preview) |
+|Scale Up  | Yes    | Yes  | Yes |
 |Scale Down  | Yes    | Yes  | No |
-|Scale Out  | No    | Yes  | Yes (preview) |
+|Scale Out  | No    | Yes  | Yes |
 |Scale In  | No    | Yes  | No |
 
 ## When to scale
