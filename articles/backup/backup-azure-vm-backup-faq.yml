@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 10/21/2024
+  ms.date: 11/30/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 
@@ -337,7 +337,7 @@ sections:
           The old VM's restore points will be available for restore if needed. If you don't need this backup data, you can stop protecting your old VM with delete data.
 
       - question: Is there a limit on number of VMs that can be associated with the same backup policy?
-        answer: Yes, there's a limit of 100 VMs that can be associated to the same backup policy from the portal. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.<br><br>There is a daily limit of 1000 for overall configure/modify protections in a vault.
+        answer: Yes, there's a limit of 100 VMs that can be associated to the same backup policy. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.<br><br>There is a daily limit of 1000 for overall configure/modify protections in a vault.
 
       - question: How can I view the retention settings for my backups?
         answer: |
