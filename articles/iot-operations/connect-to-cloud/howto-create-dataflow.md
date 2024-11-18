@@ -437,7 +437,7 @@ When using MQTT or Kafka as the source, you can specify a [schema](concept-schem
 If the source is an asset, the schema is automatically inferred from the asset definition.
 
 > [!TIP]
-> To generate the schema from a sample data file, use the [Azure IoT Operations Schema Generator](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+> To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
 
 To configure the schema used to deserialize the incoming messages from a source:
 
@@ -788,7 +788,7 @@ builtInTransformationSettings:
 If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data is serialized in JSON with the types inferred. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency. Supported serialization formats are Parquet and Delta.
 
 > [!TIP]
-> To generate the schema from a sample data file, use the [Azure IoT Operations Schema Generator](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+> To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
 
 # [Portal](#tab/portal)
 

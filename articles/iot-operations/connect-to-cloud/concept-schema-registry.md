@@ -83,7 +83,7 @@ Delta:
 
 ### Generate a schema
 
-To generate the schema from a sample data file, use the [Azure IoT Operations Schema Generator](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
 
 For a tutorial that uses the schema generator, see [Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2](./tutorial-opcua-to-data-lake.md).
 
