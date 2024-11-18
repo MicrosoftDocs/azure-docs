@@ -170,6 +170,8 @@ The key component of this sample:
 - [Azure Container Apps](/azure/container-apps/overview) instance for this application.
 - [Managed Identities](/entra/identity/managed-identities-azure-resources/overview) for security connections.
 
+Read the [bicep scripts](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/infra/bicep/main.bicep) to learn more about the deployment of the structure.
+
 ## How to implement the first AI application
 
 This sample is an AI chat assistent based on Retrieval Augmented Generation(RAG), it uses Spring AI SDKs to connect to Azure OpenAI service.
