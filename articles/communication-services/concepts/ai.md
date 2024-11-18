@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Artificial intelligence (AI) overview
+# Artificial intelligence overview
 
-Artificial intelligence (AI) technologies are useful for various communication experiences. This article summarizes the availability of AI and AI-adjacent features in Azure Communication Services. AI features can be split into three categories:
+AI technologies are useful for various communication experiences. This article summarizes the availability of AI and AI-adjacent features in Azure Communication Services. AI features can be split into three categories:
 
 - **Accessors**: APIs that you can use to access Azure Communication Services data for the purposes of integrating your own separate transformations and bots.
 - **Transformers**: APIs that provide a built-in transformation of communication data by using a machine learning or language model.
@@ -44,7 +44,7 @@ The patterns for integrating AI into the voice and video system are summarized h
 |--|--|--|--|--|
 | [Call Automation REST APIs and SDKs](../concepts/call-automation/call-automation.md) | ✅ | ✅ |  | Call Automation APIs include both accessors and transformers, with REST APIs for playing audio files and recognizing a user’s response. The `recognize` APIs integrate Azure Bot Service to transform users' audio content into text for easier processing by your service. The most common scenario for these APIs is implementing voice bots, which is sometimes called interactive voice response (IVR). |
 | [Microsoft Copilot Studio](/microsoft-copilot-studio/voice-overview) | | ✅ | ✅ | Copilot Studio is directly integrated with Azure Communication Services telephony. This integration is designed for voice bots and IVR. |
-| [Azure portal Copilot](/azure/communication-services/concepts/voice-video-calling/call-diagnostics#copilot-in-azure-for-call-diagnostics) | | ✅ | ✅ | You can use Copilot in the Azure portal to ask questions about Azure Communication Services. Currently, this Copilot answers questions by using information solely from Azure's technical documentation. It's best used for asking questions about error codes and API behavior. |
+| [Copilot in the Azure portal](/azure/communication-services/concepts/voice-video-calling/call-diagnostics#copilot-in-azure-for-call-diagnostics) | | ✅ | ✅ | You can use Copilot in the Azure portal to ask questions about Azure Communication Services. Currently, Copilot answers questions by using information solely from Azure technical documentation. It's best used for asking questions about error codes and API behavior. |
 | [Client raw audio and video](../concepts/voice-video-calling/media-access.md)  | ✅ | |  | The Calling client SDK provides APIs for accessing and modifying the raw audio and video feed. An example scenario is taking the video feed, detecting the human speaker and their background, and customizing that background. |
 | [Client background effects](../quickstarts/voice-video-calling/get-started-video-effects.md?pivots=platform-web)| | ✅ |  | The Calling client SDKs provide APIs for blurring or replacing a user's background. |
 | [Client captions](../concepts/voice-video-calling/closed-captions.md) | | ✅ |  | The Calling client SDK provides APIs for real-time closed captions. These APIs internally integrate Azure Cognitive Services to transform audio content from the call into text in real time. |

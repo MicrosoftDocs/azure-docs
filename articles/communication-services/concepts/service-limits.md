@@ -32,7 +32,7 @@ Find more general guidance on how to set up your service architecture to handle 
 1. Select **Create new support request**.
 1. In the **Describe your issue** text box, enter **Technical**, and then select **Go**.
 1. From the **Select a service** dropdown menu, select **Service and Subscription Limits (Quotas)**, and then select **Next**.
-1. At the **Problem** description, choose the **Issue type**, **Subscription**, and **Quota type**, and then select **Next**.
+1. At the **Problem** description, choose the **Issue type**, **Subscription**, and **Quota type** values, and then select **Next**.
 1. Review any recommended solution, if available, and then select **Next**.
 1. Add other details as needed, and then select **Next**.
 1. At **Review + create**, check the information, make changes as needed, and then select **Create**.
@@ -59,7 +59,7 @@ To increase number purchase limits, make a request to Azure Support.
 1. Select **Create new support request**.
 1. In the **Describe your issue** text box, enter **Technical**, and then select **Go**.
 1. From the **Select a service** dropdown menu, select **Service and Subscription Limits (Quotas)**, and then select **Next**.
-1. At the **Problem** description, choose the **Issue type**, **Subscription**, and **Quota type**, and then select **Next**.
+1. At the **Problem** description, choose the **Issue type**, **Subscription**, and **Quota type** values, and then select **Next**.
 1. Review any recommended solutions, if available, and then select **Next**.
 1. Add more details as needed, and then select **Next**.
 1. At **Review + create** check the information, make changes as needed, and then select **Create**.
@@ -83,7 +83,7 @@ For more information, see [Authenticate to Azure Communication Services](./authe
 
 ## SMS
 
-When you send or receive a high volume of messages, you might receive a ```429``` error. This error indicates that you're reaching the service limitations. Your messages are queued to be sent after the number of requests is below the threshold.
+When you send or receive a high volume of messages, you might receive a ```429``` error. This error indicates that you're about to reach the service limitations. Your messages are queued and are sent after the number of requests is below the threshold.
 
 Rate limits for SMS:
 
@@ -101,15 +101,15 @@ For more information on the SMS SDK and service, see [SMS SDK overview](./sms/sd
 
 ## Email
 
-You can send a limited number of email messages. If you exceed the following limits for your subscription, your requests are rejected. You can attempt these requests again, after the `Retry-After` time passes. Take action before you reach the limit by requesting to raise your sending volume limits, if needed.
+You can send a limited number of email messages. If you exceed the following limits for your subscription, your requests are rejected. You can attempt these requests again, after the `Retry-After` time passes. Take action before you reach the limit. Request to raise your sending volume limits, if needed.
 
-The Azure Communication Services email service is designed to support high throughput. The service imposes initial rate limits to help customers onboard smoothly and avoid some of the issues that can occur when switching to a new email service. We recommend that you gradually increase your email volume by using Azure Communication Services email over a period of two to four weeks. During this time, closely monitor the delivery status of your emails. This gradual increase enables third-party email service providers to adapt to the change in IP for your domain's email traffic. The gradual change gives you time to protect your sender reputation and maintain the reliability of your email delivery.
+The Azure Communication Services email service is designed to support high throughput. The service imposes initial rate limits to help customers onboard smoothly and avoid some of the issues that can occur when switching to a new email service. We recommend that you use Azure Communication Services email over a period of two to four weeks to gradually increase your email volume. During this time, closely monitor the delivery status of your emails. This gradual increase enables third-party email service providers to adapt to the change in IP for your domain's email traffic. The gradual change gives you time to protect your sender reputation and maintain the reliability of your email delivery.
 
 ### Rate limits for email
 
-We approve higher limits for customers based on use case requirements, domain reputation, traffic patterns, and failure rates. To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are only available for verified custom domains, not Azure-managed domains.
+We approve higher limits for customers based on use case requirements, domain reputation, traffic patterns, and failure rates. To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are available only for verified custom domains, not Azure-managed domains.
 
-[Custom domains](../quickstarts/email/add-custom-verified-domains.md)
+The following table lists [Custom domains](../quickstarts/email/add-custom-verified-domains.md).
 
 | Operation | Scope | Time frame (minutes) | Limit (number of emails) |
 |---------|-----|-------------|-------------------|
@@ -118,7 +118,7 @@ We approve higher limits for customers based on use case requirements, domain re
 |Get email status|Per subscription|1|60|
 |Get email status|Per subscription|60|200|
 
-[Azure managed domains](../quickstarts/email/add-azure-managed-domains.md)
+The following table lists [Azure managed domains](../quickstarts/email/add-azure-managed-domains.md).
 
 | Operation | Scope | Time frame (minutes) | Limit (number of emails) |
 |---------|-----|-------------|-------------------|
@@ -135,18 +135,18 @@ We approve higher limits for customers based on use case requirements, domain re
 | Total email request size (including attachments) | 10 MB |
 | Maximum authenticated connections per subscription | 250 |
 
-For all message size limits, consider that Base 64 encoding increases the size of the message. You need to increase the size value to account for the message size increase that occurs after the message attachments and any other binary data are Base 64 encoded. Base 64 encoding increases the size of the message by about 33%, so the message size is about 33% larger than the message sizes before encoding. For example, if you specify a maximum message size value of approximately 10 MB, you can expect a realistic maximum message size value of approximately 7.5 MB.
+For all message size limits, consider that Base64 encoding increases the size of the message. You need to increase the size value to account for the message size increase that occurs after the message attachments and any other binary data are Base64 encoded. Base64 encoding increases the size of the message by about 33%, so the message size is about 33% larger than the message sizes before encoding. For example, if you specify a maximum message size value of approximately 10 MB, you can expect a realistic maximum message size value of approximately 7.5 MB.
 
 ### Send attachments larger than 10 MB
 
 To email file attachments up to 30 MB, make a [support request](../support.md).
 
-If you need to send email file attachments larger than 30 MB, use this alternative solution. Store the files in an Azure Blob Storage account and include a link to the files in your email. You can secure the files with a shared access signature (SAS). SAS provides secure delegated access to resources in your storage account. By using SAS, you have granular control over how clients can access your data.
+If you need to send email file attachments larger than 30 MB, use this alternative solution. Store the files in an Azure Blob Storage account and include a link to the files in your email. You can secure the files with a shared access signature (SAS). A SAS provides secure delegated access to resources in your storage account. By using a SAS, you have granular control over how clients can access your data.
 
 Benefits of using a Blob Storage account:
 
 - You can handle large-scale files.
-- You can use SAS or keys to precisely manage file access.
+- You can use a SAS or keys to precisely manage file access.
 
 For more information, see:
 
@@ -158,7 +158,7 @@ For more information, see:
 To increase your email quota, follow the instructions in [Quota increase for email domains](./email/email-quota-increase.md).
 
 > [!NOTE]
-> Email quota increase requests might take up to 72 hours to be evaluated and approved, especially for requests that come in on Friday afternoon.
+> Email quota increase requests might take up to 72 hours for evaluation and approval, especially for requests that come in on Friday afternoon.
 
 ## Chat
 
@@ -208,10 +208,10 @@ Azure Communication Services stores chat messages according to the retention pol
 
 You can choose between indefinite message retention or automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread). Alternatively, you can choose not to set a retention policy on a chat thread.
 
-If you have strict compliance needs, we recommend that you delete chat threads by using the [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread) API. Any threads created before the new retention policy aren't affected unless you specifically change the policy for that thread.
+If you have strict compliance needs, we recommend that you use the [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread) API to delete chat threads. Any threads created before the new retention policy aren't affected unless you specifically change the policy for that thread.
 
 > [!NOTE]
-> If you accidentally delete messages, they can't be recovered by the system. If you submit a support request for a deleted chat thread after the retention policy has deleted that thread, it can no longer be retrieved and no information about that thread is available. If needed, open a support ticket as quickly as possible within the 30-day window after you created a thread so that we can assist you.
+> If you accidentally delete messages, the system can't recover them. If you submit a support request for a deleted chat thread after the retention policy deletes that thread, it can't be retrieved. Information about that thread is no longer available. If needed, open a support ticket as quickly as possible within the 30-day window after you created a thread so that we can assist you.
 
 ## Voice and video calling
 
@@ -224,7 +224,7 @@ Azure Communication Services supports voice and video calling.
 | Default number of outbound concurrent calls | Per number | 2 |
 
 > [!NOTE]
-> There are no limits on inbound concurrent calls. You can also submit a request to [Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase the outbound concurrent calls limit, which is reviewed by our vetting team.
+> There are no limits on inbound concurrent calls. You can also submit a request to [Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase the limit for outbound concurrent calls. Our vetting team reviews all requests.
 
 ### Call maximum limitations
 
@@ -259,7 +259,7 @@ The following timeouts apply to the Azure Communication Services Calling SDKs:
 
 ### Action to take
 
-For more information about the voice and video calling SDK and service, see [Calling SDK overview](./voice-video-calling/calling-sdk-features.md) or [Known issues in the SDKs and APIs](./known-issues.md). You can also submit a request to [Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase some of the limits, pending review by our vetting team.
+For more information about the voice and video calling SDK and service, see [Calling SDK overview](./voice-video-calling/calling-sdk-features.md) or [Known issues in the SDKs and APIs](./known-issues.md). You can also submit a request to [Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase some of the limits. Our vetting team reviews all requests.
 
 ## Job Router
 
@@ -283,7 +283,7 @@ Each service offered through Microsoft Graph has different limitations. Service-
 
 ### Action to take
 
-When you implement error handling, use the HTTP error code 429 to detect throttling. The failed response includes the `Retry-After` response header. Backing off requests by using the `Retry-After` delay is the fastest way to recover from throttling because Microsoft Graph continues to log resource usage while a client is being throttled.
+When you implement error handling, use the HTTP error code 429 to detect throttling. The failed response includes the `Retry-After` response header. Use the `Retry-After` delay to back off requests. It's the fastest way to recover from throttling because Microsoft Graph continues to log resource use while a client is throttled.
 
 You can find more information about Microsoft Graph [throttling](/graph/throttling) limits in the [Microsoft Graph](/graph/overview) documentation.
 

@@ -27,7 +27,7 @@ To help you troubleshoot certain issues, you might need one or more of the follo
 * **SMS message ID**: Identify SMS messages.
 * **Short code program brief ID**: Identify a short code program brief application.
 * **Toll-free verification campaign brief ID**: Identify a toll-free verification campaign brief application.
-* **Email message ID**: Identify Send Email requests.
+* **Email message ID**: Identify **Send Email** requests.
 * **Correlation ID**: Identify requests made by using Call Automation.
 * **Call logs**: Use the detailed information to troubleshoot calling and network issues.
 
@@ -79,11 +79,11 @@ chat_client = ChatClient(
 ```
 ---
 
-## Access IDs are required for Call Automation
+## Use access IDs for Call Automation
 
 When you troubleshoot issues with the Call Automation SDK, such as call management or recording problems, you need to collect the IDs that help identify the failing call or operation. You can provide either of the following two IDs:
 
-- From the header of the API response, locate the field `X-Ms-Skype-Chain-Id`.
+- From the header of the API response. Locate the field `X-Ms-Skype-Chain-Id`.
  
     ![Screenshot that shows the response header with the X-Ms-Skype-Chain-Id.](media/troubleshooting/response-header.png)
 
@@ -91,7 +91,7 @@ When you troubleshoot issues with the Call Automation SDK, such as call manageme
 
     ![Screenshot that shows a call disconnected event with the correlation ID](media/troubleshooting/correlation-id-in-callback-event.png).
 
-In addition to one of these IDs, you need to provide details about the failing use case and the timestamp when the failure occurred.
+In addition to one of these IDs, you need to provide details about the failing use case and the time stamp when the failure occurred.
 
 ## Access your client call ID
 
@@ -214,7 +214,7 @@ For Calling Native SDKs, see the [Log file access tutorial](../tutorials/log-fil
 
 If you use the Azure Communication Services UI Libraries for Android or iOS, you can solicit user feedback through the built-in support form.
 
-For more information about the support functions of the Calling UI support form, see the [Support form integration tutorial](../tutorials/collecting-user-feedback/collecting-user-feedback.md). This article shows you how to add the necessary event handler and create a basic client/server implementation for centralized storage of support information. This article describes the path for integrating with the support services used by your organization.
+For more information about the support functions of the Calling UI support form, see the [Support form integration tutorial](../tutorials/collecting-user-feedback/collecting-user-feedback.md). This article shows you how to add the necessary event handler and create a basic client/server implementation for centralized storage of support information. This article describes the path for integrating with the support services that your organization uses.
 
 ## Build end-to-end support flows in your ACS integrations
 
@@ -250,7 +250,7 @@ To find your application ID, follow these steps:
 
    ![Screenshot that shows how to copy the Microsoft Entra application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
 
-   The directory (tenant) ID can also be found on the application **Overview** page.
+   You can also find the directory (tenant) ID on the application **Overview** page.
 
 ## Get a user ID
 
@@ -277,17 +277,17 @@ Sometimes you also need to provide the immutable resource ID of your Azure Commu
 
     :::image type="content" source="./media/troubleshooting/communication-resource-id-json.png" alt-text="Screenshot that shows the Resource JSON page.":::
 
-## Verification of Teams license eligibility to use Azure Communication Services support for Teams users
+## Verify Teams license eligibility to use Azure Communication Services support for Teams users
 
-There are two ways to verify your Teams License eligibility to use Azure Communication Services support for Teams users.
+There are two ways to verify your Teams license eligibility to use Azure Communication Services support for Teams users.
 
-#### Verification via Teams web client
+#### Verify via Teams web client
 
-To verify your Teams License eligibility via Teams web client, follow these steps:
+To verify your Teams license eligibility via Teams web client, follow these steps:
 
 1. Open your browser and go to [Teams web client](https://teams.microsoft.com/).
 1. Sign in with credentials that have a valid Teams license.
-1. If the authentication is successful and you remain in the `https://teams.microsoft.com/` domain, your Teams License is eligible. If authentication fails or you're redirected to the `https://teams.live.com/v2/` domain, your Teams License isn't eligible to use Azure Communication Services support for Teams users.
+1. If the authentication is successful and you remain in the `https://teams.microsoft.com/` domain, your Teams license is eligible. If authentication fails or you're redirected to the `https://teams.live.com/v2/` domain, your Teams license isn't eligible to use Azure Communication Services support for Teams users.
 
 #### Check your current Teams license via the Microsoft Graph API
 
@@ -340,12 +340,12 @@ You can find your current Teams license by using [licenseDetails](/graph/api/res
     }
     ```
 
-1. Find license details where the `servicePlanName` property has one of the values in the [Eligible Teams Licenses table](../quickstarts/eligible-teams-licenses.md)
+1. Find license details where the `servicePlanName` property has one of the values in the [Eligible Teams Licenses table](../quickstarts/eligible-teams-licenses.md).
 
 ## Related content
 
 - [Troubleshooting Azure Communication Services PSTN call failures](./telephony/troubleshooting-pstn-call-failures.md).
-- [Troubleshooting call end response codes for the Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK](../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md)(./troubleshooting-codes.md).
+- [Troubleshooting call end response codes for the Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK](../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md).
 - Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md), and [call automation](./analytics/logs/call-automation-logs.md).
 - [Metrics](metrics.md).
 - [Service limits](service-limits.md).
