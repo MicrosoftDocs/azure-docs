@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 11/18/2024
 ms.author: normesta
 ms.reviewer: ereilebr
 ---

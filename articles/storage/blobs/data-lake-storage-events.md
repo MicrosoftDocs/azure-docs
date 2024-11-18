@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: tutorial
-ms.date: 03/07/2023
+ms.date: 11/18/2024
 ms.author: normesta
 ms.reviewer: sumameh
 ms.devlang: csharp

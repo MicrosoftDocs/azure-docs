@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 11/18/2024
 ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: azurecli
@@ -36,8 +36,6 @@ ACL inheritance is already available for new child items that are created under 
 
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
 
-  - Storage account key.
-
 ## Ensure that you have the correct version of Azure CLI installed
 
 1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
@@ -64,7 +62,7 @@ ACL inheritance is already available for new child items that are created under 
 
    To learn more about different authentication methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+2. If your identity is associated with more than one subscription, and you are not prompted to select the subscription, then set your active subscription to subscription of the storage account that you want operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
    ```azurecli
    az account set --subscription <subscription-id>
