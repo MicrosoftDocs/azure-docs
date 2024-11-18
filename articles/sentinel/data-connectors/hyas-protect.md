@@ -111,7 +111,3 @@ If you're already signed in, go to the next step.
 . Once all application settings have been entered, click **Save**.
 
 
-
-## Next steps
-
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/hyas.microsoft-sentinel-solution-hyas-protect?tab=Overview) in the Azure Marketplace.
