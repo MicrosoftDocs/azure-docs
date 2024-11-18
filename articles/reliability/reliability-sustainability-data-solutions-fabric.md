@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: microsoft-cloud-sustainability
-ms.date: 11/13/2024
+ms.date: 11/19/2024
 ---
 
 # Reliability in Sustainability data solutions in Fabric
@@ -21,7 +21,7 @@ Sustainability data solutions in Fabric has multiple capabilities to help you to
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-In the event of a transient fault during ingestion, Sustainability data solutions in Fabric automatically retries.
+In the event of a transient fault during ingestion of emissions data, you need to manually trigger the job again. You can monitor the ingestion job from the Microsoft Fabric monitoring hub.
 
 ## Availability zone support
 
@@ -50,10 +50,6 @@ Internally, Microsoft's Cloud for Sustainability services are partially geo-redu
 During a region failure, any Azure emissions data already ingested into Fabric remains there, and will be accessible as long as Microsoft Fabric is available. For information on how to the multi-region support in Microsoft Fabric and how to enable disaster recovery and business continuity, see [Reliability in Microsoft Fabric ](./reliability-fabric.md).
 
 Ingestion of new Azure emissions data will resume after Microsoft restores services into the region. Any missing data is expected to be ingested at this time. While there's no published RTO or RPO, this process could take several days, but during that time any previous data continues to be available.
-
-## Service-level agreement
-
-<!-- TODO Asked PG. Might also have a link to the Fabric SLA here? -->
 
 ## Related content
 
