@@ -107,9 +107,9 @@ The Azure Communication Services email service is designed to support high throu
 
 ### Rate limits for email
 
-We approve higher limits for customers based on use case requirements, domain reputation, traffic patterns, and failure rates. To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are available only for verified custom domains, not Azure-managed domains.
+We approve higher limits for customers based on use case requirements, domain reputation, traffic patterns, and failure rates. To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are available only for verified custom domains, not Azure managed domains.
 
-The following table lists [Custom domains](../quickstarts/email/add-custom-verified-domains.md).
+The following table lists limits for [Custom domains](../quickstarts/email/add-custom-verified-domains.md).
 
 | Operation | Scope | Time frame (minutes) | Limit (number of emails) |
 |---------|-----|-------------|-------------------|
@@ -118,7 +118,7 @@ The following table lists [Custom domains](../quickstarts/email/add-custom-verif
 |Get email status|Per subscription|1|60|
 |Get email status|Per subscription|60|200|
 
-The following table lists [Azure managed domains](../quickstarts/email/add-azure-managed-domains.md).
+The following table lists limits for [Azure managed domains](../quickstarts/email/add-azure-managed-domains.md).
 
 | Operation | Scope | Time frame (minutes) | Limit (number of emails) |
 |---------|-----|-------------|-------------------|
