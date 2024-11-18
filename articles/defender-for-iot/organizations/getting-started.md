@@ -17,6 +17,8 @@ There are two stages to starting a trial for Defender for IoT.
 Stage 1: [Add a trial license](#add-a-trial-license).
 Stage 2: [Add an OT plan](#add-an-ot-plan).
 
+Once the trial license and OT plan are set up, you'll be able to onboard OT sensors and associate them with this license and plan.
+
 For more information, see [Free trial](billing.md#free-trial).
 
 ## Prerequisites
@@ -93,7 +95,13 @@ This procedure describes how to add an OT plan for Defender for IoT in the Azure
 
 Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
+## Onboard an OT sensor
+
+If you already have a network plan ready, you can onboard the OT sensor and associate it with a plan and the assign the relevant site and zone settings. For more information, see [onboard an OT sensor to the Azure portal](onboard-sensors.md).
+
 ## Next steps
 
 > [!div class="step-by-step"]
 > [Defender for IoT OT deployment path »](ot-deploy/ot-deploy-path.md)
+> [!div class="step-by-step"]
+> [Defender for IoT onboard an OT sensor »](onboard-sensors.md)
