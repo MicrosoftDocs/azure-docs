@@ -129,7 +129,7 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 
 This behavior can happen if the logic app resource isn't healthy, or typically, when the resource can't access the associated storage account. Try checking whether the storage account has a networking setting that blocks access, or whether your network firewall policy blocks access.
 
-### I have some workflows in my logic app, but they are not running or running a lit. Hoever itmy logic app still scales out to many instances which incur huge cost.
+### My logic app resource has workflows, but they aren't running or running a lit. However, the resource still scales out to multiple instances, which incurs cost.
 
 First, please check the storage access as mentioned in previous point.
 
