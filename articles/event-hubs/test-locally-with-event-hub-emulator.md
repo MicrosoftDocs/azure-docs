@@ -79,7 +79,7 @@ To run the Event Hubs emulator locally on Linux or macOS:
 
    ```
 
-2. Save the following .yaml file as *docker-compose.yaml* to spin up containers for the Event Hubs emulator:
+2. To sping up containers for Event Hubs emulator, Save the following .yaml file as *docker-compose.yaml*.
 
    ```
    name: microsoft-azure-eventhubs
@@ -135,7 +135,7 @@ To run the Event Hubs emulator locally on Linux or macOS:
    > [!IMPORTANT]
    > When you're specifying file paths in Windows, use double backslashes (`\\`) instead of single backslashes (`\`) to avoid confusion with escape characters.
 
-4. Run the following command to run the emulator:
+4. To run the emulator, execute the following command:
 
    ```
     docker compose -f <PathToDockerComposeFile> up -d
@@ -161,7 +161,7 @@ You can use the following connection string to connect to the Event Hubs emulato
 ```
 "Endpoint=sb://192.168.y.z;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
 ```
-  - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes the name of Emulator has default value i.e."eventhubs-emulator":
+  - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes the name of Emulator has default value that is"eventhubs-emulator":
 ```
 "Endpoint=sb://eventhubs-emulator;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
 ```
@@ -172,20 +172,20 @@ You can use the following connection string to connect to the Event Hubs emulato
 
 ### [Using Kafka](#tab/using-kafka)
 
-While interacting with Kafka, ensure to set the Producer and consumer config as below:
+While interacting with Kafka, ensure to set the Producer and consumer config as following:
 
 ```
 
         {
-            BootstrapServers = localhost:9092, //Value of bootstrap servers would depend on kind of connection string being used
+            BootstrapServers =  //Value of bootstrap servers would depend on kind of connection string being used
             SecurityProtocol = SecurityProtocol.SaslPlaintext,
             SaslMechanism = SaslMechanism.Plain,
             SaslUsername = "$ConnectionString",
-            SaslPassword = eventHubsConnectionString
+            SaslPassword = //Value of connection string would depend on topology
         };
 
 ```
-Value of BootstrapServers and SaslPassword would depend on your setup topology. Please refer to [Interact with Emulator](#Interact-with-the-emulator) section for details. 
+Value of BootstrapServers and SaslPassword would depend on your setup topology. Refer to [Interact with Emulator](#interact-with-the-emulator) section for details. 
 
 > [!IMPORTANT]
 > When using Kafka, only Producer and consumer APIs are compatible with Event Hubs emulator. 
