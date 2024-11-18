@@ -8,21 +8,16 @@ ms.author: rossgrambo
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/10/2024
+ms.date: 10/18/2024
 ---
 
 # Tutorial: Use variant feature flags from Azure App Configuration in an ASP.NET application
 
 In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./use-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
-> [!div class="checklist"]
-> * Set up an ASP.NET app to consume variant feature flags
-
 ## Prerequisites
 
-* An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
-* An [App Configuration store](./quickstart-azure-app-configuration-create.md).
-* [Use variant feature flags](./use-variant-feature-flags.md)
+* Follow the [Use variant feature flags](./use-variant-feature-flags.md) tutorial and create the variant feature flag named *Greeting*.
 
 ## Create an ASP.NET Core web app
 
@@ -279,13 +274,13 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
     :::image type="content" source="media/use-variant-feature-flags-aspnet-core/register.png" alt-text="Screenshot of the Quote of the day app, showing Register.":::
 
-1. Register a new user named *usera@contoso.com*. The password must have at least six characters and contain a number and a special character.
+1. Register a new user named *usera@contoso.com*.
 
 1. Select the link **Click here to validate email** after entering user information.
 
     :::image type="content" source="media/use-variant-feature-flags-aspnet-core/click-to-confirm.png" alt-text="Screenshot of the Quote of the day app, showing click to confirm.":::
 
-1. Repeat the same steps to register a second user named userb@contoso.com.
+1. Repeat the same steps to register a second user named *userb@contoso.com*.
 
     > [!NOTE]
     > It's important for the purpose of this tutorial to use these names exactly. As long as the feature has been configured as expected, the two users should see different variants.
