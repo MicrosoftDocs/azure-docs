@@ -520,7 +520,7 @@ The following table shows which credential types are available for each platform
 ::: zone-end
 
 ::: zone pivot="azure-virtual-desktop,windows-365,dev-box"
-1. Requires macOS client version 10.9.8 or later. Requires iOS client version 10.5.9 or later. For more information, see [Support for FIDO2 authentication with Microsoft Entra ID](/entra/identity/authentication/concept-fido2-compatibility#native-application-support-with-authentication-broker).
+1. Requires macOS client version 10.9.8 or later. Requires iOS client version 10.5.9 or later. For more information, see [Support for FIDO2 authentication with Microsoft Entra ID](/entra/identity/authentication/concept-fido2-compatibility#native-application-support).
 1. Available when using a web browser on a local Windows device only.
 
 ### Remote session authentication
