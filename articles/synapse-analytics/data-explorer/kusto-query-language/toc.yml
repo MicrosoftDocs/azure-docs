@@ -208,46 +208,46 @@ items:
       href: /kusto/query/series-moving-var-fl?view=azure-data-explorer&preserve-view=true
     - name: series_mv_ee_anomalies_fl()
       displayName: functions library, anomaly detection, multivariate, elliptical envelope
-      href: /kusto/query/series-mv-ee-anomalies-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-mv-ee-anomalies-fl?view=azure-data-explorer&preserve-view=true
     - name: series_mv_if_anomalies_fl()
       displayName: functions library, anomaly detection, multivariate, isolation forest
       href: /kusto/query/series-mv-if-anomalies-fl?view=azure-data-explorer&preserve-view=true
     - name: series_mv_oc_anomalies_fl()
       displayName: functions library, anomaly detection, multivariate, one class svm, support vector machines
-      href: /kusto/query/series-mv-oc-anomalies-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-mv-oc-anomalies-fl?view=azure-data-explorer&preserve-view=true
     - name: series_rate_fl()
       displayName: functions library, PromQL, Prometheus
-      href: /kusto/query/series-rate-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-rate-fl?view=azure-data-explorer&preserve-view=true
     - name: series_rolling_fl()
       displayName: functions library, rolling, sliding
-      href: /kusto/query/series-rolling-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-rolling-fl?view=azure-data-explorer&preserve-view=true
     - name: series_shapes_fl()
       displayName: functions library, shape, trend, jump, detect
-      href: /kusto/query/series-shapes-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-shapes-fl?view=azure-data-explorer&preserve-view=true
     - name: series_uv_anomalies_fl()
       displayName: functions library, anomaly detection, univariate
-      href: /kusto/query/series-uv-anomalies-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-uv-anomalies-fl?view=azure-data-explorer&preserve-view=true
     - name: series_uv_change_points_fl()
       displayName: functions library, anomaly detection, univariate, change point
-      href: /kusto/query/series-uv-change-points-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-uv-change-points-fl?view=azure-data-explorer&preserve-view=true
     - name: time_weighted_avg_fl()
       displayName: functions library, binning, time weighted, time series, interpolation
-      href: /kusto/query/time-weighted-avg-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/time-weighted-avg-fl?view=azure-data-explorer&preserve-view=true
     - name: time_weighted_avg2_fl()
       displayName: functions library, binning, time weighted, time series, interpolation
-      href: /kusto/query/time-weighted-avg2-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/time-weighted-avg2-fl?view=azure-data-explorer&preserve-view=true
     - name: time_weighted_val_fl()
       displayName: functions library, binning, time weighted, time series, interpolation
-      href: /kusto/query/time-weighted-val-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/time-weighted-val-fl?view=azure-data-explorer&preserve-view=true
     - name: time_window_rolling_avg_fl()
       displayName: functions library, rolling, sliding
-      href: /kusto/query/time-window-rolling-avg-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/time-window-rolling-avg-fl?view=azure-data-explorer&preserve-view=true
     - name: two_sample_t_test_fl()
       displayName: functions library, statistical test
-      href: /kusto/query/two-sample-t-test-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/two-sample-t-test-fl?view=azure-data-explorer&preserve-view=true
     - name: wilcoxon_test_fl()
       displayName: functions library, statistical test
-      href: /kusto/query/wilcoxon-test-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/wilcoxon-test-fl?view=azure-data-explorer&preserve-view=true
 - name: Query statements
   items:
   - name: Query statement types
