@@ -143,7 +143,7 @@ This behavior can happen if the logic app resource isn't healthy, or typically, 
    
    - Make sure to monitor such triggers at all times, so that you can promptly detect and fix any issues.
 
-### My workflow runs fine in general, but intermittently it stops processing messages for hours.
+### My workflow intermittently stops processing messages for hours but runs well most other times.
 
 If your Standard logic app uses the hosting option named Workflow Service Plan, not hosted in App Service Environment, make **Runtime Scale Monitoring** is turned on and **Always Ready Instances** is set correcto at least 1.
 
