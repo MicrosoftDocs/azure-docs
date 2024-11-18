@@ -106,7 +106,7 @@ In the quickstart, the data that comes from the oven asset looks like:
 The required schema format for Delta Lake is a JSON object that follows the Delta Lake schema serialization format. The schema should define the structure of the data, including the types and properties of each field. For more details on the schema format, see [Delta Lake schema serialization format documentation](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#schema-serialization-format).
 
 > [!TIP]
-> To generate the schema from a sample data file, use the [Azure IoT Operations Schema Generator](https://azure-samples.github.io/explore-iot-operations/).
+> To generate the schema from a sample data file, use the [Azure IoT Operations Schema Generator](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
 
 For this tutorial, the schema for the data looks like this:
 
