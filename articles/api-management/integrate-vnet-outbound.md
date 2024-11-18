@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 10/16/2024
+ms.date: 11/18/2024
 ---
 
 # Integrate an Azure API Management instance with a private virtual network for outbound connections 
@@ -45,6 +45,10 @@ If you want to inject a Premium v2 API Management instance into a virtual networ
 
 * Minimum: /27 (32 addresses)
 * Recommended: /24 (256 addresses) - to accommodate scaling of API Management instance
+
+### Network security group
+
+A network security group must be associated with the subnet. 
 
 ### Subnet delegation
 
