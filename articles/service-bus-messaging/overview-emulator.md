@@ -3,7 +3,7 @@ title: Overview of the Azure Service Bus emulator
 description: This article describes benefits, features, limitations, and other overview information for the Azure Service Bus emulator.
 ms.topic: article
 ms.author: Saglodha
-ms.date: 05/06/2024
+ms.date: 11/18/2024
 ---
 
 
@@ -21,7 +21,9 @@ The primary advantages of using the emulator are:
 - **Optimized inner development loop**: You can use the emulator to quickly prototype and test your applications before deploying them to the cloud.
 
 > [!NOTE]
-> The Service bus emulator is available under the [Microsoft Software License Terms]()
+> The Service bus emulator is available under the [Microsoft Software License Terms](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/EMULATOR_EULA.txt).
+> 
+> Service Bus emulator isn't compatible with the community owned [open source Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 
 ## Features
 
@@ -73,16 +75,16 @@ Like the Service bus cloud service, the emulator provides the following quotas f
 | Number of correlation filters per topic | 1000 | Yes 
 | Number of concurrent connections to namespace| 10 |Yes
 | Number of concurrent receive requests on entity (queue/Topic) or subscription entity | 200 |Yes
-| Message size  | 256kb |No
+| Message size  | 256 KB |No
 | Queue or topic size  | 100 MB | No
-| Message retention | 1hr | No
+| Message Time to Live | 1hr | Yes
 
 
 ## Quota configuration changes
 
 By default, the emulator runs with the [config.json](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EventHub-Emulator/Config/Config.json) configuration file. You can configure the quotas associated with Service bus by editing this file in the following ways, based on your needs:
 
-- **Entities**: You can add more entities (Service bus), with a customized number of partitions and consumer groups, in accordance with supported quotas.
+- **Entities**: You can add more Service bus entities in accordance with the supported quotas. 
 - **Logging**: The emulator supports logging on a console, in a file, or both. You can choose according to your personal preference.
 
 > [!IMPORTANT]
