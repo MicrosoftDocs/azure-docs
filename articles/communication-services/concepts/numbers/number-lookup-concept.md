@@ -25,6 +25,7 @@ Key features of Azure Communication Services Number Lookup include:
 - **Simple** Our API is easy to integrate with your application. We provide detailed documentation to guide you through the process, and our team of experts is always available to assist you.
 - **High Accuracy** We gather data from the most reliable suppliers to ensure that you receive accurate data. Our data is updated regularly to guarantee the highest quality possible.
 - **High Velocity** Our API is designed to deliver fast and accurate data, even when dealing with high volumes of data. It is optimized for speed and performance to ensure you always receive the information you need quickly and reliably.
+- **Number Format** Developers will be able to validate national and international phone number format and increase call or message completion. 
 - **Number Capability Check** Our API provides the associated number type that generally can help determine if an SMS can be sent to a particular number. This helps to avoid frustrating attempts to send messages to non-SMS-capable numbers.
 - **Carrier Details** We provide information about the country or region of destination and carrier information which helps to estimate potential costs and find alternative messaging methods (e.g., sending an email).
 
@@ -36,6 +37,7 @@ The main benefits the solution will provide to Azure Communication Services cust
 
 ## Key Use Cases
 
+-  **Validate the number format before placing a call or sending a message:** Validate national and international phone number format.
 -  **Validate the number can receive the SMS before you send it:** Check if a number has SMS capabilities or not and decide if needed to use different communication channels. 
  *Contoso bank collected the phone numbers of the people who are interested in their services on their site. Contoso wants to send an invite to register for the promotional offer. Contoso checks before sending the link on the offer if SMS is possible channel for the number that customer provided on the site and don’t waste money to send SMS to non mobile numbers.* 
 -  **Estimate the total cost of an SMS campaign before you launch it:** Get the current carrier of the target number and compare that with the list of known carrier surcharges.
@@ -48,7 +50,8 @@ The main benefits the solution will provide to Azure Communication Services cust
 
 | Request                                                     | Price per API query                                              | 
 | ------------------------------------------------------------| -----------------------------------------------------------------|
-| Get Number Type and Carrier details, query per phone number | $0.005                                                           |
+| Get Number Format | Free                                                           |
+| Get Number Format, Type and Carrier details, query per phone number | $0.005                                                           |
 
 
 ## Next steps
