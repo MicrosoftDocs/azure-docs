@@ -66,7 +66,38 @@ Response<RecordingStateResult> response = callAutomationClient.getCallRecording(
 
 ```
 
-### 2.1. Only for Unmixed - Specify a user on channel 0
+### 2.1. Start Recording  - Bring Your Own Azure Blob Store
+Start Recording session with your own Azure Blob Storage to store the recording file once recording is complete.
+
+```java
+       StartRecordingOptions recordingOptions = new StartRecordingOptions(callLocator)
+       .setRecordingChannel(RecordingChannel.MIXED)
+       .setRecordingContent(RecordingContent.AUDIO_VIDEO)
+       .setRecordingFormat(RecordingFormat.MP4)
+       .setRecordingStorage(new AzureBlobContainerRecordingStorage("<YOUR_STORAGE_CONTAINER_URL>"));
+ 
+       // //start recording
+       RecordingStateResult result = callRecording.start(recordingOptions);
+```
+
+### 2.2. Start recording session with Pause mode enabled using 'StartAsync' API
+> [!NOTE]
+> **Recordings will need to be resumed for recording file to be generated.**
+```java
+StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<serverCallId>"))
+                    .setRecordingChannel(RecordingChannel.UNMIXED)
+                    .setRecordingFormat(RecordingFormat.WAV)
+                    .setRecordingContent(RecordingContent.AUDIO)
+                    .setRecordingStateCallbackUrl("<recordingStateCallbackUrl>")
+                    .setPauseOnStart(true)
+                    .setAudioChannelParticipantOrdering(List.of(new CommunicationUserIdentifier("<participantMri>")));
+
+Response<RecordingStateResult> response = callAutomationClient.getCallRecording()
+.startWithResponse(recordingOptions, null);
+
+```
+
+### 2.3. Only for Unmixed - Specify a user on channel 0
 To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking. 
 
 ```java
@@ -82,7 +113,7 @@ Response<RecordingStateResult> response = callAutomationClient.getCallRecording(
 
 ```
 
-### 2.2. Only for Unmixed - Specify channel affinity
+### 2.4. Only for Unmixed - Specify channel affinity
 ```java
 ChannelAffinity channelAffinity = new ChannelAffinity()
 .setParticipant(new PhoneNumberIdentifier("RECORDING_ID"))

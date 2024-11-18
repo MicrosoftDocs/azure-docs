@@ -1,20 +1,22 @@
 ---
-title: 'Quickstart: Create and configure Azure DDoS Network Protection using Terraform'
+title: 'QuickStart: Create and configure Azure DDoS Network Protection using Terraform'
 description: In this article, you create and configure Azure DDoS Network Protection using Terraform
 author: TomArcherMsft
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.author: tarcher
-ms.date: 3/18/2024
+ms.date: 07/17/2024
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ---
 
-# Quickstart: Create and configure Azure DDoS Network Protection using Terraform
+# QuickStart: Create and configure Azure DDoS Network Protection using Terraform
 
-This quickstart describes how to use Terraform to create and enable a [distributed denial of service (DDoS) protection plan](ddos-protection-overview.md) and [Azure virtual network (VNet)](/azure/virtual-network/virtual-networks-overview). An Azure DDoS Network Protection plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
+This QuickStart describes how to use Terraform to create and enable a [distributed denial of service (DDoS) protection plan](ddos-protection-overview.md) and [Azure virtual network (VNet)](/azure/virtual-network/virtual-networks-overview). An Azure DDoS Network Protection plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
+
+:::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection." lightbox="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png":::
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 

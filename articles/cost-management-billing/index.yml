@@ -18,18 +18,18 @@ metadata:
 
 highlightedContent:
   items:
-    - title: What is Cost Management and Billing?
+    - title: What is Billing?
       itemType: overview
       url: cost-management-billing-overview.md
+    - title: What is Cost Management?
+      itemType: overview
+      url: costs/overview-cost-management.md
     - title: What are reservations?
       itemType: overview
       url: reservations/save-compute-costs-reservations.md
     - title: What are savings plans?
       itemType: overview
       url: savings-plan/savings-plan-compute-overview.md
-    - title: Start optimizing costs today
-      itemType: reference
-      url: https://azure.microsoft.com/overview/cost-optimization/
     - title: What's new
       itemType: whats-new
       url: https://azure.microsoft.com/blog/tag/cost-management/
@@ -41,7 +41,7 @@ highlightedContent:
       url: costs/understand-work-scopes.md
     - title: What is FinOps?
       itemType: concept
-      url: finops/overview-finops.md
+      url: /cloud-computing/finops/overview-finops
 
 productDirectory:
   title: Cost Management
@@ -94,6 +94,8 @@ productDirectory:
           text: Save with reservations
         - url: scope-level/index.yml
           text: Manage Azure Hybrid Benefit for SQL Server
+        - url: https://azure.microsoft.com/overview/cost-optimization/
+          text: Start optimizing costs today
     - title: Cost allocation
       imageSrc: ./media/cost-allocation.svg
       links:

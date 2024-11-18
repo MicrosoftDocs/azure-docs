@@ -3,10 +3,10 @@ title: Manage Azure Traffic Manager profiles
 description: This article helps you create, disable, enable, and delete an Azure Traffic Manager profile.
 services: traffic-manager
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 manager: kumud
 ms.topic: how-to
-ms.date: 08/14/2023
+ms.date: 08/08/2024
 ms.author: greglin
 ms.custom: template-how-to
 ---
@@ -61,7 +61,7 @@ You can disable an existing profile so that Traffic Manager does not refer user 
 4. Confirm to delete the Traffic Manager profile.
 
 > [!NOTE]
-> WWhen you delete a Traffic Manager profile, the associated domain name is reserved for a period of time. Other Traffic Manager profiles in the same tenant can immediately reuse the name. However, a different Azure tenant is not able to use the same profile name until the reservation expires. This feature enables you to maintain authority over the namespaces that you deploy, eliminating concerns that the name might be taken by another tenant.  For more information, see [Traffic Manager FAQs](traffic-manager-faqs.md#when-i-delete-a-traffic-manager-profile-what-is-the-amount-of-time-before-the-name-of-the-profile-is-available-for-reuse).
+> When you delete a Traffic Manager profile, the associated domain name is reserved for a period of time. Other Traffic Manager profiles in the same tenant can immediately reuse the name. However, a different Azure tenant is not able to use the same profile name until the reservation expires. This feature enables you to maintain authority over the namespaces that you deploy, eliminating concerns that the name might be taken by another tenant.  For more information, see [Traffic Manager FAQs](traffic-manager-faqs.md#when-i-delete-a-traffic-manager-profile-what-is-the-amount-of-time-before-the-name-of-the-profile-is-available-for-reuse).
 
 ## Next steps
 

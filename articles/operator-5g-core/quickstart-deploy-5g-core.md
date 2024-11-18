@@ -33,10 +33,7 @@ Before you can successfully deploy Azure Operator 5G Core, you must:
 - Grant "Mobile Packet Core" service principal Contributor access at the subscription level (note this is a temporary requirement until the step is embedded as part of the RP registration).
 - Ensure that the network, subnet, and IP plans are ready for the resource parameter files.   
 
-Based on your deployment environments, complete one of the following prerequisites:
-
-- [Prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service](quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md).
-- [Prerequisites to deploy Azure Operator 5G Core Preview on Nexus Azure Kubernetes Service](quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md)
+Complete the steps found in [Prerequisites to deploy Azure Operator 5G Core Preview on Nexus Azure Kubernetes Service](quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md)
 
 ## Post cluster creation
 
@@ -44,7 +41,7 @@ After you complete the prerequisite steps and create a cluster, you must enable 
 
 ## ARC-enable the cluster
 
-ARC is used to enable communication from the Azure Operator 5G Core resource provider to Kubernetes. You must have access to the cluster's kubeconfig file, or to Kubernetes API server to run the connectedK8s command. Refer to [Use Azure role-based access control to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)](../aks/control-kubeconfig-access.md) for information.
+ARC is used to enable communication from the Azure Operator 5G Core resource provider to Kubernetes. You must have access to the cluster's kubeconfig file, or to Kubernetes API server to run the connectedK8s command. Refer to [Use Azure role-based access control to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)](/azure/aks/control-kubeconfig-access) for information.
 
 ### ARC-enable the cluster for Azure Kubernetes Services
 
@@ -103,7 +100,7 @@ Replace `YourResourceGroupName`, `YourCustomLocationName`, `YourAzureRegion`, `Y
 
 ## Deploy Azure Operator 5G Core via Bicep scripts
 
-Deployment of Azure Operator 5G Core consists of multiple resources including clusterServices, amfDeployments, smfDeployments, upfDeployments, nrfDeployments, nssfDeployments, and observabilityServices. Each resource is deployed by an individual Bicep script and corresponding parameters file. Contact your Microsoft account contact to get access to the required Azure Operator 5G Core files. 
+Deployment of Azure Operator 5G Core consists of multiple resources including (clusterServices, amfDeployments, smfDeployments, upfDeployments, nrfDeployments, nssfDeployments, and observabilityServices). Each resource is deployed by an individual Bicep script and corresponding parameters file. Contact your Microsoft account contact to get access to the required Azure Operator 5G Core files. 
 
 > [!NOTE]
 > The required files are shared as a zip file.

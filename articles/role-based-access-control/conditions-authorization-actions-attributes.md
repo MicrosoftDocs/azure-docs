@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.date: 01/30/2024
+ms.date: 04/15/2024
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
@@ -55,7 +55,7 @@ This section lists the authorization attributes you can use in your condition ex
 > | **Attribute** | `Microsoft.Authorization/roleAssignments:RoleDefinitionId` |
 > | **Attribute source** | Request<br/>Resource |
 > | **Attribute type** | GUID |
-> | **Operators** | [GuidEquals](conditions-format.md#guid-comparison-operators)<br/>[GuidNotEquals](conditions-format.md#guid-comparison-operators)<br/>[ForAnyOfAnyValues:GuidEquals](conditions-format.md#foranyofanyvalues)<br/>[ForAnyOfAnyValues:GuidNotEquals](conditions-format.md#foranyofanyvalues) |
+> | **Operators** | [GuidEquals](conditions-format.md#guid-comparison-operators)<br/>[GuidNotEquals](conditions-format.md#guid-comparison-operators)<br/>[ForAnyOfAnyValues:GuidEquals](conditions-format.md#foranyofanyvalues)<br/>[ForAnyOfAllValues:GuidNotEquals](conditions-format.md#foranyofallvalues) |
 > | **Examples** | `@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {b24988ac-6180-42a0-ab88-20f7382dd24c, acdd72a7-3385-48ef-bd42-f606fba81ae7}`<br/>[Example: Constrain roles](delegate-role-assignments-examples.md#example-constrain-roles) |
 
 ### Principal ID
@@ -68,7 +68,7 @@ This section lists the authorization attributes you can use in your condition ex
 > | **Attribute** | `Microsoft.Authorization/roleAssignments:PrincipalId` |
 > | **Attribute source** | Request<br/>Resource |
 > | **Attribute type** | GUID |
-> | **Operators** | [GuidEquals](conditions-format.md#guid-comparison-operators)<br/>[GuidNotEquals](conditions-format.md#guid-comparison-operators)<br/>[ForAnyOfAnyValues:GuidEquals](conditions-format.md#foranyofanyvalues)<br/>[ForAnyOfAnyValues:GuidNotEquals](conditions-format.md#foranyofanyvalues) |
+> | **Operators** | [GuidEquals](conditions-format.md#guid-comparison-operators)<br/>[GuidNotEquals](conditions-format.md#guid-comparison-operators)<br/>[ForAnyOfAnyValues:GuidEquals](conditions-format.md#foranyofanyvalues)<br/>[ForAnyOfAllValues:GuidNotEquals](conditions-format.md#foranyofallvalues) |
 > | **Examples** | `@Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {28c35fea-2099-4cf5-8ad9-473547bc9423, 86951b8b-723a-407b-a74a-1bca3f0c95d0}`<br/>[Example: Constrain roles and specific groups](delegate-role-assignments-examples.md#example-constrain-roles-and-specific-groups) |
 
 ### Principal type
@@ -82,7 +82,7 @@ This section lists the authorization attributes you can use in your condition ex
 > | **Attribute source** | Request<br/>Resource |
 > | **Attribute type** | STRING |
 > | **Values** | User<br/>ServicePrincipal<br/>Group |
-> | **Operators** | [StringEqualsIgnoreCase](conditions-format.md#stringequals)<br/>[StringNotEqualsIgnoreCase](conditions-format.md#stringnotequals)<br/>[ForAnyOfAnyValues:StringEqualsIgnoreCase](conditions-format.md#foranyofanyvalues)<br/>[ForAnyOfAnyValues:StringNotEqualsIgnoreCase](conditions-format.md#foranyofanyvalues) |
+> | **Operators** | [StringEqualsIgnoreCase](conditions-format.md#stringequals)<br/>[StringNotEqualsIgnoreCase](conditions-format.md#stringnotequals)<br/>[ForAnyOfAnyValues:StringEqualsIgnoreCase](conditions-format.md#foranyofanyvalues)<br/>[ForAnyOfAllValues:StringNotEqualsIgnoreCase](conditions-format.md#foranyofallvalues) |
 > | **Examples** | `@Request[Microsoft.Authorization/roleAssignments:PrincipalType] ForAnyOfAnyValues:StringEqualsIgnoreCase {'User', 'Group'}`<br/>[Example: Constrain roles and principal types](delegate-role-assignments-examples.md#example-constrain-roles-and-principal-types) |
 
 ## Next steps

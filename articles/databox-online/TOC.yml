@@ -236,7 +236,7 @@
       - name: Set Azure Resource Manager password
         href: azure-stack-edge-gpu-set-azure-resource-manager-password.md 
       - name: Configure client TLS settings
-        href: azure-stack-edge-gpu-configure-tls-settings.md 
+        href: azure-stack-edge-gpu-configure-tls-settings.yml 
       - name: Troubleshoot Azure Resource Manager issues 
         href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
 
@@ -472,7 +472,7 @@
       - name: Apply updates
         href: azure-stack-edge-gpu-install-update.md 
       - name: Reset, reactivate device
-        href: azure-stack-edge-reset-reactivate-device.md
+        href: azure-stack-edge-reset-reactivate-device.yml
       - name: Return device
         href: azure-stack-edge-return-device.md     
       - name: Replace device
@@ -511,7 +511,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2403 - Current
+    - name: 2407 - Current
+      href: azure-stack-edge-gpu-2407-release-notes.md
+    - name: 2403
       href: azure-stack-edge-gpu-2403-release-notes.md
     - name: 2312
       href: azure-stack-edge-gpu-2312-release-notes.md

@@ -1,7 +1,7 @@
 ---
 title: Configure development environment for deployment scripts in templates | Microsoft Docs
 description: Configure development environment for deployment scripts in Azure Resource Manager templates (ARM templates).
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
@@ -9,7 +9,7 @@ ms.devlang: azurecli
 
 # Configure development environment for deployment scripts in ARM templates
 
-Learn how to create a development environment for developing and testing ARM template deployment scripts with a deployment script image. You can either create an [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
+Learn how to create a development environment for developing and testing ARM template deployment scripts with a deployment script image. You can either create an [Azure container instance](/azure/container-instances/container-instances-overview) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
 
 ## Prerequisites
 

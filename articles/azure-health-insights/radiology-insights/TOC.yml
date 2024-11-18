@@ -15,7 +15,7 @@ metadata:
 
 
 items: 
-- name: Radiology  Insights
+- name: Radiology Insights
   href: index.yml
 - name: Overview
   expanded: true
@@ -24,8 +24,8 @@ items:
       href: overview.md
 - name: Quickstarts
   items:
-     - name: Use the Radiology Insights model
-       href: get-started.md
+      - name: Use the Radiology Insights model (Platform)
+        href: get-started.md
 - name: Responsible use of AI
   items:
     - name: Transparency note for Radiology Insights
@@ -40,6 +40,8 @@ items:
        href: inferences.md
 - name: Reference
   items:
+     - name: Tutorial
+       href: tutorial.md
      - name: REST API
        href: /java/api/com.azure.health.insights.radiologyinsights
      - name: SDKs

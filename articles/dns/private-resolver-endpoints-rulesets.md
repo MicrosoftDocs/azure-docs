@@ -3,9 +3,9 @@ title: Azure DNS Private Resolver endpoints and rulesets
 description: In this article, understand the Azure DNS Private Resolver endpoints and rulesets
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 04/16/2024
 ms.author: greglin
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
 ---
@@ -106,7 +106,8 @@ A query for `secure.store.azure.contoso.com` matches the **AzurePrivate** rule f
 
 > [!IMPORTANT]
 > If a rule is present in the ruleset that has as its destination a private resolver inbound endpoint, do not link the ruleset to the VNet where the inbound endpoint is provisioned. This configuration can cause DNS resolution loops. For example: In the previous scenario, no ruleset link should be added to `myeastvnet` because the inbound endpoint at `10.10.0.4` is provisioned in `myeastvnet` and a rule is present that resolves `azure.contoso.com` using the inbound endpoint.<br><br>
-> The rules shown in this article are examples of rules that can be used for specific scenarios. None of the fowarding rules described here are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.
+> The rules shown in this article are examples of rules that you can use for specific scenarios. The examples used aren't required. Be careful to test your forwarding rules.<br><br>
+> **If you include a wildcard rule in your ruleset, ensure that the target DNS service can resolve public DNS names. Some Azure services have dependencies on public name resolution.**
 
 #### Rule processing
 

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 04/01/2024
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-extended-java
 ---
 
 # Assessment overview (migrate to Azure App Service)
 
-This article provides an overview of assessments for migrating on-premises ASP.NET/Java web apps to Azure App Service using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
+This article provides an overview of assessments for migrating on-premises ASP.NET/Java web apps to Azure App Service using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md).
 
 ## What's an assessment?
 An assessment with the Discovery and assessment tool is a point in time snapshot of data and measures the readiness and provides cost details to host on-premises servers, databases, and web apps to Azure.

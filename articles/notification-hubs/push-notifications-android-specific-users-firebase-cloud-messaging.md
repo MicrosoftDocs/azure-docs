@@ -4,7 +4,7 @@ description: Learn how to send push notifications to specific Android apps by us
 services: notification-hubs
 author: sethmanheim
 manager: femila
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial

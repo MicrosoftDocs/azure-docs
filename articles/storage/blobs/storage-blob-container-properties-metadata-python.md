@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 12/20/2023
+ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
@@ -21,13 +21,23 @@ Blob containers support system properties and user-defined metadata, in addition
 
 To learn about managing properties and metadata using asynchronous APIs, see [Set container metadata asynchronously](#set-container-metadata-asynchronously).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-python](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-python.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with container properties or metadata. To learn more, see the authorization guidance for the following REST API operations:
-    - [Get Container Properties](/rest/api/storageservices/get-container-properties#authorization)
-    - [Set Container Metadata](/rest/api/storageservices/set-container-metadata#authorization)
-    - [Get Container Metadata](/rest/api/storageservices/get-container-metadata#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-python](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-python.md)]
+
+#### Add import statements
+
+Add the following `import` statements:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_container_properties_metadata.py" id="Snippet_imports":::
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to work with container properties or metadata. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher for the *get* operations, and **Storage Blob Data Contributor** or higher for the *set* operations. To learn more, see the authorization guidance for [Get Container Properties (REST API)](/rest/api/storageservices/get-container-properties#authorization), [Set Container Metadata (REST API)](/rest/api/storageservices/set-container-metadata#authorization), or [Get Container Metadata (REST API)](/rest/api/storageservices/get-container-metadata#authorization).
+
+[!INCLUDE [storage-dev-guide-create-client-python](../../../includes/storage-dev-guides/storage-dev-guide-create-client-python.md)]
 
 ## About properties and metadata
 
@@ -109,6 +119,10 @@ With this basic setup in place, you can implement other examples in this article
 
 To learn more about setting and retrieving container properties and metadata using the Azure Blob Storage client library for Python, see the following resources.
 
+### Code samples
+
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_container_properties_metadata.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_container_properties_metadata_async.py) code samples from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for setting and retrieving properties and metadata use the following REST API operations:
@@ -119,8 +133,6 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 The `get_container_properties` method retrieves container properties and metadata by calling both the [Get Container Properties](/rest/api/storageservices/get-container-properties) operation and the [Get Container Metadata](/rest/api/storageservices/get-container-metadata) operation.
 
-### Code samples
-
-- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_container_properties_metadata.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_container_properties_metadata_async.py) code samples from this article (GitHub)
-
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-python](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-python.md)]

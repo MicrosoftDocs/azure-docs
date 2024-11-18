@@ -4,7 +4,7 @@ description: Learn how to use blob index tags to categorize, manage, and query f
 author: normesta
 
 ms.author: normesta
-ms.date: 11/01/2021
+ms.date: 05/01/2024
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.custom: references_regions
@@ -93,6 +93,9 @@ The following limits apply to blob index tags:
     - **0** through **9** (numbers)
 
   - Valid special characters: space, plus, minus, period, colon, equals, underscore, forward slash (` +-.:=_/`)
+  
+> [!TIP]
+> You can use a _storage task_ to set tags on objects at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
 
 ## Getting and listing blob index tags
 
@@ -297,7 +300,7 @@ The blob read (`r`) and write (`w`) permissions alone aren't enough to allow rea
 
 Both blob index tags and metadata provide the ability to store arbitrary user-defined key-value properties alongside a blob resource. Both can be retrieved and set directly, without returning or altering the contents of the blob. It's possible to use both metadata and index tags.
 
-Only index tags are automatically indexed and made searchable by the native Blob Storage service. Metadata can't be natively indexed or searched. You must use a separate service such as [Azure Search](../../search/search-blob-ai-integration.md). Blob index tags have additional permissions for reading, filtering, and writing that are separate from the underlying blob data. Metadata uses the same permissions as the blob and is returned as HTTP headers by the [Get Blob](/rest/api/storageservices/get-blob) and [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operations. Blob index tags are encrypted at rest using a [Microsoft-managed key](../common/storage-service-encryption.md). Metadata is encrypted at rest using the same encryption key specified for blob data.
+Only index tags are automatically indexed and made searchable by the native Blob Storage service. Metadata can't be natively indexed or searched. You must use a separate service such as [Azure Search](/azure/search/search-blob-ai-integration). Blob index tags have additional permissions for reading, filtering, and writing that are separate from the underlying blob data. Metadata uses the same permissions as the blob and is returned as HTTP headers by the [Get Blob](/rest/api/storageservices/get-blob) and [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operations. Blob index tags are encrypted at rest using a [Microsoft-managed key](../common/storage-service-encryption.md). Metadata is encrypted at rest using the same encryption key specified for blob data.
 
 The following table summarizes the differences between metadata and blob index tags:
 

@@ -3,7 +3,7 @@ title: Configure ExpressRoute and S2S VPN coexisting connections with Azure Powe
 description: Configure ExpressRoute and a site-to-site VPN connection that can coexist for the Resource Manager model using Azure PowerShell.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/15/2023
@@ -31,10 +31,9 @@ The steps to configure both scenarios are covered in this article. This article 
 ## Limits and limitations
 
 * **Only route-based VPN gateway is supported.** You must use a route-based [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). You also can use a route-based VPN gateway with a VPN connection configured for 'policy-based traffic selectors' as described in [Connect to multiple policy-based VPN devices](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
-* ExpressRoute-VPN Gateway coexist configurations are **not supported on the Basic SKU**.
+* ExpressRoute-VPN Gateway coexist configurations are **not supported with Basic SKU public IP**.
 * If you want to use transit routing between ExpressRoute and VPN, **the ASN of Azure VPN Gateway must be set to 65515, and Azure Route Server should be used.** Azure VPN Gateway supports the BGP routing protocol. For ExpressRoute and Azure VPN to work together, you must keep the Autonomous System Number of your Azure VPN gateway at its default value, 65515. If you previously selected an ASN other than 65515 and you change the setting to 65515, you must reset the VPN gateway for the setting to take effect.
 * **The gateway subnet must be /27 or a shorter prefix**, such as /26, /25, or you receive an error message when you add the ExpressRoute virtual network gateway.
-* **Coexistence in a dual-stack virtual network is not supported.** If you're using ExpressRoute IPv6 support and a dual-stack ExpressRoute gateway, coexistence with VPN Gateway isn't possible.
 
 ## Configuration designs
 
@@ -92,7 +91,7 @@ This procedure walks you through creating a VNet and site-to-site and ExpressRou
    $resgrp = New-AzResourceGroup -Name "ErVpnCoex" -Location $location
    $VNetASN = 65515
    ```
-3. Create a virtual network including the `GatewaySubnet`. For more information about creating a virtual network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). For more information about creating subnets, see [Create a subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
+3. Create a virtual network including the `GatewaySubnet`. For more information about creating a virtual network, see [Create a virtual network](../virtual-network/manage-virtual-network.yml#create-a-virtual-network). For more information about creating subnets, see [Create a subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    
    > [!IMPORTANT]
    > The **GatewaySubnet** must be a /27 or a shorter prefix, such as /26 or /25.

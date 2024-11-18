@@ -4,7 +4,6 @@ description: Learn how to troubleshoot data flow problems related to connector a
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: wiassaf
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
 ms.date: 03/19/2024
@@ -216,7 +215,7 @@ The RWX permission or the dataset property isn't set correctly.
 
 When you use the ADLS Gen2 as a sink in the data flow (to preview data, debug/trigger run, etc.) and the partition setting in **Optimize** tab in the **Sink** stage isn't default, you might find the job fails with the following error message:
 
-`Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-5df7454e-7b14-4253-a20b-d20b63fe9983-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
+`Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-aaaabbbb-0000-cccc-1111-dddd2222eeee-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
 
 #### Cause
 
@@ -241,7 +240,7 @@ You use Azure PostgreSQL as a source or sink in the data flow such as previewing
 If you use the flexible server or Hyperscale (Citus) for your Azure PostgreSQL server, since the system is built via Spark upon Azure Databricks cluster, there's a limitation in Azure Databricks blocks our system to connect to the Flexible server or Hyperscale (Citus). You can review the following two links as references.
 - [Handshake fails trying to connect from Azure Databricks to Azure PostgreSQL with SSL](/answers/questions/170730/handshake-fails-trying-to-connect-from-azure-datab.html)
  
-- [MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale](https://github.com/microsoft/MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale/blob/master/Hands-on%20lab/HOL%20step-by%20step%20-%20Real-time%20data%20with%20Azure%20Database%20for%20PostgreSQL%20Hyperscale.md)<br/>
+- MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale<br/>
     Refer to the content in the following picture in this article：<br/>
 
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/handshake-failure-cause-2.png" alt-text="Screenshot that shows the referring content in the article above.":::
@@ -803,4 +802,4 @@ For more help with troubleshooting, see these resources:
 *  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-*  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+*  [X information about Data Factory](https://x.com/hashtag/DataFactory)

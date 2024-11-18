@@ -5,9 +5,9 @@ description: Learn how to secure access to APIs by using client certificates. Yo
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 01/12/2023
+ms.date: 10/30/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -26,13 +26,13 @@ For a conceptual overview of API authorization, see [Authentication and authoriz
 
 For certificate validation, API Management can check against certificates managed in your API Management instance. If you choose to use API Management to manage client certificates, you have the following options:
 
-* Reference a certificate managed in [Azure Key Vault](../key-vault/general/overview.md) 
+* Reference a certificate managed in [Azure Key Vault](/azure/key-vault/general/overview) 
 * Add a certificate file directly in API Management
 
 Using key vault certificates is recommended because it helps improve API Management security:
 
 * Certificates stored in key vaults can be reused across services
-* Granular [access policies](../key-vault/general/security-features.md#privileged-access) can be applied to certificates stored in key vaults
+* Granular [access policies](/azure/key-vault/general/security-features#privileged-access) can be applied to certificates stored in key vaults
 * Certificates updated in the key vault are automatically rotated in API Management. After update in the key vault, a certificate in API Management is updated within 4 hours. You can also manually refresh the certificate using the Azure portal or via the management REST API.
 
 ## Prerequisites
@@ -54,12 +54,12 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 ### Developer, Basic, Standard, or Premium tier
 
-To receive and verify client certificates over HTTP/2 in the Developer, Basic, Basic v2, Standard, Standard v2, or Premium tiers, you must enable the **Negotiate client certificate** setting on the **Custom domain** blade as shown below.
+To receive and verify client certificates over HTTP/2 in the Developer, Basic, Standard, or Premium tiers, you must enable the **Negotiate client certificate** setting on the **Custom domain** blade as shown below.
 
 ![Negotiate client certificate](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
-### Consumption tier
-To receive and verify client certificates in the Consumption tier, you must enable the **Request client certificate** setting on the **Custom domains** blade as shown below.
+### Consumption, Basic v2, Standard v2 tier
+To receive and verify client certificates in the Consumption, Basic v2, or Standard v2 tier, you must enable the **Request client certificate** setting on the **Custom domains** blade as shown below.
 
 ![Request client certificate](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 

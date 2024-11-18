@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -14,6 +14,96 @@ ms.custom: generated
 
 This article lists the permissions for the Azure resource providers in the Integration category. You can use these permissions in your own [Azure custom roles](/azure/role-based-access-control/custom-roles) to provide granular access control to resources in Azure. Permission strings have the following format: `{Company}.{ProviderName}/{resourceType}/{action}`
 
+
+## Microsoft.ApiCenter
+
+Azure service: [Azure API Center](/azure/api-center/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ApiCenter/register/action | Register Microsoft.ApiCenter resource provider for the subscription. |
+> | Microsoft.ApiCenter/unregister/action | Unregister Microsoft.ApiCenter resource provider for the subscription. |
+> | Microsoft.ApiCenter/deletedServices/read | Returns paginated collection of deleted services. |
+> | Microsoft.ApiCenter/deletedServices/read | Returns the deleted service. |
+> | Microsoft.ApiCenter/deletedServices/delete | Purge the soft deleted service. |
+> | Microsoft.ApiCenter/operations/read | Read all API operations available for Microsoft.ApiCenter resource provider. |
+> | Microsoft.ApiCenter/resourceTypes/read | Read all resource types available for Microsoft.ApiCenter resource provider. |
+> | Microsoft.ApiCenter/services/write | Creates or updates specified service. |
+> | Microsoft.ApiCenter/services/write | Patches specified service. |
+> | Microsoft.ApiCenter/services/read | Returns the details of the specified service. |
+> | Microsoft.ApiCenter/services/read | Checks if specified service exists. |
+> | Microsoft.ApiCenter/services/read | Returns paginated collection of services. |
+> | Microsoft.ApiCenter/services/delete | Deletes specified service. |
+> | Microsoft.ApiCenter/services/apim-notification/action | Imports resources from one or more API Management instances. |
+> | Microsoft.ApiCenter/services/importFromApim/action | Imports resources from one or more API Management instances. |
+> | Microsoft.ApiCenter/services/exportMetadataSchema/action | Returns effective metadata schema document. |
+> | Microsoft.ApiCenter/services/validateMoveResources/action | Validates move resource request |
+> | Microsoft.ApiCenter/services/moveResources/action | Move resource request |
+> | Microsoft.ApiCenter/services/analysisReports/read | Get a certain analysis report of an API Center instance |
+> | Microsoft.ApiCenter/services/eventGridFilters/read | Returns paginated collection of the Event Grid filters. |
+> | Microsoft.ApiCenter/services/eventGridFilters/read | Returns the details of the specified Event Grid filter. |
+> | Microsoft.ApiCenter/services/eventGridFilters/write | Creates or updates specified Event Grid filter. |
+> | Microsoft.ApiCenter/services/eventGridFilters/delete | Deletes the details of the specified Event Grid filter. |
+> | Microsoft.ApiCenter/services/metadataSchemas/write | Creates or updates specified metadataSchema. |
+> | Microsoft.ApiCenter/services/metadataSchemas/read | Returns paginated collection of metadataSchemas. |
+> | Microsoft.ApiCenter/services/metadataSchemas/read | Returns the details of the specified metadataSchema. |
+> | Microsoft.ApiCenter/services/metadataSchemas/read | Checks if specified metadataSchema exists |
+> | Microsoft.ApiCenter/services/metadataSchemas/delete | Deletes specified metadataSchema. |
+> | Microsoft.ApiCenter/services/operationResults/read | Checks status of a long running operation |
+> | Microsoft.ApiCenter/services/workspaces/apiSources/action | Triggers synchronization with the API source. |
+> | Microsoft.ApiCenter/services/workspaces/linkApiSource/action | Links an API Source. |
+> | Microsoft.ApiCenter/services/workspaces/write | Creates or updates specified workspace. |
+> | Microsoft.ApiCenter/services/workspaces/read | Returns paginated collection of workspaces. |
+> | Microsoft.ApiCenter/services/workspaces/read | Returns the details of the specified workspace. |
+> | Microsoft.ApiCenter/services/workspaces/read | Checks if specified workspace exists |
+> | Microsoft.ApiCenter/services/workspaces/delete | Deletes specified workspace. |
+> | Microsoft.ApiCenter/services/workspaces/analyzerConfig/analysisExecutions/read | Get analysis executions of  a particular analyzer configuration |
+> | Microsoft.ApiCenter/services/workspaces/analyzerConfigs/write | Creates or updates specified analyzer configuration. |
+> | Microsoft.ApiCenter/services/workspaces/analyzerConfigs/read | Returns the details of the specified analyzer configuration. |
+> | Microsoft.ApiCenter/services/workspaces/analyzerConfigs/delete | Deletes the specified analyzer configuration. |
+> | Microsoft.ApiCenter/services/workspaces/analyzerConfigs/importRuleset/action | Imports ruleset file. |
+> | Microsoft.ApiCenter/services/workspaces/analyzerConfigs/exportRuleset/action | Exports ruleset file. |
+> | Microsoft.ApiCenter/services/workspaces/analyzerConfigs/operationResults/read | Checks status of individual import ruleset operation |
+> | Microsoft.ApiCenter/services/workspaces/apis/write | Creates or updates specified API. |
+> | Microsoft.ApiCenter/services/workspaces/apis/read | List APIs inside a catalog |
+> | Microsoft.ApiCenter/services/workspaces/apis/read | Returns the details of the specified API. |
+> | Microsoft.ApiCenter/services/workspaces/apis/read | Checks if specified API exists. |
+> | Microsoft.ApiCenter/services/workspaces/apis/delete | Deletes specified API. |
+> | Microsoft.ApiCenter/services/workspaces/apis/deployments/write | Creates or updates API Deployment. |
+> | Microsoft.ApiCenter/services/workspaces/apis/deployments/read | Checks if specified API Deployment exists. |
+> | Microsoft.ApiCenter/services/workspaces/apis/deployments/read | Returns the details of the specified API deployment. |
+> | Microsoft.ApiCenter/services/workspaces/apis/deployments/read | Returns paginated collection of API deployments. |
+> | Microsoft.ApiCenter/services/workspaces/apis/deployments/delete | Deletes specified API deployment. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/write | Creates or updates API version. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/read | Checks if specified API version exists. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/read | Returns the details of the specified API version. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/read | Returns paginated collection of API versions. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/delete | Deletes specified API version. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/updateAnalysisState/action | Updates analysis results for specified API definition. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action | Exports API definition file. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/importSpecification/action | Imports API definition file. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/write | Creates or updates API Spec. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/read | Checks if specified API Spec exists. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/read | Returns the details of the specified API definition. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/read | Returns paginated collection of API definition. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/delete | Deletes specified API definition. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/analysisResults/read | Returns analysis report for specified API definition. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/operationResults/read | Checks status of individual import operation |
+> | Microsoft.ApiCenter/services/workspaces/apiSources/read | List API Sources inside a catalog. |
+> | Microsoft.ApiCenter/services/workspaces/apiSources/read | Returns the details of the specified API source. |
+> | Microsoft.ApiCenter/services/workspaces/apiSources/delete | Deletes specified API Source. |
+> | Microsoft.ApiCenter/services/workspaces/environments/read | Returns paginated collection of environments |
+> | Microsoft.ApiCenter/services/workspaces/environments/write | Create or update environment |
+> | Microsoft.ApiCenter/services/workspaces/environments/delete | Deletes specified environment. |
+> | Microsoft.ApiCenter/services/workspaces/environments/read | Returns specified environment. |
+> | **DataAction** | **Description** |
+> | Microsoft.ApiCenter/services/workspaces/apis/read | Read APIs from an API Center. |
+> | Microsoft.ApiCenter/services/workspaces/apis/deployments/read | Read API deployments from an API Center. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/read | Read API versions from an API Center. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/read | Read API definitions from an API Center. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action | Exports API definition file. |
+> | Microsoft.ApiCenter/services/workspaces/environments/read | Read API environments from an API Center. |
 
 ## Microsoft.ApiManagement
 
@@ -28,8 +118,15 @@ Azure service: [API Management](/azure/api-management/)
 > | Microsoft.ApiManagement/unregister/action | Un-register subscription for Microsoft.ApiManagement resource provider |
 > | Microsoft.ApiManagement/checkNameAvailability/read | Checks if provided service name is available |
 > | Microsoft.ApiManagement/deletedservices/read | Get deleted API Management Services which can be restored within the soft-delete period |
+> | Microsoft.ApiManagement/gateways/read | Lists Gateway or Gets a Gateway |
+> | Microsoft.ApiManagement/gateways/write | Creates a Gateway |
+> | Microsoft.ApiManagement/gateways/delete | Deletes a Gateway |
+> | Microsoft.ApiManagement/gateways/configConnections/read | Lists Gateway ConfigConnections or Gets a Gateway ConfigConnection |
+> | Microsoft.ApiManagement/gateways/configConnections/write | Creates a Gateway Config Connection |
+> | Microsoft.ApiManagement/gateways/configConnections/delete | Deletes a Gateway Config Connection |
 > | Microsoft.ApiManagement/locations/deletedservices/read | Get deleted API Management Service which can be restored within the soft-delete period by location |
 > | Microsoft.ApiManagement/locations/deletedservices/delete | Delete API Management Service without the option to restore it |
+> | Microsoft.ApiManagement/locations/operationsStatuses/read | View the status of a long running operation for which the 'AzureAsync' header was previously returned to the client |
 > | Microsoft.ApiManagement/operations/read | Read all API operations available for Microsoft.ApiManagement resource |
 > | Microsoft.ApiManagement/reports/read | Get reports aggregated by time periods, geographical region, developers, products, APIs, operations, subscription and byRequest. |
 > | Microsoft.ApiManagement/service/write | Create or Update API Management Service instance |
@@ -364,6 +461,8 @@ Azure service: [API Management](/azure/api-management/)
 > | Microsoft.ApiManagement/service/users/identities/read | List of all user identities. |
 > | Microsoft.ApiManagement/service/users/keys/read | Get keys associated with user |
 > | Microsoft.ApiManagement/service/users/subscriptions/read | Lists the collection of subscriptions of the specified user. |
+> | Microsoft.ApiManagement/service/workspaceLinks/read | Get WorkspaceLinks |
+> | Microsoft.ApiManagement/service/workspaces/join/action | Joins a service workspace. Not Alertable. |
 > | Microsoft.ApiManagement/service/workspaces/read | Lists a collection of Workspaces defined within a service instance. or Gets the details of the Workspace specified by its identifier. |
 > | Microsoft.ApiManagement/service/workspaces/write | Creates Workspace. or Updates the details of the Workspace specified by its identifier. |
 > | Microsoft.ApiManagement/service/workspaces/delete | Deletes specific Workspace of the API Management service instance. |
@@ -569,9 +668,26 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 > | Microsoft.Communication/CommunicationServices/ListKeys/action | Reads the keys for a communication service |
 > | Microsoft.Communication/CommunicationServices/RegenerateKey/action | Regenerates the primary or secondary key for a communication service |
 > | Microsoft.Communication/CommunicationServices/LinkNotificationHub/action | Links an Azure Notification Hub to the communication service |
+> | Microsoft.Communication/CommunicationServices/networkSecurityConfigurations/action | Refresh a Network Security Perimeter Configuration |
 > | Microsoft.Communication/CommunicationServices/EventGridFilters/Read | Reads EventGrid filters on communication services |
 > | Microsoft.Communication/CommunicationServices/EventGridFilters/Write | Writes EventGrid filters on communication services |
 > | Microsoft.Communication/CommunicationServices/EventGridFilters/Delete | Removes an EventGrid filter on communication services |
+> | Microsoft.Communication/CommunicationServices/networkSecurityConfigurations/read | Read Network Security Perimeter Configuration |
+> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/write | Write Network Security Perimeter Assocation |
+> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/read | Read Network Security Perimeter Assocation |
+> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/delete | Delete Network Security Perimeter Assocation |
+> | Microsoft.Communication/CommunicationServices/SmtpUsernames/read | Get an SMTP username resource. |
+> | Microsoft.Communication/CommunicationServices/SmtpUsernames/write | Add SMTP username resource or update an existing resource. |
+> | Microsoft.Communication/CommunicationServices/SmtpUsernames/delete | Operation to delete an SMTP username resource. |
+> | Microsoft.Communication/CommunicationServicesGccm/Read | Reads communication services |
+> | Microsoft.Communication/CommunicationServicesGccm/Write | Writes communication services |
+> | Microsoft.Communication/CommunicationServicesGccm/Delete | Deletes communication services |
+> | Microsoft.Communication/CommunicationServicesGccm/ListKeys/action | Reads the keys for a communication service |
+> | Microsoft.Communication/CommunicationServicesGccm/RegenerateKey/action | Regenerates the primary or secondary key for a communication service |
+> | Microsoft.Communication/CommunicationServicesGccm/LinkNotificationHub/action | Links an Azure Notification Hub to the communication service |
+> | Microsoft.Communication/CommunicationServicesGccm/EventGridFilters/Read | Reads EventGrid filters on communication services |
+> | Microsoft.Communication/CommunicationServicesGccm/EventGridFilters/Write | Writes EventGrid filters on communication services |
+> | Microsoft.Communication/CommunicationServicesGccm/EventGridFilters/Delete | Removes an EventGrid filter on communication services |
 > | Microsoft.Communication/EmailServices/read | Get the EmailService and its properties. |
 > | Microsoft.Communication/EmailServices/write | Get the EmailService and its properties. |
 > | Microsoft.Communication/EmailServices/delete | Operation to delete a EmailService. |
@@ -594,6 +710,7 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 > | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/read | Get all the addresses in a suppression list. |
 > | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/write | Add a new suppression list under the parent Domain resource or update an existing suppression list. |
 > | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/delete | Operation to delete an address from a suppression list. |
+> | Microsoft.Communication/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notifies that new Network Security Perimeter updates are available |
 > | Microsoft.Communication/Locations/OperationStatuses/read | Reads the status of an async operation |
 > | Microsoft.Communication/Locations/OperationStatuses/write | Writes the status of an async operation |
 > | Microsoft.Communication/Operations/read | Reads operations |
@@ -619,7 +736,7 @@ Azure service: [Event Grid](/azure/event-grid/)
 > | Microsoft.EventGrid/domains/eventSubscriptions/write | Create or update a Domain eventSubscription |
 > | Microsoft.EventGrid/domains/eventSubscriptions/read | Read a Domain eventSubscription |
 > | Microsoft.EventGrid/domains/eventSubscriptions/delete | Delete a Domain eventSubscription |
-> | Microsoft.EventGrid/domains/eventSubscriptions/getFullUrl/action | Get full url for the Domain event subscription |
+> | Microsoft.EventGrid/domains/eventSubscriptions/getFullUrl/action | Get full URL for the Domain event subscription |
 > | Microsoft.EventGrid/domains/eventSubscriptions/getDeliveryAttributes/action | Get Domain EventSubscription Delivery Attributes |
 > | Microsoft.EventGrid/domains/networkSecurityPerimeterAssociationProxies/read | Read NspAssociationProxies for domains |
 > | Microsoft.EventGrid/domains/networkSecurityPerimeterAssociationProxies/write | Write NspAssociationProxies for domains |
@@ -641,12 +758,12 @@ Azure service: [Event Grid](/azure/event-grid/)
 > | Microsoft.EventGrid/domains/topics/eventSubscriptions/write | Create or update a DomainTopic eventSubscription |
 > | Microsoft.EventGrid/domains/topics/eventSubscriptions/read | Read a DomainTopic eventSubscription |
 > | Microsoft.EventGrid/domains/topics/eventSubscriptions/delete | Delete a DomainTopic eventSubscription |
-> | Microsoft.EventGrid/domains/topics/eventSubscriptions/getFullUrl/action | Get full url for the DomainTopic event subscription |
+> | Microsoft.EventGrid/domains/topics/eventSubscriptions/getFullUrl/action | Get full URL for the DomainTopic event subscription |
 > | Microsoft.EventGrid/domains/topics/eventSubscriptions/getDeliveryAttributes/action | Get DomainTopic EventSubscription Delivery Attributes |
 > | Microsoft.EventGrid/eventSubscriptions/write | Create or update an eventSubscription |
 > | Microsoft.EventGrid/eventSubscriptions/read | Read an eventSubscription |
 > | Microsoft.EventGrid/eventSubscriptions/delete | Delete an eventSubscription |
-> | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | Get full url for the event subscription |
+> | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | Get full URL for the event subscription |
 > | Microsoft.EventGrid/eventSubscriptions/getDeliveryAttributes/action | Get EventSubscription Delivery Attributes |
 > | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for event subscriptions |
 > | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for event subscriptions |
@@ -722,7 +839,7 @@ Azure service: [Event Grid](/azure/event-grid/)
 > | Microsoft.EventGrid/partnerNamespaces/channels/write | Create or update a channel |
 > | Microsoft.EventGrid/partnerNamespaces/channels/delete | Delete a channel |
 > | Microsoft.EventGrid/partnerNamespaces/channels/channelReadinessStateChange/action | Change channel readiness state |
-> | Microsoft.EventGrid/partnerNamespaces/channels/getFullUrl/action | Get full url for the partner destination channel |
+> | Microsoft.EventGrid/partnerNamespaces/channels/getFullUrl/action | Get full URL for the partner destination channel |
 > | Microsoft.EventGrid/partnerNamespaces/channels/SetChannelToIdle/action | Set provisioning status of channel to idle |
 > | Microsoft.EventGrid/partnerNamespaces/eventChannels/read | Read an event channel |
 > | Microsoft.EventGrid/partnerNamespaces/eventChannels/write | Create or update an event channel |
@@ -754,7 +871,7 @@ Azure service: [Event Grid](/azure/event-grid/)
 > | Microsoft.EventGrid/partnerTopics/eventSubscriptions/write | Create or update a PartnerTopic eventSubscription |
 > | Microsoft.EventGrid/partnerTopics/eventSubscriptions/read | Read a partner topic event subscription |
 > | Microsoft.EventGrid/partnerTopics/eventSubscriptions/delete | Delete a partner topic event subscription |
-> | Microsoft.EventGrid/partnerTopics/eventSubscriptions/getFullUrl/action | Get full url for the partner topic event subscription |
+> | Microsoft.EventGrid/partnerTopics/eventSubscriptions/getFullUrl/action | Get full URL for the partner topic event subscription |
 > | Microsoft.EventGrid/partnerTopics/eventSubscriptions/getDeliveryAttributes/action | Get PartnerTopic EventSubscription Delivery Attributes |
 > | Microsoft.EventGrid/partnerTopics/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for partner topics |
 > | Microsoft.EventGrid/partnerTopics/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for partner topics |
@@ -767,7 +884,7 @@ Azure service: [Event Grid](/azure/event-grid/)
 > | Microsoft.EventGrid/systemTopics/eventSubscriptions/write | Create or update a SystemTopic eventSubscription |
 > | Microsoft.EventGrid/systemTopics/eventSubscriptions/read | Read a SystemTopic eventSubscription |
 > | Microsoft.EventGrid/systemTopics/eventSubscriptions/delete | Delete a SystemTopic eventSubscription |
-> | Microsoft.EventGrid/systemTopics/eventSubscriptions/getFullUrl/action | Get full url for the SystemTopic event subscription |
+> | Microsoft.EventGrid/systemTopics/eventSubscriptions/getFullUrl/action | Get full URL for the SystemTopic event subscription |
 > | Microsoft.EventGrid/systemTopics/eventSubscriptions/getDeliveryAttributes/action | Get SystemTopic EventSubscription Delivery Attributes |
 > | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for system topics |
 > | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for system topics |
@@ -782,7 +899,7 @@ Azure service: [Event Grid](/azure/event-grid/)
 > | Microsoft.EventGrid/topics/eventSubscriptions/write | Create or update a Topic eventSubscription |
 > | Microsoft.EventGrid/topics/eventSubscriptions/read | Read a Topic eventSubscription |
 > | Microsoft.EventGrid/topics/eventSubscriptions/delete | Delete a Topic eventSubscription |
-> | Microsoft.EventGrid/topics/eventSubscriptions/getFullUrl/action | Get full url for the Topic event subscription |
+> | Microsoft.EventGrid/topics/eventSubscriptions/getFullUrl/action | Get full URL for the Topic event subscription |
 > | Microsoft.EventGrid/topics/eventSubscriptions/getDeliveryAttributes/action | Get Topic EventSubscription Delivery Attributes |
 > | Microsoft.EventGrid/topics/networkSecurityPerimeterAssociationProxies/read | Read NspAssociationProxies for topics |
 > | Microsoft.EventGrid/topics/networkSecurityPerimeterAssociationProxies/write | Write NspAssociationProxies for topics |
@@ -824,9 +941,9 @@ Azure service: [Event Hubs](/azure/event-hubs/)
 > | Microsoft.EventHub/register/action | Registers the subscription for the EventHub resource provider and enables the creation of EventHub resources |
 > | Microsoft.EventHub/unregister/action | Registers the EventHub Resource Provider |
 > | Microsoft.EventHub/availableClusterRegions/read | Read operation to list available pre-provisioned clusters by Azure region. |
-> | Microsoft.EventHub/clusters/read | Gets the Cluster Resource Description |
-> | Microsoft.EventHub/clusters/write | Creates or modifies an existing Cluster resource. |
-> | Microsoft.EventHub/clusters/delete | Deletes an existing Cluster resource. |
+> | Microsoft.EventHub/clusters/read | Gets EventHub Cluster Resource |
+> | Microsoft.EventHub/clusters/write | Create or Update EventHub Cluster Resource |
+> | Microsoft.EventHub/clusters/delete | Delete EventHub Cluster Resource |
 > | Microsoft.EventHub/clusters/namespaces/read | List namespace Azure Resource Manager IDs for namespaces within a cluster. |
 > | Microsoft.EventHub/clusters/operationresults/read | Get the status of an asynchronous cluster operation. |
 > | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | Get list of Cluster metrics Resource Descriptions |
@@ -838,10 +955,9 @@ Azure service: [Event Hubs](/azure/event-hubs/)
 > | Microsoft.EventHub/namespaces/removeAcsNamepsace/action | Remove ACS namespace |
 > | Microsoft.EventHub/namespaces/updateState/action | UpdateNamespaceState |
 > | Microsoft.EventHub/namespaces/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
-> | Microsoft.EventHub/namespaces/joinPerimeter/action | Action to Join the Network Security Perimeter. This action is used to perform linked access by NSP RP. |
 > | Microsoft.EventHub/namespaces/authorizationRules/read | Get the list of Namespaces Authorization Rules description. |
 > | Microsoft.EventHub/namespaces/authorizationRules/write | Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated. |
-> | Microsoft.EventHub/namespaces/authorizationRules/delete | Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted.  |
+> | Microsoft.EventHub/namespaces/authorizationRules/delete | Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted. |
 > | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | Get the Connection String to the Namespace |
 > | Microsoft.EventHub/namespaces/authorizationRules/regenerateKeys/action | Regenerate the Primary or Secondary key to the Resource |
 > | Microsoft.EventHub/namespaces/disasterrecoveryconfigs/checkNameAvailability/action | Checks availability of namespace alias under given subscription. |
@@ -856,8 +972,8 @@ Azure service: [Event Hubs](/azure/event-hubs/)
 > | Microsoft.EventHub/namespaces/eventhubs/read | Get list of EventHub Resource Descriptions |
 > | Microsoft.EventHub/namespaces/eventhubs/Delete | Operation to delete EventHub Resource |
 > | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/action | Operation to update EventHub. This operation is not supported on API version 2017-04-01. Authorization Rules. Please use a PUT call to update Authorization Rule. |
-> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/read |  Get the list of EventHub Authorization Rules |
-> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/write | Create EventHub Authorization Rules and Update its properties. The Authorization Rules Access Rights can be updated. |
+> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/read | Get the list of EventHub Authorization Rules |
+> | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/write | Create EventHub Authorization Rules and Update its properties. The Authorization Rules Access. Rights can be updated. |
 > | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/delete | Operation to delete EventHub Authorization Rules |
 > | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/listkeys/action | Get the Connection String to EventHub |
 > | Microsoft.EventHub/namespaces/eventhubs/authorizationRules/regenerateKeys/action | Regenerate the Primary or Secondary key to the Resource |
@@ -875,10 +991,7 @@ Azure service: [Event Hubs](/azure/event-hubs/)
 > | Microsoft.EventHub/namespaces/networkrulesets/read | Gets NetworkRuleSet Resource |
 > | Microsoft.EventHub/namespaces/networkrulesets/write | Create VNET Rule Resource |
 > | Microsoft.EventHub/namespaces/networkrulesets/delete | Delete VNET Rule Resource |
-> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/write | Create NetworkSecurityPerimeterAssociationProxies |
-> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/read | Get NetworkSecurityPerimeterAssociationProxies |
-> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/delete | Delete NetworkSecurityPerimeterAssociationProxies |
-> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/reconcile/action | Reconcile NetworkSecurityPerimeterAssociationProxies |
+> | Microsoft.EventHub/namespaces/networkSecurityPerimeterAssociationProxies/reconcile/action | Reconcile Network Security Perimeter Association Proxy |
 > | Microsoft.EventHub/namespaces/networkSecurityPerimeterConfigurations/read | Get Network Security Perimeter Configurations |
 > | Microsoft.EventHub/namespaces/networkSecurityPerimeterConfigurations/reconcile/action | Reconcile Network Security Perimeter Configurations |
 > | Microsoft.EventHub/namespaces/operationresults/read | Get the status of Namespace operation |
@@ -1013,6 +1126,39 @@ Azure service: [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/)
 > | Microsoft.HealthcareApis/workspaces/fhirservices/resources/editProfileDefinitions/action | Allows user to perform Create Update Delete operations on profile resources. |
 > | Microsoft.HealthcareApis/workspaces/fhirservices/resources/searchParameter/action | Allows running of $status operation for Search Parameters |
 
+## Microsoft.HealthDataAIServices
+
+Azure service: [Azure Health Data Services](/azure/healthcare-apis/healthcare-apis-overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.HealthDataAIServices/register/action | Register the subscription for Microsoft.HealthDataAIServices |
+> | Microsoft.HealthDataAIServices/unregister/action | Unregister the subscription for Microsoft.HealthDataAIServices |
+> | Microsoft.HealthDataAIServices/DeidServices/read | List DeidService resources by subscription ID |
+> | Microsoft.HealthDataAIServices/DeidServices/read | List DeidService resources by resource group |
+> | Microsoft.HealthDataAIServices/DeidServices/read | Get a DeidService |
+> | Microsoft.HealthDataAIServices/DeidServices/write | Create a DeidService |
+> | Microsoft.HealthDataAIServices/DeidServices/delete | Delete a DeidService |
+> | Microsoft.HealthDataAIServices/DeidServices/write | Update a DeidService |
+> | Microsoft.HealthDataAIServices/locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.HealthDataAIServices/locations/operationStatuses/write | write operationStatuses |
+> | Microsoft.HealthDataAIServices/Operations/read | read Operations |
+> | **DataAction** | **Description** |
+> | Microsoft.HealthDataAIServices/DeidServices/Realtime/action | Allows access to the realtime endpoint |
+> | Microsoft.HealthDataAIServices/DeidServices/Batch/write | Creates batches |
+> | Microsoft.HealthDataAIServices/DeidServices/Batch/delete | Deletes a batch |
+> | Microsoft.HealthDataAIServices/DeidServices/Batch/read | Reads a batch |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnectionProxies/delete | Deletes private endpoint connection proxies |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnectionProxies/read | Reads private endpoint connection proxies |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnectionProxies/write | Writes private endpoint connection proxies |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnectionProxies/validate/action | Validates private endpoint connection proxies |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnectionProxies/validate/action | Validates private endpoint connection proxies |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnections/read | Reads private endpoint connections |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnections/write | Writes private endpoint connections |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnections/delete | Deletes private endpoint connections |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateLinkResources/read | Reads private link resources |
+
 ## Microsoft.Logic
 
 Automate the access and use of data across clouds without writing code.
@@ -1023,6 +1169,13 @@ Azure service: [Logic Apps](/azure/logic-apps/)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.Logic/register/action | Registers the Microsoft.Logic resource provider for a given subscription. |
+> | Microsoft.Logic/businessprocesses/read | Reads the business process. |
+> | Microsoft.Logic/businessprocesses/write | Writes the business process. |
+> | Microsoft.Logic/businessprocesses/delete | Deletes the business process. |
+> | Microsoft.Logic/businessprocesses/developmentartifacts/read | Reads the business process development artifact. |
+> | Microsoft.Logic/businessprocesses/developmentartifacts/write | Writes the business process development artifact. |
+> | Microsoft.Logic/businessprocesses/developmentartifacts/validate/action | Validates the business process development artifact. |
+> | Microsoft.Logic/businessprocesses/versions/read | Reads the business process version. |
 > | Microsoft.Logic/integrationAccounts/read | Reads the integration account. |
 > | Microsoft.Logic/integrationAccounts/write | Creates or updates the integration account. |
 > | Microsoft.Logic/integrationAccounts/delete | Deletes the integration account. |
@@ -1060,6 +1213,7 @@ Azure service: [Logic Apps](/azure/logic-apps/)
 > | Microsoft.Logic/integrationAccounts/privateEndpointConnectionProxies/write | Creates or Updates the Private Endpoint Connection Proxies. |
 > | Microsoft.Logic/integrationAccounts/privateEndpointConnectionProxies/delete | Deletes the Private Endpoint Connection Proxies. |
 > | Microsoft.Logic/integrationAccounts/privateEndpointConnectionProxies/validate/action | Validates the Private Endpoint Connection Proxies. |
+> | Microsoft.Logic/integrationAccounts/privateEndpointConnectionProxies/operationStatuses/read | Gets Private Endpoint Connection Proxies operation status. |
 > | Microsoft.Logic/integrationAccounts/providers/Microsoft.Insights/logDefinitions/read | Reads the Integration Account log definitions. |
 > | Microsoft.Logic/integrationAccounts/rosettaNetProcessConfigurations/read | Reads the RosettaNet process configuration in integration account. |
 > | Microsoft.Logic/integrationAccounts/rosettaNetProcessConfigurations/write | Creates or updates the  RosettaNet process configuration in integration account. |
@@ -1135,6 +1289,67 @@ Azure service: [Logic Apps](/azure/logic-apps/)
 > | Microsoft.Logic/workflows/triggers/histories/resubmit/action | Resubmits the workflow trigger. |
 > | Microsoft.Logic/workflows/versions/read | Reads the workflow version. |
 > | Microsoft.Logic/workflows/versions/triggers/listCallbackUrl/action | Gets the callback URL for trigger. |
+
+## Microsoft.ModSimWorkbench
+
+Azure service: [Azure Modeling and Simulation Workbench](/azure/modeling-simulation-workbench/modeling-simulation-workbench-overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ModSimWorkbench/register/action | Register the subscription for Microsoft.ModSimWorkbench |
+> | Microsoft.ModSimWorkbench/unregister/action | Unregister the subscription for Microsoft.ModSimWorkbench |
+> | Microsoft.ModSimWorkbench/Locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.ModSimWorkbench/Locations/operationStatuses/write | write operationStatuses |
+> | Microsoft.ModSimWorkbench/Operations/read | read Operations |
+> | Microsoft.ModSimWorkbench/workbenches/read | read workbenches |
+> | Microsoft.ModSimWorkbench/workbenches/read | read workbenches |
+> | Microsoft.ModSimWorkbench/workbenches/read | read workbenches |
+> | Microsoft.ModSimWorkbench/workbenches/write | write workbenches |
+> | Microsoft.ModSimWorkbench/workbenches/delete | delete workbenches |
+> | Microsoft.ModSimWorkbench/workbenches/write | write workbenches |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/getUploadUri/action | getUploadUri chambers |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/start/action | start chambers |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/stop/action | stop chambers |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/restart/action | restart chambers |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/licenseUpdate/action | licenseUpdate chambers |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/licenseRestart/action | licenseRestart chambers |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/read | Gets information about the specified Chamber. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/write | Creates or updates the specified Chamber. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/delete | Deletes the specified Chamber. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/write | Updates the specified Chamber. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/read | Lists all Chambers. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/start/action | start connectors |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/stop/action | stop connectors |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/restart/action | restart connectors |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/read | Gets information about the specified connector. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/write | Creates or updates the specified connector. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/delete | Deletes the specified connector. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/write | Updates the specified connector. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/read | Lists all connectors. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/licenseAdd/action | Add license to an ModSim Workbench connector. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/read | read fileRequests |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/manage/action | manage fileRequests |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/getDownloadUri/action | getDownloadUri fileRequests |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/read | Get ModSim Workbench chamber data pipeline file request resource collection. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/files/read | read files |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/files/read | Lists all files. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/read | Gets information about the specified storage. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/write | Creates or updates the specified storage. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/delete | Deletes the specified storage. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/write | Updates the specified storage. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/read | Lists all storages. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/start/action | start workloads |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/stop/action | stop workloads |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/restart/action | restart workloads |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/read | Gets information about the specified workload. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/write | Creates or updates the specified workload. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/delete | Deletes the specified workload. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/write | Updates the specified workload. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/read | Lists all workloads. |
+> | **DataAction** | **Description** |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/files/manage/action | manage files |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/files/downloadRequest/action | downloadRequest files |
 
 ## Microsoft.NotificationHubs
 
@@ -1265,6 +1480,24 @@ Azure service: [Azure Relay](/azure/azure-relay/relay-what-is-it)
 > | Microsoft.Relay/namespaces/messages/send/action | Send messages |
 > | Microsoft.Relay/namespaces/messages/listen/action | Receive messages |
 
+## Microsoft.ResourceNotifications
+
+Azure service: [Azure Event Grid](/azure/event-grid/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ResourceNotifications/eventGridFilters/read | Creates/Updates the specified event grid filters |
+> | Microsoft.ResourceNotifications/eventGridFilters/write | Creates/Updates the specified event grid filters |
+> | Microsoft.ResourceNotifications/eventGridFilters/delete | Deletes the specified event grid filters |
+> | Microsoft.ResourceNotifications/operations/read | Gets the list of supported operations |
+> | Microsoft.ResourceNotifications/systemTopics/subscribeToResources/action | Permission to perform creation and event subscription creation on a Resources system topic |
+> | Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action | Permission to perform creation and event subscription creation on a HealthResources system topic |
+> | Microsoft.ResourceNotifications/systemTopics/subscribeToMaintenanceResources/action | Permission to perform creation and event subscription creation on a MaintenanceResources system topic |
+> | Microsoft.ResourceNotifications/systemTopics/subscribeToComputeResources/action | Permission to perform creation and event subscription creation on a ComputeResources system topic |
+> | Microsoft.ResourceNotifications/systemTopics/subscribeToComputeScheduleResources/action | Permission to perform creation and event subscription creation on a ComputeScheduleResources system topic |
+> | Microsoft.ResourceNotifications/systemTopics/subscribeToContainerServiceEventResources/action | Permission to perform creation and event subscription creation on a ContainerServiceEventResources system topic |
+
 ## Microsoft.ServiceBus
 
 Connect across private and public cloud environments.
@@ -1302,7 +1535,6 @@ Azure service: [Service Bus](/azure/service-bus-messaging/)
 > | Microsoft.ServiceBus/namespaces/eventGridFilters/write | Creates or Updates the Event Grid filter associated with the namespace. |
 > | Microsoft.ServiceBus/namespaces/eventGridFilters/read | Gets the Event Grid filter associated with the namespace. |
 > | Microsoft.ServiceBus/namespaces/eventGridFilters/delete | Deletes the Event Grid filter associated with the namespace. |
-> | Microsoft.ServiceBus/namespaces/eventhubs/read | Get list of EventHub Resource Descriptions |
 > | Microsoft.ServiceBus/namespaces/ipFilterRules/read | Get IP Filter Resource |
 > | Microsoft.ServiceBus/namespaces/ipFilterRules/write | Create IP Filter Resource |
 > | Microsoft.ServiceBus/namespaces/ipFilterRules/delete | Delete IP Filter Resource |

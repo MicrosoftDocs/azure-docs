@@ -2,34 +2,52 @@
 description: Learn how to start using Azure Cloud Shell without a storage account.
 ms.contributor: jahelmic
 ms.date: 01/22/2024
-ms.topic: article
+ms.topic: how-to
 tags: azure-resource-manager
 title: Get started with Azure Cloud Shell ephemeral sessions
 ---
 # Get started with Azure Cloud Shell ephemeral sessions
 
 Using Cloud Shell ephemeral sessions is the fastest way to start using Cloud Shell. Ephemeral
-sessions don't require a storage account. When you close the Cloud Shell window, all files you saved
-are deleted and don't persist across sessions.
+sessions don't require a storage account. When your Cloud Shell session ends, which occurs shortly
+after the window is closed or when Cloud Shell is restarted, all files you saved are deleted and
+don't persist across sessions.
 
+## Prerequisites
+
+Before you can use Azure Cloud Shell, you must register the **Microsoft.CloudShell** resource 
+provider. Access to resources is enabled through provider namespaces that must be registered in your 
+subscription. You only need to register the namespace once per subscription.
+
+To see all resource providers, and the registration status for your subscription:
+
+1. Sign in to the [Azure portal][04].
+1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
+1. Select the subscription you want to view.
+1. On the left menu, under **Settings**, select **Resource providers**.
+1. In the search box, enter `cloudshell` to search for the resource provider.
+1. Select the **Microsoft.CloudShell** resource provider register from the provider list.
+1. Select **Register** to change the status from **unregistered** to **Registered**.
+
+   ![Screenshot of selecting resource providers in the Azure portal.][09]
+   
 ## Start Cloud Shell
 
 1. Sign into the [Azure portal][04].
 1. Launch **Cloud Shell** from the top navigation of the Azure portal.
 
    ![Screenshot showing how to start Azure Cloud Shell in the Azure portal.][07]
-
+   
 1. The first time you start Cloud Shell you're prompted to which shell to use. Select **Bash** or
    **PowerShell**.
 
    ![Screenshot showing the prompt to select the shell.][05]
-
+   
 1. In the **Getting started** pane, select **No storage account required** for an ephemeral session.
    Using the dropdown menu, select the subscription you want to use for Cloud Shell, then select
    the **Apply** button.
 
    ![Screenshot showing the select subscription and optional storage prompt.][06]
-
 ### Set your subscription
 
 1. List subscriptions you have access to.
@@ -119,3 +137,4 @@ Get-AzCommand
 [06]: media/ephemeral/getting-started.png
 [07]: media/ephemeral/shell-icon.png
 [08]: ../persisting-shell-storage.md
+[09]: media/ephemeral/resource-provider.png

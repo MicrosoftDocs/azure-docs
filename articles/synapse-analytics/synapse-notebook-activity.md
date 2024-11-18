@@ -3,7 +3,7 @@ title: Transform data by running a Synapse notebook
 description: In this article, you learn how to create and develop a Synapse notebook activity and a Synapse pipeline.
 services: synapse analytics 
 author: ruixinxu 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: pipeline 
 ms.topic: conceptual 
 ms.date: 05/19/2021
@@ -13,9 +13,9 @@ ms.author: ruxu
 
 # Transform data by running a Synapse notebook
 
-[!INCLUDE[appliesto-adf-xxx-md](../data-factory/includes/appliesto-xxx-asa-md.md)]
+[!INCLUDE [appliesto-adf-asa-md](../data-factory/includes/appliesto-adf-asa-md.md)]
 
-The Azure Synapse notebook activity in a [Synapse pipeline](../data-factory/concepts-pipelines-activities.md) runs a Synapse notebook in your Azure Synapse workspace. This article builds on the [data transformation activities](../data-factory/transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. 
+The Azure Synapse notebook activity in a [Synapse pipeline](../data-factory/concepts-pipelines-activities.md) runs a Synapse notebook. This article builds on the [data transformation activities](../data-factory/transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. 
 
 ## Create a Synapse notebook activity
 
@@ -60,7 +60,17 @@ To parameterize your notebook, select the ellipses (...) to access the **more co
 
 [![screenshot-showing-azure-notebook-toggle-parameter](./media/synapse-notebook-activity/azure-notebook-toggle-parameter-cell.png)](./media/synapse-notebook-activity/azure-notebook-toggle-parameter-cell.png#lightbox)
 
-Azure Data Factory looks for the parameters cell and uses the values as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. 
+Define your parameters in this cell. It can be something as simple as:
+
+```python
+a = 1
+b = 3
+c = "Default Value"
+```
+
+You can reference these parameters in other cells and when you run the notebook to use the default values you specify in the parameters cell.
+
+When you run this notebook from a pipeline, Azure Data Factory looks for the parameters cell and uses the values you provided as defaults for the parameters passed in at execution time. If you [assign parameters values from a pipeline](#assign-parameters-values-from-a-pipeline), the execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. 
 
 
 ### Assign parameters values from a pipeline
@@ -68,6 +78,11 @@ Azure Data Factory looks for the parameters cell and uses the values as defaults
 Once you've created a notebook with parameters, you can execute it from a pipeline with the Synapse notebook activity. After you add the activity to your pipeline canvas, you'll be able to set the parameters values under **Base parameters** section on the **Settings** tab. 
 
 [![screenshot-showing-assign-a-parameter](./media/synapse-notebook-activity/assign-parameter.png)](./media/synapse-notebook-activity/assign-parameter.png#lightbox)
+
+>[!TIP]
+>Data Factory won't automatically populate the parameters. You need to add them manually. Be sure to use the exact same name in both your parameters cell in the notebook and the base parameter in the pipeline.
+
+Once you've added your parameters to your activity, Data Factory will pass the values you specify in your activity to your notebook, and your notebook will run with those new parameter values, instead of the defaults you specified in the parameters cell.
 
 When assigning parameter values, you can use the [pipeline expression language](../data-factory/control-flow-expression-language-functions.md) or [system variables](../data-factory/control-flow-system-variables.md).
 

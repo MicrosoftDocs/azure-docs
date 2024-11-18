@@ -3,9 +3,9 @@ title: Tutorial - Azure IoT connected waste management
 description: This tutorial shows you how to deploy and use the connected waste management application template for IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/13/2023
+ms.date: 10/14/2024
 ms.topic: tutorial
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ---
 
@@ -172,7 +172,7 @@ If you made any changes, remember to publish the device template.
 
 ### Create a new device template
 
-To create a new device template, select **+ New**, and follow the steps. You can create a custom device template from scratch, or you can choose a device template from the device catalog.
+To create a new device template, select **+ New**, and follow the steps. You can create a custom device template from scratch, or you can choose a device template from the list of featured device templates.
 
 ### Explore simulated devices
 

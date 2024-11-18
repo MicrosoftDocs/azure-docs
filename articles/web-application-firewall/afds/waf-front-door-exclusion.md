@@ -3,7 +3,7 @@ title: Web application firewall exclusion lists in Azure Front Door
 description: This article provides information on exclusion list configuration in Azure Front Door.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 03/07/2023
 ms.author: victorh
 ms.topic: conceptual

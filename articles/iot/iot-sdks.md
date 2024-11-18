@@ -3,7 +3,7 @@ title: Azure IoT device and service SDKs
 description: A list of the IoT SDKs and libraries. Includes SDKs for device development and SDKs for building service applications.
 author: dominicbetts
 ms.author: dobett
-ms.service: iot
+ms.service: azure-iot
 services: iot
 ms.topic: conceptual
 ms.date: 02/28/2024
@@ -20,7 +20,7 @@ The following tables list the various SDKs you can use to build IoT solutions.
 
 Use the device SDKs to develop code to run on IoT devices that connect to IoT Hub or IoT Central.
 
-To learn more about how to use the device SDKs, see [What is Azure IoT device and application development?](../iot-develop/about-iot-develop.md).  
+To learn more about how to use the device SDKs, see [What is Azure IoT device and application development?](./concepts-iot-device-development.md).  
 
 ### Embedded device SDKs
 

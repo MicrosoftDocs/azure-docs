@@ -77,4 +77,4 @@ When the extension installation steps are completed, they trigger deployment and
 Now that you covered how to integrate services and monitor VMware Solution VMs, you can also learn about:
 
 - [Using the workload protection dashboard](../security-center/azure-defender-dashboard.md)
-- [Advanced multistage attack detection in Microsoft Sentinel](../azure-monitor/logs/quick-create-workspace.md)
+- [Advanced multistage attack detection in Microsoft Sentinel](/azure/azure-monitor/logs/quick-create-workspace)

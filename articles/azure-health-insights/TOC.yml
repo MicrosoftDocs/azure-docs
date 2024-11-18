@@ -6,12 +6,10 @@ items:
   items:
     - name: About Azure AI Health Insights
       href: overview.md
-    - name: OncoPhenotype
-      href: ./oncophenotype/index.yml
-    - name: Trial Matcher 
-      href: ./trial-matcher/index.yml    
     - name: Radiology Insights 
       href: ./radiology-insights/index.yml   
+    - name: Trial Matcher 
+      href: ./trial-matcher/index.yml    
 - name: Quickstarts
   expanded: true
   items:

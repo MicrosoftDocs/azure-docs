@@ -2,7 +2,7 @@
 author: aybatra
 ms.author: aybatra
 ms.date: 10/17/2023
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: include
 ---
 |Recommended Algorithms | Encryptions | Integrity | DH Group|

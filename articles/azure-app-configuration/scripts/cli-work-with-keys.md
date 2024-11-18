@@ -8,7 +8,7 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 02/19/2020
+ms.date: 04/12/2024
 ms.author: malev 
 ms.custom: devx-track-azurecli
 ---
@@ -21,7 +21,7 @@ This sample script shows how to:
 * Update the value of a newly created key
 * Delete the new key-value pair
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

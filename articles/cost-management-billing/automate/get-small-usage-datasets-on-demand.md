@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: The article explains how you can use the Cost Details API to get raw, unaggregated cost data that corresponds to your Azure bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2024
+ms.date: 08/14/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -129,8 +129,8 @@ GET https://management.azure.com/{scope}/providers/Microsoft.CostManagement/cost
 
 ```JSON
 {
-  "id": "subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/operationResults/00000000-0000-0000-0000-000000000000",
-  "name": "00000000-0000-0000-0000-000000000000",
+  "id": "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.CostManagement/operationResults/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+  "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
   "status": "Completed",
   "manifest": {
     "manifestVersion": "2022-05-01",
@@ -139,7 +139,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.CostManagement/cost
     "byteCount": 160769,
     "compressData": false,
     "requestContext": {
-      "requestScope": "subscriptions/00000000-0000-0000-0000-000000000000",
+      "requestScope": "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
       "requestBody": {
         "metric": "ActualCost",
         "timePeriod": {
@@ -172,7 +172,7 @@ Here's a summary of the key fields in the API response:
   - **byteCount** - The byte count of the individual blob partition.
 - **validTill** - The date when the report is no longer accessible.
 
-## Next steps
+## Related content
 
 - Read the [Ingest cost details data](automation-ingest-usage-details-overview.md) article.
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).

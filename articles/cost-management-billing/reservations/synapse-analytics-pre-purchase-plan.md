@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 09/10/2024
 ms.author: banders
 ---
 
@@ -40,7 +40,7 @@ For more information about available SCU tiers and pricing discounts, you use th
 
 You buy Synapse plans in the [Azure portal](https://portal.azure.com). To buy a Pre-Purchase Plan, you must have the owner role for at least one enterprise or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates subscription, or the required role for CSP subscriptions.
 
-- You must be in an Owner role for at least one Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 - For Enterprise Agreement (EA) subscriptions, the **Reserved Instances** policy option must be enabled in the [Azure portal](../manage/direct-ea-administration.md#view-and-manage-enrollment-policies). Or, if that setting is disabled, you must be an EA Admin of the subscription.
 - For CSP subscriptions, follow the steps in [Acquire, provision, and manage Azure reserved VM instances (RI) + server subscriptions for customers](/partner-center/azure-ri-server-subscriptions).
 
@@ -65,18 +65,19 @@ You can make the following types of changes to a reservation after purchase:
 - Update reservation scope
 - Azure role-based access control (Azure RBAC)
 
-You can't split or merge a Synapse commit unit Pre-Purchase Plan. For more information about managing reservations, see [Manage reservations after purchase](manage-reserved-vm-instance.md).
+You can't split or merge a Synapse Pre-Purchase Plan. For more information about managing reservations, see [Manage reservations after purchase](manage-reserved-vm-instance.md).
 
 ## Cancellations and exchanges
 
 Cancel and exchange isn't supported for Synapse Pre-Purchase Plans. All purchases are final.
 
-## Next steps
+## Related content
 
 To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand Azure Reservations discount](understand-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+- [Understand reservation usage for your pay-as-you-go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
+- [Buy a reservation](prepare-buy-reservation.md)

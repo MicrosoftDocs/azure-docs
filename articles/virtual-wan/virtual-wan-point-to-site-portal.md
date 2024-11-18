@@ -1,16 +1,16 @@
 ---
 
-title: 'Tutorial: Create a User VPN connection to Azure using Azure Virtual WAN'
+title: 'Tutorial: Create a User VPN connection to Azure using Azure Virtual WAN - Certificate or  RADIUS authentication'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a User VPN (point-to-site) connection to Azure.
 services: virtual-wan
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: tutorial
 ms.date: 08/09/2023
 ms.author: cherylmc
 
 ---
-# Tutorial: Create a P2S User VPN connection using Azure Virtual WAN
+# Tutorial: Create a P2S User VPN connection using Azure Virtual WAN - Certificate or RADIUS authentication
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure. In this tutorial, you create a point-to-site User VPN connection over OpenVPN or IPsec/IKE (IKEv2) using the Azure portal. This type of connection requires the native VPN client to be configured on each connecting client computer.
 
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > * View your virtual WAN
 > * Modify settings
 
-:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Virtual WAN diagram.":::
+:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Screenshot of Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtualwanp2s.png":::
 
 ## Prerequisites
 

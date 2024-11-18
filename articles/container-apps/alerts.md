@@ -3,7 +3,7 @@ title: Set up alerts in Azure Container Apps
 description: Set up alerts to monitor your container app.
 services: container-apps
 author: v-jaswel
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: v-wellsjason
@@ -13,10 +13,10 @@ ms.author: v-wellsjason
 
 Azure Monitor alerts notify you so that you can respond quickly to critical issues.  There are two types of alerts that you can define:
 
-- [Metric alerts](../azure-monitor/alerts/alerts-metric-overview.md) based on Azure Monitor metric data
-- [Log alerts](../azure-monitor/alerts/alerts-unified-log.md) based on Azure Monitor Log Analytics data
+- [Metric alerts](/azure/azure-monitor/alerts/alerts-metric-overview) based on Azure Monitor metric data
+- [Log alerts](/azure/azure-monitor/alerts/alerts-unified-log) based on Azure Monitor Log Analytics data
 
-You can create alert rules from metric charts in the metric explorer and from queries in Log Analytics.  You can also define and manage alerts from the **Monitor>Alerts** page.  To learn more about alerts, refer to [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md).
+You can create alert rules from metric charts in the metric explorer and from queries in Log Analytics.  You can also define and manage alerts from the **Monitor>Alerts** page.  To learn more about alerts, refer to [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview).
 
 The **Alerts** page in the **Monitoring** section on your container app page displays all of your app's alerts.  You can filter the list by alert type, resource, time and severity.  You can also modify and create new alert rules from this page.
 
@@ -50,7 +50,7 @@ To add more conditions to your alert rule:
 1. Select **Add condition** in the **Condition** section.
 1. Select from the metrics listed in the **Select a signal** pane.
   :::image type="content" source="media/observability/metrics-alert-select-a-signal.png" alt-text="Screenshot of the metric explorer alert rule editor showing the Select a signal pane.":::
-1. Configure the settings for your alert condition.  For more information about configuring alerts, see [Manage metric alerts](../azure-monitor/alerts/alerts-metric.md).
+1. Configure the settings for your alert condition.  For more information about configuring alerts, see [Manage metric alerts](/azure/azure-monitor/alerts/alerts-metric).
 
  You can receive individual alerts for specific revisions or replicas by enabling alert splitting and selecting **Revision** or **Replica** from the **Dimension name** list.
 
@@ -58,11 +58,11 @@ Example of selecting a dimension to split an alert.
 
 :::image type="content" source="media/observability/metrics-alert-split-by-dimension.png" alt-text="Screenshot of the metrics explorer alert rule editor.  This example shows the Split by dimensions options in the Configure signal logic pane.":::
 
- To learn more about configuring alerts, visit [Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md)
+ To learn more about configuring alerts, visit [Create a metric alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-metric-alert)
 
 ## Create log alert rules
 
-You can create log alerts from queries in Log Analytics.  When you create an alert rule from a query, the query is run at set intervals triggering alerts when the log data matches the alert rule conditions.  To learn more about creating log alert rules, see [Manage log alerts](../azure-monitor/alerts/alerts-log.md).
+You can create log alerts from queries in Log Analytics.  When you create an alert rule from a query, the query is run at set intervals triggering alerts when the log data matches the alert rule conditions.  To learn more about creating log alert rules, see [Manage log alerts](/azure/azure-monitor/alerts/alerts-log).
 
 To create an alert rule:
 

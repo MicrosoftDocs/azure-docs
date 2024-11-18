@@ -54,7 +54,7 @@ This error could be an intermittent problem with the Azure portal. Try to deploy
 
 ## Unable to delete
 
-If you're unable to delete Confluent resources, verify you have permissions to delete the resource. You must be allowed to take Microsoft.Confluent/*/Delete actions. For information about viewing permissions, see [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.md).
+If you're unable to delete Confluent resources, verify you have permissions to delete the resource. You must be allowed to take Microsoft.Confluent/*/Delete actions. For information about viewing permissions, see [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.yml).
 
 If you have the correct permissions but still can't delete the resource, contact [Confluent support](https://support.confluent.io). This condition might be related to Confluent's retention policy. Confluent support can delete the organization and email address for you.
 
@@ -63,6 +63,27 @@ If you have the correct permissions but still can't delete the resource, contact
 If SSO isn't working for the Confluent Cloud SaaS portal, verify you're using the correct Microsoft Entra ID email. You must also have consented to allow access for the Confluent Cloud software as a service (SaaS) portal. For more information, see the [single sign-on guidance](manage.md#single-sign-on).
 
 If the problem persists, contact [Confluent support](https://support.confluent.io).
+
+## Unable to create a service connection to Confluent Kafka using Service Connector
+
+1. Ensure that your Confluent organization is up and running.
+1. If you have opted for the Confluent marketplace resource, please ensure that your Azure Native Confluent organization is still active and not in an unsubscribed status.
+1. If you're using a schema-based data type like AVRO, please ensure you also opt for configuring the schema registry.
+
+## Unable to see the list of connectors using Confluent connectors
+
+If you're not able to see the list of connectors, please make sure you have the Subscription owner or contributor rights. If not, contact your Azure subscription administrator.
+
+## Creating a Confluent connector fails
+
+1. If you're not able to create a connector, please check if you have the right permissions and all the mandatory fields are inputted.
+1. Check that the Azure service you're trying to connect to is configured properly.  
+1. If the issue still persists, contact [Confluent support](https://support.confluent.io).
+
+## Not able to see my Confluent connector in the list
+
+1. If you just created a new connector and are not able to see it in the list of connectors, select **Refresh**.
+2. If you still do not see your connector, contact [Confluent support](https://support.confluent.io).
 
 ## Next steps
 

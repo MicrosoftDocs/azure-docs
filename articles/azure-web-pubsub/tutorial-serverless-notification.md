@@ -75,7 +75,7 @@ In this tutorial, you learn how to:
 
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [create-instance-portal](includes/create-instance-portal.md)]
 
@@ -105,7 +105,7 @@ In this tutorial, you learn how to:
 
     # [Python](#tab/python)
     ```bash
-    func init --worker-runtime python
+    func init --worker-runtime python --model V1
     ```
     
 2. Follow the steps to install `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.

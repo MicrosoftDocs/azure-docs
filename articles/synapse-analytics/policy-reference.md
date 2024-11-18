@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: reference
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Synapse Analytics 

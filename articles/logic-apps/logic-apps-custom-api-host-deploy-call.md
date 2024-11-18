@@ -10,7 +10,7 @@ ms.date: 01/04/2024
 
 # Deploy and call custom APIs from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 After you [create your own APIs](./logic-apps-create-api-app.md) to use in your logic app workflows, you need to deploy those APIs before you can call them. You can deploy your APIs as [web apps](../app-service/overview.md), but consider deploying your APIs as [API apps](../app-service/app-service-web-tutorial-rest-api.md), which make your job easier when you build, host, and consume APIs in the cloud and on premises. You don't have to change any code in your APIs - just deploy your code to an API app. You can host your APIs on [Azure App Service](../app-service/overview.md), a platform-as-a-service (PaaS) offering that provides highly scalable, easy API hosting.
 

@@ -6,12 +6,12 @@ description: Notes for developers on HTTPS cipher suite and TLS requirements whe
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C with my endpoints, I want to understand the TLS and cipher suite requirements, so that I can ensure my endpoints are compatible and establish a secure connection with Azure AD B2C.

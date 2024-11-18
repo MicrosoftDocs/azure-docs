@@ -6,7 +6,7 @@ summary: Learn how to configure self-serve environments that developers can use 
 metadata:
   title: Azure Deployment Environments documentation
   description: Learn how to configure self-serve environments that developers can use to deploy their code with Azure Deployment Environments. Tutorials, quickstarts, how-to guides, and more.
-  ms.service: deployment-environments
+  ms.service: azure-deployment-environments
   ms.custom:
     - build-2023
     - ignite-2023
@@ -14,7 +14,7 @@ metadata:
 
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 10/28/2023
+  ms.date: 09/05/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -27,17 +27,17 @@ landingContent:
             url: overview-what-is-azure-deployment-environments.md
           - text: Key concepts
             url: concept-environments-key-concepts.md
-          - text: Use scenarios
-            url: concept-environments-scenarios.md         
-
+          - text: Azure Deployment Environments roadmap 
+            url: ade-roadmap.md
+            
   # Card
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: 'Create & configure a dev center'
+          - text: 'Configure Azure Deployment Environments'
             url: quickstart-create-and-configure-devcenter.md
-          - text: 'Create dev center & project (Azure Resource Manager)'
+          - text: 'Create dev center & project (ARM template)'
             url: quickstart-create-dev-center-project-azure-resource-manager.md
           - text: 'Create & access environments'
             url: quickstart-create-access-environments.md
@@ -57,6 +57,16 @@ landingContent:
             url: configure-environment-definition.md
           - text: Configure a managed identity
             url: how-to-configure-managed-identity.md
+
+  # Card
+  - title: Customize deployments with the extensibility model
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure container image to execute deployments
+            url: how-to-configure-extensibility-model-custom-image.md
+          - text: Troubleshoot custom image errors and warnings
+            url: troubleshoot-custom-image-logs-errors.md  
 
   # Card
   - title: Configure environment types
@@ -85,3 +95,15 @@ landingContent:
             url: how-to-configure-project-admin.md
           - text: Grant access to create environments
             url: how-to-configure-deployment-environments-user.md
+
+  # Card
+  - title: Use Azure Developer CLI with ADE
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Use Azure Developer CLI (azd) with ADE
+            url: concept-azure-developer-cli-with-deployment-environments.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create environments with Azure Developer CLI (azd)
+            url: how-to-create-environment-with-azure-developer.md

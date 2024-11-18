@@ -27,7 +27,7 @@ You can download tax documents for your Azure invoice if you have access to invo
 ## Check billing account type
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
 
-## Next steps
+## Related content
 
 - [View and download your Microsoft Azure invoice](download-azure-invoice.md)
 - [View and download your Microsoft Azure usage and charges](download-azure-daily-usage.md)

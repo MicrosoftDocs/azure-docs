@@ -31,7 +31,7 @@ sections:
           In which regions is this service available?  
         answer: |
            The Azure Monitor for SAP solutions service is available in the following regions: 
-           **East US 2**, **West US 2**, **East US**, **Central US**, **South Central US**, **West US 3**, **North Central US**, **West Central US**, **West US**, **North Europe**, **West Europe**, **Australia East**, **Australia Central**, **Australia Southeast**, **Central India**, **South India**, **East Asia**, **Southeast Asia**, **Sweden Central**, **UK South**, **West US 2**, **Germany West Central**, **Canada Central** and **Brazil South**.
+           **East US 2**, **West US 2**, **East US**, **Central US**, **South Central US**, **West US 3**, **North Central US**, **West Central US**, **West US**, **North Europe**, **West Europe**, **Australia East**, **Australia Central**, **Australia Southeast**, **Central India**, **South India**, **East Asia**, **Southeast Asia**, **Sweden Central**, **UK South**, **West US 2**, **Germany West Central**, **Canada Central**, **Korea Central**, **South Africa North**, **Switzerland North**, **Norway East**, **UAE North**, **France Central**, **Japan East**, and **Brazil South**.
 
       - question: |
           Do I need to give permissions to allow the deployment of a managed resource group in my subscription?  

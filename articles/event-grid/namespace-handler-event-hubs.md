@@ -2,17 +2,18 @@
 title: Event hubs as event handler for Azure Event Grid namespaces
 description: Describes how you can use an Azure event hub as an event handler for Azure Event Grid namespaces.
 ms.topic: conceptual
-ms.custom: ignite-2023, devx-track-azurecli
+ms.custom: ignite-2023, devx-track-azurecli, build-2024
 ms.date: 02/21/2024
 ---
 
-# Azure Event hubs as a handler destination in subscriptions to Azure Event Grid namespace topics (Preview)
+# Azure Event hubs as a handler destination in subscriptions to Azure Event Grid namespace topics 
 
-An event handler is the place where the event is sent. The handler takes an action to process the event. Currently, **Azure Event Hubs** is the only handler supported as a destination for subscriptions to namespace topics.
+An event handler is the place where the event is sent. The handler takes an action to process the event. Here are the list of supported event handlers for namespace topics:
+
+[!INCLUDE [namespace-topics-event-handlers.md](includes/namespace-topics-event-handlers.md)]
 
 Use **Event Hubs** when your solution gets events from Event Grid faster than it can process the events. Once the events are in an event hub, your application can process events from the event hub at its own schedule. You can scale your event processing to handle the incoming events.
 
-[!INCLUDE [simple-preview-note](./includes/simple-preview-note.md)]
 
 ## Message headers
 
@@ -43,7 +44,7 @@ Here are the properties you receive in the header of an event or message sent to
           "destination": {
             "endpointType": "EventHub",
             "properties": {
-              "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}"
+              "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}"
             }
           }
         }
@@ -64,12 +65,12 @@ Here are the properties you receive in the header of an event or message sent to
         "deliveryWithResourceIdentity": {
           "identity": {
             "type": "UserAssigned",
-            "userAssignedIdentities": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-identity-name}"
+            "userAssignedIdentities": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-identity-name}"
           },
           "destination": {
             "endpointType": "EventHub",
             "properties": {
-              "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}"
+              "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}"
             }
           }
         }
@@ -90,24 +91,24 @@ Here are the properties you receive in the header of an event or message sent to
         "deliveryWithResourceIdentity": {
           "identity": {
             "type": "UserAssigned",
-            "userAssignedIdentities": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-identity-name}"
+            "userAssignedIdentities": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-identity-name}"
           },
           "destination": {
             "endpointType": "EventHub",
             "properties": {
-              "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}"
+              "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}"
             }
           }
         },
         "deadLetterDestinationWithResourceIdentity": {
           "identity": {
             "type": "UserAssigned",
-            "userAssignedIdentities": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-identity-name}"
+            "userAssignedIdentities": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-identity-name}"
           },
           "deadLetterDestination": {
             "endpointType": "StorageBlob",
             "properties": {
-              "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}",
+              "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}",
               "blobContainerName": "{blob-container-name}"
             }
           }
@@ -133,7 +134,7 @@ Here are the properties you receive in the header of an event or message sent to
           "destination": {
             "endpointType": "EventHub",
             "properties": {
-              "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}",
+              "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace-name}/eventhubs/{eventhub-name}",
               "deliveryAttributeMappings": [
                 {
                   "name": "somestaticname",

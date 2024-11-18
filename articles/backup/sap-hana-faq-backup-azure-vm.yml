@@ -3,8 +3,8 @@ metadata:
   title: FAQ — Back up SAP HANA databases on Azure VMs
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
-  ms.service: backup
-  ms.date: 03/17/2024
+  ms.service: azure-backup
+  ms.date: 10/14/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
   ms.custom: engagement-fy24
@@ -125,44 +125,6 @@ sections:
           You can prune the HANA catalog using SAP recommended methods, such as BACKUP CATALOG DELETE statements or HANA Studio/Cockpit. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
       - question: |
-          How can I use SAP HANA Backup with my HANA Replication set-up?
-        answer: |
-          Currently, Azure Backup doesn't have the capability to understand an HSR set-up. This means that the primary and secondary nodes of the HSR will be treated as two individual, unrelated VMs. You'll first need to configure backup on the primary node. When a fail-over happens, backup must be configured on the secondary node (which now becomes the primary node). There's no automatic fail-over of backup to the other node.
-          
-          To back up data from the active (primary) node at any given point-in-time, you can *switch the protection* to the secondary node that has now become the primary after fail-over.
-          
-          To perform this **switch protection**, follow these steps:
-          
-          - [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (with retain data) on primary
-          - Run the [pre-registration script](https://go.microsoft.com/fwlink/?linkid=2173610) on the secondary node
-          - [Discover the databases](tutorial-backup-sap-hana-db.md#discover-the-databases) on the secondary node and [configure backups](tutorial-backup-sap-hana-db.md#configure-backup) on them
-          
-          These steps must be performed manually after every fail-over. You can perform these steps through command line / HTTP REST in addition to the Azure portal. To automate these steps, you can use an Azure runbook.
-          
-          Here's a detailed example of how **switch protection** must be performed:
-          
-          In this example, you have two nodes - Node 1 (primary) and Node 2 (secondary) in the HSR set-up.  Backups are configured on Node 1. As mentioned above, don't attempt yet to configure backups on Node 2.
-          
-          When the first failover happens, Node 2 becomes the primary. Then,
-          
-          1. Stop protection of Node 1 (previous primary) with the retain data option.
-          1. Run the pre-registration script on Node 2 (which is now the primary).
-          1. Discover databases on Node 2, assign backup policy, and configure backups.
-          
-          Then a first full backup is triggered on Node 2 and after that completes, log backups start.
-          
-          When the next fail-over happens, Node 1 becomes primary again and Node 2 becomes secondary. Now repeat the process:
-          
-          1. Stop protection of Node 2 with retain data option.
-          1. Run the pre-registration script on Node 1 (which has become the primary again)
-          1. Then [Resume backup](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) on Node 1 with the required policy (as the backups were stopped earlier on Node 1).
-          
-          Then full backup will again be triggered on Node 1 and after that completes, log backups start.
-
-          >[!Note]
-          >[Running the pre-registration script](./tutorial-backup-sap-hana-db.md#prerequisites) with custom backup user as input could help you manage your HSR backups better. This is because it ensures that both the nodes of the HSR setup have the same backup key, thereby reduces the backup sync and failure issues.
-
-      - question: |
           What happens if I don’t Stop protection (with retain data) on the secondary/inactive node on the HSR set-up?
         answer: |
           1. For HANA system replication (HSR), the secondary node doesn’t accept any connections at all. Once the backup is configured, the Azure Backup service  pings periodically and fails. Sometimes, these failed attempts reflect on the primary node. After multiple failures, the user is locked, and then the primary node starts to fail with _ODBCConnectionError_.   <br><br>We’ve observed that all users don’t experience this issue. We recommend you/SAP to investigate the cause of users getting locked in the primary node when user connection fails on the secondary node.
@@ -176,12 +138,12 @@ sections:
       - question: |
           What’s the backup and restore throughput performance that Azure Backup provides and how to set up my HANA system to use this maximum throughput?
         answer: |
-          Refer to [the backup and restore throughput performance](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
+          Refer to [the backup and restore throughput performance](./tutorial-backup-sap-hana-db.md#understanding-the-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
           
-           - [Select a disk type for Azure IaaS VMs - managed disks](../virtual-machines/disks-types.md)
-           - [Performance tiers for Azure managed disks](../virtual-machines/disks-change-performance.md)
-           - [M-series](../virtual-machines/m-series.md)
-           - [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-premium-ssd-v1.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+           - [Select a disk type for Azure IaaS VMs - managed disks](/azure/virtual-machines/disks-types)
+           - [Performance tiers for Azure managed disks](/azure/virtual-machines/disks-change-performance)
+           - [M-series](/azure/virtual-machines/m-series)
+           - [SAP HANA Azure virtual machine storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-premium-ssd-v1#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
 
           >[!Note]
           >You can also limit the backup throughput performance. [Learn more](./tutorial-backup-sap-hana-db.md#limiting-backup-throughput-performance).
@@ -204,6 +166,25 @@ sections:
         answer: |
           You need to run the instance re-detection on the server that is marked "Not Ready" to update its status.
 
+      - question: |
+          Connecting the Azure environment to on-premises network using ExpressRoute and  configured forced tunneling directs all the traffic to the on-premises network. How can I configure the settings so that Azure SAP HANA Server workload backup traffic will not pass through the on-premises network and directly connect to Recovery Services vault?
+        answer: |
+          During the backup operation, the *backup job* connects to three Service Endpoints - `AzureBackup`, `AzureStorage`, and `Microsoft Entra ID. In this scenario, we recommend you to configure the Service Endpoint to `AzureStorage`, which helps to send the traffic from the Virtual Network to the Storage directly. For Azure Backup and Microsoft Entra ID, you can configure UDR over service tags so that the traffic travels to backbone network instead of on-premises.    
+
+      - question: |
+          Why West US region node is showing under East US region Recovery Services vault?
+        answer: |
+           The Recovery Services vault shows all the nodes that are part of the SAP HANA System Replication. All the nodes are listed here as per the `hdbnsutil` output. However as per the expected behavior, only configured node in this vault is registered.  
+
+      - question: |
+          When a file starting with "hdbbackint" under "/var/tmp generated" and how it's used? 
+        answer: |
+          When you trigger the backup job using the `hdbbackint` Backint agent, it writes information to the `/var/tmp` directory. For example, if an error occurs during the backup process, the error message is written to a file in the `/var/tmp` directory. The file name gets created in the format `hdbbackint_<SID>.<random_string>`, where `<SID>` is the System ID of the SAP HANA instance and `<random_string>` is a randomly generated string.
+
+      - question: |
+          What happens if I delete the hdbbackint file in the /var/tmp?
+        answer: |
+          The backup process is not affected if you delete the `hdbbackint` file in the `/var/tmp` directory. However, it might remove any error messages that were written to the file during the backup process.  
 
   - name: Restore
     questions:

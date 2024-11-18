@@ -13,6 +13,8 @@ ms.custom: mvc
 
 # Create an Azure Content Delivery Network endpoint
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 This article describes all the settings for creating an [Azure Content Delivery Network](cdn-overview.md) endpoint in an existing content delivery network profile. After you've created a profile and an endpoint, you can start delivering content to your customers. For a quickstart on creating a profile and endpoint, see [Quickstart: Create an Azure Content Delivery Network profile and endpoint](cdn-create-new-endpoint.md).
 
 ## Prerequisites
@@ -43,6 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 4. For **Origin type**, choose one of the following origin types:
    - **Storage** for Azure Storage
+   - **Storage static website** for Azure Storage static websites
    - **Cloud service** for Azure Cloud Services
    - **Web App** for Azure Web Apps
    - **Custom origin** for any other publicly accessible origin web server (hosted in Azure or elsewhere)

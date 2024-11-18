@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/08/2024
+ms.date: 09/26/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -42,7 +42,7 @@ For more information about setting up your logic apps for deployment, see the fo
 
 ## Visual Studio Code project structure
 
-[!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
+[!INCLUDE [Visual Studio Code - logic app project structure](includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
 <a name="reference-local-settings-json"></a>
 
@@ -52,24 +52,28 @@ In Visual Studio Code, at your logic app project's root level, the **local.setti
 
 App settings in Azure Logic Apps work similarly to app settings in Azure Functions or Azure Web Apps. If you've used these other services before, you might already be familiar with app settings. For more information, review [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) and [Work with Azure Functions Core Tools - Local settings file](../azure-functions/functions-develop-local.md#local-settings-file).
 
-| Setting | Default value | Description |
-|---------|---------------|-------------|
-| `AzureWebJobsStorage` | None | Sets the connection string for an Azure storage account. For more information, see [AzureWebJobsStorage](../azure-functions/functions-app-settings.md#azurewebjobsstorage) |
-| `FUNCTIONS_WORKER_RUNTIME` | `node` | Sets the language worker runtime to use with your logic app resource and workflows. However, this setting is no longer necessary due to automatically enabled multi-language support. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](../azure-functions/functions-app-settings.md#functions_worker_runtime). |
-| `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
-| `ServiceProviders.Sftp.OperationTimeout` | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
-| `ServiceProviders.Sftp.ServerAliveInterval` | `00:30:00` <br>(30 min) | Sends a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. |
-| `ServiceProviders.Sftp.SftpConnectionPoolSize` | `2` connections | Sets the number of connections that each processor can cache. The total number of connections that you can cache is *ProcessorCount* multiplied by the setting value. |
-| `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `10` KB, which is ~1,000 files | Sets the trigger state entity size in kilobytes, which is proportional to the number of files in the monitored folder and is used to detect files. If the number of files exceeds 1,000, increase this value. |
-| `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
-| `TARGET_BASED_SCALING_ENABLED` | `1` | Sets Azure Logic Apps to use target-based scaling (`1`) or incremental scaling (`0`). By default, target-based scaling is automatically enabled. For more information see [Target-based scaling](#scaling). |
-| `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
-| `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating a managed (Azure-hosted) connection. |
-| `Workflows.CustomHostName` | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
-| `Workflows.<workflowName>.FlowState` | None | Sets the state for <*workflowName*>. |
-| `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | None | Sets the amount of time in days to keep the run history for <*workflowName*>. |
-| `Workflows.RuntimeConfiguration.RetentionInDays` | `90` days | Sets the amount of time in days to keep workflow run history after a run starts. |
-| `Workflows.WebhookRedirectHostUri` | None | Sets the host name to use for webhook callback URLs. |
+For your workflow to run properly, some app settings are required.
+
+| Setting | Required | Value | Description |
+|---------|----------|-------|-------------|
+| `APP_KIND` | Yes | `workflowApp` | Required to set the app type for the Standard logic app resource. The value must be set to **`workflowApp`**. <br><br>**Note**: In some scenarios, this app setting might be missing, for example, due to automation using Azure Resource Manager templates or other scenarios where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code** action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to to **`workflowApp`**. |
+| `AzureWebJobsStorage` | Yes | None | Required to set the connection string for an Azure storage account. For more information, see [AzureWebJobsStorage](../azure-functions/functions-app-settings.md#azurewebjobsstorage). |
+| `FUNCTINONS_EXTENSION_VERSION` | Yes | `~4` | Required to set the Azure Functions version. For more information, see [FUNCTIONS_EXTENSION_VERSION](/azure/azure-functions/functions-app-settings#functions_extension_version). |
+| `FUNCTIONS_WORKER_RUNTIME` | Yes | `dotnet` | Required to set the language worker runtime for your logic app resource and workflows. <br><br>**Note**: This setting's value was previously set to **`node`**, but now the required value is **`dotnet`** for all new and existing deployed Standard logic apps. This change shouldn't affect your workflow's runtime, so everything should work the same way as before. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](../azure-functions/functions-app-settings.md#functions_worker_runtime). |
+| `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | No | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
+| `ServiceProviders.Sftp.OperationTimeout` | No | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
+| `ServiceProviders.Sftp.ServerAliveInterval` | No | `00:30:00` <br>(30 min) | Sends a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. |
+| `ServiceProviders.Sftp.SftpConnectionPoolSize` | No | `2` connections | Sets the number of connections that each processor can cache. The total number of connections that you can cache is *ProcessorCount* multiplied by the setting value. |
+| `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | No | `10` KB, which is ~1,000 files | Sets the trigger state entity size in kilobytes, which is proportional to the number of files in the monitored folder and is used to detect files. If the number of files exceeds 1,000, increase this value. |
+| `ServiceProviders.Sql.QueryTimeout` | No | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
+| `WEBSITE_CONTENTSHARE` | Yes | Dynamic | Required to set the name for the file share that Azure Functions uses to store function app code and configuration files and is used with [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](/azure/azure-functions/functions-app-settings#website_contentazurefileconnectionstring). The default is a unique string generated by the runtime. For more information, see [WEBSITE_CONTENTSHARE](/azure/azure-functions/functions-app-settings#website_contentshare). |
+| `WEBSITE_LOAD_ROOT_CERTIFICATES` | No | None | Sets the thumbprints for the root certificates to be trusted. |
+| `Workflows.Connection.AuthenticationAudience` | No | None | Sets the audience for authenticating a managed (Azure-hosted) connection. |
+| `Workflows.CustomHostName` | No | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
+| `Workflows.<workflowName>.FlowState` | No | None | Sets the state for <*workflowName*>. |
+| `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | No | None | Sets the amount of time in days to keep the run history for <*workflowName*>. |
+| `Workflows.RuntimeConfiguration.RetentionInDays` | No | `90` days | Sets the amount of time in days to keep workflow run history after a run starts. |
+| `Workflows.WebhookRedirectHostUri` | No | None | Sets the host name to use for webhook callback URLs. |
 
 <a name="manage-app-settings"></a>
 
@@ -183,93 +187,6 @@ The following example shows the syntax for these settings where each workflow ID
 "Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2:",
 "Jobs.SuspendedJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2>:"
 ```
-
-<a name="scaling"></a>
-
-### Target-based scaling
-
-Single-tenant Azure Logic Apps gives you the option to select your preferred compute resources and set up your logic app resources to dynamically scale based on varying workload demands. The target-based scaling model used by Azure Logic Apps includes settings that you can use to fine-tune the model's underlying dynamic scaling mechanism, which can result in faster scale-out and scale-in times. For more information about the target-based scaling model, see [Target-based scaling for Standard workflows in single-tenant Azure Logic Apps](target-based-scaling-standard.md).
-
-#### Considerations
-
-- Target-based scaling isn't available or supported for Standard workflows running on an App Service Environment or Consumption plan.
-
-- If you have scale-in requests without any scale-out requests, Azure Logic Apps uses the maximum scale-in value. Target-based scaling can scale down unused worker instances faster, resulting in more efficient resource usage.
-
-#### Requirements
-
-- Your logic apps must use [Azure Functions runtime version 4.3.0 or later](../azure-functions/set-runtime-version.md).
-
-- Your logic app workflows must use single-tenant Azure Logic Apps runtime version 1.55.1 or later.
-
-#### Target-based scaling settings in host.json
-
-| Setting | Default value | Description |
-|---------|---------------|-------------|
-| `Runtime.TargetScaler.TargetConcurrency` | `null` | The number of target executions per worker instance. By default, the value is `null`. If you leave this value unchanged, your logic app defaults to using dynamic concurrency. You can set a targeted maximum value for concurrent job polling by using this setting. For an example, see the section following this table. |
-| `Runtime.TargetScaler.TargetScalingCPU` | `70` | The maximum percentage of CPU usage that you expect at target concurrency. You can change this default percentage for each logic app by using this setting. For an example, see the section following this table. |
-| `Runtime.TargetScaler.TargetScalingFactor` | `0.3` | A numerical value from `0.05` to `1.0` that determines the degree of scaling intensity. A higher target scaling factor results in more aggressive scaling. A lower target scaling factor results in more conservative scaling. You can fine-tune the target scaling factor for each logic app by using this setting. For an example, see the section following this table. |
-
-##### TargetConcurrency example
-
-```json
-{
-   "version": "2.0",
-   "extensionBundle": {
-      "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
-      "version": "[1.*, 2.0.0)"
-   },
-   "extensions": {
-      "workflow": {
-         "Settings": {
-            "Runtime.TargetScaler.TargetConcurrency": "280"
-         }
-      }
-   }
-}
-```
-
-#### TargetScalingCPU example
-
-```json
-{
-   "version": "2.0",
-   "extensionBundle": {
-      "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
-      "version": "[1.*, 2.0.0)"
-   },
-   "extensions": {
-      "workflow": {
-         "Settings": {
-            "Runtime.TargetScaler.TargetScalingCPU": "76"
-         }
-      }
-   }
-}
-```
-
-##### TargetScalingFactor example
-
-```json
-{
-   "version": "2.0",
-   "extensionBundle": {
-      "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
-      "version": "[1.*, 2.0.0)"
-   },
-   "extensions": {
-      "workflow": {
-         "Settings": {
-            "Runtime.TargetScaler.TargetScalingFactor": "0.62"
-         }
-      }
-   }
-}
-```
-
-#### Disable target-based scaling
-
-By default, target-based scaling is automatically enabled. To opt out from using target-based scaling and revert back to incremental scaling, add the app setting named **TARGET_BASED_SCALING_ENABLED** and set the value set to **0** in your Standard logic app resource using the Azure portal or in your logic app project's **local.settings.json file** using Visual Studio Code. For more information, see [Manage app settings - local.settings.json](#manage-app-settings).
 
 <a name="recurrence-triggers"></a>
 
@@ -515,19 +432,7 @@ To review the host settings for your single-tenant based logic app in the Azure 
 
 1. In the [Azure portal](https://portal.azure.com/) search box, find and open your logic app.
 
-1. On your logic app menu, under **Development Tools**, select **Advanced Tools**.
-
-1. On the **Advanced Tools** page, select **Go**, which opens the **Kudu** environment for your logic app.
-
-1. On the Kudu toolbar, from the **Debug console** menu, select **CMD**.
-
-1. In the Azure portal, stop your logic app.
-
-   1. On your logic app menu, select **Overview**.
-
-   1. On the **Overview** pane's toolbar, select **Stop**.
-
-1. On your logic app menu, under **Development Tools**, select **Advanced Tools**.
+1. On the resource menu, under **Development Tools**, select **Advanced Tools**.
 
 1. On the **Advanced Tools** pane, select **Go**, which opens the Kudu environment for your logic app.
 
@@ -547,10 +452,13 @@ To add a setting, follow these steps:
 
 1. Before you add or edit settings, stop your logic app in the Azure portal.
 
-   1. On your logic app menu, select **Overview**.
+   1. On the resource menu, select **Overview**.
+
    1. On the **Overview** pane's toolbar, select **Stop**.
 
-1. Return to the **host.json** file. Under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `settings` objects, for example:
+1. If the **host.json** file is already open, return to the **host.json** file. Otherwise, follow the preceding steps to open the **host.json** file.
+
+1. Under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `settings` objects, for example:
 
    ```json
    {

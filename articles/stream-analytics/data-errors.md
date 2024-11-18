@@ -3,7 +3,7 @@ title: Azure Stream Analytics resource log data errors
 description: This article explains the different input and output data errors that can occur when using Azure Stream Analytics.
 author: ahartoon
 ms.author: anboisve
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
 ---
@@ -16,7 +16,7 @@ This article outlines the different error types, causes, and resource log detail
 
 ## Resource Logs schema
 
-See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md#resource-logs-schema) to see the schema for resource logs. The following JSON is an example value for the **Properties** field of a resource log for a data error.
+See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azure-stream-analytics-reference.md#resource-logs-schema) to see the schema for resource logs. The following JSON is an example value for the **Properties** field of a resource log for a data error.
 
 ```json
 {

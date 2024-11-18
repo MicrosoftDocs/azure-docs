@@ -1,7 +1,7 @@
 ---
 title: "Security, access, and operations for Oracle migrations"
 description: Learn about authentication, users, roles, permissions, monitoring, and auditing, and workload management in Azure Synapse Analytics and Oracle.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 author: ajagadish-24
@@ -263,7 +263,7 @@ The Azure portal can also provide recommendations for performance enhancements, 
 
 :::image type="content" source="../media/3-security-access-operations/azure-portal-recommendations.png" border="true" alt-text="Screenshot of Azure portal recommendations for performance enhancements." lightbox="../media/3-security-access-operations/azure-portal-recommendations-lrg.png":::
 
-The portal supports integration with other Azure monitoring services, such as Operations Management Suite (OMS) and [Azure Monitor](../../../azure-monitor/overview.md), to provide an integrated monitoring experience of the data warehouse and the entire Azure analytics platform. For more information, see [Azure Synapse operations and management options](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+The portal supports integration with other Azure monitoring services, such as Operations Management Suite (OMS) and [Azure Monitor](/azure/azure-monitor/overview), to provide an integrated monitoring experience of the data warehouse and the entire Azure analytics platform. For more information, see [Azure Synapse operations and management options](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 
 ### High availability (HA) and disaster recovery (DR)
 

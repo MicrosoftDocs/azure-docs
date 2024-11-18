@@ -3,7 +3,7 @@ title: CI/CD with Azure Pipelines, Bicep, and bicepparam files
 description: In this quickstart, you learn how to configure continuous integration in Azure Pipelines by using Bicep and bicepparam files. It shows how to use an Azure CLI task to deploy a bicepparam file.
 ms.topic: quickstart
 ms.custom: devx-track-bicep, devx-track-azurecli
-ms.date: 02/29/2024
+ms.date: 09/26/2024
 ---
 
 # Quickstart: Integrate Bicep with Azure Pipelines
@@ -63,7 +63,9 @@ You can use Azure Resource Group Deployment task or Azure CLI task to deploy a B
     name: Deploy Bicep files
 
     parameters:
-      azureServiceConnection: '<your-connection-name>'
+    - name: azureServiceConnection
+      type: string
+      default: '<your-connection-name>'
 
     variables:
       vmImageName: 'ubuntu-latest'

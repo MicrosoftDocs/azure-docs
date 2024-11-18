@@ -1,16 +1,13 @@
 ---
 title: Replicate Azure Stack VMs to Azure using Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for Azure Stack VMs with the Azure Site Recovery service.
-ms.topic: conceptual
-ms.date: 02/20/2024
+ms.topic: how-to
+ms.date: 10/16/2024
 ms.author: ankitadutta
 ms.custom: engagement-fy23
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ---
-# Replicate Azure Stack VMs to Azure
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+# Replicate Azure Stack VMs to Azure using Azure Site Recovery
 
 This article shows you how to set up disaster recovery Azure Stack VMs to Azure, using the [Azure Site Recovery service](site-recovery-overview.md).
 
@@ -83,7 +80,6 @@ Make sure that the VMs are running one of the operating systems summarized in th
 **Operating system** | **Details**
 --- | ---
 **64-bit Windows** | Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (from SP1)
-**CentOS** | 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.3
 **Ubuntu** | 14.04 LTS server, 16.04 LTS server. Review [supported kernels](vmware-physical-azure-support-matrix.md#ubuntu-kernel-versions)
 
 ### Prepare for Mobility service installation
@@ -262,7 +258,7 @@ Before you run a test failover, verify the machine properties, and make sure tha
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the latest available recovery points. Click **Properties** to view more details.
 3. In **Compute** and **Network** settings, modify settings as needed.
 
-    - You can modify the Azure VM name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk settings.
+    - You can modify the Azure VM name, resource group, target size, [availability set](/azure/virtual-machines/windows/tutorial-availability-sets), and managed disk settings.
     - You can also view and modify network settings. These include the network/subnet to which the Azure VM is joined after failover, and the IP address that will be assigned to the VM.
 1. In **Disks**, view information about the operating system and data disks on the VM.
 

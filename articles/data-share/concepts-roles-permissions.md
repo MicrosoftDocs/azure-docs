@@ -3,7 +3,7 @@ title: Roles and requirements for Azure Data Share
 description: Learn about the permissions required to share and receive data using Azure Data Share.
 author: sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ms.topic: conceptual
 ms.date: 01/03/2023
 ms.custom: subject-rbac-steps
@@ -217,7 +217,7 @@ To create a role assignment for the data share resource's managed identity manua
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select one of the roles listed in the role assignment table in the previous section.
 
@@ -229,7 +229,7 @@ To create a role assignment for the data share resource's managed identity manua
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-To learn more about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). If you're sharing data using REST APIs, you can create role assignment using API by referencing [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md). 
+To learn more about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml). If you're sharing data using REST APIs, you can create role assignment using API by referencing [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md). 
 
 For SQL snapshot-based sharing, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource while connecting to SQL database using Microsoft Entra authentication. This user needs to be granted *db_datareader* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [Share from Azure SQL Database or Azure Synapse Analytics](how-to-share-from-sql.md) tutorial.
 
@@ -245,7 +245,7 @@ Alternatively, user can have owner of the storage account add the data share res
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select one of the roles listed in the role assignment table in the previous section. For example, for a storage account, select Storage Blob Data Reader.
 
@@ -257,7 +257,7 @@ Alternatively, user can have owner of the storage account add the data share res
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-To learn more about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). If you're receiving data using REST APIs, you can create role assignment using API by referencing [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md). 
+To learn more about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml). If you're receiving data using REST APIs, you can create role assignment using API by referencing [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md). 
 
 For SQL-based target, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource while connecting to SQL database using Microsoft Entra authentication. This user needs to be granted *db_datareader, db_datawriter, db_ddladmin* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [Share from Azure SQL Database or Azure Synapse Analytics](how-to-share-from-sql.md) tutorial. 
 

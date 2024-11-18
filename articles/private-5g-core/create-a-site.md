@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create a site in your private mobile network. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 01/27/2022
 ms.custom: template-how-to 
@@ -40,13 +40,10 @@ In this step, you'll create the mobile network site resource representing the ph
 
     :::image type="content" source="media/create-a-site/create-site-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab for a site resource.":::
 
-1. You'll now see the **Packet core** configuration tab.
-
-    :::image type="content" source="media/create-a-site/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
-
-1. In the **Packet core** section, set the fields as follows:
+1. You'll now see the **Packet core** configuration tab. Set the fields as follows:
 
     - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Technology type**, **Azure Stack Edge device**, and **Custom location** fields.
+    - For a Highly Available (HA) deployment, specify the ASE two node cluster as the Azure Stack Edge device.
     - Select the recommended packet core version in the **Version** field.
 
         > [!NOTE]
@@ -57,38 +54,36 @@ In this step, you'll create the mobile network site resource representing the ph
 
 :::zone pivot="ase-pro-gpu"
 
-7. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section.
+1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section.
     > [!NOTE]
     > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site will support 5G UEs), **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site will support 4G UEs), or **ASE N2/S1-MME virtual subnet** and **ASE N3/S1-U virtual subnet** (if this site will support both 4G and 5G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro GPU device.
 
-9. In the **Attached data networks** section, select **Attach data network**. Choose whether you want to use an existing data network or create a new one, then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md?pivots=ase-pro-gpu#collect-data-network-values) to fill out the fields. Note the following:
+1. In the **Attached data networks** section, select **Attach data network**. Choose whether you want to use an existing data network or create a new one, then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md?pivots=ase-pro-gpu#collect-data-network-values) to fill out the fields. Note the following:
     - **ASE N6 virtual subnet** (if this site will support 5G UEs), **ASE SGi virtual subnet** (if this site will support 4G UEs), or **ASE N6/SGi virtual subnet** (if this site will support combined 4G and 5G UEs) must match the corresponding virtual network name on port 5 or 6 on your Azure Stack Edge Pro device.
     - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
     - If you decided to keep NAPT disabled, ensure you configure your data network router with static routes to the UE IP pools via the appropriate user plane data IP address for the corresponding attached data network.
-
-    :::image type="content" source="media/create-a-site/create-site-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
 
     Once you've finished filling out the fields, select **Attach**.
 :::zone-end
 :::zone pivot="ase-pro-2"
 
-7. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section.
+1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section.
     > [!NOTE]
     > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site will support 5G UEs), **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site will support 4G UEs), or **ASE N2/S1-MME virtual subnet** and **ASE N3/S1-U virtual subnet** (if this site will support both 4G and 5G UEs) must match the corresponding virtual network names on port 3 on your Azure Stack Edge Pro device.
 
-9. In the **Attached data networks** section, select **Attach data network**. Choose whether you want to use an existing data network or create a new one, then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md?pivots=ase-pro-2#collect-data-network-values) to fill out the fields. Note the following:
+1. If you decided you want to use Remote Authentication Dial-In User Service (RADIUS) authentication, select **Enable** in the **RADIUS server configuration** section and use the information you collected in [Collect RADIUS values](collect-required-information-for-a-site.md#collect-radius-values) to fill out the fields.
+
+1. In the **Attached data networks** section, select **Attach data network**. Choose whether you want to use an existing data network or create a new one, then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md?pivots=ase-pro-2#collect-data-network-values) to fill out the fields. Note the following:
     - **ASE N6 virtual subnet** (if this site will support 5G UEs), **ASE SGi virtual subnet** (if this site will support 4G UEs), or **ASE N6/SGi virtual subnet** (if this site will support combined 4G and 5G UEs) must match the corresponding virtual network name on port 3 or 4 on your Azure Stack Edge Pro device.
     - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
     - If you decided to keep NAPT disabled, ensure you configure your data network router with static routes to the UE IP pools via the appropriate user plane data IP address for the corresponding attached data network.
 
-    :::image type="content" source="media/create-a-site/create-site-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
-
     Once you've finished filling out the fields, select **Attach**.
 :::zone-end
 
-10. Repeat the previous step for each additional data network you want to configure.
+1. Repeat the previous step for each additional data network you want to configure.
 
-8. Go to the **Diagnostics** tab. If you want to enable UE Metric monitoring, select **Enable** from the **UE Metric monitoring** dropdown. Use the information collected in [Collect UE Usage Tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
+1. Go to the **Diagnostics** tab. If you want to enable UE Metric monitoring, select **Enable** from the **UE Metric monitoring** dropdown. Use the information collected in [Collect UE Usage Tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
 
 1. If you decided you want to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificate for this site, select **Next : Identity >**.  
 If you decided not to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificates for this site, you can skip this step.
@@ -100,25 +95,25 @@ If you decided not to configure diagnostics packet collection or use a user assi
 
     1. Under **Provide custom HTTPS certificate?**, select **Yes**.
     1. Use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
-13. In the **Local access** section, set the fields as follows:
+1. In the **Local access** section, set the fields as follows:
 
     :::image type="content" source="media/create-a-site/create-site-local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab for a site resource.":::
   
     - Under **Authentication type**, select the authentication method you decided to use in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools).
     - Under **Provide custom HTTPS certificate?**, select **Yes** or **No** based on whether you decided to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values). If you selected **Yes**, use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
 
-14. Select **Review + create**.
-15. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+1. Select **Review + create**.
+1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
     :::image type="content" source="media/create-a-site/create-site-validation.png" alt-text="Screenshot of the Azure portal showing successful validation of configuration values for a site resource.":::
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged with red X icons. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-16. Once your configuration has been validated, you can select **Create** to create the site. The Azure portal will display the following confirmation screen when the site has been created.
+1. Once your configuration has been validated, you can select **Create** to create the site. The Azure portal will display the following confirmation screen when the site has been created.
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a site.":::
 
-17. Select **Go to resource group**, and confirm that it contains the following new resources:
+1. Select **Go to resource group**, and confirm that it contains the following new resources:
 
     - A **Mobile Network Site** resource representing the site as a whole.
     - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
@@ -128,7 +123,7 @@ If you decided not to configure diagnostics packet collection or use a user assi
   
     :::image type="content" source="media/create-a-site/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/create-a-site/site-related-resources.png":::
 
-18. If you want to assign additional packet cores to the site, for each new packet core resource see [Create additional Packet Core instances for a site  using the Azure portal](create-additional-packet-core.md).
+1. If you want to assign additional packet cores to the site, for each new packet core resource see [Create additional Packet Core instances for a site  using the Azure portal](create-additional-packet-core.md).
 
 ## Next steps
 

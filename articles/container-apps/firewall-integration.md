@@ -3,7 +3,7 @@ title: Securing a custom VNET in Azure Container Apps
 description: Firewall settings to secure a custom VNET in Azure Container Apps
 services: container-apps
 author: CaryChai
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic:  reference
 ms.date: 08/29/2023
 ms.author: cachai
@@ -17,7 +17,7 @@ You can lock down a network via NSGs with more restrictive rules than the defaul
 
 In the workload profiles environment, user-defined routes (UDRs) and [securing outbound traffic with a firewall](./networking.md#configuring-udr-with-azure-firewall) are supported. When using an external workload profiles environment, inbound traffic to Azure Container Apps is routed through the public IP that exists in the [managed resource group](./networking.md#workload-profiles-environment-2) rather than through your subnet. This means that locking down inbound traffic via NSG or Firewall on an external workload profiles environment isn't supported. For more information, see [Networking in Azure Container Apps environments](./networking.md#user-defined-routes-udr).
 
-In the Consumption only environment, custom user-defined routes (UDRs) and ExpressRoutes aren't supported.
+In the Consumption only environment, custom user-defined routes (UDRs). In the Consumption only environment, express routes are not supported, and custom user-defined routes (UDRs) have limited support. For more details on what level of UDR support is available on Consumption only environment, see the [FAQ](faq.yml#do-consumption-only-environments-support-custom-user-defined-routes-).
 
 ## NSG allow rules
 
@@ -96,4 +96,4 @@ The following tables describe how to configure a collection of NSG allow rules. 
 #### Considerations
 
 - If you're running HTTP servers, you might need to add ports `80` and `443`.
-- Don't explicitly deny the Azure DNS address `168.63.128.16` in the outgoing NSG rules, or your Container Apps environment won't be able to function.
+- Don't explicitly deny the Azure DNS address `168.63.129.16` in the outgoing NSG rules, or your Container Apps environment won't be able to function.

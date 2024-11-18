@@ -3,9 +3,9 @@ title: Configure a cross-tenant connection in Azure Virtual Network Manager Prev
 description: Learn how to connect Azure subscriptions in Azure Virtual Network Manager by using cross-tenant connections for the management of virtual networks across subscriptions.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to 
-ms.date: 03/22/2023
+ms.date: 10/15/2024
 ms.custom: template-how-to, devx-track-azurecli
 # Customer intent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
 ---
@@ -15,8 +15,6 @@ ms.custom: template-how-to, devx-track-azurecli
 In this article, you'll learn how to create [cross-tenant connections](concept-cross-tenant.md) in Azure Virtual Network Manager by using the [Azure CLI](/cli/azure/network/manager/scope-connection). Cross-tenant support allows organizations to use a central network manager for managing virtual networks across tenants and subscriptions. 
 
 First, you'll create the scope connection on the central network manager. Then, you'll create the network manager connection on the connecting tenant and verify the connection. Last, you'll add virtual networks from different tenants and verify. After you complete all the tasks, you can centrally manage the resources of other tenants from your network manager.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
 
@@ -28,7 +26,7 @@ First, you'll create the scope connection on the central network manager. Then, 
   - The administrator of the central management tenant has a guest account in the target managed tenant.
   - The administrator guest account has *Network Contributor* permissions applied at the appropriate scope level (management group, subscription, or virtual network).
 
-Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md) and how to [assign user roles to resources in the Azure portal](../role-based-access-control/role-assignments-portal.md).
+Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md) and how to [assign user roles to resources in the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ## Create a scope connection within a network manager
 
@@ -38,7 +36,7 @@ In this task, you set up a scope connection to add a subscription from a target 
 
 ```azurecli
 # Create a scope connection in the network manager in the central management tenant
-az network manager scope-connection create --resource-group "myRG" --network-manager-name "myAVNM" --name "ToTargetManagedTenant" --description "This is a connection to manage resources in the target managed tenant" --resource-id "/subscriptions/13579864-1234-5678-abcd-0987654321ab" --tenant-id "24680975-1234-abcd-56fg-121314ab5643"
+az network manager scope-connection create --resource-group "myRG" --network-manager-name "myAVNM" --name "ToTargetManagedTenant" --description "This is a connection to manage resources in the target managed tenant" --resource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" --tenant-id "aaaabbbb-0000-cccc-1111-dddd2222eeee"
 ```
 
 ## Create a network manager connection on a subscription in another tenant 
@@ -51,7 +49,7 @@ After you create the scope connection, you switch to your target tenant for the 
    
    # Log in to the target managed tenant
    # Change the --tenant value to the appropriate tenant ID
-   az login --tenant "12345678-12a3-4abc-5cde-678909876543"
+   az login --tenant "aaaabbbb-0000-cccc-1111-dddd2222eeee"
    ```
    
    You're required to complete authentication with your organization, based on your organization's policies.
@@ -60,11 +58,11 @@ After you create the scope connection, you switch to your target tenant for the 
 
     ```azurecli
     # Set the Azure subscription
-    az account set --subscription 87654321-abcd-1234-1def-0987654321ab
+    az account set --subscription aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 
 
     # Create a cross-tenant connection to the central management tenant
-    az network manager connection subscription create --connection-name "toCentralManagementTenant" --description "This connection allows management of the tenant by a central management tenant" --network-manager-id "/subscriptions/13579864-1234-5678-abcd-0987654321ab/resourceGroups/myRG/providers/Microsoft.Network/networkManagers/myAVNM"
+    az network manager connection subscription create --connection-name "toCentralManagementTenant" --description "This connection allows management of the tenant by a central management tenant" --network-manager-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRG/providers/Microsoft.Network/networkManagers/myAVNM"
     ```
 
 ## Verify the connection status
@@ -89,7 +87,7 @@ In this task, you add a cross-tenant virtual network to your network group by us
 
 ```azurecli
 # Create a network group with a static member from the target managed tenant
-az network manager group static-member create --network-group-name "CrossTenantNetworkGroup" --network-manager-name "myAVNM" --resource-group "myAVNMResourceGroup" --static-member-name "targetVnet01" --resource-id="/subscriptions/87654321-abcd-1234-1def-0987654321ab
+az network manager group static-member create --network-group-name "CrossTenantNetworkGroup" --network-manager-name "myAVNM" --resource-group "myAVNMResourceGroup" --static-member-name "targetVnet01" --resource-id="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 /resourceGroups/myScopeAVNM/providers/Microsoft.Network/virtualNetworks/targetVnet01"
 ```
 ## Delete network manager configurations

@@ -9,6 +9,8 @@ ms.custom: devdivchpfy22
 
 # Az.LabServices PowerShell module for lab accounts in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [lab account focused article](./includes/lab-services-labaccount-focused-article.md)]
 
 > [!NOTE]

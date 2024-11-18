@@ -1,9 +1,9 @@
 ---
 title: Deploy Azure Site Recovery replication appliance - Modernized
 description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 04/04/2024
+ms.date: 11/06/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -12,9 +12,11 @@ author: ankitaduttaMSFT
 
 >[!NOTE]
 > The information in this article applies to Azure Site Recovery - Modernized. For information about configuration server requirements in Classic releases, [see this article](vmware-azure-configuration-server-requirements.md).
-
->[!NOTE]
+>
 > Ensure you create a new and exclusive Recovery Services vault for setting up the ASR replication appliance. Don't use an existing vault.
+
+> [!IMPORTANT]
+> Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role. 
 
 You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs or physical servers to Azure.
 
@@ -129,9 +131,11 @@ If there are any organizational restrictions, you can manually set up the Site R
 
   **Use the following steps to register the appliance**:
 
-1. If the appliance uses a proxy for internet access, configure the proxy settings by toggling on the **use proxy to connect to internet** option.
+1. If the appliance uses a proxy for internet access, configure the proxy settings by toggling on the **use proxy to connect to internet** option. All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported. 
 
-    All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported.
+2. Proxy settings can be updated later also using the "Update proxy" button.
+
+    :::image type="Update proxy settings" source="./media/deploy-vmware-azure-replication-appliance-modernized/proxy-settings.png" alt-text="Screenshot showing proxy update screen.":::
 
 2. Ensure the [required URLs](./replication-appliance-support-matrix.md#allow-urls) are allowed and are reachable from the Azure Site Recovery replication appliance for continuous connectivity.
 

@@ -74,7 +74,7 @@ The app is available for [iOS](https://itunes.apple.com/us/app/microsoft-azure/i
 
 :::image type="content" source="./media/reporting-get-started/azure-app-screenshot.png" alt-text="Example screenshot showing the iOS version of the Azure app with Cost Management subscription information." lightbox="./media//reporting-get-started/azure-app-screenshot.png" :::
 
-## Next steps
+## Related content
 
 - [Explore and analyze costs with cost analysis](quick-acm-cost-analysis.md).
 - [Analyze Azure costs with the Power BI App](analyze-cost-data-azure-cost-management-power-bi-template-app.md).

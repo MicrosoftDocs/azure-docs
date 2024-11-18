@@ -3,9 +3,9 @@ title: 'Quickstart: Use the Azure CLI to create a virtual network'
 titleSuffix: Azure Virtual Network
 description: Learn how to use the Azure CLI to create and connect through an Azure virtual network and virtual machines.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: quickstart
-ms.date: 03/15/2023
+ms.date: 05/29/2024
 ms.author: allensu
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As a network administrator, I want to use the Azure CLI to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
@@ -17,9 +17,9 @@ This quickstart shows you how to create a virtual network by using the Azure CLI
 
 A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
-:::image type="content" source="./media/quick-create-portal/virtual-network-qs-resources.png" alt-text="Diagram of resources created in the virtual network quickstart.":::
+:::image type="content" source="./media/quick-create-portal/virtual-network-qs-resources.png" alt-text="Diagram of resources created in the virtual network quickstart." lightbox="./media/quick-create-portal/virtual-network-qs-resources.png":::
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -50,7 +50,7 @@ az network vnet create \
 
 Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration.
 
-[!INCLUDE [Pricing](../../includes/bastion-pricing.md)] For more information about Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
+[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)] For more information about Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
 
 1. Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a Bastion subnet for your virtual network. This subnet is reserved exclusively for Bastion resources and must be named **AzureBastionSubnet**.
 
@@ -136,7 +136,7 @@ The VMs take a few minutes to create. After Azure creates each VM, the Azure CLI
 > [!NOTE]
 > VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Connect to a virtual machine
 
@@ -198,7 +198,7 @@ az group delete \
 
 ## Next steps
 
-In this quickstart, you created a virtual network with a default subnet that contains two VMs. You deployed Bastion, and you used it to connect to the VMs and establish communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
+In this quickstart, you created a virtual network with a default subnet that contains two VMs. You deployed Bastion, and you used it to connect to the VMs and establish communication between the VMs. To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.yml).
 
 Private communication between VMs in a virtual network is unrestricted by default. To learn more about configuring various types of VM network communications, continue to the next article:
 

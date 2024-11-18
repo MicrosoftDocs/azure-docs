@@ -28,25 +28,32 @@ The Instance Readiness Test (IRT) framework is an optional/add-on tool for the N
 ## Tests executed with IRT
 - Validate that l3 domains in the fabric subscription and resource group exist after all tests on the resources under test are done.
 - Validate that there are l3 networks created in the testing resource group after all tests on the resources under test are done.
+- Validate that NodeOsInfo metric data for a baremetal machine is present within the last 10 minutes.
+  Every count metric should be greater than 0.
+- Validate that IdracPowerOn metric data is present within the last 10 minutes.
+  Every count metric should be greater than 0.
+- Validate that CorednsDnsRequestsTotal metric data is present within the last 10 minutes.
+  Every average metric should be greater than 0.
+- Validate that FelixClusterNumHosts metric data is present within the last 10 minutes.
+  Every average metric should be greater than 0.
+- Validate that TyphaConnectionsAccepted metric data is present within the last 10 minutes.
+  Every average metric should be greater than 0.
+- Validate that KubeDaemonsetStatusCurrentNumberScheduled metric data is present within the last 10 minutes.
+  Every average metric should be greater than 0.
+- Validate that EtcdServerIsLeader metric data is present within the last 10 minutes.
+  Every average metric should be greater than 0.
 - Validate that ApiserverAuditRequestsRejectedTotal metric data is present within the last 10 minutes.
+  There should be at least one timeseries data entry.
+- Validate that KubevirtInfo metric data is present within the last 10 minutes.
   Every average metric should be greater than 0.
 - Validate that ContainerMemoryUsageBytes metric data is present within the last 10 minutes.
   Every average metric should be greater than 0.
-- Validate that CorednsDnsRequestsTotal metric data is present within the last 10 minutes.
-  Every average metric should be greater than 0.
-- Validate that EtcdServerIsLeader metric data is present within the last 10 minutes. Every count metric should be greater than 0.
-- Validate that FelixClusterNumHosts metric data is present within the last 10 minutes.
-  Every average metric should be greater than 0.
-- Validate that IdracPowerOn metric data is present within the last 10 minutes. Every count metric should be greater than 0.
-- Validate that KubeDaemonsetStatusCurrentNumberScheduled metric data is present within the last 10 minutes. Every average metric should be greater than 0.
 - Validate that KubeletRunningPods metric data is present within the last 10 minutes.
   Every average metric should be greater than 0.
-- Validate that KubevirtInfo metric data is present within the last 10 minutes.
-  Every average metric should be greater than 0.
-- Validate that NodeOsInfo metric data for a baremetal machine is present within the last 10 minutes.
-  Every count metric should be greater than 0.
-- Validate that TyphaConnectionsAccepted metric data is present within the last 10 minutes.
-  Every average metric should be greater than 0.
+- Validate that CpuUtilizationMax metric data for fabric network device is present within the last 10 minutes.
+  At least one non-zero metric should exist.
+- Validate that MemoryAvailable metric data is present within the last 10 minutes.
+  At least one non-zero metric should exist.
 - Test the transmission of IPv4 TCP data between two virtual machines using iPerf3 and affinity settings in the ARM template.
   The test ensures that the data throughput exceeds 60 Mbps.
 - Test the transmission of IPv6 TCP data between two virtual machines using iPerf3 and affinity settings in the ARM template.
@@ -125,7 +132,7 @@ For access to the nexus-samples GitHub repository
   * Networks to use for the test are specified in a "networks-blueprint.yml" file, see [Input Configuration](#input-configuration).
 - A way to download the IRT release package, for example, curl, wget, etc.
 - The ability to create a service principal with the correct roles.
-- The ability to read secrets from the KeyVault, see [Service Principal] (#create-service-principal-and-security-group) section for more details.
+- The ability to read secrets from the KeyVault, see [Service Principal](#create-service-principal-and-security-group) section for more details.
 - The ability to create security groups in your Active Directory tenant.
 
 ## Input configuration
@@ -186,13 +193,7 @@ IRT requires a service principal with the correct permissions in order to intera
 
 #### Create service principal and security group
 
-The supplemental script, `create-service-principal.sh` creates a service principal with these role assignments or add role assignments to an existing service principal. The following role assignments are used:
-
-* `Contributor` - For creating and manipulating resources
-* `Storage Blob Data Contributor` - For reading from and writing to the storage blob container
-* `Azure ARC Kubernetes Admin` - For ARC enrolling the NKS cluster
-* `ACR Pull` - For pulling Images from ACR
-* `Key Vault Secrets User` - for reading secrets from a key vault
+The supplemental script, `create-service-principal.sh` creates a service principal with the custom role `NRT Roles` or associates the role `NRT Roles` to an existing service principal.
 
 Additionally, the script creates the necessary security group, and adds the service principal to the security group. If the security group exists, it adds the service principal to the existing security group.
 

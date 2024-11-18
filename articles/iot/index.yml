@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure IoT documentation
   description: The Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud and edge services that connect, monitor, and control billions of IoT assets.
-  ms.service: iot
+  ms.service: azure-iot
   ms.topic: hub-page
   author: dominicbetts
   ms.author: dobett
@@ -22,7 +22,7 @@ highlightedContent:
     # Card
     - title: Get started with device development on Azure IoT
       itemType: get-started
-      url: ../iot-develop/index.yml
+      url: ../iot/concepts-iot-device-development.md
     # Card
     - title: Browse Azure IoT code samples
       itemType: sample
@@ -59,10 +59,10 @@ conceptualContent:
         - url: ./iot-overview-device-development.md
           itemType: overview
           text: Introduction to IoT device development
-        - url: ../iot-develop/about-iot-develop.md
+        - url: ./concepts-iot-device-development.md
           itemType: concept
           text: Tools, SDKs, and hardware
-        - url: ../iot/tutorial-send-telemetry-iot-hub.md
+        - url: ./tutorial-send-telemetry-iot-hub.md
           itemType: tutorial
           text: Send telemetry from a device to an Azure IoT hub
         - url: ./iot-sdks.md#device-sdks
@@ -95,6 +95,9 @@ conceptualContent:
         - url: ../iot-hub-device-update/understand-device-update.md
           itemType: overview
           text: Update your devices
+        - url: ../firmware-analysis/overview-firmware-analysis.md
+          itemType: overview
+          text: Device firmware analysis
     # Card
     - title: Process and route messages
       links:

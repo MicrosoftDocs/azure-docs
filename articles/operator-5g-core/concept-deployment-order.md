@@ -4,9 +4,9 @@ description: Outlines the deployment order for components on Azure Kubernetes Se
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: concept-article #required; leave this attribute/value as-is.
-ms.date: 03/21/2024
+ms.date: 04/10/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
@@ -20,15 +20,19 @@ Mobile Packet Core resources have minimal ordering constraints. To bring up netw
 Deploy resources in the following order. Note that the Microsoft.MobilePacketCore/clusterServices resource must be deployed first. All other resources can be deployed in any order or in parallel.
   
 Microsoft.MobilePacketCore/clusterServices 
-Microsoft.MobilePacketCore/amfDeployments 
-Microsoft.MobilePacketCore/smfDeployments 
-Microsoft.MobilePacketCore/nrfDeployments 
-Microsoft.MobilePacketCore/nssfDeployments 
-Microsoft.MobilePacketCore/upfDeployments 
-Microsoft.MobilePacketCore/observabilityServices 
 
+Microsoft.MobilePacketCore/amfDeployments 
+
+Microsoft.MobilePacketCore/smfDeployments 
+
+Microsoft.MobilePacketCore/nrfDeployments 
+
+Microsoft.MobilePacketCore/nssfDeployments 
+
+Microsoft.MobilePacketCore/upfDeployments 
+
+Microsoft.MobilePacketCore/observabilityServices 
 
 ## Related content
 
-- [Complete the prerequisites to deploy Azure Operator 5G Core Preview on Azure Kubernetes Service](quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md)
 - [Complete the prerequisites to deploy Azure Operator 5G Core Preview on Nexus Azure Kubernetes Service](quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md)

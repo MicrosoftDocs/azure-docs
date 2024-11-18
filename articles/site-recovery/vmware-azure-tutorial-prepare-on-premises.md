@@ -1,9 +1,9 @@
 ---
 title: Prepare for VMware VM disaster recovery with Azure Site Recovery
 description: Learn how to prepare on-premises VMware servers for disaster recovery to Azure using the Azure Site Recovery service.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 03/27/2024
+ms.date: 04/08/2024
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -64,8 +64,8 @@ Prepare the account as follows:
 
 Prepare a domain or local account with permissions to install on the VM.
 
-- **Windows VMs**: To install on Windows VMs if you're not using a domain account, disable Remote User Access
-   control on the local machine. To do this, in the registry > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the
+- **Windows VMs**: To install on Windows VMs if you're not using a domain account, disable UAC remote restrictions on the local machine.
+ After disabling, Azure Site Recovery can access the local machine remotely without UAC restriction. To do this, in the registry: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the
      DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1.
 - **Linux VMs**: To install on Linux VMs, prepare a root account on the source Linux server.
 

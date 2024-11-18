@@ -4,8 +4,7 @@ description: The first tutorial about deploying Azure Stack Edge Pro FPGA involv
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 02/27/2024
 ms.author: alkohli
@@ -59,7 +58,7 @@ Before you begin, make sure that:
 
   * To assign the Contributor role to a user at resource group scope, you must have the Owner role at subscription scope.
 
-  For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+  For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 * Resource providers: The following resource providers are registered: 
 

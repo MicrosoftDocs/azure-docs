@@ -2,7 +2,7 @@
 title: Quickstart - Create Azure API Management instance - Portal
 description: Use this quickstart to create a new Azure API Management instance by using the Azure portal.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: quickstart
 ms.custom: mvc, mode-portal, devdivchpfy22
 ms.date: 12/11/2023
@@ -17,7 +17,7 @@ This quickstart describes the steps for creating a new API Management instance u
 
 [!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Sign in to Azure
 
@@ -45,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    | **Region**          | Select a geographic region near you from the available API Management service locations. | 
    | **Resource name**                | A unique name for your API Management instance. The name can't be changed later. The service name refers to both the service and the corresponding Azure resource. <br/><br/> The service name is used to generate a default domain name: *\<name\>.azure-api.net.* If you would like to configure a custom domain name later, see [Configure a custom domain](configure-custom-domain.md). |
    | **Organization name**   | The name of your organization. This name is used in many places, including the title of the developer portal and sender of notification emails. |                                                         
-   | **Administrator email** | The email address to which all the notifications from **API Management** will be sent.   |  
+   | **Administrator email** | The email address to which all system notifications from **API Management** will be sent.   |  
    | **Pricing tier**        | Select **Developer** tier to evaluate the service. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md). |
 
 1. Select **Review + create**.

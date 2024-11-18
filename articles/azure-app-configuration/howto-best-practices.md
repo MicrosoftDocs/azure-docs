@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/20/2024
+ms.date: 10/01/2024
 ms.author: zhenlwa
 ms.custom: "devx-track-csharp, mvc"
 ---
@@ -89,17 +89,17 @@ You can also make your App Configuration data accessible to your application as 
 
 Excessive requests to App Configuration can result in throttling or overage charges. To reduce the number of requests made:
 
-* Increase the refresh timeout, especially if your configuration values do not change frequently. Specify a new refresh timeout using the [`SetCacheExpiration` method](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
+* Increase the refresh interval, especially if your configuration values do not change frequently. Specify a new refresh interval using the [`SetCacheExpiration` method](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
 
 * Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes. See [Use dynamic configuration in an ASP.NET Core app](enable-dynamic-configuration-aspnet-core.md) for an example.
 
-* Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. For more information, see [Use Event Grid for App Configuration data change notifications](./howto-app-configuration-event.md).
+* Use the [App Configuration Kubernetes Provider](./quickstart-azure-kubernetes-service.md) if you run multiple workloads in a Kubernetes cluster, each pulling data from App Configuration individually. The Kubernetes provider retrieves data from App Configuration and makes it available as Kubernetes ConfigMaps and Secrets. This way, your workloads can access the data via ConfigMaps and Secrets without needing to pull data from App Configuration separately.
 
 * [Enable geo-replication](./howto-geo-replication.md) of your App Configuration store and spread your requests across multiple replicas. For example, use a different replica from each geographic region for a globally deployed application. Each App Configuration replica has its separate request quota. This setup gives you a model for scalability and enhanced resiliency against transient and regional outages.
 
 ## Importing configuration data into App Configuration
 
-App Configuration offers the option to bulk [import](./howto-import-export-data.md) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export key-values from App Configuration, for example between related stores. If you’d like to set up an ongoing sync with your repo in GitHub or Azure DevOps, you can use our [GitHub Action](./concept-github-action.md) or [Azure Pipeline Push Task](./push-kv-devops-pipeline.md) so that you can continue using your existing source control practices while getting the benefits of App Configuration.
+App Configuration offers the option to bulk [import](./howto-import-export-data.md) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export key-values from App Configuration, for example between related stores. If you have adopted Configuration as Code and manage your configurations in GitHub or Azure DevOps, you can set up ongoing configuration file import using [GitHub Actions](./push-kv-github-action.md) or [Azure Pipeline Push Task](./push-kv-devops-pipeline.md).
 
 ## Multi-region deployment in App Configuration
 
@@ -110,7 +110,7 @@ If your application is deployed in multiple regions, we recommend that you [enab
 Applications often rely on configuration to start, making Azure App Configuration's high availability critical. For improved resiliency, applications should leverage App Configuration's reliability features and consider taking the following measures based on your specific requirements. 
 
 * **Provision in regions with Azure availability zone support.** Availability zones allow applications to be resilient to data center outages. App Configuration offers zone redundancy for all customers without any extra charges. Creating your App Configuration store in regions with support for availability zones is recommended. You can find [a list of regions](./faq.yml#how-does-app-configuration-ensure-high-data-availability) where App Configuration has enabled availability zone support.
-* **[Enable geo-replication](./howto-geo-replication.md) and allow your application to failover among replicas.** This setup gives you a model for scalability and enhanced resiliency against transient failures and regional outages. See [Resiliency and Disaster Recovery](./concept-disaster-recovery.md) for more information.
+* **[Enable geo-replication](./howto-geo-replication.md) and allow your application to failover or distribute load among replicas.** This setup gives you a model for scalability and enhanced resiliency against transient failures and regional outages. See [Resiliency and Disaster Recovery](./concept-disaster-recovery.md) for more information.
 * **Deploy configuration with [safe deployment practices](/azure/well-architected/operational-excellence/safe-deployments).** Incorrect or accidental configuration changes can frequently cause application downtime. You should avoid making configuration changes that impact the production directly from, for example, the Azure portal whenever possible. In safe deployment practices (SDP), you use a progressive exposure deployment model to minimize the potential blast radius of deployment-caused issues. If you adopt SDP, you can build and test a [configuration snapshot](./howto-create-snapshots.md) before deploying it to production. During the deployment, you can update instances of your application to progressively pick up the new snapshot. If issues are detected, you can roll back the change by redeploying the last-known-good (LKG) snapshot. The snapshot is immutable, guaranteeing consistency throughout all deployments. You can utilize snapshots along with dynamic configuration. Use a snapshot for your foundational configuration and dynamic configuration for emergency configuration overrides and feature flags.
 * **Include configuration with your application.** If you want to ensure that your application always has access to a copy of the configuration, or if you prefer to avoid a runtime dependency on App Configuration altogether, you can pull the configuration from App Configuration during build or release time and include it with your application. To learn more, check out examples of integrating App Configuration with your [CI/CD pipeline](./integrate-ci-cd-pipeline.md) or [Kubernetes deployment](./integrate-kubernetes-deployment-helm.md).
 * **Use App Configuration providers.** Applications play a critical part in achieving high resiliency because they can account for issues arising during their runtime, such as networking problems, and respond to failures more quickly. The App Configuration providers offer a range of built-in resiliency features, including automatic replica discovery, replica failover, startup retries with customizable timeouts, configuration caching, and adaptive strategies for reliable configuration refresh. It's highly recommended that you use App Configuration providers to benefit from these features. If that's not an option, you should consider implementing similar features in your custom solution to achieve the highest level of resiliency.
@@ -129,7 +129,7 @@ A multitenant application is built on an architecture where a shared instance of
 
 Configuration as code is a practice of managing configuration files under your source control system, for example, a git repository. It gives you benefits like traceability and approval process for any configuration changes. If you adopt configuration as code, App Configuration has tools to assist you in [managing your configuration data in files](./concept-config-file.md) and deploying them as part of your build, release, or CI/CD process. This way, your applications can access the latest data from your App Configuration store(s).
 
-- For GitHub, you can enable the [App Configuration Sync GitHub Action](concept-github-action.md) for your repository. Changes to configuration files are synchronized to App Configuration automatically whenever a pull request is merged. 
+- For GitHub, you can import configuration files from your GitHub repository into your App Configuration store using [GitHub Actions](./push-kv-github-action.md)
 - For Azure DevOps, you can include the [Azure App Configuration Push](push-kv-devops-pipeline.md), an Azure pipeline task, in your build or release pipelines for data synchronization. 
 - You can also import configuration files to App Configuration using Azure CLI as part of your CI/CD system. For more information, see [az appconfig kv import](scripts/cli-import.md).
 

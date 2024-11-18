@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Learn how to enable custom domains in your redirect URLs for Azure Active Directory B2C, so that my users have a seamless experience. 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 03/01/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
 
@@ -185,7 +185,7 @@ To create a CNAME record for your custom domain:
     1.  Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the web site labeled **Domain Name**, **DNS**, or **Name Server Management**.
 
     1. Create a new TXT DNS record and complete the fields as shown below:
-        1. Name: `_dnsauth.contoso.com`, but you need to enter just `_dnsauth`.
+        1. Name: `_dnsauth.login.contoso.com`, but you need to enter just `_dnsauth`.
         1. Type: `TXT`
         1. Value: Something like `75abc123t48y2qrtsz2bvk......`.
     

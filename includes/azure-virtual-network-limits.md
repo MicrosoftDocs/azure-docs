@@ -50,12 +50,12 @@ The following limits apply only for networking resources managed through **Azure
 #### <a name="publicip-address"></a>Public IP address limits
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Public IP addresses<sup>1,2</sup> | 10 for Basic. | Contact support. |
-| Static Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
-| Standard Public IP addresses<sup>1</sup> | 10 | Contact support. |
-| Public IP prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
-| Public IP prefix length | /28 | Contact support. |
-| Custom IP prefixes | 5 | Contact support. |
+| Public IP addresses<sup>1,2</sup> | 10 for Basic | Contact support |
+| Static Public IP addresses<sup>1</sup> | 10 for Basic | Contact support |
+| Standard Public IP addresses<sup>1</sup> | 10 | Contact support |
+| Public IP prefixes | limited by number of Standard Public IPs in a subscription | Contact support |
+| Public IP prefix length | /28 | Contact support |
+| Custom IP prefixes | 5 | Contact support |
 
 <sup>1</sup>Default limits for Public IP addresses vary by offer category type, such as Free Trial, Pay-As-You-Go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000.
 
@@ -71,15 +71,16 @@ The following limits apply only for networking resources managed through Azure R
 | Load balancers                          | 1,000                         |
 | Frontend IP configurations              | 600                           |
 | Rules (Load Balancer + Inbound NAT) per resource  | 1,500               |
-| Rules per NIC (across all IPs on a NIC) | 300                           |
+| Rules per NIC (across all IPs on a NIC), rules per IP (IP based LB)<sup>1<sup> | 300                           |
 | High-availability ports rule            | 1 per internal frontend       |
 | Outbound rules per Load Balancer        | 600                           |
 | Backend pool size                       | 5,000                         |
 | Azure global Load Balancer Backend pool size                       | 300                         |
-| Backend IP configurations per frontend <sup>1<sup> | 10,000                        |
+| Backend IP configurations per frontend <sup>2<sup> | 10,000                        |
 | Backend IP configurations across all frontends | 500,000 |
 
-<sup>1</sup> Backend IP configurations are aggregated across all load balancer rules including load balancing, inbound NAT, and outbound rules. Each rule a backend pool instance is configured to counts as one configuration.
+<sup>1<sup> Each NIC can have a total of 300 rules (load balancing, inbound NAT, and outbound rules combined) configured across all IP configurations on the NIC. For IP based LBs, this limit is per IP.
+<sup>2</sup> Backend IP configurations are aggregated across all load balancer rules including load balancing, inbound NAT, and outbound rules. Each rule a backend pool instance is configured to counts as one configuration.
 
 Load Balancer doesn't apply any throughput limits. However, throughput limits for virtual machines and virtual networks still apply. For more information, see [Virtual machine network bandwidth](../articles/virtual-network/virtual-machine-network-throughput.md).
 

@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # Microsoft 365 connector for Microsoft Sentinel

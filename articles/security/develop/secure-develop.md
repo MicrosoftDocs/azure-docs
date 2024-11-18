@@ -1,10 +1,10 @@
 ---
 title: Develop secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the implementation and verification phases of your web application project.
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
-ms.author: terrylan
-ms.date: 08/30/2023
+ms.author: mbaldwin
+ms.date: 09/29/2024
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop

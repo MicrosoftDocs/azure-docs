@@ -4,10 +4,9 @@ description: Learn how to use a solution template to copy data in bulk from Azur
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ---
 
 # Bulk copy from files to database

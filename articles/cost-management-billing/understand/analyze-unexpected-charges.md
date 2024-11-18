@@ -122,7 +122,7 @@ Continue reading the following sections for more techniques to determine who own
 
 ### Analyze the audit logs for the resource
 
-If you have permission to view a resource, you should be able to access its audit logs. Review the logs to find the user who was responsible for the most recent changes to a resource. To learn more, see [View and retrieve Azure Activity log events](../../azure-monitor/essentials/activity-log-insights.md#view-the-activity-log).
+If you have permission to view a resource, you should be able to access its audit logs. Review the logs to find the user who was responsible for the most recent changes to a resource. To learn more, see [View and retrieve Azure Activity log events](/azure/azure-monitor/essentials/activity-log-insights#view-the-activity-log).
 
 ### Analyze user permissions to the resource's parent scope
 
@@ -158,10 +158,16 @@ Try the following steps:
 - Verify that you have the Owner, Contributor, or Cost Management Contributor role on the subscription.
 - If you got an error message indicating that you reached the limit of five alerts per subscription, consider editing an existing anomaly alert rule. Add yourself as a recipient instead of creating a new rule in case you exhausted the limit.
 
+- Anomaly alerts are currently available only in the Azure public cloud. If you are using a government cloud or any of the sovereign clouds, this service is not yet available. 
+
+### How can I automate the creation of an anomaly alert rule?
+
+You can automate the creation of anomaly alert rules using the [Scheduled Action API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope?view=rest-cost-management-2023-11-01&tabs=HTTP), specifying the scheduled action kind as **`InsightAlert.`**
+
 ## Get help to identify charges
 
 If used the preceding strategies and you still don't understand why you received a charge or if you need other help with billing issues, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - Learn about how to [Optimize your cloud investment with Cost Management](../costs/cost-mgt-best-practices.md).

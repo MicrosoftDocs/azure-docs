@@ -10,7 +10,7 @@ ms.custom: references_regions
 # Archive for What's new in Azure Automation?
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that has reached the End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 The primary [What's new in Azure Automation?](whats-new.md) article contains updates for the last six months, while this article contains all the older information.
 
@@ -223,7 +223,7 @@ Start/Stop VM runbooks have been updated to use Az modules in place of Azure Res
 
 **Type:** New feature
 
-Use Azure Automation State Configuration to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the Azure Arc enabled servers DSC VM extension. For more information, read [Arc enabled servers VM extensions overview](../azure-arc/servers/manage-vm-extensions.md).
+Use Azure Automation State Configuration to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the Azure Arc enabled servers DSC VM extension. For more information, read [Arc enabled servers VM extensions overview](/azure/azure-arc/servers/manage-vm-extensions).
 
 ### July 2020
 
@@ -319,7 +319,7 @@ Automation support of service tags allows or denies the traffic for the Automati
 
 **Type:** Plan for change
 
-Azure Automation fully supports [TLS 1.2 or higher](../automation/automation-managing-data.md#tls-12-or-higher-for-azure-automation) and all client calls (through webhooks, DSC nodes, and hybrid worker). TLS 1.1 and TLS 1.0 are still supported for backward compatibility with older clients until customers standardize and fully migrate to TLS 1.2.
+Azure Automation fully supports [TLS 1.2 or higher](../automation/automation-managing-data.md#tls-for-azure-automation) and all client calls (through webhooks, DSC nodes, and hybrid worker). TLS 1.1 and TLS 1.0 are still supported for backward compatibility with older clients until customers standardize and fully migrate to TLS 1.2.
 
 ## January 2020
 

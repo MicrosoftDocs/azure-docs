@@ -3,11 +3,11 @@ title: Technical and feature overview - Azure Active Directory B2C
 description: An in-depth introduction to the features and technologies in Azure Active Directory B2C. Azure Active Directory B2C has high availability globally. 
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: overview
 ms.date: 11/08/2023
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer intent: As an IT admin or developer, I need to understand in more detail the technical aspects and features of Azure AD B2C and how it can help me build a customer-facing application.
 
@@ -30,7 +30,7 @@ The primary resources you work with in an Azure AD B2C tenant are:
   * **Custom policies** let you build complex identity workflows unique to your organization, customers, employees, partners, and citizens.
 * **Sign-in options** - Azure AD B2C offers various [sign-up and sign-in options](sign-in-options.md) for users of your applications:
   * **Username, email, and phone sign-in** - You can configure your Azure AD B2C local accounts to allow sign up and sign in with a username, email address, phone number, or a combination of methods.
-  * **Social identity providers** - You can federate with social providers like Facebook, LinkedIn, or Twitter.
+  * **Social identity providers** - You can federate with social providers like Facebook, LinkedIn, or X.
   * **External identity providers** - You can also federate with standard identity protocols like OAuth 2.0, OpenID Connect, and more.
 * **Keys** - Add and manage encryption keys for signing and validating tokens, client secrets, certificates, and passwords.
 
@@ -81,7 +81,7 @@ You can also extend the underlying Microsoft Entra ID schema to store additional
 
 ## Sign-in with external identity providers
 
-You can configure Azure AD B2C to allow users to sign in to your application with credentials from social and enterprise identity providers. Azure AD B2C can federate with identity providers that support OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML protocols. For example, Facebook, Microsoft account, Google, Twitter, and Active Directory Federation Service (AD FS).
+You can configure Azure AD B2C to allow users to sign in to your application with credentials from social and enterprise identity providers. Azure AD B2C can federate with identity providers that support OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML protocols. For example, Facebook, Microsoft account, Google, X, and Active Directory Federation Service (AD FS).
 
 :::image type="content" source="media/technical-overview/external-idps.png" alt-text="Diagram showing company logos for a sample of external identity providers.":::
 

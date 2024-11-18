@@ -2,10 +2,10 @@
 title: Support policies for self-hosted gateway | Azure API Management
 description: Learn about the support policies and the shared responsibilities for the API Management self-hosted gateway.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.author: danlep
-ms.date: 05/12/2023
+ms.date: 09/25/2024
 ---
 
 # Support policies for self-hosted gateway
@@ -13,8 +13,6 @@ ms.date: 05/12/2023
 [!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 The Azure API Management service, in the Developer and Premium tiers, allows the deployment of the API Management gateway as a container running in on-premises infrastructure, other clouds, and Azure infrastructure options that support containers. This article provides details about technical support policies and limitations for the API Management [self-hosted gateway](self-hosted-gateway-overview.md).  
-
-[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
 
 ## Differences between managed gateway and self-hosted gateway
 

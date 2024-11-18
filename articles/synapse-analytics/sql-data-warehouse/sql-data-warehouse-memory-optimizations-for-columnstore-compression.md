@@ -4,7 +4,7 @@ description: Reduce memory requirements or increase the available memory to maxi
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 10/18/2021
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse

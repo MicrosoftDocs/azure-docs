@@ -5,9 +5,9 @@ services: notification-hubs
 author: sethmanheim
 manager: femila
 
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: article
-ms.date: 06/30/2023
+ms.date: 05/08/2024
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
@@ -17,8 +17,8 @@ ms.lastreviewed: 03/25/2019
 
 This article shows you how to configure Google Firebase Cloud Messaging (FCM) settings for an Azure notification hub using the Azure portal.
 
-> [!NOTE]
-> For information about Firebase Cloud Messaging deprecation and migration steps, see [Google Firebase Cloud Messaging migration](notification-hubs-gcm-to-fcm.md).
+> [!IMPORTANT]
+> As of June 2024, FCM legacy APIs will no longer be supported and will be retired. To avoid any disruption in your push notification service, you must [migrate to the FCM v1 protocol](notification-hubs-gcm-to-fcm.md) as soon as possible.
 
 ## Prerequisites
 

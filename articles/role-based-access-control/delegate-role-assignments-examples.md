@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 01/30/2024
+ms.date: 04/15/2024
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
@@ -694,7 +694,13 @@ You must add this condition to any role assignments for the delegate that includ
 
 # [Template](#tab/template)
 
-None
+Here are the settings to add this condition using the Azure portal and a condition template.
+
+> [!div class="mx-tableFixed"]
+> | Condition | Setting |
+> | --- | --- |
+> | Template | Allow all except specific roles |
+> | Exclude roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
 
 # [Condition editor](#tab/condition-editor)
 

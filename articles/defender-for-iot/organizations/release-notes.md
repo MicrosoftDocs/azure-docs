@@ -38,13 +38,17 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **24.1** | | | |
-| 24.1.3  |04/2024 | Major |03/2025 |
-| 24.1.2  |02/2024 | Major |01/2025 |
+| 24.1.5  |09/2024 | Minor |09/2025 |
+| 24.1.4  |07/2024 | Minor |07/2025 |
+| 24.1.3  |06/2024 | Minor |06/2025 |
+| 24.1.2  |04/2024 | Minor |04/2025 |
+| **23.2** | | | |
+| 23.2.0 | 12/2023 | Major | 12/2024 |
 | **23.1** | | | |
 | 23.1.3 | 09/2023 | Patch | 08/2024 |
 | 23.1.2 | 07/2023 | Major | 06/2024 |
 | **22.3** | | | |
-|22.3.10|07/2023|Patch|06/2024|
+|22.3.10 | 07/2023 | Patch | 06/2024 |
 | 22.3.9 | 05/2023 | Patch | 04/2024 |
 | 22.3.8 | 04/2023 | Patch | 03/2024 |
 | 22.3.7 | 03/2023 | Patch | 02/2024 |
@@ -54,7 +58,7 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | **22.2** | | | |
 | 22.2.9 | 01/2023 | Patch | 12/2023 |
 | 22.2.8 | 11/2022 | Patch | 10/2023 |
-| 22.2.7| 10/2022   | Patch | 09/2023          |
+| 22.2.7| 10/2022  | Patch | 09/2023          |
 | 22.2.6|09/2022 |Patch | 04/2023|
 |22.2.5 |08/2022 | Patch| 04/2023 |
 |22.2.4 |07/2022 |Patch |04/2023 |
@@ -104,22 +108,54 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ## Versions 24.1.x
 
+### Version 24.1.5
+
+**Release date**: 09/2024
+
+**Supported until**: 09/2025
+
+This version includes the following updates and enhancements:
+
+- [Add wildcards to allowlist domain names](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
+- [OCPI protocol is now supported](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery)
+- [New sensor setting type: Public addresses](configure-sensor-settings-portal.md#add-sensor-settings)
+- [Improved OT sensor onboarding](ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor)
+
+### Version 24.1.4
+
+**Release date**: 07/2024
+
+**Supported until**: 07/2025
+
+This version includes the following updates and enhancements:
+
+- [Malicious URL path alert](whats-new.md#malicious-url-path-alert)
+- The following CVE is resolved in this version:
+  - CVE-2024-38089
+
 ### Version 24.1.3
 
-**Release date**: 04/2024
+**Release date**: 06/2024
 
-**Supported until**: 03/2025
+**Supported until**: 06/2025
 
 This version includes the following updates and enhancements:
 
 - [Sensor time drift detection](whats-new.md#sensor-time-drift-detection)
 - Bug fixes for stability improvements
+- The following CVEs are resolved in this version:
+  - CVE-2024-29055
+  - CVE-2024-29054
+  - CVE-2024-29053
+  - CVE-2024-21324
+  - CVE-2024-21323
+  - CVE-2024-21322
 
 ### Version 24.1.2
 
-**Release date**: 02/2024
+**Release date**: 04/2024
 
-**Supported until**: 01/2025
+**Supported until**: 04/2025
 
 This version includes the following updates and enhancements:
 
@@ -135,7 +171,7 @@ This version includes the following updates and enhancements:
 
 **Release date**: 12/2023
 
-**Supported until**: 11/2024
+**Supported until**: 12/2024
 
 This version includes the following updates and enhancements:
 

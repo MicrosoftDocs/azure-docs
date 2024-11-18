@@ -103,7 +103,7 @@ You can manage multiple cloud services for your organization under a single Micr
 
 :::image type="content" source="./media/manage-tenants/diagram-multiple-services-common-azure-ad-tenant-accounts.png" alt-text="Diagram showing an example of an organization with multiple services using a common Microsoft Entra tenant containing accounts." border="false" lightbox="./media/manage-tenants/diagram-multiple-services-common-azure-ad-tenant-accounts.png":::
 
-## Next steps
+## Related content
 
 Read the following articles to learn how to administer flexible billing ownership and ensure secure access to your Microsoft Customer Agreement.
 

@@ -3,8 +3,8 @@ title: Azure Firewall certifications
 description: A list of Azure Firewall certifications for PCI, SOC, and ISO.
 services: firewall
 author: vhorne
-ms.service: firewall
-ms.topic: article
+ms.service: azure-firewall
+ms.topic: concept-article
 ms.date: 04/28/2023
 ms.author: victorh
 ---

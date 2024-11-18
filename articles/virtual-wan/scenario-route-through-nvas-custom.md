@@ -4,9 +4,9 @@ titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN routing scenarios to route traffic through Network Virtual Appliances (NVAs). In this scenario, you route traffic through NVAs by using a different NVA for internet-bound traffic and custom settings.
 services: virtual-wan
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 10/25/2024
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ---
@@ -16,7 +16,7 @@ ms.custom: fasttrack-edit
 When you're working with Azure Virtual WAN virtual hub routing, you have many options available to you. The focus of this article is when you want to route traffic through a network virtual appliance (NVA) for communication between virtual networks and branches, and use a different NVA for internet-bound traffic. For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 >[!Note]
-> Please note that for the routing scenarios below, the Virtual WAN hub and Spoke Virtual Network containing the NVA must be in the same Azure Region.
+> Please note that for the following routing scenarios, the Virtual WAN hub and Spoke Virtual Network containing the NVA must be in the same Azure Region.
 
 ## Design
 
@@ -98,7 +98,7 @@ To set up routing via NVA, consider the following steps:
 
 1. For internet-bound traffic to go via VNet 5, you need VNets 1, 2, and 3 to directly connect via virtual network peering to VNet 5. You also need a user-defined route set up in the virtual networks for 0.0.0.0/0 and next hop 10.5.0.5.
 
-   If you do not want to connect VNets 1, 2, and 3 to VNet 5 and instead just use the NVA in VNet 4 to route 0.0.0.0/0 traffic from branches (on-premises VPN or ExpressRoute connections), go to the [alternate workflow](#alternate).
+   If you don't want to connect VNets 1, 2, and 3 to VNet 5 and instead just use the NVA in VNet 4 to route 0.0.0.0/0 traffic from branches (on-premises VPN or ExpressRoute connections), go to the [alternate workflow](#alternate).
 
    However, if you want VNet-to-VNet traffic to transit through the NVA, you would need to disconnect VNet 1,2,3 from the virtual hub and connect it or stack it above the NVA Spoke VNet4. In Virtual WAN, VNet-to-VNet traffic transits through the Virtual WAN hub or a Virtual WAN hub’s Azure Firewall (Secure hub). If VNets peer directly using VNet peering, then they can communicate directly bypassing the transit through the virtual hub.
 
@@ -150,11 +150,11 @@ To set up routing via NVA, consider the following steps:
 
      * Add an aggregated route '10.2.0.0/16' with next hop as the VNet 4 connection for traffic going from VNets 1, 2, and 3 towards branches. In the VNet4 connection, configure a route for '10.2.0.0/16' and indicate the next hop to be the specific IP of the NVA in VNet 4.
 
-     * Add a route '0.0.0.0/0' with next hop as the VNet 4 connection. '0.0.0.0/0' is added to imply sending traffic to internet. It does not imply specific address prefixes pertaining to VNets or branches. In the VNet4 connection, configure a route for '0.0.0.0/0', and indicate the next hop to be the specific IP of the NVA in VNet 4.
+     * Add a route '0.0.0.0/0' with next hop as the VNet 4 connection. '0.0.0.0/0' is added to imply sending traffic to internet. It doesn't imply specific address prefixes pertaining to VNets or branches. In the VNet4 connection, configure a route for '0.0.0.0/0', and indicate the next hop to be the specific IP of the NVA in VNet 4.
 
    * **Association:** Select all **VNets 1, 2, and 3**. This implies that VNet connections 1, 2, and 3 will associate to this route table and be able to learn routes (static and dynamic via propagation) in this route table.
 
-   * **Propagation:** Connections propagate routes to route tables. Selecting VNets 1, 2, and 3 enables propagating routes from VNets 1, 2, and 3 to this route table. Make sure the option for branches (VPN/ER/P2S) is not selected. This ensures that on-premises connections cannot get to the VNets 1, 2, and 3 directly.
+   * **Propagation:** Connections propagate routes to route tables. Selecting VNets 1, 2, and 3 enables propagating routes from VNets 1, 2, and 3 to this route table. Make sure the option for branches (VPN/ER/P2S) is not selected. This ensures that on-premises connections can't get to the VNets 1, 2, and 3 directly.
 
 1. Edit the default route table, **DefaultRouteTable**.
 
@@ -164,7 +164,7 @@ To set up routing via NVA, consider the following steps:
 
      * Add an aggregated route '10.1.0.0/16' for **VNets 1, 2, and 3** with next hop as the **VNet 4 connection**.
 
-     * Add a route '0.0.0.0/0' with next hop as the **VNet 4 connection**. '0.0.0.0/0' is added to imply sending traffic to internet. It does not imply specific address prefixes pertaining to VNets or branches. In the prior step for the VNet4 connection, you would already have configured a route for '0.0.0.0/0', with next hop to be the specific IP of the NVA in VNet 4.
+     * Add a route '0.0.0.0/0' with next hop as the **VNet 4 connection**. '0.0.0.0/0' is added to imply sending traffic to internet. It doesn't imply specific address prefixes pertaining to VNets or branches. In the prior step for the VNet4 connection, you would already have configured a route for '0.0.0.0/0', with next hop to be the specific IP of the NVA in VNet 4.
 
    * **Association:** Make sure the option for branches **(VPN/ER/P2S)** is selected. This ensures that on-premises branch connections are associated to the default route table. All VPN, Azure ExpressRoute, and user VPN connections are associated only to the default route table.
 
@@ -174,8 +174,8 @@ To set up routing via NVA, consider the following steps:
 
 * Portal users must enable 'Propagate to default route' on connections (VPN/ER/P2S/VNet) for the 0.0.0.0/0 route to take effect.
 * PS/CLI/REST users must set flag 'enableinternetsecurity' to true for the 0.0.0.0/0 route to take effect.
-* Virtual network connection does not support 'multiple/unique' next hop IP to the 'same' network virtual appliance in a spoke VNet 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet).
-* When 0.0.0.0/0 is configured as a static route on a virtual network connection, that route is applied to all traffic, including the resources within the spoke itself. This means all traffic will be forwarded to the next hop IP address of the static route (NVA Private IP). Thus, in deployments with a 0.0.0.0/0 route with next hop NVA IP address configured on a spoke virtual network connection, to access workloads in the same virtual network as the NVA directly (i.e. so that traffic does not pass through the NVA), specify a /32 route on the spoke virtual network connection. For instance, if you want to access 10.1.3.1 directly, specify 10.1.3.1/32 next hop 10.1.3.1 on the spoke virtual network connection.
+* Virtual network connection doesn't support 'multiple/unique' next hop IP to the 'same' network virtual appliance in a spoke VNet 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet).
+* When 0.0.0.0/0 is configured as a static route on a virtual network connection, that route is applied to all traffic, including the resources within the spoke itself. This means all traffic will be forwarded to the next hop IP address of the static route (NVA Private IP). Thus, in deployments with a 0.0.0.0/0 route with next hop NVA IP address configured on a spoke virtual network connection, to access workloads in the same virtual network as the NVA directly (i.e. so that traffic doesn't pass through the NVA), specify a /32 route on the spoke virtual network connection. For instance, if you want to access 10.1.3.1 directly, specify 10.1.3.1/32 next hop 10.1.3.1 on the spoke virtual network connection.
 * To simplify routing and to reduce the changes in the Virtual WAN hub route tables, we encourage using the new "BGP peering with Virtual WAN hub" option.
 
   * [Scenario: BGP peering with a virtual hub](scenario-bgp-peering-hub.md)

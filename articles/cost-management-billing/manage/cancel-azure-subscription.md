@@ -6,7 +6,7 @@ ms.reviewer: tomasa
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/12/2024
+ms.date: 09/11/2024
 ms.author: banders
 ---
 
@@ -55,11 +55,11 @@ The following table describes the permission required to cancel a subscription.
 
 |Subscription type     |Who can cancel  |
 |---------|---------|
-|Subscriptions created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Service administrator and subscription owner  |
-|[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Service administrator and subscription owner       |
+|Subscriptions created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Subscription owner  |
+|[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Subscription owner       |
 |[Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g/) and [Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Subscription owners      |
 
-An account administrator without the service administrator or subscription owner role can’t cancel an Azure subscription. However, an account administrator can make themself the service administrator and then they can cancel a subscription. For more information, see [Change the Service Administrator](../../role-based-access-control/classic-administrators.md#change-the-service-administrator).
+An account administrator without the subscription owner role can’t cancel an Azure subscription. For more information, see [Azure classic subscription administrators](../../role-based-access-control/classic-administrators.md).
 
 ## Cancel a subscription in the Azure portal
 
@@ -141,6 +141,7 @@ Depending on your subscription type, you might not be able to delete a subscript
 > - The subscription is automatically deleted 90 days after you cancel a subscription.
 > - You can also contact Microsoft Support to help you remove a subscription. However you must make sure that you don't need the subscription anymore because the process only allows seven days to reactivate the subscription.
 > - If you have deleted all resources but the Delete your subscription page shows that you still have active resources, you might have active *hidden resources*. You can't delete a subscription if you have active hidden resources. To delete them, navigate to **Subscriptions** > select the subscription > **Resources**. At the top of the page, select **Manage view** and then select **Show hidden types**. Then, delete the resources.
+> - If you have a disabled Access to Azure Active Directory subscription, the subscription gets automatically deleted after 90 days of cancelling. No action is needed to manually delete it.
 
 ## Reactivate a subscription
 
@@ -188,6 +189,6 @@ Azure now offers free egress for customers leaving Azure when taking out their d
 - Azure might make changes regarding the egress credit policy in the future.
 - If a customer purchases Azure services through a partner, the partner is responsible for the credit request process, transferring data, canceling the applicable subscriptions and credit issuance to the customer.
 
-## Next steps
+## Related content
 
 - If needed, you can reactivate a pay-as-you-go subscription in the [Azure portal](subscription-disabled.md).

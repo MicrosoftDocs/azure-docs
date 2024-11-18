@@ -1,8 +1,8 @@
 ---
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 10/25/2022
+ ms.date: 05/03/2024
  ms.author: cherylmc
 ---
 
@@ -14,4 +14,4 @@
 
 1. Browse to the unzipped "AzureVPN" folder.
 
-1. Make a note of the location of the “azurevpnconfig.xml” file. The azurevpnconfig.xml contains the setting for the VPN connection. You can also distribute this file to all the users that need to connect via e-mail or other means. The user will need valid Microsoft Entra credentials to connect successfully. For more information, see [Azure VPN client profile config files for Microsoft Entra authentication](../articles/vpn-gateway/about-vpn-profile-download.md).
+1. Make a note of the location of the “azurevpnconfig.xml” file. The azurevpnconfig.xml contains the setting for the VPN connection. You can also distribute this file to all the users that need to connect via e-mail or other means. The user will need valid Microsoft Entra ID credentials to connect successfully.

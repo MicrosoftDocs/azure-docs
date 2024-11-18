@@ -136,6 +136,8 @@
           href: delete-account.md 
         - name: Migrate from Orchestrator to Azure Automation (Beta)
           href: automation-orchestrator-migration.md
+        - name: Context switching in Azure Automation
+          href: context-switching.md
     - name: Shared resources
       items:
         - name: Manage certificates
@@ -262,7 +264,7 @@
                   href: change-tracking/extension-version-details.md
             - name: Supported regions
               href: change-tracking/region-mappings-monitoring-agent.md
-            - name: Enable change tracking from portal
+            - name: Enable change tracking and inventory
               href: change-tracking/enable-vms-monitoring-agent.md
             - name: Manage change tracking and inventory
               href: change-tracking/manage-change-tracking-monitoring-agent.md
@@ -272,12 +274,14 @@
           items:
             - name: Migration from Log Analytics to Azure Monitoring Agent version
               href: change-tracking/guidance-migration-log-analytics-monitoring-agent.md
-        - name: Use Log Analytics
+        - name: Use Log Analytics (Retired)
           items:
             - name: Overview
               href: change-tracking/overview.md
             - name: Support regions for linked Log Analytics workspace
               href: how-to/region-mappings.md
+            - name: Discover the software installed on your VMs
+              href: automation-tutorial-installed-software.md
             - name: Enable
               items:
                 - name: Enable from the Azure portal
@@ -308,7 +312,7 @@
                   href: troubleshoot/onboarding.md
                 - name: Troubleshoot Change Tracking and Inventory issues
                   href: troubleshoot/change-tracking.md      
-    - name: Update Management
+    - name: Update Management (Retired)
       items:
         - name: Overview
           href: update-management/overview.md

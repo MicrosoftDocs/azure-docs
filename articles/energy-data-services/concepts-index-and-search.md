@@ -3,7 +3,7 @@ title: Microsoft Azure Data Manager for Energy - index and search workflow conce
 description: Learn how to use indexing and search workflows
 author: vivekkalra
 ms.author: vivekkalra
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: conceptual
 ms.date: 02/10/2023
 ms.custom: template-concept
@@ -35,7 +35,7 @@ When the *recordChangedMessages* event is received by the `Indexer Service`, it 
     
 :::image type="content" source="media/concepts-index-and-search/concept-indexer-sequence.png" alt-text="Diagram that shows Indexing sequence flow.":::
 
-For more information, see [Indexer service OSDU&trade; documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md) provides information on indexer service
+For more information, see [Indexer service OSDU&reg; documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md) provides information on indexer service
 
 ## Search workflow
     
@@ -43,14 +43,14 @@ For more information, see [Indexer service OSDU&trade; documentation](https://co
 
 When metadata records are loaded onto the Platform using `Storage service`, we can configure permissions for viewers and owners of the metadata records under the *acl* field. The viewers and owners are assigned via groups as defined in the `Entitlement service`. When performing a search as a user, the matched metadata records will only show up for users who are assigned to the Group. 
 
-For a detailed tutorial on `Search service`, refer [Search service OSDU&trade; documentation](https://community.opengroup.org/osdu/platform/system/search-service/-/blob/release/0.15/docs/tutorial/SearchService.md)
+For a detailed tutorial on `Search service`, refer [Search service OSDU&reg; documentation](https://community.opengroup.org/osdu/platform/system/search-service/-/blob/release/0.15/docs/tutorial/SearchService.md)
     
 
 ## Reindex workflow 
 Reindex API allows users to reindex a kind without reingesting the records via storage API. For detailed information, refer to 
-[Reindex OSDU&trade; documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md#reindex)
+[Reindex OSDU&reg; documentation](https://community.opengroup.org/osdu/platform/system/indexer-service/-/blob/release/0.15/docs/tutorial/IndexerService.md#reindex)
 
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

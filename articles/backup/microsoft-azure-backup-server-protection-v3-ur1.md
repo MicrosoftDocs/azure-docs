@@ -1,10 +1,10 @@
 ---
 title: MABS (Azure Backup Server) V3 UR1 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server protects.
-ms.date: 04/24/2023
-ms.topic: conceptual
+ms.date: 09/11/2024
+ms.topic: reference
 ms.custom: engagement-fy24, linux-related-content
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -60,7 +60,7 @@ The following sections details the protection support matrix for MABS:
 
 | **Workload** | **Version**                               | **Azure  Backup Server   installation**                      | **Supported  Azure Backup Server** | **Protection  and recovery**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | Linux running as [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) or [VMware](backup-azure-backup-server-vmware.md) guest | Physical  server,    On-premises Hyper-V VM,    Windows VM in VMware | V3 UR1 and V3 UR2                             | Hyper-V  must be running on Windows Server 2012 R2, Windows Server 2016, or Windows Server 2019. Protect:  Entire virtual machine   <br><br>   Recover: Entire virtual machine   <br><br>    Only file-consistent snapshots are supported.    <br><br>   For a complete list of supported Linux distributions and versions, see the  article, [Linux on distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md). |
+| Linux        | Linux running as [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) or [VMware](backup-azure-backup-server-vmware.md) guest | Physical  server,    On-premises Hyper-V VM,    Windows VM in VMware | V3 UR1 and V3 UR2                             | Hyper-V  must be running on Windows Server 2012 R2, Windows Server 2016, or Windows Server 2019. Protect:  Entire virtual machine   <br><br>   Recover: Entire virtual machine   <br><br>    Only file-consistent snapshots are supported.    <br><br>   For a complete list of supported Linux distributions and versions, see the  article, [Linux on distributions endorsed by Azure](/azure/virtual-machines/linux/endorsed-distros). |
 
 ## Azure ExpressRoute support
 

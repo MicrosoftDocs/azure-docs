@@ -32,7 +32,7 @@ Looking closer at the Azure virtual network side, you'll need:
 >[!Note]
 >The Azure virtual network for HANA Large Instances must be created by using the Azure Resource Manager deployment model. The older Azure deployment model, commonly known as the classic deployment model, isn't  supported by the HANA Large Instance solution.
 
-You can use the Azure portal, PowerShell, an Azure template, or the Azure CLI to create the virtual network. (For more information, see [Create a virtual network using the Azure portal](../../virtual-network/manage-virtual-network.md#create-a-virtual-network)). In the following example, we look at a virtual network that's created by using the Azure portal.
+You can use the Azure portal, PowerShell, an Azure template, or the Azure CLI to create the virtual network. (For more information, see [Create a virtual network using the Azure portal](../../virtual-network/manage-virtual-network.yml#create-a-virtual-network)). In the following example, we look at a virtual network that's created by using the Azure portal.
 
 In this documentation, **address space** refers to the address space that the Azure virtual network is allowed to use. This address space is also the address range that the virtual network uses for BGP route propagation. This **address space** can be seen here:
 

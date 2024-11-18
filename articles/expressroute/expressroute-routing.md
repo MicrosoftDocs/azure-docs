@@ -3,9 +3,9 @@ title: 'Azure ExpressRoute: Routing requirements'
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
-ms.date: 09/06/2023
+ms.date: 06/20/2024
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -72,20 +72,6 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 * For each of the `/126` subnets, you must use the first IP address of the `/126` subnet on your router. Microsoft uses the second IP address of the `/126` subnet to set up a BGP session.
 * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
-### IP addresses used for Azure public peering
-
-> [!NOTE]
-> Azure public peering isn't available for new ExpressRoute circuits.
-> 
-
-You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries. 
-
-* You must use a unique `/29` subnet or two `/30` subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one). 
-* If a `/29` subnet is used, it's split into two `/30` subnets. 
-  * The first `/30` subnet is used for the primary link and the second `/30` subnet is used for the secondary link.
-  * For each of the `/30` subnets, you must use the first IP address of the `/30` subnet on your router. Microsoft uses the second IP address of the `/30` subnet to set up a BGP session.
-  * You must set up both BGP sessions for the [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
-
 ## Public IP address requirement
 
 ### Private peering
@@ -115,16 +101,6 @@ A Private AS Number is allowed with Microsoft Peering, but requires manual valid
 > 
 > 
 
-### Public peering (deprecated - not available for new circuits)
-
-The Azure public peering path enables you to connect to all services hosted in Azure over their public IP addresses. These include services listed in the [ExpressRoute FAQ](expressroute-faqs.md) and any services hosted by ISVs on Microsoft Azure. Connectivity to Microsoft Azure services on public peering is always initiated from your network into the Microsoft network. You must use Public IP addresses for the traffic destined to Microsoft network.
-
-> [!IMPORTANT]
-> All Azure PaaS services are accessible through Microsoft peering.
->   
-
-A Private AS Number is allowed with public peering.
-
 ## Dynamic route exchange
 
 Routing exchange is over eBGP protocol. EBGP sessions are established between the MSEEs and your routers. Authentication of BGP sessions isn't a requirement. If necessary, an MD5 hash can be configured. See the [Configure routing](how-to-routefilter-portal.md) and [Circuit provisioning workflows and circuit states](expressroute-workflows.md) for information about configuring BGP sessions.
@@ -149,10 +125,7 @@ ExpressRoute can't be configured as transit routers. You have to rely on your co
 
 Default routes are permitted only on Azure private peering sessions. In such a case, ExpressRoute routes all traffic from the associated virtual networks to your network. Advertising default routes into private peering results in the internet path from Azure being blocked. You must rely on your corporate edge to route traffic from and to the internet for services hosted in Azure. 
 
-To enable connectivity to other Azure services and infrastructure services, you must make sure one of the following items is in place:
-
-* Azure public peering is enabled to route traffic to public endpoints.
-* You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
+Some services are not able to be accessed from your corporate edge.  To enable connectivity to other Azure services and infrastructure services, you must use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity for these services.
 
 > [!NOTE]
 > Advertising default routes will break Windows and other VM license activation. For information about a work around, see [use user defined routes to enable KMS activation](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling).
@@ -164,13 +137,16 @@ This section provides an overview of how BGP communities get used with ExpressRo
 
 For private peering, if you [configure a custom BGP community value](./how-to-configure-custom-bgp-communities.md) on your Azure virtual networks, you'll see this custom value and a regional BGP community value on the Azure routes advertised to your on-premises over ExpressRoute.
 
+> [!NOTE]
+> In order for Azure routes to show regional BGP community values, you first must configure the custom BGP community value for the virtual network.
+
 For Microsoft peering, you're connecting to Microsoft through ExpressRoute at any one peering location within a geopolitical region. You also have access to all Microsoft cloud services across all regions within the geopolitical boundary.
 
 For example, if you connected to Microsoft in Amsterdam through ExpressRoute, you have access to all Microsoft cloud services hosted in North Europe and West Europe. 
 
 Refer to the [ExpressRoute partners and peering locations](expressroute-locations.md) page for a detailed list of geopolitical regions, associated Azure regions, and corresponding ExpressRoute peering locations.
 
-You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you receive the same set of prefixes advertised from Microsoft on the Microsoft peering and public peering paths. This configuration results in multiple paths from your network into Microsoft. This set up can potentially cause suboptimal routing decisions to be made within your network. As a result, you may experience suboptimal connectivity experiences to different services. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to users](expressroute-optimize-routing.md).
+You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you receive the same set of prefixes advertised from Microsoft on the Microsoft peering paths. This configuration results in multiple paths from your network into Microsoft. This set up can potentially cause suboptimal routing decisions to be made within your network. As a result, you may experience suboptimal connectivity experiences to different services. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to users](expressroute-optimize-routing.md).
 
 | **Microsoft Azure region** | **Regional BGP community (private peering)** | **Regional BGP community (Microsoft peering)** | **Storage BGP community** | **SQL BGP community** | **Azure Cosmos DB BGP community** | **Backup BGP community** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -179,6 +155,7 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | East US 2 | 12076:50005 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 | 12076:55005 |
 | West US | 12076:50006 | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 | 12076:55006 |
 | West US 2 | 12076:50026 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
+| West US 3 | 12076:50044 | 12076:51044 | 12076:52044 | 12076:53044 | 12076:54044 | 12076:55044 |
 | West Central US | 12076:50027 | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 | 12076:55027 |
 | North Central US | 12076:50007 | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 | 12076:55007 |
 | South Central US | 12076:50008 | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 | 12076:55008 |
@@ -281,6 +258,7 @@ In addition to the BGP tag for each region, Microsoft also tags prefixes based o
 | China East | 12076:51302 |
 | China East 2| 12076:51303 |
 | China North 2 | 12076:51304 |
+| China North 3 | 12076:51305 |
 
 | **Service in National Clouds** | **BGP community value** |
 | --- | --- |

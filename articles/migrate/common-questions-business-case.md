@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 07/17/2023
+ms.date: 11/08/2024
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -43,11 +43,7 @@ Business case creates assessments in the background, which could take some time 
 
 ### How do I build a business case?
 
-Currently, you can create a Business case on servers and workloads discovered using a lightweight Azure Migrate appliance in your VMware, Hyper-V and Physical/Baremetal environment. The appliance discovers on-premises servers and workloads. It then sends server metadata and performance data to Azure Migrate.
-
-### Why is the Build business case feature disabled?
-
-The **Build business case** feature will be enabled only when you have discovery performed using an Azure Migrate appliance for servers and workloads in your VMware, Hyper-V and Physical/Baremetal environment. The Business case feature isn't supported for servers and/or workloads imported via a .csv file.
+Currently, you can create a Business case on servers and workloads discovered using a lightweight Azure Migrate appliance in your VMware, Hyper-V, and Physical/Baremetal environment or servers discovered using a .csv or RVTools .xlsx import. The appliance discovers on-premises servers and workloads. It then sends server metadata and performance data to Azure Migrate.
 
 ### Why can’t I build business case from my project?
 
@@ -64,9 +60,6 @@ To verify in an existing project:
 6. The Business case feature isn't supported in the following regions:
 
     Germany West Central and Sweden Central
-
-### Why can't I change the currency during business case creation?
-Currently, the currency is defaulted to USD.
 
 ### What does the different migration strategies mean?
 **Migration Strategy** | **Details** | **Assessment insights**

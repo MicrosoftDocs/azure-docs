@@ -172,22 +172,6 @@ call.mute(appContext).get();
 call.unmute(appContext).get();
 ```
 
-## Mute other participants
-> [!NOTE]
-> This API is provided as a public preview for developers and may change based on feedback that we receive. To use this API please use 'beta' release of Azure Communication Services Calling Android SDK version 2.6.0-beta.5 or higher. 
-
-To mute all other participants in a call, use the `muteAllRemoteParticipants` API on the call.
-
-```java
-call.muteAllRemoteParticipants();
-```
-
-To mute a specific remote participant, use the `mute` API on a given remote participant.
-
-```java
-remoteParticipant.mute();
-```
-
 ## Change the volume of the call
 
 While you are in a call, the hardware volume keys on the phone should allow the user to change the call volume.
@@ -279,6 +263,24 @@ State can be one of
     ```java
     List<RemoteVideoStream> videoStreams = remoteParticipant.getVideoStreams(); // [RemoteVideoStream, RemoteVideoStream, ...]
     ```
+### Mute other participants
+> [!NOTE]
+> To use this API please use the Azure Communication Services Calling Android SDK version 2.11.0 or higher. 
+
+To mute all other participants in a call, use the `muteAllRemoteParticipants` API on the call.
+
+```java
+call.muteAllRemoteParticipants();
+```
+
+To mute a specific remote participant, use the `mute` API on a given remote participant.
+
+```java
+remoteParticipant.mute();
+```
+
+To notify the local participant they have been muted by others, subscribe to the `onMutedByOthers` event. 
+
 ## Using Foreground Services
 
 In cases when you want to run a user visible task even when your application is in background, you can use [Foreground Services](https://developer.android.com/guide/components/foreground-services).

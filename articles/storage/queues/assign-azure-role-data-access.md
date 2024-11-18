@@ -7,7 +7,7 @@ author: akashdubey-ms
 
 ms.service: azure-queue-storage
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 08/28/2024
 ms.author: akashdubey
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -36,7 +36,7 @@ To access queue data in the Azure portal with Microsoft Entra credentials, a use
 - A data access role, such as **Storage Queue Data Contributor**
 - The Azure Resource Manager **Reader** role
 
-To learn how to assign these roles to a user, follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+To learn how to assign these roles to a user, follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 The [Reader](../../role-based-access-control/built-in-roles.md#reader) role is an Azure Resource Manager role that permits users to view storage account resources, but not modify them. It does not provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to queues and messages in the Azure portal.
 
@@ -99,6 +99,8 @@ To learn how to use an Azure Resource Manager template to assign an Azure role, 
 Keep in mind the following points about Azure role assignments in Azure Storage:
 
 - When you create an Azure Storage account, you are not automatically assigned permissions to access data via Microsoft Entra ID. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or queue.
+- When you assign roles or remove role assignments, it can take up to 10 minutes for changes to take effect.
+- Built-in roles with data actions can be assigned at management group [scope](/azure/role-based-access-control/scope-overview#scope-levels). However, in rare scenarios there might be a significant delay (up to 12 hours) before data action permissions are effective for certain resource types. Permissions will eventually be applied. For built-in roles with data actions, adding or removing role assignments at management group scope is not recommended for scenarios where timely permission activation or revocation, such as Microsoft Entra Privileged Identity Management (PIM), is required.
 - If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure roles that are scoped to the storage account or a queue.
 
 ## Next steps

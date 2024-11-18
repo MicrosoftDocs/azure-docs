@@ -1,11 +1,12 @@
 ---
 title: Migrate Log Analytics data for Azure HDInsight 
 description: Learn about the changes to the Azure Monitor integration and best-practices for using the new tables. 
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.author: sairamyeturi
 author: yeturis
-ms.date: 03/21/2023
+ms.date: 10/15/2024
+ROBOTS: NOINDEX
 ---
 
 # Log Analytics migration guide for Azure HDInsight clusters
@@ -30,10 +31,6 @@ Considering customer feedback, the Azure HDInsight team invested in integration 
 - Faster log delivery
 - Resource-based table grouping and default queries
 
-> [!NOTE]  
-> New Azure Montitor integration is in Public Preview across all regions where HDInsight is available.
-
-
 ## Benefits of the new Azure Monitor integration
 
 This document outlines the changes to the Azure Monitor integration and provides best-practices for using the new tables.
@@ -48,7 +45,7 @@ This document outlines the changes to the Azure Monitor integration and provides
 
 ## Customer scenarios
 
-The following sections describe how customers can use the new Azure Monitor integration in different scenarios. The [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section outlines how to activate and use the new Azure Monitor integration. The [Migrating from Azure Monitor Classic to the new Azure Monitor Integration](#migrate-to-the-new-azure-monitor-integration) section includes additional information for users that depend on the old Azure Monitor integration.
+The following sections describe how customers can use the new Azure Monitor integration in different scenarios. The [Activate a new Azure Monitor integration](./azure-monitor-agent.md#activate-a-new-azure-monitor-agent-integration) section outlines how to activate and use the new Azure Monitor integration. The [Migrating from Azure Monitor Classic to the new Azure Monitor Integration](#migrate-to-the-new-azure-monitor-integration) section includes additional information for users that depend on the old Azure Monitor integration.
 
 > [!NOTE]
 > Only clusters created in late-September 2020 and after are eligible for the new Azure Monitoring integration.
@@ -56,7 +53,7 @@ The following sections describe how customers can use the new Azure Monitor inte
 ## Activate a new Azure Monitor integration 
 
 > [!NOTE]
-> You must have a Log Analytics workspace created in a subscription you have access to before doing enabling the new integration. For more information about how to create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+> You must have a Log Analytics workspace created in a subscription you have access to before doing enabling the new integration. For more information about how to create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 Activate the new integration by going to your cluster's portal page and scrolling down the menu on the left until you reach the **Monitoring** section. In the **Monitoring** section, select **Monitor integration**. Then, select **Enable** and you can choose the Log Analytics workspace that you want your logs to be sent to. Select **Save** once you have chosen your workspace. 
 
@@ -109,7 +106,7 @@ You can enter your own queries in the Logs query editor. Queries used on the old
 
 #### Insights
 
-Insights are cluster-specific visualization dashboards made using [Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access your cluster's dashboard by visiting your cluster's page in the portal, scrolling down to the **Monitoring** section, and selecting the **Insights** pane. The dashboard loads automatically if you've enabled the new integration. Allow a few seconds for the graphs to load as they query the logs.
+Insights are cluster-specific visualization dashboards made using [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access your cluster's dashboard by visiting your cluster's page in the portal, scrolling down to the **Monitoring** section, and selecting the **Insights** pane. The dashboard loads automatically if you've enabled the new integration. Allow a few seconds for the graphs to load as they query the logs.
 
 :::image type="content" source="./media/log-analytics-migration/visualization-dashboard.png" lightbox="./media/log-analytics-migration/visualization-dashboard.png" alt-text="Screenshot that shows the visualization dashboard.":::
 
@@ -119,7 +116,7 @@ You can create your own Azure workbooks with custom graphs and visualizations. I
 
 #### Alerts
 
-You can add custom alerts to your clusters and workspaces in the Log query editor. Go to the Logs query editor by selecting the **Logs** pane from either your cluster or workspace portal. Run a query and then select **New Alert Rule** as shown in the following screenshot. For more information, read about [configuring alerts](../azure-monitor/alerts/alerts-log.md).
+You can add custom alerts to your clusters and workspaces in the Log query editor. Go to the Logs query editor by selecting the **Logs** pane from either your cluster or workspace portal. Run a query and then select **New Alert Rule** as shown in the following screenshot. For more information, read about [configuring alerts](/azure/azure-monitor/alerts/alerts-log).
 
 :::image type="content" source="./media/log-analytics-migration/new-rule-alert.png" alt-text="Screenshot that shows the new rule alert." border="false":::
 
@@ -133,7 +130,7 @@ To enable the new Azure Monitor integration, follow the steps outlined in the [A
 
 Since the new table format is different from the previous one, your queries need to be reworked so you can use our new tables. Once you enable the new Azure Monitor integration, you can browse the tables and schemas to identify the fields that are used in your old queries.
 
-We provide a [mapping table](#appendix-table-mapping) between the old table to the new table to help you quickly find the new fields you need to use to migrate your dashboards and queries.
+We provide a [mapping table](monitor-hdinsight-reference.md#log-table-mapping) between the old table to the new table to help you quickly find the new fields you need to use to migrate your dashboards and queries.
 
 **Default queries**: We created default queries that show how to use the new tables for common situations. The default queries also show what information is available in each table. You can access the default queries by following the instructions in the [Default queries to use with new tables](#default-queries-to-use-with-new-tables) section in this article.
 
@@ -141,7 +138,7 @@ We provide a [mapping table](#appendix-table-mapping) between the old table to t
 
 If you have built multiple dashboards to monitor your HDInsight clusters, you need to adjust the query behind the table once you enable the new Azure Monitor integration. The table name or the field name might change in the new integration, but all the information you have in old integration is included.
 
-Refer to the [mapping table](#appendix-table-mapping) between the old table/schema to the new table/schema to update the query behind the dashboards.
+Refer to the [mapping table](monitor-hdinsight-reference.md#log-table-mapping) between the old table/schema to the new table/schema to update the query behind the dashboards.
 
 #### Out-of-box dashboards 
 
@@ -166,11 +163,12 @@ Creating new clusters with classic Azure Monitor integration is not available af
 
 ## Release and support timeline
 
-- Classic Azure Monitoring integration will be unavailable after October 15, 2021. You can't enable classic Azure Monitoring integration after that date.
-- Existing classic Azure monitoring integrations will continue to work. There will be limited support for the classic Azure Monitoring integration. 
-  - Issues will be investigated once customers submit the support ticket.
-  - If solution requires image change, customers should move to the new integration.
-  - We won't patch the classic Azure Monitoring integration clusters except for critical security issues.
+* Classic Azure Monitoring integration isn't available after October 15, 2021. You can't enable classic Azure Monitoring integration after that date.
+* Classic Azure Monitoring integration ingestion will not be working after August 31, 2024.
+* HDInsight clusters with Azure Monitor integration (preview) will not be supported beyond February 1, 2025.
+* Existing Azure Monitor integration(preview) will continue to work, until January 31, 2025. There will be limited support for the Azure Monitor integration(preview).
+  * If solution requires image change, customers should move to the new integration.
+  * Microsoft will not patch the Azure Monitor integration (preview) clusters except for critical security issues.
 
 ## Appendix: Table mapping
 

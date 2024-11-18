@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: how-to 
-ms.date: 07/12/2022
+ms.date: 04/12/2024
 ms.custom: template-how-to
 ---
 

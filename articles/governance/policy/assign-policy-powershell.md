@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Azure PowerShell"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using Azure PowerShell.
-ms.date: 02/26/2024
+ms.date: 08/28/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ---
@@ -12,10 +12,12 @@ The first step in understanding compliance in Azure is to identify the status of
 
 The Azure PowerShell modules can be used to manage Azure resources from the command line or in scripts. This article explains how to use Azure PowerShell to create a policy assignment.
 
+[!INCLUDE [azure-policy-version-default](../includes/policy/policy-version-default.md)]
+
 ## Prerequisites
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [Azure PowerShell](/powershell/azure/install-az-ps).
+- [Azure PowerShell](/powershell/azure/install-azure-powershell).
 - [Visual Studio Code](https://code.visualstudio.com/).
 - `Microsoft.PolicyInsights` must be [registered](../../azure-resource-manager/management/resource-providers-and-types.md) in your Azure subscription. To register a resource provider, you must have permission to register resource providers. That permission is included in the Contributor and Owner roles.
 - A resource group with at least one virtual machine that doesn't use managed disks.
@@ -57,7 +59,7 @@ Run the following commands and replace `<resourceGroupName>` with your resource 
 $rg = Get-AzResourceGroup -Name '<resourceGroupName>'
 
 $definition = Get-AzPolicyDefinition |
-  Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
+  Where-Object { $_.DisplayName -eq 'Audit VMs that do not use managed disks' }
 ```
 
 The `$rg` variable stores properties for the resource group and the `$definition` variable stores the policy definition's properties. The properties are used in subsequent commands.

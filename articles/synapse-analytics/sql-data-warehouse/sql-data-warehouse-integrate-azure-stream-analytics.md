@@ -4,7 +4,7 @@ description: Tips for using Azure Stream Analytics with dedicated SQL pool in Az
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 10/07/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse

@@ -3,16 +3,15 @@ title:  Tutorial - Integrate Azure Spring Apps with Azure Load Balance Solutions
 description: How to integrate Azure Spring Apps with Azure Load Balance Solutions
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 06/27/2024
 ms.custom: devx-track-java
 ---
 
 # Integrate Azure Spring Apps with Azure Load Balance Solutions
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 

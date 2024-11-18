@@ -2,8 +2,7 @@
 title: Files and directories in Azure Batch
 description: Learn about files and directories and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 05/11/2021
-
+ms.date: 06/13/2024
 ---
 # Files and directories in Azure Batch
 

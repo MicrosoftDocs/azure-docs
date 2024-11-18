@@ -2,9 +2,9 @@
 title: Move Azure internal Load Balancer to another Azure region - Azure PowerShell
 description: Use Azure Resource Manager template to move Azure internal Load Balancer from one Azure region to another using Azure PowerShell
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 06/27/2024
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell, template-how-to, devx-track-arm-template, engagement-fy23
 ---
@@ -35,7 +35,7 @@ Azure internal load balancers can't be moved from one region to another. You can
 The following steps show how to prepare the internal load balancer for the move using a Resource Manager template, and move the internal load balancer configuration to the target region using Azure PowerShell.  As part of this process, the virtual network configuration of the internal load balancer must be included and must be done first before moving the internal load balancer.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ### Export the virtual network template and deploy from Azure PowerShell
 
@@ -268,7 +268,7 @@ The following steps show how to prepare the internal load balancer for the move 
 
     ```powershell
     PS C:\> $targetVNETID
-    /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupVNET-Move/providers/Microsoft.Network/virtualNetworks/myVNET2-Move
+    /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroupVNET-Move/providers/Microsoft.Network/virtualNetworks/myVNET2-Move
     ```
 
 7.  In the **\<resource-group-name>.json** file, paste the **Resource ID** from the variable in place of the **defaultValue** in the second parameter for the target virtual network ID, ensure you enclose the path in quotes:

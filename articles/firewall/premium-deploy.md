@@ -2,7 +2,7 @@
 title: Deploy and configure Azure Firewall Premium
 description: Learn how to deploy and configure Azure Firewall Premium.
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
 ms.date: 02/28/2022
@@ -27,11 +27,11 @@ You'll use a template to deploy a test environment that has a central VNet (10.0
 - a firewall subnet (10.0.100.0/24)
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 A single central VNet is used in this test environment for simplicity. For production purposes, a [hub and spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) with peered VNets is more common.
 
-:::image type="content" source="media/premium-deploy/premium-topology.png" alt-text="Central VNet topology":::
+:::image type="content" source="media/premium-deploy/premium-topology.png" alt-text="Diagram of Central VNet topology." lightbox="media/premium-deploy/premium-topology.png":::
 
 The worker virtual machine is a client that sends HTTP/S requests through the firewall.
 
@@ -139,8 +139,8 @@ Use the following steps to test TLS Inspection with URL filtering.
 
 Some HTML pages may look incomplete because they refer to other URLs that are denied. To solve this issue, the following approach can be taken:
 
-- If the HTML page contain links to other domains, you can add these domains to a new application rule with allow access to these FQDNs.
-- If the HTML page contain links to sub URLs then you can modify the rule and add an asterisk to the URL. For example: `targetURLs=www.nytimes.com/section/world*`
+- If the HTML page contains links to other domains, you can add these domains to a new application rule with allow access to these FQDNs.
+- If the HTML page contains links to sub URLs then you can modify the rule and add an asterisk to the URL. For example: `targetURLs=www.nytimes.com/section/world*`
 
    Alternatively, you can add a new URL to the rule. For example: 
 

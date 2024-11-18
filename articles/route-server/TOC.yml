@@ -6,19 +6,19 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Configure a Route Server - Portal
-    href: quickstart-configure-route-server-portal.md
-  - name: Configure a Route Server - PowerShell
-    href: quickstart-configure-route-server-powershell.md
-  - name: Configure a Route Server - CLI
-    href: quickstart-configure-route-server-cli.md
-  - name: Configure a Route Server - ARM template
-    href: quickstart-configure-template.md
+  - name: Create a Route Server - Portal
+    href: quickstart-create-route-server-portal.md
+  - name: Create a Route Server - PowerShell
+    href: quickstart-create-route-server-powershell.md
+  - name: Create a Route Server - CLI
+    href: quickstart-create-route-server-cli.md
+  - name: Create a Route Server - ARM template
+    href: quickstart-create-route-server-template.md
   expanded: true
 - name: Tutorials
   items:
   - name: Peer Route Server with NVA
-    href: tutorial-configure-route-server-with-quagga.md
+    href: peer-route-server-with-virtual-appliance.md
   - name: Deploy Route Server with DDoS protection
     href: tutorial-protect-route-server-ddos.md
 - name: Concepts
@@ -45,18 +45,12 @@
     href: anycast.md
 - name: How-to guides
   items:
+  - name: Configure and manage Route Server
+    href: configure-route-server.md
   - name: Troubleshoot Route Server issues
     href: troubleshoot-route-server.md
   - name: Monitor Route Server
     href: monitor-route-server.md
-  - name: Routing preference
-    items:
-    - name: Azure portal
-      href: hub-routing-preference-portal.md
-    - name: Azure PowerShell
-      href: hub-routing-preference-powershell.md
-    - name: Azure CLI
-      href: hub-routing-preference-cli.md
 - name: Reference
   items:
   - name: Azure PowerShell

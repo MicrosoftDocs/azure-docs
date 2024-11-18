@@ -1,9 +1,9 @@
 ---
 title: Architecture Overview 
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
-ms.topic: conceptual
-ms.date: 03/20/2024
-ms.service: backup
+ms.topic: overview
+ms.date: 07/18/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.custom: engagement-fy24
@@ -40,7 +40,7 @@ Vaults have the following features:
 
 - Vaults make it easy to organize your backup data, while minimizing management overhead.
 - You can monitor backed-up items in a vault, including Azure VMs and on-premises machines.
-- You can manage vault access with [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
+- You can manage vault access with [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml).
 - You specify how data in the vault is replicated for redundancy:
   - **Locally redundant storage (LRS)**: To protect your data against server rack and drive failures, you can use LRS. LRS replicates your data three times within a single data center in the primary region. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year. [Learn more](../storage/common/storage-redundancy.md#locally-redundant-storage)
   - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](../storage/common/storage-redundancy.md#geo-redundant-storage).
@@ -197,8 +197,8 @@ Azure VMs use disks to store their operating system, apps, and data. Each Azure 
 
 For more information about disk storage and the available disk types for VMs, see these articles:
 
-- [Azure managed disks for Linux VMs](../virtual-machines/managed-disks-overview.md)
-- [Available disk types for VMs](../virtual-machines/disks-types.md)
+- [Azure managed disks for Linux VMs](/azure/virtual-machines/managed-disks-overview)
+- [Available disk types for VMs](/azure/virtual-machines/disks-types)
 
 ### Back up and restore Azure VMs with premium storage
 
@@ -207,7 +207,7 @@ You can back up Azure VMs by using premium storage with Azure Backup:
 - During the process of backing up VMs with premium storage, the Backup service creates a temporary staging location, named *AzureBackup-*, in the storage account. The size of the staging location equals the size of the recovery point snapshot.
 - Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. For more information, see [Scalability targets for premium page blob storage accounts](../storage/blobs/scalability-targets-premium-page-blobs.md). Don't modify the staging location.
 - After the backup job finishes, the staging location is deleted.
-- The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/disks-types.md#billing).
+- The price of storage used for the staging location is consistent with [premium storage pricing](/azure/virtual-machines/disks-types#billing).
 
 When you restore Azure VMs by using premium storage, you can restore them to premium or standard storage. Typically, you would restore them to premium storage. But if you need only a subset of files from the VM, it might be cost effective to restore them to standard storage.
 

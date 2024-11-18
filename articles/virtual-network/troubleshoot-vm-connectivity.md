@@ -6,8 +6,8 @@ ms.author: allensu
 manager: dcscontentpm
 audience: ITPro
 ms.topic: troubleshooting
-ms.service: virtual-network
-localization_priority: Normal
+ms.service: azure-virtual-network
+ms.localizationpriority: medium
 ms.date: 08/29/2019
 ---
 
@@ -23,6 +23,11 @@ This article helps administrators diagnose and resolve connectivity problems tha
 
 To resolve these problems, follow the steps in the following section.
 
+> [!NOTE]  
+> You can use the following:
+> * `netstat -an` to list the ports that the VM is listening to
+> * Test-NetConnection module in PowerShell to display diagnostic information for a connection such as ping test and tcp test
+> 
 ## Resolution
 
 ### Azure VM cannot connect to another Azure VM in same virtual network
@@ -67,11 +72,11 @@ To connect by using Remote Desktop, follow these steps.
 3. Select the virtual machine in the list.
 4. On the page for the virtual machine, select **Connect**.
 
-For more information, see [How to connect and sign on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
+For more information, see [How to connect and sign on to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-logon).
 
 **Linux**:
 
-For more information, see [Connect to a Linux VM in Azure](../virtual-machines/linux/quick-create-portal.md).
+For more information, see [Connect to a Linux VM in Azure](/azure/virtual-machines/linux/quick-create-portal).
 
 If the Remote Desktop or SSH connection is successful, go to next step.
 
@@ -95,25 +100,25 @@ ProbesFailed     : 100
 Hops             : [
                      {
                        "Type": "Source",
-                       "Id": "c5222ea0-3213-4f85-a642-cee63217c2f3",
+                       "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
                        "Address": "10.1.1.4",
-                       "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGrou
+                       "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGrou
                    ps/ContosoRG/providers/Microsoft.Network/networkInterfaces/appNic0/ipConfigurat
                    ions/ipconfig1",
                        "NextHopIds": [
-                         "9283a9f0-cc5e-4239-8f5e-ae0f3c19fbaa"
+                         "bbbbbbbb-1111-2222-3333-cccccccccccc"
                        ],
                        "Issues": []
                      },
                      {
                        "Type": "VirtualAppliance",
-                       "Id": "9283a9f0-cc5e-4239-8f5e-ae0f3c19fbaa",
+                       "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
                        "Address": "10.1.2.4",
-                       "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGrou
+                       "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGrou
                    ps/ContosoRG/providers/Microsoft.Network/networkInterfaces/fwNic/ipConfiguratio
                    ns/ipconfig1",
                        "NextHopIds": [
-                         "0f1500cd-c512-4d43-b431-7267e4e67017"
+                         "cccccccc-2222-3333-4444-dddddddddddd"
                        ],
                        "Issues": []
                      },
@@ -197,25 +202,25 @@ ProbesFailed     : 100
 Hops             : [
                      {
                        "Type": "Source",
-                       "Id": "c5222ea0-3213-4f85-a642-cee63217c2f3",
+                       "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
                        "Address": "10.1.1.4",
-                       "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGrou
+                       "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGrou
                    ps/ContosoRG/providers/Microsoft.Network/networkInterfaces/appNic0/ipConfigurat
                    ions/ipconfig1",
                        "NextHopIds": [
-                         "9283a9f0-cc5e-4239-8f5e-ae0f3c19fbaa"
+                         "bbbbbbbb-1111-2222-3333-cccccccccccc"
                        ],
                        "Issues": []
                      },
                      {
                        "Type": "VirtualAppliance",
-                       "Id": "9283a9f0-cc5e-4239-8f5e-ae0f3c19fbaa",
+                       "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
                        "Address": "10.1.2.4",
-                       "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGrou
+                       "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGrou
                    ps/ContosoRG/providers/Microsoft.Network/networkInterfaces/fwNic/ipConfiguratio
                    ns/ipconfig1",
                        "NextHopIds": [
-                         "0f1500cd-c512-4d43-b431-7267e4e67017"
+                         "cccccccc-2222-3333-4444-dddddddddddd"
                        ],
                        "Issues": []
                      },

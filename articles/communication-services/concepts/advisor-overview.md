@@ -14,7 +14,7 @@ ms.subservice: data
 
 # Azure Advisor for Azure Communication Services
 
-[Azure Advisor](../../advisor/advisor-overview.md) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. Azure Communication Services is onboarded to Azure Advisor and will post recommendations for ways to optimize your communication resources. You can view these recommendations in the [Azure portal](https://portal.azure.com) in the [Advisor blade](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview). Recommendations are stored in your [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md), and you can configure alerts for these recommendations via [ARM templates](../../advisor/advisor-alerts-arm.md) or the [portal](../../advisor/advisor-alerts-portal.md). 
+[Azure Advisor](/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. Azure Communication Services is onboarded to Azure Advisor and will post recommendations for ways to optimize your communication resources. You can view these recommendations in the [Azure portal](https://portal.azure.com) in the [Advisor blade](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview). Recommendations are stored in your [Azure Activity Log](/azure/azure-monitor/essentials/platform-logs-overview), and you can configure alerts for these recommendations via [ARM templates](/azure/advisor/advisor-alerts-arm) or the [portal](/azure/advisor/advisor-alerts-portal). 
 
 ## Install the latest SDKs
 
@@ -30,7 +30,6 @@ The following SDKs are supported for this feature, along with all their supporte
 * Identity
 * Phone Numbers
 * Management
-* Network Traversal
 * Call Automation
 
 ## Next steps
@@ -38,5 +37,5 @@ The following SDKs are supported for this feature, along with all their supporte
 The following documents may be interesting to you:
 
 - [Logging and diagnostics](./analytics/enable-logging.md)
-- Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
+- Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
 - [Metrics](./metrics.md)

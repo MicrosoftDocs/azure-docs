@@ -1,12 +1,12 @@
 ---
 title: Azure Orbital Ground Station - register spacecraft
-description: Learn how to register a spacecraft.
-author: apoorvanori
-ms.service: orbital
+description: Learn how to register a spacecraft. To contact a satellite, it must be registered and authorized as a spacecraft resource with Azure Orbital Ground Station
+author: hrshelar
+ms.service: azure-orbital
 ms.topic: quickstart
 ms.custom: ga
 ms.date: 07/13/2022
-ms.author: apoorvanori
+ms.author: mosagie
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 

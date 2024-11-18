@@ -4,7 +4,7 @@ description: Learn how to set up Azure Notification Hubs in the Azure portal by 
 services: notification-hubs
 author: sethmanheim
 manager: femila
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: quickstart
 ms.date: 06/30/2023
 ms.author: sethm

@@ -3,7 +3,7 @@ title: Configure CMK encryption at rest in Azure VMware Solution
 description: Learn how to encrypt data in Azure VMware Solution with customer-managed keys by using Azure Key Vault.
 ms.topic: how-to 
 ms.custom: devx-track-azurecli, engagement-fy23
-ms.date: 12/05/2023
+ms.date: 4/12/2024
 ---
 
 # Configure customer-managed key encryption at rest in Azure VMware Solution
@@ -33,10 +33,10 @@ The following diagram shows how Azure VMware Solution uses Microsoft Entra ID an
 
 Before you begin to enable CMK functionality, ensure that the following requirements are met:
 
-- You need a key vault to use CMK functionality. If you don't have a key vault, you can create one by using [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
-- If you enabled restricted access to Key Vault, you need to allow Microsoft Trusted Services to bypass the Key Vault firewall. Go to [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-portal) to learn more.
+- You need a key vault to use CMK functionality. If you don't have a key vault, you can create one by using [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
+- If you enabled restricted access to Key Vault, you need to allow Microsoft Trusted Services to bypass the Key Vault firewall. Go to [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
     >[!NOTE]
-    >After firewall rules are in effect, users can only perform Key Vault [data plane](../key-vault/general/security-features.md#privileged-access) operations when their requests originate from allowed VMs or IPv4 address ranges. This restriction also applies to accessing Key Vault from the Azure portal. It also affects the Key Vault Picker by Azure VMware Solution. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine or the user doesn't have list permission in Key Vault.
+    >After firewall rules are in effect, users can only perform Key Vault [data plane](/azure/key-vault/general/security-features#privileged-access) operations when their requests originate from allowed VMs or IPv4 address ranges. This restriction also applies to accessing Key Vault from the Azure portal. It also affects the Key Vault Picker by Azure VMware Solution. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine or the user doesn't have list permission in Key Vault.
 
 - Enable System Assigned identity on your Azure VMware Solution private cloud if you didn't enable it during software-defined datacenter (SDDC) provisioning.
 
@@ -46,7 +46,7 @@ Before you begin to enable CMK functionality, ensure that the following requirem
 
     1. Sign in to the Azure portal.
 
-    1. Go to **Azure VMware Solution** and locate your SDDC.
+    1. Go to **Azure VMware Solution** and locate your private cloud.
 
     1. On the leftmost pane, open **Manage** and select **Identity**.
 
@@ -98,7 +98,7 @@ Before you begin to enable CMK functionality, ensure that the following requirem
     az keyvault set-policy --name $keyVault --resource-group $resourceGroupName --object-id $principalId --key-permissions get unwrapKey wrapKey
     ```
 
-    Learn more about how to [assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-portal).
+    Learn more about how to [assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
 
 ## Customer-managed key version lifecycle
 
@@ -219,5 +219,5 @@ If you accidentally delete the MSI associated with a private cloud, you need to 
 
 ## Next steps
 
-- Learn about [Azure Key Vault backup and restore](../key-vault/general/backup.md?tabs=azure-cli).
-- Learn about [Azure Key Vault recovery](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault).
+- Learn about [Azure Key Vault backup and restore](/azure/key-vault/general/backup?tabs=azure-cli).
+- Learn about [Azure Key Vault recovery](/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault).

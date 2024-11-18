@@ -9,8 +9,8 @@ metadata:
   ms.service: azure-migrate
   ms.topic: landing-page
 
-  author: MaryMichael-MS
-  ms.author: v-michaelar
+  author: v-sreedevank
+  ms.author: v-sreedevank
   ms.date: 03/15/2024
   ms.custom: seo-azure-migrate
   keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
@@ -94,11 +94,11 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: About assessment of SAP systems
+          - text: About assessment of SAP systems (preview)
             url: ./concepts-azure-sap-systems-assessment.md
       - linkListType: tutorial
         links:
-          - text: Discover SAP systems
+          - text: Discover SAP systems (preview)
             url: ./tutorial-discover-sap-systems.md
   - title: Learn more
     linkLists:

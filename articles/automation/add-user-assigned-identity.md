@@ -4,8 +4,9 @@ description: This article describes how to set up a user-assigned managed identi
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell
-ms.date: 05/01/2022
-ms.topic: conceptual 
+ms.date: 08/16/2024
+ms.topic: how-to 
+ms.service: azure-automation
 ---
 
 # Using a user-assigned managed identity for an Azure Automation account
@@ -119,8 +120,8 @@ PATCH
   "identity": {
     "type": "SystemAssigned, UserAssigned",
     "userAssignedIdentities": {
-      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/firstIdentity": {},
-      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/secondIdentity": {}
+      "/subscriptions/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/firstIdentity": {},
+      "/subscriptions/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/secondIdentity": {}
     }
   }
 }
@@ -129,7 +130,7 @@ PATCH
 The syntax of the API is as follows:
 
 ```http
-https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview 
+https://management.azure.com/subscriptions/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview 
 ```
 
 #### Example
@@ -175,16 +176,16 @@ Perform the following steps.
     ```json
     {
     "type": "SystemAssigned, UserAssigned",
-    "principalId": "00000000-0000-0000-0000-000000000000",
-    "tenantId": "00000000-0000-0000-0000-000000000000",
+    "principalId": "ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0",
+    "tenantId": "ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0",
     "userAssignedIdentities":  {
         "/subscriptions/ContosoID/resourcegroups/ContosoLab/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ContosoUAMI1":  {
-                "PrincipalId":  "00000000-0000-0000-0000-000000000000",
-                "ClientId":  "00000000-0000-0000-0000-000000000000"
+                "PrincipalId":  "ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0",
+                "ClientId":  "00001111-aaaa-2222-bbbb-3333cccc4444"
                     },
         "/subscriptions/ContosoID/resourcegroups/ContosoLab/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ContosoUAMI2":  {
-                "PrincipalId":  "00000000-0000-0000-0000-000000000000",
-                "ClientId":  "00000000-0000-0000-0000-000000000000"
+                "PrincipalId":  "ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0",
+                "ClientId":  "00001111-aaaa-2222-bbbb-3333cccc4444"
                     }
         }
     }
@@ -294,7 +295,7 @@ Before you can use your user-assigned managed identity for authentication, set u
 
 Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read only permissions.
 
-This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example and may or may not be required in your case. Alternatively, you can also assign the role to the target Azure resource in the [Azure portal](../role-based-access-control/role-assignments-portal.md).
+This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example and may or may not be required in your case. Alternatively, you can also assign the role to the target Azure resource in the [Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ```powershell
 New-AzRoleAssignment `

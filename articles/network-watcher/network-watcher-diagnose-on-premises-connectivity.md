@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to diagnose on-premises VPN connectivity with Azure using Azure Network Watcher VPN troubleshoot tool.
 ms.author: halkazwini
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 02/09/2024
 
@@ -30,7 +30,7 @@ VPN troubleshoot allows you to quickly diagnose issues with your gateway and con
 
 Use the VPN troubleshoot capability of Network Watcher to diagnose and troubleshoot your VPN gateway and its connection to your on-premises network. 
 
-1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
 
     :::image type="content" source="./media/network-watcher-diagnose-on-premises-connectivity/portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/packet-capture-vm-portal/portal-search.png":::
 

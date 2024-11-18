@@ -12,6 +12,8 @@ ms.author: duau
 
 # Using Azure Content Delivery Network with SAS
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 When you set up a storage account for Azure Content Delivery Network to use to cache content, by default anyone who knows the URLs for your storage containers can access the files that you've uploaded. To protect the files in your storage account, you can set the access of your storage containers from public to private. However, if you do so, no one is able to access your files.
 
 If you want to grant limited access to private storage containers, you can use the Shared Access Signature (SAS) feature of your Azure Storage account. A SAS is a URI that grants restricted access rights to your Azure Storage resources without exposing your account key. You can provide a SAS to clients that you don't trust with your storage account key but to whom you want to delegate access to certain storage account resources. By distributing a Shared Access Signature URI to these clients, you grant them access to a resource for a specified period of time.

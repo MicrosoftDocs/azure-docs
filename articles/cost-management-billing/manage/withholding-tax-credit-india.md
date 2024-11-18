@@ -70,6 +70,6 @@ After your claim is approved, it’s reflected in the next billing cycle. The WH
 > - If changes are required, the approval process might take longer because of the corrections that must be made and then resubmitted.
 > - If you have questions about the WHT request process, please open a ticket with Microsoft support.
 
-## Next steps
+## Related content
 
 - See [Resolve past due balance for your Azure subscription](resolve-past-due-balance.md) if you need to pay an Azure bill.

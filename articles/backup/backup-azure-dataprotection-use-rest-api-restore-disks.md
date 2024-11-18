@@ -2,16 +2,16 @@
 title: Restore Azure Disks using Azure Data Protection REST API
 description: In this article, learn how to restore Azure Disks using Azure Data protection REST API.
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 05/27/2024
 ms.assetid: 30f4e7ff-2a55-4a85-be44-55feedc24607
-ms.custom: engagement-fy23
+ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Restore Azure Disks using Azure Data Protection REST API
 
-This article describes how to restore [disks](disk-backup-overview.md) using Azure Backup.
+This article describes how to restore and create a new [Azure Disks](disk-backup-overview.md) using Azure Backup.
 
 Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. You can manage the disk snapshots with zero infrastructure cost and without the need for custom scripting or any management overhead. This is a crash-consistent backup solution that takes point-in-time backup of a managed disk using incremental snapshots with support for multiple backups per day. It's also an agent-less solution and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether or not they're currently attached to a running Azure virtual machine.
 
@@ -29,9 +29,7 @@ Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle man
 
 In the example, we'll refer to an existing backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_, where an Azure Disk is named _msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed_.
 
-## Restore to create a new Azure Disk
-
-### Set up permissions
+## Set up permissions
 
 Backup vault uses managed identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the resource group where the disk needs to be restored.
 
@@ -39,7 +37,7 @@ Backup vault uses a system-assigned managed identity, which is restricted to one
 
 Assign the relevant permissions for vault's system-assigned managed identity on the target resource group where the disks will be restored/created. [Learn more](restore-managed-disks.md#restore-to-create-a-new-disk).
 
-### Fetch the list of recovery points
+## Fetch the list of recovery points
 
 To list all the available recovery points for a backup instance, use the [list recovery points](/rest/api/dataprotection/recovery-points/list) API.
 
@@ -53,7 +51,7 @@ For example, this API translates to:
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed/recoveryPoints?api-version=2021-01-01
 ```
 
-#### Responses for list of recovery points
+### Responses for list of recovery points
 
 Once you submit the *GET* request, this returns response as 200 (OK) and the list of all discrete recovery points with all the relevant details.
 
@@ -150,13 +148,13 @@ X-Powered-By: ASP.NET
 
 Select the relevant recovery points from the above list and proceed to prepare the restore request. We'll choose a recovery point named `a3d02fc3ab8a4c3a8cc26688c26d3356` from the above list to restore.
 
-### Prepare the restore request
+## Prepare the restore request
 
 Construct the Azure Resource Manager (ARM) ID of the new disk to be created with the target resource group (to which permissions were assigned as detailed [above](#set-up-permissions)) and the required disk name.
 
 For example, we'll use a disk named `APITestDisk2`, under a resource group `targetrg`, present in the same region as the backed-up disk, but under a different subscription.
 
-#### Construct the request body for restore request
+### Construct the request body for restore request
 
 The following request body contains the recovery point ID and the restore target details.
 
@@ -200,7 +198,7 @@ POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBk
 
 [Learn more](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body) about the request body for this POST API. 
 
-##### Request body to validate restore request
+#### Request body to validate restore request
 
 We have constructed a section of the same in the [above section](#construct-the-request-body-for-restore-request). Now, we'll add object type and use it to trigger a validate operation.
 
@@ -278,7 +276,7 @@ Track the _Azure-AsyncOperation_ header with a *GET* request. When the request i
 }
 ```
 
-#### Trigger restore requests
+## Trigger the restore requests
 
 The trigger restore operation is a ***POST*** API. [Learn more](/rest/api/dataprotection/backup-instances/trigger-restore) about the trigger restore operation.
 
@@ -292,11 +290,11 @@ For example, the API translates to:
 POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed/restore?api-version=2021-01-01"
 ```
 
-##### Create a request body for restore operations
+### Create a request body for restore operations
 
 Once the requests are validated, use the same request body to trigger the _restore request_ with minor changes.
 
-###### Example request body for restore
+### Example request body for restore
 
 The only change from the validate restore request body is to remove the _restoreRequest_ object at the start and change the object type.
 
@@ -322,7 +320,7 @@ The only change from the validate restore request body is to remove the _restore
 }
 ```
 
-#### Response to trigger restore requests
+### Response to trigger restore requests
 
 The _trigger restore request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
@@ -374,7 +372,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 }
 ```
 
-#### Track jobs
+## Track the restore job
 
 The _trigger restore requests_ triggered the restore job. To track the resultant Job ID, use the [GET Jobs API](/rest/api/dataprotection/jobs/get).
 
@@ -446,7 +444,7 @@ Use the *GET* command to track the _JobId_ present in the [trigger restore respo
 
 The job status above indicates that the restore job is completed and the disks have been recovered to the specified subscription and target resource group.
 
-## Next steps
+## Next step
 
 [Overview of Azure Disk backup](disk-backup-overview.md)
 

@@ -11,7 +11,7 @@ ms.date: 08/12/2018
 
 This article describes how to deploy your function app project files to Azure from a .zip (compressed) file. You learn how to do a push deployment, both by using Azure CLI and by using the REST APIs. [Azure Functions Core Tools](functions-run-local.md) also uses these deployment APIs when publishing a local project to Azure. 
 
-Zip deployment is also an easy way to run your functions from the deployment package. To learn more, see [Run your functions from a package file in Azure](run-functions-from-deployment-package.md).
+Zip deployment is also an easy way to [run your functions from a package file in Azure](run-functions-from-deployment-package.md). It is the default deployment technology in the [Consumption](./consumption-plan.md), [Elastic Premium](./functions-premium-plan.md), and [Dedicated (App Service)](./dedicated-plan.md) hosting plans. The [Flex Consumption](./flex-consumption-plan.md) plan does not support zip deployment.
 
 Azure Functions has the full range of continuous deployment and integration options that are provided by Azure App Service. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
@@ -24,18 +24,14 @@ To speed up development, you might find it easier to deploy your function app pr
 
 For more information, see the [.zip deployment reference](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
-## Deployment .zip file requirements
-
-The .zip file that you use for push deployment must contain all of the files needed to run your function.
-
 >[!IMPORTANT]
 > When you use .zip deployment, any files from an existing deployment that aren't found in the .zip file are deleted from your function app.  
 
-[!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+## Deployment .zip file requirements
 
-A function app includes all of the files and folders in the `wwwroot` directory. A .zip file deployment includes the contents of the `wwwroot` directory, but not the directory itself. When deploying a C# class library project, you must include the compiled library files and dependencies in a `bin` subfolder in your .zip package.
+[!INCLUDE [functions-deployment-zip-structure](../../includes/functions-deployment-zip-structure.md)]
 
-When you are developing on a local computer, you can manually create a .zip file of the function app project folder using built-in .zip compression functionality or third-party tools.
+A zip deployment process extracts the zip archive's files and folders in the `wwwroot` directory. If you include the parent directory when creating the archive, the system will not find the files it expects to see in `wwwroot`.
 
 ## <a name="cli"></a>Deploy by using Azure CLI
 

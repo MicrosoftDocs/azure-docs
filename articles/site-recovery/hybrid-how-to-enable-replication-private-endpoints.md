@@ -3,9 +3,9 @@ title: Enable replication for on-premises machines with private endpoints
 description: This article describes how to configure replication for on-premises machines by using private endpoints in Site Recovery. 
 author: ankitaduttaMSFT
 ms.author: ankitadutta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 08/31/2023
+ms.date: 04/08/2024
 ms.custom: subject-rbac-steps, engagement-fy23
 ---
 # Replicate on-premises machines by using private endpoints
@@ -211,14 +211,14 @@ following role permissions, depending on the type of storage account.
   - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
   - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
-The following steps describe how to add a role assignment to your storage account. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The following steps describe how to add a role assignment to your storage account. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 1. Go to the storage account.
 
 1. Select **Access control (IAM)**.
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select one of the roles listed in the beginning of this section.
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
@@ -251,7 +251,7 @@ Create one private DNS zone to allow the Site Recovery provider (for Hyper-V mac
 
 1. Create a private DNS zone.
 
-   1. Search for "private DNS zone" in the **All services** search box and then select **Private DNS
+   1. Search for *private DNS zone* in the **All services** search box and then select **Private DNS
       zone** in the results:
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Screenshot that shows searching for private dns zone on the new resources page in the Azure portal.":::
@@ -266,7 +266,9 @@ Create one private DNS zone to allow the Site Recovery provider (for Hyper-V mac
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Screenshot that shows the Basics tab of the Create Private DNS zone page.":::
 
    1. Continue to the **Review \+ create** tab to review and create the DNS zone.
-   1. If you're using modernized architecture for protection VMware or Physical machines, then create another private DNS zone for **privatelink.prod.migration.windowsazure.com** also. This endpoint will be used by Site Recovery to perform the discovery of on-premises environment. 
+   1. If you're using modernized architecture for protection VMware or Physical machines, ensure to create another private DNS zone for **privatelink.prod.migration.windowsazure.com**. This endpoint is used by Site Recovery to perform the discovery of on-premises environment. 
+        > [!IMPORTANT]
+        > For Azure GOV users, add `privatelink.prod.migration.windowsazure.us` in the DNS zone.
 
 
 1. To link the private DNS zone to your virtual network, follow these steps: 

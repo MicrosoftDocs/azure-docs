@@ -231,6 +231,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-monitor.md",
+            "redirect_url": "/azure/azure-cache-for-redis/monitor-cache",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/redis-cache/scripts/cache-keys-ports.md",
             "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
             "redirect_document_id": false

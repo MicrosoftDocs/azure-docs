@@ -1,15 +1,15 @@
 ---
 title: Tutorial - Back up multiple Azure virtual machines by using Azure Backup
 description: In this tutorial, learn how to create a Recovery Services vault, define a backup policy, and simultaneously back up multiple virtual machines.
-ms.date: 02/26/2024
+ms.date: 04/23/2024
 ms.topic: tutorial
 ms.custom: mvc, engagement-fy24
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Tutotial: Back up multiple virtual machines by using the Azure portal 
+# Tutorial: Back up multiple virtual machines by using the Azure portal 
 
 This tutorial describes how to back up multiple virtual machines by using the Azure portal .
 

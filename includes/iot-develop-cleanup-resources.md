@@ -2,9 +2,9 @@
  title: Include file to clean up IoT resources. 
  description: include file
  author: timlt
- ms.service: iot-develop
+ ms.service: azure-iot
  ms.topic: include
- ms.date: 07/27/2023
+ ms.date: 04/08/2024
  ms.author: timlt
  ms.custom: include file
 ---

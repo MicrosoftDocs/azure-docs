@@ -5,11 +5,10 @@ description: Build expressions by using Expression Builder in mapping data flows
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # Build expressions in mapping data flow

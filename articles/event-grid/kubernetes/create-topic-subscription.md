@@ -1,12 +1,12 @@
 ---
 title: Azure Event Grid on Kubernetes - Webhook as event handler
 description: This article describes how to create an Event Grid topic on a Kubernetes cluster that's connected to Azure Arc and then create a subscription for the topic.
-author: jfggdl
+author: robece
 ms.subservice: kubernetes
-ms.author: jafernan
+ms.author: robece
 ms.date: 06/17/2021
 ms.topic: quickstart
-ms.custom: mode-other, devx-track-azurecli 
+ms.custom: mode-other, devx-track-azurecli, build-2024
 ms.devlang: azurecli
 ---
 
@@ -18,7 +18,7 @@ In this quickstart, you create a topic in Event Grid on Kubernetes, create a sub
 
 ## Prerequisites
 
-1. [Connect your Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
+1. [Connect your Kubernetes cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 1. [Install Event Grid extension on Kubernetes cluster](install-k8s-extension.md). This extension deploys Event Grid to a Kubernetes cluster. 
 
 
@@ -53,7 +53,7 @@ As an Azure location extension, a custom location lets you use your Azure Arc-en
     customlocationid=$(az customlocation show -n $customlocationname -g $resourcegroupname --query id -o tsv)    
     ```
 
-    For more information on creating custom locations, see [Create and manage custom locations on Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/custom-locations.md). 
+    For more information on creating custom locations, see [Create and manage custom locations on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/custom-locations). 
 
 ## Create a topic
 In this section, you create a topic in the custom location you created in the previous step. Update resource group and Event Grid topic names before running the command. Update the location if you're using a location other than East US. 

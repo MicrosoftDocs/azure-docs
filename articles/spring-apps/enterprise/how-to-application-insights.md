@@ -3,17 +3,16 @@ title: How to use Application Insights Java In-Process Agent in Azure Spring App
 description: How to monitor apps using Application Insights Java In-Process Agent in Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 zone_pivot_groups: spring-apps-tier-selection
 ---
 
 # Use Application Insights Java In-Process Agent in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 >
 > With Spring Boot Native Image applications, use the [Azure Monitor OpenTelemetry Distro / Application Insights in Spring Boot native image Java application](https://aka.ms/AzMonSpringNative) project instead of the Application Insights Java agent.
 
@@ -286,7 +285,7 @@ az spring app-insights update \
 
 This section applies to the Enterprise plan only, and provides instructions that supplement the previous section.
 
-The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
 To create an Application Insights buildpack binding, use the following command:
 
@@ -536,9 +535,7 @@ When data is stored in Application Insights, it contains the history of Azure Sp
 
 * [Analyze logs and metrics](diagnostic-services.md)
 * [Stream logs in real time](./how-to-log-streaming.md)
-* [Application Map](../../azure-monitor/app/app-map.md)
-* [Live Metrics](../../azure-monitor/app/live-stream.md)
-* [Performance](../../azure-monitor/app/tutorial-performance.md)
-* [Failures](../../azure-monitor/app/tutorial-runtime-exceptions.md)
-* [Metrics](../../azure-monitor/essentials/tutorial-metrics.md)
-* [Logs](../../azure-monitor/logs/data-platform-logs.md)
+* [Application Map](/azure/azure-monitor/app/app-map)
+* [Live Metrics](/azure/azure-monitor/app/live-stream)
+* [Metrics](/azure/azure-monitor/essentials/tutorial-metrics)
+* [Logs](/azure/azure-monitor/logs/data-platform-logs)

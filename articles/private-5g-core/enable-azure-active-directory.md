@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: Complete the prerequisite tasks for enabling Microsoft Entra ID to access Azure Private 5G Core's local monitoring tools.
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 12/29/2022
 ms.custom: template-how-to
@@ -118,18 +118,18 @@ To support Microsoft Entra ID on Azure Private 5G Core applications, you'll need
         namespace: core
     type: Opaque
     data:
-        client_id: <Base64-encoded client ID>
-        client_secret: <Base64-encoded client secret>
-        auth_url: <Base64-encoded authorization URL>
-        token_url: <Base64-encoded token URL>
-        root_url: <Base64-encoded packet core dashboards redirect URI root>
+        GF_AUTH_AZUREAD_CLIENT_ID: <Base64-encoded client ID>
+        GF_AUTH_AZUREAD_CLIENT_SECRET: <Base64-encoded client secret>
+        GF_AUTH_AZUREAD_AUTH_URL: <Base64-encoded authorization URL>
+        GF_AUTH_AZUREAD_TOKEN_URL: <Base64-encoded token URL>
+        GF_SERVER_ROOT_URL: <Base64-encoded packet core dashboards redirect URI root>
     ```
 
 ## Apply Kubernetes Secret Objects
 
 You'll need to apply your Kubernetes Secret Objects if you're enabling Microsoft Entra ID for a site, after a packet core outage, or after updating the Kubernetes Secret Object YAML file.
 
-1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
+1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](/azure/azure-arc/kubernetes/cluster-connect?tabs=azure-cli) to configure kubectl access.
 1. Apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the core kubeconfig filename.
 
     `kubectl apply -f  $HOME/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`

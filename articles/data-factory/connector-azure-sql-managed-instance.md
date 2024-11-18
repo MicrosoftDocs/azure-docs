@@ -2,13 +2,12 @@
 title: Copy and transform data in Azure SQL Managed Instance
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics pipelines.
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 06/17/2024
 ---
 
 # Copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics
@@ -76,26 +75,37 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-These generic properties are supported for an SQL Managed Instance linked service:
+The Azure SQL Managed Instance connector **Recommended** version supports TLS 1.3. Refer to this [section](#upgrade-the-azure-sql-managed-instance-version) to upgrade your Azure SQL Managed Instance connector version from **Legacy** one. For the property details, see the corresponding sections.
+
+- [Recommended version](#recommended-version)
+- [Legacy version](#legacy-version)
+
+### Recommended version
+
+These generic properties are supported for an Azure SQL Managed Instance linked service when you apply **Recommended** version:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureSqlMI**. | Yes |
-| connectionString |This property specifies the **connectionString** information that's needed to connect to SQL Managed Instance by using SQL authentication. For more information, see the following examples. <br/>The default port is 1433. If you're using SQL Managed Instance with a public endpoint, explicitly specify port 3342.<br> You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the service's cloud environment is used. | No |
+| server | The name or network address of the SQL server instance you want to connect to. | Yes |
+| database | The name of the database. | Yes |
+| authenticationType |The type used for authentication. Allowed values are [**SQL**](#sql-authentication) (default), [**ServicePrincipal**](#service-principal-authentication), [**SystemAssignedManagedIdentity**](#managed-identity), [**UserAssignedManagedIdentity**](#user-assigned-managed-identity-authentication). Go to the relevant authentication section on specific properties and prerequisites. | Yes |
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
+| encrypt |Indicate whether TLS encryption is required for all data sent between the client and server. Options: mandatory (for true, default)/optional (for false)/strict. | No |
+| trustServerCertificate | Indicate whether the channel will be encrypted while bypassing the certificate chain to validate trust. | No |
+| hostNameInCertificate | The host name to use when validating the server certificate for the connection. When not specified, the server name is used for certificate validation. | No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use a self-hosted integration runtime or an Azure integration runtime if your managed instance has a public endpoint and allows the service to access it. If not specified, the default Azure integration runtime is used. |Yes |
 
-For different authentication types, refer to the following sections on specific properties, prerequisites and JSON samples, respectively:
+[!INCLUDE [SQL connector additional connection properties](includes/sql-connector-addtional-connection-properties.md)]
 
-- [SQL authentication](#sql-authentication)
-- [Service principal authentication](#service-principal-authentication)
-- [System-assigned managed identity authentication](#managed-identity)
-- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
+#### SQL authentication
 
-### SQL authentication
+To use SQL authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
 
-To use SQL authentication authentication type, specify the generic properties that are described in the preceding section.
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| userName | The user name used to connect to the server. | Yes |
+| password | The password for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Example 1: use SQL authentication**
 
@@ -105,7 +115,16 @@ To use SQL authentication authentication type, specify the generic properties th
     "properties": {
         "type": "AzureSqlMI",
         "typeProperties": {
-            "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+            "server": "<name or network address of the SQL server instance>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "SQL",
+            "userName": "<user name>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -123,7 +142,12 @@ To use SQL authentication authentication type, specify the generic properties th
     "properties": {
         "type": "AzureSqlMI",
         "typeProperties": {
-            "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;",
+            "server": "<name or network address of the SQL server instance>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "SQL",
+            "userName": "<user name>",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -149,7 +173,16 @@ To use SQL authentication authentication type, specify the generic properties th
     "properties": {
         "type": "AzureSqlMI",
         "typeProperties": {
-            "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+            "server": "<name or network address of the SQL server instance>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "SQL",
+            "userName": "<user name>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
         },
         "alwaysEncryptedSettings": {
             "alwaysEncryptedAkvAuthType": "ServicePrincipal",
@@ -167,15 +200,16 @@ To use SQL authentication authentication type, specify the generic properties th
 }
 ```
 
-### Service principal authentication
+#### Service principal authentication
 
 To use service principal authentication, in addition to the generic properties that are described in the preceding section, specify the following properties
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the application's client ID. | Yes |
-| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalCredential | The service principal credential. Specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes|
 | tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the service's cloud environment is used. | No |
 
 You also need to follow the steps below:
 
@@ -215,11 +249,16 @@ You also need to follow the steps below:
     "properties": {
         "type": "AzureSqlMI",
         "typeProperties": {
-            "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;",
+            "server": "<name or network address of the SQL server instance>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "hostNameInCertificate": "<host name>",
+            "authenticationType": "ServicePrincipal",
             "servicePrincipalId": "<service principal id>",
-            "servicePrincipalKey": {
+            "servicePrincipalCredential": {
                 "type": "SecureString",
-                "value": "<service principal key>"
+                "value": "<application key>"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
         },
@@ -231,7 +270,7 @@ You also need to follow the steps below:
 }
 ```
 
-### <a name="managed-identity"></a> System-assigned managed identity authentication
+#### <a name="managed-identity"></a> System-assigned managed identity authentication
 
 A data factory or Synapse workspace can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity) that represents the service for authentication to other Azure services. You can use this managed identity for SQL Managed Instance authentication. The designated service can access and copy data from or to your database by using this identity.
 
@@ -267,7 +306,11 @@ To use system-assigned managed identity authentication, specify the generic prop
     "properties": {
         "type": "AzureSqlMI",
         "typeProperties": {
-            "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;"
+            "server": "<name or network address of the SQL server instance>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "SystemAssignedManagedIdentity"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -276,7 +319,7 @@ To use system-assigned managed identity authentication, specify the generic prop
     }
 }
 ```
-### User-assigned managed identity authentication
+#### User-assigned managed identity authentication
 
 A data factory or Synapse workspace can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity) that represents the service for authentication to other Azure services. You can use this managed identity for SQL Managed Instance authentication. The designated service can access and copy data from or to your database by using this identity.
 
@@ -319,7 +362,11 @@ You also need to follow the steps below:
     "properties": {
         "type": "AzureSqlMI",
         "typeProperties": {
-            "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;",
+            "server": "<name or network address of the SQL server instance>",
+            "database": "<database name>",
+            "encrypt": "<encrypt>",
+            "trustServerCertificate": false,
+            "authenticationType": "UserAssignedManagedIdentity",
             "credential": {
                 "referenceName": "credential1",
                 "type": "CredentialReference"
@@ -332,6 +379,48 @@ You also need to follow the steps below:
     }
 }
 ```
+### Legacy version
+
+These generic properties are supported for an Azure SQL Managed Instance linked service when you apply **Legacy** version:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **AzureSqlMI**. | Yes |
+| connectionString |This property specifies the **connectionString** information that's needed to connect to SQL Managed Instance by using SQL authentication. For more information, see the following examples. <br/>The default port is 1433. If you're using SQL Managed Instance with a public endpoint, explicitly specify port 3342.<br> You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
+| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use a self-hosted integration runtime or an Azure integration runtime if your managed instance has a public endpoint and allows the service to access it. If not specified, the default Azure integration runtime is used. |Yes |
+
+For different authentication types, refer to the following sections on specific properties and prerequisites respectively:
+
+- [SQL authentication for the legacy version](#sql-authentication-for-the-legacy-version)
+- [Service principal authentication for the legacy version](#service-principal-authentication-for-the-legacy-version)
+- [System-assigned managed identity authentication for the legacy version](#system-assigned-managed-identity-authentication-for-the-legacy-version)
+- [User-assigned managed identity authentication for the legacy version](#user-assigned-managed-identity-authentication-for-legacy-version)
+
+#### SQL authentication for the legacy version
+
+To use SQL authentication, specify the generic properties that are described in the preceding section.
+
+#### Service principal authentication for the legacy version
+
+To use service principal authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| servicePrincipalId | Specify the application's client ID. | Yes |
+| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal.| Yes |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
+
+You also need to follow the steps in [Service principal authentication](#service-principal-authentication) to grant the corresponding permission.
+
+#### System-assigned managed identity authentication for the legacy version
+
+To use system-assigned managed identity authentication, follow the same step for the recommended version in [System-assigned managed identity authentication](#managed-identity).
+
+#### User-assigned managed identity authentication for legacy version
+
+To use user-assigned managed identity authentication, follow the same step for the recommended version in [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication).
 
 ## Dataset properties
 
@@ -388,7 +477,7 @@ To copy data from SQL Managed Instance, the following properties are supported i
 | partitionOptions | Specifies the data partitioning options used to load data from SQL MI. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from SQL MI is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | ***Under `partitionSettings`:*** | | |
-| partitionColumnName | Specify the name of the source column **in integer or  date/datetime type** (`int`, `smallint`, `bigint`, `date`, `smalldatetime`, `datetime`, `datetime2`, or `datetimeoffset`) that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is auto-detected and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfDynamicRangePartitionCondition ` in the WHERE clause. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-sql-mi) section. | No |
+| partitionColumnName | Specify the name of the source column **in integer or  date/datetime type** (`int`, `smallint`, `bigint`, `date`, `smalldatetime`, `datetime`, `datetime2`, or `datetimeoffset`) that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is auto-detected and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?DfDynamicRangePartitionCondition ` in the WHERE clause. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-sql-mi) section. | No |
 | partitionUpperBound | The maximum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.  <br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-sql-mi) section. | No |
 | partitionLowerBound | The minimum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from SQL database](#parallel-copy-from-sql-mi) section. | No |
 
@@ -506,7 +595,7 @@ To copy data to SQL Managed Instance, the following properties are supported in 
 | WriteBehavior | Specify the write behavior for copy activity to load data into Azure SQL MI. <br/> The allowed value is **Insert** and **Upsert**. By default, the service uses insert to load data. | No |
 | upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upsert`. | No |
 | ***Under `upsertSettings`:*** | | |
-| useTempDB | Specify whether to use a global temporary table or physical table as the interim table for upsert. <br>By default, the service uses global temporary table as the interim table. value is `true`. | No |
+| useTempDB | Specify whether to use the global temporary table or physical table as the interim table for upsert. <br>By default, the service uses global temporary table as the interim table. value is `true`. | No |
 | interimSchemaName | Specify the interim schema for creating interim table if physical table is used. Note: user need to have the permission for creating and deleting table. By default, interim table will share the same schema as sink table. <br/> Apply when the useTempDB option is `False`. | No |
 | keys | Specify the column names for unique row identification. Either a single key or a series of keys can be used. If not specified, the primary key is used. | No |
 
@@ -636,7 +725,7 @@ You are suggested to enable parallel copy with data partitioning especially when
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Full load from large table, with physical partitions.        | **Partition option**: Physical partitions of table. <br><br/>During execution, the service automatically detects the physical partitions, and copies data by partitions. <br><br/>To check if your table has physical partition or not, you can refer to [this query](#sample-query-to-check-physical-partition). |
 | Full load from large table, without physical partitions, while with an integer or datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Partition column** (optional): Specify the column used to partition data. If not specified, the index or primary key column is used.<br/>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the table will be partitioned and copied. If not specified, copy activity auto detect the values.<br><br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions - IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. |
-| Load a large amount of data by using a custom query, without physical partitions, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>During execution, the service replaces `?AdfRangePartitionColumnName` with the actual column name and value ranges for each partition, and sends to SQL MI. <br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. <br><br>Here are more sample queries for different scenarios:<br> 1. Query the whole table: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Query from a table with column selection and additional where-clause filters: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Query with subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Query with partition in subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| Load a large amount of data by using a custom query, without physical partitions, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?DfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. <br><br>Here are more sample queries for different scenarios:<br> 1. Query the whole table: <br>`SELECT * FROM <TableName> WHERE ?DfDynamicRangePartitionCondition`<br> 2. Query from a table with column selection and additional where-clause filters: <br>`SELECT <column_list> FROM <TableName> WHERE ?DfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Query with subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?DfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Query with partition in subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?DfDynamicRangePartitionCondition) AS T`
 |
 
 Best practices to load data with partition option:
@@ -660,7 +749,7 @@ Best practices to load data with partition option:
 ```json
 "source": {
     "type": "SqlMISource",
-    "query": "SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>",
+    "query": "SELECT * FROM <TableName> WHERE ?DfDynamicRangePartitionCondition AND <your_additional_where_clause>",
     "partitionOption": "DynamicRange",
     "partitionSettings": {
         "partitionColumnName": "<partition_column_name>",
@@ -900,7 +989,7 @@ When data is copied to and from SQL Managed Instance using copy activity, the fo
 
 When you copy data from/to SQL Managed Instance with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), follow below steps: 
 
-1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) in an [Azure Key Vault](../key-vault/general/overview.md). Learn more on [how to configure Always Encrypted by using Azure Key Vault](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell)
+1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) in an [Azure Key Vault](/azure/key-vault/general/overview). Learn more on [how to configure Always Encrypted by using Azure Key Vault](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell)
 
 2. Make sure to great access to the key vault where the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) is stored. Refer to this [article](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true#key-vaults) for required permissions.
 
@@ -918,7 +1007,7 @@ When you copy data from/to SQL Managed Instance with [Always Encrypted](/sql/rel
 
 ## Native change data capture
 
-Azure Data Factory can support native change data capture capabilities for SQL Server, Azure SQL DB and Azure SQL MI. The changed data including row insert, update and deletion in SQL stores can be automatically detected and extracted by ADF mapping dataflow. With the no code experience in mapping dataflow, users can easily achieve data replication scenario from SQL stores by appending a database as destination store.  What is more, users can also compose any data transform logic in between to achieve incremental ETL scenario from SQL stores.
+Azure Data Factory can support native change data capture capabilities for SQL Server, Azure SQL DB and Azure SQL MI. The changed data including row insert, update and deletion in SQL stores can be automatically detected and extracted by ADF mapping dataflow. With the no code experience in mapping dataflow, users can easily achieve data replication scenario from SQL stores by appending a database as destination store. What is more, users can also compose any data transform logic in between to achieve incremental ETL scenario from SQL stores.
 
 Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run. If you do want to change the pipeline name or activity name but still keep the checkpoint to get changed data from the last run automatically, please use your own Checkpoint key in dataflow activity to achieve that.
 
@@ -957,7 +1046,7 @@ source1 sink(allowSchemaDrift: true,
 
 ### Example 2:
 
-If you want to enable ETL scenario instead of data replication between database via SQL CDC, you can use expressions in mapping dataflow including isInsert(1), isUpdate(1) and isDelete(1) to differentiate the rows with different operation types.  The following is one of the example scripts for mapping dataflow on deriving one column with the value: 1 to indicate inserted rows, 2 to indicate updated rows and 3 to indicate deleted rows for downstream transforms to process the delta data.
+If you want to enable ETL scenario instead of data replication between database via SQL CDC, you can use expressions in mapping dataflow including isInsert(1), isUpdate(1) and isDelete(1) to differentiate the rows with different operation types. The following is one of the example scripts for mapping dataflow on deriving one column with the value: 1 to indicate inserted rows, 2 to indicate updated rows and 3 to indicate deleted rows for downstream transforms to process the delta data.
 
 ```json
 source(output(
@@ -981,6 +1070,18 @@ derivedColumn1 sink(allowSchemaDrift: true,
 ### Known limitation:
 
 *    Only **net changes** from SQL CDC will be loaded by ADF via [cdc.fn_cdc_get_net_changes_](/sql/relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql?source=recommendations).
+
+## Upgrade the Azure SQL Managed Instance version
+
+To upgrade the Azure SQL Managed Instance version, in **Edit linked service** page, select **Recommended** under **Version** and configure the linked service by referring to [Linked service properties for the recommended version](#recommended-version).
+
+## Differences between the recommended and the legacy version
+
+The table below shows the differences between Azure SQL Managed Instance using the recommended and the legacy version.
+
+| Recommended version | Legacy version | 
+|:--- |:--- |
+| Support TLS 1.3 via `encrypt` as `strict`. | TLS 1.3 is not supported.| 
 
 
 ## Related content

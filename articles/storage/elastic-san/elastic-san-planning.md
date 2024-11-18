@@ -1,10 +1,10 @@
 ---
 title: Planning for an Azure Elastic SAN
-description: Understand planning for an Azure Elastic SAN deployment. Learn about storage capacity, performance, redundancy, and encryption.
+description: Plan for an Azure Elastic SAN deployment. Learn about storage capacity, performance, redundancy, and encryption.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 10/24/2024
 ms.author: rogarana
 ms.custom:
   - ignite-2023-elastic-SAN
@@ -37,6 +37,14 @@ When allocating storage for an Elastic SAN, consider how much storage you requir
 You create volumes from the storage that you allocated to your Elastic SAN. When you create a volume, think of it like partitioning a section of the storage of your Elastic SAN. The maximum performance of an individual volume is determined by the amount of storage allocated to it. Individual volumes can have fairly high IOPS and throughput, but the total IOPS and throughput of all your volumes can't exceed the total IOPS and throughput your SAN has.
 
 Using the same example of a 100 TiB SAN that has 500,000 IOPS and 20,000 MB/s. Say this SAN had 100 1 TiB volumes. You could potentially have six of these volumes operating at their maximum performance (80,000 IOPS, 1,280 MB/s) since this would be below the SAN's limits. But if seven volumes all needed to operate at maximum at the same time, they wouldn't be able to. Instead the performance of the SAN would be split evenly among them.
+
+### Autoscaling (preview)
+
+As a preview feature, you can automatically scale up your SAN by specific increments until a specified maximum size using an autoscale policy. An autoscale policy is helpful for environments where storage consumption continually increases, like environments using volume snapshots. Volume snapshots consume some of the total capacity of an elastic SAN, and having an autoscale policy helps ensure your SAN doesn't run out of space to store volume snapshots.
+
+When setting an autoscale policy, there's a minimum capacity increment of 1 TiB, and you can only automatically scale additional capacity, rather than base capacity. So when autoscaling, the IOPS and throughput of your SAN won't automatically scale up.
+
+Here's an example of how an autoscale policy works. Say you have an elastic SAN that has 100 TiB total storage capacity. This SAN has volume snapshots configured, so you want the capacity to automatically scale to accommodate your snapshots. You can set a policy so that whenever the unused capacity is less than or equal to 20 TiB, additional capacity on your SAN increases by 5 TiB, up to a maximum of 150 TiB total storage. So, if you use 80 TiB of space, it automatically provisions an additional 5 TiB, so your SAN now has a total storage capacity of 105 TiB.
 
 ## Networking
 

@@ -25,6 +25,8 @@ Make sure that you have:
 
 - Access to the Microsoft Defender Portal as a [Security administrator](../../active-directory/roles/permissions-reference.md#security-administrator)
 
+- Microsoft Defender for Endpoint agents deployed in your environment. For more information, see [onboard Microsoft Defender for Endpoint](/defender-endpoint/onboarding).
+
 - One of the following licenses:
 
     - A Microsoft 365 E5 (ME5) or E5 Security license

@@ -79,6 +79,8 @@ Azure Communication Services offers various call types. The type of call you cho
 
 ## Next steps
 
-[Migrate from Twilio Video to Azure Communication Services.](../tutorials/migrating-to-azure-communication-services-calling.md)
+[Migrate from Twilio Video to Azure Communication Services](../tutorials/migrating-to-azure-communication-services-calling.md).
 
-For a feature map, see [Calling SDK overview > Detailed capabilities](./voice-video-calling/calling-sdk-features.md#detailed-capabilities)
+[Migrate from Twilio Conversations Chat to Azure Communication Services](../tutorials/migrating-to-azure-communication-services-chat.md).
+
+For a feature map, see [Calling SDK overview > Detailed capabilities](./voice-video-calling/calling-sdk-features.md#detailed-capabilities).

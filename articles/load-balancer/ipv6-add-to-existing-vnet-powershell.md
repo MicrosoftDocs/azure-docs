@@ -1,13 +1,13 @@
 ---
-title: Add an IPv4 application to IPv6 in Azure Virtual Network - PowerShell
+title: Add IPv6 to an IPv4 application in Azure Virtual Network - PowerShell
 titlesuffix: Azure Virtual Network
 description: This article shows how to deploy IPv6 addresses to an existing application in Azure virtual network using Azure PowerShell.
 services: virtual-network
 author: mbender-ms
 manager: kumudd
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 09/27/2023
+ms.date: 09/30/2024
 ms.author: mbender
 ms.custom: devx-track-azurepowershell, template-how-to
 ROBOTS: NOINDEX
@@ -21,7 +21,7 @@ This article shows you how to add IPv6 connectivity to an existing IPv
 - VMs with NICs that have both an IPv4 + IPv6 configuration
 - IPv6 Public IP so the load balancer has Internet-facing IPv6 connectivity
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.9.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
@@ -147,9 +147,9 @@ $NIC_3 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets
 $NIC_3 | Set-AzNetworkInterface
 ```
 
-## View IPv6 dual stack virtual network in Azure portal
+## View IPv6 dual-stack virtual network in Azure portal
 
-You can view the IPv6 dual stack virtual network in Azure portal as follows:
+You can view the IPv6 dual-stack virtual network in Azure portal as follows:
 1. In the portal's search bar, enter **virtual networks** and 
 1. In the **Virtual Networks** window, select **myVNet**.
 1.  Select **Connected devices** under **Settings** to view the attached network interfaces. The dual stack virtual network shows the three NICs with both IPv4 and IPv6 configurations.

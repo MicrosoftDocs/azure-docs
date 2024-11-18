@@ -1,8 +1,8 @@
 ---
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
-ms.date: 05/08/2023
+ms.date: 05/10/2024
 ms.author: danlep
 ---
 
@@ -27,11 +27,13 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
 * For certain scenarios, enable **service endpoints** in the subnet to dependent services such as Azure Storage or Azure SQL. For more information, see [Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance](#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance), later in this article.
 
-* **A Standard SKU [public IPv4 address](../articles/virtual-network/ip-services/public-ip-addresses.md#sku)**. The public IP address resource is required when setting up the virtual network for either external or internal access. With an internal virtual network, the public IP address is used only for management operations. Learn more about [IP addresses of API Management](../articles/api-management/api-management-howto-ip-addresses.md).
+* **(Optional) A Standard SKU [public IPv4 address](../articles/virtual-network/ip-services/public-ip-addresses.md#sku)**.
 
-  * The IP address must be in the same region and subscription as the API Management instance and the virtual network.
+  [!INCLUDE [api-management-publicip-internal-vnet](api-management-publicip-internal-vnet.md)]
 
-  * When creating a public IP address resource, ensure you assign a **DNS name label** to it. The label you choose to use does not matter but a label is required if this resource will be assigned to an API Management service.
+  * If provided, the IP address must be in the same region and subscription as the API Management instance and the virtual network.
+
+  * When creating a public IP address resource, ensure you assign a **DNS name label** to it. In general, you should use the same DNS name as your API Management instance. If you change it, redeploy your instance so that the new DNS label is applied.
 
   * For best network performance, it's recommended to use the default **Routing preference**: **Microsoft network**.  
 
@@ -39,7 +41,7 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
   * The value of the IP address is assigned as the virtual public IPv4 address of the API Management instance in that region. 
 
-  * When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you must configure a different public IP address.   
+* For multi-region API Management deployments, configure virtual network resources separately for each location.
 
 ### [stv1](#tab/stv1)
 
@@ -50,4 +52,6 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
   * The subnet used to connect to the API Management instance should not have any delegations enabled. The **Delegate subnet to a service** setting for the subnet should be set to *None*. 
 
 * For certain scenarios, enable **service endpoints** in the subnet to dependent services such as Azure Storage or Azure SQL. For more information, see [Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance](#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance), later in this article. 
+
+* For multi-region API Management deployments, configure virtual network resources separately for each location.
 ---

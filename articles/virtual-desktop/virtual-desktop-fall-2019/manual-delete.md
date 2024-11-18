@@ -1,11 +1,11 @@
 ---
 title: Delete Azure Virtual Desktop (classic) - Azure
 description: How to clean up Azure Virtual Desktop (classic) when it is no longer used.
-author: jensheerin
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 11/22/2021
-ms.author: jensheerin
-manager: annathan
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 
 # Delete Azure Virtual Desktop (classic)
@@ -19,7 +19,7 @@ This article describes how to delete Azure Virtual Desktop (classic).
 
 Before you begin, make sure you have the following things ready:
 
-- A global administrator account within the Microsoft Entra tenant
+- A user administrator account within the Microsoft Entra tenant with permissions to manage your Azure Virtual Desktop (classic) resources.
 
 - [Download and import the Azure Virtual Desktop module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already
 

@@ -3,16 +3,15 @@ title: VMware Tanzu components in the Azure Spring Apps Enterprise plan
 description: Learn about VMware Tanzu components in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: taoxu
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 04/17/2024
 ms.custom: devx-track-java, engagement-fy23, references_regions
 ---
 
 # VMware Tanzu components in the Azure Spring Apps Enterprise plan
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
@@ -37,7 +36,18 @@ The Azure Spring Apps Enterprise plan offers the following components:
 - Application Live View for VMware Tanzu
 - Application Accelerator for VMware Tanzu
 
-You also have the flexibility to enable only the components that you need at any time.
+You also have the flexibility to enable only the components that you need at any time and pay for what you actually enable. The following table shows the default resource consumption per component:
+
+| Tanzu component                                          | vCPU (cores) | Memory (GBs) |
+|----------------------------------------------------------|--------------|--------------|
+| Build service                                            | 2            | 4            |
+| Application Configuration Service                        | 1            | 2            |
+| Service Registry                                         | 1            | 2            |
+| Spring Cloud Gateway                                     | 5            | 10           |
+| API Portal                                               | 0.5          | 1            |
+| Dev Tools Portal (for App Live View and App Accelerator) | 1.25         | 2.25         |
+| App Live View                                            | 1.5          | 1.5          |
+| App Accelerator                                          | 2            | 4.25         |
 
 ## Tanzu Build Service
 

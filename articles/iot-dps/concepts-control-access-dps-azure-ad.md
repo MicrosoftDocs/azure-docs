@@ -4,10 +4,11 @@ titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Control access to Azure IoT Hub Device Provisioning Service (DPS) for back-end apps. Includes information about Microsoft Entra ID and RBAC.
 author: jesusbar
 ms.author: jesusbar
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/07/2022
 ms.custom: ['Role: Cloud Development', 'Role: Azure IoT Hub Device Provisioning Service (DPS)', 'Role: Operations', devx-track-csharp, devx-track-azurecli]
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service (DPS) by using Microsoft Entra ID (preview)
@@ -29,7 +30,7 @@ After the Microsoft Entra principal is authenticated, the next step is *authoriz
 
 With Microsoft Entra ID and RBAC, Azure IoT Hub Device Provisioning Service (DPS) requires the principal requesting the API to have the appropriate level of permission for authorization. To give the principal the permission, give it a role assignment. 
 
-- If the principal is a user, group, or application service principal, follow the guidance in [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+- If the principal is a user, group, or application service principal, follow the guidance in [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 - If the principal is a managed identity, follow the guidance in [Assign a managed identity access to a resource by using the Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
 
 To ensure least privilege, always assign the appropriate role at the lowest possible [resource scope](#resource-scope), which is probably the Azure IoT Hub Device Provisioning Service (DPS) scope.

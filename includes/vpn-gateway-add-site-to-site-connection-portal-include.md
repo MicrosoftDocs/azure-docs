@@ -2,10 +2,10 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 08/10/2023
+ ms.date: 08/13/2024
  ms.author: cherylmc
 ---
-1. Go to your virtual network. On your virtual network page, on the left, select **Connected devices**. Locate your VPN gateway and select it to open it.
+1. In the portal, go to the virtual network gateway and open it.
 1. On the page for the gateway, select **Connections**.
 1. At the top of the **Connections** page, select **+ Add** to open the **Create connection** page.
 
@@ -23,7 +23,7 @@
 
    * **Virtual network gateway**: Select the virtual network gateway from the dropdown list.
    * **Local network gateway**: Select the local network gateway from the dropdown list.
-   * **Shared key**: The value here must match the value that you're using for your local on-premises VPN device.
+   * **Shared key**: The value here must match the value that you're using for your local on-premises VPN device. If this field doesn't appear on your portal page, or you want to later update this key, you can do so once the connection object is created. Go to the connection object you created (example name: VNet1toSite1) and update the key on the **Authentication** page.
    * **IKE Protocol**: Select **IKEv2**.
    * **Use Azure Private IP Address**: Don't select.
    * **Enable BGP**: Don't select.

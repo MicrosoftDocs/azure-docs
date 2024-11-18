@@ -88,3 +88,21 @@ landingContent:
         links:
           - text: Manage dynamic scope operations
             url: manage-dynamic-scoping.md      
+  - title: Pre and Post Events
+    linkLists:     
+      - linkListType: concept
+        links:
+          - text: About Pre and Post Events
+            url: pre-post-scripts-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Create pre and post events using a webhook with Automation 
+            url: tutorial-webhooks-using-runbooks.md
+          - text: Create pre and post events using Azure Functions 
+            url: tutorial-using-functions.md  
+      - linkListType: how-to-guide
+        links:
+          - text: Create pre and post events
+            url: pre-post-events-schedule-maintenance-configuration.md
+          - text: Manage pre and post events maintenance configuration events
+            url: manage-pre-post-events.md     

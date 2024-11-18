@@ -5,7 +5,7 @@ services: storage
 author: pauljewellmsft
 ms.service: azure-blob-storage
 ms.topic: include
-ms.date: 05/22/2023
+ms.date: 05/10/2024
 ms.author: pauljewell
 ms.custom: include file
 ---
@@ -35,9 +35,9 @@ You can also modify an existing policy. The following code example shows how to 
 
 ### Revoke or delete a stored access policy
 
-To revoke a stored access policy, you can delete it, rename it by changing the signed identifier, or change the expiry time to a value in the past. Changing the signed identifier breaks the associations between any existing signatures and the stored access policy. Changing the expiry time to a value in the past causes any associated signatures to expire. Deleting or modifying the stored access policy immediately affects all of the shared access signatures associated with it.
+To revoke a stored access policy, Microsoft recommends deleting the signed identifier and making a new one. Changing the signed identifier breaks the associations between any existing signatures and the stored access policy. Deleting or modifying the stored access policy immediately affects all of the shared access signatures associated with it.
 
-The following code example shows how to revoke a policy by changing the `Id` property for the signed identifier:
+The following code example shows how to revoke a policy by changing the `Id` property for the signed identifier. This approach effectively deletes the signed identifier and makes a new one:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_RevokeStoredAccessPolicy":::
 

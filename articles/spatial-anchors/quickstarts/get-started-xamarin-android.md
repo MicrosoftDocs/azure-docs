@@ -23,7 +23,7 @@ You'll learn how to:
 > * Configure the Spatial Anchors account identifier and account key
 > * Deploy and run on an Android device
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

@@ -1,12 +1,12 @@
 ---
-title: Import data into Azure Modeling and Simulation Workbench
+title: "Import data: Azure Modeling and Simulation Workbench"
 description: Learn how to import data into a chamber in Azure Modeling and Simulation Workbench.
-author: lynnar
-ms.author: lynnar
-ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+author: becha8
+ms.author: becha
+ms.reviewer: becha
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
-ms.date: 01/01/2023
+ms.date: 08/05/2024
 # Customer intent: As a Chamber User in Azure Modeling and Simulation Workbench, I want to import data into my chamber.
 ---
 
@@ -18,7 +18,7 @@ You can use Azure Modeling and Simulation Workbench to run your design applicati
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An instance of Azure Modeling and Simulation Design Workbench installed with at least one chamber.
-- A user who's provisioned as a Chamber Admin or Chamber User.
+- A user provisioned as a Chamber Admin or Chamber User.
 - [AzCopy](/azure/storage/common/storage-ref-azcopy) installed on the machine, with access to the configured network for the target chamber. Only machines on the specified network path for the chamber can upload files.
 
 ## Sign in to the Azure portal
@@ -40,16 +40,20 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 1. Use the AzCopy command to upload your file. For example, use `azcopy copy <sourceFilePath> "<uploadURL>"`.
 
    > [!NOTE]
-   > Supported characters for the file name are alphanumeric characters, underscores, periods, and hyphens.
+   > Supported characters for the file name are alphanumeric characters, underscores, periods, and hyphens. Make sure that the file name does not have any spaces between characters, as it will cause the data import to fail.
    >
-   > The data pipeline processes only files at the root. It doesn't process subfolders.
+   > The data pipeline processes only files at the root. It doesn't process subfolders. If you're importing multiple smaller files, we recommend that you zip or tarball them into a single file.
+   >
+   > Gigabyte-sized tarballs and zipped files are supported, up to a maximum of 200GB per file. Ensure that each individual file is less than the maximum allowed size.
 
 1. Confirm that the uploaded file resource with the source file name appears under **Chamber** > **Data Pipeline** > **File**.
 
 A Chamber Admin or Chamber User can access the uploaded file from the chamber by accessing the following path: */mount/datapipeline/datain*.
 
 > [!IMPORTANT]
-> If you're importing multiple smaller files, we recommend that you zip or tarball them into a single file. Gigabyte-sized tarballs and zipped files are supported, depending on your connection type and network speed.
+> If you're importing multiple smaller files, we recommend that you zip or tarball them into a single file. Gigabyte-sized tarballs and zipped files are supported, depending on your connection type and network speed. The `/mount/datapipeline/datain` directory has a volume size of 1TB, so if the imported dataset is larger than this, free up space by moving the files over to `/mount/chamberstorages/`.
+>
+> Note that the `/mount/datapipeline` volume is Azure Files based, whereas the `/mount/chamberstorages` volume is high-performance Azure NetApp Files. Always copy over the tools, binaries, and IP from the `/mount/datapipeline/datain` folder to `/mount/chamberstorages` volume under the specific chamber’s private storage.
 
 ## Next steps
 

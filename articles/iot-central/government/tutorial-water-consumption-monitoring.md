@@ -3,9 +3,9 @@ title: Tutorial - Azure IoT water consumption monitoring
 description: This tutorial shows you how to deploy and use the water consumption monitoring application template for IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/16/2022
+ms.date: 10/14/2024
 ms.topic: tutorial
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ---
 
@@ -166,7 +166,7 @@ To learn more, see [How to publish templates](../core/howto-set-up-template.md#p
 
 ### Create a new device template
 
-Select **+ New** to create a new device template and follow the creation process. You can create a custom device template from scratch or you can choose a device template from the device catalog.
+Select **+ New** to create a new device template and follow the creation process. You can create a custom device template from scratch or you can choose a device template from the list of featured device templates.
 
 To learn more, see [How to add device templates](../core/howto-set-up-template.md).
 

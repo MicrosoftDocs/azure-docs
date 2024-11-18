@@ -48,7 +48,7 @@
   - name: Enable on VMs through an ARM template
     href: arm-deploy.md
   - name: Enable on Arc servers through an ARM template
-    href: arm-deploy-arc.md
+    href: arm-deploy-arc.yml
   - name: Upgrade machines to latest Automanage Version
     href: automanage-upgrade.md
   - name: Troubleshoot onboarding errors
