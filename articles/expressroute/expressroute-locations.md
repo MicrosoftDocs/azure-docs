@@ -325,7 +325,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas |
 | **[Epsilon Telecommunications Limited](https://www.epsilontel.com/solutions/cloud-connect/)** | Equinix | London<br/>Singapore<br/>Washington DC |
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
-| **[Exponential E](https://www.exponential-e.com/)** | Equinix | London |
+| **[Exponential E](https://www.exponential-e.com/services/connectivity-services/private-5g-network)** | Equinix | London |
 | **[Fastweb S.p.A](https://www.fastweb.it/grandi-aziende/dati-voce/scheda-prodotto/fast-company/)** | Equinix | Amsterdam |
 | **[Fibrenoire](https://www.fibrenoire.ca/en/cloudextn)** | Megaport | Quebec City |
 | **[FPT Telecom International](https://cloudconnect.vn/en)** |Equinix |Singapore|
