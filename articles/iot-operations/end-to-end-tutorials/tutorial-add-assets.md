@@ -222,4 +222,4 @@ If you're continuing on to the next tutorial, keep all of your resources.
 
 ## Next step
 
-[Tutorial: Send asset telemetry to the cloud using the data lake connector for the MQTT broker](tutorial-upload-telemetry-to-cloud.md).
+[Tutorial: Send asset telemetry to the cloud using a dataflow](tutorial-upload-telemetry-to-cloud.md).
