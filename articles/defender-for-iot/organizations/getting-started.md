@@ -72,11 +72,15 @@ This procedure describes how to add an OT plan for Defender for IoT in the Azure
 
 1. Open [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, select **Plans and pricing**, where you're prompted to create a new subscription.
 
+    :::image type="content" source="media/getting-started/subscriptions.png" alt-text="Screenshot of the Go to subscriptions message for creating a Defender for IoT subscription after starting a trial license.":::
+
 1. Select **Go to subscriptions** to create a new subscription on the [Azure **Subscriptions** page](https://portal.azure.com/?quickstart=True#view/Microsoft_Azure_Billing/SubscriptionsBlade). Make sure to select the **Free Trial** option.
 
 1. Back in the Defender for IoT's **Plans and pricing** page, select **Add plan**. In the **Plan settings** pane, select your new subscription.
 
    The **Price plan** value is updated automatically to read **Microsoft 365**, reflecting your Microsoft 365 license.
+
+    :::image type="content" source="media/getting-started/plan-set-up.png" alt-text="Screenshot of the Plan settings pane for completing the set up of a license and site for Defender for IoT in the Azure portal.":::
 
 1. Select **Next** and review the details for your licensed site. The details listed on the **Review and purchase** pane reflect your trial license.
 
