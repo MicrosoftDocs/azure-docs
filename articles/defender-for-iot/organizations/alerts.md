@@ -58,7 +58,7 @@ You download the aggregated alert violation data, that lists each alert with the
 
 The alerts that can be aggregated are listed in the [Alert reference](alert-engine-messages.md#policy-engine-alerts) policy engine alerts tables under the **Aggregarted** heading.
 
-Alert grouping appears in both the OT sensor console and the Azure portal. For more information, see [remediate aggregated alerts in Sensor console](how-to-view-alerts.md#remediate-aggregated-alerts) and [remediate aggregated alerts in Azure portal](how-to-manage-cloud-alerts.md#remediate-aggregated-alerts).
+Alert grouping appears in both the OT sensor console and the Azure portal. For more information, see [remediate aggregated alerts in Sensor console](how-to-view-alerts.md#remediate-aggregated-alert-violations) and [remediate aggregated alerts in Azure portal](how-to-manage-cloud-alerts.md#remediate-aggregated-alert-violations).
 
 ## Focused alerts in OT/IT environments
 
