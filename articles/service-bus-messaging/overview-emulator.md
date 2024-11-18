@@ -61,7 +61,7 @@ The emulator doesn't support these high-level features:
 > [!NOTE]
 > The emulator is intended solely for development and test scenarios. We discourage any kind of production use. We don't provide any official support for the emulator.
 >
-> Report any problems or suggestions in the emulator's [GitHub installer repository]().
+> Report any problems or suggestions in the emulator's [GitHub installer repository](https://github.com/Azure/azure-service-bus-emulator-installer).
 
 ## Usage quotas
 
@@ -82,7 +82,7 @@ Like the Service bus cloud service, the emulator provides the following quotas f
 
 ## Quota configuration changes
 
-By default, the emulator runs with the [config.json](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EventHub-Emulator/Config/Config.json) configuration file. You can configure the quotas associated with Service bus by editing this file in the following ways, based on your needs:
+By default, the emulator runs with the [config.json](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/ServiceBus-Emulator/Config/Config.json) configuration file. You can configure the quotas associated with Service bus by editing this file in the following ways, based on your needs:
 
 - **Entities**: You can add more Service bus entities in accordance with the supported quotas. 
 - **Logging**: The emulator supports logging on a console, in a file, or both. You can choose according to your personal preference.
