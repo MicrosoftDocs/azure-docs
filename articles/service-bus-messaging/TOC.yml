@@ -94,6 +94,12 @@
     href: service-bus-premium-messaging.md
   - name: Compare Azure Queues and Service Bus queues
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
+  - name: Local emulator
+    items:
+    - name: Overview of Service Bus emulator
+      href: overview-emulator.md
+    - name: What's new with Service Bus emulator
+      href: service-bus-emulator-whats-new.md
   - name: Advanced features
     items:
     - name: Overview of advanced features
