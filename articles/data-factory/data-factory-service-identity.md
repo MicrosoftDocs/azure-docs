@@ -129,8 +129,8 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
     },
     "identity": {
         "type": "SystemAssigned",
-        "principalId": "765ad4ab-XXXX-XXXX-XXXX-51ed985819dc",
-        "tenantId": "72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
+        "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
     },
     "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
     "type": "Microsoft.DataFactory/factories",
@@ -215,18 +215,18 @@ PS C:\> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataF
 
 PrincipalId                          TenantId
 -----------                          --------
-765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb aaaabbbb-0000-cccc-1111-dddd2222eeee
 ```
 
 You can get the application ID by copying above principal ID, then running below Microsoft Entra ID command with principal ID as parameter.
 
 ```powershell
-PS C:\> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+PS C:\> Get-AzADServicePrincipal -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 
-ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
-ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02
+ServicePrincipalNames : {00001111-aaaa-2222-bbbb-3333cccc4444, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
+ApplicationId         : 00001111-aaaa-2222-bbbb-3333cccc4444
 DisplayName           : ADFV2DemoFactory
-Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+Id                    : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 Type                  : ServicePrincipal
 ```
 
@@ -247,8 +247,8 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     "name":"<dataFactoryName>",
     "identity":{
         "type":"SystemAssigned",
-        "principalId":"554cff9e-XXXX-XXXX-XXXX-90c7d9ff2ead",
-        "tenantId":"72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
+        "principalId":"bbbbbbbb-cccc-dddd-2222-333333333333",
+        "tenantId":"aaaabbbb-0000-cccc-1111-dddd2222eeee"
     },
     "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
     "type":"Microsoft.DataFactory/factories",

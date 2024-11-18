@@ -94,5 +94,3 @@ At the next command prompt, enter each of the following commands:
 
 ## Next steps
 * [One-click deployment](./quickstart-get-started.md)
-
-

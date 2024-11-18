@@ -7,9 +7,13 @@ ms.date: 10/07/2024
 ms.author: daknappe
 ms.custom: references_regions, devx-track-azurepowershell, docs_inherited
 ---
+
 # Create and assign an autoscale scaling plan for Azure Virtual Desktop
 
-Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs.
+> [!IMPORTANT]
+> Autoscale support for Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs. You can't use autoscale and [scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md) on the same host pool. You must use one or the other.
 
 To learn more about autoscale, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
 
@@ -42,7 +46,7 @@ To use scaling plans, make sure you follow these guidelines:
 
 Before creating your first scaling plan, you'll need to assign the *Desktop Virtualization Power On Off Contributor* RBAC role to the Azure Virtual Desktop service principal with your Azure subscription as the assignable scope. Assigning this role at any level lower than your subscription, such as the resource group, host pool, or VM, will prevent autoscale from working properly. You'll need to add each Azure subscription as an assignable scope that contains host pools and session host VMs you want to use with autoscale. This role and assignment will allow Azure Virtual Desktop to manage the power state of any VMs in those subscriptions. It will also let the service apply actions on both host pools and VMs when there are no active user sessions. 
 
-To learn how to assign the *Desktop Virtualization Power On Off Contributor* role to the Azure Virtual Desktop service principal, see [Assign RBAC roles to the Azure Virtual Desktop service principal](service-principal-assign-roles.md).
+To learn how to assign the *Desktop Virtualization Power On Off Contributor* role to the Azure Virtual Desktop service principal, see [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
 
 ## Create a scaling plan
 
@@ -368,7 +372,7 @@ To configure a time limit policy using Group Policy:
 
 Select the relevant tab for your scenario.
 
-### [Azure Portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 To edit an existing scaling plan using the Azure portal:
 
@@ -436,7 +440,7 @@ You can assign a scaling plan to any existing host pools of the same type in you
 
 If you disable a scaling plan, all assigned resources will remain in the state they were in at the time you disabled it.
 
-### [Azure Portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 To assign a scaling plan to existing host pools:
 

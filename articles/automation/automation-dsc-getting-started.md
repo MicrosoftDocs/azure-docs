@@ -4,7 +4,7 @@ description: This article tells how to do the most common tasks in Azure Automat
 services: automation
 ms.subservice: desired-state-config
 ms.custom: devx-track-arm-template
-ms.date: 08/20/2024
+ms.date: 10/22/2024
 ms.topic: how-to
 ms.service: azure-automation
 ---
@@ -12,6 +12,8 @@ ms.service: azure-automation
 # Get started with Azure Automation State Configuration
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
+
+[!INCLUDE [automation-dsc-linux-retirement-announcement](./includes/automation-dsc-linux-retirement-announcement.md)]
 
 This article provides a step-by-step guide for doing the most common tasks with Azure Automation
 State Configuration, such as:

@@ -65,21 +65,39 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
 
     Optionally, use the `playwright.service.config.ts` file in the [sample repository](https://github.com/microsoft/playwright-testing-service/blob/main/samples/get-started/playwright.service.config.ts).
 
-1. Add the following content to it:
+2. Add the following content to it:
 
     :::code language="typescript" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
 
-1. Save and commit the file to your source code repository.
+   By default, the service configuration enables you to:
+   - Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
+   - Simplify troubleshooting with easy access to test results and artifacts published to the service.
+
+   However, you can choose to use either of these features or both. See [How to use service features](./how-to-use-service-features.md#manage-features-while-running-tests) and update the service configuration file as per your requirement. 
+
+3. Save and commit the file to your source code repository.
 
 ## Update package.json file 
 
 Update the `package.json` file in your repository to add details about Microsoft Playwright Testing service package in `devDependencies` section.
 
-```json
+```typescript
 "devDependencies": {
     "@azure/microsoft-playwright-testing": "^1.0.0-beta.3"
 }
 ```
+
+## Enable artifacts in Playwright configuration 
+
+In the `playwright.config.ts` file of your project, make sure you are collecting all the required artifacts.
+```typescript
+  use: {
+    trace: 'on-first-retry',
+    video:'retain-on-failure',
+    screenshot:'on'
+  },
+  ```
+
 ## Update the workflow definition
 
 Update the CI workflow definition to run your Playwright tests with the Playwright CLI. Pass the [service configuration file](#add-service-configuration-file) as an input parameter for the Playwright CLI. You configure your environment by specifying environment variables.
@@ -95,7 +113,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
     ```yml
     
       # This step is to sign-in to Azure to run tests from GitHub Action workflow. 
-      # You can choose how set up Authentication to Azure from GitHub Actions, this is one example. 
+      # Choose how to set up authentication to Azure from GitHub Actions. This is one example. 
     - name: Login to Azure with AzPowershell (enableAzPSSession true) 
       uses: azure/login@v2 
       with: 
@@ -176,9 +194,19 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 >
 > ```npx playwright test {name-of-file.spec.ts} --config=playwright.service.config.ts```
 
+## View test runs and results in the Playwright portal
+
+You can now troubleshoot the CI pipeline in the Playwright portal,  
+
+[!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results.md)]
+
 
 > [!TIP]
-> You can use Microsoft Playwright Testing service features independently. You can publish test results to the portal without using the cloud-hosted browsers feature and you can also use only cloud-hosted browsers to expedite your test suite without publishing test results. 
+> You can use Microsoft Playwright Testing service features independently. You can publish test results to the portal without using the cloud-hosted browsers feature and you can also use only cloud-hosted browsers to expedite your test suite without publishing test results. For details, see [How to use service features](./how-to-use-service-features.md).
+
+> [!NOTE]
+> The test results and artifacts that you publish are retained on the service for 90 days. After that, they are automatically deleted.  
+
 
 ## Related content
 

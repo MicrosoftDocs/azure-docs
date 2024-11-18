@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 04/17/2024
 ---
 
-# What's new
+# What's new in Microsoft Defender for IoT 
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 

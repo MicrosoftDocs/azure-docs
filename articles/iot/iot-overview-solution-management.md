@@ -1,7 +1,7 @@
 ---
 title: Manage your IoT solution
 description: An overview of the management options for an IoT solution such as the Azure portal and ARM templates.
-ms.service: iot
+ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett

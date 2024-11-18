@@ -83,6 +83,8 @@
       href: dns-alias.md
     - name: Delegation with Azure DNS
       href: dns-domain-delegation.md
+    - name: DNSSEC
+      href: dnssec.md
     - name: FAQ
       href: dns-faq.yml
     - name: DNS metrics and alerts
@@ -121,6 +123,12 @@
     items:
     - name: Alias records for load balanced web apps
       href: dns-alias-appservice.md
+    - name: Manage DNSSEC
+      items:
+      - name: Sign a DNS zone
+        href: dnssec-how-to.md
+      - name: Unsign a DNS zone
+        href: dnssec-unsign.md
     - name: Manage DNS zones
       items:
       - name: Azure portal

@@ -3,7 +3,7 @@ title: "Configure Red Hat firewalls: Azure Modeling and Simulation Workbench"
 description: Configure firewalls in Red Hat VMs in Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 08/18/2024
 

@@ -114,7 +114,9 @@ In addition to saving and opening views repeatedly or sharing them with others m
 ### To subscribe to scheduled alerts
 
 1. In Cost analysis, select any chart view you want to subscribe to or create and save a new chart view.
-    - Built-in views (for example, Accumulated costs, Daily costs, or Cost by service) can't be changed. If you need to change the date range, currency, amortization, or any other setting, you need to save that as a private or shared view.
+    - Built-in views (for example, Accumulated costs, Daily costs, or Cost by service) can't be changed.
+    - The currency is displayed as USD on subscribed e-mail if creating email setting by using Built-in views.
+    - If you need to change the date range, currency, amortization, or any other setting, you need to save that as a private or shared view.
 1. Select **Subscribe** at the top of the page.
 1. Select **+ Add** at the top of the list of alerts.
 1. Specify the desired email settings and select **Save**.

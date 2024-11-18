@@ -131,7 +131,7 @@ ms.topic: faq
 * <a id="ad-file-mount-cname"></a>
 **Can I use the canonical name (CNAME) to mount an Azure file share while using identity-based authentication?**
 
-    Yes, this scenario is now supported in both [single-forest](storage-files-identity-ad-ds-mount-file-share.md#mount-file-shares-using-custom-domain-names) and [multi-forest](storage-files-identity-multiple-forests.md) environments for SMB Azure file shares. However, Azure Files only supports configuring CNAMEs using the storage account name as a domain prefix. If you don't want to use the storage account name as a prefix, consider using [DFS Namespaces](files-manage-namespaces.md) instead.
+    Yes, this scenario is now supported in both [single-forest](storage-files-identity-mount-file-share.md#mount-file-shares-using-custom-domain-names) and [multi-forest](storage-files-identity-multiple-forests.md) environments for SMB Azure file shares. However, Azure Files only supports configuring CNAMEs using the storage account name as a domain prefix. If you don't want to use the storage account name as a prefix, consider using [DFS Namespaces](files-manage-namespaces.md) instead.
 
 * <a id="ad-vm-subscription"></a>
 **Can I access Azure file shares with Microsoft Entra credentials from a VM under a different subscription?**
@@ -149,7 +149,7 @@ ms.topic: faq
     Azure Files on-premises AD DS authentication only integrates with the forest of the domain service that the storage account is registered to. To support authentication from another forest, your environment must have a forest trust configured correctly. For detailed instructions, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 
    > [!Note]  
-   > In a multi-forest setup, don't use File Explorer to configure Windows ACLs/NTFS permissions at the root, directory, or file level. [Use icacls](storage-files-identity-ad-ds-configure-permissions.md#configure-windows-acls-with-icacls) instead.
+   > In a multi-forest setup, don't use File Explorer to configure Windows ACLs/NTFS permissions at the root, directory, or file level. [Use icacls](storage-files-identity-configure-file-level-permissions.md#configure-windows-acls-with-icacls) instead.
 
    
 * <a id="ad-aad-smb-files"></a>

@@ -3,7 +3,7 @@ title: Authorize an application request by using Microsoft Entra ID
 description: Learn how to authorize an application request to Web PubSub resources by using Microsoft Entra ID.
 author: terencefan
 ms.author: tefa
-ms.date: 09/06/2024
+ms.date: 10/12/2024
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---
@@ -50,7 +50,7 @@ To create a client secret:
    :::image type="content" source="media/howto-authorize-from-application/new-client-secret.png" alt-text="Screenshot that shows creating a client secret.":::
 
 1. Enter a description for the client secret, and then choose an **Expires** time for the secret.
-1. Copy the value of the client secret, and then paste it to a secure location to save for later use.
+1. Copy the value of the client secret and paste it in a secure location for later use.
 
    > [!NOTE]
    > The secret is visible only when you create the secret. You can't view the client secret in the portal later.

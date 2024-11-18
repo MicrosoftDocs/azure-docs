@@ -4,7 +4,7 @@ description: This article describes how to retrieve information about device/mod
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 09/29/2022
 ---

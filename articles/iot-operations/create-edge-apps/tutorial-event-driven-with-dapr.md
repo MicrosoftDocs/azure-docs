@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
+ms.service: azure-iot-operations
 ---
 
 # Tutorial: Build an event-driven app with Dapr and MQTT broker
@@ -90,7 +91,7 @@ To start, create a yaml file that uses the following definitions:
           # Certificate chain for Dapr to validate the MQTT broker
           - name: aio-ca-trust-bundle
             configMap:
-              name: aio-ca-trust-bundle-test-only
+              name: azure-iot-operations-aio-ca-trust-bundle
 
           containers:
           - name: mq-event-driven-dapr
@@ -188,7 +189,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
               expirationSeconds: 86400
       - name: aio-ca-trust-bundle
         configMap:
-          name: aio-ca-trust-bundle-test-only
+          name: azure-iot-operations-aio-ca-trust-bundle
     ```
 
 1. Apply the deployment file with kubectl:

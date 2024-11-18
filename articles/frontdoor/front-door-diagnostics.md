@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 11/05/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -30,14 +30,14 @@ The metrics listed in the following table are recorded and stored free of charge
 |--|--|--|--|
 | Byte Hit Ratio | The percentage of traffic that was served from the Azure Front Door cache, computed against the total egress traffic. The byte hit ratio is  low if most of the traffic is forwarded to the origin rather than served from the cache. <br/><br/> **Byte Hit Ratio** = (egress from edge - egress from origin)/egress from edge. <br/><br/> Scenarios excluded from bytes hit ratio calculations:<ul><li>You explicitly disable caching, either through the Rules Engine or query string caching behavior.</li><li>You explicitly configure a `Cache-Control` directive with the `no-store` or `private` cache directives.</li></ul> | Endpoint | Avg, Min |
 | Origin Health Percentage | The percentage of successful health probes sent from Azure Front Door to origins. | Origin, Origin Group | Avg |
-| Origin Latency | Azure Front Door calculates the time from sending the request to the origin to receiving the last response byte from the origin. | Endpoint, Origin | Avg, Max |
+| Origin Latency | Azure Front Door calculates the time from sending the request to the origin to receiving the last response byte from the origin. WebSocket is excluded from the origin latency.| Endpoint, Origin | Avg, Max |
 | Origin Request Count | The number of requests sent from Azure Front Door to origins. | Endpoint, Origin, HTTP Status, HTTP Status Group | Avg, Sum |
 | Percentage of 4XX | The percentage of all the client requests for which the response status code is 4XX. | Endpoint, Client Country, Client Region | Avg, Max |
 | Percentage of 5XX | The percentage of all the client requests for which the response status code is 5XX. | Endpoint, Client Country, Client Region | Avg, Max |
 | Request Count | The number of client requests served through Azure Front Door, including requests served entirely from the cache. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group | Avg, Sum |
 | Request Size | The number of bytes sent in requests from clients to Azure Front Door. | Endpoint, Client Country, client Region, HTTP Status, HTTP Status Group | Avg, Max |
 | Response Size | The number of bytes sent as responses from Front Door to clients. | Endpoint, client Country, client Region, HTTP Status, HTTP Status Group | Avg, Max |
-| Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This is the total time taken. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group | Avg, Max |
+| Total Latency | Azure Front Door receives the client request and sends the last response byte to the client. This is the total time taken. For WebSocket, this metric refers to the time it takes to establish the WebSocket connection. | Endpoint, Client Country, Client Region, HTTP Status, HTTP Status Group | Avg, Max |
 | Web Application Firewall Request Count | The number of requests processed by the Azure Front Door web application firewall. | Action, Policy Name, Rule Name | Avg, Sum |
 
 > [!NOTE]
@@ -65,18 +65,18 @@ Information about every request is logged into the access log. Each access log e
 | Property | Description |
 |----------|-------------| 
 | TrackingReference | The unique reference string that identifies a request served by Azure Front Door. The tracking reference is sent to the client and to the origin by using the `X-Azure-Ref` headers. Use the tracking reference when searching for a specific request in the access or WAF logs. |
-| Time | The date and time when the Azure Front Door edge delivered requested contents to client (in UTC). |
+| Time | The date and time when the Azure Front Door edge delivered requested contents to client (in UTC). For WebSocket connections, the time represents when the connection gets closed. |
 | HttpMethod | HTTP method used by the request: DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT. |
 | HttpVersion | The HTTP version that the client specified in the request. |
 | RequestUri | The URI of the received request. This field contains the full scheme, port, domain, path, and query string. |
 | HostName | The host name in the request from client. If you enable custom domains and have wildcard domain (`*.contoso.com`), the HostName log field's value is `subdomain-from-client-request.contoso.com`. If you use the Azure Front Door domain (`contoso-123.z01.azurefd.net`), the HostName log field's value is `contoso-123.z01.azurefd.net`. |
-| RequestBytes | The size of the HTTP request message in bytes, including the request headers and the request body. |
-| ResponseBytes | The size of the HTTP response message in bytes. |
+| RequestBytes | The size of the HTTP request message in bytes, including the request headers and the request body. For WebSocket connections, this is the total number of bytes sent from the client to the server through the connection.|
+| ResponseBytes | The size of the HTTP response message in bytes. For WebSocket connections, this is the total number of bytes sent from the server to the client through the connection.|
 | UserAgent | The user agent that the client used. Typically, the user agent identifies the browser type. |
 | ClientIp | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is taken from the header. |
 | SocketIp | The IP address of the direct connection to the Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of SocketIp is the IP address of the proxy or load balancer. |
-| timeTaken | The length of time from when the Azure Front Door edge received the client's request to the time that Azure Front Door sent the last byte of the response to the client, in seconds. This field doesn't take into account network latency and TCP buffering. |
-| RequestProtocol | The protocol that the client specified in the request. Possible values include: **HTTP**, **HTTPS**. |
+| TimeTaken | The duration from when the Azure Front Door edge received the client's request to when the last byte of the response was sent to the client, measured in seconds. This metric excludes network latency and TCP buffering. For WebSocket connections, it represents the connection duration from establishment to closure. |
+| RequestProtocol | The protocol specified by the client in the request. Possible values include: **HTTP**, **HTTPS**. For WebSocket, the protocols are **WS**, **WSS**. Only requests that successfully upgrade to WebSocket will have WS/WSS. |
 | SecurityProtocol | The TLS/SSL protocol version used by the request, or null if the request didn't use encryption. Possible values include: **SSLv3**, **TLSv1**, **TLSv1.1**, **TLSv1.2**. |
 | SecurityCipher | When the value for the request protocol is HTTPS, this field indicates the TLS/SSL cipher negotiated by the client and Azure Front Door. |
 | Endpoint | The domain name of the Azure Front Door endpoint, such as `contoso-123.z01.azurefd.net`. |
@@ -128,7 +128,7 @@ The following example JSON snippet shows a health probe log entry for a failed h
   "records": [
     {
       "time": "2021-02-02T07:15:37.3640748Z",
-      "resourceId": "/SUBSCRIPTIONS/27CAFCA8-B9A4-4264-B399-45D0C9CCA1AB/RESOURCEGROUPS/AFDXPRIVATEPREVIEW/PROVIDERS/MICROSOFT.CDN/PROFILES/AFDXPRIVATEPREVIEW-JESSIE",
+      "resourceId": "/SUBSCRIPTIONS/mySubscriptionID/RESOURCEGROUPS/myResourceGroup/PROVIDERS/MICROSOFT.CDN/PROFILES/MyProfile",
       "category": "FrontDoorHealthProbeLog",
       "operationName": "Microsoft.Cdn/Profiles/FrontDoorHealthProbeLog/Write",
       "properties": {
@@ -137,9 +137,9 @@ The following example JSON snippet shows a health probe log entry for a failed h
         "httpVerb": "HEAD",
         "result": "OriginError",
         "httpStatusCode": "400",
-        "probeURL": "http://afdxprivatepreview.blob.core.windows.net:80/",
-        "originName": "afdxprivatepreview.blob.core.windows.net",
-        "originIP": "52.239.224.228:80",
+        "probeURL": "http://www.example.com:80/",
+        "originName": "www.example.com",
+        "originIP": "PublicI:Port",
         "totalLatencyMilliseconds": "141",
         "connectionLatencyMilliseconds": "68",
         "DNSLatencyMicroseconds": "1814"
@@ -253,7 +253,7 @@ Front Door currently provides diagnostic logs. Diagnostic logs provide individua
 | TimeTaken | The length of time from first byte of request into Front Door to last byte of response out, in seconds. |
 | TrackingReference | The unique reference string that identifies a request served by Front Door, also sent as X-Azure-Ref header to the client. Required for searching details in the access logs for a specific request. |
 | UserAgent | The browser type that the client used. |
-| ErrorInfo | This field contains the specific type of error for further troubleshooting. </br> Possible values include: </br> **NoError**: Indicates no error was found. </br> **CertificateError**: Generic SSL certificate error.</br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. </br> **ClientDisconnected**: Request failure because of client network connection. </br> **UnspecifiedClientError**: Generic client error. </br> **InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. </br> **DNSFailure**: DNS Failure. </br> **DNSNameNotResolved**: The server name or address couldn't be resolved. </br> **OriginConnectionAborted**: The connection with the origin was stopped abruptly. </br> **OriginConnectionError**: Generic origin connection error. </br> **OriginConnectionRefused**: The connection with the origin wasn't able to established. </br> **OriginError**: Generic origin error. </br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. </br> **OriginTimeout**: The timeout period for origin request expired. </br> **ResponseHeaderTooBig**: The origin returned too large of a response header. </br> **RestrictedIP**: The request was blocked because of restricted IP. </br> **SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. </br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. </br> **SSLMismatchedSNI**:The request was invalid because the HTTP message header didn't match the value presented in the TLS SNI extension during SSL/TLS connection setup.|
+| ErrorInfo | This field contains the specific type of error for further troubleshooting. </br> Possible values include: </br> **NoError**: Indicates no error was found. </br> **CertificateError**: Generic SSL certificate error.</br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. </br> **ClientDisconnected**: Request failure because of client network connection. </br> **UnspecifiedClientError**: Generic client error. </br> **InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. </br> **DNSFailure**: DNS Failure. </br> **DNSNameNotResolved**: The server name or address couldn't be resolved. </br> **OriginConnectionAborted**: The connection with the origin was stopped abruptly. </br> **OriginConnectionError**: Generic origin connection error. </br> **OriginConnectionRefused**: The connection with the origin wasn't able to established. </br> **OriginError**: Generic origin error. </br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. </br> **OriginTimeout**: The timeout period for origin request expired. </br> **ResponseHeaderTooBig**: The origin returned too large of a response header. </br> **RestrictedIP**: The request was blocked because of restricted IP. </br> **SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. </br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. </br> **SSLMismatchedSNI**: The request was invalid because the HTTP message header didn't match the value presented in the TLS SNI extension during SSL/TLS connection setup.|
 | Result | `SSLMismatchedSNI` is a status code that signifies a successful request with a mismatch warning between the SNI and the host header. This status code implies domain fronting, a technique that violates Azure Front Door’s terms of service. Requests with `SSLMismatchedSNI` will be rejected after January 22, 2024.|
 | Sni | This field specifies the Server Name Indication (SNI) that is sent during the TLS/SSL handshake. It can be used to identify the exact SNI value if there was a `SSLMismatchedSNI` status code. Additionally, it can be compared with the host value in the `requestUri` field to detect and resolve the mismatch issue. |
 

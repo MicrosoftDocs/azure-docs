@@ -5,7 +5,7 @@ description: Use the device SDK for Node.js to schedule a job that invokes a dir
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 08/16/2019

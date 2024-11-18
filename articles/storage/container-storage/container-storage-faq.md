@@ -3,7 +3,7 @@ title: Frequently asked questions for Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions (FAQ).
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 07/24/2024
+ms.date: 10/15/2024
 ms.author: kendownie
 ms.topic: faq
 ms.custom: references_regions
@@ -59,22 +59,29 @@ ms.custom: references_regions
   **Does Azure Container Storage use the capacity from Ephemeral OS disks for ephemeral disk storage pool?**  
   No, Azure Container Storage only discovers and uses the capacity from ephemeral data disks for ephemeral disk storage pool.
 
-* <a id="azure-container-storage-installation"></a>
-  **I encountered installation issues due to Azure Policy. What is the recommended approach?**
-  
-  If you’re experiencing installation issues with Azure Container Storage in your AKS cluster, it might be due to Azure Policy restrictions. To resolve this, 
-  you’ll need to add the `acstor` namespace to the exclusion list of your Azure Policy. Azure Policy is used to create and enforce rules for managing resources 
-  within Azure, including AKS clusters. In some cases, policies might block the creation of Azure Container Storage pods and components. You can find more details 
-  on working with Azure Policy for Kubernetes by consulting [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
-  To resolve this, follow these steps:
-   - [Create your Azure Kubernetes cluster](install-container-storage-aks.md)
-   - Enable Azure Policy for AKS
-   - Create a policy that you suspect is blocking the installation of Azure Container Storage
-   - Attempt to install Azure Container Storage in the AKS cluster
-   - Check the logs for the gatekeeper-controller pod to confirm any policy violations
-   - Add the `acstor` namespace to the exclusion list of the policy
-   - Attempt to install Azure Container Storage in the AKS cluster again
-  
+* <a id="azure-container-storage-endpoints"></a>
+  **What endpoints need to be allowlisted in the Azure Firewall for Azure Container Storage to work?**
+
+  To ensure Azure Container Storage functions correctly, you must allowlist specific endpoints in your Azure Firewall. These endpoints are required for Azure 
+  Container Storage components to communicate with necessary Azure services. Failure to allowlist these endpoints can cause installation or runtime issues.
+ 
+  Endpoints to Allowlist:
+
+  `linuxgeneva-microsoft.azurecr.io`,
+  `eus2azreplstore137.blob.core.windows.net`,
+  `eus2azreplstore70.blob.core.windows.net`,
+  `eus2azreplstore155.blob.core.windows.net`,
+  `eus2azreplstore162.blob.core.windows.net`,
+  `*.hcp.eastus2.azmk8s.io`,
+  `management.azure.com`,
+  `login.microsoftonline.com`,
+  `packages.microsoft.com`,
+  `acs-mirror.azureedge.net`,
+  `eastus2.dp.kubernetesconfiguration.azure.com`,
+  `mcr.microsoft.com`.
+
+  For additional details, refer to the [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](/azure/aks/outbound-rules-control-egress) documentation and [Azure Arc-enabled Kubernetes network requirements.](/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud)
+
 ## See also
 
 - [What is Azure Container Storage?](container-storage-introduction.md)

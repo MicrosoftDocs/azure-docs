@@ -2,6 +2,7 @@ items:
   - name: Azure Event Grid Documentation
     href: index.yml
   - name: Overview
+    expanded: true
     items:
     - name: What is Event Grid?
       href: overview.md
@@ -10,6 +11,7 @@ items:
     - name: Choose the right tier
       href: choose-right-tier.md
   - name: Event Grid namespaces  
+    expanded: true
     items:
     - name: MQTT broker
       items:
