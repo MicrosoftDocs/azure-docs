@@ -619,7 +619,6 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
     `$ oc apply -f kbs-config-cm.yaml`
 
 
-
 ### Configure attestation policies
 
 Configure the following attestation policy settings:
@@ -667,7 +666,7 @@ Don't confuse the Trustee policy engine with the Attestation Service policy engi
 
 -->
 
-**Attestation policy**
+**Create your own attestation policy**
 
 You can overwrite the default attestation policy by creating your own attestation policy.
 
@@ -923,8 +922,11 @@ If you use container image signature verification, you must create a secret that
 
 **Create the container image signature verification policy**
 
-You create the container image signature verification policy because signature verification is always enabled. **If this policy is missing, the pods will not start.** If you are not using container image signature verification, you create the policy without signature verification.
+You must create the container image signature verification policy because signature verification is always enabled. 
 
+> [!IMPORTANT]
+> If this policy is missing, the pods will not start. If you are not using container image signature verification, you create the policy without signature verification.
+> 
 1. Create a security-policy-config.json file according to the following examples:
 
     Without signature verification:
