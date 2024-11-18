@@ -145,7 +145,7 @@ This behavior can happen if the logic app resource isn't healthy, or typically, 
 
 ### My workflow intermittently stops processing messages for hours but runs well most other times.
 
-If your Standard logic app uses the hosting option named Workflow Service Plan, not hosted in App Service Environment, make **Runtime Scale Monitoring** is turned on and **Always Ready Instances** is set correcto at least 1.
+If your Standard logic app uses the hosting option named **Workflow Service Plan** and isn't hosted in an App Service Environment, make sure that **Runtime Scale Monitoring** is turned on and that **Always Ready Instances** is set to at least **1**.
 
 1. In the [Azure portal](https://portal.azure.com), find and open your logic app, if not already open.
 
