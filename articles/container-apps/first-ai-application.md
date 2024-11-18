@@ -12,11 +12,11 @@ ms.custom:
 
 # Deploy your first AI application to Azure Container Apps
 
-The sample project is an AI application that uses Azure Container Apps and Azure Open AI. The application provides AI assitant functionality in a Spring Pet Clinic application.
+The sample project is an AI chat assistant based on Petclinic application, it utilizes [Azure OpenAI Service](/azure/ai-services/openai/overview) and runs on Azure Container Apps.
 
 - Deploy the sample AI application using azd automation tool.
-- General architecture of the AI application.
-- Key code changes to implement the AI application.
+- General architecture structure.
+- How to implement the first AI application.
 
 The following screenshot shows how the AI assistant can help you.
 
@@ -24,24 +24,24 @@ The following screenshot shows how the AI assistant can help you.
 
 ## Prepare your environment
 
-For running this lab with all the needed tooling, there are 2 options available:
+For running this lab with all the needed tooling, there are two options available:
 
 - [Using a GitHub codespace](#using-a-github-codespace)
 - [Install all the tools in your local environment](#install-all-the-tools-in-your-local-environment)
 
-All the steps of this lab have been tested in the GitHub CodeSpace. This is the preferred option.
+All the steps of this lab are tested in the GitHub CodeSpace. This option is preferred.
 
 ### Using a GitHub codespace
 
 The [Spring Petclinic AI repo](https://github.com/Azure-Samples/spring-petclinic-ai) contains a dev container environment for developers. This environment contains all the needed tools for running this sample. In case you want to use this dev container you can use a [GitHub CodeSpace](https://github.com/features/codespaces) in case your GitHub account is enabled for Codespaces.
 
 1. Navigate to the [GitHub repository of this sample](https://github.com/Azure-Samples/spring-petclinic-ai) and select Fork.
-   {: .note }
+   {: .Note }
    > In case you are using a GitHub EMU account, it might be you are not able to fork a public repository. In that case, create a new repository with the same name, clone the original repository, add your new repository as a remote and push to this new remote.
 
 1. Make sure your own username is indicated as the fork `Owner`
 
-1. Select **Create fork**. This will create a copy or fork of this project in your own account.
+1. Select **Create fork**. This creates a copy or fork of this project in your own account.
 
 1. Navigate to the newly forked GitHub project.
 
@@ -49,7 +49,7 @@ The [Spring Petclinic AI repo](https://github.com/Azure-Samples/spring-petclinic
 
 1. Select **Create a codespace**.
 
-Your codespace will now get created in your browser window. Once creation is done, you can start executing the next steps. See [Deploy your first AI application](#deploy-your-first-ai-application).
+Your codespace is creating in your browser window. Once creation is done, you can start executing the next steps. See [Deploy your first AI application](#deploy-your-first-ai-application).
 
 ### Install all the tools in your local environment
 
@@ -79,16 +79,16 @@ Your codespace will now get created in your browser window. Once creation is don
    cd spring-petclinic-ai
    ```
 
-Your environment is nwo ready to run the next steps. See [Deploy your first AI application](#deploy-your-first-ai-application).
+Your environment is now ready to run the next steps. See [Deploy your first AI application](#deploy-your-first-ai-application).
 
 ## Deploy your first AI application
 
 {: .note }
 > This template uses [Azure OpenAI Service](/azure/ai-services/openai/overview) deployment mododules **gpt-4o** and **text-embedding-ada-002** which may not be available in all Azure regions. Check for [up-to-date region availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly
 
-We recommend using region **East US**, **East US 2**, **North Central US**, **South Central US**, **Sweden Central**, **West US** and **West US 3**.
+We recommend using region **East US**, **East US 2**, **North Central US**, **South Central US**, **Sweden Central**, **West US**, and **West US 3**.
 
-* Login to azd with command
+* Log in to azd with command
 
   ```bash
   azd auth login
@@ -144,9 +144,9 @@ We recommend using region **East US**, **East US 2**, **North Central US**, **So
   INFO: App url: https://petclinic-ai.<cluster>.<region>.azurecontainerapps.io
   ```
 
-  And your will see the petclinic page and chat with the AI assistant
+  And your can see the pet clinic page and chat with the AI assistant
 
-  :::image type="content" source="media/first-ai-application/chat-diag.png" alt-text="Screenshot of AI chat assitant.":::
+  :::image type="content" source="media/first-ai-application/chat-diag.png" alt-text="Screenshot of AI chat assistant.":::
 
   You can get help by having a natural language chat with the AI assistant. The AI assistant can assist you with the following tasks:
   - Querying the registered pet owners
@@ -155,11 +155,11 @@ We recommend using region **East US**, **East US 2**, **North Central US**, **So
   - Adding a new pet
   - Querying the vets' information
 
-  Please note that the capabilities of the AI assistant depend on the model you deploy in Azure OpenAI.
+  Note that the capabilities of the AI assistant depend on the model you deploy in Azure OpenAI.
 
 ## General architecture structure
 
-Here is the architecture structure of the first AI application on Azure Container Apps:
+Here's the architecture structure of the first AI application on Azure Container Apps:
 
 :::image type="content" source="media/first-ai-application/arch-chart.png" alt-text="The architecture structure of first AI application.":::
 
@@ -174,7 +174,7 @@ Read the [bicep scripts](https://github.com/Azure-Samples/spring-petclinic-ai/bl
 
 ## How to implement the first AI application
 
-This sample is an AI chat assistent based on Retrieval Augmented Generation(RAG), it uses Spring AI SDKs to connect to Azure OpenAI service.
+This sample is an AI chat assistant based on Retrieval Augmented Generation(RAG), it uses Spring AI SDKs to connect to Azure OpenAI service.
 
 ### Concept
 
@@ -184,7 +184,7 @@ Here we introduce some key concept on how to implement an AI application.
 
    [Spring AI](https://spring.io/projects/spring-ai) is an application framework for AI engineering. Its goal is to apply to the AI domain Spring ecosystem design principles such as portability and modular design and promote using POJOs as the building blocks of an application to the AI domain.
 
-   There is another popular AI framework [langchain4j](https://docs.langchain4j.dev/intro), and you may find the samples in [Spring PetClinic With OpenAI and Langchain4j](https://github.com/Azure-Samples/spring-petclinic-langchain4j).
+   There's another popular AI framework [langchain4j](https://docs.langchain4j.dev/intro), and you may find the samples in [Spring PetClinic With OpenAI and Langchain4j](https://github.com/Azure-Samples/spring-petclinic-langchain4j).
 
 1. RAG in Azure OpenAI
 
@@ -209,7 +209,7 @@ Some introduction to the code for readers to understand the flows of the first A
 
 1. The Rest Controller to talk to ChatClient
 
-   In [PetclinicChatClient](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/PetclinicChatClient.java), we implement the rest function /chat, in this function, we call the chatClient with user inputs.
+   In [PetclinicChatClient](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/PetclinicChatClient.java), we implement the rest function `/chat`. And in this function, we call the chatClient with user inputs.
 
    ```java
    return this.chatClient.prompt().user(u -> u.text(query)).call().content();
@@ -219,24 +219,24 @@ Some introduction to the code for readers to understand the flows of the first A
 
    Some key configuration of the chatClient, see function `ChatClientCustomizer`:
    - Client to connect to Azure OpenAI. Both api-key and managed identity supported.
-   - ChatModel. Deployment gpt-4o and temperature 0.7 is setted in configuration file.
-   - VectorStore. This is used to store the semantic vectors (embeddings).
+   - ChatModel. Deployment gpt-4o and temperature 0.7 is set in configuration file.
+   - VectorStore. The vectorestore is used to store the semantic vectors (embeddings).
    - System Prompt. Customize AI behavior and enhance performance.
-   - Functions. Customized functions for OpenAI to interact with bussiness system, this is the AI capabilities to your bussiness.
+   - Functions. Customized functions for OpenAI to interact with business system, these functions define the AI capabilities to your business.
    - Advisors. Provides a flexible and powerful way to intercept, modify, and enhance AI-driven interactions in your Spring applications.
 
 1. Functions
 
    The bean names of `java.util.Function`s defined in the application context. We implemented some functions in [AIFunctionConfiguration](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/AIFunctionConfiguration.java).
 
-   - The @Description annotation of these functions help the AI models to understand the functions.
-   - The function body varies depending on your bussiness requirements.
+   - The @Description annotations of these functions help the AI models to understand the functions.
+   - The function body varies depending on your business requirements.
 
 1. Advisors
 
    See more from [Spring AI advisors](https://docs.spring.io/spring-ai/reference/api/advisors.html).
 
-   In this simple example, we implement a [ModeledQuestionAnswerAdvisor](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/ModeledQuestionAnswerAdvisor.java). First a call to AI to generate a new user prompt and then use the AI-refined user prompt to retrieve again. We find this will improve the quality of the response.
+   In this simple example, we implement a [ModeledQuestionAnswerAdvisor](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/ModeledQuestionAnswerAdvisor.java). First a call to AI to generate a new user prompt and then use the AI-refined user prompt to retrieve again. We find the two-step user prompts improve the quality of the response.
 
 ## Clean up resources
 
@@ -246,7 +246,7 @@ Two simple options to clean up the resources:
 
 1. Use the [Azure portal](https://portal.azure.com?azure-portal=true). Find the resource group of this sample, and delete the resource group directly.
 
-1. Delete the resource group by using Azure CLI, use the following commands:
+1. Delete the resource group by using Azure CLI with the following commands:
 
    ```azurecli
    az group delete --name <resource-group-name>
