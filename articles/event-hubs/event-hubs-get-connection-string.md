@@ -1,9 +1,10 @@
 ---
 title: Get connection string - Azure Event Hubs 
 description: This article provides instructions for getting a connection string that clients can use to connect to Azure Event Hubs. 
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 11/18/2024
+# Customer intent: As a developer, I want to know how to get a connection string to an Event Hubs namespace or an event hub. 
 ---
 
 # Get an Event Hubs connection string
@@ -17,13 +18,13 @@ The connection string for a namespace has the following components embedded with
 
 The connection string for a namespace looks like:
 
-```
+```bash
 Endpoint=sb://<NamespaceName>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 ```
 
 The connection string for an event hub has an additional component in it. That's, `EntityPath=<EventHubName>`. 
 
-```
+```bash
 Endpoint=sb://<NamespaceName>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>;EntityPath=<EventHubName>
 ```
 
@@ -97,7 +98,7 @@ az eventhubs georecovery-alias authorization-rule keys list --resource-group MyR
 
 For more information about Azure CLI commands for Event Hubs, see [Azure CLI for Event Hubs](/cli/azure/eventhubs).
 
-## Next steps
+## Related content
 
 You can learn more about Event Hubs by visiting the following links:
 
