@@ -59,6 +59,8 @@ To use a dynamic scaling plan, make sure you follow these guidelines:
 
 - You must grant Azure Virtual Desktop access to manage the power state of your session host VMs. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
 
+- You must grant Azure Virtual Desktop access to read session host configuration. During the preview, you will need to assign a custom role with the `Microsoft.DesktopVirtualization/hostPools/activeSessionHostConfigurations/read` permission to the Azure Virtual Desktop service principal.
+
 - If you're using PowerShell to create and assign your scaling plan, you'll need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
 ::: zone-end
 
@@ -461,7 +463,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
 1. Once you're done, go to the **Review + create** tab and select **Create** to create and assign your scaling plan to the host pools you selected.
 
 > [!IMPORTANT] 
-> When you deploy session hosts in the portal using session host configuration, it currently by default doesn't automatically delete the NIC and/or disk when deleting the VM. Scaling honors the setting therefore NIC and disks for the VMs created manually in the portal won't be automatically deleted. This default setting will be changed so that NIC and disk for the VMs created by the scaling service will be automatically deleted together with the VMs.
+> Currently when you deploy session hosts in the Azure portal using session host configuration, by default it doesn't automatically delete the NIC and/or disk when deleting the VM. To change the default setting, see [Delete a VM and attached resources](/azure/virtual-machines/delete#force-delete-for-vms). Scaling honors the setting therefore NIC and disks for the VMs created manually in the portal won't be automatically deleted. This default setting will be changed so that NIC and disk for the VMs created by the scaling service will be automatically deleted together with the VMs. 
 
 ::: zone-end
 
