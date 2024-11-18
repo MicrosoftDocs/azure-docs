@@ -17,7 +17,6 @@ ms.date: 11/18/2024
 Azure Front Door is Microsoft's modern cloud Content Delivery Network (CDN) that offers fast, reliable, and secure access to your application's static and dynamic web content globally. This article explains how to use Azure Front Door's global load balancing capabilities to implement a blue/green deployment model for your backends.
 
 ## Prerequisites
-## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
