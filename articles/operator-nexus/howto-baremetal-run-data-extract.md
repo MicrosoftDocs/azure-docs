@@ -156,7 +156,7 @@ User-assigned identity example:
     },
 ```
 
-## Execute a run command
+## Execute a run-data-extract command
 
 The run data extract command executes one or more predefined scripts to extract data from a bare metal machine.
 
@@ -187,6 +187,10 @@ The current list of supported commands are
 
 - [Generate Cluster CVE Report](#generate-cluster-cve-report)\
   Command Name: `cluster-cve-report`\
+  Arguments: None
+
+- [Collect `systemctl status` Output](#collect-systemctl-status-output)\
+  Command Name: `platform-services-status`\
   Arguments: None
 
 The command syntax is:
@@ -661,6 +665,61 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
 **CVE Data Details**
 
 The CVE data is refreshed per container image every 24 hours or when there's a change to the Kubernetes resource referencing the image.
+
+### Collect Systemctl Status Output
+
+Service status is collected with the `platform-services-status` command. The output is in plain text format and
+returns an overview of the status of the services on the host as well as the `systemctl status` for each found service.
+
+This example executes the `platform-services-status` command without arguments.
+
+```azurecli
+az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
+  --resource-group "clusete_MRG" \
+  --subscription "subscription" \
+  --commands '[{"command":"platform-services-status"}]' \
+  --limit-time-seconds 600
+  --output-directory "/path/to/local/directory"
+```
+
+**`platform-services-status` Output**
+
+```azurecli
+====Action Command Output====
+UNIT                                                                                          LOAD      ACTIVE   SUB     DESCRIPTION
+aods-infra-vf-config.service                                                                  not-found inactive dead    aods-infra-vf-config.service
+aods-pnic-config-infra.service                                                                not-found inactive dead    aods-pnic-config-infra.service
+aods-pnic-config-workload.service                                                             not-found inactive dead    aods-pnic-config-workload.service
+arc-unenroll-file-semaphore.service                                                           loaded    active   exited  Arc-unenrollment upon shutdown service
+atop-rotate.service                                                                           loaded    inactive dead    Restart atop daemon to rotate logs
+atop.service                                                                                  loaded    active   running Atop advanced performance monitor
+atopacct.service                                                                              loaded    active   running Atop process accounting daemon
+audit.service                                                                                 loaded    inactive dead    Audit service
+auditd.service                                                                                loaded    active   running Security Auditing Service
+azurelinux-sysinfo.service                                                                    loaded    inactive dead    Azure Linux Sysinfo Service
+blk-availability.service                                                                      loaded    inactive dead    Availability of block devices
+[..snip..]
+
+
+-------
+● arc-unenroll-file-semaphore.service - Arc-unenrollment upon shutdown service
+     Loaded: loaded (/etc/systemd/system/arc-unenroll-file-semaphore.service; enabled; vendor preset: enabled)
+     Active: active (exited) since Tue 2024-11-12 06:33:40 UTC; 11h ago
+   Main PID: 11663 (code=exited, status=0/SUCCESS)
+        CPU: 5ms
+
+Nov 12 06:33:39 rack1compute01 systemd[1]: Starting Arc-unenrollment upon shutdown service...
+Nov 12 06:33:40 rack1compute01 systemd[1]: Finished Arc-unenrollment upon shutdown service.
+
+
+-------
+○ atop-rotate.service - Restart atop daemon to rotate logs
+     Loaded: loaded (/usr/lib/systemd/system/atop-rotate.service; static)
+     Active: inactive (dead)
+TriggeredBy: ● atop-rotate.timer
+[..snip..]
+
+```
 
 ## Viewing the output
 
