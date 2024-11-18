@@ -42,7 +42,7 @@ This feature is currently not available but will be supported in the future rele
 
 ### Is there a fee for brand registration?
 
-Yes, there is a fee. Refer to the [pricing page](https://learn.microsoft.com/azure/communication-services/pricing) for details on fees.
+Yes, there is a fee. Refer to the [pricing page](../sms-pricing.md) for details on fees.
 
 ### What is vetting, and when is it required?
 
@@ -62,7 +62,7 @@ This feature is currently not available but will be supported in the future rele
 
 ### Is there a fee for campaign registration?
 
-Yes, there is a fee. Refer to the [pricing page](https://learn.microsoft.com/azure/communication-services/pricing) for details on fees.
+Yes, there is a fee. Refer to the [pricing page](../sms-pricing.md) for details on fees.
 
 ## General 10DLC FAQs
 
@@ -94,7 +94,7 @@ However, 10DLC numbers must adhere to messaging guidelines and cannot be used fo
 Yes, 10DLC numbers are subject to throughput limits, which can vary depending on the carrier and the volume of messages sent. These limits are generally higher than those for traditional long codes but are lower than those for short codes. The actual throughput may be impacted by factors such as campaign registration and compliance with carrier guidelines.
 
 ### Can I port my existing number to a 10DLC number?
-Yes, it is possible to port an existing phone number to a 10DLC. Please follow instructions to port [here](https://review.learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/port-phone-number?branch=main).
+Yes, it is possible to port an existing phone number to a 10DLC. Please follow instructions to port [here](../../quickstarts/telephony/port-phone-number.md).
 
 ### What happens if I send unsolicited messages from a 10DLC number?
 Sending unsolicited messages, also known as spam, can lead to penalties, including the suspension of your 10DLC number or carrier blocking. It is essential to comply with applicable laws, including the Telephone Consumer Protection Act (TCPA) and carrier guidelines to avoid these issues.
