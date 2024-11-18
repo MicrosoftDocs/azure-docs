@@ -211,7 +211,7 @@ items:
       href: /kusto/functions-library/series-mv-ee-anomalies-fl?view=azure-data-explorer&preserve-view=true
     - name: series_mv_if_anomalies_fl()
       displayName: functions library, anomaly detection, multivariate, isolation forest
-      href: /kusto/query/series-mv-if-anomalies-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-mv-if-anomalies-fl?view=azure-data-explorer&preserve-view=true
     - name: series_mv_oc_anomalies_fl()
       displayName: functions library, anomaly detection, multivariate, one class svm, support vector machines
       href: /kusto/functions-library/series-mv-oc-anomalies-fl?view=azure-data-explorer&preserve-view=true
