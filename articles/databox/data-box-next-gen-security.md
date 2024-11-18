@@ -6,15 +6,14 @@ author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: overview
-ms.date: 11/13/2024
+ms.date: 11/18/2024
 ms.author: shaas
 ---
 # Azure Data Box Next Generation security and data protection
 
 Data Box provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. This article describes the Azure Data Box security features that help protect each of the Data Box solution components and the data stored on them.
 
-> [!NOTE]
-> This article provides steps about how to delete personal data from the device or service and can be used to support your obligations under the GDPR. For general information about GDPR, see the [GDPR section of the Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/gdpr-overview) and the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Data flow through components
 
@@ -27,11 +26,11 @@ The Microsoft Azure Data Box solution consists of four main components that inte
 
 The following diagram indicates the flow of data through the Azure Data Box solution from on-premises to Azure and the various security features in place as the data flows through the solution. This flow is for an import order for your Data Box.
 
-:::image type="content" source="media/data-box-ng-security/data-box-security-import.png" alt-text="Diagram explaining Data Box import security.":::
+:::image type="content" source="media/data-box-next-gen-security/data-box-security-import.png" alt-text="Diagram explaining Data Box import security.":::
 
 The following diagram is for the export order for your Data Box.
 
-:::image type="content" source="media/data-box-ng-security/data-box-security-export.png" alt-text="Diagram explaining Data Box export security.":::
+:::image type="content" source="media/data-box-next-gen-security/data-box-security-export.png" alt-text="Diagram explaining Data Box export security.":::
 
 As the data flows through this solution, events are logged and logs are generated. For more information, go to:
 

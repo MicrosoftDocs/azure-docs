@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: overview
-ms.date: 11/13/2024
+ms.date: 11/18/2024
 ms.author: shaas
 ms.custom: references_regions
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # Safety instructions for your Azure Data Box V2
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::: :::image type="icon" source="media/data-box-ng-safety/icon-safety-read-all-instructions-lrg-2.png" border="false":::
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::: :::image type="icon" source="media/data-box-next-gen-safety/icon-safety-read-all-instructions-lrg-2.png" border="false":::
 
 To reduce the risk of bodily injury, electrical shock, fire, and equipment damage, read the following safety instructions and observe all warnings and precautions in this article before unpacking, installing, or maintaining this device.
 
@@ -24,56 +24,56 @@ The signal words for hazard alerting signs are:
 
 | Icon | Description |
 |:---- |:----------- |
-| :::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false":::| **DANGER:** Indicates a hazardous situation that, if not avoided, will result in death or serious injury. |
-| :::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::: | **WARNING:** Indicates a hazardous situation that, if not avoided, could result in death or serious injury.|
-| :::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::: | **CAUTION:** Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury. |
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false":::| **DANGER:** Indicates a hazardous situation that, if not avoided, will result in death or serious injury. |
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::: | **WARNING:** Indicates a hazardous situation that, if not avoided, could result in death or serious injury.|
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::: | **CAUTION:** Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury. |
 
 Hazard symbols identified in the manual are:
 
 | Icon | Description |
 |:---- |:----------- |
-| :::image type="icon" source="media/data-box-ng-safety/icon-safety-read-all-instructions-sml.png" border="false"::: or :::image type="icon" source="media/data-box-ng-safety/icon-safety-read-all-instructions-sml-2.png" border="false"::: | Read all instructions first |
-| :::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::: | Hazard symbol |
-| :::image type="icon" source="media/data-box-ng-safety/icon-safety-tip-hazard.png" border="false":::  | Tip hazard|
-| :::image type="icon" source="media/data-box-ng-safety/icon-overload-tip-hazard.jpg" border="false":::  | Overload tip hazard|
-| :::image type="icon" source="media/data-box-ng-safety/icon-heavy-weight-hazard.png" border="false":::  | Overload tip hazard|
-| :::image type="icon" source="media/data-box-ng-safety/icon-safety-electric-shock.png" border="false"::: | Electric shock hazard |
-| :::image type="icon" source="media/data-box-ng-safety/icon-hot-surface.jpg" border="false"::: | Hot surface hazard |
-| :::image type="icon" source="media/data-box-ng-safety/icon-rotating-fan-blade.png" border="false"::: | Rotating Fan Blade hazard |
-| :::image type="icon" source="media/data-box-ng-safety/icon-safety-do-not-access.png" border="false"::: | No user serviceable parts. Don't access unless properly trained. |
-| :::image type="icon" source="media/data-box-ng-safety/icon-pinching-points.png" border="false":::  | Crush or pinching hazard |
-| :::image type="icon" source="media/data-box-ng-safety/icon-multiple-persons.png" border="false":::  | Multiple persons or mechanical aid might be necessary due to weight hazard. |
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-safety-read-all-instructions-sml.png" border="false"::: or :::image type="icon" source="media/data-box-next-gen-safety/icon-safety-read-all-instructions-sml-2.png" border="false"::: | Read all instructions first |
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::: | Hazard symbol |
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-safety-tip-hazard.png" border="false":::  | Tip hazard|
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-overload-tip-hazard.jpg" border="false":::  | Overload tip hazard|
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-heavy-weight-hazard.png" border="false":::  | Overload tip hazard|
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-safety-electric-shock.png" border="false"::: | Electric shock hazard |
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-hot-surface.jpg" border="false"::: | Hot surface hazard |
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-rotating-fan-blade.png" border="false"::: | Rotating Fan Blade hazard |
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-safety-do-not-access.png" border="false"::: | No user serviceable parts. Don't access unless properly trained. |
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-pinching-points.png" border="false":::  | Crush or pinching hazard |
+| :::image type="icon" source="media/data-box-next-gen-safety/icon-multiple-persons.png" border="false":::  | Multiple persons or mechanical aid might be necessary due to weight hazard. |
 
 ## Installation and handling precautions
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false":::**DANGER:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false":::**DANGER:**
 * Before you begin to unpack the equipment, to prevent hazardous situations resulting in death, serious injury and/or property damage, read, and follow all warnings and instructions.
 * Inspect the as-received equipment for damages. If the equipment enclosure is damaged, [contact Microsoft Support](./index.yml) to obtain a replacement. Don't attempt to operate the device.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false":::**CAUTION:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false":::**CAUTION:**
 * If you suspect the device is malfunctioning, [contact Microsoft Support](./index.yml) to obtain a replacement. Don't attempt to service the equipment. 
 * Always wear the appropriate clothing to protect skin from sharp metal edges and avoid sliding any metal edges against skin. Always wear appropriate eye protection to avoid injury from objects that might become airborne.
 * Laser peripherals or devices might be present. To avoid risk or radiation exposure and/or personal injury, don't open the enclosure of any laser peripheral or device. Laser peripherals or devices aren't serviceable. Only use certified and rated Laser Class I for optical transceiver products.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-safety-tip-hazard.png" border="false":::**WARNING:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-safety-tip-hazard.png" border="false":::**WARNING:**
 * When installing into an equipment rack, the rack must be anchored to an unmovable support to prevent it from tipping before the rack-mounted equipment is installed or extended from it. The equipment rack must be installed according to the rack manufacturer's instructions. 
 * When using an equipment rack, the rack might tip over causing serious personal injury. Verify the equipment rack is anchored to the floor and/or bayed to its adjacent equipment racks before installing, extending, or removing equipment. Failure to do so could allow the rack system to tip over leading to death, injury, or damage. 
 * When installed into an equipment rack, don't extend more than one equipment (for example, storage or server) from the rack at one time to prevent the equipment rack from becoming dangerously unstable.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-overload-tip-hazard.jpg" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-safety-tip-hazard.png" border="false"::: **WARNING:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-overload-tip-hazard.jpg" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-safety-tip-hazard.png" border="false"::: **WARNING:**
 * This equipment isn't to be used as shelves or work spaces. Don't place objects on top of the equipment. Adding any type of load to a rack or wall mounted equipment can create a potential tip or crush hazard which could lead to injury, death, or product damage. 
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-safety-electric-shock.png" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-safety-do-not-access.png" border="false":::**CAUTION:**
-* Parts enclosed within panels containing this symbol :::image type="icon" source="media/data-box-ng-safety/icon-safety-do-not-access-sml.png" border="false"::: contain no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Don't open. Return to manufacturer for servicing. </br>Open a ticket with [Microsoft Support](./index.yml). 
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-safety-electric-shock.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-safety-do-not-access.png" border="false":::**CAUTION:**
+* Parts enclosed within panels containing this symbol :::image type="icon" source="media/data-box-next-gen-safety/icon-safety-do-not-access-sml.png" border="false"::: contain no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Don't open. Return to manufacturer for servicing. </br>Open a ticket with [Microsoft Support](./index.yml). 
 * The equipment contains coin cell batteries. There's a risk of explosion if the battery is replaced by an incorrect type. Dispose of used batteries according to the instructions.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-hot-surface.jpg" border="false":::**CAUTION:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-hot-surface.jpg" border="false":::**CAUTION:**
 * If the equipment has been running, any installed component, processor(s), and heat sink(s) might be hot. Allow the equipment to cool before opening the cover to avoid the possibility of coming into contact with hot component(s). Ensure that you're wearing proper personal protective equipment (PPE) with suitable thermal insulation when hot-swapping any components.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-rotating-fan-blade.png" border="false":::**CAUTION:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-rotating-fan-blade.png" border="false":::**CAUTION:**
 * CAUTION: Avoid wearing loose clothing items, jewelry, or loose long hair when working near an actively spinning fan.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-safety-electric-shock.png" border="false":::**WARNING:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-safety-electric-shock.png" border="false":::**WARNING:**
 * The system is designed to operate in a controlled environment. Choose a site that is:
     * Indoors, not exposed to moisture or rain.
     * Well ventilated and away from sources of heat including direct sunlight and radiators.
@@ -84,19 +84,19 @@ Hazard symbols identified in the manual are:
 * To reduce the risk of fire or electric shock, install the equipment/system in a temperature-controlled indoor area free of conductive contaminants. Don't place the equipment near liquids or in an excessively humid environment.
 * Don't allow any liquid or any foreign object to enter the device. Don't place beverages or any other liquid containers on or near the device.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false":::**CAUTION:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false":::**CAUTION:**
 * Elevated operating ambient - If installed in a closed or multi-unit rack assembly, the operating ambient temperature of the rack environment might be greater than room ambient. Therefore, consideration should be given to installing the equipment in an environment compatible with the maximum ambient temperature (Tma is 45°C) specified by the manufacturer.
 * Reduced air flow - Installation of the equipment in a rack should be such that the amount of air flow required for safe operation of the equipment isn't compromised. Carefully route cables as directed to minimize airflow blockage and cooling problems.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-notice-lrg.png" border="false":::**NOTICE:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-notice-lrg.png" border="false":::**NOTICE:**
 * For the proper operation of your device and to prevent product damage, ensure that the front and back doors are fully open while the device is running.
 
 ## Electrical precautions
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-safety-electric-shock.png" border="false":::**WARNING:**
-* Hazardous voltage, current, or energy levels are present inside this equipment and any component displaying this symbol: :::image type="icon" source="media/data-box-ng-safety/icon-safety-electric-shock-tiny.png"::: Don't service the equipment until all input power is removed, unless directed otherwise by the service instructions in an accompanying document for the component being serviced. To remove all input power, the equipment power cable must be disconnected from the AC electrical mains supply. Don’t remove cover or barrier on any component that contains this label: :::image type="icon" source="media/data-box-ng-safety/icon-safety-electric-shock-tiny.png"::: Servicing should only be performed by qualified trained technicians.
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-safety-electric-shock.png" border="false":::**WARNING:**
+* Hazardous voltage, current, or energy levels are present inside this equipment and any component displaying this symbol: :::image type="icon" source="media/data-box-next-gen-safety/icon-safety-electric-shock-tiny.png"::: Don't service the equipment until all input power is removed, unless directed otherwise by the service instructions in an accompanying document for the component being serviced. To remove all input power, the equipment power cable must be disconnected from the AC electrical mains supply. Don’t remove cover or barrier on any component that contains this label: :::image type="icon" source="media/data-box-next-gen-safety/icon-safety-electric-shock-tiny.png"::: Servicing should only be performed by qualified trained technicians.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-safety-electric-shock.png" border="false":::**WARNING:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-safety-electric-shock.png" border="false":::**WARNING:**
 * Don’t install equipment into a rack or on a wall while they’re energized with external cables.
 * Ensure power cords aren’t crushed or damaged during installation.
 * Provide a safe electrical earth connection to the power supply cord. The AC cord has a three-wire grounding plug (a plug that has a grounding contact). This plug fits only a grounded AC outlet. Don’t defeat the purpose of the grounding contact.
@@ -110,22 +110,22 @@ Hazard symbols identified in the manual are:
 * Provide a suitable power source with electrical overload protection to meet the power specifications shown on the equipment rating label provided with the equipment.
 * Don’t attempt to modify or use AC power cord(s) other than the ones provided with the equipment.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-safety-electric-shock.png" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-rotating-fan-blade.png" border="false":::**WARNING:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-safety-electric-shock.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-rotating-fan-blade.png" border="false":::**WARNING:**
 * To reduce the risk of electrical shock, injury from moving parts, damage, or loss of data, always make sure to disconnect the equipment from the AC electrical source when working inside the equipment. Powering down the system doesn’t ensure there’s no electrical activity inside the equipment.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-ng-safety/icon-heavy-weight-hazard.png" border="false":::**WARNING:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-heavy-weight-hazard.png" border="false":::**WARNING:**
 * A fully configured enclosure can weigh up to 50 lbs (22.7 kg); don't try to lift it by yourself. Be aware that any attempts to lift this weight can cause severe injuries. 
 * Conform to local occupational health and safety requirements when moving and lifting this equipment. Use mechanical assistance or other suitable assistance when moving and lifting equipment.
 
 ## Electrostatic precautions
 
-:::image type="icon" source="media/data-box-ng-safety/icon-notice-sml.png" border="false":::**NOTICE:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-notice-sml.png" border="false":::**NOTICE:**
 * Electrostatic discharge (ESD) and ESD protection: ESD can damage drives, boards, and other parts. We recommend that you perform all procedures in this chapter only at an ESD work- station. If one isn’t available, provide some ESD protection by wearing an antistatic wrist strap attached to chassis ground any unpainted metal surface on the equipment when handling parts.
 * ESD and handling boards: Always handle boards carefully. They can be extremely sensitive to electrostatic discharge (ESD). Hold boards only by their edges. After removing a board from its protective wrapper or from the equipment, place the board component side up on a grounded, static-free surface. Use a conductive foam pad if available but not the board wrapper. Don’t slide board over any surface.
 * Wear a grounded wrist strap. If none is available, discharge any personal static electricity by touching the bare metal chassis of the server, or the bare metal body of any other grounded device.
 * Humid environments tend to have less static electricity than dry environments. A grounding strap is warranted whenever danger of static electricity exists.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-notice-sml.png" border="false":::**NOTICE:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-notice-sml.png" border="false":::**NOTICE:**
 * Leave all replacement components inside their static-proof packaging until you’re ready to use them.
 
 ## Regulatory information
@@ -148,11 +148,11 @@ This equipment is designed to operate in the following environment:
 
 For electrical supply ratings, refer to the equipment rating label provided with the unit.
 
-:::image type="icon" source="media/data-box-ng-safety/icon-notice-sml.png" border="false":::NOTICE: Changes or modifications made to the equipment not expressly approved by Microsoft might void the user’s authority to operate the equipment.
+:::image type="icon" source="media/data-box-next-gen-safety/icon-notice-sml.png" border="false":::NOTICE: Changes or modifications made to the equipment not expressly approved by Microsoft might void the user’s authority to operate the equipment.
 
 **USA and Canada**
 
-:::image type="icon" source="media/data-box-ng-safety/icon-notice-sml.png" border="false":::NOTICE: This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, might cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
+:::image type="icon" source="media/data-box-next-gen-safety/icon-notice-sml.png" border="false":::NOTICE: This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, might cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
 
 This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device might not cause harmful interference, and (2) this device must accept any interference received, including interference that might cause undesired operation of the device.
 
@@ -170,13 +170,13 @@ Canada: (800) 933-4750
 
 **European Union**
 
-:::image type="icon" source="media/data-box-ng-safety/icon-hazard-lrg.png" border="false":::**WARNING:**
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false":::**WARNING:**
 
 * This device is a class A product. In a domestic environment, this product might cause radio interference in which case the user might be required to take adequate measures.
 
 Disposal of Waste Batteries and Electrical & Electronic Equipment:
 
-:::image type="icon" source="media/data-box-ng-safety/icon-ewaste-disposal.jpg" border="false"::: This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand it over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE. 
+:::image type="icon" source="media/data-box-next-gen-safety/icon-ewaste-disposal.jpg" border="false"::: This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand it over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE. 
 
 This product might contain Lithium-Ion and/or Lithium Metal battery(ies).
 
@@ -436,7 +436,7 @@ Hazardous Substances Table:
     :::column-end:::
 :::row-end:::
 
-:::image type="icon" source="media/data-box-ng-safety/icon-efup.png" border="false":::
+:::image type="icon" source="media/data-box-next-gen-safety/icon-efup.png" border="false":::
 
 **Japan**
 
