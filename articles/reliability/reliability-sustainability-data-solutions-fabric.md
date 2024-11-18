@@ -13,7 +13,7 @@ ms.date: 11/19/2024
 
 This article describes reliability support in [Sustainability data solutions in Fabric](/industry/sustainability/sustainability-data-solutions-fabric/get-started-overview), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Sustainability data solutions in Fabric has multiple capabilities to help you to manage your sustainability data scenarios. Most of the capabilities are covered by the [Microsoft Fabric reliability guide](./reliability-fabric.md), with the exception of Microsoft Azure emissions insights. This guide focuses on emissions insights.
+Sustainability data solutions in Fabric has multiple capabilities to help you to manage your sustainability data scenarios. Most of the capabilities are covered by the [Microsoft Fabric reliability guide](./reliability-fabric.md), except for Microsoft Azure emissions insights. This guide focuses on emissions insights.
 
 [Microsoft Azure emissions insights](/industry/sustainability/sustainability-data-solutions-fabric/azure-emissions-insights-overview) enables you to retrieve and access your Azure emissions data from Microsoft's Cloud for Sustainability services. Emission insights are loaded into your Microsoft Fabric instance at regular intervals. This guide describes how the platform supports resiliency in the ingestion of data. After data is loaded into your Microsoft Fabric instance, it's covered by the [Microsoft Fabric reliability guide](./reliability-fabric.md).
 
@@ -43,13 +43,13 @@ A zone failure isn't expected to cause any data loss or downtime to your resourc
 
 ## Multi-region support
 
-Internally, Microsoft's Cloud for Sustainability services are partially geo-redundant. In the event of a major region failure, emissions data can be reconstructed in another region.
+Internally, Microsoft's Cloud for Sustainability services are partially geo-redundant. If a major region failure occurs, emissions data can be reconstructed in another region.
 
 ### Region-down experience
 
-During a region failure, any Azure emissions data already ingested into Fabric remains there, and will be accessible as long as Microsoft Fabric is available. For information on how to the multi-region support in Microsoft Fabric and how to enable disaster recovery and business continuity, see [Reliability in Microsoft Fabric ](./reliability-fabric.md).
+During a region failure, any Azure emissions data already ingested into Fabric remains there, and is accessible as long as Microsoft Fabric is available. For information on how to the multi-region support in Microsoft Fabric and how to enable disaster recovery and business continuity, see [Reliability in Microsoft Fabric ](./reliability-fabric.md).
 
-Ingestion of new Azure emissions data will resume after Microsoft restores services into the region. Any missing data is expected to be ingested at this time. While there's no published RTO or RPO, this process could take several days, but during that time any previous data continues to be available.
+Ingestion of new Azure emissions data will resume after Microsoft restores services into the region. Any missing data is expected to be ingested at this time. This process might take several days, but during that time any previous data continues to be available.
 
 ## Related content
 
