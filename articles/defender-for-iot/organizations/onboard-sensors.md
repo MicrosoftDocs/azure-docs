@@ -1,7 +1,7 @@
 ---
 title: Onboard sensors to Defender for IoT in the Azure portal
 description: Learn how to onboard sensors to Defender for IoT in the Azure portal.
-ms.date: 05/28/2023
+ms.date: 11/17/2024
 ms.topic: install-set-up-deploy
 ms.collection:
   -       zerotrust-extra
@@ -85,7 +85,7 @@ This procedure describes how to onboard an OT network sensor with Defender for I
 
 1. Select **Finish**. Your sensor is now shown under the selected site on the Defender for IoT **Sites and sensors** page.
 
-Until you activate your sensor, the sensor's status will show as **Pending Activation**. Make the downloaded activation file accessible to the sensor console admin so that they can [activate the sensor](ot-deploy/activate-deploy-sensor.md).
+Until you activate your sensor, the sensor's status shows as **Pending Activation**. Make the downloaded activation file accessible to the sensor console admin so that they can [activate the sensor](ot-deploy/activate-deploy-sensor.md).
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 

@@ -2,7 +2,7 @@
 title: Get started with OT monitoring - Microsoft Defender for IoT
 description: Use this quickstart to set up a trial OT plan with Microsoft Defender for IoT and understand the next steps required to configure your network sensors.
 ms.topic: get-started
-ms.date: 03/25/2024
+ms.date: 11/17/2024
 #CustomerIntent: As a prospective Defender for IoT customer with OT networks, I want to understand how I can set up a trial and evaluate Defender for IoT.
 ---
 

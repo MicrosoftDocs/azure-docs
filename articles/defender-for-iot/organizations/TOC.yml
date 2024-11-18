@@ -28,6 +28,8 @@
     href: architecture.md
   - name: Subscription billing
     href: billing.md
+  - name: Extending your trial license
+    href: trial-extention.md
   - name: Roles and permissions
     items:
     - name: Overview
