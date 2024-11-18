@@ -21,45 +21,37 @@ This article provides an overview of DNS security policy. Also see the following
  
 ## What DNS security policy?
 
-DNS security policy offers the ability to filter DNS queries at the virtual network (VNet) level. You can allow, alert, or block name resolution of known or malicious domains and gain insight into your DNS traffic. Detailed DNS logs can be sent to a storage account, log analytics workspace, or event hubs.
+DNS security policy offers the ability to filter and log DNS queries at the virtual network (VNet) level and view detailed DNS logs. Think of it like a DNS firewall for your cloud resources. You can allow, alert, or block name resolution of known or malicious domains. The logging capability enables you to gain detailed insight into your DNS traffic. DNS logs can be sent to a storage account, log analytics workspace, or event hubs.
 
 A DNS security policy has the following associated elements and properties:
-- Location: A security policy can only apply to VNets in the same region.
-- DNS traffic rules: Rules that allow, block, or alert based on priority and domain lists. Rules can be enabled or disabled.
-- Virtual network links: You can link one security policy per VNet. A security policy can be associated to multiple VNets.
-- DNS domain lists: Location-based lists of DNS domains.
+- **Location**: A security policy can only apply to VNets in the same region.
+- **DNS traffic rules**: Rules that allow, block, or alert based on priority and domain lists. Rules can be enabled or disabled.
+- **Virtual network links**: You can link one security policy per VNet. A security policy can be associated to multiple VNets.
+- **DNS domain lists**: Location-based lists of DNS domains.
 
-You can create a security policy with diagnostics sent to a storage account (your DNS query logs are visible there).
-You can create a security policy via Portal and have instructions on how to create and manage the security policy, plus setting the diagnostic options to send the DNS query details to a log analytics workspace.
+DNS Security Policy can be configured using Azure PowerShell or the Azure portal.
 
-You should now be able to log your DNS traffic to one or multiple locations (storage account, log analytics workspace). DNS security policy should log all DNS queries initiated from your VNET. You can try following two scenarios for your testing.
-1. Create an Azure DNS private zone and link it to the virtual network where you have deployed the resolver. Next create some DNS records in the DNS zone and try to resolve these records from on-prem machines and Azure VMs. You can use nslookup command or Resolve-DnsName PowerShell command to lookup specific DNS records. You can also try variation of this scenario by creating different types of DNS records like AAAA, TXT, CNAME etc.
+### Location
 
-## FAQ
+You can create any number of security policies in the same region. In the following example, two polices are created in each of two different regions (East US and Central US). Keep in mind that the policy:VNet relationship is 1:N. When you associate a VNet with a security policy (via virtual network links), that VNet can't then be associated with another security policy. However, a single DNS security policy can be associated with multiple VNets in the same region. 
 
-What is a DNS security policy?
-- DNS security policy is an object that contains monitoring settings for DNS query logging which can be applied to one or more Virtual Networks. This is a 1:N relationship.
+![Screenshot of the list of DNS security policies.](./media/dns-security-policy/policy-list.png)
 
-What is a Virtual Network Link?
-- Virtual Network links enable the policy on Virtual Networks which are linked to a DNS security policy. This is a 1:1 relationship.
+### DNS traffic rules
 
-Virtual network restrictions: The following restrictions are held with respect to virtual networks:
-- DNS security policy can reference a virtual network in the same region as the DNS security policy only.
-- DNS security policy restrictions: DNS security policy has the following limitations:
+### Virtual network links
+
+### DNS domain lists
+
+
+## Requirements and restrictions
+
+Virtual network restrictions:
+- DNS security policies can only be applied to virtual networks in the same region as the DNS security policy.
 - DNS security policy cannot be deleted unless the virtual network links under it are deleted.
 
-What is a Domain List?
-- A domain list is essentially a collection of domain names grouped together for a specific purpose. In the context of DNS security policy, a domain list can be used for DNS filtering.
-- For example, in DNS security policies, a domain list can be used to specify which domains should be allowed or blocked. This can help in managing and securing network traffic by filtering out unwanted or harmful domains. Additionally, domain lists can be linked to multiple rules for DNS filtering, allowing for more granular control over DNS traffic.
 
-What is a DNS traffic rule?
-- A DNS traffic rule is a set of predefined criteria or policies used to manage and control the flow of DNS queries and responses within a virtual network. These rules can be applied to virtual networks to which a DNS security policy is linked to and may contain 1 or Domain List.
 
-Security Policies: These rules can help protect against DNS-based attacks by allowing or blocking specific domain names, helping to filter out unwanted or harmful domains and enhance network security.
+## Related content
 
-## Next steps
-
-- Learn how to [sign a DNS zone with DNSSEC](dnssec-how-to.md).
-- Learn how to [unsign a DNS zone](dnssec-unsign.md).
-- Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-for-azure-services.md).
-- Learn how to [manage reverse DNS records for your Azure services](dns-reverse-dns-for-azure-services.md).
+- [How to filter and view DNS traffic (Preview)](dns-traffic-log-how-to.md).
