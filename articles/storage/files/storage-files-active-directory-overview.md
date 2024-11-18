@@ -4,7 +4,7 @@ description: Azure Files supports identity-based authentication over SMB (Server
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 11/13/2024
+ms.date: 11/18/2024
 ms.author: kendownie
 ---
 
@@ -12,14 +12,14 @@ ms.author: kendownie
 
 This article explains how you can use domain services, either on-premises or in Azure, to enable identity-based access to Azure file shares over SMB. Just like Windows file servers, you can grant permissions to an identity at the share, directory, or file level. There's no additional service charge to enable identity-based authentication on your storage account.
 
-Identity-based authentication isn't supported with Network File System (NFS) shares. However, Linux clients can use Kerberos authentication over SMB.
+Identity-based authentication isn't currently supported with Network File System (NFS) shares. However, Linux clients can use [Kerberos authentication over SMB](storage-files-identity-auth-linux-kerberos-enable.md).
 
 > [!IMPORTANT]
-> Our recommended security best practice is to never share your storage account keys and to use identity-based authentication instead.
+> Never share your storage account keys. Use identity-based authentication instead.
 
 ## How it works
 
-Azure file shares use the Kerberos protocol to authenticate with an identity source. When an identity associated with a user or application running on a client attempts to access data in Azure file shares, the request is sent to the identity source to authenticate the identity. If authentication is successful, the identity source returns a Kerberos token. The client then sends a request that includes the Kerberos token, and the Azure Files service uses that token to authorize the request. Azure Files only receives the Kerberos token, not the user's access credentials.
+Azure file shares use the Kerberos protocol to authenticate with an identity source. When an identity associated with a user or application running on a client attempts to access data in Azure file shares, the request is sent to the identity source to authenticate the identity. If authentication is successful, the identity source returns a Kerberos token. The client then sends a request that includes the Kerberos token, and Azure Files uses that token to authorize the request. The Azure Files service only receives the Kerberos token, not the user's access credentials.
 
 ## Common use cases
 
@@ -27,7 +27,7 @@ Identity-based authentication with SMB Azure file shares can be useful in a vari
 
 ### Replace on-premises file servers
 
-Replacing scattered on-premises file servers is a common problem that every enterprise encounters in their IT modernization journey. Using identity-based authentication with Azure Files provides a seamless migration experience, allowing end users to continue to access their data with the same credentials.
+Replacing scattered on-premises file servers is a challenge every organization faces during their IT modernization journey. Using identity-based authentication with Azure Files provides a seamless migration experience, allowing end users to continue to access their data with the same credentials.
 
 ### Lift and shift applications to Azure
 
@@ -35,17 +35,17 @@ When you lift and shift applications to the cloud, you'll likely want to keep th
 
 ### Backup and disaster recovery (DR)
 
-If you're keeping your primary file storage on-premises, Azure file shares can serve as an ideal storage for backup or DR, to improve business continuity. You can use Azure file shares to back up your data from existing file servers while preserving Windows discretionary access control lists (DACLs). For DR scenarios, you can configure an authentication option to support proper access control enforcement at failover.
+If you're keeping your primary file storage on-premises, Azure Files is an ideal solution for backup and DR to improve business continuity. You can use Azure file shares to back up your file servers while preserving Windows discretionary access control lists (DACLs). For DR scenarios, you can configure an authentication option to support proper access control enforcement at failover.
 
 ## Choose an identity source for your storage account
 
-Before you enable identity-based authentication on your storage account, you need to know what identity source you're going to use. It's likely that you already have one, as most companies and organizations have some type of domain environment already configured. Consult your Active Directory (AD) or IT admin to be sure. If you don't already have an identity source, you'll need to configure one before you can enable identity-based authentication.
+Before you enable identity-based authentication on your storage account, you need to know what identity source you're going to use. It's likely that you already have one, as most companies and organizations have some type of domain environment configured. Consult your Active Directory (AD) or IT admin to be sure. If you don't already have an identity source, you'll need to configure one before you can enable identity-based authentication.
 
 You can enable identity-based authentication over SMB using one of three identity sources: **On-premises Active Directory Domain Services (AD DS)**, **Microsoft Entra Domain Services**, or **Microsoft Entra Kerberos (hybrid identities only)**. You can only use one identity source for file access authentication per storage account, and it applies to all file shares in the account.
 
 - **On-premises AD DS:** On-premises AD DS-joined or Microsoft Entra Domain Services-joined clients and virtual machines (VMs) can access Azure file shares with on-premises Active Directory credentials that are synched to Microsoft Entra ID over SMB. To use this method, your client must have unimpeded network connectivity to your AD DS. If you already have AD DS set up on-premises or on a VM in Azure where your devices are domain-joined to your AD, you should choose AD DS.
 - **Microsoft Entra Kerberos for hybrid identities:** You can use Microsoft Entra ID to authenticate [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), allowing end users to access Azure file shares without requiring network connectivity to domain controllers. Cloud-only identities aren't currently supported using this method.
-- **Microsoft Entra Domain Services:** Cloud-based VMs that are joined to Microsoft Entra Domain Services can access Azure file shares with Microsoft Entra credentials. In this solution, Microsoft Entra ID runs a traditional Windows Server AD domain on behalf of the customer, which is a child of the customer's Microsoft Entra tenant.
+- **Microsoft Entra Domain Services:** Cloud-based VMs that are joined to Microsoft Entra Domain Services can access Azure file shares with Microsoft Entra credentials. In this solution, Microsoft Entra ID runs a traditional Windows Server AD domain that is a child of the customer's Microsoft Entra tenant.
 
 ## Enable a identity source
 
@@ -65,7 +65,7 @@ To learn how to enable AD DS authentication, first read [Overview - on-premises 
 
 ### Microsoft Entra Kerberos for hybrid identities
 
-Enabling and configuring Microsoft Entra ID for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md) allows Microsoft Entra users to access Azure file shares using Kerberos authentication. This configuration uses Microsoft Entra ID to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. This means your end users can access Azure file shares over the internet without requiring network connectivity to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined VMs. However, configuring directory and file-level permissions for users and groups requires unimpeded network connectivity to the on-premises domain controller.
+Enabling and configuring Microsoft Entra ID for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md) allows Microsoft Entra users to access Azure file shares using Kerberos authentication. This configuration uses Microsoft Entra ID to issue the Kerberos tickets to access the file share with the industry-standard SMB protocol. This means end users can access Azure file shares without requiring network connectivity to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined VMs. However, configuring directory and file-level permissions for users and groups requires unimpeded network connectivity to the on-premises domain controller.
 
 > [!IMPORTANT]
 > Microsoft Entra Kerberos authentication only supports hybrid user identities; it doesn't support cloud-only identities. A traditional AD DS deployment is required, and it must be synced to Microsoft Entra ID using Microsoft Entra Connect Sync or Microsoft Entra Connect cloud sync. Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](../../active-directory/devices/hybrid-join-plan.md). Microsoft Entra Kerberos isn't supported on clients joined to Microsoft Entra Domain Services or joined to AD only.
@@ -84,9 +84,9 @@ For Microsoft Entra Domain Services authentication, you must enable Microsoft En
 
 The following diagram represents the workflow for Microsoft Entra Domain Services authentication to Azure file shares over SMB. It follows a similar pattern to on-premises AD DS authentication, but there are two major differences:
 
-1. You don't need to create an identity in Microsoft Entra Domain Services to represent the storage account. This is performed by the enablement process in the background.
+- You don't need to create an identity in Microsoft Entra Domain Services to represent the storage account. This is performed by the enablement process in the background.
 
-2. All users that exist in Microsoft Entra ID can be authenticated and authorized. The user can be cloud-only or hybrid. The sync from Microsoft Entra ID to Microsoft Entra Domain Services is managed by the platform without requiring any user configuration. However, the client must be joined to the Microsoft Entra Domain Services hosted domain. It can't be Microsoft Entra joined or registered. Microsoft Entra Domain Services doesn't support non-Azure clients (i.e. user laptops, workstations, VMs in other clouds, etc.) being domain-joined to the Microsoft Entra Domain Services hosted domain. However, it's possible to mount a file share from a non-domain-joined client by providing explicit credentials such as DOMAINNAME\username or using the fully qualified domain name (username@FQDN).
+- All users that exist in Microsoft Entra ID can be authenticated and authorized. The user can be cloud-only or hybrid. The sync from Microsoft Entra ID to Microsoft Entra Domain Services is managed by the platform without requiring any user configuration. However, the client must be joined to the Microsoft Entra Domain Services hosted domain. It can't be Microsoft Entra joined or registered. Microsoft Entra Domain Services doesn't support non-Azure clients (i.e. user laptops, workstations, VMs in other clouds, etc.) being domain-joined to the Microsoft Entra Domain Services hosted domain. However, it's possible to mount a file share from a non-domain-joined client by providing explicit credentials such as DOMAINNAME\username or using the fully qualified domain name (username@FQDN).
 
 :::image type="content" source="media/storage-files-active-directory-overview/files-microsoft-entra-domain-services-auth-diagram.png" alt-text="Diagram of configuration for Microsoft Entra Domain Services authentication with Azure Files over SMB.":::
 
@@ -94,7 +94,7 @@ To learn how to enable Microsoft Entra Domain Services authentication, see [Enab
 
 ## Access control
 
-Azure Files enforces authorization on user access at both the share level and the directory/file levels. Share-level permission assignment can be performed on Microsoft Entra users or groups managed through Azure RBAC. With Azure RBAC, the credentials you use for file access should be available or synced to Microsoft Entra ID. You can assign Azure built-in roles like **Storage File Data SMB Share Reader** to users or groups in Microsoft Entra ID to grant access to an Azure file share.
+Azure Files enforces authorization on user access at both the share level and the directory/file levels. You can assign share-level permissions to Microsoft Entra users or groups that are managed through Azure RBAC. With Azure RBAC, the credentials you use for file access should be available or synced to Microsoft Entra ID. You can assign Azure built-in roles like **Storage File Data SMB Share Reader** to users or groups in Microsoft Entra ID to grant access to a file share.
 
 At the directory/file level, Azure Files supports preserving, inheriting, and enforcing [Windows ACLs](/windows/win32/secauthz/access-control-lists). You can choose to keep Windows ACLs when copying data over SMB between your existing file share and your Azure file shares. Whether you plan to enforce authorization or not, you can use Azure file shares to back up ACLs along with your data.
 
@@ -151,7 +151,7 @@ It's helpful to understand some key terms relating to identity-based authenticat
 
     [Hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md) are identities in AD DS that are synced to Microsoft Entra ID using either the on-premises [Microsoft Entra Connect Sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md), a lightweight agent that can be installed from the Microsoft Entra Admin Center.
 
-## Next steps
+## Next step
 
 For more information about Azure Files and identity-based authentication over SMB, see these resources:
 
@@ -159,4 +159,4 @@ For more information about Azure Files and identity-based authentication over SM
 - [Enable Microsoft Entra Domain Services authentication on Azure Files](storage-files-identity-auth-domain-services-enable.md)
 - [Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files](storage-files-identity-auth-hybrid-identities-enable.md)
 - [Enable AD Kerberos authentication for Linux clients](storage-files-identity-auth-linux-kerberos-enable.md)
-- [FAQ](storage-files-faq.md#identity-based-authentication)
+- [Identity-based authentication FAQ](storage-files-faq.md#identity-based-authentication)
