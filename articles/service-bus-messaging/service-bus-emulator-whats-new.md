@@ -5,7 +5,7 @@ description: View the updates for the latest version and previous versions of th
 author: Sannidhya
 ms.author: saglodha
 ms.topic: article
-ms.date: 07/01/2024
+ms.date: 11/18/2024
 ---
 
 
@@ -19,7 +19,7 @@ This article provides a detailed overview of the enhancements introduced in the 
 > Kindly report any problems or suggestions in the emulator's [GitHub installer repository](https://github.com/Azure/azure-service-bus-emulator-installer/issues).
 
 
-### ``1.2.3`` (21st November,2024)
+### ``1.0.1`` (19th November,2024)
 
 - Initial Launch
 
