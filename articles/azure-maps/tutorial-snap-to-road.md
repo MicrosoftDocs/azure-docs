@@ -10,7 +10,7 @@ services: azure-maps
 ms.custom: mvc, devx-track-python
 ---
 
-# Tutorial: Snap to road route using Microsoft Fabric notebooks (Python)
+# Tutorial: Analyze trip using Snap to Roads in Microsoft Fabric notebook
 
 Snap to Roads is an Azure Maps service that processes a set of GPS points collected along a route and snaps them to the most probable roads the vehicle traveled. This feature is useful in determining the exact path followed by a vehicle, even when the GPS data collected is off slightly.
 
@@ -42,7 +42,7 @@ Follow these steps to create a Microsoft Fabric notebook:
 
 1. Go to your [My Workspace] and select **New item**.
 
-    :::image type="content" source="./media/tutorial-snap-to-road/new-item.png" lightbox="./media/tutorial-snap-to-road/new-item.png" alt-text="The My Workspace page in Microsoft Fabric with the new item button highlighted.":::
+    :::image type="content" source="./media/tutorial-snap-to-road/new-item.png" lightbox="./media/tutorial-snap-to-road/new-item.png" alt-text="A screenshot of the My Workspace page in Microsoft Fabric with the new item button highlighted.":::
 
 1. When the **New item** screen appears, scroll down and select **Notebook**.
 
@@ -98,9 +98,9 @@ You first need to load the required packages:
 !pip install geojson
 ```
 
-1. Enter the pip install statements into the first cell of your notebook, then execute the statements by selecting the _run arrow_.
+Enter the pip install statements into the first cell of your notebook, then execute the statements by selecting the _run arrow_.
 
-    :::image type="content" source="./media/tutorial-snap-to-road/install-packages.png" lightbox="./media/tutorial-snap-to-road/install-packages.png" alt-text="A screenshot showing the install packages code in a cell of the notebook.":::
+:::image type="content" source="./media/tutorial-snap-to-road/install-packages.png" lightbox="./media/tutorial-snap-to-road/install-packages.png" alt-text="A screenshot showing the install packages code in a cell of the notebook.":::
 
 ### Load data
 
@@ -243,9 +243,9 @@ Create an eventhouse to manage the telemetry data for your fleet or moving asset
 
 1. Go to your [My Workspace] and select **New item**.
 1. When the **New item** screen appears, scroll down and select **Eventhouse**.
-1. In the **New Eventhouse** screen, enter a name for your new eventhouse, such as _SnapToRoadDemo_
+1. In the **New Eventhouse** screen, enter a name for your new eventhouse, such as _SnapToRoadDemo_.
 
-    Next, link the lakehouse you created previously to your new eventhouse
+    Next, link the lakehouse you created previously to your new eventhouse.
 
 1. Select the ellipse next to your new eventhouse, then **Get data > OneLake** from the popup menu.
 
@@ -271,7 +271,7 @@ Create an eventhouse to manage the telemetry data for your fleet or moving asset
 
 The eventhouse should now be created and contain the GPS data.
 
-:::image type="content" source="./media/tutorial-snap-to-road/snaptoroad-eventhouse.png" lightbox="./media/tutorial-snap-to-road/snaptoroad-eventhouse.png" alt-text="A screenshot showing the eventhouse with the GPS data.":::
+:::image type="content" source="./media/tutorial-snap-to-road/snap-to-road-eventhouse.png" lightbox="./media/tutorial-snap-to-road/snap-to-road-eventhouse.png" alt-text="A screenshot showing the eventhouse with the GPS data.":::
 
 ## Create Real-Time Dashboard
 
