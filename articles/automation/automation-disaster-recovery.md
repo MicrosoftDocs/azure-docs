@@ -154,4 +154,4 @@ Type[] | True | Array consisting of all the types of assets that need to be migr
 
 ## Next steps
 
-- Learn more about [regions that support availability zones](../availability-zones/az-region.md).
+- Learn more about [regions that support availability zones](../reliability/availability-zones-region-support.md).
