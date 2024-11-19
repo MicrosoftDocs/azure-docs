@@ -40,7 +40,7 @@ Next, create an environment for your container app.
     | Region | Select **Central US**. |
 
 1. In the *Create Container Apps environment* field, select the **Create new** link.
-1. In the *Create Container Apps Environment* page on the *Basics* tab, enter the following values:
+1. In the *Create Container Apps environment* page on the *Basics* tab, enter the following values:
 
     | Setting | Value |
     |--|--|
