@@ -73,6 +73,8 @@
   items:
   - name: Security
     items:
+    - name: DNS security policy
+      href: dns-security-policy.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
   - name: Public DNS
@@ -119,6 +121,10 @@
       href: private-resolver-reliability.md
 - name: How-to guides
   items:
+  - name: DNS security policy
+    items:
+    - name: Filter and view DNS traffic
+      href: dns-traffic-log-how-to.md
   - name: Public DNS
     items:
     - name: Alias records for load balanced web apps

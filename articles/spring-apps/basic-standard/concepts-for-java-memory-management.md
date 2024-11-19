@@ -26,7 +26,7 @@ A Java application's memory has several parts, and there are different ways to d
 
 Heap memory stores all class instances and arrays. Each Java virtual machine (JVM) has only one heap area, which is shared among threads.
 
-Spring Boot Actuator can observe the value of heap memory. Spring Boot Actuator takes the heap value as part of `jvm.memory.used/committed/max`. For more information, see the [jvm.memory.used/committed/max](../enterprise/tools-to-troubleshoot-memory-issues.md#jvmmemoryusedcommittedmax) section in [Tools to troubleshoot memory issues](../enterprise/tools-to-troubleshoot-memory-issues.md).
+Spring Boot Actuator can observe the value of heap memory. Spring Boot Actuator takes the heap value as part of `jvm.memory.used/committed/max`. For more information, see the [jvm.memory.used/committed/max](tools-to-troubleshoot-memory-issues.md#jvmmemoryusedcommittedmax) section in [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md).
 
 Heap memory is divided into *young generation* and *old generation*. These terms are described in the following list, along with related terms.
 
@@ -71,7 +71,7 @@ Full GC or major GC does garbage collection in the entire heap. Full GC can also
 
 The maximum heap size influences the frequency of minor GC and full GC. The maximum metaspace and maximum direct memory size influence full GC.
 
-When you set the maximum heap size to a lower value, garbage collections occur more frequently, which slow the app a little, but better limits the memory usage. When you set the maximum heap size to a higher value, garbage collections occur less frequently, which may create more out-of-memory (OOM) risk. For more information, see the [Types of out-of-memory issues](../enterprise/how-to-fix-app-restart-issues-caused-by-out-of-memory.md#types-of-out-of-memory-issues) section of [App restart issues caused by out-of-memory issues](../enterprise/how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
+When you set the maximum heap size to a lower value, garbage collections occur more frequently, which slow the app a little, but better limits the memory usage. When you set the maximum heap size to a higher value, garbage collections occur less frequently, which may create more out-of-memory (OOM) risk. For more information, see the [Types of out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md#types-of-out-of-memory-issues) section of [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
 
 Metaspace and direct memory can be collected only by full GC. When metaspace or direct memory is full, full GC will occur.
 
@@ -81,11 +81,11 @@ The following sections describe important aspects of Java memory configuration.
 
 ### Java containerization
 
-Applications in Azure Spring Apps run in container environments. For more information, see [Containerize your Java applications](/azure/developer/java/containers/overview?toc=/azure/spring-cloud/toc.json&bc=/azure/spring-cloud/breadcrumb/toc.json).
+Applications in Azure Spring Apps run in container environments. For more information, see [Containerize your Java applications](/azure/developer/java/containers/overview?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
 
 ### Important JVM options
 
-You can configure the maximum size of each part of memory by using JVM options. You can set JVM options by using Azure CLI commands or through the Azure portal. For more information, see the [Modify configurations to fix problems](../enterprise/tools-to-troubleshoot-memory-issues.md#modify-configurations-to-fix-problems) section of [Tools to troubleshoot memory issues](../enterprise/tools-to-troubleshoot-memory-issues.md).
+You can configure the maximum size of each part of memory by using JVM options. You can set JVM options by using Azure CLI commands or through the Azure portal. For more information, see the [Modify configurations to fix problems](tools-to-troubleshoot-memory-issues.md#modify-configurations-to-fix-problems) section of [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md).
 
 The following list describes the JVM options:
 
@@ -155,9 +155,9 @@ Overall, when configuring maximum memory sizes, you should consider the usage of
 
 ## Java OOM
 
-OOM means the application is out of memory. There are two different concepts: container OOM and JVM OOM. For more information, see [App restart issues caused by out-of-memory issues](../enterprise/how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
+OOM means the application is out of memory. There are two different concepts: container OOM and JVM OOM. For more information, see [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md).
 
 ## See also
 
-- [App restart issues caused by out-of-memory issues](../enterprise/how-to-fix-app-restart-issues-caused-by-out-of-memory.md)
-- [Tools to troubleshoot memory issues](../enterprise/tools-to-troubleshoot-memory-issues.md)
+- [App restart issues caused by out-of-memory issues](how-to-fix-app-restart-issues-caused-by-out-of-memory.md)
+- [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md)

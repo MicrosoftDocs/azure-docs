@@ -251,10 +251,10 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/redis-cache/scripts/delete-cache.md",
-            "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
-            "redirect_document_id": false
-        },
+          "source_path_from_root": "/articles/redis-cache/scripts/delete-cache.md",
+          "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+          "redirect_document_id": false
+      },
         {
             "source_path_from_root": "/articles/redis-cache/scripts/show-cache.md",
             "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",

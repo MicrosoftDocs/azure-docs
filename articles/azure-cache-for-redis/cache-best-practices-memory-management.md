@@ -1,6 +1,5 @@
 ---
 title: Best practices for memory management
-titleSuffix: Azure Cache for Redis
 description: Learn how to manage your Azure Cache for Redis memory effectively.
 
 
