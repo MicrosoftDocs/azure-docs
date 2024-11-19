@@ -22,7 +22,7 @@ You can check the version either in your self-hosted integration runtime client 
 :::image type="content" source="./media/self-hosted-integration-runtime-auto-update/self-hosted-integration-runtime-version-portal.png" alt-text="Screenshot that shows the version in Azure data factory portal.":::
 
 ## Self-hosted Integration Runtime Autoupdate
-Generally, when you install a self-hosted integration runtime in your local machine or an Azure Virtual Machine, you have two options to manage the version of self-hosted integration runtime: autoupdate or maintain manually. Typically, ADF releases one new versions of self-hosted integration runtime every month, which includes new features released, bugs fixed, and enhancements. So we recommend users to update to the latest version.
+Generally, when you install a self-hosted integration runtime in your local machine or an Azure Virtual Machine, you have two options to manage the version of self-hosted integration runtime: autoupdate or maintain manually. Typically, ADF releases one new version of self-hosted integration runtime every month, which includes new features released, bugs fixed, and enhancements. So we recommend users to update to the latest version.
 
 The most convenient way is to enable autoupdate when you create or edit self-hosted integration runtime. The self-hosted integration runtime is automatically update to newer version. You can also schedule the update at the most suitable time slot as you wish.
 
@@ -44,7 +44,7 @@ The self-hosted integration runtime **Auto-update** page in the ADF portal shows
 
 The portal does not offer date selection. This means you can only select the time, while the date is determined by the backend system. Typically, the date will be set for a few days after the self-hosted integration runtime receives the auto-update notification, giving customers sufficient time to make their selection.
 
-:::image type="content" source="media/self-hosted-integration-runtime-auto-update/self-hosted-integration-runtime-version-portal-auto-update-date.png" alt-text="Auto-update date in UI":::
+:::image type="content" source="media/self-hosted-integration-runtime-auto-update/self-hosted-integration-runtime-version-portal-auto-update-date.png" alt-text="Screenshot showing auto-update date in UI.":::
 
 If you have multiple nodes, and for some reasons that some of them aren't autoupdated successfully. Then these nodes roll back to the version, which was the same across all nodes before the autoupdate.
 
