@@ -50,10 +50,6 @@ You can use [ClientSecretCredentialBuilder](/java/api/com.azure.identity.clients
 In this example, Microsoft Entra app registration client secret, client ID, and tenant ID values have been added to environment variables. These environment variables are used by `ClientSecretCredentialBuilder` to build the credential.
 
 ```java
-// Credentials can be built from types from the Azure Identity library like ClientSecretCredential.
-// The Azure Identity library also defines other implementations of the TokenCredential interface such as
-// DefaultAzureCredential, InteractiveBrowserCredential, and many others.
-
 string clientSecretValue = System.getenv("AZURE_CLIENT_SECRET");
 string clientID = System.getenv("AZURE_CLIENT_ID");
 string tenantID = System.getenv("AZURE_TENANT_ID");

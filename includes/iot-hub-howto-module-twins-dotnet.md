@@ -174,7 +174,7 @@ registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 
 #### Connect using Microsoft Entra
 
-[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-dotnet](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-java](iot-hub-howto-connect-service-iothub-entra-java.md)]
 
 ### Read and update module identity fields
 
