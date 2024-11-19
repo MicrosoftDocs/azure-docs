@@ -97,9 +97,9 @@ Here are known issues and limitations:
 
 - For session hosts that were created from an Azure Compute Gallery shared image that has a purchase plan, the plan isn't retained when the session hosts are updated. To check whether the image you use for your session hosts has a purchase plan, you can use [Azure PowerShell](/azure/virtual-machines/windows/cli-ps-findimage) or [Azure CLI](/azure/virtual-machines/linux/cli-ps-findimage).
 
-- The size of the OS disk can't be changed during an update. The update service defaults to the same size as defined by the gallery image.
+- Session host update currently update requires access to the public Azure Storage endpoint `wvdhpustgr0prod.blob.core.windows.net` to deploy the RDAgent. Until this is migrated to a [required endpoint for Azure Virtual Desktop](/azure/virtual-desktop/required-fqdn-endpoint), VMs that cannot access `wvdhpustgr0prod.blob.core.windows.net` will fail to be updated with a `CustomerVmNoAccessToDeploymentPackageException` error.
 
-- During an update, you can't add more session hosts to the host pool.
+- The size of the OS disk can't be changed during an update. The update service defaults to the same size as defined by the gallery image.
 
 - If an update fails, the host pool can't be deleted until the update is canceled.
 
@@ -112,7 +112,7 @@ Here are known issues and limitations:
    - For the Log Analytics agent, you can [use Azure Automation](/azure/azure-monitor/agents/agent-windows?tabs=azure-automation#install-the-agent).
    - Manually add these new session hosts from within [Azure Virtual Desktop Insights](insights.md) in the Azure portal.
 
-- Avoid modifying a session host configuration in a host pool with no session hosts at the same time a session host is being created as this can result in a host pool with inconsistent session host properties.
+- Modifying a session host configuration in a host pool with no session hosts at the same time a session host is being created can result in a host pool with inconsistent session host properties and should be avoided.
 
 - Updates with large batch sizes can result in intermittent failures with the error code `AgentRegistrationFailureGeneric`. If this occurs for a subset of session hosts being updated, [retrying the update](session-host-update-configure.md#pause-resume-cancel-or-retry-an-update) typically resolves the issue.
 
