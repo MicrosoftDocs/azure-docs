@@ -28,7 +28,7 @@ This release introduces Apache Kafka support in Event Hubs emulator.
 
 ## Previous releases
 
-## ``1.2.4`` (July 1st,2024)
+### ``1.2.4`` (July 1st,2024)
 
 This release provides enhanced connectivity fixes for Emulator. 
  
