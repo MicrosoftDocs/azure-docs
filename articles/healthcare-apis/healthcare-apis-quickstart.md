@@ -1,7 +1,7 @@
 ---
 title: Azure Health Data Services quickstart
 description: Learn how to create a workspace for Azure Health Data Services by using the Azure portal. The workspace is a centralized logical container for instances of the FHIR service, DICOM service, and MedTech service.
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: quickstart

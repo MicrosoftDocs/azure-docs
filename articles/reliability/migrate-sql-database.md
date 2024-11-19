@@ -102,7 +102,7 @@ To enable zone redundancy, see [Databases - Create Or Update in ARM](/rest/api/s
 
 1. Go to the [Azure portal](https://portal.azure.com) to find and select the elastic pool that you want to migrate.
 
-1. Select **Settings**, and then select **Configure**. 
+1. Under **Settings**, select **Compute + Storage**.
 
 1. Select **Yes** for **Would you like to make this elastic pool zone redundant?**.
 
@@ -206,7 +206,7 @@ To disable zone-redundancy for a single database or an elastic pool, you can use
 
 1. Go to the  [Azure portal](https://portal.azure.com) to find and select the database that you no longer want to be zone-redundant.
 
-1. Select **Settings**, and then select **Configure**. 
+1. Under **Settings**, select **Compute + Storage**.
 
 1. Select **No** for **Would you like to make this database zone redundant?**
 
@@ -215,13 +215,13 @@ To disable zone-redundancy for a single database or an elastic pool, you can use
 # [PowerShell](#tab/powershell)
 
 ```powershell
-set-azsqlDatabase -ResourceGroupName "<Resource-Group-Name>" -DatabaseName "<Database-Name>" -ServerName "<Server-Name>" -ZoneRedundant:$false 
+set-azsqlDatabase -ResourceGroupName "<Resource-Group-Name>" -DatabaseName "<Server-Name>" -ServerName "<Server-Name>" -ZoneRedundant:$false 
 ```
 
 # [CLI](#tab/cli)
 
 ```azurecli
-az sql db update --resource-group "RSETLEM-AzureSQLDB" --server "rs-az-testserver1" --name "TestDB1" --zone-redundant false
+az sql db update --resource-group "<Resource-Group-Name>" --server "<Server-Name>" --name "<Server-Name>" --zone-redundant false
 ```
 
 # [ARM](#tab/arm)
@@ -236,7 +236,7 @@ See [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/datab
 
 1. Go to the  [Azure portal](https://portal.azure.com) to find and select the elastic pool that you no longer want to be zone-redundant.
 
-1. Select **Settings**, and then select **Configure**. 
+1. Under **Settings**, select **Compute + Storage**.
 
 1. Select **No** for **Would you like to make this elastic pool zone redundant?**.
 
@@ -251,7 +251,7 @@ Set-AzSqlElasticpool -ResourceGroupName "<Resource-Group-Name>"  -ServerName "<S
 # [CLI](#tab/cli)
 
 ```azurecli
-az sql elastic-pool update --resource-group "RSETLEM-AzureSQLDB" --server "rs-az-testserver1" --name "testep10" --zone-redundant false
+az sql elastic-pool update --resource-group "<Resource-Group-Name>" --server "<Server-Name>" --name "<Server-Name>" --zone-redundant false
 ```
 
 
