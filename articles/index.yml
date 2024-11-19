@@ -842,7 +842,7 @@ productDirectory:
       url: /azure-stack/
     # Card
     - title: Azure Local
-      summary: Operate infrastructure acros distributed locations enabled by Azure Arc
+      summary: Operate infrastructure across distributed locations enabled by Azure Arc
       imageSrc: ./media/index/azure-local.svg
       azureCategories:
         - hybrid
