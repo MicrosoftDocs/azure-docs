@@ -146,6 +146,8 @@
             href: sessions-tutorial-llamaindex.md
           - name: Semantic Kernel
             href: sessions-tutorial-semantic-kernel.md
+          - name: JavaScript Code Interpreter (preview)
+            href: sessions-tutorial-nodejs.md
     - name: Event-driven processing
       items:
         - name: With a job
