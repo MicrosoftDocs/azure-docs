@@ -273,7 +273,7 @@
           href: howto-use-mde-runtime-protection.md
         - name: Configure Network Access Control Lists for SSH Access on Management VPN
           href: howto-configure-acls-for-ssh-management-on-access-vpn.md
-        - name: Enable/Disable Trivy Vulnerability Scanning
+        - name: Enable/Disable Vulnerability Scanning
           href: howto-enable-disable-vulnerability-scanning.md
         - name: Service Principal Best Practices
           href: howto-service-principal.md
