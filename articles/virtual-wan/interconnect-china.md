@@ -15,7 +15,7 @@ When looking at common automotive, manufacturing, logistics industries, or other
 
 In most of the cases, customers are struggling with high latencies, low bandwidth, unstable connection, and high costs connecting to outside of China (for example, Europe or the United States).
 
-A reason for these struggles is the "Great Firewall of China", which protects the Chinese part of the Internet and filters traffic to China. Nearly all traffic running from People's Republic of China to outside of China, except the special administration zones like Hong Kong and Macau, passes the Great Firewall. The traffic running through Hong Kong and Macau doesn't hit the Great Firewall in full force, it's handled by a subset of the Great Firewall.
+A reason for these struggles is the "Great Firewall of China", which protects the Chinese part of the Internet and filters traffic to China. Nearly all traffic running from People's Republic of China to outside of China, except the special administration zones like Hong Kong SAR and Macao SAR, passes the Great Firewall. The traffic running through Hong Kong SAR and Macao SAR doesn't hit the Great Firewall in full force, it's handled by a subset of the Great Firewall.
 
 :::image type="content" source="./media/interconnect-china/provider.png" alt-text="Diagram shows provider interconnect.":::
 
