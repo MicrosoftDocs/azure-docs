@@ -72,21 +72,21 @@ For a general idea of what's required, such as supported operating systems, virt
    |--|--|
    | Generate a registration key for the host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
    | Create and add session hosts by using the Azure portal (Azure and Azure Extended Zones) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
-   | Create and add session hosts by using the Azure portal (Azure Local) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Azure Local VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
+   | Create and add session hosts by using the Azure portal (Azure Local) | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
 
 - Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when you're creating and adding session hosts by using the Azure portal. [PowerShell DSC](/powershell/dsc/overview) requires it.
 
 - To add session hosts on Azure Local, you also need:
 
-  - An [Azure Local cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Local clusters need to be running a minimum of version 23H2. For more information, see [About Azure Local, version 23H2 deployment](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
+  - An [Azure Local cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Local clusters need to be running a minimum of version 23H2. For more information, see [About Azure Stack HCI, version 23H2 deployment](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
 
   - A stable connection to Azure from your on-premises network.
 
   - At least one Windows OS image available on the cluster. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in an Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
-  - The [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) on Azure Local VMs created outside the Azure Virtual Desktop service, such as with an automated pipeline. The virtual machines use the agent to communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
+  - The [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) on Azure Local machines created outside the Azure Virtual Desktop service, such as with an automated pipeline. The virtual machines use the agent to communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
 
-  - A logical network that you created on your Azure Local cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Local](/azure-stack/hci/manage/create-logical-networks).
+  - A logical network that you created on your Azure Local instance. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Local](/azure-stack/hci/manage/create-logical-networks).
 
 - To deploy session hosts to [Azure Extended Zones](/azure/virtual-desktop/azure-extended-zones), you also need:
 
@@ -260,8 +260,8 @@ Here's how to create session hosts and register them to a host pool by using the
       |--|--|
       | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
-      | **Virtual machine type** | Select **Azure Local virtual machine**. |
-      | **Custom location** | In the dropdown list, select the Azure Local cluster where you want to deploy your session hosts. |
+      | **Virtual machine type** | Select **Azure Local**. |
+      | **Custom location** | In the dropdown list, select the Azure Local instance where you want to deploy your session hosts. |
       | **Images** | Select the OS image that you want to use from the list, or select **Manage VM images** to manage the images available on the cluster that you selected. |
       | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can add more later. |
       | **Virtual processor count** | Enter the number of virtual processors that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
