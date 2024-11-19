@@ -212,7 +212,7 @@ Here's version of the `.runsettings` file with all the available options:
 
 ```
 
-## Options in `.runsettings` file
+## Config options in `.runsettings` file
 
 * **`serviceAuthType`**:
     - **Description**: This setting allows you to choose the authentication method you want to use for your test run. 
