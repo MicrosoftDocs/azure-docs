@@ -846,7 +846,7 @@ productDirectory:
       imageSrc: ./media/index/azure-local.svg
       azureCategories:
         - hybrid
-      url: /azure-local/
+      url: /azure/azure-local/
     # Card
     - title: Azure Stack Hub
       summary: Azure Stack Hub is sold as an integrated hardware system, with software pre-installed on validated hardware
