@@ -17,17 +17,16 @@ This article provides an overview of DNS security policy. Also see the following
 
 > [!NOTE]
 > DNS security policy is currently in PREVIEW.<br> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.<br>
+> Some [Requirements and restrictions](#requirements-and-restrictions) apply to DNS security policy during preview.
  
 ## What DNS security policy?
 
-DNS security policy offers the ability to filter and log DNS queries at the virtual network (VNet) level. With DNS security policy you can:
+DNS security policy offers the ability to filter and log DNS queries at the virtual network (VNet) level. Policy applies to both public and private DNS traffic within a VNet. DNS logs can be sent to a storage account, log analytics workspace, or event hubs. You can choose to allow, alert, or block DNS queries.
+
+With DNS security policy you can:
 - Create rules to protect against DNS-based attacks by blocking name resolution of known or malicious domains. 
 - Save and view detailed DNS logs to gain inside into your DNS traffic.
-
-DNS security policy applies to both public and private DNS traffic within a VNet.
-
-DNS logs can be sent to a storage account, log analytics workspace, or event hubs. You can choose to allow, alert, or block DNS queries.
 
 A DNS security policy has the following associated elements and properties:
 - **[Location](#location)**: The Azure region where the security policy is created and deployed.
@@ -35,11 +34,11 @@ A DNS security policy has the following associated elements and properties:
 - **[Virtual network links](#virtual-network-links)**: A link that associates the security policy to a VNet. 
 - **[DNS domain lists](#dns-domain-lists)**: Location-based lists of DNS domains.
 
-DNS Security Policy can be configured using Azure PowerShell or the Azure portal.
+DNS security policy can be configured using Azure PowerShell or the Azure portal.
 
 ## Location
 
-A security policy can only apply to VNets in the same region. You can create any number of security policies in the same region. In the following example, two policies are created in each of two different regions (East US and Central US). 
+A security policy can only apply to VNets in the same region. You can create up to 10 security policies per region during preview. In the following example, two policies are created in each of two different regions (East US and Central US). 
 
 ![Screenshot of the list of DNS security policies.](./media/dns-security-policy/policy-list.png)
 
