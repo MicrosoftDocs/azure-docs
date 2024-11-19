@@ -46,7 +46,7 @@ A security policy can only apply to VNets in the same region. You can create any
 
 ## DNS traffic rules
 
-DNS traffic rules determine the action that is taken for a DNS query. Rules can be enabled or disabled.
+DNS traffic rules determine the action that is taken for a DNS query.
 
 To display DNS traffic rules in the Azure portal, select a DNS security policy and then under **Settings**, select **DNS Traffic Rules**. See the following example:
 
@@ -59,28 +59,37 @@ To display DNS traffic rules in the Azure portal, select a DNS security policy a
 - During preview, up to 10 traffic rules are allowed per security policy. This limit will be increased to 100 for general availability.
 - Multiple **DNS Domain Lists** are allowed per rule. You must have at least one DNS domain list. 
 - Each rule is associated with one of three **Traffic Actions**: **Allow**, **Block**, or **Alert**.
-    * Allow: Permit the query to the associated domain lists and log the query.
-    * Block: Block the query to the associated domain lists and log the block action.
-    * Alert: Permit the query to the associated domain lists and log an alert.
+    * **Allow**: Permit the query to the associated domain lists and log the query.
+    * **Block**: Block the query to the associated domain lists and log the block action.
+    * **Alert**: Permit the query to the associated domain lists and log an alert.
 - Rules can be individually **Enabled** or **Disabled**.
 
 ## Virtual network links
 
-DNS security policies only apply to VNets that are linked to the security policy. You can link a single security policy to multiple VNets, however a single VNet can only be linked to one DNS security policy. See the following example.
+DNS security policies only apply to VNets that are linked to the security policy. You can link a single security policy to multiple VNets, however a single VNet can only be linked to one DNS security policy. 
+
+The following example shows a DNS security policy linked to two VNets (**myeastvnet-40**, **myeastvnet-50**):
 
 [  ![Screenshot of the list of virtual network links.](./media/dns-security-policy/virtual-network-links.png) ](./media/dns-security-policy/virtual-network-links.png#lightbox)
 
-You can only link VNets that are in the same region as the security policy. When you link a VNet to a DNS security policy using a virtual network link, the DNS security policy applies to all resources inside the VNet.
+- You can only link VNets that are in the same region as the security policy. 
+- When you link a VNet to a DNS security policy using a virtual network link, the DNS security policy applies to all resources inside the VNet.
 
 ## DNS domain lists
 
-DNS domain lists are lists of DNS domains that you associate to traffic rules. Select **DNS Domain Lists** under **Settings** for a DNS security policy to view the current domain lists associated with the policy. See the following example:
+DNS domain lists are lists of DNS domains that you associate to traffic rules. Select **DNS Domain Lists** under **Settings** for a DNS security policy to view the current domain lists associated with the policy. 
+
+The following example shows the DNS domain lists that are associated with the DNS security policy **myeast-secpol**:
 
 [  ![Screenshot of the list of DNS domain lists.](./media/dns-security-policy/domain-list.png) ](./media/dns-security-policy/domain-list.png#lightbox)
 
-You can associate a domain list to multiple DNS traffic rules in different security policies. 
+You can associate a domain list to multiple DNS traffic rules in different security policies. A security policy must contain at least one domain list.
+
+The following is an example of a DNS domain list (**blocklist-1**) that contains two domains (**malicious.contoso.com**, **exploit.adatum.com**):
 
 ![Screenshot of domains inside a domain list.](./media/dns-security-policy/domain-list-detailed.png)
+
+- A DNS domain list must contain at least one domain. Wildcard domains are allowed.
 
 > [!IMPORTANT]
 > Be careful when creating wildcard domain lists. For example, if you create a domain list that applies to all domains (by entering `.` as the DNS domain) and then configure a DNS traffic rule to block queries to this domain list, you can prevent required services from working.
