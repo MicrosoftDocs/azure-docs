@@ -494,6 +494,11 @@
             "source_path_from_root": "/articles/virtual-desktop/azure-stack-hci-overview.md",
             "redirect_url": "/azure/virtual-desktop/azure-local-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-session-host-update.md",
+            "redirect_url": "/azure/virtual-desktop/troubleshoot-session-host-configuration-update",
+            "redirect_document_id": true
         }
     ]
 }

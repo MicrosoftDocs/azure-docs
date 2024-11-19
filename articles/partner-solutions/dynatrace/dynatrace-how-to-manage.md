@@ -3,7 +3,7 @@ title: Manage your Azure Native Dynatrace Service integration
 description: This article describes how to manage Dynatrace on the Azure portal. 
 
 ms.topic: conceptual
-ms.date: 08/28/2024
+ms.date: 11/07/2024
 
 ---
 
@@ -29,7 +29,7 @@ The details include:
 
 At the bottom, you see two tabs:
 
-- **Get started tab** also provides links to Dynatrace dashboards, logs and Smartscape Topology.
+- **Get started tab** also provides links to Dynatrace dashboards, logs, and Smartscape Topology.
 - **Monitoring tab** provides a summary of the resources sending logs to Dynatrace.
 
 If you select the **Monitoring** pane, you see a table with information about the Azure resources sending logs to Dynatrace.
@@ -62,33 +62,9 @@ The column **Logs to Dynatrace** indicates whether the resource is sending logs 
 
 - _Resource doesn't support sending logs_ - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 - _Limit of five diagnostic settings reached_ - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/cli/azure/monitor/diagnostic-settings).
-- _Error_ - The resource is configured to send logs to Dynatrace, but is blocked by an error.
+- _Error_ - The resource is configured to send logs to Dynatrace, but is blocked due to an error.
 - _Logs not configured_ - Only Azure resources that have the appropriate resource tags are configured to send logs to Dynatrace.
 - _Agent not configured_ - Virtual machines without the Dynatrace OneAgent installed don't emit logs to Dynatrace.
-
-## Use one Dynatrace resource with multiple subscriptions
-
-You can now monitor all your subscriptions through a single Dynatrace resource using **Monitored Subscriptions**. Your experience is simplified because you don't have to set up a Dynatrace resource in every subscription that you intend to monitor. You can monitor multiple subscriptions by linking them to a single Dynatrace resource that is tied to a Dynatrace environment. This provides a single pane view for all resources across multiple subscriptions.
-
-To manage multiple subscriptions that you want to monitor, select **Monitored Subscriptions** in the **Dynatrace environment configurations** section of the Resource menu.
-
-:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-monitored-subscriptions.png" alt-text="Screenshot showing Monitored Subscriptions selected in the Resource menu.":::
-
-From **Monitored Subscriptions** in the Resource menu, select **Add Subscriptions**. The **Add Subscriptions** experience that opens and shows the subscriptions you have *Owner* role assigned to and any Dynatrace resource created in those subscriptions that is already linked to the same Dynatrace environment as the current resource.
-
-If the subscription you want to monitor has a resource already linked to the same Dynatrace org, we recommend that you delete the Dynatrace resources to avoid shipping duplicate data and incurring double the charges.
-
-Select the subscriptions you want to monitor through the Dynatrace resource and select **Add**.
-
-:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-add-subscription.png" alt-text="Screenshot showing subscriptions to add.":::
-
-If the list doesn't get updated automatically, select **Refresh** to view the subscriptions and their monitoring status. You might see an intermediate status of *In Progress* while a subscription gets added. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
-
-:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-monitored-subscriptions-list.png" alt-text="Screenshot showing statuses of monitored subscriptions.":::
-
-The set of tag rules for metrics and logs defined for the Dynatrace resource applies to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the Dynatrace resource.
-
-If you have existing Dynatrace resources that are linked to the account for monitoring, you can end up with duplication of logs that can result in added charges. Ensure you delete redundant Dynatrace resources that are already linked to the account. You can view the list of connected resources and delete the redundant ones. We recommend consolidating subscriptions into the same Dynatrace resource where possible.
 
 ## Monitor virtual machines using Dynatrace OneAgent
 
@@ -98,11 +74,11 @@ For each virtual machine, the following info is displayed:
 
 | Column     | Description   |
 |------------|------------|
-| **Name** | Virtual machine name. |
-| **Status** | Indicates whether the virtual machine is stopped or running. Dynatrace OneAgent can only be installed on virtual machines that are running. If the virtual machine is stopped, installing the Dynatrace OneAgent will be disabled. |
+| **Name** | The name of the virtual machine. |
+| **Status** | Indicates whether the virtual machine is stopped or running. Dynatrace OneAgent can only be installed on virtual machines that are running. If the virtual machine is stopped, installing the Dynatrace OneAgent is disabled. |
 | **OneAgent status** | Whether the Dynatrace OneAgent is running on the virtual machine. |
 | **OneAgent version** | The Dynatrace OneAgent version number. |
-| **Auto-update** | Whether auto-update has been enabled for the OneAgent. |
+| **Auto-update** | Whether autoupdate is enabled for the OneAgent. |
 | **Log monitoring** | Whether log monitoring option was selected when OneAgent was installed. |
 | **Monitoring mode** | Whether the Dynatrace OneAgent is monitoring hosts in [full-stack monitoring mode or infrastructure monitoring mode](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring). |
 
@@ -137,7 +113,7 @@ If you would like to reconfigure single sign-on, select **Single sign-on** in th
 
 If single sign-on was already configured, you can disable it.
 
-To establish single sign-on or change the application, select **Enable single sign-on through Microsoft Entra ID**. The portal retrieves  Dynatrace application from Microsoft Entra ID. The app comes from the enterprise app name selected during the [pre-configuration steps](dynatrace-how-to-configure-prereqs.md).
+To establish single sign-on or change the application, select **Enable single sign-on through Microsoft Entra ID**. The portal retrieves  Dynatrace application from Microsoft Entra ID. The app comes from the enterprise app name selected during the [preconfiguration steps](dynatrace-how-to-configure-prereqs.md).
 
 ## Delete Dynatrace resource
 

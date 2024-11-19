@@ -1683,6 +1683,15 @@ groups:
     title: Service Connector
   - id: manual
     title: Manual
+# Owner: franlanglois
+- id: redis-type
+  title: Redis version
+  prompt: Choose the version of Azure Redis you are using
+  pivots:
+  - id: azure-managed-redis
+    title: Azure Managed Redis
+  - id: azure-cache-redis
+    title: Azure Cache for Redis
 # Owner: rosemalcolm
 - id: ade-extensibility-iac-framework
   title: IaC frameworks
@@ -1712,3 +1721,14 @@ groups:
     title: Interactive
   - id: terraform
     title: Terraform
+# Owner: jodowns
+- id: app-service-sku
+  title: App Service tier
+  prompt: Choose an App Service tier
+  pivots:
+  - id: free-shared-basic
+    title: Free, Shared, Basic
+  - id: premium
+    title: Premium v2 and Premium v3
+  - id: isolated
+    title: Isolated v2 (App Service Environment)

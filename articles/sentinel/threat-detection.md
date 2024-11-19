@@ -5,7 +5,7 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/23/2024
+ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -86,7 +86,7 @@ While scheduled and NRT rules automatically create incidents for the alerts they
 > [!IMPORTANT]
 > Microsoft security rules are **not available** if you have:
 > - Enabled [**Microsoft Defender XDR incident integration**](microsoft-365-defender-sentinel-integration.md), or 
-> - Onboarded Microsoft Sentinel to the [**unified security operations platform**](microsoft-sentinel-defender-portal.md).
+> - Onboarded Microsoft Sentinel to the [**Defender portal**](microsoft-sentinel-defender-portal.md).
 >
 > In these scenarios, Microsoft Defender XDR creates the incidents instead.
 >
@@ -109,7 +109,7 @@ The Fusion engine can also correlate alerts produced by [scheduled analytics rul
 > [!IMPORTANT]
 > The *Advanced multistage attack detection* rule type is **not available** if you have:
 > - Enabled [**Microsoft Defender XDR incident integration**](microsoft-365-defender-sentinel-integration.md), or 
-> - Onboarded Microsoft Sentinel to the [**unified security operations platform**](microsoft-sentinel-defender-portal.md).
+> - Onboarded Microsoft Sentinel to the [**Defender portal**](microsoft-sentinel-defender-portal.md).
 >
 > In these scenarios, Microsoft Defender XDR creates the incidents instead.
 >

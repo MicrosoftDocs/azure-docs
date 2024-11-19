@@ -60,7 +60,7 @@ sections:
           Data Box Disk is supported for all regions within US, Canada, EU, UK, Australia, Singapore, India, China, Hong Kong Special Administrative Region, Japan, Korea, and South Africa. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds aren't supported.
 
       - question: |
-          How can I import source data present at my location in one country/region to an Azure region in a different country?
+          How can I import source data present at my location in one country/region to an Azure region in a different country/region?
         answer: |
           Data Box Disk supports data ingestion only within the same country/region as their destination and won't cross any international borders. The only exception is for orders in the European Union (EU), where Data Box Disks can ship to and from any EU country or region.
           
@@ -92,12 +92,12 @@ sections:
       - question: |
           Does my Data Box Disk region have to be in the same Azure region as my destination storage account?
         answer: |
-          No. The Data Box Disk resource doesn't need to be the same as the storage account region where you want to transfer data. You can choose a storage account in any region within the country or commerce boundary selected during the order. The Data Box Disk region is only used to deploy the resource during order creation. This is fixed for each country or commerce boundary and can't be changed.
+          No. The Data Box Disk resource doesn't need to be the same as the storage account region where you want to transfer data. You can choose a storage account in any region within the country/region or commerce boundary selected during the order. The Data Box Disk region is only used to deploy the resource during order creation. This is fixed for each country/region or commerce boundary and can't be changed.
           
       - question: |
           How can I recover my data if an entire region fails?
         answer: |
-          In extreme circumstances where a region is lost because of a significant disaster, Microsoft might initiate a regional failover. No action on your part is required in this case. Your order is fulfilled through the failover region if it is within the same country or commerce boundary. However, some Azure regions don't have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
+          In extreme circumstances where a region is lost because of a significant disaster, Microsoft might initiate a regional failover. No action on your part is required in this case. Your order is fulfilled through the failover region if it is within the same country/region or commerce boundary. However, some Azure regions don't have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
           
       - question: |
           Whom should I contact if I encounter any issues  with Data Box Disks?
