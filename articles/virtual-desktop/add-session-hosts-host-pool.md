@@ -78,11 +78,11 @@ For a general idea of what's required, such as supported operating systems, virt
 
 - To add session hosts on Azure Local, you also need:
 
-  - An [Azure Local cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Local clusters need to be running a minimum of version 23H2. For more information, see [About Azure Stack HCI, version 23H2 deployment](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
+  - An [Azure Local instance registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Local instances need to be running a minimum of version 23H2. For more information, see [About Azure Stack HCI, version 23H2 deployment](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
 
   - A stable connection to Azure from your on-premises network.
 
-  - At least one Windows OS image available on the cluster. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in an Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+  - At least one Windows OS image available on the instace. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in an Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
   - The [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) on Azure Local machines created outside the Azure Virtual Desktop service, such as with an automated pipeline. The virtual machines use the agent to communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
 
@@ -262,11 +262,11 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
       | **Virtual machine type** | Select **Azure Local**. |
       | **Custom location** | In the dropdown list, select the Azure Local instance where you want to deploy your session hosts. |
-      | **Images** | Select the OS image that you want to use from the list, or select **Manage VM images** to manage the images available on the cluster that you selected. |
+      | **Images** | Select the OS image that you want to use from the list, or select **Manage VM images** to manage the images available on the instance that you selected. |
       | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can add more later. |
-      | **Virtual processor count** | Enter the number of virtual processors that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | **Virtual processor count** | Enter the number of virtual processors that you want to assign to each session host. This value isn't validated against the resources available in the instance. |
       | **Memory type** | Select **Static** for a fixed memory allocation, or select **Dynamic** for a dynamic memory allocation. |
-      | **Memory (GB)** | Enter a number for the amount of memory, in gigabytes, that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | **Memory (GB)** | Enter a number for the amount of memory, in gigabytes, that you want to assign to each session host. This value isn't validated against the resources available in the instance. |
       | **Network and security** |  |
       | **Network dropdown** | Select an existing network to connect each session to. |
       | **Domain to join** |  |
