@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: java
 ms.topic: include
 ms.manager: lizross
-ms.date: 11/06/2024
+ms.date: 11/19/2024
 ---
 
 A backend app that uses Microsoft Entra must successfully authenticate and obtain a security token credential before connecting to IoT Hub. This token is passed to a IoT Hub connection method. For general information about setting up and using Microsoft Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/authenticate-authorize-azure-ad).
@@ -33,7 +33,7 @@ For more information about setting up a Microsoft Entra app, see [Quickstart: Re
 
 The easiest way to use Microsoft Entra to authenticate a backend application is to use [DefaultAzureCredential](/azure/developer/java/sdk/authentication/credential-chains#defaultazurecredential-overview), but it's recommended to use a different method in a production environment including a specific `TokenCredential` or pared-down `ChainedTokenCredential`.
 For more information about the pros and cons of using `DefaultAzureCredential`, see
-[ChainedTokenCredential](/azure/developer/java/sdk/authentication/credential-chains).
+[Credential chains in the Azure Identity client library for Java](/azure/developer/java/sdk/authentication/credential-chains).
 
 [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) supports different authentication mechanisms and determines the appropriate credential type based on the environment it's executing in. It attempts to use multiple credential types in an order until it finds a working credential.
 

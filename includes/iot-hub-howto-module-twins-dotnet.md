@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 10/02/2024
+ms.date: 11/19/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
@@ -24,6 +24,8 @@ This section describes how to use device application code to:
 * Retrieve a module identity twin and examine reported properties
 * Update reported module identity twin properties
 * Create a module desired property update callback handler
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 ### Required device NuGet package
 
@@ -136,9 +138,9 @@ The Azure IoT SDK for .NET provides working samples of device apps that handle m
 
 ## Create a backend application
 
-The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager) class exposes all methods required to create a backend application to interact with module identity twins from the service.
-
 This section describes how to read and update module identity fields.
+
+The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager) class exposes all methods required to create a backend application to interact with module identity twins from the service.
 
 ### Required service NuGet package
 
@@ -157,6 +159,8 @@ You can connect a backend service to IoT Hub using the following methods:
 
 * Shared access policy
 * Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 #### Connect using a shared access policy
 

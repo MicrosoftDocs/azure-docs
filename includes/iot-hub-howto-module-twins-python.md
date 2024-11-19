@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: include
-ms.date: 09/03/2024
+ms.date: 11/19/2024
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
@@ -46,6 +46,8 @@ This section describes how to use device application code to:
 * Retrieve a module identity twin and examine reported properties
 * Update module identity twin reported properties
 * Create a module identity twin desired property update callback handler
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 ### Import statements
 
@@ -168,6 +170,8 @@ You can connect a backend service to IoT Hub using the following methods:
 
 * Shared access policy
 * Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 #### Connect using a shared access policy
 

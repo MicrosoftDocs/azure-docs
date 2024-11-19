@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
 ms.manager: lizross
-ms.date: 11/06/2024
+ms.date: 11/19/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
@@ -76,3 +76,7 @@ In this example, the `TokenCredential` is passed to `RegistryManager.Create` to 
 string hostname = "xxxxxxxxxx.azure-devices.net";
 registryManager = RegistryManager.Create(hostname, tokenCredential);
 ```
+
+##### Code samples
+
+For working samples of Microsoft Entra service authentication, see [Role based authentication sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/how%20to%20guides/RoleBasedAuthenticationSample).

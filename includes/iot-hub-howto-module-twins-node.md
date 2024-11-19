@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: nodejs
 ms.topic: include
-ms.date: 10/02/2024
+ms.date: 11/19/2024
 ms.custom: mqtt, devx-track-js
 ---
 
@@ -26,6 +26,8 @@ This section describes how to use the [azure-iot-device](/javascript/api/azure-i
 * Retrieve a module identity twin and examine reported properties
 * Update module identity reported twin properties
 * Receive notice of module identity twin desired property changes
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 ### Install SDK packages
 
@@ -329,6 +331,8 @@ You can connect a backend service to IoT Hub using the following methods:
 
 * Shared access policy
 * Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 #### Connect using a shared access policy
 

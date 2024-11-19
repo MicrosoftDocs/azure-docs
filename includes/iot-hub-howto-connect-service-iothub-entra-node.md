@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: javascript
 ms.topic: include
 ms.manager: lizross
-ms.date: 11/06/2024
+ms.date: 11/19/2024
 ---
 
 A backend app that uses Microsoft Entra must successfully authenticate and obtain a security token credential before connecting to IoT Hub. This token is passed to a IoT Hub connection method. For general information about setting up and using Microsoft Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/authenticate-authorize-azure-ad).
@@ -88,3 +88,7 @@ const credential = new DefaultAzureCredential()
 hostName = 'MyAzureDomain.azure-devices.net';
 let registry = Registry.fromTokenCredential(hostName,credential);
 ```
+
+##### Code samples
+
+For working samples of Microsoft Entra service authentication, see [Azure identity examples](https://github.com/Azure/azure-sdk-for-js/blob/@azure/identity_4.5.0/sdk/identity/identity/samples/AzureIdentityExamples.md).

@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: python
 ms.topic: include
 ms.manager: lizross
-ms.date: 11/06/2024
+ms.date: 11/19/2024
 ---
 
 A backend app that uses Microsoft Entra must successfully authenticate and obtain a security token credential before connecting to IoT Hub. This token is passed to a IoT Hub connection method. For general information about setting up and using Microsoft Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/authenticate-authorize-azure-ad).
@@ -50,7 +50,7 @@ from azure.identity import DefaultAzureCredential
 credential = DefaultAzureCredential()
 ```
 
-The resulting [AccessToken](/python/api/azure-core/azure.core.credentials.accesstoken) can then be passed to `from_token_credential` to connect to IoT Hub method for any SDK client that accepts Microsoft Entra credentials:
+The resulting [AccessToken](/python/api/azure-core/azure.core.credentials.accesstoken) can then be passed to `from_token_credential` to connect to IoT Hub for any SDK client that accepts Microsoft Entra credentials:
 
 * [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-token-credential) to create a service connection to IoT Hub using an Entra token credential.
 * [IoTHubJobManager](/python/api/azure-iot-hub/azure.iot.hub.iothubjobmanager?#azure-iot-hub-iothubjobmanager-from-token-credential)
@@ -91,3 +91,7 @@ iothub_registry_manager = IoTHubRegistryManager.from_token_credential(
 url="MyAzureDomain.azure-devices.net",
 token_credential=credential)
 ```
+
+##### Code samples
+
+For working samples of Microsoft Entra service authentication, see [Microsoft Authentication Library (MSAL) for Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.22.0/README.md).
