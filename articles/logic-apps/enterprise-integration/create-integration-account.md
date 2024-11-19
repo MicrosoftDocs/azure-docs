@@ -8,7 +8,7 @@ ms.author: estfan
 ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 08/09/2024
+ms.date: 11/19/2024
 ---
 
 # Create and manage integration accounts for B2B workflows in Azure Logic Apps with the Enterprise Integration Pack
@@ -38,7 +38,7 @@ If you're new to creating B2B enterprise integration workflows in Azure Logic Ap
 
 * Whether you're working on a Consumption or Standard logic app workflow, your logic app resource must already exist if you need to link your integration account.
 
-  * For Consumption logic app resources, this link is required before you can use the artifacts from your integration account with your workflow. Although you can create your artifacts without this link, the link is required when you're ready to use these artifacts. To create an example Consumption logic app workflow, see [Quickstart: Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../quickstart-create-example-consumption-workflow.md).
+  * For Consumption logic app resources, this link is required before you can use the artifacts from your integration account with your workflow. Although you can create your artifacts without this link, the link is required when you're ready to use these artifacts. To create an example Consumption logic app workflow, see [Quickstart: Create an example Consumption logic app workflow in multitenant Azure Logic Apps](../quickstart-create-example-consumption-workflow.md).
 
   * For Standard logic app resources, this link might be required or optional, based on your scenario:
 
@@ -72,7 +72,7 @@ Your integration account uses an automatically created and enabled system-assign
 
 | Tier | Description |
 |------|-------------|
-| **Premium** (preview) | **Note:** This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). <br><br>For scenarios with the following criteria: <br><br>- Store and use unlimited artifacts, such as partners, agreements, schemas, maps, certificates, and so on. <br><br>- Bring and use your own storage, which contains the relevant runtime states for specific B2B actions and EDI standards. For example, these states include the MIC number for AS2 actions and the control numbers for X12 actions, if configured on your agreements. <br><br>To access this storage, your integration account uses its system-assigned managed identity, which is automatically created and enabled for your integration account. <br><br>You can also apply more governance and policies to data, such as customer-managed ("Bring Your Own") keys for data encryption. To store these keys, you'll need a key vault. <br><br>- Set up and use a key vault to store private certificates or customer-managed keys. To access these keys, your Premium integration account uses its system-assigned managed identity, not an Azure Logic Apps shared service principal. <br><br>- Set up a private endpoint that creates a secure connection between your Premium integration account and Azure services in an Azure virtual network. <br><br>Pricing follows [Standard integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Note**: During preview, your Azure bill uses the same meter name and ID as a Standard integration account, but changes when the Premium level becomes generally available. <br><br>**Limitations and known issues**: <br><br>- If you use a key vault to store private certificates, your integration account's managed identity might not work. For now, use the linked logic app's managed identity instead. <br><br>- Currently doesn't support the [Azure CLI for Azure Logic Apps](/cli/azure/service-page/logic%20apps). |
+| **Premium** | For scenarios with the following criteria: <br><br>- Store and use unlimited artifacts, such as partners, agreements, schemas, maps, certificates, and so on. <br><br>- Bring and use your own storage, which contains the relevant runtime states for specific B2B actions and EDI standards. For example, these states include the MIC number for AS2 actions and the control numbers for X12 actions, if configured on your agreements. <br><br>To access this storage, your integration account uses its system-assigned managed identity, which is automatically created and enabled for your integration account. <br><br>You can also apply more governance and policies to data, such as customer-managed ("Bring Your Own") keys for data encryption. To store these keys, you'll need a key vault. <br><br>- Set up and use a key vault to store private certificates or customer-managed keys. To access these keys, your Premium integration account uses its system-assigned managed identity, not an Azure Logic Apps shared service principal. <br><br>- Set up a private endpoint that creates a secure connection between your Premium integration account and Azure services in an Azure virtual network. <br><br>Pricing follows the [Premium integration account billing model](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Limitations and known issues**: <br><br>- If you use a key vault to store private certificates, your integration account's managed identity might not work. For now, use the linked logic app's managed identity instead. <br><br>- Currently doesn't support the [Azure CLI for Azure Logic Apps](/cli/azure/service-page/logic%20apps). |
 | **Standard** | For scenarios where you have more complex B2B relationships and increased numbers of entities that you must manage. <br><br>Supported by the Azure Logic Apps SLA. |
 | **Basic** | For scenarios where you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity. <br><br>Supported by the Azure Logic Apps SLA. |
 | **Free** | For exploratory scenarios, not production scenarios. This tier has limits on region availability, throughput, and usage. For example, the Free tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations) or [Azure Government](../../azure-government/documentation-government-welcome.md). <br><br>**Note**: Not supported by the Azure Logic Apps SLA. |
@@ -98,7 +98,7 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the [Azure resource group](../../azure-resource-manager/management/overview.md) to use for organizing related resources. For this example, create a new resource group named **FabrikamIntegration-RG**. |
    | **Integration account name** | Yes | <*integration-account-name*> | Your integration account's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`()`), and periods (`.`). This example uses **Fabrikam-Integration**. |
    | **Pricing Tier** | Yes | <*pricing-level*> | The pricing tier for the integration account, which you can change later. For this example, select **Free**. For more information, see the following documentation: <br><br>- [Logic Apps pricing model](../logic-apps-pricing.md#integration-accounts) <br>- [Logic Apps limits and configuration](../logic-apps-limits-and-config.md#integration-account-limits) <br>- [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Storage account** | Available only for the Premium (preview) integration account | None | The name for an existing [Azure storage account](../../storage/common/storage-account-create.md). For the example in this guide, this option doesn't apply. |
+   | **Storage account** | Available only for the Premium integration account | None | The name for an existing [Azure storage account](../../storage/common/storage-account-create.md). For the example in this guide, this option doesn't apply. |
    | **Region** | Yes | <*Azure-region*> | The Azure region where to store your integration account metadata. Either select the same location as your logic app resource, or create your logic apps in the same location as your integration account. For this example, use **West US**. |
    | **Enable log analytics** | No | Unselected | For this example, don't select this option. |
 
@@ -226,7 +226,7 @@ To create a secure connection between your Premium integration account and Azure
 
 Before you start, make sure that you have an [Azure virtual network](../../virtual-network/quick-create-portal.md) defined with the appropriate subnets and network security groups to manage and secure traffic.
 
-1. In the [Azure portal](https://portal.azure.com), in the search box, enter **private endpoint**,and then select **Private endpoints**.
+1. In the [Azure portal](https://portal.azure.com), in the search box, enter **private endpoint**, and then select **Private endpoints**.
 
 1. On the **Private endpoints** page, select **Create**.
 
@@ -250,7 +250,7 @@ Before you start, make sure that you have an [Azure virtual network](../../virtu
    | **Resource** | <*Premium-integration-account*> |
    | **Target sub-resource** | **integrationAccount** |
 
-1. On the **Virtual Network** tab, specify the virual network and subnet where to you want to create the endpoint:
+1. On the **Virtual Network** tab, specify the virtual network and subnet where to you want to create the endpoint:
 
    | Property | Value |
    |----------|-------|
@@ -268,7 +268,7 @@ Before you start, make sure that you have an [Azure virtual network](../../virtu
 
 1. When you're done, confirm all the provided information, and select **Create**.
 
-1. After you confirm that Azure created the private endpoint, check your connectivity and test your setup to make sure that the resources in your virtual network can securely connect to the your integration account through the private endpoint.
+1. After you confirm that Azure created the private endpoint, check your connectivity and test your setup to make sure that the resources in your virtual network can securely connect to your integration account through the private endpoint.
 
 ### View pending endpoint connections
 
