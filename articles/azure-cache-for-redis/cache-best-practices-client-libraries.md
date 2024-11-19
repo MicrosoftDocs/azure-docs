@@ -1,6 +1,5 @@
 ---
 title: Best practices using client libraries
-titleSuffix: Azure Cache for Redis
 description: Learn about client libraries for Azure Cache for Redis.
 
 
