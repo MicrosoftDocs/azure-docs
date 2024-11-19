@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/09/2024
+ms.date: 11/19/2024
 ms.author: jianleishen
 ---
 # Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -210,6 +210,7 @@ To copy data from PostgreSQL, the following properties are supported in the copy
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **PostgreSqlV2Source** | Yes |
 | query | Use the custom SQL query to read data. For example: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | No (if "tableName" in dataset is specified) |
+| queryTimeout | The wait time before terminating the attempt to execute a command and generating an error, default is 120 minutes. If parameter is set for this property, allowed values are timespan, such as "02:00:00" (120 minutes). For more information, see [CommandTimeout](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_CommandTimeout). | No |
 
 > [!NOTE]
 > Schema and table names are case-sensitive. Enclose them in `""` (double quotes) in the query.
@@ -236,7 +237,8 @@ To copy data from PostgreSQL, the following properties are supported in the copy
         "typeProperties": {
             "source": {
                 "type": "PostgreSqlV2Source",
-                "query": "SELECT * FROM \"MySchema\".\"MyTable\""
+                "query": "SELECT * FROM \"MySchema\".\"MyTable\"",
+                "queryTimeout": "00:10:00"
             },
             "sink": {
                 "type": "<sink type>"
