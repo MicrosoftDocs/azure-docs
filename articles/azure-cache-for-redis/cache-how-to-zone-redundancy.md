@@ -87,7 +87,7 @@ To create a cache, follow these steps:
     
     > [!IMPORTANT]
     > - Starting with 2024-11-01 API version, Automatic Zonal Allocation is chosen as default option for Premium, Standard caches. In rare cases, when sufficient zonal capacity is unavailable to at-least allocate two zones, and user does not pass **zonalAllocationPolicy** in the request, Azure will create a non-zonal cache which user can verify by checking the **zonalAllocationPolicy** property in the response.
-    >    - Hence it is recommended not to pass **zonalAllocationPolicy** in the request body while creating the cache as it will enable Azure to choose the best option among **Automatic**, **NoZones** for the cache based on the region's zonal supportability and capacity until and unless user explicitly wants to use a specific zonal allocation policy.
+    >    - Hence, it is recommended not to pass **zonalAllocationPolicy** in the request body while creating the cache as it will enable Azure to choose the best option among **Automatic**, **NoZones** for the cache based on the region's zonal supportability and capacity. Otherwise, users can pass **zonalAllocationPolicy** if they want to explicitly use a specific zonal allocation policy.
      
     > [!IMPORTANT]
     > Users can update their existing non-zonal or cache with manually selected zones to use Automatic Zonal Allocation by updating the cache with **zonalAllocationPolicy** set to **Automatic**. For more information regarding the update process, see [Migrate an Azure Cache for Redis instance to availability zone support](#can-i-update-my-existing-standard-or-premium-cache-to-use-zone-redundancy).
