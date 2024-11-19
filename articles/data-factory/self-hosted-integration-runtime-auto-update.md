@@ -44,7 +44,7 @@ The self-hosted integration runtime **Auto-update** page in the ADF portal shows
 
 The portal does not offer date selection. This means you can only select the time, while the date is determined by the backend system. Typically, the date will be set for a few days after the self-hosted integration runtime receives the auto-update notification, giving customers sufficient time to make their selection.
 
-:::image type="content" source="media/self-hosted-integration-runtime-auto-update/self-hosted-integration-runtime-version-portal-auto-update-date.png" alt-text="Enable auto-update":::
+:::image type="content" source="media/self-hosted-integration-runtime-auto-update/self-hosted-integration-runtime-version-portal-auto-update-date.png" alt-text="Auto-update date in UI":::
 
 If you have multiple nodes, and for some reasons that some of them aren't autoupdated successfully. Then these nodes roll back to the version, which was the same across all nodes before the autoupdate.
 
