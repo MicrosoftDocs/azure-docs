@@ -13,7 +13,7 @@ ms.subservice: manage-account
 
 In some cases, it may be necessary to process requests in a region different from your Azure Maps Account's region due to local data residency laws. When this happens, you can grant Azure Maps consent to process your data in other specified regions. For more information, see [Consent management].
 
-This article guides you on configuring global data processing settings to comply with data residency laws using multiple approaches including the [Azure Portal](#configure-global-data-processing-in-the-azure-portal), [REST APIs](#configure-global-data-processing-using-rest-api) or an [ARM deployment template](#configure-global-data-processing-using-arm-deployment-template). This allows Azure Maps to process address requests within the specified country's region, regardless of your Azure Maps Account's region.
+This article guides you on configuring global data processing settings to comply with data residency laws using multiple approaches including the [Azure Portal](#configure-global-data-processing-in-the-azure-portal), [REST APIs](#configure-global-data-processing-using-rest-api) or an [ARM deployment template](#configure-global-data-processing-using-an-arm-deployment-template). This allows Azure Maps to process address requests within the specified country's region, regardless of your Azure Maps Account's region.
 
 > [!IMPORTANT]
 > If your scenarios don't involve South Korea data, there is no need to enable cross-region processing. This requirement is specific to South Korea due to its data residency laws.
@@ -58,8 +58,12 @@ https://management.azure.com/subscriptions/<subscription-key>/resourceGroups/<re
 
 **Header**
 
-- Content-Type: application/json
-- Authorization: Bearer <access-token> 
+Be sure to include a correct [access-token].
+
+```html
+Content-Type: application/json
+Authorization: Bearer <access-token> 
+```
 
 **Body**
 
@@ -114,6 +118,7 @@ Azure Maps is a global service that allows specifying a geographic scope, which 
 > [!div class="nextstepaction"]
 > [Azure Maps service geographic scope]
 
+[access-token]: azure-maps-authentication.md#microsoft-entra-authentication
 [Accounts - Update]: /rest/api/maps-management/accounts/update
 [Azure Maps Account Management REST APIs]: /rest/api/maps-management/accounts
 [Azure portal]: https://ms.portal.azure.com
