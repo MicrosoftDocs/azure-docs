@@ -19,7 +19,7 @@ Azure Virtual Desktop service components, such as host pools, workspaces, and ap
 
 ## Benefits
 
-Using Azure Virtual Desktop on Azure Local, you can:
+Using Azure Virtual Desktop on , you can:
 
 - Improve performance for Azure Virtual Desktop users in areas with poor connectivity to the Azure public cloud by giving them session hosts closer to their location.
 
@@ -37,9 +37,9 @@ Using Azure Virtual Desktop on Azure Local, you can:
 
 ## Supported deployment configurations
 
-Your Azure Local clusters need to be running a minimum of [version 23H2](/azure-stack/hci/release-information) and [registered with Azure](/azure-stack/hci/deploy/register-with-azure).
+Your Azure Local instances need to be running a minimum of [version 23H2](/azure-stack/hci/release-information) and [registered with Azure](/azure-stack/hci/deploy/register-with-azure).
 
-Once your cluster is ready, you can use the following 64-bit operating system images for your session hosts that are in support:
+Once your instance is ready, you can use the following 64-bit operating system images for your session hosts that are in support:
 
 - Windows 11 Enterprise multi-session
 - Windows 11 Enterprise
