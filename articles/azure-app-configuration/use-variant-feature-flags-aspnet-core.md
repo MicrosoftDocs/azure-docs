@@ -17,6 +17,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
 ## Prerequisites
 
+* Ensure the [.NET CLI](dotnet/core/tools) is installed on your machine.
 * Follow the [Use variant feature flags](./use-variant-feature-flags.md) tutorial and create the variant feature flag named *Greeting*.
 
 ## Create an ASP.NET Core web app
