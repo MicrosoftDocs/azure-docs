@@ -24,13 +24,13 @@ This article provides a detailed overview of the enhancements introduced in the 
 > *Released November 19th, 2024*
 
 This release introduces Apache Kafka support in Event Hubs emulator. 
-- Starting from this version, the producer and consumer APIs are compatible with the Event Hubs emulator.
+- The producer and consumer APIs are now compatible with the Event Hubs emulator.
 
 ## Previous releases
 
 ## ``1.2.4`` (July 1st,2024)
 
-This release provides enhanced connectivity fixes for Emulator. Refer for details:
+This release provides enhanced connectivity fixes for Emulator. 
  
   - When the emulator container and interacting application are running natively on local machine, use following connection string:
 
@@ -40,7 +40,7 @@ This release provides enhanced connectivity fixes for Emulator. Refer for detail
 
   `"Endpoint=sb://192.168.y.z;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"`
 
-  - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes assumes the name of Emulator container is "eventhubs-emulator":
+  - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes the name of Emulator container is "eventhubs-emulator":
 
   `Endpoint=sb://eventhubs-emulator;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"`
 
