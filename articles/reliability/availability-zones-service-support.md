@@ -35,7 +35,7 @@ The following tables provide a summary of the current offering of zonal, zone-re
 >To learn more about availability zones support and available services in your region, contact your Microsoft sales or customer representative.
 
 >[!IMPORTANT]
->Some services may have limited support for availability zones. For example, some may only support availability zones for certain tiers, regions, or SKUs. To get more information on service limitations for availability zone support, select that service listed in the [Azure services with availability zone support](#azure-services-with-availability-zone-support) section of this document.
+>Some services may have limited support for availability zones. For example, some may only support availability zones for certain tiers, regions, or SKUs. To get more information on service limitations for availability zone support, select that service in the table.
 
 ##### Legend
 ![Legend containing icons and meaning of each with respect to service category and regional availability of each service in the table.](media/legend.png) 

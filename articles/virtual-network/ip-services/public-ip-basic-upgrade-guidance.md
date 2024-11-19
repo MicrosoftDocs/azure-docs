@@ -55,7 +55,7 @@ This section lists out some key differences between these two SKUs.
 |---------|---------|---------|
 | **Allocation method** | Static. | For IPv4: Dynamic or Static; For IPv6: Dynamic. |
 | **Security** | Secure by default model and be closed to inbound traffic when used as a frontend. Allow traffic with [network security group](../network-security-groups-overview.md#network-security-groups) is required (for example, on the NIC of a virtual machine with a Standard SKU public IP attached). | Open by default. Network security groups are recommended but optional for restricting inbound or outbound traffic. |
-| **[Availability zones](../../availability-zones/az-overview.md)** | Supported. Standard IPs can be nonzonal, zonal, or zone-redundant. Zone redundant IPs can only be created in [regions where three availability zones](../reliability/availability-zones-region-support.md) are live. IPs created before availability zones aren't zone redundant. | Not supported |
+| **[Availability zones](../../reliability/availability-zones-overview.md)** | Supported. Standard IPs can be nonzonal, zonal, or zone-redundant. Zone redundant IPs can only be created in [regions where three availability zones](../../reliability/availability-zones-region-support.md) are live. IPs created before availability zones aren't zone redundant. | Not supported |
 | **[Routing preference](routing-preference-overview.md)** | Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported. |
 | **Global tier** | Supported via [cross-region load balancers](../../load-balancer/cross-region-overview.md)| Not supported |
 | **[Standard Load Balancer Support](../../load-balancer/skus.md)** | Both IPv4 and IPv6 are supported | Not supported |

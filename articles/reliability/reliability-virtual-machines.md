@@ -29,7 +29,7 @@ To learn more about availability zone readiness options, see:
  
 ### Prerequisites
 
-- Your virtual machine SKUs must be available across the zones in for your region. To review which regions support availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+- Your virtual machine SKUs must be available across the zones in for your region. To review which regions support availability zones, see the [list of supported regions](availability-zones-region-support.md).
 
 - Your VM SKUs must be available across the zones in your region. To check for VM SKU availability, use one of the following methods:
 

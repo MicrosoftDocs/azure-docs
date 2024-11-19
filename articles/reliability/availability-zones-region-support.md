@@ -1,6 +1,6 @@
 ---
 title: Azure regions with availability zone support
-description: Learn which services offer availability zone support and understand resiliency across all Azure services.
+description: Learn which regions offer availability zone support and understand resiliency across all Azure services.
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
