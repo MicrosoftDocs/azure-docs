@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: mvc, devdivchpfy22
 ms.topic: tutorial
-ms.date: 07/30/2024
+ms.date: 11/18/2024
 ms.author: danlep
 ---
 
@@ -14,9 +14,9 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-In this tutorial, you learn about configuring common [policies](api-management-howto-policies.md) to transform your API. You might want to transform your API so it doesn't reveal private backend info. Transforming an API can help you hide the technology stack info that's running in the backend, or hide the original URLs that appear in the body of the API's HTTP response.
+In this tutorial, you learn about configuring [policies](api-management-howto-policies.md) to protect or transform your API. For example, protect your backend API by configuring a rate limit policy, so that the API isn't overused by developers. You might want to transform your API so it doesn't reveal private backend info or other potentially sensitive information, or to set a custom header.
 
-This tutorial also explains how to protect your backend API by configuring a rate limit policy, so that the API isn't overused by developers. For more policy options, see [API Management policies](api-management-policies.md).
+For more policy options, see [API Management policies](api-management-policies.md).
 
 > [!NOTE]
 > By default, API Management configures a global [`forward-request`](forward-request-policy.md) policy. The `forward-request` policy is needed for the gateway to complete a request to a backend service.
@@ -24,10 +24,8 @@ This tutorial also explains how to protect your backend API by configuring a rat
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
->
-> * Transform an API to strip response headers
-> * Replace original URLs in the body of the API response with API Management gateway URLs
 > * Protect an API by adding a rate limit policy (throttling)
+> * Transform an API to set a custom response header
 > * Test the transformations
 
 :::image type="content" source="media/transform-api/api-management-console-new.png" lightbox="media/transform-api/api-management-console-new.png" alt-text="Screenshot of API Management policies in the portal.":::
@@ -40,6 +38,32 @@ In this tutorial, you learn how to:
 * Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+
+## Protect an API by adding rate limit policy (throttling)
+
+This section shows how to add protection to your backend API by configuring rate limits, so that the API isn't overused by developers. In this example, the limit is set to three calls per 15 seconds for each subscription ID. After 15 seconds, a developer can retry calling an API.
+
+1. Select **Petstore API** > **Design** > **All operations**.
+1. In the **Inbound processing** section, select the code editor (**</>**) icon.
+
+   :::image type="content" source="media/transform-api/inbound-policy-code.png" lightbox="media/transform-api/inbound-policy-code.png" alt-text="Screenshot of navigating to inbound policy code editor in the portal.":::
+
+1. Position the cursor inside the **`<inbound>`** element on a blank line. Then, select **Show snippets** at the top-right corner of the screen.
+
+    :::image type="content" source="media/transform-api/show-snippets-2.png" alt-text="Screenshot of selecting show snippets in inbound policy editor in the portal.":::
+
+1. In the right window, under **Access restriction policies**, select **Limit call rate per key**. 
+
+    The **`<rate-limit-by-key />`** element is added at the cursor. 
+
+   :::image type="content" source="media/transform-api/limit-call-rate-per-key.png" alt-text="Screenshot of inserting limit call rate per key policy in the portal.":::
+
+1. Modify your **`<rate-limit-by-key />`** code in the  **`<inbound>`** element to the following code. Then select **Save**.
+
+    ```
+    <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
+    ```
+
 
 ## Transform an API to strip response headers
 
@@ -124,30 +148,7 @@ In this example, you use the policy code editor to add the policy XML snippet di
 
 1. Select **Save**.
 
-## Protect an API by adding rate limit policy (throttling)
 
-This section shows how to add protection to your backend API by configuring rate limits, so that the API isn't overused by developers. In this example, the limit is set to three calls per 15 seconds for each subscription ID. After 15 seconds, a developer can retry calling an API.
-
-1. Select **Demo Conference API** > **Design** > **All operations**.
-1. In the **Inbound processing** section, select the code editor (**</>**) icon.
-
-   :::image type="content" source="media/transform-api/inbound-policy-code.png" lightbox="media/transform-api/inbound-policy-code.png" alt-text="Screenshot of navigating to inbound policy code editor in the portal.":::
-
-1. Position the cursor inside the **`<inbound>`** element on a blank line. Then, select **Show snippets** at the top-right corner of the screen.
-
-    :::image type="content" source="media/transform-api/show-snippets-2.png" alt-text="Screenshot of selecting show snippets in inbound policy editor in the portal.":::
-
-1. In the right window, under **Access restriction policies**, select **Limit call rate per key**. 
-
-    The **`<rate-limit-by-key />`** element is added at the cursor. 
-
-   :::image type="content" source="media/transform-api/limit-call-rate-per-key.png" alt-text="Screenshot of inserting limit call rate per key policy in the portal.":::
-
-1. Modify your **`<rate-limit-by-key />`** code in the  **`<inbound>`** element to the following code. Then select **Save**.
-
-    ```
-    <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
-    ```
 
 ## Test the transformations
 
