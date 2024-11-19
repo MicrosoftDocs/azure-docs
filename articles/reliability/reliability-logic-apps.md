@@ -56,13 +56,9 @@ For production deployments with Logic Apps Standard, you should [enable zone red
 
 ## Transient faults 
 
-<<<<<<< HEAD
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
 For more information on how to change or disable the retry policy for your logic app, see [Handle errors and exceptions in Azure Logic Apps](/azure/logic-apps/error-exception-handling?tabs=standard).
-=======
-Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests.
->>>>>>> fdef5c4809096916da1cca37e3788aeb42093706
 
 Many triggers and actions automatically support *retry policies*, which automatically retry requests that fail due to transient faults. You can change or disable the default retry policy for your logic app. 
 
