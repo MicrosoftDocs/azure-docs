@@ -24,11 +24,14 @@ Microsoft Playwright Testing service enables you to:
 - Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
 - Simplify troubleshooting by publishing test results and artifacts to the service, making them accessible through the service portal.
 
-These two features of the service can be used independently of each other and each has its own [pricing plan](https://aka.ms/mpt/pricing). This means you can:
+These two features of the service can be used independently or together, and each has its own [pricing plan](https://aka.ms/mpt/pricing). You have the flexibility to:
 
-- Expedite test runs and streamline troubleshooting by running tests in cloud-hosted browsers and publishing results to the service.
+- Expedite test runs and streamline troubleshooting by using both features: running tests in cloud-hosted browsers and publishing results to the service.
 - Run tests only in cloud-hosted browsers to finish test runs faster.
 - Publish test results to the service while continuing to run tests locally for efficient troubleshooting.
+
+> [!NOTE]
+> This article focuses on how you can publish test results to the service without using cloud-hosted browsers. If you want to learn how to also accelerate your test runs, see [quickstart: run Playwright tests at scale](./quickstart-run-end-to-end-tests.md)
 
 ## Prerequisites
 
@@ -261,7 +264,7 @@ You've now prepared the configuration for publishing test results and artifacts 
 dotnet test --settings:.runsettings
 ```
 
-The settings for your test run are defined in `.runsettings` file. For more information, see [how to use service package options](./how-to-use-service-config-file.md#options-in-runsettings-file)
+The settings for your test run are defined in `.runsettings` file. For more information, see [how to use service package options](./how-to-use-service-config-file.md#config-options-in-runsettings-file)
 
 > [!NOTE]
 > For the Reporting feature of Microsoft Playwright Testing, you get charged based on the number test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with publishing single test result instead of your full test suite to avoid exhausting your free trial limits.
@@ -290,8 +293,17 @@ Workload updates are available. Run `dotnet workload list` for more information.
 
 You can now troubleshoot the failed test cases in the Playwright portal.
 
+::: zone pivot="playwright-test-runner"
+
 [!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results.md)]
 
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+[!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results-nunit.md)]
+
+::: zone-end
 
 > [!TIP]
 > You can also use Microsoft Playwright Testing service to run tests in parallel using cloud-hosted browsers. Both Reporting and cloud-hosted browsers are independent features and are billed separately. You can use either of these or both. For details, see [How to use service features](./how-to-use-service-features.md)
