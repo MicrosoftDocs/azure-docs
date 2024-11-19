@@ -37,7 +37,7 @@ Azure Storage supports three types of shared access signatures:
 
 ### User delegation SAS
 
-A user delegation SAS is secured with Microsoft Entra credentials and also by the permissions specified for the SAS. A user delegation SAS applies to Blob storage only.
+A user delegation SAS is secured with Microsoft Entra credentials and also by the permissions specified for the SAS. A User Delegation SAS is specific to Blob Storage and cannot be used with other Azure Storage services such as File Storage, Table Storage, or Queue Storage.
 
 For more information about the user delegation SAS, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
