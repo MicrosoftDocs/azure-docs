@@ -199,6 +199,7 @@ Currently the metadata caching preview is only available in the following Azure 
 - Canada Central
 - Canada East
 - Europe North
+- Europe West
 - France Central
 - Germany West Central
 - Japan East
@@ -216,6 +217,7 @@ Currently the metadata caching preview is only available in the following Azure 
 - Poland Central
 - Qatar Central
 - Spain Central
+- South Africa North
 - Sweden Central
 - Switzerland North
 - UAE North
