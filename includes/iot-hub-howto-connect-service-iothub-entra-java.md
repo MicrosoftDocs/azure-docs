@@ -13,7 +13,9 @@ ms.date: 11/06/2024
 
 A backend app that uses Microsoft Entra must successfully authenticate and obtain a security token credential before connecting to IoT Hub. This token is passed to a IoT Hub connection method. For general information about setting up and using Microsoft Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/authenticate-authorize-azure-ad).
 
-For an overview of Java SDK authentication, see [Getting started with user authentication on Azure](https://learn.microsoft.com/en-us/azure/developer/java/sdk/authentication/azure-hosted-apps).
+For an overview of Java SDK authentication, see [Getting started with user authentication on Azure](/azure/developer/java/sdk/authentication/azure-hosted-apps).
+
+For simplicity, this section focuses on describing authentication using client secret.
 
 ##### Configure Microsoft Entra app
 
@@ -29,13 +31,13 @@ For more information about setting up a Microsoft Entra app, see [Quickstart: Re
 
 ##### Authenticate using DefaultAzureCredential
 
-The easiest way to use Microsoft Entra to authenticate a backend application is to use [DefaultAzureCredential](/azure/developer/java/sdk/authentication/credential-chains#defaultazurecredential-overview), but it's recommended to use a different method in a production environment including a specific `TokenCredential` or pared-down `ChainedTokenCredential`. For simplicity, this section describes authentication using `DefaultAzureCredential` and Client secret.
+The easiest way to use Microsoft Entra to authenticate a backend application is to use [DefaultAzureCredential](/azure/developer/java/sdk/authentication/credential-chains#defaultazurecredential-overview), but it's recommended to use a different method in a production environment including a specific `TokenCredential` or pared-down `ChainedTokenCredential`.
 For more information about the pros and cons of using `DefaultAzureCredential`, see
-[ChainedTokenCredential](/java/sdk/authentication/credential-chains).
+[ChainedTokenCredential](/azure/developer/java/sdk/authentication/credential-chains).
 
 [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) supports different authentication mechanisms and determines the appropriate credential type based on the environment it's executing in. It attempts to use multiple credential types in an order until it finds a working credential.
 
-You can authenticate Microsoft Entra app credentials using [DefaultAzureCredentialBuilder](/java/api/com.azure.identity.defaultazurecredentialbuilder). Save connection parameters such as client secret tenantID, clientID, and client secret values as environmental varaibles. Once the `TokenCredential` is created, pass it to [ServiceClient](https://learn.microsoft.com/en-us/java/api/com.azure.core.annotation.serviceclient) or other builder as the 'credential' parameter.
+You can authenticate Microsoft Entra app credentials using [DefaultAzureCredentialBuilder](/java/api/com.azure.identity.defaultazurecredentialbuilder). Save connection parameters such as client secret tenantID, clientID, and client secret values as environmental varaibles. Once the `TokenCredential` is created, pass it to [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) or other builder as the 'credential' parameter.
 
 In this example, `DefaultAzureCredentialBuilder` will attempt to authenticate a connection from the list described in [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential). The result of a successful Microsoft Entra authentication is a security token credential that is passed to a constructor.
 
@@ -45,7 +47,7 @@ TokenCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().bui
 
 ##### Authenticate using ClientSecretCredentialBuilder
 
-You can use [ClientSecretCredentialBuilder](/java/api/com.azure.identity.clientsecretcredentialbuilder) to create a credential using client secret information. If successful, this method returns a [TokenCredential](/java/api/com.azure.core.credential.tokencredential).
+You can use [ClientSecretCredentialBuilder](/java/api/com.azure.identity.clientsecretcredentialbuilder) to create a credential using client secret information. If successful, this method returns a [TokenCredential](/java/api/com.azure.core.credential.tokencredential) that can be passed to [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) or other builder as the 'credential' parameter.
 
 In this example, Microsoft Entra app registration client secret, client ID, and tenant ID values have been added to environment variables. These environment variables are used by `ClientSecretCredentialBuilder` to build the credential.
 
@@ -62,10 +64,23 @@ TokenCredential credential =
           .build();
 ```
 
-##### Authenticate using InteractiveBrowserCredential
+##### Other authentication classes
 
-Use [InteractiveBrowserCredential](https://learn.microsoft.com/en-us/java/api/com.azure.identity.interactivebrowsercredential) to authenticate a user sign-in using a web browser.
+The Java SDK also includes these classes that authenticate a backend app with Microsoft Entra:
+
+* [AuthorizationCodeCredential](/java/api/com.azure.identity.authorizationcodecredential)
+* [AzureCliCredential](/java/api/com.azure.identity.azureclicredential)
+* [AzureDeveloperCliCredential](/java/api/com.azure.identity.azuredeveloperclicredential)
+* [AzurePipelinesCredential](/java/api/com.azure.identity.azurepipelinescredential)
+* [ChainedTokenCredential](/java/api/com.azure.identity.chainedtokencredential)
+* [ClientAssertionCredential](/java/api/com.azure.identity.clientassertioncredential)
+* [ClientCertificateCredential](/java/api/com.azure.identity.clientcertificatecredential)
+* [DeviceCodeCredential](/java/api/com.azure.identity.devicecodecredential)
+* [EnvironmentCredential](/java/api/com.azure.identity.environmentcredential)
+* [InteractiveBrowserCredential](/java/api/com.azure.identity.interactivebrowsercredential)
+* [ManagedIdentityCredential](/java/api/com.azure.identity.managedidentitycredential)
+* [OnBehalfOfCredential](/java/api/com.azure.identity.onbehalfofcredential)
 
 ##### Code samples
 
-For working samples of Microsoft Entra service authentication, see [Role based authentication sample](github.com/Azure/azure-iot-service-sdk-java/tree/main/service/iot-service-samples/role-based-authorization-sample).
+For working samples of Microsoft Entra service authentication, see [Role based authentication sample](https://github.com/Azure/azure-iot-service-sdk-java/tree/main/service/iot-service-samples/role-based-authorization-sample).
