@@ -9,7 +9,7 @@ ms.service: azure-migrate
 ms.date: 10/18/2023
 ms.custom: vmware-scenario-422, engagement-fy24
 ---
-# Azure Migrate agentless migration of VMware virtual machines
+# Agentless migration architecture
 
 This article describes the replication concepts when migrating VMware VMs using the Migration and modernization tool's agentless migration method.
 
@@ -93,7 +93,7 @@ The Azure Migrate appliance compresses data and encrypts before uploading. Data 
 ## Replication status 
 
 When a VM undergoes replication (data copy), there are a few possible states:
-- **Initial replication queued**: The VM is queued for replication (or migration) as there might be other VMs that are consuming the on-premises resources (during replication or migration). Once the resources are free, this VM will be processed.
+- **Initial replication queued**: The VM is queued for replication (or migration) as there might be other VMs that are consuming the on-premises resources (during replication or migration). Once the resources are free, this VM is processed.
 - **Initial replication in progress**: The VM is being scheduled for initial replication. 
 - **Initial replication**: The VM is undergoing initial replication. When the VM is undergoing initial replication, you can't proceed with test migration and migration. You can only stop replication at this stage.
 - **Initial replication (x%)**: The initial replication is active and has progressed by x%. 
@@ -109,8 +109,8 @@ When a VM undergoes replication (data copy), there are a few possible states:
 ### Other states
 
 - **Initial replication failed**: The initial data couldn't be copied for the VM. Follow the remediation guidance to resolve. 
-- **Repair pending**: There was an issue in the replication cycle.  You can select the link to understand possible causes and actions to remediate (as applicable). If you had opted for **Automatically repair replication** by selecting **Yes** when you triggered replication of VM, the tool will try to repair it for you. Else, select the VM, and select **Repair Replication**. If you didn't opt for **Automatically repair replication** or if the above step didn't work for you, then stop replication for the virtual machine, reset the changed block tracking on the virtual machine, and then reconfigure the replication.
-- **Repair replication queued**: The VM is queued for replication repair as there are other VMs that are consuming the on-premises resources. Once the resources are free, the VM will be processed for repair replication.
+- **Repair pending**: There was an issue in the replication cycle.  You can select the link to understand possible causes and actions to remediate (as applicable). If you had opted for **Automatically repair replication** by selecting **Yes** when you triggered replication of VM, the tool tries to repair it for you. Else, select the VM, and select **Repair Replication**. If you didn't opt for **Automatically repair replication** or if the above step didn't work for you, then stop replication for the virtual machine, reset the changed block tracking on the virtual machine, and then reconfigure the replication.
+- **Repair replication queued**: The VM is queued for replication repair as there are other VMs that are consuming the on-premises resources. Once the resources are free, the VM is processed for repair replication.
 - **Resync (x%)**: The VM is undergoing a data resynchronization. This can happen if there was some issue / mismatch during data replication. 
 - **Stop replication/complete migration failed**: Select the link to understand the possible causes for failure and actions to remediate (as applicable).
 
@@ -122,7 +122,7 @@ When a VM undergoes replication (data copy), there are a few possible states:
 - **Test migration pending**: The VM is in delta replication phase, and you can now perform test migration (or migration).
 - **Test migration clean up pending**: After test migration is complete, perform a test migration clean up to avoid charges in Azure. 
 - **Ready to migrate**: The VM is ready to be migrated to Azure. 
-- **Migration in progress queued**: The VM is queued for migration as there are other VMs that are consuming the on-premises resources during replication (or migration). Once the resources are free, the VM will be processed.
+- **Migration in progress queued**: The VM is queued for migration as there are other VMs that are consuming the on-premises resources during replication (or migration). Once the resources are free, the VM is processed.
 - **Test migration/Migration in progress**: The VM is undergoing a test migration/migration. You can select the link to check the ongoing migration job. 
 - **Date, timestamp**: The migration/test migration date and timestamp. 
 - **–**: Initial replication is in progress. You can perform a migration or test migration after the replication process transitions to a delta sync (incremental replication) phase. 
@@ -141,6 +141,7 @@ Delta replication cycles are scheduled as follows:
 
 - First delta replication cycle is scheduled immediately after the initial replication cycle completes
 - Next delta replication cycles are scheduled according to the following logic: 
+
   min[max[1 hour, (Previous delta replication cycle time/2)], 12 hours]
 
 That is, the next delta replication will be scheduled no sooner than one hour and no later than 12 hours. For example, if a VM takes four hours for a delta replication cycle, the next delta replication cycle is scheduled in two hours, and not in the next hour.
@@ -148,14 +149,14 @@ That is, the next delta replication will be scheduled no sooner than one hour an
 > [!Note]
 > The scheduling logic is different after the initial replication completes. The first delta cycle is scheduled immediately after the initial replication completes and subsequent cycles follow the scheduling logic described above.
 
-- When you trigger migration, an on-demand delta replication cycle (pre-failover delta replication cycle) is performed for the VM prior to migration.
+- When you trigger migration, an on-demand delta replication cycle (pre-failover delta replication cycle) is performed for the VM before migration.
 
 **Prioritization of VMs for various stages of replication**
 
 - Ongoing VM replications are prioritized over scheduled replications (new replications)
 - Pre-failover (on-demand delta replication) cycle has the highest priority followed by initial replication cycle. Delta replication cycle has the least priority.
 
-That is, whenever a migrate operation is triggered, the on-demand replication cycle for the VM is scheduled and other ongoing replications take back seat if they're competing for resources.
+That is, whenever a migrate operation is triggered, the on-demand replication cycle for the VM is scheduled and other ongoing replications take a backseat if they're competing for resources.
 
 **Constraints:**
 
@@ -176,7 +177,7 @@ You can deploy the scale-out appliance anytime after configuring the primary app
 
 ## Stop replication/Complete migration
 
-When you stop replication, the intermediate managed disks (seed disks) created during replication will be deleted. You can stop replication only during an active replication. You can select **Complete migration** to stop the replication after the VM was migrated.
+When you stop replication, the intermediate managed disks (seed disks) created during replication are deleted. You can stop replication only during an active replication. You can select **Complete migration** to stop the replication after the VM was migrated.
 
 The VM for which the replication is stopped, can be replicated by enabling replication again. If the VM was migrated, you can resume replication and migration again.
 
