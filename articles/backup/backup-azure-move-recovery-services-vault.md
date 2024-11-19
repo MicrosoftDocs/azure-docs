@@ -249,8 +249,7 @@ To protect workloads in a new vault, the current protection and data will need t
 
 **Stop and delete current protection on the old vault:**
 
-1. Disable soft delete in the vault properties. Follow [these steps](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) to disable soft delete.
-
+1. If you want to retain backup data, you can keep soft delete on and continue to register the virtual machine for backup in a new vault, once the backup item is soft deleted. In case you don't want to retain backup data, [disable soft delete in the vault properties](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) (not recommended).
 2. Stop protection and delete backups from the current vault. In the Vault dashboard menu, select **Backup Items**. Items listed here that need to be moved to the new vault must be removed along with their backup data. See how to [delete protected items in the cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) and [delete protected items on premises](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 
 3. If you're planning to move AFS (Azure file shares), SQL servers or SAP HANA servers, then you'll need also to unregister them. In the vault dashboard menu, select **Backup Infrastructure**. See how to [unregister the SQL server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [unregister a storage account associated with Azure file shares](manage-afs-backup.md#unregister-a-storage-account), and [unregister an SAP HANA instance](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
