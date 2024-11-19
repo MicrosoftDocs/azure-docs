@@ -93,7 +93,7 @@ If you're using:
 * regional volumes (without availability zones) or
 * volumes within the same availability zone, 
 
-the same share name can be used, however the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
+The same share name can be used, however the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
 
 For more information, see [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
 
