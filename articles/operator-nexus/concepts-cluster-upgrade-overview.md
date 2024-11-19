@@ -72,9 +72,9 @@ az networkcloud baremetalmachine list -g $mrg --subscription $sub --query "sort_
 --output table
 
 ```
-## BareMetalMachine keyset operations during cluster runtime upgrade
+## BareMetalMachine (BMM) keyset operations during cluster runtime upgrade
 
-During the runtime upgrade, BareMetalMachine (BMM) keyset isn't available until the upgrade is completed successfully. If attempting to access the node, customer should rely on the console user.
+When a server is upgraded to utilize a new OS, the BMM keysets have to be re-established with the new software. This process starts once the runtime upgrade completes for the instance. Servers yet to undergo a runtime upgrade can still be accessed via the BMM keyset. If access to a machine is needed during the upgrade, the console user is available.
 
 ## Servers not upgraded successfully
 
