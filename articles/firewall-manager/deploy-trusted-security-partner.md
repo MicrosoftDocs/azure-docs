@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: azure-firewall-manager
 ms.topic: how-to
-ms.date: 09/28/2023
+ms.date: 11/19/2024
 ms.author: victorh
 ---
 
