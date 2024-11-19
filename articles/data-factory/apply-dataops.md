@@ -13,7 +13,7 @@ ms.subservice: ci-cd
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory is Microsoft’s Data Integration and ETL service in the cloud. This paper provides guidance for DataOps in data factory. It isn't intended to be a complete tutorial on CI/CD, Git, or DevOps. Rather, you'll find the data factory team’s guidance for achieving DataOps in the service with references to detailed implementation links for data factory deployment best practices, factory management, and governance. There's a resources section at the end of this paper with links to tutorials.
+Azure Data Factory is Microsoft’s Data Integration and ETL service in the cloud. This paper provides guidance for DataOps in data factory. It isn't intended to be a complete tutorial on CI/CD, Git, or DevOps. Rather, you'll find the data factory team’s guidance for achieving DataOps in the service with references to detailed implementation links for data factory deployment best practices, factory management, and governance. There's a resources section at the end of this paper with links to tutorials. - test edit
 
 ## What is DataOps?
 
