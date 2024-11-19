@@ -42,7 +42,7 @@ This article shows you how to get a connection string to a namespace or a specif
 7. Select a **shared access policy** in the list of policies. The default one is named: **RootManageSharedAccessPolicy**. You can add a policy with appropriate permissions (send, listen), and use that policy. 
 8. Select the **copy** button next to the **Connection string-primary key** field. 
 
-    :::image type="content" source="./media/event-hubs-get-connection-string/event-hubs-namespace-get-connection-string.png" alt-text="Event Hubs - get connection string" lightbox="./media/event-hubs-get-connection-string/event-hubs-namespace-get-connection-string.png":::
+    :::image type="content" source="./media/event-hubs-get-connection-string/event-hubs-namespace-get-connection-string.png" alt-text="Screenshot of Event Hubs - get connection string." lightbox="./media/event-hubs-get-connection-string/event-hubs-namespace-get-connection-string.png":::
 
 ### Connection string for a specific event hub in a namespace
 This section gives you steps for getting a connection string to a specific event hub in a namespace. 
@@ -53,7 +53,7 @@ This section gives you steps for getting a connection string to a specific event
 1. Select the policy from the list. 
 1. Select the **copy** button next to the **Connection string-primary key** field. 
 
-    :::image type="content" source="./media/event-hubs-get-connection-string/connection-string-event-hub.png" alt-text="Connection string to a specific event hub." lightbox="./media/event-hubs-get-connection-string/connection-string-event-hub.png":::
+    :::image type="content" source="./media/event-hubs-get-connection-string/connection-string-event-hub.png" alt-text="Screenshot of connection string to a specific event hub." lightbox="./media/event-hubs-get-connection-string/connection-string-event-hub.png":::
 
 ## Azure PowerShell
 
