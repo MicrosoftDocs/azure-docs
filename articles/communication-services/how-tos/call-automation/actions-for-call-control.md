@@ -303,7 +303,7 @@ The response provides you with CallConnection object that you can use to take fu
 
 ![Sequence diagram for answering an incoming call.](media/answer-flow.png)
 
-In the case where answer operation fails, you will receive a `CallDisconnected` and `AnswerCallFailed` event with error codes for further troubleshooting (see [this page](./../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md) for more information on error codes).
+In the case where answer operation fails, you will receive a `AnswerFailed` event with error codes for further troubleshooting (see [this page](./../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md) for more information on error codes).
 
 ## Reject a call
 
