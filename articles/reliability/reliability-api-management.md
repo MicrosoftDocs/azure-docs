@@ -163,28 +163,6 @@ Azure API Management automatically routes incoming requests to a regional gatewa
 
 When a request reaches an Azure API Management regional gateway, it's usually routed to the backend API (unless a policy returns a response directly from the gateway, such as a cached response or an error code). In a multi-region solution, you need to take care to route to an instance of the backend API that meets your performance requirements. For more information, see [Route API calls to regional backend services](../api-management/api-management-howto-deploy-multi-region.md#-route-api-calls-to-regional-backend-services).
 
-<!-- TODO should we keep these subsections or just the links above? -->
-
-#### Regional backend service routing
-
-By default, even if you've configured Azure API Management gateways in various regions, the API gateway still forward requests to the same backend service, which is deployed in only one region. In this case, the performance gain will come only from responses cached within Azure API Management in a region specific to the request; contacting the backend across the globe may still cause high latency.
-
-You can manage regional backends and handle failover through API Management to maintain availability. For example:
-
-- In multi-region deployments, use policies to route requests through regional gateways to regional backends.
-- Configure policies to route requests conditionally to different backends if there's backend failure in a particular region.
-- Use caching to reduce failing calls.
-
-For more information on how API Management backend entities allow you to manage and apply backend properties to improve the availability of backends, see [Backends in API Management](/azure/api-management/backends).
-
-To learn how to setup backend services in multiple regions with or without Traffic Manager, see [Route API calls to regional backend services](/azure/api-management/api-management-howto-deploy-multi-region#-route-api-calls-to-regional-backend-services).
-
-#### Custom routing
-
-When API Management receives public HTTP requests to the Traffic Manager endpoint (applies for the external VNet and non-networked modes of API Management), traffic is routed to a regional gateway based on lowest latency, which can reduce latency experienced by geographically distributed API consumers.  Although it isn't possible to override this setting in API Management, you can use your own Traffic Manager with custom routing rules. For more information, see [Use custom routing to API Management regional gateways](/azure/api-management/api-management-howto-deploy-multi-region#-use-custom-routing-to-api-management-regional-gateways)
-
-However, in internal VNet mode, customers must configure their own solution to route and load-balance traffic across the regional gateways. For details, see [Networking considerations](/azure/api-management/api-management-howto-deploy-multi-region#virtual-networking).
-
 ### Data replication between regions 
 
 Gateway configuration, such as APIs and policy definitions, are regularly synchronized between the primary and secondary regions you add. Propagation of updates to the regional gateways normally takes less than 10 seconds. Multi-region deployment provides availability of the API gateway in more than one region and provides service availability if one region goes offline.
