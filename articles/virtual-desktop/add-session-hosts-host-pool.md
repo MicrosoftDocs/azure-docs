@@ -82,7 +82,7 @@ For a general idea of what's required, such as supported operating systems, virt
 
   - A stable connection to Azure from your on-premises network.
 
-  - At least one Windows OS image available on the instace. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in an Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+  - At least one Windows OS image available on the instance. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in an Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
   - The [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) on Azure Local machines created outside the Azure Virtual Desktop service, such as with an automated pipeline. The virtual machines use the agent to communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
 
