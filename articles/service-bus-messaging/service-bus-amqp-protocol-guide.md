@@ -1,8 +1,9 @@
 ---
-title: AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft Docs
-description: Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs
-ms.topic: article
-ms.date: 11/12/2024
+title: AMQP 1.0 in Azure Service Bus and Event Hubs
+description: This article provides information on expressions and descriptions of AMQP 1.0 support in Azure Service Bus and Azure Event Hubs. 
+ms.topic: concept-article
+ms.date: 11/18/2024
+# Customer intent: I want to know how Azure Event Hubs and Azure Service Bus supports the AMQP protocol. 
 ---
 
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide
@@ -400,7 +401,7 @@ With this functionality, you create a sender and establish the link to the `via-
 | `attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** )` | ------> | |
 | | <------ | `attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] )` |
 
-## Next steps
+## Related content
 To learn more about AMQP, see [Service Bus AMQP overview](service-bus-amqp-overview.md).
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD

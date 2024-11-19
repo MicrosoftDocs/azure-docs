@@ -1683,6 +1683,15 @@ groups:
     title: Service Connector
   - id: manual
     title: Manual
+# Owner: franlanglois
+- id: redis-type
+  title: Redis version
+  prompt: Choose the version of Azure Redis you are using
+  pivots:
+  - id: azure-managed-redis
+    title: Azure Managed Redis
+  - id: azure-cache-redis
+    title: Azure Cache for Redis
 # Owner: rosemalcolm
 - id: ade-extensibility-iac-framework
   title: IaC frameworks
