@@ -144,7 +144,7 @@ Moving subscriptions and management groups requires different role assignments t
   - `Microsoft.management/managementgroups/write`
 - Current parent management group
   - `Microsoft.management/managementgroups/write`
-  -   
+ 
 For more information on moving items within the hierarchy, see [Manage your resources with management groups](manage.md).
 
 ## Azure custom role definition and assignment
