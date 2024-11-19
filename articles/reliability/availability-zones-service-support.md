@@ -13,6 +13,10 @@ ms.custom: references_regions, subject-reliability
 
 # Availability zone service support
 
+Azure availability zones are physically separate locations within each Azure region. This article shows you which services support availability zones. 
+
+For more information on availability zones and regions, see [What are Azure regions and availability zones?](availability-zones-overview.md),
+
 Azure services that support availability zones, including zonal and zone-redundant offerings, are continually expanding.
 
 Three types of Azure services support availability zones: *zonal*, *zone-redundant*, and *always-available* services. You can combine all three of these approaches to architecture when you design your reliability strategy.
