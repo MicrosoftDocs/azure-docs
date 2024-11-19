@@ -212,8 +212,6 @@ items:
             href: ./policy-reference.md
           - name: Network security
             href: network-security-namespaces.md
-          - name: Transport Layer Security (TLS)
-            href: transport-layer-security.md
       - name: How-to
         items:
         - name: Create, view, and manage namespaces
@@ -528,8 +526,6 @@ items:
           href: network-security.md
         - name: Enforce minimum required TLS version
           href: transport-layer-security-enforce-minimum-version.md
-        - name: Transport Layer Security (TLS)
-          href: transport-layer-security.md
       - name: Use cases
         items:
         - name: Use cases for domains
@@ -646,8 +642,6 @@ items:
           href: secure-webhook-delivery.md
         - name: Configure minimum required TLS version
           href: transport-layer-security-configure-minimum-version.md
-        - name: Configure network security perimeter
-          href: configure-network-security-perimeter.md
       - name: Monitor
         items:
         - name: Enable diagnostic logs
