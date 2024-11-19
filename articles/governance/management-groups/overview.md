@@ -131,7 +131,7 @@ The following chart shows the list of roles and the supported actions on managem
 \*\*: Role assignments on the root management group aren't required to move a subscription or a
 management group to and from it. 
 
-## Moving Subscriptions and Management Groups
+## Moving subscriptions and management groups
 Moving subscriptions and management groups requires different role assignments to be applied. To move a child subscription or management group the following permissions are needed: 
 
 - The child subscription or management group being moved
