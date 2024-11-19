@@ -216,7 +216,7 @@ Storage Replicas | Not supported
 
 **Component** | **Support**
 --- | ---
-Number of network interfaces (NICs) | Supported up to the maximum number for a specific Azure VM size.<br/><br/> NICs are created when the VM is created during the restore process.<br/><br/> The number of NICs on the restored VM mirrors the number of NICs on the VM when you enabled protection. Removing NICs after you enable protection doesn't affect the count.
+Number of network interfaces (NICs) | Supported up to the maximum number for a specific Azure VM size.<br/><br/> NICs are created when the VM is created during the restore process.<br/><br/> The number of NICs on the restored VM mirrors the number of NICs on the VM at the time of the backup. The number of NICs on the restore VM depends on the NICs in the restore point, which in turn depends on the NICs in the source VM at the time of backup.
 External or internal load balancer |Supported. <br/><br/> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) about restoring VMs with special network settings.
 Multiple reserved IP addresses |Supported. <br/><br/> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) about restoring VMs with special network settings.
 VMs with multiple network adapters| Supported. <br/><br/> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) about restoring VMs with special network settings.
