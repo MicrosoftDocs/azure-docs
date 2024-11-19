@@ -249,6 +249,16 @@ When attempting to create an Export to a storage account with a firewall, the us
 
 You can check for the permissions on the storage account by referring to the steps in [Check access for a user to a single Azure resource](../../role-based-access-control/check-access.md). 
 
+#### What is the maximum number of subscriptions allowed within a management group (MG) when creating an export? 
+
+The maximum limit is **3000 subscriptions** per management group in Cost Management, including exports. 
+
+To manage more than 3000 subscriptions: 
+
+- Organize them into smaller management groups. For example, if you have a total of 12,500 subscriptions, create 5 management groups with approximately 2,500 subscriptions each. Create separate exports for each management group scope and combine the exported data for a complete view. 
+
+- Alternatively, if all subscriptions are under the same billing account, create an export at the **billing account scope** to get combined data.
+
 ## Next steps
 
 - Learn more about exports at [Tutorial: Create and manage exported data](tutorial-export-acm-data.md).
