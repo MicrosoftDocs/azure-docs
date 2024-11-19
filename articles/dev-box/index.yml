@@ -45,6 +45,8 @@ landingContent:
             url: quickstart-configure-dev-box-service.md
           - text: Create a dev box
             url: quickstart-create-dev-box.md
+          - text: Use Team Customizations
+            url: quickstart-team-customizations.md
 
   # Card
   - title: Quota management
@@ -57,10 +59,12 @@ landingContent:
   # Card
   - title: Connect to a dev box
     linkLists:
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Connect with Windows App
             url: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
+          - text: Use Dev Home to manage dev boxes
+            url: how-to-use-dev-home-customize-dev-box.md  
           - text: Use multiple monitors with your dev box 
             url: tutorial-configure-multiple-monitors.md 
       - linkListType: how-to-guide
@@ -83,16 +87,20 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use Dev Home to manage dev boxes
-            url: how-to-use-dev-home-customize-dev-box.md       
+          - text: What are Team Customizations
+            url: concept-what-are-team-customizations.md
+          - text: Write a customization file
+            url: how-to-write-customization-file.md
+          - text: Configure imaging for Customizations
+            url: how-to-configure-customization-imaging.md
+          - text: Create customization tasks
+            url: how-to-create-customization-tasks-catalog.md
           - text: Configure Azure Compute Gallery
             url: how-to-configure-azure-compute-gallery.md
           - text: Provision a custom image by using Azure VM Image Builder
             url: how-to-customize-devbox-azure-image-builder.md
           - text: Configure Dev Box Hibernation
             url: how-to-configure-dev-box-hibernation.md
-          - text: Create reusable customizations
-            url: how-to-customize-dev-box-setup-tasks.md
 
    # Card
   - title: Support & Reference
