@@ -4,7 +4,7 @@ description: This article takes you through all the panels and options available
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 01/17/2023
+ms.date: 11/19/2024
 appliesto: 
     - Microsoft Sentinel in the Azure portal
 
@@ -34,27 +34,25 @@ Incidents are your case files that contain an aggregation of all the relevant ev
 
     The **Incidents** page gives you basic information about all of your open incidents.
 
-    - Across the top of the screen you have the counts of open incidents, whether new or active, and the counts of open incidents by severity. You also have the **banner** with actions you can take outside of a specific incident&mdash;either on the grid as a whole, or on multiple selected incidents.
+    - Across the top of the screen, you have a toolbar with actions you can take outside of a specific incident&mdash;either on the grid as a whole, or on multiple selected incidents. You also have the counts of open incidents, whether new or active, and the counts of open incidents by severity.
 
-    - In the central pane, you have the **incident grid**, a list of incidents as filtered by the filtering controls at the top of the list, and a search bar to find specific incidents.
+    - In the central pane, you have an incident grid, which is a list of incidents as filtered by the filtering controls at the top of the list, and a search bar to find specific incidents.
 
-    - On the right side, you have a **details pane** that shows important information about the incident highlighted in the central list, along with buttons for taking certain specific actions regarding that incident.
+    - On the right side, you have a details pane that shows important information about the incident highlighted in the central list, along with buttons for taking certain specific actions regarding that incident.
 
     :::image type="content" source="media/investigate-incidents/incident-grid.png" alt-text="Screenshot of view of incident severity." lightbox="media/investigate-incidents/incident-grid.png":::
 
-1. Your Security Operations team might have [**automation rules**](automate-incident-handling-with-automation-rules.md#automatic-assignment-of-incidents) in place to perform basic triage on new incidents and assign them to the proper personnel.
+1. Your security operations team might have [automation rules](automate-incident-handling-with-automation-rules.md#automatic-assignment-of-incidents) in place to perform basic triage on new incidents and assign them to the proper personnel.
 
     In that case, filter the incident list by **Owner** to limit the list to the incidents assigned to you or to your team. This filtered set represents your personal workload.
 
-    Otherwise, you can perform basic triage yourself. You can start by filtering the list of incidents by available filtering criteria, whether status, severity, or product name. For more information, see [Search for incidents](#search-for-incidents).
+    Otherwise, you can perform basic triage yourself. Start by filtering the list of incidents by available filtering criteria, whether status, severity, or product name. For more information, see [Search for incidents](#search-for-incidents).
 
-1. Triage a specific incident and take some actions on it immediately, right from the **details pane** on the **Incidents** page, without having to enter the incident’s full details page.
-
-    - If you're currently viewing the [legacy incidents experience](investigate-cases.md), toggle on the new experience at the top-right of the page.
+1. Triage a specific incident and take some actions on it immediately, right from the details pane on the **Incidents** page, without having to enter the incident’s full details page.
 
     - **Investigate Microsoft Defender XDR incidents in Microsoft Defender XDR:** Follow the [**Investigate in Microsoft Defender XDR**](microsoft-365-defender-sentinel-integration.md) link to pivot to the parallel incident in the Defender portal. Any changes you make to the incident in Microsoft Defender XDR are synchronized to the same incident in Microsoft Sentinel.
 
-    - **Open the list of assigned tasks:** Incidents that have tasks assigned display a count of completed and total tasks and a **View full details** link. Follow the link to open the [**Incident tasks**](incident-tasks.md) panel to see the list of tasks for this incident.
+    - **Open the list of assigned tasks:** Incidents that have tasks assigned display a count of completed and total tasks and a **View full details** link. Follow the link to open the [**Incident tasks**](incident-tasks.md) page to see the list of tasks for this incident.
 
     - **Assign ownership of the incident** to a user or group by selecting from the **Owner** drop-down list.
 
@@ -70,11 +68,11 @@ Incidents are your case files that contain an aggregation of all the relevant ev
 
     - **Add comments** to log your actions, ideas, questions, and more. You might need to scroll down to the bottom of the details pane to see where to add comments.
 
-1. If the information in the **details pane** is sufficient to prompt further remediation or mitigation actions, select the **Actions** button at the bottom of the **details pane** to do one of the following:
+1. If the information in the details pane is sufficient to prompt further remediation or mitigation actions, select the **Actions** button at the bottom to do one of the following:
 
     - **Investigate:** use the [graphical investigation tool](#investigate-incidents-visually-using-the-investigation-graph) to discover relationships between alerts, entities, and activities, both within this incident and across other incidents.
 
-    - **Run playbook (Preview):** run a [playbook](automate-responses-with-playbooks.md#run-a-playbook-manually) on this incident to take particular [enrichment, collaboration, or response actions](automate-responses-with-playbooks.md#use-cases-for-playbooks) such as your SOC engineers might have made available.
+    - **Run playbook:** run a [playbook](automate-responses-with-playbooks.md#run-a-playbook-manually) on this incident to take particular [enrichment, collaboration, or response actions](automate-responses-with-playbooks.md#use-cases-for-playbooks) such as your SOC engineers might have made available.
 
     - **Create automation rule:** create an [automation rule](automate-incident-handling-with-automation-rules.md#common-use-cases-and-scenarios) that runs only on incidents like this one (generated by the same analytics rule) in the future, in order to reduce your future workload or to account for a temporary change in requirements (such as for a penetration test).
 
@@ -84,13 +82,13 @@ Incidents are your case files that contain an aggregation of all the relevant ev
 
 1. If more information about the incident is needed, select **View full details** in the details pane to open and see the incident's details in their entirety, including the alerts and entities in the incident, a list of similar incidents, and selected top insights.
 
-See the next sections of this article to follow a typical investigation path, learning in the process about all the information you'll see there, and all the actions you can take.
-
 ## Investigate your incident in depth
 
 Microsoft Sentinel offers a complete, full-featured incident investigation and case management experience so you can investigate, remediate, and resolve incidents more quickly and efficiently. Here's the new incident details page:
 
 :::image type="content" source="media/investigate-incidents/incident-details-overview.png" alt-text="Screenshot of incident details page, featuring the overview tab." lightbox="media/investigate-incidents/incident-details-overview.png":::
+
+If you're currently viewing the [legacy experience](investigate-cases.md) of the incident details page, toggle on the new experience at the top-right of the page to continue with the procedures in this article for the new experience.
 
 ### Prepare the ground properly
 
@@ -98,15 +96,11 @@ As you're setting up to investigate an incident, assemble the things you need to
 
 :::image type="content" source="media/investigate-incidents/top-toolbar.png" alt-text="Screenshot of the button bar on the incident details page.":::
 
-1.  Select **Tasks** to [see the tasks assigned for this incident](work-with-tasks.md#view-and-follow-incident-tasks), or to [add your own tasks](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident). 
-
-    Learn more about [using incident tasks](incident-tasks.md) to improve process standardization in your SOC.
+1.  Select **Tasks** to [see the tasks assigned for this incident](work-with-tasks.md#view-and-follow-incident-tasks), or to [add your own tasks](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident). Tasks can improve process standardization in your SOC. For more information, see [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md).
 
 1. Select **Activity log** to see if any actions have already been taken on this incident&mdash;by automation rules, for example&mdash;and any comments that have been made. You can add your own comments here as well. For more information, see [Audit and comment on incidents](#audit-and-comment-on-incidents).
 
-1. Select **Logs** at any time to open a full, blank Log analytics query window *inside* the incident page. Compose and run a query, related or not, without leaving the incident. So, whenever you're struck with sudden inspiration to go chasing a thought, don't worry about interrupting your flow--logs are there for you.
-
-    For more information, see [Dive deeper into your data in Logs](#dive-deeper-into-your-data-in-logs).
+1. Select **Logs** at any time to open a full, blank Log analytics query window *inside* the incident page. Compose and run a query, related or not, without leaving the incident. So, whenever you're struck with sudden inspiration to go chasing a thought, don't worry about interrupting your flow--the logs are there for you. For more information, see [Dive deeper into your data in Logs](#dive-deeper-into-your-data-in-logs).
 
 The **Incident actions** button is also located opposite the **Overview** and **Entities** tabs. Here, you have the same actions described earlier as available from the **Actions** button on the details pane on the **Incidents** grid page. The only one missing is **Investigate**, which is available on the left-hand details panel instead.
 
@@ -120,24 +114,23 @@ To recap the available actions under the **Incident actions** button:
 
 - **Create team (Preview):** create a team in Microsoft Teams to collaborate with other individuals or teams across departments on handling the incident. If a team has already been created for this incident, this menu item displays as **Open Teams**.
 
-
 ### Get the whole picture on the incident details page
 
-The left-hand panel of the incident details page contains the same incident detail information that you saw on the **Incidents** page to the right of the grid, and it's mostly unchanged from the previous version. This panel is always on display, no matter which tab is shown on the rest of the page. From there, you can see the incident's basic information, and drill down in the following ways:
+The left-hand panel of the incident details page contains the same incident detail information that you saw on the **Incidents** page to the right of the grid. This panel is always on display, no matter which tab is shown on the rest of the page. From there, you can see the incident's basic information, and drill down in the following ways:
 
-- Select **Events**, **Alerts**, or **Bookmarks** to open the **Logs** panel *within the incident page*. The **Logs** panel displays with the query of whichever of the three you selected, and you can go through the query results in depth, without pivoting away from the incident. [Learn more about Logs](#dive-deeper-into-your-data-in-logs).
+- Under **Evidence**, select **Events**, **Alerts**, or **Bookmarks** to open a **Logs** panel within the incident page. The **Logs** panel displays with the query of whichever of the three you selected, and you can go through the query results in depth, without pivoting away from the incident. Select **Done** to close the pane and return to your incident. For more information, see [Dive deeper into your data in Logs](#dive-deeper-into-your-data-in-logs).
 
-- Select any of the entries under **Entities** to display it in the **Entities tab**. (Only the first four entities in the incident are shown here. See the rest of them by selecting **View all**, or in the **Entities** widget on the **Overview tab**, or in the **Entities tab**.) [Learn what you can do in the **Entities tab**](#entities-tab).
+- Select any of the entries under **Entities** to display it in the **Entities tab**. Only the first four entities in the incident are shown here. See the rest of them by selecting **View all**, or in the **Entities** widget on the **Overview tab**, or in the **Entities tab**. For more information, see [Entities tab](#entities-tab).
 
     :::image type="content" source="media/investigate-incidents/details-panel.png" alt-text="Screenshot of details panel in incident details page.":::
 
-You can also select **Investigate** to open the incident in the [graphical investigation tool](#investigate-incidents-visually-using-the-investigation-graph) that diagrams relationships between all the elements of the incident.
+Select **Investigate** to open the incident in the [graphical investigation tool](#investigate-incidents-visually-using-the-investigation-graph) that diagrams relationships between all the elements of the incident.
 
 This panel can also be collapsed into the left margin of the screen by selecting the small, left-pointing double arrow next to the **Owner** drop-down. Even in this minimized state, however, you'll still be able to change the owner, status, and severity.
 
 :::image type="content" source="media/investigate-incidents/collapsed-side-panel.png" border="false" alt-text="Screenshot of collapsed side panel on incident details page.":::
 
-The rest of the incident details page is divided into two tabs, **Overview** and **Entities**. 
+The rest of the incident details page is divided into two tabs, **Overview** and **Entities**.
 
 The **Overview** tab contains the following widgets, each of which represents an essential objective of your investigation.
 
@@ -149,7 +142,7 @@ The **Overview** tab contains the following widgets, each of which represents an
 
 - Finally, in the **Top insights** widget, you see a collection of results of queries defined by Microsoft security researchers that provide valuable and contextual security information on all the entities in the incident, based on data from a collection of sources. For more information, see [Get the top insights into your incident](#get-the-top-insights-into-your-incident).
 
-The **Entities** tab shows you the complete list of entities in the incident (the same ones as in the Entities widget above). When you select an entity in the widget, you're directed here to see the entity's full dossier&mdash;its identifying information, a timeline of its activity (both within and outside the incident), and the full set of insights about the entity, just as you would see in its full entity page (but limited to the time frame appropriate to the incident).
+The **Entities** tab shows you the complete list of entities in the incident, which are also shown in the **Entities** widget on the **Overview** page. When you select an entity in the widget, you're directed here to see the entity's full dossier&mdash;its identifying information, a timeline of its activity (both within and outside the incident), and the full set of insights about the entity, just as you would see in its full entity page, but limited to the time frame appropriate to the incident.
 
 ### Incident timeline
 
@@ -231,17 +224,17 @@ Microsoft Sentinel's security experts have built-in queries that automatically a
 
 These are some of the same insights that appear on [entity pages](entity-pages.md#entity-insights), specially selected for helping you triage quickly and understand the scope of the threat. For the same reason, insights for all the entities in the incident are presented together to give you a more complete picture of what's happening.
 
-The following are the currently selected top insights (the list is subject to change):
+Top insights are subject to change, and might include:
 
-1. Actions *by* account.
-1. Actions *on* account.
-1. [UEBA insights](identify-threats-with-entity-behavior-analytics.md).
-1. Threat indicators related to user.
-1. Watchlist insights (Preview).
-1. Anomalously high number of a security event.
-1. Windows sign-in activity.
-1. IP address remote connections.
-1. IP address remote connections with TI match.
+- Actions *by* account.
+- Actions *on* account.
+- [UEBA insights](identify-threats-with-entity-behavior-analytics.md).
+- Threat indicators related to user.
+- Watchlist insights (Preview).
+- Anomalously high number of a security event.
+- Windows sign-in activity.
+- IP address remote connections.
+- IP address remote connections with TI match.
 
 Each of these insights (except for the ones relating to watchlists, for now) has a link you can select to open the underlying query in the [**Logs** panel that opens in the incident page](#dive-deeper-into-your-data-in-logs). You can then drill down into the query's results.
 
