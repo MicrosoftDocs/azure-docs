@@ -3,11 +3,14 @@ title: Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 description: Information about autoscale and a collection of four example scenarios that illustrate how various parts of autoscale for Azure Virtual Desktop work.
 author: dknappettmsft
 ms.topic: conceptual
-ms.date: 10/01/2024
+ms.date: 11/19/2024
 ms.author: daknappe
 ms.custom: references_regions, docs_inherited
 ---
 # Autoscale scaling plans and example scenarios in Azure Virtual Desktop
+
+> [!IMPORTANT]
+> Dynamic autoscaling for pooled host pools with session host configuration is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs.
 
@@ -15,26 +18,23 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 > - Azure Virtual Desktop (classic) doesn't support autoscale. 
 > - You can't use autoscale and [scale session hosts using Azure Automation](set-up-scaling-script.md) on the same host pool. You must use one or the other.
 > - Power management autoscaling is available in Azure and Azure Government in the same regions you can [create host pools](create-host-pools-azure-marketplace.md) in.
-> - Dynamic autoscaling is only available in Azure and is not supported in Azure Government.
-> Dynamic autoscaling for pooled host pools with session host configuration is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - Dynamic autoscaling is only available in Azure and isn't supported in Azure Government.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager (ARM) templates or first-party tools from Microsoft.
 
 ## How a scaling plan works
 
-A scaling plan is an Azure Virtual Desktop Azure Resource Manager object that defines the schedules for scaling session hosts in a host pool. You can assign one scaling plan to multiple host pools. Each host pool can only have one scaling plan assigned to it. There are two different scaling methods you can choose from when creating a scaling plan: 
+A scaling plan defines the schedules for scaling session hosts in a host pool. You can assign one scaling plan to multiple host pools. Each host pool can only have one scaling plan assigned to it. There are two different scaling methods you can choose from when creating a scaling plan:
 
-- **Power management autoscaling**: This is the existing autoscaling method that turns on/off session host VMs to adjust to the available capacity in the host pool. If you want to apply a scaling plan to a standard host pool, this is the option that you should use. 
+- **Power management autoscaling**: powers on and off session hosts to adjust to the available capacity in a host pool. If you want to apply a scaling plan to a host pool with standard management, this is the option that you should use. 
 
-- **Dynamic autoscaling (preview)**: This autoscaling method adjusts the available capacity in the host pool by turning on/off and creating/deleting session host VMs. Dynamic autoscaling can only be used for pooled host pools with session host configuration.
+- **Dynamic autoscaling (preview)**: powers on and off session hosts and creates and deletes session hosts to adjust to the available capacity in a host pool. Dynamic autoscaling can only be used for pooled host pools with session host configuration.
 
 Before you create your plan, keep the following things in mind:
 
 - You can assign one scaling plan to one or more host pools of the same host pool type. The scaling plan's schedules will be applied to all assigned host pools.
 
 - You can only associate one scaling plan per host pool. If you assign a single scaling plan to multiple host pools, those host pools can't be assigned to another scaling plan.
-
-- Dynamic autoscaling can only be used for pooled host pools with session host configuration.
 
 - Hibernate is available for personal host pools. For more information, view [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume).
 
@@ -269,7 +269,11 @@ If at this point another user signs out, that leaves only three user sessions di
 |User sessions | 3 |
 |Used host pool capacity | 30% |
 
-Because the maximum session limit is still five and the available host pool capacity is 10, the used host pool capacity is now 30%. Autoscale can now turn off one session host without exceeding the capacity threshold. Autoscale turns off a session host by choosing the session host with the fewest number of user sessions on it. Autoscale then puts the session host in drain mode, sends users a notification that says the session host will be turned off, then after a set amount of time, forcibly signs out any remaining users and turns it off. After doing so, there's now one remaining available session host in the host pool with a maximum session limit of five, making the available host pool capacity five. 
+Because the maximum session limit is still five and the available host pool capacity is 10, the used host pool capacity is now 30%. Autoscale can now turn off one session host without exceeding the capacity threshold.
+	
+Autoscale turns off a session host by choosing the session host with the fewest number of user sessions on it. Autoscale then puts the session host in drain mode, sends users a notification that says the session host will be turned off, then after a set amount of time, forcibly signs out any remaining users and turns it off.
+	
+After turning off the session host, there's now one remaining available session host in the host pool with a maximum session limit of five, making the available host pool capacity five. 
 
 Since autoscale forced a user to sign out when turning off the chosen session host, there are now only two user sessions left, which makes the used host pool capacity 40%.
 
