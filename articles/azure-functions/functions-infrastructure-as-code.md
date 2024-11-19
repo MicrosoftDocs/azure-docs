@@ -1244,6 +1244,12 @@ For a complete reference example, see [this ARM template](https://github.com/Azu
 
 ---
 
+This example requires you to know the GUID value for the role being assigned. You can get this ID value for any friendly role name by using the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command, as in this example: 
+
+```azure-cli
+az role definition list --output tsv --query "[?roleName=='Storage Blob Data Owner'].{name:name}"
+```
+
 When using a connection string instead of managed identities, you need to instead set the `authentication.type` to `StorageAccountConnectionString` and set `authentication.storageAccountConnectionStringName` to the name of the application setting that contains the deployment storage account connection string.  
 
 ### Deployment package
