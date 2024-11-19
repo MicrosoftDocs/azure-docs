@@ -25,7 +25,7 @@ All API request metrics contain three dimensions that you can use to filter your
 - **Status Code**: The status code response sent after the request.
 - **StatusSubClass**: The status code series sent after the response.
 
-APIs like [Call Automation](../../../concepts/call-automation/call-automation), used to program calling workflows, work with async operations in an action-event driven programming model. In this case, an API request results in a response indicating whether your request was accepted and later a webhook event, published to callback URI you specify. These webhook events are published after the request processed and contain info on result of the action. For example: AddPArticipant API results in an API response and later an AddParticipantSucceeded or AddParticipantFailed event. Developers can use the metric for these events to monitor and raise alerts for failing scenarios. The metric can be filtered on following dimensions:
+APIs like [Call Automation](../../../concepts/call-automation/call-automation.md), used to program calling workflows, work with async operations in an action-event driven programming model. In this case, an API request results in a response indicating whether your request was accepted and later a webhook event, published to callback URI you specify. These webhook events are published after the request processed and contain info on result of the action. For example: AddPArticipant API results in an API response and later an AddParticipantSucceeded or AddParticipantFailed event. Developers can use the metric for these events to monitor and raise alerts for failing scenarios. The metric can be filtered on following dimensions:
 - **EventTypeName**: The callback event type name.
 - **Code**: The status code of the callback event.
 - **CodeClass**: The status code series of the callback event.
@@ -63,7 +63,7 @@ The following operations are available on Call Automation API request metrics.
 ### Call Automation Callback Event
 
 The following event type names are available on Call Automation Callback Event metrics.
-Refer to [here](../../../concepts/call-automation/call-automation#call-automation-webhook-events) for the list of callback event types covered by this metric.
+Refer to [here](../../../concepts/call-automation/call-automation.md#call-automation-webhook-events) for the list of callback event types covered by this metric.
 
 The Code and SubCode values within the ResultInformation of a callback event indicate the status of an operation. These values are identical and can be used to determine the reason for an event, such as a call being disconnected. For details on specific disconnection reasons, refer to the list of codes provided at [Call end troubleshooting codes](../../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md?pivots=callend).
 
