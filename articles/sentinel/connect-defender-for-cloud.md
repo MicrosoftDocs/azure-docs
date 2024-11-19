@@ -5,6 +5,8 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/19/2024
 ms.author: yelevin
+appliesto: 
+    - Microsoft Sentinel
 
 
 #Customer intent: As a security engineer, I want to integrate and synchronize alerts from cloud security tools into Microsoft Sentinel so that analysts can efficiently monitor, analyze, and respond to security incidents across my organization's hybrid and multicloud environments.
@@ -29,21 +31,27 @@ ms.author: yelevin
 
 ## Prerequisites
 
-- You must have read and write permissions on your Microsoft Sentinel workspace.
+- You must be using Microsoft Sentinel in the Azure portal. If you're onboarded to Microsoft's unified security operations (SecOps) platform, Defender for Cloud alerts are already ingested into Microsoft Defender XDR. The **Tenant-based Microsoft Defender for Cloud (Preview)** data connector isn't listed in the **Data connectors** page in the Defender portal. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
 
-- You must have the **Contributor** or **Owner** role on the subscription you want to connect to Microsoft Sentinel.
+    If you're onboarded to Microsoft's unifed SecOps platform, you'll still want to install the **Microsoft Defender for Cloud** solution to use built-in security content with Microsoft Sentinel.
+
+- You must have the following roles and permissions:
+
+    - You must have read and write permissions on your Microsoft Sentinel workspace.
+
+    - You must have the **Contributor** or **Owner** role on the subscription you want to connect to Microsoft Sentinel.
+
+    - To enable bi-directional sync, you must have the **Contributor** or **Security Admin** role on the relevant subscription.
 
 - You'll need to enable at least one plan within Microsoft Defender for Cloud for each subscription where you want to enable the connector. To enable Microsoft Defender plans on a subscription, you must have the **Security Admin** role for that subscription.
 
 - You'll need the `SecurityInsights` resource provider to be registered for each subscription where you want to enable the connector. Review the guidance on the [resource provider registration status](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) and the ways to register it.
 
-- To enable bi-directional sync, you must have the **Contributor** or **Security Admin** role on the relevant subscription.
-
-- Install the solution for **Microsoft Defender for Cloud** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
-
 ## Connect to Microsoft Defender for Cloud
 
-1. After installing the solution, in Microsoft Sentinel, select **Configuration > Data connectors**.
+1. In Microsoft Sentinel, install the solution for **Microsoft Defender for Cloud** from the **Content Hub**. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
+1. Select **Configuration > Data connectors**.
 
 1. From the **Data connectors** page, select either the **Subscription-based Microsoft Defender for Cloud (Legacy)** or the **Tenant-based Microsoft Defender for Cloud (Preview)** connector, and then select **Open connector page**.
 
