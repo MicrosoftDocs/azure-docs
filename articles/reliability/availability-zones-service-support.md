@@ -11,43 +11,7 @@ ms.reviewer: asinghal
 ms.custom: references_regions, subject-reliability
 ---
 
-# Availability zone service and regional support
-
-Azure availability zones are physically separate locations within each Azure region. This article shows you which regions and services support availability zones. 
-
-For more information on availability zones and regions, see [What are Azure regions and availability zones?](availability-zones-overview.md),
-
-## Azure regions with availability zone support
-
-Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones. Azure has availability zones in every country/region in which Azure operates a datacenter region. 
-
->[!IMPORTANT]
->Some services may have limited support for availability zones. For example, some may only support availability zones for certain tiers, regions, or SKUs. To get more information on service limitations for availability zone support, select that service listed in the [Azure services with availability zone support](#azure-services-with-availability-zone-support) section of this document.
-
-The following regions currently support availability zones:
-
-| Americas | Europe | Middle East | Africa | Asia Pacific |
-|---|---|---|---|---|
-| Brazil South | France Central | Qatar Central | South Africa North | Australia East |
-| Canada Central | Italy North | UAE North | | Central India |
-| Central US |  Germany West Central | Israel Central | | Japan East |
-| East US | Norway East | | | *Japan West |
-| East US 2 | North Europe  | | | Southeast Asia |
-| South Central US | UK South | | | East Asia |
-| US Gov Virginia | West Europe  | | | China North 3 |
-| West US 2 | Sweden Central | | |Korea Central  | 
-| West US 3 | Switzerland North | | | *New Zealand North |
-| Mexico Central | Poland Central ||||
-||Spain Central ||||
-
-
-
-
-
-
-\* To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative. For upcoming regions that support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
-
-## Azure services with availability zone support
+# Availability zone service support
 
 Azure services that support availability zones, including zonal and zone-redundant offerings, are continually expanding.
 
@@ -65,6 +29,9 @@ The following tables provide a summary of the current offering of zonal, zone-re
 
 >[!IMPORTANT]
 >To learn more about availability zones support and available services in your region, contact your Microsoft sales or customer representative.
+
+>[!IMPORTANT]
+>Some services may have limited support for availability zones. For example, some may only support availability zones for certain tiers, regions, or SKUs. To get more information on service limitations for availability zone support, select that service listed in the [Azure services with availability zone support](#azure-services-with-availability-zone-support) section of this document.
 
 ##### Legend
 ![Legend containing icons and meaning of each with respect to service category and regional availability of each service in the table.](media/legend.png) 
@@ -241,16 +208,13 @@ You can access Azure availability zones by using your Azure subscription. To lea
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure services and regions with availability zones](availability-zones-service-support.md)
+> [Azure regions with availability zones](availability-zones-region-support.md)
 
 > [!div class="nextstepaction"]
 > [Availability zone migration guidance overview](availability-zones-migration-overview.md)
 
 > [!div class="nextstepaction"]
 > [Availability of service by category](availability-service-by-category.md)
-
-> [!div class="nextstepaction"]
-> [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
 
 > [!div class="nextstepaction"]
 > [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview)

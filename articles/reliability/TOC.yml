@@ -6,8 +6,10 @@
   items:
   - name: What are Azure availability zones?
     href: availability-zones-overview.md
-  - name: Services and regions with availability zone support
+  - name: Services with availability zone support
     href: availability-zones-service-support.md
+  - name: Regions with availability zone support
+    href: availability-zones-region-support.md
   - name: Migrate to availability zone support
     items:
     - name: Overview
