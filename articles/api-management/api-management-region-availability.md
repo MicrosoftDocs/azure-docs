@@ -30,10 +30,9 @@ Information in the following table is updated regularly. Capacity availability i
 | Australia Southeast | ✅ | ✅ | | |
 | Brazil South | ✅ | ✅ | |  |
 | Central India  | ✅ | ✅ | |  |
-| Central US  | |  | ✅ |  |
 | East Asia | ✅ | ✅ | | ✅ |
 | East US  | ✅ | ✅ |  |  |
-| East US 2 | ✅ | ✅ |  | ✅ |
+| East US 2 | ✅ | ✅ | ✅ | ✅ |
 | France Central  | ✅ | ✅ | | ✅ |
 | Germany West Central  | ✅ | ✅ | ✅ | ✅ |
 | Japan East | ✅ | ✅ | | ✅ |

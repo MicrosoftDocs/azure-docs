@@ -36,7 +36,7 @@ The following v2 tier is in preview:
 
 * **Simplified networking** - The Standard v2 and Premium v2 tiers provide [networking options](#networking-options) to isolate API Management's inbound and outbound traffic.
 
-* **More options for production workloads** - The v2 tiers are all supported with an SLA. Upgrade from Basic v2 to Standard v2 to Premium v2 to add more production options.
+* **More options for production workloads** - The v2 tiers are all supported with an SLA. 
 
 * **Developer portal options** - Enable the [developer portal](api-management-howto-developer-portal.md) when you're ready to let API consumers discover your APIs. 
 
@@ -49,9 +49,9 @@ The latest capabilities of the v2 tiers are supported in API Management API vers
 
 ## Networking options
 
-* **Standard v2** and **Premium v2** support **virtual network integration** to allow your API Management instance to reach API backends that are isolated in a single connected virtual network. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The virtual network must be in the same region as the API Management instance. [Learn more](integrate-vnet-outbound.md).
+* **Standard v2** and **Premium v2** support **virtual network integration** to allow your API Management instance to reach API backends that are isolated in a single connected virtual network. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](integrate-vnet-outbound.md).
 
-* **Premium v2** also supports simplified **virtual network injection** for complete isolation of inbound and outbound traffic without needing to open traffic to API Management's internal dependencies. [Learn more](inject-vnet-v2.md).
+* **Premium v2** also supports simplified **virtual network injection** for complete isolation of inbound and outbound gateway traffic without requiring network security group rules, route tables, or service endpoints. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](inject-vnet-v2.md).
 
 ### Supported regions
 

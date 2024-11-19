@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 10/16/2024
+ms.date: 11/18/2024
 ---
 
 # Inject an Azure API Management instance in a private virtual network - Premium v2 tier
@@ -52,6 +52,10 @@ If you want to enable *public* inbound access to an API Management instance in t
 * Minimum: /27 (32 addresses)
 * Recommended: /24 (256 addresses) - to accommodate scaling of API Management instance
 
+### Network security group
+
+A network security group must be associated with the subnet.
+
 ### Subnet delegation
 
 The subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** service.
@@ -92,7 +96,7 @@ When you [create](get-started-create-service-instance.md) a Premium v2 instance 
 
 When a Premium v2 API Management instance is injected in a virtual network, you have to manage your own DNS to enable inbound access to API Management. 
 
-We recommend:
+While you have the option to use your own custom DNS server, we recommend:
 
 1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
 1. Link the Azure DNS private zone to the virtual network. 
