@@ -18,9 +18,17 @@ This article provides a detailed overview of the enhancements introduced in the 
 >
 > Kindly report any problems or suggestions in the emulator's [GitHub installer repository](https://github.com/Azure/azure-event-hubs-emulator-installer/issues).
 
-## Latest version ``1.2.4`` 
 
-> *Released July 1st, 2024*
+## Latest version ``2.0.1``
+
+> *Released November 19th, 2024*
+
+This release introduces Apache Kafka support in Event Hubs emulator. 
+- The producer and consumer APIs are compatible with the above version. 
+
+## Previous releases
+
+## ``1.2.4`` (July 1st,2024)
 
 This release provides enhanced connectivity fixes for Emulator. Details are below:
  
@@ -42,8 +50,6 @@ This release provides enhanced connectivity fixes for Emulator. Details are belo
 
 - Fixes emulator not accepting connections for initial few seconds after launch.
 - Namespace name and type are now optional parameters in user supplied JSON configuration. 
-
-## Previous releases
 
 ### ``1.2.3`` (21st May,2024)
 
