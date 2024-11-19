@@ -25,6 +25,8 @@ DNS security policy offers the ability to filter and log DNS queries at the virt
 - Create rules to protect against DNS-based attacks by blocking name resolution of known or malicious domains. 
 - Save and view detailed DNS logs to gain inside into your DNS traffic.
 
+DNS security policy applies to both public and private DNS traffic within a VNet.
+
 DNS logs can be sent to a storage account, log analytics workspace, or event hubs. You can choose to allow, alert, or block DNS queries.
 
 A DNS security policy has the following associated elements and properties:
@@ -102,10 +104,21 @@ Preview access
 
 Virtual network restrictions:
 - DNS security policies can only be applied to VNets in the same region as the DNS security policy.
-- You can link one security policy per VNet. A single security policy can be associated to multiple VNets.
+- You can link one security policy per VNet. 
+- During preview, a single security policy can be linked to 50 VNets. This limit is increased to 500 for general availability.
+
+Security policy restrictions:
+- During preview, up to 10 security policies are allowed per region. This limit is increased to 1000 for general availability.
 
 DNS traffic rule restrictions:
-- During preview, up to 10 traffic rules are allowed per security policy. This limit will be increased to 100 for general availability.
+- During preview, up to 10 traffic rules are allowed per security policy. This limit is increased to 100 for general availability.
+
+Domain list restrictions:
+- During preview, up to 10 domain lists are allowed per region. This limit is increased to 1000 for general availability.
+
+Domain restrictions:
+- During preview, up to 1000 domains are allowed across all regions. This limit is increased to 100,000 for general availability.
+
 
 ## Related content
 
