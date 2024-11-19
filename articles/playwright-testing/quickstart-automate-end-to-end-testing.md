@@ -120,7 +120,7 @@ In your project, install Microsoft Playwright Testing package.
 dotnet add package Azure.Developer.MicrosoftPlaywrightTesting.NUnit --prerelease
 ```
 
-This updates the `csproj` file of your project by adding the details of service package in  `ItemGroup` section. Make sure to check it in.
+This updates your project's `csproj` file by adding the service package details to the `ItemGroup` section. Remember to commit these changes.
 
 ```xml
   <ItemGroup>
