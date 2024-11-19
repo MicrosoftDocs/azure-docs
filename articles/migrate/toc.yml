@@ -148,7 +148,7 @@ items:
         items:
         - name: Prerequisites
         - name: Create a Webapp assessment
-          href: tutorial-assess-webapps.md
+          href: create-web-app-assessment.md
         - name: Customize assessment settings
           href: assessment-properties.md
         - name: Azure Webapp Readiness criteria
