@@ -40,7 +40,7 @@ After deploying OpenShift Sandboxed Containers, deploy Confidential Containers. 
     
 1.	Create the Trustee config map. 
 
-1.	Configure attestation policies
+1.	Configure Trustee.
 
 1.	Create the KbsConfig custom resource.
 
@@ -619,9 +619,9 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
     `$ oc apply -f kbs-config-cm.yaml`
 
 
-### Configure attestation policies
+### Configure Trustee
 
-Configure the following attestation policy settings:
+Configure the following Trustee settings:
 
 **Configure reference values**
 
@@ -963,9 +963,9 @@ You must create the container image signature verification policy because signat
         }
     ```
         
-    - Specify the image repository for transport, for example, "docker":. For more information, see containers-transports 5.
+    - Specify the image repository for transport, for example, "docker".
     - Specify the container registry and image, for example, "quay.io/my-image".
-    - Specify the type and tag of the container image signature verification secret that you created, for example, img-sig/pub-key.
+    - Specify the type and tag of the container image signature verification secret that you created, for example, "img-sig/pub-key".
     
 1. Create the security policy by running the following command:
 
@@ -1005,15 +1005,23 @@ You must create the KbsConfig custom resource to launch Trustee.
       kbsRvpsRefValuesConfigMapName: rvps-reference-values
       kbsSecretResources: ["kbsres1"]
       kbsResourcePolicyConfigMapName: resource-policy
+        # tdxConfigSpec:
+        #   kbsTdxConfigMapName: tdx-config
+        #   kbsAttestationPolicyConfigMapName: attestation-policy
+        #   kbsServiceType: <service_type>
     ```
-    
+    - Specify the type value of the container image signature verification secret you created, for example, `img-sig`. 
+    - `tdxConfigSpec.kbsTdxConfigMapName:` tdx-config is required for Intel Trust Domain Extensions. 
+    - `kbsAttestationPolicyConfigMapName:` attestation-policy is required if you create a customized attestation policy. 
+    - `kbsServiceType: <service_type>` is required if you created a service type. Specify NodePort, LoadBalancer, or ExternalName. The default service type is ClusterIP. 
+
 1.	Create the KbsConfig custom resource by running the following command:
 
     `$ oc apply -f kbsconfig-cr.yaml`
 
 #### Verify the Trustee configuration
 
-Verity the Trustee configuration by checking the Trustee pods and logs
+Verify the Trustee configuration by checking the Trustee pods and logs.
 
 1.	Set the default project by running the following command:
 
