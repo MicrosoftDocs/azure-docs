@@ -6,7 +6,7 @@ manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 06/14/2023
+ms.date: 11/19/2024
 ms.author: juergent
 ---
 
@@ -170,7 +170,7 @@ We recommend that you set up and validate a full HADR solution and security desi
   - To avoid GUI timeouts between on-premises SAP GUI interfaces and SAP application layers deployed in Azure, check whether these parameters are set in the default.pfl or the instance profile:
     - rdisp/keepalive_timeout = 3600
     - rdisp/keepalive = 20
-  - To prevent disruption of established connections between the SAP enqueue process and the SAP work processes, you need to set the enque/encni/set_so_keepalive parameter to true. See also [SAP note 2743751](https://launchpad.support.sap.com/#/notes/2743751).
+  - To prevent disruption of established connections between the SAP enqueue process and the SAP work processes, you need to set the enque/encni/set_so_keepalive parameter to 'TRUE'. See also [SAP note 2743751](https://launchpad.support.sap.com/#/notes/2743751).
   - If you use a Windows failover cluster configuration, make sure that the time to react on non-responsive nodes is set correctly for Azure. The article [Tuning Failover Cluster Network Thresholds](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) lists parameters and how they affect failover sensitivities. Assuming the cluster nodes are in the same subnet, you should change these parameters:
     - SameSubNetDelay = 2000 (number of milliseconds between “heartbeats”)
     - SameSubNetThreshold = 15 (maximum number of consecutive missed heartbeats)
