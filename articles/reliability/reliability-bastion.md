@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-bastion
-ms.date: 10/25/2024
+ms.date: 11/12/2024
 ---
 
 # Reliability in Azure Bastion
@@ -27,11 +27,13 @@ For production deployments, you should [enable zone redundancy](#availability-zo
 
 ## Transient faults
 
-*Transient faults* are short intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests.
+[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
 If transient faults affect your virtual machine or Azure Bastion host, clients using the secure sockets host (SSH) and Remote Desktop Protocol (RDP) protocols typically retry automatically.
 
 ## Availability zone support
+
+[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
 You can configure Azure Bastion to be *zone redundant* so that your resources are spread across multiple [availability zones](../reliability/availability-zones-overview.md). When you spread resources across availability zones, you can achieve resiliency and reliability for your production workloads.
 
@@ -41,12 +43,6 @@ You can specify which availability zone or zones an Azure Bastion resource shoul
 
 > [!NOTE]
 > If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can. If an availability zone is unavailable, the instance in the faulty zone is replaced with another instance in a healthy zone.
-
-### Requirements
-
-To configure Azure Bastion resources with zone redundancy, you must deploy with the Basic, Standard, or Premium SKUs.
-
-Bastion requires a Standard SKU zone-redundant Public IP.
 
 ### Regions supported
 
@@ -61,6 +57,15 @@ Zone-redundant Azure Bastion resources can be deployed into the following region
 | West US 2  | Norway East | | |
 | East US 2 EUAP | Italy North | | |
 | Mexico Central| Spain Central | | |
+
+
+### Requirements
+
+To configure Azure Bastion resources with zone redundancy, you must deploy with the Basic, Standard, or Premium SKUs.
+
+Bastion requires a Standard SKU zone-redundant Public IP.
+
+
 
 ### Cost
 

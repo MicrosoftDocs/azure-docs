@@ -141,4 +141,4 @@ eureka.instance.prefer-ip-address=true
 
 * [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli)
 * [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints)
-* [Create roles and permissions](../enterprise/how-to-permissions.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+* [Create roles and permissions](how-to-permissions.md)

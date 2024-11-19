@@ -6,16 +6,14 @@ ms.author: dobett
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 10/17/2024
+ms.date: 11/14/2024
 
 #CustomerIntent: As an OT user, I want to create assets in Azure IoT Operations so that I can subscribe to asset data points, and then process the data before I send it to the cloud.
 ---
 
-# Tutorial: Add OPC UA assets to your Azure IoT Operations Preview cluster
+# Tutorial: Add OPC UA assets to your Azure IoT Operations cluster
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-In this tutorial, you manually add OPC UA assets to your Azure IoT Operations Preview cluster. These assets publish messages to the MQTT broker in your Azure IoT Operations cluster. Typically, an OT user completes these steps.
+In this tutorial, you manually add OPC UA assets to your Azure IoT Operations cluster. These assets publish messages to the MQTT broker in your Azure IoT Operations cluster. Typically, an OT user completes these steps.
 
 An _asset_ is a physical device or logical entity that represents a device, a machine, a system, or a process. For example, a physical asset could be a pump, a motor, a tank, or a production line. A logical asset that you define can have properties, stream telemetry, or generate events.
 
@@ -25,9 +23,9 @@ In this tutorial, you use the operations experience web UI to create your assets
 
 ## Prerequisites
 
-An instance of Azure IoT Operations Preview deployed in a Kubernetes cluster. To create an instance, use one of the following to deploy Azure IoT Operations:
+An instance of Azure IoT Operations deployed in a Kubernetes cluster. To create an instance, use one of the following to deploy Azure IoT Operations:
 
-- [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials.
+- [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials.
 - [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s.
 
 To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites).
@@ -117,6 +115,7 @@ To create an asset, select **Create asset**. Then enter the following asset info
 | Asset Endpoint | `opc-ua-connector-0` |
 | Asset name | `thermostat` |
 | Description | `A simulated thermostat asset` |
+| Default MQTT topic | `azure-iot-operations/data/thermostat` |
 
 Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names, as the Power BI template in a later tutorial queries for them:
 
@@ -223,4 +222,4 @@ If you're continuing on to the next tutorial, keep all of your resources.
 
 ## Next step
 
-[Tutorial: Send asset telemetry to the cloud using the data lake connector for the MQTT broker](tutorial-upload-telemetry-to-cloud.md).
+[Tutorial: Send asset telemetry to the cloud using a dataflow](tutorial-upload-telemetry-to-cloud.md).

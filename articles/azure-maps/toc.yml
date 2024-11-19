@@ -36,6 +36,8 @@ items:
       href: tutorial-ev-routing.md
     - name: Analyze weather data using Azure Notebooks (Python)
       href: weather-service-tutorial.md
+    - name: Snap to Roads using Microsoft Fabric notebooks (Python)
+      href: tutorial-snap-to-Road.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
@@ -141,7 +143,7 @@ items:
     - name: Migrate an Android app
       href: migrate-from-google-maps-android-app.md
     - name: Migrate a web service
-      href: migrate-from-google-maps-web-services.md          
+      href: migrate-from-google-maps-web-services.md
   - name: Manage Maps accounts
     items:
     - name: Create account with ARM template
