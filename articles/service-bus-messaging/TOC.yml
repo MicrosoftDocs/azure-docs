@@ -218,6 +218,8 @@
         href: service-bus-amqp-troubleshoot.md
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+    - name: Test locally with Service Bus emulator
+      href: test-locally-with-service-bus-emulator.md
   - name: Migrate
     items:
     - name: Migrate from ActiveMQ to Azure Service Bus
