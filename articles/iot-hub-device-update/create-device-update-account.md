@@ -117,7 +117,7 @@ A Device Update instance contains updates and deployments associated with its Io
 
    - `<account_name>`: The name of the Device Update account for this instance.
    - `<instance_name>`: A name for this instance.
-   - `<iothub_id>`: The fully-qualified resource ID for the IoT hub to link to this instance, such as `"/subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/providers/Microsoft.Devices/IotHubs/<iot-hub-name>"`.
+   - `<iothub_id>`: The fully qualified resource ID for the IoT hub to link to this instance, such as `"/subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/providers/Microsoft.Devices/IotHubs/<iot-hub-name>"`.
 
      To get your IoT hub resource ID, run [az iot hub show](/cli/azure/iot/hub#az-iot-hub-show) and query for the ID value.
 
