@@ -5,7 +5,7 @@ description: Learn how to manage storage account resources with the Azure Storag
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 11/14/2024
+ms.date: 11/19/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
