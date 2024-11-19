@@ -166,6 +166,13 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
 
    To prevent unplanned updates to Azure Arc and the system Arc extensions that Azure IoT Operations uses as dependencies, this command disables auto-upgrade. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
 
+   >[!IMPORTANT]
+   >If your environment uses a proxy server or Azure Arc Gateway, add `--proxy-skip-range 169.254.169.254` to the `az connectedk8s connect` command. [Azure Device Registry](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry) uses this local endpoint to get access tokens for authorization.
+   >
+   >For more information about preparing your cluster for proxies, see [Connect using an outbound proxy server](/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-using-an-outbound-proxy-server) or [Simplify network configuration requirements with Azure Arc Gateway](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking).
+   >
+   >Azure IoT Operations doesn't support proxy servers that require a trusted certificate.
+
 1. Get the cluster's issuer URL.
 
    ```azurecli
