@@ -11,7 +11,7 @@ ms.date: 11/14/2024
 
 ---
 
-# Connect Microsoft Power Platform to Microsoft Sentinel
+# Connect Microsoft Power Platform and Dynamics 365 CRM to Microsoft Sentinel
 
 This article describes how to deploy the [Microsoft Sentinel solution for Microsoft Business Apps](../business-applications/solution-overview.md) to connect your Microsoft Power Platform system to Microsoft Sentinel. The solution collects audit and activity logs to detect threats, suspicious activities, illegitimate activities, and more.
 
@@ -28,11 +28,9 @@ Before deploying the Microsoft Sentinel solution for Microsoft Business Apps, en
 
 - You must have read and write access to the workspace. You must be able to create:
 
-    - An [Azure Function App](../../azure-functions/functions-overview.md) with the `Microsoft.Web/Sites`, `Microsoft.Web/ServerFarms`, `Microsoft.Insights/Components`, and `Microsoft.Storage/StorageAccounts` permissions.
-
-    - [Data Collection Rules/Endpoints](/azure/azure-monitor/essentials/data-collection-rule-overview), with the `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules` permissions, and permissions to assign the Monitoring Metrics Publisher role to the Azure Function.
-
-- Your organization must use Power Platform to create and use Power Apps.
+  - [Data Collection Rules/Endpoints](/azure/azure-monitor/essentials/data-collection-rule-overview), with the `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`
+    
+- Your organization must use Dynamics 365 CRM and/or one or more of the Power Platform workloads.
 
 - Audit logging must also enabled in Microsoft Purview. For more information, see [Turn auditing on or off for Microsoft Purview](/microsoft-365/compliance/audit-log-enable-disable)
 
@@ -46,13 +44,10 @@ Before deploying the Microsoft Sentinel solution for Microsoft Business Apps, en
 
 1. Select **Configuration > Data connectors**, and locate any of the following data connectors you want to deploy:
 
-      - Microsoft Dataverse
-      - Microsoft Power Apps
-      - Microsoft Power Automate
+   - Microsoft Dataverse
       - Microsoft Power Platform Admin Activity
-      - Microsoft Power Platform Connectors
-      - Microsoft Power Platform DLP
-
+   - Microsoft Power Automate
+      
 1. For each data connector, on the side pane, select **Open connector page > Connect**.
 
 ## Configure data collection for Dataverse
@@ -90,32 +85,33 @@ When working with Microsoft Dataverse, Dataverse activity logging is available o
 
    For example, to verify your Power Platform log ingestion, run the following query to return 50 rows from the table with the Power Apps activity logs.
 
-   ```kusto
+      ```kusto
    PowerPlatformAdminActivity
    | take 50
    ```
 
-   The following table lists the Log Analytics tables to query.
+      The following table lists the Log Analytics tables to query.
 
    |Log Analytics tables |Data collected |
-   |---------|---------|
-   |PowerPlatformAdminActivity|Power Platform administrative logs|
-   |PowerAutomateActivity |Power Automate activity logs  |
-   |DataverseActivity |Dataverse and model-driven apps activity logging  |  
+|---------|---------|
+|PowerPlatformAdminActivity|Power Platform administrative logs|
+|PowerAutomateActivity |Power Automate activity logs  |
+|DataverseActivity |Dataverse and model-driven apps activity logging  |  
 
-   Use the following parsers to return inventory and watchlist data.
-
+   Use the following parsers to return supporting watchlist and configuration data.
+   
    |Parser  |Data returned |
    |---------|---------|
-   |`InventoryApps` | Power Apps Inventory | 
-   |`InventoryAppsConnections` |  Power Apps connections Inventoryconnections       |  
-   |`InventoryEnvironments`   |Power Platform environments Inventory         | 
-   |`InventoryFlows`   |  Power Automate flows Inventory       | 
-   |`MSBizAppsTerminatedEmployees`    | Terminated employees watchlist |  
-
+   |`MSBizAppsOrgSettings`|List of available organization wide settings available in Dynamics 365 CRM / Dataverse|
+   |`MSBizAppsVIPUsers`|VIP Users watchlist |
+   |**`MSBizAppsNetworkAddresses`**|Network addresses watchlist|
+   |`DataverseSharePointSites`|SharePoint sites used in Dataverse Document Management|
+   |`MSBizAppsTerminatedEmployees`    | Terminated employees watchlist |
+   
 1. Verify that the results for each table show the activities you generated.
 
 ## Related content
 
 - [What is the Microsoft Sentinel solution for Microsoft Business Apps?](solution-overview.md)
+
 - [Security content reference for Microsoft Power Platform](power-platform-solution-security-content.md)
