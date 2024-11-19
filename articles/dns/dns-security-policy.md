@@ -76,15 +76,13 @@ The following example shows a DNS security policy linked to two VNets (**myeastv
 
 ## DNS domain lists
 
-DNS domain lists are lists of DNS domains that you associate to traffic rules. Select **DNS Domain Lists** under **Settings** for a DNS security policy to view the current domain lists associated with the policy. 
+DNS domain lists are lists of DNS domains that you associate to traffic rules. 
 
-The following example shows the DNS domain lists that are associated with the DNS security policy **myeast-secpol**:
+Select **DNS Domain Lists** under **Settings** for a DNS security policy to view the current domain lists associated with the policy. The following example shows the DNS domain lists that are associated with the DNS security policy **myeast-secpol**:
 
 [  ![Screenshot of the list of DNS domain lists.](./media/dns-security-policy/domain-list.png) ](./media/dns-security-policy/domain-list.png#lightbox)
 
-You can associate a domain list to multiple DNS traffic rules in different security policies. A security policy must contain at least one domain list.
-
-The following is an example of a DNS domain list (**blocklist-1**) that contains two domains (**malicious.contoso.com**, **exploit.adatum.com**):
+You can associate a domain list to multiple DNS traffic rules in different security policies. A security policy must contain at least one domain list. The following is an example of a DNS domain list (**blocklist-1**) that contains two domains (**malicious.contoso.com**, **exploit.adatum.com**):
 
 ![Screenshot of domains inside a domain list.](./media/dns-security-policy/domain-list-detailed.png)
 
