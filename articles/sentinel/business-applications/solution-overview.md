@@ -60,8 +60,20 @@ The Microsoft Sentinel solution for Microsoft Business Apps includes the followi
 
 The Microsoft Sentinel solution for Microsoft Business Apps includes the analytics rules to help you detect threats and suspicious activities in your Power Platform and Dynamics 365 Finance and Operations environments. The rules are based on best practices and industry standards, and are designed to help you identify and respond to security incidents.
 
+- **Analytics rules for Power Platform and Dynamics 365 CRM** cover activities like Power Apps being run from unauthorized geographies, suspicious data destruction by Power Apps, mass deletion of Power Apps, and more.
+
 - **Analytics rules for Dynamics 365 Finance and Operations** cover suspicious activities like changes in bank account details, multiple user account updates or deletions, suspicious sign-in events, changes to workload identities, and more.
-- **Analytics rules for Power Platform** cover activities like Power Apps being run from unauthorized geographies, suspicious data destruction by Power Apps, mass deletion of Power Apps, and more.
+## Hunting Queries
+
+The Microsoft Sentinel solution for Microsoft Business Apps includes Hunting Queries, enabling the SOC to proactively uncover potential threats and suspicious activities by applying advanced hunting techniques to analyze available data.
+
+## Playbooks
+
+The Microsoft Sentinel solution for Microsoft Business Apps includes Playbooks, which are integral to Sentinel's SOAR capabilities. These playbooks enable automated security responses for Dynamics and Power Platform, streamlining workflows and improving collaboration between SOC analysts and Business Applications experts.
+
+## Workbooks
+
+The Microsoft Sentinel solution for Microsoft Business Apps includes workbooks designed to present security data visually, making it easier to detect anomalies and uncover patterns through interactive visualizations.
 
 ## Parsers
 
@@ -73,5 +85,8 @@ The Microsoft Sentinel solution for Microsoft Business Apps includes parsers tha
 For more information, see:
 
 - [Deploy the Microsoft Sentinel solution for Microsoft Business Apps ](deploy-business-applications-solution.md)
+
 - [Security content reference for Microsoft Power Platform](power-platform-solution-security-content.md)
+
 - [Security content reference for Dynamics 365 Finance and Operations](../dynamics-365/dynamics-365-finance-operations-security-content.md)
+
