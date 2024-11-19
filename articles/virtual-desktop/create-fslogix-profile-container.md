@@ -3,7 +3,7 @@ title: Configure FSLogix profile container on Azure Virtual Desktop with Azure N
 description: Learn how to configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 07/01/2020
+ms.date: 11/05/2024
 ms.author: daknappe
 ms.custom: docs_inherited
 ---
@@ -25,7 +25,15 @@ The instructions in this guide are specifically for Azure Virtual Desktop users.
 
 ## Considerations 
 
-* To optimize performance and scalability, the number of _concurrent_ users accessing FSLogix profile containers stored on a single Azure NetApp Files regular volume should be limited to 3,000. Having more than 3,000 _concurrent_ users on a single volume causes significant increased latency on the volume. If your scenario requires more than 3,000 _concurrent_ users, divide users across multiple regular volumes or use a large volume. A single large volume can store FSLogix profiles for up to 50,000 _concurrent_ users. For more information on large volumes, see [Requirements and considerations for large volumes](../azure-netapp-files/large-volumes-requirements-considerations.md).
+* To optimize performance and scalability, the number of concurrent user connections accessing FSLogix profile containers stored on a single Azure NetApp Files regular volume should be limited to 3,000.
+    A user connection is defined as either:
+    
+    - a connection to an [FSLogix profile container](/fslogix/concepts-container-types#profile-container)
+    - a connection to an [FSLogix ODFC container](/fslogix/concepts-container-types#odfc-container)
+
+    If you're utilizing both FSLogix profiles and FSLogix ODFC containers, note that a single regular volume should contain no more than 3,000 FSLogix profiles _or_ FSLogix ODFC containers (combined). Having more than 3,000 concurrent user connections on a single volume causes significant increased latency on the volume. If your scenario requires more than 3,000 concurrent user connections, divide users across multiple regular volumes or use a large volume.
+    A single large volume can accommodate up to 50,000 concurrent user connections for FSLogix containers. For more information on large volumes, see [Requirements and considerations for large volumes](../azure-netapp-files/large-volumes-requirements-considerations.md).
+    If you're utilizing both FSLogix profiles and FSLogix ODFC containers, note that a single large volume should contain no more than 50,000 FSLogix profiles _or_ FSLogix ODFC containers (combined).
 
 * To protect your FSLogix profile containers, consider using [Azure NetApp Files snapshots](../azure-netapp-files/snapshots-introduction.md) and [Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md).
 

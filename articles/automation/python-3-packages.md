@@ -96,12 +96,12 @@ You can import a Python 3.8 package and its dependencies by importing the follow
 
 #### [System assigned managed identity](#tab/sa-mi)
 
-```cmd
+```
 https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
 ```
 
 #### [User assigned managed identity](#tab/ua-mi)
-```cmd
+```python
 import requests
 import sys
 import pip

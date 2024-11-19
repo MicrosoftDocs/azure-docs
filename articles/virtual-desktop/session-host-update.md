@@ -10,9 +10,7 @@ ms.date: 10/01/2024
 # Session host update for Azure Virtual Desktop (preview)
 
 > [!IMPORTANT]
-> Session host update for Azure Virtual Desktop is currently in PREVIEW. This preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Session host update for Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Session host update enables you to update the underlying virtual machine (VM) disk type, operating system (OS) image, and other configuration properties of all session hosts in a [host pool with a session host configuration](host-pool-management-approaches.md#session-host-configuration-management-approach). Session host update deallocates or deletes the existing virtual machines and creates new ones that are added to your host pool with the updated configuration. This method of updating session hosts aligns with the recommendation of managing updates within the core source image, rather than distributing and installing updates to each session host individually on an ongoing repeated schedule to keep them up to date.
 
@@ -115,6 +113,8 @@ Here are known issues and limitations:
    - Manually add these new session hosts from within [Azure Virtual Desktop Insights](insights.md) in the Azure portal.
 
 - Avoid modifying a session host configuration in a host pool with no session hosts at the same time a session host is being created as this can result in a host pool with inconsistent session host properties.
+
+- Updates with large batch sizes can result in intermittent failures with the error code `AgentRegistrationFailureGeneric`. If this occurs for a subset of session hosts being updated, [retrying the update](session-host-update-configure.md#pause-resume-cancel-or-retry-an-update) typically resolves the issue.
 
 ## Next steps
 

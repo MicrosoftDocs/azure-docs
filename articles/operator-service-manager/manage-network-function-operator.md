@@ -39,6 +39,8 @@ az k8s-extension create --cluster-name
                         [--config global.networkfunctionextension.clusterRegistry.storageClassName=]
                         [--config global.networkfunctionextension.clusterRegistry.storageSize=]
                         [--config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=]
+                        [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence=]
+                        [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold=]
                         [--version]
 ```
 
@@ -148,6 +150,16 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 * This configuration configures the size we reserve for cluster registry.
 * This configuration uses unit as Gi and Ti for sizing.
 * Default value: 100Gi
+
+`--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence=`
+* This configuration must be provided as a schedule in standard Unix crontab format. 
+* This configuration specified as an empty string disable the scheduled job, allowing customers to opt out of running garbage collection.
+* Default value: "0 0 * * *" -- Runs the job once everyday.
+
+`--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold=`
+* This configuration specifies the precent threshold value to trigger the cluster registry garbage collection process.
+* This configuration triggers garbage collection process when cluster registry usage exceeds this value.
+* Default value: 0.
 
 > [!NOTE]
 > * When managing a NAKS cluster with AOSM, the default parameter values enable HA as the recommended configuration.

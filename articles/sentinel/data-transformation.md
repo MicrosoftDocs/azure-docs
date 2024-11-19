@@ -4,8 +4,7 @@ description: Learn about how Azure Monitor's custom log ingestion and data trans
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 02/27/2022
-
+ms.date: 09/25/2024
 
 #Customer intent: As a security engineer, I want to customize data ingestion and transformation in Microsoft Sentinel so that analysts can filter, enrich, and secure log data efficiently.
 
@@ -19,7 +18,7 @@ Log Analytics' custom data ingestion process gives you a high level of control o
 
 Microsoft Sentinel gives you two tools to control this process:
 
-- The [**Logs ingestion API**](/azure/azure-monitor/logs/logs-ingestion-api-overview) allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. You have full control over the creation of these custom tables, down to specifying the column names and types. You create [**Data collection rules (DCRs)**](/azure/azure-monitor/essentials/data-collection-rule-overview) to define, configure, and apply transformations to these data flows.
+- The [**Logs ingestion API**](/azure/azure-monitor/logs/logs-ingestion-api-overview) allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. You have full control over the creation of these custom tables, down to specifying the column names and types. You create [**DCRs**](/azure/azure-monitor/essentials/data-collection-rule-overview) to define, configure, and apply transformations to these data flows.
 
 - [**Data collection transformation**](/azure/azure-monitor/essentials/data-collection-transformations) uses DCRs to apply basic KQL queries to incoming standard logs (and certain types of custom logs) before they're stored in your workspace. These transformations can filter out irrelevant data, enrich existing data with analytics or external data, or mask sensitive or personal information.
 
@@ -40,9 +39,9 @@ Ingestion-time data transformation supports [multiple-workspace scenarios](exten
 
 ### Normalization
 
-Ingest-time transformation also allows you to normalize logs when ingested into built-in or customer ASIM normalized tables. Using ingest-time normalization improves normalized queries performance.
+Ingest-time transformation also allows you to normalize logs when they're ingested into built-in or customer-normalized tables with [Advanced Security Information Model (ASIM)](normalization.md). Using ingest-time normalization improves the performance of normalized queries.
 
-For more information on ingest-time normalization using transformations, refer to [Ingest-time normalization](normalization-ingest-time.md).
+For more information, see [Ingest-time normalization](normalization-ingest-time.md).
 
 ### Enrichment and tagging
 
@@ -62,7 +61,7 @@ Microsoft Sentinel collects data into the Log Analytics workspace from multiple 
 - Data from built-in data connectors is processed in Log Analytics using some combination of hardcoded workflows and ingestion-time transformations in the workspace DCR. This data can be stored in standard tables or in a specific set of custom tables.
 - Data ingested directly into the Logs ingestion API endpoint is processed by a standard DCR that may include an ingestion-time transformation. This data can then be stored in either standard or custom tables of any kind.
 
-:::image type="content" source="media/data-transformation/data-transformation-architecture.png" alt-text="Diagram of the Microsoft Sentinel data transformation architecture.":::
+:::image type="content" source="media/data-transformation/data-transformation-architecture.png" alt-text="Diagram of the Microsoft Sentinel data transformation architecture." border="false":::
 
 ## DCR support in Microsoft Sentinel
 
@@ -70,7 +69,7 @@ In Log Analytics, data collection rules (DCRs) determine the data flow for diffe
 
 Support for DCRs in Microsoft Sentinel includes:
 
-- *Standard DCRs*, currently supported only for AMA-based connectors and workflows using the new [Logs ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview). 
+- *Standard DCRs*, currently supported only for AMA-based connectors and workflows using the [Logs ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview). <!--"currently". is this still true?-->
 
     Each connector or log source workflow can have its own dedicated *standard DCR*, though multiple connectors or sources can share a common *standard DCR* as well.
 
@@ -78,7 +77,7 @@ Support for DCRs in Microsoft Sentinel includes:
 
     A single *workspace transformation DCR* serves all the supported workflows in a workspace that aren't served by standard DCRs. A workspace can have only one *workspace transformation DCR*, but that DCR contains separate transformations for each input stream. Also, *workspace transformation DCR*s are supported only for a [specific set of tables](/azure/azure-monitor/logs/tables-feature-support).
 
-Microsoft Sentinel's support for ingestion-time transformation depends on the type of data connector you're using. For more in-depth information on custom logs, ingestion-time transformation, and data collection rules, see the articles linked in the [Next steps](#next-steps) section at the end of this article.
+Microsoft Sentinel's support for ingestion-time transformation depends on the type of data connector you're using. For more in-depth information on custom logs, ingestion-time transformation, and data collection rules, see the articles linked in the [Related content](#related-content) section at the end of this article.
 
 ### DCR support for Microsoft Sentinel data connectors
 
@@ -132,12 +131,11 @@ Ingestion-time data transformation currently has the following known issues for 
 
 - You can only send logs from one specific data source to one workspace. To send data from a single data source to multiple workspaces (destinations) with a standard DCR, please create one DCR per workspace. 
 
-## Next steps
+## Related content
 
-[Get started configuring ingestion-time data transformation in Microsoft Sentinel](configure-data-transformation.md).
+For more information, see:
 
-Learn more about Microsoft Sentinel data connector types. For more information, see:
-
+- [Transform or customize data at ingestion time in Microsoft Sentinel (preview)](configure-data-transformation.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
 
