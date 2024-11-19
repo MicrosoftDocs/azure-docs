@@ -117,6 +117,11 @@ To connect to TIP feeds, see [Connect threat intelligence platforms to Microsoft
 
 - EclecticIQ Platform integrates with Microsoft Sentinel to enhance threat detection, hunting, and response. Learn more about the [benefits and use cases](https://www.eclecticiq.com/resources/microsoft-sentinel-and-eclecticiq-intelligence-center) of this two-way integration.
 
+### Filigran OpenCTI
+
+- [Filigran OpenCTI](https://filigran.io/solutions/open-cti/) can send threat intelligence to Microsoft Sentinel via either a [dedicated connector](https://filigran.notion.site/Microsoft-Sentinel-Intel-11c8fce17f2a80209a60e8914e6d1009) which runs in realtime, or by acting as a TAXII 2.1 server that Sentinel will poll regularly. It can also receive structured incidents from Sentinel via the [Microsoft Sentinel Incident connector](https://filigran.notion.site/Microsoft-Sentinel-Incidents-11c8fce17f2a80f1b461c6379265d5d3).
+
+
 ### GroupIB Threat Intelligence and Attribution
 
 - To connect [GroupIB Threat Intelligence and Attribution](https://www.group-ib.com/products/threat-intelligence/) to Microsoft Sentinel, GroupIB makes use of Logic Apps. See the [specialized instructions](https://techcommunity.microsoft.com/t5/azure-sentinel/group-ib-threat-intelligence-and-attribution-connector-azure/ba-p/2252904) that are necessary to take full advantage of the complete offering.
