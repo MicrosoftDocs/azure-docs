@@ -36,7 +36,7 @@ There are a number of possible ways to create a reliable Azure application with 
 
 ### Step 1: Check if the Azure region supports availability zones
 
-In this first step, you'll need to [validate](availability-zones-service-support.md) that your selected Azure region support availability zones as well as the required Azure services for your application.
+In this first step, you'll need to [validate](availability-zones-region-support.md) that your selected Azure region support availability zones as well as the required Azure services for your application.
 
 
 If your region supports availability zones, we highly recommended that you configure your workload for availability zones.  If your region doesn't support availability zones, you'll need to use [Azure Resource Mover guidance](/azure/resource-mover/move-region-availability-zone) to migrate to a region that offers availability zone support.

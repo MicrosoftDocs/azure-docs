@@ -18,12 +18,12 @@ This article contains detailed information on VM regional resiliency with [avail
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Virtual machines support availability zones with three availability zones per supported Azure region and are also zone-redundant and zonal. For more information, see [availability zones support](availability-zones-service-support.md). The customer is responsible for configuring and migrating their virtual machines for availability. 
+Virtual machines support availability zones with three availability zones per supported Azure region and are also zone-redundant and zonal. For more information, see [Azure services with availability zones](availability-zones-service-support.md). The customer is responsible for configuring and migrating their virtual machines for availability. 
 
 To learn more about availability zone readiness options, see:
 
 - See [availability options for VMs](/azure/virtual-machines/availability)
-- Review [availability zone service and region support](availability-zones-service-support.md)
+- Review [availability zone service support](./availability-zones-service-support.md) and [region support](availability-zones-region-support.md)
 - [Migrate existing VMs](migrate-vm.md) to availability zones
 
  

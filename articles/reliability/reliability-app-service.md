@@ -81,7 +81,7 @@ For App Service plans that aren't configured as zone redundant, VM instances are
 
 ::: zone pivot="free-shared-basic,premium"
 
-Zone-redundant App Service plans can be deployed in [any region that supports availability zones](./availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+Zone-redundant App Service plans can be deployed in [any region that supports availability zones](./availability-zones-region-support.md).
 
 ::: zone-end
 
