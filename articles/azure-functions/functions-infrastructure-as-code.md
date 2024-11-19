@@ -1208,10 +1208,9 @@ Your Bicep file or ARM template can optionally also define a deployment for your
 + [Linux container](./functions-how-to-custom-container.md) 
 ::: zone-end  
 ::: zone pivot="flex-consumption-plan"  
-In the Flex Consumption plan, your project code is deployed from a zip-compressed package published to a Blob storage container. Deployment of your code to this container is done using _[one deploy](./functions-deployment-technologies.md#one-deploy)_. For more information, see [Deployment](flex-consumption-plan.md#deployment). 
+The Flex Consumption plan maintains your project code in zip-compressed package file in a blob storage container known as the _deployment container_. You can configure both the storage account and container used for deployment. For more information, see [Deployment](flex-consumption-plan.md#deployment). 
 
->[!IMPORTANT]
->Don't upload your compressed deployment package directly in the deployment container. When you do this, your updated package won't get automatically deployed. You must instead define a package source that gets sent to the deployment container using one deploy. 
+You must use _[one deploy](functions-deployment-technologies.md#one-deploy)_ to publish your code package to the deployment container. During an ARM or Bicep deployment, you can do this by [defining a package source](#deployment-package) that uses the `/onedeploy` extension. If you choose to instead directly upload your package to the container, the package doesn't get automatically deployed.
 
 ### Deployment container
 
