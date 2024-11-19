@@ -9,16 +9,16 @@ ms.custom:
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
-# About Security levels (preview)
+# About Security levels
 
-This article describes the levels of Security available in Azure Business Continuity center (preview).
+This article describes the levels of Security available in Azure Business Continuity center.
 
 Concerns about security issues, such as malware, ransomware, and intrusion, are increasing. These issues pose threats to both money and data. The Security level indicates how well the security settings are configured to guard against such attacks.
 
 Azure Business Continuity center allows you to assess how secure your resources are, based on the security level.
 
 > [!Note]
-> Security level values are computed for Azure Backup only in this preview of Azure Business Continuity center. 
+> Security level values are computed for Azure Backup only in Azure Business Continuity center. 
 
 Azure Backup offers security features at the vault level to safeguard backup data stored within it. These security measures encompass the settings associated with the Azure Backup solution, for the vault itself, and the protected data sources contained within the vault.
 

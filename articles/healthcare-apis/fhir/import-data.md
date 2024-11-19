@@ -252,8 +252,11 @@ Solution: Assign the **Storage Blob Data Contributor** role to the FHIR server. 
 The `import` operation fails and returns `500 Internal Server Error`. The response body contains diagnostic content
 
 **import operation failed for reason: The database '****' has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions.**
+
 Cause: You reached the storage limit of the FHIR service.
+
 Solution: Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
+
 
 ### 423 Locked
 

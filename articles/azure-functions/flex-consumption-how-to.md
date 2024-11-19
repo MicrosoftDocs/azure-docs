@@ -14,8 +14,6 @@ This article shows you how to create function apps hosted in the [Flex Consumpti
 
 Function app resources are langauge-specific. Make sure to choose your preferred code development language at the beginning of the article.
 
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
-
 ## Prerequisites
 
 + An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -124,7 +122,7 @@ To support your function code, you need to create three resources:
     ::: zone-end 
     In this example, replace both `<RESOURCE_GROUP>` and `<STORAGE_NAME>` with the resource group and the name of the account you used in the previous step, respectively. Also replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default domain name server (DNS) domain for the function app. The [`az functionapp create`] command creates the function app in Azure.
 
-    This command creates a function app running in the Flex Consumption plan. The specific language runtime version used is one that is currently supported in the preview. 
+    This command creates a function app running in the Flex Consumption plan. 
 
     Because you created the app without specifying [always ready instances](#set-always-ready-instance-counts), your app only incurs costs when actively executing functions. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
     ```
@@ -150,7 +148,7 @@ To support your function code, you need to create three resources:
     | Prompt |  Selection |
     | ------ |  ----------- |
     | Enter a globally unique name for the new function app. | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
-    | Select a hosting plan. | Choose **Flex Consumption (Preview)**. |
+    | Select a hosting plan. | Choose **Flex Consumption**. |
     | Select a runtime stack. | Choose one of the supported language stack versions. |
     | Select a resource group for new resources. | Choose **Create new resource group** and type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
     | Select a location for new resources. | Select a location in a supported [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Unsupported regions aren't displayed. For more information, see [View currently supported regions](#view-currently-supported-regions).|
@@ -543,7 +541,7 @@ You can't currently set HTTP concurrency limits using Visual Studio Code.
 
 ## View currently supported regions
 
-During the preview, you're only able to run on the Flex Consumption plan only in selected regions. To view the list of regions that currently support Flex Consumption plans: 
+To view the list of regions that currently support Flex Consumption plans: 
 
 [!INCLUDE [functions-flex-supported-regions-cli](../../includes/functions-flex-supported-regions-cli.md)]
 

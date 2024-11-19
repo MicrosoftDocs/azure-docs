@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 10/17/2024
+ms.date: 11/19/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -18,7 +18,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 - November 2024
-  - [Vaulted backup and Cross Region Restore support for AKS is generally available.](#vaulted-backup-and-cross-region-restore-support-for-aks-is-generally-available)
+    - [Back up SAP ASE (Sybase) database (preview)](#back-up-sap-ase-sybase-database-preview)   
+    - [Vaulted backup and Cross Region Restore support for AKS is now generally available](#vaulted-backup-and-cross-region-restore-support-for-aks-is-now-generally-available) 
 - October 2024
     - [GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.](#grs-and-crr-support-for-azure-vms-using-premium-ssd-v2-and-ultra-disk-is-now-generally-available)
     - [Back up Azure VMs with Extended Zones](#back-up-azure-vms-with-extended-zones-preview)
@@ -95,7 +96,16 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
-## Vaulted backup and Cross Region Restore support for AKS is generally available
+## Back up SAP ASE (Sybase) database (preview)
+
+Azure Backup now allows you backing up SAP Adaptive Server Enterprise (ASE) (Sybase) databases running on Azure VMs. All backups are streamed directly to the Azure Backup managed recovery services vault that provides security capabilities like Immutability, Soft Delete and Multiuser Authorization. The vaulted backup data is stored in Microsoft-managed Azure subscription, thus isolating the backups from user's environment. These features ensure that the SAP ASE backup data is always secure and can be recovered safely even if the source machines are compromised.
+
+For stream-based backup, Azure Backup can stream log backups in every **15 minutes**. You can enable this feature in addition to the database backup, which provides **Point-In-Time recovery** capability. Azure Backup also offers **Multiple Database Restore** capabilities such as **Alternate Location Restore** (System refresh), **Original Location Restore**, and **Restore as Files**.
+ 
+Azure Backup also offers cost-effective Backup policies (Weekly full + daily differential backups), which result in lower storage cost.
+For more information, see [Back up SAP ASE (Sybase) database (preview)](sap-ase-database-about.md).
+
+## Vaulted backup and Cross Region Restore support for AKS is now generally available
  
 Azure Backup supports storing AKS backups offsite, which is protected against tenant compromise, malicious attacks and ransomware threats. Along with backup stored in a vault, you can also use the backups in a regional disaster scenario and recover backups.
 
