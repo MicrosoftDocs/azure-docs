@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: tutorial
-ms.date: 11/12/2024
+ms.date: 11/19/2024
 ms.custom: devdivchpfy22
 ---
 
@@ -52,7 +52,7 @@ After the API is imported successfully, it appears in the Explorer pane, and ava
 
 ## Edit the API
 
-You can edit the API in Visual Studio Code. For example, edit the Resource Manager JSON description of the API in the editor window to remove the **http** protocol used to access the API.
+You can edit the API in Visual Studio Code. For example, edit the Resource Manager JSON description of the API in the editor window to remove the **http** protocol used to access the API, which is highlighted in the following snip:
 
 :::image type="content" source="media/visual-studio-code-tutorial/import-demo-api.png" alt-text="Screenshot of editing JSON description in Visual Studio Code.":::
 
