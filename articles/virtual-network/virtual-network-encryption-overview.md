@@ -6,7 +6,7 @@ ms.service: azure-virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 10/24/2024
+ms.date: 11/04/2024
 ms.custom: references_regions
 # Customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
@@ -28,7 +28,7 @@ Virtual network encryption has the following requirements:
 
     | Type | VM Series | VM SKU |
     | --- | --- | --- |
-    | General purpose workloads | D-series V4 </br> D-series V5 </br> D-series V6 | **[Dv4 and Dsv4-series](/azure/virtual-machines/dv4-dsv4-series)** </br> **[Ddv4 and Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series)** </br> **[Dav4 and Dasv4-series](/azure/virtual-machines/dav4-dasv4-series)** </br> **[Dv5 and Dsv5-series](/azure/virtual-machines/dv5-dsv5-series)** </br> **[Ddv5 and Ddsv5-series](/azure/virtual-machines/ddv5-ddsv5-series)** </br> **[Dlsv5 and Dldsv5-series](/azure/virtual-machines/dlsv5-dldsv5-series)** </br> **[Dasv5 and Dadsv5-series](/azure/virtual-machines/dasv5-dadsv5-series)** </br> **[Dasv6 and Dadsv6-series](/azure/virtual-machines/dasv6-dadsv6-series)** </br> **[Dalsv6 and Daldsv6-series](/azure/virtual-machines/dalsv6-daldsv6-series)** |
+    | General purpose workloads | D-series V4 </br> D-series V5 </br> D-series V6 | **[Dv4 and Dsv4-series](/azure/virtual-machines/dv4-dsv4-series)** </br> **[Ddv4 and Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series)** </br> **[Dav4 and Dasv4-series](/azure/virtual-machines/dav4-dasv4-series)** </br> **[Dv5 and Dsv5-series](/azure/virtual-machines/dv5-dsv5-series)** </br> **[Ddv5 and Ddsv5-series](/azure/virtual-machines/ddv5-ddsv5-series)** </br> **[Dlsv5 and Dldsv5-series](/azure/virtual-machines/dlsv5-dldsv5-series)** </br> **[Dasv5 and Dadsv5-series](/azure/virtual-machines/dasv5-dadsv5-series)** </br> **[Dasv6 and Dadsv6-series](/azure/virtual-machines/dasv6-dadsv6-series)** </br> **[Dalsv6 and Daldsv6-series](/azure/virtual-machines/dalsv6-daldsv6-series)** </br> **[Dsv6-series](/azure/virtual-machines/sizes/general-purpose/dsv6-series)** |
     | Memory intensive workloads | E-series V4 </br> E-series V5 </br> E-series V6 </br> M-series V2 </br> M-series V3 | **[Ev4 and Esv4-series](/azure/virtual-machines/ev4-esv4-series)** </br> **[Edv4 and Edsv4-series](/azure/virtual-machines/edv4-edsv4-series)** </br> **[Eav4 and Easv4-series](/azure/virtual-machines/eav4-easv4-series)** </br> **[Ev5 and Esv5-series](/azure/virtual-machines/ev5-esv5-series)** </br> **[Edv5 and Edsv5-series](/azure/virtual-machines/edv5-edsv5-series)** </br> **[Easv5 and Eadsv5-series](/azure/virtual-machines/easv5-eadsv5-series)** </br> **[Easv6 and Eadsv6-series](/azure/virtual-machines/easv6-eadsv6-series)** </br> **[Mv2-series](/azure/virtual-machines/mv2-series)** </br> **[Msv2 and Mdsv2 Medium Memory series](/azure/virtual-machines/msv2-mdsv2-series)** </br> **[Msv3 and Mdsv3 Medium Memory series](/azure/virtual-machines/msv3-mdsv3-medium-series)** |
     | Storage intensive workloads | L-series V3 | **[LSv3-series](/azure/virtual-machines/lsv3-series)**  |
     | Compute optimized | F-series V6 | **[Falsv6-series](/azure/virtual-machines/sizes/compute-optimized/falsv6-series)** </br> **[Famsv6-series](/azure/virtual-machines/sizes/compute-optimized/famsv6-series)** </br> **[Fasv6-series](/azure/virtual-machines/sizes/compute-optimized/fasv6-series)** |
@@ -56,6 +56,15 @@ Azure Virtual Network encryption has the following limitations:
 - **AllowUnencrypted** is the only supported enforcement at general availability. **DropUnencrypted** enforcement will be supported in the future.
 
 - Virtual networks with encryption enabled don't support [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview).
+
+- Virtual networks configured with the Azure Private Link service don't support Virtual Network encryption, so Virtual Network encryption shouldn't be enabled on these virtual networks. 
+
+- Virtual Network encryption shouldn't be enabled in virtual networks that have Azure confidential computing VM SKUs. If you want to use Azure confidential computing VMs in virtual networks where Virtual Network encryption is enabled, then:
+
+    - Enable Accelerated Networking on the VM's NIC if it's supported.
+    - If Accelerated Networking isn't supported, change the VM SKU to one that supports Accelerated Networking or Virtual Network encryption.
+    
+    Don't enable Virtual Network encryption if the VM SKU doesn't support Accelerated Networking or Virtual Network encryption.
 
 ## Supported scenarios
 

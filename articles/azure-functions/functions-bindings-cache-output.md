@@ -16,6 +16,16 @@ The Azure Cache for Redis output bindings lets you change the keys in a cache ba
 
 For information on setup and configuration details, see the [overview](functions-bindings-cache.md).
 
+## Scope of availability for functions bindings
+
+| Binding Type    | Azure Managed Redis | Azure Cache for Redis |
+|---------|:-----:|:-----------------:|
+| Output | Yes   | Yes               |
+
+> [!IMPORTANT]
+> When using Azure Managed Redis or the Enterprise tiers of Azure Cache for Redis, use port 10000 rather than port 6380 or 6379.
+>
+
 ::: zone pivot="programming-language-javascript"  
 <!--- Replace with the following when Node.js v4 is supported:
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
@@ -126,7 +136,7 @@ This example shows a pub/sub trigger on the set event with an output binding to 
 
 ### [Model v3](#tab/nodejs-v3)
 
-The bindings are defined in this `function.json`` file:
+The bindings are defined in the `function.json`` file:
 
 ```json
 {

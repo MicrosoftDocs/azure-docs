@@ -57,6 +57,12 @@ following sorting rules:
    "bin packs" the extra-large VMs in order to reduce fragmentation of the
    available compute resources.
 
+1. The "bin packing" rule mentioned above also applies to smaller VMs in addition to
+   large VMs.This helps to "pack" smaller VMs from different clusters onto the same
+   baremetal machines, increasing the overall placement efficiency.
+   For example control plane nodes & small-SKU Nodes (agent pool) from different
+   clusters affine together.
+
 ## Example placement scenarios
 
 The following sections highlight behavior that Nexus users should expect

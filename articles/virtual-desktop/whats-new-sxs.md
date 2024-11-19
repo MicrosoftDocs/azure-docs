@@ -40,8 +40,8 @@ Here's information about the SxS Network Stack.
 
 In this release, we've made the following changes:
 
-- [HVEC preview](whats-new.md#enabling-hevc-gpu-acceleration-for-azure-virtual-desktop-is-now-in-preview) support.
-- Addressed an issue in the RemoteApp scenario that could cause the text highlight color in the File Explorer’s address bar to appear incorrectly.
+- Support for the [preview of graphics encoding with HEVC/H.265](whats-new.md#enabling-hevc-gpu-acceleration-for-azure-virtual-desktop-is-now-in-preview).
+- Addressed an issue when using a RemoteApp that could cause the text highlight color in the File Explorer's address bar to appear incorrectly.
   
 ## Version 1.0.2404.16760
 

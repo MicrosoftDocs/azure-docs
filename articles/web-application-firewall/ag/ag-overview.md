@@ -111,18 +111,22 @@ Three bot categories are supported:
 
 - **Bad**
 
-   Bad bots include bots from malicious IP addresses and bots that falsify their identities. Bad bots with malicious IPs are sourced from the Microsoft Threat Intelligence feed’s high confidence IP Indicators of Compromise.
+  Bad bots are bots with malicious IP addresses and bots that have falsified their identities. Bad bots includes malicious IP addresses that are sourced from the Microsoft Threat Intelligence feed’s high confidence IP Indicators of Compromise and IP reputation feeds. Bad bots also include bots that identify themselves as good bots but their IP addresses don’t belong to legitimate bot publishers.
 - **Good**
 
-   Good bots include validated search engines such as Googlebot, bingbot, and other trusted user agents.
+   Good Bots are trusted user agents. Good bot rules are categorized into multiple categories to provide granular control over WAF policy configuration. These categories include:
+   - verified search engine bots (such as Googlebot and Bingbot)
+   - validated link checker bots
+   - verified social media bots (such as Facebookbot and LinkedInBot)
+   - verified advertising bots
+   - verified content checker bots
+   - validated miscellaneous bots
 
 - **Unknown**
 
-   Unknown bots are classified via published user agents without more validation. For example, market analyzer, feed fetchers, and data collection agents. Unknown bots also include malicious IP addresses that are sourced from Microsoft Threat Intelligence feed’s medium confidence IP Indicators of Compromise.
+   Unknown bots are user agents without additional validation. Unknown bots also include malicious IP addresses that are sourced from Microsoft Threat Intelligence feed’s medium confidence IP Indicators of Compromise.
 
-The WAF platform actively manages and dynamically updates bot signatures.
-
-:::image type="content" source="../media/ag-overview/bot-rule-set.png" alt-text="Screenshot of bot rule set.":::
+The WAF platform actively manages and dynamically updates the bot signatures.
 
 You can assign Microsoft_BotManagerRuleSet_1.0 by using the **Assign** option under **Managed Rulesets**:
 
@@ -132,6 +136,7 @@ When Bot protection is enabled, it blocks, allows, or logs incoming requests tha
 
 You can access WAF logs from a storage account, event hub, log analytics, or send logs to a partner solution.
 
+For more information about Application Gateway bot protection, see [Azure Web Application Firewall on Azure Application Gateway bot protection overview](bot-protection-overview.md).
 
 ### WAF modes
 

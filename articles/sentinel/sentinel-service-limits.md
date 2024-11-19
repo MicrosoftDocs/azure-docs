@@ -47,6 +47,7 @@ The following limits apply to incidents in Microsoft Sentinel.
 | Description | Limit | Dependency |
 | --------- | --------- | ------- |
 | Investigation experience availability | 90 days from the incident last update time | None |
+| Retention period for incident entities | 180 days | Entities database retention |
 | Number of alerts | 150 alerts  | None |
 | Number of automation rules     | 512 rules | None |
 | Number of automation rule actions  | 20 actions  | None |

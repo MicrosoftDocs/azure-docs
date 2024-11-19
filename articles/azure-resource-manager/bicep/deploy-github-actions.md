@@ -122,7 +122,7 @@ Create secrets for your Azure credentials, resource group, and subscriptions. Yo
 
 1. Create another secret named `AZURE_RG`. Add the name of your resource group to the secret's value field (`exampleRG`).
 
-1. Create another secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
+1. Create another secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`).
 
 # [Open ID Connect](#tab/openid)
 

@@ -24,6 +24,7 @@ sections:
           To restrict an admin to only manage user sessions, such as sending messages to users, signing out users, and so on, you can create custom roles. For example:
           
           ```json
+          {
               "actions": [
                   "Microsoft.Resources/deployments/operations/read",
                   "Microsoft.Resources/tags/read",

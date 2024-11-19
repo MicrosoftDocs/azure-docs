@@ -5,7 +5,7 @@ services: application-gateway
 author: greglin
 ms.service: azure-appgw-for-containers
 ms.topic: troubleshooting
-ms.date: 10/15/2024
+ms.date: 11/7/2024
 ms.author: greglin
 ---
 
@@ -25,10 +25,10 @@ Example output:
 
 | NAME                     | READY | UP-TO-DATE | AVAILABLE | AGE  | CONTAINERS              | IMAGES                                                                          | SELECTOR |
 | ------------------------ | ----- | ---------- | --------- | ---- | ----------------------- | ------------------------------------------------------------------------------- | -------- |
-| alb-controller           | 2/2   | 2          | 2         | 18d | alb-controller           | mcr.microsoft.com/application-lb/images/alb-controller:**1.2.3**           | app=alb-controller |
-| alb-controller-bootstrap | 1/1   | 1          | 1         | 18d | alb-controller-bootstrap | mcr.microsoft.com/application-lb/images/alb-controller-bootstrap:**1.2.3** | app=alb-controller-bootstrap |
+| alb-controller           | 2/2   | 2          | 2         | 18d | alb-controller           | mcr.microsoft.com/application-lb/images/alb-controller:**1.3.7**           | app=alb-controller |
+| alb-controller-bootstrap | 1/1   | 1          | 1         | 18d | alb-controller-bootstrap | mcr.microsoft.com/application-lb/images/alb-controller-bootstrap:**1.3.7** | app=alb-controller-bootstrap |
 
-In this example, the ALB controller version is **1.2.3**.
+In this example, the ALB controller version is **1.3.7**.
 
 The ALB Controller version can be upgraded by running the `helm upgrade alb-controller` command. For more information, see [Install the ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#install-the-alb-controller).
 

@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 08/26/2024
+ms.date: 11/18/2024
 ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
@@ -37,6 +37,8 @@ Data connectors are available as part of the following offerings:
 ## Data connector prerequisites
 
 [!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
+
+Azure Monitor agent (AMA) based data connectors require an internet connection from the system where the agent is installed. Enable port 443 outbound to allow a connection between the system where the agent is installed and Microsoft Sentinel.
 
 ## Syslog and Common Event Format (CEF) connectors
 

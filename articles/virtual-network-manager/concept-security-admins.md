@@ -122,6 +122,8 @@ By default, security admin rules aren't applied to a virtual network containing 
 - [Azure SQL Managed Instances](/azure/azure-sql/managed-instance/connectivity-architecture-overview#mandatory-security-rules-with-service-aided-subnet-configuration)
 - Azure Databricks  
 
+You can request to enable your Azure Virtual Network Manager to apply security admin rules on virtual networks with these services by submitting a request using [this form](https://forms.office.com/r/MPUXZE2wMY).
+
 When a virtual network contains these services, the security admin rules skip this virtual network. If you want *Allow* rules applied to this virtual network, you create your security configuration with the `AllowRulesOnly` field set in the [securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices](/dotnet/api/microsoft.azure.management.network.models.networkintentpolicybasedservice?view=azure-dotnet&preserve-view=true) .NET class. When set, only *Allow* rules in your security configuration are applied to this virtual network. *Deny* rules aren't applied to this virtual network. Virtual networks without these services can continue using *Allow* and *Deny* rules. 
 
 You can create a security configuration with *Allow* rules only and deploy it to your virtual networks with [Azure PowerShell](/powershell/module/az.network/new-aznetworkmanagersecurityadminconfiguration#example-1) and [Azure CLI](/cli/azure/network/manager/security-admin-config#az-network-manager-security-admin-config-create-examples).
@@ -187,7 +189,7 @@ Protocols currently supported with security admin rules are:
 #### Source and destination types
 
 * **IP addresses**: You can provide IPv4 or IPv6 addresses or blocks of address in CIDR notation. To list multiple IP address, separate each IP address with a comma.
-* **Service Tag**: You can define specific service tags based on regions or a whole service. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags.
+* **Service Tag**: You can define specific service tags based on regions or a whole service. See the public documentation on [available service tags](../virtual-network/service-tags-overview.md#available-service-tags) for the list of supported tags. Out of this list, security admin rules currently do not support the AzurePlatformDNS, AzurePlatformIMDS, and AzurePlatformLKM service tags.
 
 #### Source and destination ports
 

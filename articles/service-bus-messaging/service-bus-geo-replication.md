@@ -28,12 +28,23 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 > - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
 > - The below regions are currently supported in the public preview.
 >
-> | North America   | Europe        | APAC              |
-> |-----------------|---------------|-------------------|
-> | Central US EUAP | Italy North   | Australia Central |
-> | Canada Central  | Spain Central | Australia East    |
-> | Canada East     | Norway East   |                   |
->
+> | Region              | Region               | Region             |
+> |--------------------|--------------------|------------------|
+> | AustraliaCentral   | GermanyNorth       | NorwayWest       |
+> | AustraliaCentral2  | GermanyWestCentral | PolandCentral    |
+> | AustraliaEast      | IsraelCentral      | SouthAfricaNorth |
+> | AustraliaSoutheast | ItalyNorth         | SouthAfricaWest  |
+> | BrazilSoutheast    | JapanEast          | SoutheastAsia    |
+> | CanadaCentral      | JapanWest          | SouthIndia       |
+> | CanadaEast         | JioIndiaCentral    | SpainCentral     |
+> | CentralIndia       | JioIndiaWest       | SwedenCentral    |
+> | CentralUS          | KoreaCentral       | SwitzerlandNorth |
+> | CentralUSEUAP      | KoreaSouth         | SwitzerlandWest  |
+> | EastAsia           | MexicoCentral      | UAECentral       |
+> | EastUS2            | NorthCentralUS     | UAENorth         |
+> | FranceCentral      | NorthEurope        | UKSouth          |
+> | FranceSouth        | NorwayEast         | UKWest           |
+> 
 > - This feature is currently available on new namespaces. If a namespace had this feature enabled before, it can be disabled (by removing the secondary regions), and re-enabled.
 > - The following features currently aren't supported. We're continuously working on bringing more features to the public preview, and will update this list with the latest status.
 >     - Large message support.

@@ -3,12 +3,12 @@ title: Imports in Bicep
 description: This article describes how to import shared functionality and namespaces in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/20/2024
+ms.date: 10/23/2024
 ---
 
 # Imports in Bicep
 
-This article describes the syntax you use to export and import shared functionality and namespaces for Bicep extensions.
+This article describes the syntax you use to export and import shared functionality and namespaces for Bicep extensions. Using compile-time imports automatically enables [language version 2.0](../templates/syntax.md#languageversion-20) code generation.
 
 ## Export variables, types, and functions
 

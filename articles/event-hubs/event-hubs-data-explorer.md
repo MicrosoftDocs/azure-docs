@@ -2,7 +2,7 @@
 title: Overview of the Event Hubs Data Explorer
 description: This article provides an overview of the Event Hubs Data Explorer, which provides an easy way to send data to and receive data from Azure Event Hubs.
 ms.topic: article
-ms.date: 08/22/2024
+ms.date: 11/18/2024
 ---
 
 # Use Event Hubs Data Explorer to run data operations on Event Hubs

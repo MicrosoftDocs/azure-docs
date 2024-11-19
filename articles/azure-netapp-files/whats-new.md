@@ -24,14 +24,17 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Cloud Backup for Virtual Machines also supports the ability to [restore a virtual machine](../azure-vmware/restore-azure-netapp-files-vms.md) to an alternate location on the same ESXi host or different ESXi host in the same vCenter and to [restore guest files and folders from a snapshot or Azure NetApp Files backup](../azure-vmware/restore-guest-files-folders.md). 
  
+* [Cool access support for large volumes](large-volumes-requirements-considerations.md#register-the-feature)
 
-## October 2024
+    Azure NetApp Files storage with [cool access](cool-access-introduction.md) is now available with [large volumes](large-volumes.md). You must be registered to use _both_ cool access and large volumes to create a cool access-enabled large volume. 
+
+ ## October 2024
 
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
 
-    This feature is currently in preview in the Australia East, Central India, North Central US, and Switzerland North regions. 
+    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, and Switzerland North regions. 
   
 ## September 2024 
 

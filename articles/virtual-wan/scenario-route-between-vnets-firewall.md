@@ -5,7 +5,7 @@ description: Learn about routing scenarios to route traffic between VNets direct
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: conceptual
-ms.date: 02/13/2023
+ms.date: 10/25/2024
 ms.author: cherylmc
 
 ---

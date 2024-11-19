@@ -6,7 +6,7 @@ metadata:
   ms.author: patricka
   ms.topic: faq
   ms.custom: references_regions
-  ms.date: 09/10/2024
+  ms.date: 10/30/2024
 
 title: Azure IoT Operations frequently asked questions
 summary: |
@@ -27,6 +27,9 @@ sections:
     - question: |
          Does Azure IoT Operations offer high availability across multi-node setups?
       answer: Yes, Azure IoT Operations workloads on K3s and HCI/AKS-Arc multi-node clusters support distribution of Azure IoT Operations workloads across multi-nodes setups in the preview version.
+    - question: |
+         Does Azure Device Registry Preview offer high availability across availability zones and regions?
+      answer: For information on high availability across availability zones and regions for ADR, see [Reliability in Azure Device Registry](../../reliability/reliability-device-registry.md).
     - question: |
          Can I migrate my IoT Edge workloads to Azure IoT Operations?
       answer: Currently, there's no documented migration path from IoT Edge to Azure IoT Operations. If you have any feature asks for Azure IoT Operations as part of your migration plans, share your requests on the [Azure IoT Operations public feedback forum](https://feedback.azure.com/d365community/forum/20152d6e-6a76-ee11-8179-000d3a1abe9e).

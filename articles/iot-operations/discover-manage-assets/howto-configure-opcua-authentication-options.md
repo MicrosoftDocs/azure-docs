@@ -24,7 +24,7 @@ To learn more, see [OPC UA applications - user authentication](https://reference
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations Preview with [Manage Synced Secrets](../deploy-iot-ops/howto-manage-secrets.md#manage-synced-secrets) enabled.
+A deployed instance of Azure IoT Operations Preview with [Manage Synced Secrets](../secure-iot-ops/howto-manage-secrets.md#manage-synced-secrets) enabled.
 
 ## Features supported
 
