@@ -98,7 +98,7 @@ For more information, see the following documentation:
 
    1. In your logic app project, expand the folder with your workflow name.
 
-   1. If not already open, open the **workflow.json** file, open the file's shortcut men, and select **Open Designer**.
+   1. If not already open, open the **workflow.json** file, open the file's shortcut menu, and select **Open Designer**.
 
    1. When you're prompted to allow parameterizations for connections when your project loads, select **Yes**.
 
