@@ -705,8 +705,6 @@
       href: connect-dns-ama.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
-    - name: Microsoft Sentinel Data Collector API
-      href: connect-rest-api-template.md      
   - name: Connection instructions for service
     items:
     - name: Amazon Web Services logs
