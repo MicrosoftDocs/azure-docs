@@ -49,7 +49,7 @@ Internally, Microsoft's Cloud for Sustainability services are partially geo-redu
 
 During a region failure, Azure emissions data that's already ingested into Fabric is accessible as long as Microsoft Fabric is available. For information on how to plan for disaster recovery and configure multi-region support in Microsoft Fabric, see [Reliability in Microsoft Fabric ](./reliability-fabric.md).
 
-Ingestion of new Azure emissions data will resume after Microsoft restores services into the region. Any missing data is expected to be ingested at this time. This process might take several days, but during that time any previous data continues to be available.
+Ingestion of new Azure emissions data, as well as any missing data, resumes after Microsoft restores services into the region. Although the process of ingesting new and missing data might take several days, previously ingested data is still available.
 
 ## Related content
 
