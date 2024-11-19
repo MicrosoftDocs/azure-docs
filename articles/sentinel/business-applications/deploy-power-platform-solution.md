@@ -13,7 +13,7 @@ ms.date: 11/14/2024
 
 # Connect Microsoft Power Platform and Dynamics 365 CRM to Microsoft Sentinel
 
-This article describes how to deploy the [Microsoft Sentinel solution for Microsoft Business Apps](../business-applications/solution-overview.md) to connect your Microsoft Power Platform system to Microsoft Sentinel. The solution collects audit and activity logs to detect threats, suspicious activities, illegitimate activities, and more.
+This article describes how to deploy the [Microsoft Sentinel solution for Microsoft Business Apps](../business-applications/solution-overview.md) to connect your Microsoft Power Platform and Dynamics 365 CRM system to Microsoft Sentinel. The solution collects audit and activity logs to detect threats, suspicious activities, illegitimate activities, and more.
 
 > [!IMPORTANT]
 >
@@ -38,14 +38,15 @@ Before deploying the Microsoft Sentinel solution for Microsoft Business Apps, en
 
 ## Install the solution and deploy your data connectors
 
-1. Start by installing the Microsoft Sentinel solution for Microsoft Business Apps from the Microsoft Sentinel **Content hub**. <!--is this the exact name?-->
+1. Start by installing the Microsoft Sentinel solution for Microsoft Business Applications from the Microsoft Sentinel **Content hub**.
 
     For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
 
 1. Select **Configuration > Data connectors**, and locate any of the following data connectors you want to deploy:
 
    - Microsoft Dataverse
-      - Microsoft Power Platform Admin Activity
+   - Microsoft Power Platform Admin Activity
+   
    - Microsoft Power Automate
       
 1. For each data connector, on the side pane, select **Open connector page > Connect**.
@@ -88,13 +89,13 @@ When working with Microsoft Dataverse, Dataverse activity logging is available o
    | take 50
    ```
 
-      The following table lists the Log Analytics tables to query.
+The following table lists the Log Analytics tables to query.
 
-   |Log Analytics tables |Data collected |
+|Log Analytics tables |Data collected |
 |---------|---------|
 |PowerPlatformAdminActivity|Power Platform administrative logs|
-|PowerAutomateActivity |Power Automate activity logs  |
-|DataverseActivity |Dataverse and model-driven apps activity logging  |  
+|PowerAutomateActivity |Power Automate activity logs |
+|DataverseActivity |Dataverse and model-driven apps activity logging|  
 
    Use the following parsers to return supporting watchlist and configuration data.
    
@@ -106,7 +107,6 @@ When working with Microsoft Dataverse, Dataverse activity logging is available o
    |`DataverseSharePointSites`|SharePoint sites used in Dataverse Document Management|
    |`MSBizAppsTerminatedEmployees`    | Terminated employees watchlist |
    
-1. Verify that the results for each table show the activities you generated.
 
 ## Related content
 
