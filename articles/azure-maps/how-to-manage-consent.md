@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure Maps consent management
-description: This article describes how to configure the global data processing settings to comply with data residency laws in Azure Maps.
+title: Configure global data processing
+description: This article describes how to configure the global data processing settings in Azure Maps to comply with data residency laws.
 author: pbrasil
 ms.author: peterbr
-ms.date: 11/15/2024
+ms.date: 11/19/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: manage-account
 ---
 
-# Consent management
+# Configure global data processing
 
-In some cases, it may be necessary to process requests in a region different from your Azure Maps Account's region due to local data residency laws. When this happens, you can grant Azure Maps consent to process your data in other specified regions.
+In some cases, it may be necessary to process requests in a region different from your Azure Maps Account's region due to local data residency laws. When this happens, you can grant Azure Maps consent to process your data in other specified regions. For more information, see [Consent management].
 
-This article guides you on configuring global data processing settings in your Azure Maps account in the Azure portal to comply with data residency laws. This allows Azure Maps to process address requests within the specified country's region, regardless of your Azure Maps Account's region.
+This article guides you on configuring global data processing settings to comply with data residency laws using multiple approaches including the [Azure Portal](#configure-global-data-processing-in-the-azure-portal), [REST APIs](#configure-global-data-processing-using-rest-api) or an [ARM deployment template](#configure-global-data-processing-using-arm-deployment-template). This allows Azure Maps to process address requests within the specified country's region, regardless of your Azure Maps Account's region.
 
 > [!IMPORTANT]
 > If your scenarios don't involve South Korea data, there is no need to enable cross-region processing. This requirement is specific to South Korea due to its data residency laws.
@@ -46,7 +46,66 @@ Once your updates are saved, one or more new selections appear in the list of re
 > [!NOTE]
 > Your data is always stored in the region you created your Azure Maps Account, regardless of your global data processing settings.
 
-<!--## Configure global data processing using ARM deployment template-->
+## Configure global data processing using REST API
+
+Consent can be managed using [Azure Maps Account Management REST APIs]. To Configure global data processing, send an [Accounts - Update]  `PATCH` request and pass in the `properties.locations` parameter in the body of the request.
+
+Be sure to include the appropriate [subscription key], respurce group and Azure Maps account name.
+
+```html
+https://management.azure.com/subscriptions/<subscription-key>/resourceGroups/<resource-group-name>/providers/Microsoft.Maps/accounts/<account-name>?api-version=2024-07-01-preview
+```
+
+**Header**
+
+- Content-Type: application/json
+- Authorization: Bearer <access-token> 
+
+**Body**
+
+```json
+{
+  "properties": {
+    "locations": [
+      {
+        "locationName": "Korea Central"
+      }
+    ]
+  },
+}
+```
+
+## Configure global data processing using an ARM deployment template
+
+The following template will add _West Europe_ to the list of valid global data processing regions.
+
+Be sure to include the appropriate Azure Maps account name and location.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Maps/accounts",
+      "apiVersion": "2024-07-01-preview",
+      "name": "<account-name>",
+      "location": "<account-location>",
+      "sku": {
+        "name": "G2"
+      },
+      "properties":
+      {
+        "locations": [
+          {
+            "locationName": "West Europe"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
 
 ## Next steps
 
@@ -55,6 +114,9 @@ Azure Maps is a global service that allows specifying a geographic scope, which 
 > [!div class="nextstepaction"]
 > [Azure Maps service geographic scope]
 
-
+[Accounts - Update]: /rest/api/maps-management/accounts/update
+[Azure Maps Account Management REST APIs]: /rest/api/maps-management/accounts
 [Azure portal]: https://ms.portal.azure.com
 [Azure Maps service geographic scope]: geographic-scope.md
+[Consent management]: consent-management.md
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
