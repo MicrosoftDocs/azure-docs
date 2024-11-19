@@ -17,7 +17,7 @@ ms.author: patricka
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-As the IoT Edge for Linux on Windows (EFLOW) application releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge for Linux on Windows devices when a new version is available.
+As the IoT Edge for Linux on Windows (EFLOW) application releases new versions, you want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge for Linux on Windows devices when a new version is available.
 
 
 With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is preinstalled with IoT Edge, and has no package manager, so you can't manually update or change any of the VM components. Instead, the virtual machine is managed with Microsoft Update to keep the components up to date automatically.
@@ -28,7 +28,7 @@ Each update consists of two main components that may get updated to latest versi
 
 The second component is the group of Windows runtime components needed to run and interop with the EFLOW virtual machine. The virtual machine lifecycle and interop is managed through different components: WSSDAgent, EFLOWProxy service, and the PowerShell module. 
 
-EFLOW updates are sequential and you need to update to every version in order. In order to get to the latest version, you'll have to either do a fresh installation using the latest available version, or apply all the previous servicing updates up to the desired version. 
+EFLOW updates are sequential and you need to update to every version in order. In order to get to the latest version, you have to either do a fresh installation using the latest available version, or apply all the previous servicing updates up to the desired version. 
 
 > [!IMPORTANT]
 > Upgrading from EFLOW 1.4 LTS to EFLOW 1.5 LTS is supported using any of the methods described in this article. No special steps are needed to upgrade from EFLOW 1.4 LTS to EFLOW 1.5 LTS.
@@ -67,7 +67,7 @@ In some scenarios with restricted or limited internet connectivity, you may want
 
 ## Managing Microsoft Updates
 
-As explained before, IoT Edges for Linux on Windows updates are serviced using Microsoft Update channel.  To change receiving EFLOW updates, you'll have to manage Microsoft Updates. The following list includes ways to automate turning on or off Microsoft updates. For more information about managing OS updates, see [OS Updates](/windows/iot/iot-enterprise/os-features/updates#completely-turn-off-windows-updates).
+As explained before, IoT Edges for Linux on Windows updates are serviced using Microsoft Update channel.  To change receiving EFLOW updates, you have to manage Microsoft Updates. The following list includes ways to automate turning on or off Microsoft updates. For more information about managing OS updates, see [OS Updates](/windows/iot/iot-enterprise/os-features/updates#completely-turn-off-windows-updates).
 
 - **CSP Policies** - By using the **Update/AllowMUUpdateService** CSP Policy - For more information about Microsoft Updates CSP policy, see [Policy CSP - MU Update](/windows/client-management/mdm/policy-csp-update#update-allowmuupdateservice).
 
@@ -75,7 +75,7 @@ As explained before, IoT Edges for Linux on Windows updates are serviced using M
 
 ## Migration between EFLOW 1.1LTS and EFLOW 1.4LTS
 
-IoT Edge for Linux on Windows doesn't support migrations between the different release trains. If you want to move from the 1.1LTS or 1.4LTS version to the Continuous Release (CR) version or viceversa, you'll have to uninstall the current version and install the new desired version. 
+IoT Edge for Linux on Windows doesn't support migrations between the different release trains. If you want to move from the 1.1LTS or 1.4LTS version to the Continuous Release (CR) version or viceversa, you have to uninstall the current version and install the new desired version. 
 
 Migration between EFLOW 1.1LTS to EFLOW 1.4LTS was introduced as part of EFLOW 1.1LTS [(1.1.2212.12122)](https://aka.ms/AzEFLOWMSI-Update-1_1_2212_12122) update. This migration handles the EFLOW VM migration from 1.1LTS version to 1.4LTS version, including the following:
 - IoT Edge runtime
@@ -96,7 +96,7 @@ To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
     > [!NOTE]
     > You can migrate with one single cmdlet by using the `-autoConfirm` flag with the `Start-EflowMigration` cmdlet. If specified `Confirm-EflowMigration` doesnt needs to be called to proceed with 1.4 migration.
 
-    1. If you're using the auto-download migration option run the following cmdlet
+    1. If you're using the auto-download migration option, run the following cmdlet
         ```powershell
         Start-EflowMigration
         ```
@@ -105,7 +105,7 @@ To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
         Start-EflowMigration -standaloneMsiPath "<path-to-folder>\AzureIoTEdge_LTS_1.4.2.12122_X64.msi" 
         ```
 1. Confirm the EFLOW migration
-    1. If you're using the auto-download migration option run the following cmdlet
+    1. If you're using the auto-download migration option, run the following cmdlet
         ```powershell
         Confirm-EflowMigration
         ```
