@@ -80,7 +80,7 @@ To create a cache, follow these steps:
     1. **NoZones**
         - This value should be passed in the request body for Premium caches in order to create a non-zonal cache. Since for Standard caches, users can't explicitly choose for non zonal caches, this value can't be passed by user, and Azure will assign the zonalAllocationPolicy for Standard caches based on the region's zonal supportability and capacity.
         - This value is selected as default option for Premium, Standard caches if **zonalAllocationPolicy** isn't passed in the request in the regions that don't support zones.
-- REST API spec for this feature can be found at: [ZonalAllocationPolicy (2024-11-01)](https://learn.microsoft.com/en-us/rest/api/redis/redis/create?view=rest-redis-2024-11-01&tabs=HTTP#zonalallocationpolicy)
+- REST API spec for this feature can be found at: [ZonalAllocationPolicy (2024-11-01)](https://learn.microsoft.com/rest/api/redis/redis/create?view=rest-redis-2024-11-01&tabs=HTTP&preserve-view=true#zonalallocationpolicy)
 
     > [!IMPORTANT]
     > Automatic Zonal Allocation can't be modified once enabled for a cache.
@@ -110,7 +110,7 @@ A Premium cache has one primary and one replica node by default. To configure zo
 ### Can I update my existing Standard or Premium cache to use zone redundancy?
 
 - Yes, updating an existing Standard or Premium cache to use zone redundancy is supported. You can enable it by selecting **Allocate Zones automatically** from the **Advanced settings** on the Resource menu. You can't disable zone redundancy once you enable it.
-- This can also be done by passing **zonalAllocationPolicy** as **Automatic** in the request body while updating the cache. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](https://learn.microsoft.com/en-us/rest/api/redis/redis/update?view=rest-redis-2024-11-01&tabs=HTTP#zonalallocationpolicy).
+- This can also be done by passing **zonalAllocationPolicy** as **Automatic** in the request body while updating the cache. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](https://learn.microsoft.com/rest/api/redis/redis/update?view=rest-redis-2024-11-01&tabs=HTTP&preserve-view=true#zonalallocationpolicy).
     - Updating **zonalAllocationPolicy** to any other value than **Automatic** isn't supported.
 
   > [!IMPORTANT]

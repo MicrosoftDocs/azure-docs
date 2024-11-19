@@ -56,7 +56,7 @@ Running multiple caches simultaneously as you convert your data to the new cache
 Updating an existing Standard or Premium cache to use zone redundancy is supported in-place. Users can enable it by selecting **Allocate Zones automatically** from the **Advanced settings** on the Resource menu.
 Users can't disable zone redundancy once it's enabled.
 
-This update can also be done by passing **zonalAllocationPolicy** as **Automatic** in the request body while updating the cache using REST API. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](https://learn.microsoft.com/en-us/rest/api/redis/redis/update?view=rest-redis-2024-11-01&tabs=HTTP#zonalallocationpolicy).
+This update can also be done by passing **zonalAllocationPolicy** as **Automatic** in the request body while updating the cache using REST API. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](https://learn.microsoft.com/rest/api/redis/redis/update?view=rest-redis-2024-11-01&tabs=HTTP&preserve-view=true#zonalallocationpolicy).
     - Updating **zonalAllocationPolicy** to any other value than **Automatic** isn't supported.
 
   > [!IMPORTANT]
