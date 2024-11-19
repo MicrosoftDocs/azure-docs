@@ -42,7 +42,7 @@ A security policy can only apply to VNets in the same region. You can create any
 ![Screenshot of the list of DNS security policies.](./media/dns-security-policy/policy-list.png)
 
 > [!IMPORTANT]
-> The **policy:VNet** relationship is **1:N**. When you associate a VNet with a security policy (via virtual network links), that VNet can't then be associated with another security policy. A single DNS security policy can be associated with multiple VNets in the same region. 
+> The **policy:VNet** relationship is **1:N**. When a VNet is associated with a security policy (via [virtual network links](#virtual-network-links)), that VNet can't be associated with another security policy without first removing the existing virtual network link. A single DNS security policy can be associated with multiple VNets in the same region.
 
 ## DNS traffic rules
 
