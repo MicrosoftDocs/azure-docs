@@ -67,7 +67,7 @@ For App Service plans that aren't configured as zone redundant, VM instances are
 
 ### Regions supported
 
-::: zone pivot="premium"
+::: zone pivot="free-shared-basic,premium"
 
 Zone-redundant App Service plans can be deployed in [any region that supports availability zones](./availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
@@ -79,13 +79,9 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ::: zone-end
 
-::: zone pivot="premium,isolated"
-
 ### Requirements
 
-::: zone-end
-
-::: zone pivot="premium"
+::: zone pivot="free-shared-basic,premium"
 
 - You must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans).
 
@@ -94,6 +90,8 @@ To see which regions support availability zones for App Service Environment v3, 
 ::: zone-end
 
 ::: zone pivot="premium,isolated"
+
+- You must deploy a minimum of three instances of your plan.
 
 ### Considerations
 
