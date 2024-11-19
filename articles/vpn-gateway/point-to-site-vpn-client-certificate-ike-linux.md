@@ -24,8 +24,8 @@ Before beginning, verify that you are on the correct article. The following tabl
 
 This article assumes that you've already performed the following prerequisites:
 
-* The VPN gateway is configured for point-to-site certificate authentication and the IKEv2 tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md) for steps.
-* VPN client profile configuration files have been generated and are available. See [Generate VPN client profile configuration files](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) for steps.
+* The VPN gateway is configured for point-to-site certificate authentication and the IKEv2 tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-certificate-gateway.md) for steps.
+* VPN client profile configuration files have been generated and are available. See [Generate VPN client profile configuration files](point-to-site-certificate-gateway.md#profile-files) for steps.
 
 ### Connection requirements
 
@@ -61,7 +61,7 @@ For more information about certificates for Linux, see the following articles:
 
 When you generate a VPN client profile configuration package, all the necessary configuration settings for VPN clients are contained in a VPN client profile configuration zip file. The VPN client profile configuration files are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 
-Locate and unzip the [VPN client profile configuration package](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) you generated and downloaded. You can find all of the information that you need for configuration in the **Generic** folder. Azure doesn’t provide a *mobileconfig* file for this configuration.
+Locate and unzip the [VPN client profile configuration package](point-to-site-certificate-gateway.md#profile-files) you generated and downloaded. You can find all of the information that you need for configuration in the **Generic** folder. Azure doesn’t provide a *mobileconfig* file for this configuration.
 
 If you don't see the Generic folder, check the following items, then generate the zip file again.
 
@@ -175,4 +175,4 @@ This section walks you through the configuration using the strongSwan CLI.
 
 ## Next steps
 
-For more steps, return to the [P2S Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) article.
+For more steps, return to the [P2S Azure portal](point-to-site-certificate-gateway.md) article.

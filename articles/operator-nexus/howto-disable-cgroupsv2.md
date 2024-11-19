@@ -118,7 +118,17 @@ spec:
               CGROUP_VERSION=`stat -fc %T /sys/fs/cgroup/`
               if [ "$CGROUP_VERSION" == "cgroup2fs" ]; then
                 echo "Using v2, reverting..."
-                sed -i 's/systemd.unified_cgroup_hierarchy=1 cgroup_no_v1=all/systemd.unified_cgroup_hierarchy=0/' /boot/grub2/grub.cfg
+                if uname -r | grep -q "cm2"; then
+                  echo "Detected Azure Linux OS version older than v3"
+                  sed -i 's/systemd.unified_cgroup_hierarchy=1 cgroup_no_v1=all/systemd.unified_cgroup_hierarchy=0/' /boot/grub2/grub.cfg
+                else
+                  sed -i 's/systemd.unified_cgroup_hierarchy=1 cgroup_no_v1=all/systemd.unified_cgroup_hierarchy=0/' /etc/default/grub
+                  grub2-mkconfig -o /boot/grub2/grub.cfg
+                  if ! grep -q systemd.unified_cgroup_hierarchy=0 /boot/grub2/grub.cfg; then
+                    echo "failed to update grub2 config"
+                    exit 1
+                  fi
+                fi
                 reboot
               fi
 

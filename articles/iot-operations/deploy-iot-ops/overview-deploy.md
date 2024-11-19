@@ -48,7 +48,7 @@ At any point, you can upgrade an Azure IoT Operations instance to use secure set
 
 A deployment with secure settings:
 
-* Enables secrets and user-assignment managed identity, which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow endpoint.
+* Enables secrets and user-assignment managed identity, both of which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow endpoint.
 
 To deploy Azure IoT Operations with secure settings, follow these articles:
 
@@ -65,7 +65,7 @@ The following table describes Azure IoT Operations deployment and management tas
 | Register resource providers | **Contributor** role at the subscription level. | Only required to do once per subscription. |
 | Create a schema registry. | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. |  |
 | Create secrets in Key Vault | **Key Vault Secrets Officer** role at the resource level. | Only required for secure settings deployment. |
-| Enable resource sync rules on an Azure IoT Operations instance | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules are disabled by default, but can be enabled during instance creation. |
+| Enable resource sync rules on an Azure IoT Operations instance | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules are disabled by default, but can be enabled as part of the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command. |
 
 If you use the Azure CLI to assign roles, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
 
@@ -86,7 +86,7 @@ Azure IoT Operations is a suite of data services that run on Azure Arc-enabled e
 * Installed dependencies
   * [Azure Device Registry](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
   * [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview)
-  * Secret Sync Controller
+  * [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension)
 
 ## Organize instances by using sites
 
