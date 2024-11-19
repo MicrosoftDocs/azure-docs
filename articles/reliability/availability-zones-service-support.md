@@ -6,7 +6,7 @@ ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 04/15/2024
 ms.author: anaharris
-author: anaharris
+author: anaharris-ms
 ms.reviewer: asinghal
 ms.custom: references_regions, subject-reliability
 ---
