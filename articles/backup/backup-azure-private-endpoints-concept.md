@@ -3,7 +3,7 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: overview
 ms.service: azure-backup
-ms.date: 10/01/2024
+ms.date: 11/20/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -104,7 +104,7 @@ If you've configured a DNS proxy server, using third-party proxy servers or fire
 
 The following example shows Azure firewall used as DNS proxy to redirect the domain name queries for Recovery Services vault, blob, queues and Microsoft Entra ID to 168.63.129.16.
 
-:::image type="content" source="./media/backup-azure-private-endpoints-concept/private-endpoint-setup-with-microsoft-azure-recovery-service-diagram-inline.png" alt-text="Diagram shows the private endpoint setup with MARS." lightbox="./media/backup-azure-private-endpoints-concept/private-endpoint-setup-with-microsoft-azure-recovery-service-diagram-expanded.png":::
+:::image type="content" source="./media/backup-azure-private-endpoints-concept/private-endpoint-setup-with-microsoft-azure-recovery-service-diagram.png" alt-text="Diagram shows the private endpoint setup with MARS." lightbox="./media/backup-azure-private-endpoints-concept/private-endpoint-setup-with-microsoft-azure-recovery-service-diagram.png":::
 
 For more information, see [Creating and using private endpoints](private-endpoints.md).
 

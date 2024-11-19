@@ -150,7 +150,7 @@ Microsoft enriches IP and domain indicators with extra `GeoLocation` and `WhoIs`
 
 View `GeoLocation` and `WhoIs` data on the **Threat Intelligence** pane for those types of threat indicators imported into Microsoft Sentinel.
 
-For example, use `GeoLocation` data to find information like the organization or country for an IP indicator. Use `WhoIs` data to find data like registrar and record creation data from a domain indicator.
+For example, use `GeoLocation` data to find information like the organization or country/region for an IP indicator. Use `WhoIs` data to find data like registrar and record creation data from a domain indicator.
 
 ## Detect threats with threat indicator analytics
 
