@@ -1,6 +1,6 @@
 ---
 title: AMQP 1.0 in Azure Service Bus and Event Hubs
-description: This articles provides information on expressions and descriptions of AMQP 1.0 support in Azure Service Bus and Azure Event Hubs. 
+description: This article provides information on expressions and descriptions of AMQP 1.0 support in Azure Service Bus and Azure Event Hubs. 
 ms.topic: concept-article
 ms.date: 11/18/2024
 # Customer intent: I want to know how Azure Event Hubs and Azure Service Bus supports the AMQP protocol. 
