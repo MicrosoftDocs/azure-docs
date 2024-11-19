@@ -202,7 +202,7 @@ To create a CNAME record for your custom domain:
 The **default-route** routes the traffic from the client to Azure Front Door. Then, Azure Front Door uses your configuration to send the traffic to Azure AD B2C. Follow these steps to enable the default-route.
 
 1. Select **Front Door manager**.
-1. To add enable the **default-route**, first expand an endpoint from the list of endpoints in the Front Door manager. Then, select the **default-route**. 
+1. To enable the **default-route**, first expand an endpoint from the list of endpoints in the Front Door manager. Then, select the **default-route**. 
 
     The following screenshot shows how to select the default-route.
 
