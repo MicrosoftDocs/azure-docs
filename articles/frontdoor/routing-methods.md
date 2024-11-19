@@ -91,7 +91,6 @@ The weighted method supports several scenarios:
 * **Application migration to Azure**: Create an origin group with both Azure and external origins. Adjust weights to prefer new origins, gradually increasing their traffic share until they handle most traffic, then disable and remove less preferred origins.
 * **Cloud-bursting for additional capacity**: Expand on-premises deployments into the cloud by adding or enabling more origins and specifying traffic distribution.
 
-
 ## <a name="affinity"></a>Session affinity
 
 By default, Azure Front Door forwards requests from the same client to different origins. However, session affinity is useful for stateful applications or scenarios where subsequent requests from the same user need to be processed by the same origin. This feature ensures that the same origin handles a user's session, which is beneficial for scenarios like client authentication.
