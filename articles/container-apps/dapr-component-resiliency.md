@@ -340,7 +340,7 @@ Click **Run** to run the query and view the result with the log message indicati
 
 :::image type="content" source="media/dapr-component-resiliency/dapr-resiliency-query-results-loading.png" alt-text="Screenshot showing resiliency query results based on provided query example for checking if resiliency policy has loaded.":::
 
-Or, you can find the actual resiliency policy by enabling debug logs on your container app and querying for the resiliency configuration. 
+Or, you can find the actual resiliency policy by enabling debug logs on your container app and querying to see if a resiliency resource is loaded. 
 
 :::image type="content" source="media/dapr-component-resiliency/dapr-debug-logs.png" alt-text="Screenshot demonstrating how to enable debug logs on your container app via the portal.":::
 
