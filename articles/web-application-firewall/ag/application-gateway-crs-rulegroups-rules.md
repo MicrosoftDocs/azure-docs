@@ -224,15 +224,25 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 |**[crs_42_tight_security](#crs42)**|Protect against path-traversal attacks|
 |**[crs_45_trojans](#crs45)**|Protect against backdoor trojans|
 
-### Bot rules
+### Bot Manager 1.0
 
-You can enable a managed bot protection rule set to take custom actions on requests from all bot categories.
+The Bot Manager 1.0 rule set provides protection against malicious bots and detection of good bots. The rules provide granular control over bots detected by WAF by categorizing bot traffic as Good, Bad, or Unknown bots. 
 
-|Rule group name|Description|
+|Rule group|Description|
 |---|---|
-|**[BadBots](#bot100)**|Protect against bad bots|
-|**[GoodBots](#bot200)**|Identify good bots|
-|**[UnknownBots](#bot300)**|Identify unknown bots|
+|[BadBots](#bot100)|Protect against bad bots|
+|[GoodBots](#bot200)|Identify good bots|
+|[UnknownBots](#bot300)|Identify unknown bots|
+
+### Bot Manager 1.1
+
+The Bot Manager 1.1 rule set is an enhancement to Bot Manager 1.0 rule set. It provides enhanced protection against malicious bots, and increases good bot detection.
+
+|Rule group|Description|
+|---|---|
+|[BadBots](#bot11-100)|Protect against bad bots|
+|[GoodBots](#bot11-200)|Identify good bots|
+|[UnknownBots](#bot11-300)|Identify unknown bots|
 
 The following rule groups and rules are available when using Web Application Firewall on Application Gateway.
 
@@ -1483,18 +1493,18 @@ The following rule groups and rules are available when using Web Application Fir
 |950921|Backdoor access|
 |950922|Backdoor access|
 
-# [Bot rules](#tab/bot)
+# [Bot Manager 1.0](#tab/bot)
 
-## <a name="bot"></a> Bot Manager rule sets
+## <a name="bot"></a> 1.0 rule sets
 
 ### <a name="bot100"></a> Bad bots
 |RuleId|Description|
 |---|---|
 |Bot100100|Malicious bots detected by threat intelligence|
 |Bot100200|Malicious bots that have falsified their identity|
-
- Bot100100 scans both client IP addresses and the IPs in the X-Forwarded-For header.
  
+ Bot100100 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
+
 ### <a name="bot200"></a> Good bots
 |RuleId|Description|
 |---|---|
@@ -1506,13 +1516,50 @@ The following rule groups and rules are available when using Web Application Fir
 |---|---|
 |Bot300100|Unspecified identity|
 |Bot300200|Tools and frameworks for web crawling and attacks|
-|Bot300300|General purpose HTTP clients and SDKs|
+|Bot300300|General-purpose HTTP clients and SDKs|
 |Bot300400|Service agents|
 |Bot300500|Site health monitoring services|
 |Bot300600|Unknown bots detected by threat intelligence|
 |Bot300700|Other bots|
 
-  Bot300600 scans both client IP addresses and the IPs in the X-Forwarded-For header.
+Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
+
+# [Bot Manager 1.1](#tab/bot11)
+
+## <a name="bot11"></a> 1.1 rule sets
+
+### <a name="bot11-100"></a> Bad bots
+|RuleId|Description|
+|---|---|
+|Bot100100|Malicious bots detected by threat intelligence|
+|Bot100200|Malicious bots that have falsified their identity|
+|Bot100300|High risk bots detected by threat intelligence|
+ 
+ Bot100100 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
+
+### <a name="bot11-200"></a> Good bots
+|RuleId|Description|
+|---|---|
+|Bot200100|Search engine crawlers|
+|Bot200200|Verified miscellaneous bots|
+|Bot200300|Verified link checker bots|
+|Bot200400|Verified social media bots|
+|Bot200500|Verified content fetchers|
+|Bot200600|Verified feed fetchers|
+|Bot200700|Verified advertising bots|
+
+### <a name="bot11-300"></a> Unknown bots
+|RuleId|Description|
+|---|---|
+|Bot300100|Unspecified identity|
+|Bot300200|Tools and frameworks for web crawling and attacks|
+|Bot300300|General-purpose HTTP clients and SDKs|
+|Bot300400|Service agents|
+|Bot300500|Site health monitoring services|
+|Bot300600|Unknown bots detected by threat intelligence. This rule also includes IP addresses matched to the Tor network.|
+|Bot300700|Other bots|
+
+Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: List blob containers with JavaScript
+title: List blob containers with JavaScript or TypeScript
 titleSuffix: Azure Storage 
 description: Learn how to list blob containers in your Azure Storage account using the JavaScript client library.
 services: storage
@@ -8,17 +8,17 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 10/28/2024
 
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 ---
 
-# List blob containers with JavaScript
+# List blob containers with JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-list-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-container.md)]
 
-When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
+When you list the containers in an Azure Storage account from your code, you can specify several options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
 
 ## Prerequisites
 
@@ -28,140 +28,43 @@ When you list the containers in an Azure Storage account from your code, you can
 
 ## About container listing options
 
-To list containers in your storage account, create a [BlobServiceClient](storage-blob-javascript-get-started.md#create-a-blobserviceclient-object) object then call the following method:
+When listing containers from your code, you can specify options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can also filter the results by a prefix, and return container metadata with the results. These options are described in the following sections.
 
-- BlobServiceClient.[listContainers](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-listcontainers)
+To list containers in your storage account, call the following method:
 
-### List containers with optional prefix
+- [BlobServiceClient.listContainers](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-listcontainers)
 
-By default, a listing operation returns up to 5000 results at a time. 
+This method returns a list of [ContainerItem](/javascript/api/@azure/storage-blob/containeritem) objects. Containers are ordered lexicographically by name.
 
-The BlobServiceClient.[listContainers](/javascript/api/@azure/storage-blob/blobserviceclient#@azure-storage-blob-blobserviceclient-listcontainers) returns a list of [ContainerItem](/javascript/api/@azure/storage-blob/containeritem) objects. Use the containerItem.name to create a [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) in order to get a more complete [ContainerProperties](/javascript/api/@azure/storage-blob/containerproperties) object.
+### Manage how many results are returned
 
-```javascript
-async function listContainers(blobServiceClient, containerNamePrefix) {
-
-  const options = {
-    includeDeleted: false,
-    includeMetadata: true,
-    includeSystem: true,
-    prefix: containerNamePrefix
-  }
-
-  for await (const containerItem of blobServiceClient.listContainers(options)) {
-
-    // ContainerItem
-    console.log(`For-await list: ${containerItem.name}`);
-
-    // ContainerClient
-    const containerClient = blobServiceClient.getContainerClient(containerItem.name);
-
-    // ... do something with container 
-  }
-}
-```
-
-## List containers with paging
-
-To return a smaller set of results, provide a nonzero value for the size of the page of results to return.
-
-If your storage account contains more than 5000 containers, or if you have specified a page size such that the listing operation returns a subset of containers in the storage account, then Azure Storage returns a *continuation token* with the list of containers. A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage.
-
-In your code, check the value of the continuation token to determine whether it is empty. When the continuation token is empty, then the set of results is complete. If the continuation token is not empty, then call the listing method again, passing in the continuation token to retrieve the next set of results, until the continuation token is empty.
-
-```javascript
-async function listContainersWithPagingMarker(blobServiceClient) {
-
-  // add prefix to filter list
-  const containerNamePrefix = '';
-
-  // page size
-  const maxPageSize = 2;
-
-  const options = {
-    includeDeleted: false,
-    includeMetadata: true,
-    includeSystem: true,
-    prefix: containerNamePrefix
-  }
-  
-  let i = 1;
-  let marker;
-  let iterator = blobServiceClient.listContainers(options).byPage({ maxPageSize });
-  let response = (await iterator.next()).value;
-
-  // Prints 2 container names
-  if (response.containerItems) {
-    for (const container of response.containerItems) {
-      console.log(`IteratorPaged: Container ${i++}: ${container.name}`);
-    }
-  }
-
-  // Gets next marker
-  marker = response.continuationToken;
-
-  // Passing next marker as continuationToken
-  iterator = blobServiceClient.listContainers().byPage({ continuationToken: marker, maxPageSize: maxPageSize * 2 });
-  response = (await iterator.next()).value;
-
-  // Print next 4 container names
-  if (response.containerItems) {
-    for (const container of response.containerItems) {
-      console.log(`Container ${i++}: ${container.name}`);
-    }
-  }
-}
-```
-
-Use the options parameter to the **listContainers** method to filter results with a prefix.
+By default, a listing operation returns up to 5000 results at a time, but you can specify the number of results that you want each listing operation to return. The examples presented in this article show you how to return results in pages.
 
 ### Filter results with a prefix
 
-To filter the list of containers, specify a string for the **prefix** property. The prefix string can include one or more characters. Azure Storage then returns only the containers whose names start with that prefix.
+To filter the list of containers, specify a string for the `prefix` parameter in [ServiceListContainersOptions](/javascript/api/@azure/storage-blob/servicelistcontainersoptions). The prefix string can include one or more characters. Azure Storage then returns only the containers whose names start with that prefix.
 
-```javascript
-async function listContainers(blobServiceClient, containerNamePrefix) {
+### Include container metadata
 
-  const options = {
-    includeDeleted: false,
-    includeMetadata: true,
-    includeSystem: true,
+To include container metadata with the results, set the `includeMetadata` parameter to `true` in [ServiceListContainersOptions](/javascript/api/@azure/storage-blob/servicelistcontainersoptions). Azure Storage includes metadata with each container returned, so you don't need to fetch the container metadata separately.
 
-    // filter with prefix
-    prefix: containerNamePrefix
-  }
+### Include deleted containers
 
-  for await (const containerItem of blobServiceClient.listContainers(options)) {
+To include soft-deleted containers with the results, set the `includeDeleted` parameter in [ServiceListContainersOptions](/javascript/api/@azure/storage-blob/servicelistcontainersoptions).
 
-    // do something with containerItem
+## Code example: List containers
 
-  }
-}
-```
+The following example asynchronously lists the containers in a storage account that begin with a specified prefix. The example lists containers that begin with the specified prefix and returns the specified number of results per call to the listing operation. It then uses the continuation token to get the next segment of results. The example also returns container metadata with the results.
 
-### Include metadata in results
+## [JavaScript](#tab/javascript)
 
-To return container metadata with the results, specify the **metadata** value for the BlobContainerTraits enum. Azure Storage includes metadata with each container returned, so you do not need to fetch the container metadata as a separate operation.
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-containers.js" id="snippet_listContainers":::
 
-```javascript
-async function listContainers(blobServiceClient, containerNamePrefix) {
+## [TypeScript](#tab/typescript)
 
-  const options = {
-    includeDeleted: false,
-    includeSystem: true,
-    prefix: containerNamePrefix,
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/containers-list.ts" id="snippet_listContainers":::
 
-    // include metadata 
-    includeMetadata: true,
-  }
-
-  for await (const containerItem of blobServiceClient.listContainers(options)) {
-
-    // do something with containerItem
-
-  }
-}
-```
+---
 
 ## Resources
 
@@ -175,10 +78,12 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-containers.js)
+- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-containers.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/list-containers.ts) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
 
 ## See also
 
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
+
+[!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]

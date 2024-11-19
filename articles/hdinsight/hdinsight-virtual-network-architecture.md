@@ -1,16 +1,16 @@
 ---
 title: Azure HDInsight virtual network architecture
-description: Learn the resources available when you create an HDInsight cluster in an Azure Virtual Network.
+description: Learn the resources available when you create a HDInsight cluster in an Azure Virtual Network.
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 12/05/2023
+ms.date: 01/09/2024
 ---
 
 # Azure HDInsight virtual network architecture
 
-This article explains the resources that are present when you deploy an HDInsight cluster into a custom Azure Virtual Network. This information helps you to connect on-premises resources to your HDInsight cluster in Azure. For more information on Azure Virtual Networks, see [What is Azure Virtual Network?](../virtual-network/virtual-networks-overview.md).
+This article explains the resources that are present when you deploy a HDInsight cluster into a custom Azure Virtual Network. This information helps you to connect on-premises resources to your HDInsight cluster in Azure. For more information on Azure Virtual Networks, see [What is Azure Virtual Network?](../virtual-network/virtual-networks-overview.md).
 
-## Resource types in Azure HDInsight clusters
+## Resource types in Azure HDInsight cluster
 
 Azure HDInsight clusters have different types of virtual machines, or nodes. Each node type plays a role in the operation of the system. The following table summarizes these node types and their roles in the cluster.
 
@@ -24,9 +24,9 @@ Azure HDInsight clusters have different types of virtual machines, or nodes. Eac
 
 Use Fully Qualified Domain Names (FQDNs) when addressing nodes in your cluster. You can get the FQDNs for various node types in your cluster using the [Ambari API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-These FQDNs will be of the form `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
+These FQDNs are of the form `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
 
-The `<node-type-prefix>` will be `hn` for headnodes, `wn` for worker nodes and `zn` for zookeeper nodes.
+The `<node-type-prefix>` is `hn` for headnodes, `wn` for worker nodes and `zn` for zookeeper nodes.
 
 If you need just the host name, use only the first part of the FQDN: `<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
@@ -34,7 +34,7 @@ If you need just the host name, use only the first part of the FQDN: `<node-type
 
 The following diagram shows the placement of HDInsight nodes and network resources in Azure.
 
-:::image type="content" source="./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png" alt-text="Diagram of HDInsight entities created in Azure custom VNET." border="false":::
+:::image type="content" source="./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png" alt-text="Diagram of HDInsight entities created in Azure custom virtual network." border="false":::
 
 The default resources in an Azure Virtual Network include the cluster node types mentioned in the previous table. And network devices that support communication between the virtual network and outside networks.
 
@@ -51,9 +51,14 @@ The following network resources present are automatically created inside the vir
 
 | Networking resource | Number present | Details |
 | --- | --- | --- |
-|Load balancer | three | |
+|Load balancer | two |The load balancer provides inbound network access for the nodes. The two load balancers are for: two head nodes and two gateway nodes. The load balancers are standard SKU.|
 |Network Interfaces | nine | This value is based on a normal cluster, where each node has its own network interface. The nine interfaces are for: two head nodes, three zookeeper nodes, two worker nodes, and two gateway nodes mentioned in the previous table. |
-|Public IP Addresses | two |    |
+|Public IP Addresses | two | Two public IP addresses are bonded to the load balancers.    |
+
+There are several outbound connectivity methods could be used with the custom virtual network illustrated in [Source Network Address Translation (SNAT) for outbound connections - Azure Load Balancer](/azure/load-balancer/load-balancer-outbound-connections). 
+
+> [!NOTE]
+> The most recommended way is to associate the subnet with a NAT gateway. It requires a NAT gateway, and a network security group created in the subnet before you create the HDInsight cluster. You could bond a public IP or a public IP prefix with the NAT gateway. For the NSG rules to create, see [Control network traffic in Azure HDInsight](./control-network-traffic.md#hdinsight-with-network-security-groups)
 
 ## Endpoints for connecting to HDInsight
 

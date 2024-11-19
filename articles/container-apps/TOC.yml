@@ -67,6 +67,8 @@
         href: sessions-custom-container.md
     - name: Microservices
       href: microservices.md
+    - name: Planned maintenance
+      href: planned-maintenance.md
     - name: Build and deliver apps with Container Apps (video)
       href: https://www.youtube.com/watch?v=b3dopSTnSRg
 - name: Develop & deploy
@@ -144,6 +146,8 @@
             href: sessions-tutorial-llamaindex.md
           - name: Semantic Kernel
             href: sessions-tutorial-semantic-kernel.md
+          - name: JavaScript Code Interpreter (preview)
+            href: sessions-tutorial-nodejs.md
     - name: Event-driven processing
       items:
         - name: With a job
@@ -247,6 +251,14 @@
           href: workload-profiles-manage-cli.md
         - name: Portal
           href: workload-profiles-manage-portal.md
+- name: GPUs
+  items:
+    - name: Serverless GPUs
+      href: gpu-serverless-overview.md
+    - name: Tutorials
+      items:
+      - name: Generate images with serverless GPUs
+        href: gpu-image-generation.md
 - name: Microservices
   items:
     - name: Developing with Dapr
@@ -294,6 +306,8 @@
           href: vnet-custom.md
         - name: Deploy with an internal environment
           href: vnet-custom-internal.md
+        - name: Integrate with Azure Front Door
+          href: how-to-integrate-with-azure-front-door.md
     - name: Ingress
       items:
         - name: Overview
@@ -323,6 +337,8 @@
           href: user-defined-routes.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
+        - name: Use a private endpoint
+          href: how-to-use-private-endpoint.md
     - name: Use a custom VNET
       href: vnet-custom.md
 - name: Languages and runtimes
@@ -359,31 +375,31 @@
       - name: Metrics
         href: java-metrics.md
         displayName: java
-      - name: Use Eureka Server for Spring
-        href: java-eureka-server-usage.md
-      - name: Use Admin for Spring
-        href: java-admin-for-spring-usage.md
-      - name: Use Config Server for Spring
-        href: java-config-server-usage.md
+      - name: Connect to Eureka Server for Spring
+        href: java-eureka-server.md
+        displayName: java
+      - name: Connect to Admin for Spring
+        href: java-admin.md
+        displayName: java
+      - name: Connect to Config Server for Spring
+        href: java-config-server.md
+        displayName: java
+      - name: Connect to Gateway for Spring
+        href: java-gateway-for-spring.md
         displayName: java
       - name: Set dynamic logger level
         href: java-dynamic-log-level.md
         displayName: java
       - name: Tutorials
         items:
-          - name: Connect to Eureka Server for Spring
-            href: java-eureka-server.md
-          - name: Connect to Admin for Spring
-            href: java-admin.md
-          - name: Connect to Config Server for Spring
-            href: java-config-server.md
-            displayName: java
           - name: Integrate Eureka Server with Admin for Spring
             href: java-admin-eureka-integration.md
             displayName: java
           - name: Query managed component logs
             href: java-component-logs.md
             displayName: java
+          - name: Configure Application Performance Management (APM) Java agent with init-container
+            href: java-application-performance-management-config.md
           - name: Create a highly available Eureka server component cluster
             href: java-eureka-server-highly-available.md
             displayName: java

@@ -86,6 +86,10 @@ This isn't supported.
 
 Support for this is limited to a few regions. [Learn more](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 
+### Can we replicate from one Zone to non-zone with Azure Site Recovery?
+
+Yes, this is supported.
+
 ### Can I exclude disks from replication?
 
 Yes, you can exclude disks when you set up replication, using PowerShell. [Learn more](azure-to-azure-exclude-disks.md) about excluding disks.
