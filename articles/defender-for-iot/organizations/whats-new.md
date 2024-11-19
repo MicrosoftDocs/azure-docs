@@ -16,17 +16,7 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-[!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
-
-## November 2024
-
-|Service area  |Updates  |
-|---------|---------|
-| **OT networks** | - [ERSPAN tunneling and legacy](#erspan-tunneling-and-legacy)|
-
-## ERSPAN tunneling and legacy
-
-The ERSPAN is now a legacy.... for more info, see [configure initial settings and activate your sensor](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor) and [configure ERSPAN (Legacy)](traffic-mirroring/configure-mirror-erspan.md#configure-legacy-erspan-in-the-cli).
+[!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)
 
 ## October 2024
 
