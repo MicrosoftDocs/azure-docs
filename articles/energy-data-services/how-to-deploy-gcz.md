@@ -27,7 +27,7 @@ To deploy the GCZ, you need to create an App Registration in Microsoft Entra ID.
 
 There are two main deployment options for the GCZ service:
 
-- **Azure Kubernetes Service (AKS)**: Deploy the GCZ service on an AKS cluster. This deployment option is recommended for production environments. It requires more effort to setup, configure, and maintain.
+- **Azure Kubernetes Service (AKS)**: Deploy the GCZ service on an AKS cluster. This deployment option is recommended for production environments. It requires more effort to set up, configure, and maintain.
 - **Windows**: Deploy the GCZ service on a Windows. This deployment option recommended for development and testing environments.
 
 ::: zone pivot="gcz-aks"
@@ -82,7 +82,8 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
 
 ## Testing the GCZ service
 
-1. Download the API client collection from the [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (for example, Postman).
+1. Download the API client collection from the [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (that is, Bruno, Postman).
+1.
 1. Add the following environment variables to your API client:
 
    - `PROVIDER_URL` - The URL to the GCZ Provider API.
