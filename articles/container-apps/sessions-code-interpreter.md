@@ -1,22 +1,19 @@
 ---
-title: Serverless code interpreter sessions in Azure Container Apps (preview)
+title: Serverless code interpreter sessions in Azure Container Apps
 description: Learn to run a serverless code interpreter session in Azure Container Apps.
 services: container-apps
 author: anthonychu
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 10/24/2024
 ms.author: antchu
 ms.custom: references_regions
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Serverless code interpreter sessions in Azure Container Apps (preview)
+# Serverless code interpreter sessions in Azure Container Apps
 
 Azure Container Apps [dynamic sessions](sessions.md) provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated by a Hyper-V boundary and is designed to run untrusted code.
-
-> [!NOTE]
-> The Azure Container Apps dynamic sessions feature is currently in preview. See [preview limitations](sessions.md#preview-limitations) for more information.
 
 ## Uses for code interpreter sessions
 

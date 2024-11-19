@@ -36,7 +36,7 @@ Service registration and discovery are key requirements for maintaining a list o
 
 ::: zone pivot="programming-language-csharp"
 
-For information about how to set up service registration for a Steeltoe app, see [Prepare a Java Spring application for deployment in Azure Spring Apps](../enterprise/how-to-prepare-app-deployment.md?tabs=basic-standard-plan&pivots=programming-language-csharp&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
+For information about how to set up service registration for a Steeltoe app, see [Prepare a Java Spring application for deployment in Azure Spring Apps](how-to-prepare-app-deployment.md?tabs=basic-standard-plan&pivots=programming-language-csharp).
 
 ::: zone-end
 

@@ -18,7 +18,7 @@ This article shows how to create a function that runs based on events raised whe
 > * Create an event-based Blob Storage triggered function in a new project.
 > * Validate locally within Visual Studio Code using the Azurite emulator.
 > * Create a blob storage container in a new storage account in Azure.
-> * Create a function app in the Flex Consumption plan (preview).
+> * Create a function app in the Flex Consumption plan.
 > * Create an event subscription to the new blob container.
 > * Deploy and validate your function code in Azure.
 
@@ -32,8 +32,8 @@ This article supports version 2 of the Python programming model for Azure Functi
 This article creates a C# app that runs in isolated worker mode, which supports .NET 8.0.
 ::: zone-end
 
-> [!IMPORTANT]  
-> This tutorial has you use the [Flex Consumption plan](flex-consumption-plan.md), which is currently in preview. The Flex Consumption plan only supports the event-based version of the Blob Storage trigger.
+> [!TIP]  
+> This tutorial shows you how to create an app that runs on the [Flex Consumption plan](flex-consumption-plan.md). The Flex Consumption plan only supports the event-based version of the Blob Storage trigger.
 
 ## Prerequisites
 
@@ -336,7 +336,7 @@ Use these steps to create a function app in the Flex Consumption plan. When your
     | Prompt |  Selection |
     | ------ |  ----------- |
     | **Enter a globally unique name for the new function app.** | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
-    | **Select a hosting plan.** | Choose **Flex Consumption (Preview)**. |
+    | **Select a hosting plan.** | Choose **Flex Consumption**. |
     | **Select a runtime stack.** | Choose the language stack and version on which you've been running locally. |
     | **Select a resource group for new resources.** | Choose the existing resource group in which you created the storage account. |
     | **Select a location for new resources.** | Select a location in a supported [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Unsupported regions aren't displayed. For more information, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).|

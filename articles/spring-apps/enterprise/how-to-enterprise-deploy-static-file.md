@@ -63,7 +63,7 @@ az spring app deploy
 
 #### [User managed container registry](#tab/user-managed-container-registry1)
 
-In this example, build and deploy are separate commands. A user managed container registry supports deployment only with a custom image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+In this example, build and deploy are separate commands. A user managed container registry supports deployment only with a custom image. For more information, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 The following command creates a new build:
 
@@ -123,7 +123,7 @@ az spring app deploy \
 
 #### [User managed container registry](#tab/user-managed-container-registry2)
 
-In this example, build and deploy are separate commands. A user managed container registry supports deployment only with a custom image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+In this example, build and deploy are separate commands. A user managed container registry supports deployment only with a custom image. For more information, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 The following command creates a new build:
 
@@ -180,7 +180,7 @@ az spring app deploy \
 
 #### [User managed container registry](#tab/user-managed-container-registry3)
 
-In this example, build and deploy are separate commands. A user managed container registry supports deployment only with a custom image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+In this example, build and deploy are separate commands. A user managed container registry supports deployment only with a custom image. For more information, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 The following command creates a new build:
 

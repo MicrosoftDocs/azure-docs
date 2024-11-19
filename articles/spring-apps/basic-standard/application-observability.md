@@ -30,7 +30,7 @@ To find out if your applications meet expectations and to discover and predict i
 
 This article uses the well-known [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) sample app as the production application. For more information on how to deploy PetClinic to Azure Spring Apps and use MySQL as the persistent store, see the following articles:
 
-- [Deploy microservice applications to Azure Spring Apps](../enterprise/quickstart-deploy-microservice-apps.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+- [Deploy microservice applications to Azure Spring Apps](quickstart-deploy-microservice-apps.md?pivots=sc-standard)
 - [Integrate Azure Spring Apps with Azure Database for MySQL](quickstart-integrate-azure-database-mysql.md)
 
 Log Analytics and Application Insights are deeply integrated with Azure Spring Apps. You can use Log Analytics to diagnose your application with various log queries and use Application Insights to investigate production issues. For more information, see the following articles:
@@ -148,10 +148,10 @@ To use Application Insights to investigate the performance issues, use the follo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up a staging environment](../enterprise/how-to-staging-environment.md)
+> [Set up a staging environment](how-to-staging-environment.md)
 
 > [!div class="nextstepaction"]
-> [Map an existing custom domain to Azure Spring Apps](../enterprise/how-to-custom-domain.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+> [Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md)
 
 > [!div class="nextstepaction"]
-> [Use TLS/SSL certificates](../enterprise/how-to-use-tls-certificate.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+> [Use TLS/SSL certificates](how-to-use-tls-certificate.md)
