@@ -28,6 +28,7 @@ Ensure that your hardware setup is sufficient for your scenario and that you beg
 
 Create an Arc-enabled K3s cluster that meets the system requirements.
 
+* Use a [supported environment for Azure IoT Operations](../overview-iot-operations.md#supported-environments).
 * [Configure the cluster](./howto-prepare-cluster.md) according to documentation.
 * If you expect intermittent connectivity for your cluster, ensure that you've allocated enough disk space to the cluster cache data and messages while the [cluster is offline](../overview-iot-operations.md#offline-support).
 * If possible, have a second cluster as a staging area for testing new changes before deploying to the primary production cluster.
@@ -41,8 +42,8 @@ Consider the following measures to ensure your cluster setup is secure before de
 * [Validate images](../secure-iot-ops/howto-validate-images.md) to ensure they're signed by Microsoft.
 * When doing TLS encryption, [bring your own issuer](../secure-iot-ops/concept-default-root-ca.md#bring-your-own-issuer) and integrate with an enterprise PKI.
 * [Use secrets](../secure-iot-ops/howto-manage-secrets.md) for on-premises authentication.
-* Keep your cluster and Azure IoT Operations deployment up to date with the latest patches and minor releases to get all available security and bug fixes.
 * Use [user-assigned managed identities](./howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) for cloud connections.
+* Keep your cluster and Azure IoT Operations deployment up to date with the latest patches and minor releases to get all available security and bug fixes.
 
 ### Networking
 
@@ -79,7 +80,7 @@ In the Azure portal deployment wizard, the broker resource is set up in the **Co
 
 In the Azure portal deployment wizard, the schema registry and its required storage account are set up in the **Dependency management** tab.
 
-* The storage account must have public network access enabled.
+* The storage account is only supported with public network access enabled.
 * The storage account must have hierarchical namespace enabled.
 * The schema registry's managed identity must have contributor permissions for the storage account.
 
@@ -101,7 +102,7 @@ After deployment, you can [edit BrokerListener resources](../manage-mqtt-broker/
 
 * [Configure TLS with automatic certificate management](../manage-mqtt-broker/howto-configure-brokerlistener.md#configure-tls-with-automatic-certificate-management) for listeners.
 
-You can also [edit BrokerAuthentication resources]
+You can also [edit BrokerAuthentication resources](../manage-mqtt-broker/howto-configure-authentication.md).
 
 * Use [X.509 certificates or Kubernetes service account tokens for authentication](../manage-mqtt-broker/howto-configure-authentication.md#configure-authentication-method). 
 * Don't use no-auth.

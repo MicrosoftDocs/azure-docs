@@ -77,4 +77,4 @@ The following list describes some common exit codes:
 
 ## Next steps
 
-- [Troubleshoot common Azure Spring Apps issues](./troubleshoot.md)
+- [Troubleshoot common Azure Spring Apps issues](../basic-standard/troubleshoot.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
