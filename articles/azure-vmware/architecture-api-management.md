@@ -7,7 +7,7 @@ ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
-# Publish and protect APIs running on Azure VMware Solution VMs
+# Publish and protect APIs running on Azure VMware Solution VMs - test edit
 
 Microsoft Azure [API Management](https://azure.microsoft.com/services/api-management/) lets you securely publish to external or internal consumers.  Only the Developer (development) and Premium (production) SKUs allow Azure Virtual Network integration to publish APIs that run on Azure VMware Solution workloads. In addition, both SKUs enable the connectivity between the API Management service and the backend.
 
