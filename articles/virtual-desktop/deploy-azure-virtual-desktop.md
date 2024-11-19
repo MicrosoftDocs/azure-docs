@@ -18,7 +18,7 @@ ms.date: 10/18/2024
 >
 > - Azure Virtual Desktop on Azure Extended Zones.
 >
-> - Managing session hosts using a session host configuration. This limited preview is provided as-is, with all faults and as available, and is excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
+> - Host pools with a session host configuration.
 >
 > For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
