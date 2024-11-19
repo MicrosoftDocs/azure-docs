@@ -955,7 +955,7 @@ items:
         href: concepts/numbers/number-lookup-concept.md
       - name: Number Lookup SDK
         href: concepts/numbers/number-lookup-sdk.md
-      - name: Country availability
+      - name: Country/region availability
         href: concepts/numbers/sub-eligibility-number-capability.md
       - name: Emergency calling
         href: concepts/telephony/emergency-calling-concept.md
@@ -1433,7 +1433,7 @@ items:
       href: /java/api/overview/azure/communication-common-readme
     - name: Common (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
-  - name: Country phone number management
+  - name: Country/region phone number management
     items:
     - name: Phone number management for Argentina
       href: concepts/numbers/phone-number-management-for-argentina.md
