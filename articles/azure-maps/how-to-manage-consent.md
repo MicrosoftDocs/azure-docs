@@ -43,9 +43,6 @@ Once your updates are saved, one or more new selections appear in the list of re
 
 :::image type="content" source="./media/consent-management/new-region-added.png" lightbox="./media/consent-management/new-region-added.png" alt-text="Screenshot showing the process data globally screen in the Azure portal with the Korea Central region added to the list of supported regions.":::
 
-> [!NOTE]
-> Your data is always stored in the region you created your Azure Maps Account, regardless of your global data processing settings.
-
 ## Configure global data processing using REST API
 
 Consent can be managed using [Azure Maps Account Management REST APIs]. To Configure global data processing, send an [Accounts - Update]  `PATCH` request and pass in the `properties.locations` parameter in the body of the request.
@@ -110,6 +107,9 @@ Be sure to include the appropriate Azure Maps account name and location.
   ]
 }
 ```
+
+> [!NOTE]
+> Your data is always stored in the region you created your Azure Maps Account, regardless of your global data processing settings.
 
 ## Next steps
 
