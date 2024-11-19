@@ -1,5 +1,5 @@
 ---
-title: Create Azure Device Update for Azure IoT Hub resources
+title: Create Azure Device Update for IoT Hub resources
 description: Create an Azure Device Update for Iot Hub account and instance by using the Azure portal or Azure CLI.
 author: eshashah-msft
 ms.author: eshashah
@@ -9,9 +9,9 @@ ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-# Create Device Update for IoT Hub resources
+# Create Azure Device Update for IoT Hub resources
 
-To get started with Azure Device Update for IoT Hub, you create a Device Update account and instance, and then set access control roles. This article describes how to create and configure Device Update resources by using the Azure portal or Azure CLI.
+To get started with Azure Device Update for IoT Hub, you create a Device Update account and instance, and then set access control roles as necessary. This article describes how to create and configure Device Update resources by using the Azure portal or Azure CLI.
 
 A Device Update account is a resource in your Azure subscription. A Device Update instance is a logical container within the account that's associated with a specific IoT hub. A Device Update instance contains updates and deployments associated with its IoT hub. You can create multiple Device Update instances within an account. For more information, see [Device Update resources](device-update-resources.md).
 
@@ -27,7 +27,7 @@ A Device Update account is a resource in your Azure subscription. A Device Updat
 
 - **Owner** or **User Access Administrator** role permissions in an Azure subscription
 - A Standard (S1) or above instance of Azure IoT Hub
-- The Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md). Select the following button to open Cloud Shell.
+- The Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md). Select **Launch Cloud Shell** to open Cloud Shell.
 
   :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
