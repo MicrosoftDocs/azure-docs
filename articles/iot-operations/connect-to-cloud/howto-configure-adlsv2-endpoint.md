@@ -449,4 +449,5 @@ dataLakeStorageSettings:
 
 ## Next steps
 
-To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).
+- To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).
+- To see a tutorial on how to use a dataflow to send data to Azure Data Lake Storage Gen2, see [Tutorial: Send data to Azure Data Lake Storage Gen2](./tutorial-opc-ua-to-data-lake.md).
