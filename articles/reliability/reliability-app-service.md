@@ -67,26 +67,19 @@ For App Service plans that aren't configured as zone redundant, VM instances are
 
 ### Regions supported
 
-::: zone pivot="free-shared-basic"
-
-You must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans) to configure zone redundancy.
-
-::: zone-end
-
 ::: zone pivot="premium"
 
-- Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, you'll receive an error if availability zones aren't supported for your resource group. To ensure your workloads land on a stamp that supports availability zones, you may need to create a new resource group, App Service plan, and App Service.
+Zone-redundant App Service plans can be deployed in [any region that supports availability zones](./availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 ::: zone-end
 
-::: zone pivot="premium,isolated"
-
-- You must deploy a minimum of three instances of your plan.
-
+::: zone pivot="isolated"
 
 To see which regions support availability zones for App Service Environment v3, see [Regions](../app-service/environment/overview.md#regions).
 
 ::: zone-end
+
+::: zone pivot="premium,isolated"
 
 ### Requirements
 
@@ -95,14 +88,10 @@ To see which regions support availability zones for App Service Environment v3, 
 ::: zone pivot="premium"
 
 - You must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans).
-<!-- Is footprint a technical term here?--> 
+
 - Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, you'll receive an error if availability zones aren't supported for your resource group. To ensure your workloads land on a stamp that supports availability zones, you may need to create a new resource group, App Service plan, and App Service.
 
 ::: zone-end
-
-- You must deploy a minimum of three instances of your plan.
-
-
 
 ::: zone pivot="premium,isolated"
 
