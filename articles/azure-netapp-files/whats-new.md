@@ -18,12 +18,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (preview)
 
-    Cloud Backup for Virtual Machine features integrations with Azure NetApp Files backups, expanding the data protection capabilities of Azure NetApp Files by providing fully managed backup solution for long-term recovery, archiving, and compliance. With Cloud Backup for Virtual Machines, you can mount a datastore from a snapshot or backup to access files in the backup. You can either [mount the backup](../azure-vmware/configure-cloud-backup-virtual-machine.md) to the same ESXi host where the backup was created or to an alternate ESXi host. You can unmount a backup when you no longer need to access the files in the datastore.
+    Cloud Backup for Virtual Machines now integrates with [Azure NetApp Files backup](backup-introduction.md), significantly enhancing data protection by offering a fully managed backup solution for long-term recovery, archiving, and compliance. This integration allows you to mount a datastore from a snapshot or backup to restore files. You can [mount the backup](../azure-vmware/configure-cloud-backup-virtual-machine.md) to either the Azure VMware Solution host where it was created or to an alternate host.
     
-    Cloud Backup for Virtual Machines now also includes the capability to [attach one or more VMDKs](../azure-vmware/configure-cloud-backup-virtual-machine.md) from a backup to the parent VM, to an alternate VM on the same ESXi host, or to an alternate VM on an alternate ESXi host managed by the same vCenter. After you have attached a virtual disk to restore individual files, you can detach the virtual disk from the parent VM.
+    Cloud Backup for Virtual Machines now also includes the capability to [attach one or more VMDKs](../azure-vmware/configure-cloud-backup-virtual-machine.md) from a backup to the parent VM, to an alternate VM on the same Azure VMware Solution host, or to an alternate VM on an alternate host managed by the same vCenter instance.
+    
+    Cloud Backup for Virtual Machines also enables you [to restore a virtual machine](../azure-vmware/restore-azure-netapp-files-vms.md) to an alternate location on the same Azure VMware Solution host or a different host managed by the same vCenter instance. Additionally, it supports [restoring guest files and folders from a snapshot or an Azure NetApp Files backup](../azure-vmware/restore-guest-files-folders.md).
 
-    Cloud Backup for Virtual Machines also supports the ability to [restore a virtual machine](../azure-vmware/restore-azure-netapp-files-vms.md) to an alternate location on the same ESXi host or different ESXi host in the same vCenter and to [restore guest files and folders from a snapshot or Azure NetApp Files backup](../azure-vmware/restore-guest-files-folders.md). 
- 
 * [Cool access support for large volumes](large-volumes-requirements-considerations.md#register-the-feature)
 
     Azure NetApp Files storage with [cool access](cool-access-introduction.md) is now available with [large volumes](large-volumes.md). You must be registered to use _both_ cool access and large volumes to create a cool access-enabled large volume. 
