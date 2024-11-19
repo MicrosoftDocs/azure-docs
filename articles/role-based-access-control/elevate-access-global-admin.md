@@ -412,6 +412,27 @@ A user in the group can now periodically run the [az rest](/cli/azure/reference-
 az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt
 ```
 
+## Detect elevated access using Microsoft Sentinel
+
+### Step 1: Enable Microsoft Sentinel
+
+[Enable Microsoft Sentinel](../sentinel/quickstart-onboard.md#enable-microsoft-sentinel)
+
+### Step 2: Connect Microsoft Entra data to Microsoft Sentinel
+
+[Microsoft Entra ID connector](../sentinel/data-connectors/microsoft-entra-id.md)
+[Connect Microsoft Entra data to Microsoft Sentinel](../sentinel/connect-azure-active-directory.md)
+
+### Step 3: Create an Elevated Access rule
+
+Locate and select **Elevated Access** to access the preconfigured Sentinel solution.
+
+[Create scheduled analytics rules from templates](../sentinel/create-analytics-rule-from-template.md)
+
+### Step 4: View incidents of elevated access
+
+[Navigate and investigate incidents in Microsoft Sentinel](../sentinel/investigate-incidents.md)
+
 ## Next steps
 
 - [Understand the different roles](rbac-and-directory-admin-roles.md)
