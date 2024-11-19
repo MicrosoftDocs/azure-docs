@@ -37,7 +37,7 @@ Use the following steps to change a reservation order's directory and its depend
 
 ## Update reservation scope
 
-After the reservation moves the new tenant, you can change the reservation target scope to a *shared* or *management group scope* or *Single*. For more information about changing the scope, see [Change the reservation scope](manage-reserved-vm-instance.md#change-the-reservation-scope).The following example explains how changing the scope might work.
+After the reservation moves the new tenant, you can change the reservation target scope to a *shared* or *management group scope* or *Single*. For more information about changing the scope, see [Change the reservation scope](manage-reserved-vm-instance.md#change-the-reservation-scope). The following example explains how changing the scope might work.
 
 Currently, a reservation covers subscriptions A1 and A2. The reservation scope is set to either a shared scope or a management group scope.
 
@@ -51,9 +51,10 @@ Assume that the reservation is set to a shared scope. When subscriptions B1 and 
 
 Assume that the reservation is set to a management group scope. After you change the reservation tenant, you need to change the reservation’s scope to a management group scope that targets subscriptions B1 and B2.
 
-**NOTE**: When the directory of a reserved instance in changed, the reserved instance by default points to the scope defined in the old/source tenant. We need to manually update the scope of reserved instance to point the benefits to the resources present in the destination tenant.
+> [!NOTE]
+> When the directory of a reserved instance is changed, the reserved instance by default points to the scope defined in the old/source tenant. We need to manually update the scope of the reserved instance to point the benefits to the resources present in the destination tenant.
 
-For Example: If the current scope of the reserved instance is set to Single subscription A1 on Tenant A. After we do the directory change of the RI to Tenant B, the scope of the reserved instance (now present in Tenant B) will still point to Subscription A1 in Tenanat A . We need to manually update the scope of the Reserved instance to cover the resources present in Tenant B. Untill we do not specify the scope, the benefit of the Reserved instance will continue to apply on subscription A1 from Tenant A.
+For example, the current scope of the reserved instance is set to Single subscription A1 on Tenant A. After we do the directory change of the RI to Tenant B, the scope of the reserved instance (now present in Tenant B) will still point to Subscription A1 in Tenant A. We need to manually update the scope of the Reserved instance to cover the resources present in Tenant B. Until we do not specify the scope, the benefit of the Reserved instance will continue to apply on subscription A1 from Tenant A.
 
 ## Next steps
 
