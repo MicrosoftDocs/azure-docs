@@ -131,7 +131,7 @@ In addition to the general prerequisites, you need:
    |--|--|
    | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
    | Session hosts (Azure and Azure Extended Zones) | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
-   | Session hosts (Azure Local) | [Azure Local VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
+   | Session hosts (Azure Local) | [Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
 
    For ongoing management of host pools, workspaces, and application groups, you can use more granular roles for each resource type. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
 
@@ -141,13 +141,13 @@ In addition to the general prerequisites, you need:
 
 - To add session hosts on Azure Local, you also need:
 
-  - An [Azure Local cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Local clusters need to be running a minimum of version 23H2. For more information, see [Azure Local, version 23H2 deployment overview](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
+  - An [Azure Local instance registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Local instances need to be running a minimum of version 23H2. For more information, see [Azure Stack HCI, version 23H2 deployment overview](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
 
   - A stable connection to Azure from your on-premises network.
 
-  - At least one Windows OS image available on the cluster. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in an Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+  - At least one Windows OS image available on the instance. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in an Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
-  - A logical network that you created on your Azure Local cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Local](/azure-stack/hci/manage/create-logical-networks).
+  - A logical network that you created on your Azure Local instance. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Local](/azure-stack/hci/manage/create-logical-networks).
 
 - To deploy session hosts to [Azure Extended Zones](/azure/virtual-desktop/azure-extended-zones), you also need:
 
@@ -480,13 +480,13 @@ Here's how to create a host pool by using the Azure portal:
       | **Add virtual machines** | Select **Yes**. This action shows several new options. |
       | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
-      | **Virtual machine type** | Select **Azure Local virtual machine**. |
-      | **Custom location** | In the dropdown list, select the Azure Local cluster where you want to deploy your session hosts. |
-      | **Images** | Select the OS image that you want to use from the list, or select **Manage VM images** to manage the images available on the cluster that you selected. |
+      | **Virtual machine type** | Select **Azure Local**. |
+      | **Custom location** | In the dropdown list, select the Azure Local instance where you want to deploy your session hosts. |
+      | **Images** | Select the OS image that you want to use from the list, or select **Manage VM images** to manage the images available on the instance that you selected. |
       | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can add more later. |
-      | **Virtual processor count** | Enter the number of virtual processors that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | **Virtual processor count** | Enter the number of virtual processors that you want to assign to each session host. This value isn't validated against the resources available in the instance. |
       | **Memory type** | Select **Static** for a fixed memory allocation, or select **Dynamic** for a dynamic memory allocation. |
-      | **Memory (GB)** | Enter a number for the amount of memory, in gigabytes, that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | **Memory (GB)** | Enter a number for the amount of memory, in gigabytes, that you want to assign to each session host. This value isn't validated against the resources available in the instance. |
       | **Maximum memory** | If you selected dynamic memory allocation, enter a number for the maximum amount of memory, in gigabytes, that you want your session host to be able to use. |
       | **Minimum memory** | If you selected dynamic memory allocation, enter a number for the minimum amount of memory, in gigabytes, that you want your session host to be able to use. |
       | **Network and security** |  |
