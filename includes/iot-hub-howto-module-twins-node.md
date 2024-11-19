@@ -27,7 +27,7 @@ This section describes how to use the [azure-iot-device](/javascript/api/azure-i
 * Update module identity reported twin properties
 * Receive notice of module identity twin desired property changes
 
-[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
 ### Install SDK packages
 
@@ -332,7 +332,7 @@ You can connect a backend service to IoT Hub using the following methods:
 * Shared access policy
 * Microsoft Entra
 
-[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
 
 #### Connect using a shared access policy
 

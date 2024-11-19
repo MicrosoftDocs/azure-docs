@@ -38,7 +38,7 @@ For more information about the pros and cons of using `DefaultAzureCredential`, 
 
 [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) supports different authentication mechanisms and determines the appropriate credential type based on the environment it's executing in. It attempts to use multiple credential types in an order until it finds a working credential.
 
-Microsoft Entra requires this pakage:
+Microsoft Entra requires this package:
 
 ```shell
 npm install --save @azure/identity

@@ -25,7 +25,7 @@ This section describes how to use device application code to:
 * Update reported module identity twin properties
 * Create a module desired property update callback handler
 
-[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
 ### Required device NuGet package
 
@@ -160,7 +160,7 @@ You can connect a backend service to IoT Hub using the following methods:
 * Shared access policy
 * Microsoft Entra
 
-[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
 
 #### Connect using a shared access policy
 

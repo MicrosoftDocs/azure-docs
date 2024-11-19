@@ -33,7 +33,7 @@ The easiest way to use Microsoft Entra to authenticate a backend application is 
 
 [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) supports different authentication mechanisms and determines the appropriate credential type based on the environment it's executing in. It attempts to use multiple credential types in an order until it finds a working credential.
 
-Microsoft Entra requires this import pakage and corresponding `import` statement:
+Microsoft Entra requires this import package and corresponding `import` statement:
 
 ```shell
 pip install azure-identity

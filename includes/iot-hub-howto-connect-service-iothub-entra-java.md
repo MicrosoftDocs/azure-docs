@@ -37,9 +37,9 @@ For more information about the pros and cons of using `DefaultAzureCredential`, 
 
 [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) supports different authentication mechanisms and determines the appropriate credential type based on the environment it's executing in. It attempts to use multiple credential types in an order until it finds a working credential.
 
-You can authenticate Microsoft Entra app credentials using [DefaultAzureCredentialBuilder](/java/api/com.azure.identity.defaultazurecredentialbuilder). Save connection parameters such as client secret tenantID, clientID, and client secret values as environmental varaibles. Once the `TokenCredential` is created, pass it to [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) or other builder as the 'credential' parameter.
+You can authenticate Microsoft Entra app credentials using [DefaultAzureCredentialBuilder](/java/api/com.azure.identity.defaultazurecredentialbuilder). Save connection parameters such as client secret tenantID, clientID, and client secret values as environmental variables. Once the `TokenCredential` is created, pass it to [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) or other builder as the 'credential' parameter.
 
-In this example, `DefaultAzureCredentialBuilder` will attempt to authenticate a connection from the list described in [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential). The result of a successful Microsoft Entra authentication is a security token credential that is passed to a constructor.
+In this example, `DefaultAzureCredentialBuilder` attempts to authenticate a connection from the list described in [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential). The result of a successful Microsoft Entra authentication is a security token credential that is passed to a constructor.
 
 ```java
 TokenCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().build();
