@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 07/08/2024
+ms.date: 11/05/2024
 
 #CustomerIntent: As a network administrator, I want to configure the private DNS zone values for Azure services that support private endpoints.
 ---
@@ -94,6 +94,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 >|---|---|---|---|
 >| Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) | management | privatelink.{regionName}.azmk8s.io </br> {subzone}.privatelink.{regionName}.azmk8s.io | {regionName}.azmk8s.io |
+| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | privatelink.{regionName}.azurecontainerapps.io | azurecontainerapps.io |
 >| Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io </br> {regionName}.data.privatelink.azurecr.io | azurecr.io </br> {regionName}.data.azurecr.io |
 
 ### Databases

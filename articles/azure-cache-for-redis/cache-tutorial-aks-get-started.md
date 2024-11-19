@@ -7,9 +7,9 @@ ms.date: 10/01/2024
 
 ---
 
-# Tutorial: Connect to Azure Cache for Redis from your application hosted on Azure Kubernetes Service
+# Tutorial: Connect to Azure Cache for Redis or Azure Managed Redis (preview) from your application hosted on Azure Kubernetes Service
 
-In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/connect-from-aks) to connect with an Azure Cache for Redis instance.
+In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/connect-from-aks) to connect with an Azure Cache for Redis or Azure Managed Redis(preview) instance.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-c
 
 ## Set up an Azure Cache for Redis instance
 
-1. Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. Use the [quickstart guide](quickstart-create-redis.md) to get started.
+1. Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. Use the [quickstart guide](quickstart-create-redis.md) to get started. Alternately, you can create an Azure Managed Redis instance too.
 
     For this tutorial, use a Standard C1 cache.
     :::image type="content" source="media/cache-tutorial-aks-get-started/cache-new-instance.png" alt-text="Screenshot of creating a Standard C1 cache in the Azure portal":::
@@ -36,6 +36,7 @@ In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-c
 1. Take note of the user name for your Redis user from the portal. You use this user name with the AKS workload.
 
 ## Run sample locally
+
 
 To run this sample locally, configure your user principal as a Redis User on your Redis instance. The code sample uses your user principal through [DefaultAzureCredential](/dotnet/azure/sdk/authentication/?tabs=command-line#use-defaultazurecredential-in-an-application) to connect to Redis instance.
 
@@ -107,7 +108,7 @@ If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip t
 
 ## Run your workload
 
-1. The following code describes the pod specification file that you use to run our workload. Take note that the pod has the label _azure.workloadidentity/use: "true"_ and is annotated with _serviceAccountName_ as required by AKS workload identity. When using access key authentication, replace the value of AUTHENTICATION_TYPE, REDIS_HOSTNAME and REDIS_ACCESSKEY environment variables.
+1. The following code describes the pod specification file that you use to run our workload. Take note that the pod has the label _azure.workloadidentity/use: "true"_ and is annotated with _serviceAccountName_ as required by AKS workload identity. When using access key authentication, replace the value of AUTHENTICATION_TYPE, REDIS_HOSTNAME, REDIS_ACCESSKEY and REDIS_PORT environment variables. For Azure Managed Redis instance, set the value of REDIS_PORT to 10000.
 
    ```yml
     apiVersion: v1
@@ -138,7 +139,7 @@ If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip t
              - name: REDIS_ACCESSKEY
                value: "your access key" 
              - name: REDIS_PORT
-               value: "6380"
+               value: "6380" # change to 10000 for Azure Managed Redis
       restartPolicy: Never
     
    ```
@@ -197,3 +198,4 @@ kubectl delete pod entrademo-pod
 - [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal)
 - [Quickstart: Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster](/azure/aks/workload-identity-deploy-cluster)
 - [Azure Cache for Redis Microsoft Entra ID Authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication)
+

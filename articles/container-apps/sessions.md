@@ -26,9 +26,6 @@ Sessions have the following attributes:
 
 * **Scalable**: Sessions can run at a high scale. You can run hundreds or thousands of sessions concurrently.
 
-> [!NOTE]
-> Azure Container Apps dynamic sessions is currently in preview.
-
 ## Session types
 
 Azure Container Apps supports two types of sessions:
@@ -202,19 +199,23 @@ In addition, follow the guidance in the [authentication and authorization](#auth
 
 ## Preview limitations
 
-Azure Container Apps dynamic sessions is currently in preview. The following limitations apply:
+The following limitations apply to dynamic sessions:
 
 * It's only available in the following regions:
 
     | Region | Code interpreter | Custom container |
     |--------|------------------|------------------|
-    | East Asia | ✔ | ✔ |
+    | Australia East | ✔ | ✔ |
+    | Central US EUAP | ✔ | ✔ |
+    | East US 2 EUAP | ✔ | ✔ |
     | East US | ✔ | ✔ |
+    | East Asia | ✔ | ✔ |
     | Germany West Central | ✔ | ✔ |
     | Italy North | ✔ | ✔ |
-    | Poland Central | ✔ | ✔ |
     | North Central US | ✔ | - |
-    | North Europe | ✔ | ✔ |
+    | Poland Central | ✔ | ✔ |
+    | Switzerland North | ✔ | ✔ |
+    | West Central US | ✔ | ✔ |
     | West US 2 | ✔ | ✔ |
 
 ## Next steps

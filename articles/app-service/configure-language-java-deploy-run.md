@@ -232,7 +232,7 @@ All Java runtimes on App Service come with the Java Flight Recorder. You can use
 
 # [Linux](#tab/linux)
 
-SSH into your App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to jcmd itself, you should see your Java application running with a process ID number (pid).
+SSH into your App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to `jcmd` itself, you should see your Java application running with a process ID number (pid).
 
 ```shell
 078990bbcd11:/home# jcmd
@@ -420,16 +420,13 @@ To improve performance of Tomcat applications, you can compile your JSP files be
 
 ::: zone-end
 
-> [!NOTE]
-> 
-
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
 ## Choosing a Java runtime version
 
 App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, and the patch version, such as 1.8.0_232 or 11.0.5. You can also choose to have the patch version automatically updated as new minor versions become available. In most cases, production apps should use pinned patch JVM versions. This prevents unanticipated outages during a patch version autoupdate. All Java web apps use 64-bit JVMs, and it's not configurable.
 
-::: zone pivot="java-jboss"
+::: zone pivot="java-tomcat"
 
 If you're using Tomcat, you can choose to pin the patch version of Tomcat. On Windows, you can pin the patch versions of the JVM and Tomcat independently. On Linux, you can pin the patch version of Tomcat; the patch version of the JVM is also pinned but isn't separately configurable.
 
@@ -439,9 +436,34 @@ If you choose to pin the minor version, you need to periodically update the JVM 
 
 ::: zone pivot="java-jboss"
 
+## Run JBoss CLI
+
+In your JBoss app's SSH session, you can run the JBoss CLI with the following command:
+
+```
+$JBOSS_HOME/bin/jboss-cli.sh --connect
+```
+
+Depending on where JBoss is in the server lifecycle, you might not be able to connect. Wait a few minutes and try again. This approach is useful for quick checks of your current server state (for example, to see if a data source is properly configured).
+
+Also, changes you make to the server with JBoss CLI in the SSH session doesn't persist after the app restarts. Each time the app starts, the JBoss EAP server begins with a clean installation. During the [startup lifecycle](#jboss-server-lifecycle), App Service makes the necessary server configurations and deploys the app. To make any persistent changes in the JBoss server, use a [custom startup script or a startup command](#3-server-configuration-phase). For an end-to-end example, see [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md?pivots=java-jboss).
+
+Alternatively, you can manually configure App Service to run any file on startup. For example:
+
+```azurecli-interactive
+az webapp config set --resource-group <group-name> --name <app-name> --startup-file /home/site/scripts/foo.sh
+```
+
+For more information about the CLI commands you can run, see:
+
+- [Red Hat JBoss EAP documentation](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/8.0/html-single/getting_started_with_red_hat_jboss_enterprise_application_platform/index#management-cli-overview_assembly-jboss-eap-management)
+- [WildFly CLI Recipes](https://docs.jboss.org/author/display/WFLY/CLI%20Recipes.html)
+
 ## Clustering
 
-App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, it restarts, and the JBoss EAP installation automatically starts up with a clustered configuration. The JBoss EAP instances communicate over the subnet specified in the virtual network integration, using the ports shown in the `WEBSITES_PRIVATE_PORTS` environment variable at runtime. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
+App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, it restarts, and the JBoss EAP installation automatically starts up with a clustered configuration. When you [run multiple instances with autoscaling](/azure/azure-monitor/autoscale/autoscale-get-started), the JBoss EAP instances communicate with each other over the subnet specified in the virtual network integration. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
+
+:::image type="content" source="media/configure-language-java-deploy-run/jboss-clustering.png" alt-text="A diagram showing a vnet-integrated JBoss App Service app, scaled out to three instances.":::
 
 > [!NOTE]
 > If you're enabling your virtual network integration with an ARM template, you need to manually set the property `vnetPrivatePorts` to a value of `2`. If you enable virtual network integration from the CLI or Portal, this property is set for you automatically.  
@@ -449,7 +471,7 @@ App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To ena
 When clustering is enabled, the JBoss EAP instances use the FILE_PING JGroups discovery protocol to discover new instances and persist the cluster information like the cluster members, their identifiers, and their IP addresses. On App Service, these files are under `/home/clusterinfo/`. The first EAP instance to start obtains read/write permissions on the cluster membership file. Other instances read the file, find the primary node, and coordinate with that node to be included in the cluster and added to the file.
 
 > [!Note]
-> You can avoid JBOSS clustering timeouts by [cleaning up obsolete discovery files during your app startup](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/JBOSS/avoid_timeouts_obsolete_nodes.md)
+> You can avoid JBoss clustering timeouts by [cleaning up obsolete discovery files during your app startup](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/JBOSS/avoid_timeouts_obsolete_nodes.md).
 
 The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../availability-zones/migrate-app-service.md). The JBoss EAP clustering feature is compatible with the zone redundancy feature.
 
@@ -469,6 +491,78 @@ You don't need to incrementally add instances (scaling out), you can add multipl
 
 JBoss EAP is available in the following pricing tiers: **F1**,
 **P0v3**, **P1mv3**, **P2mv3**, **P3mv3**, **P4mv3**, and **P5mv3**.
+
+## JBoss server lifecycle
+
+A JBoss EAP app in App Service goes through five distinct phases before actually launching the server. 
+
+- [1. Environment setup phase](#1-environment-setup-phase)
+- [2. Server launch phase](#2-server-launch-phase)
+- [3. Server configuration phase](#3-server-configuration-phase)
+- [4. App deployment phase](#4-app-deployment-phase)
+- [5. Server reload phase](#5-server-reload-phase)
+
+See respective sections below for details as well as opportunities to customize it (such as through [app settings](configure-common.md)).
+
+### 1. Environment setup phase
+
+- The SSH service is started to enable [secure SSH sessions](configure-linux-open-ssh-session.md) with the container. 
+- The Keystore of the Java runtime is updated with any public and private certificates defined in Azure portal. 
+    - Public certificates are provided by the platform in the */var/ssl/certs* directory, and they're loaded to *$JRE_HOME/lib/security/cacerts*.
+    - Private certificates are provided by the platform in the */var/ssl/private* directory, and they're loaded to *$JRE_HOME/lib/security/client.jks*.
+- If any certificates are loaded in the Java keystore in this step, the properties `javax.net.ssl.keyStore`, `javax.net.ssl.keyStorePassword` and `javax.net.ssl.keyStoreType` are added to the `JAVA_TOOL_OPTIONS` environment variable.
+- Some initial JVM configuration is determined such as logging directories and Java memory heap parameters: 
+    - If you provide the `–Xms` or `–Xmx` flags for memory in the app setting `JAVA_OPTS`, these values override the ones provided by the platform.
+    - If you configure the app setting `WEBSITES_CONTAINER_STOP_TIME_LIMIT`, the value is passed to the runtime property `org.wildfly.sigterm.suspend.timeout`, which controls the maximum shutdown wait time (in seconds) when JBoss is being stopped.
+- If the app is integrated with a virtual network, the App Service runtime passes a list of ports to be used for inter-server communication in the environment variable `WEBSITE_PRIVATE_PORTS` and launch JBoss using the `clustering` configuration. Otherwise, the `standalone` configuration is used.
+    - For the `clustering` configuration, the server configuration file *standalone-azure-full-ha.xml* is used.
+    - For the `standalone` configuration, the server configuration file *standalone-full.xml* is used.
+
+### 2. Server launch phase
+
+- If JBoss is launched in the `clustering` configuration:
+    - Each JBoss instance receives an internal identifier between 0 and the number of instances that the app is scaled out to.
+    - If some files are found in the transaction store path for this server instance (by using its internal identifier), it means this server instance is taking the place of an identical service instance that crashed previously and left uncommitted transactions behind. The server is configured to resume the work on these transactions.
+- Regardless if JBoss starting in the `clustering` or `standalone` configuration, if the server version is 7.4 or above and the runtime uses Java 17, then the configuration is updated to enable the Elytron subsystem for security.
+- If you configure the app setting `WEBSITE_JBOSS_OPTS`, the value is passed to the JBoss launcher script. This setting can be used to provide paths to property files and more flags that influence the startup of JBoss.
+
+### 3. Server configuration phase 
+
+- At the start of this phase, App Service first waits for both the JBoss server and the admin interface to be ready to receive requests before continuing. This can take a few more seconds if Application Insights is enabled.
+- When both JBoss Server and the admin interface are ready, App Service does the following: 
+    - Adds the JBoss module `azure.appservice`, which provides utility classes for logging and integration with App Service.
+    - Updates the console logger to use a colorless mode so that log files aren't full of color escaping sequences.
+    - Sets up the integration with Azure Monitor logs.
+    - Updates the binding IP addresses of the WSDL and management interfaces.
+    - Adds the JBoss module `azure.appservice.easyauth` for integration with [App Service authentication](overview-authentication-authorization.md) and Microsoft Entra ID.
+    - Updates the logging configuration of access logs and the name and rotation of the main server log file.
+- Unless the app setting `WEBSITE_SKIP_AUTOCONFIGURE_DATABASE` is defined, App Service autodetects JDBC URLs in the App Service app settings. If valid JDBC URLs exist for PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, or Azure SQL Database, it adds the corresponding driver(s) to the server and adds a data source for each of the JDBC URL and sets the JNDI name for each data source to `java:jboss/env/jdbc/<app-setting-name>_DS`, where `<app-setting-name>` is the name of the app setting.
+- If the `clustering` configuration is enabled, the console logger to be configured is checked. 
+- If there are JAR files deployed to the */home/site/libs* directory, a new global module is created with all of these JAR files.
+- At the end of the phase, App Service runs the custom startup script, if one exists. The search logic for the custom startup script as follows:
+    - If you configured a startup command (in the Azure portal, with Azure CLI, etc.), run it; otherwise,
+    - If the path */home/site/scripts/startup.sh* exists, use it; otherwise,
+    - If the path */home/startup.sh* exists, use it.
+
+The custom startup command or script runs as the root user (no need for `sudo`), so they can install Linux packages or launch the JBoss CLI to perform more JBoss install/customization commands (creating datasources, installing resource adapters), etc. For information on Ubuntu package management commands, see the [Ubuntu Server documentation](https://documentation.ubuntu.com/server/how-to/software/package-management/). For JBoss CLI commands, see the [JBoss Management CLI Guide](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index#how_to_cli).
+
+### 4. App deployment phase 
+
+The startup script deploys apps to JBoss by looking in the following locations, in order of precedence:
+
+- If you configured the app setting `WEBSITE_JAVA_WAR_FILE_NAME`, deploy the file designated by it.
+- If */home/site/wwwroot/app.war* exists, deploy it.
+- If any other EAR and WAR files exist in */home/site/wwwroot*, deploy them.
+- If */home/site/wwwroot/webapps* exists, deploy the files and directories in it. WAR files are deployed as applications themselves, and directories are deployed as "exploded" (uncompressed) web apps. 
+- If any standalone JSP pages exist in */home/site/wwwroot*, copy them to the web server root and deploy them as one web app.
+- If no deployable files are found yet, deploy the default welcome page (parking page) in the root context.
+
+### 5. Server reload phase 
+
+- Once the deployment steps are complete, the JBoss server is reloaded to apply any changes that require a server reload.
+- After the server reloads, the application(s) deployed to JBoss EAP server should be ready to respond to requests.
+- The server runs until the App Service app is stopped or restarted. You can manually stop or restart the App Service app, or you trigger a restart when you deploy files or make configuration changes to the App Service app. 
+- If the JBoss server exits abnormally in the `clustering` configuration, a final function called `emit_alert_tx_store_not_empty` is executed. The function checks if the JBoss process left a nonempty transaction store file in disk; if so, an error is logged in the console: `Error: finishing server with non-empty store for node XXXX`. When a new server instance is started, it looks for these nonempty transaction store files to resume the work (see [2. Server launch phase](#2-server-launch-phase)). 
 
 ::: zone-end
 
