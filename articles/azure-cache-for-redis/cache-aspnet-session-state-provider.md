@@ -24,7 +24,7 @@ Run the following command from the `Package Manager Console` window.
 ```powershell
 Install-Package Microsoft.Web.RedisSessionStateProvider
 ```
-
+<!-- cawa - this note needs to be removed -->
 > [!IMPORTANT]
 > If you are using the clustering feature from the premium tier, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. Moving to 2.0.1 or higher is a breaking change.
 >

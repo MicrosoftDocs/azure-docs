@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 11/19/2024
 ---
 
 # Business continuity and disaster recovery for Azure Logic Apps
@@ -19,6 +19,8 @@ This article provides BCDR guidance and strategies that you can apply when you b
 * [On-premises data gateways](../logic-apps/logic-apps-gateway-connection.md) which are Azure resources that you create and use in your logic apps to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](../logic-apps/logic-apps-gateway-install.md) on a local computer. For more information, see [On-premises data gateways](#on-premises-data-gateways) later in this topic.
 
 * [Integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](../logic-apps/logic-apps-enterprise-integration-overview.md) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
+
+For more information on reliability in Azure Logic Apps, including intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support), see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
 
 <a name="primary-secondary-locations"></a>
 

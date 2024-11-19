@@ -94,6 +94,8 @@
       href: deploy-configure-credentials.md
     - name: Create staging environments
       href: deploy-staging-slots.md
+    - name: Deploy sidecar container
+      href: tutorial-sidecar.md
     - name: Mount Azure Storage
       href: configure-connect-to-azure-storage.md
     - name: Automate provisioning

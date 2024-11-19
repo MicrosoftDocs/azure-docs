@@ -1120,6 +1120,8 @@
         "articles/azure-arc/**/*.md": "Azure Arc",
         "articles/azure-cache-for-redis/**/*.md": "Azure Cache for Redis",
         "articles/azure-cache-for-redis/**/*.yml": "Azure Cache for Redis",
+        "articles/azure-cache-for-redis/managed-redis/**/*.md": "Azure Managed Redis",
+        "articles/azure-cache-for-redis/managed-redis/**/*.yml": "Azure Managed Redis",
         "articles/azure-center-sap-solutions/*.md": "Azure Center for SAP solutions",
         "articles/azure-center-sap-solutions/*.yml": "Azure Center for SAP solutions",
         "articles/azure-fluid-relay/**/*.md": "Azure Fluid Relay",

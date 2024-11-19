@@ -16,11 +16,18 @@ ms.date: 11/19/2024
 # Reliability in Azure Logic Apps
 
 
-This article describes reliability support in Azure Logic Apps, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+This article describes reliability support in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
 Resiliency is a shared responsibility between you and Microsoft, and so this article also covers ways for you to create a resilient solution that meets your needs.
 
-Azure Logic Apps is a cloud platform where you can create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, you can quickly build a workflow that integrates and manages your apps, data, services, and systems.
+Logic app workflows help you more easily integrate and orchestrate data between apps, cloud services, and on-premises systems by reducing how much code that you have to write. When you plan for resiliency, make sure that you consider not just your logic apps, but also these Azure resources that you use with your logic apps:
+
+
+* [Connections](/azure/logic-apps/connectors/introduction) that you create from logic app workflows to other apps, services, and systems. For more information, see [Connections to resources](/azure/logic-apps/business-continuity-disaster-recovery-guidance#connections-to-resources) later in this topic.
+
+* [On-premises data gateways](/azure/logic-apps/logic-apps-gateway-connection) which are Azure resources that you create and use in your logic apps to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](/azure/logic-apps/logic-apps-gateway-install) on a local computer. For more information, see [On-premises data gateways](/azure/logic-apps/business-continuity-disaster-recovery-guidance#on-premises-data-gateways) later in this topic.
+
+* [Integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](/azure/logic-apps/logic-apps-enterprise-integration-overview) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-b2b-business-continuity).
 
 
 ## Production deployment recommendations
@@ -34,10 +41,14 @@ For production deployments, you should:
 
 ## Transient faults 
 
-Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests. For more information on how to change or disable the retry policy for your logic app, see [Handle errors and exceptions in Azure Logic Apps](/azure/logic-apps/error-exception-handling?tabs=standard).
+[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+
+For more information on how to change or disable the retry policy for your logic app, see [Handle errors and exceptions in Azure Logic Apps](/azure/logic-apps/error-exception-handling?tabs=standard).
 
 
 ## Availability zone support
+
+[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
 You can set up zone redundancy for Azure Logic Apps to spread resources across multiple [availability zones](../reliability/availability-zones-overview.md). When you distribute logic app workload resources across availability zones, you improve resiliency and reliability for your production logic app workloads.
 
@@ -97,14 +108,14 @@ The Logic Apps platform is responsible for detecting a failure in an availabilit
 
 ### Failback
 
-<!-- is this true? -->
+
 When the availability zone recovers, Logic Apps automatically restores instances in the availability zone, removes any temporary instances created in the other availability zones, and reroutes traffic between your instances as normal.
 
 
 ### Testing for zone failures  
 
-<!-- is this true? -->
-The Azure Logic Apps platform manages traffic routing, failover, and failback for zone-redundant X resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
+
+The Azure Logic Apps platform manages traffic routing, failover, and failback for zone-redundant resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
 
 
 ## Multi-region support 

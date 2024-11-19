@@ -15,8 +15,6 @@ Administrative State (Admin State) is a feature of Azure Load Balancer that allo
 
 You can use the Azure portal, Azure PowerShell, or Azure CLI to manage the admin state for a backend pool instance. Each section provides instructions for each method with examples for setting, updating, or removing an admin state configuration.
 
-[!INCLUDE [load-balancer-admin-state-preview](../../includes/load-balancer-admin-state-preview.md)]
-
 ## Prerequisites
 
 # [Azure portal](#tab/azureportal)

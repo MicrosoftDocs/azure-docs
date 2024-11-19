@@ -24,8 +24,6 @@ When you create a function app, you either create a new storage account or link 
 
 For a list of all restrictions on storage accounts, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
 
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
-
 ## Secure storage during function app creation
 
 You can create a function app, along with a new storage account that is secured behind a virtual network. The following sections show you how to create these resources by using either the Azure portal or by using deployment templates.

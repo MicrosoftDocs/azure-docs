@@ -483,13 +483,13 @@ items:
         href: tracking-schemas-as2-x12-custom.md
       - name: Create monitoring and tracking queries
         href: create-monitoring-tracking-queries.md
-  - name: Business continuity and disaster recovery
+  - name: Reliability
     items:
-    - name: Set up zone redundant logic apps
+    - name: Enable zone-redundancy
       href: set-up-zone-redundancy-availability-zones.md
-    - name: Replicate Azure resources for business continuity and disaster recovery
+    - name: Create replication tasks for Azure resources
       href: create-replication-tasks-azure-resources.md
-    - name: Build a B2B business continuity and disaster recovery plan
+    - name: Set up cross-region disaster recovery for integration accounts
       href: logic-apps-enterprise-integration-b2b-business-continuity.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
