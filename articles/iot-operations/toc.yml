@@ -188,7 +188,7 @@ items:
       - name: Bi-directional messaging with Event Grid
         href: connect-to-cloud/tutorial-mqtt-bridge.md
       - name: Send data to Data Lake Storage
-        href: connect-to-cloud/tutorial-opcua-to-data-lake.md
+        href: connect-to-cloud/tutorial-opc-ua-to-data-lake.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot

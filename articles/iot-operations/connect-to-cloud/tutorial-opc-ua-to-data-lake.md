@@ -21,7 +21,7 @@ This tutorial builds on the quickstart setup and demonstrates how to bifurcate t
 
 ## Prerequisites
 
-Finish the [second step of the quickstart](../get-started-end-to-end-sample/quickstart-configure.md) which gets you the data from the OPC UA server to the Azure IoT Operations MQTT broker. Make sure you can see the data in Event Hub.
+Finish the [second step of the quickstart](../get-started-end-to-end-sample/quickstart-configure.md) which gets you the data from the OPC UA server to the Azure IoT Operations MQTT broker. Make sure you can see the data in Event Hubs.
 
 ## Create a storage account with Data Lake Storage capability
 
@@ -34,27 +34,27 @@ First, follow steps to [create a storage account with Data Lake Storage Gen 2 ca
 
 At the **Review** step, verify the settings and select **Create** to create the storage account.
 
-![Screenshot showing the review page for creating the storage account with hierarchical namespace enabled](media/tutorial-opcua-to-data-lake/adlsv2-create.png)
+:::image type="content" source="media/tutorial-opc-ua-to-data-lake/adlsv2-create.png" alt-text="Screenshot showing the review page for creating the storage account with hierarchical namespace enabled.":::
 
 ## Get the extension name of Azure IoT Operations
 
 In Azure portal, find the Azure IoT Operations instance you created in the quickstart. In the **Overview** blade, find the **Arc extension** section and see the name of the extension. It should look like `azure-iot-operations-xxxxx`.
 
-![Screenshot of Azure portal showing where to find the extension name](media/tutorial-opcua-to-data-lake/extension-name.png)
+:::image type="content" source="media/tutorial-opc-ua-to-data-lake/extension-name.png" alt-text="Screenshot of Azure portal showing where to find the extension name.":::
 
 This extension name is used in the next steps to assign permissions to the storage account.
 
 ## Assign permission to Azure IoT Operations to write to the storage account
 
-In the storage account, go to the **Access control (IAM)** blade and select **+ Add role assignment**. In the **Add role assignment** blade, search for the role **Storage Blob Data Contributor** and select it. 
+First, in the storage account, go to the **Access control (IAM)** blade and select **+ Add role assignment**. In the **Add role assignment** blade, search for the role **Storage Blob Data Contributor** and select it. 
 
-![Screenshot showing to select the storage blob data contributor role](media/tutorial-opcua-to-data-lake/storage-role.png)
+:::image type="content" source="media/tutorial-opc-ua-to-data-lake/storage-role.png" alt-text="Screenshot showing how to select the storage blob data contributor role.":::
 
-Select **Next** to get to the *Members* section.
+Then, select **Next** to get to the *Members* section.
 
-Choose **Select members** and in the **Select** box, search for the managed identity of the Azure IoT Operations Arc extension named `azure-iot-operations-xxxxx` and select it.
+Next, choose **Select members** and in the **Select** box, search for the managed identity of the Azure IoT Operations Arc extension named `azure-iot-operations-xxxxx` and select it.
 
-![Screenshot showing to search for the Arc extension name and select it in IAM](media/tutorial-opcua-to-data-lake/find-identity.png)
+:::image type="content" source="media/tutorial-opc-ua-to-data-lake/find-identity.png" alt-text="Screenshot showing how to search for the Arc extension name and select it in IAM.":::
 
 Finish the assignment with **Review + assign**.
 
@@ -62,7 +62,7 @@ Finish the assignment with **Review + assign**.
 
 In the storage account, go to the **Containers** blade and select **+ Container**. For this tutorial, name the container `aiotutorial`. Select **Create** to create the container.
 
-![Screenshot showing creating storage container in Azure portal](media/tutorial-opcua-to-data-lake/container-create.png)
+:::image type="content" source="media/tutorial-opc-ua-to-data-lake/container-create.png" alt-text="Screenshot showing how to create a storage container in Azure portal.":::
 
 ## Get the schema registry name and namespace
 
@@ -361,11 +361,11 @@ az deployment group create -g <RESOURCE_GROUP> --template-file adls-gen2-dataflo
 
 In the storage account, go to the **Containers** blade and select the container `aiotutorial` you created. You should see a folder named `aiotutorial` and inside it, you should see Parquet files with the data from the OPC UA server. The file names are in the format `part-00001-44686130-347f-4c2c-81c8-eb891601ef98-c000.snappy.parquet`.
 
-![Screenshot of Azure portal showing the files in the container](media/tutorial-opcua-to-data-lake/adlsv2-files.png)
+:::image type="content" source="media/tutorial-opc-ua-to-data-lake/adlsv2-files.png" alt-text="Screenshot of Azure portal showing the files in the container.":::
 
 To see the content of the files, select each file and select **Edit**. 
 
-![Screenshot of Azure portal show the parquet file itself](media/tutorial-opcua-to-data-lake/parquet.png)
+:::image type="content" source="media/tutorial-opc-ua-to-data-lake/parquet.png" alt-text="Screenshot of Azure portal showing the parquet file itself.":::
 
 The content doesn't render properly in the Azure portal, but you can download the file and open it in a tool like [Parquet Viewer](https://github.com/mukunku/ParquetViewer).
 

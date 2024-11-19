@@ -828,7 +828,7 @@ To configure a destination for the dataflow, specify the endpoint reference and 
 To send data to a destination other than the local MQTT broker, create a dataflow endpoint. To learn how, see [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md). If the destination isn't the local MQTT broker, it must be used as a source. To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
 
 > [!IMPORTANT]
-> Storage endpoints require a [schema for serialization](./concept-schema-registry.md). To use dataflow with Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage, you must [specify schema reference](#serialize-data-according-to-a-schema).
+> Storage endpoints require a [schema for serialization](./concept-schema-registry.md). To use dataflow with Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage, you must [specify a schema reference](#serialize-data-according-to-a-schema).
 
 # [Portal](#tab/portal)
 
