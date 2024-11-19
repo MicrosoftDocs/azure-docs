@@ -3,11 +3,11 @@ title: Configure Cloud Backup for Virtual Machines
 description: Configure Cloud Backup for Virtual Machines enables you to mount and unmount datastores, and attach and detach VMDKs.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/21/2024
+ms.date: 11/19/2024
 ms.custom: engagement-fy24
 ---
 
-# Configure Cloud Backup for Virtual Machines 
+# Configure Cloud Backup for Virtual Machines (preview)
 
 Learn how to mount and unmount datastores and attach and detach virtual machine disks (VMDKs) using Cloud Backup for Virtual Machines.
 

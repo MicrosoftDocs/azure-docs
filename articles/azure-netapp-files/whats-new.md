@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 10/28/2024
+ms.date: 11/19/2024
 ms.author: anfdocs
 ---
 
@@ -14,12 +14,19 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## November 2024
+
+* [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (preview)
+
+    Cloud Backup for Virtual Machine features integrations with Azure NetApp Files backups, expanding the data protection capabilities of Azure NetApp Files by providing fully managed backup solution for long-term recovery, archive, and compliance. With Cloud Backup for Virtual Machines, you can mount a datastore from a snapshot or backup to access files in the backup. You can either [mount the backup](../azure-vmware/configure-cloud-backup-virtual-machine.md) to the same ESXi host where the backup was created or to an alternate ESXi host. You can unmount a backup when you no longer need to access the files in the datastore.
+    
+    Cloud Backup for Virtual Machines now also includes the capability to [attach one or more VMDKs](../azure-vmware/configure-cloud-backup-virtual-machine.md) from a backup to the parent VM, or to an alternate VM on the same ESXi host, or to an alternate VM on an alternate ESXi host managed by the same vCenter. After you have attached a virtual disk to restore individual files, you can detach the virtual disk from the parent VM.
+
+    Cloud Backup for Virtual Machines also supports the ability to [restore a virtual machine](../azure-vmware/restore-azure-netapp-files-vms.md) to an alternate location on the same ESXi host or different ESXi host in the same vCenter and to [restore guest files and folders from a snapshot or Azure NetApp Files backup](../azure-vmware/restore-guest-files-folders.md). 
+ 
+
 ## October 2024
 
-* [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/install-cloud-backup-virtual-machines.md)
-
-    <!-- PLR text -->
- 
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
