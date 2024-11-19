@@ -337,7 +337,17 @@ Workload updates are available. Run `dotnet workload list` for more information.
 
 You can now troubleshoot the failed test cases in the Playwright portal.
 
+::: zone pivot="playwright-test-runner"
+
 [!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results.md)]
+
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+[!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results-nunit.md)]
+
+::: zone-end
 
 
 > [!TIP]

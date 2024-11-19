@@ -112,9 +112,15 @@ In the `playwright.config.ts` file of your project, make sure you are collecting
 
 3. Save and commit the file to your source code repository.
 
-## Update .csproj file for your project 
+## Install service package
 
-Update the `csproj` file in your repository to add details about Microsoft Playwright Testing service package in `ItemGroup` section.
+In your project, install Microsoft Playwright Testing package. 
+
+```PowerShell
+dotnet add package Azure.Developer.MicrosoftPlaywrightTesting.NUnit --prerelease
+```
+
+This updates the `csproj` file of your project by adding the details of service package in  `ItemGroup` section. Make sure to check it in.
 
 ```xml
   <ItemGroup>
@@ -384,7 +390,17 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
 You can now troubleshoot the CI pipeline in the Playwright portal,  
 
+::: zone pivot="playwright-test-runner"
+
 [!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results.md)]
+
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+[!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results-nunit.md)]
+
+::: zone-end
 
 
 > [!TIP]
