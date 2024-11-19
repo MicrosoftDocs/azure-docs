@@ -122,7 +122,7 @@ NTLMv2 and Kerberos network authentication methods are supported with SMB volume
 To disable NTLM, see:
 
 - [Active Directory Hardening Series - Part 1 – Disabling NTLMv1](https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/active-directory-hardening-series---part-1-%E2%80%93-disabling-ntlmv1/3934787)
-- [Network security - Restrict NTLM Incoming NTLM traffic](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-incoming-ntlm-traffi)
+- [Network security - Restrict NTLM Incoming NTLM traffic](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-incoming-ntlm-traffic)
 - [Network security - Restrict NTLM in this domain](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
 
 ## What is the password rotation policy for the Active Directory computer account for SMB volumes?
