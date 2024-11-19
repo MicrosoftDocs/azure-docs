@@ -24,7 +24,7 @@ Operating as a service under Azure Private Link, the Network Security Perimeter 
 > [!NOTE]
 > Network Security Perimeter does not support [Azure Event Hubs - Geo-disaster recovery](event-hubs-geo-dr.md)
 
-## Associate Event Hubs with a Network Security Perimeter in the Azure portal
-1. Search for "Network Security Perimeter" in the Portal search bar and then click on **Create** button and create the resource
-1. In the first screen, provide a Name and Region and choose the subscription
+# Associate Event Hubs with a Network Security Perimeter in the Azure portal.
+1. Search for "Network Security Perimeter" in the Portal search bar and then click on **Create** button and create the resource.
+1. In the first screen, provide a Name and Region and choose the subscription.
 1. Under the **Resources** section, click on the **Associate** button and navigate to the Event Hubs namespace you want to add. 
