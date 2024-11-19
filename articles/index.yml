@@ -841,12 +841,12 @@ productDirectory:
         - hybrid
       url: /azure-stack/
     # Card
-    - title: Azure Stack HCI
-      summary: Integrate hyperconverged infrastructure with Azure and hybrid services to run virtual workloads on premises
-      imageSrc: ./media/index/stack-hci.svg
+    - title: Azure Local
+      summary: Operate infrastructure across distributed locations enabled by Azure Arc
+      imageSrc: ./media/index/azure-local.svg
       azureCategories:
         - hybrid
-      url: /azure-stack/hci/
+      url: /azure/azure-local/
     # Card
     - title: Azure Stack Hub
       summary: Azure Stack Hub is sold as an integrated hardware system, with software pre-installed on validated hardware

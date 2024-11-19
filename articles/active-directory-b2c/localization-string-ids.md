@@ -318,7 +318,7 @@ The Following are the IDs for a content definition with an ID of `api.phonefacto
 | `error_phone_throttled` | You hit the limit on the number of call attempts. Try again shortly. | `>= 1.2.3` |
 | `error_throttled` | You hit the limit on the number of verification attempts. Try again shortly. | `>= 1.2.3` |
 | `error_incorrect_code` | The verification code you have entered does not match our records. Please try again, or request a new code. | `All` |
-| `countryList` | See [the countries list](#phone-factor-authentication-page-example). | `All` |
+| `countryList` | See [the countries/regions list](#phone-factor-authentication-page-example). | `All` |
 | `error_448` | The phone number you provided is unreachable. | `All` |
 | `error_449` | User has exceeded the number of retry attempts. | `All` |
 | `verification_code_input_placeholder_text` | Verification code | `All` |
