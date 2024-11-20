@@ -10,12 +10,9 @@ ms.date: 11/20/2024
 
 # Multi-region deployments in Azure Logic Apps
 
-
 This article provides guidance and strategies for how to set up a multi-region deployment for your Azure Logic Apps. A multi-region deployment helps you protect data, recover quickly from disruptive events, restore resources required by critical business functions, and maintain business continuity. 
 
-For more information on the reliability features in Azure Logic Apps, including intra-regional resiliency via [availability zones](#availability-zone-support), see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
-
-
+For more information on the reliability features in Azure Logic Apps, including intra-regional resiliency via availability zones, see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
 
 ## Considerations
 
@@ -27,11 +24,7 @@ Logic app workflows help you more easily integrate and orchestrate data between 
 
 * [Integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](../logic-apps/logic-apps-enterprise-integration-overview.md) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
 
-<<<<<<< HEAD
-
-=======
 For more information on reliability in Azure Logic Apps, including intra-regional resiliency via availability zones and multi-region deployments, see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
->>>>>>> 19b3c65d5f1ebcedd22544f1b0fb863f5b90a4e9
 
 <a name="primary-secondary-locations"></a>
 
@@ -50,11 +43,7 @@ For the failover strategy, your logic apps and locations must meet these require
 
 * The secondary logic app instance has access to the same apps, services, and systems as the primary logic app instance.
 
-<<<<<<< HEAD
-* Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For more information about paired regions, see [Azure paired regions](../reliability/cross-region-replication-azure.md#azure-paired-regions).
-=======
 * Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For best practices and more information about using multiple regions for BCDR, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
->>>>>>> 19b3c65d5f1ebcedd22544f1b0fb863f5b90a4e9
 
 ### Example: Multitenant Azure
 
