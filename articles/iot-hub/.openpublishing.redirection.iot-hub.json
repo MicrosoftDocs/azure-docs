@@ -943,7 +943,7 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-tls.md",
       "redirect_url": "/azure/iot-hub/iot-hub-tls-support",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md",
