@@ -7,7 +7,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-dps
 ms.topic: concept-article
-ms.date: 09/15/2022
+ms.date: 11/15/2024
 ---
 
 # TLS support in Azure IoT Hub Device Provisioning Service (DPS)
@@ -108,7 +108,7 @@ Use the links below to configure TLS 1.2 and allowed ciphers in the Azure IoT cl
 
 ## Use TLS 1.2 with IoT Hub
 
-IoT Hub can be configured to use TLS 1.2 when communicating with devices. For more information, see [Deprecating TLS 1.0 and 1.1 for IoT Hub](../iot-hub/iot-hub-tls-ending-support-for-1-0-and-1-1.md).
+IoT Hub can be configured to use TLS 1.2 when communicating with devices. For more information, see [IoT Hub TLS enforcement](../iot-hub/iot-hub-tls-support.md#enforce-iot-hub-to-use-tls-1.2-and-strong-cipher-suites).
 
 ## Use TLS 1.2 with IoT Edge
 
