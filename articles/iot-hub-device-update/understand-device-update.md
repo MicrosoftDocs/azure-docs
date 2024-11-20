@@ -1,17 +1,17 @@
 ---
 title: Introduction to Device Update for Azure IoT Hub
-description: Learn how the Device Update service for IoT Hub enables you to deploy over-the-air updates for your IoT devices.
+description: Learn how the Azure Device Update service for IoT Hub enables you to deploy over-the-air updates for your IoT devices.
 author: vimeht
 ms.author: vimeht
-ms.date: 11/13/2024
+ms.date: 11/20/2024
 ms.topic: overview
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-# Device Update for IoT Hub
+# What is Device Update for IoT Hub?
 
-As Internet of Things (IoT) solutions become increasingly widespread, it's essential that the devices forming these solutions are easy to connect and manage at scale. Device Update for Azure IoT Hub is a service that enables you to deploy over-the-air updates for your IoT devices.
+As Internet of Things (IoT) solutions become increasingly widespread, it's essential that the devices forming these solutions are easy to connect and manage at scale. Azure Device Update for IoT Hub is a service that enables you to deploy over-the-air updates for your IoT devices.
 
 Device Update for IoT Hub is an end-to-end platform for publishing, distributing, and managing over-the-air updates for everything from tiny sensors to gateway-level devices. To realize the full benefits of IoT-enabled digital transformation, Device Update provides capabilities to operate, maintain, and update devices at scale, such as:
 
@@ -40,7 +40,7 @@ Device Update for IoT Hub supports two forms of updates, *package-based* and *im
 
 ## Management and deployment controls
 
-You can use Device Update management and deployment controls to maximize productivity and save valuable time. Device Update provides many powerful and flexible features.
+You can use Device Update management and deployment controls to maximize productivity and save valuable time.
 
 ### Management and reporting tools
 
@@ -74,7 +74,7 @@ Troubleshooting features include agent check and device sync to help you diagnos
 
 Device Update functionality consists of three areas: *agent integration*, *importing*, and *management*.
 
-### Device Update agent
+### Agent integration
 
 When a device receives an update command, the Device Update *agent* executes the requested `download`, `install`, or `apply` update phase. During each phase, the agent returns the deployment status to Device Update via IoT Hub so you can view the current status of the deployment. If there are no updates in progress, the agent returns `Idle` status. You can cancel a deployment at any time.
 
@@ -88,9 +88,9 @@ The following diagram shows how the Device Update management service uses IoT Hu
 
 For more information, see [Device Update for IoT Hub agent overview](device-update-agent-overview.md).
 
-### Import
+### Importing
 
-*Importing* ingests your updates into Device Update so they can be deployed to devices. Device Update supports importing a single update per device, a full image that updates an entire OS partition, or an [APT manifest](device-update-apt-manifest.md) that describes the individual packages you want to update on a device.
+You *import* your updates into Device Update to prepare them for deployment to devices. Device Update supports importing a single update per device, a full image that updates an entire OS partition, or an [APT manifest](device-update-apt-manifest.md) that describes the individual packages that you want to update on a device.
 
 To import updates into Device Update, you first create an import manifest describing the update, then upload the manifest and the update file or files to an Azure Storage container. After that, you can use the Azure portal or the [Device Update REST API](/rest/api/deviceupdate/) to initiate the asynchronous update import process. Device Update uploads the files, processes them, and makes them available for distribution to IoT devices.
 
@@ -107,7 +107,7 @@ The following diagram shows how Device Update imports an update.
 
 For more information about importing, see [Import updates into Device Update for IoT Hub](import-concepts.md).
 
-### Grouping and deployment
+### Management
 
 After you import an update, you can view compatible updates for your devices and device classes.
 
