@@ -17,7 +17,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
 ## Prerequisites
 
-* Ensure the [.NET CLI](dotnet/core/tools) is installed on your machine.
+* Ensure the [.NET CLI](/dotnet/core/tools) is installed on your machine.
 * Follow the [Use variant feature flags](./use-variant-feature-flags.md) tutorial and create the variant feature flag named *Greeting*.
 
 ## Create an ASP.NET Core web app
@@ -128,27 +128,13 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
             }
             else
             {
-                _logger.LogWarning("Greeting variant not found. Please define a variant feature flag in Azure App Configuration named 'Greeting'.");
-            }
-        }
-    
-        public IActionResult OnPostHeartQuoteAsync()
-        {
-            string? userId = User.Identity?.Name;
-    
-            if (!string.IsNullOrEmpty(userId))
-            {
-                return new JsonResult(new { success = true });
-            }
-            else
-            {
-                return new JsonResult(new { success = false, error = "User not authenticated" });
+                _logger.LogWarning("No variant given. Either the feature flag named 'Greeting' is not defined or the variants are not defined properly.");
             }
         }
     }
     ```
 
-    You call `GetVariantAsync` to retrieve the variant of the *Greeting* feature flag for the current user and assign its value to the `GreetingMessage` property of the page model. This page model also includes a handler for POST requests, which are triggered when users like the quote and click the heart button.
+    You call `GetVariantAsync` to retrieve the variant of the *Greeting* feature flag for the current user and assign its value to the `GreetingMessage` property of the page model.
 
 1. In *QuoteOfTheDay* > *Pages* > *Shared* > *_Layout.cshtml*, under where `QuoteOfTheDay.styles.css` is added, add the following reference to the font-awesome CSS library.
 
@@ -234,10 +220,6 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
                 <i class="far fa-heart"></i> <!-- Heart icon -->
             </button>
         </div>
-    
-        <form action="/" method="post">
-            @Html.AntiForgeryToken()
-        </form>
     </div>
     
     <script>
@@ -245,18 +227,6 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
             var icon = button.querySelector('i');
             icon.classList.toggle('far');
             icon.classList.toggle('fas');
-    
-            // If the quote is hearted
-            if (icon.classList.contains('fas')) {
-                // Send a request to the server to save the vote
-                fetch('/Index?handler=HeartQuote', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
-                    }
-                });
-            }
         }
     </script>
     ```
