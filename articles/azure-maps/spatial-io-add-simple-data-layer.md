@@ -63,7 +63,7 @@ function InitMap()
     map.layers.add(layer);
 
     //Load an initial data set.
-    loadDataSet('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/use-simple-data-layer.json');
+    loadDataSet('{Your-Data-Source-File}');
 
     function loadDataSet(url) {
       //Read the spatial data and add it to the map.
@@ -86,7 +86,7 @@ function InitMap()
 }
 ```
 
-The url passed to the `loadDataSet` function points to the following json:
+The _initial data set_ passed to the `loadDataSet` function in this example points to the following json:
 
 ```json
 {
