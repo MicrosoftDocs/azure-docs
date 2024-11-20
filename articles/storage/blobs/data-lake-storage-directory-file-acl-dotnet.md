@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: azure-data-lake-storage
-ms.date: 07/24/2023
+ms.date: 11/20/2023
 ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: csharp
@@ -124,8 +124,6 @@ You can upload content to a new or existing file by using the following method:
 The following code example shows how to upload a local file to a directory using the `UploadAsync` method:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_UploadFile":::
-
-You can use this method to create and upload content to a new file, or you can set the `overwrite` parameter to `true` to overwrite an existing file.
 
 ## Append data to a file
 
