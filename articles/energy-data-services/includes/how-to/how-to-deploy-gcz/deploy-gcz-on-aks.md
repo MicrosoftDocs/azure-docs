@@ -13,9 +13,6 @@ ms.date: 05/30/2024
 
 Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Service (AKS).
 
-> [!IMPORTANT]
-> The current deployment of GCZ using AKS is limited to a default configuration of included schemas, please see [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/devops/azure/transformer/application.yml) for information regarding the supported schemas. To add or change schemas (i.e. newer versions) a custom container image will need to be created.
-
 ## Prerequisites
 
 - Azure Subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free).
@@ -116,8 +113,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
                tag: latest
            service:
                type: LoadBalancer
-           annotations:
-               service.beta.kubernetes.io/azure-load-balancer-internal: "$PRIVATE_NETWORK"
+           configuration:
+               privateNetwork: "$PRIVATE_NETWORK"
        transformer:
            namespace: $NAMESPACE
            image:
@@ -126,9 +123,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
                tag: latest
            service:
                type: LoadBalancer
-           annotations:
-               service.beta.kubernetes.io/azure-load-balancer-internal: "$PRIVATE_NETWORK"
            configuration:
+               privateNetwork: "$PRIVATE_NETWORK"
                datapartitionid: $DATA_PARTITION_ID
                clientId: $AZURE_CLIENT_ID
                tenantId: $AZURE_TENANT_ID
@@ -175,8 +171,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
                tag: latest
            service:
                type: LoadBalancer
-           annotations:
-               service.beta.kubernetes.io/azure-load-balancer-internal: "$PRIVATE_NETWORK"
+           configuration:
+               privateNetwork: "$PRIVATE_NETWORK"
        transformer:
            namespace: $NAMESPACE
            image:
@@ -185,9 +181,8 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
                tag: latest
            service:
                type: LoadBalancer
-           annotations:
-               service.beta.kubernetes.io/azure-load-balancer-internal: "$PRIVATE_NETWORK"
            configuration:
+               privateNetwork: "$PRIVATE_NETWORK"
                datapartitionid: $DATA_PARTITION_ID
                clientId: $AZURE_CLIENT_ID
                tenantId: $AZURE_TENANT_ID
@@ -218,9 +213,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
        name: gcz-provider
        namespace: {{ $.Values.global.provider.namespace }}
        annotations:
-           {{- range \$key, \$value := $.Values.global.provider.service.annotations }}
-           {{ \$key }}: {{ \$value | quote }}
-           {{- end }}
+           service.beta.kubernetes.io/azure-load-balancer-internal: "{{ $.Values.global.provider.configuration.privateNetwork }}"
    spec:
        selector:
            app: provider
@@ -238,9 +231,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
        name: gcz-transformer
        namespace: {{ $.Values.global.transformer.namespace }}
        annotations:
-           {{- range \$key, \$value := $.Values.global.transformer.service.annotations }}
-           {{ \$key }}: {{ \$value | quote }}
-           {{- end }}
+           service.beta.kubernetes.io/azure-load-balancer-internal: "{{ $.Values.global.transformer.configuration.privateNetwork }}"
    spec:
        selector:
            app: transformer
@@ -262,9 +253,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
        name: gcz-provider
        namespace: {{ $.Values.global.provider.namespace }}
        annotations:
-           {{- range `$key, `$value := $.Values.global.provider.service.annotations }}
-           {{ `$key }}: {{ `$value | quote }}
-           {{- end }}
+           service.beta.kubernetes.io/azure-load-balancer-internal: "{{ $.Values.global.provider.configuration.privateNetwork }}"
    spec:
        selector:
            app: provider
@@ -282,9 +271,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
        name: gcz-transformer
        namespace: {{ $.Values.global.transformer.namespace }}
        annotations:
-           {{- range `$key, `$value := $.Values.global.transformer.service.annotations }}
-           {{ `$key }}: {{ `$value | quote }}
-           {{- end }}
+           service.beta.kubernetes.io/azure-load-balancer-internal: "{{ $.Values.global.transformer.configuration.privateNetwork }}"
    spec:
        selector:
            app: transformer
@@ -347,3 +334,6 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
    ```
 
    These IPs are used to connect to the GCZ API endpoints.
+
+> [!IMPORTANT]
+> If you wish to update the configuration files (e.g., `application.yml` or `koop-config.json`), you must update the AKS configuration (configmap) and then delete the existing pods for the `provider` and `transformer` services. The pods will be recreated with the new configuration. If you change the configuration using the GCZ APIs, the changes **will not** persist after a pod restart.
