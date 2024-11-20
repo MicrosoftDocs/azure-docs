@@ -222,6 +222,10 @@ Refer to [_Grant Managed Identity Access to a Key Vault for Credential Rotation_
 
 ## Grant Managed Identity Access to a Key Vault for Credential Rotation
 
+> [!NOTE]
+> A user-assigned managed identity may be created and assigned access to the key vault before the Nexus Cluster is created and prior to deployment.  A system-assigned identity must be granted access to the key vault
+after cluster creation but before deployment.
+
 - Assign the *Operator Nexus Key Vault Writer Service Role*. Ensure that *Azure role-based access control* is selected as the permission model for the key vault on the *Access configuration* view. Then from the *Access Control* view, select to add a role assignment.
 
 | Role Name                                              | Role Definition ID                   |
