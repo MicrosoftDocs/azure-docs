@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: azure-ddos-protection
 ms.topic: conceptual
-ms.date: 07/17/2024
+ms.date: 11/20/2024
 ms.custom: template-concept
 ---
 
@@ -52,7 +52,7 @@ DDoS Network Protection and DDoS IP Protection have the following limitations:
 - Protecting a public IP resource attached to a NAT Gateway isn't supported.
 - Virtual machines in Classic/RDFE deployments aren't supported.
 - VPN gateway or Virtual network gateway is protected by a DDoS policy. Adaptive tuning isn't supported at this stage. 
-- Azure DDoS Protection service can protect a public load balancer with a public IP address prefix linked to its frontend. This is supported for DDoS Network Protection SKU.
+- Protection of a public IP address prefix linked to a public load balancer frontend is supported with the Azure DDoS Network Protection SKU.
 - DDoS telemetry for individual virtual machine instances in Virtual Machine Scale Sets is available with Flexible orchestration mode.
 
 
