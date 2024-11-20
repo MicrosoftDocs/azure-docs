@@ -83,7 +83,7 @@ In addition, for HEVC/H.265 hardware acceleration you also need:
 
    - A GPU that has HEVC (H.265) 4K YUV 4:2:0 decode support. For more information, see the manufacturer's documentation. Here are some links to documentation for some manufacturers:
      - [NVIDIA](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new)
-     - [AMD](https://www.amd.com/en/products/specifications/graphics)
+     - [AMD](https://www.amd.com/en/products/specifications/graphics.html)
      - [Intel](https://www.intel.com/content/www/us/en/docs/onevpl/developer-reference-media-intel-hardware/1-0/overview.html#DECODE-SUPPORT)
 
    - Microsoft HEVC codec installed. The Microsoft HEVC codec is included in clean installs of Windows 11 22H2 or later. You can also [purchase the Microsoft HEVC codec from the Microsoft Store](https://www.microsoft.com/store/productid/9NMZLZ57R3T7?ocid=pdpshare).
