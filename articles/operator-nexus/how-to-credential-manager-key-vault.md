@@ -35,6 +35,7 @@ These examples describe how to configure a managed identity for a Cluster Manage
         --fabric-controller-id "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName" \
         --managed-resource-group-configuration name="my-managed-rg" --tags key1="myvalue1" key2="myvalue2" --resource-group "resourceGroupName" --mi-system-assigned
 ```
+<br/>
 
 - Create or update Cluster Manager with user-assigned identity
 ```
@@ -44,11 +45,13 @@ These examples describe how to configure a managed identity for a Cluster Manage
         --managed-resource-group-configuration name="my-managed-rg" --tags key1="myvalue1" key2="myvalue2" \
         --resource-group <Resource Group Name> --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAI"
 ```
+<br/>
 
 - Add system-assigned identity to Cluster Manager
 ```
         az networkcloud clustermanager update --name <Cluster Manager Name> --resource-group <Resource Group Name> --mi-system-assigned
 ```
+<br/>
 
 - Add user-assigned identity to Cluster Manager
 ```
@@ -69,6 +72,7 @@ az networkcloud cluster update --ids /subscriptions/<subscription ID>/resourceGr
 # Show Customer Key Vault setting (secretArchive) on the Nexus cluster
 az networkcloud cluster show --ids /subscriptions/<subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.NetworkCloud/clusters/<Nexus Cluster Name> --query secretArchive
 ```
+<br/>
 
 For more help:
 
@@ -85,6 +89,7 @@ Example:
 ```console
 az networkcloud clustermanager show --ids /subscriptions/<Subscription ID>/resourceGroups/<Cluster Manager Resource Group Name>/providers/Microsoft.NetworkCloud/clusterManagers/<Cluster Manager Name>
 ```
+<br/>
 
 System-assigned identity example:
 ```
@@ -94,6 +99,7 @@ System-assigned identity example:
         "type": "SystemAssigned"
     },
 ```
+<br/>
 
 User-assigned identity example:
 ```
@@ -107,6 +113,7 @@ User-assigned identity example:
         }
     },
 ```
+<br/>
 
 Refer to [_Grant Managed Identity Access to a Key Vault for Credential Rotation_](#grant-managed-identity-access-to-a-key-vault-for-credential-rotation) to assign the appropriate role to the Managed Identity Principal ID.
 
@@ -139,6 +146,7 @@ az networkcloud cluster create --name "<cluster-name>" \
   ...
   --subscription "<subscription>"
 ```
+<br/>
 
 - Create Nexus Cluster with user-assigned identity to access Key Vault for rotated credentials.
 ```azurecli-interactive
@@ -150,6 +158,7 @@ az networkcloud cluster create --name "<cluster-name>" \
   ...
   --subscription "<subscription>"
 ```
+<br/>
 
 - Update existing Nexus Cluster with system-assigned identity to access Key Vault for rotated credentials.
 ```azurecli-interactive
@@ -157,6 +166,7 @@ az networkcloud cluster update --ids <cluster-resource-id> \
   --mi-system-assigned \
   --secret-archive-settings identity-type="SystemAssignedIdentity" vault-uri="https://<key vault name>.vault.azure.net/"
 ```
+<br/>
 
 - Update existing Nexus Cluster with user-assigned identity
 ```azurecli-interactive
@@ -164,12 +174,14 @@ az networkcloud cluster update --ids <cluster-resource-id> \
   --mi-user-assigned "<user-assigned-identity-resource-id>" \
   --secret-archive-settings identity-type="UserAssignedIdentity" identity-resource-id="<user-assigned-identity-resource-id>" vault-uri="https://<key vault name>.vault.azure.net/"
 ```
+<br/>
 
 For more help:
 
 ```azurecli-interactive
 az networkcloud cluster update --secret-archive-settings '??' --help
 ```
+<br/>
 
 ### Get the Principal ID for the Cluster Managed Identity
 
@@ -180,6 +192,7 @@ Example:
 ```console
 az networkcloud cluster show --ids <cluster-resource-id>
 ```
+<br/>
 
 System-assigned identity example:
 ```
@@ -189,6 +202,7 @@ System-assigned identity example:
         "type": "SystemAssigned"
     },
 ```
+<br/>
 
 User-assigned identity example:
 ```
@@ -202,6 +216,7 @@ User-assigned identity example:
         }
     },
 ```
+<br/>
 
 Refer to [_Grant Managed Identity Access to a Key Vault for Credential Rotation_](#grant-managed-identity-access-to-a-key-vault-for-credential-rotation) to assign the appropriate role to the Managed Identity Principal ID.
 
@@ -212,12 +227,14 @@ Refer to [_Grant Managed Identity Access to a Key Vault for Credential Rotation_
 | Role Name                                              | Role Definition ID                   |
 |:-------------------------------------------------------|:-------------------------------------|
 | Operator Nexus Key Vault Writer Service Role (Preview) | 44f0a1a8-6fea-4b35-980a-8ff50c487c97 |
+<br/>
 
 Example:
 
 ```console
 az role assignment create --assignee <Managed Identity Principal Id> --role 44f0a1a8-6fea-4b35-980a-8ff50c487c97 --scope /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.KeyVault/vaults/<Key Vault Name>
 ```
+<br/>
 
 If using a user-assigned managed identity, proceed to [add permission to user-assigned identity](#add-a-permission-to-user-assigned-identity)
 
