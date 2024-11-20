@@ -23,7 +23,7 @@ Logic app workflows help you more easily integrate and orchestrate data between 
 
 * [Connections](../connectors/introduction.md) that you create from logic app workflows to other apps, services, and systems. For more information, see [Connections to resources](/azure/logic-apps/business-continuity-disaster-recovery-guidance#connections-to-resources) later in this topic.
 
-* [On-premises data gateways](../logic-apps/connect-on-premises-data-sources.md), which are Azure resources that you create and use in your logic apps to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](/azure/logic-apps/logic-apps-gateway-install) on a local computer. For more information, see [On-premises data gateways](/azure/logic-apps/business-continuity-disaster-recovery-guidance#on-premises-data-gateways) later in this topic.
+* [On-premises data gateways](../logic-apps/connect-on-premises-data-sources.md), which are Azure resources that you create and use in your logic apps to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](../logic-apps/install-on-premises-data-gateway.md) on a local computer. You can configure an on-premises data gateway for high availabilty by using multiple computers. For more information, see [High availability support](../logic-apps/install-on-premises-data-gateway.md#high-availability-support).
 
 * [Integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](/azure/logic-apps/logic-apps-enterprise-integration-overview) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-b2b-business-continuity).
 
@@ -57,9 +57,7 @@ For production deployments with Logic Apps Standard, you should [enable zone red
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-For more information on how to change or disable the retry policy for your logic app, see [Handle errors and exceptions in Azure Logic Apps](/azure/logic-apps/error-exception-handling?tabs=standard).
-
-Many triggers and actions automatically support *retry policies*, which automatically retry requests that fail due to transient faults. You can change or disable the default retry policy for your logic app. 
+In Azure Logic Apps, many triggers and actions automatically support *retry policies*, which automatically retry requests that fail due to transient faults. To learn how to change or disable retry policies within your logic app, see [Handle errors and exceptions in Azure Logic Apps](/azure/logic-apps/error-exception-handling?tabs=standard).
 
 If an action fails, you can customize the behavior of subsequent actions. You can also create *scopes* to group related actions that might fail or succeed together.
 
@@ -69,7 +67,7 @@ For more information on fault handling in Logic Apps, see [Handle errors and exc
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-You can set up zone redundancy for Azure Logic Apps to spread resources across multiple [availability zones](../reliability/availability-zones-overview.md). When you distribute logic app workload resources across availability zones, you improve resiliency and reliability for your production logic app workloads.
+Azure Logic Apps supports *zone redundancy*, which spread compute resources across multiple [availability zones](../reliability/availability-zones-overview.md). When you distribute logic app workload resources across availability zones, you improve resiliency and reliability for your production logic app workloads.
 
 ::: zone pivot="consumption"
 
@@ -91,9 +89,16 @@ When you use Logic Apps Standard with an App Service Environment v3, you can opt
 
 ### Regions supported
 
-::: zone pivot="consumption,standard-workflow-service-plan"
+::: zone pivot="consumption"
 
-Zone-redundant logic apps can be deployed in [any region that supports availability zones](./availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+When you deploy a Consumption logic app in [any region that supports availability zones](./availability-zones-service-support.md#azure-regions-with-availability-zone-support), it's automatically zone redundant.
+<!-- TODO should we mention Japan East as an exception? -->
+
+::: zone-end
+
+::: zone pivot-"standard-workflow-service-plan"
+
+Zone-redundant workflow service plans can be deployed in [any region that supports availability zones](./availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 ::: zone-end
 
@@ -167,8 +172,17 @@ To prepare for availability zone failure, you should over-provision capacity of 
 
 ### Traffic routing between zones
 
-<!-- TODO verify; also how does this work for consumption? -->
+::: zone pivot="consumptoin"
+
+During normal operations, workflow invocations can use compute resources in any of the availability zones within the region.
+
+::: zone-end
+
+::: zone pivot="standard-workflow-service-plan,standard-app-service-environment"
+
 During normal operations, workflow invocations are spread among all of your available plan instances across all availability zones.
+
+::: zone-end
 
 ### Zone-down experience
 
