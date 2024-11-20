@@ -189,4 +189,4 @@ If you receive one of the following error messages:
 - Message: The request is not authorized
 - Code: PermissionDenied
 
-Verify your Microsoft Entra ID account meets the requirements in the [prerequisites](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites) for operations experience access. 
+Verify your Microsoft Entra ID account meets the requirements in the [prerequisites](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites) section for operations experience access. 
