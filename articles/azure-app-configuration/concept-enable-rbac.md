@@ -30,8 +30,10 @@ Requests for [data plane](../azure-resource-manager/management/control-plane-and
 ### Control plane access
 All requests for [control plane](../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane) operations are sent to the Azure Resource Manager URL. These requests pertain to the App Configuration resource.
 
-- **Contributor** or **Owner**: Use this role to manage the App Configuration resource. It grants access to the resource's access keys. While the App Configuration data can be accessed using access keys, this role doesn't grant direct access to the data using Microsoft Entra ID.
-- **Reader**: Use this role to give read access to the App Configuration resource. This role doesn't grant access to the resource's access keys, nor to the data stored in App Configuration.
+- **App Configuration Contributor**: Use this role to manage only App Configuration resource. This role does not grant access to manage other Azure resources. It grants access to the resource's access keys. While the App Configuration data can be accessed using access keys, this role doesn't grant direct access to the data using Microsoft Entra ID. It grants access to recover deleted App Configuration resource but not to purge them. To purge deleted App Configuration resources, use the **Contributor** role. 
+- **App Configuration Reader**: Use this role to read only App Configuration resource. This role does not grant access to read other Azure resources. It doesn't grant access to the resource's access keys, nor to the data stored in App Configuration.
+- **Contributor** or **Owner**: Use this role to manage the App Configuration resource while also be able to manage other Azure resources. This role is a privileged adminstrator role. It grants access to the resource's access keys. While the App Configuration data can be accessed using access keys, this role doesn't grant direct access to the data using Microsoft Entra ID.
+- **Reader**: Use this role to read App Configuration resource while also be able to read other Azure resources. This role doesn't grant access to the resource's access keys, nor to the data stored in App Configuration.
 
 > [!NOTE]
 > After a role assignment is made for an identity, allow up to 15 minutes for the permission to propagate before accessing data stored in App Configuration using this identity.

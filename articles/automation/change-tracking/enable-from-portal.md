@@ -3,15 +3,14 @@ title: Enable Azure Automation Change Tracking and Inventory from the Azure port
 description: This article tells how to enable the Change Tracking and Inventory feature from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 09/09/2024
+ms.date: 10/24/2024
 ms.topic: how-to
 ms.service: azure-automation
 ---
 
 # Enable Change Tracking and Inventory from Azure portal
 
-> [!Important]
-> Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and we recommend that you use Azure Monitoring Agent as the new supporting agent. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md).
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 This article describes how you can enable [Change Tracking and Inventory](overview.md) for one or more Azure VMs in the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory.
 

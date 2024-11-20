@@ -5,7 +5,7 @@ metadata:
   ms.reviewer: vijayts
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 09/30/2024
+  ms.date: 10/14/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 
@@ -143,7 +143,7 @@ sections:
       - question: |
           Connecting the Azure environment to on-premises network using ExpressRoute and  configured forced tunneling directs all the traffic to the on-premises network. How can I configure the settings so that Azure SQL Server workload backup traffic won't pass through the on-premises network and directly connects to Recovery Services vault?
         answer: |
-          During the backup operation, the *backup job* connects to three Service Endpoints - `AzureBackup`, `AzureStorage`, and `Microsoft Entra ID. In this scenario, we recommend you to configure the Service Endpoint to `AzureStorage`, which helps to send the traffic from the Virtual Network to the Storage directly. For Azure Backup and Microsoft Entra ID, you can configure UDR over service tags so that the traffic travels to backbone network instead of on-premises.
+          During the backup operation, the *backup job* connects to three Service Endpoints - `AzureBackup`, `AzureStorage`, and `Microsoft Entra ID`. In this scenario, we recommend you to configure the Service Endpoint to `AzureStorage`, which helps to send the traffic from the Virtual Network to the Storage directly. For Azure Backup and Microsoft Entra ID, you can configure UDR over service tags so that the traffic travels to backbone network instead of on-premises.
 
 additionalContent: |
 

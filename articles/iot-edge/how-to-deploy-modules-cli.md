@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 10/13/2020
 ms.topic: conceptual
-ms.service: iot-edge 
+ms.service: azure-iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
 ---

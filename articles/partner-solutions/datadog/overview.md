@@ -1,9 +1,9 @@
 ---
 title: Datadog overview
 description: Learn about using Datadog in the Azure Marketplace.
-author: flang-msft
 
-ms.author: franlanglois
+
+
 ms.topic: conceptual
 ms.date: 01/06/2023
 

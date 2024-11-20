@@ -10,7 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As a security analyst, I want to use threat intelligence so that I can power my threat detections.
+
+
+#Customer intent: As a security analyst, I want to use threat intelligence in Microsoft Sentinel so that I can detect and respond to security threats more effectively.
+
 ---
 
 # Work with threat indicators in Microsoft Sentinel

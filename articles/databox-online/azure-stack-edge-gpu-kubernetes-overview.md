@@ -4,8 +4,7 @@ description: Describes how Kubernetes is implemented on your Azure Stack Edge Pr
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 04/01/2024
 ms.author: alkohli

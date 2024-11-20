@@ -4,8 +4,7 @@ description: Describes how to enable Azure Monitor on an Azure Stack Edge Pro GP
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/28/2022
 ms.author: alkohli

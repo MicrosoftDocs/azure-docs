@@ -6,8 +6,7 @@ summary: Use the Azure Data Box devices for offline data transfer when you are l
 metadata:
   title: Azure Data Box Documentation - Offline Transfer
   description: Explore Azure Data Box, a storage device for offline data migration to the cloud. Learn more about data transfer services using a secure proprietary storage device.
-  ms.service: databox
-  ms.subservice: pod
+  ms.service: azure-databox
   ms.topic: landing-page
   author: stevenmatthew
   ms.author: shaas

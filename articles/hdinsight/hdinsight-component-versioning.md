@@ -3,7 +3,7 @@ title: Open-source components and versions - Azure HDInsight
 description: Learn about the open-source components and versions in Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 10/04/2024
+ms.date: 11/04/2024
 ---
 
 # Azure HDInsight versions
@@ -47,12 +47,12 @@ Support is defined as a time period that a HDInsight version supported by Micros
 | Use existing cluster without support | Yes | Yes | Yes |
 | Create Cluster | Yes | Yes | No |
 | Scale up/down cluster | Yes | Yes | No |
-| Troubleshoot runtime issues | No | No | No |
-| RCA | No | No | No |
-| Performance Tuning | No | No | No |
-| Assistance in onboarding | No | No | No |
-| Spark core issues/updates | No | No | No |
-| Security/CVE updates | No | No | No |
+| Troubleshoot runtime issues | Yes | No | No |
+| RCA | Yes | No | No |
+| Performance Tuning | Yes | No | No |
+| Assistance in onboarding | Yes | No | No |
+| Spark core issues/updates | Yes | No | No |
+| Security/CVE updates | Yes | No | No |
 
 
 ### Standard support

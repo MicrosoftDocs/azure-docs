@@ -131,7 +131,9 @@ For .json config file, you can refer to the following examples:
    }
    ```
 
-
+> [!NOTE] 
+>
+> Synapse Studio will continue to support terraform or bicep-based configuration files.
 
 
 ## Next steps

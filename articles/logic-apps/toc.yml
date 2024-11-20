@@ -159,6 +159,12 @@ items:
       href: export-from-consumption-to-standard-logic-app.md
     - name: Export from integration service environment to Standard logic app
       href: export-from-ise-to-standard-logic-app.md
+  - name: Hybrid deployment for Azure Logic Apps
+    items:
+    - name: Set up requirements for hybrid deployment
+      href: set-up-standard-workflows-hybrid-deployment-requirements.md
+    - name: Create Standard workflows for hybrid deployment
+      href: create-standard-workflows-hybrid-deployment.md
   - name: Azure Arc-enabled Logic Apps
     items:
     - name: About Azure Arc-enabled Logic Apps

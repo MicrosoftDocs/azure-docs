@@ -5,9 +5,10 @@ description: Best practices in using secure TLS connections for devices and serv
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 11/15/2024
+ms.subservice: azure-iot-hub-dps
 ---
 
 # TLS support in Azure IoT Hub Device Provisioning Service (DPS)

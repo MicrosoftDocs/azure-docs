@@ -18,7 +18,7 @@ An [inbound NAT rule](inbound-nat-rules.md) is used to forward traffic from a lo
 
 ## NAT rule version 1 
 
-[Version 1](inbound-nat-rules.md) is the legacy approach for assigning an Azure Load Balancer’s frontend port to each backend instance. Rules are applied to the backend instance’s network interface card (NIC). For Azure Virtual Machine Scale Sets (VMSS) instances, inbound NAT rules are automatically created/deleted as new instances are scaled up/down. For VMSS instanes use the `Inbound NAT Pool` property to manage Inbound NAT rules version 1. 
+[Version 1](inbound-nat-rules.md) is the legacy approach for assigning an Azure Load Balancer’s frontend port to each backend instance. Rules are applied to the backend instance’s network interface card (NIC). For Azure Virtual Machine Scale Sets (VMSS) instances, inbound NAT rules are automatically created/deleted as new instances are scaled up/down. For VMSS instanes use the `Inbound NAT Pools` property to manage Inbound NAT rules version 1. 
 
 ## NAT rule version 2 
 
@@ -31,7 +31,7 @@ An [inbound NAT rule](inbound-nat-rules.md) is used to forward traffic from a lo
 
 ## How do I know if I’m using version 1 of Inbound NAT rules? 
 
-The easiest way to identify if your deployments are using version 1 of the feature is by inspecting the load balancer’s configuration. If either the `InboundNATPool` property or the `backendIPConfiguration` property within the `InboundNATRule` configuration is populated, then the deployment is version 1 of Inbound NAT rules.  
+The easiest way to identify if your deployments are using version 1 of the feature is by inspecting the load balancer’s configuration. If either the `InboundNATPools` property or the `backendIPConfiguration` property within the `InboundNATRule` configuration is populated, then the deployment is version 1 of Inbound NAT rules.  
 
 ## How to migrate from version 1 to version 2?  
 

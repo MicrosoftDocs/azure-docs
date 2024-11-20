@@ -1,7 +1,7 @@
 ---
 title: Device development introduction
 description: An overview of Azure IoT device development including an introduction to the device SDKs, modeling, IoT Edge modules, and a survey of the available tools.
-ms.service: iot
+ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett

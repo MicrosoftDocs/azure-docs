@@ -2,12 +2,12 @@
 title: Cross-region replication for nonpaired regions
 description: Learn about cross-region replication for nonpaired regions
 author: anaharris-ms
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 09/10/2024
+ms.date: 11/11/2024
 ms.author: anaharris
-ms.custom: references_regions
+ms.custom: references_regions, subject-reliability
 ---
 
 # Cross-region replication solutions for nonpaired regions
@@ -125,6 +125,16 @@ To achieve geo-replication in nonpaired regions:
 
    > [!IMPORTANT]
    > You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
+
+
+## Azure Virtual Desktop
+For geo-replication in nonpaired regions for Azure Virtual Desktop, you need to consider session host virtual machines and storage for user profiles, applications, and data. Microsoft manages the Azure Virtual Desktop control plane, which is globally distributed and highly available.
+
+- For session hosts, you can deploy virtual machines in multiple regions in an active-active scenario, or replicate them across regions using [Azure Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery) in an active-passive scenario.
+
+- For storage, see [Azure Storage](#azure-storage).
+
+For more information, see [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#active-active-vs-active-passive) and [Azure Virtual Desktop service architecture and resilience](../virtual-desktop/service-architecture-resilience.md).
 
 
 ## Azure Virtual Machines

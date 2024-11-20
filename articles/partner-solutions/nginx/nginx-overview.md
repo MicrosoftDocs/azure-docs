@@ -1,10 +1,10 @@
 ---
 title: What is NGINXaaS
 description: Learn about using the NGINXaaS Cloud-Native Observability Platform in the Azure Marketplace.
-author: flang-msft
+
 
 ms.topic: conceptual
-ms.author: franlanglois
+
 ms.date: 01/18/2023
 
 

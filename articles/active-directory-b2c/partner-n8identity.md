@@ -29,7 +29,7 @@ Use this solution for the following scenarios:
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
 * An Azure subscription
 
@@ -55,11 +55,11 @@ The TheAccessHub Admin Tool runs in the N8ID Azure subscription or the customer 
 6. TheAccessHub Admin Tool syncs user records with Azure AD B2C.
 7. Based on TheAccessHub Admin Tool response, Azure AD B2C sends a customized welcome email to users.
 
-## Create a Global Administrator in your Azure AD B2C tenant
+## Create an External Identity Provider Administrator and B2C User Flow Administrator in your Azure AD B2C tenant
 
-TheAccessHub Admin Tool permissions act on behalf of a Global Administrator to read user information and conduct changes in your Azure AD B2C tenant. Changes to your regular administrators won't affect TheAccessHub Admin Tool interaction with the tenant.
+TheAccessHub Admin Tool permissions act on behalf of an External Identity Provider Administrator and B2C User Flow Administrator to read user information and conduct changes in your Azure AD B2C tenant. Changes to your regular administrators don't affect TheAccessHub Admin Tool interaction with the tenant.
 
-To create a Global Administrator:
+To create an External Identity Provider Administrator and B2C User Flow Administrator:
 
 1. In the Azure portal, sign in to your Azure AD B2C tenant as an Administrator. 
 2. Go to **Microsoft Entra ID** > **Users**.
@@ -70,20 +70,20 @@ To create a Global Administrator:
 * Enter the **account name**, such as TheAccessHub Service Account.
 7. Select **Show Password**.
 8. Copy and save the initial password.
-9. To assign the Global Administrator role, for **User**, select the user's current role.
-10. Select the **Global Administrator** record.
+9. To assign the External Identity Provider Administrator and B2C User Flow Administrator role, for **User**, select the user's current role.
+10. Select the **External Identity Provider Administrator** and **B2C User Flow Administrator** records.
 11. Select **Create**.
 
 ## Connect TheAccessHub Admin Tool to your Azure AD B2C tenant
 
-TheAccessHub Admin Tool uses the Microsoft Graph API to read and make changes to a directory. It acts as a Global Administrator in your tenant. Use the following instructions to add needed permissions. 
+TheAccessHub Admin Tool uses the Microsoft Graph API to read and make changes to a directory. It acts as an External Identity Provider Administrator and B2C User Flow Administrator in your tenant. Use the following instructions to add needed permissions. 
 
 To authorize TheAccessHub Admin Tool to access your directory:
 
 1. Use the credentials N8 Identity provided to sign in to TheAccessHub Admin Tool.
 2. Go to **System Admin** > **Azure AD B2C Config**.
 3. Select **Authorize Connection**.
-4. In the new window, sign in with your Global Administrator account. When you sign in for the first time with the new service account, a prompt to reset your password can appear.
+4. In the new window, sign in with your External Identity Provider Administrator and B2C User Flow Administrator account. When you sign in for the first time with the new service account, a prompt to reset your password can appear.
 5. Follow the prompts and select **Accept**.
 
 ## Configure a new CSR user with your enterprise identity
@@ -189,7 +189,7 @@ With TheAccessHub Admin Tool, you can import data from various databases, LDAPs,
 
 * **Type**: **Database**
 * **Database type**: select a supported database
-* **Connection URL**: enter a JDBC connection string, such as `jdbc:postgresql://myhost.com:5432/databasename`
+* **Connection URL**: enter a Java Database Connectivity (JDBC) connection string, such as `jdbc:postgresql://myhost.com:5432/databasename`
 * **Username**: username to access the database
 * **Password**: password to access the database
 * **Query**: the SQL query to extract customer details, such as `SELECT * FROM mytable;`'
@@ -226,7 +226,7 @@ With TheAccessHub Admin Tool, you can import data from various databases, LDAPs,
 8. Select **Next**.
 9. In **Search-Mapping configuration**, identify load-record correlation with customers in TheAccessHub Admin Tool. 
 10. Select source identifying attributes. Match attributes TheAccessHub Admin Tool attributes with the same values. If there's a match, the record is overridden. Otherwise, a new customer is created. 
-11. Sequence the number of checks. For example, check email first, then first and last name.
+11. Sequence the number of checks. For example, check email first, then first and family name.
 12. On the left-side menu, select **Data Mapping**.
 13. In **Data-Mapping configuration**, assign the TheAccessHub Admin Tool attributes to be populated from your source attributes. Unmapped attributes remain unchanged for customers. If you map the attribute `org_name` with a current organization value, created customers go in the organization.
 15. Select **Next**.
@@ -273,7 +273,7 @@ If you occasionally sync TheAccessHub Admin Tool, it might not be up to date wit
 
 For your sign-up custom policies, the following steps enable a secure certificate to notify TheAccessHub Admin Tool of new accounts.
 
-1. Use the credentials N8ID provided to sign in to TheAccessHub Admin Tool.
+1. To sign in to TheAccessHub Admin Tool, use the credentials N8ID provided.
 2. Go to **System Admin** > **Admin Tools** > **API Security**.
 3. Select **Generate**.
 4. Copy the **Certificate Password**.
@@ -287,7 +287,7 @@ For your sign-up custom policies, the following steps enable a secure certificat
 3. Supply your Azure AD B2C tenant domain and the two Identity Experience Framework IDs from your Identity Experience Framework configuration.
 4. Select **Save**.
 5. Select **Download** to get a .zip file with basic policies that add customers into TheAccessHub Admin Tool as customers sign up.
-6. Use the instructions in [Create user flows](./tutorial-create-user-flows.md?pivots=b2c-custom-policy) to design custom policies in Azure AD B2C.
+6. To design custom policies in Azure AD B2C, use the instructions in [Create user flows](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ## Next steps
 

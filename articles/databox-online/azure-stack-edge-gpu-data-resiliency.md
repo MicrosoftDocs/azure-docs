@@ -4,8 +4,7 @@ description: Describes data resiliency for Azure Stack Edge.
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 04/18/2022
 ms.author: alkohli

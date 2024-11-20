@@ -4,8 +4,7 @@ description: Learn about the workflows to troubleshoot issues for the unlock too
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: troubleshooting
 ms.date: 08/05/2020
 ms.author: shaas

@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/24/2024
 ---
 
-# What are Vector Embeddings and Vector Search in Azure Cache for Redis
+# What are Vector Embeddings and Vector Search in Azure Cache for Redis?
 
 Vector similarity search (VSS) has become a popular technology for AI-powered intelligent applications. Azure Cache for Redis can be used as a vector database by combining it models like [Azure OpenAI](/azure/ai-services/openai/overview) for Retrieval-Augmented Generative AI and analysis scenarios. This article is a high-level introduction to the concept of vector embeddings, vector similarity search, and how Redis can be used as a vector database powering intelligent applications.
 
@@ -24,9 +24,9 @@ Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/
 
 This table contains the information for vector search availability in different tiers.
 
-|Tier      | Basic / Standard  | Premium  |Enterprise | Enterprise Flash  |
-|--------- |:------------------:|:----------:|:---------:|:---------:|
-|Available | No          | No       |  Yes  | Yes (preview) |
+|Tier      | Basic / Standard  | Premium  |Enterprise | Enterprise Flash  | Azure Managed Redis (preview)
+|--------- |:------------------:|:----------:|:---------:|:---------:|:---------:|
+|Available | No          | No       |  Yes  | Yes (preview) |Yes
 
 ## What are vector embeddings?
 
@@ -72,11 +72,11 @@ Finally, vector databases execute vector searches by using the chosen vector com
 
 Vector similarity search can be used in multiple applications. Some common use-cases include:
 
-- **Semantic Q&A**. Create a chatbot that can respond to questions about your own data. For instance, a chatbot that can respond to employee questions on their healthcare coverage. Hundreds of pages of dense healthcare coverage documentation can be split into chunks, converted into embeddings vectors, and searched based on vector similarity. The resulting documents can then be summarized for employees using another large language model (LLM). [Semantic Q&A Example](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)
+- **Semantic Q&A**. Create a chatbot that can respond to questions about your own data. For instance, a chatbot that can respond to employee questions on their healthcare coverage. Hundreds of pages of dense healthcare coverage documentation can be split into chunks, converted into embeddings vectors, and searched based on vector similarity. The resulting documents can then be summarized for employees using another large language model (LLM). [Semantic Q&A Example](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/vector-similarity-search-with-azure-cache-for-redis-enterprise/3822059)
 - **Document Retrieval**. Use the deeper semantic understanding of text provided by LLMs to provide a richer document search experience where traditional keyword-based search falls short. [Document Retrieval Example](https://github.com/RedisVentures/redis-arXiv-search)
 - **Product Recommendation**. Find similar products or services to recommend based on past user activities, like search history or previous purchases. [Product Recommendation Example](https://github.com/RedisVentures/LLM-Recommender)
 - **Visual Search**. Search for products that look similar to a picture taken by a user or a picture of another product. [Visual Search Example](https://github.com/RedisVentures/redis-product-search)
-- **Semantic Caching**. Reduce the cost and latency of LLMs by caching LLM completions. LLM queries are compared using vector similarity. If a new query is similar enough to a previously cached query, the cached query is returned. [Semantic Caching example using LangChain](https://python.langchain.com/docs/integrations/llms/llm_caching#redis-cache)
+- **Semantic Caching**. Reduce the cost and latency of LLMs by caching LLM completions. LLM queries are compared using vector similarity. If a new query is similar enough to a previously cached query, the cached query is returned. [Semantic Caching example using LangChain](https://python.langchain.com/docs/integrations/llm_caching/#redis-cache)
 - **LLM Conversation Memory**. Persist conversation history with an LLM as embeddings in a vector database. Your application can use vector search to pull relevant history or "memories" into the response from the LLM. [LLM Conversation Memory example](https://github.com/continuum-llms/chatgpt-memory)
 
 ## Why choose Azure Cache for Redis for storing and searching vectors?

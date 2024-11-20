@@ -5,7 +5,7 @@ ms.topic: concept-article
 zone_pivot_groups: remote-desktop-clients
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/08/2024
+ms.date: 11/19/2024
 ---
 
 # Compare Remote Desktop app features across platforms and devices
@@ -191,7 +191,6 @@ The following table compares which display features are supported on which platf
 1. Up to 16 monitors.
 ::: zone-end
 
-
 ::: zone pivot="remote-desktop-services,remote-pc"
 | Feature | Windows<br />(MSTSC) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -244,7 +243,7 @@ The following table provides a description for each of the multimedia features:
 ::: zone pivot="azure-virtual-desktop"
 | Feature | Description |
 |--|--|
-| [Multimedia redirection](multimedia-redirection-intro.md) | Redirect media content from the desktop or app to the physical machine for faster processing and rendering. |
+| [Multimedia redirection](multimedia-redirection-video-playback-calls.md?pivots=azure-virtual-desktop) | Redirect video playback and calls from the desktop or app to the physical machine for faster processing and rendering. |
 | [Teams media optimizations](teams-on-avd.md) | Optimized Microsoft Teams calling and meeting experience. |
 
 ::: zone-end
@@ -252,11 +251,10 @@ The following table provides a description for each of the multimedia features:
 ::: zone pivot="windows-365,dev-box"
 | Feature | Description |
 |--|--|
-| Multimedia redirection | Redirect media content from the Cloud PC or dev box to the physical machine for faster processing and rendering. |
+| [Multimedia redirection](multimedia-redirection-video-playback-calls.md?pivots=windows-365) | Redirect video playback and calls from the Cloud PC or dev box to the physical machine for faster processing and rendering. |
 | [Teams media optimizations](/windows-365/enterprise/teams-on-cloud-pc) | Optimized Microsoft Teams calling and meeting experience. |
 
 ::: zone-end
-
 
 ## Redirection
 
@@ -522,7 +520,7 @@ The following table shows which credential types are available for each platform
 ::: zone-end
 
 ::: zone pivot="azure-virtual-desktop,windows-365,dev-box"
-1. Available in preview. Requires macOS client version 10.9.8 or later. Requires iOS client version 10.5.9 or later. For more information, see [Support for FIDO2 authentication with Microsoft Entra ID](/entra/identity/authentication/concept-fido2-compatibility#native-application-support-with-authentication-broker-preview).
+1. Requires macOS client version 10.9.8 or later. Requires iOS client version 10.5.9 or later. For more information, see [Support for FIDO2 authentication with Microsoft Entra ID](/entra/identity/authentication/concept-fido2-compatibility#native-application-support).
 1. Available when using a web browser on a local Windows device only.
 
 ### Remote session authentication

@@ -275,6 +275,8 @@
             - name: Use Azure CLI
               displayName: automatic device management
               href: iot-hub-automatic-device-management-cli.md
+        - name: Regenerate keys
+          href: regenerate-keys.md
     - name: Develop
       items:
         - name: Send cloud-to-device messages

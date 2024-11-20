@@ -5,7 +5,7 @@ description: Use the device SDK for Java to schedule a job that invokes a direct
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: how-to
 ms.date: 08/16/2019

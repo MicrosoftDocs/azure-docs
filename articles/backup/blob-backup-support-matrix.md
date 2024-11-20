@@ -2,7 +2,7 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: reference
-ms.date: 09/11/2024
+ms.date: 11/20/2024
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -63,7 +63,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - Currently, you can perform only *one backup* per day (that includes scheduled and on-demand backups). Backup fails if you attempt to perform more than one backup operation a day.
 - If you stop protection (vaulted backup) on a storage account, it doesn't delete the object replication policy created on the storage account. In these scenarios, you need to manually delete the *OR policies*.
 - Cool and archived blobs are currently not supported.
-
+- The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](/rest/api/storageservices/data-lake-storage-gen2).
 
 ---
 ## Next steps
