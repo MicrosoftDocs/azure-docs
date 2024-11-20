@@ -12,11 +12,11 @@ ms.date: 11/06/2024
 
 # Configure the connector for ONVIF (preview)
 
-In Azure IoT Operations, the connector for ONVIF (preview) enables you to control an ONVIF compliant camera that's connected to your Azure IoT Operations Preview cluster. This article explains how to configure and use the connector for ONVIF to perform tasks such as reading and writing properties to control a camera or discovering the media streams a camera supports.
+In Azure IoT Operations, the connector for ONVIF (preview) enables you to control an ONVIF compliant camera that's connected to your Azure IoT Operations cluster. This article explains how to configure and use the connector for ONVIF to perform tasks such as reading and writing properties to control a camera or discovering the media streams a camera supports.
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations. If you don't already have an instance, see [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+A deployed instance of Azure IoT Operations. If you don't already have an instance, see [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
 
 An ONVIF compliant camera connected to your Azure IoT Operations cluster. If you don't have a camera, you can use a simulator such as the [ONVIF RTSP simulator](https://arcjumpstart.com/simulate_an_onvif_camera_with_rtsp).
 
