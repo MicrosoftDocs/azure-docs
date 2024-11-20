@@ -100,7 +100,7 @@
         href: traffic-mirroring/configure-mirror-rspan.md
       - name: Configure active or passive aggregation (TAP)
         href: best-practices/traffic-mirroring-methods.md#active-or-passive-aggregation-tap
-      - name: Configure ERSPAN mirroring
+      - name: Configure ERSPAN mirroring (legacy)
         href: traffic-mirroring/configure-mirror-erspan.md
       - name: Configure mirroring with an ESXi vSwitch
         href: traffic-mirroring/configure-mirror-esxi.md

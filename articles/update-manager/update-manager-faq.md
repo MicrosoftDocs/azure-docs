@@ -105,7 +105,7 @@ Yes, you can, as Azure Update Manager is available in sovereign clouds.
 
 ### What is the pricing for Azure Update Manager? 
 
-Azure Update Manager is available at no extra charge for managing Azure VMs and [Arc-enabled Azure Stack HCI VMs](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) (must be created through Arc Resource Bridge on Azure Stack HCI). For all other Arc-enabled Servers, the price is $5 per server per month (assuming 31 days of usage).  
+Azure Update Manager is available at no extra charge for managing Azure VMs and [Arc-enabled Azure Local VMs](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) (must be created through Arc Resource Bridge on Azure Local). For all other Arc-enabled Servers, the price is $5 per server per month (assuming 31 days of usage).  
 
 ### How is Azure Update Manager price calculated for Arc-enabled servers? 
 
@@ -131,14 +131,14 @@ Customers will not be charged for already existing Arc-enabled servers which wer
 
 If you have purchased a Defender for Servers Plan 2, then you won't have to pay to remediate the unhealthy resources for the above two recommendations. But if you're using any other Defender for server plan for your Arc machines, then you would be charged for those machines at the daily prorated $0.16/server by Azure Update Manager.
 
-### Is Azure Update Manager chargeable on Azure Stack HCI?
+### Is Azure Update Manager chargeable on Azure Local?
 Azure Update Manager is not charged for:
- - Management of Azure Stack HCI cluster via **Azure Stack HCI**  and [Azure Update Manager on Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/update/azure-update-manager-23h2)
- - [Arc-enabled Azure Stack HCI VMs](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) created via the Arc Resource Bridge. For example *Machine-Azure Arc (Azure Stack HCI)* resource.
+ - Management of Azure Local instance(s)  via **Azure Local**  and [Azure Update Manager on Azure Local](https://learn.microsoft.com/azure-stack/hci/update/azure-update-manager-23h2)
+ - [Arc-enabled Azure Local VMs](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) created via the Arc Resource Bridge. For example *Machine-Azure Arc (Azure Local)* resource.
  
 All other resources including, but not limited to the following will be charged.
- - Management of individual Azure Stack HCI servers. For example, *Machine - Azure Arc* resource or *Azure Update Manager - Machines*.
- - All VMs on Azure Stack HCI that are not created by Arc resource bridge - VMs projected as Arc-enabled servers and/or VMs on Azure Stack HCI managed by Azure Arc-enabled SCVMM.
+ - Management of individual Azure Local machines. For example, *Machine - Azure Arc* resource or *Azure Update Manager - Machines*.
+ - All VMs on Azure Local that are not created by Arc resource bridge - VMs projected as Arc-enabled servers and/or VMs on Azure Local managed by Azure Arc-enabled SCVMM.
  
 
 ## Update Manager support and integration

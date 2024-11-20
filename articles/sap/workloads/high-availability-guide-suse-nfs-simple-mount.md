@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 07/25/2024
+ms.date: 11/19/2024
 ms.author: radeltch
 ---
 
@@ -582,7 +582,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
     service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
     
     # Add the keepalive parameter, if you're using ENSA1.
-    enque/encni/set_so_keepalive = true
+    enque/encni/set_so_keepalive = TRUE
     ```
 
     For Standalone Enqueue Server 1 and 2 (ENSA1 and ENSA2), make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
