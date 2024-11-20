@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 12/16/2022
+ms.date: 11/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ---
@@ -218,7 +218,7 @@ If you have Enqueue Replication Server 1, add  SAP profile parameter `enque/encn
 1. Add this profile parameter to the SAP ASCS/SCS instance profile, if using ERS1.
 
    ```
-   enque/encni/set_so_keepalive = true
+   enque/encni/set_so_keepalive = TRUE
    ```
 
    For both ERS1 and ERS2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).   
