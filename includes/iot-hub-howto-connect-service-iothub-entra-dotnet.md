@@ -77,6 +77,6 @@ string hostname = "xxxxxxxxxx.azure-devices.net";
 registryManager = RegistryManager.Create(hostname, tokenCredential);
 ```
 
-##### Code samples
+##### Code sample
 
-For working samples of Microsoft Entra service authentication, see [Role based authentication sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/how%20to%20guides/RoleBasedAuthenticationSample).
+For a working sample of Microsoft Entra service authentication, see [Role based authentication sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/how%20to%20guides/RoleBasedAuthenticationSample).
