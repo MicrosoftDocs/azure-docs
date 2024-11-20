@@ -8,42 +8,43 @@ ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 11/4/2024
 ms.author: kuzhong
+author: karler
 ---
 
 # Tutorial: Configure Application Performance Management (APM) Java agent with init-container in Azure Container Apps
 
-Apply Java agent and init containers in Azure Container Apps to inject Application Performance Management (APM) solutions without modifying your app image. While you can package the APM plugin in the same image or Dockerfile with your app, it binds the management efforts together, like release and Common Vulnerabilities and Exposures (CVE) mitigation. 
+Apply Java agent and init containers in Azure Container Apps to inject Application Performance Management (APM) solutions without modifying your app image. While you can package the APM plugin in the same image or Dockerfile with your app, this binds together management efforts like release and Common Vulnerabilities and Exposures (CVE) mitigation.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare an image to set up Java agent and push to Azure Container Registry
-> * Create a Container Apps environment and a container app as the target Java app
-> * Configure init containers and volume mounts to set up Application Insights integration
+> * Prepare an image to set up Java agent and push to Azure Container Registry.
+> * Create a Container Apps environment and a container app as the target Java app.
+> * Configure init containers and volume mounts to set up Application Insights integration.
 
 ## Prerequisites
 
-- Have an instance of [Application Insights](/azure/azure-monitor/app/app-insights-overview)
-- Have an instance of Azure Container Registry or other container image registries
-- Install [Docker](https://www.docker.com/) to build image
-- Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli)
+- An instance of [Application Insights](/azure/azure-monitor/app/app-insights-overview).
+- An instance of Azure Container Registry or another container image registry.
+- [Docker](https://www.docker.com/), to build an image.
+- The latest version of the [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Set up the environment
 
-The following commands help you define variables and ensure your Container Apps extension is up to date.
+The following steps define environment variables and ensure your Container Apps extension is up to date:
 
-1. Set up environment variables used in following commands.
+1. To define environment variables, use the following commands:
 
     # [Bash](#tab/bash)
 
     ```bash
-    SUBSCRIPTION_ID="<SUBSCRIPTION_ID>" # Replace with your own Azure subscription ID
-    APP_INSIGHTS_RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-app-insights"
-    CONTAINER_REGISTRY_NAME="myacr"
-    RESOURCE_GROUP="my-resource-group"
-    ENVIRONMENT_NAME="my-environment"
-    CONTAINER_APP_NAME="my-container-app"
-    LOCATION="eastus"
+    export SUBSCRIPTION_ID="<SUBSCRIPTION_ID>" # Replace with your own Azure subscription ID
+    export APP_INSIGHTS_RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-app-insights"
+    export CONTAINER_REGISTRY_NAME="myacr"
+    export RESOURCE_GROUP="my-resource-group"
+    export ENVIRONMENT_NAME="my-environment"
+    export CONTAINER_APP_NAME="my-container-app"
+    export LOCATION="eastus"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -58,7 +59,7 @@ The following commands help you define variables and ensure your Container Apps 
     $LOCATION="eastus"
     ```
 
-1. Sign in to the Azure CLI.
+1. To sign in to Azure CLI, use the following commands:
 
     # [Bash](#tab/bash)
 
@@ -74,7 +75,7 @@ The following commands help you define variables and ensure your Container Apps 
     az account set --subscription $SUBSCRIPTION_ID
     ```
 
-1. Ensure you have the latest version of Azure CLI extensions for Container Apps and Application Insights.
+1. To ensure you have the latest version of Azure CLI extensions for Container Apps and Application Insights, use the following commands:
 
     # [Bash](#tab/bash)
 
@@ -90,7 +91,7 @@ The following commands help you define variables and ensure your Container Apps 
     az extension add -n application-insights --upgrade
     ```
 
-1. Retrieve the connection string of Application Insights.
+1. To retrieve the connection string of Application Insights, use the following commands:
 
     # [Bash](#tab/bash)
 
@@ -110,9 +111,9 @@ The following commands help you define variables and ensure your Container Apps 
 
 ## Prepare the container image
 
-1. Build setup image for Application Insights Java agent.
+To build a setup image for Application Insights Java agent, perform these following steps in the same directory:
 
-    Save the Dockerfile along with the setup script, and run `docker build` in the same directory.
+1. Save the following Dockerfile:
     
     ```Dockerfile
     FROM mcr.microsoft.com/cbl-mariner/base/core:2.0
@@ -128,7 +129,7 @@ The following commands help you define variables and ensure your Container Apps 
     ENTRYPOINT ["/bin/sh", "setup.sh"]
     ```
 
-    ---
+1. Save the following setup script:
 
     ```setup.sh
     #!/bin/sh
@@ -142,7 +143,7 @@ The following commands help you define variables and ensure your Container Apps 
     fi
     ```
 
-    ---
+1. Run the following command to create the image:
 
     # [Bash](#tab/bash)
 
@@ -156,7 +157,7 @@ The following commands help you define variables and ensure your Container Apps 
     docker build . -t "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
 
-1. Push the image to Azure Container Registry or other container image registries.
+1. Push the image to Azure Container Registry or another container image registry by using the following command:
     
     # [Bash](#tab/bash)
 
@@ -173,7 +174,7 @@ The following commands help you define variables and ensure your Container Apps 
     ```
 
 > [!TIP]
-> You can find related code in this step from [Azure-Samples/azure-container-apps-java-samples](https://github.com/Azure-Samples/azure-container-apps-java-samples).
+> You can find code relevant to this step in the [Azure Contaier Apps Java Samples](https://github.com/Azure-Samples/azure-container-apps-java-samples) GitHub repo.
 
 ## Create a Container Apps environment and a Container App as the target Java app
 
