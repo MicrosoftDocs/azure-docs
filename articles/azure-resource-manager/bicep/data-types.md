@@ -83,7 +83,8 @@ output bar bool = length(numberArray) <= 3 || numberArray[3] == 4
 
 ### Array-related functions
 
-See [Array functions](./bicep-functions-array.md).
+* See [Array functions](./bicep-functions-array.md).
+* See [Lambda functions](./bicep-functions-lambda.md).
 
 ## Booleans
 
