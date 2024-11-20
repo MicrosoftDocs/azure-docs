@@ -329,6 +329,9 @@ The `containerapp update` command creates bindings for each app.
 
 1. View the Eureka Server dashboard.
 
+    > [!IMPORTANT]
+    > To view the Eureka Server dashboard and Admin for Spring dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account.
+
     Run the following command to return the dashboard URL.
 
     ```azurecli
