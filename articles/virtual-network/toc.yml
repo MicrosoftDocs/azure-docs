@@ -28,7 +28,7 @@
   - name: Restrict network access to resources
     href: tutorial-restrict-network-access-to-resources.md
   - name: Connect virtual networks
-    href: tutorial-connect-virtual-networks-portal.md
+    href: tutorial-connect-virtual-networks.md
   - name: Service endpoint policies
     href: virtual-network-service-endpoint-policies.md
 - name: Concepts
