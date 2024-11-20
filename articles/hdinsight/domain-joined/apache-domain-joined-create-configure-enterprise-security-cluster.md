@@ -143,7 +143,7 @@ The users will be synchronized with Microsoft Entra ID.
 
 Now you'll configure your Microsoft Entra tenant so that you can synchronize users and groups from the on-premises Microsoft Entra ID instance to the cloud.
 
-Create an Microsoft Entra ID tenant administrator.
+Create a Microsoft Entra ID tenant administrator.
 
 1. Sign in to the Azure portal and select your Microsoft Entra tenant, **HDIFabrikam**.
 
