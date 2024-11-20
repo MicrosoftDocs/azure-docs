@@ -17,7 +17,7 @@ This article provides instructions for enabling secure settings if you didn't do
 
 ## Prerequisites
 
-* An Azure IoT Operations instance deployed with test settings. For example, follow the instructions in [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md).
+* An Azure IoT Operations instance deployed with test settings. For example, follow the instructions in [Quickstart: Run Azure IoT Operations in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md).
 
 * Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or later. Use `az --version` to check your version and `az upgrade` to update, if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -154,7 +154,7 @@ To set up secrets management:
 
     ---
 
-Now that secret synchronization setup is complete, you can refer to [Manage secrets for your Azure IoT Operations Preview deployment](./howto-manage-secrets.md) to learn how to use secrets with Azure IoT Operations.
+Now that secret synchronization setup is complete, you can refer to [Manage secrets for your Azure IoT Operations deployment](./howto-manage-secrets.md) to learn how to use secrets with Azure IoT Operations.
 
 ## Set up a user-assigned managed identity for cloud connections
 
