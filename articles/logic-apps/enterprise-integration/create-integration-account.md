@@ -72,7 +72,7 @@ Your integration account uses an automatically created and enabled system-assign
 
 | Tier | Description |
 |------|-------------|
-| **Premium** | For scenarios with the following criteria: <br><br>- Store and use unlimited artifacts, such as partners, agreements, schemas, maps, certificates, and so on. <br><br>- Bring and use your own storage, which contains the relevant runtime states for specific B2B actions and EDI standards. For example, these states include the MIC number for AS2 actions and the control numbers for X12 actions, if configured on your agreements. <br><br>To access this storage, your integration account uses its system-assigned managed identity, which is automatically created and enabled for your integration account. <br><br>You can also apply more governance and policies to data, such as customer-managed ("Bring Your Own") keys for data encryption. To store these keys, you'll need a key vault. <br><br>- Set up and use a key vault to store private certificates or customer-managed keys. To access these keys, your Premium integration account uses its system-assigned managed identity, not an Azure Logic Apps shared service principal. <br><br>- Set up a private endpoint that creates a secure connection between your Premium integration account and Azure services in an Azure virtual network. <br><br>Pricing follows the [Premium integration account billing model](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Limitations and known issues**: <br><br>- If you use a key vault to store private certificates, your integration account's managed identity might not work. For now, use the linked logic app's managed identity instead. <br><br>- Currently doesn't support the [Azure CLI for Azure Logic Apps](/cli/azure/service-page/logic%20apps). |
+| **Premium** | For scenarios with the following criteria: <br><br>- Store and use unlimited artifacts, such as partners, agreements, schemas, maps, certificates, and so on. <br><br>- Bring and use your own storage, which contains the relevant runtime states for specific B2B actions and EDI standards. For example, these states include the MIC number for AS2 actions and the control numbers for X12 actions, if configured on your agreements. <br><br>To access this storage, your integration account uses its system-assigned managed identity, which is automatically created and enabled for your integration account. <br><br>You can also apply more governance and policies to data, such as customer-managed ("Bring Your Own") keys for data encryption. To store these keys, you'll need a key vault. <br><br>- Set up and use a key vault to store private certificates or customer-managed keys. To access these keys, your Premium integration account uses its system-assigned managed identity, not an Azure Logic Apps shared service principal. <br><br>- Set up a private endpoint that creates a secure connection between your Premium integration account and Azure services in an Azure virtual network. <br><br>Pricing follows the [Standard integration account billing model](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Limitations and known issues**: <br><br>- If you use a key vault to store private certificates, your integration account's managed identity might not work. For now, use the linked logic app's managed identity instead. <br><br>- Currently doesn't support the [Azure CLI for Azure Logic Apps](/cli/azure/service-page/logic%20apps). |
 | **Standard** | For scenarios where you have more complex B2B relationships and increased numbers of entities that you must manage. <br><br>Supported by the Azure Logic Apps SLA. |
 | **Basic** | For scenarios where you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity. <br><br>Supported by the Azure Logic Apps SLA. |
 | **Free** | For exploratory scenarios, not production scenarios. This tier has limits on region availability, throughput, and usage. For example, the Free tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations) or [Azure Government](../../azure-government/documentation-government-welcome.md). <br><br>**Note**: Not supported by the Azure Logic Apps SLA. |
@@ -179,7 +179,7 @@ To read artifacts and write any state information, your Premium integration acco
 
 1. On the **System assigned** tab, which shows the enabled system-assigned managed identity, under **Permissions**, select **Azure role assignments**.
 
-1. On the **Azure role assignments** toolbar, select **Add role assignment (preview)**, provide the following information, select **Save**, and then repeat for each required role:
+1. On the **Azure role assignments** toolbar, select **Add role assignment (Preview)**, provide the following information, select **Save**, and then repeat for each required role:
 
    | Parameter | Value | Description |
    |-----------|-------|-------------|
@@ -192,11 +192,7 @@ To read artifacts and write any state information, your Premium integration acco
 
 <a name="set-up-private-endpoint"></a>
 
-## Set up private endpoint for Premium integration account (Preview)
-
-> [!NOTE]
->
-> This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## Set up private endpoint for Premium integration account
 
 To create a secure connection between your Premium integration account and Azure services, you can set up a [private endpoint](../../private-link/private-endpoint-overview.md) for your integration account. This endpoint is a network interface that uses a private IP address from your Azure virtual network. This way, traffic between your virtual network and Azure services stays on the Azure backbone network and never traverses the public internet. Private endpoints ensure a secure, private communication channel between your resources and Azure services by providing the following benefits:
 

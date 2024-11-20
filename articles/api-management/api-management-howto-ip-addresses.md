@@ -95,11 +95,11 @@ API Management uses a public IP address for a connection outside the VNet or a p
 
 * When a request is sent from API Management to a public (internet-facing) backend, a public IP address will always be visible as the origin of the request.
 
-## IP addresses of Consumption, Basic v2, and Standard v2 tier API Management service
+## IP addresses of Consumption, Basic v2, Standard v2, and Premium v2 tier API Management service
 
-If your API Management instance is created in a service tier that runs on a shared infrastructure, it doesn't have a dedicated IP address. Currently, instances in the following service tiers run on a shared infrastructure and without a deterministic IP address: Consumption, Basic v2, Standard v2.
+If your API Management instance is created in a service tier that runs on a shared infrastructure, it doesn't have a dedicated IP address. Currently, instances in the following service tiers run on a shared infrastructure and without a deterministic IP address: Consumption, Basic v2, Standard v2, Premium v2.
 
-If you need to add the outbound IP addresses used by your Consumption, Basic v2, or Standard v2 tier instance to an allowlist, you can add the instance's data center (Azure region) to an allowlist. You can [download a JSON file that lists IP addresses for all Azure data centers](https://www.microsoft.com/download/details.aspx?id=56519). Then find the JSON fragment that applies to the region that your instance runs in.
+If you need to add the outbound IP addresses used by your Consumption, Basic v2, Standard v2, or Premium v2 tier instance to an allowlist, you can add the instance's data center (Azure region) to an allowlist. You can [download a JSON file that lists IP addresses for all Azure data centers](https://www.microsoft.com/download/details.aspx?id=56519). Then find the JSON fragment that applies to the region that your instance runs in.
 
 For example, the following JSON fragment is what the allowlist for Western Europe might look like:
 

@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Azure SQL data source for a resolver
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 The `sql-data-source` resolver policy configures a Transact-SQL (T-SQL) request to an [Azure SQL](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview) database and an optional response to resolve data for an object type and field in a GraphQL schema. The schema must be imported to API Management as a GraphQL API.  
 
