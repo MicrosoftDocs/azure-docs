@@ -415,7 +415,7 @@ In the templates with [symbolic names](./resource-declaration.md#use-symbolic-na
 
 Returns an object representing a resource's runtime state. The output and behavior of the `reference` function highly relies on how each resource provider (RP) implements its PUT and GET responses. To return an array of objects representing a resource collections's runtime states, see [references](#references).
 
-Bicep provide the reference function, but in most cases, the reference function isn't required. It's recommended to use the symbolic name for the resource instead. See [reference](../bicep/bicep-functions-resource.md#reference).
+Bicep provides the reference function, but in most cases, the reference function isn't required. It's recommended to use the symbolic name for the resource instead. See [reference](../bicep/bicep-functions-resource.md#reference).
 
 ### Parameters
 
