@@ -593,8 +593,17 @@ Authorization rules can be applied to clients using X.509 certificates with thes
 
 ### Enable X.509 authentication for a listener port
 
-After importing the trusted CA certificate and configuring the *BrokerAuthentication* resource, link it to a TLS-enabled listener port. For more details, see [Enable TLS manual certificate management for a port](./howto-configure-brokerlistener.md#enable-tls-manual-certificate-management-for-a-port) and [Enable TLS automatic certificate management for a port](./howto-configure-brokerlistener.md#enable-tls-automatic-certificate-management-for-a-port).
+After importing the trusted CA certificate and configuring the *BrokerAuthentication* resource, link it to a TLS-enabled listener port. This step is important because X.509 authentication relies on TLS for client certificate validation.
 
+To get a TLS-enabled listener port, see [Enable TLS manual certificate management for a port](./howto-configure-brokerlistener.md#enable-tls-manual-certificate-management-for-a-port) and [Enable TLS automatic certificate management for a port](./howto-configure-brokerlistener.md#enable-tls-automatic-certificate-management-for-a-port).
+
+> [!NOTE]
+> Enabling TLS on a broker listener port means the broker uses a server certificate for TLS encryption. When clients connect to this port, they must trust the server certificate by having the CA certificate that signed it in their trust store. This process is known as *trust distribution* or *trust bundling*. It's important to understand the difference between server validation and client validation:
+> 
+> - **Client validation**: The MQTT broker (server) checks the client certificate against the trusted CA certificate specified in the `trustedClientCaCert` field for X.509 client authentication.
+> - **Server validation**: Clients (like mosquitto or MQTTX) check the MQTT broker's server certificate against the trusted CA certificate in their trust store. For mosquitto clients, use the `--cafile` parameter to specify the CA certificate file. For MQTTX, add the CA certificate to the trust store in the settings.
+>
+> So, after enabling X.509 authentication, ensure that clients trust the broker's server certificate by having the *server-side* CA certificate in their trust store. Don't confuse this with the *client-side* CA certificate used for client authentication, which is specified in the `trustedClientCaCert` field.
 
 ### Connect mosquitto client to MQTT broker with X.509 client certificate
 
@@ -602,7 +611,7 @@ A client like mosquitto needs two files to be able to connect to MQTT broker wit
 - The `--cert` parameter specifies the client certificate PEM file. This file should also include any intermediate certificates to help the MQTT broker build the complete certificate chain.
 - The `--key` parameter specifies the client private key PEM file.
 
-In cases where MQTT broker is using a self-signed CA certificate to issue its TLS server certificate, the `--cafile` parameter is needed. This file contains the CA certificate which the mosquitto client uses to validate the broker's server certificate when connecting over TLS. If the issuer of MQTT broker's server certificate is part of the system root store (such as well-known public CAs), the `--cafile` parameter can be omitted.
+In cases where MQTT broker is using a self-signed CA certificate to issue its TLS server certificate, the `--cafile` parameter is needed. This file contains the CA certificate (also known as *trust bundle*) which the mosquitto client uses to validate the broker's server certificate when connecting over TLS. If the issuer of MQTT broker's server certificate is part of the system root store (such as well-known public CAs), the `--cafile` parameter can be omitted.
 
 For example:
 
@@ -648,15 +657,36 @@ The broker verifies tokens using the [Kubernetes Token Review API](https://kuber
 
 ### Create a service account
 
-To create SATs, first create a service account. The following command creates a service account called `mqtt-client`.
+To create SATs, first [create a service account](https://kubernetes.io/docs/concepts/security/service-accounts/). The following command creates a service account called `mqtt-client`.
 
 ```bash
 kubectl create serviceaccount mqtt-client -n azure-iot-operations
 ```
 
-### Add attributes for authorization
+### Optional: Add attributes for authorization
 
-Clients authenticating via SAT can optionally have their service accounts annotated with attributes to be used with authorization policies. To learn more, see [Authorize clients that use Kubernetes Service Account Tokens](./howto-configure-authentication.md).
+Clients authenticating via SAT can optionally have their service accounts annotated with attributes to be used with authorization policies. To distinguish these annotations from others, they begin with `aio-broker-auth/` prefix. 
+
+You can annotate a service account using `kubectl annotate`:
+
+```bash
+kubectl annotate serviceaccount <SERVICE_ACCOUNT_NAME> aio-broker-auth/<ATTRIBUTE>=<VALUE> -n azure-iot-operations
+```
+
+Or you can add the annotations to the service account manifest file:
+
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: <SERVICE_ACCOUNT_NAME>
+  namespace: azure-iot-operations
+  annotations:
+    aio-broker-auth/<ATTRIBUTE_1>: <VALUE_1>
+    aio-broker-auth/<ATTRIBUTE_2>: <VALUE_2>
+```
+
+To learn more, see [Authorize clients that use Kubernetes Service Account Tokens](./howto-configure-authorization.md#authorize-clients-that-use-kubernetes-service-account-tokens).
 
 ### Enable Service Account Token (SAT) authentication
 

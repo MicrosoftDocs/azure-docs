@@ -333,7 +333,7 @@ For example, if a client has a certificate with subject `CN = smart-lock`, its u
 
 ## Authorize clients that use Kubernetes Service Account Tokens
 
-Authorization attributes for SATs are set as part of the Service Account annotations. For example, to add an authorization attribute named `group` with value `authz-sat`, run the command:
+Authorization attributes for SATs are set as part of the [Service Account annotations](./howto-configure-authentication.md#kubernetes-service-account-tokens). For example, to add an authorization attribute named `group` with value `authz-sat`, run the command:
 
 ```bash
 kubectl annotate serviceaccount mqtt-client aio-broker-auth/group=authz-sat
