@@ -105,14 +105,40 @@ The solution includes hunting queries that can be used by analytics to proactive
 | Dataverse - Identity management changes without MFA | This query is used to show privileged identity administration operations in Dataverse made by accounts that signed in without using MFA | - Dataverse<br>`DataverseActivity`<br>- AzureActiveDirectory<br>`SigninLogs, DataverseActivity` | InitialAccess |
 | Power Apps - Anomalous bulk sharing of Power App to newly created guest users | The query detects anomalous attempts to perform bulk sharing of Power App to newly created guest users. | **Data sources**:<br>PowerPlatformAdmin, AzureActiveDirectory<br>`AuditLogs, PowerPlatformAdminActivity` | InitialAccess, LateralMovement, ResourceDevelopment |
 
+## Workbooks
+
+Sentinel workbooks are customizable, interactive dashboards within Microsoft Sentinel that facilitate analysts' efficient visualization, analysis, and investigation of security data.
+
+|Workbook|Description |
+|--------|------------|
+|`Dynamics 365 Activity`|This workbook presents visual representation of activity in Microsoft Dynamics 365 CRM / Dataverse showing record retrieval stats and anomaly chart|
+
+
+
+## Watchlists
+
+This solution includes a watchlist. It also requires the use of built-in watchlist templates (see link to watchlist templates overview)
+
+|Watchlist|Description |
+|--------|--------------|
+|`MSBizApps-Configuration`|Configuration data used by the solution|
+|`VIPUsers`| Create from watchlist template|
+|`NetworkAddresses`| Create from watchlist template|
+|`TerminatedEmployees`| Create from watchlist template|
 
 ## Built-in parsers
 
 The solution includes parsers that are used to access data from the raw data tables. Parsers ensure that the correct data is returned with a consistent schema. We recommend that you use the parsers instead of directly querying the watchlists.
 
-|Parser |Data returned |Table queried|
-|---------|---------|---------|
-|`MSBizAppsTerminatedEmployees`  |Terminated employees watchlist (from watchlist template)      |`TerminatedEmployees`|
+   
+|Parser  |Data returned |Table queried|
+|--------|--------------|-------------|
+|`MSBizAppsOrgSettings`|List of available organization wide settings available in Dynamics 365 CRM / Dataverse|n/a|
+|`MSBizAppsVIPUsers`|Parser for VIP Users watchlist|`VIPUsers` from watchlist template|
+|`MSBizAppsNetworkAddresses`|Parser for Network addresses watchlist|`NetworkAddresses` from watchlist template|
+|`MSBizAppsTerminatedEmployees`|Parser for Terminated employees watchlist|`TerminatedEmployees` from watchlist template|
+|`DataverseSharePointSites`|SharePoint sites used in Dataverse Document Management|`MSBizApps-Configuration` watchlist filtered by category 'SharePoint'|
+
 
 
 For more information about analytic rules, see [Detect threats out-of-the-box](../detect-threats-built-in.md).
