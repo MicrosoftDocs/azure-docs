@@ -16,9 +16,9 @@ IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devic
 > [!NOTE]
 > Azure IoT Hub will end support for TLS 1.0 and 1.1 in alignment with the Azure wide service announcement for [TLS 1.0 and 1.1 retirement](https://azure.microsoft.com/en-us/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services).
 >
-> It is therefore essential that you properly test and validate that *all* your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#cipher-suites) in advance. It is highly recommend to use the [mininum TLS enforcement feature](#enforce-iot-hub-to-use-tls-1.2-and-strong-cipher-suites) as the mechanism for testing and compliance
+> It is therefore essential that you properly test and validate that *all* your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#cipher-suites) in advance. It is highly recommend to use the [mininum TLS enforcement feature](#enforce-iot-hub-to-use-tls-12-and-strong-cipher-suites) as the mechanism for testing and compliance
 >
-> To find out the version of TLS your IoT Hub devices are running, please refer to [TLS 1.0 and 1.1 end of support guide](#Checking-TLS-versions-for-IoT-Hub-devices). 
+> To find out the version of TLS your IoT Hub devices are running, please refer to [TLS 1.0 and 1.1 end of support guide](#checking-tls-versions-for-iot-hub-devices). 
 
 ## Mutual TLS support
 
@@ -44,7 +44,7 @@ For links to download these certificates, see [Azure Certificate Authority detai
 
 Root CA migrations are extremely rare, you should always prepare your IoT solution for the unlikely event that a root CA is compromised and an emergency root CA migration is necessary.
 
-## Cipher suites supported by IoT Hub
+## Cipher Suites
 To comply with Azure security policy for a secure connection, IoT Hub supports the following cipher suites:
 
 | Cipher Suites                             | TLS Version                  |
