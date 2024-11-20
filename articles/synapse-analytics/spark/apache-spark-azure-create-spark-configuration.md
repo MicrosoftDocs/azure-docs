@@ -60,7 +60,7 @@ Follow the steps below to create an Apache Spark configuration in an existing Ap
 
 1. Select **View Configurations** to open the **Select a Configuration** page. All configurations will be displayed on this page. You can select a configuration that you want to use on this Apache Spark pool.
   
-         ![Screenshot that select a configuration.](./media/apache-spark-azure-create-spark-configuration/select-a-configuration.png)
+   ![Screenshot that select a configuration.](./media/apache-spark-azure-create-spark-configuration/select-a-configuration.png)
 
 1. Select **Apply** button to save your action.
 
@@ -104,27 +104,27 @@ You can import .txt/.conf/.json config in three formats and then convert it to a
 
 For .txt config file and .conf config file, you can refer to the following examples:
 
-    ```txt
+```txt
 
-    spark.synapse.key1 sample
-    spark.synapse.key2 true
-    # spark.synapse.key3 sample2
+spark.synapse.key1 sample
+spark.synapse.key2 true
+# spark.synapse.key3 sample2
 
-    ```
+```
 
 For .json config file, you can refer to the following examples:
 
-    ```json
-    {
-     "configs": {
-       "spark.synapse.key1": "hello world",
-      "spark.synapse.key2": "true"
-     },
-     "annotations": [
-       "Sample"
-     ]
-    }
-    ```
+```json
+{
+"configs": {
+   "spark.synapse.key1": "hello world",
+"spark.synapse.key2": "true"
+},
+"annotations": [
+   "Sample"
+]
+}
+```
 
 > [!NOTE]
 > Synapse Studio will continue to support terraform or bicep-based configuration files.
