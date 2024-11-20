@@ -35,7 +35,7 @@ Azure services can provide two types of availability zone support: *zonal* and *
 
 Some Azure services don't support availability zones because they are:
 
-- Always available across all Azure geographie.
+- Available across multiple Azure regions within a geographic area, or even across all Azure regions globally.
 - Resilient to zone-wide outages.
 - Resilient to region-wide outages. 
 
