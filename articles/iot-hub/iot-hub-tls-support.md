@@ -14,11 +14,23 @@
 IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devices and services. 
 
 > [!NOTE]
-> Azure IoT Hub will end support for TLS 1.0 and 1.1 on July 1st, 2025. Only TLS 1.2 and later will be supported after this date.
-> To find out the version of TLS your IoT Hub devices are running, please refer to [TLS 1.0 and 1.1 end of support guide](iot-hub-tls-ending-support-for-1-0-and-1-1.md). 
-> It is therefore essential that you properly test and validate that *all* your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#cipher-suites) in advance.
+> Azure IoT Hub will end support for TLS 1.0 and 1.1 in alignment with the Azure wide service announcement for [TLS 1.0 and 1.1 retirement](https://azure.microsoft.com/en-us/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services).
+>
+> It is therefore essential that you properly test and validate that *all* your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#cipher-suites) in advance. It is highly recommend to use the [mininum TLS enforcement feature](#enforce-iot-hub-to-use-tls-1.2-and-strong-cipher-suites) as the mechanism for testing and compliance
+>
+> To find out the version of TLS your IoT Hub devices are running, please refer to [TLS 1.0 and 1.1 end of support guide](#Checking-TLS-versions-for-IoT-Hub-devices). 
 
-## IoT Hub's server TLS certificate
+## Mutual TLS support
+
+Mutual TLS authentication ensures that the client _authenticates_ the server (IoT Hub) certificate and the server (IoT Hub) _authenticates_ the [X.509 client certificate or X.509 thumbprint](tutorial-x509-test-certs.md#create-a-client-certificate-for-a-device). _Authorization_ is performed by IoT Hub after _authentication_ is complete.
+
+For AMQP and MQTT protocols, IoT Hub requests a client certificate in the initial TLS handshake. If one is provided, IoT Hub _authenticates_ the client certificate and the client _authenticates_ the IoT Hub certificate. This process is called mutual TLS authentication. When IoT Hub receives an MQTT connect packet or an AMQP link opens, IoT Hub performs _authorization_ for the requesting client and determines if the client requires X.509 authentication. If mutual TLS authentication was completed and the client is authorized to connect as the device, it is allowed. However, if the client requires X.509 authentication and client authentication was not completed during the TLS handshake, then IoT Hub rejects the connection.
+
+For HTTP protocol, when the client makes its first request, IoT Hub checks if the client requires X.509 authentication and if client authentication was complete then IoT Hub performs authorization. If client authentication was not complete, then IoT Hub rejects the connection
+
+After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, this can be any X.509 certificate, including ECC. IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Supported X.509 certificates](iot-hub-dev-guide-sas.md#supported-x509-certificates).
+
+### IoT Hub's server TLS certificate
 
 During a TLS handshake, IoT Hub presents RSA-keyed server certificates to connecting clients.In the past, the certificates were all rooted from the Baltimore Cybertrust Root CA. Because the Baltimore root is at end-of-life, we are in the process of migrating to a new root called DigiCert Global G2. This migration impacts all devices currently connecting to IoT Hub. For more information, see [IoT TLS certificate update](https://aka.ms/iot-ca-updates).
 
@@ -30,30 +42,47 @@ Although root CA migrations are rare, for resilience in the modern security land
 
 For links to download these certificates, see [Azure Certificate Authority details](../security/fundamentals/azure-CA-details.md).
 
-#### Elliptic Curve Cryptography (ECC) server TLS certificate (preview)
+## Cipher suites supported by IoT Hub
 
-IoT Hub ECC server TLS certificate is available for public preview. While offering similar security to RSA certificates, ECC certificate validation (with ECC-only cipher suites) uses up to 40% less compute, memory, and bandwidth. These savings are important for IoT devices because of their smaller profiles and memory, and to support use cases in network bandwidth limited environments.
+To comply with Azure security policy for a secure connection, these are the cipher suites that IoT Hub will support in on-going basis:
 
-We strongly recommend that all devices using ECC trust the following two root CAs:
+| Cipher Suites                             | TLS Version                  |
+|-------------------------------------------|------------------------------|
+| `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`   | TLS 1.2 Strong Cipher Suites |
+| `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`   | TLS 1.2 Strong Cipher Suites |
+| `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`   | TLS 1.2 Strong Cipher Suites |
+| `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`   | TLS 1.2 Strong Cipher Suites |
+| `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256` | ECC-only Cipher Suites  |
+| `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384` | ECC-only Cipher Suite  |
+| `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256` | ECC-only Cipher Suite  |
+| `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384` | ECC-only Cipher Suite  |
 
-* DigiCert Global G3 root CA
-* Microsoft RSA root CA 2017
+The following cipher suites are currently supported by IoT Hub, however IoT Hub will end support for these cipher suites in accordance with the Azure TLS end of support. 
 
-For links to download these certificates, see [Azure Certificate Authority details](../security/fundamentals/azure-CA-details.md).
+| Cipher Suites                         | TLS Version                        |
+|---------------------------------------|------------------------------------|
+| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | TLS 1.2 Weak Cipher Suites         |
+| TLS_DHE_RSA_WITH_AES_256_GCM_SHA384   | TLS 1.2 Weak Cipher Suites         |
+| TLS_DHE_RSA_WITH_AES_128_GCM_SHA256   | TLS 1.2 Weak Cipher Suites         |
+| TLS_RSA_WITH_AES_256_GCM_SHA384       | TLS 1.2 Weak Cipher Suites         |
+| TLS_RSA_WITH_AES_128_GCM_SHA256       | TLS 1.2 Weak Cipher Suites         |
+| TLS_RSA_WITH_AES_256_CBC_SHA256       | TLS 1.2 Weak Cipher Suites         |
+| TLS_RSA_WITH_AES_128_CBC_SHA256       | TLS 1.2 Weak Cipher Suites         |
+| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA    | TLS 1.0/1.1/1.2 Weak Cipher Suites |
+| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA    | TLS 1.0/1.1/1.2 Weak Cipher Suites |
+| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA    | TLS 1.0/1.1/1.2 Weak Cipher Suites |
+| TLS_RSA_WITH_3DES_EDE_CBC_SHA         | TLS 1.0/1.1/1.2 Weak Cipher Suites |
+| TLS_RSA_WITH_3DES_EDE_CBC_SHA         | TLS 1.0/1.1/1.2 Weak Cipher Suites |
+| TLS_RSA_WITH_AES_128_CBC_SHA          | TLS 1.0/1.1/1.2 Weak Cipher Suites |
+| TLS_RSA_WITH_AES_256_CBC_SHA          | TLS 1.0/1.1/1.2 Weak Cipher Suites |
 
-To preview IoT Hub's ECC server certificate:
+A client can suggest a list of higher cipher suites to use during `ClientHello`. However, some of them might not be supported by IoT Hub (for example, `ECDHE-ECDSA-AES256-GCM-SHA384`). In this case, IoT Hub will try to follow the preference of the client, but eventually negotiate down the cipher suite with `ServerHello`. 
 
-1. [Create a new IoT hub with preview mode on](iot-hub-preview-mode.md).
-2. [Configure your client](#tls-configuration-for-sdk-and-iot-edge) to include *only* ECDSA cipher suites and *exclude* any RSA ones. These are the supported cipher suites for the ECC certificate public preview:
-   * `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
-   * `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
-   * `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
-   * `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`
-3. Connect your client to the preview IoT hub.
+## Enforce IoT Hub to use TLS 1.2 and strong cipher suites
 
-## Enforce IoT Hub to use TLS 1.2 in select regions
+To ensure your IoT devices are TLS 1.2 and [strong cipher suites](#cipher-suites) compliance, you can enforce compliance using mininum TLS enforcement feature in Azure IoT Hub. 
 
-For added security, configure your IoT Hubs to *only* allow client connections that use TLS version 1.2 and to enforce the use of [cipher suites](#cipher-suites). This feature is only supported in these regions:
+Currently this feature is only available in the following regions and during IoT Hub creation (other Azure regions will be supported in 2025):
 
 * East US
 * South Central US
@@ -61,12 +90,15 @@ For added security, configure your IoT Hubs to *only* allow client connections t
 * US Gov Arizona
 * US Gov Virginia (TLS 1.0/1.1 support isn't available in this region - TLS 1.2 enforcement must be enabled or IoT hub creation fails)
 
-To enable TLS 1.2 enforcement, follow the steps in [Create an IoT hub in Azure portal](create-hub.md), except
+To enable TLS 1.2 and strong cipher suites enforcement in Azure Portal:
 
-- Choose a **Region** from one in the list above.
-- Under **Management -> Advanced -> Transport Layer Security (TLS) -> Minimum TLS version**, select **1.2**. This setting only appears for IoT hub created in supported region.
+1. Staring with the IoT Hub create wizard in Azure Portal
+2. Choose a **Region** from one in the list above.
+3. Under **Management -> Advanced -> Transport Layer Security (TLS) -> Minimum TLS version**, select **1.2**. This setting only appears for IoT hub created in supported region.
 
     :::image type="content" source="media/iot-hub-tls-12-enforcement.png" alt-text="Screenshot showing how to turn on TLS 1.2 enforcement during IoT hub creation":::
+4. Click **Create**
+5. Connect your IoT devices to this IoT Hub
 
 To use ARM template for creation, provision a new IoT Hub in any of the supported regions and set the `minTlsVersion` property to `1.2` in the resource specification:
 
@@ -100,31 +132,26 @@ The created IoT Hub resource using this configuration will refuse device and ser
 > 
 > Upon failovers, the `minTlsVersion` property of your IoT Hub will remain effective in the geo-paired region post-failover.
 
-## Cipher suites
+## Checking TLS versions for IoT Hub devices
+Azure IoT Hub can provide diagnostic logs for several categories that can be analyzed using Azure Monitor Logs. In the connections log you can find the TLS Version for your IoT Hub devices.
 
-IoT Hubs that are configured to accept only TLS 1.2 will also enforce the use of the following recommended cipher suites:
+To view these logs, follow these steps:
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
+2. In the resource menu under **Monitoring**,  select **Diagnostic settings**. Ensure diagnostic settings have "Connections" checkmarked.
+3. In the resource menu under **Monitoring**,  select **Logs**.
+4. Enter the following query:
+```azurecli
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections"
+| where OperationName == "deviceConnect"
+| extend props_json = parse_json(properties_s)
+| project DeviceId = props_json.deviceId, TLSVersion = props_json.tlsVersion
+```
+5. An example of the query results will look like:
+:::image type="content" source="./media/iot-hub-tls-ending-support-for-1-0-and-1-1/queryresult.png" alt-text="Diagram showing the query for device TLS version.":::
+6. Note: Devices using HTTPS connections won't generate an event in Azure Monitor logs. 
 
-* `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
-* `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
-* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
-* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
-
-For IoT Hubs not configured for TLS 1.2 enforcement, TLS 1.2 still works with the following cipher suites, however support for these cipher will end by July 1st, 2025. 
-
-* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
-* `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`
-* `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`
-* `TLS_RSA_WITH_AES_256_GCM_SHA384`
-* `TLS_RSA_WITH_AES_128_GCM_SHA256`
-* `TLS_RSA_WITH_AES_256_CBC_SHA256`
-* `TLS_RSA_WITH_AES_128_CBC_SHA256`
-* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
-* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
-* `TLS_RSA_WITH_AES_256_CBC_SHA`
-* `TLS_RSA_WITH_AES_128_CBC_SHA`
-* `TLS_RSA_WITH_3DES_EDE_CBC_SHA` **(This cipher will be deprecated on 10/01/2022 and will no longer be used for TLS handshakes)**
-
-A client can suggest a list of higher cipher suites to use during `ClientHello`. However, some of them might not be supported by IoT Hub (for example, `ECDHE-ECDSA-AES256-GCM-SHA384`). In this case, IoT Hub will try to follow the preference of the client, but eventually negotiate down the cipher suite with `ServerHello`.
 
 ## TLS configuration for SDK and IoT Edge
 
@@ -140,24 +167,23 @@ Use the links below to configure TLS 1.2 and allowed ciphers in IoT Hub client S
 
 IoT Edge devices can be configured to use TLS 1.2 when communicating with IoT Hub. For this purpose, use the [IoT Edge documentation page](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
 
-## Device authentication
 
-After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, this can be any X.509 certificate, including ECC. IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Supported X.509 certificates](iot-hub-dev-guide-sas.md#supported-x509-certificates).
+## Elliptic Curve Cryptography (ECC) server TLS certificate
 
-## Mutual TLS support
+While offering similar security to RSA certificates, ECC certificate validation (with ECC-only cipher suites) uses up to 40% less compute, memory, and bandwidth. These savings are important for IoT devices because of their smaller profiles and memory, and to support use cases in network bandwidth limited environments. 
 
-Mutual TLS authentication ensures that the client _authenticates_ the server (IoT Hub) certificate and the server (IoT Hub) _authenticates_ the [X.509 client certificate or X.509 thumbprint](tutorial-x509-test-certs.md#create-a-client-certificate-for-a-device). _Authorization_ is performed by IoT Hub after _authentication_ is complete.
+To use IoT Hub's ECC server certificate:
+1. Ensure all devices trust the following root CAs:
+   * DigiCert Global G2 root CA
+   * Microsoft RSA root CA 2017
+3. [Configure your client](#tls-configuration-for-sdk-and-iot-edge) to include *only* ECDSA cipher suites and *exclude* any RSA ones. These are the supported cipher suites for the ECC certificate:
+   * `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
+   * `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
+   * `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
+   * `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`
+4. Connect your client to the IoT hub.
 
-For AMQP and MQTT protocols, IoT Hub requests a client certificate in the initial TLS handshake. If one is provided, IoT Hub _authenticates_ the client certificate and the client _authenticates_ the IoT Hub certificate. This process is called mutual TLS authentication. When IoT Hub receives an MQTT connect packet or an AMQP link opens, IoT Hub performs _authorization_ for the requesting client and determines if the client requires X.509 authentication. If mutual TLS authentication was completed and the client is authorized to connect as the device, it is allowed. However, if the client requires X.509 authentication and client authentication was not completed during the TLS handshake, then IoT Hub rejects the connection.
-
-For HTTP protocol, when the client makes its first request, IoT Hub checks if the client requires X.509 authentication and if client authentication was complete then IoT Hub performs authorization. If client authentication was not complete, then IoT Hub rejects the connection
-
-
-## Certificate pinning
-
-[Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates (aka leaf certificates) and intermediate certificates associated with IoT Hub endpoints is strongly discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
-
-## TLS maximum fragment length negotiation (preview)
+## TLS maximum fragment length negotiation 
 
 IoT Hub also supports TLS maximum fragment length negotiation, which is sometimes known as TLS frame size negotiation. This feature is in public preview. 
 
@@ -165,9 +191,14 @@ Use this feature to specify the maximum plaintext fragment length to a value sma
 
 Official SDK support for this public preview feature isn't yet available. To get started
 
-1. [Create a new IoT hub with preview mode on](iot-hub-preview-mode.md).
+1. Create an IoT Hub.
 1. When using OpenSSL, call [SSL_CTX_set_tlsext_max_fragment_length](https://manpages.debian.org/testing/libssl-doc/SSL_CTX_set_max_send_fragment.3ssl.en.html) to specify the fragment size.
-1. Connect your client to the preview IoT Hub.
+1. Connect your client to the IoT Hub.
+
+## Certificate pinning
+
+[Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates (aka leaf certificates) and intermediate certificates associated with IoT Hub endpoints is strongly discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
+
 
 ## Next steps
 
