@@ -177,7 +177,7 @@ Optionally, select the **Use custom colors** toggle switch to toggle On/Off cust
 
 #### Semantic model
 
-| Datapoint   | Country/region | City     | Office name |
+| Datapoint   | Country | City     | Office name |
 |-------------|---------|----------|-------------|
 | Datapoint_1 | US      | New York | Office C    |
 | Datapoint_1 | US      | Seattle  | Office A    |
