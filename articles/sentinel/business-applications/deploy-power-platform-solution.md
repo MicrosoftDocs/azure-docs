@@ -95,17 +95,9 @@ The following table lists the Log Analytics tables to query.
 |---------|---------|
 |PowerPlatformAdminActivity|Power Platform administrative logs|
 |PowerAutomateActivity |Power Automate activity logs |
-|DataverseActivity |Dataverse and model-driven apps activity logging|  
+|DataverseActivity |Dataverse and model-driven apps activity logging|
 
-   Use the following parsers to return supporting watchlist and configuration data.
-   
-   |Parser  |Data returned |
-   |---------|---------|
-   |`MSBizAppsOrgSettings`|List of available organization wide settings available in Dynamics 365 CRM / Dataverse|
-   |`MSBizAppsVIPUsers`|VIP Users watchlist |
-   |**`MSBizAppsNetworkAddresses`**|Network addresses watchlist|
-   |`DataverseSharePointSites`|SharePoint sites used in Dataverse Document Management|
-   |`MSBizAppsTerminatedEmployees`    | Terminated employees watchlist |
+
    
 
 ## Related content
