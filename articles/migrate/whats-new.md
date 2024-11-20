@@ -19,6 +19,8 @@ ms.custom: mvc, engagement-fy24
 - AVS assessments now support cost assessments with AV64 SKU and Azure NetApp Files (ANF) as an external storage option. [Learn more](how-to-create-azure-vmware-solution-assessment.md).
 - Support for cost of SKUs when porting on-premises VCF subscription to AVS.
 - Support for migrating Enterprise Linux machines (RHEL and SLES) in VMware and Hyper-V environments to Azure, leveraging Azure Hybrid benefit. [Learn more](tutorial-migrate-hyper-v.md).
+- Public Preview: Azure Migrate now supports creating a business case for Azure Arc and onboarding servers to Azure Arc from the Migrate inventory. [Learn more](how-to-arc-enable-inventory.md).
+Using these capabilities, you can visualize the value Azure Arc brings to your on-premises estate throughout the migration journey, enabling confident, informed decisions. You can also check if your on-premises servers are already Arc-enabled and, if not, generate an Azure Arc onboarding script to deploy at scale using automation tools for the servers you choose to enable.
 
 ## Update (October 2024)
 
