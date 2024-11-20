@@ -59,9 +59,9 @@ To configure data boundary, the `DataBoundaryTenantAdministrator` built-in role 
   }
   ```
   
-  ```Response body:
+  Response body:
   
-  ```json 
+  ```json
   {
     "id": "/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}",
     "type": "Microsoft.Authorization/roleAssignments",
