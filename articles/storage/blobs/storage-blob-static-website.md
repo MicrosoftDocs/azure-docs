@@ -130,7 +130,7 @@ You can configure a [custom SSL](./static-website-content-delivery-network.md) c
 
 ##### How do I add custom headers and rules with a static website?
 
-You can configure the host header for a static website by using [Azure CDN - Verizon Premium](../../cdn/cdn-verizon-premium-rules-engine.md). We'd be interested to hear your feedback [here](https://feedback.azure.com/d365community/idea/694b08ef-3525-ec11-b6e6-000d3a4f0f84).
+You can configure the host header for a static website by using [Azure CDN rules engine](../../cdn/cdn-verizon-premium-rules-engine.md). We'd be interested to hear your feedback [here](https://feedback.azure.com/d365community/idea/694b08ef-3525-ec11-b6e6-000d3a4f0f84).
 
 ##### Why am I getting an HTTP 404 error from a static website?
 
