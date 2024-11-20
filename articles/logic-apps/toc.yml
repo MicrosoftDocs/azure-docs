@@ -485,7 +485,7 @@ items:
         href: create-monitoring-tracking-queries.md
   - name: Reliability
     items:
-    - name: Enable zone-redundancy
+    - name: Enable zone redundancy
       href: set-up-zone-redundancy-availability-zones.md
     - name: Create replication tasks for Azure resources
       href: create-replication-tasks-azure-resources.md
