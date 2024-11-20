@@ -305,7 +305,7 @@ $peeringState = @{
 Get-AzVirtualNetworkPeering @peeringState | Select PeeringState
 ```
 
-Resources in one virtual network cannot communicate with resources in the other virtual network until the **PeeringState** for the peerings in both virtual networks is **Connected**.
+Resources in one virtual network can't communicate with resources in the other virtual network until the **PeeringState** for the peerings in both virtual networks is **Connected**.
 
 ### [CLI](#tab/cli)
 
@@ -366,7 +366,7 @@ Resources in one virtual network can't communicate with resources in the other v
 
 ## Create virtual machines
 
-Create a virtual machine in each virtual network to test the communication between them.
+Test the communication between the virtual machines by creating a virtual machine in each virtual network. The virtual machines can communicate with each other over the virtual network peering.
 
 ### [Portal](#tab/portal)
 
@@ -385,7 +385,7 @@ Repeat the previous steps to create a second virtual machine in the second virtu
 
 ### [PowerShell](#tab/powershell)
 
-### Create the first VM
+### Create the first virtual machine
 
 Create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named **vm-1** in the **vnet-1** virtual network. When prompted, enter the username and password for the virtual machine.
 
