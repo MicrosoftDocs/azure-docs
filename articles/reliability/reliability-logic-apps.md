@@ -21,10 +21,9 @@ Resiliency is a shared responsibility between you and Microsoft, and so this art
 
 Logic app workflows help you more easily integrate and orchestrate data between apps, cloud services, and on-premises systems by reducing how much code that you have to write. When you plan for resiliency, make sure that you consider not just your logic apps, but also these Azure resources that you use with your logic apps:
 
+* [Connections](../connectors/introduction.md) that you create from logic app workflows to other apps, services, and systems. For more information, see [Connections to resources](/azure/logic-apps/business-continuity-disaster-recovery-guidance#connections-to-resources) later in this topic.
 
-* [Connections](/azure/logic-apps/connectors/introduction) that you create from logic app workflows to other apps, services, and systems. For more information, see [Connections to resources](/azure/logic-apps/business-continuity-disaster-recovery-guidance#connections-to-resources) later in this topic.
-
-* [On-premises data gateways](/azure/logic-apps/logic-apps-gateway-connection) which are Azure resources that you create and use in your logic apps to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](/azure/logic-apps/logic-apps-gateway-install) on a local computer. For more information, see [On-premises data gateways](/azure/logic-apps/business-continuity-disaster-recovery-guidance#on-premises-data-gateways) later in this topic.
+* [On-premises data gateways](../logic-apps/connect-on-premises-data-sources.md), which are Azure resources that you create and use in your logic apps to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](/azure/logic-apps/logic-apps-gateway-install) on a local computer. For more information, see [On-premises data gateways](/azure/logic-apps/business-continuity-disaster-recovery-guidance#on-premises-data-gateways) later in this topic.
 
 * [Integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](/azure/logic-apps/logic-apps-enterprise-integration-overview) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-b2b-business-continuity).
 
