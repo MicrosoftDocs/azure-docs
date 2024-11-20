@@ -12,7 +12,7 @@ ms.custom: references_regions, subject-reliability
 
 # Azure availability zone migration baseline
 
-This article shows you how to assess the availability-zone readiness of your application for the purposes of migrating from non-availability zone to availability zone support. We'll take you through the steps you'll need to determine how you can take advantage of availability zone support in alignment with your application and regional requirements. For more detailed information on availability zones and the regions that support them, see [What are Azure regions and availability zones](availability-zones-overview.md).
+This article shows you how to assess the availability-zone readiness of your application for the purposes of migrating from non-availability zone to availability zone support. Understand how you can take advantage of availability zone support, and how to meet your application and resiliency requirements. For more detailed information on availability zones and the regions that support them, see [What are Azure regions and availability zones](availability-zones-overview.md).
 
 When creating reliable workloads, you can choose at least one of the following availability zone configurations: 
 
@@ -92,7 +92,7 @@ With a zonal deployment, you must:
 If the Azure service supports availability zones, we highly recommend that you use zone-redundancy by spreading nodes across the zones to get higher uptime SLA and protection against zonal outages.  
 
 
-For a 3-tier application it is important to understand the application, business, and data tiers; as well as their state (stateful or stateless) to architect in alignment with the best practices and guidance according to the type of workload. 
+For a 3-tier application it's important to understand the application, business, and data tiers; as well as their state (stateful or stateless) to architect in alignment with the best practices and guidance according to the type of workload. 
 
 For specialized workloads on Azure as below examples, please refer to the respective landing zone architecture guidance and best practices. 
 
