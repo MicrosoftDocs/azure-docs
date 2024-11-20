@@ -35,7 +35,7 @@ You create a Microsoft Graph API subscription to enable Graph API events to flow
 
 Besides the ability to subscribe to Microsoft Graph API events via Event Grid, you have [other options](/graph/webhooks#receiving-change-notifications) through which you can receive similar notifications (not events). Consider using Microsoft Graph API to deliver events to Event Grid if you have at least one of the following requirements:
 
-- You're developing an event-driven solution that requires events from Microsoft Entra ID, Outlook, Teams, etc. to react to resource changes. You require the robust eventing model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
+- You're developing an event-driven solution that requires events from Microsoft Entra ID, Outlook, Teams, etc. to react to resource changes. You require the robust event-driven model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
 - You want to use Event Grid to route events to multiple destinations using a single Graph API subscription and you want to avoid managing multiple Graph API subscriptions.
 - You require to route events to different downstream applications, webhooks, or Azure services depending on some of the properties in the event. For example, you might want to route event types such as `Microsoft.Graph.UserCreated` and `Microsoft.Graph.UserDeleted` to a specialized application that processes users' onboarding and off-boarding. You might also want to send `Microsoft.Graph.UserUpdated` events to another application that syncs contacts information, for example. You can achieve that using a single Graph API subscription when using Event Grid as a notification destination. For more information, see [event filtering](event-filtering.md) and [event handlers](event-handlers.md).
 - Interoperability is important to you. You want to forward and handle events in a standard way using Cloud Native Computing Foundation (CNCF) [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md) specification standard.
@@ -213,7 +213,6 @@ Web application samples are available for the following languages:
 
 - [C# sample](https://github.com/microsoftgraph/msgraph-sample-eventgrid-notifications-dotnet). It's an up-to-date sample that includes how to create and renew Graph API subscriptions and walks you through some of the steps to enable the flow of events.
 - [Java sample](https://github.com/microsoftgraph/java-spring-webhooks-sample)
-  - [GraphAPIController](https://github.com/robece/event-grid-ms-graph-api-java-snippet) contains sample code to create, delete, and renew a Graph API subscription. It must be used along with the Java sample application.
 - [NodeJS sample](https://github.com/microsoftgraph/nodejs-webhooks-sample).
 
 > [!IMPORTANT]

@@ -2,7 +2,7 @@
 title: Managed identities for Azure resources with Service Bus
 description: This article describes how to use managed identities to access with Azure Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
-ms.date: 06/15/2023
+ms.date: 07/22/2024
 ---
 
 # Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources
@@ -12,15 +12,30 @@ Here are the high-level steps to use a managed identity to access a Service Bus 
 
 1. Enable managed identity for your client app or environment. For example, enable managed identity for your Azure App Service app, Azure Functions app, or a virtual machine in which your app is running. Here are the articles that help you with this step:
     - [Configure managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md)
-    - [Configure managed identities for Azure resources on a VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)    
+    - [Configure managed identities for Azure resources on a virtual machine (VM)](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)    
 1. Assign Azure Service Bus Data Owner, Azure Service Bus Data Sender, or Azure Service Bus Data Receiver role to the managed identity at the appropriate scope (Azure subscription, resource group, Service Bus namespace, or Service Bus queue or topic). For instructions to assign a role to a managed identity, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
-1. In your application, use the managed identity and the endpoint to Service Bus namespace to connect to the namespace. For example, in .NET, you use the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient.-ctor#azure-messaging-servicebus-servicebusclient-ctor(system-string-azure-core-tokencredential)) constructor that takes `TokenCredential` and `fullyQualifiedNamespace` (a string, for example: `cotosons.servicebus.windows.net`) parameters to connect to Service Bus using the managed identity. You pass in [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), which derives from `TokenCredential` and uses the managed identity. 
+1. In your application, use the managed identity and the endpoint to Service Bus namespace to connect to the namespace. 
+
+    For example, in .NET, you use the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient.-ctor#azure-messaging-servicebus-servicebusclient-ctor(system-string-azure-core-tokencredential)) constructor that takes `TokenCredential` and `fullyQualifiedNamespace` (a string, for example: `cotosons.servicebus.windows.net`) parameters to connect to Service Bus using the managed identity. You pass in [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), which derives from `TokenCredential` and uses the managed identity. In `DefaultAzureCredentialOptions`, set the `ManagedIdentityClientId` to the ID of client's managed identity.
+
+    ```csharp
+    string fullyQualifiedNamespace = "<your namespace>.servicebus.windows.net>";
+    string userAssignedClientId = "<your managed identity client ID>";
+
+    var credential = new DefaultAzureCredential(
+        new DefaultAzureCredentialOptions
+        {
+            ManagedIdentityClientId = userAssignedClientId
+        });
+
+    var sbusClient = new ServiceBusClient(fullyQualifiedNamespace, credential);
+    ```    
 
     > [!IMPORTANT]
     > You can disable local or SAS key authentication for a Service Bus namespace and allow only Microsoft Entra authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
     
 ## Azure built-in roles for Azure Service Bus
-Microsoft Entra authorizes access to secured resources through [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure Service Bus defines a set of Azure built-in roles that encompass common sets of permissions used to access Service Bus entities. You can also define custom roles for accessing the data. 
+Microsoft Entra authorizes access to secured resources through [Azure role-based access control (RBAC)](../role-based-access-control/overview.md). Azure Service Bus defines a set of Azure built-in roles that encompass common sets of permissions used to access Service Bus entities. You can also define custom roles for accessing the data. 
 
 Azure provides the following Azure built-in roles for authorizing access to a Service Bus namespace:
 
@@ -36,7 +51,7 @@ Before you assign an Azure role to a managed identity, determine the scope of ac
 The following list describes the levels at which you can scope access to Service Bus resources, starting with the narrowest scope:
 
 - **Queue**, **topic**, or **subscription**: Role assignment applies to the specific Service Bus entity. 
-- **Service Bus namespace**: Role assignment spans the entire topology of Service Bus under the namespace and to the consumer group associated with it.
+- **Service Bus namespace**: Role assignment spans the entire topology of Service Bus under the namespace.
 - **Resource group**: Role assignment applies to all the Service Bus resources under the resource group.
 - **Subscription**: Role assignment applies to all the Service Bus resources in all of the resource groups in the subscription.
 

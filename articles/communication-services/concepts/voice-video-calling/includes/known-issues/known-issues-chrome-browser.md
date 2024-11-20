@@ -14,6 +14,14 @@ ms.custom: template-how-to
 
 ## Chrome Desktop
 
+### Call disconnection issues on macOS 15.0, Build: 24A335
+
+**OS version:** macOS 15.0, build: 24A335.<br>
+**Browser version:** Google Chrome - all versions.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** When initiating a 1:1 call on macOS 15.0, if the callee accepts the call, it sometimes disconnects automatically after a few seconds. Additional delays in receiving and joining calls are observed, which can also lead to disconnections. Disabling the Firewall temporarily resolves these issues, suggesting interference from macOS firewall settings is the root cause. This issue has been addressed in macOS 15.0.1, which enhances compatibility with third-party security software, as detailed [here in the macOS 15.0.1 release notes](https://support.apple.com/en-us/121011).<br>
+**Recommended workaround:** Users experiencing this issue should consider disabling the Firewall temporarily or update to macOS 15.0.1 to resolve these call connectivity problems permanently.<br>
+
 ### Chrome M98 - a regression that degrades video resolution and increases keyframe generation for devices that do not have an NVIDIA card
 **Browser version:** Google Chrome version 98 (Feb 2022)<br>
 **Azure Communication Service calling SDK version:** All.<br>
@@ -27,7 +35,9 @@ ms.custom: template-how-to
 **Browser version:** Google Chrome version 125 (May 2024) installed on Android devices.<br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** Chrome version 125 for Android introduced a regression when making video calls - the result of this bug is a user making a call on Azure Communication Services with this version of Chrome has no outgoing video in Group and Azure Communication Services-Microsoft Teams calls.
-This behavior is observed on Huawei, OnePlus, Poco and Xiaomi Android devices. The behaviour is not observed on Samsung, Google Pixel and Motorola Android devices.<br>
+This behavior is observed on Huawei, OnePlus, Poco and Xiaomi Android devices. The behaviour is not observed on Samsung, Google Pixel and Motorola Android devices.
+- A fix is available starting from Google Chrome version 125.0.6422.146/147.<br>
+
 **Devices affected:** 
 - Huawei P30 Lite
 - OnePlus Nord N10
@@ -35,6 +45,8 @@ This behavior is observed on Huawei, OnePlus, Poco and Xiaomi Android devices. T
 - Poco X3 Pro
 - Xiaomi Redmi 8T
 and possibly other similar models/devices.<br>
+
+**Recommended workaround:** Users are advised to update to Google Chrome version 125.0.6422.146/147 or later, where this issue has been resolved.<br>
 
 ### Outgoing audio issue on Android 14 when browser is in background or device screen is locked
 **Android version:** Android 14.<br>

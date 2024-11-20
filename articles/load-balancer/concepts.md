@@ -3,9 +3,9 @@ title: Azure Load Balancer concepts
 description: Overview of Azure Load Balancer concepts.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept
 ---

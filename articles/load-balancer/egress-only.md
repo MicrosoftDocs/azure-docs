@@ -3,9 +3,9 @@ title: Outbound-only load balancer configuration
 titleSuffix: Azure Load Balancer
 description: This article provides a step-by-step guide on how to configure an "egress only" setup using Azure Load Balancer with outbound NAT and Azure Bastion. Deploy public and internal load balancers to create outbound connectivity for VMs behind an internal load balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 09/06/2024
 ms.author: mbender
 ms.custom: template-how-to
 ---
@@ -31,7 +31,7 @@ This configuration provides outbound NAT for an internal load balancer scenario,
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [load-balancer-create-bastion](../../includes/load-balancer-create-bastion.md)]
+[!INCLUDE [load-balancer-create-no-gateway](../../includes/load-balancer-create-no-gateway.md)]
 
 ## Create internal load balancer
 
@@ -57,9 +57,11 @@ In this section, you'll create the internal load balancer.
 
 1. Select **Next: Frontend IP configuration** at the bottom of the page.
 
-1. In **Frontend IP configuration**, select **+ Add a frontend IP**.
+1. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
 1. Enter **lb-int-frontend** in **Name**.
+
+1. Select **lb-vnet** in **Virtual Network**.
 
 1. Select **backend-subnet** in **Subnet**.
 
@@ -244,7 +246,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. Select **Connect**.
 
-1. Open Internet Explorer.
+1. Open Microsoft Edge browser.
 
 1.  Enter **https://whatsmyip.org** in the address bar.
 
@@ -290,7 +292,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. Select **Connect**.
 
-1. Open Internet Explorer.
+1. Open Microsoft Edge browser.
 
 1. Enter **https://whatsmyip.org** in the address bar.
 

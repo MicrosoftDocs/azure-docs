@@ -5,7 +5,7 @@ author: davidmrdavid
 ms.topic: overview
 ms.date: 04/09/2024
 ms.author: dajusto
-ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-dotnet
 ms.reviewer: azfuncdf
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -59,7 +59,7 @@ Users of [Extension Bundles](../functions-bindings-register.md#extension-bundles
 
 ## GitHub repositories
 
-Durable Functions is developed in the open as OSS. Users are welcome to contribute to it's development, request features, and to report issues in the appropiate repositories:
+Durable Functions is developed in the open as OSS. Users are welcome to contribute to it's development, request features, and to report issues in the appropriate repositories:
 
 * [azure-functions-durable-extension](https://github.com/Azure/azure-functions-durable-extension): For .NET in-process and the Azure Storage storage provider.
 * [durabletask-dotnet](https://github.com/microsoft/durabletask-dotnet): For .NET isolated.

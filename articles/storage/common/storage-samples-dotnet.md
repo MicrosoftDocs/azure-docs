@@ -9,6 +9,7 @@ ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
+ai-usage: ai-assisted
 ---
 
 # Azure Storage samples using .NET client libraries
@@ -108,7 +109,7 @@ See the following articles for instructions on how to install and get started wi
 
 - [Quickstart: Azure Blob Storage client library for .NET](../blobs/storage-quickstart-blobs-dotnet.md)
 - [Quickstart: Azure Queue Storage client library for .NET](../queues/storage-quickstart-queues-dotnet.md)
-- [Getting Started with Azure Table Service in .NET](../../cosmos-db/tutorial-develop-table-dotnet.md)
+- [Getting Started with Azure Table Service in .NET](/azure/cosmos-db/tutorial-develop-table-dotnet)
 - [Develop for Azure Files with .NET](../files/storage-dotnet-how-to-use-files.md)
 
 ## Next steps

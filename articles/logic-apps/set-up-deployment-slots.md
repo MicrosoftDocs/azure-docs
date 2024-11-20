@@ -22,7 +22,7 @@ To deploy mission-critical logic apps that are always available and responsive, 
 
 - Swap a deployment slot with your production slot without interruption. That way, you can update your logic app and workflows without affecting availability or performance.
 
-- Test and validate any changes in a deployment slot before you apply those changes to the production slot.
+- Validate any changes in a deployment slot before you apply those changes to the production slot.
 
 - Roll back to a previous version, if anything goes wrong with your deployment.
 

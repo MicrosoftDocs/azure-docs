@@ -15,7 +15,7 @@ ms.date: 01/10/2024
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To get richer data for debugging and diagnosing your workflows in Azure Logic Apps, you can log workflow runtime data and events, such as trigger events, run events, and action events, that you can send to a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace), Azure [storage account](../storage/common/storage-account-overview.md), Azure [event hub](../event-hubs/event-hubs-features.md#namespace), another partner destination, or all these destinations when you set up and use [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md).
+To get richer data for debugging and diagnosing your workflows in Azure Logic Apps, you can log workflow runtime data and events, such as trigger events, run events, and action events, that you can send to a [Log Analytics workspace](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace), Azure [storage account](../storage/common/storage-account-overview.md), Azure [event hub](../event-hubs/event-hubs-features.md#namespace), another partner destination, or all these destinations when you set up and use [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs).
 
 > [!NOTE]
 >
@@ -68,7 +68,7 @@ This how-to guide shows how to complete the following tasks, based on whether yo
 
 * The destination resource for where you want to send diagnostic data:
 
-  * A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md)
+  * A [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace)
 
   * An [Azure storage account](../storage/common/storage-account-create.md)
 
@@ -166,7 +166,7 @@ For a Standard logic app, you can continue with [Add a diagnostic setting](#add-
    |-------------|------------|
    | **Send to Log Analytics workspace** | Select the Azure subscription for your Log Analytics workspace and the workspace. |
    | **Archive to a storage account** | Select the Azure subscription for your Azure storage account and the storage account. For more information, see [Send diagnostic data to Azure Storage and Azure Event Hubs](#other-destinations). |
-   | **Stream to an event hub** | Select the Azure subscription for your event hub namespace, event hub, and event hub policy name. For more information, see [Send diagnostic data to Azure Storage and Azure Event Hubs](#other-destinations) and [Azure Monitor partner integrations](../azure-monitor/partners.md). |
+   | **Stream to an event hub** | Select the Azure subscription for your event hub namespace, event hub, and event hub policy name. For more information, see [Send diagnostic data to Azure Storage and Azure Event Hubs](#other-destinations) and [Azure Monitor partner integrations](/azure/azure-monitor/partners). |
    | **Send to partner solution** | Select your Azure subscription and the destination. For more information, see [Azure Native ISV Services overview](../partner-solutions/overview.md). |
 
    The following example selects a Log Analytics workspace as the destination:
@@ -193,7 +193,7 @@ For a Standard logic app, you can continue with [Add a diagnostic setting](#add-
    |-------------|------------|
    | **Send to Log Analytics workspace** | Select the Azure subscription for your Log Analytics workspace and the workspace. |
    | **Archive to a storage account** | Select the Azure subscription for your Azure storage account and the storage account. For more information, see [Send diagnostic data to Azure Storage and Azure Event Hubs](#other-destinations). |
-   | **Stream to an event hub** | Select the Azure subscription for your event hub namespace, event hub, and event hub policy name. For more information, see [Send diagnostic data to Azure Storage and Azure Event Hubs](#other-destinations) and [Azure Monitor partner integrations](../azure-monitor/partners.md). |
+   | **Stream to an event hub** | Select the Azure subscription for your event hub namespace, event hub, and event hub policy name. For more information, see [Send diagnostic data to Azure Storage and Azure Event Hubs](#other-destinations) and [Azure Monitor partner integrations](/azure/azure-monitor/partners). |
    | **Send to partner solution** | Select your Azure subscription and the destination. For more information, see [Azure Native ISV Services overview](../partner-solutions/overview.md). |
 
    The following example selects a Log Analytics workspace as the destination:
@@ -322,10 +322,10 @@ In your Log Analytics workspace's query pane, you can enter your own queries to 
 
 Along with Azure Monitor Logs, you can send the collected data to other destinations, for example:
 
-* [Archive Azure resource logs to storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
-* [Stream Azure platform logs to Azure Event Hubs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
+* [Archive Azure resource logs to storage account](/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage)
+* [Stream Azure platform logs to Azure Event Hubs](/azure/azure-monitor/essentials/resource-logs#send-to-azure-event-hubs)
 
-You can then get real-time monitoring by using telemetry and analytics from other services, such as [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](../azure-monitor/logs/log-powerbi.md), for example:
+You can then get real-time monitoring by using telemetry and analytics from other services, such as [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and [Power BI](/azure/azure-monitor/logs/log-powerbi), for example:
 
 * [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

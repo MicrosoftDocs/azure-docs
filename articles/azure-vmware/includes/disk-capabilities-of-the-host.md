@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 Azure VMware Solution clusters are based upon hyper-converged infrastructure. The following table shows the CPU, memory, disk and network specifications of the host.
 
-| Host Type | CPU (Cores/GHz)   | RAM (GB)  | vSAN Cache Tier (TB, raw)  | vSAN Capacity Tier (TB, raw)  | Regional availability |
+| Host Type | CPU (Cores/GHz)   | RAM (GB)  | vSAN Cache Tier (TB, raw***)  | vSAN Capacity Tier (TB, raw***)  | Regional availability |
 | :---      | :---: | :---:     | :---:                      | :---:                                        | :---:                 |
 | AV36      | Dual Intel Xeon Gold 6140 CPUs (Skylake microarchitecture) with 18 cores/CPU @ 2.3 GHz, Total 36 physical cores (72 logical cores with hyperthreading) |  576  | 3.2 (NVMe)               | 15.20 (SSD)  | Selected regions (*) |
 | AV36P     |  Dual Intel Xeon Gold 6240 CPUs (Cascade Lake microarchitecture) with 18 cores/CPU @ 2.6 GHz / 3.9 GHz Turbo, Total 36 physical cores (72 logical cores with hyperthreading) |  768  | 1.5 (Intel Cache) | 19.20 (NVMe) | Selected regions (*) |
@@ -27,3 +27,5 @@ All the above Host Types have 100 Gbps network interface throughput.
 (*) details available via the Azure pricing calculator.
 
 (**) AV64 Prerequisite: An Azure VMware Solution private cloud deployed with AV36, AV36P, or AV52 is required prior to adding AV64.
+
+(***) Raw is based upon [International Standard of Units (SI)](https://en.wikipedia.org/wiki/International_System_of_Units) reported by disk manufacturer.  Example: 1 TB Raw = 1000000000000 bytes, space calculated by computer in binary (1TB binary = 1099511627776 bytes binary) would equal 931.3 Gigabytes converted from raw decimal.

@@ -2,7 +2,7 @@
 title: Overview of Azure Managed Applications
 description: Describes the concepts for Azure Managed Applications that provide cloud solutions that are easy for customers to deploy and operate.
 ms.topic: overview
-ms.date: 07/31/2023
+ms.date: 06/24/2024
 ---
 
 # Azure Managed Applications overview
@@ -73,13 +73,13 @@ The management access as shown in the image can be changed. The customer can be 
 
 ### Application resource group
 
-This resource group holds the managed application instance. This resource group may only contain one resource. The resource type of the managed application is [Microsoft.Solutions/applications](#resource-provider).
+This resource group holds the managed application instance. This resource group might only contain one resource. The resource type of the managed application is [Microsoft.Solutions/applications](#resource-provider).
 
 The customer has full access to the resource group and uses it to manage the lifecycle of the managed application.
 
 ### Managed resource group
 
-This resource group holds all the resources that are required by the managed application. For example, an application's virtual machines, storage accounts, and virtual networks. The customer might have limited access to this resource group because unless permission options are changed, the customer doesn't manage the individual resources for the managed application. The publisher's access to this resource group corresponds to the role specified in the managed application definition. For example, the publisher might request the Owner or Contributor role for this resource group. The access is either permanent or limited to a specific time. The publisher can choose to not have access to the managed resource group.
+This resource group holds all the resources required by the managed application. For example, an application's virtual machines, storage accounts, and virtual networks. The customer might have limited access to this resource group because unless permission options are changed, the customer doesn't manage the individual resources for the managed application. The publisher's access to this resource group corresponds to the role specified in the managed application definition. For example, the publisher might request the Owner or Contributor role for this resource group. The access is either permanent or limited to a specific time. The publisher can choose to not have access to the managed resource group.
 
 When the [managed application is published to the marketplace](../../marketplace/azure-app-offer-setup.md), the publisher can grant customers the ability to perform specific actions on resources in the managed resource group or be given full access. For example, the publisher can specify that customers can restart virtual machines. All other actions beyond read actions are still denied. Changes to resources in a managed resource group by a customer with granted actions are subject to the [Azure Policy](../../governance/policy/overview.md) assignments within the customer's tenant scoped to include the managed resource group.
 

@@ -3,14 +3,11 @@ title: Troubleshoot app attach - Azure Virtual Desktop
 description: Learn how to troubleshoot app attach in Azure Virtual Desktop, where you can dynamically attach applications from an application package to a user session.
 author: dknappettmsft
 ms.topic: troubleshooting
-ms.date: 08/17/2023
+ms.date: 03/05/2024
 ms.author: daknappe
 ---
 
 # Troubleshoot app attach in Azure Virtual Desktop
-
-> [!IMPORTANT]
-> App attach in Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 If you're having issues when using app attach, use the information in this article to help troubleshoot.
 
@@ -51,7 +48,7 @@ To validate that your session hosts have the necessary access to a file share co
       ```powershell
       # Install the CimDiskImage PowerShell module, if it's not already installed.
       If (!(Get-Module -ListAvailable | ? Name -eq CimDiskImage)) {
-          Install-Module CimDiskImage -WhatIf
+          Install-Module CimDiskImage
       }
       
       # Import the CimDiskImage PowerShell module.
@@ -79,4 +76,4 @@ To validate that your session hosts have the necessary access to a file share co
 
 ## Next steps
 
-[Test MSIX packages with MSIX app attach or app attach](app-attach-test-msix-packages.md).
+[Test MSIX packages with app attach or MSIX app attach](app-attach-test-msix-packages.md).

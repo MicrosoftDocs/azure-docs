@@ -1,11 +1,10 @@
 ---
 title: Azure Virtual Machines disaster recovery - High Churn support
 description: Describes how to protect your Azure Virtual Machines having high churning workloads.
-services: site-recovery
 author: ankitaduttaMSFT
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 05/23/2024
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.date: 09/18/2024
 ms.author: ankitadutta
 ---
 
@@ -20,8 +19,7 @@ Azure Site Recovery supports churn (data change rate) up to 100 MB/s per virtual
 - Source disks must be Managed Disks.
 
 > [!NOTE]
-> This feature is available in all [public regions](./azure-to-azure-support-matrix.md#region-support) where Azure Site Recovery is supported and premium block blobs are available. However, this feature is not yet available in any Government cloud regions.
-> When using High Churn with any other regions outside the supported regions, replication and/or reprotection may fail.
+> This feature is available in all [regions](azure-to-azure-support-matrix.md#region-support) where Azure Site Recovery is supported and [Premium Blob storage accounts](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all&rar=true) are available. When using High Churn with any other regions outside the supported regions, replication and/or reprotection may fail.
 
 ## Data change limits
 
@@ -34,18 +32,22 @@ Azure Site Recovery supports churn (data change rate) up to 100 MB/s per virtual
 
 The following table summarizes Site Recovery limits: 
 
-|Target Disk Type|Avg I/O Size|Avg Churn Supported|
+|Replica Disk type  |Avg I/O Size|Avg Churn Supported|
 |---|---|---|
-|Standard or P10 or P15 |8 KB|2 MB/s|
-|Standard or P10 or P15|16 KB|4 MB/s|
-|Standard or P10 or P15|24 KB|6 MB/s|
-|Standard or P10 or P15|32 KB and later |10 MB/s|
-|P20|8 KB|10 MB/s|
-|P20 |16 KB|20 MB/s|
-|P20|24 KB and later|30 MB/s|
-|P30 and later|8 KB|20 MB/s|
-|P30 and later|16 KB|35 MB/s|
-|P30 and later|24 KB and later|50 MB/s|
+|Standard  |8 KB|2 MB/s|
+|Standard |16 KB|4 MB/s|
+|Standard |24 KB|6 MB/s|
+|Standard |32 KB and later |8 MB/s|
+|Premium SSD with disk size 128 GiB or more |8 KB|10 MB/s|
+|Premium SSD with disk size 128 GiB or more |16 KB|20 MB/s|
+|Premium SSD with disk size 128 GiB or more |24 KB and later |30 MB/s|
+|Premium SSD with disk size 512 GiB or more |8 KB|10 MB/s|
+|Premium SSD with disk size 512 GiB or more |16 KB|20 MB/s|
+|Premium SSD with disk size 512 GiB or more |24 KB and later |30 MB/s|
+|Premium SSD with disk size 1TiB or more |8 KB|20 MB/s|
+|Premium SSD with disk size 1TiB or more |16 KB|35 MB/s|
+|Premium SSD with disk size 1TiB or more |24 KB and later |50 MB/s|
+
 
 ## How to enable High Churn support
 

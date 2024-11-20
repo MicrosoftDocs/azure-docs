@@ -8,7 +8,7 @@ metadata:
   description: Learn about solutions for Oracle workloads on Azure VMs
   ms.service: oracle-on-azure
   ms.topic: landing-page
-  ms.author: jjaygbay1
+  ms.author: jacobjaygbay 
   author: jjaygbay1
   ms.date: 05/11/2023
   keywords: oracle workloads on azure virtual machines, database, oracle, data migration to cloud, workloads on azure, azure data migration 
@@ -45,7 +45,13 @@ landingContent:
             url: oracle-db/oracle-database-network-plan.md
           - text: Groups and roles for Oracle Database@Azure
             url: oracle-db/oracle-database-groups-roles.md          
-          - text: Provision and manage Oracle Database@Azure
+          - text: Overview of provisioning
             url: oracle-db/provision-oracle-database.md
+          - text: Provision Oracle Autonomous databases
+            url: oracle-db/provision-autonomous-oracle-databases.md
+          - text: Link Oracle Database@Azure to multiple Azure subscriptions
+            url: oracle-db/link-oracle-database-multiple-subscription.md
           - text: Support for Oracle Database@Azure
             url: oracle-db/oracle-database-support.md
+          - text: FAQs
+            url: oracle-db/faq-oracle-database-azure.md

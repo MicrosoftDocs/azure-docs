@@ -7,7 +7,7 @@ metadata:
   ms.author: allensu
   manager: dcscontentpm
   ms.date: 03/29/2023
-  ms.service: virtual-network
+  ms.service: azure-virtual-network
   ms.topic: how-to
   ms.custom:
     - ge-structured-content-pilot

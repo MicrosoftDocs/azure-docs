@@ -3,16 +3,15 @@ title: Customer responsibilities for Azure Spring Apps Standard consumption and 
 description: Learn about the customer responsibilities for running an Azure Spring Apps Standard consumption and dedicated plan service instance in a virtual network.
 author: KarlErickson
 ms.author: xuycao
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 03/21/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java
 ---
 
 # Customer responsibilities for Azure Spring Apps Standard consumption and dedicated plan in a virtual network
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 

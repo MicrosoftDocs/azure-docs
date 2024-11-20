@@ -3,7 +3,7 @@ title: Disaster recovery of Dynamics AX with Azure Site Recovery
 description: Learn how to set up disaster recovery for Dynamics AX with Azure Site Recovery
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018

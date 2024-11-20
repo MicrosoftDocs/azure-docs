@@ -1,7 +1,7 @@
 ---
 description: Overview of features in Azure Cloud Shell
 ms.contributor: jahelmic
-ms.date: 05/07/2024
+ms.date: 06/05/2024
 ms.topic: overview
 tags: azure-resource-manager
 title: Azure Cloud Shell features
@@ -69,8 +69,10 @@ and Chef InSpec. For more information, see the following articles:
 The most commonly used tools are preinstalled in Cloud Shell. This curated collection of tools is
 updated monthly. Use the following commands to see the current list of tools and versions.
 
-- In PowerShell, use the `Get-PackageVersion` command
-- In Bash or PowerShell, use the `tdnf list` command
+- In PowerShell, use the `Get-Module -ListAvailable` command to get a list of installed module
+- In Bash or PowerShell
+  - Use the `tdnf list` command to list the TDNF packages that are installed
+  - Use the `pip3 list` command to list the Python packages that are installed
 
 ### Azure tools
 

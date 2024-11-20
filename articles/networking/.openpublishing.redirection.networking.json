@@ -84,6 +84,52 @@
             "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-multi-tier-application.md",
             "redirect_url": "/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/virtual-network-test-latency.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-test-latency",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md",
+            "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-filter-network-traffic.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md",
+            "redirect_url": "/previous-versions/azure/networking/scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/traffic-manager-cli-websites-high-availability.md",
+            "redirect_url": "/previous-versions/azure/networking/scripts/traffic-manager-cli-websites-high-availability",
+            "redirect_document_id": false
+        },
+      
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-filter-network-traffic.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-cli-sample-peer-two-virtual-networks.md",
+            "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/virtual-network-cli-sample-route-traffic-through-nva.md",
+            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
         }
     ]
 }

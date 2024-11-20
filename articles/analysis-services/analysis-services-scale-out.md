@@ -140,7 +140,7 @@ Return status codes:
 
 ### PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Before using PowerShell, [install or update the latest Azure PowerShell module](/powershell/azure/install-azure-powershell). 
 

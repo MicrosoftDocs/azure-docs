@@ -3,13 +3,15 @@ title: Quickstart - Map a custom domain to Azure Spring Apps with the Standard c
 description: Learn how to map a web domain to apps in Azure Spring Apps.
 author: KarlErickson
 ms.author: haojianzhong
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java
 ---
 
 # Quickstart: Map a custom domain to Azure Spring Apps with the Standard consumption and dedicated plan
+
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 

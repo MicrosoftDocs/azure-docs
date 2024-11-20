@@ -4,7 +4,7 @@ description: 'In this article, you create an Azure Traffic Manager profile using
 services: traffic-manager
 ms.topic: quickstart
 ms.custom: devx-track-terraform
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 author: TomArcherMsft
 ms.author: tarcher
 ms.date: 6/8/2023

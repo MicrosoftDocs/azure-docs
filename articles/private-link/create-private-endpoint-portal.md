@@ -3,7 +3,7 @@ title: 'Quickstart: Create a private endpoint - Azure portal'
 titleSuffix: Azure Private Link
 description: In this quickstart, learn how to create a private endpoint using the Azure portal.
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 02/26/2024
 ms.author: abell
@@ -35,7 +35,7 @@ You can create private endpoints for various Azure services, such as Azure SQL a
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 ## Create a private endpoint
 
@@ -109,7 +109,7 @@ Next, you create a private endpoint for the web app that you created in the **Pr
 
 1. Select **Create**.
 
-[!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
+[!INCLUDE [create-test-virtual-machine.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine.md)]
 
 ## Test connectivity to the private endpoint
 
@@ -153,7 +153,7 @@ Use the virtual machine that you created earlier to connect to the web app acros
 
 1. Close the connection to **vm-1**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

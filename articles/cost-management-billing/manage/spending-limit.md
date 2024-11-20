@@ -6,7 +6,7 @@ ms.reviewer: judupont
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 08/14/2024
 ms.author: banders
 ---
 
@@ -90,7 +90,7 @@ Custom spending limits aren't available.
 If the spending limit banner doesn't appear, you can manually navigate to your subscription's URL.
 
 1. Ensure that you've navigated to the correct tenant/directory in the Azure portal.
-1. Navigate to `https://portal.azure.com/#blade/Microsoft_Azure_Billing/RemoveSpendingLimitBlade/subscriptionId/11111111-1111-1111-1111-111111111111` and replace the example subscription ID with your subscription ID.
+1. Navigate to `https://portal.azure.com/#blade/Microsoft_Azure_Billing/RemoveSpendingLimitBlade/subscriptionId/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e` and replace the example subscription ID with your subscription ID.
 
 The spending limit banner should appear.
 

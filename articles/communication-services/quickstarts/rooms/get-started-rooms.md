@@ -27,7 +27,7 @@ The following table lists the main properties of `room` objects:
 | `validFrom`           | Earliest time a `room` can be used. |
 | `validUntil`          | Latest time a `room` can be used. |
 | `pstnDialOutEnabled`  | Enable or disable dialing out to a PSTN number in a room.|
-| `participants`        | List of participants to a `room`. Specified as a `CommunicationIdentifier`. |
+| `participants`        | List of participants to a `room`. Specified as a `CommunicationUserIdentifier`. |
 | `roleType`            | The role of a room participant. Can be either `Presenter`, `Attendee`, or `Consumer`. |
 
 ::: zone pivot="platform-azcli"

@@ -3,8 +3,8 @@ title: Azure Load Balancer health event logs
 titleSuffix: Azure Load Balancer
 description: Learn what health event logs are available for Azure Load Balancer including severity definitions, health event types, and publishing frequency.
 author: mbender-ms
-ms.service: load-balancer
-ms.topic: concept
+ms.service: azure-load-balancer
+ms.topic: concept-article
 ms.date: 05/21/2024
 ms.author: mbender
 ms.custom: references_regions

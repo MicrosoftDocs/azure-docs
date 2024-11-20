@@ -10,6 +10,8 @@ ms.date: 02/15/2022
 
 # Create a lab plan in Azure Lab Services using Python and the Azure libraries (SDK) for Python
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to use Python and the Azure Python SDK to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  You'll also add a role assignment so an educator can create labs based on the lab plan.  For an overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 ## Prerequisites

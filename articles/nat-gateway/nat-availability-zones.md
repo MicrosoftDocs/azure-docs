@@ -4,7 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Learn about key concepts and design guidance on deploying Azure NAT Gateway with availability zones.
 services: virtual-network
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: conceptual
 ms.date: 02/15/2024
 ms.author: allensu

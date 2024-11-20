@@ -4,8 +4,7 @@ description: Describes how to use Azure Data Box or Azure Data Box Heavy to send
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/24/2019
@@ -18,7 +17,7 @@ Azure Data Box moves large amounts of data to Azure by shipping you a proprietar
 
 This article describes how the data that is uploaded by Data Box can be moved to a Hot, Cool, or Archive blob tier. This article applies to both Azure Data Box and Azure Data Box Heavy.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Choose the correct storage tier for your data
 

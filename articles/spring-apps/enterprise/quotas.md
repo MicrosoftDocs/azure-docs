@@ -2,17 +2,16 @@
 title: Service plans and quotas for Azure Spring Apps
 description: Learn about service quotas and service plans for Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 05/15/2023
+ms.date: 08/29/2024
 ms.author: karler
 ms.custom: devx-track-java
 ---
 
 # Quotas and service plans for Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -50,4 +49,4 @@ The following table defines limits for the pricing plans in Azure Spring Apps.
 
 ## Next steps
 
-Some default limits can be increased. For more information, see [create a support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+Some default limits can be increased. For more information, see [create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).

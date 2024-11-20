@@ -3,7 +3,7 @@ title: 'Point-to-site VPN session management'
 titleSuffix: Azure VPN Gateway
 description: Learn how to view and disconnect Point-to-Site VPN sessions.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 11/27/2023
 ms.author: cherylmc

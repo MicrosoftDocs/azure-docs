@@ -416,7 +416,7 @@ For more information, see [Set up AWS integration with Cost Management](aws-inte
 
 ## Create a support request
 
-If you're facing an error not listed above or need more help, file a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) and specify the issue type as **Billing**.
+If you're facing an error not listed above or need more help, file a [support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) and specify the issue type as **Billing**.
 
 ## Next steps
 

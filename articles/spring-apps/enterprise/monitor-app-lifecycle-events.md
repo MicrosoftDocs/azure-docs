@@ -3,16 +3,15 @@ title:  Monitor app lifecycle events using Azure Activity log and Azure Service 
 description: Monitor app lifecycle events and set up alerts with Azure Activity log and Azure Service Health.
 author: KarlErickson
 ms.author: shiqiu
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 06/27/2024
 ms.custom: devx-track-java
 ---
 
 # Monitor app lifecycle events using Azure Activity log and Azure Service Health
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -23,11 +22,11 @@ Azure Spring Apps provides built-in tools to monitor the status and health of yo
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- A deployed Azure Spring Apps service instance and at least one application already created in your service instance. For more information, see [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](quickstart.md). 
+- A deployed Azure Spring Apps service instance and at least one application already created in your service instance. For more information, see [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](quickstart.md).
 
 ## Monitor app lifecycle events triggered by users in Azure Activity logs
 
-[Azure Activity logs](../../azure-monitor/essentials/activity-log.md) contain resource events emitted by operations taken on the resources in your subscription. The following details for application lifecycle events (such as start, stop, and restart) are added into Azure Activity Logs:
+[Azure Activity logs](/azure/azure-monitor/essentials/activity-log) contain resource events emitted by operations taken on the resources in your subscription. The following details for application lifecycle events (such as start, stop, and restart) are added into Azure Activity Logs:
 
 - The time the operation occurred.
 - The status of the operation.
@@ -41,7 +40,7 @@ To see the affected instances when you restart your app, navigate to your Azure 
 
 ## Monitor app lifecycle events in Azure Service Health
 
-[Azure Resource Health](../../service-health/resource-health-overview.md) helps you diagnose and get support for issues that may affect the availability of your service. These issues include service incidents, planned maintenance periods, and regional outages. Application restarting events are added into Azure Service Health. They include both unexpected incidents (for example, an unplanned app crash) and scheduled actions (for example, planned maintenance).
+[Azure Resource Health](/azure/service-health/resource-health-overview) helps you diagnose and get support for issues that may affect the availability of your service. These issues include service incidents, planned maintenance periods, and regional outages. Application restarting events are added into Azure Service Health. They include both unexpected incidents (for example, an unplanned app crash) and scheduled actions (for example, planned maintenance).
 
 ### Monitor unplanned app lifecycle events
 
@@ -70,7 +69,7 @@ When platform maintenance happens, your Azure Spring Apps instance shows a statu
 
 You can set up alerts for app lifecycle events. Service health notifications are also stored in the Azure activity log. The activity log stores a large volume of information, so there's a separate user interface to make it easier to view and set up alerts on service health notifications.
 
-The following list describes the key steps needed to set up an alert: 
+The following list describes the key steps needed to set up an alert:
 
 1. Set up an action group with the actions to take when an alert is triggered. Example action types include sending a voice call, SMS, email; or triggering various types of automated actions. Various alerts may use the same action group or different action groups depending on the user's requirements.
 2. Set up alert rules. The alerts use action groups to notify users that an alert for some specific app lifecycle event has been triggered.

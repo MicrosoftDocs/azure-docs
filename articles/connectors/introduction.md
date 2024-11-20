@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 09/06/2024
 ms.custom: engagement-fy23
 # Customer intent: As a developer, I want to learn how connectors help me access data, events, and resources in other apps, services, systems, and platforms from my workflow in Azure Logic Apps.
 ---
@@ -29,7 +29,7 @@ This overview provides a high-level introduction to connectors and how they gene
 
 ## Built-in connectors versus managed connectors
 
-In Azure Logic Apps, connectors are either *built in* or *managed*. Some connectors have both versions. The available versions depend on whether you create a *Consumption* logic app workflow that runs in multi-tenant Azure Logic Apps or a *Standard* logic app workflow that runs in single-tenant Azure Logic Apps. For more information about logic app resource types, see [Resource types and host environment differences](../logic-apps/logic-apps-overview.md#resource-environment-differences).
+In Azure Logic Apps, connectors are either *built in* or *managed*. Some connectors have both versions. The available versions depend on whether you create a *Consumption* logic app workflow that runs in multitenant Azure Logic Apps or a *Standard* logic app workflow that runs in single-tenant Azure Logic Apps. For more information about logic app resource types, see [Resource types and host environment differences](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
 * [Built-in connectors](built-in.md) are designed to run directly and natively inside Azure Logic Apps.
 
@@ -49,6 +49,14 @@ For more information, see the following documentation:
 A trigger specifies the condition to meet before the workflow can start and is always the first step in any workflow. Each trigger also follows a specific firing pattern that controls how the trigger monitors and responds to events. Usually, a trigger follows either a *polling* pattern or a *push* pattern. Sometimes, both trigger versions are available.
 
 - *Polling* triggers regularly check a specific service or system on a specified schedule to check for new data or a specific event. If new data is available, or the specific event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
+
+  > [!NOTE]
+  >
+  > For connectors that are Microsoft-managed, hosted, and run in Azure, polling triggers use only the **Interval** 
+  > and **Frequency** values to calculate the next recurrence. They don't use the advanced scheduling options, 
+  > such as **At these hours** and **At these days**. These options work only with built-in polling triggers that 
+  > directly run with the Azure Logic Apps runtime, such as the **Recurrence**, **Sliding Window**, and **HTTP** triggers.
+  
 
 - *Push* or *webhook* triggers listen for new data or for an event to happen, without polling. When new data is available, or when the event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
 
@@ -112,7 +120,7 @@ If your workflows also use managed connectors, such as the Office 365 Outlook co
 
 ## Custom connectors and APIs
 
-In Consumption workflows for multi-tenant Azure Logic Apps, you can call Swagger-based or SOAP-based APIs that aren't available as out-of-the-box connectors. You can also run custom code by creating custom API Apps. For more information, see the following documentation:
+In Consumption workflows for multitenant Azure Logic Apps, you can call Swagger-based or SOAP-based APIs that aren't available as out-of-the-box connectors. You can also run custom code by creating custom API Apps. For more information, see the following documentation:
 
 * [Swagger-based or SOAP-based custom connectors for Consumption workflows](../logic-apps/custom-connector-overview.md#custom-connector-consumption)
 
@@ -127,52 +135,6 @@ In Standard workflows for single-tenant Azure Logic Apps, you can create nativel
 * [Service provider-based custom built-in connectors for Standard workflows](../logic-apps/custom-connector-overview.md#custom-connector-standard)
 
 * [Create service provider-based custom built-in connectors for Standard workflows](../logic-apps/create-custom-built-in-connector-standard.md)
-
-## ISE and connectors
-
-For workflows that need direct access to resources in an Azure virtual network, you can create a dedicated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can build, deploy, and run your workflows on dedicated resources. For more information about creating ISEs, see [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
-
-Custom connectors created within an ISE don't work with the on-premises data gateway. However, these connectors can directly access on-premises data sources that are connected to an Azure virtual network hosting the ISE. So, logic app workflows in an ISE most likely don't need the data gateway when communicating with those resources. If you have custom connectors that you created outside an ISE that require the on-premises data gateway, workflows in an ISE can use those connectors.
-
-In the workflow designer, when you browse the built-in connectors or managed connectors that you want to use for workflows in an ISE, the **CORE** label appears on built-in connectors, while the **ISE** label appears on managed connectors that are designed to work with an ISE.
-
-:::row:::
-    :::column:::
-        ![Example CORE connector](./media/apis-list/example-core-connector.png)
-        \
-        \
-        **CORE**
-        \
-        \
-        Built-in connectors with this label run in the same ISE as your workflows.
-    :::column-end:::
-    :::column:::
-        ![Example ISE connector](./media/apis-list/example-ise-connector.png)
-        \
-        \
-        **ISE**
-        \
-        \
-        Managed connectors with this label run in the same ISE as your workflows.
-        \
-        \
-        If you have an on-premises system that's connected to an Azure virtual network, an ISE lets your workflows directly access that system without using the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). Instead, you can either use that system's **ISE** connector if available, an HTTP action, or a [custom connector](#custom-connectors-and-apis).
-        \
-        \
-        For on-premises systems that don't have **ISE** connectors, use the on-premises data gateway. To find available ISE connectors, review [ISE connectors](#ise-and-connectors).
-    :::column-end:::
-    :::column:::
-        ![Example non-ISE connector](./media/apis-list/example-multi-tenant-connector.png)
-        \
-        \
-        No label
-        \
-        \
-        All other connectors without a label, which you can continue to use, run in the global, multi-tenant Logic Apps service.
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
 
 ## Known issues
 

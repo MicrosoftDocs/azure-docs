@@ -336,7 +336,7 @@ az webapp up \
 
 > [!NOTE] 
 > You may need to switch to the Azure subscription in which the resources you created so far if you have been following the guide. 
-> To switch subscription, follow the command mentioned in [this documentation article](https://learn.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?tabs=bash#change-the-active-subscription).
+> To switch subscription, follow the command mentioned in [this documentation article](/cli/azure/manage-azure-subscriptions-azure-cli?tabs=bash#change-the-active-subscription).
 
 #### Set environment variable 
 When the `publish.js` program starts, App Service makes the environment variables available for your program to consume. 

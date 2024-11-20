@@ -3,7 +3,7 @@ title: Ingress in Azure Container Apps
 description: Ingress options for Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 05/03/2023
 ms.author: cshoe
@@ -83,7 +83,7 @@ With TCP ingress enabled, your container app:
 In addition to the main HTTP/TCP port for your container apps, you might expose additional TCP ports to enable applications that accept TCP connections on multiple ports.
 
 > [!NOTE]
-> This feature requires using the latest preview version of the container apps CLI extension.
+> To use this feature, you must have the container apps CLI extension. Run `az extension add -n containerapp` in order to install the latest version of the container apps CLI extension.
 
 The following apply to additional TCP ports:
 - Additional TCP ports can only be external if the app itself is set as external and the container app is using a custom VNet.
@@ -115,7 +115,7 @@ Azure Container Apps provides built-in authentication and authorization features
 
 You can configure your app to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificate-authorization.md). 
 
-For details on how to use mTLS for environment level network encryption, see the [networking overview](./networking.md#mtls). 
+For details on how to use peer-to-peer environment level network encryption, see the [networking overview](./networking.md#peer-to-peer-encryption). 
 
 ## Traffic splitting
 

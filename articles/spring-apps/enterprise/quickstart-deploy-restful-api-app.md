@@ -2,7 +2,7 @@
 title: Quickstart - Deploy RESTful API application to Azure Spring Apps
 description: Learn how to deploy RESTful API application to Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 01/17/2024
 ms.author: v-shilichen
@@ -12,11 +12,7 @@ zone_pivot_groups: spring-apps-enterprise-or-consumption-plan-selection
 
 # Quickstart: Deploy RESTful API application to Azure Spring Apps
 
-> [!NOTE]
-> The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
-
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 This article describes how to deploy a RESTful API application protected by [Microsoft Entra ID](/entra/fundamentals/whatis) to Azure Spring Apps. The sample project is a simplified version based on the [Simple Todo](https://github.com/Azure-Samples/ASA-Samples-Web-Application) web application, which only provides the backend service and uses Microsoft Entra ID to protect the RESTful APIs.
 

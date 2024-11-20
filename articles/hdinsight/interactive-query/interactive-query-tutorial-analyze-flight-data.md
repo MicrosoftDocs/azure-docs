@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: ETL operations with Interactive Query - Azure HDInsight'
 description: Tutorial - Learn how to extract data from a raw CSV dataset. Transform it using Interactive Query on HDInsight. Then load the transformed data into Azure SQL Database by using Apache Sqoop.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 05/10/2024
@@ -202,7 +202,7 @@ There are many ways to connect to SQL Database and create a table. The following
 2. After the installation finishes, use the following command to connect to SQL Database:
 
     ```bash
-    TDSVER=8.0 tsql -H $server-name.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
+    TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
     ```
 
     You receive output similar to the following text:
@@ -251,7 +251,7 @@ In the previous sections, you copied the transformed data at `/tutorials/flightd
 1. Verify that Sqoop can see your SQL database by entering the command below:
 
     ```bash
-    sqoop list-databases --connect jdbc:sqlserver://$server-name.database.windows.net:1433 --username $SQLUSER --password $SQLPASWORD
+    sqoop list-databases --connect jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433 --username $SQLUSER --password $SQLPASWORD
     ```
 
     This command returns a list of databases, including the database in which you created the `delays` table earlier.
@@ -259,7 +259,7 @@ In the previous sections, you copied the transformed data at `/tutorials/flightd
 2. Export data from `/tutorials/flightdelays/output` to the `delays` table by entering the command below:
 
     ```bash
-    sqoop export --connect "jdbc:sqlserver://$server-name.database.windows.net:1433;database=$DATABASE" --username $SQLUSER --password $SQLPASWORD --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+    sqoop export --connect "jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433;database=$DATABASE" --username $SQLUSER --password $SQLPASWORD --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
     Sqoop connects to the database that contains the `delays` table, and exports data from the `/tutorials/flightdelays/output` directory to the `delays` table.
@@ -267,7 +267,7 @@ In the previous sections, you copied the transformed data at `/tutorials/flightd
 3. After the sqoop command finishes, use the tsql utility to connect to the database by entering the command below:
 
     ```bash
-    TDSVER=8.0 tsql -H $server-name.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
+    TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
     ```
 
     Use the following statements to verify that the data was exported to the delays table:

@@ -4,7 +4,6 @@ description: Start running an experiment by creating a Split Experimentation Wor
 #customerintent: As a developer, I want to learn how to get started with Split Experimentation, by creating a Split Experimentation workspace.
 author: maud-lv
 ms.author: malev
-ms.service: azure-app-configuration
 ms.custom:
   - build-2024
 ms.topic: quickstart

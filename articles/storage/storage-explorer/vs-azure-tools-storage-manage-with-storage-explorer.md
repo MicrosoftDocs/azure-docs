@@ -30,7 +30,7 @@ The following versions of Windows support the latest versions of Storage Explore
 
 Other requirements include:
 - Your Windows installation must support 64-bit applications (starting with Storage Explorer 1.30.0).
-- You must have a x64 .NET 6 runtime installed (starting with Storage Explorer 1.30.0). You can download the latest .NET 6 runtime from [here](https://dotnet.microsoft.com/download/dotnet/6.0).
+- You must have a .NET 8 runtime installed (starting with Storage Explorer 1.34.0) which matches the architecture of your Storage Explorer install. The Storage Explorer installer will install a .NET 8 runtime if you do not already have one installed, but it may not be the latest version available. It is your responsibility to keep your .NET install up to date. You can download the latest .NET 8 runtime from [here](https://dotnet.microsoft.com/download/dotnet/8.0). 
 
 # [macOS](#tab/macos)
 
@@ -134,14 +134,14 @@ Storage Explorer provides several ways to connect to Azure resources:
 
 ### Attach to an individual resource
 
-Storage Explorer lets you connect to individual resources, such as an Azure Data Lake Storage Gen2 container, using various authentication methods. Some authentication methods are only supported for certain resource types.
+Storage Explorer lets you connect to individual resources, such as an Azure Data Lake Storage container, using various authentication methods. Some authentication methods are only supported for certain resource types.
 
 | Resource type    | Microsoft Entra ID | Account Name and Key | Shared Access Signature (SAS)  | Public (anonymous) |
 |------------------|--------------------|----------------------|--------------------------------|--------------------|
 | Storage accounts | Yes                | Yes                  | Yes (connection string or URL) | No                 |
 | Blob containers  | Yes                | No                   | Yes (URL)                      | Yes                |
-| Gen2 containers  | Yes                | No                   | Yes (URL)                      | Yes                |
-| Gen2 directories | Yes                | No                   | Yes (URL)                      | Yes                |
+| Data Lake Storage containers  | Yes                | No                   | Yes (URL)                      | Yes                |
+| Data Lake Storage directories | Yes                | No                   | Yes (URL)                      | Yes                |
 | File shares      | No                 | No                   | Yes (URL)                      | No                 |
 | Queues           | Yes                | No                   | Yes (URL)                      | No                 |
 | Tables           | Yes                | No                   | Yes (URL)                      | No                 |
@@ -154,7 +154,7 @@ To connect to an individual resource, select the **Connect** button in the left-
 
 When a connection to a storage account is successfully added, a new tree node appears under **Local & Attached** > **Storage Accounts**.
 
-For other resource types, a new node is added under **Local & Attached** > **Storage Accounts** > **(Attached Containers)**. The node appears under a group node matching its type. For example, a new connection to an Azure Data Lake Storage Gen2 container appears under **Blob Containers**.
+For other resource types, a new node is added under **Local & Attached** > **Storage Accounts** > **(Attached Containers)**. The node appears under a group node matching its type. For example, a new connection to an Azure Data Lake Storage container appears under **Blob Containers**.
 
 If Storage Explorer couldn't add your connection, or if you can't access your data after successfully adding the connection, see the [Azure Storage Explorer troubleshooting guide](../common/storage-explorer-troubleshooting.md).
 
@@ -166,8 +166,8 @@ The following sections describe the different authentication methods you can use
 
 Storage Explorer can use your Azure account to connect to the following resource types:
 * Blob containers
-* Azure Data Lake Storage Gen2 containers
-* Azure Data Lake Storage Gen2 directories
+* Azure Data Lake Storage containers
+* Azure Data Lake Storage directories
 * Queues
 
 Microsoft Entra ID is the preferred option if you have data layer access to your resource but no management layer access.
@@ -211,7 +211,7 @@ TableEndpoint=https://contoso.table.core.windows.net/;
 
 Storage Explorer can connect to the following resource types using a SAS URI:
 * Blob container
-* Azure Data Lake Storage Gen2 container or directory
+* Azure Data Lake Storage container or directory
 * File share
 * Queue
 * Table

@@ -1,6 +1,6 @@
 ---
-title: Metrics for Azure IoT MQ
-description: Available observability metrics for Azure IoT MQ to monitor the health and performance of your solution.
+title: Metrics for MQTT broker
+description: Available observability metrics for MQTT broker to monitor the health and performance of your solution.
 author: kgremban
 ms.author: kgremban
 ms.topic: reference
@@ -12,11 +12,11 @@ ms.date: 11/1/2023
 # on the health of my industrial assets and edge environment.
 ---
 
-# Metrics for Azure IoT MQ Preview
+# Metrics for MQTT broker
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT MQ Preview provides a set of observability metrics that you can use to monitor and analyze the health of your solution.  This article describes the available metrics for MQ and the MQ cloud connector.
+MQTT broker provides a set of observability metrics that you can use to monitor and analyze the health of your solution. This article describes the available metrics for MQ and the MQ cloud connector.
 
 ## MQ metrics
 
@@ -105,26 +105,26 @@ Azure IoT MQ Preview provides a set of observability metrics that you can use to
 > [!div class="mx-tdBreakAll"]
 > | Metric name                                      | Definition                                                                                     | 
 > | ------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-> | aio_mq_kafka_cloud_bytes_received                | Messages in bytes received from Azure IoT MQ to Azure Event Hubs. |
-> | aio_mq_kafka_cloud_bytes_sent                    | Messages in bytes sent from Azure Event Hubs to Azure IoT MQ. |
-> | aio_mq_kafka_cloud_publishes_received            | Count of messages published from Azure IoT MQ to Azure Event Hubs. |
-> | aio_mq_kafka_cloud_publishes_sent                | Count of messages from Azure Event Hubs to Azure IoT MQ. |
-> | aio_mq_kafka_dmqtt_bytes_received                | Messages in bytes received from Azure Event Hubs to Azure IoT MQ. If the connector is online, this metric should equal the value of `aio_mq_kafka_cloud_bytes_sent`. |
-> | aio_mq_kafka_dmqtt_bytes_sent                    | Messages in bytes published from Azure IoT MQ to Azure Event Hubs. If the connector is online, this metric should equal the value of `aio_mq_kafka_cloud_bytes_received`. |
-> | aio_mq_kafka_dmqtt_publishes_received            | Counts of messages received from Azure Event Hubs to Azure IoT MQ. If the connector is online, this metric should equal the value of `aio_mq_kafka_cloud_publishes_sent`. |
-> | aio_mq_kafka_dmqtt_publishes_sent                | Counts of messages published from Azure IoT MQ to Azure Event Hubs. If the connector is online, this metric should equal the value of `aio_mq_kafka_cloud_publishes_received`. |
+> | aio_mq_kafka_cloud_bytes_received                | Messages in bytes received from MQTT broker to Azure Event Hubs. |
+> | aio_mq_kafka_cloud_bytes_sent                    | Messages in bytes sent from Azure Event Hubs to MQTT broker. |
+> | aio_mq_kafka_cloud_publishes_received            | Count of messages published from MQTT broker to Azure Event Hubs. |
+> | aio_mq_kafka_cloud_publishes_sent                | Count of messages from Azure Event Hubs to MQTT broker. |
+> | aio_mq_kafka_dmqtt_bytes_received                | Messages in bytes received from Azure Event Hubs to MQTT broker. If the connector is online, this metric should equal the value of `aio_mq_kafka_cloud_bytes_sent`. |
+> | aio_mq_kafka_dmqtt_bytes_sent                    | Messages in bytes published from MQTT broker to Azure Event Hubs. If the connector is online, this metric should equal the value of `aio_mq_kafka_cloud_bytes_received`. |
+> | aio_mq_kafka_dmqtt_publishes_received            | Counts of messages received from Azure Event Hubs to MQTT broker. If the connector is online, this metric should equal the value of `aio_mq_kafka_cloud_publishes_sent`. |
+> | aio_mq_kafka_dmqtt_publishes_sent                | Counts of messages published from MQTT broker to Azure Event Hubs. If the connector is online, this metric should equal the value of `aio_mq_kafka_cloud_publishes_received`. |
 
 ### Data Lake
 
 > [!div class="mx-tdBreakAll"]
 > | Metric name                                      | Definition                                                                                     | 
 > | ------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-> | aio_mq_datalake_cloud_publishes_sent             | Count of messages published from Azure Data Lake to Azure IoT MQ. |
-> | aio_mq_datalake_dmqtt_bytes_received             | The number in bytes of messages that Azure IoT MQ received from Azure Data Lake. |
-> | aio_mq_datalake_dmqtt_publishes_received         | The number in bytes of messages published from Azure IoT MQ to Azure Data Lake. |
+> | aio_mq_datalake_cloud_publishes_sent             | Count of messages published from Azure Data Lake to MQTT broker. |
+> | aio_mq_datalake_dmqtt_bytes_received             | The number in bytes of messages that MQTT broker received from Azure Data Lake. |
+> | aio_mq_datalake_dmqtt_publishes_received         | The number in bytes of messages published from MQTT broker to Azure Data Lake. |
 
 
 
 ## Related content
 
-- [Configure observability](../monitor/howto-configure-observability.md)
+- [Configure observability](../configure-observability-monitoring/howto-configure-observability.md)

@@ -4,7 +4,7 @@ description: Introduction to designing tables using dedicated SQL pool.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 07/05/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse

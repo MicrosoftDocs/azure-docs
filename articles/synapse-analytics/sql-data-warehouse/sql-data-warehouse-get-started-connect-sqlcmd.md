@@ -5,7 +5,7 @@ author: joannapea
 ms.author: joanpo
 ms.reviewer: wiassaf
 ms.date: 04/17/2018
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
@@ -40,7 +40,7 @@ To use SQL Server Authentication, you need to add the username/password paramete
 For example, your connection string might look like the following:
 
 ```sql
-C:\>sqlcmd -S server-name.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
 To use Microsoft Entra integrated authentication, you need to add the Microsoft Entra parameters:
@@ -50,7 +50,7 @@ To use Microsoft Entra integrated authentication, you need to add the Microsoft 
 For example, your connection string might look like the following:
 
 ```sql
-C:\>sqlcmd -S server-name.database.windows.net -d Adventure_Works -G -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
@@ -61,7 +61,7 @@ C:\>sqlcmd -S server-name.database.windows.net -d Adventure_Works -G -I
 After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode.
 
 ```sql
-C:\>sqlcmd -S server-name.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
@@ -70,11 +70,11 @@ C:\>sqlcmd -S server-name.database.windows.net -d Adventure_Works -U myuser -P m
 These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd.
 
 ```sql
-sqlcmd -S server-name.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
 ```
 
 ```sql
-"SELECT name FROM sys.tables;" | sqlcmd -S server-name.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
 ## Next steps

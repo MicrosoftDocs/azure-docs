@@ -28,7 +28,11 @@ az aosm nsd generate-config
 Execution of the preceding command generates an nsd-input.jsonc file.
 
 > [!NOTE]
-> Edit the input.json file. Replace it with the values shown in the sample. Save the file as **input-cnf-nsd.jsonc**.
+> Edit the input.json file. Replace it with the values shown in the sample below. Save the file as **input-cnf-nsd.jsonc**.
+>
+> If you changed the name of the publisher when publishing the NFDV, use your publisher name for both the `publisher_name` and `publisher` fields (the latter is within the `resource_element_templates` array).
+>
+> If you have used a different resource group name, update both the `publisher_resource_group_name` and `publisher_resource_group` fields (the latter is within the `resource_element_templates` array).
 
 Here's a sample **input-cnf-nsd.jsonc**:
 
@@ -123,7 +127,7 @@ To publish the NSDV and its associated artifacts, issue the following command:
 az aosm nsd publish --build-output-folder nsd-cli-output
 ```
 
-When the Publish process is complete, navigate to your Publisher Resource Group to observe and review the resources and artifacts that were produced.
+When the publish process is complete, navigate to your Publisher Resource Group to observe and review the resources and artifacts that were produced.
 
 ## Next steps
 

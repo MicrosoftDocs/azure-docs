@@ -3,7 +3,7 @@ title: 'Quickstart: Create a private endpoint - ARM template'
 description: In this quickstart, you'll learn how to create a private endpoint using an Azure Resource Manager template (ARM template).
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 03/28/2024
 ms.author: abell
@@ -15,7 +15,7 @@ ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-arm-template
 
 In this quickstart, you'll use an Azure Resource Manager template (ARM template) to create a private endpoint.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 You can also create a private endpoint by using the [Azure portal](create-private-endpoint-portal.md), [Azure PowerShell](create-private-endpoint-powershell.md), or the [Azure CLI](create-private-endpoint-cli.md).
 
@@ -108,7 +108,7 @@ To connect to the SQL Database server from the VM by using the private endpoint,
       Server:  UnKnown
       Address:  168.63.129.16
       Non-authoritative answer:
-      Name:    sqlserver.server-name.database.windows.net
+      Name:    sqlserver.privatelink.database.windows.net
       Address:  10.0.0.5
       Aliases:  sqlserver.database.windows.net
     ```

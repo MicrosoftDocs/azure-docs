@@ -14,7 +14,7 @@ ms.author: robiro
 
 # SAP front-end printing with Universal Print
 
-Printing from your SAP landscape is a requirement for many customers. Depending on your business, printing needs can come in different areas and SAP applications. Examples can be data list printing, mass- or label printing. Such production and batch print scenarios are often solved with specialized hardware, drivers and printing solutions. This article addresses options to use [Universal Print](/universal-print/fundamentals/universal-print-whatis) for SAP front-end printing of the SAP users. For backend printing, see [our blog post](https://community.sap.com/t5/technology-blogs-by-members/it-has-never-been-easier-to-print-from-sap-with-microsoft-universal-print/ba-p/13672206) and [GitHub repos](https://github.com/Azure/universal-print-for-sap-starter-pack).
+Printing from your SAP landscape is a requirement for many customers. Depending on your business, printing needs can come in different areas and SAP applications. Examples can be data list printing, mass- or label printing. Such production and batch print scenarios are often solved with specialized hardware, drivers and printing solutions. This article addresses options to use [Universal Print](/universal-print/discover-universal-print) for SAP front-end printing of the SAP users. For backend printing, see [our blog post](https://community.sap.com/t5/technology-blogs-by-members/it-has-never-been-easier-to-print-from-sap-with-microsoft-universal-print/ba-p/13672206) and [GitHub repos](https://github.com/Azure/universal-print-for-sap-starter-pack).
 
 Universal Print is a cloud-based print solution that enables organizations to manage printers and printer drivers in a centralized manner. Removes the need to use dedicated printer servers and available for use by company employees and applications. While Universal Print runs entirely on Microsoft Azure, for use with SAP systems there's no such requirement. Your SAP landscape can run on Azure, be located on-premises or operate in any other cloud environment. You can use SAP systems deployed by SAP RISE. Similarly, SAP cloud services, which are browser based can be used with Universal Print in most front-end printing scenarios.
 
@@ -26,7 +26,7 @@ Universal Print is a cloud-based print solution that enables organizations to ma
 -	Add Universal Print printer to your Windows client
 -	Able to print on Universal Print printer from OS
 
-See the [Universal Print documentation](/universal-print/fundamentals/universal-print-getting-started#step-4-add-a-universal-print-printer-to-a-windows-device.md) for details on these prerequisites. As a result, one or more Universal Print printers are visible in your device’s printer list. For SAP front-end printing, it's not necessary to make it your default printer.
+See the [Universal Print documentation](/universal-print/set-up-universal-print#step-2-check-prerequisities) for details on these prerequisites. As a result, one or more Universal Print printers are visible in your device’s printer list. For SAP front-end printing, it's not necessary to make it your default printer.
 
 [![Example showing Universal Print printers in Windows 11 settings dialog.](./media/universtal-print-sap/frontend-os-printer.png)](./media/universtal-print-sap/frontend-os-printer.png#lightbox)
 
@@ -58,6 +58,7 @@ SAP defines front-end printing with several [constraints](https://help.sap.com/d
 
 - [Deploy the SAP backend printing Starter Pack](https://github.com/Azure/universal-print-for-sap-starter-pack)
 - [Learn more from our SAP with Universal Print blog post](https://community.sap.com/t5/technology-blogs-by-members/it-has-never-been-easier-to-print-from-sap-with-microsoft-universal-print/ba-p/13672206)
+- [Learn about running classic SAP printing solutions highly-available on Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-deploy-sap-print-server-highly-available-architecture-on/ba-p/3901761)
 
 Check out the documentation:
 

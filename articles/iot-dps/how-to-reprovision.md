@@ -7,7 +7,8 @@ author: kgremban
 ms.author: kgremban
 ms.date: 03/10/2023
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
+ms.subservice: azure-iot-hub-dps
 ---
 
 # How to reprovision devices
@@ -84,7 +85,7 @@ How often a device submits a provisioning request depends on the scenario.  When
 * Retry capability implemented on your client code, as described on the [Retry general guidance](/azure/architecture/best-practices/transient-faults) at the Azure Architecture Center
 
 >[!TIP]
-> We recommend not provisioning on every reboot of the device, as this could hit the service throttling limits especially when reprovisioning several thousands or millions of devices at once. Instead you should attempt to use the [Device Registration Status Lookup](/rest/api/iot-dps/device/device-registration-state) API and try to connect with that information to IoT Hub. If that fails, then try to reprovision as the IoT Hub information might have changed.  Keep in mind that querying for the registration state will count as a new device registration, so you should consider the [Device registration limit]( about-iot-dps.md#quotas-and-limits). Also consider implementing an appropriate retry logic, such as exponential back-off with randomization, as described on the [Retry general guidance](/azure/architecture/best-practices/transient-faults).
+> We recommend not provisioning on every reboot of the device, as this could hit the service throttling limits especially when reprovisioning several thousands or millions of devices at once. Instead you should attempt to use the [Device Registration Status Lookup](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup) API and try to connect with that information to IoT Hub. If that fails, then try to reprovision as the IoT Hub information might have changed.  Keep in mind that querying for the registration state will count as a new device registration, so you should consider the [Device registration limit]( about-iot-dps.md#quotas-and-limits). Also consider implementing an appropriate retry logic, such as exponential back-off with randomization, as described on the [Retry general guidance](/azure/architecture/best-practices/transient-faults).
 >In some cases, depending on the device capabilities, it’s possible to save the IoT Hub information directly on the device to connect directly to IoT Hub after the first-time provisioning using DPS occurred.  If you choose to do this, make sure you implement a fallback mechanism in case you get specific [errors from Hub occur](../iot-hub/troubleshoot-message-routing.md#common-error-codes), for example, consider the following scenarios:
 >
 > * Retry the Hub operation if the result code is 429 (Too Many Requests) or an error in the 5xx range. Do not retry for any other errors. 

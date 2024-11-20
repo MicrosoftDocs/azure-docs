@@ -103,7 +103,8 @@ ce-eventName: connect
     "subprotocols": [],
     "clientCertificates": [
         {
-            "thumbprint": "ABC"
+            "thumbprint": "<certificate SHA-1 thumbprint>",
+            "content": "-----BEGIN CERTIFICATE-----\r\n...\r\n-----END CERTIFICATE-----"
         }
     ]
 }

@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn how Grit Visual IEF Editor enables fast authentication deployments in Azure AD B2C
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
-ms.subservice: B2C 
+ms.subservice: b2c
 
 # Customer intent: I'm an Azure AD B2C administrator, and I want to use the Visual IEF Editor tool to create, modify, and deploy Azure AD B2C policies, without writing code.
 ---
@@ -31,7 +31,7 @@ To get started with the IEF Editor, ensure the following prerequisites are met:
 
 - A Microsoft Entra subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
 - An Azure AD B2C tenant linked to the Azure subscription. Learn more at [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
-- [Visual IEF Editor](https://www.gritiefedit.com) is free and works only with Google Chrome browser.
+- [Visual IEF Editor](/azure/active-directory-b2c/partner-grit-editor) is free and works only with Google Chrome browser.
 - Review and download policies from [Azure AD B2C customer policies starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)
 - Install Google Chrome browser
 
@@ -43,7 +43,7 @@ The following illustration shows a sample code-development workflow from XML fil
 
 | Step | Description |
 |:-----|:------|
-| 1. | Go to https://www.gritiefedit.com and upload the policies from [Azure AD B2C customer policies starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) using the upload policy button in the user interface.|
+| 1. | Go to /azure/active-directory-b2c/partner-grit-editor and upload the policies from [Azure AD B2C customer policies starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) using the upload policy button in the user interface.|
 | 2. | Using the Visual IEF editor tool, select and edit any user journey and self asserted profile that needs update/modification.|
 |3. | Once the files are updated, select the download button. All the policies will be downloaded to the local machine.|
 |4. | Check in the files in GitHub or CI/CD pipeline. |

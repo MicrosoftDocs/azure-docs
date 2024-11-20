@@ -3,7 +3,7 @@ title: VMware Tanzu components in the Azure Spring Apps Enterprise plan
 description: Learn about VMware Tanzu components in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: taoxu
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 04/17/2024
 ms.custom: devx-track-java, engagement-fy23, references_regions
@@ -11,8 +11,7 @@ ms.custom: devx-track-java, engagement-fy23, references_regions
 
 # VMware Tanzu components in the Azure Spring Apps Enterprise plan
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 

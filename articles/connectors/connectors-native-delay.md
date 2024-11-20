@@ -10,7 +10,7 @@ ms.date: 01/04/2024
 
 # Delay running the next action in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 To have your logic app wait an amount of time before running the next action, you can add the built-in **Delay** action before an action in your logic app's workflow. Or, you can add the built-in **Delay until** action to wait until a specific date and time before running the next action. For more information about the built-in Schedule actions and triggers, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 

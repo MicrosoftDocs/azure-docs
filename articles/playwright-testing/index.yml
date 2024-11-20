@@ -36,6 +36,8 @@ landingContent:
             url: quickstart-run-end-to-end-tests.md
           - text: Set up continuous end-to-end testing
             url: quickstart-automate-end-to-end-testing.md
+          - text: Troubleshoot using rich reports and artifacts 
+            url: quickstart-generate-rich-reports-for-tests.md
       - linkListType: concept
         links:
           - text: Determine optimal test suite configuration
@@ -58,3 +60,5 @@ landingContent:
             url: how-to-manage-access-tokens.md
           - text: Manage workspace access
             url: how-to-manage-workspace-access.md
+          - text: Manage authentication
+            url: how-to-manage-authentication.md

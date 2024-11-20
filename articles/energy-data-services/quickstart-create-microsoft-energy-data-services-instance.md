@@ -3,7 +3,7 @@ title: Create a Microsoft Azure Data Manager for Energy instance
 description: Quickly create an instance of the Azure Data Manager for Energy service by using the Azure portal.
 author: nitinnms
 ms.author: nitindwivedi
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: quickstart
 ms.date: 06/28/2023
 ms.custom: template-quickstart
@@ -15,7 +15,7 @@ In this quickstart, you create an Azure Data Manager for Energy instance by usin
 
 You use a simple interface in the Azure portal to set up your Azure Data Manager for Energy instance. The process takes about 50 minutes to complete.
 
-Azure Data Manager for Energy is a managed platform as a service (PaaS) offering from Microsoft that builds on top of the [OSDU&reg;](https://osduforum.org/) Data Platform. When you connect your consuming in-house or third-party applications to Azure Data Manager for Energy, you can use the service to ingest, transform, and export subsurface data.
+Azure Data Manager for Energy is a managed platform as a service (PaaS) offering from Microsoft that builds on top of the [OSDU&reg;](https://osduforum.org/) Data Platform. When you connect your consuming internal or external applications to Azure Data Manager for Energy, you can use the service to ingest, transform, and export subsurface data.
 
 OSDU&reg; is a trademark of The Open Group.
 
@@ -31,7 +31,7 @@ Client secret | Sometimes called an application password, a client secret is a s
 
 1. Save your application (client) ID and client secret from Microsoft Entra ID to refer to them later in this quickstart.  
 
-1. Sign in to [Microsoft Azure Marketplace](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home).
+1. Sign-in to [Microsoft Azure Marketplace](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home).
 
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter on the top menu to switch to the tenant in which you want to install Azure Data Manager for Energy.
 
@@ -53,9 +53,9 @@ Client secret | Sometimes called an application password, a client secret is a s
 
    | Field | Requirements |
    | ----- | --------------- |
-   **Instance details** > **Name** | Only alphanumeric characters are allowed, and the value must be 1 to 15 characters. The name is not case-sensitive. One resource group can't have two instances with the same name.
+   **Instance details** > **Name** | Only alphanumeric characters are allowed, and the value must be 1 to 15 characters. The name isn't case-sensitive. One resource group can't have two instances with the same name.
    **Instance details** > **App ID** | Enter the valid application ID that you generated and saved in the last section.
-   **Data Partitions** > **Name** | Each name must be 1 to 10 characters and consist of lowercase alphanumeric characters and hyphens. It must start with an alphanumeric character and not contain consecutive hyphens. Data partition names that you choose are automatically prefixed with your Azure Data Manager for Energy instance name. Application and API calls will use these compound names to refer to your data partitions.
+   **Data Partitions** > **Name** | Each name must be 1 to 10 characters and consist of lowercase alphanumeric characters and hyphens. It must start with an alphanumeric character and not contain consecutive hyphens. Data partition names that you choose are automatically prefixed with your Azure Data Manager for Energy instance name. Application and API calls use these compound names to refer to your data partitions.
 
    > [!NOTE]
    > After you create names for your Azure Data Manager for Energy instance and data partitions, you can't change them later.  
@@ -72,9 +72,9 @@ Client secret | Sometimes called an application password, a client secret is a s
 
    [![Screenshot of the tab for specifying tags in Azure Data Manager for Energy.](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png#lightbox)
 
-1. Move to the **Resource Sharing (CORS)** tab and configure cross-origin resource sharing as needed. [Learn more about cross-origin resource sharing in Azure Data Manager for Energy](../energy-data-services/how-to-enable-cors.md).
+1. Move to the **Advanced Settings** tab to configure **cross-origin resource sharing** and, if available to you as a customer in the limited preview for the feature, **reference data values settings**. To learn more about cross-origin resource sharing (CORS), see [Use CORS for resource sharing in Azure Data Manager for Energy](../energy-data-services/how-to-enable-cors.md). To learn more about reference data values, see [Syncing Reference Data Values](../energy-data-services/concepts-reference-data-values.md)
 
-   [![Screenshot of the tab for configuring cross-origin resource sharing in Azure Data Manager for Energy.](media/quickstart-create-microsoft-energy-data-services-instance/cors-tab.png)](media/quickstart-create-microsoft-energy-data-services-instance/cors-tab.png#lightbox)
+   [![Screenshot of the tab for configuring cross-origin resource sharing in Azure Data Manager for Energy.](media/quickstart-create-microsoft-energy-data-services-instance/advanced-settings-tab.png)](media/quickstart-create-microsoft-energy-data-services-instance/advanced-settings-tab.png#lightbox)
 
 1. Move to the **Review + Create** tab.
 
@@ -102,13 +102,10 @@ To delete an Azure Data Manager for Energy instance:
 
 1. Remove any locks that you set at the resource group level. Locked resources remain active until you remove the locks and successfully delete the resources.
 
-1. Sign in to the Azure portal and delete the resource group in which the Azure Data Manager for Energy components are installed.
+1. Sign-in to the Azure portal and delete the resource group in which the Azure Data Manager for Energy components are installed.
 
-1. This step is optional. Go to Microsoft Entra ID and delete the app registration that you linked to your Azure Data Manager for Energy instance.
+1. (Optional) Go to Microsoft Entra ID and delete the app registration that you linked to your Azure Data Manager for Energy instance.
 
 ## Next steps
 
-After you provision an Azure Data Manager for Energy instance, you can learn about user management on this instance:
-
-> [!div class="nextstepaction"]
-> [How to manage users](how-to-manage-users.md)
+- [How to manage users](how-to-manage-users.md)

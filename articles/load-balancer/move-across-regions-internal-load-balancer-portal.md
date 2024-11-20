@@ -2,25 +2,25 @@
 title: Move Azure internal Load Balancer to another Azure region - Azure portal
 description: Use Azure Resource Manager template to move Azure internal Load Balancer from one Azure region to another using the Azure portal.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 06/27/2024
 ms.author: mbender
 ms.custom: template-how-to, devx-track-arm-template, engagement-fy23
 ---
 
 # Move Azure internal Load Balancer to another region using the Azure portal
 
-There are various scenarios in which you'd want to move your existing internal load balancer from one region to another. For example, you may want to create an internal load balancer with the same configuration for testing. You may also want to move an internal load balancer to another region as part of disaster recovery planning.
+There are various scenarios in which you'd want to move your existing internal load balancer from one region to another. For example, you might want to create an internal load balancer with the same configuration for testing. You might also want to move an internal load balancer to another region as part of disaster recovery planning.
 
-Azure internal load balancers can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and virtual network of an internal load balancer.  You can then stage the resource in another region by exporting the load balancer and virtual network to a template, modifying the parameters to match the destination region, and then deploy the templates to the new region.  For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+Azure internal load balancers can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and virtual network of an internal load balancer. You can then stage the resource in another region by exporting the load balancer and virtual network to a template, modifying the parameters to match the destination region, and then deploy the templates to the new region. For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 
 ## Prerequisites
 
 - Make sure that the Azure internal load balancer is in the Azure region from which you want to move.
 
-- Azure internal load balancers can't be moved between regions.  You have to associate the new load balancer to resources in the target region.
+- Azure internal load balancers can't be moved between regions. You have to associate the new load balancer to resources in the target region.
 
 - To export an internal load balancer configuration and deploy a template to create an internal load balancer in another region, you need the Network Contributor role or higher.
 
@@ -28,14 +28,14 @@ Azure internal load balancers can't be moved from one region to another. You can
 
 - Verify that your Azure subscription allows you to create internal load balancers in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of load balancers for this process.  See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
+- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 
 ## Prepare and move
-The following steps show how to prepare the internal load balancer for the move using a Resource Manager template, and move the internal load balancer configuration to the target region using the Azure portal.  As part of this process, the virtual network configuration of the internal load balancer must be included and must be done first before moving the internal load balancer.
+The following steps show how to prepare the internal load balancer for the move using a Resource Manager template, and move the internal load balancer configuration to the target region using the Azure portal. As part of this process, the virtual network configuration of the internal load balancer must be included and must be done first before moving the internal load balancer.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ### Export the virtual network template and deploy from the Azure portal
 
@@ -57,13 +57,13 @@ The following steps show how to prepare the internal load balancer for the move 
         }
     }
     ```
-7. Change the source virtual network name value in the editor to a name of your choice for the target VNET. Ensure you enclose the name in quotes.
+7. Change the source virtual network name value in the editor to a name of your choice for the target virtual network. Ensure you enclose the name in quotes.
 
 8. Select **Save** in the editor.
 
 9. Select **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor.
 
-10. To edit the target region where the VNET will be moved, change the **location** property under resources:
+10. To edit the target region where the virtual network will be moved, change the **location** property under resources:
 
     ```json
     "resources": [
@@ -83,11 +83,11 @@ The following steps show how to prepare the internal load balancer for the move 
 
     ```
 
-11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
+11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
 12. You can also change other parameters in the **template.json** file if you choose, and are optional depending on your requirements:
 
-    * **Address Space** - The address space of the VNET can be altered before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **template.json** file:
+    * **Address Space** - The address space of the virtual network can be altered before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **template.json** file:
 
         ```json
                 "resources": [
@@ -138,7 +138,7 @@ The following steps show how to prepare the internal load balancer for the move 
                 ]
         ```
 
-         In the **template.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
+         In the **template.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below. Change the **addressPrefix** property to match the one above:
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -176,11 +176,11 @@ The following steps show how to prepare the internal load balancer for the move 
 
 13. Select **Save** in the online editor.
 
-14. Select **BASICS** > **Subscription** to choose the subscription where the target VNET will be deployed.
+14. Select **BASICS** > **Subscription** to choose the subscription where the target virtual network will be deployed.
 
-15. Select **BASICS** > **Resource group** to choose the resource group where the target VNET will be deployed.  You can select **Create new** to create a new resource group for the target VNET.  Ensure the name isn't the same as the source resource group of the existing VNET.
+15. Select **BASICS** > **Resource group** to choose the resource group where the target virtual network will be deployed. You can select **Create new** to create a new resource group for the target virtual network. Ensure the name isn't the same as the source resource group of the existing virtual network.
 
-16. Verify **BASICS** > **Location** is set to the target location where you wish for the VNET to be deployed.
+16. Verify **BASICS** > **Location** is set to the target location where you wish for the virtual network to be deployed.
 
 17. Verify under **SETTINGS** that the name matches the name that you entered in the parameters editor above.
 
@@ -217,7 +217,7 @@ The following steps show how to prepare the internal load balancer for the move 
     1. Select to the [Azure portal](https://portal.azure.com) > **Resource Groups** in another browser tab or window.
     2. Locate the target resource group that contains the moved virtual network from the steps above, and select it.
     3. Select > **Settings** > **Properties**.
-    4. On the right side of the portal, highlight the **Resource ID** and copy it to the clipboard.  Alternatively, you can select the **copy to clipboard** button to the right of the **Resource ID** path.
+    4. On the right side of the portal, highlight the **Resource ID** and copy it to the clipboard. Alternatively, you can select the **copy to clipboard** button to the right of the **Resource ID** path.
     5. Paste the resource ID into the **defaultValue** property into the **Edit Parameters** editor open in the other browser window or tab:
 
         ```json
@@ -251,7 +251,7 @@ The following steps show how to prepare the internal load balancer for the move 
                 },
     ```
 
-9.  To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
+9. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
 10. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
@@ -271,7 +271,7 @@ The following steps show how to prepare the internal load balancer for the move 
         ```
       For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](./load-balancer-overview.md)
 
-    * **Availability zone** - You can change the zone(s) of the load balancer's frontend by changing the **zone** property. If the zone property isn't specified, the frontend is created as no-zone. You can specify a single zone to create a zonal frontend or all 3 zones for a zone-redundant frontend.
+    * **Availability zone** - You can change the zones of the load balancer's frontend by changing the **zone** property. If the zone property isn't specified, the frontend is created as no-zone. You can specify a single zone to create a zonal frontend or all three zones for a zone-redundant frontend.
 
         ```json
         "frontendIPConfigurations": [
@@ -406,11 +406,11 @@ The following steps show how to prepare the internal load balancer for the move 
 
 13. Select **BASICS** > **Subscription** to choose the subscription where the target internal load balancer will be deployed.
 
-15. Select **BASICS** > **Resource group** to choose the resource group where the target load balancer will be deployed.  You can select **Create new** to create a new resource group for the target internal load balancer or choose the existing resource group that was created above for the virtual network.  Ensure the name isn't the same as the source resource group of the existing source internal load balancer.
+15. Select **BASICS** > **Resource group** to choose the resource group where the target load balancer will be deployed. You can select **Create new** to create a new resource group for the target internal load balancer or choose the existing resource group that was created previously for the virtual network. Ensure the name isn't the same as the source resource group of the existing source internal load balancer.
 
 16. Verify **BASICS** > **Location** is set to the target location where you wish for the internal load balancer to be deployed.
 
-17. Verify under **SETTINGS** that the name matches the name that you entered in the parameters editor above.  Verify the resource IDs are populated for any virtual networks in the configuration.
+17. Verify under **SETTINGS** that the name matches the name that you entered in the parameters editor previously. Verify the resource IDs are populated for any virtual networks in the configuration.
 
 18. Check the box under **TERMS AND CONDITIONS**.
 
@@ -418,7 +418,7 @@ The following steps show how to prepare the internal load balancer for the move 
 
 ## Discard
 
-If you wish to discard the target virtual network and internal load balancer, delete the resource group that contains the target virtual network and internal load balancer.  To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page.
+If you wish to discard the target virtual network and internal load balancer, delete the resource group that contains the target virtual network and internal load balancer. To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page.
 
 ## Clean up
 
@@ -426,7 +426,7 @@ To commit the changes and complete the move of the virtual network and internal 
 
 ## Next steps
 
-In this tutorial, you moved an Azure internal load balancer from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+In this tutorial, you moved an Azure internal load balancer from one region to another and cleaned up the source resources. To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)

@@ -11,6 +11,8 @@ zone_pivot_groups: app-spaces-component-types
 
 # Manage components in App Spaces
 
+[!include [preview note](./includes/preview-note.md)]
+
 You can manage the components of your App Spaces by selecting the component on the __App Space__ page. 
 
 [!include [component types](./includes/component-types-table.md)]
@@ -31,16 +33,16 @@ The **Deployment** section in App Spaces provides a detailed log of all deployme
 ## Logs
 App Spaces provides robust logging capabilities for static app components, which can be filtered over a range of time periods from the last hour to the last 30 days. You can enable logs through the **Log Settings** button, which offers different configuration options. The **Auto** setting automatically collects logs for HTTP requests, global errors, and usage analytics. For more customized tracking, you can choose the **Manual with npm packages** option to set up custom event tracking with IntelliSense. Alternatively, the **Manual with React and Angular plug-ins** option allows you to configure connection strings to define where to send telemetry data by replacing the placeholder `YOUR_CONNECTION_STRING` with the actual connection string. These flexible logging options ensure comprehensive monitoring and analysis tailored to specific needs.
 
-Select **Open in advanced queries** to go to the [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md).
+Select **Open in advanced queries** to go to the [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 
 For Application Insights, see [Enable a framework extension for Application Insights JavaScript SDK](https://go.microsoft.com/fwlink/?linkid=2269911).
 ::: zone-end
 ::: zone pivot="app"
 ## Logs
 
-Select system logs to check service-level events, or console logs to debug code. For more information, see [Use queries in Log Analytics](../azure-monitor/logs/queries.md).
+Select system logs to check service-level events, or console logs to debug code. For more information, see [Use queries in Log Analytics](/azure/azure-monitor/logs/queries).
 
-Select **Open in advanced queries** to go to the [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md).
+Select **Open in advanced queries** to go to the [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 ::: zone-end
 ::: zone pivot="database"
 ::: zone-end

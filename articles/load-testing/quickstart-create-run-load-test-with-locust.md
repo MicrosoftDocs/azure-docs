@@ -3,7 +3,7 @@ title: 'Quickstart: Create a load test with Locust'
 titleSuffix: Azure Load Testing
 description: 'This quickstart shows how to create a load test by using a Locust test script and Azure Load Testing. Azure Load Testing is a managed, cloud-based load testing tool.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.custom:
   - build-2024
 ms.topic: quickstart
@@ -75,8 +75,21 @@ To create a load test for a Locust-based test in the Azure portal:
 
     :::image type="content" source="./media/quickstart-create-and-run-load-test-with-locust/create-new-test-test-plan.png" alt-text="Screenshot that shows the button for uploading test artifacts." lightbox="./media/quickstart-create-and-run-load-test-with-locust/create-new-test-test-plan.png":::
 
+1. Upload any other files that you reference in the test script. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s). To use a configuration file with your Locust script, upload the file and select **Locust configuration** as the **File relevance**
+
+1. To install any dependencies from a 'requirements.txt' file, upload the 'requirements.txt' file along with the other artifacts. Add this code in your Locust script to install the dependencies 
+    ```Python
+    import subprocess
+    subprocess.check_output("python3 -m pip install -r requirements.txt", shell=True)
+    ```
+1. To use supporting Python files along with your Locust, create a wheel (.whl) file of the supporting Python files and upload the wheel file along with the other artifacts.  Add this code in your Locust script to install the wheel file during Locust startup
+    ```Python
+    import subprocess
+    subprocess.check_output("python3 -m pip install your_wheel.whl", shell=True)
+    ```
     > [!NOTE]
-    > You can also upload other files that you reference in the test script. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s). To use a configuration file with your Locust script, upload the file and select **Locust configuration** as the **File relevance**
+    > Include the code snippets to install dependencies and supporting files in the import section of your Locust script. Do not include these in the load test section.
+
 1. On the **Load** tab, enter the details for the amount of load to generate:
 
     |Field  |Description  |

@@ -1,13 +1,13 @@
 ---
 title: Configure passive geo-replication for Premium Azure Cache for Redis instances
 description: Learn how to use cross-region replication to provide disaster recovery on the Premium tier of Azure Cache for Redis.
-author: flang-msft
 
-ms.service: cache
+
+
 ms.topic: how-to
 ms.custom: engagement-fy23
 ms.date: 12/15/2023
-ms.author: franlanglois
+
 ---
 
 # Configure passive geo-replication for Premium Azure Cache for Redis instances
@@ -200,7 +200,7 @@ When the failover process is initiated, you see the link provisioning status upd
 
 ### Can I track the health of the geo-replication link?
 
-Yes, there are several [metrics available](cache-how-to-monitor.md#list-of-metrics) to help track the status of the geo-replication. These metrics are available in the Azure portal.
+Yes, there are several [metrics available](monitor-cache-reference.md#metrics) to help track the status of the geo-replication. These metrics are available in the Azure portal.
 
 - **Geo Replication Healthy** shows the status of the geo-replication link. The link show as unhealthy if either the geo-primary or geo-secondary caches are down. This is typically due to standard patching operations, but it could also indicate a failure situation.
 - **Geo Replication Connectivity Lag** shows the time since the last successful data synchronization between geo-primary and geo-secondary.
@@ -208,7 +208,7 @@ Yes, there are several [metrics available](cache-how-to-monitor.md#list-of-metri
 - **Geo Replication Fully Sync Event Started** indicates that a full synchronization action has been initiated between the geo-primary and geo-secondary caches. This occurs if standard replication can't keep up with the number of new writes.
 - **Geo Replication Full Sync Event Finished** indicates that a full synchronization action was completed.
 
-There's also a [prebuilt workbook](cache-how-to-monitor.md#organize-with-workbooks) called the **Geo-Replication Dashboard** that includes all of the geo-replication health metrics in one view. Using this view is recommended because it aggregates information that is emitted only from the geo-primary or geo-secondary cache instances.
+There's also a [prebuilt workbook](cache-insights-overview.md#workbooks) called the **Geo-Replication Dashboard** that includes all of the geo-replication health metrics in one view. Using this view is recommended because it aggregates information that is emitted only from the geo-primary or geo-secondary cache instances.
 
 ### Can I link more than two caches together?
 
@@ -228,7 +228,7 @@ Yes, as long as both caches have the same number of shards.
 
 ### Can I use geo-replication with my caches in a VNet?
 
-We recommend using using Azure Private Link over VNet injection in most cases. For more information see, [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md).
+We recommend using Azure Private Link over VNet injection in most cases. For more information see, [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md).
 
 While it is still technically possible to use VNet injection when geo-replicating your caches, we recommend Azure Private Link.
 

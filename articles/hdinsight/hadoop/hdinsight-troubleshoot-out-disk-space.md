@@ -1,9 +1,9 @@
 ---
 title: Cluster node runs out of disk space in Azure HDInsight
 description: Troubleshooting Apache Hadoop cluster node disk space issues in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 06/12/2023
+ms.date: 06/14/2024
 ---
 
 # Scenario: Cluster node runs out of disk space in Azure HDInsight

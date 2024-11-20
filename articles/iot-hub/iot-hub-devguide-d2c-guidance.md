@@ -4,7 +4,7 @@ description: This article provides guidance on when to use device-to-cloud messa
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 12/27/2022
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']

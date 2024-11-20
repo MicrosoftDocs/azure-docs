@@ -1,9 +1,9 @@
 ---
 title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-ms.date: 05/26/2023
-ms.service: site-recovery
-ms.topic: conceptual
+ms.date: 07/10/2024
+ms.service: azure-site-recovery
+ms.topic: overview
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
@@ -23,6 +23,10 @@ During replication, data is replicated to Azure storage, and you don't pay any V
 ### Is there any difference in cost when replicating to General Purpose v2 storage account?
 
 You will typically see an increase in the transactions cost incurred on GPv2 storage accounts since Azure Site Recovery is transactions heavy. [Read more](../storage/common/storage-account-upgrade.md#pricing-and-billing) to estimate the change.
+
+### Does Site Recovery work with reserved instances?
+
+Yes, you can purchase [reserved Azure virtual machines](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the disaster recovery region, and Site Recovery failover operations use them. No additional configuration is needed.
 
 ## Azure
 

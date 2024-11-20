@@ -4,17 +4,15 @@ description: Use this tutorial to learn how to sign up and order an Azure Data B
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/22/2024
 ms.author: shaas
-# Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 
 # Doc scores:
-#    10/21/22: 75 (1921/15)
 #    09/24/23: 100 (1996/0)
-
+# Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order an Azure Data Box Disk
 

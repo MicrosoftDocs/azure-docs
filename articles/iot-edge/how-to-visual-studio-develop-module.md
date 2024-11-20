@@ -4,9 +4,9 @@ description: Use Visual Studio to develop a custom IoT Edge module and deploy to
 services: iot-edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/13/2023
+ms.date: 07/17/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 zone_pivot_groups: iotedge-dev
 ---
 # Use Visual Studio 2022 to develop and debug modules for Azure IoT Edge
@@ -57,7 +57,7 @@ This article assumes that you use a machine running Windows as your development 
 * Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine to build and run your module images. For example, install [Docker Community Edition](https://docs.docker.com/install/).
 * To develop modules with **Linux containers**, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-* Create an [Azure Container Registry](../container-registry/index.yml) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) to store your module images.
+* Create an [Azure Container Registry](/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) to store your module images.
 
   > [!TIP]
   > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
@@ -250,9 +250,6 @@ Typically, you want to test and debug each module before running it within an en
       IoT Hub module client initialized.
       Received message: 1, Body: [hello world]
       ```
-
-   > [!TIP]
-   > You can also use [PostMan](https://www.getpostman.com/) or other API tools to send messages instead of `curl`.
 
 1. Press **Ctrl + F5** or select the stop button to stop debugging.
 

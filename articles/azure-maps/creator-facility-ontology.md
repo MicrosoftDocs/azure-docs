@@ -1,17 +1,22 @@
 ---
 title: Facility Ontology in Microsoft Azure Maps Creator
 description: Facility Ontology that describes the feature class definitions for Azure Maps Creator
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 02/17/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: creator
 zone_pivot_groups: facility-ontology-schema
 ---
 
 # Facility Ontology
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 Facility ontology defines how Azure Maps Creator internally stores facility data in a Creator dataset.  In addition to defining internal facility data structure, facility ontology is also exposed externally through the WFS API. When WFS API is used to query facility data in a dataset, the response format is defined by the ontology supplied to that dataset.
 
@@ -550,9 +555,6 @@ The `category` class feature defines category names. For example: "room.conferen
 Learn more about Creator for indoor maps by reading:
 
 > [!div class="nextstepaction"]
-> [What is Azure Maps Creator?]
-
-> [!div class="nextstepaction"]
 > [Creator for indoor maps]
 
 <!---------   Internal Links     --------------->
@@ -585,7 +587,7 @@ Learn more about Creator for indoor maps by reading:
 <!---------   learn.microsoft.com links     --------------->
 [Create a dataset using a GeoJson package]: how-to-dataset-geojson.md
 [Creator for indoor maps]: creator-indoor-maps.md
-[What is Azure Maps Creator?]: about-creator.md
+
 <!---------   External Links     --------------->
 [Azure Maps services]: https://aka.ms/AzureMaps
 [feature object]: https://www.rfc-editor.org/rfc/rfc7946#section-3.2

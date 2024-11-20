@@ -1,17 +1,18 @@
 ---
 title: 'How to configure SMTP settings within Azure Managed Grafana'
 titleSuffix: Azure Managed Grafana
-description: Learn how to configure SMTP settings to generate email notifications for Azure Managed Grafana
+description: Learn how to configure SMTP settings to generate email notifications to monitor your services in Azure Managed Grafana.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: how-to
-ms.date: 10/13/2023
+ms.date: 10/23/2024
+#customer intent: I want configure SMTP settings in Azure Managed Grafana to generate email notifications, so that I can be alerted when incidents or events happen.
 ---
 
 # Configure SMTP settings
 
-In this guide, you learn how to configure SMTP settings to generate email alerts in Azure Managed Grafana. Notifications alert users when some given scenarios occur on a Grafana dashboard.
+In this guide, you learn how to configure SMTP (Simple Mail Transfer Protocol) settings to generate email alerts in Azure Managed Grafana. Notifications alert users when some given scenarios occur on a Grafana dashboard.
 
 SMTP settings can be enabled on an existing Azure Managed Grafana instance via the Azure portal and the Azure CLI. Enabling SMTP settings while creating a new instance is currently not supported.
 
@@ -49,7 +50,7 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 
        :::image type="content" source="media/smtp-settings/save-updated-settings.png" alt-text="Screenshot of the Azure platform. Email Settings tab with new data.":::
 
-  1. Once the process has completed, the message "Updating the selections. Update successful" is displayed in the Azure **Notifications**. In the **Overview** page, the provisioning state of the instance turns to **Updating**, and then **Succeeded** once the update is complete.
+  1. Once the process is complete, the message "Updating the selections. Update successful" is displayed in the Azure **Notifications**. In the **Overview** page, the provisioning state of the instance turns to **Updating**, and then **Succeeded** once the update is complete.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -126,7 +127,7 @@ Configuring Grafana contact points is done in the Grafana portal:
   1. Add or update the **Name**, and **Contact point type**.
   1. Enter a destination email under **Addresses**, and select **Test**.
   1. Select **Send test notification** to send the notification with the predefined test message or select **Custom** to first edit the message.
-  1. A notification "Test alert sent" is displayed, meaning that the email setup has been successfully configured. The test email has been sent to the provided email address. If there is a misconfiguration, an error message is shown instead.
+  1. A notification "Test alert sent" is displayed, meaning that the email setup is successfully configured. The test email has been sent to the provided email address. If there's a misconfiguration, an error message is shown instead.
 
 ## Disable SMTP settings
 

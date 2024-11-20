@@ -1,12 +1,12 @@
 ---
 title: Tutorial to export data from Azure Blob storage with Azure Import/Export | Microsoft Docs
 description: Learn how to create export jobs in Azure portal to transfer data from Azure Blobs.
-author: alkohli
+author: stevenmatthew
 services: storage
 ms.service: azure-import-export
 ms.topic: tutorial
 ms.date: 02/13/2023
-ms.author: alkohli
+ms.author: shaas
 ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Tutorial: Export data from Azure Blob storage with Azure Import/Export

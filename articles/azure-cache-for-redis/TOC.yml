@@ -108,14 +108,14 @@
 
 - name: Logs and monitoring
   items:
-  - name: Monitor
+  - name: Monitor Cache for Redis
     href: monitor-cache.md
-  - name: Monitor Azure Cache for Redis
-    href: cache-how-to-monitor.md
-  - name: Use insights to understand performance and utilization
+  - name: Monitor using insights
     href: cache-insights-overview.md
-  - name: Monitor with diagnostic logs
+  - name: Monitor using diagnostic settings
     href: cache-monitor-diagnostic-settings.md
+  - name: List of Redis metrics
+    href: monitor-cache-reference.md#metrics
 - name: Scaling and performance
   items:
   - name: Change the size and tier of a cache
@@ -245,6 +245,8 @@
         href: cache-tutorial-semantic-cache.md
   - name: ASP.NET
     items:
+    - name: Use ASP.NET core output cache
+      href: cache-aspnet-core-output-cache-provider.md
     - name: Use session state provider
       href: cache-aspnet-session-state-provider.md
     - name: Use output cache provider

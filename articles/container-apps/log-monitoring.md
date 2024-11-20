@@ -3,7 +3,7 @@ title: Monitor logs in Azure Container Apps with Log Analytics
 description: Monitor your container app logs with Log Analytics
 services: container-apps
 author: v-jaswel
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: v-wellsjason
@@ -99,7 +99,7 @@ ContainerAppSystemLogs_CL
 | take 100
 ```
 
-For more information regarding Log Analytics and log queries, see the [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
+For more information regarding Log Analytics and log queries, see the [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 ### Azure CLI/PowerShell
 

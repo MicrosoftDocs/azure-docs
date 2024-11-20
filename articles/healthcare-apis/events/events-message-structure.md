@@ -2,12 +2,12 @@
 title: Events message structure - Azure Health Data Services
 description: Learn about the events message structures and required values.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
+author: chachachachami
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 07/11/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # Events message structures

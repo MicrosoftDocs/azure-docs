@@ -3,11 +3,10 @@ title: 'Tutorial: Inspect private endpoint traffic with Azure Firewall'
 description: Learn how to inspect private endpoint traffic with Azure Firewall.
 author: abell
 ms.author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, linux-related-content
 ms.date: 10/13/2023
-
 ---
 # Tutorial: Inspect private endpoint traffic with Azure Firewall
 
@@ -42,17 +41,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure account with an active subscription.
 
-- A Log Analytics workspace. For more information about the creation of a log analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+- A Log Analytics workspace. For more information about the creation of a log analytics workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 [!INCLUDE [virtual-network-create-private-endpoint.md](../../includes/virtual-network-create-private-endpoint.md)]
 
-[!INCLUDE [create-test-virtual-machine-linux.md](../../includes/create-test-virtual-machine-linux.md)]
+[!INCLUDE [create-test-virtual-machine-linux.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine-linux.md)]
 
 ## Deploy Azure Firewall
 
@@ -157,7 +156,7 @@ In this section, you enable the firewall logs and send them to the log analytics
     | Subnet | Select **subnet-private-endpoint**. |
     | **Private DNS integration** |  |
     | Integrate with private DNS zone | Select **Yes**. |
-    | Private DNS zone | Leave the default of **server-name.database.windows.net**. |
+    | Private DNS zone | Leave the default of **privatelink.database.windows.net**. |
 
 1. Select **OK**.
 
@@ -229,7 +228,7 @@ The private DNS zone created during the private endpoint creation in the previou
 
 1. In the search box at the top of the portal, enter **Private DNS zone**. Select **Private DNS zones** in the search results.
 
-1. Select **server-name.database.windows.net**.
+1. Select **privatelink.database.windows.net**.
 
 1. In **Settings** select **Virtual network links**.
 
@@ -377,8 +376,8 @@ Create an application rule to allow communication from **vnet-1** to the private
     Address:   127.0.0.53#53
 
     Non-authoritative answer:
-    sql-server-8675.database.windows.netcanonical name = sql-server-8675.server-name.database.windows.net.
-    Name:sql-server-8675.server-name.database.windows.net
+    sql-server-8675.database.windows.netcanonical name = sql-server-8675.privatelink.database.windows.net.
+    Name:sql-server-8675.privatelink.database.windows.net
     Address: 10.1.0.4
     ```
 
@@ -410,7 +409,7 @@ Create an application rule to allow communication from **vnet-1** to the private
 
 1. In the log query output, verify **server-name.database.windows.net** is listed under **FQDN** and **SQLPrivateEndpoint** is listed under **Rule**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

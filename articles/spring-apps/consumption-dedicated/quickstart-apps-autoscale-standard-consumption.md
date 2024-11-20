@@ -3,16 +3,15 @@ title: Quickstart - Set up autoscale for applications in Azure Spring Apps Stand
 description: Learn how to set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan.
 author: KarlErickson
 ms.author: haojianzhong
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Quickstart: Set up autoscale for applications in the Azure Spring Apps Standard consumption and dedicated plan
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 

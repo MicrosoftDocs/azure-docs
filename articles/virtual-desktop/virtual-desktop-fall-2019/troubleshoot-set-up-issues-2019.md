@@ -1,12 +1,11 @@
 ---
 title: Azure Virtual Desktop (classic) tenant host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of an Azure Virtual Desktop (classic) tenant environment.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: troubleshooting
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, docs_inherited
 ms.date: 03/30/2020
-ms.author: helohr
-manager: femila
+ms.author: daknappe
 ---
 # Tenant and host pool creation in Azure Virtual Desktop (classic)
 
@@ -69,9 +68,6 @@ Example of raw error:
 **Cause:** The user who's signed in hasn't been assigned the TenantCreator role in their Microsoft Entra ID.
 
 **Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Microsoft Entra tenant](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). After following the instructions, you'll have a user assigned to the TenantCreator role.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot of TenantCreator role assigned.](../media/TenantCreatorRoleAssigned.png)
 
 ## Creating Azure Virtual Desktop session host VMs
 
@@ -136,7 +132,7 @@ If your operation template goes over the quota limit, you can do one of the foll
 Follow these instructions to troubleshoot unsuccessful deployments of Azure Resource Manager templates and PowerShell DSC.
 
 1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](../../azure-resource-manager/templates/deployment-history.md).
-2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../../azure-monitor/essentials/activity-log.md).
+2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](/azure/azure-monitor/essentials/activity-log).
 3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md) to address the issue.
 4. Delete any resources created during the previous deployment and retry deploying the template again.
 
@@ -374,8 +370,7 @@ New-RdsRoleAssignment -TenantName <Azure Virtual Desktop tenant name> -RoleDefin
 
 ### Error: User requires Microsoft Entra multifactor authentication (MFA)
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of your deployment failed due to lack of multifactor authentication (MFA)](../media/MFARequiredError.png)
+:::image type="content" source="../media/MFA-Required-Error-expanded.png" alt-text="Screenshot of your deployment failed due to lack of multifactor authentication (MFA)." lightbox="../media/MFA-Required-Error-expanded.png":::
 
 Example of raw error:
 
@@ -416,5 +411,5 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup-2019.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../../azure-monitor/essentials/activity-log.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../../azure-resource-manager/templates/deployment-history.md).

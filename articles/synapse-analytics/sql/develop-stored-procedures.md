@@ -5,7 +5,7 @@ author: mstehrani
 ms.author: emtehran
 ms.reviewer: wiassaf
 ms.date: 11/03/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: conceptual
 ---

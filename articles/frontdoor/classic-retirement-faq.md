@@ -4,8 +4,8 @@ titleSuffix:  Azure Front Door
 description: Common questions about the retirement of Azure Front Door (classic).
 services: front-door
 author: duongau
-ms.service: frontdoor
-ms.topic: conceptual
+ms.service: azure-frontdoor
+ms.topic: faq
 ms.date: 03/27/2024
 ms.author: duau
 ms.custom: ai-usage
@@ -32,7 +32,7 @@ Azure Front Door (classic) is a legacy service that provides dynamic site accele
 Azure Front Door Standard and Premium tiers represent the enhanced versions of Azure Front Door (classic). They maintain the same Service Level Agreement (SLA) and offer more benefits, including:
 
 * A unified static and dynamic delivery platform, with simplified cost model. 
-* Enhanced security features, such as[Private Link integration](private-link.md), advanced WAF enhancements with DRS 2.1, anomaly scoring based detection and bot management, and many more to come. 
+* Enhanced security features, such as [Private Link integration](private-link.md), advanced WAF enhancements with DRS 2.1, anomaly scoring based detection and bot management, and many more to come. 
 * Deep integration with Azure services to deliver secure, accelerated, and user friendly end-to-end cloud solutions. These integrations include:
     * DNS deterministic name library integrations to prevent subdomain take over
     * [Prevalidated domain integration with PaaS service with  one-time domain validation](./standard-premium/how-to-add-custom-domain.md#associate-the-custom-domain-with-your-azure-front-door-endpoint).

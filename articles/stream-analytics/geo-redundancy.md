@@ -3,7 +3,7 @@ title: Achieve geo-redundancy for Azure Stream Analytics jobs
 description: This article describes how-to achieve geo-redundancy of Azure Stream Analytics jobs instead of geo-failover.
 author: an-emma
 ms.author: raan
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 08/26/2020
 ---

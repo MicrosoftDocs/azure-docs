@@ -13,6 +13,8 @@ ms.custom: mvc
 
 # Tutorial: Add Azure Content Delivery Network to an Azure App Service web app
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 This tutorial shows how to add [Azure Content Delivery Network](cdn-overview.md) to a [web app in Azure App Service](../app-service/overview.md). Web apps are services for hosting web applications, REST APIs, and mobile back ends.
 
 Here's the home page of the sample static HTML site that you work with:
@@ -33,7 +35,7 @@ To complete this tutorial:
 - [Install Git](https://git-scm.com/)
 - [Install the Azure CLI](/cli/azure/install-azure-cli)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create the web app
 

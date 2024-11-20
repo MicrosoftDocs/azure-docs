@@ -2,8 +2,8 @@
 title: 'Azure Bastion FAQ'
 description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
-ms.service: bastion
-ms.topic: conceptual
+ms.service: azure-bastion
+ms.topic: faq
 ms.date: 04/01/2024
 ms.author: cherylmc
 ms.custom: references_regions
@@ -31,11 +31,7 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="az"></a>Does Azure Bastion support availability zones?
 
-[!INCLUDE [Availability Zones description and supported regions](../../includes/bastion-availability-zones-description.md)]
-
-If you aren't able to select a zone, you might have selected an Azure region that doesn't yet support availability zones.
-
-For more information about availability zones, see [Availability Zones](../reliability/availability-zones-overview.md?tabs=azure-cli).
+For information on availability zone support in Azure Bastion, see [Reliability in Azure Bastion](../reliability/reliability-bastion.md).  
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
@@ -106,19 +102,13 @@ No, Bastion connectivity to Azure Virtual Desktop isn't supported.
 
 ### <a name="udr"></a>How do I handle deployment failures?
 
-Review any error messages and [raise a support request in the Azure portal](../azure-portal/supportability/how-to-create-azure-support-request.md) as needed. Deployment failures can result from [Azure subscription limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers might encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
-
-### <a name="dr"></a>How do I incorporate Azure Bastion in my Disaster Recovery plan?
-
-Azure Bastion is deployed within virtual networks or peered virtual networks, and is associated to an Azure region. You're responsible for deploying Azure Bastion to a Disaster Recovery (DR) site virtual network. If there's an Azure region failure, perform a failover operation for your VMs to the DR region. Then, use the Azure Bastion host that's deployed in the DR region to connect to the VMs that are now deployed there.
+Review any error messages and [raise a support request in the Azure portal](/azure/azure-portal/supportability/how-to-create-azure-support-request) as needed. Deployment failures can result from [Azure subscription limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers might encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
 
 ### <a name="move-virtual-network"></a>Does Bastion support moving a VNet to another resource group?
 
 No. If you move your virtual network to another resource group (even if it's in the same subscription), you'll need to first delete Bastion from virtual network, and then proceed to move the virtual network to the new resource group. Once the virtual network is in the new resource group, you can deploy Bastion to the virtual network.
 
-### <a name="zone-redundant"></a>Does Bastion support zone redundancies?
 
-Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions might or might not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
 
 ### <a name="azure-ad-guests"></a>Does Bastion support Microsoft Entra guest accounts?
 
@@ -181,9 +171,9 @@ Yes. See [About VM connections and features](vm-about.md#audio).
 
 Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. At this time, you can’t upload or download files using PowerShell or via the Azure portal. For more information, see [Upload and download files using the native client](vm-upload-download-native.md).
 
-### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
+### <a name="aadj"></a>Does Bastion work with Entra ID extension-joined VMs?
 
-This feature doesn't work with AADJ VM extension-joined machines using Microsoft Entra users. For more information, see [Sign in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+Bastion does work with Entra ID extension-joined VMs for Microsoft Entra users with RDP and SSH on the native client, and SSH only on the portal. Entra ID for RDP on the portal is not yet supported. For more information, see [Sign in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
 ### <a name="rdscal-compatibility"></a>Is Bastion compatible with VMs set up as RDS session hosts?
 
@@ -235,7 +225,7 @@ Yes, existing sessions on the target Bastion resource will disconnect during mai
 
 ### I'm connecting to a VM using a JIT policy, do I need additional permissions?
 
-If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.yml).
+If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](/azure/defender-for-cloud/just-in-time-access-usage).
 
 ## <a name="peering"></a>VNet peering FAQs
 

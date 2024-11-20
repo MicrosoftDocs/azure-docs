@@ -3,8 +3,8 @@ title: sys.sp_cleanup_data_retention (Transact-SQL) - Azure SQL Edge
 description: sys.sp_cleanup_data_retention performs cleanup of obsolete records from tables that have data retention policies enabled.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: reference
 keywords:
   - sys.sp_cleanup_data_retention (Transact-SQL)
@@ -12,7 +12,9 @@ keywords:
 ---
 # sys.sp_cleanup_data_retention (Transact-SQL)
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Performs cleanup of obsolete records from tables that have data retention policies enabled. For more information, see [Data Retention](data-retention-overview.md).
@@ -46,7 +48,7 @@ An optional OUTPUT parameter that represents the number of records cleanup from 
 
 Requires **db_owner** permissions.
 
-## Next steps
+## Related content
 
 - [Data Retention and Automatic Data Purging](data-retention-overview.md)
 - [Manage historical data with retention policy](data-retention-cleanup.md)

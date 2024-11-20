@@ -2,11 +2,13 @@
 title: Remote Desktop Protocol bandwidth requirements Azure Virtual Desktop - Azure
 titleSuffix: Azure
 description: Understanding RDP bandwidth requirements for Azure Virtual Desktop.
-author: femila
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 11/16/2020
-ms.author: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
+
 # Remote Desktop Protocol (RDP) bandwidth requirements
 
 Remote Desktop Protocol (RDP) is a sophisticated technology that uses various techniques to perfect the server's remote graphics' delivery to the client device. Depending on the use case, availability of computing resources, and network bandwidth, RDP dynamically adjusts various parameters to deliver the best user experience.

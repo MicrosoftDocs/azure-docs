@@ -315,7 +315,7 @@ There are several common build issues that can cause Python functions to not be 
 
 * The agent pool must be running on Ubuntu to guarantee that packages are restored correctly from the build step. Make sure your deployment template requires an Ubuntu environment for build and deployment.
 
-* When the function app isn't at the root of the source repo, make sure that the `pip install` step references the correct location in which to create the `.python-packages` folder. Keep in mind that this location is case sensitive, such as in this command example:  
+* When the function app isn't at the root of the source repo, make sure that the `pip install` step references the correct location in which to create the `.python_packages` folder. Keep in mind that this location is case sensitive, such as in this command example:  
 
     ```
     pip install --target="./FunctionApp1/.python_packages/lib/site-packages" -r ./FunctionApp1/requirements.txt

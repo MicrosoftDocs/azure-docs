@@ -2,7 +2,7 @@
 title: Discover, connect, and explore data in Synapse using Microsoft Purview
 description: Guide on how to discover data, connect them and explore them in Synapse
 author: Jejiang
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: purview 
 ms.topic: how-to
 ms.date: 12/16/2020

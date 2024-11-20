@@ -9,17 +9,35 @@ items:
     href: /azure/virtual-machines/workloads/oracle/
 - name: Oracle Database@Azure
   items:
-  - name: Overview - Oracle Database@Azure
+  - name: Get started
+    href: oracle-db/oracle-database-get-started.md
+  - name: Overview
     href: oracle-db/database-overview.md
-  - name: Onboard with Oracle Database@Azure
-    href: oracle-db/onboard-oracle-database.md
-  - name: Network planning for Oracle Database@Azure
+  - name: Region availability
+    href: oracle-db/oracle-database-regions.md
+  - name: Network planning
     href: oracle-db/oracle-database-network-plan.md
-  - name: Groups and roles for Oracle Database@Azure
-    href: oracle-db/oracle-database-groups-roles.md
-  - name: Provision and manage Oracle Database@Azure
-    href: oracle-db/provision-oracle-database.md
-  - name: Support for Oracle Database@Azure
-    href: oracle-db/oracle-database-support.md
-  
- 
+  - name: Known issues
+    href: oracle-db/oracle-database-known-issues.md
+  - name: Onboarding
+    items:
+    - name: Onboard Oracle Database@Azure
+      href: oracle-db/onboard-oracle-database.md
+  - name: Design considerations 
+    items:
+    - name: Groups and roles
+      href: oracle-db/oracle-database-groups-roles.md
+    - name: Plan IP address space
+      href: oracle-db/oracle-database-plan-ip.md
+    - name: Delegated subnet limits
+      href: oracle-db/oracle-database-delegated-subnet-limits.md      
+- name: FAQ
+  href: oracle-db/faq-oracle-database-azure.md
+- name: References
+  items:
+  - name: Well Architected Framework (WAF)
+    href: /azure/well-architected/
+  - name: Cloud Adoption Framework (CAF)
+    href: /azure/cloud-adoption-framework/
+  - name: Azure VMware Solution landing zone accelerator
+    href: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone

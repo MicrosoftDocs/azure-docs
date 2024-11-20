@@ -2,7 +2,7 @@
 title: Frequently asked questions about Azure Spring Apps | Microsoft Docs
 description: This article answers frequently asked questions about Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 04/23/2024
 ms.author: karler
@@ -12,8 +12,7 @@ zone_pivot_groups: programming-languages-spring-apps
 
 # Azure Spring Apps FAQ
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -71,7 +70,7 @@ We're not actively developing more capabilities for Service Binding. Instead, th
 
 ### How can I provide feedback and report issues?
 
-If you encounter any issues with Azure Spring Apps, create an [Azure Support Request](../../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
+If you encounter any issues with Azure Spring Apps, create an [Azure Support Request](/azure/azure-portal/supportability/how-to-create-azure-support-request). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 
 ### How do I get VMware Spring Runtime support (Enterprise plan only)
 
@@ -88,9 +87,9 @@ For the quickest way to get started with Azure Spring Apps, follow the instructi
 
 ### Where can I view my Spring application logs and metrics?
 
-Find metrics in the App Overview tab and the [Azure Monitor](../../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer) tab.
+Find metrics in the App Overview tab and the [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics#metrics-explorer) tab.
 
-Azure Spring Apps supports exporting Spring application logs and metrics to Azure Storage, Event Hubs, and [Log Analytics](../../azure-monitor/logs/data-platform-logs.md). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
+Azure Spring Apps supports exporting Spring application logs and metrics to Azure Storage, Event Hubs, and [Log Analytics](/azure/azure-monitor/logs/data-platform-logs). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
 
 ### Does Azure Spring Apps support distributed tracing?
 
@@ -141,9 +140,9 @@ You can delete the Azure Spring Apps diagnostic settings by using Azure CLI:
 
 ### Which versions of Java runtime are supported in Azure Spring Apps?
 
-Azure Spring Apps supports Java LTS versions with the most recent builds, currently Java 8, Java 11, and Java 17 are supported.
+Azure Spring Apps supports Java LTS versions with the most recent builds, currently Java 8, Java 11, Java 17, and Java 21 are supported. 
 
-### How long are Java 8, Java 11, and Java 17 LTS versions supported?
+### How long are Java 8, Java 11, Java 17, and Java 21 LTS versions supported?
 
 See [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 
@@ -196,12 +195,6 @@ Azure Spring Apps continuously probes port `1025` for customer's applications wi
 ### Whether and when is my application restarted?
 
 Yes. For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md).
-
-::: zone pivot="programming-language-java"
-### What are the best practices for migrating existing Spring applications to Azure Spring Apps?
-
-For more information, see [Migrate Spring applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps).
-::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 

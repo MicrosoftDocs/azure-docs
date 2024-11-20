@@ -11,6 +11,7 @@ ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.devlang: python
 ms.custom: devx-track-python, py-fresh-zinc
+ai-usage: ai-assisted
 ---
 
 # Azure Storage samples using Python client libraries
@@ -108,7 +109,7 @@ Check out the following guides if you're looking for instructions on how to inst
 
 - [Quickstart: Azure Blob Storage client library for Python](../blobs/storage-quickstart-blobs-python.md)
 - [Quickstart: Azure Queue Storage client library for Python](../queues/storage-quickstart-queues-python.md)
-- [Getting Started with Azure Table Service in Python](../../cosmos-db/table-storage-how-to-use-python.md)
+- [Getting Started with Azure Table Service in Python](/azure/cosmos-db/table-storage-how-to-use-python)
 - [Develop for Azure Files with Python](../files/storage-python-how-to-use-file-storage.md)
 
 ## Next steps

@@ -1,0 +1,124 @@
+name: GitOps.PullRequestIssueManagement
+description: GitOps.PullRequestIssueManagement primitive
+resource: repository
+
+configuration:
+  resourceManagementConfiguration:
+    eventResponderTasks:
+      - description: Close PRs that contain content for services that have been migrated out of the azure-docs-pr repository.
+        if:
+          - payloadType: Pull_Request
+          - isAction:
+              action: Opened
+          - or:              
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/aks/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/defender-for-cloud/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/attestation/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/confidential-ledger/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/dedicated-hsm/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/key-vault/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/payment-hsm/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/postgresql/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/cosmos-db/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/dms/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/mariadb/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/mysql/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/managed-instance-apache-cassandra/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/virtual-machines/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/virtual-machines-scale-sets/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/container-instances/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/service-fabric/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/machine-learning/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/ai-studio/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/ai-services/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/genomics/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/open-datasets/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/search/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/azure-monitor/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/advisor/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/chaos-studio/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/service-health/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/azure-arc/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/azure-linux/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/azure-portal/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/copilot/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/lighthouse/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/quotas/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/container-registry/*
+              - filesMatchPattern:
+                  matchAny: true
+                  pattern: articles/kubernetes-fleet/*
+        then:
+          - addReply:
+              reply: >-
+                @${issueAuthor} - You tried to add content to a folder path that has been removed from this repository. Your pull request will be automatically closed. Submit your changes to the updated repository, which can be identified by clicking the Edit this Document link at the top of any published article for that product or service.
+          - closePullRequest
+          

@@ -5,7 +5,7 @@ description: Steps to configure Private Link in Virtual WAN
 services: virtual-wan
 author: erjosito
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/30/2023
 ms.author: jomore
@@ -17,7 +17,7 @@ ms.custom: fasttrack-new
 
 ## Before you begin
 
-The steps in this article assume that you've already deployed a virtual WAN with one or more hubs and at least two virtual networks connected to Virtual WAN.
+The steps in this article assume that you've  deployed a virtual WAN with one or more hubs and at least two virtual networks connected to Virtual WAN.
 
 To create a new virtual WAN and a new hub, use the steps in the following articles:
 
@@ -25,6 +25,19 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 * [Create a hub](virtual-wan-site-to-site-portal.md#hub)
 * [Connect a VNet to a hub](virtual-wan-site-to-site-portal.md#hub)
 
+## Routing Considerations with Private Link in Virtual WAN
+
+Private Endpoint connectivity in Azure is stateful. When a connection to a private endpoint gets established through Virtual WAN, traffic is routed through one or more traffic hops through different Virtual WAN components (for example Virtual Hub router, ExpressRoute Gateway, VPN Gateway, Azure Firewall, or NVA). The exact hops traffic takes is based on your Virtual WAN routing configurations. Behind the scenes, Azure's software-defined networking layer sends all packets related to a single 5-tuple flow to one of the backend instances servicing different Virtual WAN components. Asymmetrically routed traffic (for example, traffic corresponding to a single 5-tuple flow routed to different backend instances) is not supported and is dropped by the Azure platform.
+
+During maintenance events on Virtual WAN infrastructure, backend instances are rebooted one at a time, which can lead to intermittent connectivity issues to Private Endpoint as the instance servicing the flow is temporarily unavailable. The similar problem can occur when Azure Firewall or Virtual hub router scales out. The same traffic flow can be load-balanced to a new backend instance that is different than the instance currently servicing the flow.
+
+To mitigate the impact of maintenance and scale-out events on Private Link or Private Endpoint traffic consider the following best practices:
+
+* Configure the TCP time-out value of your on-premises application to fall between 15-30 seconds. A smaller TCP time-out value will allow application traffic to recover more quickly from maintenance and scale-out events. Alternatively, test different application time-out values to determine a suitable time-out based on your requirements.
+* Pre-scale Virtual WAN components to handle traffic bursts to prevent autoscale events from occurring. For the Virtual Hub router, you can set the minimum routing infrastructure units on your hub router to prevent scaling during traffic bursts.
+
+Lastly, if you are using on-premises connectivity between Azure and on-premises using VPN or ExpressRoute, ensure your on-premises device is configured to use the same VPN tunnel or same Microsoft Enterprise Edge router as the next-hop for each 5-tuple corresponding to private endpoint traffic.
+ 
 ## <a name="endpoint"></a>Create a private link endpoint
 
 You can create a private link endpoint for many different services. In this example, we're using Azure SQL Database. You can find more information about how to create a private endpoint for an Azure SQL Database in [Quickstart: Create a Private Endpoint using the Azure portal](../private-link/create-private-endpoint-portal.md). The following image shows the network configuration of the Azure SQL Database:
@@ -35,7 +48,7 @@ After creating the Azure SQL Database, you can verify the private endpoint IP ad
 
 :::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="private endpoints" lightbox="./media/howto-private-link/endpoints.png":::
 
-Clicking on the private endpoint we've created, you should see its private IP address and its Fully Qualified Domain Name (FQDN). The private endpoint should have an IP address in the range of the VNet where it has been deployed (10.1.3.0/24):
+Clicking on the private endpoint we've created, you should see its private IP address and its Fully Qualified Domain Name (FQDN). The private endpoint should have an IP address in the range of the VNet  (10.1.3.0/24):
 
 :::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="SQL endpoint" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
@@ -52,12 +65,12 @@ Server:         127.0.0.53
 Address:        127.0.0.53#53
 
 Non-authoritative answer:
-wantest.database.windows.net    canonical name = wantest.server-name.database.windows.net.
-Name:   wantest.server-name.database.windows.net
+wantest.database.windows.net    canonical name = wantest.privatelink.database.windows.net.
+Name:   wantest.privatelink.database.windows.net
 Address: 10.1.3.228
 ```
 
-As you can see in the previous output, the FQDN `wantest.database.windows.net` is mapped to `wantest.server-name.database.windows.net`, that the private DNS zone created along the private endpoint will resolve to the private IP address `10.1.3.228`. Looking into the private DNS zone will confirm that there's an A record for the private endpoint mapped to the private IP address:
+As you can see in the previous output, the FQDN `wantest.database.windows.net` is mapped to `wantest.privatelink.database.windows.net`, that the private DNS zone created along the private endpoint will resolve to the private IP address `10.1.3.228`. Looking into the private DNS zone will confirm that there's an A record for the private endpoint mapped to the private IP address:
 
 :::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="DNS zone" lightbox="./media/howto-private-link/dns-zone.png":::
 
@@ -100,8 +113,8 @@ Server:         127.0.0.53
 Address:        127.0.0.53#53
 
 Non-authoritative answer:
-wantest.database.windows.net    canonical name = wantest.server-name.database.windows.net.
-Name:   wantest.server-name.database.windows.net
+wantest.database.windows.net    canonical name = wantest.privatelink.database.windows.net.
+Name:   wantest.privatelink.database.windows.net
 Address: 10.1.3.228
 ```
 
@@ -121,6 +134,7 @@ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 ```
 
 With this example, we've seen how creating a private endpoint in one of the VNets attached to a Virtual WAN provides connectivity to the rest of VNets and branches in the Virtual WAN.
+
 
 ## Next steps
 

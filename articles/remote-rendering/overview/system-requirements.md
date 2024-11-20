@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 # System requirements
 
-This chapter lists the minimum system requirements to work with *Azure Remote Rendering* (ARR).
+This chapter lists the minimum system requirements to work with *Azure Remote Rendering (ARR)*.
 
 ## Development PC
 
@@ -158,7 +158,7 @@ ARR for Unity 2019 supports both the legacy **built-in XR** integration for Wind
 For Unity 2020, use latest version of Unity 2020.3.
 
 > [!IMPORTANT]
-> When working with the OpenXR version of the plugin and the *Universal Render Pipeline* (URP), it has to be verified that the *Universal Render Pipeline* has version 10.5.1 or higher. To check that, open the *Package Manager* from the Unity *Windows* menu and refer to the *Universal RP* section:
+> When working with the OpenXR version of the plugin and the *Universal Render Pipeline (URP)*, it has to be verified that the *Universal Render Pipeline* has version 10.5.1 or higher. To check that, open the *Package Manager* from the Unity *Windows* menu and refer to the *Universal RP* section:
 > ![Version of the Universal RP](./media/unity-universal-rp-version-10-5-1.png)
 
 ### Unity 2021

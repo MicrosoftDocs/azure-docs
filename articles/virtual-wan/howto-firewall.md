@@ -5,9 +5,9 @@ description: Learn how to configure Azure Firewall in a Virtual WAN hub.
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 10/25/2024
 ms.author: cherylmc
 
 ---

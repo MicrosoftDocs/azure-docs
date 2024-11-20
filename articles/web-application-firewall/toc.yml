@@ -101,6 +101,8 @@ items:
       href: waf-copilot.md
   - name: WAF and Azure Policy
     href: ./shared/waf-azure-policy.md
+  - name: JavaScript challenge
+    href: waf-javascript-challenge.md
 - name: How-to guides
   items:
   - name: Application Gateway
@@ -181,8 +183,8 @@ items:
     href: ./afds/automated-detection-response-with-sentinel.md
   - name: Use geomatch custom rules to enhance network security
     href: geomatch-custom-rules-examples.md
-  - name: Troubleshoot
-    items:
+- name: Troubleshoot
+  items:
      - name: Application Gateway
        items:
         - name: Troubleshoot WAF

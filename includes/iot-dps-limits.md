@@ -1,9 +1,10 @@
 ---
 author: kgremban
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 03/06/2024
 ms.author: kgremban
+ms.subservice: azure-iot-hub-dps
 ---
 
 The following table lists the limits that apply to Azure IoT Hub Device Provisioning Service resources.

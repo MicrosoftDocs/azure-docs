@@ -61,7 +61,7 @@ The identity used to publish events to Event Grid must have the permission ``Mic
 With RBAC privileges taken care of, you can now [build your client application to send events](#publish-events-using-event-grids-client-sdks) to Event Grid.
 
 > [!NOTE]
-> Event Grid supports more RBAC roles for purposes beyond sending events. For more information, see[Event Grid built-in roles](security-authorization.md#built-in-roles).
+> Event Grid supports more RBAC roles for purposes beyond sending events. For more information, see [Event Grid built-in roles](security-authorization.md#built-in-roles).
 
 
 ## Publish events using Event Grid's client SDKs

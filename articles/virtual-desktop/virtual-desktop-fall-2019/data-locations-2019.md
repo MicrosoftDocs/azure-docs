@@ -1,11 +1,11 @@
 ---
 title: Data locations for Azure Virtual Desktop (classic) - Azure
 description: A brief overview of which locations Azure Virtual Desktop (classic) data and metadata are stored in.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Data locations for Azure Virtual Desktop (classic)
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: This article provides information on how to troubleshoot session affinity issues in Azure Application Gateway
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 01/24/2022
 ms.author: greglin
@@ -15,7 +15,7 @@ ms.author: greglin
 Learn how to diagnose and resolve session affinity issues with Azure Application Gateway.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Overview
 

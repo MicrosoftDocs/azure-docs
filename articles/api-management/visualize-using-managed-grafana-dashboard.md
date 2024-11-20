@@ -2,7 +2,7 @@
 title: Visualize Azure API Management monitoring data with Azure Managed Grafana
 description: Learn how to use an Azure Managed Grafana dashboard to visualize monitoring data from Azure API Management.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/17/2022
 ms.author: danlep
@@ -60,4 +60,4 @@ Review the default visualizations on the dashboard, which will appear similar to
 ## Next steps
 
 * For more information about managing your Grafana dashboard, see the [Grafana docs](https://grafana.com/docs/grafana/v9.0/dashboards/).
-* Easily pin log queries and charts from the Azure portal to your Managed Grafana dashboard. For more information, see [Monitor your Azure services in Grafana](../azure-monitor/visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana).
+* Easily pin log queries and charts from the Azure portal to your Managed Grafana dashboard. For more information, see [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin#pin-charts-from-the-azure-portal-to-azure-managed-grafana).

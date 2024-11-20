@@ -14,7 +14,7 @@ This article shows you how to use PowerShell to set up Azure Backup on Windows S
 
 ## Install Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To get started, [install the latest PowerShell release](/powershell/azure/install-azure-powershell).
 

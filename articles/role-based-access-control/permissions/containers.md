@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -49,7 +49,7 @@ Azure service: [Container Instances](/azure/container-instances/)
 > | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for container group. |
 > | Microsoft.ContainerInstance/containerScaleSets/read | Get details of a container scale set. |
 > | Microsoft.ContainerInstance/containerScaleSets/write | Create or update a specific container scale set. |
-> | Microsoft.ContainerInstance/containerScaleSets/delete | Delete Container Scale Set |
+> | Microsoft.ContainerInstance/containerScaleSets/delete | Deletes a specific container scale set. |
 > | Microsoft.ContainerInstance/containerScaleSets/containerGroups/restart/action | Restart specific container groups in a container scale set. |
 > | Microsoft.ContainerInstance/containerScaleSets/containerGroups/start/action | Start specific container groups in a container scale set. |
 > | Microsoft.ContainerInstance/containerScaleSets/containerGroups/stop/action | Stop specific container groups in a container scale set. |
@@ -431,6 +431,12 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/fleets/certificates.k8s.io/certificatesigningrequests/read | Reads certificatesigningrequests |
 > | Microsoft.ContainerService/fleets/certificates.k8s.io/certificatesigningrequests/write | Writes certificatesigningrequests |
 > | Microsoft.ContainerService/fleets/certificates.k8s.io/certificatesigningrequests/delete | Deletes certificatesigningrequests |
+> | Microsoft.ContainerService/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read | Read fleet internalmembercluster resource |
+> | Microsoft.ContainerService/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/write | Write fleet internalmembercluster resource |
+> | Microsoft.ContainerService/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/delete | Delete fleet internalmembercluster resource |
+> | Microsoft.ContainerService/fleets/cluster.kubernetes-fleet.io/memberclusters/read | Read fleet membercluster resource |
+> | Microsoft.ContainerService/fleets/cluster.kubernetes-fleet.io/memberclusters/write | Write fleet membercluster resource |
+> | Microsoft.ContainerService/fleets/cluster.kubernetes-fleet.io/memberclusters/delete | Delete fleet membercluster resource |
 > | Microsoft.ContainerService/fleets/componentstatuses/read | Reads componentstatuses |
 > | Microsoft.ContainerService/fleets/componentstatuses/write | Writes componentstatuses |
 > | Microsoft.ContainerService/fleets/componentstatuses/delete | Deletes componentstatuses |
@@ -532,6 +538,33 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/fleets/persistentvolumes/read | Reads persistentvolumes |
 > | Microsoft.ContainerService/fleets/persistentvolumes/write | Writes persistentvolumes |
 > | Microsoft.ContainerService/fleets/persistentvolumes/delete | Deletes persistentvolumes |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourcebindings/read | Read fleet clusterresourcebinding resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourcebindings/write | Create/Update fleet clusterresourcebinding resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourcebindings/delete | Delete fleet clusterresourcebinding resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceoverrides/read | Read fleet clusterresourceoverride resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceoverrides/write | Write fleet clusterresourceoverride resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceoverrides/delete | Delete fleet clusterresourceoverride resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceoverridesnapshots/read | Read fleet clusterresourceoverridesnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceoverridesnapshots/write | Write fleet clusterresourceoverridesnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceoverridesnapshots/delete | Delete fleet clusterresourceoverridesnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceplacements/read | Read fleet clusterresourceplacement resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceplacements/write | Write fleet clusterresourceplacement resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourceplacements/delete | Delete fleet clusterresourceplacement resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourcesnapshots/read | Read fleet clusterresourcesnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourcesnapshots/write | Write fleet clusterresourcesnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterresourcesnapshots/delete | Delete fleet clusterresourcesnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterschedulingpolicysnapshots/read | Read fleet clusterschedulingpolicysnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterschedulingpolicysnapshots/write | Write fleet clusterschedulingpolicysnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/clusterschedulingpolicysnapshots/delete | Delete fleet clusterschedulingpolicysnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/read | Read fleet resourceoverride resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/write | Write fleet resourceoverride resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/delete | Delete fleet resourceoverride resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read | Read fleet resourceoverridesnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/write | Write fleet resourceoverridesnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/delete | Delete fleet resourceoverridesnapshot resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/works/read | Read fleet work resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/works/write | Write fleet work resource |
+> | Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/works/delete | Delete fleet work resource |
 > | Microsoft.ContainerService/fleets/podtemplates/read | Reads podtemplates |
 > | Microsoft.ContainerService/fleets/podtemplates/write | Writes podtemplates |
 > | Microsoft.ContainerService/fleets/podtemplates/delete | Deletes podtemplates |
@@ -720,6 +753,12 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/certificates.k8s.io/certificatesigningrequests/read | Reads certificatesigningrequests |
 > | Microsoft.ContainerService/managedClusters/certificates.k8s.io/certificatesigningrequests/write | Writes certificatesigningrequests |
 > | Microsoft.ContainerService/managedClusters/certificates.k8s.io/certificatesigningrequests/delete | Deletes certificatesigningrequests |
+> | Microsoft.ContainerService/managedClusters/cluster.kubernetes-fleet.io/internalmemberclusters/read | Read fleet internalmembercluster resource |
+> | Microsoft.ContainerService/managedClusters/cluster.kubernetes-fleet.io/internalmemberclusters/write | Write fleet internalmembercluster resource |
+> | Microsoft.ContainerService/managedClusters/cluster.kubernetes-fleet.io/internalmemberclusters/delete | Delete fleet internalmembercluster resource |
+> | Microsoft.ContainerService/managedClusters/cluster.kubernetes-fleet.io/memberclusters/read | Read fleet membercluster resource |
+> | Microsoft.ContainerService/managedClusters/cluster.kubernetes-fleet.io/memberclusters/write | Write fleet membercluster resource |
+> | Microsoft.ContainerService/managedClusters/cluster.kubernetes-fleet.io/memberclusters/delete | Delete fleet membercluster resource |
 > | Microsoft.ContainerService/managedClusters/componentstatuses/read | Reads componentstatuses |
 > | Microsoft.ContainerService/managedClusters/componentstatuses/write | Writes componentstatuses |
 > | Microsoft.ContainerService/managedClusters/componentstatuses/delete | Deletes componentstatuses |
@@ -809,8 +848,8 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/livez/poststarthook/start-kube-apiserver-admission-initializer/read | Reads start-kube-apiserver-admission-initializer |
 > | Microsoft.ContainerService/managedClusters/logs/read | Reads logs |
 > | Microsoft.ContainerService/managedClusters/metrics/read | Reads metrics |
-> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/nodes/read | Reads nodes metrics |
-> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/pods/read | Reads pods metrics |
+> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/nodes/read | Reads nodes |
+> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/pods/read | Reads pods |
 > | Microsoft.ContainerService/managedClusters/namespaces/read | Reads namespaces |
 > | Microsoft.ContainerService/managedClusters/namespaces/write | Writes namespaces |
 > | Microsoft.ContainerService/managedClusters/namespaces/delete | Deletes namespaces |
@@ -836,6 +875,33 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/persistentvolumes/read | Reads persistentvolumes |
 > | Microsoft.ContainerService/managedClusters/persistentvolumes/write | Writes persistentvolumes |
 > | Microsoft.ContainerService/managedClusters/persistentvolumes/delete | Deletes persistentvolumes |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourcebindings/read | Read fleet clusterresourcebinding resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourcebindings/write | Create/Update fleet clusterresourcebinding resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourcebindings/delete | Delete fleet clusterresourcebinding resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceoverrides/read | Read fleet clusterresourceoverride resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceoverrides/write | Write fleet clusterresourceoverride resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceoverrides/delete | Delete fleet clusterresourceoverride resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceoverridesnapshots/read | Read fleet clusterresourceoverridesnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceoverridesnapshots/write | Write fleet clusterresourceoverridesnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceoverridesnapshots/delete | Delete fleet clusterresourceoverridesnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceplacements/read | Read fleet clusterresourceplacement resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceplacements/write | Write fleet clusterresourceplacement resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourceplacements/delete | Delete fleet clusterresourceplacement resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourcesnapshots/read | Read fleet clusterresourcesnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourcesnapshots/write | Write fleet clusterresourcesnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterresourcesnapshots/delete | Delete fleet clusterresourcesnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterschedulingpolicysnapshots/read | Read fleet clusterschedulingpolicysnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterschedulingpolicysnapshots/write | Write fleet clusterschedulingpolicysnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/clusterschedulingpolicysnapshots/delete | Delete fleet clusterschedulingpolicysnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/resourceoverrides/read | Read fleet resourceoverride resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/resourceoverrides/write | Write fleet resourceoverride resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/resourceoverrides/delete | Delete fleet resourceoverride resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/resourceoverridesnapshots/read | Read fleet resourceoverridesnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/resourceoverridesnapshots/write | Write fleet resourceoverridesnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/resourceoverridesnapshots/delete | Delete fleet resourceoverridesnapshot resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/works/read | Read fleet work resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/works/write | Write fleet work resource |
+> | Microsoft.ContainerService/managedClusters/placement.kubernetes-fleet.io/works/delete | Delete fleet work resource |
 > | Microsoft.ContainerService/managedClusters/pods/read | Reads pods |
 > | Microsoft.ContainerService/managedClusters/pods/write | Writes pods |
 > | Microsoft.ContainerService/managedClusters/pods/delete | Deletes pods |

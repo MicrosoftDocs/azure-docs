@@ -3,7 +3,7 @@ title: Linter rule - use stable VM image
 description: Linter rule - use stable VM image
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - use stable VM image
@@ -27,7 +27,7 @@ The following example fails this test.
 ```bicep
 param location string = resourceGroup().location
 
-resource vm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
   name: 'virtualMachineName'
   location: location
   properties: {
@@ -47,7 +47,7 @@ You can fix it by using an image that does not contain the string `preview` in t
 ```bicep
 param location string = resourceGroup().location
 
-resource vm 'Microsoft.Compute/virtualMachines@2023-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
   name: 'virtualMachineName'
   location: location
   properties: {

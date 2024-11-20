@@ -7,7 +7,7 @@ author: avanigupta
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 03/27/2023
+ms.date: 10/24/2024
 ms.custom: devdivchpfy22, devx-track-azurecli
 ms.author: avgupta
 #Customer intent: I want to store JSON key-values in App Configuration store without losing the data type of each setting.
@@ -58,7 +58,7 @@ In this tutorial, you'll learn how to:
 > * Export JSON key-values to a JSON file.
 > * Consume JSON key-values in your applications.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

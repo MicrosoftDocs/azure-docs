@@ -2,7 +2,7 @@
 title: Manage resources - Azure CLI
 description: Use Azure CLI and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 09/26/2024
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 
@@ -84,7 +84,7 @@ For more information, see [Move resources to new resource group or subscription]
 
 ## Lock resources
 
-Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource. 
+Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource.
 
 The following script locks a storage account so the account can't be deleted.
 

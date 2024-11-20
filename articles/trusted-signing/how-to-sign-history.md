@@ -1,7 +1,7 @@
 ---
 title: Access signed transactions in Trusted Signing 
 description: Learn how to access signed transactions in Trusted Signing in the Azure portal. 
-author: mehasharma 
+author: meha 
 ms.author: mesharm 
 ms.service: trusted-signing 
 ms.topic: how-to 
@@ -12,9 +12,8 @@ ms.date: 04/12/2024
 
 You can use diagnostic settings to route your Trusted Signing account platform metrics, resource logs, and activity log to various destinations. For each Azure resource that you use, you must configure a separate diagnostic setting. Similarly, each Trust Signing account should have its own settings configured.
 
-Currently, you can choose from four log routing options for Trusted Signing in Azure:
+Currently, you can choose from three log routing options for Trusted Signing in Azure:
 
-- **Log Analytics workspace**: A Log Analytics workspace serves as a distinct environment for log data. Each workspace has its own data repository and configuration. It’s the designated destination for your data. If you haven’t already set up a workspace, create one before you proceed. For more information, see the [Log Analytics workspace overview](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 - **Azure Storage account**: An Azure Storage account houses all your Storage data objects, including blobs, files, queues, and tables. It offers a unique namespace for your Storage data, and it's accessible globally via HTTP or HTTPS.
 
   To set up your storage account:
@@ -50,22 +49,22 @@ To complete the steps in this article, you need:
 To access and send signing transactions to your storage account:  
 
 1. In the Azure portal, go to your Trusted Signing account.
-1. On the Trusted Signing account **Overview** pane, in the resource menu under **Monitoring**, select **Diagnostic settings**.
-1. On the **Diagnostic settings** pane, select **+ Add diagnostic setting**.
+2. On the Trusted Signing account **Overview** pane, in the resource menu under **Monitoring**, select **Diagnostic settings**.
+3. On the **Diagnostic settings** pane, select **+ Add diagnostic setting**.
 
    :::image type="content" source="media/trusted-signing-diagnostic-settings.png" alt-text="Screenshot that shows adding a diagnostic setting." lightbox="media/trusted-signing-diagnostic-settings.png":::
 
 1. On the **Diagnostic setting** pane:
 
    1. Enter a name for the diagnostic setting.
-   1. Under **Logs** > **Categories**, select the **Sign Transactions** checkbox.
-   1. Under **Destination details**, select the **Archive to a storage account** checkbox.
-   1. Select the subscription and storage account that you want to use.
+   2. Under **Logs** > **Categories**, select the **Sign Transactions** checkbox.
+   3. Under **Destination details**, select the **Archive to a storage account** checkbox.
+   4. Select the subscription and storage account that you want to use.
 
    :::image type="content" source="media/trusted-signing-select-storage-account-subscription.png" alt-text="Screenshot that shows configuring a diagnostic setting for a storage account." lightbox="media/trusted-signing-select-storage-account-subscription.png":::
 
-1. Select **Save**. A pane displays a list of all diagnostic settings that were created for this code signing account.  
-1. After you create a diagnostic setting, wait for 10 to 15 minutes for the events to begin to be ingested in the storage account you created.  
-1. Go to the storage account.  
-1. In your storage account resource menu under **Data storage**, go to **Containers**.
-1. In the list, select the container named `insights-logs-signtransactions`. Go to the date and time you want to view to download the log.
+2. Select **Save**. A pane displays a list of all diagnostic settings that were created for this code signing account.  
+3. After you create a diagnostic setting, wait for 10 to 15 minutes for the events to begin to be ingested in the storage account you created.  
+4. Go to the storage account.  
+5. In your storage account resource menu under **Data storage**, go to **Containers**.
+6. In the list, select the container named `insights-logs-signtransactions`. Go to the date and time you want to view to download the log.

@@ -14,6 +14,9 @@ The Event Grid namespace is automatically assigned an HTTP hostname at the time 
 
 You can assign your custom domain names to your Event Grid namespace’s MQTT and HTTP host names, along with the default host names. Custom domain configurations not only help you to meet your security and compliance requirements, but also eliminates the need to modify your clients that are already linked to your domain. 
 
+> [!NOTE]
+> This feature is currently in preview. 
+
 ## High-level steps 
 
 To use custom domains for namespaces, follow these steps: 

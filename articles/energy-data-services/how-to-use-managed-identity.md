@@ -3,7 +3,7 @@ title: Use managed identities for Microsoft Azure Data Manager for Energy on Azu
 description: Learn how to use a managed identity to access Azure Data Manager for Energy from other Azure services. 
 author: sandeepchads
 ms.author: sancha
-ms.service: energy-data-services	
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 01/04/2023
 ms.custom: template-how-to

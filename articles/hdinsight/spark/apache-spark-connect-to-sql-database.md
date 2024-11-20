@@ -1,7 +1,7 @@
 ---
 title: Use Apache Spark to read and write data to Azure SQL Database
 description: Learn how to set up a connection between HDInsight Spark cluster and Azure SQL Database. To read data, write data, and stream data into an SQL database
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/09/2024
@@ -62,7 +62,7 @@ In this section, you read data from a table (for example, **SalesLT.Address**) t
    
    val jdbcUsername = "<SQL DB ADMIN USER>"
    val jdbcPassword = "<SQL DB ADMIN PWD>"
-   val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or server-name.database.windows.net
+   val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
    val jdbcPort = 1433
    val jdbcDatabase ="<AZURE SQL DB NAME>"
    ```
@@ -118,7 +118,7 @@ In this section, we use a sample CSV file available on the cluster to create a t
    
    val jdbcUsername = "<SQL DB ADMIN USER>"
    val jdbcPassword = "<SQL DB ADMIN PWD>"
-   val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or server-name.database.windows.net
+   val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
    val jdbcPort = 1433
    val jdbcDatabase ="<AZURE SQL DB NAME>"
    ```
@@ -211,7 +211,7 @@ In this section, we stream data into the `hvactable` that you created in the pre
    
        val jdbcUsername = "<SQL DB ADMIN USER>"
        val jdbcPassword = "<SQL DB ADMIN PWD>"
-       val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or server-name.database.windows.net
+       val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
        val jdbcPort = 1433
        val jdbcDatabase ="<AZURE SQL DB NAME>"
        val driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"

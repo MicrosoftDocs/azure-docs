@@ -5,9 +5,10 @@ description: Best practices, patterns, and sample code you can use to help with 
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 01/26/2024
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Best practices for large-scale IoT device deployments
@@ -64,7 +65,7 @@ Devices that have the ability to store their connection string after initial pro
 
 ### Devices that can't store a connection string
 
-Some devices don't have a large enough footprint or memory to accommodate caching of the connection string from a past successful IoT Hub connection. These devices need to reprovision through DPS after rebooting. Use the [DPS registration API](/rest/api/iot-dps/device/device-registration-state) to re-register. Keep in mind that the number of re-registrations per minute is limited based on the DPS [device registration limit](about-iot-dps.md#quotas-and-limits).
+Some devices don't have a large enough footprint or memory to accommodate caching of the connection string from a past successful IoT Hub connection. These devices need to reprovision through DPS after rebooting. Use the [DPS registration API](/rest/api/iot-dps/device/runtime-registration) to re-register. Keep in mind that the number of re-registrations per minute is limited based on the DPS [device registration limit](about-iot-dps.md#quotas-and-limits).
 
 ### Reprovisioning sample
 
@@ -176,7 +177,7 @@ Any single IoT hub is limited to 1 million devices plus modules. If you plan to 
 When connecting to IoT Hub via DPS, devices should use the following logic in response to error codes when connecting:
 
 * When receiving any of the 500-series of server error responses, retry the connection using either cached credentials or the results of a Device Registration Status Lookup API call.
-* When receiving `401, Unauthorized` or `403, Forbidden` or `404, Not Found`, perform a full re-registration by calling the [DPS registration API](/rest/api/iot-dps/device/device-registration-state).
+* When receiving `401, Unauthorized` or `403, Forbidden` or `404, Not Found`, perform a full re-registration by calling the [DPS registration API](/rest/api/iot-dps/device/runtime-registration/register-device).
 
 At any time, devices should be capable of responding to a user-initiated reprovisioning command.
 

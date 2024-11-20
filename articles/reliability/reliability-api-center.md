@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: api-management
+ms.service: azure-api-management
 ms.date: 04/15/2024
 ---
 

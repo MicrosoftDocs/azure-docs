@@ -2,7 +2,7 @@
 title: Start, stop, and delete an application in Azure Spring Apps
 description: Need to start, stop, or delete your Azure Spring Apps application? Learn how to manage the state of an Azure Spring Apps application.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 04/18/2024
 ms.author: karler
@@ -11,8 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23
 
 # Start, stop, and delete an application in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Java ✔️ C#
 

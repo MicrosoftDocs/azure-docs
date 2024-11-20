@@ -1,11 +1,12 @@
 ---
-title: Back up SAP HANA System Replication databases on Azure VMs
+title: Back up SAP HANA System Replication databases on Azure VMs using Azure Backup
 description: In this article, discover how to back up SAP HANA databases with HANA System Replication enabled.
 ms.topic: how-to
-ms.date: 07/14/2023
-ms.service: backup
+ms.date: 10/01/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
 # Back up SAP HANA System Replication databases on Azure VMs
@@ -15,10 +16,13 @@ SAP HANA databases are critical workloads that require a low recovery-point obje
 You can also switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. [Learn more](#scenarios-to-protect-hsr-nodes-on-azure-backup).
 
 >[!Note]
->- The support for **HSR + DR** scenario is currently not available because there is a restriction to have VM and Vault in the same region.
+>- The support for **HSR + DR** scenario is currently not available because there is a restriction to have VM and Vault in the same region. To enable the backup operation of a Third Node that is in a different region, you need to configure the backup in a different vault as a standalone node.
 >- For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 
 ## Prerequisites
+
+Before you back up SAP HANA System Replication database on Azure VMs, ensure that:
+
 
 - Identify/create a Recovery Services vault in the same region and subscription as the two VMs/nodes of the HANA System Replication (HSR) database.
 - Allow connectivity from each of the VMs/nodes to the internet for communication with Azure. 
@@ -43,7 +47,24 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    | SDC | Backup Admin | Reads the backup catalog. |
    | SAP_INTERNAL_HANA_SUPPORT |      | Accesses a few private tables. <br><br> Required only for single container database (SDC) and multiple container database (MDC) versions earlier than HANA 2.0 SPS04 Rev 46. It isn't required for HANA 2.0 SPS04 Rev 46 versions and later, because we receive the required information from public tables now after the fix from HANA team. |
 
+   **Example**:
+
+   ```HDBSQL
+   - hdbsql -t -U SYSTEMKEY CREATE USER USRBKP PASSWORD AzureBackup01 NO FORCE_FIRST_PASSWORD_CHANGE
+   - hdbsql -t -U SYSTEMKEY 'ALTER USER USRBKP DISABLE PASSWORD LIFETIME'
+   - hdbsql -t -U SYSTEMKEY 'ALTER USER USRBKP RESET CONNECT ATTEMPTS'
+   - hdbsql -t -U SYSTEMKEY 'ALTER USER USRBKP ACTIVATE USER NOW'
+   - hdbsql -t -U SYSTEMKEY 'GRANT DATABASE ADMIN TO USRBKP'
+   - hdbsql -t -U SYSTEMKEY 'GRANT CATALOG READ TO USRBKP'
+   ```
+
 1. Add the key to *hdbuserstore* for your custom backup user that enables the HANA backup plug-in to manage all operations (database queries, restore operations, configuring, and running backup). 
+
+   **Example**:
+
+   ```HDBSQL
+   - hdbuserstore set BKPKEY localhost:39013 USRBKP AzureBackup01
+   ```
 
 1. Pass the custom backup user key to the script as a parameter: 
 
@@ -79,12 +100,25 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    
    You must provide the same HSR ID on both VMs/nodes. This ID must be unique within a vault. It should be an alphanumeric value containing at least one digit, one lowercase letter, and one uppercase character, and it should contain from 6 to 35 characters.
 
+   **Example**:
+
+   ```HDBSQL
+   - ./script.sh -sk SYSTEMKEY -bk USRBKP -hn HSRlab001 -p 39013
+   ```
+
 1. While you're running the preregistration script on the secondary node, you must specify the SDC/MDC port as input. This is because SQL commands to identify the SDC/MDC setup can't be run on the secondary node. You must provide the port number as a parameter, as shown here: 
 
    `-p PORT_NUMBER` or `–port_number PORT_NUMBER`.
 
    - For MDC, use the format `3<instancenumber>13`.
    - For SDC, use the format `3<instancenumber>15`.
+
+   **Example**:
+
+   ```HDBSQL
+   - MDC: ./script.sh -sk SYSTEMKEY -bk USRBKP -hn HSRlab001 -p 39013
+   - SDC: ./script.sh -sk SYSTEMKEY -bk USRBKP -hn HSRlab001 -p 39015
+   ```
 
 1. If your HANA setup uses private endpoints, run the preregistration script with the `-sn` or `--skip-network-checks` parameter. Ater the preregistration script has run successfully, proceed to the next steps.
 
@@ -285,7 +319,7 @@ You can now switch the protection of SAP HANA database on Azure VM (standalone) 
 
 1. Before a planned failover, [ensure that both VMs/Nodes are registered to the vault (physical and logical registration)](sap-hana-database-manage.md#verify-the-registration-status-of-vms-or-nodes-to-the-vault).
 
-## Next steps
+## Next step
 
 - [Restore SAP HANA System Replication databases on Azure VMs](sap-hana-database-restore.md)
 - [About backing up SAP HANA System Replication databases on Azure VMs](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled)

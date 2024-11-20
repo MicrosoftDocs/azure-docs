@@ -14,7 +14,7 @@ Azure Key Vault can emit events to a system topic when a certificate, key, or se
 
 ## Prerequisites
 
-- Create a Key Vault resource by following instructions from [Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+- Create a Key Vault resource by following instructions from [Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
 - To learn about Azure Monitor alerts, see [How to send events to Azure monitor alerts](handler-azure-monitor-alerts.md)
 
 
@@ -32,7 +32,7 @@ When creating an event subscription, follow these steps:
 1. Select **Configure an endpoint** link.
 1. On the **Select Monitor Alert Configuration** page, follow these steps.
     1. Select the alert **severity**.
-    1. Select the **action group** (optional), see [Create an action group in the Azure portal](../azure-monitor/alerts/action-groups.md).
+    1. Select the **action group** (optional), see [Create an action group in the Azure portal](/azure/azure-monitor/alerts/action-groups).
     1. Enter a **description** for the alert.
     1. Select **Confirm Selection**.
 
@@ -46,14 +46,14 @@ You can manage the subscription directly in the source (for example, Key Vault r
 ## Fire alert instances
 
 Now, Key Vault events appear as alerts and you can view them in alerts page. See this article to learn how to
-[manage alert instances](../azure-monitor/alerts/alerts-manage-alert-instances.md).
+[manage alert instances](/azure/azure-monitor/alerts/alerts-manage-alert-instances).
 
 ## Next steps
 
 See the following articles:
 
-- [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md)
-- [Manage Azure Monitor alert rules](../azure-monitor/alerts/alerts-manage-alert-rules.md)
+- [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview)
+- [Manage Azure Monitor alert rules](/azure/azure-monitor/alerts/alerts-manage-alert-rules)
 - [Pull delivery overview](pull-delivery-overview.md)
 - [Push delivery overview](push-delivery-overview.md)
 - [Concepts](concepts.md)
