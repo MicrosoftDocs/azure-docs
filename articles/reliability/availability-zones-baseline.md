@@ -55,7 +55,7 @@ To list the available VM SKUs by Azure region and zone, see [Check VM SKU availa
 
 If your region doesn't support the services and SKUs that your application requires, you'll need to go back to [Step 1: Check the product availability in the Azure region](#step-1-check-if-the-azure-region-supports-availability-zones) to find a new region that supports the services and SKUs that your application requires. We highly recommended that you configure your workload with zone-redundancy. 
 
-For zonal high availability of Azure IaaS Virtual Machines, use [Virtual Machine Scale Sets (VMSS) Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) to spread VMs across multiple availability zones.
+For multi-zone high availability of Azure IaaS Virtual Machines, use [Virtual Machine Scale Sets Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) to spread VMs across multiple availability zones.
 
 
 ### Step 3: Consider your application requirements
@@ -75,7 +75,7 @@ For critical application components that require physical proximity and low late
 
 #### Does your application code have the readiness to handle a distributed model?
 
-For a [distributed microservices model](/azure/architecture/guide/architecture-styles/microservices) and depending on your application, there's the possibility of ongoing data exchange between microservices across zones. This continual data exchange through APIs, could affect performance. To improve performance and maintain a reliable architecture, you can choose zonal deployment. 
+For a [distributed microservices model](/azure/architecture/guide/architecture-styles/microservices) and depending on your application, there's the possibility of ongoing data exchange between microservices across zones. This continual data exchange through APIs could affect performance. To improve performance and maintain a reliable architecture, you can choose zonal deployment. 
 
 With a zonal deployment, you must:
 
