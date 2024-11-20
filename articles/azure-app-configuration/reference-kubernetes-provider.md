@@ -478,8 +478,6 @@ spec:
 
 The generated Secrets are populated with the following data:
 
-##### [Opaque](#tab/Opaque)
-
 ```yaml
 name: secret-created-by-appconfig-provider
 type: Opaque
@@ -487,8 +485,6 @@ data:
   app1-secret1: value1
   app1-secret2: value2
 ```
-
-##### [TLS](#tab/TLS)
 
 ```yaml
 name: app1-certificate
