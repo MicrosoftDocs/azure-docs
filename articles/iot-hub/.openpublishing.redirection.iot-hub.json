@@ -937,7 +937,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/tls-1.2-everywhere.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-tls-ending-support-for-1-0-and-1-1",
+      "redirect_url": "/azure/iot-hub/iot-hub-tls-support",
       "redirect_document_id": false
     },
     {
@@ -1537,7 +1537,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-tls-ending-support-for-1-0-and-1-1",
+      "redirect_url": "/azure/iot-hub/iot-hub-tls-support",
       "redirect_document_id": true
     },
     {
