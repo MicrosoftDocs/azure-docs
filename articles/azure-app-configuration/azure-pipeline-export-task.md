@@ -54,7 +54,7 @@ This section covers how to use the Azure App Configuration Export task in an Azu
 1. Search for the **Azure App Configuration Export** Task.
       > [!div class="mx-imgBorder"]
       > ![Screenshot shows the Add Task dialog with Azure App Configuration Export in the search box.](./media/add-azure-app-configuration-export-task.png)
-1. To export the key-values from the App Configuration store, configure the necessary parameters for the task . Descriptions of the parameters are available in the **Parameters** section  and in tooltips next to each parameter.
+1. To export the key-values from the App Configuration store, configure the necessary parameters for the task. Descriptions of the parameters are available in the **Parameters** section  and in tooltips next to each parameter.
       - Set the **Azure subscription** parameter to the name of the service connection you created in a previous step.
       - Set the **App Configuration Endpoint** to the endpoint of your App Configuration store.
       - Leave the default values for the remaining parameters.
@@ -94,7 +94,7 @@ The following parameters are used by the Azure App Configuration Export task:
 - **Key Filter**: The filter can be used to select what key-values are requested from Azure App Configuration. A value of * selects all key-values. For more information on, see [Query key-values](concept-key-value.md#query-key-values).
 - **Label**: Specifies which label should be used when selecting key-values from the App Configuration store. If no label is provided, then key-values with the no label are retrieved. The following characters aren't allowed: , *.
 - **Snapshot Name**: Specifies snapshot from which key-values should be retrieved in Azure App Configuration.
-- **Trim Key Prefix**: Specifies one or more prefixes that should be trimmed from App Configuration keys before setting them as variables. A new-line character can be used to seperate multiple prefixes.
+- **Trim Key Prefix**: Specifies one or more prefixes that should be trimmed from App Configuration keys before setting them as variables. A new-line character can be used to separate multiple prefixes.
 - **Suppress Warning For Overridden Keys**: Default value is unchecked. Specifies whether to show warnings when existing keys are overridden. Enable this option when it's expected that the key-values downloaded from App Configuration have overlapping keys with what exists in pipeline variables.
 
 ## Use key-values in subsequent tasks
