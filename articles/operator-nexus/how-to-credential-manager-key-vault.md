@@ -227,8 +227,8 @@ Refer to [_Grant Managed Identity Access to a Key Vault for Credential Rotation_
 | Role Name                                              | Role Definition ID                   |
 |:-------------------------------------------------------|:-------------------------------------|
 | Operator Nexus Key Vault Writer Service Role (Preview) | 44f0a1a8-6fea-4b35-980a-8ff50c487c97 |
-<br/>
 
+<br/>
 Example:
 
 ```console
