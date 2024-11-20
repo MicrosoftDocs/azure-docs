@@ -5,7 +5,7 @@
  author: kgremban
  ms.service: iot-hub
  ms.topic: conceptual
- ms.date: 01/05/2024
+ ms.date: 11/15/2024
  ms.author: kgremban
 ---
 
@@ -22,19 +22,19 @@ IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devic
 
 ## Mutual TLS support
 
-Mutual TLS authentication ensures that the client _authenticates_ the server (IoT Hub) certificate and the server (IoT Hub) _authenticates_ the [X.509 client certificate or X.509 thumbprint](tutorial-x509-test-certs.md#create-a-client-certificate-for-a-device). _Authorization_ is performed by IoT Hub after _authentication_ is complete.
+Mutual TLS authentication ensures that the client _authenticates_ the server (IoT Hub) certificate and the server (IoT Hub) _authenticates_ the client using [X.509 client certificate or X.509 thumbprint](tutorial-x509-test-certs.md#create-a-client-certificate-for-a-device). IoT Hub performs _authorization_ after _authentication_ is complete.
 
-For AMQP and MQTT protocols, IoT Hub requests a client certificate in the initial TLS handshake. If one is provided, IoT Hub _authenticates_ the client certificate and the client _authenticates_ the IoT Hub certificate. This process is called mutual TLS authentication. When IoT Hub receives an MQTT connect packet or an AMQP link opens, IoT Hub performs _authorization_ for the requesting client and determines if the client requires X.509 authentication. If mutual TLS authentication was completed and the client is authorized to connect as the device, it is allowed. However, if the client requires X.509 authentication and client authentication was not completed during the TLS handshake, then IoT Hub rejects the connection.
+For Advanced Message Queuing Protocol (AMQP) and Message Queuing Telemetry Transport (MQTT) protocols, IoT Hub requests a client certificate in the initial TLS handshake. If one is provided, IoT Hub _authenticates_ the client certificate, and the client _authenticates_ the IoT Hub certificate. This process is called mutual TLS authentication. When IoT Hub receives an MQTT connect packet or an AMQP link opens, IoT Hub performs _authorization_ for the requesting client and determines if the client requires X.509 authentication. If mutual TLS authentication was completed and the client is authorized to connect as the device, it is allowed. However, if the client requires X.509 authentication and client authentication was not completed during the TLS handshake, then IoT Hub rejects the connection.
 
 For HTTP protocol, when the client makes its first request, IoT Hub checks if the client requires X.509 authentication and if client authentication was complete then IoT Hub performs authorization. If client authentication was not complete, then IoT Hub rejects the connection
 
-After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, this can be any X.509 certificate, including ECC. IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Supported X.509 certificates](iot-hub-dev-guide-sas.md#supported-x509-certificates).
+After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Supported X.509 certificates](iot-hub-dev-guide-sas.md#supported-x509-certificates).
 
 ### IoT Hub's server TLS certificate
 
 During a TLS handshake, IoT Hub presents RSA-keyed server certificates to connecting clients.In the past, the certificates were all rooted from the Baltimore Cybertrust Root CA. Because the Baltimore root is at end-of-life, we are in the process of migrating to a new root called DigiCert Global G2. This migration impacts all devices currently connecting to IoT Hub. For more information, see [IoT TLS certificate update](https://aka.ms/iot-ca-updates).
 
-Although root CA migrations are rare, for resilience in the modern security landscape you should prepare your IoT scenario for the unlikely event that a root CA is compromised or an emergency root CA migration is necessary. We strongly recommend that all devices trust the following three root CAs:
+We strongly recommend that all devices trust the following three root CAs: 
 
 * Baltimore CyberTrust root CA
 * DigiCert Global G2 root CA
@@ -42,9 +42,10 @@ Although root CA migrations are rare, for resilience in the modern security land
 
 For links to download these certificates, see [Azure Certificate Authority details](../security/fundamentals/azure-CA-details.md).
 
-## Cipher suites supported by IoT Hub
+Root CA migrations are extremely rare, you should always prepare your IoT solution for the unlikely event that a root CA is compromised and an emergency root CA migration is necessary.
 
-To comply with Azure security policy for a secure connection, these are the cipher suites that IoT Hub will support in on-going basis:
+## Cipher suites supported by IoT Hub
+To comply with Azure security policy for a secure connection, IoT Hub supports the following cipher suites:
 
 | Cipher Suites                             | TLS Version                  |
 |-------------------------------------------|------------------------------|
@@ -57,7 +58,7 @@ To comply with Azure security policy for a secure connection, these are the ciph
 | `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256` | ECC-only Cipher Suite  |
 | `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384` | ECC-only Cipher Suite  |
 
-The following cipher suites are currently supported by IoT Hub, however IoT Hub will end support for these cipher suites in accordance with the Azure TLS end of support. 
+The following cipher suites are weak and no longer recommended, and these cipher suites will be retired in accordance with the Azure TLS end of support. 
 
 | Cipher Suites                         | TLS Version                        |
 |---------------------------------------|------------------------------------|
