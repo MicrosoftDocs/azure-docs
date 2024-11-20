@@ -200,7 +200,7 @@ For higher resiliency, you can deploy a standby or backup logic app in another (
 
 For more information on multi-region deployments for your logic app workflows see:
 
-- [Business continuity and disaster recovery for Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance).
+- [Multi-region deployments in Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance).
 - [Set up cross-region disaster recovery for integration accounts in Azure Logic Apps](/azure/logic-apps/logic-apps-enterprise-integration-b2b-business-continuity).
 - [Create replication tasks for Azure resources using Azure Logic Apps](/azure/logic-apps/create-replication-tasks-azure-resources)
 
