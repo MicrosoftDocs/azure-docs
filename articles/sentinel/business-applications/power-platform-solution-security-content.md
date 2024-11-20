@@ -92,6 +92,8 @@ The following analytic rules are included when you install the solution for Powe
 
 ## Hunting Queries
 
+The solution includes hunting queries that can be used by analytics to proactively hunt malicious or suspicious activity in the Dynamics 365 and Power Platform environment.
+
 |Rule name|Description|Data Source|Tactics|
 |---------|---------|---------|---------|
 | Dataverse - Activity after Microsoft Entra alerts | This hunting query looks for users conducting Dataverse/Dynamics 365 activity shortly after a Microsoft Entra Identity Protection alert for that user. The query only looks for users not seen before or conducting Dynamics activity not previously seen. | <br>- Dataverse<br>`DataverseActivity`<br>- AzureActiveDirectoryIdentityProtection<br>`SecurityAlert`  | InitialAccess |
