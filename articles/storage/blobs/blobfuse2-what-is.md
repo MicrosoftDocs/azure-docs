@@ -103,7 +103,7 @@ BlobFuse2 is different from the Linux file system in some key ways:
 
 - **chown and chmod**:
 
-  Data Lake Storage storage accounts support per object permissions and ACLs, but flat namespace (FNS) block blobs don't. As a result, BlobFuse2 doesn't support the `chown` and `chmod` operations for mounted block blob containers. The operations are supported for Data Lake Storage.
+  Data Lake Storage storage accounts support per object permissions and ACLs, but flat namespace (FNS) block blobs don't. As a result, BlobFuse2 doesn't support the `chown` and `chmod` operations for mounted block blob containers. Only 'chmod' operations are supported for Data Lake Storage.
 
 - **Device files or pipes**:
 
@@ -137,7 +137,7 @@ Reading the same blob from multiple simultaneous threads is supported. However, 
 
 When a container is mounted with the default options, all files get 770 permissions and are accessible only by the user who does the mounting. To allow any user to access the BlobFuse2 mount, mount BlobFuse2 by using the `--allow-other` option. You also can configure this option in the YAML config file.
 
-As stated earlier, the `chown` and `chmod` operations are supported for Data Lake Storage, but not for FNS block blobs. Running a `chmod` operation against a mounted FNS block blob container returns a success message, but the operation doesn't actually succeed.
+As stated earlier, the chmod operation is supported for Data Lake Storage, whereas the chown operation is not. For FNS block blobs, neither operation is supported. While running a chmod command on a mounted FNS block blob container may return a success message, the operation does not actually take effect.
 
 ## Feature support
 
