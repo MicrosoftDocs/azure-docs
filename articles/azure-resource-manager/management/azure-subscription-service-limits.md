@@ -397,7 +397,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Media Services v2 (legacy)
 
-For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/azure/media-services/previous/media-services-quotas-and-limitations)
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)]
 
 ## Mobile Services limits
 
@@ -410,6 +410,9 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 ## Networking limits
 
 [!INCLUDE [azure-virtual-network-limits](../../../includes/azure-virtual-network-limits.md)]
+
+### <a name="load-balancer"></a>Azure Load Balancer limits
+[!INCLUDE [azure-load-balancer-limits](../../../includes/load-balancer-limits.md)]
 
 ### Application Gateway limits
 
@@ -576,6 +579,11 @@ The maximum number of allowed Managed Run Commands is currently limited to 25.
 ## Dev tunnels limits
 
 [!INCLUDE [dev-tunnels-service-limits](../../../includes/dev-tunnels/dev-tunnels-service-limits.md)]
+
+## Network Security Perimeters limits
+
+[!INCLUDE [network-security-perimeter-limits](../../../includes/network-security-perimeter-limits.md)]
+
 
 ## See also
 

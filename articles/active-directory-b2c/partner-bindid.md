@@ -195,7 +195,7 @@ You can define the Transmit Security as a claims provider by adding it to the **
              <Metadata>
                <Item Key="METADATA">https://api.transmitsecurity.io/cis/oidc/.well-known/openid-configuration</Item>
                 <!-- Update the Client ID below to the Transmit Security client ID -->
-               <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+               <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
                <Item Key="response_types">code</Item>
                <Item Key="scope">openid email</Item>
                <Item Key="response_mode">form_post</Item>

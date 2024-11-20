@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 10/24/2024
+ms.date: 11/19/2024
 ms.author: anfdocs
 ---
 
@@ -18,13 +18,19 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     <!-- Arnt -->
  
-## October 2024
+## November 2024
+
+* [Cool access support for large volumes](large-volumes-requirements-considerations.md#register-the-feature)
+
+    Azure NetApp Files storage with [cool access](cool-access-introduction.md) is now available with [large volumes](large-volumes.md). You must be registered to use _both_ cool access and large volumes to create a cool access-enabled large volume. 
+
+ ## October 2024
 
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
 
-    This feature is currently in preview in the Australia East, Central India, North Central US, and Switzerland North regions. 
+    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, and Switzerland North regions. 
   
 ## September 2024 
 

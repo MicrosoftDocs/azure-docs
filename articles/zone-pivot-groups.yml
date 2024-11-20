@@ -211,16 +211,16 @@ groups:
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
   pivots:
-  - id: consumption-plan
-    title: Consumption plan
   - id: flex-consumption-plan
-    title: Flex Consumption plan (preview)
+    title: Flex Consumption plan
   - id: premium-plan
     title: Premium plan
   - id: dedicated-plan
     title: Dedicated plan
   - id: container-apps
     title: Container Apps
+  - id: consumption-plan
+    title: Consumption plan
   - id: azure-arc
     title: Azure Arc
 ### end azure-functions
@@ -1015,6 +1015,15 @@ groups:
   - id: container-apps-jobs-self-hosted-ci-cd-github-actions
     title: GitHub Actions runner
 # Owner: cshoe
+- id: static-web-apps-ci-cd
+  title: CI/CD system
+  prompt: Select a CI/CD system
+  pivots:
+  - id: github-actions
+    title: GitHub Actions
+  - id: azure-pipelines
+    title: Azure Pipelines
+# Owner: cshoe
 - id: static-web-apps-api-protocols
   title: API protocol
   prompt: Select an API protocol
@@ -1442,6 +1451,14 @@ groups:
     title: Standard
   - id: host-pool-session-host-configuration
     title: Session host configuration (preview)
+- id: autoscale
+  title: Create and assign an autoscale scaling plan
+  prompt: "Choose an autoscaling method:"
+  pivots:
+  - id: power-management
+    title: Power management autoscaling
+  - id: dynamic
+    title: Dynamic autoscaling (preview)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -1674,6 +1691,15 @@ groups:
     title: Service Connector
   - id: manual
     title: Manual
+# Owner: franlanglois
+- id: redis-type
+  title: Redis version
+  prompt: Choose the version of Azure Redis you are using
+  pivots:
+  - id: azure-managed-redis
+    title: Azure Managed Redis
+  - id: azure-cache-redis
+    title: Azure Cache for Redis
 # Owner: rosemalcolm
 - id: ade-extensibility-iac-framework
   title: IaC frameworks
@@ -1703,3 +1729,14 @@ groups:
     title: Interactive
   - id: terraform
     title: Terraform
+# Owner: jodowns
+- id: app-service-sku
+  title: App Service tier
+  prompt: Choose an App Service tier
+  pivots:
+  - id: free-shared-basic
+    title: Free, Shared, Basic
+  - id: premium
+    title: Premium v2 and Premium v3
+  - id: isolated
+    title: Isolated v2 (App Service Environment)

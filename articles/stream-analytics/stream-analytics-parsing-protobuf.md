@@ -5,7 +5,7 @@ ms.service: azure-stream-analytics
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.topic: conceptual
-ms.date: 11/20/2023
+ms.date: 11/18/2024
 ms.custom:
 ---
 # Parse Protobuf in Azure Stream Analytics
@@ -21,7 +21,7 @@ To configure your Stream Analytics job to deserialize events in Protobuf:
 
 1. After you create your Stream Analytics job, select **Inputs**.
 1. Select **Add input**, and then select what input you want to configure to open the pane for input configuration.
-1. Select **Event serialization format** to show a dropdown list, and then select **Protobuf (preview)**.
+1. Select **Event serialization format** to show a dropdown list, and then select **Protobuf**.
 
    :::image type="content" source="./media/protobuf/protobuf-input-config.png" alt-text=" Screenshot that shows selections for configuring Protobuf for an Azure Stream Analytics job." lightbox="./media/protobuf/protobuf-input-config.png" :::
 

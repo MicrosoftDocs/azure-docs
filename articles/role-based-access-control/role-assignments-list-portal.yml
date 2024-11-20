@@ -6,7 +6,7 @@ metadata:
   author: rolyon
   ms.author: rolyon
   manager: amycolannino
-  ms.date: 08/01/2024
+  ms.date: 11/11/2024
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:
@@ -90,11 +90,6 @@ procedureSection:
   - title: |
       List role assignments at a scope
     summary: |
-
-      > [!IMPORTANT]
-      > Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
-      > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
       Follow these steps:
     steps:
       - |
@@ -112,7 +107,7 @@ procedureSection:
 
         If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, your **Role assignments** tab is similar to the following screenshot for management group, subscription, and resource group scopes. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
 
-        :::image type="content" source="./media/role-assignments-list-portal/sub-access-control-role-assignments-eligible.png" alt-text="Screenshot of Access control and Active assignments and Eligible assignments tabs." lightbox="./media/role-assignments-list-portal/sub-access-control-role-assignments-eligible.png":::
+        :::image type="content" source="./media/shared/sub-access-control-role-assignments-eligible.png" alt-text="Screenshot of Access control and Active assignments and Eligible assignments tabs." lightbox="./media/shared/sub-access-control-role-assignments-eligible.png":::
 
         You see a **State** column with one of the following states:
 
@@ -199,7 +194,7 @@ procedureSection:
   - title: | 
       List number of role assignments
     summary: |
-        You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. [Eligible role assignments](./role-assignments-portal.yml#step-6-select-assignment-type-(preview)) and role assignments scheduled in the future do not count towards this limit. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
+        You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. [Eligible role assignments](./role-assignments-portal.yml#step-6-select-assignment-type) and role assignments scheduled in the future do not count towards this limit. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
 
         ![Screenshot of Access control and number of role assignments chart.](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 

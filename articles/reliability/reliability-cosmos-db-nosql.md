@@ -14,9 +14,8 @@ ms.date: 05/06/2024
 #  High availability (Reliability) in Azure Cosmos DB for NoSQL
 
 
-This article describes high availability (reliability) support in Azure CosmosDB for NoSQL and covers both [availability zones](#availability-zone-support), as well as [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
+This article describes high availability (reliability) support in Azure Cosmos DB for NoSQL and covers both [availability zones](#availability-zone-support), as well as [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 
-For general resiliency recommendations for Azure Cosmos DB for NoSQL, see [Resiliency recommendations for Azure Cosmos DB for NoSQL](./resiliency-recommendations/recommend-cosmos-db-nosql.md).
 
 ## Availability zone support
 
@@ -60,11 +59,11 @@ Consult the table below to estimate the impact of using availability zones in yo
 
 ### SLA improvements
 
-Because availability zones are physically separate and provide distinct power source, network, and cooling, Availability SLAs (Service-level agreements) are higher (99.995%) than accounts with a single region (99.99%). Regions where availability zones are enabled are charged at 25% premium, while those without those without availability zones don't incur the premium. Moreover, the premium pricing for availability zones is waived for accounts configured with multi-region writes and/or for collections configured with autoscale mode.
+Because availability zones are physically separate and provide distinct power source, network, and cooling, Availability SLAs (Service-level agreements) are higher (99.995%) than accounts with a single region (99.99%). Regions where availability zones are enabled are charged at 25% premium, while those without availability zones don't incur the premium. Moreover, the premium pricing for availability zones is waived for accounts configured with multi-region writes and/or for collections configured with autoscale mode.
 
 Adding an additional region to Cosmos DB account typically increases existing bill by 100% (additively not multiplicatively) though small variations in cost across regions exist. For more details, see [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/).
 
-Enabling AZs, adding additional region(s), or turning on multi-region writes can be thought as a layering approach that increases resiliency and availability of a given Cosmos DB account at each step of the way - from 4 9's availability for single region no-AZ configuration, through 4 and half 9's for single region with AZs, all the way to 5 9's of availability for multi-region configuration with the multi-region write option enabled. Please refer the following table for a summary of SLAs for each configuration.
+Enabling AZs, adding additional region(s), or turning on multi-region writes can be thought as a layering approach that increases resiliency and availability of a given Cosmos DB account at each step of the way - from 4 9's availability for single region no-AZ configuration, through 4 and half 9's for single region with AZs, all the way to 5 9's of availability for multi-region configuration with the multi-region write option enabled. Please refer to the following table for a summary of SLAs for each configuration.
 
 
 |KPI|Single-region writes without availability zones|Single-region writes with availability zones|Multiple-region, single-region writes without availability zones|Multiple-region, single-region writes with availability zones|Multiple-region, multiple-region writes with or without availability zones|

@@ -287,6 +287,8 @@ items:
     href: configure-vmware-syslogs.md
   - name: Configure alerts and work with metrics
     href: configure-alerts-for-azure-vmware-solution.md
+  - name: Configure Newest Metrics for Azure VMware Solution
+    href: configure-azure-vmware-solution-metrics.md
   - name: Arc-enabled Azure VMware Solution private cloud
     items:
     - name: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud

@@ -16,6 +16,9 @@ Socket.IO is a library that enables real-time, bidirectional, and event-based co
 With the increasing adoption of serverless computing, we're introducing a new mode: Socket.IO Serverless mode. This mode allows Socket.IO to function in a serverless environment, handling communication logic through RESTful APIs or webhooks, offering a scalable, cost-effective, and maintenance-free solution.
 
 ## Differences Between Default Mode and Serverless Mode
+
+:::image type="content" source="./media/socket-io-serverless-overview/socket-io-serverless-default-modes.jpg" alt-text="Diagram of how the default mode compares with the serverless when using Web PubSub for Socket.IO.":::
+
 | Feature | Default Mode | Serverless Mode |
 |------------|------------|------------|
 |Architecture|Use persistent connection for both servers and clients | Clients use persistent connections but servers use RESTful APIs and webhook event handlers in a stateless manner|
