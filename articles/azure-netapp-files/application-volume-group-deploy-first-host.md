@@ -212,7 +212,6 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         Specify an existing VNet where the VMs are placed. 
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
-    <!-- ??? here ??? -->
     * **Encryption key source**:
         Select [customer-managed keys](configure-customer-managed-keys.md) or platform-managed keys. 
     
