@@ -14,12 +14,6 @@ The following table lists the current versions available for the public and Insi
 | Public | 1.2.5713  | [Microsoft Store](https://aka.ms/AVDStoreClient) |
 | Insider | 1.2.5802 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.5713 
-
-*Date published: November 12, 2024*   
-
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
-
 ## Updates for version 1.2.5804 (Insider) 
 
 *Date published: November 19, 2024*   
@@ -31,6 +25,12 @@ The following table lists the current versions available for the public and Insi
 
 > [!NOTE]
 > This version replaced the Insider versions 1.2.5799, 1.2.5800, and 1.2.5802. Changes noted above reflect all changes for these versions.  
+
+## Updates for version 1.2.5713 
+
+*Date published: November 12, 2024*   
+
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.5709
 
