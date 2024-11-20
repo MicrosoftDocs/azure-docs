@@ -2,26 +2,49 @@
 title: Configure data boundary
 description: Learn how to configure data boundary.
 ms.topic: how-to
-ms.date: 11/11/2024
+ms.date: 11/20/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to create a new data boundary.
 ---
 
 # Configure data boundary
 
-The only data boundary configuration currently supported, aside from the default Global configuration, is for the European Union (EU). The EU Data Boundary is a geographically defined boundary within which Microsoft has committed to store and process personal data for Microsoft enterprise online services, including Azure, Dynamics 365, Power Platform, and Microsoft 365, subject to limited circumstances where personal data continue to be transferred outside the EU Data Boundary. For more information, see [Overview of the EU Data Boundary](/privacy/eudb/eu-data-boundary-learn).
+This article explains how customers can configure Azure Resource Manager to operate within a data boundary. A global data boundary has no restrictions on the regions a resource can deploy to. However a non-global data boundary restricts resource deployments to regions within that boundary. The only non-global data boundary currently supported is for the European Union (EU). The EU Data Boundary is a geographically defined boundary within which Microsoft has committed to store and process customer data and pseudonymized personal data, and store professional services data for Microsoft enterprise online services, including Azure, Dynamics 365, Power Platform, and Microsoft 365, subject to limited circumstances where personal data continue to be transferred outside the EU Data Boundary. For more information, see [Overview of the EU Data Boundary](/privacy/eudb/eu-data-boundary-learn).
 
-Azure Resource Manager is the deployment and management service for Azure. To provide maximum availability and performance, Azure Resource Manager was architected to distribute all data it stores and processes globally across the Azure cloud. As part of the EU Data Boundary and Microsoft's regional data residency commitments, Azure Resource Manager has been rearchitected to allow Customer Data and pseudonymized personal data to be stored and processed regionally. This documentation provides details on how customers can configure Azure Resource Manager for use in the EU Data Boundary.
-
-A data boundary can only be established in new tenants that have no existing subscriptions or deployed resources. Once in place, the data boundary configuration can't be removed or modified, and existing subscriptions and resources can't be moved into or out of a tenant with a data boundary. Each tenant is limited to one data boundary, and after it's established, Azure Resource Manager will restrict resource deployments to regions within that boundary. Customers can opt their tenants into a data boundary by deploying a `Microsoft.Resources/dataBoundaries` resource at the tenant level.
-
-The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-powershell.md).
+A global data boundary can only be established in a new tenant that has no existing subscriptions or deployed resources. To opt a new tenant into a data boundary, deploy a `Microsoft.Resources/dataBoundaries` resource at the tenant level.  Each tenant is limited to one data boundary. Once a tenant is opted into a data boundary, the data boundary configuration can't be removed or modified. Subscriptions and resources created under a tenant with a data boundary cannot be moved out of that tenant.
 
 To opt your tenant into an Azure EU Data Boundary:
 
-- Create a new tenant within an EU country to configure a Microsoft Entra EU Data Boundary.
-- Before creating any new subscriptions or resources, deploy a `Microsoft.Resources/dataBoundaries` resource with an EU configuration.
+- Create a new tenant within an EU country or EU region to configure a Microsoft Entra EU Data Boundary. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
+- Before creating any new subscriptions or resources under the tenant, deploy a `Microsoft.Resources/dataBoundaries` resource with an EU configuration.
 - Create a subscription and deploy Azure resources.  
+
+## Permissions required
+
+To configure data boundary, the `DataBoundaryTenantAdministrator` built-in role is required at the tenant scope (`/`).  Use the following steps to assign the role:
+
+- Elevate access to manage all Azure subscriptions and management groups. For more informaion, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
+- With the User Access Administrator privilage, grant yourself the `DataBoundaryTenantAdministrator` role at the tenant scope (`/`) by using Azure CLI or Azure PowerShell.
+
+  # [Azure CLI](#tab/azure-cli)
+
+  ```azurecli
+  DATA_BOUNDARY_TENANT_ADMINISTRATOR_ROLE_ID="d1a38570-4b05-4d70-b8e4-1100bcf76d12"
+  
+  az role assignment create --assignee "{assignee}" --role DATA_BOUNDARY_TENANT_ADMINISTRATOR_ROLE_ID --scope "/"
+  ```
+
+  # [PowerShell](#tab/azure-powershell)
+
+  ```azurepowershell
+  $dataBoundaryTenantAdministratorRoleDefinitionId = "d1a38570-4b05-4d70-b8e4-1100bcf76d12"
+  
+  New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionId $dataBoundaryTenantAdministratorRoleDefinitionId -Scope "/"
+  ```
+
+  ---
+
+For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-powershell.md).
 
 ## Create data boundary
 
