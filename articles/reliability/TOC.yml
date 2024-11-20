@@ -36,7 +36,7 @@
         href: reliability-batch.md#availability-zone-migration
       - name: Azure Container Apps
         href: reliability-azure-container-apps.md#availability-zone-migration
-      - name: Azure Container instances
+      - name: Azure Container Instances
         href: migrate-container-instances.md
       - name: Azure Container Registry
         href: /azure/container-registry/zone-redundancy?toc=/azure/reliability
@@ -48,8 +48,6 @@
         href: /azure/postgresql/flexible-server/how-to-manage-high-availability-portal#enable-high-availability-during-server-creation
       - name: Azure Elastic SAN
         href: reliability-elastic-san.md#availability-zone-migration
-      - name: Azure Functions
-        href: reliability-functions.md#availability-zone-migration
       - name: Azure HDInsight
         href: reliability-hdinsight.md#availability-zone-migration
       - name: Azure Kubernetes Service
