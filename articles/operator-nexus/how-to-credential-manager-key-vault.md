@@ -113,96 +113,63 @@ Refer to [_Grant Managed Identity Access to a Key Vault for Credential Rotation_
 ## Configure Key Vault Using Managed Identity for Cluster
 
 > [!IMPORTANT]
-> Please note that this method for configuring a key vault for credential rotation is in preview. **This method can only be used with key vault that do not have firewall enabled.** If your environment requires the key vault firewall be enabled, use the existing [Cluster Manager]() identity method.
+> Please note that this method for configuring a key vault for credential rotation is in preview. **This method can only be used with key vaults that do not have firewall enabled.** If your environment requires the key vault firewall be enabled, use the existing [Cluster Manager]() identity method.
 
-Beginning with the 2024-10-01-preview API, managed identities in the Nexus Cluster resource can be used instead of Cluster Manager. The Cluster identity may be system-assigned or [user-assigned](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities), and can be managed directly via APIs or via CLI.
+Beginning with the 2024-10-01-preview API, managed identities in the Nexus Cluster resource can be used instead of Cluster Manager. The Cluster managed identity may be system-assigned or [user-assigned](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities), and can be managed directly via APIs or via CLI.
 
 > [!NOTE]
 > If Nexus Cluster managed identity is configured for the key vault, then these settings will supersede settings configured in [_Configure Key Vault Using Managed Identity for Cluster Manager_](#configure-key-vault-using-managed-identity-for-cluster-manager)
 
-These examples describe how to configure a managed identity for a Nexus Cluster.
+### Configure Nexus Cluster Secret Archive Settings
 
-- Create Nexus Cluster with system-assigned identity
+The Nexus Cluster _secret-archive-settings_ specify the Azure Key Vault URI where rotated credentials will be stored and the managed identity which will be used to access it.
+
+These examples describe how to configure a managed identity for a Nexus Cluster and configure it as part of _secret-archive-settings_.
+
+> [!NOTE]
+> Secret archive settings specify the Key Vault URI, not the Key Vault resource ID, and the managed identity specfied must be configured for the Nexus Cluster.
+
+- Create Nexus Cluster with system-assigned identity to access Key Vault for rotated credentials.
 ```azurecli-interactive
 az networkcloud cluster create --name "<cluster-name>" \
   --resource-group "<cluster-resource-group>" \
   ...
   --mi-system-assigned \
+  --secret-archive-settings identity-type="SystemAssignedIdentity" vault-uri="https://<key vault name>.vault.azure.net/"
   ...
   --subscription "<subscription>"
 ```
 
-- Create Nexus Cluster with user-assigned identity
+- Create Nexus Cluster with user-assigned identity to access Key Vault for rotated credentials.
 ```azurecli-interactive
 az networkcloud cluster create --name "<cluster-name>" \
   --resource-group "<cluster-resource-group>" \
   ...
   --mi-user-assigned "<user-assigned-identity-resource-id>" \
+  --secret-archive-settings identity-type="UserAssignedIdentity" identity-resource-id="<user-assigned-identity-resource-id>" vault-uri="https://<key vault name>.vault.azure.net/"
   ...
   --subscription "<subscription>"
 ```
 
-- Update existing Nexus Cluster with system-assigned identity
+- Update existing Nexus Cluster with system-assigned identity to access Key Vault for rotated credentials.
 ```azurecli-interactive
-az networkcloud cluster update --ids <cluster-resource-id> --mi-system-assigned
+az networkcloud cluster update --ids <cluster-resource-id> \
+  --mi-system-assigned \
+  --secret-archive-settings identity-type="SystemAssignedIdentity" vault-uri="https://<key vault name>.vault.azure.net/"
 ```
 
 - Update existing Nexus Cluster with user-assigned identity
 ```azurecli-interactive
-az networkcloud cluster update --ids <cluster-resource-id> --mi-user-assigned "<user-assigned-identity-resource-id>"
+az networkcloud cluster update --ids <cluster-resource-id> \
+  --mi-user-assigned "<user-assigned-identity-resource-id>" \
+  --secret-archive-settings identity-type="UserAssignedIdentity" identity-resource-id="<user-assigned-identity-resource-id>" vault-uri="https://<key vault name>.vault.azure.net/"
 ```
 
-### Configure Nexus Cluster Secret Archive Settings
+For more help:
 
-Register the Key Vault URI and managed identity to be used in the secret archive settings for the Nexus cluster.
-
-> [!NOTE]
-> Secret archive settings specify the Key Vault URI, not the Key Vault resource ID, and the managed identity specfied must be configured for the Nexus Cluster.
-
-Example:
-
-- Using a system-assigned identity:
-
-  ```azurecli
-  az rest --method PATCH --url ${CLUSTER_ID}?api-version=2024-10-01-preview --body @./sami-body.json
-  ```
-
-  The request body (sami-body.json) example:
-  
-  ```azurecli
-  {
-    "properties": {
-      "secretArchiveSettings": {
-        "vaultUri": "https://<key vault name>.vault.azure.net/",
-        "associatedIdentity": {
-            "identityType": "SystemAssignedIdentity"
-        }
-      }
-    }
-  }
-  ```
-
-- Using a user-assigned identity:
-
-  ```azurecli
-  az rest --method PATCH --url ${CLUSTER_ID}?api-version=2024-10-01-preview --body @./uami-body.json
-  ```
-
-  The request body (uami-body.json) example:
-  
-  ```azurecli
-  {
-    "properties": {
-      "secretArchiveSettings": {
-        "vaultUri": "https://<key vault name>.vault.azure.net/",
-        "associatedIdentity": {
-            "identityType": "UserAssignedIdentity",
-            "userAssignedIdentityResourceId": "<user-assigned-identity-resource-id>"
-        }
-      }
-    }
-  }
-  ```
+```azurecli-interactive
+az networkcloud cluster update --secret-archive-settings '??' --help
+```
 
 ### Get the Principal ID for the Cluster Managed Identity
 
