@@ -594,7 +594,7 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 
     In the filter condition field, type `@` or select **Ctrl + Space** to select datapoints from a dropdown.
 
-    You can access MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references)
+    You can access MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
     The condition can use the fields in the source data. For example, you could use a filter condition like `@temperature > 20` to filter data less than or equal to 20 based on the temperature field.
 
@@ -710,6 +710,8 @@ You can add a new property to the source data using the **New property** transfo
 
 # [Bicep](#tab/bicep)
 
+You can access MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+
 For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
 
 ```bicep
@@ -733,6 +735,8 @@ builtInTransformationSettings: {
 ```
 
 # [Kubernetes (preview)](#tab/kubernetes)
+
+You can access MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
 For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
 
