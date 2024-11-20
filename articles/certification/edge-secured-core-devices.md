@@ -4,7 +4,7 @@ description: List of devices that have passed the Edge Secured-core certificatio
 author: sufenfong
 ms.author: sufon
 ms.topic: conceptual 
-ms.date: 08/06/2024 
+ms.date: 11/20/2024 
 ms.custom: Edge Secured-core certified devices
 ms.service: azure-certified-device
 ---
@@ -16,6 +16,9 @@ This page contains a list of devices that have successfully passed the Edge Secu
 ---|---|---|---
 |AAEON|[SRG-TG01](https://newdata.aaeon.com.tw/DOWNLOAD/2014%20datasheet/Systems/SRG-TG01.pdf)|Windows 10 IoT Enterprise|2022-06-14|
 |Advantech|[ITA-580](https://www.advantech.com/en-eu/products/5130beef-2b81-41f7-a89b-2c43c1f2b6e9/ita-580/mod_bf7b0383-e6b2-49d7-9181-b6fc752e188b)|Windows 10 IoT Enterprise|2024-07-08|
+|Asus|[NUC14RVH-B (U7)](https://www.asus.com/displays-desktops/nucs/nuc-mini-pcs/asus-nuc-14-pro/)|Windows 11 IoT Enterprise|2024-11-20|
+|Asus|[NUC14RVH-B (U5)](https://www.asus.com/displays-desktops/nucs/nuc-mini-pcs/asus-nuc-14-pro/)|Windows 11 IoT Enterprise|2024-11-20|
+|Asus|[NUC13L5K-B (i7)](https://www.asus.com/us/displays-desktops/nucs/nuc-mini-pcs/asus-nuc-13-pro/)|Windows 10 IoT Enterprise|2024-08-01|
 |Asus|[NUC13L5K-B (i5)](https://www.asus.com/us/displays-desktops/nucs/nuc-mini-pcs/asus-nuc-13-pro/)|Windows 10 IoT Enterprise|2024-08-01|
 |Asus|[NUC13L5K-B (i7)](https://www.asus.com/us/displays-desktops/nucs/nuc-mini-pcs/asus-nuc-13-pro/)|Windows 10 IoT Enterprise|2024-08-01|
 |Asus|[PN64-E1 vPro](https://www.asus.com/ca-en/displays-desktops/mini-pcs/pn-series/asus-expertcenter-pn64-e1/)|Windows 10 IoT Enterprise|2023-08-08|
