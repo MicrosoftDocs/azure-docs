@@ -35,7 +35,7 @@ Follow the steps below to create an Apache Spark Configuration in Synapse Studio
 
 1. Select **Continue** button.
 1. Select **Create** button when the validation succeeded.
-1. Publish all
+1. Publish all.
 
 > [!NOTE]
 > **Upload Apache Spark configuration** feature has been removed.
