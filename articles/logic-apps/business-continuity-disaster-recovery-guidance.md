@@ -27,7 +27,11 @@ Logic app workflows help you more easily integrate and orchestrate data between 
 
 * [Integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](../logic-apps/logic-apps-enterprise-integration-overview.md) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
 
+<<<<<<< HEAD
 
+=======
+For more information on reliability in Azure Logic Apps, including intra-regional resiliency via availability zones and multi-region deployments, see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
+>>>>>>> 19b3c65d5f1ebcedd22544f1b0fb863f5b90a4e9
 
 <a name="primary-secondary-locations"></a>
 
@@ -40,13 +44,17 @@ A multi-region deployment consists of a primary and a secondary logic app. The p
 > If your logic app also works with B2B artifacts, such as trading partners, agreements, schemas, maps, and certificates, 
 > which are stored in an integration account, both your integration account and logic apps must use the same location.
 
-If you follow good DevOps practices, you already use [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) to define and deploy your logic apps and their dependent resources. Resource Manager templates give you the capability to use a single deployment definition and then use parameter files to provide the configuration values to use for each deployment destination. This capability means that you can deploy the same logic app to different environments, for example, development, test, and production. You can also deploy the same logic app to different Azure regions, which support disaster recovery strategies that use [paired-regions](../availability-zones/cross-region-replication-azure.md).
+If you follow good DevOps practices, you already use [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) to define and deploy your logic apps and their dependent resources. Resource Manager templates give you the capability to use a single deployment definition and then use parameter files to provide the configuration values to use for each deployment destination. This capability means that you can deploy the same logic app to different environments, for example, development, test, and production. You can also deploy the same logic app to different Azure regions, which support disaster recovery strategies that use multiple regions.
 
 For the failover strategy, your logic apps and locations must meet these requirements:
 
 * The secondary logic app instance has access to the same apps, services, and systems as the primary logic app instance.
 
+<<<<<<< HEAD
 * Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For more information about paired regions, see [Azure paired regions](../reliability/cross-region-replication-azure.md#azure-paired-regions).
+=======
+* Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For best practices and more information about using multiple regions for BCDR, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
+>>>>>>> 19b3c65d5f1ebcedd22544f1b0fb863f5b90a4e9
 
 ### Example: Multitenant Azure
 
