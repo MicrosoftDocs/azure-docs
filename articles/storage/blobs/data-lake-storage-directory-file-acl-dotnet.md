@@ -144,7 +144,7 @@ The following code example shows how to append data to the end of a file using t
 The following code example shows how to download a file from a directory to a local file using these steps:
 
 - Create a [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) instance to represent the file that you want to download. 
-- Use the [DataLakeFileClient.ReadAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.readasync) method, then parse the return value to obtain a [Stream](/dotnet/api/system.io.stream) object. Use any .NET file processing API to save bytes from the stream to a file.
+- Use the [DataLakeFileClient.ReadStreamingAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.readstreamingasync) method, then parse the return value to obtain a [Stream](/dotnet/api/system.io.stream) object. Use any .NET file processing API to save bytes from the stream to a file.
 
 This example uses a [BinaryReader](/dotnet/api/system.io.binaryreader) and a [FileStream](/dotnet/api/system.io.filestream) to save bytes to a file.
 
