@@ -501,7 +501,7 @@ The following output parameter types are supported by all C# modalities and exte
 | **byte[]** | Use for writing binary data messages. When the parameter value is null when the function exits, Functions doesn't create a message. |
 | **Object** | When a message contains JSON, Functions serializes the object into a JSON message payload. When the parameter value is null when the function exits, Functions creates a message with a null object.|
 
-Messaging-specific parameter types contain additional message metadata and are not compatible with JSON serialization.  As a result, it is not possible to use  `ServiceBusMesage` with the output binding in the isolated model.  The specific types supported by the output binding depend on the Functions runtime version, the extension package version, and the C# modality used.  
+Messaging-specific parameter types contain additional message metadata and are not compatible with JSON serialization.  As a result, it is not possible to use `ServiceBusMesage` with the output binding in the isolated model. The specific types supported by the output binding depend on the Functions runtime version, the extension package version, and the C# modality used.
 
 # [Extension v5.x](#tab/extensionv5/in-process)
 
