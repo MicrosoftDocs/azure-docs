@@ -159,10 +159,6 @@
       href: managed-redis/managed-redis-how-to-import-export-data.md
     - name: Configure disk encryption 
       href: managed-redis/managed-redis-how-to-encryption.md
-    - name: Reboot
-      href: managed-redis/managed-redis-administration.md#reboot
-    - name: Update channel and schedule updates
-      href: managed-redis/managed-redis-administration.md#update-channel-and-schedule-updates
     - name: Configure redis-cli access
       href: managed-redis/managed-redis-how-to-redis-cli-tool.md
     - name: Management FAQs
