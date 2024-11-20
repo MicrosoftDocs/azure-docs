@@ -546,6 +546,7 @@ The following websites are known to work with call redirection, and which work b
 - [`WebRTC Sample Site`](https://webrtc.github.io/samples)
 - [`Content Guru Storm App`](https://www.contentguru.com/en-us/news/content-guru-announces-its-storm-ccaas-solution-is-now-compatible-with-microsoft-azure-virtual-desktop/)
 - [`Twilio Flex`](https://www.twilio.com/en-us/blog/public-beta-flex-microsoft-azure-virtual-desktop#join-the-flex-for-azure-virtual-desktop-public-beta)
+- [`8x8`](https://www.8x8.com/)
 
 ### Test call redirection
 

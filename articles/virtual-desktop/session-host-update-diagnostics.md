@@ -10,9 +10,7 @@ ms.date: 10/01/2024
 # Example diagnostic queries for session host update in Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Session host update for Azure Virtual Desktop is currently in PREVIEW. This preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Session host update for Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Session host update uses [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview) to store information about updates. This article has some example Kusto queries you can use with Log Analytics to see information about session host updates.
 

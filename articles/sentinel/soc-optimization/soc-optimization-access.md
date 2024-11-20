@@ -7,7 +7,7 @@ manager: raynew
 ms.collection:
   - usx-security
 ms.topic: how-to
-ms.date: 07/01/2024
+ms.date: 10/16/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -29,7 +29,7 @@ Use SOC optimization recommendations to help you close coverage gaps against spe
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
-Watch the following video for an overview and demo of SOC optimization in the Defender portal. If you just want a demo, jump to minute 8:14. <br><br>
+Watch the following video for an overview and demo of SOC optimization in the Microsoft Defender portal. If you just want a demo, jump to minute 8:14. <br><br>
 
 > [!VIDEO https://www.youtube.com/embed/b0rbPZwBuc0?si=DuYJQewK8IZz8T0Y]
 
@@ -37,11 +37,11 @@ Watch the following video for an overview and demo of SOC optimization in the De
 
 - SOC optimization uses standard Microsoft Sentinel roles and permissions. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md).
 
-- To use SOC optimization in the Microsoft Defender portal, you must have Microsoft Sentinel integrated with Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
+- To use SOC optimization in the Defender portal, onboard Microsoft Sentinel to the Defender portal. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
 ## Access the SOC optimization page
 
-Use one of the following tabs, depending on whether you're working in the unified SOC operations platform or in the Azure portal:
+Use one of the following tabs, depending on whether you're working in the Azure portal or Defender portal:
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -51,9 +51,9 @@ In Microsoft Sentinel in the Azure portal, under **Threat management**, select *
 
 ### [Defender portal](#tab/defender-portal)
 
-In the unified SOC operations platform in the Microsoft Defender portal, select **SOC optimization**.
+In the Defender portal, select **SOC optimization**.
 
-:::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in Microsoft Defender XDR." lightbox="media/soc-optimization-access/soc-optimization-xdr.png":::
+:::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in the Defender portal." lightbox="media/soc-optimization-access/soc-optimization-xdr.png":::
 
 ---
 
