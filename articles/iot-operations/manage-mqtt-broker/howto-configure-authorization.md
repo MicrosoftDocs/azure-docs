@@ -786,3 +786,4 @@ With MQTT 3.1.1, when a publish is denied, the client receives the PUBACK with n
 
 - About [BrokerListener resource](howto-configure-brokerlistener.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
+- [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-and-x509.md)
