@@ -96,7 +96,7 @@ When you deploy a Consumption logic app in [any region that supports availabilit
 
 ::: zone-end
 
-::: zone pivot-"standard-workflow-service-plan"
+::: zone pivot="standard-workflow-service-plan"
 
 Zone-redundant workflow service plans can be deployed in [any region that supports availability zones](./availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
@@ -172,7 +172,7 @@ To prepare for availability zone failure, you should over-provision capacity of 
 
 ### Traffic routing between zones
 
-::: zone pivot="consumptoin"
+::: zone pivot="consumption"
 
 During normal operations, workflow invocations can use compute resources in any of the availability zones within the region.
 
