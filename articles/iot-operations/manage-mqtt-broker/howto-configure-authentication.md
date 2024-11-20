@@ -25,13 +25,13 @@ The following rules apply to the relationship between BrokerListener and *Broker
 
 * Each BrokerListener can have multiple ports. Each port can be linked to a *BrokerAuthentication* resource. 
 * Each *BrokerAuthentication* can support multiple authentication methods at once.
-* Ports that do not link a *BrokerAuthentication* resource have authentication disabled.
+* Ports that don't link a *BrokerAuthentication* resource have authentication disabled.
 
 To link a BrokerListener port to a *BrokerAuthentication* resource, specify the `authenticationRef` field in the `ports` setting of the BrokerListener resource. To learn more, see [BrokerListener resource](./howto-configure-brokerlistener.md).
 
 ## Default BrokerAuthentication resource
 
-Azure IoT Operations deploys a default *BrokerAuthentication* resource named `default` linked with the *default* listener in the `azure-iot-operations` namespace. It's configured to only use [Kubernetes Service Account Tokens (SATs)](#kubernetes-service-account-tokens) for authentication.
+Azure IoT Operations deploys a default *BrokerAuthentication* resource named `default` linked with the *default* listener in the `azure-iot-operations` namespace. It only uses [Kubernetes Service Account Tokens (SATs)](#kubernetes-service-account-tokens) for authentication.
 
 > [!IMPORTANT]
 > The service account token (SAT) authentication method in the default *BrokerAuthentication* resource is required for components in the Azure IoT Operations to function correctly. Avoid updating or deleting the default *BrokerAuthentication* resource.
@@ -331,15 +331,47 @@ For more information about enabling secure settings by configuring an Azure Key 
 
 ## X.509
 
-In X.509 authentication, MQTT broker uses a trusted CA certificate to validate client certificates. Clients present a certificate rooted in this CA for MQTT broker to authenticate them. Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm. Since X.509 relies on TLS client certificates, TLS must be enabled for ports using X.509 authentication.
+With X.509 authentication, the MQTT broker uses a **trusted CA certificate** to validate client certificates. This trusted CA can be a root or intermediate CA. The broker checks the client certificate chain against the trusted CA certificate. If the chain is valid, the client is authenticated.
 
-To import a root certificate that can be used to validate client certificates, store the certificate PEM in a *ConfigMap*. For example:
+To use X.509 authentication with a trusted CA certificate, the following requirements must be met:
+
+- **TLS**: Since X.509 relies on TLS client certificates, [TLS must be enabled for ports using X.509 authentication](./howto-configure-brokerlistener.md).
+- **Key algorithms**: Both EC and RSA keys are supported, but all certificates in the chain must use the same key algorithm.
+- **Format**: The CA certificate must be in PEM format.
+
+> [!TIP]
+> PEM format is a common format for certificates and keys. PEM files are base64-encoded ASCII files with headers like `-----BEGIN CERTIFICATE-----` and `-----BEGIN EC PRIVATE KEY-----`.
+> 
+> If you have a certificate in another format, you can convert it to PEM using OpenSSL. For more information, see [How to convert a certificate into the appropriate format](https://knowledge.digicert.com/solution/how-to-convert-a-certificate-into-the-appropriate-format).
+
+### Get a trusted CA certificate
+
+In a production setup, the CA certificate is provided by an organization's public key infrastructure (PKI) or a public certificate authority.
+
+For testing, create a self-signed CA certificate with OpenSSL. For example, run the following command to generate a self-signed CA certificate with an RSA key, a distinguished name `CN=Contoso Root CA Cert`, and a validity of 365 days:
 
 ```bash
-kubectl create configmap client-ca --from-file=client_ca.pem -n azure-iot-operations
+openssl req -x509 -newkey rsa:4096 -keyout ca-key.pem -out ca.pem -days 365 -nodes -subj "/CN=Contoso Root CA Cert"
 ```
 
-In this example, the CA certificate is imported under the key `client_ca.pem`. MQTT broker trusts all CA certificates in the ConfigMap, so the name of the key can be anything.
+The same command with [Step CLI](https://smallstep.com/docs/step-cli/installation/), which is a convenient tool for managing certificates, is:
+
+```bash
+step certificate create "Contoso Root CA Cert" ca.pem ca-key.pem --profile root-ca --kty RSA --size 4096 --no-password --insecure
+ --not-after 8760h
+```
+
+These commands create a CA certificate `ca.pem` and a private key `ca-key.pem` in PEM format. The CA certificate `ca.pem` can be imported into the MQTT broker for X.509 authentication.
+
+### Import a trusted CA certificate
+
+To get started with X.509 authentication, import the trusted CA certificate into a ConfigMap in the `azure-iot-operations` namespace. To import a trusted CA certificate `ca.pem` into a ConfigMap named `client-ca`, run:
+
+```bash
+kubectl create configmap client-ca --from-file=ca.pem -n azure-iot-operations
+```
+
+In this example, the CA certificate is imported under the key `ca.pem`. MQTT broker trusts all CA certificates in the ConfigMap, so the name of the key can be anything.
 
 To check the root CA certificate is properly imported, run `kubectl describe configmap`. The result shows the same base64 encoding of the PEM certificate file.
 
@@ -353,10 +385,11 @@ Namespace:    azure-iot-operations
 
 Data
 ====
-client_ca.pem:
+ca.pem:
 ----
 -----BEGIN CERTIFICATE-----
-<Certificate>
+MIIFDjCCAvagAwIBAgIRAKQWo1+S13GTwqZSUYLPemswDQYJKoZIhvcNAQELBQAw
+...
 -----END CERTIFICATE-----
 
 
@@ -364,11 +397,9 @@ BinaryData
 ====
 ```
 
-Once the trusted CA certificate is imported, enable X.509 client authentication by adding it as one of the authentication methods in a *BrokerAuthentication* resource linked to a TLS-enabled listener port. 
+### Configure X.509 authentication method
 
-### Certificate attributes for authorization
-
-X.509 attributes can be specified in the *BrokerAuthentication* resource for authorizing clients based on their certificate properties. The attributes are defined in the `authorizationAttributes` field.
+Once the trusted CA certificate is imported, enable X.509 client authentication by adding it as an authentication method in a *BrokerAuthentication* resource. Ensure this resource is linked to a TLS-enabled listener port.
 
 # [Portal](#tab/portal)
 
@@ -378,8 +409,20 @@ X.509 attributes can be specified in the *BrokerAuthentication* resource for aut
 1. Choose an existing authentication policy or create a new one.
 1. Add a new method by selecting **Add method**.
 1. Choose the method type **X.509** from the dropdown list then select **Add details** to configure the method.
+1. In the **X.509 authentication details** pane, specify the trusted CA certificate ConfigMap name using JSON format.
 
-    :::image type="content" source="media/howto-configure-authentication/x509-method.png" alt-text="Screenshot using Azure portal to set MQTT broker X.509 authentication method." lightbox="media/howto-configure-authentication/x509-method.png":::
+   ```json
+   {
+       "trustedClientCaCert": "<TRUSTED_CA_CONFIGMAP>"
+   }
+   ```
+   
+   Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains the trusted CA certificate. For example, `"trustedClientCaCert": "client-ca"`.
+
+   :::image type="content" source="media/howto-configure-authentication/x509-method.png" alt-text="Screenshot using Azure portal to set MQTT broker X.509 authentication method." lightbox="media/howto-configure-authentication/x509-method.png":::
+
+1. Optionally, add authorization attributes for clients using X.509 certificates. To learn more, see [Certificate attributes for authorization](#optional-certificate-attributes-for-authorization).
+1. Select **Apply** to save the changes.
 
 # [Bicep](#tab/bicep)
 
@@ -387,6 +430,7 @@ X.509 attributes can be specified in the *BrokerAuthentication* resource for aut
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
+param trustedCaConfigMap string = '<TRUSTED_CA_CONFIGMAP>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
   name: aioInstanceName
@@ -413,27 +457,11 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
       {
         method: 'X509'
         x509Settings: {
-          authorizationAttributes: {
-            root: {
-              subject: 'CN = Contoso Root CA Cert, OU = Engineering, C = US'
-              attributes: {
-                organization: 'contoso'
-              }
-            }
-            intermediate: {
-              subject: 'CN = Contoso Intermediate CA'
-              attributes: {
-                city: 'seattle'
-                foo: 'bar'
-              }
-            }
-            smartfan: {
-              subject: 'CN = smart-fan'
-              attributes: {
-                building: '17'
-              }
-            }
-          }
+          trustedClientCaCert: trustedCaConfigMap
+          // authorizationAttributes: {
+            //// Optional authorization attributes
+            //// See the next section for more information
+          // }
         }
       }
     ]
@@ -441,6 +469,8 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
 }
 
 ```
+
+Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains the trusted CA certificate. For example, `client-ca`.
 
 Deploy the Bicep file using Azure CLI.
 
@@ -455,20 +485,102 @@ spec:
   authenticationMethods:
     - method: X509
       x509Settings:
-        authorizationAttributes:
-          root:
-            subject = "CN = Contoso Root CA Cert, OU = Engineering, C = US"
-            attributes:
-              organization = contoso
-          intermediate:
-            subject = "CN = Contoso Intermediate CA"
-            attributes:
-              city = seattle
-              foo = bar
-          smart-fan:
-            subject = "CN = smart-fan"
-            attributes:
-              building = 17
+        trustedClientCaCert: <TRUSTED_CA_CONFIGMAP>
+        # authorizationAttributes:
+          ## Optional authorization attributes
+          ## See the next section for more information
+```
+
+Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains the trusted CA certificate. For example, `client-ca`.
+
+---
+
+#### Optional: Certificate attributes for authorization
+
+X.509 attributes can be specified in the *BrokerAuthentication* resource for authorizing clients based on their certificate properties. The attributes are defined in the `authorizationAttributes` field.
+
+For example:
+
+# [Portal](#tab/portal)
+
+In the Azure portal, when configuring the X.509 authentication method, add the authorization attributes in the **X.509 authentication details** pane in JSON format.
+
+```json
+{
+  "trustedClientCaCert": "<TRUSTED_CA_CONFIGMAP>",
+  "authorizationAttributes": {
+    "root": {
+      "subject": "CN = Contoso Root CA Cert, OU = Engineering, C = US",
+      "attributes": {
+        "organization": "contoso"
+      }
+    },
+    "intermediate": {
+      "subject": "CN = Contoso Intermediate CA",
+      "attributes": {
+        "city": "seattle",
+        "foo": "bar"
+      }
+    },
+    "smartfan": {
+      "subject": "CN = smart-fan",
+      "attributes": {
+        "building": "17"
+      }
+    }
+  }
+}
+```
+  
+
+# [Bicep](#tab/bicep)
+
+```bicep
+x509Settings: {
+  trustedClientCaCert: '<TRUSTED_CA_CONFIGMAP>'
+  authorizationAttributes: {
+    root: {
+      subject: 'CN = Contoso Root CA Cert, OU = Engineering, C = US'
+      attributes: {
+        organization: 'contoso'
+      }
+    }
+    intermediate: {
+      subject: 'CN = Contoso Intermediate CA'
+      attributes: {
+        city: 'seattle'
+        foo: 'bar'
+      }
+    }
+    smartfan: {
+      subject: 'CN = smart-fan'
+      attributes: {
+        building: '17'
+      }
+    }
+  }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+x509Settings:
+  trustedClientCaCert: <TRUSTED_CA_CONFIGMAP>
+  authorizationAttributes:
+    root:
+      subject = "CN = Contoso Root CA Cert, OU = Engineering, C = US"
+      attributes:
+        organization = contoso
+    intermediate:
+      subject = "CN = Contoso Intermediate CA"
+      attributes:
+        city = seattle
+        foo = bar
+    smart-fan:
+      subject = "CN = smart-fan"
+      attributes:
+        building = 17
 ```
 
 ---
@@ -477,7 +589,12 @@ In this example, every client that has a certificate issued by the root CA with 
 
 The matching for attributes always starts from the leaf client certificate and then goes along the chain. The attribute assignment stops after the first match. In previous example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
 
-Authorization rules can be applied to clients using X.509 certificates with these attributes. To learn more, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md).
+Authorization rules can be applied to clients using X.509 certificates with these attributes. To learn more, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).
+
+### Enable X.509 authentication for a listener port
+
+After importing the trusted CA certificate and configuring the *BrokerAuthentication* resource, link it to a TLS-enabled listener port. For more details, see [Enable TLS manual certificate management for a port](./howto-configure-brokerlistener.md#enable-tls-manual-certificate-management-for-a-port) and [Enable TLS automatic certificate management for a port](./howto-configure-brokerlistener.md#enable-tls-automatic-certificate-management-for-a-port).
+
 
 ### Connect mosquitto client to MQTT broker with X.509 client certificate
 
@@ -509,7 +626,7 @@ The following are the steps for client authentication:
 1. The TLS channel is open, but the client authentication or authorization isn't finished yet.
 1. The client then sends a CONNECT packet to MQTT broker.
 1. The CONNECT packet is routed to a frontend again.
-1. The frontend collects all credentials the client presented so far, like username and password fields, authentication data from the CONNECT packet, and the client certificate chain presented during the TLS handshake.
+1. The frontend collects all credentials the client presented so far, like authentication data from the CONNECT packet, and the client certificate chain presented during the TLS handshake.
 1. The frontend sends these credentials to the authentication service. The authentication service checks the certificate chain once again and collects the subject names of all the certificates in the chain.
 1. The authentication service uses its [configured authorization rules](./howto-configure-authorization.md) to determine what attributes the connecting clients has. These attributes determine what operations the client can execute, including the CONNECT packet itself.
 1. Authentication service returns decision to frontend broker.
@@ -653,7 +770,7 @@ For example, if the client is a pod that uses the token mounted as a volume, lik
 
 Extend client authentication beyond the provided authentication methods with custom authentication. It's *pluggable* since the service can be anything as long as it adheres to the API. 
 
-When a client connects to MQTT broker and custom authentication is enabled, MQTT broker delegates the verification of client credentials to a custom authentication server with an HTTPS request along with all credentials the client presents. The custom authentication server responds with approval or denial for the client with the client's [attributes for authorization](./howto-configure-authorization.md).
+When a client connects to the MQTT broker with custom authentication enabled, the broker sends an HTTPS request to a custom authentication server with the client's credentials. The server then responds with either approval or denial, including the client's [authorization attributes](./howto-configure-authorization.md).
 
 ### Create custom authentication service
 
@@ -727,7 +844,7 @@ MQTT broker disconnects clients when their credentials expire. Disconnect after 
 - Clients authenticated with X.509 disconnect when their client certificate expires
 - Clients authenticated with custom authentication disconnect based on the expiry time returned from the custom authentication server.
 
-On disconnect, the client's network connection is closed. The client won't receive an MQTT DISCONNECT packet, but the broker logs a message that it disconnected the client.
+On disconnect, the client's network connection is closed. The client doesn't receive an MQTT DISCONNECT packet, but the broker logs a message that it disconnected the client.
 
 MQTT v5 clients authenticated with SATs and custom authentication can reauthenticate with a new credential before their initial credential expires. X.509 clients can't reauthenticate and must re-establish the connection since authentication is done at the TLS layer.
 
