@@ -90,6 +90,20 @@ The following analytic rules are included when you install the solution for Powe
 |Power Platform - Possibly compromised user accesses Power Platform services|Identifies user accounts flagged at risk in Microsoft Entra Identity Protection and correlates these users with sign-in activity in Power Platform, including Power Apps, Power Automate, and Power Platform Admin Center.|User with risk signals accesses Power Platform portals.<br><br>**Data sources:**<br>- Microsoft Entra ID<br>`SigninLogs`|Initial Access, Lateral Movement|
 |Power Platform - Account added to privileged Microsoft Entra roles|Identifies changes to privileged directory roles impacting Power Platform:- Dynamics 365 Admins- Power Platform Admins- Fabric Admins|**Data sources**:<br>AzureActiveDirectory<br>`AuditLogs`|PrivilegeEscalation|
 
+## Hunting Queries
+
+|Rule name|Description|Data Source|Tactics|
+|---------|---------|---------|---------|
+| Dataverse - Activity after Microsoft Entra alerts | This hunting query looks for users conducting Dataverse/Dynamics 365 activity shortly after a Microsoft Entra Identity Protection alert for that user. The query only looks for users not seen before or conducting Dynamics activity not previously seen. | <br>- Dataverse<br>`DataverseActivity`<br>- AzureActiveDirectoryIdentityProtection<br>`SecurityAlert`  | InitialAccess |
+| Dataverse - Activity after failed logons | This hunting query looks for users conducting Dataverse/Dynamics 365 activity shortly after a number of failed logons. Use this to look for potential post brute force activity. Adjust the threshold figure based on false positive rate. | - Dataverse<br>`DataverseActivity`<br>- AzureActiveDirectory<br>`SigninLogs` | InitialAccess |
+| Dataverse - Cross-environment data export activity | This query searches for data export activity across a predetermined number of Dataverse instances. Data export activity across multiple environments could indicate suspicious activity as users typically work on a small number of environments. | - Dataverse<br>`DataverseActivity` | Exfiltration, Collection |
+| Dataverse - Dataverse export copied to USB devices | This query uses XDR data from M365 Defender to detect files downloaded from a Dataverse instance and copied to USB drive. | - Dataverse<br>`DataverseActivity`<br>- MicrosoftThreatProtection<br>`DeviceInfo`<br>`DeviceFileEvents`<br>`DeviceEvents` | Exfiltration |
+| Dataverse - Generic client app used to access production environments | This query detects the use of the built-in "Dynamics 365 Example Application" to access production environments. This generic app can not be restricted by Azure AD authorization controls and could be abused to gain unauthorized access via Web API. | - Dataverse<br>`DataverseActivity`<br>- AzureActiveDirectory<br>`SigninLogs`  | Execution |
+| Dataverse - Identity management activity outside of privileged directory role membership | This query detects identity administration events in Dataverse/Dynamics 365 made by accounts which are not members of privileged directory roles 'Dynamics 365 Admins', 'Power Platform Admins' or 'Global Admins | - Dataverse<br>`DataverseActivity`<br>- UEBA<br>`IdentityInfo` | PrivilegeEscalation |
+| Dataverse - Identity management changes without MFA | This query is used to show privileged identity administration operations in Dataverse made by accounts that signed in without using MFA | - Dataverse<br>`DataverseActivity`<br>- AzureActiveDirectory<br>`SigninLogs, DataverseActivity` | InitialAccess |
+| Power Apps - Anomalous bulk sharing of Power App to newly created guest users | The query detects anomalous attempts to perform bulk sharing of Power App to newly created guest users. | **Data sources**:<br>PowerPlatformAdmin, AzureActiveDirectory<br>`AuditLogs, PowerPlatformAdminActivity` | InitialAccess, LateralMovement, ResourceDevelopment |
+
+
 ## Built-in parsers
 
 The solution includes parsers that are used to access data from the raw data tables. Parsers ensure that the correct data is returned with a consistent schema. We recommend that you use the parsers instead of directly querying the watchlists.
