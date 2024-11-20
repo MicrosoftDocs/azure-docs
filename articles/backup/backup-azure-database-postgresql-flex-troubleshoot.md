@@ -76,7 +76,7 @@ This article provides the recommended actions to troubleshoot the issues you mig
 
 ## Next steps
 
-- [About Azure Database for PostgreSQL - Flexible server backup (preview)](backup-azure-database-postgresql-flex-overview.md). 
+- [About Azure Database for PostgreSQL - Flexible server backup](backup-azure-database-postgresql-flex-overview.md). 
 
  
 
