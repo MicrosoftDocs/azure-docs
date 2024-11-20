@@ -23,7 +23,7 @@ The tutorial simulates an environment where Azure IoT Operations is installed in
 - Fabrikam sensors, like thermostats, must trust the Contoso root CA
 - Each entity must have its own leaf certificate issued by the correct root CA
 
-:::image type="content" source="media/tutorial-tls-and-x509/server-vs-client-roots.svg" alt-text="Diagram showing the trust relationship of the server and client side certificate authority roots.":::
+![Diagram showing the trust relationship of the server and client side certificate authority roots.](media/tutorial-tls-and-x509/server-vs-client-roots.svg)
 
 ## Prerequisites
 
