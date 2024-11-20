@@ -39,7 +39,7 @@ Azure IoT Operations deploys a default *BrokerAuthentication* resource named `de
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authentication** tab.
 1. From authentication policy list, select the **default** policy name.
 
@@ -176,7 +176,7 @@ To add an authentication method to a policy:
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authentication** tab.
 1. Choose an existing authentication policy or create a new one.
 1. Add a new method by selecting **Add method**.
@@ -404,7 +404,7 @@ Once the trusted CA certificate is imported, enable X.509 client authentication 
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authentication** tab.
 1. Choose an existing authentication policy or create a new one.
 1. Add a new method by selecting **Add method**.
@@ -695,7 +695,7 @@ Modify the `authenticationMethods` setting in a *BrokerAuthentication* resource 
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authentication** tab.
 1. Choose an existing authentication policy or create a new one.
 1. Add a new method by selecting **Add method**.
@@ -852,7 +852,7 @@ For testing, you can disable authentication for a broker listener port. Disablin
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select the broker listener you want to edit from the list.
 1. On the port you want to disable authentication, select **None** in the authentication dropdown.
 

@@ -37,7 +37,7 @@ The following example shows how to create a *BrokerAuthorization* resource using
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authorization** tab.
 1. Choose an existing authentication policy or create a new one by selecting **Create authorization policy**.
 
@@ -764,7 +764,7 @@ kubectl edit brokerauthorization my-authz-policies
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select the broker listener you want to edit from the list.
 1. On the port you want to disable authorization, select **None** in the authorization dropdown.
 
