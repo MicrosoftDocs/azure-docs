@@ -11,7 +11,7 @@ ms.date: 11/14/2024
 
 ---
 
-# Security content reference for Microsoft Power Platform
+# Security content reference for Microsoft Power Platform and Dynamics 365 CRM
 
 This article details the security content available for the Microsoft Sentinel solution for Power Platform. For more information about this solution, see [Microsoft Sentinel solution for Microsoft Power Platform overview](power-platform-solution-overview.md).
 
