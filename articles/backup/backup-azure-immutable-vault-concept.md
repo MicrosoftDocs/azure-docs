@@ -15,7 +15,7 @@ Immutable vault can help you protect your backup data by blocking any operations
 
 ## Before you start
 
-- Use of WORM storage for immutable vaults in locked state is currently in GA for Recovery Services Vaults in the following regions: West Central US, West Europe, East US, North Europe, Australia East, Australia Central 2, Switzerland West, South Africa West, Korea Central, Germany North, Korea South, Spain Central.
+- Use of WORM storage for immutable vaults in locked state is currently in GA for Recovery Services Vaults in the following regions: Australia Central 2, Switzerland West, South Africa West, Korea Central, Germany North, Korea South, Spain Central.
 - Use of WORM storage for immutable vaults in locked state is applicable for the following workloads: Azure Virtual machines, SQL in Azure VM, SAP HANA in Azure VM, Azure Backup Server, Azure Backup Agent, DPM.
 - Immutable vault is available in all Azure public and US Government regions.
 - Immutable vault is supported for Recovery Services vaults and Backup vaults.
