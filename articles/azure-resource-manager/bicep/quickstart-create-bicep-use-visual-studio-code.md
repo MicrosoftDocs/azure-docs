@@ -254,8 +254,7 @@ The visualizer shows the resources defined in the Bicep file with the resource d
 
 1. Select a location for the resource group, select **Central US** or a location of your choice, and then press **[ENTER]**.
 
-    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-resource-group-
-locations.png" alt-text="Screenshot of resource group location options.":::
+    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-resource-group-locations.png" alt-text="Screenshot of resource group location options.":::
 
 1. From **Select a parameter file**, select **None**.
 
@@ -306,4 +305,4 @@ Remove-AzResourceGroup -Name exampleRG
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn modules for Bicep](learn-bicep.md)
+> Explore [Learn modules for Bicep](learn-bicep.md).
