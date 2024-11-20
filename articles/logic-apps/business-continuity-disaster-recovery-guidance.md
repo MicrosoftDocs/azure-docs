@@ -10,7 +10,7 @@ ms.date: 11/20/2024
 
 # Multi-region deployments in Azure Logic Apps
 
-This article provides guidance and strategies for how to set up a multi-region deployment for your Azure Logic Apps. A multi-region deployment helps you protect data, recover quickly from disruptive events, restore resources required by critical business functions, and maintain business continuity. 
+This article provides guidance and strategies for how to set up a multi-region deployment for your Azure Logic Apps. A multi-region deployment helps you protect data, recover quickly from disasters and other disruptive events, restore resources required by critical business functions, and maintain business continuity.
 
 For more information on the reliability features in Azure Logic Apps, including intra-regional resiliency via availability zones, see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
 
@@ -30,20 +30,20 @@ For more information on reliability in Azure Logic Apps, including intra-regiona
 
 ## Primary and secondary deployment
 
-A multi-region deployment consists of a primary and a secondary logic app. The primary logic app is configured to failover to the secondary logic app in an another region where Azure Logic Apps is also available. That way, if the primary suffers losses, disruptions, or failures, the secondary can take on the work. This deployment strategy requires that your secondary logic app and dependent resources are already deployed and ready in the secondary region.
+A multi-region deployment consists of a primary and a secondary logic app. The primary logic app is configured to fail over to the secondary logic app in an another region where Azure Logic Apps is also available. That way, if the primary suffers losses, disruptions, or failures, the secondary can take on the work. This deployment strategy requires that your secondary logic app and dependent resources are already deployed and ready in the secondary region.
 
 > [!NOTE]
 >
 > If your logic app also works with B2B artifacts, such as trading partners, agreements, schemas, maps, and certificates, 
 > which are stored in an integration account, both your integration account and logic apps must use the same location.
 
-If you follow good DevOps practices, you already use [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) to define and deploy your logic apps and their dependent resources. Resource Manager templates give you the capability to use a single deployment definition and then use parameter files to provide the configuration values to use for each deployment destination. This capability means that you can deploy the same logic app to different environments, for example, development, test, and production. You can also deploy the same logic app to different Azure regions, which support disaster recovery strategies that use multiple regions.
+If you follow good DevOps practices, you already use [Bicep](../azure-resource-manager/bicep/overview.md) or [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) to define and deploy your logic apps and their dependent resources. Bicep and Resource Manager templates give you the capability to use a single deployment definition and then use parameter files to provide the configuration values to use for each deployment destination. This capability means that you can deploy the same logic app to different environments, for example, development, test, and production. You can also deploy the same logic app to different Azure regions, which support multi-region deployments, like for disaster recovery strategies.
 
-For the failover strategy, your logic apps and locations must meet these requirements:
+For failover to succeed, your logic apps and locations must meet these requirements:
 
 * The secondary logic app instance has access to the same apps, services, and systems as the primary logic app instance.
 
-* Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For best practices and more information about using multiple regions for BCDR, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
+* Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For best practices and more information about using multiple regions for business continuity and disaster recover (BC/DR), see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
 
 ### Example: Multitenant Azure
 
@@ -59,13 +59,13 @@ Azure Logic Apps provides [hundreds of connector operations](../connectors/intro
 
 For your multi-region redundancy strategy, consider the locations where dependent resources exist relative to your logic app instances:
 
-* Your primary instance and dependent resources exist in different locations. In this case, your secondary instance can connect to the same dependent resources or endpoints. However, you should create connections specifically for your secondary instance. That way, if your primary location becomes unavailable, your secondary's connections aren't affected.
+* **Your primary instance and dependent resources exist in different locations.** In this case, your secondary instance can connect to the same dependent resources or endpoints. However, you should create connections specifically for your secondary instance. That way, if your primary location becomes unavailable, your secondary's connections aren't affected.
 
-  For example, suppose that your primary logic app connects to an external service such as Salesforce. Usually, the external service's availability and location are independent from your logic app's availability. In this case, your secondary instance can connect to the same service but should have its own connection.
+  For example, suppose that your primary logic app connects to an external service such as Salesforce. Usually, the external service's availability and location are independent from your logic app's availability. In this case, your secondary instance can connect to the same service but should have its own connection in your secondary region.
 
-* Both your primary instance and dependent resources exist in the same location. In this case, dependent resources should have backups or replicated versions in a different location so that your secondary instance can still access those resources.
+* **Both your primary instance and dependent resources exist in the same location.** In this case, dependent resources should have backups or replicated versions in a different location so that your secondary instance can still access those resources.
 
-  For example, suppose that your primary logic app connects to a service that's in the same location or region, for example, Azure SQL Database. If this entire region becomes unavailable, the Azure SQL Database service in that region is also likely unavailable. In this case, you'd want your secondary instance to use a replicated or backup database along with a separate connection to that database.
+  For example, suppose that your primary logic app connects to a service that's in the same location or region, for example, Azure SQL Database. If this entire region becomes unavailable, the Azure SQL Database service in that region is also likely unavailable. In this case, you'd want your secondary instance to use a replicated or backup database in the secondary region, along with a separate connection to that database that's also located in the secondary region.
 
 <a name="on-premises-data-gateways"></a>
 
@@ -162,7 +162,7 @@ To get more information about your logic app's past workflow executions, you can
 
 ## Trigger type guidance
 
-The trigger type that you use in your logic apps determines your options for how you can set up logic apps across locations in your disaster recovery strategy. Here are the available trigger types that you can use in logic apps:
+The trigger type that you use in your logic apps determines your options for how you can set up logic apps across locations in a disaster recovery strategy. Here are the available trigger types that you can use in logic apps:
 
 * [Recurrence trigger](#recurrence-trigger)
 * [Polling trigger](#polling-trigger)
@@ -267,7 +267,7 @@ From a disaster recovery perspective, set up primary and secondary instances tha
 
 ## Assess primary instance health
 
-For your disaster recovery strategy to work, your solution needs ways to perform these tasks:
+For a multi-region failover strategy to work, your solution needs ways to perform these tasks:
 
 * [Check the primary instance's availability](#check-primary-availability)
 * [Monitor the primary instance's health](#monitor-primary-health)
