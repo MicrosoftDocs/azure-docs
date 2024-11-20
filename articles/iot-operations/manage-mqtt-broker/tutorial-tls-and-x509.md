@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization"
-description:
+title: "Tutorial: Azure IoT Operations MQTT broker TLS, X.509 client authentication, and ABAC"
+description: "Learn how to configure the Azure IoT Operations MQTT broker with TLS encryption, X.509 client authentication, and attribute-based access control (ABAC) authorization."
 author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-operations
