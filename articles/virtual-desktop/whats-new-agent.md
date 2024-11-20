@@ -35,7 +35,7 @@ Here's information about the Azure Virtual Desktop Agent.
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
 
-## Version 1.0.10292.500
+## Version 1.0.10292.500 (validation)
 
 *Published: November 2024*
 
