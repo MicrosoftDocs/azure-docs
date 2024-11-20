@@ -11,7 +11,7 @@ ms.date: 11/19/2024
 ms.custom: mqtt, devx-track-js
 ---
 
-  * Requires Node.js version 10.0.x or later.
+  * Requires Node.js version 10.0.x or later
 
 ## Overview
 
@@ -338,10 +338,9 @@ You can connect a backend service to IoT Hub using the following methods:
 
 Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub.
 
-The SDK methods in this section require these shared access policy permissions:
+The SDK methods in this section require this shared access policy permission:
 
 * **Registry Write** - required to add a module (or device) to the IoT Hub registry
-* **Service Connect** - required to add desired properties to a module
 
 As a parameter to `CreateFromConnectionString`, supply a shared access policy connection string that includes these permissions. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 

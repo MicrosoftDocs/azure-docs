@@ -13,7 +13,7 @@ ms.date: 11/19/2024
 
 A backend app that uses Microsoft Entra must successfully authenticate and obtain a security token credential before connecting to IoT Hub. This token is passed to a IoT Hub connection method. For general information about setting up and using Microsoft Entra for IoT Hub, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/authenticate-authorize-azure-ad).
 
-For an overview of Java SDK authentication, see [Getting started with user authentication on Azure](/azure/developer/java/sdk/authentication/azure-hosted-apps).
+For an overview of Java SDK authentication, see [Azure authentication with Java and Azure Identity](/azure/developer/java/sdk/authentication/overview).
 
 For simplicity, this section focuses on describing authentication using client secret.
 
@@ -39,7 +39,7 @@ For more information about the pros and cons of using `DefaultAzureCredential`, 
 
 You can authenticate Microsoft Entra app credentials using [DefaultAzureCredentialBuilder](/java/api/com.azure.identity.defaultazurecredentialbuilder). Save connection parameters such as client secret tenantID, clientID, and client secret values as environmental variables. Once the `TokenCredential` is created, pass it to [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) or other builder as the 'credential' parameter.
 
-In this example, `DefaultAzureCredentialBuilder` attempts to authenticate a connection from the list described in [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential). The result of a successful Microsoft Entra authentication is a security token credential that is passed to a constructor.
+In this example, `DefaultAzureCredentialBuilder` attempts to authenticate a connection from the list described in [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential). The result of a successful Microsoft Entra authentication is a security token credential that is passed to a constructor such as [ServiceClient](/java/api/com.azure.core.annotation.serviceclient).
 
 ```java
 TokenCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().build();

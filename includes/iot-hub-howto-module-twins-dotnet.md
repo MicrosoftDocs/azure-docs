@@ -11,7 +11,7 @@ ms.date: 11/19/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
-  * Requires Visual Studio.
+  * Requires Visual Studio
 
 ## Overview
 
@@ -178,7 +178,7 @@ registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 
 #### Connect using Microsoft Entra
 
-[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-java](iot-hub-howto-connect-service-iothub-entra-java.md)]
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-dotnet](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
 
 ### Read and update module identity fields
 
