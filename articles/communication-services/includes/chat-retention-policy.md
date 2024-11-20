@@ -1,4 +1,9 @@
-ms.custom: private_preview_retention_policy
+---
+author: kperla97
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 11/19/2024
+ms.author: kaperla
 ---
 > [!IMPORTANT]
 > The data retention policy described in this section is currently in public preview.
