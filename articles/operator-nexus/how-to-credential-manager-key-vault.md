@@ -24,7 +24,7 @@ Azure Operator Nexus utilizes secrets and certificates to manage component secur
 
 ## Configure Key Vault Using Managed Identity for Cluster Manager
 
-Starting with the 2024-07-01 API version, managed identities in the Cluster Manager are used for write access to deliver rotated credentials to a key vault. The Cluster Manager identity may be system-assigned or [user-assigned](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities), and can be managed directly via APIs or via CLI.
+Beginning with the 2024-06-01-public-preview API version, managed identities in the Cluster Manager are used for write access to deliver rotated credentials to a key vault. The Cluster Manager identity may be system-assigned or [user-assigned](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities), and can be managed directly via APIs or via CLI.
 
 These examples describe how to configure a managed identity for a Cluster Manager.
 
