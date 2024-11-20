@@ -6,7 +6,7 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: conceptual
-ms.date: 10/13/2023
+ms.date: 11/05/2024
 ms.author: abell
 ms.custom: references_regions, template-concept
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
@@ -80,6 +80,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
 | Azure Cache for Redis | Microsoft.Cache/Redis | redisCache |
 | Azure Cache for Redis Enterprise | Microsoft.Cache/redisEnterprise | redisEnterprise |
+| Azure Container Apps | Microsoft.App/ManagedEnvironments | managedEnvironment |
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
 | Azure Cosmos DB for MongoDB vCore | Microsoft.DocumentDb/mongoClusters | mongoCluster |

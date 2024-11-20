@@ -61,6 +61,8 @@ Creates the Azure Cache for Redis that is used with the web app. The name of the
 
 The template creates the cache in the same location as the resource group.
 
+<!-- cawa the type should be updated to redisenterprise, correct? perhaps a new API version too? -->
+
 ```json
 {
   "name": "[variables('cacheName')]",
@@ -123,6 +125,7 @@ Notice that the web app is configured with app setting properties that enable it
 
 
 ### Web app (RedisEnterprise)
+<!--cawa - should this section be renamed to AMR and the section at the top remoeved altogether? -->
 For RedisEnterprise, because the resource types are slightly different, the way to do **listKeys** is different:
 
 ```json
