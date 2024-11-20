@@ -19,7 +19,7 @@ Microsoft Defender External Attack Surface Management (Defender EASM) continuous
 Defender EASM’s integration with Microsoft Security Copilot enables users to interact with Microsoft’s discovered attack surfaces. These attack surfaces allow users to quickly understand their externally facing infrastructure and relevant, critical risks to their organization. They provide insight into specific areas of risk, including vulnerabilities, compliance, and security hygiene. For more information about Microsoft Security Copilot, go to [What is Microsoft Security Copilot](/security-copilot/microsoft-security-copilot).  For more information on the embedded Microsoft Security Copilot experience, refer to [Query your attack surface with Defender EASM using Microsoft Copilot in Azure](/azure/copilot/query-attack-surface). 
 
 
-# Know before you begin
+## Know before you begin
 
 If you're new to Microsoft Security Copilot, you should familiarize yourself with it by reading these articles:
 - [What is Microsoft Security Copilot?](/security-copilot/microsoft-security-copilot)
