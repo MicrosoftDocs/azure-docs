@@ -213,7 +213,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
     * **Encryption key source**:
-        Select [customer-managed keys](configure-customer-managed-keys.md) or platform-managed keys. 
+        Select [Customer Managed Keys](configure-customer-managed-keys.md) or Microsoft Managed Keys. If you choose Customer Managed Key, provide the key vault private endpoint.
     
     Select **Next: Tags**. 
     
@@ -249,9 +249,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         The size of the volume.
     * **Throughput**:  
         You can reduce the throughput requirements for development or test systems accordingly to the value required for your use cases.
-    <!-- check order -->
     * **Encryption key source**:
-        Select [customer-managed keys](configure-customer-managed-keys.md) or platform-managed keys. 
+        Select [Customer Managed Key](configure-customer-managed-keys.md) or Microsoft Managed Key. If you choose Customer Managed Key, provide the key vault private endpoint.
 
     Select **Next: Protocols** to review the protocol settings. 
 

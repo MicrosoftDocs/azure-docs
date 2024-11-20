@@ -161,7 +161,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 12. The **Volumes Tab** enables you to remove optional volumes. 
 
     <!-- check -->
-    Provide an **Encryption key source** select [customer-managed keys](configure-customer-managed-keys.md) or platform-managed keys. 
+    Provide an **Encryption key source**. Select [Customer Managed Key](configure-customer-managed-keys.md) or Microsoft Managed Key. If you choose Customer Managed Key, provide the key vault private endpoint.
 
     On the Volumes tab, optional volumes are marked with an asterisk (`*`) in front of the name.   
     If you want to remove the optional volumes such as `ORA1-ora-data4` volume or `ORA1-ora-binary` volume from the volume group, select the volume then **Remove volume**. Confirm the removal in the dialog box that appears.
