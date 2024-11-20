@@ -20,7 +20,7 @@ This article provides BCDR guidance and strategies that you can apply when you b
 
 * [Integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](../logic-apps/logic-apps-enterprise-integration-overview.md) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
 
-For more information on reliability in Azure Logic Apps, including intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support), see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
+For more information on reliability in Azure Logic Apps, including intra-regional resiliency via availability zones and multi-region deployments, see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
 
 <a name="primary-secondary-locations"></a>
 
