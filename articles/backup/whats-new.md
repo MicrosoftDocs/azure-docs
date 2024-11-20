@@ -100,7 +100,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Cross Subscription Backup support for Azure File Share (preview)
 
-Azure Backup now supports Cross Subscription Backup (CSB) for Azure File Shares, allowing you to back up data across different subscriptions within the same tenant or Microsoft Entra ID. This capability offers greater flexibility and control, essentially for enterprises managing multiple subscriptions with varying purposes and security policies.
+Azure Backup now supports Cross Subscription Backup (CSB) for Azure File Shares (preview), allowing you to back up data across different subscriptions within the same tenant or Microsoft Entra ID. This capability offers greater flexibility and control, essentially for enterprises managing multiple subscriptions with varying purposes and security policies.
 
 For more information, see [About Azure File share backup](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-file-share-preview-works).
 

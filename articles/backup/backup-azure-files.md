@@ -22,11 +22,11 @@ Azure File share backup is a native, cloud based backup solution that protects y
 
 ## Prerequisites
 
-* Ensure that the file share is present in one of the supported storage account types. Review the [support matrix](azure-file-share-support-matrix.md).
+* Ensure the file share is present in one of the supported storage account types. Review the [support matrix](azure-file-share-support-matrix.md).
 * Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
 * In case you have restricted access to your storage account, check the firewall settings of the account to ensure that the exception "Allow Azure services on the trusted services list to access this storage account" is granted. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
 >[!Important]
->To perform [Cross Subscription Backup (preview)  for protecting Azure File share](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-file-share-preview-works) in another subscription, ensure that you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the above prerequisites. Learn about the [supported regions for Cross Subscription Backup (preview)](azure-file-share-support-matrix.md#supported-regions-for-cross-subscription-backup-preview).
+>To perform [Cross Subscription Backup (CSB)  for protecting Azure File share (preview)](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-file-share-preview-works) in another subscription, ensure you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the above prerequisites. Learn about the [supported regions for Cross Subscription Backup (preview)](azure-file-share-support-matrix.md#supported-regions-for-cross-subscription-backup-preview).
 
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
@@ -49,13 +49,13 @@ To configure backup for multiple file shares from the Recovery Services vault, f
 
    :::image type="content" source="./media/backup-afs/azure-file-share-select-vault.png" alt-text="Screenshot showing to select Azure Files.":::
 
-1. Click **Select** to select the storage account that contains the file shares to be backed-up.
+1. Click **Select** to select the storage account that contains the file shares to be backed up.
 
-   The **Select storage account** blade opens on the right, which lists a set of discovered supported storage accounts. They're either associated with this vault or present in the same region as the vault, but not yet associated to any Recovery Services vault.
+   The **Select storage account** blade opens on the right, which lists a set of discovered supported storage accounts. They're either associated with this vault or present in the same region as the vault, but not yet associated with any Recovery Services vault.
 
    :::image type="content" source="./media/backup-azure-files/azure-file-share-select-storage-account.png" alt-text="Screenshot showing to select a storage account." lightbox="./media/backup-azure-files/azure-file-share-select-storage-account.png":::
 
-1. On the **Select storage account** blade, by default it list the storage accounts from current subscription. Select an account, and select **OK**.
+1. On the **Select storage account** blade, by default it list the storage accounts from the current subscription. Select an account, and select **OK**.
 
    If you want to configure the backup operation with a storage account in a different subscription ([Cross Subscription Backup - preview](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-file-share-preview-works)), choose the other subscription from the **Subscription** filter. The storage accounts from the selected subscription appear.
 
@@ -85,7 +85,7 @@ To configure backup for multiple file shares from the Recovery Services vault, f
       - **Snapshot**: Enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletions.
       - **Vault-Standard (Preview)**: Provides comprehensive data protection.
 
-   1. Configure the *backup schedule* as per the requirement. You can configure up to *six backups* a day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day is transferred to the vault.
+   1. Configure the *backup schedule* as per the requirement. You can configure up to *six backups* per day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day is transferred to the vault.
 
    1. Configure the *Snapshot retention* and *Vault retention (preview)* duration to determine the expiry date of the recovery points.
 
@@ -149,7 +149,7 @@ The following steps explain how you can configure backup for individual file sha
       - **Snapshot**: Enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletions.
       - **Vault-Standard (Preview)**: Provides comprehensive data protection.
 
-   1. Configure the *backup schedule* as per the requirement. You can configure up to *six backups* a day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day is transferred to the vault.
+   1. Configure the *backup schedule* as per the requirement. You can configure up to *six backups* per day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day is transferred to the vault.
 
    1. Configure the *Snapshot retention* and *Vault retention (preview)* duration to determine the expiry date of the recovery points.
 
@@ -201,9 +201,9 @@ To run an on-demand backup, follow these steps:
 
 1. Select **OK** to confirm the on-demand backup job that runs.
 
-1. Monitor the portal notifications to keep a track of backup job run completion.
+1. Monitor the portal notifications to keep track of backup job run completion.
 
-   To monitor the job progress in the the**Recovery Services vault** dashboard, go to **Recovery Services vault** > **Backup Jobs** -> **In progress**.
+   To monitor the job progress in the **Recovery Services vault** dashboard, go to **Recovery Services vault** > **Backup Jobs** > **In progress**.
 
 # [File share blade](#tab/file-share-pane)
 
