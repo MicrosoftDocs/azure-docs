@@ -97,7 +97,7 @@ Here are known issues and limitations:
 
 - For session hosts that were created from an Azure Compute Gallery shared image that has a purchase plan, the plan isn't retained when the session hosts are updated. To check whether the image you use for your session hosts has a purchase plan, you can use [Azure PowerShell](/azure/virtual-machines/windows/cli-ps-findimage) or [Azure CLI](/azure/virtual-machines/linux/cli-ps-findimage).
 
-- Session host update currently update requires access to the public Azure Storage endpoint `wvdhpustgr0prod.blob.core.windows.net` to deploy the RDAgent. Until this is migrated to a [required endpoint for Azure Virtual Desktop](/azure/virtual-desktop/required-fqdn-endpoint), VMs that cannot access `wvdhpustgr0prod.blob.core.windows.net` will fail to be updated with a `CustomerVmNoAccessToDeploymentPackageException` error.
+- Session host update currently requires access to the public Azure Storage endpoint `wvdhpustgr0prod.blob.core.windows.net` to deploy the RDAgent. Until this is migrated to a [required endpoint for Azure Virtual Desktop](/azure/virtual-desktop/required-fqdn-endpoint), session hosts that can't access `wvdhpustgr0prod.blob.core.windows.net` fail to be updated with the error `CustomerVmNoAccessToDeploymentPackageException`.
 
 - The size of the OS disk can't be changed during an update. The update service defaults to the same size as defined by the gallery image.
 
