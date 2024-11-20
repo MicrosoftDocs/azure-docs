@@ -3729,6 +3729,11 @@
       "source_path_from_root": "/articles/virtual-network/tutorial-create-route-table-cli.md",
       "redirect_url": "/azure/virtual-network/tutorial-create-route-table",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/logic-apps/business-continuity-disaster-recovery-guidance.md",
+      "redirect_url": "/azure/logic-apps/multi-region-disaster-recovery",
+      "redirect_document_id": true
     }
   ]
 }
