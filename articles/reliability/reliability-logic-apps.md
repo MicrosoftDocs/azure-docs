@@ -7,7 +7,7 @@ ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 services: logic-apps
 ms.service: azure-logic-apps
-ms.date: 11/19/2024
+ms.date: 11/20/2024
 zone_pivot_groups: logic-app-hosting-types
 #Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Logic Apps works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different situations.
 ---

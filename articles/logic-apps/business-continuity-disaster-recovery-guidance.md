@@ -1,18 +1,25 @@
 ---
-title: Business continuity and disaster recovery
+title: Multi-region deployments in Azure Logic Apps
 description: Design your strategy to protect data, recover quickly from disruptive events, restore resources required by critical business functions, and maintain business continuity for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 11/19/2024
+ms.date: 11/20/2024
 ---
 
-# Business continuity and disaster recovery for Azure Logic Apps
+# Multi-region deployments in Azure Logic Apps
 
-To help reduce the impact and effects that unpredictable events have on your business and customers, make sure that you have a [*disaster recovery* (DR)](https://en.wikipedia.org/wiki/Disaster_recovery) solution in place so that you can protect data, quickly restore the resources that support critical business functions, and keep operations running to maintain [*business continuity* (BC)](https://en.wikipedia.org/wiki/Business_continuity_planning). For example, disruptions can include outages, losses in underlying infrastructure or components such as storage, network, or compute resources, unrecoverable application failures, or even a full datacenter loss. By having a business continuity and disaster recovery (BCDR) solution ready, your enterprise or organization can respond more quickly to interruptions, planned or unplanned, and reduce downtime for your customers.
 
-This article provides BCDR guidance and strategies that you can apply when you build automated workflows by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Logic app workflows help you more easily integrate and orchestrate data between apps, cloud services, and on-premises systems by reducing how much code that you have to write. When you plan for BCDR, make sure that you consider not just your logic apps, but also these Azure resources that you use with your logic apps:
+This article provides guidance and strategies for how to set up a multi-region deployment for your Azure Logic Apps. A multi-region deployment helps you protect data, recover quickly from disruptive events, restore resources required by critical business functions, and maintain business continuity. 
+
+For more information on the reliability features in Azure Logic Apps, including intra-regional resiliency via [availability zones](#availability-zone-support), see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
+
+
+
+## Considerations
+
+Logic app workflows help you more easily integrate and orchestrate data between apps, cloud services, and on-premises systems by reducing how much code that you have to write. When you plan for multi-region redundancy, make sure that you consider not just your logic apps, but also these Azure resources that you use with your logic apps:
 
 * [Connections](../connectors/introduction.md) that you create from logic app workflows to other apps, services, and systems. For more information, see [Connections to resources](#resource-connections) later in this topic.
 
@@ -20,13 +27,13 @@ This article provides BCDR guidance and strategies that you can apply when you b
 
 * [Integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](../logic-apps/logic-apps-enterprise-integration-overview.md) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
 
-For more information on reliability in Azure Logic Apps, including intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support), see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
+
 
 <a name="primary-secondary-locations"></a>
 
-## Primary and secondary locations
+## Primary and secondary deployment
 
-Each logic app needs to specify the location that you want to use for deployment, such as an Azure region, for example, "West US". This disaster recovery strategy focuses on setting up your primary logic app to [*failover*](https://en.wikipedia.org/wiki/Failover) onto a standby or backup logic app in an alternate location where Azure Logic Apps is also available. That way, if the primary suffers losses, disruptions, or failures, the secondary can take on the work. This strategy requires that your secondary logic app and dependent resources are already deployed and ready in the alternate location.
+A multi-region deployment consists of a primary and a secondary logic app. The primary logic app is configured to failover to the secondary logic app in an another region where Azure Logic Apps is also available. That way, if the primary suffers losses, disruptions, or failures, the secondary can take on the work. This deployment strategy requires that your secondary logic app and dependent resources are already deployed and ready in the secondary region.
 
 > [!NOTE]
 >
@@ -39,11 +46,11 @@ For the failover strategy, your logic apps and locations must meet these require
 
 * The secondary logic app instance has access to the same apps, services, and systems as the primary logic app instance.
 
-* Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For best practices and more information about paired regions for BCDR, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
+* Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For more information about paired regions, see [Azure paired regions](../reliability/cross-region-replication-azure.md#azure-paired-regions).
 
-#### Example: Multitenant Azure
+### Example: Multitenant Azure
 
-This example shows primary and secondary logic app instances, which are deployed to separate regions in the global multitenant Azure for this scenario. A single [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) defines both logic app instances and the dependent resources required by those logic apps. Separate parameter files specify the configuration values to use for each deployment location:
+This example shows primary and secondary logic app instances, which are deployed to separate regions in the global multitenant Azure. A single [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) defines both logic app instances and the dependent resources required by those logic apps. Separate parameter files specify the configuration values to use for each deployment location:
 
 ![Primary and secondary logic app instances in separate locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations.png)
 
@@ -51,9 +58,9 @@ This example shows primary and secondary logic app instances, which are deployed
 
 ## Connections to resources
 
-Azure Logic Apps provides [many hundreds of connector operations](../connectors/introduction.md) that your logic app workflow can use to work with other apps, services, systems, and other resources, such as Azure Storage accounts, SQL Server databases, work or school email accounts, and so on. If your logic app needs access to these resources, you create connections that authenticate access to these resources. Each connection is a separate Azure resource that exists in a specific location and can't be used by resources in other locations.
+Azure Logic Apps provides [hundreds of connector operations](../connectors/introduction.md) that your logic app workflow can use to work with other apps, services, systems, and other resources, such as Azure Storage accounts, SQL Server databases, work or school email accounts, and so on. If your logic app needs access to these resources, you create connections that authenticate access to these resources. Each connection is a separate Azure resource that exists in a specific location and can't be used by resources in other locations.
 
-For your disaster recovery strategy, consider the locations where dependent resources exist relative to your logic app instances:
+For your multi-region redundancy strategy, consider the locations where dependent resources exist relative to your logic app instances:
 
 * Your primary instance and dependent resources exist in different locations. In this case, your secondary instance can connect to the same dependent resources or endpoints. However, you should create connections specifically for your secondary instance. That way, if your primary location becomes unavailable, your secondary's connections aren't affected.
 
@@ -69,11 +76,11 @@ For your disaster recovery strategy, consider the locations where dependent reso
 
 If your logic app runs in multitenant Azure and needs access to on-premises resources such as SQL Server databases, you need to install the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a local computer. You can then create a data gateway resource in the Azure portal so that your logic app can use the gateway when you create a connection to the resource.
 
-The data gateway resource is associated with a location or Azure region, just like your logic app resource. In your disaster recovery strategy, make sure that the data gateway remains available for your logic app to use. You can [enable high availability for your gateway](../logic-apps/logic-apps-gateway-install.md#high-availability) when you have multiple gateway installations.
+The data gateway resource is associated with a location or Azure region, just like your logic app resource. In your multi-region redundancy strategy, make sure that the data gateway remains available for your logic app to use. You can [enable high availability for your gateway](../logic-apps/logic-apps-gateway-install.md#high-availability) when you have multiple gateway installations.
 
 <a name="roles"></a>
 
-## Active-active versus active-passive roles
+## Active-active vs. active-passive roles
 
 You can set up your primary and secondary locations so that your logic app instances in these locations can play these roles:
 
@@ -316,11 +323,6 @@ You might also create a more sophisticated watchdog logic app, which after a num
 
 To automatically activate the secondary instance, you can create a logic app that calls the management API such as the [Azure Resource Manager connector](/connectors/arm/) to activate the appropriate logic apps in the secondary location. You can expand your watchdog app to call this activation logic app after a specific number of failures happen.
 
-<a name="availability-zones"></a>
-
-## Zone redundancy with availability zones
-
-For information on Azure Logic Apps support for zone redundancy, see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
 
 <a name="collect-diagnostic-data"></a>
 
