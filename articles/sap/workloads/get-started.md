@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 11/05/2024
+ms.date: 11/19/2024
 ms.author: juergent
 ---
 
@@ -54,6 +54,7 @@ In the SAP workload documentation space, you can find the following areas:
 - **Azure Monitor for SAP solutions**: Microsoft developed monitoring solutions specifically for SAP supported OS and DBMS, as well as S/4HANA and NetWeaver. This section documents the deployment and usage of the service
 
 ## Change Log
+- November 19, 2024: Update parameter `enque/encni/set_so_keepalive` to uppercase, as the parameter is case sensitive. Updated in [SAP workloads on Azure: planning and deployment checklist](deployment-checklist.md,[HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md), [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md),[Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md),[HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md),[Azure VMs high availability for SAP NetWeaver on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md), [Azure VMs high availability for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-netapp-files.md),[Azure VMs high availability for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md), [Azure VMs high availability for SAP NetWeaver on SLES for SAP Applications with simple mount and NFS](./high-availability-guide-suse-nfs-simple-mount.md),[Azure VMs high availability for SAP NetWeaver on SLES](./high-availability-guide-suse.md),[HA for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md),[SAP ASCS/SCS instance multi-SID high availability with Windows server failover clustering and Azure shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md),[SAP ASCS/SCS installation on Windows with file share](sap-high-availability-installation-wsfc-file-share.md),[SAP ASCS/ERS installation on Windows with shared disk](sap-high-availability-installation-wsfc-shared-disk.md).
 - November 5, 2024: Add missing step to start HANA [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md).
 - November 1, 2024: Adding HANA high-availability hook ChkSrv for [dying indexserver for RHEL based cluster setups](./sap-hana-high-availability-rhel.md#implement-sap-hana-system-replication-hooks).
 - October 29, 2024: some changes on disk caching and smaller updates in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md). Plus fixing some typoes in HANA storage configuration documents
