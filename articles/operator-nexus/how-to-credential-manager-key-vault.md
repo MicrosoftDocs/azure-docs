@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Set up Key Vault for Managed Credential Rotation in Operator Nexus
 
-Azure Operator Nexus utilizes secrets and certificates to manage component security across the platform. The Operator Nexus platform handles the rotation of these secrets and certificates. By default, Operator Nexus stores the credentials in a managed Key Vault. To keep the rotated credentials in their own Key Vault, the user has the option to configure their own Key Vault to receive rotated credentials.  This requires the user to set up the Key Vault for the Azure Operator Nexus instance. Once created, the user needs to add a role assignment on the Customer Key Vault to allow the Operator Nexus Platform to write updated credentials, and additionally link the Customer Key Vault to the Nexus Cluster Resource.
+Azure Operator Nexus utilizes secrets and certificates to manage component security across the platform. The Operator Nexus platform handles the rotation of these secrets and certificates. By default, Operator Nexus stores the credentials in a managed Key Vault. To keep the rotated credentials in their own Key Vault, the user must configure their own Key Vault to receive rotated credentials. This configuration requires the user to set up the Key Vault for the Azure Operator Nexus instance. Once created, the user needs to add a role assignment on the Customer Key Vault to allow the Operator Nexus Platform to write updated credentials, and additionally link the Customer Key Vault to the Nexus Cluster Resource.
 
 ## Prerequisites
 
@@ -122,7 +122,7 @@ Beginning with the 2024-10-01-preview API, managed identities in the Nexus Clust
 
 ### Configure Nexus Cluster Secret Archive Settings
 
-The Nexus Cluster _secret-archive-settings_ specify the Azure Key Vault URI where rotated credentials will be stored and the managed identity which will be used to access it.
+The Nexus Cluster _secret-archive-settings_ specify the Azure Key Vault URI where rotated credentials are stored and the managed identity which is used to access it.
 
 These examples describe how to configure a managed identity for a Nexus Cluster and configure it as part of _secret-archive-settings_.
 
@@ -223,10 +223,10 @@ If using a user-assigned managed identity, proceed to [add permission to user-as
 
 ## Add a permission to User-assigned identity
 
-When using a user-assigned managed identity, a customer is required to provision access to that identity for the Nexus platform.
-Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for `AFOI-NC-MGMT-PME-PROD` Microsoft Entra ID. It is a known limitation of the platform that will be addressed in the future.
+When using a user-assigned managed identity to access a Key Vault, a customer is required to provision access to that identity for the Nexus platform.
+Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for `AFOI-NC-MGMT-PME-PROD` Microsoft Entra ID. It's a known limitation of the platform that will be addressed in the future.
 
-1. Open the Azure Portal and locate the User-assigned identity in question.
+1. Open the Azure portal and locate the User-assigned identity in question.
 2. Under **Access control (IAM)**, click **Add role assignment**.
 3. Select **Role**: Managed Identity Operator. (See the permissions that the role provides [managed-identity-operator](/azure/role-based-access-control/built-in-roles/identity#managed-identity-operator)).
 4. Assign access to: **User, group, or service principal**.
