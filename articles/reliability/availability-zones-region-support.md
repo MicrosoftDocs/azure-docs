@@ -12,7 +12,7 @@ ms.custom: references_regions, subject-reliability
 
 # Azure regions with availability zone support
 
-Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones. Azure supports availability zones in every region that has an Azure datacenter. For more information on availability zones and regions, see [What are Azure regions and availability zones?](availability-zones-overview.md),
+Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones. Azure supports availability zones in every geographic area that has an Azure datacenter. For more information on availability zones and regions, see [What are Azure regions and availability zones?](availability-zones-overview.md),
 
 The following regions currently support availability zones:
 
