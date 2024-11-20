@@ -152,6 +152,8 @@ additionalContent:
               text: Overview
             - url: ../sentinel/quickstart-onboard.md
               text: Onboard Microsoft Sentinel
+            - url: /unified-secops-platform/
+              text: Microsoft's unified security operations platform
             - url: /training/paths/security-ops-sentinel/
               text: "Learn: Cloud-native security operations with Microsoft Sentinel"
 
