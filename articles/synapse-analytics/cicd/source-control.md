@@ -66,7 +66,7 @@ The configuration pane shows the following Azure DevOps git settings:
 | **Import existing resources to repository** | Specifies whether to import existing resources from the Synapse Studio into an Azure Repos Git repository. Check the box to import your workspace resources (except pools) into the associated Git repository in JSON format. This action exports each resource individually. When this box isn't checked, the existing resources aren't imported. | Checked (default) |
 | **Import resource into this branch** | Select which branch the resources (sql script, notebook, spark job definition, dataset, dataflow etc.) are imported to.
 
-Your can also use repository link to quickly point to the git repository you want to connect with.
+You can also use repository link to quickly point to the git repository you want to connect with.
 
 > [!NOTE]
 > Azure Synapse doesn't support connection to an on-premises Azure DevOps repository.
@@ -209,7 +209,7 @@ By default, Synapse Studio generates the workspace templates and saves them into
 }
 ```
 
-Synapse Studio can only have one publish branch at a time. When you specify a new publish branch, the original publish branch wouldn't been deleted. If you want to remove the previous publish branch, delete it manually.
+Synapse Studio can only have one publish branch at a time. When you specify a new publish branch, the original publish branch won't be deleted. If you want to remove the previous publish branch, delete it manually.
 
 
 ### Publish code changes
@@ -244,7 +244,7 @@ After you remove the association with the current repo, you can configure your G
 Only grant git repository permission to Synapse workspace artifact authors.
 -   **Collaboration**. It's recommended to not allow direct check-ins to the collaboration branch. This restriction can help prevent bugs as every check-in goes through a pull request review process described in [Creating feature branches](source-control.md#creating-feature-branches).
 -   **Synapse live mode**. After publishing in git mode,  all changes are reflected in Synapse live mode. In Synapse live mode, publishing is disabled. And you can view, run artifacts in live mode if you have been granted the right permission.
--   **Edit artifacts in Studio**. Synapse studio is the only place you can enable workspace source control and sync changes to git automatically. Any change via SDK, PowerShell,isn't synced to git. We recommend you always edit artifact in Studio when git is enabled.
+-   **Edit artifacts in Studio**. Synapse studio is the only place you can enable workspace source control and sync changes to git automatically. Any change via SDK, PowerShell, isn't synced to git. We recommend you always edit artifact in Studio when git is enabled.
 
 ## Troubleshooting git integration
 
