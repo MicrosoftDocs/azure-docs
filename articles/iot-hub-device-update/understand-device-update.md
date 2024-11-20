@@ -74,6 +74,7 @@ Troubleshooting features include agent check and device sync to help you diagnos
 
 Device Update functionality consists of three areas: *agent integration*, *importing*, and *management*.
 
+<a name="device-update-agent"></a>
 ### Agent integration
 
 When a device receives an update command, the Device Update *agent* executes the requested `download`, `install`, or `apply` update phase. During each phase, the agent returns the deployment status to Device Update via IoT Hub so you can view the current status of the deployment. If there are no updates in progress, the agent returns `Idle` status. You can cancel a deployment at any time.
