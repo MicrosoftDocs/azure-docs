@@ -59,7 +59,7 @@ To use a dynamic scaling plan (preview):
 
 - You must grant Azure Virtual Desktop access to manage the power state of your session host VMs. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
 
-- You must grant Azure Virtual Desktop access to read session host configuration. During the preview, you will need to assign a custom role with the `Microsoft.DesktopVirtualization/hostPools/activeSessionHostConfigurations/read` permission to the Azure Virtual Desktop service principal.
+- Dynamic autoscaling currently requires access to the public Azure Storage endpoint `wvdhpustgr0prod.blob.core.windows.net` to deploy the RDAgent when creating session hosts. Until this is migrated to a [required endpoint for Azure Virtual Desktop](required-fqdn-endpoint.md), session hosts that can't access wvdhpustgr0prod.blob.core.windows.net will fail with a "CustomerVmNoAccessToDeploymentPackageException" error.
 
 - If you're using PowerShell to create and assign your scaling plan, you need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
 ::: zone-end
