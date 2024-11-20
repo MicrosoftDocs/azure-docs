@@ -19,7 +19,7 @@ For more information on availability zones and regions, see [What are Azure regi
 Azure is continually expanding the number of services that support availability zones, including zonal and zone-redundant offerings.
 
 
-## Availability zone types
+## Types of availability zone support
 
 Azure services can support two types of availability zone support: *zonal* amd *zone-redundant* services. Each service supports either one or both types. When designing your reliability strategy, make sure that you understand which availability zone types are supported in each service of your workload. 
 
