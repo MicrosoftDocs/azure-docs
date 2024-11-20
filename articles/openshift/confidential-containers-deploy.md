@@ -726,7 +726,7 @@ You can overwrite the default attestation policy by creating your own attestatio
          }
     ```
 
-    For `package policy`, The attestation policy follows the Open Policy Agent specification. In this example, the attestation policy compares the claims provided in the attestation report to the reference values registered in the RVPS database. The attestation process is successful only if all the values match.
+    For the `package policy`, the attestation policy follows the Open Policy Agent specification. In this example, the attestation policy compares the claims provided in the attestation report to the reference values registered in the RVPS database. The attestation process is successful only if all the values match.
 
 1.	Create the attestation policy config map by running the following command:
 
@@ -905,13 +905,13 @@ If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provi
 
 **Create a secret for container image signature verification**
 
-If you use container image signature verification, you must create a secret that contains the public container image signing key. The Key Broker Service on the Trustee cluster uses the secret to verify the signature, ensuring that only trusted and authenticated container images are deployed in your environment.
+If you use container image signature verification, you must create a secret that contains the public container image signing key. The Trustee Operator uses the secret to verify the signature, ensuring that only trusted and authenticated container images are deployed in your environment.
 
 1. Create a secret for container image signature verification by running the following command:
 
     ```
-    $ oc apply secret generic <type>
-        --from-file=<tag>=./<public_key_file>
+    $ oc apply secret generic <type> \
+        --from-file=<tag>=./<public_key_file> \
         -n trustee-operator-system
      ```
     
@@ -1003,17 +1003,17 @@ You must create the KbsConfig custom resource to launch Trustee.
       kbsAuthSecretName: kbs-auth-public-key
       kbsDeploymentType: AllInOneDeployment
       kbsRvpsRefValuesConfigMapName: rvps-reference-values
-      kbsSecretResources: ["kbsres1"]
+      kbsSecretResources: ["kbsres1", "security-policy", "<type>"]
       kbsResourcePolicyConfigMapName: resource-policy
         # tdxConfigSpec:
         #   kbsTdxConfigMapName: tdx-config
         #   kbsAttestationPolicyConfigMapName: attestation-policy
         #   kbsServiceType: <service_type>
     ```
-    - Specify the type value of the container image signature verification secret you created, for example, `img-sig`. 
-    - `tdxConfigSpec.kbsTdxConfigMapName:` tdx-config is required for Intel Trust Domain Extensions. 
-    - `kbsAttestationPolicyConfigMapName:` attestation-policy is required if you create a customized attestation policy. 
-    - `kbsServiceType: <service_type>` is required if you created a service type. Specify NodePort, LoadBalancer, or ExternalName. The default service type is ClusterIP. 
+    - Specify the `type` value of the container image signature verification secret if you created the secret, for example, `img-sig`. 
+    - Uncomment `tdxConfigSpec.kbsTdxConfigMapName: tdx-config` for Intel Trust Domain Extensions. 
+    - Uncomment `kbsAttestationPolicyConfigMapName: attestation-policy` if you create a customized attestation policy. 
+    - Uncomment `kbsServiceType: <service_type>` if you create a service type, other than the default ClusterIP service, to expose applications within the cluster external traffic. You can specify `NodePort`, `LoadBalancer`, or `ExternalName`. 
 
 1.	Create the KbsConfig custom resource by running the following command:
 
