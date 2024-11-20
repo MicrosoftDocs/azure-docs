@@ -81,7 +81,7 @@ sections:
         answer: |
           You can use Azure PowerShell *deallocate* and *allocate* methods. For a firewall configured for forced tunneling, the procedure is slightly different.
 
-          For example, for a firewall NOT configured for forced tunneling:
+          For example, for a firewall configured with the Management NIC NOT enabled:
 
           ```azurepowershell
           # Stop an existing firewall
@@ -103,7 +103,7 @@ sections:
           Set-AzFirewall -AzureFirewall $azfw
           ```
 
-          For a firewall configured for forced tunneling, stopping is the same. But starting requires the management public IP to be re-associated back to the firewall:
+          For a firewall configured with the Management NIC enabled, stopping is the same. But starting requires the management public IP to be re-associated back to the firewall:
 
           ```azurepowershell
           # Stop an existing firewall

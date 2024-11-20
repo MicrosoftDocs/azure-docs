@@ -1,6 +1,5 @@
 ---
 title: Best practices for connection resilience
-titleSuffix: Azure Cache for Redis
 description: Learn how to make your Azure Cache for Redis connections resilient.
 
 

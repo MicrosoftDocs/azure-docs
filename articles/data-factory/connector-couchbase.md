@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/12/2024
+ms.date: 11/05/2024
 ms.author: jianleishen
 ---
 # Copy data from Couchbase using Azure Data Factory (Preview)
@@ -33,10 +33,6 @@ For a list of data stores that are supported as sources/sinks, see the [Supporte
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
 The connector supports the Couchbase version higher than 6.0. 
-
-The connector now uses the following precision. The previous precision is compatible.
-   - Double values use 17 significant digits (previously 15 significant digits)
-   - Float values use 9 significant digits (previously 7 significant digits)
 
 ## Prerequisites
 
