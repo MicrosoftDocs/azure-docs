@@ -160,6 +160,16 @@ This configuration deploys a new asset called `thermostat` to the cluster. You c
 kubectl get assets -n azure-iot-operations
 ```
 
+## View resources in the Azure portal
+
+To view the asset endpoint and asset you created in the Azure portal, go to the resource group that contains your Azure IoT Operations instance. You can see the thermostat asset in the **Azure IoT Operations** resource group. If you select **Show hidden types**, you can also see the asset endpoint:
+
+:::image type="content" source="media/tutorial-add-assets/azure-portal.png" alt-text="Screenshot of Azure portal showing the Azure IoT Operations resource group including the asset and asset endpoint.":::
+
+The portal enables you to view the asset details. Select **JSON View** for more details:
+
+:::image type="content" source="media/tutorial-add-assets/thermostat-asset.png" alt-text="Screenshot of Azure IoT Operations asset details in the Azure portal.":::
+
 ## Verify data is flowing
 
 [!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]

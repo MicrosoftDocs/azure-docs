@@ -31,7 +31,8 @@ To install Azure IoT Operations, have the following hardware requirements availa
 
 | Spec | Minimum | Recommended |
 |------|---------|-------------|
-| RAM  | 16-GB   | 32-GB       |
+| Hardware memory capacity (RAM) | 16-GB | 32-GB |
+| Available memory for Azure IoT Operations (RAM) | 10-GB | Depends on usage |
 | CPU  | 4 vCPUs | 8 vCPUs     |
 
 ## Choose your features
