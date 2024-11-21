@@ -38,22 +38,20 @@ If transient faults affect your virtual machine or Azure Bastion host, clients u
 
 Azure Bastion supports availability zones in both zonal and zone-redundant configurations:
 
-<!-- Art Library Source# ConceptArt-0-000-015- -->
-:::image type="content" source="media/bastion/bastion-instances-zones.svg" alt-text="Diagram that shows Azure Bastion with three instances, each in a separate availability zone." border="false":::
-
 - *Zonal:* You can select a single availability zone for an Azure Bastion resource.
 
    > [!NOTE]
    > Pinning to a single zone doesn’t increase resiliency. To improve resiliency, you need to either use a zone-redundant configuration or explicitly deploy resources into multiple zones.
 
 - *Zone-redundant:* Enabling zone redundancy for an Azure Bastion resource spreads your instances across multiple [availability zones](../reliability/availability-zones-overview.md). When you spread resources across availability zones, you can achieve resiliency and reliability for your production workloads.
+    
+    The following diagram shows a zone-redundant Azure Bastion resource, with its instances spread across three zones:
+    
+    <!-- Art Library Source# ConceptArt-0-000-015- -->
+    :::image type="content" source="media/bastion/bastion-instances-zones.svg" alt-text="Diagram that shows Azure Bastion with three instances, each in a separate availability zone." border="false":::
 
-The following diagram shows a zone-redundant Azure Bastion resource, with its instances spread across three zones:
-
-:::image type="content" source="media/reliability-bastion/bastion-instances-zones.png" alt-text="Diagram that shows a zone-redundant Azure Bastion resource with three instances, each in a separate availability zone." border="false":::
-
-> [!NOTE]
-> If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can. If an availability zone is unavailable, the instance in the faulty zone is replaced with another instance in a healthy zone.
+    > [!NOTE]
+    > If you specify more availability zones than you have instances, Azure Bastion spreads instances across as many zones as it can. If an availability zone is unavailable, the instance in the faulty zone is replaced with another instance in a healthy zone.
 
 ### Regions supported
 
