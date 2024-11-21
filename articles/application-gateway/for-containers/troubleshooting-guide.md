@@ -151,7 +151,7 @@ status:
       Assertion Subject: 'system:serviceaccount:azure-application-lb-system:gateway-controller-sa'.
       Assertion Audience: 'api://AzureADTokenExchange'. https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation\\r\\nTrace
       ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\\r\\nCorrelation ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\\r\\nTimestamp:
-      2023-04-28 22:08:46Z\",\"error_codes\":[70021],\"timestamp\":\"2023-04-28 22:08:46Z\",\"trace_id\":\"ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0\",\"correlation_id\":\"aaaa0000-bb11-2222-33cc-444444dddddd\",\"error_uri\":\"https://login.microsoftonline.com/error?code=70021\"}
+      2023-04-28 22:08:46Z\",\"error_codes\":[70021],\"timestamp\":\"2023-04-28 22:08:46Z\",\"trace_id\":\"0000aaaa-11bb-cccc-dd22-eeeeee333333\",\"correlation_id\":\"aaaa0000-bb11-2222-33cc-444444dddddd\",\"error_uri\":\"https://login.microsoftonline.com/error?code=70021\"}
       DefaultAzureCredential: failed to acquire a token.\nAttempted credentials:\n\tEnvironmentCredential:
       incomplete environment variable configuration. Only AZURE_TENANT_ID and AZURE_CLIENT_ID
       are set\n\tManagedIdentityCredential: IMDS token request timed out\n\tAzureCLICredential:
