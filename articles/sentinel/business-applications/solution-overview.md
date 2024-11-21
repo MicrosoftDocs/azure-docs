@@ -12,7 +12,9 @@ ms.date: 11/13/2024
 
 # What is the Microsoft Sentinel solution for Microsoft Business Apps?
 
-The Microsoft Sentinel solution for Microsoft Business Apps helps you monitor and protect your Power Platform and Dynamics 365 Finance and Operations environments. It provides security insights and threat detection by collecting audit and activity logs to detect threats, suspicious activities, illegitimate activities, and more.
+The Microsoft Sentinel solution for Microsoft Business Apps helps you monitor and protect your Power Platform, Dynamics 365 Customer Engagement (CRM) and Dynamics 365 Finance and Operations (ERP) environments. It provides security insights and threat detection by collecting audit and activity logs to detect threats, suspicious activities, illegitimate activities, and more.
+
+- Dynamics 365 Customer Engagement is a cloud-based suite of customer relationship management (CRM) applications designed to streamline and automate business processes across sales, customer service, field service, project service automation, and marketing
 
 - [Dynamics 365 for Finance and Operations](/dynamics365/finance) is a comprehensive Enterprise Resource Planning (ERP) solution that combines financial and operational capabilities to help businesses manage their day-to-day operations. It offers a range of features that enable businesses to streamline workflows, automate tasks, and gain insights into operational performance.
 - [Power Platform](/power-platform/) is a suite of applications, connectors, and a data platform (Dataverse) that provides a rapid application development environment to build custom apps for your business needs. Power Platform enables users to analyze data, build solutions, automate processes, and create virtual agents.
@@ -20,6 +22,19 @@ The Microsoft Sentinel solution for Microsoft Business Apps helps you monitor an
 > [!IMPORTANT]
 > - The Microsoft Sentinel solution for Microsoft Business Apps is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
+
+## Securing Power Platform and Dynamics 365 Customer Engagement activities
+
+The Microsoft Sentinel solution for Microsoft Business Apps helps you secure your Power Platform by allowing you to monitor and detect suspicious or malicious activities in your Power Platform environment, it is also possible to secure and monitor Dynamics 365 Customer Engagement which use the common data store known as Microsoft Dataverse. The solution collects activity logs from different Power Platform components and inventory data, and analyzes those activity logs to detect threats and suspicious activities, such as:
+
+- Power Apps execution from unauthorized geographies
+- Suspicious data destruction by Power Apps
+- Mass deletion of Power Apps
+- Phishing attacks made possible through Power Apps
+- Power Automate flows activity by departing employees
+
+
+- Suspicious and anomalous activities in Microsoft Dataverse
 
 ## Securing Dynamics 365 for Finance and Operations activities
 
@@ -31,33 +46,34 @@ The Microsoft Sentinel solution for Microsoft Business apps helps you secure you
 - **The ability to detect suspicious or illegitimate activities**, like suspicious logins, illegitimate changes of settings and user permissions, data exfiltration, or bypassing of SOD policies. 
 - **The ability to investigate and respond to related incidents**, like limiting user access, notifying business admins, or rolling back changes.
 
-## Securing Power Platform activities
-
-The Microsoft Sentinel solution for Microsoft Business Apps helps you secure your Power Platform environment by allowing you to monitor and detect suspicious or malicious activities in your Power Platform environment. The solution collects activity logs from different Power Platform components and inventory data, and analyzes those activity logs to detect threats and suspicious activities, such as:
-
-- Power Apps execution from unauthorized geographies
-- Suspicious data destruction by Power Apps
-- Mass deletion of Power Apps
-- Phishing attacks made possible through Power Apps
-- Power Automate flows activity by departing employees
-
-
 ## Data connectors
 
 The Microsoft Sentinel solution for Microsoft Business Apps includes the following data connectors:
 
 |Connector name  |Data collected  |Log Analytics tables |
 |---------|---------|---------|
-|Microsoft Power Platform Admin Activity (Preview)|Power Platform administrator activity logs<br><br> For more information, see [View Power Platform administrative logs using auditing solutions in Microsoft Purview (preview)](/power-platform/admin/admin-activity-logging).|PowerPlatformAdminActivity|
-|Microsoft Dataverse (Preview) |    Dataverse and model-driven apps activity logging <br><br>For more information, see [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing).<br><br>If you use the data connector for Dynamics 365, migrate to the data connector for Microsoft Dataverse. This data connector replaces the legacy data connector for Dynamics 365 and supports data collection rules.  |   DataverseActivity      |
-| Dynamics 365 F&O | Dynamics 365 Finance and Operations admin activities and audit logs<br><br>Business process and application activity logs | FinanceOperationsActivity_CL |
+|Microsoft Power Platform Admin Activity (Preview)|Power Platform administrator activity logs includes the following workloads:<ul></ul>- Power Apps</ul><ul>- Power Pages</ul><ul>- Power Platform Connector</ul><br>- Power Platform DLP<br><br>For more information, see [View Power Platform administrative logs using auditing solutions in Microsoft Purview (preview)](/power-platform/admin/admin-activity-logging).|PowerPlatformAdminActivity|
+|Microsoft Dataverse (Preview) |Dataverse and model-driven apps activity logging (including Dynamics 365 CRM) <br><br>For more information, see [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing).<br><br>If you use the data connector for Dynamics 365, migrate to the data connector for Microsoft Dataverse. This data connector replaces the legacy data connector for Dynamics 365 and supports data collection rules.  |   DataverseActivity      |
+| Dynamics 365 F&O |Dynamics 365 Finance and Operations admin activities and audit logs<br><br>Business process and application activity logs | FinanceOperationsActivity_CL |
 
 ## Analytics rules
 
 The Microsoft Sentinel solution for Microsoft Business Apps includes the analytics rules to help you detect threats and suspicious activities in your Power Platform and Dynamics 365 Finance and Operations environments. The rules are based on best practices and industry standards, and are designed to help you identify and respond to security incidents.
 
+- **Analytics rules for Power Platform and Dynamics 365 CRM** cover activities like Power Apps being run from unauthorized geographies, suspicious data destruction by Power Apps, mass deletion of Power Apps, and more.
+
 - **Analytics rules for Dynamics 365 Finance and Operations** cover suspicious activities like changes in bank account details, multiple user account updates or deletions, suspicious sign-in events, changes to workload identities, and more.
-- **Analytics rules for Power Platform** cover activities like Power Apps being run from unauthorized geographies, suspicious data destruction by Power Apps, mass deletion of Power Apps, and more.
+## Hunting Queries
+
+The Microsoft Sentinel solution for Microsoft Business Apps includes Hunting Queries, enabling the SOC to proactively uncover potential threats and suspicious activities by applying advanced hunting techniques to analyze available data.
+
+## Playbooks
+
+The Microsoft Sentinel solution for Microsoft Business Apps includes Playbooks, which are integral to Sentinel's SOAR capabilities. These playbooks enable automated security responses for Dynamics and Power Platform, streamlining workflows and improving collaboration between SOC analysts and Business Applications experts.
+
+## Workbooks
+
+The Microsoft Sentinel solution for Microsoft Business Apps includes workbooks designed to present security data visually, making it easier to detect anomalies and uncover patterns through interactive visualizations.
 
 ## Parsers
 
@@ -69,5 +85,8 @@ The Microsoft Sentinel solution for Microsoft Business Apps includes parsers tha
 For more information, see:
 
 - [Deploy the Microsoft Sentinel solution for Microsoft Business Apps ](deploy-business-applications-solution.md)
+
 - [Security content reference for Microsoft Power Platform](power-platform-solution-security-content.md)
+
 - [Security content reference for Dynamics 365 Finance and Operations](../dynamics-365/dynamics-365-finance-operations-security-content.md)
+
