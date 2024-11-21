@@ -57,11 +57,7 @@ Tests observed performance thresholds of a single large volume on scale-out and 
 
 ### 256-KiB sequential workloads (MiB/s) 
 
-<<<<<<< HEAD
-The graph represents a 256-KiB sequential workload and a 1 TiB working set. It shows that a single Azure NetApp Files large volume can handle between approximately 8,518 MiB/s pure sequential writes and 9,970 MiB/s pure sequential reads. 
-=======
 The graph represents a 256-KiB sequential workload using 12 virtual machines reading and writing to a single large volume using a 1-TiB working set. The graph shows that a single Azure NetApp Files large volume can handle between approximately 8,518 MiB/s pure sequential writes and 12,761 MiB/s pure sequential reads.
->>>>>>> de0e8c4961bb62830c944ec25c6b5edb6fb688bb
 
 :::image type="content" source="./media/performance-large-volumes-linux/256-kib-sequential-reads.png" alt-text="Bar chart of a 256-KiB sequential workload on a large volume." lightbox="./media/performance-large-volumes-linux/256-kib-sequential-reads.png":::
 
