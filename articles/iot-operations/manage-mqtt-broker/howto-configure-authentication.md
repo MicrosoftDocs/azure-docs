@@ -332,7 +332,7 @@ For more information about enabling secure settings by configuring an Azure Key 
 ## X.509
 
 > [!TIP]
-> For an end-to-end example of how to configure X.509 authentication, see [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-and-x509.md).
+> For an end-to-end example of how to configure X.509 authentication, see [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md).
 
 With X.509 authentication, the MQTT broker uses a **trusted CA certificate** to validate client certificates. This trusted CA can be a root or intermediate CA. The broker checks the client certificate chain against the trusted CA certificate. If the chain is valid, the client is authenticated.
 
@@ -608,7 +608,7 @@ To get a TLS-enabled listener port, see [Enable TLS manual certificate managemen
 >
 > After enabling X.509 authentication, ensure that clients trust the broker's server certificate by having the *server-side* CA certificate in their trust store. Don't confuse trusting the *server-side* CA certificate with the *client-side* CA certificate used for client authentication that is specified in the `trustedClientCaCert` field.
 >
-> For a full example, see [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-and-x509.md).
+> For a full example, see [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md).
 
 ### Connect mosquitto client to MQTT broker with X.509 client certificate
 
@@ -894,4 +894,4 @@ Successful reauthentication updates the client's credential expiry with the expi
 
 - About [BrokerListener resource](howto-configure-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)
-- [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-and-x509.md)
+- [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md)

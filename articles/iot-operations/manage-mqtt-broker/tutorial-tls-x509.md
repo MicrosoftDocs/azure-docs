@@ -264,6 +264,55 @@ Client thermostat sending DISCONNECT
 
 To restrict access to MQTT topics based on the client certificate attributes, create an authorization policy that maps the client certificate attributes to allowed actions on specific topics.
 
+The provided command is using the `mosquitto_pub` utility to publish a message to an MQTT broker with TLS encryption and client certificate authentication. Here's a breakdown of the command and the authorization system being set up:
+
+### Command Breakdown
+- `mosquitto_pub`: The command-line utility to publish messages to an MQTT broker.
+- `-t "example/topic"`: Specifies the topic to which the message is published.
+- `-m "example temperature measurement"`: The message payload.
+- `-i thermostat`: The client ID used to identify the publisher.
+- `-q 1`: Quality of Service level 1, ensuring the message is delivered at least once.
+- `-V mqttv5`: Specifies the MQTT version 5.
+- `-d`: Enables debug mode for detailed output.
+- `-h localhost`: The hostname of the MQTT broker.
+- `--key thermostat.key`: The client's private key file.
+- `--cert thermostat.crt`: The client's certificate file.
+- `--cafile contoso_root_ca.crt`: The CA certificate file to verify the broker's certificate.
+
+### Authorization System
+1. **Certificates Created**:
+   - **Client Certificate (thermostat.crt)**: Issued to the client (thermostat) and signed by an intermediate CA.
+   - **Client Private Key (thermostat.key)**: Corresponding private key for the client certificate.
+   - **Intermediate CA Certificate**: Signed by the root CA, used to sign client certificates.
+   - **Root CA Certificate (contoso_root_ca.crt)**: The trusted root certificate used to verify the chain of trust.
+
+2. **Attributes Mapping**:
+   - **Client Certificate Attributes**: Includes details like Common Name (CN), Organization (O), and Organizational Unit (OU) that can be used for authorization.
+   - **Intermediate CA**: Ensures that client certificates are issued by a trusted entity.
+
+3. **Authorization Rules**:
+   - The MQTT broker uses the client certificate to authenticate the client.
+   - The broker verifies the certificate chain up to the root CA.
+   - Authorization rules can be defined based on certificate attributes (e.g., CN, O, OU) to control access to specific topics.
+
+### Mermaid Diagram
+```mermaid
+graph TD
+    A[Client: thermostat] -->|thermostat.crt| B[Intermediate CA]
+    B -->|Signed by| C[Root CA: contoso_root_ca.crt]
+    A -->|thermostat.key| D[MQTT Broker]
+    D -->|Verify| C
+    D -->|Authorize| E[Authorization Rules]
+    E -->|Access Control| F[MQTT Topics]
+```
+
+### Explanation
+1. The client (thermostat) uses its certificate (`thermostat.crt`) and private key (`thermostat.key`) to authenticate with the MQTT broker.
+2. The broker verifies the client's certificate against the intermediate CA, which is in turn verified against the root CA (`contoso_root_ca.crt`).
+3. The broker applies authorization rules based on the client's certificate attributes to control access to MQTT topics.
+
+This setup ensures secure communication and controlled access to the MQTT broker using TLS and client certificate authentication.
+
 1. In the Azure portal, navigate to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authorization** tab.
@@ -354,6 +403,7 @@ To restrict access to MQTT topics based on the client certificate attributes, cr
       }
     ]
     ```
+    
 1. Select **Add** to save the changes.
 
 :::image type="content" source="media/tutorial-tls-and-x509/abac-authz.png" alt-text="Screenshot showing Azure portal for setting up an authorization policy.":::

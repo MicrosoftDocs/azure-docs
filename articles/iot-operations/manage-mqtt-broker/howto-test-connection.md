@@ -615,4 +615,4 @@ spec:
 
 - [Configure TLS with manual certificate management to secure MQTT communication](howto-configure-tls-manual.md)
 - [Configure authentication](howto-configure-authentication.md)
-- [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-and-x509.md)
+- [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md)

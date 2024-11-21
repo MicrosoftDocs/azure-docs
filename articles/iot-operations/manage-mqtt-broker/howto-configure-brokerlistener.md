@@ -921,4 +921,4 @@ From here, follow the same steps as previously to create a server certificate wi
 
 - [Configure MQTT broker authorization](howto-configure-authorization.md)
 - [Configure MQTT broker authentication](howto-configure-authentication.md)
-- [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-and-x509.md)
+- [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md)
