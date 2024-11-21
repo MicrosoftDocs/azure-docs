@@ -13,8 +13,6 @@ ms.date: 11/20/2024
 
 # Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization with Azure IoT Operations MQTT broker
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 This tutorial guides you through setting up the Azure IoT Operations MQTT broker with TLS encryption and X.509 client authentication. It includes step-by-step instructions and scripts for creating certificates for both the broker and clients. The tutorial explains how to configure the MQTT broker with different root certificate authorities (CAs) for the client and broker. It also covers setting up an attribute-based access control (ABAC) authorization policy based on the client certificate chain. Finally, the tutorial uses the Mosquito client to test various scenarios to ensure the setup works correctly.
 
 The tutorial simulates an environment where Azure IoT Operations is installed in a Contoso factory, with devices manufactured by Fabrikam. To make TLS and X.509 authentication work:
