@@ -310,7 +310,7 @@
           href: troubleshoot-memory-limits.md
         - name: Troubleshoot LACP Bonding
           href: troubleshooting-lacp-bonding.md
-    - name: Storage Array
+          - name: Storage Array
       expanded: false
       items:
     - name: Tenant Workload
