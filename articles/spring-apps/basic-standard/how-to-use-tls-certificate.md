@@ -14,7 +14,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article shows you how to use public certificates in Azure Spring Apps for your application. Your app might act as a client and access an external service that requires certificate authentication, or it might need to perform cryptographic tasks.
 

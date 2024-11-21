@@ -13,7 +13,7 @@ ms.custom: devx-track-java, engagement-fy23, references_regions
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article describes the VMware Tanzu components offered by the Azure Spring Apps Enterprise plan.
 
