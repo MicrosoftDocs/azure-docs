@@ -15,10 +15,10 @@ author: AbhishekMallick-MS
 
 This quickstart describes how to configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure CLI.
 
+
 Azure Backup for AKS is a cloud-native, enterprise-ready, application-centric backup service that lets you quickly configure backup for AKS clusters.
 
 ## Before you start
-
 Before you configure vaulted backup for AKS cluster, ensure the following prerequisites are met:
 
 - Perform [all the prerequisites](azure-kubernetes-service-cluster-backup-concept.md) before initiating backup operation for AKS backup.

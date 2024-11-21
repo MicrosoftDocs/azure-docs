@@ -76,7 +76,6 @@ Communication Services offers the following types of logs that you can enable:
 | `ServerCallId` | A unique ID to identify a call. |
 | `SDKVersion` | The SDK version used for the request. |
 | `SDKType` | The SDK type used for the request. |
-| `ParticipantId` | The ID to identify the call participant that made the request. |
 | `SubOperationName` | The name that's used to identify the subtype of media operation (play or recognize). |
 |`operationID`| The ID that's used to correlate asynchronous events.|
 
