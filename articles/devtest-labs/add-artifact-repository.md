@@ -21,26 +21,43 @@ This article shows you how to add an artifact repository to your lab by using th
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
-To add an artifact repository to a lab, you need to know the Git HTTPS clone URL and the personal access token for the GitHub or Azure Repos repository that has the artifact files.
+To add an artifact repository to a lab, you need to know the Git HTTPS clone URL and the personal access token for the GitHub or Azure Repos repository that has the artifact files. Instead of personal access tokens, you can also use Managed Identity to access Azure artifact repos and GitHub app authentication to access GitHub artifact repos.
 
-### Get the clone URL and personal access token for GitHub
+Select the tab for the type of repository and authentication you want to use.
 
-1. On the home page of the GitHub repository that has your artifacts, select **Code**, and under **Clone**, copy the HTTPS URL.
-1. Select your profile image in the upper-right corner of GitHub, and then select **Settings**.
-1. On your profile page, in the left menu, select **Developer Settings**, and then select **Personal access tokens**.
-1. Select **Generate new token**.
-1. On the **New personal access token** page, under **Note**, enter an optional description for the token. Accept all the defaults, and then select **Generate token**.
-1. Save the generated token.
+## [Azure Repos repo with MSI](#tab/DevOpsRepoMSI/)
 
-### Get the clone URL and personal access token for Azure Repos
+To add an artifact repo, complete the following tasks:
 
-1. On the main page of the repository that has your artifacts, select **Clone**. On the **Clone Repository** page, copy the clone URL.
-1. In the upper-right corner of the Azure DevOps page, select **User settings** > **Personal access tokens**.
-1. On the **Personal Access Tokens** page, select **New Token**.
-1. Fill out the information for the token, selecting **Read** for the scopes, and then select **Create**.
-1. On the **Success** page, be sure to copy the token, because Azure Repos doesn't store the token or show it again.
+- Assign permissions in Azure Repos for the managed identity.
+- Add your artifact repository.
 
-## Add an artifact repository to a lab in the Azure portal
+### Assign permissions in Azure Repos for the managed identity
+
+You must give the managed identity permissions to the repository in Azure Repos.  
+
+1. Sign in to your [Azure DevOps organization](https://dev.azure.com).
+
+    > [!NOTE]
+    > Your Azure DevOps organization must be in the same directory as the Azure subscription that contains your lab.
+
+1. Select **Organization settings**.
+
+1. On the **Overview** page, select **Users**.
+
+1. On the **Users** page, select **Add users**.
+
+1. Complete **Add new users** by entering or selecting the following information, and then select **Add**:
+
+    |Name     |Value     |
+    |---------|----------|
+    |**Users or Service Principals**|Enter the name of your lab. <br> When you use a system-assigned MSI, specify the name of the lab, not the object ID of the managed account. When you use a user-assigned MSI, use the name of the managed account. |
+    |**Access level**|Select **Basic**.|
+    |**Add to projects**|Select the project that contains your repository.|
+    |**Azure DevOps Groups**|Select **Project Readers**.|
+    |**Send email invites (to Users only)**|Clear the checkbox.|
+
+### Add an Azure DevOps artifact repository to a lab in the Azure portal
 
 1. On the lab's **Overview** page, select **Configuration and policies** from the left navigation.
 
@@ -57,7 +74,7 @@ To add an artifact repository to a lab, you need to know the Git HTTPS clone URL
    - **Name**: A repository name to use in the lab.
    - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
    - **Branch** (optional): The branch that has your artifact definitions.
-   - **Personal access token**: The personal access token from GitHub or Azure Repos.
+   - **Managed Identity**: Use this option to leverage the Managed Identity for authentication.
    - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
 
 1. Select **Save**.
@@ -65,6 +82,144 @@ To add an artifact repository to a lab, you need to know the Git HTTPS clone URL
    ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 
 The repository now appears in the **Repositories** list for the lab.
+
+## [Azure Repos repo with PAT](#tab/DevOpsRepoMSI/)
+
+### Get the clone URL and personal access token for Azure Repos
+
+1. On the main page of the repository that has your artifacts, select **Clone**. On the **Clone Repository** page, copy the clone URL.
+1. In the upper-right corner of the Azure DevOps page, select **User settings** > **Personal access tokens**.
+1. On the **Personal Access Tokens** page, select **New Token**.
+1. Fill out the information for the token, selecting **Read** for the scopes, and then select **Create**.
+1. On the **Success** page, be sure to copy the token, because Azure Repos doesn't store the token or show it again.
+
+### Add an Azure DevOps artifact repository to a lab in the Azure portal
+
+1. On the lab's **Overview** page, select **Configuration and policies** from the left navigation.
+
+1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
+
+   On the **Repositories** page, the **Public Artifact Repo** is automatically present and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If this repo isn't enabled for your lab, you can enable it by selecting the checkbox next to **Public Artifact Repo**, and then selecting **Enable** on the top menu bar.
+
+1. To add your artifact repository to the lab, select **Add** in the top menu bar.
+
+   ![Screenshot that shows the Repositories configuration screen.](media/devtest-lab-add-repo/devtestlab-add-repo.png)
+
+1. In the **Repository** pane, enter the following information:
+
+   - **Name**: A repository name to use in the lab.
+   - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
+   - **Branch** (optional): The branch that has your artifact definitions.
+   - **Personal access token**: The personal access token from Azure Repos.
+   - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
+
+1. Select **Save**.
+
+   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+
+The repository now appears in the **Repositories** list for the lab.
+
+## [GitHub repo DevCenter app](#tab/DevOpsRepoMSI/)
+
+To add a catalog, complete the following tasks:
+
+1. Install and configure the Microsoft Dev Center app
+1. Assign permissions in GitHub for the repos.
+1. Add your repository as a catalog.
+
+### Install Microsoft Dev Center app
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to your dev center or project.
+ 
+1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
+ 
+1. In the **Add catalog** pane, enter, or select the following:
+ 
+   | Field | Value |
+   |-----|-----| 
+   | **Name** | Enter a name for the catalog. |
+   | **Catalog source** | Select **GitHub**. |
+   | **Authentication type** | Select **GitHub app**.|
+
+1. To install the Microsoft Dev Center app, select **configure your repositories**.
+  
+1. If you're prompted to authenticate to GitHub, authenticate.
+ 
+1. On the **Microsoft DevCenter** page, select **Configure**.
+ 
+1. Select the GitHub organization that contains the artifact repository you want to add to the lab. You must be an owner of the organization to install this app.
+  
+1. On the Install Microsoft DevCenter page, select **Only select repositories**, select the repository you want to add to the lab, and then select **Install**. 
+
+   You can select multiple repositories to add as catalogs. You must add each repository as a separate catalog, as described in [Add your repository as a catalog](#add-your-repository-as-a-catalog).
+ 
+1. On the **Microsoft DevCenter by Microsoft would like permission to:** page, review the permissions required, and then select **Authorize Microsoft Dev Center**.
+
+### Add an GitHub artifact repository to a lab in the Azure portal
+
+1. On the lab's **Overview** page, select **Configuration and policies** from the left navigation.
+
+1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
+
+   On the **Repositories** page, the **Public Artifact Repo** is automatically present and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If this repo isn't enabled for your lab, you can enable it by selecting the checkbox next to **Public Artifact Repo**, and then selecting **Enable** on the top menu bar.
+
+1. To add your artifact repository to the lab, select **Add** in the top menu bar.
+
+   ![Screenshot that shows the Repositories configuration screen.](media/devtest-lab-add-repo/devtestlab-add-repo.png)
+
+1. In the **Repository** pane, enter the following information:
+
+   - **Name**: A repository name to use in the lab.
+   - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
+   - **Branch** (optional): The branch that has your artifact definitions.
+   - **GitHub app**: Use this option to leverage GitHub app authentication.
+   - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
+
+1. Select **Save**.
+
+   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+
+The repository now appears in the **Repositories** list for the lab.
+
+## [GitHub repo with PAT](#tab/DevOpsRepoMSI/)
+
+### Get the clone URL and personal access token for GitHub
+
+1. On the home page of the GitHub repository that has your artifacts, select **Code**, and under **Clone**, copy the HTTPS URL.
+1. Select your profile image in the upper-right corner of GitHub, and then select **Settings**.
+1. On your profile page, in the left menu, select **Developer Settings**, and then select **Personal access tokens**.
+1. Select **Generate new token**.
+1. On the **New personal access token** page, under **Note**, enter an optional description for the token. Accept all the defaults, and then select **Generate token**.
+1. Save the generated token.
+
+### Add a GitHub artifact repository to a lab in the Azure portal
+
+1. On the lab's **Overview** page, select **Configuration and policies** from the left navigation.
+
+1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
+
+   On the **Repositories** page, the **Public Artifact Repo** is automatically present and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If this repo isn't enabled for your lab, you can enable it by selecting the checkbox next to **Public Artifact Repo**, and then selecting **Enable** on the top menu bar.
+
+1. To add your artifact repository to the lab, select **Add** in the top menu bar.
+
+   ![Screenshot that shows the Repositories configuration screen.](media/devtest-lab-add-repo/devtestlab-add-repo.png)
+
+1. In the **Repository** pane, enter the following information:
+
+   - **Name**: A repository name to use in the lab.
+   - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
+   - **Branch** (optional): The branch that has your artifact definitions.
+   - **Personal access token**: The personal access token from GitHub Repos.
+   - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
+
+1. Select **Save**.
+
+   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+
+The repository now appears in the **Repositories** list for the lab.
+---
 
 ## Add an artifact repository by using an ARM template
 
