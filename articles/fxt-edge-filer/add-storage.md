@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Add storage to an Azure FXT Edge Filer cluster'
 description: How to configure back-end storage and the client-facing pseudonamespace for Azure FXT Edge Filer 
-author: femila
-ms.author: femila
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
