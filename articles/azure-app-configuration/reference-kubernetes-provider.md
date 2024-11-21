@@ -451,9 +451,9 @@ Assuming an App Configuration store has these Key Vault references:
 
 |key|value|tags|
 |---|---|---|
-|app1-secret1|uri1|`{}`|
-|app1-secret2|uri2|`{}`|
-|app1-certificate|uri3|`{".kubernetes.secret.type": "kubernetes.io/tls"}`|
+|app1-secret1|<Key Vault reference 1>|`{}`|
+|app1-secret2|<Key Vault reference 2>|`{}`|
+|app1-certificate|<Key Vault reference 3>|`{".kubernetes.secret.type": "kubernetes.io/tls"}`|
 
 The following sample generates Secrets of both Opaque and TLS types.
 
@@ -482,8 +482,8 @@ The generated Secrets are populated with the following data:
 name: secret-created-by-appconfig-provider
 type: Opaque
 data:
-  app1-secret1: value1
-  app1-secret2: value2
+  app1-secret1: <secret value retrieved from Key Vault>
+  app1-secret2: <secret value retrieved from Key Vault>
 ```
 
 ```yaml
@@ -491,9 +491,9 @@ name: app1-certificate
 type: kubernetes.io/tls
 data:
   tls.crt: |
-    crt data
+    <certificate data retrieved from Key Vault>
   tls.key: |
-    key data
+    <certificate key retrieved from Key Vault>
 ```
 
 #### Refresh of secrets from Key Vault
