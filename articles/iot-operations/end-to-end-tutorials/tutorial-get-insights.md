@@ -13,11 +13,9 @@ ms.date: 11/04/2024
 
 # Tutorial: Get insights from your processed data
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
 In this tutorial, you populate a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from the OPC UA data that you sent to Event Hubs in the previous tutorial. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for Real-Time Dashboards. Then, you build a dashboard to display that data in visual tiles that capture insights and show the values over time.
 
-These operations are the last steps in the sample end-to-end tutorial experience, which goes from deploying Azure IoT Operations Preview at the edge through getting insights from that device data in the cloud.
+These operations are the last steps in the sample end-to-end tutorial experience, which goes from deploying Azure IoT Operations at the edge through getting insights from that device data in the cloud.
 
 ## Prerequisites
 
@@ -77,7 +75,7 @@ Follow these steps to check your work so far, and make sure data is flowing into
 
 In this section, you create a KQL database in your Microsoft Fabric workspace to use as a destination for your data.
 
-1. Follow the steps in [Create an eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence eventhouse with a child KQL database. You only need to complete the section entitled **Create an eventhouse**.
+1. Follow the steps in [Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence eventhouse with a child KQL database. You only need to complete the section entitled **Create an Eventhouse**.
 
 1. Next, create a table in your database. Call it *OPCUA* and use the following columns.
 
@@ -88,7 +86,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
     | Humidity | decimal |
     | Timestamp | datetime |
 
-1. After the *OPCUA* table has been created, select it and use the **Explore your data** button to open a query window for the table.
+1. After the *OPCUA* table has been created, select your database and use the **Explore your data** button to open a query window.
 
     :::image type="content" source="media/tutorial-get-insights/explore-your-data.png" alt-text="Screenshot showing the Explore your data button.":::
 

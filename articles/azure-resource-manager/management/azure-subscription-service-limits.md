@@ -580,6 +580,11 @@ The maximum number of allowed Managed Run Commands is currently limited to 25.
 
 [!INCLUDE [dev-tunnels-service-limits](../../../includes/dev-tunnels/dev-tunnels-service-limits.md)]
 
+## Network Security Perimeters limits
+
+[!INCLUDE [network-security-perimeter-limits](../../../includes/network-security-perimeter-limits.md)]
+
+
 ## See also
 
 * [Understand Azure limits and increases](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)

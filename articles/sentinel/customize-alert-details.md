@@ -3,7 +3,7 @@ title: Customize alert details in Microsoft Sentinel | Microsoft Docs
 description: Customize how alerts are named and described, along with their severity and assigned tactics, based on the alerts' content.
 author: yelevin
 ms.topic: how-to
-ms.date: 03/05/2024
+ms.date: 10/16/2024
 ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -88,7 +88,7 @@ Follow the procedure detailed below to use the alert details feature. These step
     
        > [!NOTE]
        > 
-       > If you onboarded Microsoft Sentinel to the unified security operations platform, **do not customize** the *ProductName* field for alerts from Microsoft sources. Doing so will result in these alerts being dropped from Microsoft Defender XDR and no incident being created.
+       > If you onboarded Microsoft Sentinel to the Microsoft Defender portal, **do not customize** the *ProductName* field for alerts from Microsoft sources. Doing so will result in these alerts being dropped from Microsoft Defender XDR and no incident being created.
 
     If you change your mind, or if you made a mistake, you can remove an alert detail by clicking the trash can icon next to the **Alert property/Value** pair, or delete the free text from the **Alert Name/Description Format** fields.
 

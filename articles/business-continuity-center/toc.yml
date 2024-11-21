@@ -1,7 +1,11 @@
-- name: Azure Business Continuity Center documentation (preview)
+- name: Azure Business Continuity Center documentation
   href: index.yml
 - name: Overview
   href: business-continuity-center-overview.md
+- name: Quickstart
+  items:
+  - name: Understand the protection estate
+    href: quick-understand-protection-estate.md
 - name: Tutorials
   items:
   - name: View protectable resources
@@ -20,8 +24,12 @@
     href: tutorial-monitor-alerts-metrics.md  
   - name: Monitoring protection summary
     href: tutorial-monitor-protection-summary.md
+  - name: Configure and view reports
+    href: tutorial-reporting-for-data-insights.md
   - name: Govern and view compliance
     href: tutorial-govern-monitor-compliance.md
+  - name: Manage the Business Continuity and Disaster Recovery estate using Copilot
+    href: tutorial-manage-data-using-copilot.md
 - name: Concepts
   items:
   - name: Support matrices
