@@ -78,8 +78,8 @@ items:
     items:
     - name: Reliability in Azure Logic Apps
       href: ../reliability/reliability-logic-apps.md?toc=/azure/logic-apps/toc.json
-    - name: Multi-region deployments in Azure Logic Apps
-      href: business-continuity-disaster-recovery-guidance.md
+    - name: Multi-region deployments for disaster recovery
+      href: multi-region-disaster-recovery.md
   - name: Security
     items:
     - name: Security controls by Azure Policy

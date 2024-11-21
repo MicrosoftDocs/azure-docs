@@ -13,9 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Standard ✔️ Enterprise
+**This article applies to:** ✅ Standard ✅ Enterprise
 
 Domain Name Service (DNS) is a technique for storing network node names throughout a network. This article maps a domain, such as `www.contoso.com`, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL).
 

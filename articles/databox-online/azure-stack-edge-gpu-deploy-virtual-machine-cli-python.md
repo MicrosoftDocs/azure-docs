@@ -336,7 +336,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
             "isDefault": true,
             "name": "Default Provider Subscription",
             "state": "Enabled",
-            "tenantId": "c0257de7-538f-415c-993a-1b87a031879d",
+            "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
             "user": {
                 "name": "EdgeArmUser@localhost",
                 "type": "user"
@@ -350,7 +350,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
    The following environment variables need to be set to work as *service principal*:
 
    ```
-   $ENV:ARM_TENANT_ID = "c0257de7-538f-415c-993a-1b87a031879d"
+   $ENV:ARM_TENANT_ID = "aaaabbbb-0000-cccc-1111-dddd2222eeee"
    $ENV:ARM_CLIENT_ID = "cbd868c5-7207-431f-8d16-1cb144b50971"
    $ENV:ARM_CLIENT_SECRET - "<Your Azure Resource Manager password>"
    $ENV:ARM_SUBSCRIPTION_ID = "<Your subscription ID>"

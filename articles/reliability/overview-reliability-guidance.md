@@ -226,5 +226,6 @@ Azure Media Services| [High Availability with Media Services and Video on Demand
 ## Related content
 
 
-- [Azure services and regions with availability zones](availability-zones-service-support.md)
+- [Azure services with availability zones](availability-zones-service-support.md)
+- [Azure regions with availability zones](availability-zones-region-support.md)
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)

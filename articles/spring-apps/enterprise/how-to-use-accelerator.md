@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to use [Application Accelerator for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/application-accelerator-about-application-accelerator.html) (App Accelerator) with the Azure Spring Apps Enterprise plan to bootstrap developing your applications in a discoverable and repeatable way.
 

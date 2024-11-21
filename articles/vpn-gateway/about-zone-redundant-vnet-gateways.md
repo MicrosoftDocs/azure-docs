@@ -72,7 +72,7 @@ Yes, you can use the Azure portal to deploy these SKUs. However, you see these S
 
 ### What regions are available for me to use these SKUs?
 
-These SKUs are available in Azure regions that have Azure availability zones. For more information, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
+These SKUs are available in Azure regions that have Azure availability zones. For more information, see [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
 
 ### Can I change/migrate/upgrade my existing virtual network gateways to zone-redundant or zonal gateways?
 
