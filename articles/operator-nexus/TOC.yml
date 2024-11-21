@@ -310,7 +310,7 @@
         - name: Troubleshoot Out of Memory Pods
           href: troubleshoot-memory-limits.md
         - name: Troubleshoot LACP Bonding
-          href: troubleshooting-lacp-bonding.md
+          href: troubleshoot-lacp-bonding.md
     - name: Storage Array
       expanded: false
       items: null
