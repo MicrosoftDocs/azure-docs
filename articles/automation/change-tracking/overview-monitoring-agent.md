@@ -26,7 +26,7 @@ This article explains on the latest version of change tracking support using Azu
 |**Component**| **Applies to**|
 |---| ---|
 | Operating systems| Windows </br> Linux | 
-| Resource types | Azure VMs </br> Azure Arc-enabled VMs |
+| Resource types | Azure VMs </br> Azure Arc-enabled VMs </br> Virtual machines scale set|
 | Data types     | Windows registry </br> Windows services </br> Linux Daemons |
 | Files | Windows </br> Linux |
 
