@@ -124,7 +124,7 @@
           href: howto-deploy-java-jboss-enterprise-application-platform-app.md
     - name: Confidential Containers
       items:
-        - name: Use Confidential Containers to protect senstive data
+        - name: Use Confidential Containers to protect sensitive data
           href: confidential-containers-overview.md
         - name: Deploy Confidential Containers
           href: confidential-containers-deploy.md

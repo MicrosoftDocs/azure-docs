@@ -2,7 +2,7 @@
 title: Configure SAP ASE (Sybase) database backup on Azure VMs using Azure Backup
 description: In this article, learn how to configure backup for SAP ASE (Sybase) databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 11/21/2024 
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -10,12 +10,13 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Configure SAP ASE (Sybase) database backup on Azure VMs via Azure Backup
+# Back up SAP ASE (Sybase) database on Azure VMs via Azure Backup
 
 This article describes how to configure backup for SAP Adaptive Server Enterprise (ASE) (Sybase) databases that are running on Azure virtual machines (VMs) on the Azure portal.
 
 >[!Note]
->Learn about the [supported configurations and scenarios for SAP ASE database backup](sap-ase-backup-support-matrix.md) on Azure VMs.
+>- Currently, the SAP ASE Public Preview is available only in non-US public regions. This feature will be available in US public regions soon. Learn about the [supported regions](sap-ase-backup-support-matrix.md#scenario-support-for-sap-ase-sybase-databases-on-azure-vms).
+>- Learn about the [supported configurations and scenarios for SAP ASE database backup](sap-ase-backup-support-matrix.md) on Azure VMs.
 
 ## Prerequisites
 
@@ -32,8 +33,11 @@ Before you set up the SAP ASE database for backup, review the following prerequi
   | --- | --- |
   | Operator role | Enable this **ASE database role** for the database user to create a custom database user for the backup and restore operations and pass it in the preregistration script. |
   | **Map external file** privilege | Enable this role to allow database file access. |
-  | **Own any database** privilege |Enables  the differential backup  feature for the SAP ASE database. |
-  | **Trunc log on chkpt** privilege | Disable this privilege for all databases that you want to protect using the **ASE Backup**. Allows you to back up the database log to recovery services vault.  |
+  | **Own any database** privilege |Allows differential backups. The **Allow incremental dumps** for the database should be **True**. |
+  | **Trunc log on chkpt** privilege | Disable this privilege for all databases that you want to protect using the **ASE Backup**. Allows you to back up the database log to recovery services vault. Learn more about the [SAP note - 2921874 - "trunc log on chkpt" in databases with HADR - SAP ASE - SAP for Me](https://me.sap.com/notes/0002921874). |
+
+  >[!Note]
+  >Log backups aren't supported for the Master database. For other system databases, log backups can only be supported if the database's log files are stored separately from its data files. By default, system databases are created with both data and log files in the same database device, which prevents log backups. To enable log backups, the database administrator must change the location of the log files to a separate device.
 
 - Use the Azure built-in roles to configure backup- assignment of roles and scope to the resources. The following Contributor role allows you to run the **Configure Protection** operation on the database VM.
 
@@ -251,7 +255,8 @@ The following sections detail about the usage of the connectivity options.
 Private endpoints allow you to connect securely from servers in a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources in the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Learn  more on [private endpoints for Azure Backup](private-endpoints.md).
 
 >[!Note]
->Private endpoints are supported for Azure Backup and Azure storage. Microsoft Entra ID has support for private end-points in this preview. Until they are generally available, Azure backup supports setting up proxy for Microsoft Entra ID so that no outbound connectivity is required for ASE VMs. For more information, see the [proxy support section](backup-azure-sap-hana-database.md#use-an-http-proxy-server-to-route-traffic).
+>- Private endpoints are supported for Azure Backup and Azure storage. Microsoft Entra ID has support for private end-points in this preview. Until they are generally available, Azure backup supports setting up proxy for Microsoft Entra ID so that no outbound connectivity is required for ASE VMs. For more information, see the [proxy support section](backup-azure-sap-hana-database.md#use-an-http-proxy-server-to-route-traffic).
+>- The download operation for SAP ASE Pre-registration script (ASE workload scripts) requires Internet access. However, on VMs with Private Endpoint (PE) enabled, the pre-registration script can't download these workload scripts directly. So, it’s necessary to download the script on a local VM or another VM with internet access, and then use SCP or any other transfer method to move it to the PE enabled VM.
 
 ### Network Security Group tags
 
