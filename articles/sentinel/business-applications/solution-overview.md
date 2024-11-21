@@ -20,20 +20,24 @@ The Microsoft Sentinel solution for Microsoft Business Apps helps you monitor an
 - [Power Platform](/power-platform/) is a suite of applications, connectors, and a data platform (Dataverse) that provides a rapid application development environment to build custom apps for your business needs. Power Platform enables users to analyze data, build solutions, automate processes, and create virtual agents.
 
 > [!IMPORTANT]
+>
 > - The Microsoft Sentinel solution for Microsoft Business Apps is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
 
 ## Securing Power Platform and Dynamics 365 Customer Engagement activities
 
-The Microsoft Sentinel solution for Microsoft Business Apps helps you secure your Power Platform by allowing you to monitor and detect suspicious or malicious activities in your Power Platform environment, it is also possible to secure and monitor Dynamics 365 Customer Engagement which use the common data store known as Microsoft Dataverse. The solution collects activity logs from different Power Platform components and inventory data, and analyzes those activity logs to detect threats and suspicious activities, such as:
+The Microsoft Sentinel solution for Microsoft Business Apps helps you secure your Power Platform by allowing you to:
+
+- Monitor and detect suspicious or malicious activities in your Power Platform environment
+- Monitor and secure your Dynamics 365 Customer Engagement environment, which uses the Microsoft Dataverse common data store known as . 
+
+The solution collects activity logs from different Power Platform components and inventory data, and analyzes those activity logs to detect threats and suspicious activities, such as:
 
 - Power Apps execution from unauthorized geographies
 - Suspicious data destruction by Power Apps
 - Mass deletion of Power Apps
 - Phishing attacks made possible through Power Apps
 - Power Automate flows activity by departing employees
-
-
 - Suspicious and anomalous activities in Microsoft Dataverse
 
 ## Securing Dynamics 365 for Finance and Operations activities
@@ -52,8 +56,8 @@ The Microsoft Sentinel solution for Microsoft Business Apps includes the followi
 
 |Connector name  |Data collected  |Log Analytics tables |
 |---------|---------|---------|
-|Microsoft Power Platform Admin Activity (Preview)|Power Platform administrator activity logs includes the following workloads:<ul></ul>- Power Apps</ul><ul>- Power Pages</ul><ul>- Power Platform Connector</ul><br>- Power Platform DLP<br><br>For more information, see [View Power Platform administrative logs using auditing solutions in Microsoft Purview (preview)](/power-platform/admin/admin-activity-logging).|PowerPlatformAdminActivity|
-|Microsoft Dataverse (Preview) |Dataverse and model-driven apps activity logging (including Dynamics 365 CRM) <br><br>For more information, see [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing).<br><br>If you use the data connector for Dynamics 365, migrate to the data connector for Microsoft Dataverse. This data connector replaces the legacy data connector for Dynamics 365 and supports data collection rules.  |   DataverseActivity      |
+|Microsoft Power Platform Admin Activity (Preview)|Power Platform administrator activity logs includes the following workloads: <br><br>- **Power Apps**, including both Power Pages and the Power Platform Connector<br><br>- **Power Platform DLP**<br><br>For more information, see [View Power Platform administrative logs using auditing solutions in Microsoft Purview (preview)](/power-platform/admin/admin-activity-logging).|PowerPlatformAdminActivity|
+|Microsoft Dataverse (Preview) |Dataverse and model-driven apps activity logging (including Dynamics 365 CRM) <br><br>For more information, see [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing).<br><br>If you use the data connector for Dynamics 365, migrate to the data connector for Microsoft Dataverse. <br><br>This data connector replaces the legacy data connector for Dynamics 365 and supports data collection rules.  |   DataverseActivity      |
 | Dynamics 365 F&O |Dynamics 365 Finance and Operations admin activities and audit logs<br><br>Business process and application activity logs | FinanceOperationsActivity_CL |
 
 ## Analytics rules
@@ -63,7 +67,8 @@ The Microsoft Sentinel solution for Microsoft Business Apps includes the analyti
 - **Analytics rules for Power Platform and Dynamics 365 CRM** cover activities like Power Apps being run from unauthorized geographies, suspicious data destruction by Power Apps, mass deletion of Power Apps, and more.
 
 - **Analytics rules for Dynamics 365 Finance and Operations** cover suspicious activities like changes in bank account details, multiple user account updates or deletions, suspicious sign-in events, changes to workload identities, and more.
-## Hunting Queries
+
+## Hunting queries
 
 The Microsoft Sentinel solution for Microsoft Business Apps includes Hunting Queries, enabling the SOC to proactively uncover potential threats and suspicious activities by applying advanced hunting techniques to analyze available data.
 
@@ -85,8 +90,6 @@ The Microsoft Sentinel solution for Microsoft Business Apps includes parsers tha
 For more information, see:
 
 - [Deploy the Microsoft Sentinel solution for Microsoft Business Apps ](deploy-business-applications-solution.md)
-
 - [Security content reference for Microsoft Power Platform](power-platform-solution-security-content.md)
-
 - [Security content reference for Dynamics 365 Finance and Operations](../dynamics-365/dynamics-365-finance-operations-security-content.md)
 
