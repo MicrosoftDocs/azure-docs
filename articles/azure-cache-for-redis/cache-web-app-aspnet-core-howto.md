@@ -5,10 +5,9 @@ description: In this quickstart, you learn how to create an ASP.NET Core web app
 
 
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mvc, mode-other
+ms.custom: devx-track-csharp, mvc, mode-other, ignite-2024
 ms.topic: quickstart
 ms.date: 04/24/2024
-
 ---
 
 # Quickstart: Use Azure Cache for Redis with an ASP.NET Core web app

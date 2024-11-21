@@ -2,9 +2,10 @@
 title: 'Tutorial: Get started connecting an AKS application to a cache'
 description: In this tutorial, you learn how to connect your AKS-hosted application to an Azure Cache for Redis instance.
 ms.topic: tutorial
+ms.custom:
+  - ignite-2024
 ms.date: 10/01/2024
 #CustomerIntent: As a developer, I want to see how to use a Azure Cache for Redis instance with an AKS container so that I see how I can use my cache instance with a Kubernetes cluster.
-
 ---
 
 # Tutorial: Connect to Azure Cache for Redis or Azure Managed Redis (preview) from your application hosted on Azure Kubernetes Service
@@ -198,4 +199,3 @@ kubectl delete pod entrademo-pod
 - [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal)
 - [Quickstart: Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster](/azure/aks/workload-identity-deploy-cluster)
 - [Azure Cache for Redis Microsoft Entra ID Authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication)
-

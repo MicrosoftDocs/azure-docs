@@ -1,5 +1,5 @@
 ---
-title: Discover servers on Hyper-V with Azure Migrate Discovery and assessment 
+title: Discover servers on Hyper-V with Azure Migrate Discovery and assessment
 description: Learn how to discover on-premises servers on Hyper-V with the Azure Migrate Discovery and assessment tool.
 author: Vikram1988
 ms.author: vibansa
@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 11/04/2024
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
+ms.custom: mvc, subject-rbac-steps, engagement-fy24, ignite-2024
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
 

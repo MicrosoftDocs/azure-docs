@@ -4,6 +4,8 @@ description: Learn how to resolve data-loss problems with Azure Managed Redis, s
 
 
 ms.service: azure
+ms.custom:
+  - ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
 ---

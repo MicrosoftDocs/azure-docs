@@ -4,11 +4,11 @@ description: Learn how to use Team Customizations to create customized dev boxes
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
+ms.custom:
+  - ignite-2024
 ms.topic: quickstart
 ms.date: 11/06/2024
-
-#customer intent: As a dev center administrator or Project Admin, I want to create an image definition file so that I can create a customized dev box as a proof of concept.  
-
+#customer intent: As a dev center administrator or Project Admin, I want to create an image definition file so that I can create a customized dev box as a proof of concept.
 ---
   
 # Quickstart: Create a Dev Box with Team Customizations

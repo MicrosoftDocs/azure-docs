@@ -6,8 +6,7 @@ description: Understand the default Redis configuration for Azure Managed Redis 
 ms.service: azure
 ms.topic: conceptual
 ms.date: 11/15/2024
- 
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, ignite-2024
 ---
 
 # How to configure Azure Managed Redis (preview)

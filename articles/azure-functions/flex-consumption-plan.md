@@ -4,7 +4,7 @@ description: Running your function code in the Azure Functions Flex Consumption 
 ms.service: azure-functions
 ms.topic: concept-article
 ms.date: 11/01/2024
-ms.custom: references_regions, build-2024
+ms.custom: references_regions, build-2024, ignite-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
 

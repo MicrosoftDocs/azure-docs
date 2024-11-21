@@ -4,6 +4,8 @@ ms.author: rosemalcolm
 ms.date: 10/26/2024
 ms.topic: include
 ms.service: dev-box
+ms.custom:
+  - ignite-2024
 ---
 
 To perform the actions required to create and apply customizations to a dev box, you need certain permissions. The following table describes the actions and permissions or roles you need to configure customizations.

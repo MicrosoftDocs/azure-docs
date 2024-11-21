@@ -4,6 +4,8 @@ description: Learn how to create a network security perimeter for an Azure resou
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
+ms.custom:
+  - ignite-2024
 ms.topic: quickstart
 ms.date: 11/06/2024
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource using Azure PowerShell, so that I can control the network traffic to and from the resource.
