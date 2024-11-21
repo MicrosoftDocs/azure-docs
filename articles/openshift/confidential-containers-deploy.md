@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: confidential containers, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 11/20/2024
+ms.date: 11/21/2024
 ms.custom: template-how-to
 ---
 
