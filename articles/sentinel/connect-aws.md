@@ -214,7 +214,7 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
          "Action": "sts:AssumeRoleWithWebIdentity",
          "Condition": {
            "StringEquals": {
-             "sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/:aud": "api://11112222-bbbb-3333-cccc-4444dddd5555",
+             "sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e/:aud": "api://d4230588-5f84-4281-a9c7-2c15194b28f7",
              "sts:RoleSessionName": "MicrosoftSentinel_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
            }
          }
