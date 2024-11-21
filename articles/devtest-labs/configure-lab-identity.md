@@ -54,7 +54,7 @@ During lab creation, setting a user-assigned managed identity to access the lab 
 
 :::image type="content" source="./media/configure-lab-identity/create-lab-with-managed-identity.png" alt-text="Screenshot of the Basic Settings tab in the Create DevTest Labs form.":::
 
-:::image type="content" source="./media/configure-lab-identity/virtual-machine-with-ua-managed-identity.png" alt-text="Screenshot of the Basic Settings tab in the Create DevTest Labs form.":::
+:::image type="content" source="./media/configure-lab-identity/virtual-machine-with-ua-managed-identity.png" alt-text="Screenshot of the Virtual Machine Managed Identity settings page.":::
 
 DevTest Labs supports user assigned identities for both virtual machines and Azure Resource Manager based environments.  For more information, see the following topics:
 
