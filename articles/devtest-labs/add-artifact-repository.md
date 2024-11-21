@@ -20,8 +20,14 @@ This article shows you how to add an artifact repository to your lab by using th
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-## Prerequisites
-To add an artifact repository to a lab, you need to know the Git HTTPS clone URL and the personal access token for the GitHub or Azure Repos repository that has the artifact files. Instead of personal access tokens, you can also use Managed Identity to access Azure artifact repos and GitHub app authentication to access GitHub artifact repos.
+## Configure a managed identity to add Azure DevOps artifact repo
+
+Before you can add an artifact repository to a lab, you must configure a managed identity, also called a Managed Service Identity (MSI).
+To learn more about managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
+
+## Add an artifact repo
+
+You can add an artifact repo from an Azure Repos repository or a GitHub repository. You can choose to authenticate by assigning permissions to an MSI, GitHub app authentication, or by using a PAT.
 
 Select the tab for the type of repository and authentication you want to use.
 
@@ -83,7 +89,7 @@ You must give the managed identity permissions to the repository in Azure Repos.
 
 The repository now appears in the **Repositories** list for the lab.
 
-## [Azure Repos repo with PAT](#tab/DevOpsRepoMSI/)
+## [Azure Repos repo with PAT](#tab/DevOpsRepoPAT/)
 
 ### Get the clone URL and personal access token for Azure Repos
 
@@ -119,7 +125,7 @@ The repository now appears in the **Repositories** list for the lab.
 
 The repository now appears in the **Repositories** list for the lab.
 
-## [GitHub repo DevCenter app](#tab/DevOpsRepoMSI/)
+## [GitHub repo DevCenter app](#tab/GitHubRepoApp/)
 
 To add a catalog, complete the following tasks:
 
@@ -152,8 +158,6 @@ To add a catalog, complete the following tasks:
 1. Select the GitHub organization that contains the artifact repository you want to add to the lab. You must be an owner of the organization to install this app.
   
 1. On the Install Microsoft DevCenter page, select **Only select repositories**, select the repository you want to add to the lab, and then select **Install**. 
-
-   You can select multiple repositories to add as catalogs. You must add each repository as a separate catalog, as described in [Add your repository as a catalog](#add-your-repository-as-a-catalog).
  
 1. On the **Microsoft DevCenter by Microsoft would like permission to:** page, review the permissions required, and then select **Authorize Microsoft Dev Center**.
 
@@ -183,7 +187,7 @@ To add a catalog, complete the following tasks:
 
 The repository now appears in the **Repositories** list for the lab.
 
-## [GitHub repo with PAT](#tab/DevOpsRepoMSI/)
+## [GitHub repo with PAT](#tab/GitHubRepoPAT/)
 
 ### Get the clone URL and personal access token for GitHub
 
@@ -478,7 +482,7 @@ The PowerShell script takes the following parameters:
 | `LabName` | The name of the lab. |
 | `ArtifactRepositoryName` | Name for the new artifact repository. The script creates a random name for the repository if it isn't specified. |
 | `ArtifactRepositoryDisplayName` | Display name that appears in the lab's artifact repository list. |
-| `RepositoryUri` | URI of the artifact repository, which you copied earlier.
+| `RepositoryUri` | URI of the artifact repository, which you copied earlier.|
 | `RepositoryBranch` | Repository branch that contains the artifacts. The default value is `main`.|
 | `FolderPath` | Folder that contains the artifacts. The default value is: `/Artifacts`.|
 | `PersonalAccessToken` | Security token for accessing the repository, which you copied earlier.|
