@@ -31,6 +31,8 @@ In the Azure portal, you can see all your cloud subscriptions on the Subscriptio
 
 If you're signing in for the first time, search for **Subscriptions** in the search bar.
 
+:::image type="content" source="./media/cloud-subscription/subscription-search-portal.png" border="true" alt-text="Screenshot showing search for subscriptions." lightbox="./media/cloud-subscription/subscription-search-portal.png" :::
+
 
 ### Do I get charged for creating and using cloud subscriptions?
 
