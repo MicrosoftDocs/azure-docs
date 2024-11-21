@@ -606,7 +606,7 @@ To get a TLS-enabled listener port, see [Enable TLS manual certificate managemen
 > - **Client validation**: The MQTT broker (server) checks the client certificate against the trusted CA certificate specified in the `trustedClientCaCert` field for X.509 client authentication.
 > - **Server validation**: Clients (like mosquitto or MQTTX) check the MQTT broker's server certificate against the trusted CA certificate in their trust store. For mosquitto clients, use the `--cafile` parameter to specify the CA certificate file. For MQTTX, add the CA certificate to the trust store in the settings.
 >
-> So, after enabling X.509 authentication, ensure that clients trust the broker's server certificate by having the *server-side* CA certificate in their trust store. Don't confuse this with the *client-side* CA certificate used for client authentication, which is specified in the `trustedClientCaCert` field.
+> After enabling X.509 authentication, ensure that clients trust the broker's server certificate by having the *server-side* CA certificate in their trust store. Don't confuse trusting the *server-side* CA certificate with the *client-side* CA certificate used for client authentication that is specified in the `trustedClientCaCert` field.
 >
 > For a full example, see [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-and-x509.md).
 
