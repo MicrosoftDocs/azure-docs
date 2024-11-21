@@ -63,7 +63,7 @@ az network nic ip-config update \
     The output includes one or more lines that are similar to the following example:
   
     ```
-    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic",
     ```
 
     In the previous example, *myVMVic* is the name of the network interface.
@@ -92,7 +92,7 @@ az network nic ip-config update \
     The output includes one or more lines that are similar to the following example:
   
     ```
-    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myVMPublicIP",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myVMPublicIP",
     ```
 
     In the previous example, *myVMPublicIP* is the name of the public IP address.
@@ -123,7 +123,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
     The output includes one or more lines that are similar to the following example:
 
     ```
-    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic",
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic",
     ```
 
     In the previous example, *myVMNic* is the name of the network interface.
@@ -138,7 +138,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
     The output includes one or more lines that are similar to the following example:
 
     ```
-    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic/ipConfigurations/ipconfigmyVM"
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic/ipConfigurations/ipconfigmyVM"
     ```
 
     In the previous example, *ipconfigmyVM* is the name of the IP configuration.
@@ -153,7 +153,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
     The output includes one or more lines that are similar to the following example:
 
     ```
-    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP"
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP"
     ```
 
     In the previous example, *myVMPublicIP* is the name of the public IP address.

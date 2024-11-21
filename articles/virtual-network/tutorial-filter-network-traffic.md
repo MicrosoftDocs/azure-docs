@@ -684,7 +684,7 @@ The VM takes a few minutes to create. After the VM is created, output similar to
 ```output
 {
   "fqdns": "",
-  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/vm-web",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/vm-web",
   "location": "westus2",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",

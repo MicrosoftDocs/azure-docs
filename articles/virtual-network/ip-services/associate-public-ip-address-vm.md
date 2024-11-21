@@ -161,7 +161,7 @@ Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your m
      The output includes one or more lines that are similar to the example that follows. In the example output, *myVMNic* is the name of the network interface.
   
      ```output
-     "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic",
+     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic",
      ```
 
 1. To retrieve the names of the virtual networks or subnets that a network interface is in, use the [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) command. For example, the following command gets the virtual network and subnet information for a network interface named *myVMNic* in a resource group named *myResourceGroup*:
@@ -175,7 +175,7 @@ Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your m
      The output includes one or more lines that are similar to the example that follows. In the example output, *myVNet* is the name of the virtual network and *mySubnet* is the name of the subnet.
   
      ```output
-     "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet",
+     "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet",
      ```
 
 1. To retrieve the names of the IP configurations for a network interface, use the [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) command. For example, the following command lists the names of the IP configurations for a network interface named *myVMNic* in a resource group named *myResourceGroup*:
@@ -188,7 +188,7 @@ Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your m
      The output includes one or more lines that are similar to the example that follows. In the example output, *ipconfig1* is the name of an IP configuration.
   
      ```output
-     Id : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic/ipConfigurations/ipconfig1
+     Id : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic/ipConfigurations/ipconfig1
      ```
 
 1. View the public IP address assigned to the IP configuration with the [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) command. The following example retrieves the addresses assigned to a public IP address named *myPublicIP* in a resource group named *myResourceGroup*.
@@ -209,7 +209,7 @@ Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your m
    The output includes one or more lines that are similar to the example that follows. In the example output, *myPublicIP* is the name of the public IP address assigned to the IP configuration.
 
    ```output
-   "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP"
+   "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP"
    ```
 
    > [!NOTE]
