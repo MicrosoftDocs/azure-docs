@@ -63,6 +63,10 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Secure by default with Vault soft delete (preview)
+            url: secure-by-default.md
+          - text: WORM enabled Immutable Storage for Recovery Services vaults
+            url: backup-azure-immutable-vault-concept.md  
           - text: SAP ASE (Sybase) database backup support (preview)
             url: sap-ase-database-about.md
           - text: Vaulted backup and Cross Region Restore support for AKS
