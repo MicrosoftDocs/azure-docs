@@ -3,7 +3,7 @@ title: Deploy Bicep files with Visual Studio Code
 description: Deploy Bicep files from Visual Studio Code.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 11/21/2024
 ---
 
 # Deploy Bicep files from Visual Studio Code
@@ -24,9 +24,9 @@ From an opened Bicep file in VS Code, there are there ways you can find the comm
 
 After you select the command, you follow the wizard to enter the values:
 
-1. Sign in to Azure and select subscription.
+1. If you're not signed in, you'll see a prompt guiding you to sign in. Follow the instructions provided in the prompt to complete the sign-in process.
 
-    :::image type="content" source="./media/deploy-vscode/bicep-deploy-select-subscription.png" alt-text="Screenshot of Select subscription.":::
+    :::image type="content" source="./media/deploy-vscode/bicep-deploy-sign-in.png" alt-text="Screenshot of sign-in.":::
 
     [!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
 
