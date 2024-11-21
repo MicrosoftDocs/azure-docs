@@ -38,6 +38,9 @@ Depending on whether you're creating new resources or using existing ones, add t
 | Subnet | Use existing| Microsoft.Network/virtualNetworks/subnets/read<br>Microsoft.Network/virtualNetworks/subnets/join/action |
 | IP addresses| Create new| Microsoft.Network/publicIPAddresses/write<br>Microsoft.Network/publicIPAddresses/join/action |
 | IP addresses  | Use existing| Microsoft.Network/publicIPAddresses/read<br>Microsoft.Network/publicIPAddresses/join/action |
+| Local Network Gateway  | Create new/ Update existing| Microsoft.Network/localnetworkgateways/write |
+| Connection | Create new/ Update existing| Microsoft.Network/connections/write |
+| Azure VPN Gateway | Create new/ Update existing| Microsoft.Network/localnetworkgateways/write<br>Microsoft.Network/publicIPAddresses/join/action<br>Microsoft.Network/virtualNetworks/subnets/join/action | 
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 
@@ -52,6 +55,19 @@ For more information, see [Scope levels](../role-based-access-control/scope-over
 
 > [!NOTE]
 > Allow sufficient time for [Azure Resource Manager cache](../role-based-access-control/troubleshooting.md) to refresh after role assignment changes.
+
+## Additional roles
+
+| AKA Tag | Reserved | Points To|
+| ---| --- | ---|
+| VNGWRoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
+| vWANRoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
+| AppGwRoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
+| AzFWRoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
+| ARSRoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
+| AzNetCustom | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
+| NVARoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
+| ERRoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
 
 ## Next steps
 
