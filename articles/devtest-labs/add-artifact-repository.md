@@ -20,14 +20,10 @@ This article shows you how to add an artifact repository to your lab by using th
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-## Configure a managed identity to add Azure DevOps artifact repo
-
-Before you can add an artifact repository to a lab, you must configure a managed identity, also called a Managed Service Identity (MSI).
-To learn more about managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
-
 ## Add an artifact repo
 
-You can add an artifact repo from an Azure Repos repository or a GitHub repository. You can choose to authenticate by assigning permissions to an MSI, GitHub app authentication, or by using a PAT.
+You can add an artifact repo from an Azure Repos repository or a GitHub repository. You can choose to authenticate by assigning permissions to a managed identity, by using GitHub app authentication, or by using a PAT.
+To learn more about managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 
 Select the tab for the type of repository and authentication you want to use.
 
@@ -49,9 +45,15 @@ You must give the managed identity permissions to the repository in Azure Repos.
 
 1. Select **Organization settings**.
 
+   :::image type="content" source="media/devtest-lab-add-repo/devops-organization-settings.png" alt-text="Screenshot showing the Azure DevOps organization page, with Organization Settings highlighted." lightbox="media/devtest-lab-add-repo/devops-organization-settings.png":::
+
 1. On the **Overview** page, select **Users**.
 
+   :::image type="content" source="media/devtest-lab-add-repo/devops-organization-overview.png" alt-text="Screenshot showing the Organization overview page, with Users highlighted." lightbox="media/devtest-lab-add-repo/devops-organization-overview.png":::
+
 1. On the **Users** page, select **Add users**.
+
+   :::image type="content" source="media/devtest-lab-add-repo/devops-add-user.png" alt-text="Screenshot showing the Users page, with Add user highlighted." lightbox="media/devtest-lab-add-repo/.png":::
 
 1. Complete **Add new users** by entering or selecting the following information, and then select **Add**:
 
@@ -62,6 +64,8 @@ You must give the managed identity permissions to the repository in Azure Repos.
     |**Add to projects**|Select the project that contains your repository.|
     |**Azure DevOps Groups**|Select **Project Readers**.|
     |**Send email invites (to Users only)**|Clear the checkbox.|
+
+   :::image type="content" source="media/devtest-lab-add-repo/devops-add-user-blade.png" alt-text="Screenshot showing Add users, with example entries and Add highlighted." lightbox="media/how-to-configure-catalog/devops-add-user-blade.png":::
 
 ### Add an Azure DevOps artifact repository to a lab in the Azure portal
 
@@ -80,12 +84,12 @@ You must give the managed identity permissions to the repository in Azure Repos.
    - **Name**: A repository name to use in the lab.
    - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
    - **Branch** (optional): The branch that has your artifact definitions.
-   - **Managed Identity**: Use this option to leverage the Managed Identity for authentication.
    - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
+   - **Managed Identity**: Use this option to leverage the Managed Identity for authentication.
 
 1. Select **Save**.
 
-   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-reop-blade-with-managed-identity.png)
 
 The repository now appears in the **Repositories** list for the lab.
 
@@ -116,12 +120,12 @@ The repository now appears in the **Repositories** list for the lab.
    - **Name**: A repository name to use in the lab.
    - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
    - **Branch** (optional): The branch that has your artifact definitions.
-   - **Personal access token**: The personal access token from Azure Repos.
    - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
+   - **Personal access token**: The personal access token from Azure Repos.
 
 1. Select **Save**.
 
-   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-reop-blade-with-pat.png)
 
 The repository now appears in the **Repositories** list for the lab.
 
@@ -131,7 +135,7 @@ To add a catalog, complete the following tasks:
 
 1. Install and configure the Microsoft Dev Center app
 1. Assign permissions in GitHub for the repos.
-1. Add your repository as a catalog.
+1. Add your artifact repository.
 
 ### Install Microsoft Dev Center app
 
