@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Connect to a managed Admin for Spring in Azure Container Apps"
+title: "Connect to a managed Admin for Spring in Azure Container Apps"
 description: Learn how to use a managed Admin for Spring in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.date: 07/15/2024
 ms.author: cshoe
 ---
 
-# Tutorial: Connect to a managed Admin for Spring in Azure Container Apps
+# Connect to a managed Admin for Spring in Azure Container Apps
 
 The Admin for Spring managed component offers an administrative interface for Spring Boot web applications that expose actuator endpoints. As a managed component in Azure Container Apps, you can easily bind your container app to Admin for Spring for seamless integration and management.
 

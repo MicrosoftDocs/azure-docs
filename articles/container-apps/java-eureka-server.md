@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps"
+title: "Connect to a managed Eureka Server for Spring in Azure Container Apps"
 description: Learn how to use a managed Eureka Server for Spring in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.date: 11/19/2024
 ms.author: cshoe
 ---
 
-# Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps
+# Connect to a managed Eureka Server for Spring in Azure Container Apps
 
 Eureka Server for Spring is a service registry that allows microservices to register themselves and discover other services. Eureka Server for Spring is available as an Azure Container Apps component. You can bind your container app to Eureka Server for Spring for automatic registration with the Eureka server.
 
@@ -472,7 +472,8 @@ Now you have a caller and callee application that communicate with each other us
 
 ## Limitations
 
-The Eureka Server Java component comes with a default configuration, `eureka.server.enable-self-preservation`, set to `false`. This default configuration helps avoid times when instances aren't deleted after self-preservation is enabled. If instances are deleted too early, some requests might be directed to nonexistent instances. If you want to change this setting to `true`, you can overwrite it by setting your own configurations in the Java component.
+- The Eureka Server Java component comes with a default configuration, `eureka.server.enable-self-preservation`, set to `false`. This default configuration helps avoid times when instances aren't deleted after self-preservation is enabled. If instances are deleted too early, some requests might be directed to nonexistent instances. If you want to change this setting to `true`, you can overwrite it by setting your own configurations in the Java component.
+- The Eureka dashboard isn't available in Azure in China(Mooncake).
 
 ## Next steps
 
