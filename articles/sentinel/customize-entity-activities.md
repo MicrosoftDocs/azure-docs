@@ -3,7 +3,7 @@ title: Customize activities on Microsoft Sentinel entity timelines | Microsoft D
 description: Add customized activities to those Microsoft Sentinel tracks and displays on the timeline of entity pages
 author: yelevin
 ms.topic: how-to
-ms.date: 03/16/2024
+ms.date: 10/16/2024
 ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -33,7 +33,7 @@ In addition to the activities tracked and presented in the timeline by Microsoft
 ## Getting started
 
 - Users of Microsoft Sentinel in the Azure portal, select the **Azure portal** tab below.
-- Users of the unified security operations platform in the Microsoft Defender portal, select the **Defender portal** tab.
+- Users of the Microsoft Defender portal, select the **Defender portal** tab.
 
 # [Azure portal](#tab/azure)
 
