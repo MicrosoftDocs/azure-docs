@@ -308,6 +308,8 @@
           href: troubleshoot-accepted-cluster-hydration.md
         - name: Troubleshoot Out of Memory Pods
           href: troubleshoot-memory-limits.md
+        - name: Troubleshoot LACP Bonding
+          href: troubleshoot-lacp-bonding.md
     - name: Storage Array
       expanded: false
       items:
