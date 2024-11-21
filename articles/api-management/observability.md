@@ -43,6 +43,14 @@ The table below summarizes all the observability capabilities supported by API M
 
 *3. The [self-hosted gateway](self-hosted-gateway-overview.md) currently does not send diagnostic logs to Azure Monitor. However, it is possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, please see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md)*
 
+## Best practices
+
+The following practices can enhance your API observability: 
+- Granular monitoring: Enable [per-method metrics](https://learn.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor) for detailed insights into response times and error rates.
+- Proactive alerting: Set up per-method [alerts](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/microsoft-apimanagement-service-metrics) for latency, error rates, and low success rates, using rates instead of counts to avoid skewing.
+- Distributed tracing: Enable [tracing](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-app-insights?tabs=rest) to identify performance bottlenecks and troubleshoot issues.
+- Resource tagging: Apply [tags to APIs](https://learn.microsoft.com/rest/api/apimanagement/tag/assign-to-api) for accurate cost tracking and allocation.
+
 ## Next Steps
 
 - Get started with [Azure Monitor metrics and logs](api-management-howto-use-azure-monitor.md)
