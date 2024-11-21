@@ -280,7 +280,7 @@ Save the files you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensi
   "exp": 1584961516,
   "nbf": 1584957916,
   "ver": "1.0",
-  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/",
   "aud": "11112222-bbbb-3333-cccc-4444dddd5555",
   "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",

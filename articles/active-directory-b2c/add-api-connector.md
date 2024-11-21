@@ -597,7 +597,7 @@ To return the promo code claim back to the relying party application, add an out
   "exp": 1584295703,
   "nbf": 1584292103,
   "ver": "1.0",
-  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/",
   "aud": "22223333-cccc-4444-dddd-5555eeee6666",
   "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",
