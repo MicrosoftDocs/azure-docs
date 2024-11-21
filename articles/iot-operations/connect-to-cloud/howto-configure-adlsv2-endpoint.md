@@ -372,7 +372,7 @@ If you select **Create new**, enter the following settings:
 | Set activation date | If turned on, the date when the secret becomes active. |
 | Set expiration date | If turned on, the date when the secret expires. |
 
-To learn more about secrets, see [Create and manage secrets in Azure IoT Operations Preview](../secure-iot-ops/howto-manage-secrets.md).
+To learn more about secrets, see [Create and manage secrets in Azure IoT Operations](../secure-iot-ops/howto-manage-secrets.md).
 
 # [Bicep](#tab/bicep)
 

@@ -50,7 +50,7 @@ A user-assigned managed identity is created as a standalone Azure resource. 
 
 ## User-assigned managed identity to access the lab storage account
 
-During lab creation, setting a user-assigned managed identity to access the lab storage account also sets that particular user-assigned managed identiy for the virtual machines. The managed identity you select on the create lab page under the lab artifacts storage account option  will also be visible in the Virtual Machine section of the Identity page under Configuration and Policies settings.
+During lab creation, setting a user-assigned managed identity to access the lab storage account also sets that particular user-assigned managed identity for the virtual machines. The managed identity you select on the create lab page under the lab artifacts storage account option will also be visible in the Virtual Machine section of the Identity page under Configuration and Policies settings.
 
 :::image type="content" source="./media/configure-lab-identity/create-lab-with-managed-identity.png" alt-text="Screenshot of the Basic Settings tab in the Create DevTest Labs form.":::
 

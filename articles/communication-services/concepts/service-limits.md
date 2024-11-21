@@ -101,31 +101,57 @@ For more information on the SMS SDK and service, see [SMS SDK overview](./sms/sd
 
 ## Email
 
-You can send a limited number of email messages. If you exceed the following limits for your subscription, your requests are rejected. You can attempt these requests again, after the `Retry-After` time passes. Take action before you reach the limit. Request to raise your sending volume limits, if needed.
+You can send a limited number of email messages. If you exceed the [email rate limits](#rate-limits-for-email) for your subscription, your requests are rejected. You can attempt these requests again, after the Retry-After time passes. Take action before reaching the limit by requesting to raise your sending volume limits if needed.
 
-The Azure Communication Services email service is designed to support high throughput. The service imposes initial rate limits to help customers onboard smoothly and avoid some of the issues that can occur when switching to a new email service. We recommend that you use Azure Communication Services email over a period of two to four weeks to gradually increase your email volume. During this time, closely monitor the delivery status of your emails. This gradual increase enables third-party email service providers to adapt to the change in IP for your domain's email traffic. The gradual change gives you time to protect your sender reputation and maintain the reliability of your email delivery.
+The Azure Communication Services email service is designed to support high throughput. However, the service imposes initial rate limits to help customers onboard smoothly and avoid some of the issues that can occur when switching to a new email service.
 
-### Rate limits for email
+We recommend gradually increasing your email volume using Azure Communication Services Email over a period of two to four weeks, while closely monitoring the delivery status of your emails. This gradual increase enables third-party email service providers to adapt to the change in IP for your domain's email traffic. The gradual change gives you time to protect your sender reputation and maintain the reliability of your email delivery.
 
-We approve higher limits for customers based on use case requirements, domain reputation, traffic patterns, and failure rates. To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are available only for verified custom domains, not Azure managed domains.
+Azure Communication Services email service supports high volume up to 1-2 million messages per hour. High throughput can be enabled based on several factors, including:
+- Customer peak traffic
+- Business needs
+- Ability to manage failure rates
+- Domain reputation
 
-The following table lists limits for [Custom domains](../quickstarts/email/add-custom-verified-domains.md).
+### Failure Rate Requirements
 
-| Operation | Scope | Time frame (minutes) | Limit (number of emails) |
-|---------|-----|-------------|-------------------|
-|Send email|Per subscription|1|30|
-|Send email|Per subscription|60|100|
-|Get email status|Per subscription|1|60|
-|Get email status|Per subscription|60|200|
+To enable a high email quota, your email failure rate must be less than one percent (1%). If your failure rate is high, you must resolve the issues before requesting a quota increase.
+Customers are expected to actively monitor their failure rates.
+
+If the failure rate increases after a quota increase, Azure Communication Services will contact the customer for immediate action and a resolution timeline. In extreme cases, if the failure rate isn't managed within the specified timeline, Azure Communication Services may reduce or suspend service until the issue is resolved.
+
+#### Related articles
+
+Azure Communication Services provides rich logs and analytics to help monitor and manage failure rates. For more information, see the following articles:
+
+- [Improve sender reputation in Azure Communication Services email](./email/sender-reputation-managed-suppression-list.md)
+- [Email Insights](./analytics/insights/email-insights.md)
+- [Enable logs via Diagnostic Settings in Azure Monitor](./analytics/enable-logging.md)
+- [Quickstart: Handle Email events](../quickstarts/email/handle-email-events.md)
+- [Quickstart: Manage domain suppression lists in Azure Communication Services using the management client libraries](../quickstarts/email/manage-suppression-list-management-sdks.md)
+
+> [!NOTE]
+> To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are only available for verified custom domains, not Azure-managed domains.
+
+### Rate Limits for Email
+
+[Custom Domains](../quickstarts/email/add-custom-verified-domains.md)
+
+| Operation | Scope | Timeframe (minutes) | Limit (number of emails) | Higher limits available |
+| --- | --- | --- | --- | --- |
+| Send Email | Per Subscription | 1 | 30 | Yes |
+| Send Email | Per Subscription | 60 | 100 | Yes |
+| Get Email Status | Per Subscription | 1 | 60 | Yes |
+| Get Email Status | Per Subscription | 60 | 200 | Yes |
 
 The following table lists limits for [Azure managed domains](../quickstarts/email/add-azure-managed-domains.md).
 
-| Operation | Scope | Time frame (minutes) | Limit (number of emails) |
-|---------|-----|-------------|-------------------|
-|Send email|Per subscription|1|5|
-|Send email|Per subscription|60|10|
-|Get email status|Per subscription|1|10|
-|Get email status|Per subscription|60|20|
+| Operation | Scope | Timeframe (minutes) | Limit (number of emails) | Higher limits available |
+| --- | --- | --- | --- | --- |
+| Send Email | Per Subscription | 1 | 5 | No |
+| Send Email | Per Subscription | 60 | 10 | No |
+| Get Email Status | Per Subscription | 1 |10 | No |
+| Get Email Status | Per Subscription | 60 |20 | No |
 
 ### Size limits for email
 
@@ -289,4 +315,4 @@ You can find more information about Microsoft Graph [throttling](/graph/throttli
 
 ## Related content
 
-See the [help and support](../support.md) options.
+- [Help and support options](../support.md)
