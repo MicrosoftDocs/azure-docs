@@ -188,7 +188,7 @@ DeviceTwinDevice device = new DeviceTwinDevice(deviceId);
 
 #### Connect using Microsoft Entra
 
-[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-dotnet](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-java](iot-hub-howto-connect-service-iothub-entra-java.md)]
 
 ### Update device twin fields
 
