@@ -100,15 +100,22 @@ fabrikam_intermediate_ca.crt fabrikam_intermediate_ca.key \
 Then, generate client certificates for a thermostat, hygrometer, heater, and lightbulb.
 
 ```bash
+# Create a client certificate for the thermostat
 step certificate create thermostat thermostat.crt thermostat.key \
 --ca ./fabrikam_intermediate_ca.crt --ca-key ./fabrikam_intermediate_ca.key --bundle \
 --not-after 2400h --no-password --insecure
+
+# Create a client certificate for the hygrometer
 step certificate create hygrometer hygrometer.crt hygrometer.key \
 --ca ./fabrikam_intermediate_ca.crt --ca-key ./fabrikam_intermediate_ca.key --bundle \
 --not-after 2400h --no-password --insecure
+
+# Create a client certificate for the heater
 step certificate create heater heater.crt heater.key \
 --ca ./fabrikam_intermediate_ca.crt --ca-key ./fabrikam_intermediate_ca.key --bundle \
 --not-after 2400h --no-password --insecure
+
+# Create a client certificate for the lightbulb
 step certificate create lightbulb lightbulb.crt lightbulb.key \
 --ca ./fabrikam_intermediate_ca.crt --ca-key ./fabrikam_intermediate_ca.key --bundle \
 --not-after 2400h --no-password --insecure

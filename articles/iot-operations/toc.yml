@@ -189,7 +189,7 @@ items:
         href: connect-to-cloud/tutorial-mqtt-bridge.md
       - name: Send data to Data Lake Storage
         href: connect-to-cloud/tutorial-opc-ua-to-data-lake.md
-      - name: TLS/X.509/ABAC
+      - name: Secure communication with TLS, X.509, and ABAC
         href: manage-mqtt-broker/tutorial-tls-and-x509.md
     - name: Troubleshoot
       items:
