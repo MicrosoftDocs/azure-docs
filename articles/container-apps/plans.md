@@ -4,10 +4,8 @@ description: Compare different plains available in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 11/05/2024
 ms.author: cshoe
 ---
 
@@ -44,7 +42,7 @@ Use the Dedicated plan when you need any of the following in a single environmen
 
 The Consumption plan features a serverless architecture that allows your applications to scale in and out on demand. Applications can scale to zero, and you only pay for running apps.
 
-Use the Consumption plan when you don't have specific hardware requirements for your container app.
+When you need on-demand specialized compute resources, you can use [serverless GPUs (preview)](gpu-serverless-overview.md).
 
 ## Next steps
 

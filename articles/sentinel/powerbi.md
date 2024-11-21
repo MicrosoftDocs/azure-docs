@@ -4,7 +4,7 @@ description: Learn how to create a Power BI report using an exported query from 
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 05/19/2024
+ms.date: 10/16/2024
 
 
 #Customer intent: As a security analyst, I want to create and share Power BI reports from Microsoft Sentinel data so that I can provide insights to stakeholders without granting them direct access to Microsoft Sentinel.
@@ -46,7 +46,7 @@ To complete the steps in this article, you need:
 
 Create, run, and export a KQL query from Microsoft Sentinel.
 
-1. To create a simple query, in Microsoft Sentinel, select **Logs**. If your workspace is onboarded to the unified security operations platform, select **General > Logs**. 
+1. To create a simple query, in Microsoft Sentinel, select **Logs**. If your workspace is onboarded to the Microsoft Defender portal, select **General > Logs**. 
 
 1. In the query editor, under **New Query 1**, enter the following query, or any other Microsoft Sentinel query for your data:
    
