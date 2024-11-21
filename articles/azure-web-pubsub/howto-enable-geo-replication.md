@@ -40,7 +40,7 @@ All of the above takes engineering resources away from focusing on product innov
 ### Harnessing the geo-replication feature
 With the geo-replication feature, Contoso can now establish a replica in Canada Central, effectively overcoming the above-mentioned challenges. The developer team is glad to find out that they don't need to make any code changes. It's as easy as clicking a few buttons on Azure portal. The developer team is also happy to share with the stakeholders that as Contoso plans to enter the European market, they simply need to add another replica in Europe. 
 
-![Diagram of using one Azure Web PubSub instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/web-pubsub-replica.png "Replica Example")
+![Diagram of using one Azure Web PubSub instance with replica to handle traffic from two countries/regions.](./media/howto-enable-geo-replication/web-pubsub-replica.png "Replica Example")
 
 ## How to enable geo-replication in a Web PubSub resource
 # [Portal](#tab/Portal)

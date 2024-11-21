@@ -117,7 +117,7 @@ az dataprotection backup-policy get-default-policy-template --datasource-type Az
 
 ```
 
-The policy template consists of a trigger criteria (which decides the factors to trigger the backup job) and a lifecycle (which decides when to delete, copy, or move the backups). In AKS backup, the default value for trigger is a scheduled hourly trigger is *every 4 hours (PT4H)* and retention of each backup is *365 days*.
+The policy template consists of a trigger criteria (which decides the factors to trigger the backup job) and a lifecycle (which decides when to delete, copy, or move the backups). In AKS backup, the default value for trigger is a scheduled hourly trigger is *every 4 hours (PT4H)* and retention of each backup is *seven days*.
 
 
 ```azurecli
@@ -128,7 +128,8 @@ Scheduled trigger:
           "repeatingTimeIntervals": [
             "R/2023-01-04T09:00:00+00:00/PT4H"
           ]
-        },
+        }
+      }
 
 Default retention lifecycle:
       "lifecycles": [
@@ -142,22 +143,35 @@ Default retention lifecycle:
             "objectType": "DataStoreInfoBase"
           }
         }
-      ],
+      ]
 
 
 ```
 
-Backup for AKS provides multiple backups per day. If you require more frequent backups, choose the *Hourly backup frequency* that has the ability to take backups with intervals of every *4*, *6*, *8*, or *12* hours. The backups are scheduled based on the *Time interval* you've selected.
-
-For example, if you select *Every 4 hours*, then the backups are taken at approximately in the interval of *every 4 hours* so that the backups are distributed equally across the day. If *once a day backup* is sufficient, then choose the *Daily backup frequency*. In the daily backup frequency, you can specify the *time of the day* when your backups should be taken.
+Backup for AKS provides multiple backups per day. If you require more frequent backups, choose the *Hourly backup frequency* that has the ability to take backups with intervals of every *4*, *6*, *8*, or *12* hours. The backups are scheduled based on the *Time interval* you selected.
 
 >[!Important]
 >The time of the day indicates the backup start time and not the time when the backup completes.
 
->[!Note]
->Though the selected vault has the global-redundancy setting, backup for AKS currently supports snapshot datastore only. All backups are stored in a resource group in your subscription, and aren't copied to the Backup vault storage.
+Once you download the template as a JSON file, you can edit it for scheduling and retention as required. Then create a new policy with the resulting JSON. If you want to edit the hourly frequency or the retention period, use the `az dataprotection backup-policy trigger set` and/or `az dataprotection backup-policy retention-rule set` commands. 
 
-Once you've downloaded the template as a JSON file, you can edit it for scheduling and retention as required. Then create a new policy with the resulting JSON. If you want to edit the hourly frequency or the retention period, use the `az dataprotection backup-policy trigger set` and/or `az dataprotection backup-policy retention-rule set` commands. Once the policy JSON has all the required values, proceed to create a new policy from the policy object using the `az dataprotection backup-policy create` command.
+>[!Note]
+>To store your backup data in the **Vault tier** to either retain for long term for compliance purpose or for regional disaster recovery via cross region restore, you will need to define a new retention rule in the default template defining how long the backup should be stored in the Vault.
+
+
+Lets take an example where we'll update the default template for the backup policy and add a retention rule to retain **first successful backup per day** in the **Vault tier** for 30 days. 
+
+Use the command `az dataprotection backup-policy retention-rule create-lifecycle` to create a retention rule and then add the retention rule to the backup policy template with the command ``
+
+```azurecli
+
+az dataprotection backup-policy retention-rule create-lifecycle  --count 30 --retention-duration-type Days --copy-option ImmediateCopyOption --target-datastore VaultStore --source-datastore OperationalStore > ./retentionrule.json
+
+az dataprotection backup-policy retention-rule set --lifecycles ./retentionrule.json --name Daily --policy ./akspolicy.json > ./akspolicy.json
+
+```
+
+Once the policy JSON has all the required values, proceed to create a new policy from the policy object using the `az dataprotection backup-policy create` command.
 
 ```azurecli
 az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVault -n mypolicy --policy policy.json

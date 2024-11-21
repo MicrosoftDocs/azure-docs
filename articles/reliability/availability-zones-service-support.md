@@ -1,72 +1,58 @@
 ---
-title: Azure services that support availability zones
-description: Learn which services offer availability zone support and understand resiliency across all Azure services.
+title: Azure services with availability zone support
+description: Learn which Azure services offer availability zone support.
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 04/15/2024
+ms.date: 11/20/2024
 ms.author: anaharris
-author: anaharris
-ms.reviewer: asinghal
+author: anaharris-ms
 ms.custom: references_regions, subject-reliability
 ---
 
-# Availability zone service and regional support
+# Azure services with availability zone support
 
-Azure availability zones are physically separate locations within each Azure region. This article shows you which regions and services support availability zones. 
+Azure availability zones are physically separate locations within each Azure region. This article shows you which services support availability zones. 
 
 For more information on availability zones and regions, see [What are Azure regions and availability zones?](availability-zones-overview.md),
 
-## Azure regions with availability zone support
-
-Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones. Azure has availability zones in every country/region in which Azure operates a datacenter region. 
-
->[!IMPORTANT]
->Some services may have limited support for availability zones. For example, some may only support availability zones for certain tiers, regions, or SKUs. To get more information on service limitations for availability zone support, select that service listed in the [Azure services with availability zone support](#azure-services-with-availability-zone-support) section of this document.
-
-The following regions currently support availability zones:
-
-| Americas | Europe | Middle East | Africa | Asia Pacific |
-|---|---|---|---|---|
-| Brazil South | France Central | Qatar Central | South Africa North | Australia East |
-| Canada Central | Italy North | UAE North | | Central India |
-| Central US |  Germany West Central | Israel Central | | Japan East |
-| East US | Norway East | | | *Japan West |
-| East US 2 | North Europe  | | | Southeast Asia |
-| South Central US | UK South | | | East Asia |
-| US Gov Virginia | West Europe  | | | China North 3 |
-| West US 2 | Sweden Central | | |Korea Central  | 
-| West US 3 | Switzerland North | | | *New Zealand North |
-| Mexico Central | Poland Central ||||
-||Spain Central ||||
+Azure is continually expanding the number of services that support availability zones, including zonal and zone-redundant offerings.
 
 
+## Types of availability zone support
 
-
-
-
-\* To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative. For upcoming regions that support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
-
-## Azure services with availability zone support
-
-Azure services that support availability zones, including zonal and zone-redundant offerings, are continually expanding.
-
-Three types of Azure services support availability zones: *zonal*, *zone-redundant*, and *always-available* services. You can combine all three of these approaches to architecture when you design your reliability strategy.
+Azure services can provide two types of availability zone support: *zonal* and *zone-redundant*. Each service supports either one or both types. When designing your reliability strategy, make sure that you understand which availability zone types are supported in each service of your workload. 
 
 - **Zonal services**: A resource can be deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements. Resiliency is self-architected by replicating applications and data to one or more zones within the region. Resources are aligned to a selected zone. For example, virtual machines, managed disks, or standard IP addresses can be aligned to a same zone, which allows for increased resiliency by having multiple instances of resources deployed to different zones.
 
 - **Zone-redundant services**: Resources are replicated or distributed across zones automatically. For example, zone-redundant services replicate the data across multiple zones so that a failure in one zone doesn't affect the high availability of the data. 
 
-- **Always-available services**: Always available across all Azure geographies and are resilient to zone-wide outages and region-wide outages. For a complete list of always-available services, also called non-regional services, in Azure, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+
+>[!IMPORTANT]
+>Some services may have limited support for availability zones. For example, some may only support availability zones for certain tiers, regions, or SKUs. To get more information on service limitations for availability zone support, select that service in the table.
+
+## Always-available services
+
+Some Azure services don't support availability zones because they are:
+
+- Available across multiple Azure regions within a geographic area, or even across all Azure regions globally.
+- Resilient to zone-wide outages.
+- Resilient to region-wide outages. 
+
+For a complete list of always-available services, also called non-regional services, in Azure, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
 For more information on older-generation virtual machines, see [Previous generations of virtual machine sizes](/azure/virtual-machines/sizes-previous-gen).
 
+## Azure services with availability zone support
 The following tables provide a summary of the current offering of zonal, zone-redundant, and always-available Azure services. They list Azure offerings according to the regional availability of each.
 
 >[!IMPORTANT]
 >To learn more about availability zones support and available services in your region, contact your Microsoft sales or customer representative.
 
+
+
 ##### Legend
+
 ![Legend containing icons and meaning of each with respect to service category and regional availability of each service in the table.](media/legend.png) 
 
 In the Product Catalog, always-available services are listed as "non-regional" services.
@@ -131,7 +117,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | [Azure App Service](./reliability-app-service.md#availability-zone-support) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure App Service: App Service Environment](./reliability-app-service.md#availability-zone-support) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Backup](reliability-backup.md#availability-zone-support)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
-| [Azure Bastion](../bastion/bastion-overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Bastion](../bastion/bastion-overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Batch](./reliability-batch.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Cache for Redis](./migrate-cache-redis.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure AI Search](/azure/search/search-reliability#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
@@ -240,17 +226,9 @@ You can access Azure availability zones by using your Azure subscription. To lea
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Azure services and regions with availability zones](availability-zones-service-support.md)
+- [Azure regions with availability zones](availability-zones-region-support.md)
 
-> [!div class="nextstepaction"]
-> [Availability zone migration guidance overview](availability-zones-migration-overview.md)
+- [Availability zone migration guidance overview](availability-zones-migration-overview.md)
+- [Availability of service by category](availability-service-by-category.md)
 
-> [!div class="nextstepaction"]
-> [Availability of service by category](availability-service-by-category.md)
-
-> [!div class="nextstepaction"]
-> [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
-
-> [!div class="nextstepaction"]
-> [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview)
+- [Well-architected Framework: Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview)

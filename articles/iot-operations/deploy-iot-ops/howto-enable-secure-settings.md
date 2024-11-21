@@ -1,6 +1,6 @@
 ---
 title: Enable secure settings
-description: Enable secure settings on your Azure IoT Operations Preview deployment by configuring an Azure key vault and enabling workload identities.
+description: Enable secure settings on your Azure IoT Operations deployment by configuring an Azure Key Vault and enabling workload identities.
 author: asergaz
 ms.author: sergaz
 ms.topic: how-to
@@ -9,9 +9,7 @@ ms.date: 11/04/2024
 #CustomerIntent: I deployed Azure IoT Operations with test settings for the quickstart scenario, and now I want to enable secure settings to use the full feature set.
 ---
 
-# Enable secure settings in an Azure IoT Operations Preview deployment
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+# Enable secure settings in Azure IoT Operations deployment
 
 The secure settings for Azure IoT Operations include the setup of secrets management and a user-assigned managed identity for cloud connections; for example, an OPC UA server or dataflow endpoints.
 
@@ -19,7 +17,7 @@ This article provides instructions for enabling secure settings if you didn't do
 
 ## Prerequisites
 
-* An Azure IoT Operations instance deployed with test settings. For example, follow the instructions in [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md).
+* An Azure IoT Operations instance deployed with test settings. For example, follow the instructions in [Quickstart: Run Azure IoT Operations in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md).
 
 * Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or later. Use `az --version` to check your version and `az upgrade` to update, if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -102,7 +100,7 @@ Secrets management for Azure IoT Operations uses the Secret Store extension to s
 
 To set up secrets management:
 
-1. [Create an Azure key vault](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) that's used to store secrets, and [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the `Key Vaults Secrets Officer` role.
+1. [Create an Azure key vault](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) that's used to store secrets, and [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the `Key Vault Secrets Officer` role.
 1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) for the Secret Store extension.
 1. Use the [az iot ops secretsync enable](/cli/azure/iot/ops/secretsync#az-iot-ops-secretsync-enable) command to set up the Azure IoT Operations instance for secret synchronization. This command:
 
@@ -114,7 +112,7 @@ To set up secrets management:
 
     ```azurecli
     # Variable block
-    INSTANCE_NAME="<INSTANCE_NAME>"
+    AIO_INSTANCE_NAME="<AIO_INSTANCE_NAME>"
     RESOURCE_GROUP="<RESOURCE_GROUP>"
     USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME>"
     KEYVAULT_NAME="<KEYVAULT_NAME>"
@@ -126,7 +124,7 @@ To set up secrets management:
     KEYVAULT_RESOURCE_ID=$(az keyvault show --name $KEYVAULT_NAME --resource-group $RESOURCE_GROUP --query id --output tsv)
     
     #Enable secret synchronization
-    az iot ops secretsync enable --name $INSTANCE_NAME \
+    az iot ops secretsync enable --instance $AIO_INSTANCE_NAME \
                                  --resource-group $RESOURCE_GROUP \
                                  --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID \
                                  --kv-resource-id $KEYVAULT_RESOURCE_ID
@@ -136,7 +134,7 @@ To set up secrets management:
 
     ```azurecli
     # Variable block
-    INSTANCE_NAME="<INSTANCE_NAME>"
+    AIO_INSTANCE_NAME="<AIO_INSTANCE_NAME>"
     $RESOURCE_GROUP="<RESOURCE_GROUP>"
     $USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME>"
     $KEYVAULT_NAME="<KEYVAULT_NAME>"
@@ -148,7 +146,7 @@ To set up secrets management:
     $KEYVAULT_RESOURCE_ID=$(az keyvault show --name $KEYVAULT_NAME --resource-group $RESOURCE_GROUP --query id --output tsv)
     
     # Enable secret synchronization
-    az iot ops secretsync enable --name $INSTANCE_NAME `
+    az iot ops secretsync enable --instance $AIO_INSTANCE_NAME `
                                  --resource-group $RESOURCE_GROUP `
                                  --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID `
                                  --kv-resource-id $KEYVAULT_RESOURCE_ID
@@ -156,7 +154,7 @@ To set up secrets management:
 
     ---
 
-Now that secret synchronization setup is complete, you can refer to [Manage secrets for your Azure IoT Operations Preview deployment](./howto-manage-secrets.md) to learn how to use secrets with Azure IoT Operations.
+Now that secret synchronization setup is complete, you can refer to [Manage secrets for your Azure IoT Operations deployment](./howto-manage-secrets.md) to learn how to use secrets with Azure IoT Operations.
 
 ## Set up a user-assigned managed identity for cloud connections
 
@@ -173,7 +171,7 @@ Some Azure IoT Operations components, like dataflow endpoints, use a user-assign
 
     ```azurecli
     # Variable block
-    INSTANCE_NAME="<INSTANCE_NAME>"
+    AIO_INSTANCE_NAME="<AIO_INSTANCE_NAME>"
     RESOURCE_GROUP="<RESOURCE_GROUP>"
     USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME FOR CLOUD CONNECTIONS>"
     
@@ -181,7 +179,7 @@ Some Azure IoT Operations components, like dataflow endpoints, use a user-assign
     USER_ASSIGNED_MI_RESOURCE_ID=$(az identity show --name $USER_ASSIGNED_MI_NAME --resource-group $RESOURCE_GROUP --query id --output tsv)
     
     #Assign the identity to the Azure IoT Operations instance
-    az iot ops identity assign --name $INSTANCE_NAME \
+    az iot ops identity assign --name $AIO_INSTANCE_NAME \
                                --resource-group $RESOURCE_GROUP \
                                --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID
     ```
@@ -190,7 +188,7 @@ Some Azure IoT Operations components, like dataflow endpoints, use a user-assign
 
     ```azurecli
     # Variable block
-    $INSTANCE_NAME="<INSTANCE_NAME>"
+    $AIO_INSTANCE_NAME="<AIO_INSTANCE_NAME>"
     $RESOURCE_GROUP="<RESOURCE_GROUP>"
     $USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME FOR CLOUD CONNECTIONS>"
     
@@ -199,7 +197,7 @@ Some Azure IoT Operations components, like dataflow endpoints, use a user-assign
     
     
     # Assign the identity to the Azure IoT Operations instance
-    az iot ops identity assign --name $INSTANCE_NAME `
+    az iot ops identity assign --name $AIO_INSTANCE_NAME `
                                --resource-group $RESOURCE_GROUP `
                                --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID
     ```

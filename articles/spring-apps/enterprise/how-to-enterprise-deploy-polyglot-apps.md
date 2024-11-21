@@ -24,7 +24,7 @@ This article shows you how to deploy polyglot apps in the Azure Spring Apps Ente
 
 ## Deploy polyglot applications in a service instance
 
-This section applies to building and deploying polyglot applications when the build service is enabled. If you disable the build service, you can deploy applications only with a custom container image. You can create your own image or use one built by an Azure Spring Apps Enterprise instance. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+This section applies to building and deploying polyglot applications when the build service is enabled. If you disable the build service, you can deploy applications only with a custom container image. You can create your own image or use one built by an Azure Spring Apps Enterprise instance. For more information, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ### Manage builders
 
@@ -70,7 +70,7 @@ You can't delete a builder when existing active deployments are being built with
 
 In Azure Spring Apps, we recommend using `Jammy OS Stack` to create your builder because `Bioinic OS Stack` is in line for deprecation by VMware. The following list describes the options available:
 
-- Jammy Tiny: Suitable for building a minimal image for the smallest possible size and security footprint. Like building a Java Native Image, it can make the final container image smaller. The integrated libraries are limited. For example, you can't [connect to an app instance for troubleshooting](how-to-connect-to-app-instance-for-troubleshooting.md) because there's no `shell` library.
+- Jammy Tiny: Suitable for building a minimal image for the smallest possible size and security footprint. Like building a Java Native Image, it can make the final container image smaller. The integrated libraries are limited. For example, you can't [connect to an app instance for troubleshooting](../basic-standard/how-to-connect-to-app-instance-for-troubleshooting.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json) because there's no `shell` library.
   - Most Go apps.
   - Java apps. Some Apache Tomcat configuration options, such as setting *bin/setenv.sh*, aren't available because Tiny has no shell.
 
@@ -233,7 +233,7 @@ az spring app deploy \
 
 #### [User-managed container registry](#tab/user-managed-container-registry)
 
-This example builds or updates an application and deploys it using two commands. With a user-managed container registry, you can deploy an application only from a custom container image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+This example builds or updates an application and deploys it using two commands. With a user-managed container registry, you can deploy an application only from a custom container image. For more information, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 The following command builds an application:
 
@@ -313,7 +313,7 @@ az spring build-service build update \
     --source-path <path-to-source-code>
 ```
 
-To deploy the application, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+To deploy the application, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ---
 
@@ -361,7 +361,7 @@ az spring build-service build update \
     --artifact-path <path-to-your-JAR-file>
 ```
 
-To deploy the application, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+To deploy the application, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ---
 
@@ -413,7 +413,7 @@ az spring build-service build update \
     --artifact-path <path-to-your-JAR-file>
 ```
 
-To deploy the application, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+To deploy the application, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ---
 
