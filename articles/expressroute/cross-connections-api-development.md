@@ -109,7 +109,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
     "value": [
       {
         "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
-        "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+        "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/24e6ea2b-6940-4bec-b0b3-3a9e5471e512",
         "etag": "W/\"19fa7ada-5189-4817-a9d6-499b02e379cc\"",
         "type": "Microsoft.Network/expressRouteCrossConnections",
         "location": "eastus2euap",
