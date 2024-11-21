@@ -151,7 +151,7 @@ The following example shows an exported telemetry message:
 ```json
 
 {
-    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
     "messageSource": "telemetry",
     "deviceId": "1vzb5ghlsg1",
     "schema": "default@v1",
@@ -189,7 +189,7 @@ The following snippet shows a property change message exported to Blob Storage:
 
 ```json
 {
-    "applicationId": "fb74969c-8682-4708-af01-33499a7f7d98",
+    "applicationId": "11112222-bbbb-3333-cccc-4444dddd5555",
     "messageSource": "properties",
     "deviceId": "Pepjmh1Hcc",
     "enqueuedTime": "2023-03-02T10:35:39.281Z",
@@ -230,7 +230,7 @@ The following example shows an exported device connectivity message received in 
 
 ```json
 {
-  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "messageSource": "deviceConnectivity",
   "messageType": "connected",
   "deviceId": "1vzb5ghlsg1",
@@ -252,7 +252,7 @@ The following example shows an exported device lifecycle message received in Azu
 
 ```json
 {
-  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "messageSource": "deviceLifecycle",
   "messageType": "registered",
   "deviceId": "1vzb5ghlsg1",
@@ -273,7 +273,7 @@ The following example shows an exported device lifecycle message received in Azu
 
 ```json
 {
-  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "messageSource": "deviceTemplateLifecycle",
   "messageType": "created",
   "schema": "default@v1",
@@ -295,7 +295,7 @@ The following example shows an exported audit log message received in Azure Blob
     "id": "test-audit",
     "type": "apiToken"
     },
-  "applicationId": "570c2d7b-1111-2222-abcd-000000000000",
+  "applicationId": "22223333-cccc-4444-dddd-5555eeee6666",
   "enqueuedTime": "2022-07-25T21:54:40.000Z",
   "enrichments": {},
   "messageSource": "audit",

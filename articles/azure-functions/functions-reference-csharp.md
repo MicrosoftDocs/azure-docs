@@ -22,6 +22,8 @@ Azure Functions lets you develop functions using C# in one of the following ways
 | C# class library (isolated worker) | isolated worker process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md) | [.NET isolated worker process functions](dotnet-isolated-process-guide.md) | 
 | C# class library (in-process) | in-process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md)| [In-process C# class library functions](functions-dotnet-class-library.md) |  
 
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
 ## How .csx works
 
 Data flows into your C# function via method arguments. Argument names are specified in a `function.json` file, and there are predefined names for accessing things like the function logger and cancellation tokens.

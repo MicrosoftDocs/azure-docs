@@ -72,10 +72,10 @@ Later in this article, you give permission to the Microsoft Entra app to act by 
 
 | Role | Actions allowed | Role definition ID |
 | --- | --- | --- |
-| EnrollmentReader | Enrollment readers can view data at the enrollment, department, and account scopes. The data contains charges for all of the subscriptions under the scopes, including across tenants. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e |
-| EA purchaser | Purchase reservation orders and view reservation transactions. It has all the permissions of EnrollmentReader, which have all the permissions of DepartmentReader. It can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f  |
+| EnrollmentReader | Enrollment readers can view data at the enrollment, department, and account scopes. The data contains charges for all of the subscriptions under the scopes, including across tenants. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
+| EA purchaser | Purchase reservation orders and view reservation transactions. It has all the permissions of EnrollmentReader, which have all the permissions of DepartmentReader. It can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
 | DepartmentReader | Download the usage details for the department they administer. Can view the usage and charges associated with their department. | db609904-a47f-4794-9be8-9bd86fbffd8a |
-| SubscriptionCreator | Create new subscriptions in the given scope of Account. | cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a |
+| SubscriptionCreator | Create new subscriptions in the given scope of Account. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
 
 - An EnrollmentReader role can be assigned to a service principal only by a user who has an enrollment writer role. The EnrollmentReader role assigned to a service principal isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
 - A DepartmentReader role can be assigned to a service principal only by a user who has an enrollment writer or department writer role.
@@ -110,11 +110,11 @@ A service principal can have only one role.
       | --- | --- |
       | `properties.principalId` | It's the value of Object ID. See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
       | `properties.principalTenantId` | See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
-      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e` |
+      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` |
 
       The billing account name is the same parameter that you used in the API parameters. It's the enrollment ID that you see in the Azure portal.
 
-      Notice that `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e` is a billing role definition ID for an EnrollmentReader.
+      Notice that `24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` is a billing role definition ID for an EnrollmentReader.
 
 1. Select **Run** to start the command.
 
@@ -128,7 +128,7 @@ Now you can use the service principal to automatically access EA APIs. The servi
 
 For the EA purchaser role, use the same steps for the enrollment reader. Specify the `roleDefinitionId`, using the following example:
 
-`"/providers/Microsoft.Billing/billingAccounts/1111111/billingRoleDefinitions/ bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f"`
+`"/providers/Microsoft.Billing/billingAccounts/1111111/billingRoleDefinitions/ da6647fb-7651-49ee-be91-c43c4877f0c4"`
 
 ## Assign the department reader role to the service principal
 
@@ -204,11 +204,11 @@ Now you can use the service principal to automatically access EA APIs. The servi
       | --- | --- |
       | `properties.principalId` | It's the value of Object ID. See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
       | `properties.principalTenantId` | See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
-      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/{enrollmentAccountID}/billingRoleDefinitions/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a` |
+      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/{enrollmentAccountID}/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71` |
 
       The billing account name is the same parameter that you used in the API parameters. It's the enrollment ID that you see in the Azure portal.
 
-      The billing role definition ID of `cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a` is for the subscription creator role.
+      The billing role definition ID of `a0bcee42-bf30-4d1b-926a-48d21664ef71` is for the subscription creator role.
 
 1. Select **Run** to start the command.
 

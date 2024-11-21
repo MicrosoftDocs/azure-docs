@@ -335,7 +335,7 @@ Article
 To get the OID for the service principal that corresponds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example of obtaining the OID for the service principal that corresponds to an app registration with App ID = 00001111-aaaa-2222-bbbb-3333cccc4444. Run the following command in the Azure CLI:
 
 ```azurecli
-az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+az ad sp show --id 00001111-aaaa-2222-bbbb-3333cccc4444 --query objectId
 ```
 
 OID will be displayed.

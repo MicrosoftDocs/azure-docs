@@ -27,6 +27,13 @@
   - name: Create a Batch pool and run a job - Python
     displayName: quickstart, first, create
     href: quick-run-python.md
+  - name: Deploy a Batch account and two pools - Terraform
+    displayName: quickstart, first, create
+    href: quick-deploy-batch-account-two-pools-terraform.md
+  - name: Deploy a Batch account and two pools with a start task - Terraform
+    displayName: quickstart, first, create
+    href: quick-deploy-batch-account-two-pools-start-task-terraform.md
+
   expanded: true
 - name: Tutorials
   items:

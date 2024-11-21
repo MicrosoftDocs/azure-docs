@@ -58,7 +58,7 @@ See [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation
 
 When you upload data, your client divides that data into blocks and uploads each block individually. Each block that is upload is billed as a _write_ operation. A final write operation is needed to assemble blocks into a blob that is stored in the account. The number of write operations required to upload a blob depends on the size of each block. **8 MiB** is the default block size for uploads to the Blob Service endpoint (`blob.core.windows.net`) and that size is configurable. **4 MiB** is the block size for uploads to the Data Lake Storage endpoint (`dfs.core.windows.net`) and that size isn't configurable. A smaller block size performs better because blocks can upload in parallel. However, the cost is higher because more write operations are required to upload a blob.
 
-Using the [Sample prices](#sample-prices) that appear in this article, and assuming an **8-MiB** block size, the following table estimates the cost to upload **1000** blobs that are each **5 MiB** in size to the hot tier.
+Using the [Sample prices](#sample-prices) that appear in this article, and assuming an **8-MiB** block size, the following table estimates the cost to upload **1000** blobs that are each **5 GiB** in size to the hot tier.
 
 | Price factor                                             | Value          |
 |----------------------------------------------------------|----------------|
@@ -67,7 +67,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, and assum
 | Write operation to commit the blocks                     | 1              |
 | **Total write operations (1,000 * 641)**                   | 641,000        |
 | Price of a single write operation (price / 10,000)       | $0.0000055     |
-| **Cost of write operations (641,000 * operation price)** | **$3.5255**    |
+| **Cost of write operations (641,000 * price of a single operation)** | **$3.5255**    |
 | **Total cost (write + properties)**                      | **$3.5250055** |
 
 For more detailed examples, see [Estimate the cost to upload](azcopy-cost-estimation.md#the-cost-to-upload). 
@@ -83,7 +83,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Price of a single read operation (price / 10,000)    | $0.000001  |
 | **Cost of read operations (1000 * operation price)** | **$0.001** |
 | Price of data retrieval (per GiB)                    | $0.01      |
-| **Cost of data retrieval (5 * operation price)**     | **$0.05**  |
+| **Cost of data retrieval (5 * price of data retrieval)**     | **$0.05**  |
 | **Total cost (read + retrieval)**                    | **$0.051** |
 
 Utilities such as AzCopy also use list operations and operations to obtain blob properties. As a proportion of the overall bill, these charges are relatively small. For examples, see [Estimate the cost to download](azcopy-cost-estimation.md#the-cost-to-download). 
@@ -97,9 +97,9 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Price factor                                          | Value        |
 |-------------------------------------------------------|--------------|
 | Price of a single write operation (price / 10,000)    | $0.0000055   |
-| **Cost to write (1000 * operation price)**            | **$0.0055**  |
+| **Cost to write (1000 * price of a single operation)**            | **$0.0055**  |
 | Price of a single read operation (price / 10,000)     | $0.00000044  |
-| **Cost of read operations (1,000 * operation price)** | **$0.00044** |
+| **Cost of read operations (1,000 * price of a single operation)** | **$0.00044** |
 | **Total cost (previous section + retrieval + read)**  | **$0.0068**  |
 
 For a complete example, see [Estimate the cost to copy between containers](azcopy-cost-estimation.md#the-cost-to-copy-between-containers). 
@@ -117,9 +117,9 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Price factor                                                                                | Hot         | Cool       | Cold       |
 |---------------------------------------------------------------------------------------------|-------------|------------|------------|
 | Price of a single write operation to the Blob Service endpoint (price / 10,000)             | $0.0000055  | $0.00001   | $0.000018  |
-| **Cost to rename blob virtual directories (1000 * operation price)**                        | **$0.0055** | **$0.01**  | **$.018**  |
+| **Cost to rename blob virtual directories (1000 * price of a single operation)**                        | **$0.0055** | **$0.01**  | **$.018**  |
 | Price of a single iterative write operation to the Data Lake Storage endpoint (price / 100) | $0.000715   | $0.000715  | $0.000715  |
-| **Cost to rename Data Lake Storage directories (1000 * operation price)**                   | **$0.715**  | **$0.715** | **$0.715** |
+| **Cost to rename Data Lake Storage directories (1000 * price of a single operation)**                   | **$0.715**  | **$0.715** | **$0.715** |
 
 Based on these calculations, the cost to rename 1,000 blobs in the hot tier differs by **70** cents.
 
@@ -134,9 +134,9 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Price factor                                                                                | Hot        | Cool       | Cold       |
 |---------------------------------------------------------------------------------------------|------------|------------|------------|
 | Price of a single write operation to the Blob Service endpoint (price / 10,000)             | $0.0000055 | $0.00001   | $0.000018  |
-| **Cost to rename blob virtual directories (1000 * (1000 * operation price))**               | **$5.50**  | **$10.00** | **$18.00** |
+| **Cost to rename blob virtual directories (1000 * (1000 * price of a single operation)**               | **$5.50**  | **$10.00** | **$18.00** |
 | Price of a single iterative write operation to the Data Lake Storage endpoint (price / 100) | $0.000715  | $0.000715  | $0.000715  |
-| **Cost to rename Data Lake Storage directories (1000 * operation price)**                   | **$0.715** | **$0.715** | **0.715**  |
+| **Cost to rename Data Lake Storage directories (1000 * price of a single operation)**                   | **$0.715** | **$0.715** | **0.715**  |
 
 Based on these calculations, the cost to rename 1,000 directories in the hot tier that each contain 1,000 blobs differs by almost **$5.00**. For directories in the cold tier, the difference is over **$17**.
 

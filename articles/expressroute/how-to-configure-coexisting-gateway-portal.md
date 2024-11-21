@@ -125,7 +125,7 @@ If you have a virtual network that has only one virtual network gateway, for exa
 
 ## To add point-to-site configuration to the VPN gateway
 
-You can add a Point-to-Site configuration to your coexisting set by following the instruction in [Configuring Point-to-Site VPN connection using Azure certificate authentication](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#addresspool)
+You can add a Point-to-Site configuration to your coexisting set by following the instruction in [Configuring Point-to-Site VPN connection using Azure certificate authentication](../vpn-gateway/point-to-site-certificate-gateway.md#addresspool)
 
 ## To enable transit routing between ExpressRoute and Azure VPN
 
