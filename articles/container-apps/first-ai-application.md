@@ -29,7 +29,7 @@ In order to start `spring-petlinic-ai`, you can either run in `Github Codespace`
 
 All the steps of this lab are tested in the **GitHub CodeSpace**. This option is preferred.
 
-# [GitHub codespace](#tab/github-codespace)
+# [GitHub Codespace](#tab/github-codespace)
 
 The [Spring Petclinic AI repo](https://github.com/Azure-Samples/spring-petclinic-ai) contains a dev container environment for developers. This environment contains all the needed tools for running this sample. In case you want to use this dev container you can use a [GitHub CodeSpace](https://github.com/features/codespaces) in case your GitHub account is enabled for Codespaces.
 
@@ -50,7 +50,7 @@ The [Spring Petclinic AI repo](https://github.com/Azure-Samples/spring-petclinic
 
 Your codespace is creating in your browser window. Once creation is done, you can start executing the next steps. See [Deploy your first AI application](#deploy-your-first-ai-application).
 
-# [Local environment](#tab/local-env)
+# [Local Environment](#tab/local-env)
 
 To get your local environment ready, install required tools and clone the repository.
 
@@ -149,14 +149,14 @@ We recommend using region **East US**, **East US 2**, **North Central US**, **So
 
   And your can see the pet clinic page and chat with the AI assistant
 
-  :::image type="content" source="media/first-ai-application/chat-diag.png" alt-text="Screenshot of AI chat assistant.":::
-
   You can get help by having a natural language chat with the AI assistant. The AI assistant can assist you with the following tasks:
   - Querying the registered pet owners
   - Adding a new pet owner
   - Updating the pet owner's information
   - Adding a new pet
   - Querying the vets' information
+
+  :::image type="content" source="media/first-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding new item.":::
 
   Note that the capabilities of the AI assistant depend on the model you deploy in Azure OpenAI.
 
