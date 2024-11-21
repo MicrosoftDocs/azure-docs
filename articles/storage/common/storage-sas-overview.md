@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 06/07/2023
+ms.date: 11/21/2024
 ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
 ---
@@ -17,33 +17,29 @@ ms.subservice: storage-common-concepts
 A shared access signature (SAS) provides secure delegated access to resources in your storage account. With a SAS, you have granular control over how a client can access your data. For example:
 
 - What resources the client may access.
-
 - What permissions they have to those resources.
-
 - How long the SAS is valid.
 
 ## Types of shared access signatures
 
 Azure Storage supports three types of shared access signatures:
 
-- User delegation SAS
-
-- Service SAS
-
-- Account SAS
+- [User delegation SAS](#user-delegation-sas)
+- [Service SAS](#service-sas)
+- [Account SAS](#account-sas)
 
 > [!IMPORTANT]
 > For scenarios where shared access signatures are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key, which provides superior security. For more information on authorization for data access, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 
 ### User delegation SAS
 
-A user delegation SAS is secured with Microsoft Entra credentials and also by the permissions specified for the SAS. A user delegation SAS is supported for Azure Blob Storage and Azure Data Lake Storage. It's not currently supported for Azure Files, Azure Queue Storage, or Azure Table Storage.
+A user delegation SAS is secured with Microsoft Entra credentials and also by the permissions specified for the SAS. A user delegation SAS is supported for Blob Storage and Data Lake Storage. It's not currently supported for Queue Storage, Table Storage, or Azure Files.
 
 For more information about the user delegation SAS, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
 ### Service SAS
 
-A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage, Queue storage, Table storage, or Azure Files.
+A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage, Data Lake Storage, Queue storage, Table storage, or Azure Files.
 
 For more information about the service SAS, see [Create a service SAS (REST API)](/rest/api/storageservices/create-service-sas).
 
@@ -95,7 +91,7 @@ The following table summarizes how each type of SAS token is authorized.
 
 | Type of SAS | Type of authorization |
 |-|-|
-| User delegation SAS (Blob storage only) | Microsoft Entra ID |
+| User delegation SAS (Blob Storage and Data Lake Storage only) | Microsoft Entra ID |
 | Service SAS | Shared Key |
 | Account SAS | Shared Key |
 
