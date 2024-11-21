@@ -12,7 +12,7 @@ ms.custom:
 
 # Analyze APIs in your API center - Microsoft managed
 
-Your organization's [API center](overview.md) includes built-in, Microsoft-managed linting capabilities (preview) to analyze API definitions for adherence to organizational style rules, generating both individual and summary reports. API analysis identifies and helps you correct common errors and inconsistencies in your API definitions.
+Your organization's [API center](overview.md) includes built-in, Microsoft-managed linting capabilities to analyze API definitions for adherence to organizational style rules, generating both individual and summary reports. API analysis identifies and helps you correct common errors and inconsistencies in your API definitions.
 
 With API analysis:
 
