@@ -130,4 +130,5 @@ To add a new location to your API Management instance and enable zone redundancy
 
 * [Reliability in API Management](/azure/reliability/reliability-api-management)
 * [Design review checklist for reliability](/azure/architecture/framework/resiliency/app-design)
-* [Azure services and regions that support availability zones](/azure/reliability/availability-zones-service-support)
+* [Azure services with availability zones](/azure/reliability/availability-zones-service-support)
+* [Azure regions with availability zones](/azure/reliability/availability-zones-region-support)

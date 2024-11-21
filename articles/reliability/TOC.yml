@@ -6,8 +6,10 @@
   items:
   - name: What are Azure availability zones?
     href: availability-zones-overview.md
-  - name: Services and regions with availability zone support
+  - name: Services with availability zone support
     href: availability-zones-service-support.md
+  - name: Regions with availability zone support
+    href: availability-zones-region-support.md
   - name: Migrate to availability zone support
     items:
     - name: Overview
@@ -36,7 +38,7 @@
         href: reliability-batch.md#availability-zone-migration
       - name: Azure Container Apps
         href: reliability-azure-container-apps.md#availability-zone-migration
-      - name: Azure Container instances
+      - name: Azure Container Instances
         href: migrate-container-instances.md
       - name: Azure Container Registry
         href: /azure/container-registry/zone-redundancy?toc=/azure/reliability?toc=/azure/reliability
@@ -48,8 +50,6 @@
         href: /azure/postgresql/flexible-server/how-to-manage-high-availability-portal?toc=/azure/reliability#enable-high-availability-during-server-creation
       - name: Azure Elastic SAN
         href: reliability-elastic-san.md#availability-zone-migration
-      - name: Azure Functions
-        href: reliability-functions.md#availability-zone-migration
       - name: Azure HDInsight
         href: reliability-hdinsight.md#availability-zone-migration
       - name: Azure Kubernetes Service
