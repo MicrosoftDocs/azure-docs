@@ -140,6 +140,8 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
     
     1. In the **Peak hours** tab, fill out the following fields:
     
+       | Parameter | Value/Description |
+       |--|--|
        | Start time | Enter a start time for when your usage rate is highest during the day. Make sure the time is in the same time zone you specified for your scaling plan. This time is also the end time for the ramp-up phase. |
        | Load balancing | Select breadth-first or depth-first load balancing. Breadth-first load balancing distributes new user sessions across all available session hosts in the host pool. Depth-first load balancing distributes new sessions to any available session host with the highest number of connections that hasn't reached its session limit yet. <br /><br />For more information about load-balancing types, see [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md). |
     
