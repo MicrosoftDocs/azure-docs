@@ -30,4 +30,4 @@ To deploy with availability zone support, you must choose a region that supports
 
 ## Next steps
 
-- [Reliability in Azure](/azure/availability-zones/overview)
+- [Reliability in Azure](/azure/reliability/overview)

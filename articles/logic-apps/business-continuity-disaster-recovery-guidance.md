@@ -31,13 +31,13 @@ Each logic app needs to specify the location that you want to use for deployment
 > If your logic app also works with B2B artifacts, such as trading partners, agreements, schemas, maps, and certificates, 
 > which are stored in an integration account, both your integration account and logic apps must use the same location.
 
-If you follow good DevOps practices, you already use [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) to define and deploy your logic apps and their dependent resources. Resource Manager templates give you the capability to use a single deployment definition and then use parameter files to provide the configuration values to use for each deployment destination. This capability means that you can deploy the same logic app to different environments, for example, development, test, and production. You can also deploy the same logic app to different Azure regions, which support disaster recovery strategies that use [paired-regions](../availability-zones/cross-region-replication-azure.md).
+If you follow good DevOps practices, you already use [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) to define and deploy your logic apps and their dependent resources. Resource Manager templates give you the capability to use a single deployment definition and then use parameter files to provide the configuration values to use for each deployment destination. This capability means that you can deploy the same logic app to different environments, for example, development, test, and production. You can also deploy the same logic app to different Azure regions, which support disaster recovery strategies that use [paired-regions](../reliability/cross-region-replication-azure.md).
 
 For the failover strategy, your logic apps and locations must meet these requirements:
 
 * The secondary logic app instance has access to the same apps, services, and systems as the primary logic app instance.
 
-* Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For best practices and more information about paired regions for BCDR, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
+* Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For best practices and more information about paired regions for BCDR, see [Cross-region replication in Azure: Business continuity and disaster recovery](../reliability/cross-region-replication-azure.md).
 
 #### Example: Multitenant Azure
 
@@ -325,7 +325,7 @@ To provide resiliency and distributed availability, at least three separate avai
 Currently, this capability is preview and available for new Consumption logic apps in specific regions. For more information, see the following documentation:
 
 * [Protect Consumption logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md)
-* [Azure regions and availability zones](../availability-zones/az-overview.md)
+* [Azure regions and availability zones](../reliability/availability-zones-overview.md)
 
 <a name="collect-diagnostic-data"></a>
 
