@@ -91,7 +91,20 @@ These cipher suites are currently still supported by DPS but will be depreciated
 
 When DPS enrollments are configured for X.509 authentication, mutual TLS (mTLS) is supported by DPS.
 
-## Certificate pinning
+## Server TLS certificate
+
+During a TLS handshake, DPS presents RSA-keyed server certificates to connecting clients. All DPS instances in the global Azure cloud use the TLS certificate issued by the DigiCert Global Root G2. The [device SDKs](./iot-hub-devguide-sdks.md) include the DigiCert Global Root G2 TLS certificate they currently need to establish a secure connection to DPS and IoT Hub.
+
+We also recommend adding the Microsoft RSA Root Certificate Authority 2017 certificates to your devices to prevent disruptions in case the DigiCert Global Root G2 is retired unexpectedly. Although root CA migrations are rare, for resilience in the modern security landscape you should prepare your IoT scenario for the unlikely event that a root CA is compromised or an emergency root CA migration is necessary.
+
+We strongly recommend that all devices trust the following root CAs:
+
+* DigiCert Global G2 root CA
+* Microsoft RSA root CA 2017
+
+For links to download these certificates, see [Azure Certificate Authority details](../security/fundamentals/azure-CA-details.md).
+
+### Certificate pinning
 
 [Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates (aka leaf certificates) and intermediate certificates associated with DPS endpoints is strongly discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
 

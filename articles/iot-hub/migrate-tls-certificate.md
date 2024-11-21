@@ -7,7 +7,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 01/16/2024
+ms.date: 11/21/2024
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -23,19 +23,7 @@ You should start planning now for the effects of migrating your IoT hubs to the 
 
 ## Timeline
 
-The IoT Hub migration is complete except for hubs that have already been approved for an extension. If your IoT hub is found to be using the Baltimore certificate without an agreement in place with the product team, your hub will be migrated without any further notice.
-
-After all IoT hubs have migrated, DPS will perform its migration between January 15 and September 30, 2024.
-
-For each IoT hub with an extension agreement in place, you can expect the following:
-
-* **One to two weeks before migration**: The subscription owners of each IoT hub receive an email notification informing them of their migration date. This notification doesn't apply to hubs that are manually migrated.
-* **Day of the migration**: The IoT hub switches its TLS certificate to the DigiCert Global Root G2, which results in no downtime for the IoT hub. IoT Hub doesn't force device reconnections.
-* **Following the migration**: The subscription owners receive a notification confirming that the IoT hub was migrated. Devices attempt to reconnect based on their individual retry logic, at which point they request and receive the new server certificate from IoT Hub and reconnect only if they trust the Digicert Global Root G2.
-
-### Request an extension
-
-As of August 2023 the extension request process is closed for IoT Hub and IoT Central. If your IoT hub is found to be using the Baltimore certificate without an extension agreement in place with the product team, your hub will be migrated without any further notice.
+As of September 30, 2024, the migration is complete for all IoT Hub, IoT Central, and Device Provisioning Service resources.
 
 ## Required steps
 
@@ -52,30 +40,6 @@ To prepare for the migration, take the following steps:
    IoT Hub and DPS occasionally roll over their intermediate certificate authority (CA). In these instances, your devices will lose connectivity if they explicitly look for an intermediate CA or leaf certificate. However, devices that perform validation using the public roots will continue to connect regardless of any changes to the intermediate CA.
 
 For more information about how to test whether your devices are ready for the TLS certificate migration, see the blog post [Azure IoT TLS: Critical changes are almost here](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
-
-## Check the migration status of an IoT hub
-
-To know whether an IoT hub has been migrated or not, check the active certificate root for the hub.
-
-# [Azure portal](#tab/portal)
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
-
-1. Select **Export template** in the **Automation** section of the navigation menu.
-
-1. Wait for the template to generate, then navigate to the **resources.properties.features** property in the JSON template. If **RootCertificateV2** is listed as a feature, then your hub has been migrated to DigiCert Global G2.
-
-# [Azure CLI](#tab/cli)
-
-Use the [az iot hub certificate root-authority show](/cli/azure/iot/hub/certificate/root-authority#az-iot-hub-certificate-root-authority-show) command to view the current certificate root-authority for your IoT hub.
-
-```azurecli-interactive
-az iot hub certificate root-authority show --hub-name <iothub_name>
-```
-
-In the Azure CLI, the existing Baltimore CyberTrust Root certificate is referred to as `v1`, and the new DigiCert Global Root G2 certificate is referred to as `v2`. If the certificate root is listed as **v2**, then the IoT hub has been successfully migrated.
-
----
 
 ## Frequently asked questions
 
