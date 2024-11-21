@@ -36,13 +36,11 @@ For Bond level (the top part):
 3. Aggregator ID: 1 - The top level aggregator ID should match both slaves. See each slave port for its aggregator ID.
 4. System MAC address: 42:56:86:9c:81:89 - Is there a System MAC defined. If a bond isn't negotiated this will be undefined or all zeros, e.g 00:00:00:00:00:00
 
-For each slave port:
+For each port:
 
 1. MII Status: up - Is the interface up
-2. Aggregator ID: 1 - Both slaves should have the same aggregator ID
-3. details partner lacp pdu: port state 61 - The value is a bit mask that represents the LACP negotiation state on that port. Generally 61 and 63 are what we want. See: <https://movingpackets.net/2017/10/17/decoding-lacp-port-state/>
->[!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+2. Aggregator ID: 1 - Both replicas should have the same aggregator ID
+3. details partner lacp pdu: port state 61 - The value is a bit mask that represents the LACP negotiation state on that port. Generally 61 and 63 are what we want. [See](https://movingpackets.net/2017/10/17/decoding-lacp-port-state)
 
 ### Fixing the issue
 
