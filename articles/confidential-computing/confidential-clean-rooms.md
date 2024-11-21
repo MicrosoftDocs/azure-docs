@@ -14,8 +14,8 @@ ms.author: mathapli
 > [!NOTE]
 > Azure Confidential Clean Rooms is currently in Gated Preview. Please fill the form at https://aka.ms/ACCRPreview and we will reach out to you with next steps.
 
-Azure Confidential Clean Rooms, aka ACCR, offers a secure and compliant environment that helps organizations overcome the challenges of using privacy-sensitive data for AI model development, inferencing, and data analytics. Built on top of [Confidential containers or C-ACI](../confidential-computing/confidential-containers.md), this service secures the data and the model from exfiltration outside the clean room boundary.
-Organizations can safely collaborate and analyze sensitive data, within the sandbox, without violating compliance standards or risking data breaches by using advanced privacy-enhancing technologies like secure governance & audit, secure collaboration (TEE), verifiable trust, differential privacy, and controlled access.
+Azure Confidential Clean Rooms, aka ACCR, offers a secure and compliant environment that helps organizations overcome the challenges of using privacy-sensitive data for data analytics, AI model development and inferencing. Built on top of [Confidential containers or C-ACI](../confidential-computing/confidential-containers.md), the ACCR secures the data and the model from exfiltration outside the clean room boundary.
+Organizations can safely collaborate and analyze sensitive data within the sandbox, without violating compliance standards or risking data breaches by using advanced privacy-enhancing technologies like secure governance & audit, secure collaboration (TEE), verifiable trust, differential privacy, and controlled access.
 
 ## Who should use Azure Confidential Clean Rooms?
 Azure Confidential Clean Rooms could be a great choice for you if you have these scenarios: 
@@ -59,13 +59,15 @@ ACCR is currently in Gated Preview. To express your interest in joining the gate
 - For further questions on onboarding reach out to  CleanRoomPMTeam@microsoft.com.
 - After reviewing details, we'll reach out to you with detailed steps for onboarding.
 
+## Important References
+
+- [CleanRoom Getting started samples](https://github.com/Azure-Samples/azure-cleanroom-samples)
+- [Confidential Clean Room sidecars repository](https://github.com/Azure/azure-cleanroom/)
+
 ## Frequently asked questions
 
-- Question: Where is the location Microsoft published side cars?
-  Answer: The Microsoft published side cars are available at: mcr.microsoft.com/cleanroom. The code repository for the sidecars is present [here](https://github.com/Azure/azure-cleanroom/).
-
-- Question: Is there a sampleclean room application to try out?
-  Answer: You can find the clean room sample application [here](https://github.com/Azure-Samples/azure-cleanroom-samples). Please feel free to try out the sample after signing up for the Preview and receiving our response. 
+- Question: Where are the sidecars container images of Clean Room published at ?
+  Answer: The sidecar container images are published at mcr.microsoft.com/cleanroom.
 
 - Question: Can more than two collaborators participate in a collaboration?
   Answer: Yes, more than two collaborators can become part of collaboration. This allows multiple data providers to share data in the clean room.

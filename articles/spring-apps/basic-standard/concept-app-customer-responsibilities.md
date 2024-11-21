@@ -14,7 +14,7 @@ ms.date: 08/28/2024
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
 
 This article describes the support policy for Java, Spring Boot, and Spring Cloud versions for all Azure Spring Apps plans, and versions of other SDKs and OS images for the Enterprise plan.
 
