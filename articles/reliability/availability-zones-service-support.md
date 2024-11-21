@@ -53,7 +53,7 @@ The following tables provide a summary of the current offering of zonal, zone-re
 
 ##### Legend
 
-![Legend containing icons and meaning of each with respect to service category and regional availability of each service in the table.](media/legend.png) 
+![Legend containing icons and meaning of each with respect to regional availability of each service in the table.](media/legend.png) 
 
 In the Product Catalog, always-available services are listed as "non-regional" services.
 
