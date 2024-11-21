@@ -5,7 +5,7 @@ author: femila
 ms.service: azure-fxt-edge-filer
 ms.topic: overview
 ms.date: 07/01/2019
-ms.author: femila 
+ms.author: pauljewell 
 ---
 
 # What is Azure FXT Edge Filer hybrid storage cache?
