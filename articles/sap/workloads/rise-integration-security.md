@@ -33,10 +33,10 @@ SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SA
 
 ## Identity and Access Management for SAP RISE
 
-> [!IMPORTANT]
-> SAP [announced retirement](https://community.sap.com/t5/technology-blogs-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101) of SAP Identity and Access Management (SAP IDM) by 2027. [SAP recommends](https://community.sap.com/t5/technology-blogs-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101) to customers to migrate to Microsoft Entra.
+> [!Note]
+> SAP [announced retirement](https://community.sap.com/t5/technology-blogs-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101) of SAP Identity Management (SAP IDM) by 2027. [SAP recommends](https://community.sap.com/t5/technology-blogs-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101) to customers to migrate to Microsoft Entra.
 
-Microsoft Entra ID Governance and built-in integrations with SAP Cloud Identity Service are the ideal fit to handle SAP user lifecycle and their authorizations across both eco-systems.
+[Microsoft Entra ID Governance](/entra/id-governance/identity-governance-overview) and built-in integrations with SAP Cloud Identity Service are an ideal fit to handle SAP user lifecycle and their authorizations across both eco-systems.
 
 Learn more from this [Microsoft Learn article](/entra/id-governance/scenarios/migrate-from-sap-idm) and [this blog post series](https://community.sap.com/t5/technology-blogs-by-members/identity-and-access-management-with-microsoft-entra-part-i-managing-access/ba-p/13873276).
 
