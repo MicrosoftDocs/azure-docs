@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: mvc, devx-track-azurecli, devdivchpfy22
 ms.topic: tutorial
-ms.date: 07/31/2024
+ms.date: 11/19/2024
 ms.author: danlep
 
 ---
@@ -43,7 +43,7 @@ In this tutorial, you learn how to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and go to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs**.
-2. Select **Demo Conference API** from the API list (or another API to which you want to add revisions).
+2. Select *Swagger Petstore** from the API list (or another API to which you want to add revisions).
 3. Select the **Revisions** tab.
 4. Select **+ Add revision**.
 
@@ -61,7 +61,7 @@ In this tutorial, you learn how to:
 
 ## Make nonbreaking changes to your revision
 
-1. Select **Demo Conference API** from the API list.
+1. Select **Swagger Petstore** from the API list.
 1. Select the **Design** tab near the top of the screen.
 1. Notice that the **revision selector** (directly above the design tab) shows **Revision 2** as currently selected.
 
@@ -108,7 +108,7 @@ Use this procedure to create and update a release.
 
    ```azurecli
    az apim api release create --resource-group apim-hello-word-resource-group \
-       --api-id demo-conference-api --api-revision 2 --service-name apim-hello-world \
+       --api-id swagger-petstore --api-revision 2 --service-name apim-hello-world \
        --notes 'Testing revisions. Added new "test" operation.'
    ```
 
@@ -118,7 +118,7 @@ Use this procedure to create and update a release.
 
    ```azurecli
    az apim api release list --resource-group apim-hello-word-resource-group \
-       --api-id echo-api --service-name apim-hello-world --output table
+       --api-id swagger-petstore --service-name apim-hello-world --output table
    ```
 
    The notes you specify appear in the change log. You can see them in the output of the previous command.
@@ -127,7 +127,7 @@ Use this procedure to create and update a release.
 
    ```azurecli
    az apim api release update --resource-group apim-hello-word-resource-group \
-       --api-id demo-conference-api --release-id 00000000000000000000000000000000 \
+       --api-id swagger-petstore --release-id 00000000000000000000000000000000 \
        --service-name apim-hello-world --notes "Revised notes."
    ```
 
@@ -137,7 +137,7 @@ You can remove any release by running the [az apim api release delete ](/cli/azu
 
 ```azurecli
 az apim api release delete --resource-group apim-hello-word-resource-group \
-    --api-id demo-conference-api --release-id 00000000000000000000000000000000 
+    --api-id swagger-petstore --release-id 00000000000000000000000000000000 
     --service-name apim-hello-world
 ```
 
@@ -150,7 +150,7 @@ If you've tried the [developer portal](api-management-howto-developer-portal-cus
 1. In the Azure portal, navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs**.
 1. Select **Developer portal** from the top menu.
-1. In the developer portal, select **APIs**, and then select **Demo Conference API**.
+1. In the developer portal, select **APIs**, and then select **Swagger Petstore**.
 1. Notice your new **test** operation is now available.
 1. Select **Changelog** near the API name.
 1. Notice that your change log entry appears in the list.
@@ -158,9 +158,9 @@ If you've tried the [developer portal](api-management-howto-developer-portal-cus
 
 ## Access an API revision
 
-Each revision to your API can be accessed using a specially formed URL. Add `;rev={revisionNumber}` at the end of your API URL path, but before the query string, to access a specific revision of that API. For example, you might use this URL to access revision 2 of the Demo Conference API:
+Each revision to your API can be accessed using a specially formed URL. Add `;rev={revisionNumber}` at the end of your API URL path, but before the query string, to access a specific revision of that API. For example, you might use a URL similar to the following to access revision 2 of the Demo Conference API:
 
-`https://apim-hello-world.azure-api.net/conf;rev=2/speakers`
+`https://apim-hello-world.azure-api.net/petstore;rev=2/speakers`
 
 You can find the URL paths for your API's revisions on the **Revisions** tab in the Azure portal.
 
