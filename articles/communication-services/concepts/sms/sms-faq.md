@@ -261,6 +261,7 @@ New limits are as follows:
 |Weekly limit| Verified| No Limit| No Limit|
 |Monthly Limit| Verified| No Limit| No Limit|
 
+The SMS rate limits are still applicable in addition to these limits. Please reference [rate limits](#are-there-any-limits-on-sending-messages).
 
 > [!IMPORTANT]
 > Unverified SMS traffic that exceeds the daily limit or is filtered for spam has a [4010 error code](../troubleshooting-codes.md) returned for both scenarios.
