@@ -1,19 +1,19 @@
 ---
-title: Connect Microsoft Power Platform to Microsoft Sentinel
-description: Learn how to deploy the Microsoft Sentinel solution for Business Applications with Microsoft Power Platform.
+title: Connect Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement to Microsoft Sentinel
+description: Learn how to deploy the Microsoft Sentinel solution for Business Applications with Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement to Microsoft Sentinel
 author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 11/14/2024
 
 
-#Customer intent: As a security administrator, I want to deploy a monitoring solution for Microsoft Power Platform so that I can detect and respond to threats and suspicious activities in real-time.
+#Customer intent: As a security administrator, I want to deploy a monitoring solution for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement so that I can detect and respond to threats and suspicious activities in real-time.
 
 ---
 
-# Connect Microsoft Power Platform and Dynamics 365 CRM to Microsoft Sentinel
+# Connect Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement to Microsoft Sentinel
 
-This article describes how to deploy the [Microsoft Sentinel solution for Microsoft Business Apps](../business-applications/solution-overview.md) to connect your Microsoft Power Platform and Dynamics 365 CRM system to Microsoft Sentinel. The solution collects audit and activity logs to detect threats, suspicious activities, illegitimate activities, and more.
+This article describes how to deploy the [Microsoft Sentinel solution for Microsoft Business Apps](../business-applications/solution-overview.md) to connect your Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement system to Microsoft Sentinel. The solution collects audit and activity logs to detect threats, suspicious activities, illegitimate activities, and more.
 
 > [!IMPORTANT]
 >
@@ -30,7 +30,7 @@ Before deploying the Microsoft Sentinel solution for Microsoft Business Apps, en
 
   - [Data Collection Rules/Endpoints](/azure/azure-monitor/essentials/data-collection-rule-overview), with the `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`
     
-- Your organization must use Dynamics 365 CRM and/or one or more of the Power Platform workloads.
+- Your organization must use Dynamics 365 Customer Engagement and/or one or more of the Power Platform workloads.
 
 - Audit logging must also enabled in Microsoft Purview. For more information, see [Turn auditing on or off for Microsoft Purview](/microsoft-365/compliance/audit-log-enable-disable)
 
@@ -104,4 +104,4 @@ The following table lists the Log Analytics tables to query.
 
 - [What is the Microsoft Sentinel solution for Microsoft Business Apps?](solution-overview.md)
 
-- [Security content reference for Microsoft Power Platform](power-platform-solution-security-content.md)
+- [Security content reference for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement](power-platform-solution-security-content.md)

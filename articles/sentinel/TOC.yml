@@ -220,10 +220,10 @@
       - name: Overview
         href: business-applications/solution-overview.md
         displayName: business applications
-      - name: Deploy for Power Platform
+      - name: Deploy for Power Platform and Microsoft Dynamics 365 Customer Engagement
         href: business-applications/deploy-power-platform-solution.md
         displayName: business applications
-      - name: Power Platform security content reference
+      - name: Power Platform and Microsoft Dynamics 365 Customer Engagement security content reference
         href: business-applications/power-platform-solution-security-content.md
       - name: Deploy for Dynamics 365 Finance and Operations
         href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md

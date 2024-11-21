@@ -1,5 +1,5 @@
 ---
-title: Security content reference for Microsoft Power Platform
+title: Security content reference for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement and Microsoft Dynamics 365 Customer Engagement
 description: Learn about the built-in security content provided by the Microsoft Sentinel solution for Power Platform.
 author: batamig
 ms.author: bagol
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 11/14/2024
 
 
-#Customer intent: As a security analyst, I want to understand Microsoft Sentinel's built-in analytics rules and parsers for Microsoft Power Platform so that I can detect and respond to potential security threats effectively.
+#Customer intent: As a security analyst, I want to understand Microsoft Sentinel's built-in analytics rules and parsers for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement so that I can detect and respond to potential security threats effectively.
 
 ---
 
-# Security content reference for Microsoft Power Platform and Dynamics 365 CRM
+# Security content reference for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement
 
-This article details the security content available for the Microsoft Sentinel solution for Power Platform. For more information about this solution, see [Microsoft Sentinel solution for Microsoft Power Platform overview](power-platform-solution-overview.md).
+This article details the security content available for the Microsoft Sentinel solution for Power Platform. For more information about this solution, see [Microsoft Sentinel solution for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement overview](power-platform-solution-overview.md).
 
 > [!IMPORTANT]
 >
@@ -25,7 +25,7 @@ This article details the security content available for the Microsoft Sentinel s
 
 The following analytic rules are included when you install the solution for Power Platform. The data sources listed include the data connector name and table in Log Analytics.
 
-### Dataverse rules new
+### Dataverse rules
 <!--why call them new?-->
 |Rule name|Description|Source action|Tactics|
 |---------|---------|---------|---------|
@@ -111,7 +111,7 @@ Sentinel workbooks are customizable, interactive dashboards within Microsoft Sen
 
 |Workbook|Description |
 |--------|------------|
-|`Dynamics 365 Activity`|This workbook presents visual representation of activity in Microsoft Dynamics 365 CRM / Dataverse showing record retrieval stats and anomaly chart|
+|`Dynamics 365 Activity`|This workbook presents visual representation of activity in Microsoft Dynamics 365 Customer Engagement / Dataverse showing record retrieval stats and anomaly chart|
 
 
 
@@ -133,7 +133,7 @@ The solution includes parsers that are used to access data from the raw data tab
    
 |Parser  |Data returned |Table queried|
 |--------|--------------|-------------|
-|`MSBizAppsOrgSettings`|List of available organization wide settings available in Dynamics 365 CRM / Dataverse|n/a|
+|`MSBizAppsOrgSettings`|List of available organization wide settings available in Dynamics 365 Customer Engagement / Dataverse|n/a|
 |`MSBizAppsVIPUsers`|Parser for VIP Users watchlist|`VIPUsers` from watchlist template|
 |`MSBizAppsNetworkAddresses`|Parser for Network addresses watchlist|`NetworkAddresses` from watchlist template|
 |`MSBizAppsTerminatedEmployees`|Parser for Terminated employees watchlist|`TerminatedEmployees` from watchlist template|

@@ -28,16 +28,16 @@ The listed features were released in the last three months. For information abou
 
 ### Unified Microsoft Sentinel solution for Microsoft Business Apps
 
-Microsoft Sentinel now provides a unified solution for both Microsoft Power Platform and Dynamics 365 Business Applications, including data connectors and security content for both platforms. This update adds new analytics rules for <!--TBD - what security content are we *adding* here?-->.
+Microsoft Sentinel now provides a unified solution for Microsoft Power Platform, Microsoft Dynamics 365 Customer Engagement, and Microsoft Dynamics 365 Finance and Operations. The solution includes data connectors and security content for all platforms.
 
-The update also removes the Power Platform Inventory data connector while we <!--how to explain this?-->. While customers who are already using the Power Platform Inventory data connector can continue to use it, it won't be available to install or deploy for new customers. <!--what happens if they don't update to the new solution - they'd still have the data connector, right?-->
+The updated solution removes the Power Platform Inventory data connector while we work on stability improvements. While customers who are already using the Power Platform Inventory data connector can continue to use it, it won't be available to install or deploy for new customers. <!--what happens if they don't update to the new solution - they'd still have the data connector, right?-->
 
 For more information, see:
 
 - [What is the Microsoft Sentinel solution for Microsoft Business Apps?](business-applications/solution-overview.md)
 - [Deploy the Microsoft Sentinel solution for Microsoft Business Apps](business-applications/deploy-business-applications-solution.md)
-- [Security content reference for Dynamics 365 Finance and Operations](dynamics-365/dynamics-365-finance-operations-security-content.md)
-- [Security content reference for Microsoft Power Platform](business-applications/power-platform-solution-security-content.md)
+- [Security content reference for Microsoft Dynamics 365 Finance and Operations](dynamics-365/dynamics-365-finance-operations-security-content.md)
+- [Security content reference for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement](business-applications/power-platform-solution-security-content.md)
 
 ### Microsoft Sentinel availability in Microsoft Defender portal
 
