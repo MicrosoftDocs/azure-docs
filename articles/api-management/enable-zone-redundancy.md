@@ -49,7 +49,7 @@ To enable zone-redundancy on an existing location of an API Management instance 
 
 1. Select **Apply**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows selections for migrating an existing location of API Management instance that's not injected in a virtual network." source ="media/migrate-api-mgt/option-one-not-injected-in-vnet.png":::
+:::image type="content" alt-text="Screenshot that shows selections for migrating an existing location of API Management instance that's not injected in a virtual network." source ="media/enable-zone-redundancy/option-one-not-injected-in-vnet.png":::
 
 ## Existing gateway location (stv1 platform) injected in a virtual network
 
@@ -76,7 +76,7 @@ Enabling availability zones automatically enables the instance to the `stv2` com
 
 1. Select **Apply**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows selections for migrating an existing location of an API Management instance that's injected in a virtual network." source ="media/migrate-api-mgt/option-two-injected-in-vnet.png":::
+:::image type="content" alt-text="Screenshot that shows selections for migrating an existing location of an API Management instance that's injected in a virtual network." source ="media/enable-zone-redundancy/option-two-injected-in-vnet.png":::
 
 ## Existing gateway location (stv2 platform) injected in a virtual network
 
@@ -100,7 +100,7 @@ To enable zone redundancy for an existing location of your API Management instan
 
 1. Select **Apply**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows selections to enable existing location of API Management instance (stv2 platform) that's injected in a virtual network." source ="media/enable-api-mgt/option-three-stv2-injected-in-vnet.png":::
+:::image type="content" alt-text="Screenshot that shows selections to enable existing location of API Management instance (stv2 platform) that's injected in a virtual network." source ="media/enable-zone-redundancy/option-three-stv2-injected-in-vnet.png":::
 
 ## New gateway location
 
@@ -124,7 +124,7 @@ To add a new location to your API Management instance and enable zone redundancy
 
 1. Select **Add**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows selections for adding a new location for an API Management instance with or without a virtual network." source ="media/migrate-api-mgt/option-four-add-new-location.png":::
+:::image type="content" alt-text="Screenshot that shows selections for adding a new location for an API Management instance with or without a virtual network." source ="media/enable-zone-redundancy/option-four-add-new-location.png":::
 
 ## Related content
 
