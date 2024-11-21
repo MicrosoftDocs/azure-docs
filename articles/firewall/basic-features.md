@@ -41,7 +41,7 @@ Azure Firewall can be configured during deployment to span multiple Availability
 
 There's no extra cost for a firewall deployed in more than one Availability Zone. However, there are added costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../reliability/availability-zones-service-support.md).
+Azure Firewall Availability Zones are available in regions that support availability zones. For more information, see [Regions with availability zone support](../reliability/availability-zones-region-support.md).
 
 ## Application FQDN filtering rules
 

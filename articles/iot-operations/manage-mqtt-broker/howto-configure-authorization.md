@@ -323,7 +323,7 @@ Clients that use [X.509 certificates for authentication](./howto-configure-authe
 
 ### Using attributes
 
-To create rules based on properties from a client's certificate, its root CA, or intermediate CA, define the X.509 attributes in the *BrokerAuthorization* resource. For more information, see [Certificate attributes](howto-configure-authentication.md#certificate-attributes-for-authorization).
+To create rules based on properties from a client's certificate, its root CA, or intermediate CA, define the X.509 attributes in the *BrokerAuthorization* resource. For more information, see [Certificate attributes](howto-configure-authentication.md#optional-certificate-attributes-for-authorization).
 
 ### With client certificate subject common name as username
 
