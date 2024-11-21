@@ -156,6 +156,8 @@ We recommend using region **East US**, **East US 2**, **North Central US**, **So
   - Adding a new pet
   - Querying the vets' information
 
+  Here is a sample to register a new owner with a pet to the petclinic, you can find the new owner and pet info from the owner page after the AI assistant finished the job.
+
   :::image type="content" source="media/first-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding new item.":::
 
   Note that the capabilities of the AI assistant depend on the model you deploy in Azure OpenAI.
