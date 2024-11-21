@@ -10,7 +10,7 @@ ms.author: cherylmc
 
 ---
 
-# Configure Bastion session recording (Preview)
+# Configure Bastion session recording
 
 This article helps you configure Bastion session recording. [!INCLUDE [Session recording](../../includes/bastion-session-recording-description.md)]
 

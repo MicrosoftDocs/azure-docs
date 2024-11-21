@@ -1,11 +1,11 @@
 ---
 title: Microsoft Azure FXT Edge Filer specifications | Microsoft Docs
 description: Learn about the physical and environmental specifications for Microsoft Azure FXT Edge Filer hardware.
-author: femila
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.author: femila
 ---
 
 # Azure FXT Edge Filer specifications

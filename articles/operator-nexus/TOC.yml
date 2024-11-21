@@ -15,6 +15,8 @@
       href: concepts-storage.md
     - name: Cluster deployment
       href: concepts-cluster-deployment-overview.md
+    - name: Cluster Runtime upgrade
+      href: concepts-cluster-upgrade-overview.md
     - name: Network Fabric
       expanded: false
       items:
@@ -147,7 +149,7 @@
                 - name: Cluster Upgrades
                   href: howto-cluster-runtime-upgrade.md
                 - name: Cluster Upgrades With PauseRack Startegy
-                  href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md  
+                  href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md
                 - name: Credential Rotation
                   href: howto-credential-rotation.md
                 - name: Credential Manager Key Vault
@@ -273,6 +275,8 @@
           href: howto-use-mde-runtime-protection.md
         - name: Configure Network Access Control Lists for SSH Access on Management VPN
           href: howto-configure-acls-for-ssh-management-on-access-vpn.md
+        - name: Enable/Disable Vulnerability Scanning
+          href: howto-enable-disable-vulnerability-scanning.md
         - name: Service Principal Best Practices
           href: howto-service-principal.md
           expanded: false
@@ -310,8 +314,13 @@
     - name: Tenant Workload
       expanded: false
       items:
-        - name: Troubleshoot Nexus Kubernetes Cluster pods
-          href: troubleshoot-nexus-kubernetes-cluster-pods.md
+        - name: Troubleshoot PersistentVolumeClaims
+          expanded: false
+          items:
+            - name: Gather trace IDs for PersistentVolumeClaim failures
+              href: howto-gather-pvc-trace-id.md
+            - name: Troubleshoot Nexus Kubernetes Cluster pods stuck in ContainerCreating
+              href: troubleshoot-nexus-kubernetes-cluster-pods.md
         - name: Troubleshoot Resolve CSN storage pod stuck in ContainerCreating
           href: troubleshoot-csn-storage-pod-container-stuck-in-creating.md
         - name: Troubleshoot Internet host virtual machine

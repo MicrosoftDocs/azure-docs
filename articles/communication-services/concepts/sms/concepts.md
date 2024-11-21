@@ -49,7 +49,6 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 |**Supported Destinations**| United States, Canada, Puerto Rico| United States, Canada, United Kingdom   |  Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland, Portugal, Spain, Sweden, Switzerland | Australia, Czech Republic, Finland, Italy, Norway, Slovakia, Slovenia, United Kingdom| United States |
 |**Get started**|[Get a toll-free number](../../quickstarts/telephony/get-phone-number.md)|[Get a short code](../../quickstarts/sms/apply-for-short-code.md) | [Enable dynamic alphanumeric sender ID](../../quickstarts/sms/enable-alphanumeric-sender-id.md#enable-dynamic-alphanumeric-sender-id) |[Enable preregistered alphanumeric sender ID](../../quickstarts/sms/enable-alphanumeric-sender-id.md#enable-preregistered-alphanumeric-sender-id) | TBD |
 
-
 \* See [Alphanumeric sender ID FAQ](./sms-faq.md#alphanumeric-sender-id) for detailed formatting requirements.
 > [!IMPORTANT]
 > Effective **April 19, 2024**, All UK alpha sender IDs now require a [registration application](../../quickstarts/sms/enable-alphanumeric-sender-id.md#enable-preregistered-alphanumeric-sender-id) approval.

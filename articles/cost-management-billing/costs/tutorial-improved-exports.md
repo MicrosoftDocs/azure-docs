@@ -213,6 +213,26 @@ You can retrieve up to 13 months of historical data through the portal UI for al
     
   - EA: Up to 25 months (starting from December 2022).
     
+#### Which datasets support Parquet format and compression?
+
+The following table captures the supported formats and compression formats for each of the exported datasets. If you are creating an export with multiple datasets, Parquet & compression options will only appear in the dropdown if all of the selected datasets support them. 
+
+|Dataset|Format supported|Compression supported|
+| -------- | -------- | -------- |
+|Cost and usage details (Actual)|CSV|None, Gzip|
+||Parquet|None, Snappy|
+|Cost and usage details (Amortized)|CSV|None, Gzip|
+||Parquet|None, Snappy|
+|Cost and usage details (Usage only)|CSV|None, Gzip|
+||Parquet|None, Snappy|
+|Cost and usage details (FOCUS)|CSV|None, Gzip|
+||Parquet|None, Snappy|
+|Reservation details|CSV|None|
+|Reservation recommendations|CSV|None|
+|Reservation transactions|CSV|None|
+|Price Sheet|CSV|None, Gzip|
+||Parquet|None, Snappy|
+
 #### Why do I get the 'Unauthorized' error while trying to create an Export? 
 
 When attempting to create an Export to a storage account with a firewall, the user must have the Owner role or a custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions. If these permissions are missing, you will encounter an error like:
@@ -228,6 +248,16 @@ When attempting to create an Export to a storage account with a firewall, the us
 ```
 
 You can check for the permissions on the storage account by referring to the steps in [Check access for a user to a single Azure resource](../../role-based-access-control/check-access.md). 
+
+#### What is the maximum number of subscriptions allowed within a management group (MG) when creating an export? 
+
+The maximum limit is **3000 subscriptions** per management group in Cost Management, including exports. 
+
+To manage more than 3000 subscriptions: 
+
+- Organize them into smaller management groups. For example, if you have a total of 12,500 subscriptions, create 5 management groups with approximately 2,500 subscriptions each. Create separate exports for each management group scope and combine the exported data for a complete view. 
+
+- Alternatively, if all subscriptions are under the same billing account, create an export at the **billing account scope** to get combined data.
 
 ## Next steps
 

@@ -28,10 +28,7 @@ This Document lists steps that must be followed to set up connectivity between V
    
    :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/etc-host-output.png" alt-text="Screenshot showing host file output." border="true":::
    
-1. Remove the `headnodehost` string entries from the file. For example, the above image has `headnodehost` entry for the ip 10.0.0.16. After removal, it will be as
-
-   :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/modified-etc-hosts-output.png" alt-text="Screenshot showing modified host file output." border="true":::
-
+1. Remove the `headnodehost` string entries from the file. For example, the above image has `headnodehost` entry for the ip 10.0.0.16. 
 1. After these entries are made, try to reach the Kafka Ambari dashboard using the curl command using the hn0 or hn1 FQDN as
    
    From Linux VM

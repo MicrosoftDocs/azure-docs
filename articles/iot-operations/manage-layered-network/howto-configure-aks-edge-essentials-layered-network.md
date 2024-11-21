@@ -1,30 +1,28 @@
 ---
-title: Configure Layered Network Management to use Azure IoT Operations in an isolated network
-description: Configure Azure IoT Layered Network Management service to enable Azure IoT Operations in an isolated network.
+title: Configure Layered Network Management (preview) to use Azure IoT Operations in an isolated network
+description: Configure Azure IoT Layered Network Management (preview) service to enable Azure IoT Operations in an isolated network.
 author: PatAltimore
 ms.subservice: layered-network-management
 ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/02/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want to Azure Arc enable AKS Edge Essentials clusters using Layered Network Management so that I have secure isolate devices.
 ms.service: azure-iot-operations
 ---
 
-# Configure Layered Network Management Preview to use Azure IoT Operations Preview in an isolated network
+# Configure Layered Network Management (preview) to use Azure IoT Operations in an isolated network
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-This walkthrough is an example of deploying Azure IoT Operations Preview to a special environment that's different than the default [Azure IoT Operations scenario](../get-started-end-to-end-sample/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are additional configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management Preview service.
+This walkthrough is an example of deploying Azure IoT Operations to a special environment that's different than the default [Azure IoT Operations scenario](../get-started-end-to-end-sample/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are additional configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management (preview) service.
 
 >[!IMPORTANT]
-> This is an advanced scenario for Azure IoT Operations. You should complete the following quickstarts to get familiar with the basic concepts before you start this advanced scenario.
+> This is an advanced scenario for Azure IoT Operations. You should complete the following steps to get familiar with the basic concepts before you start this advanced scenario.
 > - [Deploy Azure IoT Layered Network Management to an AKS cluster](howto-deploy-aks-layered-network.md)
-> - [Deployment overview - Azure IoT Operations Preview](../deploy-iot-ops/overview-deploy.md)
-> - [Prepare your Kubernetes cluster - Azure IoT Operations Preview](../deploy-iot-ops/howto-prepare-cluster.md)
-> - [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster - Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
+> - [Deployment overview - Azure IoT Operations](../deploy-iot-ops/overview-deploy.md)
+> - [Prepare your Kubernetes cluster - Azure IoT Operations](../deploy-iot-ops/howto-prepare-cluster.md)
+> - [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster - Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
 >
 > You can't migrate a previously deployed Azure IoT Operations from its original network to an isolated network. For this scenario, follow the steps to begin with creating new clusters.
 
@@ -39,7 +37,7 @@ For more information, see [Example of logical segmentation with minimum hardware
 ![Diagram of a logical isolated network configuration.](./media/howto-configure-layered-network/logical-network-segmentation.png)
 
 
-### Configure level 4 Kubernetes cluster and Layered Network Management Preview
+### Configure level 4 Kubernetes cluster and Layered Network Management
 
 After you configure the network, you need to configure the level 4 Kubernetes cluster. Complete the steps in [Configure IoT Layered Network Management level 4 cluster](./howto-configure-l4-cluster-layered-network.md). In the article, you:
 
@@ -86,18 +84,17 @@ Once the Azure Arc enablement of the level 3 cluster is complete, go to your res
 
 For more information, see [Access Kubernetes resources from Azure portal](/azure/azure-arc/kubernetes/kubernetes-resource-view).
 
-## Deploy Azure IoT Operations Preview
+## Deploy Azure IoT Operations
 
 Once your level 3 cluster is Arc-enabled, you can deploy IoT Operations to the cluster. All IoT Operations components are deployed to the level 3 cluster and connect to Arc through the Layered Network Management service. The data pipeline also routes through the Layered Network Management service.
 
-You can now follow the steps in [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy IoT Operations to the level 3 cluster.
+You can now follow the steps in [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy IoT Operations to the level 3 cluster.
 
 ![Network diagram that shows IoT Operations running on a level 3 cluster.](./media/howto-configure-layered-network/logical-network-segmentation-2.png)
-
 
 ## Next steps
 
 Once IoT Operations is deployed, you can try the following tutorials. The Azure IoT Operations in your level 3 cluster works as described in the tutorials.
 
-- [Tutorial: Add OPC UA assets to your Azure IoT Operations Preview cluster](../end-to-end-tutorials/tutorial-add-assets.md)
+- [Tutorial: Add OPC UA assets to your Azure IoT Operations cluster](../end-to-end-tutorials/tutorial-add-assets.md)
 - [Tutorial: Send asset telemetry to the cloud using the data lake connector for MQTT broker](../end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md)
