@@ -1,7 +1,7 @@
 ---
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
-ms.date: 11/19/2024
+ms.date: 11/21/2024
 ms.topic: conceptual
 ---
 
@@ -69,7 +69,7 @@ Batch management operations via Azure Resource Manager are encrypted using HTTPS
 
 ### Batch pool compute nodes
 
-The Batch service communicates with a Batch node agent that runs on each node in the pool. For example, the service instructs the node agent to run a task, stop a task, or get the files for a task. Communication with the node agent is enabled by one or more load balancers, the number of which depends on the number of nodes in a pool. The load balancer forwards the communication to the desired node, with each node being addressed by a unique port number. By default, load balancers have public IP addresses associated with them. You can also remotely access pool nodes via RDP or SSH, see [Configure remote access to compute nodes in an Azure Batch pool](pool-endpoint-configuration).
+The Batch service communicates with a Batch node agent that runs on each node in the pool. For example, the service instructs the node agent to run a task, stop a task, or get the files for a task. Communication with the node agent is enabled by one or more load balancers, the number of which depends on the number of nodes in a pool. The load balancer forwards the communication to the desired node, with each node being addressed by a unique port number. By default, load balancers have public IP addresses associated with them. You can also remotely access pool nodes via RDP or SSH, see [Configure remote access to compute nodes in an Azure Batch pool](pool-endpoint-configuration.md).
 
 #### Batch compute node OS
 
