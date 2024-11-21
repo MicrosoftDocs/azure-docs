@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to troubleshoot Spring Cloud Gateway for VMware Tanzu with the Azure Spring Apps Enterprise plan. To learn more about VMware Spring Cloud Gateway, see [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
 

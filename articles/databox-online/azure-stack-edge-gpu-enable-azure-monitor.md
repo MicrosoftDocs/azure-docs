@@ -131,7 +131,7 @@ Take the following steps to enable Container Insights on your workspace.
         "contentVersion": "1.0.0.0",
         "parameters": {
         "workspaceResourceId": {
-            "value": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/myaserg/providers/microsoft.operationalinsights/workspaces/myaseloganalyticsws"
+            "value": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myaserg/providers/microsoft.operationalinsights/workspaces/myaseloganalyticsws"
         },
         "workspaceRegion": {
         "value": "westus"
@@ -149,18 +149,18 @@ Take the following steps to enable Container Insights on your workspace.
     VERBOSE: Authenticating to Azure ...
     VERBOSE: Building your Azure drive ...
     
-    PS /home/myaccount> az account set -s fa68082f-8ff7-4a25-95c7-ce9da541242f
+    PS /home/myaccount> az account set -s aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     PS /home/myaccount> ls
     clouddrive  containerSolution.json
     PS /home/myaccount> ls
     clouddrive  containerSolution.json  containerSolutionParams.json
     PS /home/myaccount> az deployment group create --resource-group myaserg --name Testdeployment1 --template-file containerSolution.json --parameters containerSolutionParams.json
     {- Finished ..
-        "id": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/myaserg/providers/Microsoft.Resources/deployments/Testdeployment1",
+        "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myaserg/providers/Microsoft.Resources/deployments/Testdeployment1",
         "location": null,
         "name": "Testdeployment1",
         "properties": {
-        "correlationId": "3a9045fe-2de0-428c-b17b-057508a8c575",
+        "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
         "debugSetting": null,
         "dependencies": [],
         "duration": "PT11.1588316S",
@@ -169,7 +169,7 @@ Take the following steps to enable Container Insights on your workspace.
         "onErrorDeployment": null,
         "outputResources": [
             {
-            "id": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/myaserg/providers/Microsoft.OperationsManagement/solutions/ContainerInsights(myaseloganalyticsws)",
+            "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myaserg/providers/Microsoft.OperationsManagement/solutions/ContainerInsights(myaseloganalyticsws)",
             "resourceGroup": "myaserg"
             }
         ],
@@ -181,7 +181,7 @@ Take the following steps to enable Container Insights on your workspace.
             },
             "workspaceResourceId": {
             "type": "String",
-            "value": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/myaserg/providers/microsoft.operationalinsights/workspaces/myaseloganalyticsws"
+            "value": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myaserg/providers/microsoft.operationalinsights/workspaces/myaseloganalyticsws"
             }
         },
         "parametersLink": null,

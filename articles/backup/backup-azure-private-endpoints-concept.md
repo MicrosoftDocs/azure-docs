@@ -141,7 +141,7 @@ The private IP addresses for the FQDNs can be found in **DNS configuration** pan
 
 The following diagram shows how the resolution works when using a private DNS zone to resolve these private service FQDNs.
 
-:::image type="content" source="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns-inline.png" alt-text="Diagram showing how the resolution works using a private DNS zone to resolve modified service FQDNs." lightbox="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns-expanded.png":::
+:::image type="content" source="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns.png" alt-text="Diagram showing how the resolution works using a private DNS zone to resolve modified service FQDNs." lightbox="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns.png":::
 
 The workload extension running on Azure VM requires connection to at least two storage accounts endpoints - the first one is used as communication channel (via queue messages) and second one for storing backup data. The MARS agent requires access to at least one storage account endpoint that is used for storing backup data.
 
@@ -150,7 +150,7 @@ In addition to the Azure Backup cloud services, the workload extension and agent
 
 The following diagram shows how the name resolution works for storage accounts using a private DNS zone.
 
-:::image type="content" source="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-inline.png" alt-text="Diagram showing how the name resolution works for storage accounts using a private DNS zone." lightbox="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-expanded.png":::
+:::image type="content" source="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone.png" alt-text="Diagram showing how the name resolution works for storage accounts using a private DNS zone." lightbox="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone.png":::
 
 The following diagram shows how you can do Cross Region Restore over Private Endpoint by replicating the Private Endpoint in a secondary region. Learn [how to do Cross Region Restore to a private endpoint enabled vault](backup-azure-private-endpoints-configure-manage.md#cross-region-restore-to-a-private-endpoint-enabled-vault).
 

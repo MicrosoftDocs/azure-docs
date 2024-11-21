@@ -13,9 +13,9 @@ ms.custom: passwordless-java, devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 With Azure Spring Apps, you can bind select Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to bind your application to your Azure Database for PostgreSQL instance.
 

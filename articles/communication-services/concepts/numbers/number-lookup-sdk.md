@@ -27,8 +27,8 @@ The following list presents the set of features available in our SDKs.
 | Core capabilities | Get number format | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Get number type   | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Get carrier registered name | ✔️ | ✔️ | ✔️ | ✔️ |
-|                   | Get associated mobile network code, if available (two or three decimal digits used to identify network operator within a country) | ✔️ | ✔️ | ✔️ | ✔️ |
-|                   | Get associated mobile country code, if available (three decimal digits used to identify the country of a mobile operator) | ✔️ | ✔️ | ✔️ | ✔️ |
+|                   | Get associated mobile network code, if available (two or three decimal digits used to identify network operator within a country or region) | ✔️ | ✔️ | ✔️ | ✔️ |
+|                   | Get associated mobile country code, if available (three decimal digits used to identify the country or region of a mobile operator) | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Get associated ISO country code | ✔️ | ✔️ | ✔️ | ✔️ |
 | Phone Number      | All number types in E164 format | ✔️ | ✔️ | ✔️ | ✔️ |
 

@@ -20,7 +20,7 @@ The following example fails the design time validation:
 ```bicep
 param inputString string
 
-output outString string = first(skip(split(input, '/'), 1))
+output outString string = first(skip(split(inputString, '/'), 1))
 ```
 
 The warning message is:
@@ -34,7 +34,7 @@ To solve the problem, use the null-forgiving operator:
 ```bicep
 param inputString string
 
-output outString string = first(skip(split(input, '/'), 1))!
+output outString string = first(skip(split(inputString, '/'), 1))!
 ```
 
 ## Next steps

@@ -19,6 +19,7 @@ ms.custom: references_regions
 
 This guide shows how to enable zone redundancy for your logic apps.
 
+
 ## Prerequisites
 
 - Make sure that you understand zone-redundancy support and considerations in Logic Apps by reading [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
@@ -34,6 +35,7 @@ This guide shows how to enable zone redundancy for your logic apps.
   - [Outbound IP addresses for Azure Logic Apps](logic-apps-limits-and-config.md#outbound)
 
   - [Outbound IP addresses for managed connectors and custom connectors](/connectors/common/outbound-ip-addresses)
+
 
 
 ## Limitations
