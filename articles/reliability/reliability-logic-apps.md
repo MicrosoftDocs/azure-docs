@@ -91,14 +91,14 @@ When you use Logic Apps Standard with an App Service Environment v3, you can opt
 
 ::: zone pivot="consumption"
 
-When you deploy a Consumption logic app in [any region that supports availability zones](./availability-zones-service-support.md#azure-regions-with-availability-zone-support), it's automatically zone redundant.
+When you deploy a Consumption logic app in [any region that supports availability zones](./availability-zones-region-support.md), it's automatically zone redundant.
 <!-- TODO should we mention Japan East as an exception? -->
 
 ::: zone-end
 
 ::: zone pivot="standard-workflow-service-plan"
 
-Zone-redundant workflow service plans can be deployed in [any region that supports availability zones](./availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+Zone-redundant workflow service plans can be deployed in [any region that supports availability zones](./availability-zones-region-support.md).
 
 ::: zone-end
 
