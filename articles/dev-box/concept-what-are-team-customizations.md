@@ -4,9 +4,10 @@ description: Understand how to use Dev Box Team Customizations to create ready-t
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
+ms.custom:
+  - ignite-2024
 ms.topic: concept-article
 ms.date: 11/06/2024
-
 #customer intent: As a Project Admin or Dev Center Admin, I want to understand how to use Dev Box Team Customizations so that I can create efficient, ready-to-code configurations for my development teams.
 ---
 

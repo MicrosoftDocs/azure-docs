@@ -5,8 +5,7 @@ description: Learn about client libraries for Azure Managed Redis.
 ms.service: azure
 ms.topic: conceptual
 ms.date: 11/15/2024
-
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-extended-java, ignite-2024
 ---
 
 # Azure Managed Redis (preview) Client libraries

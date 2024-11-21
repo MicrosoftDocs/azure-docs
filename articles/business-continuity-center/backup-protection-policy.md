@@ -6,6 +6,7 @@ ms.date: 11/15/2023
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
+  - ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

@@ -6,7 +6,7 @@ ms.date: 03/21/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.service: azure-backup
-ms.custom: engagement-fy24
+ms.custom: engagement-fy24, ignite-2024
 ---
 
 # Manage Azure Backup for Azure PostgreSQL - Flexible servers (preview)

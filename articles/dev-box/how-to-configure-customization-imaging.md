@@ -4,9 +4,10 @@ description: Configure dev box pools to use image definition files, optimizing c
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
 ms.date: 11/05/2024
-
 #customer intent: As a dev center administrator or Project Admin, I want to configure dev box pools to use image definition files so that my development teams can create customized dev boxes.
 ---
 
