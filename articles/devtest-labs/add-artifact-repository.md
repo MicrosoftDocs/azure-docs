@@ -223,7 +223,8 @@ The repository now appears in the **Repositories** list for the lab.
    ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 
 The repository now appears in the **Repositories** list for the lab.
---
+
+---
 
 ## Add an artifact repository by using an ARM template
 
