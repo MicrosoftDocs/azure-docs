@@ -16,6 +16,14 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
+### [3.5.0] (CDN: November 4, 2024, npm: November 7)
+
+#### New features
+- Add support for fullscreen control.
+
+#### Bug fixes
+- Expose new type on `PolygonExtrusionLayerOptions.fillPattern` to support `DataDrivenPropertyValueSpecification<string>`.
+
 ### [3.4.0] (CDN: September 30, 2024, npm: October 2)
 
 #### New features
@@ -632,6 +640,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.5.0]: https://www.npmjs.com/package/azure-maps-control/v/3.5.0
 [3.4.0]: https://www.npmjs.com/package/azure-maps-control/v/3.4.0
 [3.3.0]: https://www.npmjs.com/package/azure-maps-control/v/3.3.0
 [3.2.1]: https://www.npmjs.com/package/azure-maps-control/v/3.2.1

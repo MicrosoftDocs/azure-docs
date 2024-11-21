@@ -4,7 +4,7 @@ description: Learn about the benefits of running Azure Functions on a dedicated 
 ms.topic: conceptual
 ms.custom:
   - build-2024
-ms.date: 01/26/2023
+ms.date: 10/16/2024
 ---
 
 # Dedicated hosting plans for Azure Functions
@@ -27,9 +27,12 @@ You pay for function apps in an App Service Plan as you would for other App Serv
 
 ## <a name="always-on"></a> Always On
 
-If you run on an App Service plan, you should enable the **Always on** setting so that your function app runs correctly. On an App Service plan, the functions runtime goes idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions. The **Always on** setting is available only on an App Service plan. On a Consumption plan, the platform activates function apps automatically.
+When you run your app on an App Service plan, you should enable the **Always on** setting so that your function app runs correctly. On an App Service plan, the Functions runtime goes idle after a few minutes of inactivity. The **Always on** setting is available only on an App Service plan. In other plans, the platform activates function apps automatically. If you choose not to enable **Always on**, you can reactivate an idled app in these ways:
 
-Even with Always On enabled, the execution timeout for individual functions is controlled by the `functionTimeout` setting in the [host.json](functions-host-json.md#functiontimeout) project file.
++ Send a request to an HTTP trigger endpoint or any other endpoint on the app. Even a failed request should wake up your app. 
++ Acccess your app in the [Azure portal](https://portal.azure.com). 
+
+Even with **Always on** enabled, the execution timeout for individual functions is controlled by the `functionTimeout` setting in the [host.json](functions-host-json.md#functiontimeout) project file.
 
 ## Scaling
 

@@ -29,7 +29,7 @@ For more information about availability zones, see [Regions and availability zon
 
 ### Prerequisites
 
-For a list of regions that support availability zones, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones). If your Azure DNS Private Resolver is located in one of the regions listed, you don't need to take any other action beyond provisioning the service.
+For a list of regions that support availability zones, see [Azure regions with availability zones](../reliability/availability-zones-region-support.md). If your Azure DNS Private Resolver is located in one of the regions listed, you don't need to take any other action beyond provisioning the service.
 
 #### Enabling availability zones with private resolver
 

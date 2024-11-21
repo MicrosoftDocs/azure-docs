@@ -207,7 +207,7 @@ The following table describes the elements of the request body:
 To specify the POST request, you can use the following Azure REST API call with valid parameters and values. 
 
 ```rest
-PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestAdv2?api-version=2021-09-01-preview
+PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestAdv2?api-version=2021-09-01-preview
 
 {
   "location": "eastus2euap",
@@ -300,11 +300,11 @@ PUT on `<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurati
 To specify the PUT request, you can use the following Azure REST API call with valid parameters and values. 
 
 ```rest
-PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atscalepatching/providers/Microsoft.Compute/virtualMachines/win-atscalepatching-1/providers/Microsoft.Maintenance/configurationAssignments/TestAzureInGuestAdv?api-version=2021-09-01-preview
+PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atscalepatching/providers/Microsoft.Compute/virtualMachines/win-atscalepatching-1/providers/Microsoft.Maintenance/configurationAssignments/TestAzureInGuestAdv?api-version=2021-09-01-preview
 
 {
   "properties": {
-    "maintenanceConfigurationId": "/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourcegroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestIntermediate2"
+    "maintenanceConfigurationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestIntermediate2"
   },
   "location": "eastus2euap"
 }'

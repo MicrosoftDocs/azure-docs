@@ -4,7 +4,7 @@ description: Learn how to import data into a chamber in Azure Modeling and Simul
 author: becha8
 ms.author: becha
 ms.reviewer: becha
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 08/05/2024
 # Customer intent: As a Chamber User in Azure Modeling and Simulation Workbench, I want to import data into my chamber.

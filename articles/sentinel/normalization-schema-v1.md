@@ -46,7 +46,7 @@ The following table provides guidance for normalizing data values, which is requ
 | **User ID** | String | The following 2 user IDs are currently supported:<ul><li>User SID</li><li>Microsoft Entra ID</li></ul> |
 | **Device** | String | The following 3 device/host columns are supported:<ul><li>ID</li><li>Name</li><li>Fully qualified domain name (FQDN)</li></ul> |
 | **Country** | String | A string using ISO 3166-1, according to the following priorities:<ul><li>Alpha-2 codes, such as `US` for the United States</li><li>Alpha-3 codes, such as `USA` for the United States</li><li>Short name</li></ul> |
-| **Region** | String | The country subdivision name using ISO 3166-2 |
+| **Region** | String | The country/region subdivision name using ISO 3166-2 |
 | **City** | String | |
 | **Longitude** | Double | ISO 6709 coordinate representation (signed decimal) |
 | **Latitude** | Double | ISO 6709 coordinate representation (signed decimal) |
@@ -88,7 +88,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **NetworkBytes** | int | 78991 | Number of bytes sent in both directions. If both BytesReceived and BytesSent exist, BytesTotal should equal their sum. | Network |
 | **NetworkDirection** | Multi-value: Inbound, Outbound (string) | Inbound | The direction the connection or session, into or out of the organization. | Network |
 | **DstGeoCity** | String | Burlington | The city associated with the destination IP address | Destination,<br>Geo |
-| **DstGeoCountry** | Country (String) | USA | The country associated with the source IP address | Destination,<br>Geo |
+| **DstGeoCountry** | Country (String) | USA | The country/region associated with the source IP address | Destination,<br>Geo |
 | **DstDvcHostname** | Device name (String) |  victim_pc | The device name of the destination device | Destination<br>Device |
 | **DstDvcFqdn** | String | victim_pc.contoso.local | The fully qualified domain name of the host where the log was created | Destination,<br>Device |
 | **DstDomainHostname** | string | CONTOSO | The domain of the destination, The domain of the destination host (website, domain name, etc.), for example for DNS lookups or NS lookups | Destination |
@@ -127,7 +127,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **NetworkRuleNumber** | int |  23 | Matched rule number  | Network |
 | **NetworkSessionId** | string | 172_12_53_32_4322__123_64_207_1_80 | The session identifier as reported by the reporting device. For example, L7 session Identifier for specific applications following authentication | Network |
 | **SrcGeoCity** | String | Burlington | The city associated with the source IP address | Source,<br>Geo |
-| **SrcGeoCountry** | Country (String) | USA | The country associated with the source IP address | Source,<br>Geo |
+| **SrcGeoCountry** | Country (String) | USA | The country/region associated with the source IP address | Source,<br>Geo |
 | **SrcDvcHostname** | Device name (String) |  villain | The device name of the source device | Source,<br>Device |
 | **SrcDvcFqdn** | string | Villain.malicious.com | The fully qualified domain name of the host where the log was created | Source,<br>Device |
 | **SrcDvcDomain** | string | EVILORG | Domain of the device from which session was initiated | Source,<br>Device |
@@ -144,7 +144,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **SrcMacAddr** | String | 06:10:9f:eb:8f:14 | The MAC address of the network interface from which the connection od session originated. | Source,<br>Mac |
 | **SrcDvcMacAddr** | String | 06:10:9f:eb:8f:14 | The source MAC address of a device that is not directly associated with the network packet. | Source,<br>Device,<br>Mac |
 | **SrcPortNumber** | Integer | 2335 | The IP port from which the connection originated. May not be relevant for a session comprising multiple connections. | Source,<br>Port |
-| **SrcGeoRegion** | Region (String) | Vermont | The region within a country associated with the source IP address | Source,<br>Geo |
+| **SrcGeoRegion** | Region (String) | Vermont | The region within a country/region associated with the source IP address | Source,<br>Geo |
 | **SrcResourceId** | String | /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /syslogserver1 | The resource ID of the device generating the message. | Source |
 | **SrcNatIpAddr** | IP address | 4.3.2.1 | If reported by an intermediary NAT device such as a firewall, the IP address used by the NAT device for communication with the destination. | Source NAT,<br>IP |
 | **SrcNatPortNumber** | Integer | 345 | If reported by an intermediary NAT device such as a firewall, the port used by the NAT device for communication with the destination. | Source NAT,<br>Port |

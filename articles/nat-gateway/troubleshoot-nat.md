@@ -4,7 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Get started using this article to learn how to troubleshoot issues and errors with Azure NAT Gateway.
 services: virtual-network
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: troubleshooting
 ms.date: 02/14/2024
 ms.author: allensu

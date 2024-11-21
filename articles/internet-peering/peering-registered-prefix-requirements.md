@@ -1,12 +1,12 @@
 ---
 title: Peering registered prefix requirements
 titleSuffix: Internet Peering
-description: Learn about the technical requirements to register your prefixes for Azure Peering Service.
+description: Learn about the technical requirements to register your prefixes for Azure Peering Service and how to troubleshoot some possible validation errors.
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
-ms.topic: overview
-ms.date: 07/23/2023
+ms.topic: concept-article
+ms.date: 10/24/2024
 ---
 
 # Peering registered prefix requirements
@@ -29,7 +29,9 @@ The validation state of a peering registered prefix can be seen in the Azure por
 
 :::image type="content" source="./media/peering-registered-prefix-requirements/prefix-validation-failed.png" alt-text="Peering registered prefixes displayed with validation failure messages." lightbox="./media/peering-registered-prefix-requirements/prefix-validation-failed.png":::
 
-Prefixes can only be registered when all validation steps have passed. Listed in this document are possible validation errors, with troubleshooting steps to solve them.
+Prefixes can only be registered after all validation steps pass.
+
+Follow these troubleshooting steps when you have any of the following validation errors:
 
 ### Prefix not received from IP
 
@@ -49,10 +51,10 @@ For registered prefix validation, the AS path of the advertised routes must sati
 
 ### Internal server error
 
-Contact peeringservice@microsoft.com with your Azure subscription and prefix to get help.
+For help with internal server errors, provide your Azure subscription and prefix to mailto:peeringservice@microsoft.com.
 
-## Next steps
+## Related content
 
-* [Internet peering for Peering Service walkthrough](walkthrough-peering-service-all.md).
+* [Internet peering for Peering Service walkthrough](walkthrough-peering-service-all.md)
 * [Internet peering for voice services walkthrough](walkthrough-communications-services-partner.md)
 * [Peering Service customer walkthrough](../peering-service/customer-walkthrough.md)

@@ -6,7 +6,7 @@ ms.author: abell
 ms.service: azure-private-link
 ms.topic: conceptual
 ms.date: 07/10/2024
-ms.custom: template-concept, references_regions
+ms.custom: template-concept, references_regions, ignite-2024
 ---
 
 # Azure Private Link availability
@@ -55,6 +55,7 @@ The following tables list the Private Link services and the regions where they'r
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure Container Registry | All public regions<br/> All Government regions    | Supported with premium tier of container registry. [Select for tiers](/azure/container-registry/container-registry-skus)| GA   <br/> [Learn how to create a private endpoint for Azure Container Registry.](/azure/container-registry/container-registry-private-link)   |
+| Azure Container Apps | All public regions | Supported for workload profile environments for both Consumption and Dedicated plans. | Public Preview <br/> [Learn how to create a private endpoint for Azure Container Apps](/azure/container-apps/how-to-use-private-endpoint) |
 |Azure Kubernetes Service - Kubernetes API | All public regions <br/> All Government regions  |  | GA   <br/> [Learn how to create a private endpoint for Azure Kubernetes Service.](/azure/aks/private-clusters)   |
 
 ### Databases

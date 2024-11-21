@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 10/16/2024
+ms.date: 10/21/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
 ---
@@ -389,7 +389,7 @@ Here's an example format of a version 2 NSG flow log:
 
 ### Log tuple and bandwidth calculation
 
-:::image type="content" source="./media/nsg-flow-logs-overview/tuple.png" alt-text="Screenshot that shows an example of a flow log tuple." lightbox="./media/nsg-flow-logs-overview/tuple.png":::
+:::image type="content" source="./media/nsg-flow-logs-overview/flow-log-format.png" alt-text="Screenshot that shows an example of a flow log tuple." lightbox="./media/nsg-flow-logs-overview/flow-log-format.png":::
 
 Here's an example of bandwidth calculation for flow tuples from a TCP conversation between `203.0.113.105:35370` and `10.0.0.5:443`:
 

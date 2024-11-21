@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 This article shows you how to create a self-signed root certificate and generate client certificates using MakeCert. The steps in this article help you create **.pfx** and **.cer** files. If you're looking for different certificate instructions, see [PowerShell - .pfx and .cer certificate files](vpn-gateway-certificates-point-to-site.md) or [Linux- OpenSSL - .pem certificate files](point-to-site-certificates-linux-openssl.md).
 
-We recommend using the [Windows 10 or later PowerShell steps](vpn-gateway-certificates-point-to-site.md) to create your certificates. We provide these MakeCert instructions as an optional method. The certificates that you generate using either method can be installed on [any supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). MakeCert has the following limitation:
+We recommend using the [Windows 10 or later PowerShell steps](vpn-gateway-certificates-point-to-site.md) to create your certificates. We provide these MakeCert instructions as an optional method. The certificates that you generate using either method can be installed on [any supported client operating system](point-to-site-certificate-gateway.md#faq). MakeCert has the following limitation:
 
 * MakeCert is deprecated. This means that this tool could be removed at any point. Certificates that you already generated using MakeCert won't be affected if MakeCert is no longer available. MakeCert is only used to generate the certificates, not as a validating mechanism.
 
@@ -37,7 +37,7 @@ The following steps show you how to create a self-signed certificate using MakeC
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-The exported.cer file must be uploaded to Azure. For instructions, see [Configure a Point-to-Site connection](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). To add an additional trusted root certificate, see [this section](vpn-gateway-howto-point-to-site-resource-manager-portal.md#add) of the article.
+The exported.cer file must be uploaded to Azure. For instructions, see [Configure a Point-to-Site connection](point-to-site-certificate-gateway.md#uploadfile). To add an additional trusted root certificate, see [this section](point-to-site-certificate-gateway.md#add) of the article.
 
 ### Export the self-signed certificate and private key to store it (optional)
 
@@ -76,7 +76,7 @@ To install a client certificate, see [Install a client certificate](point-to-sit
 
 Continue with your Point-to-Site configuration. 
 
-* For **Resource Manager** deployment model steps, see [Configure P2S using native Azure certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* For **Resource Manager** deployment model steps, see [Configure P2S using native Azure certificate authentication](point-to-site-certificate-gateway.md).
 * For **classic** deployment model steps, see [Configure a Point-to-Site VPN connection to a VNet (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
 For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

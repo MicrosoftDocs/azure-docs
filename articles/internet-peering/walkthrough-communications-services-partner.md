@@ -1,11 +1,11 @@
 ---
 title: Internet peering for Peering Service Voice walkthrough
-description: Learn about Internet peering for Peering Service Voice Services, its requirements, the steps to establish direct interconnect, and how to register and activate a prefix.
+description: Learn about Internet peering for Peering Service Voice Services, its requirements, the steps to establish direct interconnect, and how to register a prefix.
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 08/09/2023
+ms.date: 10/23/2024
 ---
 
 # Internet peering for Peering Service Voice walkthrough
@@ -148,7 +148,7 @@ In the previous section, you registered prefixes and generated prefix keys. Pref
 
     :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-basics.png" alt-text="Screenshot shows the Basics tab of creating a Peering Service connection in the Azure portal.":::
 
-1. In the **Configuration** tab, choose your country, state/province, your provider name, the primary peering location, and optionally the backup peering location. 
+1. In the **Configuration** tab, choose your country/region, state/province, your provider name, the primary peering location, and optionally the backup peering location. 
 
     > [!CAUTION] 
     > If you choose **None** as the provider backup peering location when creating a Peering Service, you will not have geo-redundancy.

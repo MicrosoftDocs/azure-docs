@@ -2,10 +2,10 @@
 title: Download WhatsApp message media
 titleSuffix: An Azure Communication Services Messages quickstart
 description: In this quickstart, you learn how to download the media received in a WhatsApp message with Azure Communication Services Messages.
-author: memontic-ms
+author: Shamkh
 manager: camilo.ramirez
 services: azure-communication-services
-ms.author: memontic
+ms.author: shamkh
 ms.date: 07/24/2024
 ms.topic: quickstart
 ms.service: azure-communication-services

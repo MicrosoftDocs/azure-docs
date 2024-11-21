@@ -3,7 +3,7 @@ title: Metrics and alerts for Azure NAT Gateway
 titleSuffix: Azure NAT Gateway
 description: Get started learning about Azure Monitor metrics and alerts available for monitoring Azure NAT Gateway.
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: how-to
 ms.date: 04/29/2024
 ms.author: allensu

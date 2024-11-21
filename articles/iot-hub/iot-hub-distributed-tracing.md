@@ -37,7 +37,7 @@ When you enable distributed tracing for IoT Hub, you can:
 
 - This article assumes that you're familiar with sending telemetry messages to your IoT hub.
 
-- The latest version of [Git](https://git-scm.com/download/).
+- The latest version of [Git](https://git-scm.com/downloads).
 
 ## Public preview limits and considerations
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, rarayudu, azla
 ms.topic: how-to
-ms.date: 10/15/2024
+ms.date: 11/15/2024
 ---
 
 # Secure access and data for workflows in Azure Logic Apps
@@ -722,7 +722,7 @@ In a Standard workflow that starts with the **Request** trigger (but not a webho
       "puid": "1003000000098FE48CE",
       "scp": "user_impersonation",
       "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
-      "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+      "tid": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
       "unique_name": "SophiaOwen@fabrikam.com",
       "upn": "SophiaOwen@fabrikam.com",
       "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
@@ -805,7 +805,7 @@ To add an authorization policy to your Consumption logic app, follow the steps f
 
    * To add another claim type, select **Add standard claim**, select the claim type, and specify the claim value.
 
-   * To add your own claim, select **Add custom claim**. For more information, review [how to provide optional claims to your app](/entra/identity-platform/optional-claims). Your custom claim is then stored as a part of your JWT ID; for example, `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"`. 
+   * To add your own claim, select **Add custom claim**. For more information, review [how to provide optional claims to your app](/entra/identity-platform/optional-claims). Your custom claim is then stored as a part of your JWT ID; for example, `"tid": "aaaabbbb-0000-cccc-1111-dddd2222eeee"`. 
 
 1. To add another authorization policy, select **Add policy**. Repeat the previous steps to set up the policy.
 
@@ -1020,7 +1020,7 @@ For Consumption workflows where you want to disable SAS authentication, follow t
 
 1. Take the output from the **Workflows - Get** operation, and manually add the following elements:
 
-   1. In the **`properties`** object, add an **`accessControl`** object that contains a **`triggers`** object, if none exist.
+   1. In the **`properties`** object, add an **`accessControl`** object that contains a **`triggers`** object, if none exists.
 
    1. In the **`triggers`** object, add an **`sasAuthenticationPolicy`** object that contains the **`state`** property set to **`Disabled`**.
 
@@ -1038,9 +1038,9 @@ For Consumption workflows where you want to disable SAS authentication, follow t
    }
    ```
 
-1. Send another request to update your workflow with the edited output, which you use as input in the request body, by running the [**Workflows - Update** operation](/rest/api/logic/workflows/update) using the following **PATCH** request, for example:
+1. Send another request to update your workflow with the edited output, which you use as input in the request body, by running the [**Workflows - Update** operation](/rest/api/logic/workflows/update) using the following **PUT** request, for example:
 
-   **`PATCH https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/workflows/{workflow-name}?api-version=2016-06-01`**
+   **`PUT https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/workflows/{workflow-name}?api-version=2016-06-01`**
 
 1. In the [Azure portal](https://portal.azure.com), go to your Consumption workflow in the designer, and confirm that the **Request** trigger's URL no longer includes the SAS.
 
