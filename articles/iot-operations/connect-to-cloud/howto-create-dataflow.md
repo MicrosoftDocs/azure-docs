@@ -42,7 +42,7 @@ flowchart LR
 To define the source and destination, you need to configure the data flow endpoints. The transformation is optional and can include operations like enriching the data, filtering the data, and mapping the data to another field.
 
 > [!IMPORTANT]
-> Each data flow must have the Azure IoT Operations local MQTT broker default endpoint [as *either* the source or destination](#proper-dataflow-configuration).
+> Each data flow must have the Azure IoT Operations local MQTT broker default endpoint [as *either* the source or destination](#proper-data-flow-configuration).
 
 You can use the operations experience in Azure IoT Operations to create a data flow. The operations experience provides a visual interface to configure the data flow. You can also use Bicep to create a data flow using a Bicep template file, or use Kubernetes to create a data flow using a YAML file.
 
@@ -54,7 +54,7 @@ You can deploy data flows as soon as you have an instance of [Azure IoT Operatio
 
 ### Data flow profile
 
-If you don't need different scaling settings for your data flows, use the [default data flow profile](./howto-configure-dataflow-profile.md#default-dataflow-profile) provided by Azure IoT Operations. To learn how to configure a data flow profile, see [Configure data flow profiles](howto-configure-dataflow-profile.md).
+If you don't need different scaling settings for your data flows, use the [default data flow profile](./howto-configure-dataflow-profile.md#default-data-flow-profile) provided by Azure IoT Operations. To learn how to configure a data flow profile, see [Configure data flow profiles](howto-configure-dataflow-profile.md).
 
 ### Data flow endpoints
 
@@ -171,7 +171,7 @@ Review the following sections to learn how to configure the operation types of t
 
 To configure a source for the data flow, specify the endpoint reference and a list of data sources for the endpoint. Choose one of the following options as the source for the data flow.
 
-If the default endpoint isn't used as the source, it must be used as the [destination](#destination). To learn more about, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
+If the default endpoint isn't used as the source, it must be used as the [destination](#destination). To learn more about, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#data-flows-must-use-local-mqtt-broker-endpoint).
 
 ### Option 1: Use default message broker endpoint as source
 
@@ -450,7 +450,7 @@ sourceSettings:
 
 ### Specify source schema
 
-When using MQTT or Kafka as the source, you can specify a [schema](concept-schema-registry.md) to display the list of data points in the operations experience portal. Using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#dataflows).
+When using MQTT or Kafka as the source, you can specify a [schema](concept-schema-registry.md) to display the list of data points in the operations experience portal. Using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#data-flows).
 
 If the source is an asset, the schema is automatically inferred from the asset definition.
 
@@ -856,7 +856,7 @@ For more information about schema registry, see [Understand message schemas](con
 
 To configure a destination for the data flow, specify the endpoint reference and data destination. You can specify a list of data destinations for the endpoint.
 
-To send data to a destination other than the local MQTT broker, create a data flow endpoint. To learn how, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md). If the destination isn't the local MQTT broker, it must be used as a source. To learn more about, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
+To send data to a destination other than the local MQTT broker, create a data flow endpoint. To learn how, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md). If the destination isn't the local MQTT broker, it must be used as a source. To learn more about, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#data-flows-must-use-local-mqtt-broker-endpoint).
 
 > [!IMPORTANT]
 > Storage endpoints require a [schema for serialization](./concept-schema-registry.md). To use data flow with Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage, you must [specify a schema reference](#serialize-data-according-to-a-schema).
@@ -1185,7 +1185,7 @@ kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml
 
 To ensure the data flow is working as expected, verify the following:
 
-- The default MQTT data flow endpoint [must be used as either the source or destination](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
+- The default MQTT data flow endpoint [must be used as either the source or destination](./howto-configure-dataflow-endpoint.md#data-flows-must-use-local-mqtt-broker-endpoint).
 - The [data flow profile](./howto-configure-dataflow-profile.md) exists and is referenced in the data flow configuration.
 - Source is either an MQTT endpoint, Kafka endpoint, or an asset. [Storage type endpoints can't be used as a source](./howto-configure-dataflow-endpoint.md).
 - When using Event Grid as the source, the [dataflow profile instance count](./howto-configure-dataflow-profile.md#scaling) is set to 1 because Event Grid MQTT broker doesn't support shared subscriptions.

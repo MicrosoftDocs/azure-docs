@@ -31,7 +31,7 @@ Azure IoT Operations provides a [built-in local MQTT broker](../manage-mqtt-brok
 When you deploy Azure IoT Operations, an MQTT broker data flow endpoint named "default" is created with default settings. You can use this endpoint as a source or destination for data flows. 
 
 > [!IMPORTANT]
-> You must use the default endpoint, or one with the same settings, in every data flow. It can be the source, the destination, or both. For more details, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
+> You must use the default endpoint, or one with the same settings, in every data flow. It can be the source, the destination, or both. For more details, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#data-flows-must-use-local-mqtt-broker-endpoint).
 
 The default endpoint uses the following settings:
 
