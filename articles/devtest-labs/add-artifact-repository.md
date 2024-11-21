@@ -53,7 +53,7 @@ You must give the managed identity permissions to the repository in Azure Repos.
 
 1. On the **Users** page, select **Add users**.
 
-   :::image type="content" source="media/devtest-lab-add-repo/devops-add-user.png" alt-text="Screenshot showing the Users page, with Add user highlighted." lightbox="media/devtest-lab-add-repo/.png":::
+   :::image type="content" source="media/devtest-lab-add-repo/devops-add-user.png" alt-text="Screenshot showing the Users page, with Add user highlighted." lightbox="media/devtest-lab-add-repo/devops-add-user.png":::
 
 1. Complete **Add new users** by entering or selecting the following information, and then select **Add**:
 
@@ -65,7 +65,7 @@ You must give the managed identity permissions to the repository in Azure Repos.
     |**Azure DevOps Groups**|Select **Project Readers**.|
     |**Send email invites (to Users only)**|Clear the checkbox.|
 
-   :::image type="content" source="media/devtest-lab-add-repo/devops-add-user-blade.png" alt-text="Screenshot showing Add users, with example entries and Add highlighted." lightbox="media/how-to-configure-catalog/devops-add-user-blade.png":::
+   :::image type="content" source="media/devtest-lab-add-repo/devops-add-user-blade.png" alt-text="Screenshot showing Add users, with example entries and Add highlighted." lightbox="media/devtest-lab-add-repo/devops-add-user-blade.png":::
 
 ### Add an Azure DevOps artifact repository to a lab in the Azure portal
 
