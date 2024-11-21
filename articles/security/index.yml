@@ -31,6 +31,9 @@ highlightedContent:
     - title: Combine SIEM and XDR to defend against modern attacks
       itemType: overview
       url: /unified-secops-platform/overview-unified-security
+    - title: Aggregate data with summary rules
+      itemType: how-to-guide
+      url: ../sentinel/summary-rules.md
     - title: Optimize security operations
       itemType: concept
       url: ../sentinel/soc-optimization/soc-optimization-access.md
