@@ -4,9 +4,10 @@ description: Learn how to create and test a customization file for your dev box 
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
 ms.date: 11/06/2024
-
 #customer intent: As a dev center administrator or DevCenter Project Admin I want to create image definition files so that my development teams can create customized dev boxes.
 ---
 

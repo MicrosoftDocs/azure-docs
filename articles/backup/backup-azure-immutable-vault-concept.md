@@ -3,7 +3,7 @@ title: Concept of Immutable vault for Azure Backup
 description: This article explains about the concept of Immutable vault for Azure Backup, and how it helps in protecting data from malicious actors.
 ms.topic: overview
 ms.service: azure-backup
-ms.custom: references_regions, engagement-fy24
+ms.custom: references_regions, engagement-fy24, ignite-2024
 ms.date: 11/20/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -66,4 +66,3 @@ Immutable vault prevents you  from performing the following operations  on the v
 ## Next steps
 
 - Learn [how to manage operations of Azure Backup vault immutability](backup-azure-immutable-vault-how-to-manage.md).
-

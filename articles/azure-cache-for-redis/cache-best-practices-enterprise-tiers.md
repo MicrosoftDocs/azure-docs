@@ -4,8 +4,9 @@ description: Learn the best practices when using the high performance Azure Cach
 
 
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 ms.date: 06/10/2024
-
 # File in place for the current build requirements.
 ---
 

@@ -4,6 +4,8 @@ description: Learn to use code interpreter sessions in AutoGen on Azure Containe
 services: container-apps
 author: thegovind
 ms.service: azure-container-apps
+ms.custom:
+  - ignite-2024
 ms.topic: tutorial
 ms.date: 10/11/2024
 ms.author: gok
