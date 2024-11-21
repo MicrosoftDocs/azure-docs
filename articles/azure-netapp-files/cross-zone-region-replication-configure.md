@@ -1,5 +1,5 @@
 ---
-title: Configure dual-target replication for Azure NetApp Files
+title: Configure cross-zone region replication for Azure NetApp Files
 description: Describes how to manage disaster recovery by using Azure NetApp Files cross-region replication.
 services: azure-netapp-files
 author: b-ahibbard
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 11/20/2024
 ms.author: anfdocs 
 ---
-# Configure dual-target replication for Azure NetApp Files (preview)
+# Configure cross-zone region replication for Azure NetApp Files (preview)
 
 Azure NetApp Files supports volume cross-zone and cross-region replication on the same source volume. 
 
 ## Requirements 
 
-- Dual-target replication supports creating two replication relationships for a source relationship: cross-zone replication, cross-region replication, or a combination.  
-- Dual-target replication volumes must abide by the same requirements and considerations as individual [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md) volumes.  
+- Cross-zone region replication supports creating two replication relationships for a source relationship: cross-zone replication, cross-region replication, or a combination.  
+- Cross-zone-region replication volumes must abide by the same requirements and considerations as individual [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md) volumes.  
 
 ## Register the feature
 
