@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 11/08/2024
+ms.date: 11/19/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,58 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## November 2024
+
+Here's what changed in November 2024:
+
+### Session host configuration and update for Azure Virtual Desktop is now in preview 
+
+Session host configuration enables you to define the underlying virtual machine disk type, operating system image, and other properties of all session hosts in a newly created pooled host pool. Session host update allows you to modify your session host configuration and roll out the changes to existing hosts in batches, minimizing downtime. This deletes the existing virtual machines and creates new ones that are added to your host pool with the updated configuration.  
+
+For more information, see [Session host update for Azure Virtual Desktop](session-host-update.md). 
+
+### Dynamic autoscaling for Azure Virtual Desktop is now in preview 
+
+Dynamic autoscaling is now in preview for Azure Virtual Desktop. This new scaling method can adjust the available capacity in the host pool by creating, deleting, and/or turning on/off session hosts. Dynamic autoscaling can only be used for pooled host pools with session host configuration. For more information about autoscale scaling plans, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md). 
+
+For more information, see [Create and assign an autoscale scaling plan for Azure Virtual Desktop](autoscale-create-assign-scaling-plan.md). 
+
+### Deploy App-V apps in Azure Virtual Desktop via integrated experience in now available in preview 
+
+Microsoft Application Virtualization (App-V) for Windows delivers Win32 applications to users as virtual applications. Virtual applications are installed on centrally managed servers and delivered to users as a service in real time and on an as-needed basis. Users launch virtual applications from familiar access points and interact with them as if they were installed locally.  
+
+For more information, see [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md). 
+
+### Applications can be delivered from partner solutions with app attach is now available 
+
+Several partners provide application delivery solutions to Azure Virtual Desktop via integration with app attach.  
+
+For more information, and a list of supported solutions, see [Deliver applications from partner solutions to Azure Virtual Desktop with app attach](app-attach-partner-solutions.md). 
+
+### Azure Virtual Desktop on Azure Extended Zones is now available 
+
+Azure Extended Zones are small-footprint extensions of Azure placed in metros, industry centers, or a specific jurisdiction to serve low latency and/or data residency workloads. Azure Extended Zones is supported for Azure Virtual Desktop and can run latency-sensitive and throughput-intensive applications close to end users and within approved data residency boundaries.  
+
+For more information, see [Azure Virtual Desktop on Azure Extended Zones](azure-extended-zones.md). 
+
+### Azure Virtual Desktop for Azure Stack HCI is now Azure Virtual Desktop for Azure Local 
+
+All current features and existing pricing for AVD for Azure Stack HCI are now supported in select versions of AVD for Azure Local.  
+
+For more information, see [Azure Virtual Desktop on Azure Local](/azure/virtual-desktop/azure-local-overview).  
+
+### Windows Server 2025 is now supported in Azure Virtual Desktop 
+
+Windows Server 2025 is now supported in Azure Virtual Desktop to be deployed as a session hosts to provide desktops and applications.  
+
+For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md). 
+ 
+### Support for FIDO devices and passkeys on macOS and iOS is now available 
+
+Windows App and the Remote Desktop app now support FIDO devices and passkeys for Microsoft Entra ID sign in on macOS and iOS. 
+
+For more information see [Azure Virtual Desktop identities and authentication](authentication.md). 
 
 ## October 2024
 

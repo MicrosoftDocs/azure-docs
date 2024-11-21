@@ -293,12 +293,13 @@ Use the following command to rerun the OT monitoring software configuration wiza
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**admin**   |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
+|**admin**   |   `network reconfigure`      |   No attributes     |
+|**cyberx**   |   `python3 -m cyberx.config.configure`      |   No attributes     |
 
 For example, with the **admin** user:
 
 ```bash
-shell> sudo dpkg-reconfigure iot-sensor
+shell> network reconfigure
 ```
 
 The configuration wizard starts automatically after you run this command.

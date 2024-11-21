@@ -52,8 +52,8 @@ We recommend the following limits for the indicators.
 | Total number of resource associations to a schedule | 3,000 | 3,000 |
 | Resource associations on each dynamic scope    | 1,000 | 1,000 |
 | Number of dynamic scopes per resource group or subscription per region     | 250  | 250  |
-| Number of dynamic scopes per schedule   | 200  | 30  |
-| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  | 30  |
+| Number of dynamic scopes per schedule   | 200  | 100  |
+| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  | 100  |
 
 For more information, see the [service limits for Dynamic scope](dynamic-scope-overview.md#service-limits).
 
