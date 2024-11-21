@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This quickstart shows you how to configure single sign-on for applications running on the Azure Spring Apps Enterprise plan.
 
