@@ -19,7 +19,7 @@ The DR feature provides a Recovery Point Objective (RPO) of 15 minutes and a Rec
 
 ## How to enable DR 
   
-To enable the DR feature, create a one-time support ticket. You can choose an Azure paired region or another region where the Azure API for FHIR is supported. The Microsoft support team enables the DR feature based on the support priority.
+To enable the DR feature, create a one-time support ticket. You can choose an Azure region, where the Azure API for FHIR is supported. The Microsoft support team enables the DR feature based on the support priority.
 
 ## How the DR process works
 
