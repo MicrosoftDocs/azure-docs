@@ -155,8 +155,8 @@ For more information about service accounts in Google Cloud Platform, see [Servi
 
    > [!NOTE]
    > To set up the connector to send logs from GCP to the **Azure Government cloud**, use the following alternate values for the provider settings instead of those above:
-   > - **Issuer (URL)**: `https://sts.windows.net/bbbbcccc-1111-dddd-2222-eeee3333ffff`
-   > - **Audience**: `api://11112222-bbbb-3333-cccc-4444dddd5555`
+   > - **Issuer (URL)**: `https://sts.windows.net/cab8a31a-1906-4287-a0d8-4eef66b95f6e`
+   > - **Audience**: `api://e9885b54-fac0-4cd6-959f-a72066026929`
 
 For more information about workload identity federation in Google Cloud Platform, see [Workload identity federation](https://cloud.google.com/iam/docs/workload-identity-federation) in the Google Cloud documentation.
 
