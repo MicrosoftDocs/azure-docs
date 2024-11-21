@@ -34,7 +34,8 @@ All the steps of this lab are tested in the **GitHub CodeSpace**. This option is
 The [Spring Petclinic AI repo](https://github.com/Azure-Samples/spring-petclinic-ai) contains a dev container environment for developers. This environment contains all the needed tools for running this sample. In case you want to use this dev container you can use a [GitHub CodeSpace](https://github.com/features/codespaces) in case your GitHub account is enabled for Codespaces.
 
 1. Navigate to the [GitHub repository of this sample](https://github.com/Azure-Samples/spring-petclinic-ai) and select Fork.
-   {: .Note }
+
+   > [!NOTE]
    > In case you are using a GitHub EMU account, it might be you are not able to fork a public repository. In that case, create a new repository with the same name, clone the original repository, add your new repository as a remote and push to this new remote.
 
 1. Make sure your own username is indicated as the fork `Owner`
@@ -85,7 +86,7 @@ Your environment is now ready to run the next steps. See [Deploy your first AI a
 
 ## Deploy your first AI application
 
-{: .note }
+> [!NOTE]
 > This template uses [Azure OpenAI Service](/azure/ai-services/openai/overview) deployment mododules **gpt-4o** and **text-embedding-ada-002** which may not be available in all Azure regions. Check for [up-to-date region availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly
 
 We recommend using region **East US**, **East US 2**, **North Central US**, **South Central US**, **Sweden Central**, **West US**, and **West US 3**.
@@ -104,7 +105,7 @@ We recommend using region **East US**, **East US 2**, **North Central US**, **So
 
   Fill the variables required:
 
-  ```text
+  ```
   ? Enter a new environment name: <your-env-name>
   ? Select an Azure Subscription to use: <your-subscription-name>
   ? Select an Azure location to use: <your-region>
@@ -112,7 +113,7 @@ We recommend using region **East US**, **East US 2**, **North Central US**, **So
 
   It takes about 15 minutes to get your first AI application ready. Sample output:
 
-  ```text
+  ```
   (✓) Done: Resource group: rg-first-ai (5.977s)
   (✓) Done: Virtual Network: vnet-first-ai (7.357s)
   (✓) Done: Container Registry: crb36onby7z5ooc (25.742s)
@@ -141,7 +142,7 @@ We recommend using region **East US**, **East US 2**, **North Central US**, **So
 
   Open the App url from the deploy output:
 
-  ```text
+  ```
   INFO: Deploy finish succeed!
   INFO: App url: https://petclinic-ai.<cluster>.<region>.azurecontainerapps.io
   ```
