@@ -13,7 +13,7 @@ author: karler
 
 # Tutorial: Configure Application Performance Management (APM) Java agent with init-container in Azure Container Apps
 
-Apply Java agent and init containers in Azure Container Apps to inject Application Performance Management (APM) solutions without modifying your app image. While you can package the APM plugin in the same image or Dockerfile with your app, this binds together management efforts like release and Common Vulnerabilities and Exposures (CVE) mitigation.
+This article shows you how to configure Application Performance Management (APM) Java agent with init containers in Azure Container Apps, which injects APM solutions without modifying your app image. While you can package the APM plugin in the same image or Dockerfile with your app, doing that binds together management efforts like release and Common Vulnerabilities and Exposures (CVE) mitigation.
 
 In this tutorial, you learn how to:
 
@@ -80,15 +80,15 @@ The following steps define environment variables and ensure your Container Apps 
     # [Bash](#tab/bash)
 
     ```bash
-    az extension add -n containerapp --upgrade
-    az extension add -n application-insights --upgrade
+    az extension add --name containerapp --upgrade
+    az extension add --name application-insights --upgrade
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    az extension add -n containerapp --upgrade
-    az extension add -n application-insights --upgrade
+    az extension add --name containerapp --upgrade
+    az extension add --name application-insights --upgrade
     ```
 
 1. To retrieve the connection string of Application Insights, use the following commands:
@@ -111,7 +111,7 @@ The following steps define environment variables and ensure your Container Apps 
 
 ## Prepare the container image
 
-To build a setup image for Application Insights Java agent, perform these following steps in the same directory:
+To build a setup image for Application Insights Java agent, perform the following steps in the same directory:
 
 1. Save the following Dockerfile:
     
@@ -157,7 +157,7 @@ To build a setup image for Application Insights Java agent, perform these follow
     docker build . -t "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
 
-1. Push the image to Azure Container Registry or another container image registry by using the following command:
+1. Push the image to Azure Container Registry or another container image registry by using the following commands:
     
     # [Bash](#tab/bash)
 
@@ -174,184 +174,188 @@ To build a setup image for Application Insights Java agent, perform these follow
     ```
 
 > [!TIP]
-> You can find code relevant to this step in the [Azure Contaier Apps Java Samples](https://github.com/Azure-Samples/azure-container-apps-java-samples) GitHub repo.
+> You can find code relevant to this step in the [azure-container-apps-java-samples](https://github.com/Azure-Samples/azure-container-apps-java-samples) GitHub repo.
 
 ## Create a Container Apps environment and a Container App as the target Java app
 
-1. Create a Container Apps environment.
+To create a Container Apps environment and a container app as the target Java app, perform the following steps:
+
+1. Create a Container Apps environment by using the following command:
 
     # [Bash](#tab/bash)
 
     ```bash
     az containerapp env create \
-      --name $ENVIRONMENT_NAME \
-      --resource-group $RESOURCE_GROUP \
-      --location "$LOCATION" \
-      --query "properties.provisioningState"
+        --name $ENVIRONMENT_NAME \
+        --resource-group $RESOURCE_GROUP \
+        --location "$LOCATION" \
+        --query "properties.provisioningState"
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
     az containerapp env create `
-      --name $ENVIRONMENT_NAME `
-      --resource-group $RESOURCE_GROUP `
-      --location "$LOCATION" `
-      --query "properties.provisioningState"
+        --name $ENVIRONMENT_NAME `
+        --resource-group $RESOURCE_GROUP `
+        --location "$LOCATION" `
+        --query "properties.provisioningState"
     ```
 
-  Once created, the command returns a "Succeeded" message.
+    After successfully creating the Container Apps environment, the command line returns a `Succeeded` message.
 
-1. Create a Container app for further configurations.
+1. Create a Container app for further configurations by using the following command:
 
     # [Bash](#tab/bash)
 
     ```bash
     az containerapp create \
-      --name $CONTAINER_APP_NAME \
-      --environment $ENVIRONMENT_NAME \
-      --resource-group $RESOURCE_GROUP \
-      --query "properties.provisioningState"
+        --name $CONTAINER_APP_NAME \
+        --environment $ENVIRONMENT_NAME \
+        --resource-group $RESOURCE_GROUP \
+        --query "properties.provisioningState"
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
     az containerapp create `
-      --name $CONTAINER_APP_NAME `
-      --environment $ENVIRONMENT_NAME `
-      --resource-group $RESOURCE_GROUP `
-      --query "properties.provisioningState"
+        --name $CONTAINER_APP_NAME `
+        --environment $ENVIRONMENT_NAME `
+        --resource-group $RESOURCE_GROUP `
+        --query "properties.provisioningState"
     ```
 
-  Once created, the command returns a "Succeeded" message.
+    After successfully creating the Container App, the command line returns a `Succeeded` message.
 
-## Configure init-container, secrets, environment variables, and volumes to set up Application Insights integration
+## Configure init container, secrets, environment variables, and volumes to set up Application Insights integration
 
-1. Get current configurations of the running Container App.
+To configure your init container with secrets, environment variables, and volumes so it can be used with Insights, perform the following steps:
+
+1. Write the current configurations of the running Container App to **app.yml** in the current directory, by using the following command:
 
     # [Bash](#tab/bash)
 
     ```bash
     az containerapp show \
-      --name $CONTAINER_APP_NAME \
-      --resource-group $RESOURCE_GROUP \
-      -o yaml > app.yaml
+        --resource-group $RESOURCE_GROUP \
+        --name $CONTAINER_APP_NAME \
+        --output yaml \
+    > app.yaml
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
     az containerapp show `
-      --name $CONTAINER_APP_NAME `
-      --resource-group $RESOURCE_GROUP `
-      -o yaml > app.yaml
+        --resource-group $RESOURCE_GROUP `
+        --name $CONTAINER_APP_NAME `
+        --output yaml `
+    > app.yaml
     ```
 
-  The YAML file `app.yaml` is created in current directory.
+1. Edit the configurations in **app.yml** by using the following instructions:
 
-1. Edit the app YAML file.
+    1. Add a secret for Application Insights connection string using the following code snippet:
 
-    - Add secret for Application Insights connection string
+       ```yaml
+       properties:
+         configuration:
+            secrets:
+            - name: app-insights-connection-string
+              value: $CONNECTION_STRING
+        ```
 
-    ```yaml
-    properties:
-      configuration:
-        secrets:
-        - name: app-insights-connection-string
-          value: $CONNECTION_STRING
-    ```
+       Replace $CONNECTION_STRING with your Azure Application Insights connection string.
 
-    Replace $CONNECTION_STRING with your Azure Application Insights connection string.
-
-    - Add ephemeral storage volume for Java agent files
+    1. Add ephemeral storage volume for Java agent files using the following code snippet:
   
-    ```yaml
-    properties:
-      template:
-        volumes:
-        - name: java-agent-volume
-          storageType: EmptyDir
-    ```
+       ```yaml
+       properties:
+         template:
+           volumes:
+           - name: java-agent-volume
+             storageType: EmptyDir
+        ```
 
-    - Add init-container with volume mounts and environment variables
+    1. Add an init container with volume mounts and environment variables, using the following code snippet:
   
-    ```yaml
-    properties:
-      template:
-        initContainers:
-        - image: <CONTAINER_REGISTRY_NAME>.azurecr.io/samples/java-agent-setup:1.0.0
-          name: java-agent-setup
-          resources:
-            cpu: 0.25
-            memory: 0.5Gi
-          env:
-          - name: CONNECTION_STRING
-            secretRef: app-insights-connection-string
-          volumeMounts:
-          - mountPath: /java-agent
-            volumeName: java-agent-volume
-    ```
+       ```yaml
+       properties:
+         template:
+           initContainers:
+           - image: <CONTAINER_REGISTRY_NAME>.azurecr.io/samples/java-agent-setup:1.0.0
+             name: java-agent-setup
+             resources:
+               cpu: 0.25
+               memory: 0.5Gi
+             env:
+             - name: CONNECTION_STRING
+               secretRef: app-insights-connection-string
+             volumeMounts:
+             - mountPath: /java-agent
+               volumeName: java-agent-volume
+       ```
 
-    Replace `<CONTAINER_REGISTRY_NAME>` with your Azure Container Registry name.
+       Replace `<CONTAINER_REGISTRY_NAME>` with your Azure Container Registry name.
 
-    - Update app container with volume mounts and environment variables
+    1. Update the app container with volume mounts and environment variables, using the following code snippets:
   
-    ```yaml
-    properties:
-      template:
-        containers:
-        - name: test-java-app
-          image: mcr.microsoft.com/azurespringapps/samples/hello-world:0.0.1
-          resources:
-            cpu: 0.5
-            memory: 1Gi
-          env:
-          - name: JAVA_TOOL_OPTIONS
-            value: -javaagent:/java-agent/agent.jar
-          volumeMounts:
-          - mountPath: /java-agent
-            volumeName: java-agent-volume
-    ```
+       ```yaml
+       properties:
+         template:
+           containers:
+           - name: test-java-app
+             image: mcr.microsoft.com/azurespringapps/samples/hello-world:0.0.1
+             resources:
+               cpu: 0.5
+               memory: 1Gi
+             env:
+             - name: JAVA_TOOL_OPTIONS
+               value: -javaagent:/java-agent/agent.jar
+             volumeMounts:
+             - mountPath: /java-agent
+                volumeName: java-agent-volume
+        ```
 
-1. Update the container app with modified YAML file.
-
-    # [Bash](#tab/bash)
-
-    ```bash
-    az containerapp update \
-      --name $CONTAINER_APP_NAME \
-      --resource-group $RESOURCE_GROUP \ 
-      --yaml app.yaml \
-      --query "properties.provisioningState"
-    ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    az containerapp update `
-      --name $CONTAINER_APP_NAME `
-      --resource-group $RESOURCE_GROUP `
-      --yaml app.yaml `
-      --query "properties.provisioningState"
-    ```
-
-  Once updated, the command returns a "Succeeded" message. Then you can check out your Application Insights in Azure portal to see your Container App is connected.
-
+    1. Update the container app with the modified YAML file, using the following command:
+    
+       # [Bash](#tab/bash)
+   
+       ```bash
+       az containerapp update \
+         --name $CONTAINER_APP_NAME \
+         --resource-group $RESOURCE_GROUP \ 
+         --yaml app.yaml \
+         --query "properties.provisioningState"
+       ```
+   
+       # [PowerShell](#tab/powershell)
+   
+       ```powershell
+       az containerapp update `
+         --name $CONTAINER_APP_NAME `
+         --resource-group $RESOURCE_GROUP `
+         --yaml app.yaml `
+         --query "properties.provisioningState"
+       ```
+   
+       After updating the container app, the command returns a `Succeeded` message. Then you can view your Application Insights in the Azure portal to verify that your container app is connected.
+ 
 ## Clean up resources
 
-The resources created in this tutorial contribute to your Azure bill. If you aren't going to keep them in the long term, run the following commands to clean them up.
+The resource group you created in this tutorial contributes to your Azure bill. If you aren't going to need it in the long term, use the following command to remove it:
 
 # [Bash](#tab/bash)
+
 ```bash
 az group delete --resource-group $RESOURCE_GROUP
 ```
+
 # [PowerShell](#tab/powershell)
 ```powershell
 az group delete --resource-group $RESOURCE_GROUP
 ```
-
----
 
 ## Other APM solutions
 
@@ -360,4 +364,4 @@ Other than [Azure Application Insights](/azure/azure-monitor/app/java-standalone
 - [AppDynamics](https://docs.appdynamics.com/appd/21.x/21.4/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent)
 - [Dynatrace](https://docs.dynatrace.com/docs/setup-and-configuration/technology-support/application-software/java)
 - [Elastic](https://www.elastic.co/guide/en/apm/agent/java/index.html)
-- [NewRelic](https://docs.newrelic.com/docs/apm/agents/java-agent/getting-started/introduction-new-relic-java/)
+- [New Relic](https://docs.newrelic.com/docs/apm/agents/java-agent/getting-started/introduction-new-relic-java/)
