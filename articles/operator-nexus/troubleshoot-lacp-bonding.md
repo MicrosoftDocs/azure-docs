@@ -33,7 +33,7 @@ For Bond level (the top part):
 
 1. MII Status: up - Is the entire bond up
 2. LACP active: on - Is LACP active
-3. Aggregator ID: 1 - The top level aggregator ID should match both slaves. See each slave port for its aggregator ID.
+3. Aggregator ID: 1 - The top level aggregator ID should match both replicas. See each port for its aggregator ID.
 4. System MAC address: 42:56:86:9c:81:89 - Is there a System MAC defined. If a bond isn't negotiated this will be undefined or all zeros, e.g 00:00:00:00:00:00
 
 For each port:
