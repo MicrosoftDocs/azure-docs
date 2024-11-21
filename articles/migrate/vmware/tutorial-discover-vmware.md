@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 11/04/2024
+ms.date: 11/20/2024
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
@@ -362,7 +362,16 @@ To view the remaining duration until end of support, that is, the number of mont
 The **Database instances** displays the number of instances discovered by Azure Migrate. Select the number of instances to view the database instance details. The **Database instance license support status** displays the support status of the database instance. Selecting the support status opens a pane on the right, which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
 
 To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
- 
+
+## Onboard to Azure Local (optional)
+
+> [!Note]
+> Perform this step only if you are migrating to [Azure Local](/azure-stack/hci/overview).
+
+Provide the Azure Local instance information and the credentials to connect to the system. For more information, see [Download the Azure Local software](/azure-stack/hci/deploy/download-azure-stack-hci-software).
+
+:::image type="content" source="../media/tutorial-discover-hyper-v/onboard-hci.png" alt-text="Screenshot that shows the Onboard to Azure Local section.":::
+
 
 ## Next steps
 

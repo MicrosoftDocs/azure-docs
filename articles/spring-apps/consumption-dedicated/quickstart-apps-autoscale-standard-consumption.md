@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ❎ Basic/Standard ❎ Enterprise
 
 This article describes how to set up autoscale rules for your applications in Azure Spring Apps Standard consumption and dedicated plan. The plan uses an Azure Container Apps environment to host your Spring applications, and provides the following management and support:
 
