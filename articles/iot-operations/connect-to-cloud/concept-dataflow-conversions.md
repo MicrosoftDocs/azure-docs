@@ -1,23 +1,23 @@
 ---
-title: Convert data by using dataflow conversions
-description: Learn about dataflow conversions for transforming data in Azure IoT Operations.
+title: Convert data by using data flow conversions
+description: Learn about data flow conversions for transforming data in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
 ms.date: 11/11/2024
 
-#CustomerIntent: As an operator, I want to understand how to use dataflow conversions to transform data.
+#CustomerIntent: As an operator, I want to understand how to use data flow conversions to transform data.
 ms.service: azure-iot-operations
 ---
 
-# Convert data by using dataflow conversions
+# Convert data by using data flow conversions
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-You can use dataflow conversions to transform data in Azure IoT Operations. The *conversion* element in a dataflow is used to compute values for output fields. You can use input fields, available operations, data types, and type conversions in dataflow conversions.
+You can use data flow conversions to transform data in Azure IoT Operations. The *conversion* element in a data flow is used to compute values for output fields. You can use input fields, available operations, data types, and type conversions in data flow conversions.
 
-The dataflow conversion element is used to compute values for output fields:
+The data flow conversion element is used to compute values for output fields:
 
 # [Bicep](#tab/bicep)
 
@@ -271,7 +271,7 @@ The `conversion` uses the `if` function that has three parameters:
 
 ## Available functions
 
-Dataflows provide a set of built-in functions that can be used in conversion formulas. These functions can be used to perform common operations like arithmetic, comparison, and string manipulation. The available functions are:
+Data flows provide a set of built-in functions that can be used in conversion formulas. These functions can be used to perform common operations like arithmetic, comparison, and string manipulation. The available functions are:
 
 | Function | Description | Examples |
 |----------|-------------|---------|
@@ -286,7 +286,7 @@ Dataflows provide a set of built-in functions that can be used in conversion for
 
 ### Conversion functions
 
-Dataflows provide several built-in conversion functions for common unit conversions like temperature, pressure, length, weight, and volume. Here are some examples:
+Data flows provide several built-in conversion functions for common unit conversions like temperature, pressure, length, weight, and volume. Here are some examples:
 
 | Conversion | Formula | Function name |
 | --- | --- | --- |

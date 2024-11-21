@@ -58,7 +58,7 @@ After completing this flow, the Azure event hub is visible in the eventstream li
 
 :::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
-#### Verify dataflow
+#### Verify data flow
 
 Follow these steps to check your work so far, and make sure data is flowing into the eventstream.
 

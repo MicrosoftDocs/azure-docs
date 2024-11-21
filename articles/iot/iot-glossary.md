@@ -323,9 +323,9 @@ Applies to: IoT Hub, IoT Central
 
 ## D
 
-### Dataflows
+### Data flows
 
-An Azure IoT Operations component that lets you aggregate, enrich, normalize, and filter the data from your devices and assets. Dataflows is a data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud.
+An Azure IoT Operations component that lets you aggregate, enrich, normalize, and filter the data from your devices and assets. Data flows is a data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud.
 
 Casing rules: Always lowercase.
 
@@ -955,7 +955,7 @@ Applies to: Digital Twins
 
 ### Operations experience
 
-This web UI provides a unified experience for operational technologists to manage assets and dataflows in an Azure IoT Operations deployment.
+This web UI provides a unified experience for operational technologists to manage assets and data flows in an Azure IoT Operations deployment.
 
 Casing rules: Always lowercase.
 
