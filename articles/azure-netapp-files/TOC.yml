@@ -189,6 +189,8 @@
         href: cross-zone-replication-introduction.md
       - name: Requirements and considerations for cross-zone replication 
         href: cross-zone-replication-requirements-considerations.md
+    - name: Understand cross-zone region replication 
+      href: cross-zone-region-replication-about.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
@@ -445,6 +447,8 @@
         href: manage-availability-zone-volume-placement.md
       - name: Create cross-zone replication 
         href: create-cross-zone-replication.md
+    - name: Configure dual target replication 
+      href: dual-target-replication-configure.md
   - name: Relocate
     items:
     - name: Relocate volume to another region

@@ -14,6 +14,8 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Dual-target replication](dual-target-replication-configure.md)
+
 ## November 2024
 
 * [Cool access support for large volumes](large-volumes-requirements-considerations.md#register-the-feature)
