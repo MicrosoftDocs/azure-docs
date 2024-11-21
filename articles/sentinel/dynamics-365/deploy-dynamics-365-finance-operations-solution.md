@@ -36,7 +36,7 @@ Before you begin, verify that:
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png" alt-text="Screenshot of the Finance and Operations environment version information." lightbox="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png":::
 
-1. To collect your environment URL, select **Log on to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-data-connector). For example: ``` https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com ```. 
+1. To collect your environment URL, select **Log on to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-data-connector). For example: `https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com`. 
 
     > [!NOTE]
     > The URL may look different, depending on the environment you use, for example, you could be using a sandbox, or a cloud hosted environment. Remove any trailing slashes: `/`. 
@@ -151,11 +151,10 @@ To verify that log ingestion is working:
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/query-finance-operations-table.png" alt-text="Screenshot of viewing a new Finance and Operations incident in Microsoft Sentinel.":::
 
-## Next steps
+## Related content
 
 In this article, you learned how to deploy the Microsoft Sentinel solution for Dynamics 365 Finance and Operations.
  
 - [Learn how to enable the security content](../sentinel-solutions-deploy.md#analytics-rule)
-
 - [Review the solution's security content](dynamics-365-finance-operations-security-content.md)
 
