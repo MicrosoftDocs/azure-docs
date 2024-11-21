@@ -11,9 +11,9 @@ ms.date: 11/14/2024
 
 ---
 
-# Connect Microsoft Power Platform to Microsoft Sentinel
+# Connect Microsoft Power Platform and Dynamics 365 CRM to Microsoft Sentinel
 
-This article describes how to deploy the [Microsoft Sentinel solution for Microsoft Business Apps](../business-applications/solution-overview.md) to connect your Microsoft Power Platform system to Microsoft Sentinel. The solution collects audit and activity logs to detect threats, suspicious activities, illegitimate activities, and more.
+This article describes how to deploy the [Microsoft Sentinel solution for Microsoft Business Apps](../business-applications/solution-overview.md) to connect your Microsoft Power Platform and Dynamics 365 CRM system to Microsoft Sentinel. The solution collects audit and activity logs to detect threats, suspicious activities, illegitimate activities, and more.
 
 > [!IMPORTANT]
 >
@@ -28,11 +28,9 @@ Before deploying the Microsoft Sentinel solution for Microsoft Business Apps, en
 
 - You must have read and write access to the workspace. You must be able to create:
 
-    - An [Azure Function App](../../azure-functions/functions-overview.md) with the `Microsoft.Web/Sites`, `Microsoft.Web/ServerFarms`, `Microsoft.Insights/Components`, and `Microsoft.Storage/StorageAccounts` permissions.
-
-    - [Data Collection Rules/Endpoints](/azure/azure-monitor/essentials/data-collection-rule-overview), with the `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules` permissions, and permissions to assign the Monitoring Metrics Publisher role to the Azure Function.
-
-- Your organization must use Power Platform to create and use Power Apps.
+  - [Data Collection Rules/Endpoints](/azure/azure-monitor/essentials/data-collection-rule-overview), with the `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`
+    
+- Your organization must use Dynamics 365 CRM and/or one or more of the Power Platform workloads.
 
 - Audit logging must also enabled in Microsoft Purview. For more information, see [Turn auditing on or off for Microsoft Purview](/microsoft-365/compliance/audit-log-enable-disable)
 
@@ -40,19 +38,17 @@ Before deploying the Microsoft Sentinel solution for Microsoft Business Apps, en
 
 ## Install the solution and deploy your data connectors
 
-1. Start by installing the Microsoft Sentinel solution for Microsoft Business Apps from the Microsoft Sentinel **Content hub**. <!--is this the exact name?-->
+1. Start by installing the Microsoft Sentinel solution for Microsoft Business Applications from the Microsoft Sentinel **Content hub**.
 
     For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
 
 1. Select **Configuration > Data connectors**, and locate any of the following data connectors you want to deploy:
 
-      - Microsoft Dataverse
-      - Microsoft Power Apps
-      - Microsoft Power Automate
-      - Microsoft Power Platform Admin Activity
-      - Microsoft Power Platform Connectors
-      - Microsoft Power Platform DLP
-
+   - Microsoft Dataverse
+   - Microsoft Power Platform Admin Activity
+   
+   - Microsoft Power Automate
+      
 1. For each data connector, on the side pane, select **Open connector page > Connect**.
 
 ## Configure data collection for Dataverse
@@ -82,40 +78,30 @@ When working with Microsoft Dataverse, Dataverse activity logging is available o
 1. Wait the following amounts of time for Microsoft Sentinel to ingest the data:
 
    - **Power Platform activity logs**: 60 minutes
-   - **Power Platform inventory data**: 24 hours
-
 1. To verify that Microsoft Sentinel is getting the data you expect, run KQL queries against the data tables that collect logs from your data connectors.
 
    For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), run KQL queries on the **General** > **Logs** page. In the [Defender portal](https://security.microsoft.com/), run KQL queries in the **Investigation & response** > **Hunting** > **Advanced hunting**.
 
    For example, to verify your Power Platform log ingestion, run the following query to return 50 rows from the table with the Power Apps activity logs.
 
-   ```kusto
+      ```kusto
    PowerPlatformAdminActivity
    | take 50
    ```
 
-   The following table lists the Log Analytics tables to query.
+The following table lists the Log Analytics tables to query.
 
-   |Log Analytics tables |Data collected |
-   |---------|---------|
-   |PowerPlatformAdminActivity|Power Platform administrative logs|
-   |PowerAutomateActivity |Power Automate activity logs  |
-   |DataverseActivity |Dataverse and model-driven apps activity logging  |  
+|Log Analytics tables |Data collected |
+|---------|---------|
+|PowerPlatformAdminActivity|Power Platform administrative logs|
+|PowerAutomateActivity |Power Automate activity logs |
+|DataverseActivity |Dataverse and model-driven apps activity logging|
 
-   Use the following parsers to return inventory and watchlist data.
 
-   |Parser  |Data returned |
-   |---------|---------|
-   |`InventoryApps` | Power Apps Inventory | 
-   |`InventoryAppsConnections` |  Power Apps connections Inventoryconnections       |  
-   |`InventoryEnvironments`   |Power Platform environments Inventory         | 
-   |`InventoryFlows`   |  Power Automate flows Inventory       | 
-   |`MSBizAppsTerminatedEmployees`    | Terminated employees watchlist |  
-
-1. Verify that the results for each table show the activities you generated.
+   
 
 ## Related content
 
 - [What is the Microsoft Sentinel solution for Microsoft Business Apps?](solution-overview.md)
+
 - [Security content reference for Microsoft Power Platform](power-platform-solution-security-content.md)
