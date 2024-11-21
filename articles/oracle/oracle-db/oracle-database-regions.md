@@ -21,10 +21,9 @@ The following table lists Azure regions and corresponding OCI regions that suppo
 | Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |----------------|--------------------------|-------------------|-------------------|
 | Australia East | Australia East (Sydney)  | ✓  |          ✓                      |
-| Southeast Asia | Singapore (Singapore)  | ✓  |          ✓                      |
-| Japan East     | Japan East(Tokyo)  | ✓  |                                 |
 
-## Brazil (APAC)
+## Brazil
+
 | Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |----------------|--------------------------|-------------------|-------------------|
 | Brazil South | Brazil Southeast (Vinhedo)   | ✓   |     |
