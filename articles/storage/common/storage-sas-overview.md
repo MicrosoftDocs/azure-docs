@@ -187,7 +187,7 @@ To get started with shared access signatures, see the following articles for eac
 - [Create a user delegation SAS for a container or blob with the Azure CLI](../blobs/storage-blob-user-delegation-sas-create-cli.md)
 - [Create a user delegation SAS for a container or blob with .NET](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
 - [Create a user delegation SAS for a container or blob with Python](../blobs/storage-blob-user-delegation-sas-create-python.md)
-- [Create a user delegation SAS for a container or blob with JavaScript](../blobs/storage-blob-user-delegation-sas-create-javascript.md)
+- [Create a user delegation SAS for a container or blob with JavaScript](../blobs/storage-blob-create-user-delegation-sas-javascript.md)
 - [Create a user delegation SAS for a container or blob with Java](../blobs/storage-blob-user-delegation-sas-create-java.md)
 
 ### Service SAS
