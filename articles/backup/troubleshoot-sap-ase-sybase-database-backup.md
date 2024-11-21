@@ -55,147 +55,231 @@ This article provides troubleshooting details for error codes that appears when 
 
 **Error message**: Configure protection operation failed on the instance.
 
-**Recommended action**: 1. Check if the database is online. 2. Check if the database  credentials are correct . 3. if the issue still persists,  please contact Microsoft Support for  further assistance.
+**Recommended action**: To resolve the issue, follow these steps:
 
+1. Check if the database is online.
+2. Check if the database  credentials are correct.
+3. if the issue still persists,  please contact Microsoft Support for  further assistance.
 
-InvalidWorkloadType
-ErrorCode: InvalidWorkloadType
-Message: Invalid workload type.
-RecommendedAction: Fix the input and retry the operation. If the issue persists contact support.
+### InvalidWorkloadType
 
-GetPluginVersionError
- ErrorCode: GetPluginVersionError
- Message: Error while getting plugin version.
- RecommendedAction: Retry the operation. If the issue persists contact support.
+**Error code**: `InvalidWorkloadType`
 
-OperationNotSupportedError
- ErrorCode: OperationNotSupportedError
- Message: Restore Inquire Operation Not Supported.
- RecommendedAction: No action required. Contact support for further clarifications.
+**Error message**: Invalid workload type.
 
-GeneralPluginException
-ErrorCode: GeneralPluginException
- Message: An exception occurred.
-RecommendedAction: Internal error. For further assistance please contact Microsoft Support.
+**Recommended action**: Fix the input and retry the operation. If the issue persists contact Microsoft support.
 
-DatabaseQueryExecutionError
-ErrorCode: DatabaseQueryExecutionError
-Message: An ASE exception occurred while running query on database.
-RecommendedAction: Please check if database is online and retry the operation. If the issue persists, contact support.
+### GetPluginVersionError
+ 
+**Error code**: `GetPluginVersionError`
 
+**Error message**: Error while getting plugin version.
 
+**Recommended action**: Retry the operation. If the issue persists contact Microsoft support.
 
+### OperationNotSupportedError
 
-ASEBackupServerNotRunning
+**Error code**: `OperationNotSupportedError`
+**Error message**: Restore Inquire Operation Not Supported.
 
-ErrorCode: ASEBackupServerNotRunning
+**Recommended action**: No action is required. Contact Microsoft support for further clarifications.
 
-Message: ASE backup server is not running.
-RecommendedAction: Please check if database is online, backup server is running and retry the operation. If the issue persists, contact support. 
+### GeneralPluginException
 
+**Error code**: `GeneralPluginException`
 
-Backup Error Code
-UserErrorASELSNValidationFailure
-ErrorCode: UserErrorASELSNValidationFailure
-Message: Log sequence validation failed. Initiating a forced full backup now.
-RecommendedAction: Log Sequence Number validation has failed / possible log chain break, a full backup will be performed now to fix it. If error persists after that, please contact Microsoft Support.
-DatabaseBackupOperationFailed
-ErrorCode: DatabaseBackupOperationFailed
-Message: Database backup failed.
-RecommendedAction: Retry backup. If error persists, please contact Microsoft Support.
-BackupValidationFailed
-ErrorCode: BackupValidationFailed
-Message: Database backup validation failed.
-RecommendedAction: Retry the operation. If error persists, please contact Microsoft Support.
-DatabaseExistenceValidationFailure
-ErrorCode: DatabaseExistenceValidationFailure,
-Message: Database existence validation failed.
-RecommendedAction: Check if database exists and is online. If not, create and make it online. For further assistance, please contact Microsoft Support.
-WriteToBackupStreamFailure
-ErrorCode: WriteToBackupStreamFailure
-Message: Failure while writing data to backup stream.
-RecommendedAction: Retry the operation. If the issue still persists, please contact Microsoft Support for further assistance.
-DumpHistoryCorrupted
-ErrorCode: DumpHistoryCorrupted
-Message: Dump history file is corrupted due to incorrect syntax.
-RecommendedAction: Check for the disk space or any incorrect format in dump history file.If the dump file is corrupted, please go through the steps mentioned in sap note to resolve the issue https://me.sap.com/notes/2167081/E . Please contact support if the issue is still not resolved.
+**Error message**: An exception occurred.
 
-GetDatabaseVersionFailure
+**Recommended action**: This is an internal error. For further assistance contact Microsoft Support.
 
-ErrorCode: GetDatabaseVersionFailure
+### DatabaseQueryExecutionError
 
-Message: Error while fetching database version.
-RecommendedAction: Check if database is in running state. Please contact support if the issue is still not resolved.
+**Error code**: `DatabaseQueryExecutionError`
 
-FullBackupNotPerformed
-ErrorCode: FullBackupNotPerformed
-Message: No previous full backups were found. Initiating a forced full backup now.
-RecommendedAction: An automatic full backup will be performed now. If the error persists afterward, please contact Microsoft Support.
+**Error message**: An ASE exception occurred while running query on database.
 
-LatestFullBackupIsOld
-ErrorCode: LatestFullBackupIsOld
-Message: The latest full backup is more than 15 days old. A forced full backup will be taken now.
-RecommendedAction: An automatic full backup will be performed now. If the error persists, please contact Microsoft Support.
+**Recommended action**: Check if database is online and retry the operation. If the issue persists, contact Microsoft support.
 
+### ASEBackupServerNotRunning
 
-CompressionLevelNotSet
+**Error code**: `ASEBackupServerNotRunning`
 
-ErrorCode: CompressionLevelNotSet
-Message: Compression has been enabled but there is no associated compression level.
-RecommendedAction: Please run the updated pre-registration script in the virtual machine, which will add the default configuration in config and retry. If the error persists after that, please contact Microsoft Support.
+**Error message**: ASE backup server isn't running.
 
+**Recommended action**: Check if database is online, backup server is running, and then retry the operation. If the issue persists, contact Microsoft support. 
 
-Restore Errors
-FailedToCreateDatabase
-ErrorCode: FailedToCreateDatabase
-Message: Failed to create database for restoring.
-RecommendedAction: 1. Make sure default device configured on the database instance.
-2.Database creation failed with model database is in error. Please resolve the error and retry.
-3. Enough space is not available in the default device. Please increase the size of database device (or) change the default device having free space matching the size of source database.
-InvalidDatabaseName
-ErrorCode: InvalidDatabaseName
-Message: Database name supplied during alternative location restore is not meeting the requirements for database creation.
-RecommendedAction: Database length should not exceed 30 characters.
- ForceOverwriteOptionNotSet
-ErrorCode: ForceOverwriteOptionNotSet
-Message: Restore failed because overwrite options is not set correctly
-RecommendedAction: Please choose ForceOverwrite option to perform restore on this DB as the database with same name exist.
+## Backup error code
 
-InvalidOverwriteOption
- ErrorCode: InvalidOverwriteOption
- Message: Restore operation failed due to overwrite option set to null or is invalid.
- RecommendedAction: Please choose ForceOverwrite option to perform restore on this DB.
+### UserErrorASELSNValidationFailure
 
-PointInTimeRestoreFailed
-ErrorCode: PointInTimeRestoreFailed
-Message: Database restore to the specified point in time failed with an internal error.
-RecommendedAction: Try restoring the database from a previous Full backup. For further assistance please contact Microsoft Support.
+**Error code**: `UserErrorASELSNValidationFailure`
 
-RestoreMasterALROLRUnSupported
-ErrorCode: RestoreMasterALROLRUnSupported
-Message: Master database cannot be restored using Alternate and original location. Please restore using restore as files.
-RecommendedAction:       1. Start the database in Single User mode.
-      2. Restore the master database dump using restore as files.
-      3. Apply the restore using the dump file.
-      4. Restart the database in multi user mode.
+**Error message**: Log sequence validation failed. Initiating a forced full backup now.
 
+**Recommended action**: Log Sequence Number validation has failed / possible log chain break, a full backup will be performed now to fix it. If error persists after that, contact Microsoft Support.
 
-RestoreOperationFailed
-ErrorCode: RestoreOperationFailed
-Message: Database restore failed with an error
-RecommendedAction: Try restoring the database from a previous Full backup. For further assistance please contact Microsoft Support.
-DatabaseRestoreFailed
-ErrorCode: DatabaseRestoreFailed
-Message: Database Restore has failed due to an unknown error.
-RecommendedAction: Wait for a few minutes and then try the operation again. If the issue persists please contact Microsoft support.
-DatabaseOperationFailed
-ErrorCode: DatabaseOperationFailed
-Message: Database operation failed with an error.
-RecommendedAction: Please check database user has appropriate permissions. For further assistance please contact Microsoft Support.
-MultiActiveConnections
-ErrorCode: MultiActiveConnections
-Message: Unable to execute restore operation on database %DatabaseName; because the active connections exceed one, preventing the database from being switched to single server mode.
-RecommendedAction: Terminate all active connections and ensure that either there are no remaining connections or only one active connection at most. For further assistance, please contact Microsoft Support.
+### DatabaseBackupOperationFailed
+
+**Error code**: `DatabaseBackupOperationFailed`
+
+**Error message**: Database backup failed.
+
+**Recommended action**: Retry the backup operation. If error persists, contact Microsoft Support.
+
+### BackupValidationFailed
+
+**Error code**: `BackupValidationFailed`
+
+**Error message**: Database backup validation failed.
+
+**Recommended action**: Retry the operation. If error persists, contact Microsoft Support.
+
+### DatabaseExistenceValidationFailure
+
+**Error code**: `DatabaseExistenceValidationFailure`
+
+**Error message**: Database existence validation failed.
+
+**Recommended action**: Check if the database exists and is online. If not, create and make the database online. For further assistance, contact Microsoft Support.
+
+### WriteToBackupStreamFailure
+
+**Error code**: `WriteToBackupStreamFailure`
+
+**Error message**: Failure while writing data to backup stream.
+
+**Recommended action**: Retry the operation. If the issue still persists, contact Microsoft Support for further assistance.
+
+### DumpHistoryCorrupted
+
+**Error code**: `DumpHistoryCorrupted`
+
+**Error message**: Dump history file is corrupted due to incorrect syntax.
+
+**Recommended action**: Check for the disk space or any incorrect format in dump history file. If the dump file is corrupted, see the [SAP note to resolve the issue](https://me.sap.com/notes/2167081/E). If the issue still persists, contact Microsoft support.
+
+### GetDatabaseVersionFailure
+
+**Error code**: `GetDatabaseVersionFailure`
+
+**Error message**: Error while fetching database version.
+
+**Recommended action**: Check if the database is in running state. If the issue still persists, contact Microsoft support.
+
+### FullBackupNotPerformed
+
+**Error code**: `FullBackupNotPerformed`
+
+**Error message**: No previous full backups were found. Initiating a forced full backup now.
+
+**Recommended action**: An automatic full backup will be performed. If the error persists afterward, contact Microsoft Support.
+
+### LatestFullBackupIsOld
+
+**Error code**: `LatestFullBackupIsOld`
+
+**Error message**: The latest full backup is more than 15 days old. A forced full backup will be taken now.
+
+**Recommended action**: An automatic full backup will be performed. If the error persists, contact Microsoft Support.
+
+### CompressionLevelNotSet
+
+**Error code**: `CompressionLevelNotSet`
+
+**Error message**: Compression has been enabled but there's no associated compression level.
+
+**Recommended action**: Run the updated pre-registration script in the virtual machine, which will add the default configuration in the `config` file and retry. If the error persists after that, contact Microsoft Support.
+
+## Restore errors
+
+### FailedToCreateDatabase
+
+**Error code**: `FailedToCreateDatabase`
+
+**Error message**: Failed to create database for restoring.
+
+**Recommended action**: To resolve the issue, follow these steps:
+
+1. Ensure that the default device is configured on the database instance.
+2. If the database creation fails for model database with error, resolve the error and retry.
+3. If enough space isn't available in the default device, increase the size of database device (or) change the default device with free space matching the size of source database.
+
+### InvalidDatabaseName
+
+**Error code**: `InvalidDatabaseName`
+
+**Error message**: Database name supplied during alternative location restore isn't meeting the requirements for database creation.
+
+**Recommended action**: Ensure that the database name length shouldn't exceed 30 characters.
+
+### ForceOverwriteOptionNotSet
+
+**Error code**: `ForceOverwriteOptionNotSet`
+
+**Error message**: Restore failed because overwrite options aren't set correctly
+
+**Recommended action**: Choose the **ForceOverwrite** option to perform restore on this database as the database with same name exists.
+
+### InvalidOverwriteOption
+ 
+**Error code**: `InvalidOverwriteOption`
+
+**Error message**: Restore operation failed due to overwrite option set to null or is invalid.
+
+**Recommended action**: Choose the **ForceOverwrite** option to perform restore on this database.
+
+### PointInTimeRestoreFailed
+
+**Error code**: `PointInTimeRestoreFailed`
+
+**Error message**: Database restore operation to the specified point-in-time has failed with an internal error.
+
+**Recommended action**: Try restoring the database from a previous Full backup. For further assistance contact Microsoft Support.
+
+### RestoreMasterALROLRUnSupported
+
+**Error code**: `RestoreMasterALROLRUnSupported`
+
+**Error message**: Master database can't be restored using Alternate and original location. Please restore using restore as files.
+
+**Recommended action**: To restore the master database, follow these steps:
+
+1. Start the database in Single User mode.
+2. Restore the master database dump using restore as files.
+3. Apply the restore using the dump file.
+4. Restart the database in the `multi user` mode.
+
+### RestoreOperationFailed
+
+**Error code**: `RestoreOperationFailed`
+
+**Error message**: Database restore operation has failed with an error
+
+**Recommended action**: Try restoring the database from a previous Full backup. For further assistance contact Microsoft Support.
+
+### DatabaseRestoreFailed
+
+**Error code**: `DatabaseRestoreFailed`
+
+**Error message**: Database Restore has failed due to an unknown error.
+
+**Recommended action**: Wait for a few minutes and then try the operation again. If the issue persists contact Microsoft support.
+
+### DatabaseOperationFailed
+
+**Error code**: `DatabaseOperationFailed`
+
+**Error message**: Database operation failed with an error.
+
+**Recommended action**: Check if the database user has appropriate permissions. For further assistance contact Microsoft Support.
+
+### MultiActiveConnections
+
+**Error code**: `MultiActiveConnections`
+
+**Error message**: Unable to execute restore operation on database %DatabaseName; because the active connections exceed one, preventing the database from being switched to single server mode.
+
+**Recommended action**: Terminate all active connections and ensure that either there are no remaining connections or only one active connection at most. For further assistance, contact Microsoft Support.
     
 
 

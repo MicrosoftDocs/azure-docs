@@ -887,6 +887,8 @@
       href: backup-azure-sap-hana-database-troubleshoot.md
     - name: SAP HANA database instance backup in Azure VM
       href: sap-hana-database-instance-troubleshoot.md
+    - name: SAP ASE database backup in Azure VMs
+      href: troubleshoot-sap-ase-sybase-database-backup.md
     - name: System State
       href: backup-azure-system-state-troubleshoot.md
     - name: Archive tier
