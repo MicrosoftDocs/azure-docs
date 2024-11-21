@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 11/06/2024
+ms.date: 11/18/2024
 ---
 
 # Upgrade plan for Azure Data Factory connectors
@@ -33,13 +33,13 @@ This article describes future upgrades for some connectors of Azure Data Factory
 | [Concur (Preview)](connector-concur.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
 | [Couchbase (Preview)](connector-couchbase.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
 | [Drill](connector-drill.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
-| [Hbase](connector-hbase.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
+| [HBase](connector-hbase.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
 | [Magento (Preview)](connector-magento.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
 | [Marketo (Preview)](connector-marketo.md) |/ | End of support announced  | December 31, 2024| December 31, 2024 | 
 | [Oracle Eloqua (Preview)](connector-oracle-eloqua.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
 | [Oracle Responsys (Preview)](connector-oracle-responsys.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
 | [Oracle Service Cloud (Preview)](connector-oracle-service-cloud.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
-| [Paypal (Preview)](connector-paypal.md) |/ | End of support announced  |December 31, 2024 | December 31, 2024| 
+| [PayPal (Preview)](connector-paypal.md) |/ | End of support announced  |December 31, 2024 | December 31, 2024| 
 | [Phoenix](connector-phoenix.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
 | [Salesforce Marketing Cloud](connector-salesforce-marketing-cloud.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
 | [Zoho (Preview)](connector-zoho.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
@@ -77,13 +77,13 @@ The following connectors are scheduled for deprecation on December 31, 2024. You
 - [Concur (Preview)](connector-concur.md)
 - [Couchbase (Preview)](connector-couchbase.md)
 - [Drill](connector-drill.md)
-- [Hbase](connector-hbase.md)
+- [HBase](connector-hbase.md)
 - [Magento (Preview)](connector-magento.md)
 - [Marketo (Preview)](connector-marketo.md)
 - [Oracle Eloqua (Preview)](connector-oracle-eloqua.md)
 - [Oracle Responsys (Preview)](connector-oracle-responsys.md)
 - [Oracle Service Cloud (Preview)](connector-oracle-service-cloud.md)
-- [Paypal (Preview)](connector-paypal.md)
+- [PayPal (Preview)](connector-paypal.md)
 - [Phoenix](connector-phoenix.md)
 - [Salesforce Marketing Cloud](connector-salesforce-marketing-cloud.md)
 - [Zoho (Preview)](connector-zoho.md)
