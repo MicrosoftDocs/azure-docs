@@ -58,16 +58,16 @@ For more information, see [Scope levels](../role-based-access-control/scope-over
 
 ## Additional roles
 
-| AKA Tag | Reserved | Points To|
-| ---| --- | ---|
-| VNGWRoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
-| vWANRoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
-| AppGwRoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
-| AzFWRoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
-| ARSRoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
-| AzNetCustom | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
-| NVARoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
-| ERRoles | Yes | [Roles](https://learn.microsoft.com/azure/vpn-gateway/roles-permissions)|
+| AKA Tag | Reserved | 
+| ---| --- |
+| VNGWRoles | Yes | 
+| vWANRoles | Yes | 
+| AppGwRoles | Yes | 
+| AzFWRoles | Yes | 
+| ARSRoles | Yes | 
+| AzNetCustom | Yes | 
+| NVARoles | Yes | 
+| ERRoles | Yes | 
 
 ## Next steps
 
