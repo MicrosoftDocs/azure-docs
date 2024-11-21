@@ -81,7 +81,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         Specifies that the data, log, and shared volumes are to be created close to the VMs.
     * **Capacity pool**:  
         All volumes are placed in a single manual QoS capacity pool. 
-        If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
+        If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group and create them separately. 
     * **Virtual network**:  
         Specify an existing VNet where the VMs are placed. 
     * **Subnet**:  
@@ -196,6 +196,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 4. In the **Volume group** tab, provide information for creating the volume group:  
 
     * **Availability option**:
+
         Select either **Availability zone** or **Proximity placement group**. 
         When selecting **Availability zone**, you must select the appropriate availability zone in the next field. 
         * **Proximity placement group (PPG)**:  
@@ -203,6 +204,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         * **Availability Zone**: 
             This option lets you deploy the volumes in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
     * **Network features**: 
+
         Standard network features is the default, however you can still use Basic network features. 
         See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
     * **Capacity pool**:  
@@ -213,7 +215,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
     * **Encryption key source**:
-        Select [Customer Managed Keys](configure-customer-managed-keys.md) or Microsoft Managed Keys. If you choose Customer Managed Key, provide the key vault private endpoint.
+
+        Select [Customer Managed Key](configure-customer-managed-keys.md) or Microsoft Managed Key. If you choose Customer Managed Key, provide the key vault private endpoint.
     
     Select **Next: Tags**. 
     
