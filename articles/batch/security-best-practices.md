@@ -158,11 +158,11 @@ For more information, see [Create a pool without public IP addresses](simplified
 
 #### Limit remote access to pool nodes
 
-For pools created with an API version earlier than 2024-07-01, Batch by default permits a node user with network connectivity to externally connect to a compute node in a Batch pool using RDP or SSH.
+For pools created with an API version earlier than `2024-07-01`, Batch by default permits a node user with network connectivity to externally connect to a compute node in a Batch pool using RDP or SSH.
 
-To limit remote access, create your pools using an API version 2024-07-01 or later.
+To limit remote access, create your pools using an API version `2024-07-01` or later.
 
-To limit remote access to nodes in pools created by API with version earlier than 2024-07-01, use one of the following methods:
+To limit remote access to nodes in pools created by API with version earlier than `2024-07-01`, use one of the following methods:
 
 - Configure the [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) to deny access. The appropriate network security group (NSG) will be associated with the pool.
 - Create your pool [without public IP addresses](simplified-node-communication-pool-no-public-ip.md). By default, these pools can't be accessed outside of the VNet.
