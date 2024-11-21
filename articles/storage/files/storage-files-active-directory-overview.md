@@ -41,6 +41,8 @@ If you're keeping your primary file storage on-premises, Azure Files is an ideal
 
 Before you enable identity-based authentication on your storage account, you need to know what identity source you're going to use. It's likely that you already have one, as most companies and organizations have some type of domain environment configured. Consult your Active Directory (AD) or IT admin to be sure. If you don't already have an identity source, you'll need to configure one before you can enable identity-based authentication.
 
+### Supported authentication scenarios
+
 You can enable identity-based authentication over SMB using one of three identity sources: **On-premises Active Directory Domain Services (AD DS)**, **Microsoft Entra Domain Services**, or **Microsoft Entra Kerberos (hybrid identities only)**. You can only use one identity source for file access authentication per storage account, and it applies to all file shares in the account.
 
 - **On-premises AD DS:** On-premises AD DS-joined or Microsoft Entra Domain Services-joined clients and virtual machines (VMs) can access Azure file shares with on-premises Active Directory credentials that are synched to Microsoft Entra ID over SMB. To use this method, your client must have unimpeded network connectivity to your AD DS.
@@ -49,7 +51,7 @@ You can enable identity-based authentication over SMB using one of three identit
 
 - **Microsoft Entra Domain Services:** Cloud-based VMs that are joined to Microsoft Entra Domain Services can access Azure file shares with Microsoft Entra credentials. In this solution, Microsoft Entra ID runs a traditional Windows Server AD domain that is a child of the customer's Microsoft Entra tenant.
 
-So which identity source do you choose?
+Use the following guidelines to determine which identity source you should choose.
 
 - If your organization already has an on-premises AD, and if the clients, VMs, and applications accessing file shares have unimpeded network connectivity to those domain controllers, choose AD DS.
 
@@ -57,7 +59,7 @@ So which identity source do you choose?
 
 - If you have an existing on-premises AD but are beginning your cloud journey and you want your identities to exist both on-premises and in the cloud, choose Microsoft Entra Kerberos.
 
-- If you don't have an existing identity source, or if you need to authenticate cloud-only identities, choose Microsoft Entra Domain Services. If you don't already have a domain service deployed in Azure, you'll notice a new charge on your Azure bill for this option.
+- If you don't have an existing identity source, or if you need to authenticate cloud-only identities, choose Microsoft Entra Domain Services. If you don't already have a domain service deployed in Azure, you'll notice a new charge on your Azure bill for this service.
 
 ## Enable an identity source
 
