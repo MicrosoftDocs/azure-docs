@@ -1,12 +1,12 @@
 ---
 title: Disaster recovery for Azure API for FHIR
 description: In this article, you'll learn how to enable disaster recovery features for Azure API for FHIR.
-author: outinyman
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 9/27/2023
-ms.author: ounyman
+ms.author: kesheth
 ---
 
 # Disaster recovery for Azure API for FHIR
