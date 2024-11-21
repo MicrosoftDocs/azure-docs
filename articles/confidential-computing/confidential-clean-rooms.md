@@ -66,7 +66,7 @@ ACCR is currently in Gated Preview. To express your interest in joining the gate
 
 ## Frequently asked questions
 
-- Question: Where are the sidecars of Clean Room published at ?
+- Question: Where are the sidecars container images of Clean Room published at ?
   Answer: The sidecar container images are published at mcr.microsoft.com/cleanroom.
 
 - Question: Can more than two collaborators participate in a collaboration?
