@@ -61,8 +61,8 @@ ACCR is currently in Gated Preview. To express your interest in joining the gate
 
 ## Important References
 
-- (CleanRoom Getting started samples)[https://github.com/Azure-Samples/azure-cleanroom-samples]
-- (Confidential Clean Room sidecars repository)[https://github.com/Azure/azure-cleanroom/]
+- [CleanRoom Getting started samples](https://github.com/Azure-Samples/azure-cleanroom-samples)
+- [Confidential Clean Room sidecars repository](https://github.com/Azure/azure-cleanroom/)
 
 ## Frequently asked questions
 
