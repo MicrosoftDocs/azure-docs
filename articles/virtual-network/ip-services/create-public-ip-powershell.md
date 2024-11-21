@@ -120,7 +120,7 @@ $ip = @{
 New-AzPublicIpAddress @ip
 ```
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 # [**Non-zonal**](#tab/create-public-ip-non-zonal)
 
@@ -146,7 +146,7 @@ New-AzPublicIpAddress @ip
 ```
 The removal of the **`-Zone`** parameter in the command is valid in all regions.  
 
-The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ---
 

@@ -88,7 +88,7 @@ New-AzPublicIpPrefix @ipv4
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 # [**Non-zonal IPv4 prefix**](#tab/ipv4-non-zonal)
 
@@ -107,7 +107,7 @@ New-AzPublicIpPrefix @ipv4
 
 The removal of the **`-Zone`** parameter in the command is valid in all regions.  
 
-The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 # [**Routing Preference Internet IPv4 prefix**](#tab/ipv4-routing-pref)
 
@@ -166,7 +166,7 @@ New-AzPublicIpPrefix @ipv6
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 # [**Non-zonal IPv6 prefix**](#tab/ipv6-non-zonal)
 
@@ -185,7 +185,7 @@ New-AzPublicIpPrefix @ipv6
 
 The removal of the **`-Zone`** parameter in the command is valid in all regions.  
 
-The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 ---
 
