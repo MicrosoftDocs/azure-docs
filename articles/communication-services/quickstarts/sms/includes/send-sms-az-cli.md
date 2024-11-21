@@ -21,7 +21,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- An SMS-enabled telephone number. [Get a phone number](../../telephony/get-phone-number.md).
+- An SMS-enabled telephone number, short code, or alphanumeric sender ID. [Get a phone number](../../telephony/get-phone-number.md).
 - The latest [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) version for your operating system.
 
 ### Prerequisite check
