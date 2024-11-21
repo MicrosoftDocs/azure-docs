@@ -89,7 +89,7 @@ You must give the managed identity permissions to the repository in Azure Repos.
 
 1. Select **Save**.
 
-   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-reop-blade-with-managed-identity.png)
+   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade-with-azure-managed-identity.png)
 
 The repository now appears in the **Repositories** list for the lab.
 
@@ -125,7 +125,7 @@ The repository now appears in the **Repositories** list for the lab.
 
 1. Select **Save**.
 
-   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-reop-blade-with-pat.png)
+   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade-with-azure-pat.png)
 
 The repository now appears in the **Repositories** list for the lab.
 
@@ -182,8 +182,8 @@ To add a catalog, complete the following tasks:
    - **Name**: A repository name to use in the lab.
    - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
    - **Branch** (optional): The branch that has your artifact definitions.
-   - **GitHub app**: Use this option to leverage GitHub app authentication.
    - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
+   - **GitHub app**: Use this option to leverage GitHub app authentication.
 
 1. Select **Save**.
 
@@ -219,12 +219,13 @@ The repository now appears in the **Repositories** list for the lab.
    - **Name**: A repository name to use in the lab.
    - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
    - **Branch** (optional): The branch that has your artifact definitions.
-   - **Personal access token**: The personal access token from GitHub Repos.
    - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
+   - **Personal access token**: The personal access token from GitHub Repos.
+
 
 1. Select **Save**.
 
-   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade-with-github-pat.png)
 
 The repository now appears in the **Repositories** list for the lab.
 
