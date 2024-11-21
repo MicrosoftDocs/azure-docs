@@ -26,7 +26,7 @@ This article details the security content available for the Microsoft Sentinel s
 The following analytic rules are included when you install the solution for Power Platform. The data sources listed include the data connector name and table in Log Analytics.
 
 ### Dataverse rules
-<!--why call them new?-->
+
 |Rule name|Description|Source action|Tactics|
 |---------|---------|---------|---------|
 |Dataverse - Anomalous application user activity|Identifies anomalies in activity patterns of Dataverse application (non-interactive) users, based on activity falling outside the normal pattern of use.|Unusual S2S user activity in Dynamics 365 / Dataverse.<br><br>**Data sources**:<br>- Dataverse<br>`DataverseActivity`|CredentialAccess, Execution, Persistence|
