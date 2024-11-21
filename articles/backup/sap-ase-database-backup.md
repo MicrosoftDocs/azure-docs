@@ -4,6 +4,8 @@ description: In this article, learn how to configure backup for SAP ASE (Sybase)
 ms.topic: how-to
 ms.date: 11/21/2024 
 ms.service: azure-backup
+ms.custom:
+  - ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

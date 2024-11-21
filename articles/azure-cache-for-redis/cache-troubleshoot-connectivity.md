@@ -4,10 +4,9 @@ description: Learn how to resolve connectivity problems when creating clients wi
 
 
 
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 12/12/2023
-ms.custom: template-concept
-
+ms.custom: template-concept, ignite-2024
 ---
 
 # Connectivity troubleshooting

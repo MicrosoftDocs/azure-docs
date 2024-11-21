@@ -5,10 +5,9 @@ description: Learn how to manage your Azure Deployment Environments deployment e
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
-ms.custom: devx-track-azurecli, build-2023
+ms.custom: devx-track-azurecli, build-2023, ignite-2024
 ms.topic: how-to
 ms.date: 11/06/2024
-
 # customer intent: As a developer, I want to learn how to manage my environments in Azure Deployment Environments so that I can create, redeploy, and delete my environments as needed.
 ---
 

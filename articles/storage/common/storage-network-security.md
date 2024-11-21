@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/19/2024
 ms.author: normesta
 ms.reviewer: santoshc
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement, ignite-2024
 ---
 
 # Configure Azure Storage firewalls and virtual networks
