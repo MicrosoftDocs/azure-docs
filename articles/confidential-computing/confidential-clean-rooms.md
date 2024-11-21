@@ -59,7 +59,7 @@ ACCR is currently in Gated Preview. To express your interest in joining the gate
 - For further questions on onboarding reach out to  CleanRoomPMTeam@microsoft.com.
 - After reviewing details, we'll reach out to you with detailed steps for onboarding.
 
-## Inportant References
+## Important References
 
 - (CleanRoom Getting started samples)[https://github.com/Azure-Samples/azure-cleanroom-samples]
 - (Confidential Clean Room sidecars repository)[https://github.com/Azure/azure-cleanroom/]
