@@ -15,6 +15,8 @@ Only users with Owner or Contributor access on the Azure subscription can create
 
 ## Marketplace purchase errors
 
+<!--add links-->
+
 ### The Microsoft.SaaS resource provider isn't registered on the Azure subscription.
 You must make sure your Azure subscription is registered for the resource provider before you use it. Learn more about Resource provider registration and resolving errors on resource provider registration.
 
@@ -44,13 +46,13 @@ If those options don't solve the problem, contact [Neon support].
 If you get a Deployment Failed error, check the status of your Azure subscription. Make sure it isn't suspended and doesn't have any billing issues.
 
 ## Resource creation takes a long time
-If the deployment process takes more than three hours to complete, contact [Neon support].
+If the deployment process takes more than three hours to complete, contact [Neon support](https://neon.tech/docs/introduction/support).
 If the deployment fails and the Neon resource has a status of Failed, delete the resource. After deletion, try to create the resource again
 
 ## Other Troubleshooting resources
 
 ### Errors when connecting to your Neon database
-If you encounter issues when connecting to your Neon database, refer to the Connection errors section in the Neon documentation for potential solutions.
+If you encounter issues when connecting to your Neon database, refer to the [Connection errors section in the Neon documentation](https://neon.tech/docs/connect/connection-errors) for potential solutions.
 
 ### Database connection latency and timeouts
 If you experience latency or timeouts while connecting to your Neon database, consult the Connection latency and timeouts section in the Neon documentation for strategies and best practices.

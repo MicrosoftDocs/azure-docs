@@ -14,16 +14,11 @@ ms.date: 10/01/2024
 
 Single sign-on (SSO) is already enabled when you created your Neon  resource. To access Neon through SSO, follow these steps:
 
-1. Navigate to the Overview for your instance of the Neon resource. Select the SSO Url.
+1. Navigate to the Overview for your instance of the Neon resource. 
 
+1. Select the SSO Url.
 
-1. The first time you access this Url, depending on your Azure tenant settings, you might see a request to grant permissions and User consent. This step is only needed the first time you access the SSO Url.
-
-   > [!NOTE]
-   > If you are also seeing Admin consent screen then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent).
-   >
-
-1. Choose a Microsoft Entra account for the Single Sign-on. Once consent is provided, you're redirected to the Neon portal.
+The first time you access this Url, depending on your Azure tenant settings, you might see a request to grant permissions and User consent. This step is only needed the first time you access the SSO Url.
 
 ## Delete a Neon deployment
 
