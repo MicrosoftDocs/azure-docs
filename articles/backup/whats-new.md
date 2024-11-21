@@ -112,7 +112,7 @@ For more information, see [Secure by Default with Azure Backup (Preview)](secure
 
 Azure Backup now provides immutable WORM storage for your backups when immutability is enabled and locked on a Recovery Services vault. When immutability is enabled, Azure Backup ensures that a Recovery Point, once created, can't be deleted or have  its retention period reduced before its intended expiry. 
 
-When immutability is locked, Azure Backup also uses WORM-enabled immutable storage to meet any compliance requirements. This feature is applicable to both existing and new vaults with locked immutability.WORM immutability is available in [these regions](backup-azure-immutable-vault-concept.md#supported-scenarios-for-worm-storage). 
+When immutability is locked, Azure Backup also uses WORM-enabled immutable storage to meet any compliance requirements. This feature is applicable to both existing and new vaults with locked immutability. WORM immutability is available in [these regions](backup-azure-immutable-vault-concept.md#supported-scenarios-for-worm-storage). 
 
 For more information, see [About Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
 
