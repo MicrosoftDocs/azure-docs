@@ -275,8 +275,8 @@ sections:
   - name: Hosts, clusters, and private clouds
     questions:
 
-      - question: Is there more than one type of host available?
-        answer:  No. There's only one type available.
+      - question: Is there more than one type of host available per Private Cloud? Is it possible to combine different host types in a cluster or Private CLoud?
+        answer:  With the exception of AV64 clsuter requiring a seperate 3-node cluster minimum of AV36, AV36P, or AV52, you cannot combine different host types in a Private Cloud. In all scenarios, clusters require the same host type. Multiple clusters can be deployed within a single private cloud. All hosts must be the same type within a private cloud. If different host types are required to meet use case needs, additional private clouds must be deployed.
 
       - question: Do I use the same tools that I use now to manage private cloud resources?
         answer: Yes. The Azure portal is used for deployment and several management operations. vCenter Server and NSX Manager are used to manage vSphere and NSX resources.
