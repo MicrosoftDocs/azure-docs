@@ -1,16 +1,16 @@
 ---
-title: Launch your first Java microservice applications with managed Java components in Azure Container Apps
+title: Launch your first Java Microservice Application with Managed Java Components in Azure Container Apps
 description: Learn how to deploy a Java microservice project in Azure Container Apps with managed Java components.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: quickstart
-ms.date: 11/12/2024
+ms.date: 11/21/2024
 ms.author: cshoe
 ---
 
-# Tutorial: Launch your first Java microservice applications with managed Java components in Azure Container Apps
+# Tutorial: Launch your first Java microservice application with managed Java components in Azure Container Apps
 
 In this article, you learn how to deploy an application that uses Java components to handle configuration management, service discovery, and manage health and metrics. The sample application used in this example is the Java PetClinic sample which uses the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps.
 
