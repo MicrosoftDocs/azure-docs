@@ -81,7 +81,7 @@
   items:
   - name: Overview of identity-based authentication options
     href: storage-files-active-directory-overview.md
-  - name: Windows identity-based authentication
+  - name: Windows identity-based authentication over SMB
     items:
     - name: Enable an AD source
       items:
@@ -113,7 +113,7 @@
         href: storage-files-identity-configure-file-level-permissions.md
     - name: Mount file share
       href: storage-files-identity-mount-file-share.md
-  - name: Linux identity-based authentication
+  - name: Linux identity-based authentication over SMB
     href: storage-files-identity-auth-linux-kerberos-enable.md
   - name: Authorize access to file data
     items:
