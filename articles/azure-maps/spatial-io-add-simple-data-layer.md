@@ -63,7 +63,18 @@ function InitMap()
     map.layers.add(layer);
 
     //Load an initial data set.
-    loadDataSet('{Your-Data-Source-File}');
+    const dataSet = {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [0, 0]
+        },
+        "properties": {
+            "color": "red"
+        }
+    };
+    
+    loadDataSet(dataSet);
 
     function loadDataSet(url) {
       //Read the spatial data and add it to the map.
@@ -83,21 +94,6 @@ function InitMap()
       });
     }
   });
-}
-```
-
-The _initial data set_ passed to the `loadDataSet` function in this example points to the following json:
-
-```json
-{
-    "type": "Feature",
-    "geometry": {
-        "type": "Point",
-        "coordinates": [0, 0]
-    },
-    "properties": {
-        "color": "red"
-    }
 }
 ```
 
