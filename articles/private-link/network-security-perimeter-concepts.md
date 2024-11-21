@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # What is Network Security Perimeter?
 
-Network Security Perimeter allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Storage acoount and SQL Database server) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter; access can be exempted by using explicit access rules for public inbound and outbound.
+Network Security Perimeter allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Storage account and SQL Database server) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter; access can be exempted by using explicit access rules for public inbound and outbound.
 
 For access patterns involving traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md).
 
@@ -97,7 +97,7 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | Event Hubs                | Microsoft.EventHub/namespaces | - |
 | [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | - |
 | [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | - |
-| [Storage](/azure/storage/common/storage-network-security)               | Microsoft.Storage/storageAccounts | - |
+| [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | - |
 
 > [!NOTE]
 > 
