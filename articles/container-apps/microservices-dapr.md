@@ -11,9 +11,9 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
-# Tutorial: Deploy a Dapr application to Azure Container Apps using the Azure CLI
+# Quickstart: Deploy a Dapr application to Azure Container Apps using the Azure CLI
 
-[Dapr](./dapr-overview.md) (Distributed Application Runtime) helps developers build resilient, reliable microservices. In this quickstart, you learn how to enable Dapr sidecars to run alongside your microservices container apps. You'll
+[Dapr](./dapr-overview.md) (Distributed Application Runtime) helps developers build resilient, reliable microservices. In this quickstart, you learn how to enable Dapr sidecars to run alongside your microservices container apps. You'll:
 
 > [!div class="checklist"]
 > * Create a Container Apps environment and Azure Blog Storage state store for your container apps.

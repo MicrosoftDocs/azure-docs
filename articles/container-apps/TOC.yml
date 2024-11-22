@@ -268,12 +268,10 @@
         displayName: Developing with Dapr overview
       - name: Get started
         items:
-        - name: Quickstarts
-          items:
-          - name: Daploy using Azure CLI
-            href: microservices-dapr.md
-          - name: Deploy using ARM or Bicep
-            href: microservices-dapr-azure-resource-manager.md
+        - name: Daploy using Azure CLI
+          href: microservices-dapr.md
+        - name: Deploy using ARM or Bicep
+          href: microservices-dapr-azure-resource-manager.md
         - name: Connect to Azure services via Dapr components
           href: dapr-component-connection.md
         - name: Enable Dapr
