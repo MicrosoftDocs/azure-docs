@@ -1,8 +1,8 @@
 ---
-title: "Tutorial: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template"
+title: "Quickstart: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template"
 description: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template.
 services: container-apps
-author: asw101
+author: hhunter-ms
 ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 06/29/2022
@@ -11,7 +11,7 @@ ms.custom: devx-track-bicep, devx-track-arm-template, devx-track-azurepowershell
 zone_pivot_groups: container-apps
 ---
 
-# Tutorial: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template
+# Quickstart: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template
 
 [Dapr](./dapr-overview.md) (Distributed Application Runtime) helps developers build resilient, reliable microservices. In this quickstart, you learn how to enable Dapr sidecars to run alongside your microservices container apps using either Azure Resource Manager or Bicep templates. You'll:
 
