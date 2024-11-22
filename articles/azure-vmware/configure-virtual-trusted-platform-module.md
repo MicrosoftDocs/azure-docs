@@ -36,14 +36,14 @@ To configure vTPM on a VM in Azure VMware Solution, follow these steps:
 
 3. In the Edit Settings dialog box, click "Add New Device" and choose "Trusted Platform Module".  
 
-4. Click "OK". The virtual machine Summary tab will now display the Virtual Trusted Platform Module in the VM Hardware pane. 
+4. Click "OK". The virtual machine Summary tab displays the Virtual Trusted Platform Module in the VM Hardware pane. 
 
 >[!IMPORTANT]
 >On VMware vSphere 7, cloning a virtual machine creates an exact replica of both the VM and the vTPM. VMware vSphere 8 introduces options to either copy or replace the TPM, allowing for better handling of different use cases. 
 
 ## Unsupported scenarios 
 
-Migration of VMs with vTPM may not be supported by some tools. Please check the documentation of the migration tool. If it is not supported, you can follow VMware documentation to safely disable vTPM and re-enable it post-migration. 
+Migration of VMs with vTPM may not be supported by some tools. Check the documentation of the migration tool. If it is not supported, you can follow VMware documentation to safely disable vTPM and re-enable it post-migration. 
 
 ## More information
 [Securing Virtual Machines with Virtual Trusted Platform Module](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-A43B6914-E5F9-4CB1-9277-448AC9C467FB.html)
