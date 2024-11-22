@@ -103,7 +103,7 @@ Sending unsolicited messages, also known as spam, can lead to penalties, includi
  10DLC numbers are designed for use within the United States and do not support international messaging.
  
 ### How can I monitor the performance of my 10DLC number?
-Monitoring the performance of your 10DLC number, such as delivery rates, message throughput, and errors, can typically be done through [SMS insights dashboard](https://review.learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/insights/sms-insights?branch=main).
+Monitoring the performance of your 10DLC number, such as delivery rates, message throughput, and errors, can typically be done through [SMS insights dashboard](../analytics/insights/sms-insights.md).
 
 ### Can I use 10DLC numbers for high-volume messaging?
 Yes, 10DLC numbers are suitable for high-volume messaging, but they are subject to carrier rate limiting and compliance guidelines. To ensure optimal performance, it's important to work with your provider to manage message volume and adhere to best practices for A2P messaging.
