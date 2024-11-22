@@ -10,6 +10,9 @@ ms.date: 07/01/2019
 
 # How to safely power off Azure FXT Edge Filer hardware
 
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/hpccacheretirement for more information about the retirement.
+
 Although you can use the physical power button to switch on an individual node, you should not use it to shut down the unit under normal circumstances.
 
 After an Azure FXT Edge Filer node is in use as part of a cluster, you should use the cluster control panel software to shut down the hardware.

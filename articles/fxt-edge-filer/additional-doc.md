@@ -10,6 +10,9 @@ ms.date: 06/20/2019
 
 # Additional documentation for Azure FXT Edge Filer
 
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/hpccacheretirement for more information about the retirement.
+
 Other non-Microsoft resources might help you understand and work with your Microsoft Azure FXT Edge Filer hybrid cache.
 
 ## Avere vFXT for Azure cache documentation

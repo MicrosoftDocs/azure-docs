@@ -10,6 +10,9 @@ ms.date: 06/20/2019
 
 # Monitor Azure FXT Edge Filer hardware status
 
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/hpccacheretirement for more information about the retirement.
+
 The Azure FXT Edge Filer hybrid storage cache system has multiple status lights built in to the chassis to help administrators understand how the hardware is functioning.
 
 ## System health status

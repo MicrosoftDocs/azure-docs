@@ -10,6 +10,9 @@ ms.date: 10/07/2021
 
 # Tutorial: Configure the cluster's network settings
 
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/hpccacheretirement for more information about the retirement.
+
 Before you use a newly created Azure FXT Edge Filer cluster, you should check and customize several network settings for your workflow.
 
 This tutorial explains the network settings that you might need to adjust for a new cluster.
