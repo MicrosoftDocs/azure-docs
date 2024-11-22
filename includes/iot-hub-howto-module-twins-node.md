@@ -55,7 +55,7 @@ For example, this command installs the `Amqp` protocol:
 npm install azure-iot-device-amqp --save
 ```
 
-For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](../articles/iot-hub/iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](../articles/iot-hub/iot-hub-devguide-protocols.md).
+For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](../articles/iot-hub/iot-hub-devguide-c2d-guidance.md) and [Choose a device communication protocol](../articles/iot-hub/iot-hub-devguide-protocols.md).
 
 ### Create a client object
 

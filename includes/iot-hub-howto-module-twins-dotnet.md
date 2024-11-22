@@ -42,7 +42,7 @@ using Microsoft.Azure.Devices.Shared;
 
 The [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) class exposes all methods required to interact with module identity twins from the device.
 
-Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromconnectionstring) method with the module connection string.
+Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromconnectionstring) method with the module identity connection string.
 
 Calling `CreateFromConnectionString` without a transport parameter connects using the default AMQP transport.
 
