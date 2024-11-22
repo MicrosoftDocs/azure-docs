@@ -100,8 +100,8 @@ For more information about integration with Microsoft Teams, see [Native SAP app
 
 For more information about integration with Microsoft Power Platform, see the following Power Automate resources:
 
+- [Overview of SAP integration](/power-platform/sap/connect/connect-power-platform-and-sap)
 - [SAP Principal Propagation using Azure API Management | blog](https://community.powerplatform.com/blogs/post/?postid=c6a609ab-3556-ef11-a317-6045bda95bf0)
-- [Overview of SAP integration](/power-automate/sap-integration/overview)
 - [Finance and operations templates for SAP process mining with Power Automate Process Advisor](/power-automate/process-mining-finance-ops-templates)
 - [Hyperautomation for SAP based integration and automation with Power Automate | video series](https://flow.microsoft.com/blog/hyperautomation-special-video-series-for-sap-based-integration-automation-with-power-automate/)
 - [RPA Playbook for SAP GUI Automation with Power Automate | blog](https://flow.microsoft.com/blog/rpa-playbook-for-sap-gui-automation-with-power-automate-api-flows-ui-flows-and-power-automate-desktop/)
@@ -166,8 +166,8 @@ Also see the following SAP resources:
 
 For more information about using SAP with Azure Integration services, see the following Microsoft resources and Azure documentation:
 
-- [New SAP events on Azure Event Grid with SAP Event Mesh](https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/new-sap-events-on-azure-event-grid/ba-p/3663372)
 - [Expose SAP Process Orchestration on Azure securely](expose-sap-process-orchestration-on-azure.md)
+- [New SAP events on Azure Event Grid with SAP Event Mesh](https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/new-sap-events-on-azure-event-grid/ba-p/3663372)
 - [Connect to SAP from workflows in Azure Logic Apps](../../logic-apps/logic-apps-using-sap-connector.md)
 - [Import SAP OData metadata as an API into Azure API Management](../../api-management/sap-api.md)
 - [Apply SAP Principal Propagation to your Azure hosted APIs](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml)
