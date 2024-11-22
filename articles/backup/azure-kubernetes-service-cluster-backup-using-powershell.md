@@ -8,6 +8,7 @@ ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
   - engagement-fy24
+  - ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

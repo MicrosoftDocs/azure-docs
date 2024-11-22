@@ -3,9 +3,10 @@ title: How to upgrade the Redis version of Azure Managed Redis (preview)
 description: Learn how to upgrade the version of Azure Managed Redis.
 
 ms.service: azure
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
 ms.date: 11/15/2024
-
 ---
 
 # How to upgrade the version of your Azure Managed Redis (Preview) instance

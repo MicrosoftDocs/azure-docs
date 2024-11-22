@@ -164,10 +164,6 @@
         href: use-variant-feature-flags.md
       - name: ASP.NET Core
         href: use-variant-feature-flags-aspnet-core.md
-    - name: Run experiments with variant feature flags
-      items:
-      - name: ASP.NET Core
-        href: run-experiments-aspnet-core.md
   - name: Enable Azure monitoring
     items:
     - name: Monitor App Configuration

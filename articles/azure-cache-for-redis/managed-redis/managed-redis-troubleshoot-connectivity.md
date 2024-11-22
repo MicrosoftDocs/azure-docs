@@ -4,10 +4,9 @@ description: Learn how to resolve connectivity problems when creating clients wi
 
 
 ms.service: azure
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 11/15/2024
-ms.custom: template-concept
-
+ms.custom: template-concept, ignite-2024
 ---
 
 # Connectivity troubleshooting with Azure Managed Redis (preview)

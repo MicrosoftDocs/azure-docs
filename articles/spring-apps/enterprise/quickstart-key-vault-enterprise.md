@@ -38,6 +38,8 @@ The following instructions describe how to create a Key Vault and securely save 
 
 1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
 
+   [!INCLUDE [security-note](../includes/security-note.md)]
+
    ```azurecli
    export RESOURCE_GROUP=<resource-group-name>
    export KEY_VAULT_NAME=<key-vault-name>
@@ -76,6 +78,8 @@ The following instructions describe how to create a Key Vault and securely save 
 
 1. Use the following commands to store the database login credentials in Key Vault:
 
+   [!INCLUDE [security-note](../includes/security-note.md)]
+
    ```azurecli
    az keyvault secret set \
        --vault-name ${KEY_VAULT_NAME} \
@@ -90,6 +94,8 @@ The following instructions describe how to create a Key Vault and securely save 
 
 1. Use the following command to store the database connection string in Key Vault for the Order Service application:
 
+   [!INCLUDE [security-note](../includes/security-note.md)]
+
    ```azurecli
    az keyvault secret set \
        --vault-name ${KEY_VAULT_NAME} \
@@ -98,6 +104,8 @@ The following instructions describe how to create a Key Vault and securely save 
    ```
 
 1. Use the following commands to retrieve Redis connection properties and store them in Key Vault:
+
+   [!INCLUDE [security-note](../includes/security-note.md)]
 
    ```azurecli
    export REDIS_HOST=$(az redis show \
@@ -258,6 +266,8 @@ After granting access to read secrets from Key Vault, use the following steps to
    ```
 
 1. Use the following command to update the Order Service environment with the URI to access Key Vault:
+
+   [!INCLUDE [security-note](../includes/security-note.md)]
 
    ```azurecli
    az spring app update \

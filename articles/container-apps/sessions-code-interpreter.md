@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 10/24/2024
 ms.author: antchu
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2024
 ms.collection: ce-skilling-ai-copilot
 ---
 

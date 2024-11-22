@@ -86,6 +86,8 @@ Use the following steps to connect your service instances:
 
 1. Configure the **Next: Authentication** tab with the following information:
 
+   [!INCLUDE [security-note](../../../includes/security-note.md)]
+
    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
 
 1. Select **Next: Networking**. Use the default option **Configure firewall rules to enable access to target service**.
@@ -199,6 +201,8 @@ Use the following steps to create a Service Bus instance:
 You've now created both the Service Bus and the app in Azure Spring Apps, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app:
 
 1. Get the Service Bus's connection string by using the following command:
+
+   [!INCLUDE [security-note](../../../includes/security-note.md)]
 
    ```azurecli
    export SERVICE_BUS_CONNECTION_STRING=$( \

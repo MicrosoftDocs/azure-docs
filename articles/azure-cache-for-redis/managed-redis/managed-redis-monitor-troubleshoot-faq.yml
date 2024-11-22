@@ -4,6 +4,8 @@ metadata:
   description: Learn the answers to common questions that help you monitor and troubleshoot Azure Managed Redis (preview).
   ms.date: 11/15/2024
   ms.topic: faq
+  ms.custom:
+    - ignite-2024
 title: Azure Managed Redis (preview) monitoring and troubleshooting FAQs
 summary: This article provides answers to common questions about how to monitor and troubleshoot Azure Managed Redis (preview).
 

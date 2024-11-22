@@ -4,9 +4,10 @@ description: Learn how to migrate your existing cache to Azure Managed Redis
 
 
 ms.service: azure
+ms.custom:
+  - ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
-
 ---
 # Migrate to Azure Managed Redis (preview)
 
