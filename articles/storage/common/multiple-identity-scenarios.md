@@ -540,7 +540,8 @@ public class ExampleService {
     ```javascript
     import { DefaultAzureCredential } from "@azure/identity";
     import { BlobServiceClient } from "@azure/storage-blob";
-    import { KeyClient } from "@azure/keyvault-keys";
+    import { CosmosClient } from "@azure/cosmos";
+    import { sql } from "mssql";
 
     // Get the first user-assigned managed identity client ID to connect to shared storage
     const clientIdStorage = process.env.MANAGED_IDENTITY_CLIENT_ID_STORAGE;
@@ -579,8 +580,8 @@ public class ExampleService {
       })
     });
     
-    // Open a connection to Azure SQL using a managed identity with mssql package
-    // mssql reads the environment variables to get the managed identity
+    // Open a connection to Azure SQL using a managed identity with mssql package.
+    // mssql reads the environment variables to get the managed identity.
     const server = process.env.AZURE_SQL_SERVER;
     const database = process.env.AZURE_SQL_DATABASE;
     const port = parseInt(process.env.AZURE_SQL_PORT);
@@ -603,7 +604,7 @@ public class ExampleService {
 
 ---
 
-You can also associate a user-assigned managed identity and a system-assigned managed identity to a resource simultaneously. This can be useful in scenarios where all of the apps require access to the same shared services, but one of the apps also has a very specific dependency on an additional service. Using a system-assigned identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
+You can also associate a user-assigned managed identity and a system-assigned managed identity to a resource simultaneously. This can be useful in scenarios where all of the apps require access to the same shared services, but one of the apps also has a very specific dependency on an additional service. Using a system-assigned managed identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
 
 :::image type="content" lightbox="media/user-and-system-assigned-identities-small.png" source="media/user-and-system-assigned-identities.png" alt-text="Diagram showing user-assigned and system-assigned managed identities.":::
 
