@@ -5,6 +5,8 @@ description: In this tutorial, you learn how to use Azure Cache for Redis to sto
 
 
 ms.topic: tutorial
+ms.custom:
+  - ignite-2024
 ms.date: 09/15/2023
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.

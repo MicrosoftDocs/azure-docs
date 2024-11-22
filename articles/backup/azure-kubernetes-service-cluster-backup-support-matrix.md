@@ -6,6 +6,7 @@ ms.date: 09/09/2024
 ms.custom:
   - references_regions
   - ignite-2023
+  - ignite-2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

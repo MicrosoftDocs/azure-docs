@@ -4,6 +4,8 @@ description: Learn about how to restore Azure Database for PostgreSQL -Flexible 
 ms.topic: how-to
 ms.date: 06/14/2024
 ms.service: azure-backup
+ms.custom:
+  - ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

@@ -5,9 +5,8 @@ description: Learn how to resolve common latency and timeout issues with Azure M
 
 ms.service: azure
 ms.topic: conceptual
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2024
 ms.date: 11/15/2024
-
 ---
 
 # Troubleshoot Azure Managed Redis (preview) latency and timeouts

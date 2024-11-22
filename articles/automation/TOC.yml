@@ -266,7 +266,7 @@
           href: change-tracking/manage-change-tracking-monitoring-agent.md
         - name: Configure alerts
           href: change-tracking/configure-alerts.md
-    - name: Migration from Change Tracking and Inventory using AMA to Change Tracking using LA (Retired)
+    - name: Migration from Change Tracking and Inventory using AMA to Change Tracking using LA
       items:
         - name: Migration from Log Analytics to Azure Monitoring Agent version
           href: change-tracking/guidance-migration-log-analytics-monitoring-agent.md

@@ -2,8 +2,10 @@
 title: Tutorial - Manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
 description: In this tutorial, learn how to manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
 ms.topic: how-to
-ms.date: 09/12/2024
+ms.date: 11/19/2024
 ms.service: azure-business-continuity-center
+ms.custom:
+  - ignite-2024
 ms.reviewer: dapatil
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -138,4 +140,3 @@ To trigger an on-demand backup for resources, follow these steps:
    You can also fetch a list of failed backup jobs in a given time period.
 
      :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-failed-jobs-script.png" alt-text="Screenshot shows the script to view failed jobs." lightbox="./media/tutorial-manage-data-using-copilot/view-failed-jobs-script.png":::
-
