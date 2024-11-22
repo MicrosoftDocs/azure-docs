@@ -20,7 +20,7 @@ Under the infrastructure as a service (IaaS) deployment model in cloud computing
 - *Confidential virtual machines (VMs)* based on [AMD SEV-SNP](confidential-vm-overview.md) or [Intel TDX](tdx-confidential-vm-overview.md) for VM isolation
 - *Application enclaves* with [Intel SGX](confidential-computing-enclaves.md) for app isolation
 
-These options provide organizations with differing deployment models depending their trust boundary or desired ease of deployment.
+These options provide organizations with differing deployment models, depending on their trust boundary or desired ease of deployment.
 
 ![Diagram that shows the customer trust boundary of confidential computing technologies.](./media/confidential-computing-deployment-models/cloud-trust-boundary.png)
 
@@ -28,7 +28,7 @@ The IaaS deployment model grants access to scalable computing resources (such as
 
 In the domain of cloud computing, the IaaS deployment model enables businesses to rent individual services from cloud service providers like Azure. Azure assumes responsibility for managing and maintaining the infrastructure so that organizations can concentrate on installing, configuring, and managing their software. Azure also offers supplementary services such as comprehensive billing management, logging, monitoring, storage resiliency, and security.
 
-Scalability is another advantage of the IaaS deployment model in cloud computing. Enterprises can swiftly scale their resources up and down according to their requirements. This flexibility facilitates faster development life cycles, accelerating time to market for new products and ideas. The IaaS deployment model also helps ensure reliability by eliminating single points of failure. Even in the event of a hardware component failure, the service remains available.
+Scalability is another advantage of the IaaS deployment model in cloud computing. Enterprises can swiftly scale their resources up and down according to their requirements. This flexibility facilitates faster development life cycles, accelerating time to market for new products and ideas. The IaaS deployment model also helps ensure reliability by eliminating single points of failure. Even if a hardware component fails, the service remains available.
 
 In summary, the IaaS deployment model in combination with Azure confidential computing offers benefits like cost savings, increased efficiency, innovation opportunities, reliability, and high scalability. It takes advantage of a robust and comprehensive security solution that's designed to protect highly sensitive data.
 
