@@ -82,7 +82,7 @@ Click **Next** to proceed to the **Campaign Details** section.
    - **Description**: Add a description for the campaign, explaining its purpose and target audience.
    - **Call-to-Action / Message Flow**: Describe how end users are expected to engage with this campaign (e.g., opt-in process, expected interaction).
 
-:::image type="content" source="./media/apply-for-brand-registration/campaign-registration-2.png" alt-text="Screenshot showing campaign registration form 2." lightbox="./media/apply-for-campaign-registration/campaign-registration-2.png":::
+:::image type="content" source="./media/apply-for-brand-registration/campaign-registration-2.png" alt-text="Screenshot showing campaign registration form 2." lightbox="./media/apply-for-brand-registration/campaign-registration-2.png":::
 
 Click **Next** to proceed to the **Use Case** section
 ### Use Case
@@ -90,7 +90,7 @@ Click **Next** to proceed to the **Use Case** section
    - **Sub-content Type**: Choose a more specific content category if applicable.
    - **Sample Message**: Provide a sample message that aligns with the campaign's use case. You can add multiple sample messages if needed by clicking **Add Sample Message**.
 
-:::image type="content" source="./media/apply-for-brand-registration/campaign-registration-3.png" alt-text="Screenshot showing campaign registration form 3." lightbox="./media/apply-for-campaign-registration/campaign-registration-3.png":::
+:::image type="content" source="./media/apply-for-brand-registration/campaign-registration-3.png" alt-text="Screenshot showing campaign registration form 3." lightbox="./media/apply-for-brand-registration/campaign-registration-3.png":::
 
 After completing the **Use Case** tab, proceed to the **Campaign and Content Attributes** tab:
 
@@ -112,7 +112,7 @@ Fill in the campaign and content attributes as follows:
 #### Terms and Conditions:
    - Affiliate marketing is not permitted on 10DLC numbers. Check the box to confirm that the campaign will not be used for Affiliate Marketing.
 
-:::image type="content" source="./media/apply-for-brand-registration/campaign-registration-4.png" alt-text="Screenshot showing campaign registration form 4." lightbox="./media/apply-for-campaign-registration/campaign-registration-4.png":::
+:::image type="content" source="./media/apply-for-brand-registration/campaign-registration-4.png" alt-text="Screenshot showing campaign registration form 4." lightbox="./media/apply-for-brand-registration/campaign-registration-4.png":::
 
 Once all fields are completed, click **Next** to proceed to the **Review** tab.
 
@@ -143,7 +143,7 @@ Once your campaign is approved, follow these steps to link a phone number to it:
 > [Important!]
 > It may take several hours for the number to be fully associated with the campaign. Please check back after some time to confirm that the association is complete.
 
-:::image type="content" source="./media/apply-for-brand-registration/link-number-to-campaign.png" alt-text="Screenshot showing number to campaign linking." lightbox="./media/link-number-to-campaign.png":::
+:::image type="content" source="./media/apply-for-brand-registration/link-number-to-campaign.png" alt-text="Screenshot showing number to campaign linking." lightbox="./media/apply-for-brand-registration/link-number-to-campaign.png":::
 
 ### Checking Status of Brand and Campaign Registration
 
@@ -169,4 +169,4 @@ After submitting your brand and campaign registration, you can check the status 
 
 Using the **Regulatory Documents** blade to monitor the status of your brand and campaign registration allows you to stay informed and quickly address any issues to keep your messaging operations uninterrupted.
 
-:::image type="content" source="./media/apply-for-brand-registration/campaign-registration-status.png" alt-text="Screenshot showing campaign registration status." lightbox="./media/apply-for-campaign-registration/campaign-registration-status.png":::
+:::image type="content" source="./media/apply-for-brand-registration/campaign-registration-status.png" alt-text="Screenshot showing campaign registration status." lightbox="./media/apply-for-brand-registration/campaign-registration-status.png":::
