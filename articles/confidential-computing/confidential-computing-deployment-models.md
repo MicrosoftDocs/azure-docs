@@ -17,8 +17,8 @@ Azure confidential computing supports multiple deployment models. These models s
 
 Under the infrastructure as a service (IaaS) deployment model in cloud computing, you can use:
 
-- *Confidential virtual machines (VMs)* based on [AMD SEV-SNP](confidential-vm-overview.md) or [Intel TDX](tdx-confidential-vm-overview.md) for VM isolation
-- *Application enclaves* with [Intel SGX](confidential-computing-enclaves.md) for app isolation
+- *Confidential virtual machines (VMs)* based on [AMD SEV-SNP](confidential-vm-overview.md) or [Intel TDX](tdx-confidential-vm-overview.md) for VM isolation.
+- *Application enclaves* with [Intel SGX](confidential-computing-enclaves.md) for app isolation.
 
 These options provide organizations with differing deployment models, depending on their trust boundary or desired ease of deployment.
 
@@ -26,7 +26,7 @@ These options provide organizations with differing deployment models, depending 
 
 The IaaS deployment model grants access to scalable computing resources (such as servers, storage, networking, and virtualization) on demand. By adopting an IaaS deployment model, organizations can forgo the process of procuring, configuring, and managing their own infrastructure. Instead, they pay for only the resources that they use. This ability makes IaaS a cost-effective solution.
 
-In the domain of cloud computing, the IaaS deployment model enables businesses to rent individual services from cloud service providers like Azure. Azure assumes responsibility for managing and maintaining the infrastructure so that organizations can concentrate on installing, configuring, and managing their software. Azure also offers supplementary services such as comprehensive billing management, logging, monitoring, storage resiliency, and security.
+In the domain of cloud computing, the IaaS deployment model enables businesses to rent individual services from cloud service providers (CSPs) like Azure. Azure assumes responsibility for managing and maintaining the infrastructure so that organizations can concentrate on installing, configuring, and managing their software. Azure also offers supplementary services such as comprehensive billing management, logging, monitoring, storage resiliency, and security.
 
 Scalability is another advantage of the IaaS deployment model in cloud computing. Enterprises can swiftly scale their resources up and down according to their requirements. This flexibility facilitates faster development life cycles, accelerating time to market for new products and ideas. The IaaS deployment model also helps ensure reliability by eliminating single points of failure. Even if a hardware component fails, the service remains available.
 
@@ -49,7 +49,7 @@ Containers also increase the portability of applications, and improve resource u
 
 Normally, you might deploy your solution on confidential VMs if:
 
-- You have legacy applications that can't be modified or containerized. However, you still need to introduce protection of data in memory, while the data is being processed.
+- You have legacy applications that can't be modified or containerized. However, you still need to introduce protection of data in memory while the data is being processed.
 - You're running multiple applications that require different operating systems (OSs) on a single piece of infrastructure.
 - You want to emulate an entire computing environment, including all OS resources.
 - You're migrating your existing VMs from on-premises to Azure.
@@ -68,9 +68,9 @@ There are some differences in the security postures of confidential VMs and conf
 
 ### Confidential VMs
 
-Confidential VMs offer hardware-encrypted protection of an entire VM from unauthorized access by the host administrator. This level typically includes the hypervisor, which the cloud service provider (CSP) manages. You can use this type of confidential VM to prevent the CSP from accessing data and code executed within the VM.
+Confidential VMs offer hardware-encrypted protection of an entire VM from unauthorized access by the host administrator. This level typically includes the hypervisor, which the CSP manages. You can use this type of confidential VM to prevent the CSP from accessing data and code executed within the VM.
 
-VM admins, or any other app or service running inside the VM, operate beyond the protected boundaries. These users and services can access data and code within the VM.
+VM admins, or any other apps or services running inside the VM, operate beyond the protected boundaries. These users and services can access data and code within the VM.
 
 ![Diagram that shows the customer trust boundary of confidential VM technologies.](./media/confidential-computing-deployment-models/cvm-architecture.png)
 

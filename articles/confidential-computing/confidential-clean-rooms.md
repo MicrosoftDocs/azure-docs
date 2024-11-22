@@ -23,7 +23,7 @@ The following diagram shows how organizations collaborate by using Azure Confide
 
 Azure Confidential Clean Room could be a great choice for you if you have these scenarios:
 
-- **Data analytics and inferencing**: Organizations that want to build insights on second-party data while ensuring data privacy can use Azure Confidential Clean Room. Azure Confidential Clean Room is useful when data providers are concerned about data exfiltration. It helps ensure that data is used only for agreed purposes, and it safeguards against unauthorized access or egress (because it's a sandboxed environment).
+- **Data analytics and inferencing**: Organizations that want to build insights on second-party data while ensuring data privacy can use Azure Confidential Clean Room. The service is useful when data providers are concerned about data exfiltration. It helps ensure that data is used only for agreed purposes, and it safeguards against unauthorized access or egress (because it's a sandboxed environment).
 
 - **Independent software vendor (ISV) data privacy**: ISVs that provide secure multiparty data collaboration services can use Azure Confidential Clean Room as an extensible platform. The service enables ISVs to add enforceable tamperproof contracts with governance and audit capabilities. It uses [confidential containers in Azure Container Instances](../confidential-computing/confidential-containers.md) underneath to ensure that data is encrypted during processing, which helps keep customer data secure.
 
@@ -37,7 +37,7 @@ Azure Confidential Clean Room could be a great choice for you if you have these 
 
   Healthcare providers can also use Azure Confidential Clean Room for ML inferencing. Partner hospitals can use the power of these models for early detection.
 
-- **Advertising**: In the advertising industry, Azure Confidential Clean Room facilitates secure data sharing between advertisers and publishers. Azure Confidential Clean Room enables targeted advertising and measurement of campaign effectiveness without exposing sensitive user data.
+- **Advertising**: In the advertising industry, Azure Confidential Clean Room facilitates secure data sharing between advertisers and publishers. It enables targeted advertising and measurement of campaign effectiveness without exposing sensitive user data.
 
 - **Banking, financial services, and insurance (BFSI)**: The BFSI sector can use Azure Confidential Clean Room to collaborate on financial data while ensuring compliance with regulatory requirements. Financial institutions can perform joint data analysis and develop risk models, fraud detection models, and lending scenarios without exposing sensitive customer information.
 
@@ -49,7 +49,7 @@ Azure Confidential Clean Room could be a great choice for you if you have these 
 
 Azure Confidential Clean Room helps ensure that sensitive data remains protected throughout the collaboration process. Here are some key benefits of using the service:
 
-- **Secure collaboration and governance**: Azure Confidential Clean Room enables collaborators to create tamperproof contracts. Azure Confidential Clean Room also enforces all the constraints that are part of a contract. Governance ensures validity of constraints before allowing data to be released into clean rooms, and it drives transparency among collaborators by generating tamperproof audit trails. Azure Confidential Clean Room uses the open-source [Confidential Consortium Framework](https://microsoft.github.io/CCF/main/overview/what_is_ccf.html) to enable these capabilities.
+- **Secure collaboration and governance**: Azure Confidential Clean Room enables collaborators to create tamperproof contracts. Azure Confidential Clean Room also enforces all the constraints that are part of a contract. Governance ensures the validity of constraints before allowing data to be released into clean rooms, and it drives transparency among collaborators by generating tamperproof audit trails. Azure Confidential Clean Room uses the open-source [Confidential Consortium Framework](https://microsoft.github.io/CCF/main/overview/what_is_ccf.html) to enable these capabilities.
 
 - **Compliance**: Confidential computing can address some of the regulatory and privacy concerns by providing a secure environment for data collaboration. This capability is beneficial for industries such as financial services, healthcare, and telecom, which deal with highly sensitive data and personal data.
 
@@ -57,13 +57,13 @@ Azure Confidential Clean Room helps ensure that sensitive data remains protected
 
 - **Zero Trust**: Verifiable trust at each step, with the help of cryptographic remote attestation, forms the cornerstone of Azure Confidential Clean Room.
 
-- **Cost-effectiveness**: By providing a secure and compliant environment for data collaboration, Azure Confidential Clean Room reduces the need for costly and complex data protection measures. It's a cost-effective solution for organizations that want to use sensitive data for analysis and insights.
+- **Cost-effectiveness**: By providing a secure and compliant environment for data collaboration, Azure Confidential Clean Room reduces the need for costly and complex data-protection measures. It's a cost-effective solution for organizations that want to use sensitive data for analysis and insights.
 
 ## Joining the preview
 
 Azure Confidential Clean Room is currently in preview. If you're interested in joining the preview, fill in and submit [this form](https://aka.ms/ACCR-Preview-Onboarding). After we review your form, we'll contact you with detailed steps for joining.
 
-For questions about joining, reach out to the [Azure Confidential Clean Room management team](mailto:CleanRoomPMTeam@microsoft.com).
+For questions about joining, [email the Azure Confidential Clean Room management team](mailto:CleanRoomPMTeam@microsoft.com).
 
 ## Important references
 
@@ -72,7 +72,7 @@ For questions about joining, reach out to the [Azure Confidential Clean Room man
 
 ## Frequently asked questions
 
-- Question: Where are the sidecar container images of Clean Room published?
+- Question: Where are the sidecar container images of Azure Confidential Clean Room published?
 
   Answer: The sidecar container images are published at `mcr.microsoft.com/cleanroom`.
 
@@ -80,7 +80,7 @@ For questions about joining, reach out to the [Azure Confidential Clean Room man
   
   Answer: Yes, more than two organizations can become part of a collaboration. Multiple data providers can share data in a clean room.
 
-If you have more questions about Azure Confidential Clean Room, reach out to the [support team](mailto:accrsupport@microsoft.com).
+If you have more questions about Azure Confidential Clean Room, [email the support team](mailto:accrsupport@microsoft.com).
 
 ## Related content
 
