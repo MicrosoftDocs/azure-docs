@@ -1,9 +1,9 @@
 ---
 title: Create Confluent resources in Azure (preview)
 description: Learn how to create and manage Confluent environments, clusters, and topics in Azure, using the Azure portal UI.
-# customerIntent: As a IT professional, I want create Confluent environments, clusters and topics within the Azure portal.
+# customerIntent: As an IT professional, I want create Confluent environments, clusters and topics within the Azure portal.
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 11/22/2024
 ---
 
 # Create Confluent resources in Azure (preview)
@@ -26,9 +26,12 @@ Create a new Confluent environment following the guidelines below:
 
 1. Open your Confluent organization in the Azure portal and open **Confluent entity management** > **Environments (preview)** from the left menu.
 1. Select **Create environment** at the top. This action opens a new blade on the right hand side.
-1. Enter a name for the new **Environment**. 
-1. Select [a basic or advanced stream governance configuration](https://docs.confluent.io/cloud/current/stream-governance/packages.html#governance-package-types):
-   - Basic: containing the essentials, supporting up to 100 free schemas
+1. Enter a name for the new **Environment**.
+
+   :::image type="content" source="./media/create-confluent-resources/create-environment.png" alt-text="Screenshot from the Azure portal showing the Create environment blade.":::
+
+1. Select [an essentials or advanced stream governance configuration](https://docs.confluent.io/cloud/current/stream-governance/packages.html#governance-package-types).
+   - Essentials: containing the essentials, supporting up to 100 free schemas
    - Advanced: additional support for enterprise level, supporting up to 20,000 free schemas. This comes at an additional cost during Schema configuration.
 1. Select **Create**. Your new environment is up and running. 
 
