@@ -82,10 +82,3 @@ In addition to device telemetry, both IoT Hub and IoT Central can send property 
 ### IoT Central application templates
 
 The IoT Central application templates provide a starting point for building IoT solutions that include integrations with other services. You can use the templates to create an application that includes resources that are relevant to your solution. To learn more, see [IoT Central application templates](../iot-central/core/howto-create-iot-central-application.md#create-and-use-a-custom-application-template).
-
-## Next steps
-
-Now that you've seen an overview of the extensibility options available to your IoT solution, some suggested next steps include:
-
-- [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)
-- [IoT solution options](iot-introduction.md#solution-options)

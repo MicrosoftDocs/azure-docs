@@ -19,6 +19,8 @@
     href: understand/review-partner-agreement-bill.md
 - name: Concepts
   items:
+  - name: What is a cloud subscription
+    href: manage/cloud-subscription.md
   - name: Individual subscription usage terms
     href: understand/understand-usage.md
   - name: Individual subscription invoice terms
