@@ -302,7 +302,7 @@ DefaultAzureCredential credential = new(
     });
 
 // First Blob Storage client that uses a user-assigned managed identity
-BlobServiceClient blobServiceClient = new(
+BlobServiceClient blobServiceClient1 = new(
     new Uri("https://<receipt-storage-account>.blob.core.windows.net"),
     credential);
 
@@ -316,7 +316,7 @@ string clientIdDatabases =
     Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Databases")!;
 
 // Create an Azure Cosmos DB client
-CosmosClient client = new(
+CosmosClient cosmosClient = new(
     Environment.GetEnvironmentVariable("COSMOS_ENDPOINT", EnvironmentVariableTarget.Process),
     new DefaultAzureCredential(
         new DefaultAzureCredentialOptions
@@ -500,7 +500,8 @@ Add the following to your code:
 public class AzureStorageConfiguration {
     @Bean("secondBlobServiceClient")
     public BlobServiceClient secondBlobServiceClient(BlobServiceClientBuilder builder) {
-        return builder.endpoint("https://<receipt-storage-account>.blob.core.windows.net").buildClient();
+        return builder.endpoint("https://<receipt-storage-account>.blob.core.windows.net")
+            .buildClient();
     }
 
     @Bean("firstBlobServiceClient")
@@ -515,7 +516,7 @@ public class AzureStorageConfiguration {
 public class ExampleService {
     @Autowired
     @Qualifier("firstBlobServiceClient")
-    private BlobServiceClient blobServiceClient;
+    private BlobServiceClient blobServiceClient1;
 
     @Autowired
     @Qualifier("secondBlobServiceClient")
@@ -557,7 +558,7 @@ public class ExampleService {
     const storageAccountName2 = process.env.AZURE_STORAGE_ACCOUNT_NAME_2;
 
     // First Blob Storage client that uses a managed identity
-    const blobServiceClient = new BlobServiceClient(
+    const blobServiceClient1 = new BlobServiceClient(
       `https://${storageAccountName1}.blob.core.windows.net`,
       credential
     );
@@ -575,7 +576,7 @@ public class ExampleService {
     const cosmosDbAccountEndpoint = process.env.COSMOS_ENDPOINT;
     
     // Create an Azure Cosmos DB client
-    const client = new CosmosClient({
+    const cosmosClient = new CosmosClient({
       endpoint: cosmosDbAccountEndpoint,
       credential: new DefaultAzureCredential({
         managedIdentityClientId: clientIdDatabases
