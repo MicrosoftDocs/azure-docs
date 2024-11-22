@@ -59,13 +59,13 @@ Users can't disable zone redundancy once it's enabled.
 :::image type="content" source="media/migrate-cache-redis/enable-zones-on-existing-cache.png" alt-text="Screenshot showing a red boxes around Advanced settings blade, (PREVIEW) Allocate zones automatically check-box, and Save button":::
 
 This update can also be done by passing **zonalAllocationPolicy** as **Automatic** in the request body while updating the cache using REST API. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](https://learn.microsoft.com/rest/api/redis/redis/update?view=rest-redis-2024-11-01&tabs=HTTP&preserve-view=true#zonalallocationpolicy).
-    - Updating **zonalAllocationPolicy** to any other value than **Automatic** isn't supported.
+Updating **zonalAllocationPolicy** to any other value than **Automatic** isn't supported.
 
   > [!IMPORTANT]
   > Automatic Zonal Allocation cannot be modified once enabled for a cache.
 
   > [!IMPORTANT]
-  > Enabling Automatic Zonal Allocation for an existing cache with a different zonal allocation is currently NOT supported for Geo Replicated caches or caches with VNet injection.
+  > Enabling Automatic Zonal Allocation for an existing cache (which is created a different zonal allocation) is currently NOT supported for Geo Replicated caches or caches with VNet injection.
 
 ## Next Steps
 
