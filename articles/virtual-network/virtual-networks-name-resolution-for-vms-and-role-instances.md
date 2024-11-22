@@ -278,8 +278,7 @@ DNS forwarding also enables DNS resolution between virtual networks and allows y
 Two virtual networks and an on-premises network use this method to do DNS resolution between virtual networks, as shown in the following diagram. An example DNS forwarder is available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/dns-forwarder) and [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
 
 > [!NOTE]
-> A role instance can perform name resolution of VMs within the same virtual network. It uses the FQDN, which consists of the VM's hostname and the `internal.cloudapp.net` DNS suffix. In this case, name resolution is successful only if the role instance has the VM name defined in the [Role Schema (.cscfg file)](/previous-versions/azure/reference/jj156212(v=azure.100)).
-> `<Role name="<role-name>" vmName="<vm-name>">`
+> A role instance can perform name resolution of VMs within the same virtual network. It uses the FQDN, which consists of the VM's hostname and the `internal.cloudapp.net` DNS suffix. In this case, name resolution is successful only if the role instance has the VM name defined in the [Role Schema (.cscfg file)](/previous-versions/azure/reference/jj156212(v=azure.100)): `<Role name="<role-name>" vmName="<vm-name>">`.
 >
 > Role instances that need to perform name resolution of VMs in another virtual network (FQDN by using the `internal.cloudapp.net` suffix) have to use the method described in this section (custom DNS servers forwarding between the two virtual networks).
 
