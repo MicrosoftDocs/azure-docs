@@ -93,7 +93,7 @@ If you're using:
 * regional volumes (without availability zones) or
 * volumes within the same availability zone, 
 
-the same share name can be used, however the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
+The same share name can be used, however the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
 
 For more information, see [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
 
@@ -118,6 +118,12 @@ To learn more about file locking in Azure NetApp Files, see [file locking](under
 ## What network authentication methods are supported for SMB volumes in Azure NetApp Files?
 
 NTLMv2 and Kerberos network authentication methods are supported with SMB volumes in Azure NetApp Files. NTLMv1 and LanManager are disabled and are not supported.
+
+To disable NTLM, see:
+
+- [Active Directory Hardening Series - Part 1 – Disabling NTLMv1](https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/active-directory-hardening-series---part-1-%E2%80%93-disabling-ntlmv1/3934787)
+- [Network security - Restrict NTLM Incoming NTLM traffic](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-incoming-ntlm-traffic)
+- [Network security - Restrict NTLM in this domain](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
 
 ## What is the password rotation policy for the Active Directory computer account for SMB volumes?
 

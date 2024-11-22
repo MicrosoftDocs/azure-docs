@@ -216,7 +216,7 @@
     - name: Migrate to Azure
       href: migrate-overview.md
     - name: Migration to availability zones 
-      href: ../availability-zones/migrate-recovery-services-vault.md     
+      href: ../reliability/migrate-recovery-services-vault.md     
   - name: Security
     items:
     - name: Security baseline

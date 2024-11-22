@@ -146,6 +146,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-app-configuration/run-experiments-aspnet-core.md",
+      "redirect_url": "/azure/azure-app-configuration/concept-experimentation",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/public-multi-access-edge-compute-mec/considerations-for-deployment.md",
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/considerations-for-deployment",
       "redirect_document_id": false
@@ -3728,6 +3733,21 @@
     {
       "source_path_from_root": "/articles/virtual-network/tutorial-create-route-table-cli.md",
       "redirect_url": "/azure/virtual-network/tutorial-create-route-table",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-connect-virtual-networks-portal.md",
+      "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-connect-virtual-networks-powershell.md",
+      "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-connect-virtual-networks-cli.md",
+      "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks",
       "redirect_document_id": false
     }
   ]

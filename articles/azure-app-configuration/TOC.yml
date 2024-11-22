@@ -114,12 +114,12 @@
         href: reload-key-vault-secrets-dotnet.md
   - name: Build, deploy, and CI/CD
     items:
-    - name: Push using Azure Pipelines
-      href: push-kv-devops-pipeline.md
-    - name: Pull using Azure Pipelines
-      href: pull-key-value-devops-pipeline.md
+    - name: Import using Azure Pipelines
+      href: azure-pipeline-import-task.md
+    - name: Export using Azure Pipelines
+      href: azure-pipeline-export-task.md
     - name: Create snapshots using Azure Pipelines
-      href: create-snapshot-devops-pipeline.md
+      href: azure-pipeline-snapshot-task.md
     - name: Push using GitHub Actions
       href: push-kv-github-action.md
     - name: Build project using exported configuration
@@ -158,10 +158,6 @@
         href: howto-targetingfilter.md
       - name: ASP.NET Core
         href: howto-targetingfilter-aspnet-core.md
-    - name: Run experiments with variant feature flags
-      items:
-      - name: ASP.NET Core
-        href: run-experiments-aspnet-core.md
   - name: Enable Azure monitoring
     items:
     - name: Monitor App Configuration

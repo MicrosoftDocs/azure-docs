@@ -68,7 +68,7 @@ Partner topics are a kind of topic used to subscribe to events published by a [p
 ## Event subscriptions
 
 > [!NOTE]
-> For information on event subscriptions under a namespace topic see this [concepts](concepts-event-grid-namespaces.md) artcle.
+> For information on event subscriptions under a namespace topic see this [concepts](concepts-event-grid-namespaces.md) article.
 
 A subscription tells Event Grid which events on a topic you're interested in receiving. When creating a subscription, you provide an endpoint for handling the event. Endpoints can be a webhook or an Azure service resource. You can filter the events that are sent to an endpoint. You can filter by event type or event subject, for example. For more information, see [Event subscriptions](subscribe-through-portal.md) and [CloudEvents schema](cloud-event-schema.md). Event subscriptions for custom, system, and partner topics as well as Domains feature the same resource properties. 
 
@@ -110,7 +110,7 @@ If you're a [partner](partner-events-overview-for-partners.md), you can define t
 
 ## Availability zones
 
-Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. They're connected by a high-performance network with a round-trip latency of less than 2 milliseconds. Each availability zone is composed of one or more data centers equipped with independent power, cooling, and networking infrastructure. If one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones. For more information about availability zones, see [Regions and availability zones](../availability-zones/az-overview.md).
+Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. They're connected by a high-performance network with a round-trip latency of less than 2 milliseconds. Each availability zone is composed of one or more data centers equipped with independent power, cooling, and networking infrastructure. If one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones. For more information about availability zones, see [Regions and availability zones](../reliability/availability-zones-overview.md).
 
 ## Next steps
 

@@ -1,13 +1,12 @@
 ---
 title: Monitor Azure Cache for Redis data using diagnostic settings
-titleSuffix: Azure Cache for Redis
 description: Learn how to use diagnostic settings to monitor connected ip addresses to your Azure Cache for Redis.
 
 
 
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 12/18/2023
-ms.custom: template-how-to, devx-track-azurecli 
+ms.custom: template-how-to, devx-track-azurecli, ignite-2024
 ms.devlang: azurecli
 ---
 
