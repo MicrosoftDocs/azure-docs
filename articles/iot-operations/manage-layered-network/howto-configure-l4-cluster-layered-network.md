@@ -182,6 +182,8 @@ Once your Kubernetes cluster is Arc-enabled, you can deploy the Layered Network 
 Create the Layered Network Management custom resource.
 
 1. Create a `lnm-cr.yaml` file as specified:
+    - For debugging or experimentation, you can change the value of **loglevel** parameter to **debug**.
+    - For more detail about the endpoints, see [Azure IoT Operations endpoints](/azure/iot-operations/deploy-iot-ops/overview-deploy#azure-iot-operations-endpoints).
 
     ```yaml
     apiVersion: layerednetworkmgmt.iotoperations.azure.com/v1beta1
@@ -298,7 +300,6 @@ Create the Layered Network Management custom resource.
           prefixLen: 0
     ```
 
-    For debugging or experimentation, you can change the value of **loglevel** parameter to **debug**.
 
 1. Create the Custom Resource to create a Layered Network Management instance.
 
@@ -309,7 +310,7 @@ Create the Layered Network Management custom resource.
 1. View the Layered Network Management Kubernetes service:
 
     ```bash
-    kubectl get services -n azure-iot-operations
+    kubectl get services
     ```
 
     ```output
