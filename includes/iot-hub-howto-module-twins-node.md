@@ -338,11 +338,7 @@ You can connect a backend service to IoT Hub using the following methods:
 
 Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub.
 
-The SDK methods in this section require this shared access policy permission:
-
-* **Registry Write** - required to add a module (or device) to the IoT Hub registry
-
-As a parameter to `CreateFromConnectionString`, supply a shared access policy connection string that includes these permissions. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
+The `update` method used in this section requires the **Service Connect** shared access policy permission to add desired properties to a module. As a parameter to `fromConnectionString`, supply a shared access policy connection string that includes **Service Connect** permission. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 ```javascript
 let connectionString = '{IoT hub shared access policy connection string}';
@@ -363,9 +359,9 @@ To update a module identity twin:
 
 1. Format a patch that contains the module identity twin update. The patch is formatted in JSON as described in [Twin class](/javascript/api/azure-iothub/twin). A backend service patch contains desired property updates. For more patch format information, see [Tags and properties format](/azure/iot-hub/iot-hub-devguide-device-twins#tags-and-properties-format).
 
-1. Call [updateModuleTwin](/javascript/api/azure-iothub/registry?&#azure-iothub-registry-updatemoduletwin-1) to update the module identity twin with the patch.
+1. Call [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update) to update the module identity twin with the patch.
 
-In this example, the module identity twin is retrieved for `myDeviceId` and `myModuleId`. Then a patch is applied to the twins that contains `updateTime`, `firmwareVersion`, and `weather` information.
+In this example, the module identity twin is retrieved for `myDeviceId` and `myModuleId`. Then a patch is applied to the twins that contains `climate` information.
 
 ```javascript
 // Insert your device ID and moduleId here.

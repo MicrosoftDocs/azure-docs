@@ -177,11 +177,7 @@ You can connect a backend service to IoT Hub using the following methods:
 
 Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string).
 
-The SDK methods in this section require this shared access policy permission:
-
-* **Service Connect** - required to add desired properties to a module
-
-As a parameter to `CreateFromConnectionString`, supply a shared access policy connection string that includes these permissions. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
+The `update_module_twin` method used in this section requires the **Service Connect** shared access policy permission to add desired properties to a module. As a parameter to `from_connection_string`, supply a shared access policy connection string that includes **Service Connect** permission. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 For example:
 
