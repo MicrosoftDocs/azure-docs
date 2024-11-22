@@ -44,7 +44,7 @@ To create a cache, follow these steps:
 
 1. **Standard** tier caches are always created as zone redundant using [Automatic Zonal Allocation](#automatic-zonal-allocation) in the [regions that support availability zones](cache-high-availability.md#regional-availability).
     :::image type="content" source="media/cache-how-to-zone-redundancy/create-standard-cache-default-as-az.png" alt-text="Screenshot showing the Advanced tab with a red box around Availability zones for Standard cache.":::
-1. For Premium tier caches, select **Advanced** in the Resource menu. In regions that support zones, Zone redundancy for this tier can be enabled using couple of ways.
+1. For **Premium** tier caches, select **Advanced** in the Resource menu. In regions that support zones, Zone redundancy for this tier can be enabled using couple of ways.
     1. Using [Automatic Zonal Allocation](#automatic-zonal-allocation):
         - **Allocate zones automatically** is the default option selected for **Availability Zones**.
             :::image type="content" source="media/cache-how-to-zone-redundancy/create-premium-cache-default-as-az.png" alt-text="Screenshot showing the Advanced tab with a red box around Availability zones for Premium cache.":::
@@ -84,8 +84,8 @@ To create a cache, follow these steps:
         - Users are allowed to pass this value only for Premium caches. This is the only value supported in the regions that don't support zones.
           - This value can't be passed by user in the request for Standard caches, since they can't explicitly choose for non zonal standard caches.
         - It is selected as default option for caches if **zonalAllocationPolicy** isn't passed in the request in cases:
-            - Regions that don't support zones.
-            - Regions that support zones but API version used is less than **2024-11-01**.
+            - Regions that don't support zones (irrespective of API version used).
+            - All Regions (irrespective of zonal support) if API version used is less than **2024-11-01**.
 
     > [!IMPORTANT]
     > Automatic Zonal Allocation can't be modified once enabled for a cache.
