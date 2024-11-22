@@ -24,7 +24,7 @@ Call Automation operates on asynchronous operations in an action-event driven pr
 
 Call Automation publishes metrics for both the API request/response and the corresponding webhook events for developers to monitor the API health and configure alerts for failing scenarios. 
 
-This document describes the two metrics and various dimensions you can use to fiter your metrics data. These dimensions can be aggregated together by using the `Count` aggregation type. They support all standard Azure Aggregation time series, including `Sum`, `Average`, `Min`, and `Max`.
+This document describes the two metrics and various dimensions you can use to filter your metrics data. These dimensions can be aggregated together by using the `Count` aggregation type. They support all standard Azure Aggregation time series, including `Sum`, `Average`, `Min`, and `Max`.
 
 For more information on supported aggregation types and time series aggregations, see [Advanced features of Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-charts#aggregation).
 
