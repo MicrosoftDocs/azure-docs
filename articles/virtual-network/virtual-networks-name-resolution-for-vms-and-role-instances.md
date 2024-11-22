@@ -23,7 +23,7 @@ When resources deployed in virtual networks need to resolve domain names to inte
 
 The type of name resolution you use depends on how your resources need to communicate with each other. The following table illustrates scenarios and corresponding name resolution solutions.
 
-Azure Private DNS zones is the preferred solution and gives you flexibility in managing your DNS zones and records. For more information, see [Use Azure DNS for private domains](../dns/private-dns-overview.md).
+Azure Private DNS zones are the preferred solution and give you flexibility in managing your DNS zones and records. For more information, see [Use Azure DNS for private domains](../dns/private-dns-overview.md).
 
 > [!NOTE]
 > If you use Azure-provided DNS, the appropriate DNS suffix is automatically applied to your VMs.
