@@ -2,7 +2,7 @@
 title: Manage protection policy for resources
 description: In this article, you learn how to manage backup and replication policies to protect your resources.
 ms.topic: how-to
-ms.date: 03/29/2024
+ms.date: 11/19/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023

@@ -31,7 +31,20 @@ To complete the steps in this article, you must have a dev center configured wit
 1. Open the file and examine the tasks.  
    Note that the image definition file specifies a name for the image definition by using a `name` field. Use this name to identify the image definition in the dev box pool.
 
-## Add a catalog to your dev center
+## Enable project-level catalogs
+You must enable project-level catalogs at the dev center level before you can add a catalog  to a project.
+To enable the use of project-level catalogs at the dev center level:
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your dev center.
+1. In the left menu, under **Settings**, select **Configuration**.
+ 
+    :::image type="content" source="media/quickstart-team-customizations/dev-center-overview.png" alt-text="Screenshot showing the Overview page for a dev center with Configuration highlighted." lightbox="media/quickstart-team-customizations/dev-center-overview.png"::: 
+ 
+1. In the **Project level catalogs** pane, select **Enable catalogs per project**, and then select **Apply**.
+
+    :::image type="content" source="media/quickstart-team-customizations/dev-center-project-catalog-selected.png" alt-text="Screenshot showing the Project level catalogs pane, with Enable catalogs per project highlighted." lightbox="media/quickstart-team-customizations/dev-center-project-catalog-selected.png":::
+
+## Add a catalog to your Project
 
 To add a catalog, complete the following tasks:
 
