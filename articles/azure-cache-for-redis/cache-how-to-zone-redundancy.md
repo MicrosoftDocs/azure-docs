@@ -123,7 +123,7 @@ A Premium cache has one primary and one replica node by default. To configure zo
   > Automatic Zonal Allocation can't be modified once enabled for a cache.
 
   > [!IMPORTANT]
-  > Enabling Automatic Zonal Allocation for an existing cache (which is created a different zonal allocation) is currently NOT supported for Geo Replicated caches or caches with VNet injection.
+  > Enabling Automatic Zonal Allocation for an existing cache (which is created with a different zonal allocation) is currently NOT supported for Geo Replicated caches or caches with VNet injection.
 
 ### How much does it cost to replicate my data across Azure Availability Zones?
 

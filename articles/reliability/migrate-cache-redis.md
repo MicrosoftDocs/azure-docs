@@ -65,7 +65,7 @@ Updating **zonalAllocationPolicy** to any other value than **Automatic** isn't s
   > Automatic Zonal Allocation cannot be modified once enabled for a cache.
 
   > [!IMPORTANT]
-  > Enabling Automatic Zonal Allocation for an existing cache (which is created a different zonal allocation) is currently NOT supported for Geo Replicated caches or caches with VNet injection.
+  > Enabling Automatic Zonal Allocation for an existing cache (which is created with a different zonal allocation) is currently NOT supported for Geo Replicated caches or caches with VNet injection.
 
 ## Next Steps
 
