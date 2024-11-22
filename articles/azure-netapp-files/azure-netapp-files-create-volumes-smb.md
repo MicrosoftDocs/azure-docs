@@ -15,7 +15,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3,
 This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
 
 >[!IMPORTANT]
->Windows Server 2025 does **not** work with Azure NetApp Files. 
+>Windows Server 2025 does **not** work with Azure NetApp Files CIFS. 
 
 ## Before you begin 
 
