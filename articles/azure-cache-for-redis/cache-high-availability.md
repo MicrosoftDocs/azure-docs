@@ -99,7 +99,7 @@ When a data node becomes unavailable or a network split happens, a failover simi
 
 ### Regional availability
 
-Zone-redundant Premium tier caches are available in the following regions:
+Zone-redundant Premium, Standard tier caches are available in the following regions:
 
 | Americas | Europe | Middle East | Africa | Asia Pacific |
 |---|---|---|---|---|
