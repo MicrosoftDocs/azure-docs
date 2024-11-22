@@ -14,7 +14,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Dual-target replication](dual-target-replication-configure.md)
+* [Dual-target replication](cross-zone-region-configure.md) (preview)
+
+    <!-- PLR text -->
 
 ## November 2024
 

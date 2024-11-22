@@ -41,4 +41,4 @@ Replicated volumes are hosted on a [capacity pool](azure-netapp-files-understand
 
 * [Requirements and considerations for using cross-zone replication](cross-zone-replication-requirements-considerations.md)
 * [Create cross-zone replication](create-cross-zone-replication.md)
-* [Configure dual-target replication](dual-target-replication-configure.md)
+* [Configure cross-zone region replication](cross-zone-region-replication-configure.md)

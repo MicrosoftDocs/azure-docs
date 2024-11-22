@@ -16,7 +16,7 @@ Azure NetApp Files supports using cross-zone and cross-region replication on the
 
 ## Requirements 
 
-* Cross-zone region replication adheres to the same requirements as [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication.md).
+* Cross-zone region replication adheres to the same requirements as [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md).
 
 ## Next steps
 
