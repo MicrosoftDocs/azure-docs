@@ -104,14 +104,16 @@ Zone-redundant Premium tier caches are available in the following regions:
 | Americas | Europe | Middle East | Africa | Asia Pacific |
 |---|---|---|---|---|
 | Brazil South | France Central | Qatar Central | South Africa North | Australia East |
-| Canada Central | Germany West Central | | | Central India |
-| Central US | North Europe | | | Japan East |
-| East US | Norway East | | | Korea Central |
-| East US 2 | UK South | | | Southeast Asia |
-| South Central US | West Europe | | | East Asia |
-| US Gov Virginia | Sweden Central | | | China North 3 |
-| West US 2 | Switzerland North | | | |
-| West US 3 | Poland Central | | | |
+| Canada Central | Italy North | UAE North | | Central India |
+| Central US |  Germany West Central | Israel Central | | Japan East |
+| East US | Norway East | | | |
+| East US 2 | North Europe  | | | Southeast Asia |
+| South Central US | UK South | | | East Asia |
+| US Gov Virginia | West Europe  | | | China North 3 |
+| West US 2 | Sweden Central | | |Korea Central  | 
+| West US 3 | Switzerland North | | | New Zealand North |
+| Mexico Central | Poland Central ||||
+||Spain Central ||||
 
 Zone-redundant Enterprise and Enterprise Flash tier caches are available in the following regions:
 
