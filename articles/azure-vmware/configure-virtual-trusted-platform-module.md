@@ -9,7 +9,7 @@ ms.custom: engagement-fy25
 
 # Configure Virtual Trusted Platform Module (vTPM) on Virtual Machines with Azure VMware Solution
 
-This article will demonstrate how to enable a virtual Trusted Platform (vTPM) in a VMware virtual machine running in the Azure VMware Solution.  
+This article will demonstrate how to enable a virtual Trusted Platform Module (vTPM) in a VMware virtual machine running in the Azure VMware Solution.  
 
 A virtual Trusted Platform Module (vTPM) in VMware vSphere is a virtual counterpart of a physical TPM 2.0 chip, utilizing VM Encryption. It provides the same functionalities as a physical TPM but operates within virtual machines (VMs). Each VM can have its own unique and isolated vTPM, which helps secure sensitive information and maintain system integrity. This enables VMs to leverage security features like BitLocker disk encryption and authenticate virtual hardware devices, thereby creating a more secure virtual environment. 
 
