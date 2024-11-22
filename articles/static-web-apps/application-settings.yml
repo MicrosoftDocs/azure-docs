@@ -77,18 +77,17 @@ procedureSection:
       
       1. Open your static web app.
       
-      1. Select **Environment variables** in the sidebar.
+      1. Under the *Settings* section, select **Environment variables**.
       
       1. Select the environment to which you want to create environment variables. You can create variables per environment. When you create a pull request, staging environments are automatically created, and then promoted into production when you merge the pull request. 
       
       1. Select **+ Add** to add a new environment variable.
-          :::image type="content" source="media/application-settings/configuration.png" alt-text="Screenshot of Azure Static Web Apps environment variables view":::
       
-      1. Enter a **Name** and **Value**.
+      1. Enter your values in the *Name* and *Value* boxes.
       
-      1. Select **OK**.
+      1. Select **Apply**.
       
-      1. Select **Save**.
+      1. Select **Apply** again to save your changes.
 
       ### Use the Azure CLI
 
