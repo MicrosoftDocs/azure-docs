@@ -173,19 +173,6 @@ if(breakoutRoom.state == 'open' && !breakoutRoom.autoMoveParticipantToBreakoutRo
   const breakoutRoomCall = await breakoutRoom.join();
 }
 ```
-When the user joins the breakout room, the user is automatically removed from the main meeting. Subscribe to the breakout room features from the `call` object in the `callsUpdated` event on `callAgent` to get other updates of breakout rooms like breakout rooms closed or breakout rooms assignment changed events.
-
-```js
-callAgent.on('callsUpdated', e =>{
-    e.added.foreach((call) => {
-        if(call.id == mainMeetingCall.id){
-             call.feature(SDK.Features.BreakoutRooms).on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);   
-       // subscribe to other events for breakout room call
-        }
-    }
-});
-```
-
 When the user is in a breakout room and the organizer assigns a new breakout room to the user, the user gets `breakoutRoomsUpdated` event with the type `assignedBreakoutRooms`. This event contains the latest breakout room details. The user has to `hangUp()` previous breakout room call. If `autoMoveParticipantToBreakoutRoom` is set to `true`, the user is automatically moved, otherwise the user has to call the `join` method explicitly on the new breakout room.
 
 ```js
