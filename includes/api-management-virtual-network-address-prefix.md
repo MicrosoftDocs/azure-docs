@@ -8,7 +8,7 @@ ms.author: danlep
 
 ### addressPrefix property
 
-The `addressPrefix` subnet property must be set to a valid CIDR block. 
+Networking in the Premium v2 tier requires that the `addressPrefix` subnet property is set to a valid CIDR block. 
 
 If you configure the subnet using the Azure portal, the subnet sets an `addressPrefixes` (plural) property consisting of a list of address prefixes. However, API Management requires a single CIDR block as the value of the `addressPrefix` property. 
 

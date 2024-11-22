@@ -72,7 +72,7 @@ For more information about configuring subnet delegation, see [Add or remove a s
 
 ### Permissions
 
-You must have at least the following role-based access control permissions on the subnet or at a higher level to configure virtual network integration:
+You must have at least the following role-based access control permissions on the subnet or at a higher level to configure virtual network injection:
 
 | Action | Description |
 |-|-|
