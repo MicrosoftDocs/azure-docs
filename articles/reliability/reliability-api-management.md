@@ -20,6 +20,7 @@ Resiliency is a shared responsibility between you and Microsoft and so this arti
 Azure API Management helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. With API Management, you can create and manage modern API gateways for existing backend services hosted anywhere.
 
 <!-- TODO work out story for Consumption tier -->
+<!-- TODO work out story for v2 -->
 
 ## Redundancy
 <!-- TODO verify with PG -->
