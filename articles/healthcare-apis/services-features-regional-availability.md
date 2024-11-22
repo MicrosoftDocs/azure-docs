@@ -54,6 +54,10 @@ This article provides an overview of Azure Health Data Services regional availab
 |--------|--------------|---------------|-----------------|---------------------------|--------|
 | Qatar Central | &check; | - | - | - | - |
 
+> [!NOTE]
+> Azure Health Data Services in the Qatar Central region will be retired on 31 October 2025.
+> Please ensure that you migrate to another available Azure Health Data Services region by that date.
+
 ### Asia
 
 | Region | FHIR service | DICOM service | MedTech service | De-Identification service | Events |
