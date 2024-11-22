@@ -109,6 +109,7 @@ You can also enable access to Azure resources for local development by assigning
     using Azure.Messaging.ServiceBus;
     using Azure.Storage.Blobs;
     
+    // Create an instance of DefaultAzureCredential that will use a system-assigned managed identity
     DefaultAzureCredential credential = new();
     
     BlobServiceClient blobServiceClient = new(
@@ -227,7 +228,7 @@ You can also enable access to Azure resources for local development by assigning
     }
     ```
 
-#### [JavaScript](#tab/javascript)
+#### [Node.js](#tab/javascript)
 
 1. In your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app. 
 
@@ -389,23 +390,24 @@ Add the following to your code:
 ```java
 class Demo {
     public static void main(String[] args) {
-        // Get the first user-assigned managed identity ID to connect to shared storage
+        // Get the first user-assigned managed identity client ID to connect to shared storage
         String clientIdStorage = System.getenv("Managed_Identity_Client_ID_Storage");
 
         // Get the DefaultAzureCredential from clientIdStorage
-        DefaultAzureCredential storageCredential =
-            new DefaultAzureCredentialBuilder().managedIdentityClientId(clientIdStorage).build();
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+            .managedIdentityClientId(clientIdStorage)
+            .build();
 
-        // First blob storage client that uses a managed identity
-        BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+        // First blob storage client that uses a user-assigned managed identity
+        BlobServiceClient blobServiceClient1 = new BlobServiceClientBuilder()
             .endpoint("https://<receipt-storage-account>.blob.core.windows.net")
-            .credential(storageCredential)
+            .credential(credential)
             .buildClient();
 
-        // Second blob storage client that uses a managed identity
+        // Second blob storage client that uses a user-assigned managed identity
         BlobServiceClient blobServiceClient2 = new BlobServiceClientBuilder()
             .endpoint("https://<contract-storage-account>.blob.core.windows.net")
-            .credential(storageCredential)
+            .credential(credential)
             .buildClient();
 
         // Get the second user-assigned managed identity ID to connect to shared databases
@@ -527,7 +529,7 @@ public class ExampleService {
 }
 ```
 
-#### [JavaScript](#tab/javascript)
+#### [Node.js](#tab/javascript)
 
 1. Inside of your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app.
 
