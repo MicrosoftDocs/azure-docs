@@ -107,7 +107,14 @@ To enable the encryption, follow these steps:
 
 5. Add the user-assigned managed identity to manage encryption with CMKs.
 
-   During the vault creation, only *user-assigned managed identities* can be used for CMK. To use CMK with system-assigned managed identity, update the vault properties after creating the vault.
+   During the vault creation, only *user-assigned managed identities* can be used for CMK. 
+    
+    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/add-user-assigned-managed-identity.png" alt-text="Screenshor shows the addition of user-assigned managed identity to the vault." lightbox=="./media/encryption-at-rest-with-cmk-for-backup-vault/add-user-assigned-managed-identity.png":::
+
+   To use CMK with system-assigned managed identity, update the vault properties after creating the vault.
+
+    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/add-system-assigned-managed-identity.png" alt-text="Screenshor shows the addition of system-assigned managed identity to the vault." lightbox=="./media/encryption-at-rest-with-cmk-for-backup-vault/add-system-assigned-managed-identity.png":::
+
 6. To enable encryption on the backup storage infrastructure, select **Infrastructure Encryption**.
 
    You can enable Infrastructure Encryption only on a new vault during  creation and using Customer-Managed Keys (CMK).
@@ -435,7 +442,7 @@ To assign the key, follow these steps:
 
       :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/encryption-key-with-full-key-uri.png" alt-text="Screenshot that shows selections for entering a key URI." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/encryption-key-with-full-key-uri.png":::
 
-      When you try to update encryption settings but the update operation fails because of an internal error, the encryption setting is updated to **Inconsistent** and requires your attention. In such cases, check your encryption settings details, ensure that they are correct. For example, the managed identity exists and attached and performs update Encryption Settings operation again. It is fine even if the encryption settings details are same. 
+      When you try to update encryption settings but the update operation fails because of an internal error, the encryption setting is updated to **Inconsistent** and requires your attention. In such cases, check your encryption settings details, ensure that they are correct. For example, the **Update Encryption Settings** operation runs again with the existing Managed Identity attached to the vault. If the encryption settings details are same, the update operation is not affected.
 
       :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/key-uri.png" alt-text="Screenshot that shows the status warning for a failed update." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/key-uri.png":::
 
