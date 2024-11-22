@@ -4,7 +4,7 @@ description: Deploy a Dapr application to Azure Container Apps with an Azure Res
 services: container-apps
 author: hhunter-ms
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 06/29/2022
 ms.author: cshoe
 ms.custom: devx-track-bicep, devx-track-arm-template, devx-track-azurepowershell
