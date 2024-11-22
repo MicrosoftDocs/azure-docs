@@ -19,8 +19,6 @@ To learn more about supported scenarios and best practice guidelines, see [What 
 Integrated third-party Security as a service (SECaaS) partners are now available: 
 
 - **Zscaler**
-- **[Check Point](check-point-overview.md)**
-- **iboss**
 
 ## Deploy a third-party security provider in a new hub
 
@@ -83,10 +81,10 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 1. Follow your partner provided instructions to complete the setup. This includes submitting Microsoft Entra information to detect and connect to the hub, update the egress policies, and check connectivity status and logs.
 
    - [Zscaler: Configure Microsoft Azure Virtual WAN integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
-   - [Check Point: Configure Microsoft Azure Virtual WAN integration](https://www.checkpoint.com/cloudguard/microsoft-azure-security/wan).
-   - [iboss: Configure Microsoft Azure Virtual WAN integration](https://www.iboss.com/solution-briefs/microsoft-virtual-wan/). 
-   
-2. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
+  
+ 2. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
+ 
+You can add other network virtual appliances to your virtual WAN hub. For more information, see [About NVAs in a Virtual WAN hub](../virtual-wan/about-nva-hub.md).
 
 ## Configure security with Firewall Manager
 
