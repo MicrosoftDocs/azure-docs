@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 
 This quickstart shows how to deploy a Spring Batch ephemeral application to Azure Spring Apps. The sample project is derived from the Spring Batch sample [Football Job](https://github.com/spring-projects/spring-batch/blob/main/spring-batch-samples/src/main/java/org/springframework/batch/samples/football/README.md). It's a statistics loading job. In the original sample, a unit test triggers the job. In the adapted sample, the `main` method of `FootballJobApplication` initiates the job.
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 The following diagram shows the architecture of the system:
 
@@ -374,7 +374,7 @@ Be sure to delete the resources you created in this article when you no longer n
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [clean-up-resources-via-resource-group](includes/quickstart-deploy-web-app/clean-up-resources-via-resource-group.md)]
+[!INCLUDE [clean-up-resources-via-resource-group](../basic-standard/includes/quickstart-deploy-web-app/clean-up-resources-via-resource-group.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 

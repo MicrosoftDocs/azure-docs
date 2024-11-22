@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 11/07/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Kafka in Azure IoT Operations so that I can send data to and from Kafka endpoints.
@@ -14,37 +14,42 @@ ai-usage: ai-assisted
 
 # Configure Azure Event Hubs and Kafka dataflow endpoints
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-To set up bi-directional communication between Azure IoT Operations Preview and Apache Kafka brokers, you can configure a dataflow endpoint. This configuration allows you to specify the endpoint, Transport Layer Security (TLS), authentication, and other settings.
+To set up bi-directional communication between Azure IoT Operations and Apache Kafka brokers, you can configure a dataflow endpoint. This configuration allows you to specify the endpoint, Transport Layer Security (TLS), authentication, and other settings.
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- A [configured dataflow profile](howto-configure-dataflow-profile.md)
+- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
 
 ## Azure Event Hubs
 
 [Azure Event Hubs is compatible with the Kafka protocol](../../event-hubs/azure-event-hubs-kafka-overview.md) and can be used with dataflows with some limitations.
 
-### Create an Azure Event Hubs namespace and event hub in it
+### Create an Azure Event Hubs namespace and event hub
 
 First, [create a Kafka-enabled Azure Event Hubs namespace](../../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md)
 
 Next, [create an event hub in the namespace](../../event-hubs/event-hubs-create.md#create-an-event-hub). Each individual event hub corresponds to a Kafka topic. You can create multiple event hubs in the same namespace to represent multiple Kafka topics. 
 
-### Assign the managed identity to the Event Hubs namespace
+### Assign permission to managed identity
 
-To configure a dataflow endpoint for a Kafka endpoint, we recommend using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
+To configure a dataflow endpoint for Azure Event Hubs, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
 
-1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
-1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
-1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for *azure-iot-operations-xxxx7*.
-1. Assign the Azure IoT Operations Arc extension managed identity to the Event Hubs namespace with the `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver` role.
+After the Azure Event Hubs namespace and event hub is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to send or receive messages to the event hub.
 
-### Create dataflow endpoint
+If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
 
-Finally, create the *DataflowEndpoint* resource. Use your own values to replace the placeholder values like `<ENDPOINT_NAME>`.
+Then, go to the Event Hubs namespace > **Access control (IAM)** > **Add role assignment**.
+
+1. On the **Role** tab select an appropriate role like `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver`. This gives the managed identity the necessary permissions to send or receive messages for all event hubs in the namespace. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
+1. On the **Members** tab:
+    1. If using system-assigned managed identity, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
+    1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
+
+### Create dataflow endpoint for Azure Event Hubs
+
+Once the Azure Event Hubs namespace and event hub is configured, you can create a dataflow endpoint for the Kafka-enabled Azure Event Hubs namespace.
 
 # [Portal](#tab/portal)
 
@@ -59,7 +64,7 @@ Finally, create the *DataflowEndpoint* resource. Use your own values to replace 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
     | Host                 | The hostname of the Kafka broker in the format `<NAMEPSACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
-    | Authentication method| The method used for authentication. Choose *System assigned managed identity* |
+    | Authentication method| The method used for authentication. We recommend that you choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
 
 1. Select **Apply** to provision the endpoint.
 
@@ -73,13 +78,13 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
 param hostName string = '<NAMESPACE>.servicebus.windows.net:9093'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -91,8 +96,8 @@ resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024
     kafkaSettings: {
       host: hostName
       authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
+        // See available authentication methods section for method types
+        // method: <METHOD_TYPE>
       }
       tls: {
         mode: 'Enabled'
@@ -108,12 +113,12 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowEndpoint
 metadata:
   name: <ENDPOINT_NAME>
@@ -123,8 +128,8 @@ spec:
   kafkaSettings:
     host: <NAMESPACE>.servicebus.windows.net:9093
     authentication:
-      method: SystemAssignedManagedIdentity
-      systemAssignedManagedIdentitySettings: {}
+      # See available authentication methods section for method types
+      # method: <METHOD_TYPE>
     tls:
       mode: Enabled
 ```
@@ -140,9 +145,12 @@ kubectl apply -f <FILE>.yaml
 > [!NOTE]
 > The Kafka topic, or individual event hub, is configured later when you create the dataflow. The Kafka topic is the destination for the dataflow messages.
 
-### Use connection string for authentication to Event Hubs
+#### Use connection string for authentication to Event Hubs
 
 # [Portal](#tab/portal)
+
+> [!IMPORTANT]
+> To use the operations experience portal to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **SASL**.
 
@@ -151,9 +159,20 @@ Enter the following settings for the endpoint:
 | Setting                        | Description                                                                                       |
 | ------------------------------ | ------------------------------------------------------------------------------------------------- |
 | SASL type                      | Choose `Plain`. |
-| Synced secret name             | The name of the Kubernetes secret that contains the connection string.                                   |
-| Username reference or token secret | The reference to the username or token secret used for SASL authentication.                     |
-| Password reference of token secret | The reference to the password or token secret used for SASL authentication.                     |
+| Synced secret name             | Enter a name of the Kubernetes secret that contains the connection string.                                   |
+| Username reference or token secret | The reference to the username or token secret used for SASL authentication. Either pick it from the Key Vault list or create a new one. The value must be `$ConnectionString`. |
+| Password reference of token secret | The reference to the password or token secret used for SASL authentication. Either pick it from the Key Vault list or create a new one. The value must be in the format of `Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY-NAME>;SharedAccessKey=<KEY>`. |
+
+After you select **Add reference**, if you select **Create new**, enter the following settings:
+
+| Setting | Description |
+| ------- | ----------- |
+| Secret name | The name of the secret in Azure Key Vault. Pick a name that is easy to remember to select the secret later from the list. |
+| Secret value | For the username, enter `$ConnectionString`. For the password, enter the connection string in the format `Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY-NAME>;SharedAccessKey=<KEY>`. |
+| Set activation date | If turned on, the date when the secret becomes active. |
+| Set expiration date | If turned on, the date when the secret expires. |
+
+To learn more about secrets, see [Create and manage secrets in Azure IoT Operations](../secure-iot-ops/howto-manage-secrets.md).
 
 # [Bicep](#tab/bicep)
 
@@ -172,7 +191,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 To use connection string for authentication to Event Hubs, use the SASL authentication method and configure with SASL type as "Plain" and configure name of the secret that contains the connection string.
 
@@ -220,13 +239,11 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
     | Host                 | The hostname of the Kafka broker in the format `<Kafa-broker-host>:xxxx`. Include port number in the host setting. |
-    | Authentication method| The method used for authentication. Choose *SASL* or *X509 certificate*. |
+    | Authentication method| The method used for authentication. Choose [*SASL*](#sasl). |
     | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
-    | Synced secret name   | The name of the secret. Required if using *SASL* or *X509*. |
+    | Synced secret name   | The name of the secret. Required if using *SASL*. |
     | Username reference of token secret | The reference to the username in the SASL token secret. Required if using *SASL*. |
-    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509*. |
-    | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509*. |
-    | X509 client key | The private key corresponding to the X.509 client certificate. Required if using *X509*. |
+
 
 1. Select **Apply** to provision the endpoint.
 
@@ -236,7 +253,7 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
  parent: aioInstance
   name: '<ENDPOINT NAME>'
   extendedLocation: {
@@ -262,10 +279,10 @@ resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowEndpoint
 metadata:
   name: <ENDPOINT NAME>
@@ -290,7 +307,129 @@ To customize the endpoint settings, use the following sections for more informat
 
 ## Available authentication methods
 
-The following authentication methods are available for Kafka broker dataflow endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+The following authentication methods are available for Kafka broker dataflow endpoints.
+
+### System-assigned managed identity
+
+Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to connect to the Kafka broker:
+
+1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
+1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
+1. Go to the cloud resource you need to grant permissions. For example, go to the Event Hubs namespace > **Access control (IAM)** > **Add role assignment**.
+1. On the **Role** tab select an appropriate role.
+1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the Azure IoT Operations managed identity. For example, *azure-iot-operations-xxxx7*.
+
+Then, configure the dataflow endpoint with system-assigned managed identity settings.
+
+# [Portal](#tab/portal)
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+kafkaSettings: {
+  authentication: {
+    method: 'SystemAssignedManagedIdentity'
+    systemAssignedManagedIdentitySettings: {}
+  }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+kafkaSettings:
+  authentication:
+    method: SystemAssignedManagedIdentity
+    systemAssignedManagedIdentitySettings:
+      {}
+```
+
+---
+
+This configuration creates a managed identity with the default audience, which is the same as the Event Hubs namespace host value in the form of `https://<NAMESPACE>.servicebus.windows.net`. However, if you need to override the default audience, you can set the `audience` field to the desired value.
+
+# [Portal](#tab/portal)
+
+Not supported in the operations experience.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+kafkaSettings: {
+  authentication: {
+    method: 'SystemAssignedManagedIdentity'
+    systemAssignedManagedIdentitySettings: {
+        audience: '<YOUR_AUDIENCE_OVERRIDE_VALUE>'
+    }
+  }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+kafkaSettings:
+  authentication:
+    method: SystemAssignedManagedIdentity
+    systemAssignedManagedIdentitySettings:
+      audience: <YOUR_AUDIENCE_OVERRIDE_VALUE>
+```
+
+---
+
+### User-assigned managed identity
+
+To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+
+Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to connect to the Kafka broker:
+
+1. In Azure portal, go to the cloud resource you need to grant permissions. For example, go to the Event Grid namespace > **Access control (IAM)** > **Add role assignment**.
+1. On the **Role** tab select an appropriate role.
+1. On the **Members** tab, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your user-assigned managed identity.
+
+Then, configure the dataflow endpoint with user-assigned managed identity settings.
+
+# [Portal](#tab/portal)
+
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+kafkaSettings: {
+  authentication: {
+    method: 'UserAssignedManagedIdentity'
+    UserAssignedManagedIdentitySettings: {
+      clientId: '<CLIENT_ID>'
+      tenantId: '<TENANT_ID>'
+      // Optional, defaults to https://<NAMESPACE>.servicebus.windows.net/.default
+      // Matching the Event Hub namespace you configured as host
+      // scope: 'https://<SCOPE_URL>'
+    }
+  }
+  ...
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+kafkaSettings:
+  authentication:
+    method: UserAssignedManagedIdentity
+    userAssignedManagedIdentitySettings:
+      clientId: <CLIENT_ID>
+      tenantId: <TENANT_ID>
+      # Optional, defaults to https://<NAMESPACE>.servicebus.windows.net/.default
+      # Matching the Event Hub namespace you configured as host
+      # scope: https://<SCOPE_URL>
+```
+
+---
+
+Here, the scope is the audience of the managed identity. The default value is the same as the Event Hubs namespace host value in the form of `https://<NAMESPACE>.servicebus.windows.net`. However, if you need to override the default audience, you can set the scope field to the desired value using Bicep or Kubernetes.
 
 ### SASL
 
@@ -323,7 +462,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```bash
 kubectl create secret generic sasl-secret -n azure-iot-operations \
@@ -347,176 +486,8 @@ The supported SASL types are:
 - `ScramSha256`
 - `ScramSha512`
 
-The secret must be in the same namespace as the Kafka dataflow endpoint. The secret must have the SASL token as a key-value pair. For example:
-
-
-<!-- TODO: double check! -->
-
-### X.509
-
-To use X.509 for authentication, update the authentication section of the Kafka settings to use the X509Certificate method and specify reference to the secret that holds the X.509 certificate.
-
-# [Portal](#tab/portal)
-
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
-
-Enter the following settings for the endpoint:
-
-| Setting               | Description                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------------- |
-| Synced secret name   | The name of the secret. |
-| X509 client certificate | The X.509 client certificate used for authentication. |
-| X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain.  |
-| X509 client key       | The private key corresponding to the X.509 client certificate. |
-
-# [Bicep](#tab/bicep)
-
-
-```bicep
-kafkaSettings: {
-  authentication: {
-    method: 'X509Certificate'
-    x509CertificateSettings: {
-        secretRef: '<SECRET_NAME>'
-    }
-  }
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
-
-The secret must be in the same namespace as the Kafka dataflow endpoint. Use Kubernetes TLS secret containing the public certificate and private key. For example:
-
-```bash
-kubectl create secret tls my-tls-secret -n azure-iot-operations \
-  --cert=path/to/cert/file \
-  --key=path/to/key/file
-```
-
-```yaml
-kafkaSettings:
-  authentication:
-    method: X509Certificate
-    x509CertificateSettings:
-      secretRef: <SECRET_NAME>
-```
-
----
-
-
-### System-assigned managed identity
-
-To use system-assigned managed identity for authentication, assign a role to the Azure IoT Operation managed identity that grants permission to send and receive messages from Event Hubs.
-
-1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
-1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
-1. Search for the managed identity in the Azure portal by using the name of the extension. For example, search for *azure-iot-operations-xxxx7*.
-1. Assign a role to the Azure IoT Operations Arc extension managed identity that grants permission to send and receive messages such as *Azure Event Hubs Data Owner*, *Azure Event Hubs Data Sender*, or *Azure Event Hubs Data Receiver*. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
-1. Specify the managed identity authentication method in the Kafka settings. In most cases, you don't need to specify other settings. 
-
-# [Portal](#tab/portal)
-
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-kafkaSettings: {
-  authentication: {
-    method: 'SystemAssignedManagedIdentity'
-    systemAssignedManagedIdentitySettings: {}
-  }
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      {}
-```
-
----
-
-This configuration creates a managed identity with the default audience, which is the same as the Event Hubs namespace host value in the form of `https://<NAMESPACE>.servicebus.windows.net`. However, if you need to override the default audience, you can set the `audience` field to the desired value.
-
-# [Portal](#tab/portal)
-
-Not supported in the operations experience.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-kafkaSettings: {
-  authentication: {
-    method: 'SystemAssignedManagedIdentity'
-    systemAssignedManagedIdentitySettings: {
-        audience: '<YOUR_AUDIENCE_OVERRIDE_VALUE>'
-    }
-  }
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      audience: <YOUR_AUDIENCE_OVERRIDE_VALUE>
-```
-
----
-
-### User-assigned managed identity
-
-To use user-managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. To learn more, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
-
-Then, specify the user-assigned managed identity authentication method in the Kafka settings along with the client ID and tenant ID of the managed identity.
-
-# [Portal](#tab/portal)
-
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-kafkaSettings: {
-  authentication: {
-    method: 'UserAssignedManagedIdentity'
-    UserAssignedManagedIdentitySettings: {
-      clientId: '<CLIENT_ID>'
-      tenantId: '<TENANT_ID>'
-      // Optional, defaults to https://<NAMESPACE>.servicebus.windows.net/.default
-      // Matching the Event Hub namespace you configured as host
-      // scope: 'https://<SCOPE_URL>'
-    }
-  }
-  ...
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-kafkaSettings:
-  authentication:
-    method: UserAssignedManagedIdentity
-    userAssignedManagedIdentitySettings:
-      clientId: <CLIENT_ID>
-      tenantId: <TENANT_ID>
-      # Optional, defaults to https://<NAMESPACE>.servicebus.windows.net/.default
-      # Matching the Event Hub namespace you configured as host
-      # scope: https://<SCOPE_URL>
-```
-
----
-
-Here, the scope is the audience of the managed identity. The default value is the same as the Event Hubs namespace host value in the form of `https://<NAMESPACE>.servicebus.windows.net`. However, if you need to override the default audience, you can set the scope field to the desired value using Bicep or Kubernetes.
+The secret must be in the same namespace as the Kafka dataflow endpoint. The secret must have the SASL token as a key-value pair.
+<!-- TODO: double check! Provide an example? -->
 
 ### Anonymous
 
@@ -524,13 +495,19 @@ To use anonymous authentication, update the authentication section of the Kafka 
 
 # [Portal](#tab/portal)
 
-Not yet supported in the operations experience. See [known issues](../troubleshoot/known-issues.md).
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **None**.
 
 # [Bicep](#tab/bicep)
 
-Not yet supported with Bicep. See [known issues](../troubleshoot/known-issues.md).
+```bicep
+kafkaSettings: {
+  authentication: {
+    method: 'Anonymous'
+  }
+}
+```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -577,7 +554,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Under `kafkaSettings`, you can configure additional settings for the Kafka endpoint.
 
@@ -621,7 +598,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -651,7 +628,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -689,7 +666,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 spec:
@@ -726,7 +703,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -769,7 +746,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -816,7 +793,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -855,7 +832,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -882,7 +859,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
@@ -1028,7 +1005,7 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 kafkaSettings:
