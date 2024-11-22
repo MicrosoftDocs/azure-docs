@@ -19,8 +19,6 @@ This article describes how to use the [Azure IoT SDK for Node.js](https://github
 
 ## Create a device application
 
-Device applications can read and write module identity twin reported properties, and be notified of desired module identity twin property changes that are set by a backend application or IoT Hub.
-
 This section describes how to use the [azure-iot-device](/javascript/api/azure-iot-device) package in the Azure IoT SDK for Node.js to create a device application to:
 
 * Retrieve a module identity twin and examine reported properties

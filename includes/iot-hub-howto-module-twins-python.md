@@ -39,8 +39,6 @@ pip install msrest
 
 ## Create a device application
 
-Device applications can read and write module identity twin reported properties, and be notified of desired module identity twin property changes that are set by a backend application or IoT Hub.
-
 This section describes how to use device application code to:
 
 * Retrieve a module identity twin and examine reported properties
