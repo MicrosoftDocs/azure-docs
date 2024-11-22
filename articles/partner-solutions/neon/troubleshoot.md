@@ -5,7 +5,7 @@ author: ProfessorKendrick
 ms.topic: overview
 ms.custom:
 
-ms.date: 11/06/2024
+ms.date: 11/22/2024
 ---
 
 # Troubleshooting Neon Serverless Postgres
@@ -20,7 +20,7 @@ To contact support about Neon resource, select the resource in the Resource menu
 
 Select Support + troubleshooting in Help menu on the left of the Overview page. 
 
-Select ‘Create a support request’. You will re-directed to the partner portal where you can raise a support ticket.
+Select **Create a support request**. You will re-directed to the partner portal where you can raise a support ticket.
 
 --
 

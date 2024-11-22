@@ -13,8 +13,8 @@ ms.date: 11/22/2024
 
 In this article, you will learn about resources and tools for use with Neon Serverless Postgres 
 
--Articles that you can use to understand Neon Serverless Postgres 
--Tools for developers to work with Neon Serverless Postgres 
+- Articles that you can use to understand Neon Serverless Postgres 
+- Tools for developers to work with Neon Serverless Postgres 
 
 ## Neon Postgres resources 
 
