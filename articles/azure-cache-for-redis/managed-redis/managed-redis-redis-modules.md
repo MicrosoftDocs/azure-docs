@@ -4,7 +4,7 @@ description: You can use Redis modules with your Azure Managed Redis instances t
 
 
 
-ms.service: azure-redis
+ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.date: 11/15/2024
 ms.custom: template-concept, ignite-2024

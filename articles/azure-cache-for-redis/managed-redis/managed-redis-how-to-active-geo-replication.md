@@ -3,7 +3,7 @@ title: Configure active geo-replication for Azure Managed Redis (preview) instan
 description: Learn how to replicate your Azure Managed Redis instances across Azure regions.
 
 
-ms.service: azure-redis
+ms.service: azure-managed-redis
 ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
