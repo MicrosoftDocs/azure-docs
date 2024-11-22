@@ -15,9 +15,9 @@ This article answers frequently asked questions (FAQs) about the SMB protocol of
 
 Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0). 
 
-## Does Windows Server 2025 work with Azure NetApp Files? 
+## Can I use Windows Server 2025? 
 
-No, Windows Server 2025 doesn't work with Azure NetApp Files SMB volumes. 
+Windows Server 2025 doesn't work with the Azure NetApp Files common internet file system (CIFS) protocol. 
 
 ## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
 
