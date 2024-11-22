@@ -61,10 +61,12 @@ In your command window, execute the following command to store a new secret name
 ```dos
 dotnet user-secrets set RedisHostName "<cache-name>.redis.cache.windows.net"
 ```
+
 For using Azure Managed Redis (preview) instance, store a new secret named RedisHostName as below:
 
 ```dos
 dotnet user-secrets set RedisHostName "<cache-name>.<region>.redis.azure.net"
+```
 
 ## Connect to the cache with RedisConnection
 
