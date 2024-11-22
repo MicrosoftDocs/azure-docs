@@ -11,7 +11,7 @@ ms.date: 05/26/2021
 # Required network ports
 
 > [!NOTE]
-> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/hpccacheretirement for more information about the retirement.
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information about the retirement.
 
 This list shows TCP/UDP ports required by FXT cluster environments. Configure any firewalls you use to make sure these ports are accessible.
 

@@ -11,7 +11,7 @@ ms.date: 06/20/2019
 # Tutorial: Add back-end storage and configure the virtual namespace
 
 > [!NOTE]
-> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/hpccacheretirement for more information about the retirement.
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information about the retirement.
 
 This tutorial explains how to add back-edge storage for your cache and how to set up the client-facing virtual filesystem.
 
