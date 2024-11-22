@@ -24,10 +24,9 @@ introduction: |
   - Are copied to [staging](review-publish-pull-requests.md) and production environments
   - May only be alphanumeric characters, `.`, and `_`
 
-  > [!IMPORTANT]
-  > The application settings described in this article only apply to the backend API of an Azure Static Web App.
-  >
-  > To configure environment variables that are required to build your frontend web application, see [Build configuration](build-configuration.md#environment-variables).
+  The application settings described in this article only apply to the backend API of an Azure Static Web App.
+
+  To configure environment variables required to build your frontend web application, see [Build configuration](build-configuration.md#environment-variables).
 
 prerequisites:
   summary: |
@@ -68,6 +67,11 @@ procedureSection:
       Configure application settings
     summary: |
       You can configure application settings via the [Azure portal](https://portal.azure.com) or with the [Azure CLI](#use-the-azure-cli).
+
+      > [!IMPORTANT]
+      > The application settings described in this article only apply to the backend API of an Azure Static Web App.
+      >
+      > To configure environment variables required to build your frontend web application, see [Build configuration](build-configuration.md#environment-variables).
 
       ### Use the Azure portal
 
