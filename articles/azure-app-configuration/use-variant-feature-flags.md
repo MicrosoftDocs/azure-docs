@@ -48,8 +48,8 @@ You can assign variants to specific groups or users irrespective of the percenta
 ### Default variants and kill switch
 
 Variant feature flags have two variant defaults, **DefaultWhenEnabled** and **DefaultWhenDisabled**. 
-1. The **DefaultWhenEnabled** variant takes effect if the flag is enabled but the allocation doesn't assign all percentiles. Any user placed in an unassigned percentile receives the **DefaultWhenEnabled** variant.
-1. The **DefaultWhenDisabled** variant takes effect if the flag is disabled, done by setting the **Enabled** field to false, also known as using the "kill switch". 
+- The **DefaultWhenEnabled** variant takes effect if the flag is enabled but the allocation doesn't assign all percentiles. Any user placed in an unassigned percentile receives the **DefaultWhenEnabled** variant.
+- The **DefaultWhenDisabled** variant takes effect if the flag is disabled, done by setting the **Enabled** field to false, also known as using the "kill switch". 
 
 The **kill switch** is used to stop users from allocating. Used when one or more of the variants have a problem- whether it's a bug, regression, or bad performance. To use the kill switch, set the **Enabled** field of the variant flag to false. All users now are given the **DefaultWhenDisabled** variant, regardless of which percentiles or overridden users/groups they were a part of.
 
