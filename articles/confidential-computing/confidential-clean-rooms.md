@@ -11,7 +11,7 @@ ms.author: mathapli
 
 # Azure Confidential Clean Room
 
-Azure Confidential Clean Room offers a sandboxed environment called a *clean room* that helps organizations overcome the challenges of using privacy-sensitive data for data analytics, AI model development, and inferencing. Built on top of [confidential containers in Azure Container Instances](../confidential-computing/confidential-containers.md), Azure Confidential Clean Room secures the data and the model from exfiltration outside the clean room's boundary. The service is currently in preview.
+Azure Confidential Clean Room offers a sandboxed environment that helps organizations overcome the challenges of using privacy-sensitive data for data analytics, AI model development, and inferencing. Built on top of [confidential containers in Azure Container Instances](../confidential-computing/confidential-containers.md), Azure Confidential Clean Room secures the data and the model from exfiltration outside the clean room's boundary. The service is currently in preview.
 
 Organizations can collaborate and analyze sensitive data in the clean room without violating compliance standards or risking data breaches. Azure Confidential Clean Room uses advanced privacy-enhancing technologies like secure governance and audit, trusted execution environment (TEE), verifiable trust, differential privacy, and controlled access.
 
