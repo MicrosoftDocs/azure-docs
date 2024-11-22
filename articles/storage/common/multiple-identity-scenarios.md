@@ -122,7 +122,7 @@ You can also enable access to Azure resources for local development by assigning
 
 #### [Java](#tab/java)
 
-1. In your project, add the `azure-identity` dependency to your *pom.xml* file. This library contains all the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure dependencies that are relevant to your app. For this example, the `azure-storage-blob` and `azure-messaging-servicebus` dependencies are added to connect to Blob Storage and Service Bus.
+1. In your project, add the `azure-identity` dependency to your *pom.xml* file. This library provides `DefaultAzureCredential`. You can also add any other Azure dependencies that are relevant to your app. For this example, the `azure-storage-blob` and `azure-messaging-servicebus` dependencies are added to interact with Blob Storage and Service Bus.
 
     ```xml
     <dependencyManagement>
@@ -230,7 +230,7 @@ You can also enable access to Azure resources for local development by assigning
 
 #### [Node.js](#tab/javascript)
 
-1. In your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app. 
+1. In your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library provides `DefaultAzureCredential`. For this example, the `@azure/storage-blob` and `@azure/service-bus` packages are installed to interact with Blob Storage and Service Bus.
 
     ```bash
     npm install --save @azure/identity @azure/storage-blob @azure/service-bus
@@ -260,6 +260,40 @@ You can also enable access to Azure resources for local development by assigning
       `https://${serviceBusNamespace}.servicebus.windows.net`,
       credential
     );
+    ```
+
+#### [Python](#tab/python)
+
+1. In your project, add a reference to the `azure-identity` package. This library provides `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `azure-storage-blob` and `azure-service-bus` packages are added to connect to Blob Storage and Service Bus, respectively.
+
+    ```bash
+    pip install azure-identity azure-servicebus azure-storage-blob
+    ```
+
+1. Instantiate service clients for the services your app will connect to. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
+
+    ```python
+    from azure.identity import DefaultAzureCredential
+    from azure.servicebus import ServiceBusClient, ServiceBusMessage
+    from azure.storage.blob import BlobServiceClient
+    import os
+    
+    # Create an instance of DefaultAzureCredential that will use a system-assigned managed identity
+    credential = DefaultAzureCredential()
+    
+    blobServiceClient = BlobServiceClient(
+        account_url="https://<my-storage-account-name>.blob.core.windows.net/",
+        credential=credential
+    )
+    
+    fully_qualified_namespace = os.environ['SERVICEBUS_FULLY_QUALIFIED_NAMESPACE']
+    queue_name = os.environ['SERVICE_BUS_QUEUE_NAME']
+    
+    with ServiceBusClient(fully_qualified_namespace, credential) as client:
+        with client.get_queue_sender(queue_name) as sender:
+            # Sending a single message
+            single_message = ServiceBusMessage("Single message")
+            sender.send_messages(single_message)    
     ```
 
 ---
@@ -530,7 +564,7 @@ public class ExampleService {
 }
 ```
 
-#### [Node.js](#tab/javascript)
+### [Node.js](#tab/javascript)
 
 1. Inside of your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app.
 
@@ -605,6 +639,10 @@ public class ExampleService {
     await sql.connect(sqlConfig);
     ```
 
+### [Python](#tab/python)
+
+TODO
+
 ---
 
 You can also associate a user-assigned managed identity and a system-assigned managed identity to a resource simultaneously. This can be useful in scenarios where all of the apps require access to the same shared services, but one of the apps also has a very specific dependency on an additional service. Using a system-assigned managed identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
@@ -618,4 +656,4 @@ These types of scenarios are explored in more depth in the [identities best prac
 In this tutorial, you learned how to migrate an application to passwordless connections. You can read the following resources to explore the concepts discussed in this article in more depth:
 
 * [Authorize access to blobs using Microsoft Entra ID](../blobs/authorize-access-azure-active-directory.md)
-* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
+* To learn more about .NET, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
