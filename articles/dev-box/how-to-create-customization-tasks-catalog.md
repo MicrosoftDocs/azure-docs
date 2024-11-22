@@ -4,9 +4,10 @@ description: Learn how to create and manage tasks in a catalog for Dev Box Team 
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
 ms.date: 11/05/2024
-
 #customer intent: As a dev center administrator or Project Admin, I want to create additional tasks in a catlog so that I can create a specific customization in a customization or image definition file.
 ---
 

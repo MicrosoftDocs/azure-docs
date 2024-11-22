@@ -3,6 +3,8 @@ title: What is Azure Managed Redis (preview)?
 description: Learn about Azure Managed Redis to enable cache-aside, content caching, user session caching, job and message queuing, and distributed transactions.
 
 ms.service: azure
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
 ms.date: 11/15/2024
 ---
@@ -36,6 +38,7 @@ Azure Managed Redis improves application performance by supporting common applic
 | [Deduplication](https://redis.io/solutions/deduplication/) | Often, you need to determine if an action already happened in a system, such as determining if a username is taken or if a customer was already sent an email. In Azure Managed Redis, bloom filters can be used to rapidly determine duplicates and prevent problems. |
 | [Leaderboards](../cache-web-app-cache-aside-leaderboard.md) | Redis offers simple and powerful support for developing leaderboards of all kinds using the [sorted set](https://redis.io/solutions/leaderboards/) data structure. Additionally, using [active geo-replication](managed-redis-how-to-active-geo-replication.md) can allow one leaderboard to be shared globally. |
 | Job and message queuing | Applications often add tasks to a queue when the operations associated with the request take time to execute. Longer running operations are queued to be processed in sequence, often by another server. This method of deferring work is called task queuing. Azure Managed Redis provides a distributed queue to enable this pattern in your application.|
+| [PowerBI/Analytics Acceleration](https://techcommunity.microsoft.com/blog/analyticsonazure/how-to-use-redis-as-a-data-source-for-power-bi-with-redis-sql-odbc/3799471) | You can use the Redis ODBC driver to utilize Redis for BI, reporting, and analytics use-cases. Because Redis is typically much faster than relational databases, using Redis in this way can dramatically increase query responsiveness. |
 | Distributed transactions | Applications sometimes require a series of commands against a backend data-store to execute as a single atomic operation. All commands must succeed, or all must be rolled back to the initial state. Azure Managed Redis supports executing a batch of commands as a single [transaction](https://redis.io/topics/transactions). |
 
 ## Redis version

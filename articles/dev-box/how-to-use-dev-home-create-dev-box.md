@@ -7,6 +7,7 @@ ms.author: rosemalcolm
 ms.service: dev-box
 ms.custom:
   - build-2024
+  - ignite-2024
 ms.topic: how-to
 ms.date: 10/26/2024
 #customer intent: As a developer, I want to learn how to use the Dev Home app, so that I can create and manage my dev boxes.

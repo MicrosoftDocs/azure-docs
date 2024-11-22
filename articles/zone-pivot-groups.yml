@@ -211,16 +211,16 @@ groups:
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
   pivots:
-  - id: consumption-plan
-    title: Consumption plan
   - id: flex-consumption-plan
-    title: Flex Consumption plan (preview)
+    title: Flex Consumption plan
   - id: premium-plan
     title: Premium plan
   - id: dedicated-plan
     title: Dedicated plan
   - id: container-apps
     title: Container Apps
+  - id: consumption-plan
+    title: Consumption plan
   - id: azure-arc
     title: Azure Arc
 ### end azure-functions
@@ -1451,6 +1451,14 @@ groups:
     title: Standard
   - id: host-pool-session-host-configuration
     title: Session host configuration (preview)
+- id: autoscale
+  title: Create and assign an autoscale scaling plan
+  prompt: "Choose an autoscaling method:"
+  pivots:
+  - id: power-management
+    title: Power management autoscaling
+  - id: dynamic
+    title: Dynamic autoscaling (preview)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -1579,6 +1587,17 @@ groups:
     title: New Maintenance Configuration
   - id: existing-mc
     title: Existing Maintenance Configuration
+# Owner: sudhirsneha
+- id: enable-change-tracking-inventory-using-monitoring-agent
+  title: Requirements to enable change tracking and inventory using monitoring agent
+  prompt: Choose a deployment environment
+  pivots:
+  - id: single-portal
+    title: Single Azure VM and Azure Arc-enabled VM
+  - id: multiple-portal-cli
+    title: Multiple VMs using Azure portal and Azure CLI
+  - id: at-scale-policy
+    title: At scale using policy
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service

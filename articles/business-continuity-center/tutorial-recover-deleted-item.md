@@ -8,6 +8,7 @@ ms.author: v-abhmallick
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
+  - ignite-2024
 ---
 
 # Tutorial: Recover deleted item

@@ -30,6 +30,8 @@ Extremely low TTL in the order of milliseconds or seconds might cause messages t
 ## Entity-level expiration
 All messages sent into a queue or topic are subject to a default expiration that is set at the entity level. It can also be set in the portal during creation and adjusted later. The default expiration is used for all messages sent to the entity where time-to-live isn't explicitly set. The default expiration also functions as a ceiling for the time-to-live value. Messages that have a longer time-to-live expiration than the default value are silently adjusted to the default message time-to-live value before being enqueued.
 
+The **expires-at-utc** is by design. If the message TTL is not set and only the entity TTL is set then **expires-at-utc**  is a computed value and is not computed in the Peek path but is computed in the Receive/Peeklock path. If the message has TTL then this **expires-at-utc** is computed at the time message is sent and stored. So in this case Peek will return correct **expires-at-utc** values.
+
 > [!NOTE]
 > - The default time-to-live value for a brokered message is the largest possible value for a signed 64-bit integer if not otherwise specified.
 > - For messaging entities (queues and topics), the default expiration time is also largest possible value for a signed 64-bit integer for [Service Bus standard and premium](service-bus-premium-messaging.md) tiers. For the **basic** tier, the default (also maximum) expiration time is **14 days**.

@@ -3,7 +3,7 @@ title: 'Quickstart: Run Playwright tests at scale'
 description: 'This quickstart shows how to run your Playwright tests with highly parallel cloud browsers using Microsoft Playwright Testing Preview. The cloud-hosted browsers support multiple operating systems and all modern browsers.'
 ms.topic: quickstart
 ms.date: 10/04/2023
-ms.custom: playwright-testing-preview, build-2024
+ms.custom: playwright-testing-preview, build-2024, ignite-2024
 zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---
@@ -313,7 +313,7 @@ Run Playwright tests against browsers managed by the service and see the results
 dotnet test --settings:.runsettings --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
 ```
 
-The settings for your test run are defined in `.runsettings` file. See [how to use service package options](./how-to-use-service-config-file.md#options-in-runsettings-file)
+The settings for your test run are defined in `.runsettings` file. See [how to use service package options](./how-to-use-service-config-file.md#config-options-in-runsettings-file)
 
 After the test run completes, you can view the test status in the terminal.
 
@@ -337,7 +337,17 @@ Workload updates are available. Run `dotnet workload list` for more information.
 
 You can now troubleshoot the failed test cases in the Playwright portal.
 
+::: zone pivot="playwright-test-runner"
+
 [!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results.md)]
+
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+[!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results-nunit.md)]
+
+::: zone-end
 
 
 > [!TIP]

@@ -3,7 +3,7 @@ title: 'Quickstart: Continuous end-to-end testing'
 description: In this quickstart, you learn how to run your Playwright tests at scale in your CI pipeline with Microsoft Playwright Testing. Continuously validate that your web app runs correctly across browsers and operating systems.
 ms.topic: quickstart
 ms.date: 10/04/2023
-ms.custom: playwright-testing-preview, build-2024
+ms.custom: playwright-testing-preview, build-2024, ignite-2024
 zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---
@@ -112,9 +112,15 @@ In the `playwright.config.ts` file of your project, make sure you are collecting
 
 3. Save and commit the file to your source code repository.
 
-## Update .csproj file for your project 
+## Install service package
 
-Update the `csproj` file in your repository to add details about Microsoft Playwright Testing service package in `ItemGroup` section.
+In your project, install Microsoft Playwright Testing package. 
+
+```PowerShell
+dotnet add package Azure.Developer.MicrosoftPlaywrightTesting.NUnit --prerelease
+```
+
+This updates your project's `csproj` file by adding the service package details to the `ItemGroup` section. Remember to commit these changes.
 
 ```xml
   <ItemGroup>
@@ -365,6 +371,9 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
     When the CI workflow is triggered, your Playwright tests run in your Microsoft Playwright Testing workspace on cloud-hosted browsers, across 20 parallel workers. The results and artifacts collected are published to the service and can be viewed on service portal.
 
+
+The settings for your test run can be defined in `.runsettings` file. For more information, see [how to use service package options](./how-to-use-service-config-file.md#config-options-in-runsettings-file)
+
 > [!NOTE]
 > Reporting feature is enabled by default for existing workspaces. This is being rolled out in stages and will take a few days. To avoid failures, confirm that `Rich diagnostics using reporting` setting is ON for your workspace before proceeding. For more information, see, [Enable reporting for workspace](./how-to-use-service-features.md#manage-feature-for-the-workspace).
 
@@ -384,7 +393,17 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
 You can now troubleshoot the CI pipeline in the Playwright portal,  
 
+::: zone pivot="playwright-test-runner"
+
 [!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results.md)]
+
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+[!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results-nunit.md)]
+
+::: zone-end
 
 
 > [!TIP]

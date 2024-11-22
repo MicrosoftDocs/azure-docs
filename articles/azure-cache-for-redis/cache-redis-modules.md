@@ -7,8 +7,7 @@ description: You can use Redis modules with your Azure Cache for Redis instances
 
 ms.topic: conceptual
 ms.date: 04/10/2024
-ms.custom: template-concept
-
+ms.custom: template-concept, ignite-2024
 ---
 # Use Redis modules with Azure Cache for Redis
 

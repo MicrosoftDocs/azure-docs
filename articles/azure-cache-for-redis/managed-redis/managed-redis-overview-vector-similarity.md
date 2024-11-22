@@ -4,6 +4,8 @@ description: Learn about Azure Managed Redis to store vector embeddings and prov
 
 
 ms.service: azure
+ms.custom:
+  - ignite-2024
 ms.topic: overview
 ms.date: 11/15/2024
 ---

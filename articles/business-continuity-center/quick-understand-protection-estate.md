@@ -3,6 +3,8 @@ title: Quickstart - Understand the protection estate in Azure Business Continuit
 description: Learn how to identify the resources with no protection and the ones which are protected in Azure Business Continuity Center.
 ms.topic: quickstart
 ms.service: azure-business-continuity-center
+ms.custom:
+  - ignite-2024
 ms.date: 09/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

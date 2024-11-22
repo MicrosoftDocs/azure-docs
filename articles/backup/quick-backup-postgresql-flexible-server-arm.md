@@ -2,6 +2,8 @@
 title: Quickstart - Azure Resource Manager template for PostgreSQL - Flexible server backup
 description: Learn how to back up your Azure PostgreSQL - Flexible server with an Azure Resource Manager template.
 ms.devlang: azurecli
+ms.custom:
+  - ignite-2024
 ms.topic: quickstart
 ms.date: 10/07/2024
 ms.service: azure-backup
@@ -179,6 +181,3 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 - [Restore Azure PostgreSQL - Flexible server using Azure PowerShell](backup-azure-database-postgresql-flex-restore-powershell.md)
 - [About Azure PostgreSQL - Flexible server backup](backup-azure-database-postgresql-flex-overview.md)
-
-
-

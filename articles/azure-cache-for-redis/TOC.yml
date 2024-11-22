@@ -159,10 +159,6 @@
       href: managed-redis/managed-redis-how-to-import-export-data.md
     - name: Configure disk encryption 
       href: managed-redis/managed-redis-how-to-encryption.md
-    - name: Reboot
-      href: managed-redis/managed-redis-administration.md#reboot
-    - name: Update channel and schedule updates
-      href: managed-redis/managed-redis-administration.md#update-channel-and-schedule-updates
     - name: Configure redis-cli access
       href: managed-redis/managed-redis-how-to-redis-cli-tool.md
     - name: Management FAQs
@@ -181,7 +177,7 @@
     - name: Failover and patching
       href: managed-redis/managed-redis-failover.md
     - name: Migrate to availability zone support
-      href: ../availability-zones/migrate-cache-redis.md
+      href: ../reliability/migrate-cache-redis.md
 
   - name: Diagnose and troubleshoot
     items:
@@ -361,7 +357,7 @@
     - name: Failover and patching
       href: cache-failover.md
     - name: Migrate to availability zone support
-      href: ../availability-zones/migrate-cache-redis.md
+      href: ../reliability/migrate-cache-redis.md
 
   - name: Diagnose and troubleshoot
     items:

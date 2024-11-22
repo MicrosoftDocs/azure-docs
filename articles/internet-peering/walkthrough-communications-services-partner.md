@@ -148,7 +148,7 @@ In the previous section, you registered prefixes and generated prefix keys. Pref
 
     :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-basics.png" alt-text="Screenshot shows the Basics tab of creating a Peering Service connection in the Azure portal.":::
 
-1. In the **Configuration** tab, choose your country, state/province, your provider name, the primary peering location, and optionally the backup peering location. 
+1. In the **Configuration** tab, choose your country/region, state/province, your provider name, the primary peering location, and optionally the backup peering location. 
 
     > [!CAUTION] 
     > If you choose **None** as the provider backup peering location when creating a Peering Service, you will not have geo-redundancy.
