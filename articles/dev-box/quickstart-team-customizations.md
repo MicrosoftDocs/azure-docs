@@ -38,11 +38,11 @@ To enable the use of project-level catalogs at the dev center level:
 1. In the [Azure portal](https://portal.azure.com), navigate to your dev center.
 1. In the left menu, under **Settings**, select **Configuration**.
  
-    :::image type="content" source="media/how-to-configure-catalog/dev-center-overview.png" alt-text="Screenshot showing the Overview page for a dev center with Configuration highlighted." lightbox="media/quickstart-team-customizations/dev-center-overview.png"::: 
+    :::image type="content" source="media/quickstart-team-customizations/dev-center-overview.png" alt-text="Screenshot showing the Overview page for a dev center with Configuration highlighted." lightbox="media/quickstart-team-customizations/dev-center-overview.png"::: 
  
 1. In the **Project level catalogs** pane, select **Enable catalogs per project**, and then select **Apply**.
 
-    :::image type="content" source="media/how-to-configure-catalog/dev-center-project-catalog-selected.png" alt-text="Screenshot showing the Project level catalogs pane, with Enable catalogs per project highlighted." lightbox="media/quickstart-team-customizations/dev-center-project-catalog-selected.png":::
+    :::image type="content" source="media/quickstart-team-customizations/dev-center-project-catalog-selected.png" alt-text="Screenshot showing the Project level catalogs pane, with Enable catalogs per project highlighted." lightbox="media/quickstart-team-customizations/dev-center-project-catalog-selected.png":::
 
 ## Add a catalog to your Project
 
