@@ -28,7 +28,7 @@ This article describes features, enhancements, and bug fixes released in 2024 fo
 - Content Type Header Parsing: An issue related to parsing the `application/x-www-form-urlencoded` content type header has been addressed and resolved.
 - Reindexing Enhancements: The reindex operation is improved by removing an artificial limitation which previously restricted handling of large historical datasets, or cases where customers requested a limited query size. Additionally, reindex process would incorrectly report as "completed" when handling many sequential historical or deleted resources with the default query size. This issue has been addressed to ensure that the reindexing process completes correctly and reports the appropriate status.
 
-#### Azure API for FHIR
+### Azure API for FHIR
 
 - Export Validation Improvement: An issue was found where exports proceeded despite invalid search parameters. A new change is implemented to prevent exports under these conditions. This is the default behavior. Customers can override it using the lenient flag. This change was communicated to customers last month.
 - Bundle Performance Enhancement: The profile refresh process during bundle execution has been simplified. If a bundle contains changes to `ValueSet`, `StructureDefinition`, and/or `CodeSystem`, no profile refreshes will occur until the bundle is fully completed. This change improves the performance of bundles by reducing delays caused by multiple refreshes when handling changes to these resource types.
