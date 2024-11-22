@@ -192,7 +192,7 @@ const breakoutRoomsUpdatedListener = (event) => {
      }
 }
 
-if(assignedRoom.threadId != breakoutRoom.threadId)
+if(assignedRoom.threadId != breakoutRoom.threadId && breakoutRooms != null)
 {
     await breakoutRoom.hangUp();
 }
