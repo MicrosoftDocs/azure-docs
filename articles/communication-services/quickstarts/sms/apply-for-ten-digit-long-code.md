@@ -7,7 +7,7 @@ manager: darmour
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 10/28/2024
+ms.date: 11/21/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
