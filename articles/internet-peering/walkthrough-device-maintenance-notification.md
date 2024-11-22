@@ -92,7 +92,7 @@ Service Health supports forwarding rules, so you can set up your own alerts when
 
     :::image type="content" source="./media/walkthrough-device-maintenance-notification/create-alert-rule-actions-group.png" alt-text="Screenshot that shows the Actions tab after creating a new action group.":::
 
-1. Select **Test action group** to send test notifications to the contact information you previously entered in the action group (to change the contact information, select the pencil icon next to the notification).
+1. Select **Test action group** to send test notifications to the contact information you previously entered in the action group. (To change the contact information, select the pencil icon next to the notification.)
 
     :::image type="content" source="./media/walkthrough-device-maintenance-notification/edit-action-group.png" alt-text="Screenshot that shows how to edit an action group in the Azure portal.":::
 
