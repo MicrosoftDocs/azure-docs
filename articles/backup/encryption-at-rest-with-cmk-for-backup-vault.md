@@ -109,11 +109,11 @@ To enable the encryption, follow these steps:
 
    During the vault creation, only *user-assigned managed identities* can be used for CMK. 
     
-    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/add-user-assigned-managed-identity.png" alt-text="Screenshor shows the addition of user-assigned managed identity to the vault." lightbox=="./media/encryption-at-rest-with-cmk-for-backup-vault/add-user-assigned-managed-identity.png":::
+    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/add-user-assigned-managed-identity.png" alt-text="Screenshot shows the addition of user-assigned managed identity to the vault." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/add-user-assigned-managed-identity.png":::
 
    To use CMK with system-assigned managed identity, update the vault properties after creating the vault.
 
-    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/add-system-assigned-managed-identity.png" alt-text="Screenshor shows the addition of system-assigned managed identity to the vault." lightbox=="./media/encryption-at-rest-with-cmk-for-backup-vault/add-system-assigned-managed-identity.png":::
+    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/add-system-assigned-managed-identity.png" alt-text="Screenshot shows the addition of system-assigned managed identity to the vault." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/add-system-assigned-managed-identity.png":::
 
 6. To enable encryption on the backup storage infrastructure, select **Infrastructure Encryption**.
 
