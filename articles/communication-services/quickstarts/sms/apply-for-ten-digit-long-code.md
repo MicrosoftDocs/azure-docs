@@ -72,7 +72,7 @@ Select **Add ** and begin by filling in the **Application Type** details:
    - **Phone Number Type**: Choose the type of phone number for your campaign (e.g., Local).
    - **Application Type**: Select the Campaign application type.
 
-:::image type="content" source="./media/apply-for-brand-registration/campaign-registration-1.png" alt-text="Screenshot showing campaign registration form 1." lightbox="./media/apply-for-campaign-registration/campaign-registration-1.png":::
+:::image type="content" source="./media/apply-for-brand-registration/campaign-registration-1.png" alt-text="Screenshot showing campaign registration form 1." lightbox="./media/apply-for-brand-registration/campaign-registration-1.png":::
 
 Click **Next** to proceed to the **Campaign Details** section.
 
