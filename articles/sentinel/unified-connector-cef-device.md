@@ -178,7 +178,10 @@ In ForgeRock, install and configure this Common Audit (CAUD) for Microsoft Senti
 
 ## Fortinet
 
-Set your Fortinet to send Syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine’s IP address.<br/><br/>Copy the CLI commands below and:<br/>
+Set your Fortinet to send Syslog messages in CEF format to the proxy machine. Make sure you send the logs to port 514 TCP on the machine's IP address.<br/>
+
+Copy the CLI commands below and:
+
 -   Replace \"server &lt;ip address&gt;\" with the Syslog agent's IP address.<br/>
 -   Set the \"&lt;facility_name&gt;\" to use the facility you configured in the Syslog agent (by default, the agent sets this to local4).<br/>
 -   Set the Syslog port to 514, the port your agent uses.<br/>
