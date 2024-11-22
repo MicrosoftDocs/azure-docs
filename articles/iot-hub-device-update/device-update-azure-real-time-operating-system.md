@@ -22,7 +22,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Get started
 
-Each board-specific sample Azure real-time operating system (RTOS) project contains code and documentation on how to use Device Update for IoT Hub on it. You will:
+Each board-specific sample Eclipse ThreadX real-time operating system project contains code and documentation on how to use Device Update for IoT Hub on it. You will:
 
 1. Download the board-specific sample files from [Eclipse ThreadX and Device Update samples](https://github.com/eclipse-threadx/samples/tree/PublicPreview/ADU).
 1. Find the docs folder from the downloaded sample.
