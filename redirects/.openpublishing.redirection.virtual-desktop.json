@@ -499,6 +499,26 @@
             "source_path_from_root": "/articles/virtual-desktop/troubleshoot-session-host-update.md",
             "redirect_url": "/azure/virtual-desktop/troubleshoot-session-host-configuration-update",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-host-pools-user-profile.md",
+            "redirect_url": "/fslogix/tutorial-configure-profile-containers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-profile-container-azure-ad.yml",
+            "redirect_url": "/fslogix/how-to-configure-profile-container-azure-ad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory.md",
+            "redirect_url": "/fslogix/how-to-configure-profile-container-azure-files-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-fslogix-profile-container.md",
+            "redirect_url": "/fslogix/how-to-configure-profile-container-netapp",
+            "redirect_document_id": false
         }
     ]
 }

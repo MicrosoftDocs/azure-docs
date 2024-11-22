@@ -71,7 +71,9 @@ Use the following steps to define autoscale settings and rules.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the following commands to create an application in Azure Spring Apps with an autoscaling rule, based on [Keda Azure Service Bus Scaler](https://keda.sh/docs/2.8/scalers/azure-service-bus/).   
+Use the following commands to create an application in Azure Spring Apps with an autoscaling rule, based on [Keda Azure Service Bus Scaler](https://keda.sh/docs/2.8/scalers/azure-service-bus/).
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ```azurecli-interactive
 az spring app create \
@@ -100,6 +102,8 @@ For information on defining custom rules, see [Keda scalers](https://keda.sh/doc
 ### Set up auto scaling rules on MySQL database
 
 The following CLI commands show you how to autoscale your Spring application based on [Keda MySQL Scaler](https://keda.sh/docs/2.8/scalers/mysql/). First, create a secret to store your SQL connection string. This secret is used for your scale rule authentication. Then, set up a rule which scales the app based on the rows count of a table.
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ```azurecli-interactive
 az spring app update \
