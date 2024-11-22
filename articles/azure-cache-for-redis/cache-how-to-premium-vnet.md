@@ -27,9 +27,10 @@ ms.date: 08/29/2023
   - failure of replica node to replicate data from primary node
   - potential data loss
   - failure of management operations like scaling
+  - intermittent or complete SSL/TLS failures
   - in the most severe scenarios, loss of availability
 - VNet injected caches are only available for Premium-tier Azure Cache for Redis, not other tiers.
-- When using a VNet injected cache, you must change your VNet to cache dependencies such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.
+- When using a VNet injected cache, you must change your VNet to cache dependencies such as Certificate Revocation Lists/Public Key Instructure, Azure Key Vault, Azure Storage, Azure Monitor, and more.
 - You can't inject an existing Azure Cache for Redis instance into a Virtual Network. You must select this option when you _create_ the cache.
 
 ## Set up virtual network support
@@ -166,9 +167,9 @@ There are network connectivity requirements for Azure Cache for Redis that might
 
 - Outbound network connectivity to Azure Key Vault endpoints worldwide. Azure Key Vault endpoints resolve under the DNS domain `vault.azure.net`.
 - Outbound network connectivity to Azure Storage endpoints worldwide. Endpoints located in the same region as the Azure Cache for Redis instance and storage endpoints located in _other_ Azure regions are included. Azure Storage endpoints resolve under the following DNS domains: `table.core.windows.net`, `blob.core.windows.net`, `queue.core.windows.net`, and `file.core.windows.net`.
-- Outbound network connectivity to `ocsp.digicert.com`, `crl4.digicert.com`, `ocsp.msocsp.com`, `mscrl.microsoft.com`, `crl3.digicert.com`, `cacerts.digicert.com`, `oneocsp.microsoft.com`, and `crl.microsoft.com`. This connectivity is needed to support TLS/SSL functionality.
+- Outbound network connectivity to `ocsp.digicert.com`, `crl4.digicert.com`, `ocsp.msocsp.com`, `mscrl.microsoft.com`, `crl3.digicert.com`, `cacerts.digicert.com`, `oneocsp.microsoft.com`, and `crl.microsoft.com`, `cacerts.geotrust.com`, `www.microsoft.com`, `cdp.geotrust.com`, `status.geotrust.com`. This connectivity is needed to support TLS/SSL functionality.
 - The DNS configuration for the virtual network must be able to resolve all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
-- Outbound network connectivity to the following Azure Monitor endpoints, which resolve under the following DNS domains: `shoebox2-black.shoebox2.metrics.nsatc.net`, `north-prod2.prod2.metrics.nsatc.net`, `azglobal-black.azglobal.metrics.nsatc.net`, `shoebox2-red.shoebox2.metrics.nsatc.net`, `east-prod2.prod2.metrics.nsatc.net`, `azglobal-red.azglobal.metrics.nsatc.net`, `shoebox3.prod.microsoftmetrics.com`, `shoebox3-red.prod.microsoftmetrics.com`, `shoebox3-black.prod.microsoftmetrics.com`, `azredis-red.prod.microsoftmetrics.com` and `azredis-black.prod.microsoftmetrics.com`.
+- Outbound network connectivity to the following Azure Monitor endpoints, which resolve under the following DNS domains: `shoebox3.prod.microsoftmetrics.com`, `shoebox3-red.prod.microsoftmetrics.com`, `shoebox3-black.prod.microsoftmetrics.com`, `azredis.prod.microsoftmetrics.com`, `azredis-red.prod.microsoftmetrics.com`, and `azredis-black.prod.microsoftmetrics.com`.
 
 ### How can I verify that my cache is working in a virtual network?
 
@@ -205,6 +206,8 @@ Avoid using the IP address similar to the following connection string:
 If you're unable to resolve the DNS name, some client libraries include configuration options like `sslHost`, which is provided by the StackExchange.Redis client. This option allows you to override the host name used for certificate validation. For example:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.cache.windows.net`
+
+In addition, if the subnet where Azure Cache for Redis is hosted is blocking TCP outbound connections over port 80 for SSL/TLS functionality, clients may experience intermittent TLS certificate validation errors.
 
 ### Can I use virtual networks with a standard or basic cache?
 
