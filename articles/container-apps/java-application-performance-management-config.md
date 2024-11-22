@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configure Application Performance Management (APM) Java agent with init-container in Azure Container Apps"
+title: "Tutorial: Configure Application Performance Management (APM) Java agent with Init Container in Azure Container Apps"
 description: Learn to configure Application Performance Management (APM) Java agent with init-container in Azure Container Apps
 services: container-apps
 ms.service: azure-container-apps
@@ -30,9 +30,9 @@ In this tutorial, you learn how to:
 
 ## Set up the environment
 
-The following steps define environment variables and ensure your Container Apps extension is up to date:
+Use the following steps to define environment variables and ensure your Container Apps extension is up to date:
 
-1. To define environment variables, use the following commands:
+1. Define environment variables by using the following commands:
 
     # [Bash](#tab/bash)
 
@@ -60,39 +60,39 @@ The following steps define environment variables and ensure your Container Apps 
 
 1. Sign in to the Azure CLI by using the following commands:
 
-    # [Bash](#tab/bash)
+    # [Azure CLI](#tab/azurecli)
 
-    ```bash
+    ```azurecli
     az login
     az account set --subscription $SUBSCRIPTION_ID
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azurepowershell)
 
-    ```powershell
+    ```azurepowershell
     az login
     az account set --subscription $SUBSCRIPTION_ID
     ```
 
-1. Ensure that you have the latest version of the Azure CLI extensions for Container Apps and Application Insights by using the following commands:
+1. Use the following commands to ensure that you have the latest version of the Azure CLI extensions for Container Apps and Application Insights:
 
-    # [Bash](#tab/bash)
+    # [Azure CLI](#tab/azurecli)
 
     ```bash
     az extension add --name containerapp --upgrade
     az extension add --name application-insights --upgrade
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azurepowershell)
 
     ```powershell
     az extension add --name containerapp --upgrade
     az extension add --name application-insights --upgrade
     ```
 
-1. Retrieve the connection string for Application Insights by using the following commands:
+1. Retrieve the connection string for your Application Insights instance by using the following commands:
 
-    # [Bash](#tab/bash)
+    # [Azure CLI](#tab/azurecli)
 
     ```bash
     CONNECTION_STRING=$(az monitor app-insights component show \
@@ -100,7 +100,7 @@ The following steps define environment variables and ensure your Container Apps 
       --query connectionString)
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azurepowershell)
 
     ```powershell
     $CONNECTION_STRING=(az monitor app-insights component show `
@@ -110,7 +110,7 @@ The following steps define environment variables and ensure your Container Apps 
 
 ## Prepare the container image
 
-To build a setup image for Application Insights Java agent, use the following steps in the same directory:
+To build a setup image for the Application Insights Java agent, use the following steps in the same directory:
 
 1. Create a Dockerfile with the following contents:
     
@@ -128,7 +128,7 @@ To build a setup image for Application Insights Java agent, use the following st
     ENTRYPOINT ["/bin/sh", "setup.sh"]
     ```
 
-1. Create a file named **setup.sh** and add the following contents:
+1. Create a **setup.sh** file with the following contents:
 
     ```bash
     #!/bin/sh
@@ -142,30 +142,30 @@ To build a setup image for Application Insights Java agent, use the following st
     fi
     ```
 
-1. Use the following command to create the image:
+1. Create an image by using the following command:
 
     # [Bash](#tab/bash)
 
     ```bash
-    docker build . -t "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
+    docker build . --tag "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    docker build . -t "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
+    docker build . --tag "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
 
 1. Push the image to Azure Container Registry or another container image registry by using the following commands:
     
-    # [Bash](#tab/bash)
+    # [Azure CLI](#tab/azurecli)
 
     ```bash
     az acr login --name $CONTAINER_REGISTRY_NAME
     docker push "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azurepowershell)
 
     ```powershell
     az acr login --name $CONTAINER_REGISTRY_NAME
@@ -181,7 +181,7 @@ To create a Container Apps environment and a container app as the target Java ap
 
 1. Create a Container Apps environment by using the following command:
 
-    # [Bash](#tab/bash)
+    # [Azure CLI](#tab/azurecli)
 
     ```azurecli
     az containerapp env create \
@@ -191,7 +191,7 @@ To create a Container Apps environment and a container app as the target Java ap
         --query "properties.provisioningState"
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azurepowershell)
 
     ```azurepowershell
     az containerapp env create `
@@ -203,11 +203,11 @@ To create a Container Apps environment and a container app as the target Java ap
 
     ---
 
-    After successfully creating the Container Apps environment, the command line returns a `Succeeded` message.
+    After you successfully create the Container Apps environment, the command line returns a `Succeeded` message.
 
-1. Create a container app for further configurations by using the following command:
+1. Create a container app for further configuration by using the following command:
 
-    # [Bash](#tab/bash)
+    # [Azure CLI](#tab/azurecli)
 
     ```bash
     az containerapp create \
@@ -217,7 +217,7 @@ To create a Container Apps environment and a container app as the target Java ap
         --query "properties.provisioningState"
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azurepowershell)
 
     ```powershell
     az containerapp create `
@@ -227,15 +227,17 @@ To create a Container Apps environment and a container app as the target Java ap
         --query "properties.provisioningState"
     ```
 
-    After successfully creating the Container App, the command line returns a `Succeeded` message.
+    ---
+
+    After you create the container app, the command line returns a `Succeeded` message.
 
 ## Configure init container, secrets, environment variables, and volumes to set up Application Insights integration
 
-Use the following steps to configure your init container with secrets, environment variables, and volumes so you can use them with Application Insights:
+Use the following steps to configure your init container with secrets, environment variables, and volumes. This configuration allows you to use the stored information with your Application Insights instance.
 
-1. Write the current configurations of the running Container App to **app.yaml** in the current directory, by using the following command:
+1. Write the current configuration of the running Container App to an **app.yaml** file in the current directory, by using the following command:
 
-    # [Bash](#tab/bash)
+    # [Azure CLI](#tab/azurecli)
 
     ```bash
     az containerapp show \
@@ -245,7 +247,7 @@ Use the following steps to configure your init container with secrets, environme
     > app.yaml
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azurepowershell)
 
     ```powershell
     az containerapp show `
@@ -255,9 +257,9 @@ Use the following steps to configure your init container with secrets, environme
     > app.yaml
     ```
 
-1. Edit **app.yaml** by using the following steps:
+1. Use the following steps to edit your **app.yaml** file. The edits add secrets, ephemeral storage, and an init container to the file, and update the app container.
 
-    1. Add a secret for the Application Insights connection string using the following example. Be sure to replace `$CONNECTION_STRING` with your Application Insights connection string.
+    1. Add a secret for the Application Insights connection string by using the following example. Replace `$CONNECTION_STRING` with your Application Insights connection string.
 
        ```yaml
        properties:
@@ -267,10 +269,8 @@ Use the following steps to configure your init container with secrets, environme
               value: $CONNECTION_STRING
         ```
 
-       Replace $CONNECTION_STRING with your Azure Application Insights connection string.
+    1. Add an ephemeral storage volume for Java agent files by using the following example:
 
-    1. Add an ephemeral storage volume for Java agent files by using the following code example:
-  
        ```yaml
        properties:
          template:
@@ -279,8 +279,8 @@ Use the following steps to configure your init container with secrets, environme
              storageType: EmptyDir
         ```
 
-    1. Add an init container with volume mounts and environment variables by using the following example. Be sure to replace `<CONTAINER_REGISTRY_NAME>` with your Azure Container Registry name.
-  
+    1. Add an init container with volume mounts and environment variables by using the following example. Replace `<CONTAINER_REGISTRY_NAME>` with your Azure Container Registry name.
+
        ```yaml
        properties:
          template:
@@ -317,46 +317,48 @@ Use the following steps to configure your init container with secrets, environme
                 volumeName: java-agent-volume
         ```
 
-    1. Update the container app with the modified YAML file by using the following command:
-    
-       # [Bash](#tab/bash)
-   
-       ```bash
-       az containerapp update \
-         --name $CONTAINER_APP_NAME \
-         --resource-group $RESOURCE_GROUP \ 
-         --yaml app.yaml \
-         --query "properties.provisioningState"
-       ```
-   
-       # [PowerShell](#tab/powershell)
-   
-       ```powershell
-       az containerapp update `
-         --name $CONTAINER_APP_NAME `
-         --resource-group $RESOURCE_GROUP `
-         --yaml app.yaml `
-         --query "properties.provisioningState"
-       ```
-   
-        ---
+1. Update the container app with the modified **app.yaml** file by using the following command:
 
-       After updating the container app, the command returns a `Succeeded` message. Then, you can verify that your container app is connected by viewing your Application Insights instance in the Azure portal.
- 
+    # [Azure CLI](#tab/azurecli)
+
+    ```azurecli
+    az containerapp update \
+        --resource-group $RESOURCE_GROUP \ 
+        --name $CONTAINER_APP_NAME \
+        --yaml app.yaml \
+        --query "properties.provisioningState"
+    ```
+
+    # [Azure PowerShell](#tab/azurepowershell)
+
+    ```azurepowershell
+    az containerapp update `
+        --resource-group $RESOURCE_GROUP `
+        --name $CONTAINER_APP_NAME `
+        --yaml app.yaml `
+        --query "properties.provisioningState"
+    ```
+
+    ---
+
+    After you update the container app, the command returns a `Succeeded` message. Now you can verify that your container app is connected, by viewing your Application Insights instance in the Azure portal.
+
 ## Clean up resources
 
-The resources you created in this tutorial contribute to your Azure bill. If you aren't going to need them in the long term, use the following command to remove the resource group, which also removes all the resources it contains:
+The resources you created in this tutorial contribute to your Azure bill. If you won't need them long term, use the following command to remove the resource group and its resources:
 
-# [Bash](#tab/bash)
+# [Azure CLI](#tab/azurecli)
 
 ```bash
 az group delete --resource-group $RESOURCE_GROUP
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azurepowershell)
 ```powershell
 az group delete --resource-group $RESOURCE_GROUP
 ```
+
+---
 
 ## Other APM solutions
 
