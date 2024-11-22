@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-p
 
 Applications often require secure connections between multiple Azure services simultaneously. For example, an enterprise Azure App Service instance might connect to several different storage accounts, an Azure SQL database instance, a service bus, and more.
 
-[Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) are the recommended authentication option for secure, passwordless connections between Azure resources. Developers do not have to manually track and manage many different secrets for managed identities, since most of these tasks are handled internally by Azure. This tutorial explores how to manage connections between multiple services using managed identities and the Azure Identity client library.
+[Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) are the recommended authentication option for secure, passwordless connections between Azure resources. Developers don't have to manually track and manage many different secrets for managed identities, since most of these tasks are handled internally by Azure. This tutorial explores how to manage connections between multiple services using managed identities and the Azure Identity client library.
 
 ## Compare the types of managed identities
 
@@ -125,7 +125,7 @@ var sender = serviceBusClient.CreateSender("producttracking");
 
 #### [Java](#tab/java)
 
-Inside your project, add the `azure-identity` dependency to your *pom.xml* file. This library contains all the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure dependencies that are relevant to your app. For this example, the `azure-storage-blob` and `azure-messaging-servicebus` dependencies are added in order to connect to Blob Storage and Key Vault.
+In your project, add the `azure-identity` dependency to your *pom.xml* file. This library contains all the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure dependencies that are relevant to your app. For this example, the `azure-storage-blob` and `azure-messaging-servicebus` dependencies are added to connect to Blob Storage and Key Vault.
 
 ```xml
 <dependencyManagement>
@@ -156,7 +156,7 @@ Inside your project, add the `azure-identity` dependency to your *pom.xml* file.
 
 ```
 
-In your project code, create instances of the service clients for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
+Create instances of the service clients for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
 
 ```java
 class Demo {
@@ -181,7 +181,7 @@ class Demo {
 
 #### [Spring](#tab/spring)
 
-Inside your project, only need to add service dependencies you use. For this example, the `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-servicebus` dependencies are added in order to connect to Blob Storage and Key Vault.
+In your project, you only need to add service dependencies you use. For this example, the `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-servicebus` dependencies are added in order to connect to Blob Storage and Key Vault.
 
 ```xml
 <dependencyManagement>
@@ -207,7 +207,7 @@ Inside your project, only need to add service dependencies you use. For this exa
 </dependencies>
 ```
 
-In your project code, create instances of the service clients for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
+Create instances of the service clients for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
 
 ```yaml
 spring:
@@ -237,7 +237,7 @@ public class ExampleService {
 
 #### [JavaScript](#tab/javascript)
 
-1. Inside of your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app. 
+1. In your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app. 
 
     ```bash
     npm install --save @azure/identity @azure/storage-blob @azure/keyvault-keys
@@ -278,7 +278,7 @@ public class ExampleService {
 
 ---
 
-When this application code runs locally, `DefaultAzureCredential` will search a credential chain for the first available credentials. If the `Managed_Identity_Client_ID` is null locally, it will automatically use the credentials from your local Azure CLI or Visual Studio sign-in. You can read more about this process in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
+When this code runs locally, `DefaultAzureCredential` searches a credential chain for the first available credentials. If the `Managed_Identity_Client_ID` is null locally, it will automatically use the credentials from your local Azure CLI or Visual Studio sign-in. You can read more about this process in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
 
 When the application is deployed to Azure, `DefaultAzureCredential` will automatically retrieve the `Managed_Identity_Client_ID` variable from the app service environment. That value becomes available when a managed identity is associated with your app.
 
@@ -623,7 +623,7 @@ public class ExampleService {
 
 ---
 
-You can also associate a user-assigned managed identity as well as a system-assigned managed identity to a resource simultaneously. This can be useful in scenarios where all of the apps require access to the same shared services, but one of the apps also has a very specific dependency on an additional service. Using a system-assigned identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
+You can also associate a user-assigned managed identity and a system-assigned managed identity to a resource simultaneously. This can be useful in scenarios where all of the apps require access to the same shared services, but one of the apps also has a very specific dependency on an additional service. Using a system-assigned identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
 
 :::image type="content" lightbox="media/user-and-system-assigned-identities-small.png" source="media/user-and-system-assigned-identities.png" alt-text="Diagram showing user-assigned and system-assigned managed identities.":::
 
