@@ -6,7 +6,7 @@ services: storage
 author: alexwolfmsft
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 11/22/2024
 ms.author: alexwolf
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
@@ -30,11 +30,16 @@ You can read more about best practices and when to use system-assigned identitie
 
 ## Explore DefaultAzureCredential
 
-Managed identities are generally implemented in your application code through a class called `DefaultAzureCredential` from the `Azure.Identity` client library. `DefaultAzureCredential` supports multiple authentication methods and automatically determines which should be used at runtime. You can read more about this approach in the [DefaultAzureCredential overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
+Managed identities are most easily implemented in your application code through a class called `DefaultAzureCredential` from the Azure Identity client library. `DefaultAzureCredential` supports multiple authentication mechanisms and automatically determines which should be used at runtime. Learn more about `DefaultAzureCredential` for the following ecosystems:
 
-## Connect an Azure hosted app to multiple Azure services
+- [.NET](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#defaultazurecredential-overview)
+- [Java](/azure/developer/java/sdk/authentication/credential-chains#defaultazurecredential-overview)
+- [Node.js](/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility)
+- [Python](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#defaultazurecredential-overview)
 
-You have been tasked with connecting an existing app to multiple Azure services and databases using passwordless connections. The application is an ASP.NET Core Web API hosted on Azure App Service, though the steps below apply to other Azure hosting environments as well, such as Azure Spring Apps, Virtual Machines, Container Apps and AKS.
+## Connect an Azure-hosted app to multiple Azure services
+
+You have been tasked with connecting an existing app to multiple Azure services and databases using passwordless connections. The application is an ASP.NET Core Web API hosted on Azure App Service, though the steps below apply to other Azure hosting environments as well, such as Azure Spring Apps, Virtual Machines, Container Apps, and AKS.
 
 This tutorial applies to the following architectures, though it can be adapted to many other scenarios as well through minimal configuration changes.
 
@@ -44,52 +49,52 @@ The following steps demonstrate how to configure an app to use a system-assigned
 
 ### Create a system-assigned managed identity
 
-1) In the Azure portal, navigate to the hosted application that you would like to connect to other services.
+1. In the Azure portal, navigate to the hosted application that you would like to connect to other services.
 
-2) On the service overview page, select **Identity**.
+1. On the service overview page, select **Identity**.
 
-3) Toggle the **Status** setting to **On** to enable a system assigned managed identity for the service.
+1. Toggle the **Status** setting to **On** to enable a system assigned managed identity for the service.
 
    :::image type="content" source="media/enable-system-assigned-identity.png" alt-text="Screenshot showing how to assign a system assigned managed identity."  :::
 
 ### Assign roles to the managed identity for each connected service
 
-1) Navigate to the overview page of the storage account you would like to grant access your identity access to.
+1. Navigate to the overview page of the storage account you would like to grant access your identity access to.
 
-3) Select **Access Control (IAM)** from the storage account navigation.
+1. Select **Access Control (IAM)** from the storage account navigation.
 
-4) Choose **+ Add** and then **Add role assignment**.
+1. Choose **+ Add** and then **Add role assignment**.
 
    :::image type="content" source="media/assign-role-system-identity.png" alt-text="Screenshot showing how to assign a system-assigned identity."  :::
 
-5) In the **Role** search box, search for *Storage Blob Data Contributor*,  which grants permissions to perform read and write operations on blob data. You can assign whatever role is appropriate for your use case. Select the *Storage Blob Data Contributor* from the list and choose **Next**.
+1. In the **Role** search box, search for *Storage Blob Data Contributor*, which grants permissions to perform read and write operations on blob data. You can assign whatever role is appropriate for your use case. Select the *Storage Blob Data Contributor* from the list and choose **Next**.
 
-6) On the **Add role assignment** screen, for the **Assign access to** option, select **Managed identity**. Then choose **+Select members**.
+1. On the **Add role assignment** screen, for the **Assign access to** option, select **Managed identity**. Then choose **+Select members**.
 
-7) In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
+1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
 
    :::image type="content" source="media/migration-select-identity.png" alt-text="Screenshot showing how to select a system-assigned identity."  :::
 
-8) Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
+1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
-9) Repeat this process for the other services you would like to connect to.
+1. Repeat this process for the other services you would like to connect to.
 
 #### Local development considerations
 
 You can also enable access to Azure resources for local development by assigning roles to a user account the same way you assigned roles to your managed identity.
 
-1) After assigning the **Storage Blob Data Contributor** role to your managed identity,  under **Assign access to**, this time select **User, group or service principal**. Choose **+ Select members** to open the flyout menu again.
+1. After assigning the **Storage Blob Data Contributor** role to your managed identity, under **Assign access to**, this time select **User, group or service principal**. Choose **+ Select members** to open the flyout menu again.
 
-2) Search for the *user@domain* account or Microsoft Entra security group you would like to grant access to by email address or name, and then select it. This should be the same account you use to sign-in to your local development tooling with, such as Visual Studio or the Azure CLI.
+1. Search for the *user@domain* account or Microsoft Entra security group you would like to grant access to by email address or name, and then select it. This should be the same account you use to sign-in to your local development tooling with, such as Visual Studio or the Azure CLI.
 
 > [!NOTE]
-> You can also assign these roles to a Microsoft Entra security group if you are working on a team with multiple developers. You can then place any developer inside that group who needs access to develop the app locally.
+> You can also assign these roles to a Microsoft Entra security group if you're working on a team with multiple developers. You can then place any developer inside that group who needs access to develop the app locally.
 
 ### Implement the application code
 
-#### [C#](#tab/csharp)
+#### [.NET](#tab/csharp)
 
-Inside of your project, add a reference to the `Azure.Identity` NuGet package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.KeyVault.Keys` packages are added in order to connect to Blob Storage and Key Vault.
+In your project, add a reference to the `Azure.Identity` NuGet package. This library contains the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.KeyVault.Keys` packages are added to connect to Blob Storage and Key Vault, respectively.
 
 ```dotnetcli
 dotnet add package Azure.Identity
@@ -97,7 +102,7 @@ dotnet add package Azure.Storage.Blobs
 dotnet add package Azure.KeyVault.Keys
 ```
 
-At the top of your `Program.cs` file, add the following using statements:
+At the top of your `Program.cs` file, add the following `using` statements:
 
 ```csharp
 using Azure.Identity;
@@ -105,14 +110,16 @@ using Azure.Storage.Blobs;
 using Azure.Security.KeyVault.Keys;
 ```
 
-In the `Program.cs` file of your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and service bus using the corresponding SDK classes.
+In the `Program.cs` file of your project, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
 
 ```csharp
-var blobServiceClient = new BlobServiceClient(
-    new Uri("https://<your-storage-account>.blob.core.windows.net"),
-    new DefaultAzureCredential(credOptions));
+DefaultAzureCredential credential = new(credentialOptions);
 
-var serviceBusClient = new ServiceBusClient("<your-namespace>", new DefaultAzureCredential());
+BlobServiceClient blobServiceClient = new(
+    new Uri("https://<your-storage-account>.blob.core.windows.net"),
+    credential);
+
+ServiceBusClient serviceBusClient = new("<your-namespace>", credential);
 var sender = serviceBusClient.CreateSender("producttracking");
 ```
 
@@ -149,7 +156,7 @@ Inside your project, add the `azure-identity` dependency to your *pom.xml* file.
 
 ```
 
-In your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and service bus using the corresponding SDK classes.
+In your project code, create instances of the service clients for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
 
 ```java
 class Demo {
@@ -200,7 +207,7 @@ Inside your project, only need to add service dependencies you use. For this exa
 </dependencies>
 ```
 
-In your project code, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and service bus using the corresponding SDK classes.
+In your project code, create instances of the service clients for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
 
 ```yaml
 spring:
@@ -236,7 +243,7 @@ public class ExampleService {
     npm install --save @azure/identity @azure/storage-blob @azure/keyvault-keys
     ```
 
-2. At the top of your `index.js` file, add the following `import` statements to import the necessary client classes for the services your app will connect to:
+1. At the top of your `index.js` file, add the following `import` statements to import the necessary service clients for the services your app will connect to:
 
     ```javascript
     import { DefaultAzureCredential } from "@azure/identity";
@@ -244,21 +251,26 @@ public class ExampleService {
     import { KeyClient } from "@azure/keyvault-keys";
     ```
 
-3. Within the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage and Key Vault using the corresponding SDK classes.
+1. Within the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage and Key Vault using the corresponding service clients.
 
     ```javascript
     // Azure resource names
     const storageAccount = process.env.AZURE_STORAGE_ACCOUNT_NAME;
     const keyVaultName = process.env.AZURE_KEYVAULT_NAME;
 
+    const credential = new DefaultAzureCredential();
+
     // Create client for Blob Storage using managed identity
     const blobServiceClient = new BlobServiceClient(
       `https://${storageAccount}.blob.core.windows.net`,
-      new DefaultAzureCredential()
+      credential
     );
     
     // Create client for Key Vault using managed identity
-    const keyClient = new KeyClient(`https://${keyVaultName}.vault.azure.net`, new DefaultAzureCredential());
+    const keyClient = new KeyClient(
+        `https://${keyVaultName}.vault.azure.net`,
+        credential
+    );
 
     // Create a new key in Key Vault
     const result = await keyClient.createKey(keyVaultName, "RSA");
@@ -274,57 +286,80 @@ This overall process ensures that your app can run securely locally and in Azure
 
 ## Connect multiple apps using multiple managed identities
 
-Although the apps in the previous example all shared the same service access requirements, real environments are often more nuanced. Consider a scenario where multiple apps all connect to the same storage accounts, but two of the apps also access different services or databases.
+Although the apps in the previous example all shared the same service access requirements, real-world environments are often more nuanced. Consider a scenario where multiple apps connect to the same storage accounts, but two of the apps also access different services or databases.
 
 :::image type="content" source="media/multiple-managed-identities-small.png" lightbox="media/multiple-managed-identities.png" alt-text="Diagram showing multiple user-assigned managed identities.":::
 
-To configure this setup in your code, make sure your application registers separate services to connect to each storage account or database. Make sure to pull in the correct managed identity client IDs for each service when configuring `DefaultAzureCredential`. The following code example configures the following service connections:
+To configure this setup in your code, make sure your application registers separate service clients to connect to each storage account or database. Make sure to pull in the correct managed identity client IDs for each service when configuring `DefaultAzureCredential`. The following code example configures the following service connections:
 
 * Two connections to separate storage accounts using a shared user-assigned managed identity
 * A connection to Azure Cosmos DB and Azure SQL services using a second shared user-assigned managed identity
 
-### [C#](#tab/csharp)
+### [.NET](#tab/csharp)
 
 ```csharp
-// Get the first user-assigned managed identity ID to connect to shared storage
-const clientIdStorage = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Storage");
+using Azure.Core;
+using Azure.Identity;
+using Azure.Storage.Blobs;
+using Microsoft.Azure.Cosmos;
+using Microsoft.Data.SqlClient;
 
-// First blob storage client that using a managed identity
-BlobServiceClient blobServiceClient = new BlobServiceClient(
+string clientIdStorage =
+    Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Storage")!;
+
+// Create a DefaultAzureCredential instance that configures the underlying
+// ManagedIdentityCredential to use a user-assigned managed identity.
+DefaultAzureCredential credential = new(
+    new DefaultAzureCredentialOptions
+    {
+        ManagedIdentityClientId = clientIdStorage,
+    });
+
+// First Blob Storage client that uses a user-assigned managed identity
+BlobServiceClient blobServiceClient = new(
     new Uri("https://<receipt-storage-account>.blob.core.windows.net"),
-    new DefaultAzureCredential()
-    {
-        ManagedIdentityClientId = clientIDstorage
-    });
+    credential);
 
-// Second blob storage client that using a managed identity
-BlobServiceClient blobServiceClient2 = new BlobServiceClient(
+// Second Blob Storage client that uses a user-assigned managed identity
+BlobServiceClient blobServiceClient2 = new(
     new Uri("https://<contract-storage-account>.blob.core.windows.net"),
-    new DefaultAzureCredential()
-    {
-        ManagedIdentityClientId = clientIDstorage
-    });
+    credential);
 
-
-// Get the second user-assigned managed identity ID to connect to shared databases
-var clientIDdatabases = Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Databases");
+// Get the second user-assigned managed identity client ID to connect to shared databases
+string clientIdDatabases =
+    Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Databases")!;
 
 // Create an Azure Cosmos DB client
-CosmosClient client = new CosmosClient(
-    accountEndpoint: Environment.GetEnvironmentVariable("COSMOS_ENDPOINT", EnvironmentVariableTarget.Process),
-    new DefaultAzureCredential()
-    {
-        ManagedIdentityClientId = clientIDdatabases
-    });
+CosmosClient client = new(
+    Environment.GetEnvironmentVariable("COSMOS_ENDPOINT", EnvironmentVariableTarget.Process),
+    new DefaultAzureCredential(
+        new DefaultAzureCredentialOptions
+        {
+            ManagedIdentityClientId = clientIdDatabases,
+        }));
 
-// Open a connection to Azure SQL using a managed identity
-string ConnectionString1 = @"Server=<azure-sql-hostname>.database.windows.net; User Id=ClientIDOfTheManagedIdentity; Authentication=Active Directory Default; Database=<database-name>";
+// Open a connection to Azure SQL using a user-assigned managed identity
+string connectionString =
+    $"Server=<azure-sql-hostname>.database.windows.net;User Id={clientIdDatabases};Authentication=Active Directory Default;Database=<database-name>";
 
-using (SqlConnection conn = new SqlConnection(ConnectionString1))
+using (SqlConnection connection = new(connectionString)
 {
-    conn.Open();
-}
+    AccessTokenCallback = async (authParams, cancellationToken) =>
+    {
+        const string defaultScopeSuffix = "/.default";
+        string scope = authParams.Resource.EndsWith(defaultScopeSuffix)
+            ? authParams.Resource
+            : $"{authParams.Resource}{defaultScopeSuffix}";
+        AccessToken token = await credential.GetTokenAsync(
+            new TokenRequestContext([scope]),
+            cancellationToken);
 
+        return new SqlAuthenticationToken(token.Token, token.ExpiresOn);
+    }
+})
+{
+    connection.Open();
+}
 ```
 
 ### [Java](#tab/java)
@@ -377,13 +412,13 @@ class Demo {
         DefaultAzureCredential storageCredential =
             new DefaultAzureCredentialBuilder().managedIdentityClientId(clientIdStorage).build();
 
-        // First blob storage client that using a managed identity
+        // First blob storage client that uses a managed identity
         BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
             .endpoint("https://<receipt-storage-account>.blob.core.windows.net")
             .credential(storageCredential)
             .buildClient();
 
-        // Second blob storage client that using a managed identity
+        // Second blob storage client that uses a managed identity
         BlobServiceClient blobServiceClient2 = new BlobServiceClientBuilder()
             .endpoint("https://<contract-storage-account>.blob.core.windows.net")
             .credential(storageCredential)
@@ -477,7 +512,6 @@ Add the following to your code:
 ```java
 @Configuration
 public class AzureStorageConfiguration {
-
     @Bean("secondBlobServiceClient")
     public BlobServiceClient secondBlobServiceClient(BlobServiceClientBuilder builder) {
         return builder.endpoint("https://<receipt-storage-account>.blob.core.windows.net").buildClient();
@@ -493,7 +527,6 @@ public class AzureStorageConfiguration {
 ```java
 @Service
 public class ExampleService {
-
     @Autowired
     @Qualifier("firstBlobServiceClient")
     private BlobServiceClient blobServiceClient;
@@ -507,7 +540,6 @@ public class ExampleService {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
 }
 ```
 
@@ -519,7 +551,7 @@ public class ExampleService {
     npm install --save @azure/identity @azure/storage-blob @azure/cosmos mssql
     ```
 
-2. At the top of your `index.js` file, add the following `import` statements to import the necessary client classes for the services your app will connect to:
+2. At the top of your `index.js` file, add the following `import` statements to import the necessary service clients for the services your app will connect to:
 
     ```javascript
     import { DefaultAzureCredential } from "@azure/identity";
@@ -527,33 +559,33 @@ public class ExampleService {
     import { KeyClient } from "@azure/keyvault-keys";
     ```
 
-3. Within the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage, Cosmos DB, and Azure SQL using the corresponding SDK classes.
+3. Within the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage, Cosmos DB, and Azure SQL using the corresponding service clients.
 
     ```javascript
-    // Get the first user-assigned managed identity ID to connect to shared storage
+    // Get the first user-assigned managed identity client ID to connect to shared storage
     const clientIdStorage = process.env.MANAGED_IDENTITY_CLIENT_ID_STORAGE;
+
+    const credential = new DefaultAzureCredential({
+      managedIdentityClientId: clientIdStorage
+    });
 
     // Storage account names
     const storageAccountName1 = process.env.AZURE_STORAGE_ACCOUNT_NAME_1;
     const storageAccountName2 = process.env.AZURE_STORAGE_ACCOUNT_NAME_2;
 
-    // First blob storage client that using a managed identity
+    // First blob storage client that uses a managed identity
     const blobServiceClient = new BlobServiceClient(
       `https://${storageAccountName1}.blob.core.windows.net`,
-      new DefaultAzureCredential({
-        managedIdentityClientId: clientIdStorage
-      })
+      credential
     );
     
-    // Second blob storage client that using a managed identity
+    // Second blob storage client that uses a managed identity
     const blobServiceClient2 = new BlobServiceClient(
       `https://${storageAccountName2}.blob.core.windows.net`,
-      new DefaultAzureCredential({
-        managedIdentityClientId: clientIdStorage
-      })
+      credential
     );
     
-    // Get the second user-assigned managed identity ID to connect to shared databases
+    // Get the second user-assigned managed identity client ID to connect to shared databases
     const clientIdDatabases = process.env.MANAGED_IDENTITY_CLIENT_ID_DATABASES;
 
     // Cosmos DB Account endpoint
@@ -579,7 +611,7 @@ public class ExampleService {
         port,
         database,
         authentication: {
-            type                // <---- Passwordless connection
+            type                // <---- passwordless connection
         },
         options: {
             encrypt: true
