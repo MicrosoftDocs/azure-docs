@@ -1,6 +1,8 @@
 ---
-title: "Tutorial: Configure Application Performance Management (APM) Java agent with Init Container in Azure Container Apps"
-description: Learn to configure Application Performance Management (APM) Java agent with init-container in Azure Container Apps
+title: "Configure the APM Java agent with Init Containers"
+titleSuffix: Azure Container Apps
+description: Learn to configure Application Performance Management (APM) Java agent with init container in Azure Container Apps.
+customer intent: As a developer, I want to configure the APM Java agent with init containers in Azure Container Apps so that I can monitor and manage application performance.
 services: container-apps
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
@@ -12,12 +14,12 @@ author: KarlErickson
 
 # Tutorial: Configure the Application Performance Management (APM) Java agent with init containers in Azure Container Apps
 
-This article shows you how to configure the Application Performance Management (APM) Java agent with init containers in Azure Container Apps. APM helps power observability for your container apps. You can package the APM plugin in the same image or Dockerfile with your app, but it binds together the management concerns, like release and Common Vulnerabilities and Exposures (CVE) mitigation. Rather than binding the concerns together, you can use the Java agent and init containers in Azure Container Apps to inject APM solutions without modifying your app image.
+In this tutorial, you configure the Application Performance Management (APM) Java agent with init containers in Azure Container Apps. APM helps power observability for your container apps. You can package the APM plugin in the same image or Dockerfile with your app, but it binds together the management concerns, like release and Common Vulnerabilities and Exposures (CVE) mitigation. Rather than binding the concerns together, you can use the Java agent and init containers in Azure Container Apps to inject APM solutions without modifying your app image.
 
-In this tutorial, you learn how to:
+In this tutorial, you:
 
 > [!div class="checklist"]
-> * Prepare an image to set up Java agent and push to Azure Container Registry.
+> * Prepare an image to set up the Java agent and push it to an Azure Container Registry.
 > * Create a Container Apps environment and a container app as the target Java app.
 > * Configure init containers and volume mounts to set up Application Insights integration.
 
@@ -345,7 +347,7 @@ Use the following steps to configure your init container with secrets, environme
 
 ## Clean up resources
 
-The resources you created in this tutorial contribute to your Azure bill. If you won't need them long term, use the following command to remove the resource group and its resources:
+The resources you created in this tutorial contribute to your Azure bill. If you don't need them long term, use the following command to remove the resource group and its resources:
 
 # [Azure CLI](#tab/azurecli)
 
@@ -360,7 +362,7 @@ az group delete --resource-group $RESOURCE_GROUP
 
 ---
 
-## Other APM solutions
+## Related content
 
 Other than [Azure Application Insights](/azure/azure-monitor/app/java-standalone-config), there are other popular APM solutions in the community. If you want to integrate your Azure Container App with other APM providers, just replace the Java agent JAR and related config files.
 
