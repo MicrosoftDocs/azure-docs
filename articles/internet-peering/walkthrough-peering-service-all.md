@@ -107,7 +107,7 @@ To begin registration:
 
 1. In the Azure portal, go to the peering.
 
-1. On the service menu under **Settings**, select  **Registered prefixes**
+1. On the service menu, under **Settings**, select  **Registered prefixes**.
 
 1. On the **Registered prefixes** pane, select **+ Add registered prefix**.
 
@@ -116,7 +116,7 @@ To begin registration:
    > [!NOTE]
    > If the **Add registered prefix** button is disabled, then your peering doesn't have at least one **Active** connection. Wait until this occurs to register your prefix.
 
-1. Configure your prefix by giving it a name, and the IPv4 prefix string and select **Save**.
+1. Configure your prefix by giving it a name and the IPv4 prefix string, and then select **Save**.
 
    :::image type="content" source="./media/walkthrough-peering-service-all/register-prefix-configure.png" alt-text="Screenshot that shows registering a prefix in the Azure portal.":::
 
