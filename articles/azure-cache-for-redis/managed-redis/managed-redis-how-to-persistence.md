@@ -4,7 +4,7 @@ description: Learn how to configure and manage data persistence your Azure Manag
 
 
 
-ms.service: azure
+ms.service: azure-redis
 ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024

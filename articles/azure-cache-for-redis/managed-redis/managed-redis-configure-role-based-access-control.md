@@ -2,7 +2,7 @@
 title: Configure role-based access control with Data Access Policy with Azure Managed Redis (preview)
 description: Learn how to configure role-based access control with Data Access Policy with Azure Managed Redis
 ms.custom: references_regions, ignite-2024
-ms.service: azure
+ms.service: azure-redis
 ms.topic: conceptual
 ms.date: 11/15/2024
 ---

@@ -4,7 +4,7 @@ description: Learn about the TLS protocol configuration and how to use TLS to se
 
 
 
-ms.service: azure
+ms.service: azure-redis
 ms.custom:
   - ignite-2024
 ms.topic: conceptual

@@ -2,7 +2,7 @@
 title: Prepay for compute with reservations - Azure Managed Redis (preview)
 description: Prepay for Azure Managed Redis compute resources with reservations
 
-ms.service: azure
+ms.service: azure-redis
 ms.custom:
   - ignite-2024
 ms.topic: conceptual
