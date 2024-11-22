@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-p
 
 Applications often require secure connections between multiple Azure services simultaneously. For example, an enterprise Azure App Service instance might connect to several different storage accounts, an Azure SQL database instance, a service bus, and more.
 
-[Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) are the recommended authentication option for secure, passwordless connections between Azure resources. Developers don't have to manually track and manage many different secrets for managed identities, since most of these tasks are handled internally by Azure. This tutorial explores how to manage connections between multiple services using managed identities and the Azure Identity client library.
+[Managed identities](/entra/identity/managed-identities-azure-resources/overview) are the recommended authentication option for secure, passwordless connections between Azure resources. Developers don't have to manually track and manage many different secrets for managed identities, since most of these tasks are handled internally by Azure. This tutorial explores how to manage connections between multiple services using managed identities and the Azure Identity client library.
 
 ## Compare the types of managed identities
 
@@ -26,11 +26,11 @@ Azure provides the following types of managed identities:
 * **System-assigned managed identities** are directly tied to a single Azure resource. When you enable a system-assigned managed identity on a service, Azure will create a linked identity and handle administrative tasks for that identity internally. When the Azure resource is deleted, the identity is also deleted.
 * **User-assigned managed identities** are independent identities that are created by an administrator and can be associated with one or more Azure resources. The lifecycle of the identity is independent of those resources.
 
-You can read more about best practices and when to use system-assigned identities versus user-assigned identities in the [identities best practice recommendations](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md).
+You can read more about best practices and when to use system-assigned versus user-assigned managed identities in [managed identity best practice recommendations](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
 ## Explore DefaultAzureCredential
 
-Managed identities are most easily implemented in your application code through a class called `DefaultAzureCredential` from the Azure Identity client library. `DefaultAzureCredential` supports multiple authentication mechanisms and automatically determines which should be used at runtime. Learn more about `DefaultAzureCredential` for the following ecosystems:
+Managed identities are most easily implemented in your application code via a class called `DefaultAzureCredential` from the Azure Identity client library. `DefaultAzureCredential` supports multiple authentication mechanisms and automatically determines which should be used at runtime. Learn more about `DefaultAzureCredential` for the following ecosystems:
 
 - [.NET](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#defaultazurecredential-overview)
 - [Java](/azure/developer/java/sdk/authentication/credential-chains#defaultazurecredential-overview)
@@ -65,7 +65,7 @@ The following steps demonstrate how to configure an app to use a system-assigned
 
 1. Choose **+ Add** and then **Add role assignment**.
 
-   :::image type="content" source="media/assign-role-system-identity.png" alt-text="Screenshot showing how to assign a system-assigned identity."  :::
+   :::image type="content" source="media/assign-role-system-identity.png" alt-text="Screenshot showing how to assign a system-assigned managed identity.":::
 
 1. In the **Role** search box, search for *Storage Blob Data Contributor*, which grants permissions to perform read and write operations on blob data. You can assign whatever role is appropriate for your use case. Select the *Storage Blob Data Contributor* from the list and choose **Next**.
 
@@ -73,7 +73,7 @@ The following steps demonstrate how to configure an app to use a system-assigned
 
 1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
 
-   :::image type="content" source="media/migration-select-identity.png" alt-text="Screenshot showing how to select a system-assigned identity."  :::
+   :::image type="content" source="media/migration-select-identity.png" alt-text="Screenshot showing how to select a system-assigned managed identity.":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
@@ -94,7 +94,7 @@ You can also enable access to Azure resources for local development by assigning
 
 #### [.NET](#tab/csharp)
 
-1. In your project, add a reference to the `Azure.Identity` NuGet package. This library contains the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.KeyVault.Keys` packages are added to connect to Blob Storage and Key Vault, respectively.
+1. In your project, add a reference to the `Azure.Identity` NuGet package. This library contains the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.Messaging.ServiceBus` packages are added to connect to Blob Storage and Service Bus, respectively.
 
     ```dotnetcli
     dotnet add package Azure.Identity
@@ -102,7 +102,7 @@ You can also enable access to Azure resources for local development by assigning
     dotnet add package Azure.Storage.Blobs
     ```
 
-1. In the `Program.cs` file of your project, instantiate service clients for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
+1. In the `Program.cs` file of your project, instantiate service clients for the services your app will connect to. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
 
     ```csharp
     using Azure.Identity;
@@ -121,63 +121,61 @@ You can also enable access to Azure resources for local development by assigning
 
 #### [Java](#tab/java)
 
-In your project, add the `azure-identity` dependency to your *pom.xml* file. This library contains all the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure dependencies that are relevant to your app. For this example, the `azure-storage-blob` and `azure-messaging-servicebus` dependencies are added to connect to Blob Storage and Key Vault.
+1. In your project, add the `azure-identity` dependency to your *pom.xml* file. This library contains all the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure dependencies that are relevant to your app. For this example, the `azure-storage-blob` and `azure-messaging-servicebus` dependencies are added to connect to Blob Storage and Service Bus.
 
-```xml
-<dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-sdk-bom</artifactId>
-      <version>1.2.5</version>
-      <type>pom</type>
-      <scope>import</scope>
-    </dependency>
-  </dependencies>
-</dependencyManagement>
-<dependencies>
-  <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-storage-blob</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-messaging-servicebus</artifactId>
-  </dependency>
-</dependencies>
+    ```xml
+    <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-sdk-bom</artifactId>
+          <version>1.2.5</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-storage-blob</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-messaging-servicebus</artifactId>
+      </dependency>
+    </dependencies>
+    ```
 
-```
+1. Create instances of the service clients for the services your app will connect to. The following examples interacts with Blob Storage and Service Bus using the corresponding service clients.
 
-Create instances of the service clients for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
-
-```java
-class Demo {
-
-    public static void main(String[] args) {
-
-        DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().build();
-
-        BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
-            .endpoint("https://<your-storage-account>.blob.core.windows.net")
-            .credential(defaultAzureCredential)
-            .buildClient();
-
-        ServiceBusClientBuilder clientBuilder = new ServiceBusClientBuilder().credential(defaultAzureCredential);
-        ServiceBusSenderClient serviceBusSenderClient = clientBuilder.sender()
-                                                                     .queueName("producttracking")
-                                                                     .buildClient();
+    ```java
+    class Demo {
+        public static void main(String[] args) {
+            DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+                .build();
+    
+            BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
+                .endpoint("https://<your-storage-account>.blob.core.windows.net")
+                .credential(credential)
+                .buildClient();
+    
+            ServiceBusClientBuilder clientBuilder = new ServiceBusClientBuilder()
+                .credential(credential);
+            ServiceBusSenderClient serviceBusSenderClient = clientBuilder.sender()
+                .queueName("producttracking")
+                .buildClient();
+        }
     }
-
-}
-```
+    ```
 
 #### [Spring](#tab/spring)
 
-1. In your project, you only need to add service dependencies you use. For this example, the `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-servicebus` dependencies are added in order to connect to Blob Storage and Key Vault.
+1. In your project, you only need to add service dependencies you use. For this example, the `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-servicebus` dependencies are added in order to connect to Blob Storage and Service Bus.
 
     ```xml
     <dependencyManagement>
@@ -234,36 +232,33 @@ class Demo {
 1. In your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app. 
 
     ```bash
-    npm install --save @azure/identity @azure/storage-blob @azure/keyvault-keys
+    npm install --save @azure/identity @azure/storage-blob @azure/service-bus
     ```
 
-1. In the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage and Key Vault using the corresponding service clients.
+1. In the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
 
     ```javascript
     import { DefaultAzureCredential } from "@azure/identity";
     import { BlobServiceClient } from "@azure/storage-blob";
-    import { KeyClient } from "@azure/keyvault-keys";
+    import { ServiceBusClient } from "@azure/service-bus";
 
     // Azure resource names
     const storageAccount = process.env.AZURE_STORAGE_ACCOUNT_NAME;
-    const keyVaultName = process.env.AZURE_KEYVAULT_NAME;
+    const serviceBusNamespace = process.env.AZURE_SERVICE_BUS_NAMESPACE;
 
     const credential = new DefaultAzureCredential();
 
-    // Create client for Blob Storage using managed identity
+    // Create client for Blob Storage using a system-assigned managed identity
     const blobServiceClient = new BlobServiceClient(
       `https://${storageAccount}.blob.core.windows.net`,
       credential
     );
     
-    // Create client for Key Vault using managed identity
-    const keyClient = new KeyClient(
-        `https://${keyVaultName}.vault.azure.net`,
-        credential
+    // Create client for Service Bus using a system-assigned managed identity
+    const serviceBusClient = new ServiceBusClient(
+      `https://${serviceBusNamespace}.servicebus.windows.net`,
+      credential
     );
-
-    // Create a new key in Key Vault
-    const result = await keyClient.createKey(keyVaultName, "RSA");
     ```
 
 ---
