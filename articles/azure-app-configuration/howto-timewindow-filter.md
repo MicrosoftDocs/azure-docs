@@ -33,7 +33,7 @@ In this article, you learn how to add and configure a time window filter for you
    - Setting a start time allows you to enable the feature flag on a specific date and time. A time window filter with no start time is active as soon as you save the feature filter details. 
    - Setting an end time allows you to disable the feature flag at a specific date and time. A time window filter with no end time remains active until you disable it. 
 
-    Uncheck the end time and enter a start time a few minutes ahead of your current time to schedule the *Beta* feature to be enabled automatically in a few minutes and never be disabled once enabled.
+   Uncheck the end time and enter a start time a few minutes ahead of your current time to schedule the *Beta* feature to be enabled automatically in a few minutes and never be disabled once enabled.
 
 1. A time zone is selected by default, based on your browser's current time zone. Optionally select another time zone.
 

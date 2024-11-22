@@ -19,7 +19,7 @@ The example used in this tutorial is based on the ASP.NET Core application intro
 ## Prerequisites
 
 - Create an [ASP.NET Core application with a feature flag](./quickstart-feature-flag-aspnet-core.md).
-- [Add a time window filter to the feature flag](./howto-timewindow-filter.md)
+- [Add a non-recurring time window filter to the feature flag](./howto-timewindow-filter.md)
 - Update the [`Microsoft.FeatureManagement.AspNetCore`](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/) package to version **3.0.0** or later.
 
 ## Use the time window filter
