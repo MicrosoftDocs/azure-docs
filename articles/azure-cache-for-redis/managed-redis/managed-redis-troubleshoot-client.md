@@ -4,6 +4,8 @@ description: Learn how to resolve common client issues, such as client memory pr
 
 
 ms.service: azure
+ms.custom:
+  - ignite-2024
 ms.topic: troubleshooting
 ms.date: 11/15/2024
 ---

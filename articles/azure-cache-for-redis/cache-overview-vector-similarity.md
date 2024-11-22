@@ -5,6 +5,8 @@ description: Learn about Azure Cache for Redis to store vector embeddings and pr
 
 
 ms.topic: overview
+ms.custom:
+  - ignite-2024
 ms.date: 04/24/2024
 ---
 

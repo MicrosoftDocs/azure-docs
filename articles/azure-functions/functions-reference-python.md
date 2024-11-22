@@ -4,7 +4,7 @@ description: Understand how to develop, validate, and deploy your Python code pr
 ms.topic: article
 ms.date: 07/30/2024
 ms.devlang: python
-ms.custom: devx-track-python, devdivchpfy22
+ms.custom: devx-track-python, devdivchpfy22, ignite-2024
 zone_pivot_groups: python-mode-functions
 ---
 

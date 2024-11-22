@@ -5,7 +5,7 @@ description: Learn how to use an Azure Resource Manager template (ARM template) 
 
 
 ms.topic: conceptual
-ms.custom: subject-armqs, devx-track-arm-template
+ms.custom: subject-armqs, devx-track-arm-template, ignite-2024
 ms.date: 04/10/2024
 ---
 
