@@ -114,12 +114,12 @@ az provider register --namespace 'Microsoft.NetworkCloud' --subscription <Subscr
 
 | Role Name                                              | Role Definition ID                   |
 |:-------------------------------------------------------|:-------------------------------------|
-| Operator Nexus Key Vault Writer Service Role (Preview) | cccccccc-dddd-eeee-3333-444444444444 |
+| Operator Nexus Key Vault Writer Service Role (Preview) | 44f0a1a8-6fea-4b35-980a-8ff50c487c97 |
 
 Example:
 
 ```console
-az role assignment create --assignee <Managed Identity Principal Id> --role cccccccc-dddd-eeee-3333-444444444444 --scope /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.KeyVault/vaults/<Key Vault Name>
+az role assignment create --assignee <Managed Identity Principal Id> --role 44f0a1a8-6fea-4b35-980a-8ff50c487c97 --scope /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.KeyVault/vaults/<Key Vault Name>
 ```
 
 - User associates the Customer Key Vault with the Operator Nexus cluster. The key vault resource ID must be configured in the cluster and enabled to store the secrets of the cluster.
