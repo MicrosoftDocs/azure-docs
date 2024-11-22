@@ -113,7 +113,7 @@ Get answers to frequently asked questions.
 
 **Q.** Is there an impact on traffic for the overall conversion?
 
-**A.** The conversion process involves several stages. Not all the stages affect traffic. Tapering the traffic, configuring new policies for the type of peering, and allowing the traffic back when BGP and BFD are online is done serially. Combined these steps usually take approximately two hours if the peering partner completes their end of the configurations promptly.
+**A.** The conversion process involves several stages. Not all the stages affect traffic. Tapering the traffic, configuring new policies for the type of peering, and allowing the traffic back happen serially when BGP and BFD are online. Combined these steps usually take approximately two hours if the peering partner completes their end of the configurations promptly.
 
 For voice interconnect conversions, ensure that the BFD setup is done on time to ensure minimal downtime. For conversions that involve a change in IP addresses, there's almost zero downtime because the traffic is seamlessly shifted to the session that has the new addresses. Then, the session that has the old IP addresses is shut down.
 
