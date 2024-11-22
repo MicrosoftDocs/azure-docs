@@ -179,7 +179,7 @@ If you selected 'Add a CSV download link' when creating the alert rule, you will
 
 ### Why does the downloaded file only contain data for a few days, and how can I access the complete data set?
 
-The downloaded file may only contain data for a few days due to a design that allows a maximum of 15,000 records for CSV files in this download experience. If there is a large volume of data being requested, such as at the billing account scope at the resource level for an entire month, we recommend creating an export for the same scope. This will allow you to retrieve all the data without encountering the record limit. For more details on how to create an export, please refer to [Create export](/azure/cost-management-billing/costs/tutorial-improved-exports"https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-improved-exports#create-exports").
+The downloaded file may only contain data for a few days due to a design that allows a maximum of 15,000 records for CSV files in this download experience. If there is a large volume of data being requested, such as at the billing account scope at the resource level for an entire month, you may see incomplete data in the downloaded file. In such cases, we recommend creating an export for the same scope. This will allow you to retrieve all the data without encountering the record limit. For more details on how to create an export, please refer to [Create export](/azure/cost-management-billing/costs/tutorial-improved-exports"https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-improved-exports#create-exports").
 
 ### Why does the image in the email not match Cost Analysis and stop midway through the month?
 
