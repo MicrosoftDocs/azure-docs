@@ -10,6 +10,20 @@ ms.date: 11/06/2024
 
 # Troubleshooting Neon Serverless Postgres
 
+You can get support for your Neon deployment through a New Support request. For further assistance, visit [Neon Support]. In addition, this article includes troubleshooting for problems you might experience in creating and using a Neon resource. 
+
+## Getting support 
+
+To contact support about Neon resource, select the resource in the Resource menu. 
+
+<!--add image-->
+
+Select Support + troubleshooting in Help menu on the left of the Overview page. 
+
+Select ‘Create a support request’. You will re-directed to the partner portal where you can raise a support ticket.
+
+--
+
 ## Unable to create a Neon resource as not a subscription owner/ contributor
 Only users with Owner or Contributor access on the Azure subscription can create Neon resources. Ensure you have the appropriate access before setting up this integration.
 

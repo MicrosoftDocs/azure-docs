@@ -17,7 +17,7 @@ This quickstart shows you how to create a Neon Serverless Postgres (preview) res
 
 ## Setup
 
-Begin by signing in to the [Azure portal](https://portal.azure.com).
+Begin by signing in to the [Azure portal](https://aka.ms/ANI/NeonServerlessPostgres/AzurePortal).
 
 ## Create a Neon Serverless Postgres resource
 
@@ -25,13 +25,13 @@ To create your Neon Serverless Postgres resource, start at the Azure portal home
 
 1. Search for the Neon Serverless Postgres resource provider by typing **Neon Serverless Postgres** the header search bar.
 
-1. Choose **Azure Native Neon Serverless Postgres Service** from the *Services* search results.
+1. Choose **Neon Serverless Postgres** from the *Services* search results.
 
 1. Select the **+ Create** option.
 
-## Create an Neon Serverless Postgres Resource
+## Create a Neon Serverless Postgres Resource
 
-The Create an Azure Native Neon Serverless Postgres Resource pane opens to the *Basics* tab by default.
+The **Create a Neon Serverless Postgres** Resource pane opens to the *Basics* tab by default.
 
 ### Basics tab
 
@@ -41,25 +41,27 @@ The *Basics* tab has three sections:
 - Azure Resource details
 - New Organization details
 
+<!--add image-->
+
 There are required fields in each section that you need to fill out.
 
 1. Enter the values for each required setting under *Project details*.
 
-    |Setting  |Action  |
+    |Field  |Action  |
     |---------|---------|
     |Subscription    |Select a subscription from your existing subscriptions.         |
     |Resource group     |Use an existing resource group or create a new one.          |
 
 1. Enter the values for each required setting under *Azure Resource details*.
 
-    |Setting  |Action  |
+    |Field |Action  |
     |---------|---------|
     |Resource name     |Specify a unique name for the resource.    |
-    |Region     |Select the [region](https://azure.microsoft.com/explore/global-infrastructure/geographies/) where you want to enable this service and its child resources to be located.         |
+    |Region     |Select a region to deploy your resource.         |
 
 1. Enter the values for each required setting under *New Organization details*.
 
-    |Setting  |Action  |
+    |Field  |Action  |
     |---------|---------|
     |Organization     |Specify a name for the organization.   |
     |Plan    |Select the **Change plan** link and choose the plan you want.        |
@@ -70,26 +72,33 @@ There are required fields in each section that you need to fill out.
 
 1. Select the **Next** button at the bottom of the page.
 
-### Tag tab (optional)
+### Tags tab (optional)
 
-If you wish, you can optionally create a tag for your resource.
+If you wish, you can optionally create a tag for your Neon Serverless Postgres resource.
 
 1. Select the **Review + create** button at the bottom of the page. 
 
 ### Review + create tab
 
-<!--TODO: Add details re: link at top of interface-->
+<!--TODO: Add image-->
 
-If the review identifies errors, a red dot appears next each tabbed section where errors exist. Fields with errors are highlighted in red. 
+> [!NOTE]
+> The view automation template link directs you to a downloadable [ARM template](LINK). 
 
-1. Open each tabbed section with errors and fix the errors.
+If the review identifies errors, a red dot appears next each section where errors exist. Fields with errors are highlighted in red. 
+
+1. Open each section with errors and fix the errors.
 
 1. Select the **Review + create** button again.
 
 1. Select the **Create** button.
+
+Once the resource is created, select **Go to Resource** to navigate to the Neon resource. 
 
 ## Related content
 
 To learn more about Azure, review [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts).
 
 ## Next steps
+
+[Manage your Neon  integration through the portal](manage.md)

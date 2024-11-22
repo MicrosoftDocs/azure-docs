@@ -16,31 +16,27 @@ Single sign-on (SSO) is already enabled when you created your Neon  resource. To
 
 1. Navigate to the Overview for your instance of the Neon resource. 
 
-1. Select the SSO Url.
+1. Select the SSO URL.
 
-The first time you access this Url, depending on your Azure tenant settings, you might see a request to grant permissions and User consent. This step is only needed the first time you access the SSO Url.
+<!--add image-->
 
-## Delete a Neon deployment
+> [!NOTE] 
+> The first time you access this URL, depending on your Azure tenant settings, you might be asked to verify your email address on the Neon portal. Once the email address is verified, you can access the Neon portal.
+
+## Delete a Neon resource
 
 Once the Neon resource is deleted, all billing stops for that resource through Azure Marketplace. If you're done using your resource and would like to delete it, follow these steps:
 
-1. From the Resource menu, select the Neon deployment you would like to delete.
+1. From the Resource menu, select the Neon resource you would like to delete.
 
 1. On the working pane of the **Overview**, select **Delete**.
 
 1. Confirm that you want to delete the Neon resource by entering the name of the resource.
 
-1. Select the reason why would you like to delete the resource.
+1. Choose the reason why would you like to delete the resource.
 
 1. Select **Delete**.
 
-## Next steps
+## Related content 
 
-<!--TO DO:  Add links
-- Get started with Neon Serverless Postgres - An Azure Native ISV Service on
-    > [!div class="nextstepaction"]
-    > Azure portal
-
-    > [!div class="nextstepaction"]
-    > Azure Marketplace
--->
+<!--Developer tools link-->
