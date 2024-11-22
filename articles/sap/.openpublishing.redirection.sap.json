@@ -91,7 +91,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/sap/workloads/expose-sap-odata-to-power-platform.md ",
+      "source_path_from_root": "/articles/sap/workloads/expose-sap-odata-to-power-platform.md ",
       "redirect_url": "/power-platform/sap/connect/entra-id-apim-oauth",
       "redirect_document_id": true
     }

@@ -327,9 +327,8 @@ For more information about Azure integration with SAP Business Technology Platfo
 
 These resources include Customer Engagement Initiatives (CEI), public BETAs, and Customer Influence programs:
 
-- [SAP S/4HANA Cloud - MS Teams Integration - Jul 2024 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/2836)
+- [SAP Joule integration with Microsoft Copilot private preview](https://aka.ms/CopilotJoule)
 - [SAP Event Mesh integration with Microsoft Azure Event Grid - Aug 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/2836)
-- [SAP Private Link Service GA announcement after public Beta - Jun 2022 | SAP Blogs](https://blogs.sap.com/2022/06/22/sap-private-link-service-on-azure-is-now-generally-available-ga)
 - [SAP Private Link service CEI - Jul 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/3118)
 
 ## Free developer accounts
@@ -344,7 +343,7 @@ You can use the following free developer accounts to explore integration scenari
 
 ## Next steps
 
-- [Discover native SAP applications available on the Microsoft Teams marketplace](https://appsource.microsoft.com/en-us/marketplace/apps?page=1&search=sap&product=teams)
+- [Discover native SAP applications available on the Microsoft Teams marketplace](https://appsource.microsoft.com/marketplace/apps?page=1&search=sap&product=teams)
 - [Browse the out-of-the-box SAP applications available on Microsoft Power Platform](/power-automate/sap-integration/overview?source=recommendations#prebuilt-sap-integration-solution)
 - [Understand SAP data integration with Azure - Cloud Adoption Framework](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-identify-sap-data-sources)
 - [Identify your SAP data sources - Cloud Adoption Framework](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-identify-sap-data-sources)
