@@ -265,7 +265,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.57](https://suppo
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5, SP6) | 9.63 | All [stock SUSE 15 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.63-azure:5 <br> 5.14.21-150500.33.66-azure:5 <br> 6.4.0-150600.6-azure:6 <br>6.4.0-150600.8.11-azure:6 <br> 6.4.0-150600.8.5-azure:6 <br> 6.4.0-150600.8.8-azure:6 <br> 6.4.0-150600.8.14-azure:6 <br> 5.14.21-150500.33.69-azure:5 |
+SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5, SP6) | 9.63 | All [stock SUSE 15 SP1,SP2,SP3,SP4,SP5, SP6 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.63-azure:5 <br> 5.14.21-150500.33.66-azure:5 <br> 6.4.0-150600.6-azure:6 <br>6.4.0-150600.8.11-azure:6 <br> 6.4.0-150600.8.5-azure:6 <br> 6.4.0-150600.8.8-azure:6 <br> 6.4.0-150600.8.14-azure:6 <br> 5.14.21-150500.33.69-azure:5 |
 SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5) | 9.62 | All [stock SUSE 15 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.54-azure:5 <br> 5.14.21-150500.33.57-azure:5 <br> 5.14.21-150500.33.60-azure:5  |
 SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5) | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | All [stock SUSE 15 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.37-azure <br> 5.14.21-150500.33.42-azure <br> 5.14.21-150500.33.48-azure:5 <br> 5.14.21-150500.33.51-azure:5 |
 SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5) | [9.60]() | By default, all [stock SUSE 15, SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.29-azure <br> 5.14.21-150500.33.34-azure  |
@@ -417,14 +417,14 @@ The following table summarizes Site Recovery limits.
 - The current limit for per virtual machine data churn is 54 MB/s, regardless of size.
 
 
-**Storage target** | **Average source disk I/O** |**Average source disk data churn** | **Total source disk data churn per day**
+**Replica Disk type ** | **Average source disk I/O** | **Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
 Standard storage | 8 KB    | 2 MB/s | 168 GB per disk
-Premium P10 or P15 disk | 8 KB    | 2 MB/s | 168 GB per disk
-Premium P10 or P15 disk | 16 KB | 4 MB/s |    336 GB per disk
-Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 8 KB    | 5 MB/s | 421 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per disk
+Premium SSD with disk size 128 GiB or more  | 8 KB    | 2 MB/s | 168 GB per disk
+Premium SSD with disk size 128 GiB or more  | 16 KB | 4 MB/s |    336 GB per disk
+Premium SSD with disk size 128 GiB or more  | 32 KB or greater | 8 MB/s | 672 GB per disk
+Premium SSD with disk size 512 GiB or more  | 8 KB    | 5 MB/s | 421 GB per disk
+Premium SSD with disk size 512 GiB or more  | 16 KB or greater |20 MB/s | 1684 GB per disk
 
 
 >[!Note]

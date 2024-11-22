@@ -25,6 +25,8 @@ This section describes how to use device application code to:
 * Update reported device twin properties
 * Create a desired property update callback handler
 
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
 ### Add device NuGet Package
 
 Device client applications written in C# require the **Microsoft.Azure.Devices.Client** NuGet package.
@@ -139,17 +141,14 @@ The Azure IoT SDK for .NET provides a working sample of a device app that handle
 
 ## Create a backend application
 
-A backend application:
-
-* Connects to a device through IoT Hub
-* Can read device reported and desired properties, write device desired properties, and run device queries
-
-The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager) class exposes all methods required to create a backend application to interact with device twins from the service.
+A backend application connects to a device through IoT Hub and can read device reported and desired properties, write device desired properties, and run device queries.
 
 This section describes how to create backend application code to:
 
 * Read and update device twin fields
 * Create a device twin query
+
+The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager) class exposes all methods required to create a backend application to interact with device twins from the service.
 
 ### Add service NuGet Package
 
@@ -157,14 +156,27 @@ Backend service applications require the **Microsoft.Azure.Devices** NuGet packa
 
 ### Connect to IoT hub
 
-Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.registrymanager.createfromconnectionstring). As a parameter, supply the **IoT Hub service connection string** that you created in the prerequisites section.
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.registrymanager.createfromconnectionstring). Your application needs the **service connect** permission to modify desired properties of a device twin, and it needs **registry read** permission to query the identity registry. There is no default shared access policy that contains only these two permissions, so you need to create one if a one does not already exist. Supply this shared access policy connection string as a parameter to `fromConnectionString`. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 ```csharp
 using Microsoft.Azure.Devices;
 static RegistryManager registryManager;
-static string connectionString = "{IoT hub service connection string}";
+static string connectionString = "{Shared access policy connection string}";
 registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-dotnet](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
 
 ### Read and update device twin fields
 

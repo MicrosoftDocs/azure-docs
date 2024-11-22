@@ -18,7 +18,7 @@ ms.collection: usx-security
 
 This article includes troubleshooting steps to help you ensure accurate and timely data ingestion and monitoring for your SAP environment with Microsoft Sentinel.
 
-In this article, we refer to the [**systemconfig.json**](reference-systemconfig-json.md) file, which is used for agent versions released on or after June 22, 2023. If you're using an earlier version of the agent, refer to the [**systemconfig.ini**](reference-systemconfig.md) file instead.
+Selected troubleshooting procedures are only relevant when your data connector agent is [deployed via the command line](deploy-command-line.md). If you used the recommended procedure to [deploy the agent from the portal](deploy-data-connector-agent-container.md), use the portal to make any configuration changes.
 
 ## Useful Docker commands
 
@@ -46,6 +46,8 @@ docker logs -f sapcon-[SID]
 
 ## Enable/disable debug mode printing
 
+This procedure is only supported if you've deployed the [data connector agent from the command line](deploy-command-line.md). 
+
 1. On your data collector agent container virtual machine, edit the [**/opt/sapcon/[SID]/systemconfig.json**](reference-systemconfig-json.md) file.
 
 1. Define the **General** section if it wasn't previously defined. In this section, define `logging_debug = True` to enable debug mode printing, or `logging_debug = False` to disable it.
@@ -67,9 +69,9 @@ Connector execution logs for your Microsoft Sentinel solution for SAP applicatio
 
 ## Review and update the Microsoft Sentinel for SAP agent connector configuration file
 
-If you [deployed your agent via the portal](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-from-the-portal-preview), you can continue to maintain and change configuration settings via the portal.
+This procedure is only supported if you've deployed the [data connector agent from the command line](deploy-command-line.md).  If you [deployed your agent via the portal](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-from-the-portal-preview), continue to maintain and change configuration settings via the portal.
 
-If you deployed via the command line, or want to make manual updates directly to the configuration file, perform the following steps:
+If you deployed via the command line, perform the following steps:
 
 1. On your VM, open the configuration file: **sapcon/[SID]/systemconfig.json**
 
@@ -126,6 +128,8 @@ docker cp nwrfc750P_8-70002752.zip /sapcon-app/inst/
 
 ### ABAP runtime errors appear on a large system
 
+This procedure is only supported if you've deployed the [data connector agent from the command line](deploy-command-line.md).  
+
 If ABAP runtime errors appear on large systems, try setting a smaller chunk size:
 
 1. Edit the [**/opt/sapcon/[SID]/systemconfig.json**](reference-systemconfig-json.md) file and in the **Connector Configuration** section define `timechunk = 5`.
@@ -151,7 +155,6 @@ The change takes effect approximately two minutes after you save the file. You d
 1. Enable any events as needed.
 1. Verify whether messages arrive and exist in the SAP **SM20** or **RSAU_READ_LOG**, without any special errors appearing on the connector log.
 
-
 ### Incorrect workspace ID or key in key vault
 
 If you realize that you entered an incorrect workspace ID or key in your deployment script, update the credentials stored in Azure key vault.
@@ -173,6 +176,8 @@ docker restart sapcon-[SID]
 ```
 
 ### Incorrect SAP ABAP user credentials in a fixed configuration
+
+This section is only supported if you've deployed the [data connector agent from the command line](deploy-command-line.md). 
 
 A fixed configuration is when the password is stored directly in the [**systemconfig.json**](reference-systemconfig-json.md) configuration file.
 
@@ -197,6 +202,8 @@ Use the **RSAU_CONFIG_LOG** transaction for this step.
 
 For more information, see the [SAP documentation](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and [Collect SAP HANA audit logs in Microsoft Sentinel](collect-sap-hana-audit-logs.md).
 
+We recommend that you configure auditing for *all* messages from the audit log, instead of only specific logs. Ingestion cost differences are generally minimal and the data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting. For more information, see [Configure SAP auditing](preparing-sap.md#configure-sap-auditing).
+
 ### Missing IP address or transaction code fields in the SAP audit log
 
 In SAP systems with versions for SAP BASIS 7.5 SP12 and above, Microsoft Sentinel can reflect extra fields in the `ABAPAuditLog_CL` and `SAPAuditLog` tables. 
@@ -220,6 +227,8 @@ The data collector agent relies on time zone information to be correct. If you s
 
 There might also be issues with the clock on the virtual machine where the data collector agent container is hosted, and any deviation from the clock on the VM from UTC impacts data collection. Even more importantly, the clocks on both the SAP system machines and the data collector agent machines must match.
 
+We recommend that you configure auditing for *all* messages from the audit log, instead of only specific logs. Ingestion cost differences are generally minimal and the data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting. For more information, see [Configure SAP auditing](preparing-sap.md#configure-sap-auditing).
+
 ### Network connectivity issues
 
 If you're having network connectivity issues to the SAP environment or to Microsoft Sentinel, check your network connectivity to make sure data is flowing as expected.
@@ -231,6 +240,8 @@ Common issues include:
 - Outbound communication from your SAP agent host to Microsoft Container Registry or Azure requires proxy configuration. This typically impacts the installation and requires you to configure the `HTTP_PROXY` and `HTTPS_PROXY` environmental variables. You can also ingest environment variables into the docker container when you create the container, by adding the `-e` flag to the docker `create` / `run` command.
 
 ### Retrieving an audit log fails with warnings
+
+This section is only supported if you've deployed the [data connector agent from the command line](deploy-command-line.md). 
 
 If you attempt to retrieve an audit log without the [required configurations](preparing-sap.md#configure-sap-auditing) and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
 

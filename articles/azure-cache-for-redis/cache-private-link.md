@@ -1,14 +1,9 @@
 ---
 title: Azure Cache for Redis with Azure Private Link
-description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.  
-
-
-
-
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2024
 ms.topic: conceptual
 ms.date: 01/12/2024
-
 ---
 
 # What is Azure Cache for Redis with Azure Private Link?
@@ -30,9 +25,9 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 ## Scope of availability
 
-|Tier      | Basic, Standard, Premium |Enterprise, Enterprise Flash  |
-|--------- |:------------------:|:---------:|
-|Available | Yes          |  Yes  |
+|Tier      | Basic, Standard, Premium |Enterprise, Enterprise Flash  | Azure Managed Redis (preview)
+|--------- |:------------------:|:---------:|:---------:|
+|Available | Yes          |  Yes  | Yes |
 
 ## Prerequisites
 
