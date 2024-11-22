@@ -39,7 +39,7 @@ Managed identities are most easily implemented in your application code through 
 
 ## Connect an Azure-hosted app to multiple Azure services
 
-You have been tasked with connecting an existing app to multiple Azure services and databases using passwordless connections. The application is an ASP.NET Core Web API hosted on Azure App Service, though the steps below apply to other Azure hosting environments as well, such as Azure Spring Apps, Virtual Machines, Container Apps, and AKS.
+Imagine you're tasked with connecting an existing app to multiple Azure services and databases using passwordless connections. The application is an ASP.NET Core Web API hosted on Azure App Service, though the steps below apply to other Azure hosting environments as well, such as Azure Spring Apps, Virtual Machines, Container Apps, and AKS.
 
 This tutorial applies to the following architectures, though it can be adapted to many other scenarios as well through minimal configuration changes.
 
@@ -94,34 +94,30 @@ You can also enable access to Azure resources for local development by assigning
 
 #### [.NET](#tab/csharp)
 
-In your project, add a reference to the `Azure.Identity` NuGet package. This library contains the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.KeyVault.Keys` packages are added to connect to Blob Storage and Key Vault, respectively.
+1. In your project, add a reference to the `Azure.Identity` NuGet package. This library contains the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.KeyVault.Keys` packages are added to connect to Blob Storage and Key Vault, respectively.
 
-```dotnetcli
-dotnet add package Azure.Identity
-dotnet add package Azure.Storage.Blobs
-dotnet add package Azure.KeyVault.Keys
-```
+    ```dotnetcli
+    dotnet add package Azure.Identity
+    dotnet add package Azure.Messaging.ServiceBus
+    dotnet add package Azure.Storage.Blobs
+    ```
 
-At the top of your `Program.cs` file, add the following `using` statements:
+1. In the `Program.cs` file of your project, instantiate service clients for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
 
-```csharp
-using Azure.Identity;
-using Azure.Storage.Blobs;
-using Azure.Security.KeyVault.Keys;
-```
-
-In the `Program.cs` file of your project, create instances of the necessary services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
-
-```csharp
-DefaultAzureCredential credential = new(credentialOptions);
-
-BlobServiceClient blobServiceClient = new(
-    new Uri("https://<your-storage-account>.blob.core.windows.net"),
-    credential);
-
-ServiceBusClient serviceBusClient = new("<your-namespace>", credential);
-var sender = serviceBusClient.CreateSender("producttracking");
-```
+    ```csharp
+    using Azure.Identity;
+    using Azure.Messaging.ServiceBus;
+    using Azure.Storage.Blobs;
+    
+    DefaultAzureCredential credential = new();
+    
+    BlobServiceClient blobServiceClient = new(
+        new Uri("https://<your-storage-account>.blob.core.windows.net"),
+        credential);
+    
+    ServiceBusClient serviceBusClient = new("<your-namespace>", credential);
+    ServiceBusSender sender = serviceBusClient.CreateSender("producttracking");
+    ```
 
 #### [Java](#tab/java)
 
@@ -181,59 +177,57 @@ class Demo {
 
 #### [Spring](#tab/spring)
 
-In your project, you only need to add service dependencies you use. For this example, the `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-servicebus` dependencies are added in order to connect to Blob Storage and Key Vault.
+1. In your project, you only need to add service dependencies you use. For this example, the `spring-cloud-azure-starter-storage-blob` and `spring-cloud-azure-starter-servicebus` dependencies are added in order to connect to Blob Storage and Key Vault.
 
-```xml
-<dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>4.5.0</version>
-      <type>pom</type>
-      <scope>import</scope>
-    </dependency>
-  </dependencies>
-</dependencyManagement>
-<dependencies>
-  <dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-starter-servicebus</artifactId>
-  </dependency>
-</dependencies>
-```
+    ```xml
+    <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>com.azure.spring</groupId>
+          <artifactId>spring-cloud-azure-dependencies</artifactId>
+          <version>4.5.0</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-starter-servicebus</artifactId>
+      </dependency>
+    </dependencies>
+    ```
 
-Create instances of the service clients for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
+1. Create instances of the service clients for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
 
-```yaml
-spring:
-  cloud:
-    azure:
-      servicebus:
-        namespace: <service-bus-name>
-        entity-name: <service-bus-entity-name>
-        entity-type: <service-bus-entity-type>
-      storage:
-        blob:
-          account-name: <storage-account-name>
-```
-
-```java
-@Service
-public class ExampleService {
-
-    @Autowired
-    private BlobServiceClient blobServiceClient;
-
-    @Autowired
-    private ServiceBusSenderClient serviceBusSenderClient;
-
-}
-```
+    ```yaml
+    spring:
+      cloud:
+        azure:
+          servicebus:
+            namespace: <service-bus-name>
+            entity-name: <service-bus-entity-name>
+            entity-type: <service-bus-entity-type>
+          storage:
+            blob:
+              account-name: <storage-account-name>
+    ```
+    
+    ```java
+    @Service
+    public class ExampleService {
+        @Autowired
+        private BlobServiceClient blobServiceClient;
+    
+        @Autowired
+        private ServiceBusSenderClient serviceBusSenderClient;
+    }
+    ```
 
 #### [JavaScript](#tab/javascript)
 
@@ -243,17 +237,13 @@ public class ExampleService {
     npm install --save @azure/identity @azure/storage-blob @azure/keyvault-keys
     ```
 
-1. At the top of your `index.js` file, add the following `import` statements to import the necessary service clients for the services your app will connect to:
+1. In the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage and Key Vault using the corresponding service clients.
 
     ```javascript
     import { DefaultAzureCredential } from "@azure/identity";
     import { BlobServiceClient } from "@azure/storage-blob";
     import { KeyClient } from "@azure/keyvault-keys";
-    ```
 
-1. Within the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage and Key Vault using the corresponding service clients.
-
-    ```javascript
     // Azure resource names
     const storageAccount = process.env.AZURE_STORAGE_ACCOUNT_NAME;
     const keyVaultName = process.env.AZURE_KEYVAULT_NAME;
@@ -403,7 +393,6 @@ Add the following to your code:
 
 ```java
 class Demo {
-
     public static void main(String[] args) {
         // Get the first user-assigned managed identity ID to connect to shared storage
         String clientIdStorage = System.getenv("Managed_Identity_Client_ID_Storage");
@@ -551,17 +540,13 @@ public class ExampleService {
     npm install --save @azure/identity @azure/storage-blob @azure/cosmos mssql
     ```
 
-2. At the top of your `index.js` file, add the following `import` statements to import the necessary service clients for the services your app will connect to:
+1. In the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage, Cosmos DB, and Azure SQL using the corresponding service clients.
 
     ```javascript
     import { DefaultAzureCredential } from "@azure/identity";
     import { BlobServiceClient } from "@azure/storage-blob";
     import { KeyClient } from "@azure/keyvault-keys";
-    ```
 
-3. Within the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage, Cosmos DB, and Azure SQL using the corresponding service clients.
-
-    ```javascript
     // Get the first user-assigned managed identity client ID to connect to shared storage
     const clientIdStorage = process.env.MANAGED_IDENTITY_CLIENT_ID_STORAGE;
 
@@ -573,13 +558,13 @@ public class ExampleService {
     const storageAccountName1 = process.env.AZURE_STORAGE_ACCOUNT_NAME_1;
     const storageAccountName2 = process.env.AZURE_STORAGE_ACCOUNT_NAME_2;
 
-    // First blob storage client that uses a managed identity
+    // First Blob Storage client that uses a managed identity
     const blobServiceClient = new BlobServiceClient(
       `https://${storageAccountName1}.blob.core.windows.net`,
       credential
     );
     
-    // Second blob storage client that uses a managed identity
+    // Second Blob Storage client that uses a managed identity
     const blobServiceClient2 = new BlobServiceClient(
       `https://${storageAccountName2}.blob.core.windows.net`,
       credential
