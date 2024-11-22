@@ -709,7 +709,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 2. Select your IoT hub.
 
-3. In the **Explorers** menu, select **IoT devices**.
+3. In the **Device management** menu, select **Devices**.
 
 4. Select the check box next to the device ID of the device you registered in this quickstart.
 

@@ -357,7 +357,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 
 1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning Service. Note your _ID Scope_ and _Provisioning Service Global Endpoint_.
 
-    ![Device Provisioning Service information](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-java.png)
+    ![Device Provisioning Service information](./media/quick-create-simulated-device-tpm/copy-id-scope-and-global-device-endpoint.png)
 
 2. Edit `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _ID Scope_ and _Provisioning Service Global Endpoint_ as noted before.
 
@@ -436,7 +436,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 2. Copy the **_ID Scope_** value.
 
-    ![Extract Device Provisioning Service endpoint information from the portal](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-ansi-c.png)
+    ![Extract Device Provisioning Service endpoint information from the portal](./media/quick-create-simulated-device-tpm/extract-dps-endpoints.png)
 3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
 4. Near the top of the file, find the `#define` statements for each device protocol as shown below. Make sure only `SAMPLE_AMQP` is uncommented.
@@ -496,7 +496,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 2. Copy the **_ID Scope_** value.
 
-    ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-csharp.png)
+    ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints.png)
 
 3. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
@@ -533,7 +533,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 2. Copy the **_ID Scope_** value.
 
-     ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-nodejs.png)
+     ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints.png)
 
 3. Open a text editor of your choice.
 
@@ -638,34 +638,34 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 3. Select the IoT hub to which your device was assigned.
 
-4. In the **Explorers** menu, select **IoT Devices**.
+4. In the **Device management** section, select **Devices**.
 
 :::zone-end
 :::zone pivot="programming-language-ansi-c"
 5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
 
-    ![Device is registered with the IoT hub for C](./media/quick-create-simulated-device-tpm/hub-registration-ansi-c.png)
+    ![Device is registered with the IoT hub for C](./media/quick-create-simulated-device-tpm/hub-registration.png)
 
 :::zone-end
 
 :::zone pivot="programming-language-csharp"
 5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
 
-      ![Device is registered with the IoT hub for C#](./media/quick-create-simulated-device-tpm/hub-registration-csharp.png)
+      ![Device is registered with the IoT hub for C#](./media/quick-create-simulated-device-tpm/hub-registration.png)
 
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
 
-    ![Device is registered with the IoT hub for Node.js](./media/quick-create-simulated-device-tpm/hub-registration-nodejs.png)
+    ![Device is registered with the IoT hub for Node.js](./media/quick-create-simulated-device-tpm/hub-registration.png)
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
 
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-tpm/hub-registration-java.png)
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-tpm/hub-registration.png)
 
 ::: zone-end
 
@@ -699,7 +699,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 2. Select your IoT hub.
 
-3. In the **Explorers** menu, select **IoT devices**.
+3. In the **Device management** menu, select **Devices**.
 
 4. Select the check box next to the device ID of the device you registered in this quickstart.
 

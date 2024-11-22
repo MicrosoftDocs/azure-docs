@@ -399,23 +399,7 @@ To verify that the individual enrollment has been created:
 
 3. Select the **Individual enrollments** tab. You should see a new enrollment entry that corresponds to the registration ID that you used in the sample.
 
-:::zone pivot="programming-language-csharp"
-
-   :::image type="content" source="./media/quick-enroll-device-tpm/verify-enrollment-csharp.png" alt-text="Screenshot that shows verifying enrollment for a C# individual device in the portal.":::
-
-:::zone-end
-
-:::zone pivot="programming-language-nodejs"
-
-   :::image type="content" source="./media/quick-enroll-device-tpm/verify-enrollment-nodejs.png" alt-text="Screenshot that shows verifying enrollment for a Node.js individual device in the portal.":::
-
-:::zone-end
-
-:::zone pivot="programming-language-java"
-
-   :::image type="content" source="./media/quick-enroll-device-tpm/verify-enrollment-java.png" alt-text="Screenshot that shows verifying enrollment for a Java individual device in the portal.":::
-
-:::zone-end
+   :::image type="content" source="./media/quick-enroll-device-tpm/verify-enrollment.png" alt-text="Screenshot that shows verifying enrollment for an individual device in the portal.":::
 
 ## Enroll a simulated device (Optional)
 
