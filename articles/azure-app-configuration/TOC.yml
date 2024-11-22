@@ -158,6 +158,12 @@
         href: howto-targetingfilter.md
       - name: ASP.NET Core
         href: howto-targetingfilter-aspnet-core.md
+    - name: Use variant feature flags
+      items:
+      - name: Overview
+        href: use-variant-feature-flags.md
+      - name: ASP.NET Core
+        href: use-variant-feature-flags-aspnet-core.md
   - name: Enable Azure monitoring
     items:
     - name: Monitor App Configuration
