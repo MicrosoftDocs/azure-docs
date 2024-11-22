@@ -177,6 +177,14 @@ Although the configuration of scheduled alerts considers your local time, the ac
 
 If you selected 'Add a CSV download link' when creating the alert rule, you will receive a CSV download link with the email. Please note that the download link will expire on the same day it is issued. Ensure that you download your data as soon as you receive the email to avoid any inconvenience. 
 
+### Why does the downloaded file only contain data for a few days, and how can I access the complete data set?
+
+The downloaded file may only contain data for a few days due to a design that allows a maximum of 15,000 records for CSV files in this download experience. If there is a large volume of data being requested, such as at the billing account scope at the resource level for an entire month, we recommend creating an export for the same scope. This will allow you to retrieve all the data without encountering the record limit. For more details on how to create an export, please refer to [Create export](/azure/cost-management-billing/costs/tutorial-improved-exports"https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-improved-exports#create-exports").
+
+### Why does the image in the email not match Cost Analysis and stop midway through the month?
+
+To ensure optimal performance, we process up to 200,000 rows when generating the image. This approach may cause the image to not match the UX if there are more than 200,000 rows. In such cases, if the image in the email appears to stop midway through the month, we recommend visiting the Cost Analysis to view the complete data.
+
 ## Next steps
 
 - For more information about creating dashboards, see [Create a dashboard in the Azure portal](/azure/azure-portal/azure-portal-dashboards).
