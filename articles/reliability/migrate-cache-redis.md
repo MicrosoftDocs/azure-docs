@@ -40,7 +40,7 @@ Running multiple caches simultaneously as you convert your data to the new cache
 
 #### How to redeploy
 
-1.  To create a new zone redundant cache that meets your requirements, follow the steps in [Enable zone redundancy for Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md). 
+1. To create a new zone redundant cache that meets your requirements, follow the steps in [Enable zone redundancy for Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md). 
 
 >[!TIP]
 >To ease the migration process, it's recommended that you create the cache to use the same tier, SKU, and region as your current cache.
@@ -54,12 +54,14 @@ Running multiple caches simultaneously as you convert your data to the new cache
 ## Enabling Zone Redundancy for Standard and Premium tiers
 
 Updating an existing Standard or Premium cache to use zone redundancy is supported in-place (Preview). Users can enable it by navigating to the **Advanced settings** on the Resource menu and selecting **Allocate Zones automatically** check-box followed by the save button.
+
 Users can't disable zone redundancy once it's enabled.
 
 :::image type="content" source="media/migrate-cache-redis/enable-zones-on-existing-cache.png" alt-text="Screenshot showing a red boxes around Advanced settings blade, (PREVIEW) Allocate zones automatically check-box, and Save button":::
 
-This update can also be done by passing **zonalAllocationPolicy** as **Automatic** in the request body while updating the cache using REST API. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](https://learn.microsoft.com/rest/api/redis/redis/update?view=rest-redis-2024-11-01&tabs=HTTP&preserve-view=true#zonalallocationpolicy).
-Updating **zonalAllocationPolicy** to any other value than **Automatic** isn't supported.
+This update can also be done by passing `ZonalAllocationPolicy` as `Automatic` in the request body while updating the cache using REST API. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](/rest/api/redis/redis/update?view=rest-redis-2024-11-01#zonalallocationpolicy&preserve-view=true).
+
+Updating `ZonalAllocationPolicy to any other value than `Automatic` isn't supported.
 
   > [!IMPORTANT]
   > Automatic Zonal Allocation cannot be modified once enabled for a cache.
