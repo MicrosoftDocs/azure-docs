@@ -4,8 +4,9 @@ description: Learn how to use and monitor your server load for Azure Managed Red
 
 
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 ms.date: 11/15/2024
-
 ---
 
 # Manage Server Load for Azure Managed Redis (preview)
@@ -58,4 +59,3 @@ For standard and premium SKUs, each cache is hosted on two nodes. A load balance
 - [Connection resilience](managed-redis-best-practices-connection.md)
 - [Configure appropriate timeouts](managed-redis-best-practices-connection.md#configure-appropriate-timeouts).
 - [Memory management](managed-redis-best-practices-memory-management.md)
-

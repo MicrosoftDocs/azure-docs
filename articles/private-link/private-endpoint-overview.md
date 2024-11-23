@@ -8,7 +8,7 @@ ms.service: azure-private-link
 ms.topic: conceptual
 ms.date: 11/05/2024
 ms.author: abell
-ms.custom: references_regions, template-concept
+ms.custom: references_regions, template-concept, ignite-2024
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ---
 

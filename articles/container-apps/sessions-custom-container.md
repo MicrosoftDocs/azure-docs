@@ -4,6 +4,8 @@ description: Learn to run a container in a custom session in Azure Container App
 services: container-apps
 author: anthonychu
 ms.service: azure-container-apps
+ms.custom:
+  - ignite-2024
 ms.topic: conceptual
 ms.date: 10/24/2024
 ms.author: antchu

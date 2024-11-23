@@ -10,9 +10,9 @@ ms.custom: subject-bicepqs
 ms.date: 11/06/2024
 ---
 
-# Quickstart: Deploy the Azure Health Data Services de-identification service (preview) with Bicep
+# Quickstart: Deploy the Azure Health Data Services de-identification service with Bicep
 
-In this quickstart, you use a Bicep definition to deploy a de-identification service (preview).
+In this quickstart, you use a Bicep definition to deploy a de-identification service.
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 

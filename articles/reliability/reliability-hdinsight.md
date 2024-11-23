@@ -19,7 +19,7 @@ This article describes reliability support in [Azure HDInsight](../hdinsight/hdi
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure HDInsight supports a [zonal deployment configuration](availability-zones-service-support.md#azure-services-with-availability-zone-support). Azure HDInsight cluster nodes are placed in a single zone that you select in the selected region. A zonal HDInsight cluster is isolated from any outages that occur in other zones. However, if an outage impacts the specific zone chosen for the HDInsight cluster, the cluster won't be available.  This deployment model provides inexpensive, low latency network connectivity within the cluster. Replicating this deployment model into multiple availability zones can provide a higher level of availability to protect against hardware failure.
+Azure HDInsight supports a [zonal deployment configuration](availability-zones-service-support.md). Azure HDInsight cluster nodes are placed in a single zone that you select in the selected region. A zonal HDInsight cluster is isolated from any outages that occur in other zones. However, if an outage impacts the specific zone chosen for the HDInsight cluster, the cluster won't be available.  This deployment model provides inexpensive, low latency network connectivity within the cluster. Replicating this deployment model into multiple availability zones can provide a higher level of availability to protect against hardware failure.
 
 >[!IMPORTANT]
 >For deployments where users don't specify a specific zone, node types are not zone resilient and can experience downtime during an outage in any zone in that region.

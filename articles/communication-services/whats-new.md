@@ -537,13 +537,13 @@ For more information, see [Integrate CallKit into the UI Library](./how-tos/ui-l
 
 ### PSTN Direct Offers
 
-Azure Communication Services continues to expand Direct Offers to new geographies. PSTN Direct Offers is in general availability for 42 countries:
+Azure Communication Services continues to expand Direct Offers to new geographies. PSTN Direct Offers is in general availability for 42 countries and regions:
 
-> Argentina, Australia, Austria, Belgium, Brazil, Canada, Chile, China, Colombia, Denmark, Finland, France, Germany, Hong Kong, Indonesia, Ireland, Israel, Italy, Japan, Luxembourg, Malaysia, Mexico, Netherlands, New Zealand, Norway, Philippines, Poland, Portugal, Puerto Rico, Saudi Arabia, Singapore, Slovakia, South Africa, South Korea, Spain, Sweden, Switzerland, Taiwan, Thailand, UAE (United Arab Emirates), United Kingdom, United States
+> Argentina, Australia, Austria, Belgium, Brazil, Canada, Chile, China, Colombia, Denmark, Finland, France, Germany, Hong Kong SAR, Indonesia, Ireland, Israel, Italy, Japan, Luxembourg, Malaysia, Mexico, Netherlands, New Zealand, Norway, Philippines, Poland, Portugal, Puerto Rico, Saudi Arabia, Singapore, Slovakia, South Africa, South Korea, Spain, Sweden, Switzerland, Taiwan, Thailand, UAE (United Arab Emirates), United Kingdom, United States
 
-In addition to getting all current offers into general availability, we've introduced more than 400 new cross-country offers.
+In addition to getting all current offers into general availability, we've introduced more than 400 new cross-country/region offers.
 
-Check all the new countries, phone number types, and capabilities at [Country/regional availability of telephone numbers and subscription eligibility](./concepts/numbers/sub-eligibility-number-capability.md).
+Check all the new countries/regions, phone number types, and capabilities at [Country/regional availability of telephone numbers and subscription eligibility](./concepts/numbers/sub-eligibility-number-capability.md).
 
 ## January 2024
 
