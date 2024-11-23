@@ -75,8 +75,11 @@ When the troubleshoot and repair process finishes, the tool lists the results of
 
 If the Troubleshoot & repair tool can't resolve the issue, try these steps:
 
-1. Contact your administrator, who can help you apply an approved solution, if one exists.
 1. Explore support options: [Get support for Microsoft Dev Box](how-to-get-help.md).
+1. Contact your developer team lead or administrator, who can: 
+    - Troubleshoot issues with the benefit of organizational knowledge.
+    - Help you apply an approved solution, if one exists.
+    - If necessary, open a support request to contact Azure support: **[Contact Microsoft Azure Support - Microsoft Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4).**
 1. Ask the developer community: [Ask the community](https://developercommunity.microsoft.com/devbox).
 
 ## Related content
