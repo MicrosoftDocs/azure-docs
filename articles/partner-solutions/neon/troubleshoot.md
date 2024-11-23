@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Neon Serverless Postgres 
+title: Troubleshoot Neon Serverless Postgres 
 description: Learn how to troubleshoot Neon Serverless Postgres.
 author: ProfessorKendrick
 ms.topic: overview
@@ -8,7 +8,7 @@ ms.custom:
 ms.date: 11/22/2024
 ---
 
-# Troubleshooting Neon Serverless Postgres
+# Troubleshoot Neon Serverless Postgres
 
 You can get support for your Neon deployment through a New Support request. For further assistance, visit [Neon Support]. In addition, this article includes troubleshooting for problems you might experience in creating and using a Neon resource. 
 
@@ -22,14 +22,10 @@ Select Support + troubleshooting in Help menu on the left of the Overview page
 
 Select **Create a support request**. You're redirected to the partner portal where you can raise a support ticket.
 
---
-
 ## Unable to create a Neon resource as not a subscription owner/ contributor
 Only users with Owner or Contributor access on the Azure subscription can create Neon resources. Ensure you have the appropriate access before setting up this integration.
 
 ## Marketplace purchase errors
-
-<!--add links-->
 
 ### The Microsoft.SaaS resource provider isn't registered on the Azure subscription.
 You must make sure your Azure subscription is registered for the resource provider before you use it. Learn more about [resource provider registration](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) and [resolving errors on resource provider registration](../../azure/azure-resource-manager/troubleshooting/error-register-resource-provider).
