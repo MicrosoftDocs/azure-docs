@@ -52,6 +52,7 @@ Before you begin, make sure you have either the tenant ID, or the primary domain
 1. On the Add tenant page, enter a tenant ID or domain name, provide a friendly name and then select one or both options for access settings. For more information about access settings, see [Access settings for associated billing tenant](#access-settings-for-associated-billing-tenants).  
     >[!NOTE]
     > The Tenant ID is case sensitive.  
+
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-add.png" alt-text="Screenshot showing associated billing tenants form." lightbox="./media/manage-billing-across-tenants/associated-tenants-add.png" :::
     > [!NOTE]
     > The friendly name of an associated billing tenant is used to easily identify the tenant in the Cost management + Billing section. The name is different from the display name of the tenant in Microsoft Entra ID.
