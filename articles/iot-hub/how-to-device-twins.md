@@ -42,26 +42,6 @@ This article shows you how to develop two types of applications:
 
 * **A registered device**. Some SDK calls require the device primary connection string, so make a note of the connection string.
 
-* **IoT Hub service connection string**
-
-  In this article, you create a back-end service that adds desired properties to a device twin and then queries the identity registry to find all devices with reported properties that have been updated accordingly. Your service needs the **service connect** permission to modify desired properties of a device twin, and it needs the **registry read** permission to query the identity registry. There is no default shared access policy that contains only these two permissions, so you need to create one.
-
-  To create a shared access policy that grants **service connect** and **registry read** permissions and get a connection string for this policy, follow these steps:
-
-  1. In the Azure portal, select **Resource groups**. Select the resource group where your hub is located, and then select your hub from the list of resources.
-
-  1. On the left-side pane of your hub, select **Shared access policies**.
-
-  1. From the top menu above the list of policies, select **Add shared policy access policy**.
-
-  1. In the **Add shared access policy** pane on the right, enter a descriptive name for your policy, such as "serviceAndRegistryRead". Under **Permissions**, select **Registry Read** and **Service Connect**, and then select **Add**.
-
-  1. Select your new policy from the list of policies.
-
-  1. Select the copy icon for the **Primary connection string** and save the value.
-
-  For more information about IoT Hub shared access policies and permissions, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
-
 * If your application uses the MQTT protocol, make sure that **port 8883** is open in your firewall. The MQTT protocol communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 * Language SDK requirements:

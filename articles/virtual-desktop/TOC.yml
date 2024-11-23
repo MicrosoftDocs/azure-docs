@@ -60,7 +60,6 @@
         - name: Windows App
           displayName: what's new, apps, remote desktop, rdp
           href: /windows-app/whats-new?context=/azure/virtual-desktop/context/context
-
 - name: Tutorials
   expanded: true
   items:
@@ -87,16 +86,16 @@
       items:
         - name: Virtual machine sizing guidance
           displayName: session hosts, vms, sku
-          href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+          href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
         - name: Understanding network connectivity
           displayName: connections
           href: network-connectivity.md
         - name: Bandwidth considerations
           displayName: network, throughput, latency
           href: rdp-bandwidth.md
-        - name: Azure Stack HCI
+        - name: Azure Local
           displayName: session hosts, virtual machines, vms, on-premises, on premises
-          href: azure-stack-hci-overview.md
+          href: azure-local-overview.md
         - name: Azure Extended Zones
           displayName: session hosts, virtual machines, vms, low latency
           href: azure-extended-zones.md
@@ -114,7 +113,7 @@
       displayName: standard, host pools, session host configuration, shc, shu
       href: host-pool-management-approaches.md
     - name: Deploy Azure Virtual Desktop
-      displayName: deploy, create, get started, quickstart, host pool, application group, workspace, assign users, azure stack hci, azure extended zones
+      displayName: deploy, create, get started, quickstart, host pool, application group, workspace, assign users, azure stack hci, azure local, azure extended zones
       href: deploy-azure-virtual-desktop.md
     - name: Quickstart
       displayName: deploy, create, get started, quickstart
@@ -181,7 +180,7 @@
           href: proxy-server-support.md
         - name: Use Azure Firewall to protect Azure Virtual Desktop
           displayName: network
-          href: ../firewall/protect-azure-virtual-desktop.md?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext
+          href: ../firewall/protect-azure-virtual-desktop.md?context=/azure/virtual-desktop/context/context
     - name: Session hosts
       items:
         - name: Azure Virtual Desktop Agent
@@ -219,7 +218,7 @@
                       displayName: languages, language packs
                       href: windows-11-language-packs.md
         - name: Add session hosts to a host pool
-          displayName: deploy, get started, virtual machines, vms, azure stack hci, azure extended zones
+          displayName: deploy, get started, virtual machines, vms, azure stack hci, azure local, azure extended zones
           href: add-session-hosts-host-pool.md
         - name: Multimedia redirection
           items:
@@ -244,7 +243,7 @@
           href: windows-multisession-faq.yml
         - name: Fair Share technologies
           displayName: virtual machines, vms, cpu, processor
-          href: /windows-server/remote/remote-desktop-services/fair-share-enabled-by-default-rds?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          href: /windows-server/remote/remote-desktop-services/fair-share-enabled-by-default-rds?context=/azure/virtual-desktop/context/context
     - name: User profile management
       items:
         - name: FSLogix profile container overview
@@ -255,18 +254,18 @@
           href: store-fslogix-profile.md
         - name: FSLogix profile container storage guides
           items:
-            - name: Use a VM-based file share
-              displayName: fslogix, user profiles
-              href: create-host-pools-user-profile.md
-            - name: Use Azure NetApp Files
-              displayName: fslogix, user profiles
-              href: create-fslogix-profile-container.md
-            - name: Use Azure Files and Active Directory
-              displayName: fslogix, user profiles
-              href: fslogix-profile-container-configure-azure-files-active-directory.md
             - name: Use Azure Files and Microsoft Entra ID
               displayName: fslogix, user profiles
-              href: create-profile-container-azure-ad.yml
+              href: /fslogix/how-to-configure-profile-container-azure-ad?context=/azure/virtual-desktop/context/context
+            - name: Use Azure Files and Active Directory
+              displayName: fslogix, user profiles
+              href: /fslogix/how-to-configure-profile-container-azure-files-active-directory?context=/azure/virtual-desktop/context/context
+            - name: Use Azure NetApp Files
+              displayName: fslogix, user profiles
+              href: /fslogix/how-to-configure-profile-container-netapp?context=/azure/virtual-desktop/context/context
+        - name: Configure FSLogix profile containers
+          displayName: user profiles
+          href: /fslogix/tutorial-configure-profile-containers?context=/azure/virtual-desktop/context/context
     - name: Applications
       items:
         - name: Publish applications with RemoteApp
@@ -360,10 +359,10 @@
               items:
               - name: Manage Windows single-session
                 displayName: intune, management
-                href: /mem/intune/fundamentals/azure-virtual-desktop?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+                href: /mem/intune/fundamentals/azure-virtual-desktop?context=/azure/virtual-desktop/context/context
               - name: Manage Windows multi-session
                 displayName: intune, management
-                href: /mem/intune/fundamentals/azure-virtual-desktop-multi-session?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+                href: /mem/intune/fundamentals/azure-virtual-desktop-multi-session?context=/azure/virtual-desktop/context/context
             - name: Deploy updates with Configuration Manager
               displayName: configmgr, sccm, management
               href: configure-automatic-updates.md
@@ -472,27 +471,27 @@
       items:
         - name: Remote Desktop app overview
           displayName: apps, remote desktop, rdp
-          href: ./users/remote-desktop-clients-overview.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
+          href: ./users/remote-desktop-clients-overview.md?context=/azure/virtual-desktop/context/context
         - name: Connect to Azure Virtual Desktop
           displayName: apps, clients, remote desktop, rdp, connect
-          href: ./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+          href: ./users/connect-remote-desktop-client.md?context=/azure/virtual-desktop/context/context
         - name: Use Remote Desktop app features
           items:
             - name: Windows
               displayName: apps, clients, remote desktop, rdp, connect, features
-              href: ./users/client-features-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
+              href: ./users/client-features-windows.md?context=/azure/virtual-desktop/context/context
             - name: Web browser
               displayName: apps, clients, remote desktop, rdp, connect, features
-              href: ./users/client-features-web.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
+              href: ./users/client-features-web.md?context=/azure/virtual-desktop/context/context
             - name: macOS
               displayName: apps, clients, remote desktop, rdp, connect, features
-              href: ./users/client-features-macos.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
+              href: ./users/client-features-macos.md?context=/azure/virtual-desktop/context/context
             - name: iOS/iPadOS
               displayName: apps, clients, remote desktop, rdp, connect, features
-              href: ./users/client-features-ios-ipados.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
+              href: ./users/client-features-ios-ipados.md?context=/azure/virtual-desktop/context/context
             - name: Android/Chrome OS
               displayName: apps, clients, remote desktop, rdp, connect, features
-              href: ./users/client-features-android-chrome-os.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
+              href: ./users/client-features-android-chrome-os.md?context=/azure/virtual-desktop/context/context
         - name: Compare the Remote Desktop app across platforms
           displayName: apps, remote desktop, rdp
           href: compare-remote-desktop-clients.md
@@ -552,10 +551,10 @@
       displayName: apps, clients, windows app, remote desktop, rdp
       href: rdp-properties.md
     - name: Print using Universal Print
-      href: /universal-print/fundamentals/universal-print-avd?toc=/azure/virtual-desktop/toc.json
+      href: /universal-print/fundamentals/universal-print-avd?context=/azure/virtual-desktop/context/context
     - name: Thin client partners
       displayName: apps, clients, remote desktop, rdp, connect
-      href: ./users/connect-thin-clients.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+      href: ./users/connect-thin-clients.md?context=/azure/virtual-desktop/context/context
 - name: Monitor
   items:
     - name: Azure Virtual Desktop Insights
@@ -732,15 +731,15 @@
           items:
             - name: Azure Virtual Desktop for the enterprise
               displayName: architecture
-              href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+              href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
             - name: Multiple identity sources
               items:
                 - name: AD DS and Microsoft Entra ID
                   displayName: architecture
-                  href: /azure/architecture/example-scenario/wvd/multi-forest?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+                  href: /azure/architecture/example-scenario/wvd/multi-forest
                 - name: Microsoft Entra ID, AD DS, and Microsoft Entra Domain Services
                   displayName: architecture
-                  href: /azure/architecture/example-scenario/wvd/multi-forest-azure-managed?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+                  href: /azure/architecture/example-scenario/wvd/multi-forest-azure-managed
     - name: How-to videos
       href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
     - name: Microsoft Tech Community

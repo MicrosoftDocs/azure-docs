@@ -70,6 +70,11 @@ A broad ecosystem is available for the industry-standard AMQP 1.0 protocol. SDKs
 
 The ecosystem also allows you to integrate with Azure Functions, Azure Spring Apps, Kafka Connectors, and other data analytics platforms and technologies, such as Apache Spark and Apache Flink.
 
+### Supports Local development with Event Hubs emulator 
+
+Azure Event Hubs emulator offers a local development experience for the Event Hubs. You can use the emulator to develop and test code against the service in isolation, free from cloud interference. For more information, see [Event Hubs emulator](overview-emulator.md)
+
+
 ### Flexible and cost-efficient event streaming
 
 You can experience flexible and cost-efficient event streaming through the Standard, Premium, or Dedicated tiers for Event Hubs. These options cater to data streaming needs that range from a few MB/sec to several GB/sec. You can choose the match that's appropriate for your requirements.
