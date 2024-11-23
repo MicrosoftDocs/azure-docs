@@ -71,6 +71,15 @@ When the troubleshoot and repair process finishes, the tool lists the results of
 | **No issue detected.** | None of the checks discovered an issue with the dev box. |
 | **An issue was detected but could not be fixed automatically.** | There's an issue with the dev box that the Troubleshoot & repair process couldn't resolve. You can select **View details** for the issue and explore options to fix the issue manually. |
  
+## Get further assistance
+
+If the troubleshoot and repair tool can't resolve the issue, try these steps:
+
+1. Contact your administrator, who can help you apply an approved solution, if one exists.
+1. Explore support options: [Get support for Microsoft Dev Box](how-to-get-help.md).
+1. Ask the developer community: [Ask the community](https://developercommunity.microsoft.com/devbox).
+
 ## Related content
 
 - [Tutorial: Use a Remote Desktop client to connect to a dev box](tutorial-connect-to-dev-box-with-remote-desktop-app.md)
+- [Get support for Microsoft Dev Box](how-to-get-help.md)
