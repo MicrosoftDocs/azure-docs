@@ -5,7 +5,7 @@ author: ProfessorKendrick
 ms.topic: how-to
 ms.custom:
 
-ms.date: 10/01/2024
+ms.date: 11/22/2024
 ---
 
 # Manage your Neon  integration through the portal
@@ -39,4 +39,4 @@ Once the Neon resource is deleted, all billing stops for that resource through A
 
 ## Related content 
 
-<!--Developer tools link-->
+[Neon Serverless Postgres developer resources and tools](tools.md)

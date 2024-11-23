@@ -5,7 +5,7 @@ author: ProfessorKendrick
 ms.topic: overview
 ms.custom:
 
-ms.date: 11/06/2024
+ms.date: 11/22/2024
 ---
 
 # What is Neon Serverless Postgres?
@@ -21,6 +21,7 @@ Neon's advanced features include autoscaling, scale-to-zero, database branching,
 Neon simplifies database management with seamless integration into your existing workflows, providing a powerful, cost-efficient solution for developers and businesses.  
 
 Neon manages the Postgres infrastructure, including database configuration, maintenance, and scaling operations, allowing you to focus on building and optimizing your applications. 
+
 With its intuitive onboarding process, you can quickly start using Neon's capabilities for your Azure workloads, ensuring your databases are always optimized for performance and reliability.  
 
 Here are the key capabilities provided by the Neon integration:
@@ -37,7 +38,7 @@ Here are the key capabilities provided by the Neon integration:
 
 ## Find Neon Serverless Postgres
 
-<!--From the [Azure Marketplace](LINK), search for _Neon Serverless Postgres_. Once you subscribe, you'll be directed to a the [Create a Neon Serverless Postgres Resource](LINK) pane.
+From the [Azure Marketplace](LINK), search for _Neon Serverless Postgres_. Once you subscribe, you'll be directed to a the [Create a Neon Serverless Postgres resource](create.md#create-a-neon-serverless-postgres-resource)pane.
 
 You can also find Neon Serverless Postgres in the [Azure portal](LINK).-->
 

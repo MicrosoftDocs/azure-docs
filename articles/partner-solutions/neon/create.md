@@ -4,7 +4,7 @@ description: Learn how to create a resource for  Neon Serverless Postgres (previ
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
-ms.date: 11/07/2024
+ms.date: 11/22/2024
 
 ---
 # Quickstart: Create a Neon Serverless Postgres (preview) resource
@@ -67,8 +67,6 @@ There are required fields in each section that you need to fill out.
     |Plan    |Select the **Change plan** link and choose the plan you want.        |
 
     The remaining fields update to reflect the details of the plan you selected for this new organization.
-
-    <!--TODO: update once public preview permits multiple plans-->
 
 1. Select the **Next** button at the bottom of the page.
 

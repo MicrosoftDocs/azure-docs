@@ -20,7 +20,7 @@ To contact support about Neon resource, select the resource in the Resource menu
 
 Select Support + troubleshooting in Help menu on the left of the Overview page. 
 
-Select **Create a support request**. You will re-directed to the partner portal where you can raise a support ticket.
+Select **Create a support request**. You're redirected to the partner portal where you can raise a support ticket.
 
 --
 
@@ -32,19 +32,19 @@ Only users with Owner or Contributor access on the Azure subscription can create
 <!--add links-->
 
 ### The Microsoft.SaaS resource provider isn't registered on the Azure subscription.
-You must make sure your Azure subscription is registered for the resource provider before you use it. Learn more about Resource provider registration and resolving errors on resource provider registration.
+You must make sure your Azure subscription is registered for the resource provider before you use it. Learn more about [resource provider registration](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) and [resolving errors on resource provider registration](../../azure/azure-resource-manager/troubleshooting/error-register-resource-provider).
 
 ### Plan can't be purchased on a free subscription.
-You can't make marketplace purchases on a free Azure subscription. Refer to the Azure free Account FAQ. For more information, see purchase SaaS offer in the Azure portal.
+You can't make marketplace purchases on a free Azure subscription. Refer to the [Azure free account FAQ](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account). For more information, see [purchase SaaS offer in the Azure portal](/marketplace/purchase-saas-offer-in-azure-portal).
 
 ### Purchase failed because we couldn't find a valid payment method associated with your Azure subscription.
-Use a different Azure subscription or add or update current credit card or payment method information for this subscription. For more information, see purchase SaaS offer in the Azure portal.
+Use a different Azure subscription or add or update current credit card or payment method information for this subscription. For more information, see [purchase SaaS offer in the Azure portal](/marketplace/purchase-saas-offer-in-azure-portal).
 
 ### The Publisher doesn't make available Offer, Plan in your Subscription/Azure account’s region.
 The offer or the specific plan isn't available to the billing account market that is connected to the Azure Subscription.
 
 ### Enrollment for Azure Marketplace is set to Free/BYOL SKUs only, purchase for Azure product isn't allowed. Contact your enrollment administrator.
-Enterprise administrators can disable or enable Azure Marketplace purchases for all Azure subscriptions under their enrollment. For more information, see Azure Marketplace - Microsoft Cost Management. More information on different listing options is present in Introduction to listing options
+Enterprise administrators can disable or enable Azure Marketplace purchases for all Azure subscriptions under their enrollment. For more information, see Azure Marketplace - Microsoft Cost Management[Enabling Azure Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). More information on different listing options is present in Introduction to listing options.
 
 ### Marketplace isn't enabled for the Azure subscription.
 Enterprise administrators can disable or enable Azure Marketplace purchases for all Azure subscriptions under their enrollment. Refer to Azure Marketplace - Microsoft Cost Management.

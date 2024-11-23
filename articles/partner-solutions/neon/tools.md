@@ -1,6 +1,6 @@
 ---
 title: Neon Serverless Postgres developer resources and tools
-description: Learn about resources and developer tools available with Neon Serverless Postgres
+description: Learn about resources and developer tools available with Neon Serverless Postgres.
 
 ms.topic: overview
 ms.date: 11/22/2024
@@ -11,7 +11,7 @@ ms.date: 11/22/2024
 
 # What are some resources and tools you can use with Neon Serverless Postgres on Azure? 
 
-In this article, you will learn about resources and tools for use with Neon Serverless Postgres 
+In this article, you learn about resources and tools for use with Neon Serverless Postgres 
 
 - Articles that you can use to understand Neon Serverless Postgres 
 - Tools for developers to work with Neon Serverless Postgres 
@@ -48,7 +48,7 @@ Key links to get started:
 - [Neon CLI](https://neon.tech/docs/reference/neon-cli)
 - [Neon API](https://api-docs.neon.tech/reference/getting-started-with-neon-api)
 - [Neon Serverless driver](https://neon.tech/docs/serverless/serverless-driver)
-- [SDKs](https://neon.tech/docs/reference/sdk)
+- [Neon SDKs](https://neon.tech/docs/reference/sdk)
 - [Terraform providers](https://neon.tech/docs/reference/terraform)
 - [Framework guides](https://neon.tech/docs/get-started-with-neon/frameworks)
 - [Language guides](https://neon.tech/docs/get-started-with-neon/languages)
