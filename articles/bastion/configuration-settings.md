@@ -6,7 +6,7 @@ ms.author: cherylmc
 ms.service: azure-bastion
 ms.topic: conceptual
 ms.date: 09/17/2024
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2024
 ---
 
 # About Bastion configuration settings

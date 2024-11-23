@@ -4,6 +4,8 @@ description: Learn about the private DNS zone values for Azure services that sup
 author: AbdullahBell
 ms.author: abell
 ms.service: azure-private-link
+ms.custom:
+  - ignite-2024
 ms.topic: concept-article
 ms.date: 11/05/2024
 

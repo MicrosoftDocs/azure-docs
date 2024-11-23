@@ -154,7 +154,7 @@ For example, to create a new broker listener with node port service type, servic
 # [Portal](#tab/portal)
 
 1. In the Azure portal, go to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select **MQTT broker listener for NodePort** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 
     > [!CAUTION]
@@ -314,7 +314,7 @@ For example, to create a new broker listener with load balancer service type, se
 # [Portal](#tab/portal)
 
 1. In the Azure portal, go to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select **MQTT broker listener for NodePort** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 
     > [!CAUTION]
@@ -446,13 +446,16 @@ If the external IP is not assigned, you might need to use port forwarding or a v
 
 With [minikube](https://minikube.sigs.k8s.io/docs/), [kind](https://kind.sigs.k8s.io/), and other cluster emulation systems, an external IP might not be automatically assigned. For example, it might show as *Pending* state. 
 
-1. To access the broker, forward the broker listening port 18883 to the host.
+1. To access the broker, forward the broker listener port to the host.
 
     ```bash
-    kubectl port-forward --namespace azure-iot-operations service/aio-broker 18883:mqtts-18883
+    # Using aio-broker-loadbalancer service name and listener port 1883 as example
+    kubectl port-forward --namespace azure-iot-operations service/aio-broker-loadbalancer <HOST_PORT>:1883
     ```
 
-1. Use 127.0.0.1 to connect to the broker at port 18883 with the same authentication and TLS configuration as the example without port forwarding.
+1. Leave the port forwarding command running in the terminal.
+
+1. Connect to the broker at the host port with the same authentication and TLS configuration as the example without port forwarding.
 
 For more information about minikube, see [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
 
@@ -521,7 +524,7 @@ The reason that MQTT broker uses TLS and service accounts authentication by defa
 # [Portal](#tab/portal)
 
 1. In the Azure portal, go to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select **MQTT broker listener for NodePort** or **MQTT broker listener for LoadBalancer** > **Create**. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 
     > [!CAUTION]
@@ -615,3 +618,4 @@ spec:
 
 - [Configure TLS with manual certificate management to secure MQTT communication](howto-configure-tls-manual.md)
 - [Configure authentication](howto-configure-authentication.md)
+- [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md)

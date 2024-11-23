@@ -14,15 +14,9 @@ The following table lists the current versions available for the public and Insi
 | Public | 1.2.5713  | [Microsoft Store](https://aka.ms/AVDStoreClient) |
 | Insider | 1.2.5802 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.5713 
+## Updates for version 1.2.5804 (Insider) 
 
-*Date published: November 12, 2024*   
-
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
-
-## Updates for version 1.2.5802 (Insider) 
-
-*Date published: November 6, 2024*   
+*Date published: November 19, 2024*   
 
 - Added list of graphics codecs to the Connection Information dialog. 
 - Fixed an issue where the bottom portion of the Windows Authentication dialog could be cut off when connected to a RemoteApp.
@@ -30,7 +24,13 @@ The following table lists the current versions available for the public and Insi
 - Fixed an issue where UDP type was incorrectly reported as "UDP (Private Network)" for all UDP connections in the Connection Info dialog. 
 
 > [!NOTE]
-> This version replaced the Insider versions 1.2.5799, and 1.2.5800. Changes noted above reflect all changes for these versions. 
+> This version replaced the Insider versions 1.2.5799, 1.2.5800, and 1.2.5802. Changes noted above reflect all changes for these versions.  
+
+## Updates for version 1.2.5713 
+
+*Date published: November 12, 2024*   
+
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.5709
 

@@ -15,7 +15,7 @@ zone_pivot_groups: spring-apps-tier-selection
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article shows you how to use system-assigned and user-assigned managed identities for applications in Azure Spring Apps.
 
