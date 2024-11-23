@@ -77,7 +77,7 @@ With this type of allocation, users don't need to worry about choosing the zones
 
 The actual zones that are allocated to the cache are abstracted from the user.
 
-The REST API spec for different types of zonal allocation can be found at: [ZonalAllocationPolicy (2024-11-01)](/rest/api/redis/redis/create?view=rest-redis-2024-11-01#zonalallocationpolicy&preserve-view=true ).
+The REST API spec for different types of zonal allocation can be found at: [ZonalAllocationPolicy (2024-11-01)](/rest/api/redis/redis/create?view=rest-redis-2024-11-01&preserve-view=true#zonalallocationpolicy ).
 
 If the property `ZonalAllocationPolicy` is not passed in the request, Azure assigns its value for caches based on the region's zonal supportability and capacity.
 
@@ -134,7 +134,7 @@ A Premium cache has one primary and one replica node by default. To configure zo
 
 - Yes, updating an existing Standard or Premium cache to use zone redundancy is supported in-place (Preview). Users can enable it by navigating to the **Advanced settings** on the Resource menu and selecting **Allocate Zones automatically** check-box followed by the save button. You can't disable zone redundancy once you enable it.
 - For more details, look into [Migrate an Azure Cache for Redis instance to availability zone support](/azure/reliability/migrate-cache-redis)
-- This can also be done by passing `ZonalAllocationPolicy` as `Automatic`in the request body while updating the cache. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](/rest/api/redis/redis/create?view=rest-redis-2024-11-01#zonalallocationpolicy&preserve-view=true).
+- This can also be done by passing `ZonalAllocationPolicy` as `Automatic`in the request body while updating the cache. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](/rest/api/redis/redis/update?view=rest-redis-2024-11-01&preserve-view=true#zonalallocationpolicy).
   - Updating `ZonalAllocationPolicy` to any other value than `Automatic`isn't supported.
 
   > [!IMPORTANT]

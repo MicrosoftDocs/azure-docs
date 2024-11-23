@@ -59,7 +59,7 @@ Users can't disable zone redundancy once it's enabled.
 
 :::image type="content" source="media/migrate-cache-redis/enable-zones-on-existing-cache.png" alt-text="Screenshot showing a red boxes around Advanced settings blade, (PREVIEW) Allocate zones automatically check-box, and Save button":::
 
-This update can also be done by passing `ZonalAllocationPolicy` as `Automatic` in the request body while updating the cache using REST API. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](/rest/api/redis/redis/update?view=rest-redis-2024-11-01#zonalallocationpolicy&preserve-view=true).
+This update can also be done by passing `ZonalAllocationPolicy` as `Automatic` in the request body while updating the cache using REST API. For more information regarding the update process using REST API, see [ZonalAllocationPolicy (2024-11-01)](/rest/api/redis/redis/update?view=rest-redis-2024-11-01&preserve-view=true#zonalallocationpolicy).
 
 Updating `ZonalAllocationPolicy to any other value than `Automatic` isn't supported.
 
