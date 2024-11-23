@@ -259,6 +259,32 @@ To manage more than 3000 subscriptions:
 
 - Alternatively, if all subscriptions are under the same billing account, create an export at the **billing account scope** to get combined data.
 
+#### How are the exported files organized in the blob storage folders?
+
+The exported files are organized in a structured hierarchy within the storage folders. The naming and hierarchy of the folders are as follows:
+
+- StorageContainer/StorageDirectory/ExportName/[YYYYMMDD-YYYYMMDD]/[RunID]/
+
+This path contains the CSV files and a manifest file.
+
+For example:
+
+- StorageContainer/StorageDirectory/ExportName/[20240401-20240430]/[RunID1]/
+
+This folder contains the CSV files and the manifest file for all export runs during the April 2024 time period.
+
+- StorageContainer/StorageDirectory/ExportName/[20241101-20241130]/[RunID2]/
+
+This folder contains the CSV files and the manifest file for all export runs during the November 2024 time period.
+
+We ensure that the cost file for a particular month is available within that month's folder (e.g., [20240401-20240430], [20241101-20241130], etc.).
+
+- **Without file overwrite:** You will see multiple RunIDs within the month folder, representing different export runs (e.g., 30 different RunIDs for 30 days).
+
+- **With file overwrite:** You will see only one RunID within the month folder, representing the latest run.
+
+At the time of export creation, you can name the StorageContainer, StorageDirectory, and ExportName.
+
 ## Next steps
 
 - Learn more about exports at [Tutorial: Create and manage exported data](tutorial-export-acm-data.md).
