@@ -817,17 +817,17 @@ Deploy your container app with the following command.
 az deployment group create \
   --resource-group $RESOURCE_GROUP \
   --template-file $BICEP_TEMPLATE \
-  --parameters environmentName="$CONTAINERAPPS_ENVIRONMENT" \
-  logAnalyticsWorkspaceName="$LOG_ANALYTICS_WORKSPACE_NAME" \
-  appInsightsName="$APP_INSIGHTS_NAME" \
-  containerAppName="$CONTAINERAPP_NAME" \
-  azureContainerRegistry="$REGISTRY_NAME" \
-  azureContainerRegistryImage="$IMAGE_NAME" \
-  azureContainerRegistryImageTag="$IMAGE_TAG" \
-  azureContainerName="$CONTAINER_NAME" \
-  acrPullDefinitionId="$ACR_PULL_DEFINITION_ID" \
-  userAssignedIdentityName="$USER_ASSIGNED_IDENTITY_NAME" \
-  location="$LOCATION"
+  --parameters environmentName="${CONTAINERAPPS_ENVIRONMENT}" \
+  logAnalyticsWorkspaceName="${LOG_ANALYTICS_WORKSPACE_NAME}" \
+  appInsightsName="${APP_INSIGHTS_NAME}" \
+  containerAppName="${CONTAINERAPP_NAME}" \
+  azureContainerRegistry="${REGISTRY_NAME}" \
+  azureContainerRegistryImage="${IMAGE_NAME}" \
+  azureContainerRegistryImageTag="${IMAGE_TAG}" \
+  azureContainerName="${CONTAINER_NAME}" \
+  acrPullDefinitionId="${ACR_PULL_DEFINITION_ID}" \
+  userAssignedIdentityName="${USER_ASSIGNED_IDENTITY_NAME}" \
+  location="${LOCATION}"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
