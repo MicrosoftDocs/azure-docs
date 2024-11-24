@@ -31,7 +31,7 @@ Before you delete a secret, deploy a new revision that no longer references the 
 Secrets are defined as a set of name/value pairs. The value of each secret is specified directly or as a reference to a secret stored in Azure Key Vault.
 
 > [!NOTE]
-> You should not specify the value of a secret directly in a production environment. Instead, use a reference to a secret stored in Azure Key Vault, as described in the [next section](#reference-secret-from-key-vault).
+> Avoid specifying the value of a secret directly in a production environment. Instead, use a reference to a secret stored in Azure Key Vault, as described in the [Store secret value in Container Apps section](#reference-secret-from-key-vault).
 
 ### Store secret value in Container Apps
 
