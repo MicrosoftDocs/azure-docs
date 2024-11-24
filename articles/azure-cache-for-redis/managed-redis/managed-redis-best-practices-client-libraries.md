@@ -2,7 +2,7 @@
 title: Best practices using client libraries with Azure Managed Redis (preview)
 description: Learn about client libraries for Azure Managed Redis.
 
-ms.service: azure
+ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.date: 11/15/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-extended-java, ignite-2024
