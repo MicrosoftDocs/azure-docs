@@ -35,9 +35,17 @@ The updated solution removes the Power Platform Inventory data connector while w
 For more information, see:
 
 - [What is the Microsoft Sentinel solution for Microsoft Business Apps?](business-applications/solution-overview.md)
-- [Deploy the Microsoft Sentinel solution for Microsoft Business Apps](business-applications/deploy-business-applications-solution.md)
-- [Security content reference for Microsoft Dynamics 365 Finance and Operations](dynamics-365/dynamics-365-finance-operations-security-content.md)
-- [Security content reference for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement](business-applications/power-platform-solution-security-content.md)
+
+- Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement:
+
+    - [Connect Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement to Microsoft Sentinel](business-applications/deploy-power-platform-solution.md)
+    - [Security content reference for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement](business-applications/power-platform-solution-security-content.md)
+
+- Microsoft Dynamics 365 Finance and Operations:
+
+    - [Deploy Microsoft Sentinel solution for Dynamics 365 Finance and Operations](dynamics-365/deploy-dynamics-365-finance-operations-solution.md)
+    - [Security content reference for Dynamics 365 Finance and Operations](dynamics-365/dynamics-365-finance-operations-security-content.md)
+
 
 ### Microsoft Sentinel availability in Microsoft Defender portal
 
