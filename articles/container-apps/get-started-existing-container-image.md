@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: quickstart
-ms.date: 08/31/2022
+ms.date: 09/12/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-registry-types
 ---
