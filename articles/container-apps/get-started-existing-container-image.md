@@ -73,7 +73,7 @@ Now that you have an environment created, you can deploy your first container ap
 
 1. Create the key vault.
 
-	It is recommended to store your container registry password using a service such as [Azure Key Vault](/azure/key-vault/general/basic-concepts). The steps in this section show how to create a key vault, store your container registry password as a secret in the key vault, and then retrieve the password for use in your code.
+	Storing your container registry password using a service such as [Azure Key Vault](/azure/key-vault/general/basic-concepts) keeps the values secure at all times. The steps in this section show how to create a key vault, store your container registry password the Key Vault, and then retrieve the password for use in your code.
 
 	# [Bash](#tab/bash)
 
@@ -83,7 +83,7 @@ Now that you have an environment created, you can deploy your first container ap
 
 	# [Azure PowerShell](#tab/azure-powershell)
 
-	First make sure you have installed the [KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault) module.
+	Install the [Key Vault](https://www.powershellgallery.com/packages/Az.KeyVault) module.
 
 	```azurepowershell-interactive
 	Install-Module Az.KeyVault -Repository PSGallery -Force
