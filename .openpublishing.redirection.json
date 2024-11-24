@@ -146,6 +146,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-app-configuration/run-experiments-aspnet-core.md",
+      "redirect_url": "/azure/azure-app-configuration/concept-experimentation",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/public-multi-access-edge-compute-mec/considerations-for-deployment.md",
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/considerations-for-deployment",
       "redirect_document_id": false

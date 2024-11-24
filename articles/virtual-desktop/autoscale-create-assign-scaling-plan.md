@@ -96,25 +96,22 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
 
 1. Select **Scaling Plans**, then select **Create**.
 
-1. In the **Basics** tab, look under **Project details** and select the name of the subscription you'll assign the scaling plan to.
+1. In the **Basics** tab, complete the following information:
 
-1. If you want to make a new resource group, select **Create new**. If you want to use an existing resource group, select its name from the drop-down menu.
+   | Parameter | Value/Description |
+   |--|--|
+   | Subscription | Select the subscription you want to create the host pool in from the drop-down list. |
+   | Resource group | Select an existing resource group or select **Create new** and enter a name. |
+   | Scaling plan name  | Enter a name for the scaling plan. Optionally, you can also add a "friendly" name that will be displayed to your users and a description for your plan. |
+   | Location  | Select the Azure region where you want to create your scaling plan.  |
+   | Time zone  | Select the time zone you'll use with your plan.  |
+   | Host pool type  | Select the type of host pool that you want your scaling plan to apply to.  |
+   | Exclusion tag | Enter a tag name for VMs you don't want to include in scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance using the exclusion tag "excludeFromScaling". If you've set "excludeFromScaling" as the tag name field on any of the VMs in the host pool, autoscale won't start, stop, or change the drain mode of those particular VMs. |
+   | Scaling method  | This option appears if you selected **Pooled** for **Host pool type**.  Select **Power management autoscaling**.  |
 
-1. Enter a name for the scaling plan into the **Name** field.
-
-1. Optionally, you can also add a "friendly" name that will be displayed to your users and a description for your plan.
-
-1. For **Region**, select a region for your scaling plan. The metadata for the object will be stored in the geography associated with the region. To learn more about regions, see [Data locations](data-locations.md).
-
-1. For **Time zone**, select the time zone you'll use with your plan.
-
-1. For **Host pool type**, select the type of host pool that you want your scaling plan to apply to. 
-
-1. In **Exclusion tags**, enter a tag name for VMs you don't want to include in scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance using the exclusion tag "excludeFromScaling". If you've set "excludeFromScaling" as the tag name field on any of the VMs in the host pool, autoscale won't start, stop, or change the drain mode of those particular VMs.
-        
-    >[!NOTE]
-    >- Though an exclusion tag will exclude the tagged VM from power management scaling operations, tagged VMs will still be considered as part of the calculation of the minimum percentage of hosts.
-    >- Make sure not to include any sensitive information in the exclusion tags such as user principal names or other personally identifiable information.
+   >[!NOTE]
+   >- Though an exclusion tag will exclude the tagged VM from power management scaling operations, tagged VMs will still be considered as part of the calculation of the minimum percentage of hosts.
+   >- Make sure not to include any sensitive information in the exclusion tags such as user principal names or other personally identifiable information.
 
 1. Select **Next**, which should take you to the **Schedules** tab. Schedules let you define when autoscale turns VMs on and off throughout the day. The schedule parameters are different based on the **Host pool type** you chose for the scaling plan.
 
@@ -124,56 +121,55 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
     
     To create or change a schedule:
     
-    1. In the **Schedules** tab, select **Add schedule**.
-    
-    1. Enter a name for your schedule into the **Schedule name** field.
-    
-    1. In the **Repeat on** field, select which days your schedule will repeat on.
+    1. In the **Schedules** tab, select **Add schedule** and complete the following information:   
+
+       | Parameter | Value/Description |
+       |--|--|
+       | Schedule name | Enter a name for your schedule. |
+       | Repeat on  | Select which days your schedule will repeat on.  |
+        
     
     1. In the **Ramp up** tab, fill out the following fields:
-    
-        - For **Start time**, select a time from the drop-down menu to start preparing VMs for peak business hours.
-    
-        - For **Load balancing algorithm**, we recommend selecting **breadth-first algorithm**. Breadth-first load balancing will distribute users across existing VMs to keep access times fast.
-            
-            >[!NOTE]
-            >The load balancing preference you select here will override the one you selected for your original host pool settings.
-    
-        - For **Minimum percentage of hosts**, enter the percentage of session hosts you want to always remain on in this phase. If the percentage you enter isn't a whole number, it's rounded up to the nearest whole number. For example, in a host pool of seven session hosts, if you set the minimum percentage of hosts during ramp-up hours to **10%**, one VM will always stay on during ramp-up hours, and it won't be turned off by autoscale.
-        
-        - For **Capacity threshold**, enter the percentage of available host pool capacity that will trigger a scaling action to take place. For example, if two session hosts in the host pool with a max session limit of 20 are turned on, the available host pool capacity is 40. If you set the capacity threshold to **75%** and the session hosts have more than 30 user sessions, autoscale will turn on a third session host. This will then change the available host pool capacity from 40 to 60.
+       
+       | Parameter | Value/Description |
+       |--|--|
+       | Start time | Select a time from the drop-down menu to start preparing VMs for peak business hours. |
+       | Load balancing algorithm | We recommend selecting **breadth-first algorithm**. Breadth-first load balancing will distribute users across existing VMs to keep access times fast. The load balancing preference you select here will override the one you selected for your original host pool settings. |
+       | Minimum percentage of hosts | Enter the percentage of session hosts you want to always remain on in this phase. If the percentage you enter isn't a whole number, it's rounded up to the nearest whole number. For example, in a host pool of seven session hosts, if you set the minimum percentage of hosts during ramp-up hours to **10%**, one VM will always stay on during ramp-up hours, and it won't be turned off by autoscale. |
+       |Capacity threshold | Enter the percentage of available host pool capacity that will trigger a scaling action to take place. For example, if two session hosts in the host pool with a max session limit of 20 are turned on, the available host pool capacity is 40. If you set the capacity threshold to **75%** and the session hosts have more than 30 user sessions, autoscale will turn on a third session host. This will then change the available host pool capacity from 40 to 60. |
     
     1. In the **Peak hours** tab, fill out the following fields:
     
-        - For **Start time**, enter a start time for when your usage rate is highest during the day. Make sure the time is in the same time zone you specified for your scaling plan. This time is also the end time for the ramp-up phase.
+       | Parameter | Value/Description |
+       |--|--|
+       | Start time | Enter a start time for when your usage rate is highest during the day. Make sure the time is in the same time zone you specified for your scaling plan. This time is also the end time for the ramp-up phase. |
+       | Load balancing | Select breadth-first or depth-first load balancing. Breadth-first load balancing distributes new user sessions across all available session hosts in the host pool. Depth-first load balancing distributes new sessions to any available session host with the highest number of connections that hasn't reached its session limit yet. <br /><br />For more information about load-balancing types, see [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md). |
     
-        - For **Load balancing**, you can select either breadth-first or depth-first load balancing. Breadth-first load balancing distributes new user sessions across all available session hosts in the host pool. Depth-first load balancing distributes new sessions to any available session host with the highest number of connections that hasn't reached its session limit yet. For more information about load-balancing types, see [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md).
+        > [!NOTE]
+        > You can't change the capacity threshold here. Instead, the setting you entered in **Ramp-up** will carry over to this setting.
     
-            > [!NOTE]
-            > You can't change the capacity threshold here. Instead, the setting you entered in **Ramp-up** will carry over to this setting.
+    1. For **Ramp-down**, you'll enter values into similar fields to **Ramp-up**, but this time it will be for when your host pool usage drops off. This will include the following fields:
     
-        - For **Ramp-down**, you'll enter values into similar fields to **Ramp-up**, but this time it will be for when your host pool usage drops off. This will include the following fields:
+        - Start time
+        - Load-balancing algorithm
+        - Minimum percentage of hosts (%)
+        - Capacity threshold (%)
+        - Force logoff users
     
-          - Start time
-          - Load-balancing algorithm
-          - Minimum percentage of hosts (%)
-          - Capacity threshold (%)
-          - Force logoff users
+        > [!IMPORTANT]
+        > - If you've enabled autoscale to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions (active and disconnected) to shut down. Autoscale will put the session host in drain mode, send those user sessions a notification telling them they'll be signed out, and then sign out those users after the specified wait time is over. After autoscale signs out those user sessions, it then deallocates the VM.
+        >    
+        > - If you haven't enabled forced sign out during ramp-down, you then need to choose whether you want to shut down ‘VMs have no active or disconnected sessions’ or ‘VMs have no active sessions’ during ramp-down.
+        >
+        > - Whether you’ve enabled autoscale to force users to sign out during ramp-down or not, the [capacity threshold](autoscale-glossary.md#capacity-threshold) and the [minimum percentage of hosts](autoscale-glossary.md#minimum-percentage-of-hosts) are still respected, autoscale will only shut down VMs if all existing user sessions (active and disconnected) in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
+        >
+        > - You can also configure a time limit policy that will apply to all phases to sign out all disconnected users to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity). For more information, see [Configure a time limit policy](#configure-a-time-limit-policy).
     
-            > [!IMPORTANT]
-            > - If you've enabled autoscale to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions (active and disconnected) to shut down. Autoscale will put the session host in drain mode, send those user sessions a notification telling them they'll be signed out, and then sign out those users after the specified wait time is over. After autoscale signs out those user sessions, it then deallocates the VM.
-            >    
-            > - If you haven't enabled forced sign out during ramp-down, you then need to choose whether you want to shut down ‘VMs have no active or disconnected sessions’ or ‘VMs have no active sessions’ during ramp-down.
-            >
-            > - Whether you’ve enabled autoscale to force users to sign out during ramp-down or not, the [capacity threshold](autoscale-glossary.md#capacity-threshold) and the [minimum percentage of hosts](autoscale-glossary.md#minimum-percentage-of-hosts) are still respected, autoscale will only shut down VMs if all existing user sessions (active and disconnected) in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
-            >
-            > - You can also configure a time limit policy that will apply to all phases to sign out all disconnected users to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity). For more information, see [Configure a time limit policy](#configure-a-time-limit-policy).
+    1. Likewise, **Off-peak hours** works the same way as **Peak hours**:
     
-        - Likewise, **Off-peak hours** works the same way as **Peak hours**:
-    
-          - Start time, which is also the end of the ramp-down period.
-          - Load-balancing algorithm. We recommend choosing **depth-first** to gradually reduce the number of session hosts based on sessions on each VM.
-          - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** carries over.
+        - Start time, which is also the end of the ramp-down period.
+        - Load-balancing algorithm. We recommend choosing **depth-first** to gradually reduce the number of session hosts based on sessions on each VM.
+        - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** carries over.
     
     #### Personal host pools
     
@@ -181,44 +177,32 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
     
     To create or change a schedule:
     
-    1. In the **Schedules** tab, select **Add schedule**.
+    1. In the **Schedules** tab, select **Add schedule** and complete the following information:
     
-    1. Enter a name for your schedule into the **Schedule name** field.
-    
-    1. In the **Repeat on** field, select which days your schedule will repeat on.
+       | Parameter | Value/Description |
+       |--|--|
+       | Schedule name | Enter a name for your schedule. |
+       | Repeat on  | Select which days your schedule will repeat on.  |
     
     1. In the **Ramp up** tab, fill out the following fields:
-    
-        - For **Start time**, select the time you want the ramp-up phase to start from the drop-down menu.
-        
-        - For **Start VM on Connect**, select whether you want Start VM on Connect to be enabled during ramp up. 
-    
-        - For **VMs to start**, select whether you want only personal desktops that have a user assigned to them at the start time to be started, you want all personal desktops in the host pool (regardless of user assignment) to be started, or you want no personal desktops in the pool to be started.
-    
-            > [!NOTE]
-            > We highly recommend that you enable Start VM on Connect if you choose not to start your VMs during the ramp-up phase.
-    
-        - For **When disconnected for**, specify the number of minutes a user session has to be disconnected before performing a specific action. This number can be anywhere between 0 and 360.
-    
-        - For **Perform**, specify what action the service should take after a user session has been disconnected for the specified time. The options are to either deallocate (shut down) the VMs, hibernate the personal desktop, or do nothing.
-         
-        - For **When logged off for**, specify the number of minutes a user session has to be logged off before performing a specific action. This number can be anywhere between 0 and 360.
-    
-        - For **Perform**, specify what action the service should take after a user session has been logged off for the specified time. The options are to either deallocate (shut down) the VMs, hibernate the personal desktop, or do nothing.
+
+       | Parameter | Value/Description |
+       |--|--|
+       | Start time | Select the time you want the ramp-up phase to start from the drop-down menu. |
+       | Start VM on Connect | Select whether you want Start VM on Connect to be enabled during ramp up. <br /><br />We highly recommend that you enable Start VM on Connect if you choose not to start your VMs during the ramp-up phase. |
+       | VMs to start | Select whether you want only personal desktops that have a user assigned to them at the start time to be started, you want all personal desktops in the host pool (regardless of user assignment) to be started, or you want no personal desktops in the pool to be started. |
+       | Disconnect settings | For **When disconnected for (min)**, specify the number of minutes a user session has to be disconnected before performing a specific action. This number can be anywhere between 0 and 360. <br /><br />For **Perform**, specify what action the service should take after a user session has been disconnected for the specified time. The options are to either deallocate (shut down) the VMs, hibernate the personal desktop, or do nothing. |
+       | Sign out settings | For **When logged off for (min)**, specify the number of minutes a user session has to be logged off before performing a specific action. This number can be anywhere between 0 and 360. <br /><br />For **Perform**, specify what action the service should take after a user session has been logged off for the specified time. The options are to either deallocate (shut down) the VMs, hibernate the personal desktop, or do nothing. |
     
     1. In the **Peak hours**, **Ramp-down**, and **Off-peak hours** tabs, fill out the following fields:
     
-        - For **Start time**, enter a start time for each phase. This time is also the end time for the previous phase.
-        
-        - For **Start VM on Connect**, select whether you want to enable Start VM on Connect to be enabled during that phase. 
-    
-        - For **When disconnected for**, specify the number of minutes a user session has to be disconnected before performing a specific action. This number can be anywhere between 0 and 360.
-    
-        - For **Perform**, specify what action should be performed after a user session has been disconnected for the specified time. The options are to either deallocate (shut down) the VMs, hibernate the personal desktop, or do nothing.
-         
-        - For **When logged off for**, specify the number of minutes a user session has to be logged off before performing a specific action. This number can be anywhere between 0 and 360.
-    
-        - For **Perform**, specify what action should be performed after a user session has been logged off for the specified time. The options are to either deallocate (shut down) the VMs, hibernate the personal desktop, or do nothing.
+       | Parameter | Value/Description |
+       |--|--|
+       | Start time | Enter a start time for each phase. This time is also the end time for the previous phase. |
+       | Start VM on Connect | Select whether you want Start VM on Connect to be enabled during that phase. |
+       |Disconnect settings | For **When disconnected for (min)**, specify the number of minutes a user session has to be disconnected before performing a specific action. This number can be anywhere between 0 and 360. <br /><br />For **Perform**, specify what action the service should take after a user session has been disconnected for the specified time. The options are to either deallocate (shut down) the VMs, hibernate the personal desktop, or do nothing. |
+       | Sign out settings | For **When logged off for (min)**, specify the number of minutes a user session has to be logged off before performing a specific action. This number can be anywhere between 0 and 360. <br /><br />For **Perform**, specify what action the service should take after a user session has been logged off for the specified time. The options are to either deallocate (shut down) the VMs, hibernate the personal desktop, or do nothing. |  
+ 
     ---
 
 1. Select **Next** to take you to the **Host pool assignments** tab. Select the check box next to each host pool you want to include. If you don't want to enable autoscale, unselect all check boxes. You can always return to this setting later and change it. You can only assign the scaling plan to host pools that match the host pool type specified in the plan.
@@ -380,10 +364,14 @@ During the preview, you can only create a scaling plan for dynamic autoscaling u
    | Location  | Select the Azure region where you want to create your scaling plan.  |
    | Time zone  | Select the time zone you'll use with your plan.  |
    | Host pool type  | Select **Pooled**.  |
+   | Exclusion tag | Enter a tag name for VMs you don't want to include in scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance using the exclusion tag "excludeFromScaling". If you've set "excludeFromScaling" as the tag name field on any of the VMs in the host pool, autoscale won't start, stop, or change the drain mode of those particular VMs. |
    | Scaling method  | Select **Dynamic autoscaling**.  |
 
-   Once you complete this tab, select **Next: Schedules**.
+   >[!NOTE]
+   >- Though an exclusion tag will exclude the tagged VM from power management scaling operations, tagged VMs will still be considered as part of the calculation of the minimum percentage of hosts.
+   >- Make sure not to include any sensitive information in the exclusion tags such as user principal names or other personally identifiable information.
 
+   Once you complete this tab, select **Next: Schedules**.
 
 1. In the **Schedules** tab, select **Add schedule** and complete the following information. 
 
@@ -528,7 +516,13 @@ To edit an existing scaling plan using the Azure portal:
 
 1. Select **Scaling plans**, then select the name of the scaling plan you want to edit. The overview blade of the scaling plan should open.
 
-1. To change the scaling plan host pool assignments, under the **Manage** heading select **Host pool assignments**.
+1. To change the scaling plan host pool assignments, under the **Manage** heading select **Host pool assignments** and then select **+ Assign**. Select the host pools you want to assign the scaling plan to and select **Assign**. The host pools must be in the same Azure region as the scaling plan and the scaling plan's host pool type must match the type of host pools you're trying to assign it to.
+
+    > [!TIP]
+    > If you've enabled the scaling plan during deployment, then you'll also have the option to disable the plan for the selected host pool in the **Scaling plan** menu by unselecting the **Enable autoscale** checkbox, as shown in the following screenshot.
+    >
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the scaling plan window. The "enable autoscale" check box is selected and highlighted with a red border.](media/enable-autoscale.png)
 
 1. To edit schedules, under the **Manage** heading, select **Schedules**.
 
@@ -578,58 +572,7 @@ Here's how to update a scaling plan using the Az.DesktopVirtualization PowerShel
     Update-AzWvdScalingPlanPooledSchedule @scalingPlanPooledScheduleParams
     ```
 
----
-
-::: zone-end
-
-::: zone pivot="dynamic"
-
-To edit an existing scaling plan using the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
-
-1. Select **Scaling plans**, then select the name of the scaling plan you want to edit. The overview blade of the scaling plan should open.
-
-1. To change the scaling plan host pool assignments, under the **Manage** heading select **Host pool assignments**.
-
-1. To edit schedules, under the **Manage** heading, select **Schedules**.
-
-1. To edit the plan's friendly name, description, time zone, or exclusion tags, go to the **Properties** tab.
-
-::: zone-end
-
-
-## Assign scaling plans to existing host pools
-
-You can assign a scaling plan to any existing host pools of the same type in your deployment. When you assign a scaling plan to your host pool, the plan will apply to all session hosts within that host pool. The scaling plan also automatically applies to any new session hosts you create in the assigned host pool.
-
-If you disable a scaling plan, all assigned resources will remain in the state they were in at the time you disabled it.
-
-::: zone pivot="power-management"
-
-### [Azure portal](#tab/portal)
-
-To assign a scaling plan to existing host pools:
-
-1. Open the [Azure portal](https://portal.azure.com).
-
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
-
-1. Select **Scaling plans**, and select the scaling plan you want to assign to host pools.
-
-1. Under the **Manage** heading, select **Host pool assignments**, and then select **+ Assign**. Select the host pools you want to assign the scaling plan to and select **Assign**. The host pools must be in the same Azure region as the scaling plan and the scaling plan's host pool type must match the type of host pools you're trying to assign it to.
-
-> [!TIP]
-> If you've enabled the scaling plan during deployment, then you'll also have the option to disable the plan for the selected host pool in the **Scaling plan** menu by unselecting the **Enable autoscale** checkbox, as shown in the following screenshot.
->
-> [!div class="mx-imgBorder"]
-> ![A screenshot of the scaling plan window. The "enable autoscale" check box is selected and highlighted with a red border.](media/enable-autoscale.png)
-
-### [Azure PowerShell](#tab/powershell)
-
-1. Assign a scaling plan to existing host pools using [Update-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/update-azwvdscalingplan). The following example assigns a personal scaling plan to two existing personal host pools.
+* Assign a scaling plan to existing host pools using [Update-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/update-azwvdscalingplan). The following example assigns a personal scaling plan to two existing personal host pools.
 
     ```azurepowershell
    $scalingPlanParams = @{
@@ -650,7 +593,7 @@ To assign a scaling plan to existing host pools:
     $scalingPlan = Update-AzWvdScalingPlan @scalingPlanParams
     ```
 
-2. Use [Get-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/get-azwvdscalingplan) to get the host pool(s) that your scaling plan is assigned to.
+* Use [Get-AzWvdScalingPlan](/powershell/module/az.desktopvirtualization/get-azwvdscalingplan) to get the host pool(s) that your scaling plan is assigned to.
 
     ```azurepowershell
     $params = @{
@@ -667,23 +610,28 @@ To assign a scaling plan to existing host pools:
 
 ::: zone pivot="dynamic"
 
-To assign a scaling plan to existing host pools:
+To edit an existing scaling plan using the Azure portal:
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
-1. Select **Scaling plans**, and select the scaling plan you want to assign to host pools.
+1. Select **Scaling plans**, then select the name of the scaling plan you want to edit. The overview blade of the scaling plan should open.
 
-1. Under the **Manage** heading, select **Host pool assignments**, and then select **+ Assign**. Select the host pools you want to assign the scaling plan to and select **Assign**. The host pools must be in the same Azure region as the scaling plan and the scaling plan's host pool type must match the type of host pools you're trying to assign it to.
+1. To change the scaling plan host pool assignments, under the **Manage** heading select **Host pool assignments** and then select **+ Assign**. Select the host pools you want to assign the scaling plan to and select **Assign**. The host pools must be in the same Azure region as the scaling plan and the scaling plan's host pool type must match the type of host pools you're trying to assign it to.
 
-> [!TIP]
-> If you've enabled the scaling plan during deployment, then you'll also have the option to disable the plan for the selected host pool in the **Scaling plan** menu by unselecting the **Enable autoscale** checkbox, as shown in the following screenshot.
->
-> [!div class="mx-imgBorder"]
-> ![A screenshot of the scaling plan window. The "enable autoscale" check box is selected and highlighted with a red border.](media/enable-autoscale.png)
+    > [!TIP]
+    > If you've enabled the scaling plan during deployment, then you'll also have the option to disable the plan for the selected host pool in the **Scaling plan** menu by unselecting the **Enable autoscale** checkbox, as shown in the following screenshot.
+    >
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the scaling plan window. The "enable autoscale" check box is selected and highlighted with a red border.](media/enable-autoscale.png)
+
+1. To edit schedules, under the **Manage** heading, select **Schedules**.
+
+1. To edit the plan's friendly name, description, time zone, or exclusion tags, go to the **Properties** tab.
 
 ::: zone-end
+
 
 
 ## Next steps

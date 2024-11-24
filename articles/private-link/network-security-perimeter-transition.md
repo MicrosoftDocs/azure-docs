@@ -4,6 +4,8 @@ description: Learn about the different access modes and how to transition to a n
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
+ms.custom:
+  - ignite-2024
 ms.topic: overview
 ms.date: 11/06/2024
 #CustomerIntent: As a network administrator, I want to understand the different access modes and how to transition to a network security perimeter in Azure.

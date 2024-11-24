@@ -2,6 +2,8 @@
 title: Quickstart - Bicep template PostgreSQL Backup
 description: Learn how to back up your Azure PostgreSQL - Flexible server with a Bicep template.
 ms.devlang: azurecli
+ms.custom:
+  - ignite-2024
 ms.topic: quickstart
 ms.date: 10/07/2024
 ms.service: azure-backup
@@ -182,6 +184,3 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 - [Restore Azure PostgreSQL - Flexible server using Azure PowerShell](backup-azure-database-postgresql-flex-restore-powershell.md)
 - [About Azure PostgreSQL - Flexible server backup](backup-azure-database-postgresql-flex-overview.md)
-
-
-

@@ -7,7 +7,7 @@ description: In this quickstart, you learn how to create a Go app that uses Azur
 ms.devlang: golang
 ms.topic: quickstart
 ms.date: 09/09/2021
-ms.custom: mode-api, devx-track-go
+ms.custom: mode-api, devx-track-go, ignite-2024
 ---
 
 # Quickstart: Use Azure Cache for Redis with Go

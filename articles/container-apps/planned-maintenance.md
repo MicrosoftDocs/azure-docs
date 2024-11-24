@@ -4,6 +4,8 @@ description: Configure system-level planned maintenance in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
 ms.date: 11/05/2024
 ms.author: cshoe
