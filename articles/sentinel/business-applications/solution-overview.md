@@ -88,6 +88,5 @@ The Microsoft Sentinel solution for Microsoft Business Apps includes parsers tha
 
 For more information, see:
 
-- Deployment procedures: [Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement](deploy-power-platform-solution.md) | [Microsoft Dynamics 365 Finance and Operations](../dynamics-365/deploy-dynamics-365-finance-operations-solution.md)
-- Security content references: [Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement](power-platform-solution-security-content.md) | [Microsoft Dynamics 365 Finance and Operations](../dynamics-365/dynamics-365-finance-operations-security-content.md)
-
+- **Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement**: [Deployment procedure](deploy-power-platform-solution.md) | [Security content reference](power-platform-solution-security-content.md)
+- **Microsoft Dynamics 365 Finance and Operations**: [Deployment procedure](../dynamics-365/deploy-dynamics-365-finance-operations-solution.md) | [Security content reference](../dynamics-365/dynamics-365-finance-operations-security-content.md)
