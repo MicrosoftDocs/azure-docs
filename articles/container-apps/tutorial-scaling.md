@@ -2,11 +2,11 @@
 title: 'Tutorial: Scale an Azure Container Apps application'
 description: Scale an Azure Container Apps application using the Azure CLI.
 services: container-apps
-author: v-jaswel
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 08/02/2023
-ms.author: v-wellsjason
+ms.author: cshoe
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
