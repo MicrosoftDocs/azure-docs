@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure NAT Gateway
 description: This article contains important reference material you need when you monitor Azure NAT Gateway by using Azure Monitor.
-ms.date: 09/16/2024
+ms.date: 12/02/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: asudbring
@@ -32,6 +32,18 @@ The following table lists the metrics available for the Microsoft.Network/natgat
 > For information about aggregation types, see [aggregation types](/azure/azure-monitor/essentials/metrics-aggregation-explained#aggregation-types).
 
 For more information, see [How to use NAT gateway metrics](nat-metrics.md#how-to-use-nat-gateway-metrics).
+
+NAT gateway metrics can be found in the following locations in the Azure portal.
+
+- **Metrics** page under **Monitoring** from a NAT gateway's resource page.
+
+- **Insights** page under **Monitoring** from a NAT gateway's resource page.
+
+  :::image type="content" source="./media/nat-metrics/nat-insights-metrics.png" alt-text="Screenshot of the insights and metrics options in NAT gateway overview.":::
+
+- Azure Monitor page under **Metrics**.
+
+  :::image type="content" source="./media/nat-metrics/azure-monitor.png" alt-text="Screenshot of the metrics section of Azure Monitor.":::
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
