@@ -1,5 +1,3 @@
-Guys, this page is published in a wrong section Concepts/SAP HANA database backup on Azure VMs while you should put it to How-to Guides. Please check and fix -> https://learn.microsoft.com/en-us/azure/backup/backup-azure-mysql-flexible-server-about see menu on the left side of Microsoft docs portal.
-
 ---
 title: Overview - retention of Azure Database for MySQL - Flexible Server for long term by using Azure Backup
 description: This article provides an overview of Azure Database for MySQL - Flexible Server retention for long term.
@@ -10,6 +8,9 @@ ms.custom: engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
+
+Guys, this page is published in a wrong section Concepts/SAP HANA database backup on Azure VMs while you should put it to How-to Guides. Please check and fix -> https://learn.microsoft.com/en-us/azure/backup/backup-azure-mysql-flexible-server-about see menu on the left side of Microsoft docs portal.
+
 
 # Long-term retention for Azure Database for MySQL - Flexible Server by using Azure Backup (preview)
 
