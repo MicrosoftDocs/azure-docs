@@ -42,7 +42,7 @@ Use the [.NET command-line interface (CLI)](/dotnet/core/tools) to create a new 
 Run the following command to create an ASP.NET Core web app in a new *TestAppConfig* folder:
 
 ```dotnetcli
-dotnet new webapp --output TestAppConfig --framework net6.0
+dotnet new webapp --output TestAppConfig
 ```
 
 ## Connect to the App Configuration store
@@ -74,7 +74,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
         
-    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `Endpoints:AppConfiguration`, which stores the endpoint for your App Configuration store. Replace the `<your-App-Configuration-endpoint>` placeholder with your App Configuration store's endpoint. You can find the endpoint in your App Configuration store's **Access settings** in the Azure portal.
+    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `Endpoints:AppConfiguration`, which stores the endpoint for your App Configuration store. Replace the `<your-App-Configuration-endpoint>` placeholder with your App Configuration store's endpoint. You can find the endpoint in your App Configuration store's **Overview** blade in the Azure portal.
     
     ```dotnetcli
     dotnet user-secrets init
@@ -122,20 +122,15 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
     ```csharp
     var builder = new ConfigurationBuilder();
-    builder.AddAzureAppConfiguration(options =>
+    builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        string endpoint = Environment.GetEnvironmentVariable("Endpoint");
+        string endpoint = builder.Configuration.Get("Endpoints:AppConfiguration");
         options.Connect(new Uri(endpoint), new DefaultAzureCredential());
     });
 
-    // Load configuration from Azure App Configuration
-    builder.Configuration.AddAzureAppConfiguration(endpoint);
-
-    // The rest of existing code in program.cs
+     // The rest of existing code in program.cs
     // ... ...    
     ```
-
-    This code connects to your App Configuration store using Microsoft Entra ID and load *all* key-values that have *no labels*. For more information on the App Configuration provider, see the [App Configuration provider API reference](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
     ### [Connection string](#tab/connection-string)
 
@@ -152,7 +147,10 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     // ... ...
     ```
 
-    This code connects to your App Configuration store using a connection string and loads *all* key-values that have *no labels*. For more information on the App Configuration provider, see the [App Configuration provider API reference](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
+---
+
+This code loads *all* key-values that have *no label* from your App Configuration store. For more information on loading data from App Configuration, see the [App Configuration provider API reference](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.extensions).
+
 
 ## Read from the App Configuration store
 
