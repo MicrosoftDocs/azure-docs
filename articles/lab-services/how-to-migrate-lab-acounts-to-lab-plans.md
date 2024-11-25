@@ -49,7 +49,7 @@ Capacity is assigned to your subscription and remains unaffected when creating o
 
 Once you have capacity assigned to your subscription, you can create and publish representative labs to validate the educator and student experience.   
 
-Each VM size uses a newer [Azure VM Compute SKU](administrator-guide.md#vm-sizing). If you use an [attached compute gallery](how-to-attach-detach-shared-image-gallery), validate your customized images with the new SKU by testing common student workloads. Before creating labs, verify that each image in the compute gallery is replicated to the same regions enabled in your lab plans.
+Each VM size uses a newer [Azure VM Compute SKU](administrator-guide.md#vm-sizing). If you use an [attached compute gallery](how-to-attach-detach-shared-image-gallery.md), validate your customized images with the new SKU by testing common student workloads. Before creating labs, verify that each image in the compute gallery is replicated to the same regions enabled in your lab plans.
 
 ## Optional - Configure lab plans  
 

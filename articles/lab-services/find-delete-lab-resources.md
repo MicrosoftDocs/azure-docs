@@ -1,5 +1,5 @@
 ---
-title: Azure Lab Services retirement guide
+title: Find and delete lab resources
 description: Learn about finding and deleting Azure Lab Services lab resources.
 ms.topic: how-to
 ms.date: 11/25/2024
