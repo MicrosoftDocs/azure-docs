@@ -161,7 +161,7 @@ Start-OBRegistration-VaultCredentials $cred -Confirm:$false
 
 ```Output
 CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
-SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
+SubscriptionID      : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ServiceResourceName: testvault
 Region              :West US
 Machine registration succeeded.

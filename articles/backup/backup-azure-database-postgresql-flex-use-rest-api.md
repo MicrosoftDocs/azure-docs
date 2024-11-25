@@ -51,7 +51,7 @@ After you set the relevant permissions to the vault and PostgreSQL flexible serv
 {
   "backupInstance": {
     "dataSourceInfo": {
-          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -60,7 +60,7 @@ After you set the relevant permissions to the vault and PostgreSQL flexible serv
           "objectType": "Datasource"
       },
       "dataSourceSetInfo": {
-          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -103,7 +103,7 @@ The request body that we prepared earlier will be used to provide details of the
 {
   "backupInstance": {
     "dataSourceInfo": {
-          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -112,7 +112,7 @@ The request body that we prepared earlier will be used to provide details of the
           "objectType": "Datasource"
       },
       "dataSourceSetInfo": {
-          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -257,7 +257,7 @@ GET https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4
           "innerError": {
             "code": "UserErrorMissingRequiredPermissions",
             "additionalInfo": {
-              "DetailedNonLocalisedMessage": "Validate for Protection failed. Exception Message: The client 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' with object id 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/read' over scope '/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver/providers/Microsoft.Authorization' or the scope is invalid. If access was recently granted, please refresh your credentials."
+              "DetailedNonLocalisedMessage": "Validate for Protection failed. Exception Message: The client 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' with object id 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/read' over scope '/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver/providers/Microsoft.Authorization' or the scope is invalid. If access was recently granted, please refresh your credentials."
             }
           },
           "isRetryable": false,
@@ -328,7 +328,7 @@ We'll use the [same request body that we used to validate the backup request](ba
   "type": "Microsoft.DataProtection/backupvaults/backupInstances",
   "properties": {
     "dataSourceInfo": {
-          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -337,7 +337,7 @@ We'll use the [same request body that we used to validate the backup request](ba
           "objectType": "Datasource"
       },
       "dataSourceSetInfo": {
-          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -394,7 +394,7 @@ X-Powered-By: ASP.NET
       "properties": {
            "friendlyName": "pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149",
            "dataSourceInfo": {
-           "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+           "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
            "resourceUri": "",
            "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
            "resourceName": "pgflextestserver",
@@ -403,7 +403,7 @@ X-Powered-By: ASP.NET
            "objectType": "Datasource"
        },
        "dataSourceSetInfo": {
-           "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+           "resourceID": "/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
            "resourceUri": "",
            "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
            "resourceName": "pgflextestserver",
