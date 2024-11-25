@@ -56,7 +56,6 @@ For an IP address to be considered active and therefore billable, it must have o
 
 - A recent detected open port  
 - A recent detected SSL certificate 
-- Recently appeared on a reputation list 
 
 
 These values are all considered “recent” if observed within the last 30 days. 
