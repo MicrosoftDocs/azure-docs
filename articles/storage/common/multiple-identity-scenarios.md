@@ -1,7 +1,7 @@
 ---
 title: Configure passwordless connections between multiple services
 titleSuffix: Azure Storage
-description: Learn to work with user-assigned managed identities to configure passwordless connections between multiple Azure services.
+description: Learn to work with managed identities to configure passwordless connections between multiple Azure services.
 services: storage
 author: alexwolfmsft
 ms.service: azure-storage
@@ -55,7 +55,7 @@ The following steps demonstrate how to configure an app to use a system-assigned
 
 1. Toggle the **Status** setting to **On** to enable a system assigned managed identity for the service.
 
-   :::image type="content" source="media/enable-system-assigned-identity.png" alt-text="Screenshot showing how to assign a system assigned managed identity."  :::
+   :::image type="content" source="media/enable-system-assigned-identity.png" alt-text="Screenshot showing how to assign a system-assigned managed identity."  :::
 
 ### Assign roles to the managed identity for each connected service
 
@@ -310,7 +310,7 @@ Although the apps in the previous example all shared the same service access req
 
 :::image type="content" source="media/multiple-managed-identities-small.png" lightbox="media/multiple-managed-identities.png" alt-text="Diagram showing multiple user-assigned managed identities.":::
 
-To configure this setup in your code, ensure your application registers separate service clients to connect to each storage account or database. Make sure to pull in the correct managed identity client IDs for each service when configuring `DefaultAzureCredential`. The following code sample configures these Azure service connections:
+To configure this setup in your code, ensure your application registers separate service clients to connect to each storage account or database. Reference the correct managed identity client IDs for each service when configuring `DefaultAzureCredential`. The following code sample configures these Azure service connections:
 
 * Two connections to separate storage accounts using a shared user-assigned managed identity
 * A connection to Azure Cosmos DB and Azure SQL services using a second shared user-assigned managed identity
