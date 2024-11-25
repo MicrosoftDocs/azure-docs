@@ -9,15 +9,21 @@ ms.date: 07/08/2024
 
 # Azure Lab Services retirement guide
 
-Azure Lab Services will be retired on June 28, 2027. The Azure Lab Services retirement guide presents options available for you to transition to other Microsoft services or Microsoft recommended partner solutions.
+Azure Lab Services will be retired on June 28, 2027, but we strongly recommend that you start developing your retirement plan now to resolve pricing differences, secure necessary cores, and enhance the student experience with seamless in-browser labs and other key features offered by our recommended Microsoft and Azure partner solutions.  
 
 > [!Note] 
 > Transition your Azure Labs Services workflows to a Microsoft service or Microsoft partner solution by June 28, 2027. Azure Lab Services will be fully retired on this date.
 
-**Action Required:** To avoid any service disruptions, you are strongly recommended to review this transition guide to choose the most suitable solution for your requirements by **June 28, 2027**. To learn about transitioning to other Microsoft services and partner solutions, follow this documentation.
+## Call to action
+* **Start establishing a retirement plan now** to address [cost differences](#are-there-pricing-differences-across-the-microsoft-and-partner-solutions), [secure necessary cores](#can-i-transfer-my-azure-lab-services-core-limits-to-my-preferred-transition-solution), and take advantage of [extra features like in-browser labs](#do-these-lab-solutions-offer-feature-parity-with-azure-lab-services).  
+
+* **Use the latest Azure Lab Services version** ([utilizing lab plans](how-to-migrate-lab-acounts-to-lab-plans.md)) as an interim solution for enhanced performance, wider range of VM sizes, and better student experience, as you develop your long-term retirement plan to move to other Microsoft or Azure partner solutions.  
+
+* **Delete unused resources** to reduce your costs and formally offboard. 
+
 
 ## Transition guidance overview
-This section provides links to Microsoft and partner solutions that cover the breadth of Azure Lab Services capabilities. Also included are links that can help you with your transition from Azure Lab Services.
+Review recommended Microsoft and Azure partner solutions that offer similar and additional capabilities to Azure Lab Services. These Microsoft and Azure partner solutions specialize in educational scenarios such as browser-based virtual machine access, support for large disks, and many others. 
 
 ### Microsoft solutions
 There are various Microsoft solutions that you might consider as a direct replacement for Azure Lab Services. Each of these Microsoft solutions offers browser-based web access. While these solutions aren't necessarily education-specific, they support a wide range of education and training scenarios. 
@@ -50,9 +56,9 @@ For more guidance on transitioning from Azure Lab Services to Azure DevTest Labs
 #### How can I get started with Microsoft Dev Box?
 - [What is Microsoft Dev Box?](/azure/dev-box/overview-what-is-microsoft-dev-box)
 
-### Partner solutions
+### Azure Partner solutions
 
-Our partners specialize in education-focused solutions for training and classrooms. Labs created with these Microsoft partners solutions will be using Azure in the backend, where lab provisioning can be configured to specific Azure regions for low latency and data residency requirements. Our recommended partners also provide transition guides and support to help you move your lab scenarios in Azure Lab Services to their respective services (the following list is in alphabetical order):
+Our partners offer specialized, education-focused solutions for training and classrooms, all powered by Azure. Lab provisioning can be configured to specific Azure regions for low latency and data residency requirements. Each partner solution supports browser-based web access, large disks, cost controls, Azure compute gallery images, and CPU/GPU-based virtual machines. These solutions have [transition guides and support](#how-do-i-get-help-and-support-for-microsoft-solutions-that-can-be-used-as-a-replacement-for-azure-lab-services) to help you move your Azure Lab Services scenarios to their platform:
  
 - [Apporto](https://aka.ms/azlabs-apporto)  
 - [CloudLabs by Spektra Systems](https://aka.ms/azlabs-spektra) 
@@ -78,7 +84,13 @@ It applies to both lab accounts and lab plans. Transition encompasses the entire
 
 ### What will happen after retirement date?
 After June 28, 2027, Azure Lab Services won't be supported, and you won't have access to your lab accounts, lab plans, or labs. You will, however, have access to your Azure compute gallery and any images you might have saved there. 
- 
+
+### Why use lab plans rather than lab accounts? 
+As you develop your long-term retirement plan to move to other Microsoft or Azure partner solutions, we recommend using the latest Azure Lab Services version (utilizing lab plans) as an interim solution, for scenarios where you don’t need to set up advanced networking. This version offers enhanced performance, a wider range of VM sizes, and better student experience. Additionally, lab plans provide faster VM start and creation times, updated hardware, and more control over regions. You can also create labs with no template, which simplifies lab creation and reduces provisioning time. By transitioning to V2, you can ensure a smoother and more efficient operation while you plan your long-term strategy. Learn more about [moving from lab accounts to lab plans](how-to-migrate-lab-acounts-to-lab-plans.md). 
+
+### Why delete unused resources? 
+To reduce your costs and formally offboard, it is important to delete any unused resources. This includes any virtual machines, lab plans, or other resources that are no longer needed. This will help you free up cores, reduce costs from unexpected lab VMs running, tight access control and reduce security surface area. For advanced networking labs, it will also reduce costs, cut down on used IP addresses, and allow clean up address space on the network. If you have domain-joined resources, it will help clean up orphaned entries in Active Directory. Learn more about [deleting lab resources](find-delete-lab-resources.md). 
+
 ### Are there pricing differences across the Microsoft and partner solutions?
 Azure Lab Services operates on a consumption-based model where you only pay for active usage in your labs. The hourly price of a lab is based on [the virtual machine size](https://azure.microsoft.com/pricing/details/lab-services/) selected and includes costs such as compute. However, Azure Labs Services covers the cost of storage, which is offered as a complimentary service. The costs for other Microsoft and partner solutions vary based on their pricing model and optimizations that can be enabled. Azure Lab Services supports individual, dedicated virtual machines with persistent storage. Dedicated virtual machines with persistent storage might not be as cost efficient with other lab solutions when compared with options for multi-session, dynamic virtual machine creation, or changing the storage type to a lower tier when a virtual machine is shut down.
 
