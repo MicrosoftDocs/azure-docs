@@ -99,9 +99,9 @@ The output shows the new resource and *protectionModeDDoS* shows IP Protection i
 Name                     : myStandardPublicIP
 ResourceGroupName        : MyResourceGroup
 Location                 : eastus
-Id                       : /subscriptions/abcdefgh-1111-2222-bbbb-987654321098/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/myStandardPublicIP
-Etag                     : W/"abcdefgh-1111-2222-bbbb-987654321098"
-ResourceGuid             : abcdefgh-1111-2222-bbbb-987654321098
+Id                       : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/myStandardPublicIP
+Etag                     : W/"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
+ResourceGuid             : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ProvisioningState        : Succeeded
 Tags                     : 
 PublicIpAllocationMethod : Static
@@ -124,8 +124,8 @@ ExtendedLocation         : null
   "ddosSettings": {
     "protectionMode": "Enabled"
   },
-  "etag": "W/\"abcdefgh-1111-2222-bbbb-987654321098\"",
-  "id": "/subscriptions/b1111111-2222-3333-aaaa-012345678912/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/myStandardPublicIP",
+  "etag": "W/\"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e\"",
+  "id": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/myStandardPublicIP",
   "idleTimeoutInMinutes": 4,
   "ipAddress": "20.25.14.83",
   "ipTags": [],
@@ -135,7 +135,7 @@ ExtendedLocation         : null
   "publicIPAddressVersion": "IPv4",
   "publicIPAllocationMethod": "Static",
   "resourceGroup": "MyResourceGroup",
-  "resourceGuid": "b1111111-2222-3333-aaaa-012345678912",
+  "resourceGuid": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
   "sku": {
     "name": "Standard",
     "tier": "Regional"
