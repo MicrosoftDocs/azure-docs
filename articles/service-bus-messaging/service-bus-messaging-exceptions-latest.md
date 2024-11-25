@@ -211,7 +211,7 @@ We recommend that you follow these verification steps, depending on the type of 
 - The replication queue for an entity exceeds its maximum size in bytes. The maximum size in bytes for a replication queue is an internal limit set by Service Bus. 
     - **Example**: Replication queue size 73128000 exceeded threshold 67108864.  
 - In synchronous replication, a request times out while waiting for another request to replicate. 
-    - **Example**: High volume of requests from client application for skarri-stroage-exp1(westus3)/q1:MessagingJournal. Replication to other region(s) is in progress.  
+    - **Example**: High volume of requests from client application for <namespace>/<entity-name>. Replication to other region(s) is in progress.  
 
 #### Resolution 
 
