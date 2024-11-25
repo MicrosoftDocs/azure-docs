@@ -82,7 +82,7 @@ You must give the managed identity permissions to the repository in Azure Repos.
 1. In the **Repository** pane, enter the following information:
 
    - **Name**: A repository name to use in the lab.
-   - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
+   - **Git clone URL**: The Git HTTPS clone URL from Azure Repos.
    - **Branch** (optional): The branch that has your artifact definitions.
    - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
    - **Managed Identity**: Use this option to leverage the Managed Identity for authentication.
@@ -118,7 +118,7 @@ The repository now appears in the **Repositories** list for the lab.
 1. In the **Repository** pane, enter the following information:
 
    - **Name**: A repository name to use in the lab.
-   - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
+   - **Git clone URL**: The Git HTTPS clone URL from Azure Repos.
    - **Branch** (optional): The branch that has your artifact definitions.
    - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
    - **Personal access token**: The personal access token from Azure Repos.
@@ -193,7 +193,7 @@ To add an artifact repo, complete the following tasks:
 1. In the **Repository** pane, enter the following information:
 
    - **Name**: A repository name to use in the lab.
-   - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
+   - **Git clone URL**: The Git HTTPS clone URL from GitHub Repos.
    - **Branch** (optional): The branch that has your artifact definitions.
    - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
    - **GitHub app**: Use this option to leverage GitHub app authentication.
@@ -230,7 +230,7 @@ The repository now appears in the **Repositories** list for the lab.
 1. In the **Repository** pane, enter the following information:
 
    - **Name**: A repository name to use in the lab.
-   - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
+   - **Git clone URL**: The Git HTTPS clone URL from GitHub Repos.
    - **Branch** (optional): The branch that has your artifact definitions.
    - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
    - **Personal access token**: The personal access token from GitHub Repos.
