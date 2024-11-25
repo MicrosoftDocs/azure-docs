@@ -306,6 +306,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/migrate/tutorial-assess-sql-vmware.md",
+            "redirect_url": "/azure/migrate/vmware/tutorial-assess-sql-vmware",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/migrate/tutorial-assess-webapps-hyper-v.md",
             "redirect_url": "tutorial-assess-webapps",
             "redirect_document_id": false
