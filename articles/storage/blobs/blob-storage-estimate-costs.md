@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 09/10/2024
+ms.date: 11/19/2024
 ms.author: normesta
 ms.custom: subject-cost-optimization
 ---
@@ -134,7 +134,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Price factor                                                                                | Hot        | Cool       | Cold       |
 |---------------------------------------------------------------------------------------------|------------|------------|------------|
 | Price of a single write operation to the Blob Service endpoint (price / 10,000)             | $0.0000055 | $0.00001   | $0.000018  |
-| **Cost to rename blob virtual directories (1000 * (1000 * price of a single operation)**               | **$5.50**  | **$10.00** | **$18.00** |
+| **Cost to rename blob virtual directories (1000 * price of a single operation)**               | **$5.50**  | **$10.00** | **$18.00** |
 | Price of a single iterative write operation to the Data Lake Storage endpoint (price / 100) | $0.000715  | $0.000715  | $0.000715  |
 | **Cost to rename Data Lake Storage directories (1000 * price of a single operation)**                   | **$0.715** | **$0.715** | **0.715**  |
 
