@@ -50,4 +50,4 @@ Chaos Studio supports single-region geography only, and doesn't support service 
 
 - [Create and run your first experiment](/azure/chaos-studio/chaos-studio-quickstart-azure-portal).
 - [Learn more about chaos engineering](/azure/chaos-studio/chaos-studio-chaos-engineering-overview).
-- [Reliability in Azure](/azure/availability-zones/overview)
+- [Reliability in Azure](/azure/reliability/overview)

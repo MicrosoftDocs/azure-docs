@@ -63,21 +63,23 @@ The following packages are required to run your .NET functions in an isolated wo
 + [Microsoft.Azure.Functions.Worker]
 + [Microsoft.Azure.Functions.Worker.Sdk]
 
-#### Version 2.x (Preview)
+#### Version 2.x
 
-The 2.x versions of the core packages change the supported frameworks and bring in support for new .NET APIs from these later versions. When you target .NET 9 (Preview) or later, your app needs to reference version 2.0.0-preview1 or later of both packages.
-
-The initial preview versions are compatible with code written against version 1.x. However, during the preview period, newer versions may introduce behavior changes that could influence the code you write.
+The 2.x versions of the core packages change the supported frameworks and bring in support for new .NET APIs from these later versions. When you target .NET 9 or later, your app needs to reference version 2.0.0 or later of both packages.
 
 When updating to the 2.x versions, note the following changes:
 
-- Starting with version 2.0.0-preview2, [Microsoft.Azure.Functions.Worker.Sdk] adds default configurations for [SDK container builds](/dotnet/core/docker/publish-as-container).
-- Starting with version 2.0.0-preview2 of [Microsoft.Azure.Functions.Worker]:
+- Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker.Sdk]:
+    - The SDK includes default configurations for [SDK container builds](/dotnet/core/docker/publish-as-container).
+    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when the [Azure Functions Core Tools](./functions-develop-local.md) is installed.
+- Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker]:
     - This version adds support for `IHostApplicationBuilder`. Some examples in this guide include tabs to show alternatives using `IHostApplicationBuilder`. These examples require the 2.x versions.
     - Service provider scope validation is included by default if run in a development environment. This behavior matches ASP.NET Core.
     - The `EnableUserCodeException` option is enabled by default. The property is now marked as obsolete.
     - The `IncludeEmptyEntriesInMessagePayload` option is enabled by default. With this option enabled, trigger payloads that represent collections always include empty entries. For example, if a message is sent without a body, an empty entry would still be present in `string[]` for the trigger data. The inclusion of empty entries facilitates cross-referencing with metadata arrays which the function may also reference. You can disable this behavior by setting `IncludeEmptyEntriesInMessagePayload` to `false` in the `WorkerOptions` service configuration.
     - The `ILoggerExtensions` class is renamed to `FunctionsLoggerExtensions`. The rename prevents an ambiguous call error when using `LogMetric()` on an `ILogger` instance.
+    - For apps that use `HttpResponseData`, the `WriteAsJsonAsync()` method no longer will set the status code to `200 OK`. In 1.x, this overrode other error codes that had been set.
+- The 2.x versions drop .NET 5 TFM support.
 
 ### Extension packages
 
@@ -110,7 +112,7 @@ The [HostBuilder] is used to build and return a fully initialized [`IHost`][IHos
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 _To use `IHostApplicationBuilder`, your app must use version 2.x or later of the [core packages](#core-packages)._
 
@@ -184,7 +186,7 @@ The [ConfigureFunctionsWorkerDefaults] method is used to add the settings requir
 
 Having access to the host builder pipeline means that you can also set any app-specific configurations during initialization. You can call the [ConfigureAppConfiguration] method on [HostBuilder] one or more times to add any configuration sources required by your code. To learn more about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 The `FunctionsApplication.CreateBuilder()` method is used to add the settings required for the function app to run. The method includes the following functionality:
 
@@ -220,7 +222,7 @@ When you use a `HostBuilder`, call [ConfigureServices] on the host builder and u
 })
 ```
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 When you use an `IHostApplicationBuilder`, you can use its `Services` property to access the [IServiceCollection]. The following example injects a singleton service dependency:
 
@@ -259,7 +261,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -327,7 +329,7 @@ The [ConfigureFunctionsWorkerDefaults] extension method has an overload that let
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -402,7 +404,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker.Builder;
@@ -454,7 +456,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -508,11 +510,50 @@ A function can accept a [CancellationToken](/dotnet/api/system.threading.cancell
 
 Cancellation tokens are supported in .NET functions when running in an isolated worker process. The following example raises an exception when a cancellation request is received:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/EventHubCancellationToken.cs" id="docsnippet_cancellation_token_throw":::
+```csharp
+[Function(nameof(ThrowOnCancellation))]
+public async Task ThrowOnCancellation(
+    [EventHubTrigger("sample-workitem-1", Connection = "EventHubConnection")] string[] messages,
+    FunctionContext context,
+    CancellationToken cancellationToken)
+{
+    _logger.LogInformation("C# EventHub {functionName} trigger function processing a request.", nameof(ThrowOnCancellation));
+
+    foreach (var message in messages)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+        await Task.Delay(6000); // task delay to simulate message processing
+        _logger.LogInformation("Message '{msg}' was processed.", message);
+    }
+}
+```
  
 The following example performs clean-up actions when a cancellation request is received:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/EventHubCancellationToken.cs" id="docsnippet_cancellation_token_cleanup":::
+```csharp
+[Function(nameof(HandleCancellationCleanup))]
+public async Task HandleCancellationCleanup(
+    [EventHubTrigger("sample-workitem-2", Connection = "EventHubConnection")] string[] messages,
+    FunctionContext context,
+    CancellationToken cancellationToken)
+{
+    _logger.LogInformation("C# EventHub {functionName} trigger function processing a request.", nameof(HandleCancellationCleanup));
+
+    foreach (var message in messages)
+    {
+        if (cancellationToken.IsCancellationRequested)
+        {
+            _logger.LogInformation("A cancellation token was received, taking precautionary actions.");
+            // Take precautions like noting how far along you are with processing the batch
+            _logger.LogInformation("Precautionary activities complete.");
+            break;
+        }
+
+        await Task.Delay(6000); // task delay to simulate message processing
+        _logger.LogInformation("Message '{msg}' was processed.", message);
+    }
+}
+```
 
 ## Bindings 
 
@@ -647,10 +688,10 @@ To enable ASP.NET Core integration for HTTP:
     host.Run();
     ```
     
-    # [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+    # [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
     
     > [!NOTE]
-    > Your application must reference version 2.0.0-preview2 or later of [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/) to use ASP.NET Core integration with `IHostApplicationBuilder`.
+    > Your application must reference version 2.0.0 or later of [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/) to use ASP.NET Core integration with `IHostApplicationBuilder`.
 
     ```csharp
     using Microsoft.Azure.Functions.Worker.Builder;
@@ -699,7 +740,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -783,7 +824,7 @@ var host = new HostBuilder()
     .Build();
 ```
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -829,7 +870,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 When you use an `IHostApplicationBuilder`, by default, exceptions thrown by your code flow through the system without changes. No other configuration is required.
 
@@ -879,7 +920,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -938,7 +979,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -1147,7 +1188,7 @@ This integration requires specific setup:
     - You must have a project reference to your Functions project.
     - In the app host's `Program.cs`, you must also include the project by calling `AddAzureFunctionsProject<TProject>()` on your `IDistributedApplicationBuilder`. This method is used instead of the `AddProject<TProject>()` that you use for other project types. If you just use `AddProject<TProject>()`, the Functions project will not start properly.
 - In the Functions project:
-    - You must reference the [2.x versions](#version-2x-preview) of [Microsoft.Azure.Functions.Worker] and [Microsoft.Azure.Functions.Worker.Sdk]. You must also update any references you have to `Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore` to the 2.x version as well.
+    - You must reference the [2.x versions](#version-2x) of [Microsoft.Azure.Functions.Worker] and [Microsoft.Azure.Functions.Worker.Sdk]. You must also update any references you have to `Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore` to the 2.x version as well.
     - Your `Program.cs` should use the `IHostApplicationBuilder` version of [host instance startup](#start-up-and-configuration).
     - If you want to use your Aspire service defaults, you should include a project reference to the service defaults project. Before building your `IHostApplicationBuilder` in `Program.cs`, you should also include a call to `builder.AddServiceDefaults()`.
     - You shouldn't keep configuration in `local.settings.json`, aside from the `FUNCTIONS_WORKER_RUNTIME` setting, which should remain "dotnet-isolated". Other configuration should be set through the app host project.
@@ -1245,7 +1286,7 @@ builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProjec
 
 You can configure both `WithReference()` and `WithEnvironment()` if you want a connection to be used both by Aspire client integrations and the triggers and bindings system.
 
-For some resources, the structure of a connection might be different between when you run it locally and when you publish it to azure. In the previous example, `otherIntegration` could be a resource that runs as an emulator, so `ConnectionStringExpression` would return an emulator connection string. However, when the resource is published, Aspire might set up an identity-based connection, and `ConnectionStringExpression` would return the service's URI. In this case, to set up [identity based connections for Azure Functions](./functions-reference.md#configure-an-identity-based-connection), you might need to provide a different environment variable name. The following example uses `builder.ExecutionContext.IsPublishMode` to conditionally add the necessary suffix:
+For some resources, the structure of a connection might be different between when you run it locally and when you publish it to Azure. In the previous example, `otherIntegration` could be a resource that runs as an emulator, so `ConnectionStringExpression` would return an emulator connection string. However, when the resource is published, Aspire might set up an identity-based connection, and `ConnectionStringExpression` would return the service's URI. In this case, to set up [identity based connections for Azure Functions](./functions-reference.md#configure-an-identity-based-connection), you might need to provide a different environment variable name. The following example uses `builder.ExecutionContext.IsPublishMode` to conditionally add the necessary suffix:
 
 ```csharp
 builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProject")
@@ -1266,7 +1307,7 @@ Because your isolated worker process app runs outside the Functions runtime, you
 
 ### Debugging when targeting .NET Framework
 
-If your isolated project targets .NET Framework 4.8, the current preview scope requires manual steps to enable debugging. These steps aren't required if using another target framework.
+If your isolated project targets .NET Framework 4.8, you need to take manual steps to enable debugging. These steps aren't required if using another target framework.
 
 Your app should start with a call to `FunctionsDebugger.Enable();` as its first operation. This occurs in the `Main()` method before initializing a HostBuilder. Your `Program.cs` file should look similar to this:
 
@@ -1297,7 +1338,7 @@ namespace MyDotnetFrameworkProject
 }
 ```
 
-# [IHostApplicationBuilder (Preview)](#tab/ihostapplicationbuilder)
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
 using System;
@@ -1350,20 +1391,7 @@ Before a generally available release, a .NET version might be released in a _Pre
 
 While it might be possible to target a given release from a local Functions project, function apps hosted in Azure might not have that release available. Azure Functions can only be used with Preview or Go-live releases noted in this section.
 
-Azure Functions currently can be used with the following "Preview" or "Go-live" .NET releases:
-
-| Operating system | .NET preview version |
-| - | - |
-| Windows | .NET 9 Preview 6<sup>1, 2</sup> |
-| Linux | .NET 9 RC2<sup>1, 3</sup> |
-
-<sup>1</sup> To successfully target .NET 9, your project needs to reference the [2.x versions of the core packages](#version-2x-preview). If using Visual Studio, .NET 9 requires version 17.12 or later.
-
-<sup>2</sup> Support for Windows might not appear in some clients during the preview period.
-
-<sup>3</sup> .NET 9 is not yet supported on the Flex Consumption SKU.
-
-See [Supported versions][supported-versions] for a list of generally available releases that you can use.
+Azure Functions doesn't currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 
 ### Using a preview .NET SDK
 

@@ -143,7 +143,7 @@ To confirm that the logs are shipped to your selected service(s), try logging in
 <pre>
 {
   "time": "2023-10-16T17:42:32.9322528Z",
-  "ResourceId": "/SUBSCRIPTIONS/EF90E930-9D7F-4A60-8A99-748E0EEA69DE/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.WEB/SITES/MY-DEMO-APP",
+  "ResourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.WEB/SITES/MY-DEMO-APP",
   "Category": "AppServiceAuditLogs",
   "OperationName": "Authorization",
   "Properties": {

@@ -13,7 +13,7 @@ ms.custom: devx-track-java, engagement-fy23, references_regions
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article describes the VMware Tanzu components offered by the Azure Spring Apps Enterprise plan.
 
@@ -104,4 +104,4 @@ For more information, see [Use VMware Tanzu Application Accelerator with the Azu
 
 ## Next steps
 
-- [Launch your first app](./quickstart.md)
+- [Launch your first app](../basic-standard/quickstart.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)

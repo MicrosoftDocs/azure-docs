@@ -1,25 +1,24 @@
 ---
-title: Best practices for Using and Monitoring the Server Load
-titleSuffix: Azure Cache for Redis
+title: Best practices for Using and Monitoring the CPU utilization
+titleSuffix: Azure Managed Redis
 description: Learn how to use and monitor your server load for Azure Cache for Redis.
 
 
 ms.topic: conceptual
-ms.date: 12/30/2021
-
+ms.custom:
+  - ignite-2024
+ms.date: 10/08/2024
 ---
 
-# Manage Server Load for Azure Cache for Redis
+# Manage CPU utilization for Azure Managed Redis (preview)
 
 ## Value sizes
 
 The design of your client application determines whether you should store many small values or a smaller number of larger values. From a Redis server perspective, smaller values give better performance. We recommend keeping value size smaller than 100 kB.
 
-If your design requires you to store larger values in the Azure Cache for Redis, the server load will be higher. In this case, you might need to use a higher cache tier to ensure CPU usage doesn't limit throughput.
+If your design requires you to store larger values in the Azure Managed Redis (preview), the CPU utilization will be higher. In this case, you might need to use a higher performance tier to ensure CPU usage doesn't limit throughput.
 
-Even if the cache has sufficient CPU capacity, larger values do increase latencies, so follow the guidance in [Configure appropriate timeouts](cache-best-practices-connection.md#configure-appropriate-timeouts).
-
-Larger values also increase the chances of memory fragmentation, so be sure to follow the guidance in [Configure your maxmemory-reserved setting](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting).
+Even if the AMR instance has sufficient CPU capacity, larger values do increase latencies, so follow the guidance in [Configure appropriate timeouts](cache-best-practices-connection.md#configure-appropriate-timeouts).
 
 ## Avoid client connection spikes
 
@@ -35,30 +34,15 @@ High memory usage on the server makes it more likely that the system needs to pa
 
 Redis server is a single-threaded system. Long running commands can cause latency or timeouts on the client side because the server can't respond to any other requests while it's busy working on a long running command. For more information, see [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md).  
 
-## Monitor Server Load
+## Monitor CPU Utilization
 
 Add monitoring on server load to ensure you get notifications when high server load occurs. Monitoring can help you understand your application constraints. Then, you can work proactively to mitigate issues. We recommend trying to keep server load under 80% to avoid negative performance effects. Sustained server load over 80% can lead to unplanned failovers. 
-Currently, Azure Cache For Redis exposes two metrics in **Insights** under **Monitoring** on the Resource menu on the left of the portal: **CPU** and **Server Load**. Understanding what is measured by each metric is important when monitoring server load.
-
-The **CPU** metric indicates the CPU usage for the node that hosts the cache. The CPU metric also includes processes that aren't strictly Redis server processes. CPU includes background processes for anti-malware and others. As a result, the CPU metric can sometimes spike and might not be a perfect indicator of CPU usage for the Redis server.
-
-The **Server Load** metric represents the load on the Redis Server alone. We recommend monitoring the **Server Load** metric instead of **CPU**.
-
-When monitoring server load, we also recommend that you examine the max spikes of Server Load rather than average because even brief spikes can trigger failovers and command timeouts.
-
-## Plan for server maintenance
-
-Ensure you have enough server capacity to handle your peak load while your cache servers are undergoing maintenance. Test your system by rebooting nodes while under peak load. For more information on how to simulate deployment of a patch, see [reboot](cache-administration.md#reboot).
-
-## Test for increased server load after failover
-
-For standard and premium SKUs, each cache is hosted on two nodes. A load balancer distributes the client connections to the two nodes. When planned or unplanned maintenance occurs on the primary node, the node closes all the client connections. In such situations, all client connections could land on a single node causing the server load to increase on the one remaining node. We recommend testing this scenario by rebooting the primary node and ensuring that one node can handle all your client connections without the server load going too high.
+Azure Managed Redis (preview) exposes the **CPU** metric to indicate the CPU utilization on the nodes of your AMR instance. We also recommend that you examine the max spikes of **CPU** metric rather than average because even brief spikes can trigger failovers and command timeouts.
 
 ## Next steps
 
-- [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
+- [Troubleshoot Azure Managed Redis server-side issues](cache-troubleshoot-server.md)
 - [Connection resilience](cache-best-practices-connection.md)
-  - [Configure appropriate timeouts](cache-best-practices-connection.md#configure-appropriate-timeouts).
+- [Configure appropriate timeouts](cache-best-practices-connection.md#configure-appropriate-timeouts).
 - [Memory management](cache-best-practices-memory-management.md)
-  - [Configure your maxmemory-reserved setting](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting)
-
+- [Configure your maxmemory-reserved setting](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting)
