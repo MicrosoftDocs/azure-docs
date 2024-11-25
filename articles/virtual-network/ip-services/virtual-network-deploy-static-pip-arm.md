@@ -1,6 +1,6 @@
 ---
-title: Create a VM with a static public IP address - Azure portal
-description: Learn how to create a VM with a static public IP address using the Azure portal.
+title: Create a VM with a static public IP address using the Azure portal, Azure PowerShell, or Azure CLI
+description: Learn how to create a VM with a static public IP address using the Azure portal, Azure PowerShell, or Azure CLI.
 services: virtual-network
 ms.date: 11/14/2024
 ms.author: mbender
@@ -10,7 +10,7 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to
 ---
-# Create a virtual machine with a static public IP address using the Azure portal
+# Create a virtual machine with a static public IP address using the Azure portal, Azure PowerShell, or Azure CLI
 
 In this article, you create a virtual machine (VM) with a static public IP address. A public IP address enables you to communicate to a VM from the internet. Assign a static public IP address, rather than a dynamic address, to ensure the address never changes. 
 
