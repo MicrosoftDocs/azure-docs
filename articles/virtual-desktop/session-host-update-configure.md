@@ -99,7 +99,11 @@ Here's how to schedule a new update for your session hosts using the Azure porta
 >
 > If you edit the session host configuration using the Azure portal, you have to schedule an update.
 
-1. Make sure you've registered for the limited preview using the link at the beginning of this article, then sign in to the Azure portal using the specific link provided to you after registration. From the Azure Virtual Desktop overview, select **Host pools**, then select the host pool with a session host configuration that you want to update.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
+
+1. Select **Host pools**, then select the host pool with a session host configuration that you want to update.
 
 1. Select **Session hosts**.
 
