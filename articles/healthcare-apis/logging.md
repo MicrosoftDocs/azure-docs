@@ -2,7 +2,7 @@
 title: Logging for Azure Health Data Services
 description: Learn to monitor Azure Health Data Services with AuditLogs for secure healthcare service trails and operational insights. Discover log types and uses.
 services: healthcare-apis
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.topic: tutorial
 ms.date: 09/12/2024

@@ -86,6 +86,40 @@ Now when you view the firewall in the Azure portal, you see the assigned Managem
 > [!NOTE]
 > If you remove all other IP address configurations on your firewall, the management IP address configuration is removed as well, and the firewall is deallocated. The public IP address assigned to the management IP address configuration can't be removed, but you can assign a different public IP address.
 
+## Deploying a New Azure Firewall with Management NIC for Forced Tunneling
+
+If you prefer to deploy a new Azure Firewall instead of the Stop/Start method, make sure to include a Management Subnet and Management NIC as part of your configuration.
+
+**Important Note**
+* **Single Firewall per Virtual Network (VNET)**: Since two firewalls cannot exist within the same virtual network, it is recommended to delete the old firewall before starting the new deployment if you plan to reuse the same VNET.
+* **Pre-create Subnet**: Ensure the **AzureFirewallManagementSubnet** is created in advance to avoid deployment issues when using an existing VNET.
+
+**Prerequisites**
+* Create the **AzureFirewallManagementSubnet**:
+    * Minimum subnet size: /26
+    * Example: 10.0.1.0/26
+
+**Deployment Steps**
+1. Go to **Create a Resource** in the Azure Portal.
+1.	Search for **Firewall** and select **Create**.
+1.	On the Create a Firewall page, configure the following:
+    * **Subscription**: Select your subscription.
+    * **Resource Group**: Select or create a new resource group.
+    * **Name**: Enter a name for the firewall.
+    * **Region**: Choose your region.
+    * **Firewall SKU**: Select Basic, Standard, or Premium.
+    * **Virtual Network**: Create a new virtual network or use an existing one.
+         * Address space: e.g., 10.0.0.0/16
+         * Subnet for AzureFirewallSubnet: e.g., 10.0.0.0/26
+    * **Public IP Address**: Add new Public IP
+         * Name: e.g., FW-PIP
+1.	Firewall Management NIC
+    * Select **Enable Firewall Management NIC**
+         * Subnet for AzureFirewallManagementSubnet: e.g., 10.0.1.0/24
+         * Create Management public IP address: e.g., Mgmt-PIP
+1.	Select **Review + Create** to validate and deploy the firewall. This will take a few minutes to deploy. 
+
+
 ## Related content
 
 - [Azure Firewall forced tunneling](forced-tunneling.md)

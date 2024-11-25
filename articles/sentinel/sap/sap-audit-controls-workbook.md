@@ -39,6 +39,8 @@ Before you can start using the **SAP - Security Audit log and Initial Access** w
 
 - At least one incident in your workspace, with at least one entry available in the `SecurityIncident` table. This doesn't need to be an SAP incident, and you can generate a demo incident using a basic analytics rule if you don't have another one.
 
+We recommend that you configure auditing for *all* messages from the audit log, instead of only specific logs. Ingestion cost differences are generally minimal and the data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting. For more information, see [Configure SAP auditing](preparing-sap.md#configure-sap-auditing).
+
 ## View a demo
 
 View a demonstration of this workbook:
