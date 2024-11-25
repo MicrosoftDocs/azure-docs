@@ -65,6 +65,7 @@ Normalized schemas cover standard sets of predictable event types that you can u
 
 ASIM currently defines the following schemas:
 
+- [Alert Event](normalization-schema-alert.md)
 - [Audit Event](normalization-schema-audit.md)
 - [Authentication Event](normalization-schema-authentication.md)
 - [DHCP Activity](normalization-schema-dhcp.md)
