@@ -6,13 +6,26 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 06/07/2024
+ms.date: 10/28/2024
 ms.custom: mvc, engagement-fy24
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (November 2024)
+
+- AVS assessments now support cost assessments with AV64 SKU and Azure NetApp Files (ANF) as an external storage option. [Learn more](how-to-create-azure-vmware-solution-assessment.md).
+- Support for cost of SKUs when porting on-premises VCF subscription to AVS.
+- Support for migrating Enterprise Linux machines (RHEL and SLES) in VMware and Hyper-V environments to Azure, leveraging Azure Hybrid benefit. [Learn more](tutorial-migrate-hyper-v.md).
+- Public Preview: Azure Migrate now supports creating a business case for Azure Arc and onboarding servers to Azure Arc from the Migrate inventory. [Learn more](how-to-arc-enable-inventory.md).
+<br>Using these capabilities, you can visualize the value Azure Arc brings to your on-premises estate throughout the migration journey, enabling confident, informed decisions. You can also check if your on-premises servers are already Arc-enabled and, if not, generate an Azure Arc onboarding script to deploy at scale using automation tools for the servers you choose to enable.
+
+## Update (October 2024)
+
+The RVTools XLSX (preview) file import now reads storage data, when available, from vPartition and vMemory (for storage required for unreserved memory) sheets. [Learn more](vmware/tutorial-import-vmware-using-rvtools-xlsx.md#prerequisites).
+
 
 ## Update (April 2024)
 

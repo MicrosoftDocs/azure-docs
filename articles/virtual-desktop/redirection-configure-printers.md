@@ -159,9 +159,9 @@ To allow or disable printer redirection using Microsoft Intune:
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Do not allow client printer redirection** to **Enabled** or **Disabled**, depending on your requirements:
 
-   - To allow printer redirection, toggle the switch to **Disabled**, then select **OK**.
+   - To allow printer redirection, toggle the switch to **Disabled**.
 
-   - To disable printer redirection, toggle the switch to **Enabled**, then select **OK**.
+   - To disable printer redirection, toggle the switch to **Enabled**.
 
 1. Select **Next**.
 

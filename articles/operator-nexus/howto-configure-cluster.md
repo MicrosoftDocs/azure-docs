@@ -5,7 +5,7 @@ author: JAC0BSMITH
 ms.author: jacobsmith
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 10/29/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -74,7 +74,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 | LAW_ID                    | Log Analytics Workspace ID for the Cluster                                                                            |
 | CLUSTER_LOCATION          | The local name of the Cluster                                                                                         |
 | AGGR_RACK_RESOURCE_ID     | RackID for Aggregator Rack                                                                                            |
-| AGGR_RACK_SKU             | Rack SKU for Aggregator Rack                                                                                          |
+| AGGR_RACK_SKU             | Rack SKU for Aggregator Rack  *See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md)                                                                                        |
 | AGGR_RACK_SN              | Rack Serial Number for Aggregator Rack                                                                                |
 | AGGR_RACK_LOCATION        | Rack physical location for Aggregator Rack                                                                            |
 | AGGR_RACK_BMM             | Used for single rack deployment only, empty for multi-rack                                                            |
@@ -83,7 +83,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 | SA_USER                   | Storage Appliance admin user                                                                                          |
 | SA_SN                     | Storage Appliance Serial Number                                                                                       |
 | COMPX_RACK_RESOURCE_ID    | RackID for CompX Rack; repeat for each rack in compute-rack-definitions                                               |
-| COMPX_RACK_SKU            | Rack SKU for CompX Rack; repeat for each rack in compute-rack-definitions                                             |
+| COMPX_RACK_SKU            | Rack SKU for CompX Rack; repeat for each rack in compute-rack-definitions *See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md)                                             |
 | COMPX_RACK_SN             | Rack Serial Number for CompX Rack; repeat for each rack in compute-rack-definitions                                   |
 | COMPX_RACK_LOCATION       | Rack physical location for CompX Rack; repeat for each rack in compute-rack-definitions                               |
 | COMPX_SVRY_BMC_PASS       | CompX Rack ServerY Baseboard Management Controller (BMC) password; repeat for each rack in compute-rack-definitions and for each server in rack         |
@@ -147,7 +147,7 @@ You can find examples for an 8-Rack 2M16C SKU cluster using these two files:
 
 ### Cluster validation
 
-A successful Operator Nexus Cluster creation results in the creation of an Azure Kubernetes Service (AKS) cluster
+A successful Operator Nexus Cluster creation results in the creation of a Azure resource
 inside your subscription. The cluster ID, cluster provisioning state, and
 deployment state are returned as a result of a successful `cluster create`.
 
@@ -271,6 +271,7 @@ metal machines that failed the hardware validation (for example, `COMP0_SVR0_SER
 ```
 
 See the article [Tracking Asynchronous Operations Using Azure CLI](./howto-track-async-operations-cli.md) for another example.
+See the article [Troubleshoot BMM provisioning](./troubleshoot-bare-metal-machine-provisioning.md) for more information that may be helpful when specific machines fail validation or deployment.
 
 ## Cluster deployment validation
 

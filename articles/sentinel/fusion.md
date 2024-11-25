@@ -3,8 +3,11 @@ title: Advanced multistage attack detection in Microsoft Sentinel
 description: Use Fusion technology in Microsoft Sentinel to reduce alert fatigue and create actionable incidents that are based on advanced multistage attack detection.
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 10/16/2024
 ms.author: yelevin
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
+#Customer intent: As a security analyst, I want to leverage advanced multistage attack detection using machine learning so that I can identify and respond to sophisticated threats with high accuracy and minimal false positives.
 ---
 
 # Advanced multistage attack detection in Microsoft Sentinel
@@ -29,7 +32,7 @@ Fusion is enabled by default in Microsoft Sentinel, as an [analytics rule](detec
 > [!NOTE]
 > Microsoft Sentinel currently uses 30 days of historical data to train the Fusion engine's machine learning algorithms. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Microsoft Sentinel workspace. To opt out of Fusion, navigate to **Microsoft Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
 
-In Microsoft Sentinel workspaces that are onboarded to the [unified security operations platform in the Microsoft Defender portal](https://aka.ms/unified-soc-announcement), Fusion is disabled, as its functionality is replaced by the Microsoft Defender XDR correlation engine.
+For Microsoft Sentinel workspaces that are onboarded to the Microsoft Defender portal, Fusion is disabled.Its functionality is replaced by the Microsoft Defender XDR correlation engine.
 
 ## Fusion for emerging threats
 

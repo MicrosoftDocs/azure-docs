@@ -18,10 +18,10 @@ This page shows supported authentication methods and clients, and shows sample c
 Service Connector can be used to connect the following compute services to Azure OpenAI Service:
 
 - Azure App Service
-- Azure Functions
 - Azure Container Apps
+- Azure Functions
+- Azure Kubernetes Service (AKS)
 - Azure Spring Apps
-
 ## Supported authentication types and client types
 
 The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure OpenAI Service using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.

@@ -10,6 +10,10 @@ ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+
+
+#Customer intent: As a cloud administrator, I want to manage and monitor costs for Microsoft Sentinel so that I can optimize spending and prevent budget overruns.
+
 ---
 
 # Manage and monitor costs for Microsoft Sentinel

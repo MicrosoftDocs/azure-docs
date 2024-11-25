@@ -1,8 +1,8 @@
 ---
 title: Emergency calling for Zoom Phone Cloud Peering with Azure Communications Gateway
 description: Understand Azure Communications Gateway's support for emergency calling with Zoom Phone Cloud Peering
-author: rcdun
-ms.author: rdunstan
+author: GemmaWakeford
+ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: conceptual
 ms.date: 11/06/2023

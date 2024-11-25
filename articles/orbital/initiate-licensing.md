@@ -2,7 +2,7 @@
 title: Initiate ground station licensing
 description: How to initiate ground station licensing. Satellites and ground stations require authorizations from federal regulators and other government agencies.
 author: kellydevens
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 10/12/2023

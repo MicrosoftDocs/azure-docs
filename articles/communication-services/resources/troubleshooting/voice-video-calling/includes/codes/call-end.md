@@ -6,7 +6,7 @@ author: sloanster
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 10/10/2024
+ms.date: 10/15/2024
 ms.topic: include
 ms.custom: include file
 ms.author: micahvivion
@@ -44,7 +44,7 @@ There are different explanations for why a call ended. Here are the meanings of 
 | 3100 | 410 | Call setup failed due to unexpected network problem on the client, check the client's network and retry. | UnxpectedClientError | Check network configuration, make sure it follows Azure Communication Calling network [requirements](../../../../../concepts/voice-video-calling/network-requirements.md). |
 | 3101 | 410 | Call dropped due to unexpected network problem on the client, check the client's network and retry. | UnxpectedClientError | Check network configuration, make sure it follows Azure Communication Calling network [requirements](../../../../../concepts/voice-video-calling/network-requirements.md).  |
 | 3111 | 410 | Call setup failed, unable to process media offer while connecting the call. | UnxpectedClientError | Try again. If issue persists, gather [call info](../../references/how-to-collect-call-info.md), [client logs](../../references/how-to-collect-client-logs.md), [browser console logs](../../references/how-to-collect-browser-verbose-log.md) and contact Azure Communication Services support. |
-| 3112 | 410 |  Call setup failed due to network configuration problem on the client side, check the client's network configuration, and retry. | ExpectedError | |
+| 3112 | 410 |  Call setup failed due to network configuration problem on the client side, check the client's network configuration, and retry. | ExpectedError | Learn more details about a call ending with a subcode of 3112 [here](../../../../troubleshooting/voice-video-calling/call-setup-issues/call-ends-with-410-3112.md). |
 | 4097 | 0 | Call ended for all users by the meeting organizer. | Success | |
 | 4502 | 490 | Call failed due to network connectivity problems, browser failed to complete the network HTTP request. | UnexpectedClientError | Client failed to complete HTTP request and response. Try again. If issue persists, gather [call info](../../references/how-to-collect-call-info.md), [client logs](../../references/how-to-collect-client-logs.md), [browser console logs](../../references/how-to-collect-browser-verbose-log.md) and contact Azure Communication Services support. |
 | 4506 | 408 | Call timed out. Check if the callee received and accepted the call. | UnexpectedClientError | Try again. If issue persists, gather [call info](../../references/how-to-collect-call-info.md), [client logs](../../references/how-to-collect-client-logs.md), [browser console logs](../../references/how-to-collect-browser-verbose-log.md) and contact Azure Communication Services support. |

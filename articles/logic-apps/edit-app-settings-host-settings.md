@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 11/18/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -42,7 +42,7 @@ For more information about setting up your logic apps for deployment, see the fo
 
 ## Visual Studio Code project structure
 
-[!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
+[!INCLUDE [Visual Studio Code - logic app project structure](includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
 <a name="reference-local-settings-json"></a>
 
@@ -57,6 +57,7 @@ For your workflow to run properly, some app settings are required.
 | Setting | Required | Value | Description |
 |---------|----------|-------|-------------|
 | `APP_KIND` | Yes | `workflowApp` | Required to set the app type for the Standard logic app resource. The value must be set to **`workflowApp`**. <br><br>**Note**: In some scenarios, this app setting might be missing, for example, due to automation using Azure Resource Manager templates or other scenarios where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code** action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to to **`workflowApp`**. |
+| `AZURE_AUTHORITY_HOST` | No | None | Sets the Standard logic app's default authority to use for OAuth authentication. |
 | `AzureWebJobsStorage` | Yes | None | Required to set the connection string for an Azure storage account. For more information, see [AzureWebJobsStorage](../azure-functions/functions-app-settings.md#azurewebjobsstorage). |
 | `FUNCTINONS_EXTENSION_VERSION` | Yes | `~4` | Required to set the Azure Functions version. For more information, see [FUNCTIONS_EXTENSION_VERSION](/azure/azure-functions/functions-app-settings#functions_extension_version). |
 | `FUNCTIONS_WORKER_RUNTIME` | Yes | `dotnet` | Required to set the language worker runtime for your logic app resource and workflows. <br><br>**Note**: This setting's value was previously set to **`node`**, but now the required value is **`dotnet`** for all new and existing deployed Standard logic apps. This change shouldn't affect your workflow's runtime, so everything should work the same way as before. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](../azure-functions/functions-app-settings.md#functions_worker_runtime). |
@@ -432,19 +433,7 @@ To review the host settings for your single-tenant based logic app in the Azure 
 
 1. In the [Azure portal](https://portal.azure.com/) search box, find and open your logic app.
 
-1. On your logic app menu, under **Development Tools**, select **Advanced Tools**.
-
-1. On the **Advanced Tools** page, select **Go**, which opens the **Kudu** environment for your logic app.
-
-1. On the Kudu toolbar, from the **Debug console** menu, select **CMD**.
-
-1. In the Azure portal, stop your logic app.
-
-   1. On your logic app menu, select **Overview**.
-
-   1. On the **Overview** pane's toolbar, select **Stop**.
-
-1. On your logic app menu, under **Development Tools**, select **Advanced Tools**.
+1. On the resource menu, under **Development Tools**, select **Advanced Tools**.
 
 1. On the **Advanced Tools** pane, select **Go**, which opens the Kudu environment for your logic app.
 
@@ -464,10 +453,13 @@ To add a setting, follow these steps:
 
 1. Before you add or edit settings, stop your logic app in the Azure portal.
 
-   1. On your logic app menu, select **Overview**.
+   1. On the resource menu, select **Overview**.
+
    1. On the **Overview** pane's toolbar, select **Stop**.
 
-1. Return to the **host.json** file. Under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `settings` objects, for example:
+1. If the **host.json** file is already open, return to the **host.json** file. Otherwise, follow the preceding steps to open the **host.json** file.
+
+1. Under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `settings` objects, for example:
 
    ```json
    {

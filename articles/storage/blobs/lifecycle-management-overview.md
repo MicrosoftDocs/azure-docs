@@ -5,7 +5,7 @@ description: Use Azure Blob Storage lifecycle management policies to create auto
 author: normesta
 
 ms.author: normesta
-ms.date: 09/30/2024
+ms.date: 10/25/2024
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.custom: references_regions, engagement-fy23
@@ -198,8 +198,8 @@ To view default scale limits, see the following articles:
 - [Scalability targets for premium block blob storage accounts](scalability-targets-premium-block-blobs.md)
 
 ### Lifecycle policy completed event
+The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. The following json shows an example `LifecyclePolicyCompleted` event for a policy. Because the policy definition includes the `delete`, `tierToCool`, `tierToCold`, and `tierToArchive` actions, a summary section appears for each one. 
 
-The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. The following json shows an example `LifecyclePolicyCompleted` event.
 
 ```json
 {
@@ -216,6 +216,11 @@ The `LifecyclePolicyCompleted` event is generated when the actions defined by a 
             "errorList": ""
         },
         "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToColdSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
             "errorList": ""
@@ -238,6 +243,7 @@ The following table describes the schema of the `LifecyclePolicyCompleted` event
 |scheduleTime|string|The time that the lifecycle policy was scheduled|
 |deleteSummary|vector\<byte\>|The results summary of blobs scheduled for delete operation|
 |tierToCoolSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cool operation|
+|tierToColdSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cold operation|
 |tierToArchiveSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-archive operation|
 
 ## Examples of lifecycle policies

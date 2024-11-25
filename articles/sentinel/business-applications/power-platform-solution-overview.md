@@ -5,8 +5,6 @@ author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 02/28/2024
-
-
 #Customer intent: As a security operations manager, I want to understand how I can use Microsoft Sentinel to monitor and detect suspicious activities in my Power Platform environment so that I can protect my organization from potential threats and data breaches.
 
 ---
@@ -37,6 +35,16 @@ The Microsoft Sentinel solution for Power Platform allows you to monitor and det
 - Investigate threats detected in Microsoft Power Platform and Power Apps and contextualize them with other user activities across the organization.
 - Respond to Microsoft Power Platform-related and Power Apps-related threats and incidents in a simple and canned manner manually, automatically, or through a predefined workflow.
 
+## Solution updates
+
+Starting on October 17, 2024, audit logging data for Power Apps, Power Platform DLP, and Power Platform Connectors is routed to the `PowerPlatformAdminActivity` table instead of the `PowerAppsActivity`, `PowerPlatformDlpActivity` and `PowerPlatformConnectorActivity` tables.
+
+Security content in the Microsoft Sentinel solution for Microsoft Power Platform is updated with the new table and schemas for the Power Apps, Power Platform DLP, and Power Platform Connectors. We recommend that you update the Power Platform solution in your workspace to the latest version and apply the updated analytics rule templates to benefit from the changes. For more information, see [Install or update content](../sentinel-solutions-deploy.md#install-or-update-content).
+
+Customers using deprecated data connectors for Power Apps, Power Platform DLP, and Power Platform Connectors can safely disconnect and remove these connectors from their Microsoft Sentinel workspace. All associated data flows are ingested using Power Platform Admin Activity connector.
+
+For more information, see [Message center](https://portal.office.com/adminportal/home?#/MessageCenter/:/messages/MC912045).
+
 ## What the solution includes
 
 The Microsoft Sentinel solution for Power Platform includes several data connectors and analytic rules.
@@ -48,11 +56,7 @@ The Microsoft Sentinel solution for Power Platform ingests and cross-correlates 
 |Connector name  |Data collected  |Log Analytics tables |
 |---------|---------|---------|
 |Power Platform Inventory (using Azure Functions)   |  Power Apps and Power Automate inventory data <br><br> For more information, see [Set up Microsoft Power Platform self-service analytics to export Power Platform inventory and usage data](/power-platform/admin/self-service-analytics).      |   PowerApps_CL,<br>PowerPlatrformEnvironments_CL,<br>PowerAutomateFlows_CL,<br>PowerAppsConnections_CL      |
-|Microsoft Power Apps (Preview)   |    Power Apps activity logs  <br><br> For more information, see [Power Apps activity logging](/power-platform/admin/logging-powerapps).    |  PowerAppsActivity       |
-|Microsoft Power Automate (Preview)     |  Power Automate activity logs  <br><br>For more information, see [View Power Automate audit logs](/power-platform/admin/logging-power-automate).     |   PowerAutomateActivity      |
-|Microsoft Power Platform Connectors (Preview)    |   Power Platform connector activity logs  <br><br>For more information, see [View the Power Platform connector activity logs](/power-platform/admin/connector-events-power-platform).      |     PowerPlatformConnectorActivity    |
-|Microsoft Power Platform DLP (Preview)     |     Data loss prevention activity logs  <br><br>For more information, see [Data loss prevention activity logging](/power-platform/admin/dlp-activity-logging).   |    PowerPlatformDlpActivity     |
-|Microsoft Power Platform Admin Activity (Preview)|Power Platform administrator activity logs<br><Br> For more information, see [View Power Platform administrative logs using auditing solutions in Microsoft Purview (preview)](/power-platform/admin/admin-activity-logging).||
+|Microsoft Power Platform Admin Activity (Preview)|Power Platform administrator activity logs<br><Br> For more information, see [View Power Platform administrative logs using auditing solutions in Microsoft Purview (preview)](/power-platform/admin/admin-activity-logging).|PowerPlatformAdminActivity|
 |Microsoft Dataverse (Preview) |    Dataverse and model-driven apps activity logging <br><br>For more information, see [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing).<br><br>If you use the data connector for Dynamics 365, migrate to the data connector for Microsoft Dataverse. This data connector replaces the legacy data connector for Dynamics 365 and supports data collection rules.  |   DataverseActivity      |
 
 ### Analytic rules

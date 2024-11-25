@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 06/05/2023
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to connect my data source to the Microsoft Sentinel API so that we can ingest and analyze security data from third-party products.
+
 ---
 
 # Connect your data source to the Microsoft Sentinel Data Collector API to ingest data

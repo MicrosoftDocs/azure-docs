@@ -5,7 +5,7 @@ description: How to use Azure IoT Hub direct methods with the Python SDK for dev
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: how-to
 ms.date: 12/29/2022

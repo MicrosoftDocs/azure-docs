@@ -2,7 +2,7 @@
 title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: how-to
-ms.date: 04/12/2024
+ms.date: 10/16/2024
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS

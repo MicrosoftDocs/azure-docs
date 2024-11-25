@@ -1,10 +1,14 @@
 ---
 title: Migrate QRadar detection rules to Microsoft Sentinel | Microsoft Docs
 description: Identify, compare, and migrate your QRadar detection rules to Microsoft Sentinel built-in rules.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: As a security engineer, I want to migrate QRadar detection rules to Microsoft Sentinel so that analysts can leverage machine learning analytics and built-in rules for more efficient threat detection and incident response.
+
 ---
 
 # Migrate QRadar detection rules to Microsoft Sentinel

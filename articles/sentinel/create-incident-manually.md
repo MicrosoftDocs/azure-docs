@@ -4,7 +4,10 @@ description: Manually create incidents in Microsoft Sentinel based on data or in
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 08/17/2022
+ms.date: 10/16/2024
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
+#Customer intent: As a security analyst, I want to manually create incidents in Microsoft Sentinel so that I can investigate and respond to threats not automatically detected or ingested from external systems.
 ---
 
 # Create your own incidents manually in Microsoft Sentinel
@@ -49,7 +52,7 @@ There are three ways to create an incident manually:
 - [Create an incident using Azure Logic Apps](#create-an-incident-using-azure-logic-apps), using the Microsoft Sentinel Incident trigger.
 - [Create an incident using the Microsoft Sentinel API](#create-an-incident-using-the-microsoft-sentinel-api), through the [Incidents](/rest/api/securityinsights/preview/incidents) operation group. It allows you to get, create, update, and delete incidents.
 
-After onboarding Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, manually created incidents will not be synchronized with the unified platform, though they can still be viewed and managed in Microsoft Sentinel in the Azure portal, and through Logic Apps and  the API.
+After onboarding Microsoft Sentinel to the Microsoft Defender portal, manually created incidents aren't synchronized with the Defender portal, though they can still be viewed and managed in Microsoft Sentinel in the Azure portal, and through Logic Apps and  the API.
 
 ### Create an incident using the Azure portal
 

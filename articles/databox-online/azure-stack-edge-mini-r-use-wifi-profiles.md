@@ -4,8 +4,7 @@ description: Describes how to create Wi-Fi profiles for Azure Stack Edge Mini R 
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 11/10/2023
 ms.author: alkohli

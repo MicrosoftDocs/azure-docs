@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: how-to
-ms.date: 05/29/2024
+ms.date: 10/21/2024
 ms.author: cshoe
 ---
 
@@ -17,9 +17,6 @@ There are multiple methods of configuring a custom domain for use with Static We
 
 - If you're using an apex domain (a domain without a subdomain, also known as a root domain), see [configuring a custom apex domain on Static Web Apps](apex-domain-external.md).
 - If you're using Azure DNS, see [configuring a custom domain with Azure DNS](custom-domain-azure-dns.md) or [configuring a custom apex domain with Azure DNS](apex-domain-azure-dns.md).
-
-> [!NOTE]
-> Static Web Apps doesn't support set-up of a custom domain with a private DNS server, hosted on-premises. Consider using an [Azure Private DNS zone](../dns/private-dns-privatednszone.md).
 
 ## Prerequisites
 

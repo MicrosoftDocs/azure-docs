@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 07/17/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 zone_pivot_groups: iotedge-dev
 ---
 # Use Visual Studio 2022 to develop and debug modules for Azure IoT Edge

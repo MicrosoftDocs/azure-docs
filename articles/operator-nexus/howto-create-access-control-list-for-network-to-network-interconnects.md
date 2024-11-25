@@ -80,6 +80,7 @@ The table below provides guidance on the usage of parameters when creating ACLs:
 > - Ingress ACLs do not support the following options: etherType.<br>
 > - Ports inputs can be `port-number` or `range-of-ports`.<br>
 > - Fragments inputs can be `port-number` or `range-of-ports`.<br>
+> - ACL with dynamic match configuration on eternal networks is not supported.<br>
 
 ### Example payload for ACL creation
 

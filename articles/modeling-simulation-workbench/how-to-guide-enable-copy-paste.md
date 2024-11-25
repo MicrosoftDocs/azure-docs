@@ -3,7 +3,7 @@ title: "Enable copy/paste: Azure Modeling and Simulation Workbench"
 description: Enable copy/paste functionality in Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 08/25/2024
 

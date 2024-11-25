@@ -4,7 +4,7 @@ description: Use message body properties to route device telemetry to Blob stora
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub 
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 05/15/2019
 ---

@@ -40,7 +40,7 @@ We recommend the following approach to upgrade to Standard SKU public IP address
   | Virtual Machine | Use scripts or manually detach and upgrade public IPs. For standalone virtual machines, you can use the [upgrade script](public-ip-upgrade-vm.md) or for virtual machines in an availability set use [this script](public-ip-upgrade-availability-set.md). |
   | Virtual Machine Scale Sets | [Replace basic SKU instance public IP addresses](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine) with new standard SKU |
   | Load Balancer (Basic SKU) | New Load Balancer SKU required. Use the upgrade script [Upgrade Basic Load Balancer to Standard SKU](../../load-balancer/upgrade-basic-standard-with-powershell.md) to upgrade to Standard Load Balancer |
-  | VPN Gateway (using Basic IPs) |At this time, it's not necessary to upgrade. When an upgrade is necessary, we'll update this decision path with migration information and send out a service health alert. |
+  | VPN Gateway (using Basic IPs) | A migration path will be provided in the future. When this migration path is available, we'll update this decision path with migration information and send out a service health alert. |
   |  ExpressRoute Gateway (using Basic IPs) | New ExpressRoute Gateway is required. Follow the [ExpressRoute Gateway migration guidance](../../expressroute/gateway-migration.md) for upgrading from Basic to Standard SKU.  |
   | Application Gateway (v1 SKU) | New AppGW SKU required. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md).  |
 
@@ -55,7 +55,7 @@ This section lists out some key differences between these two SKUs.
 |---------|---------|---------|
 | **Allocation method** | Static. | For IPv4: Dynamic or Static; For IPv6: Dynamic. |
 | **Security** | Secure by default model and be closed to inbound traffic when used as a frontend. Allow traffic with [network security group](../network-security-groups-overview.md#network-security-groups) is required (for example, on the NIC of a virtual machine with a Standard SKU public IP attached). | Open by default. Network security groups are recommended but optional for restricting inbound or outbound traffic. |
-| **[Availability zones](../../availability-zones/az-overview.md)** | Supported. Standard IPs can be nonzonal, zonal, or zone-redundant. Zone redundant IPs can only be created in [regions where three availability zones](../../availability-zones/az-region.md) are live. IPs created before availability zones aren't zone redundant. | Not supported |
+| **[Availability zones](../../reliability/availability-zones-overview.md)** | Supported. Standard IPs can be nonzonal, zonal, or zone-redundant. Zone redundant IPs can only be created in [regions where three availability zones](../../reliability/availability-zones-region-support.md) are live. IPs created before availability zones aren't zone redundant. | Not supported |
 | **[Routing preference](routing-preference-overview.md)** | Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported. |
 | **Global tier** | Supported via [cross-region load balancers](../../load-balancer/cross-region-overview.md)| Not supported |
 | **[Standard Load Balancer Support](../../load-balancer/skus.md)** | Both IPv4 and IPv6 are supported | Not supported |

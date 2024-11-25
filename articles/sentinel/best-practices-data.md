@@ -1,10 +1,14 @@
 ---
 title: Best practices for data collection in Microsoft Sentinel
 description: Learn about best practices to employ when connecting data sources to Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: conceptual
 ms.date: 01/09/2023
+
+
+#Customer intent: As a security analyst, I want to implement best practices for Microsoft Sentinel data collection so that I can optimize log ingestion, reduce costs, and enhance security monitoring.
+
 ---
 
 #  Data collection best practices

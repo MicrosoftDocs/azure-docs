@@ -5,7 +5,8 @@ author: eshashah
 ms.author: eshashah
 ms.date: 10/2/2024
 ms.topic: tutorial
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Tutorial: Device Update for Azure IoT Hub using the package agent on Ubuntu Server 22.04 x64
