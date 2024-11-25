@@ -1,7 +1,7 @@
 ---
 title: "Configure the APM Java agent with Init Containers"
 titleSuffix: Azure Container Apps
-description: Learn to configure Application Performance Management (APM) Java agent with init container in Azure Container Apps.
+description: Learn how to configure the Application Performance Management (APM) Java agent with init containers in Azure Container Apps.
 customer intent: As a developer, I want to configure the APM Java agent with init containers in Azure Container Apps so that I can monitor and manage application performance.
 services: container-apps
 ms.service: azure-container-apps
@@ -99,16 +99,16 @@ Use the following steps to define environment variables and ensure your Containe
 
     ```azurecli
     CONNECTION_STRING=$(az monitor app-insights component show \
-      --ids $APP_INSIGHTS_RESOURCE_ID \
-      --query connectionString)
+        --ids $APP_INSIGHTS_RESOURCE_ID \
+        --query connectionString)
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```azurepowershell
     $CONNECTION_STRING=(az monitor app-insights component show `
-      --ids $APP_INSIGHTS_RESOURCE_ID `
-      --query connectionString)
+        --ids $APP_INSIGHTS_RESOURCE_ID `
+        --query connectionString)
     ```
 
 ## Prepare the container image
