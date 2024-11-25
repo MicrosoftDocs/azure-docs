@@ -39,8 +39,9 @@ There are two ways that Azure services use availability zones:
 
 Azure services support one or both of these approaches. Platform as a service (PaaS) services typically support zone-redundant deployments. Infrastructure as a service (IaaS) services typically support zonal deployments. For more information about how Azure services work with availability zones, see [Azure regions with availability zone support](availability-zones-region-support.md).
 
-For information on service-specific reliability support using availability zones as well as recommended disaster recovery guidance see [Reliability guidance overview](./reliability-guidance-overview.md).
+If you don't configure availability zones on a service, it's called a *non-zonal* or *regional* deployment. Resources configured in this way might be placed in any availabilty zone in the region, and might be moved. If any availability zone in the region experiences an outage, non-zonal resources might be affected.
 
+For information on service-specific reliability support using availability zones as well as recommended disaster recovery guidance see [Reliability guidance overview](./reliability-guidance-overview.md).
 
 ## Physical and logical availability zones
 

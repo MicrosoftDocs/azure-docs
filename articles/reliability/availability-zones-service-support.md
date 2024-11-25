@@ -20,11 +20,13 @@ Azure is continually expanding the number of services that support availability 
 
 ## Types of availability zone support
 
-Azure services can provide two types of availability zone support: *zonal* and *zone-redundant*. Each service supports either one or both types. When designing your reliability strategy, make sure that you understand which availability zone types are supported in each service of your workload. 
+Azure services can provide two types of availability zone support: *zonal* and *zone-redundant*. Each service might support one or both types. When designing your reliability strategy, make sure that you understand which availability zone types are supported in each service of your workload. 
 
 - **Zonal services**: A resource can be deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements. Resiliency is self-architected by replicating applications and data to one or more zones within the region. Resources are aligned to a selected zone. For example, virtual machines, managed disks, or standard IP addresses can be aligned to a same zone, which allows for increased resiliency by having multiple instances of resources deployed to different zones.
 
 - **Zone-redundant services**: Resources are replicated or distributed across zones automatically. For example, zone-redundant services replicate the data across multiple zones so that a failure in one zone doesn't affect the high availability of the data. 
+
+If you don't configure availability zones on a service, it's called a *non-zonal* or *regional* deployment. Resources configured in this way might be placed in any availabilty zone in the region, and might be moved. If any availability zone in the region experiences an outage, non-zonal resources might be affected.
 
 >[!IMPORTANT]
 >Some services may have limited support for availability zones. For example, some may only support availability zones for certain tiers, regions, or SKUs. To get more information on service limitations for availability zone support, select that service in the table.
