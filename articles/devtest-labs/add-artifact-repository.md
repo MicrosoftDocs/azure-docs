@@ -131,7 +131,7 @@ The repository now appears in the **Repositories** list for the lab.
 
 ## [GitHub repo DevCenter app](#tab/GitHubRepoApp/)
 
-To add a catalog, complete the following tasks:
+To add an artifact repo, complete the following tasks:
 
 1. Install and configure the Microsoft Dev Center app
 1. Assign permissions in GitHub for the repos.
