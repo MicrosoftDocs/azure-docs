@@ -1,5 +1,5 @@
 ---
-title: 'Create a VM with a static private IP address'
+title: Create a VM with a static private IP address using the Azure portal, Azure PowerShell, or Azure CLI
 description: Learn to create a virtual machine with a static private IP address using the Azure portal, Azure PowerShell, or Azure CLI.
 ms.date: 11/19/2024
 ms.author: mbender
@@ -237,7 +237,7 @@ When all the resources are no longer need, delete the resource group and all of 
 1. From the **myResourceGroup** screen, select **Delete resource group**.
 
 1. Enter *myResourceGroup* for **Enter resource group name to confirm deletion**, and then select **Delete**.
-1. 
+
 # [Azure PowerShell](#tab/azurepowershell)
 
 When all the resources are no longer need, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains:
