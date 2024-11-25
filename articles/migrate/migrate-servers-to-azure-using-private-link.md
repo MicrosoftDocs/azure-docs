@@ -1,6 +1,6 @@
 ---
 title: Migrate agentless servers to Azure by using Private Link
-description: Use Azure Migrate with private endpoints for migrations by using ExpressRoute private peering or VPN connections.
+description: Use Azure Migrate to migrate servers over a private network by using Azure Private Link.
 author: vijain
 ms.author: vijain
 zone_pivot_groups: migrate-agentlessvmware-hyperv-agentbased
@@ -53,7 +53,7 @@ Now, select machines for replication and migration.
 1. In **Virtual network**, select the Azure VNet/subnet for the migrated  Azure VMs. 
 1. In **Cache storage account**, use the dropdown list to select a storage account to replicate over a private link.  
 
-1. Next, [**create a private endpoint for the storage account**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1) and [**grant permissions to the Recovery Services vault managed identity**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault) to access the storage account required by Azure Migrate. This is mandatory before you proceed.   
+1. Next, [**create a private endpoint for the storage account**](migrate-vmware-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account) and [**grant permissions to the Recovery Services vault managed identity**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault) to access the storage account required by Azure Migrate. This is mandatory before you proceed.   
 
     - Ensure that the server hosting the replication appliance has network connectivity to the storage accounts via the private endpoints before you proceed. Learn how to [verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution).     
     

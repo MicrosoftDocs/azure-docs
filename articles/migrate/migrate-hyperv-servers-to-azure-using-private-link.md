@@ -1,6 +1,6 @@
 ---
 title: Migrate Hyper-V servers to Azure by using Private Link
-description: Use Azure Migrate with private endpoints for migrations by using ExpressRoute private peering or VPN connections.
+description: Use Azure Migrate with private endpoints to migrate on-premises Hyper-V VMs to Azure.
 author: vijain
 ms.author: vijain
 zone_pivot_groups: migrate-agentlessvmware-hyperv-agentbased
