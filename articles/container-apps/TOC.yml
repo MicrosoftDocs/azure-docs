@@ -279,7 +279,7 @@
         - name: Component overview
           href: dapr-components.md
         - name: Connecting Dapr components to external
-          href: dapr-component-authentication.md
+          href: dapr-component-connect-services.md
         - name: Connect to Azure services using Azure portal
           href: dapr-component-connection.md
       - name: Configure
