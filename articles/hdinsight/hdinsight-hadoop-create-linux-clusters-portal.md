@@ -155,7 +155,8 @@ Some of the icons in the window are explained as follows:
 
 ## Delete the cluster
 
-See [Delete a HDInsight cluster using your browser, PowerShell, or the Azure CLI](./hdinsight-delete-cluster.md).
+See [Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI](./hdinsight-delete-cluster.md).
+
 
 ## Troubleshoot
 
@@ -163,7 +164,8 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 ## Next steps
 
-You've successfully created a HDInsight cluster. Now learn how to work with your cluster.
+You've successfully created an HDInsight cluster. Now learn how to work with your cluster.
+
 
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
 * [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
