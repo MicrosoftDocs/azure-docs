@@ -122,17 +122,11 @@ items:
         href: add-dual-stack-ipv6-vm-portal.md
       - name: Create a virtual machine with a dual-stack network
         href: create-vm-dual-stack-ipv6-portal.md
-      - name: Create VM - static public IP
-        items:
-        - name: Azure portal
-          href: virtual-network-deploy-static-pip-arm-portal.md
-        - name: Azure PowerShell
-          href: virtual-network-deploy-static-pip-arm-ps.md
-        - name: Azure CLI
-          href: virtual-network-deploy-static-pip-arm-cli.md
-      - name: Create VM - static private IP
+      - name: Create virtual machine with static public IP
+        href: virtual-network-deploy-static-pip-arm-portal.md
+      - name: Create virtual machine with static private IP
         href: virtual-networks-static-private-ip-arm-pportal.md
-      - name: Create VM - multiple IPs
+      - name: Create virtual machine with multiple IPs
         items:
         - name: Azure portal
           href: virtual-network-multiple-ip-addresses-portal.md
