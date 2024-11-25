@@ -12,7 +12,7 @@ appliesto:
 
 # Collaborate in Microsoft Teams in the Azure portal (Public preview)
 
-Microsoft Sentinel supports a direct integration with [Microsoft Teams](/microsoftteams/), enabling you to jump directly into teamwork on specific incidents.
+Microsoft Sentinel in the Azure portal supports a direct integration with [Microsoft Teams](/microsoftteams/), enabling you to jump directly into teamwork on specific incidents.
 
 
 > [!IMPORTANT]

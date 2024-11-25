@@ -18,7 +18,7 @@ appliesto:
 > 
 > Incident deletion is generally available through the API.
 
-The ability to create incidents from scratch in Microsoft Sentinel opens the possibility that you'll create an incident that you later decide you shouldn't have. For example, you may have created an incident based on an employee report, before having received any evidence (such as alerts), and soon afterward you receive alerts that automatically generate the incident in question. But now, you have a duplicate incident with no data in it. In this scenario, you can delete your duplicate incident right from the incident queue in the portal.
+The ability to create incidents from scratch in Microsoft Sentinel in the Azure portal opens the possibility that you'll create an incident that you later decide you shouldn't have. For example, you may have created an incident based on an employee report, before having received any evidence (such as alerts), and soon afterward you receive alerts that automatically generate the incident in question. But now, you have a duplicate incident with no data in it. In this scenario, you can delete your duplicate incident right from the incident queue in the Azure portal.
 
 **Deleting an incident is not a substitute for closing an incident!** Deleting an incident should only be done when at least one of the following conditions is met:
 - The incident was created manually by mistake.

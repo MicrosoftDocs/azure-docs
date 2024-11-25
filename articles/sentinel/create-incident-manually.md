@@ -28,7 +28,7 @@ With Microsoft Sentinel as your security information and event management (SIEM)
 
 However, threat data can also come from other sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, and yet can justify opening an investigation. For example, an employee might notice an unrecognized person engaging in suspicious activity related to your organization’s information assets. This employee might call or email the security operations center (SOC) to report the activity.
 
-Microsoft Sentinel allows your security analysts to manually create incidents for any type of event, regardless of its source or data, so you don't miss out on investigating these unusual types of threats.
+Microsoft Sentinel in the Azure portal allows your security analysts to manually create incidents for any type of event, regardless of its source or data, so you don't miss out on investigating these unusual types of threats.
 
 ## Common use cases
 

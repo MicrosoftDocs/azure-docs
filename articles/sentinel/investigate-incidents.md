@@ -12,9 +12,9 @@ appliesto:
 
 # Navigate and investigate incidents in Microsoft Sentinel in the Azure portal
 
-Microsoft Sentinel gives you a complete, full-featured case management platform for investigating security incidents. The **Incident details** page is your central location from which to run your investigation, collecting all the relevant information and all the applicable tools and tasks in one screen.
+Microsoft Sentinel gives you a complete, full-featured case management platform in the Azure portal for investigating security incidents. The **Incident details** page is your central location from which to run your investigation, collecting all the relevant information and all the applicable tools and tasks in one screen.
 
-This article takes you through all the panels and options available on the incident details page, helping you navigate and investigate your incidents more quickly, effectively, and efficiently, and reducing your mean time to resolve (MTTR).
+This article takes you through all the panels and options available on the incident details page in the Azure portal, helping you navigate and investigate your incidents more quickly, effectively, and efficiently, and reducing your mean time to resolve (MTTR).
 
 See instructions for the [previous version of incident investigation](investigate-cases.md).
 
