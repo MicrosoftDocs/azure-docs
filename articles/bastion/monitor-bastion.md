@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Bastion
-description: Start here to learn how to monitor Azure Bastion by using Azure Monitor. Learn about available metrics and logs.
-ms.date: 08/02/2024
+description: Start here to learn how to monitor [TODO-replace-with-service-name].
+ms.date: 12/02/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: cherylmc
@@ -9,98 +9,68 @@ ms.author: cherylmc
 ms.service: azure-bastion
 ---
 
-# Monitor Azure Bastion
+<!-- 
+According to the Content Pattern guidelines all comments must be removed before publication!!!
+IMPORTANT 
+To make this template easier to use, first:
+1. Search and replace [TODO-replace-with-service-name] with the official name of your service.
+2. Search and replace [TODO-replace-with-service-filename] with the service name to use in GitHub filenames.-->
 
-[!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
+<!-- VERSION 4.0 November 2024
+For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
 
-[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
-For more information about the resource types for Azure Bastion, see [Azure Bastion monitoring data reference](monitor-bastion-reference.md).
+<!-- All sections are required unless otherwise noted. Add service-specific information after the includes.
+Your service should have the following two articles:
+1. The overview monitoring article (based on this template)
+   - Title: "Monitor [TODO-replace-with-service-name]"
+   - TOC title: "Monitor"
+   - Filename: "monitor-[TODO-replace-with-service-filename].md"
+2. A reference article that lists all the metrics and logs for your service (based on the template data-reference-template.md).
+   - Title: "[TODO-replace-with-service-name] monitoring data reference"
+   - TOC title: "Monitoring data reference"
+   - Filename: "monitor-[TODO-replace-with-service-filename]-reference.md".
+-->
 
-[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
+# Monitor  Azure Bastion
 
-[!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
+<!-- Intro -->
+[!INCLUDE [azmon-horz-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor-horizontals/azmon-horz-intro.md)]
+ 
+## Collect data with Azure Monitor 
 
-For a list of available metrics for Azure Bastion, see [Azure Bastion monitoring data reference](monitor-bastion-reference.md#metrics).
+This table describes how you can collect data to monitor your service, and what you can do with the data once collected:
 
-[!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
+|Data to collect|Description|How to collect and route the data|Where to view the data|Supported data|
+|---------|---------|---------|---------|---------|
+|Metric data|Metrics are numerical values that describe an aspect of a system at a particular point in time. Metrics can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time.|[- Collected automatically at regular intervals.</br> - You can route some platform metrics to a Log Analytics workspace to query with other data. Check the **DS export** setting for each metric to see if you can use a diagnostic setting to route the metric data.]|[Metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started)| [Azure Bastion metrics supported by Azure Monitor](/azure/bastion/monitor-bastion-reference#metrics)|
+|Resource log data|Logs are recorded system events with a timestamp. Logs can contain different types of data, and be structured or free-form text. You can route resource log data to Log Analytics workspaces for querying and analysis.|[Create a diagnostic setting](/azure/azure-monitor/essentials/create-diagnostic-settings) to collect and route resource log data.| [Log Analytics](/azure/azure-monitor/learn/quick-create-workspace)|[Azure Bastion resource log data supported by Azure Monitor](/azure/bastion/monitor-bastion-reference#resource-logs)  |
+|Activity log data|The Azure Monitor activity log provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started.|- Collected automatically.</br> - [Create a diagnostic setting](/azure/azure-monitor/essentials/create-diagnostic-settings) to a Log Analytics workspace at no charge.|[Activity log](/azure/azure-monitor/essentials/activity-log)|  |
 
-For the available resource log categories, their associated Log Analytics tables, and the log schemas for Azure Bastion, see [Azure Bastion monitoring data reference](monitor-bastion-reference.md#resource-logs).
+[!INCLUDE [azmon-horz-supported-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor-horizontals/azmon-horz-supported-data.md)]
 
-An example entry of successful sign-in from a downloaded json file is shown here for reference:
+## Built in monitoring for Azure Bastion
 
-```json
-{ 
-"time":"2019-10-03T16:03:34.776Z",
-"resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
-"operationName":"Microsoft.Network/BastionHost/connect",
-"category":"BastionAuditLogs",
-"level":"Informational",
-"location":"eastus",
-"properties":{ 
-   "userName":"<username>",
-   "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
-   "clientIpAddress":"131.107.159.86",
-   "clientPort":24039,
-   "protocol":"ssh",
-   "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
-   "subscriptionId":"<subscripionID>",
-   "message":"Successfully Connected.",
-   "resourceType":"VM",
-   "targetVMIPAddress":"172.16.1.5",
-   "userEmail":"<userAzureAccountEmailAddress>",
-   "tunnelId":"<tunnelID>"
-},
-"FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
-"Region":"eastus",
-"CustomerSubscriptionId":"<subscripionID>"
-}
-```
+<!-- Add any monitoring mechanisms build in to your service here. -->
 
-The following example entry shows an unsuccessful sign-in, such as due to an incorrect username or password:
+<!--## Use Azure Monitor tools to analyze the data-->
+[!INCLUDE [azmon-horz-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor-horizontals/azmon-horz-tools.md)]
 
-```json
-{ 
-"time":"2019-10-03T16:03:34.776Z",
-"resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
-"operationName":"Microsoft.Network/BastionHost/connect",
-"category":"BastionAuditLogs",
-"level":"Informational",
-"location":"eastus",
-"properties":{ 
-   "userName":"<username>",
-   "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
-   "clientIpAddress":"131.107.159.86",
-   "clientPort":24039,
-   "protocol":"ssh",
-   "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
-   "subscriptionId":"<subscripionID>",
-   "message":"Login Failed",
-   "resourceType":"VM",
-   "targetVMIPAddress":"172.16.1.5",
-   "userEmail":"<userAzureAccountEmailAddress>",
-   "tunnelId":"<tunnelID>"
-},
-"FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
-"Region":"eastus",
-"CustomerSubscriptionId":"<subscripionID>"
-}
-```
+<!--## Export Azure Monitor data -->
+[!INCLUDE [azmon-horz-export-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor-horizontals/azmon-horz-export-data.md)]
 
-[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+<!--## Use Kusto queries to analyze log data -->
+[!INCLUDE [azmon-horz-kusto](~/reusable-content/ce-skilling/azure/includes/azure-monitor-horizontals/azmon-horz-kusto.md)]
 
-[!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
+<!-- ## Use Azure Monitor alerts to notify you of issues -->
+[!INCLUDE [azmon-horz-alerts-part-one](~/reusable-content/ce-skilling/azure/includes/azure-monitor-horizontals/azmon-horz-alerts-part-one.md)]
 
-[!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
+<!-- Add any recommended alert rules here. -->
 
-[!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-[!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
+[!INCLUDE [azmon-horz-alerts-part-two](~/reusable-content/ce-skilling/azure/includes/azure-monitor-horizontals/azmon-horz-alerts-part-two.md)]
 
-### Azure Bastion alert rules
-
-You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Bastion monitoring data reference](monitor-bastion-reference.md).
-
-[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
+<!-- ## Get personalized recommendations using Azure Advisor -->
+[!INCLUDE [azmon-horz-advisor](~/reusable-content/ce-skilling/azure/includes/azure-monitor-horizontals/azmon-horz-advisor.md)]
 
 ## Related content
 

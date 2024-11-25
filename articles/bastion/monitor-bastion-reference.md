@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Bastion
 description: This article contains important reference material you need when you monitor Azure Bastion by using Azure Monitor.
-ms.date: 08/02/2024
+ms.date: 12/02/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: cherylmc
