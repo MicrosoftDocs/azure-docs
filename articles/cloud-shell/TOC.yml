@@ -38,7 +38,7 @@ items:
       - name: Deploy using quickstart templates
         href: vnet/deployment.md
       - name: Connect to storage using a private endpoint
-        href: vnet/how-to-use-private-endpoint.md
+        href: vnet/how-to-use-private-endpoint-storage.md
       - name: Troubleshoot Azure Cloud Shell in a virtual network
         href: vnet/troubleshooting.md
   - name: Pricing
