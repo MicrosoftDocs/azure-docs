@@ -87,23 +87,7 @@ Event **breakoutRoomsUpdated** provides instance of one of the following classes
       data: Call | TeamsCall;
     }
    ```
-5. Class `RejoinMainMeetingEvent` : This event is triggered when the participant is joining the main meeting  when the breakout room is closed. This event can happen when the breakout room state is `closed` and the user is automatically moved to the main meeting. Property `data` contains the main meeting `call     instance, that developers can use to listen to the breakout room events. This class has a property `type` equal to `"rejoinMainMeeting"`;
-   ```js
-     /**
-     * Name of event type for main meeting joined event
-     */
-    export interface RejoinMainMeetingEvent {
-      /**
-       * Breakout room event type
-       */
-      type: "rejoinMainMeeting";
-       /**
-       * Main meeting call object
-       */
-      data: Call | TeamsCall;
-    }
-   ```
-      
+         
 The following code shows you valuable information received in the breakout room events:
 ```js
     const breakoutRoomsUpdatedListener = (event) => {
@@ -130,11 +114,7 @@ The following code shows you valuable information received in the breakout room 
         case "join":
           const breakoutRoomCall = event.data;
           console.log(`You have joined breakout room with call ID: ${breakoutRoomCall.id}`);      
-          break;
-        case "rejoinMainMeeting":
-          const mainMeetingCall = event.data;
-          console.log(`You have joined the main meeting with call ID: ${mainMeetingCall.id}`);
-          break;
+          break;      
       }
     }
 breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
@@ -209,22 +189,22 @@ if(breakoutRoom.state == 'open') {
   const breakoutRoomCall = await breakoutRoom.join();
 }
 ```
-To exit a breakout room, users should execute the `hangUp()` function on the breakout room call. The user would be calling `RejoinToMainMeeting` to resume the main meeting call.
+To exit a breakout room, users should execute the `hangUp()` function on the breakout room call. The user would be calling `ReturnToMainMeeting` to resume the main meeting call.
 
 ```js
 breakoutRoomCall.hangUp();
-const mainMeetingCall = breakoutRoomCall.rejoinMainMeeting();
+const mainMeetingCall = breakoutRoomCall.returnToMainMeeting();
 ```
 
 ### Leave breakout room
 
-When the breakout room state is `closed`, user is informed about the end of breakout room by receiving event `breakoutRoomsUpdated` with class `AssignedBreakoutRoomsEvent` and property `type` equal to `assignedBreakoutRooms` that indicates that `assignedBreakoutRoom` has property `state` set to `closed`. User returns to the breakout room automatically and informed about rejoining the main meeting by receiving event `breakoutRoomsUpdated` with class `RejoinMainMeetingEvent` and property `type` equal to `rejoinMainMeeting`.
+When the breakout room state is `closed`, user is informed about the end of breakout room by receiving event `breakoutRoomsUpdated` with class `AssignedBreakoutRoomsEvent` and property `type` equal to `assignedBreakoutRooms` that indicates that `assignedBreakoutRoom` has property `state` set to `closed`. User leaves the breakout room automatically and can return to the main meeting by calling `returnToMainMeeting()` as shown above.
 
-If the user wants to leave the breakout room even before the room is closed and the breakout room settings `breakoutRoomsFeature.breakoutRoomsSettings` have property `disableReturnToMainMeeting` set to `false` then user can rejoin to the main meeting call with the following code: 
+If the user wants to leave the breakout room even before the room is closed and the breakout room settings `breakoutRoomsFeature.breakoutRoomsSettings` have property `disableReturnToMainMeeting` set to `false` then user can return to the main meeting call with the following code: 
 
 ```js
 breakoutRoomCall.hangUp();
-const mainMeetingCall = breakoutRoomCall.rejoinMainMeeting();
+const mainMeetingCall = breakoutRoomCall.returnToMainMeeting();
 ```
 
 ### Get participants of the breakout room
@@ -301,7 +281,7 @@ const roomEndTime : TimestampInfo = breakoutRoomsSettings.roomEndTime;
 |412| 46258 | UnexpectedClientError | Unable to read breakout room details. | Gather browser console logs and contact Azure Communication Services support. |
 |500 | 46259| UnexpectedServerError | Could not hang up the Breakout room call. | Follow the instructions defined in the section `Leave breakout room` for manual leaving of breakout room. |
 |412| 46260 | UnexpectedClientError | Cannot join Breakout Room as it is not yet assigned. | Ensure that the `breakoutRoomsFeature.assignedBreakoutRoom` is having the details of the assigned breakout room. Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly. |
-|412| 46261 | UnexpectedClientError | Unable to join the main meeting. Please try again by calling the RejoinMainMeeting() method. If the issue persists, gather browser console logs and contact Azure Communication Services support.|
+|412| 46261 | UnexpectedClientError | Unable to join the main meeting. Please try again by calling the `breakoutRoomsFeature.assignedBreakoutRoom.returnToMainMeeting()` method. If the issue persists, gather browser console logs and contact Azure Communication Services support.|
 |412| 46262 | ExpectedError | Already in the main meeting. Please call this method only when the participant is in breakout room and removed from the main meeting.|
 |412| 46263 | UnexpectedClientError | Existing breakout room call hangup failed. Try to call hangup() method again to hangup the call. Call join() method to join the breakout room again. |
   
