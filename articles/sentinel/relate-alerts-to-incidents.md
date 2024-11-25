@@ -1,6 +1,6 @@
 ---
-title: Relate alerts to incidents in Microsoft Sentinel | Microsoft Docs
-description: This article shows you how to relate alerts to your incidents in Microsoft Sentinel.
+title: Relate alerts to incidents in Microsoft Sentinel in the Azure portal
+description: This article shows you how to relate alerts to your incidents in Microsoft Sentinel in the Azure portal.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
@@ -10,7 +10,7 @@ appliesto:
 #Customer intent: As a security analyst, I want to relate alerts to incidents in Microsoft Sentinel so that I can refine and expand the scope of my investigations efficiently.
 ---
 
-# Relate alerts to incidents in Microsoft Sentinel
+# Relate alerts to incidents in Microsoft Sentinel in the Azure portal
 
 This article shows you how to relate alerts to your incidents in Microsoft Sentinel. This feature allows you to manually or automatically add alerts to, or remove them from, existing incidents as part of your investigation processes, refining the incident scope as the investigation unfolds. 
 

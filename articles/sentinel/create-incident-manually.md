@@ -1,5 +1,5 @@
 ---
-title: Create your own incidents manually in Microsoft Sentinel
+title: Create your own incidents manually in Microsoft Sentinel in the Azure portal
 description: Manually create incidents in Microsoft Sentinel based on data or information received by the SOC through alternate means or channels.
 author: yelevin
 ms.author: yelevin
@@ -10,7 +10,7 @@ appliesto:
 #Customer intent: As a security analyst, I want to manually create incidents in Microsoft Sentinel so that I can investigate and respond to threats not automatically detected or ingested from external systems.
 ---
 
-# Create your own incidents manually in Microsoft Sentinel
+# Create your own incidents manually in Microsoft Sentinel in the Azure portal
 
 > [!IMPORTANT]
 >
