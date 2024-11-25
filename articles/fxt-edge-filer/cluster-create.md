@@ -10,6 +10,9 @@ ms.date: 07/01/2019
 
 # Tutorial: Create the Azure FXT Edge Filer cluster
 
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
+
 After you install and initialize the Azure FXT Edge Filer hardware nodes for your cache, use the FXT cluster software to create the cache cluster.
 
 This tutorial walks you through the steps to configure your hardware nodes as a cluster.
