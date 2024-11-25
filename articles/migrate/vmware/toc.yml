@@ -32,6 +32,8 @@ items:
     href: tutorial-assess-vmware-azure-vm.md
   - name: Assess servers for migration to AVS
     href: tutorial-assess-vmware-azure-vmware-solution.md
+  - name: Assess SQL instances for migration to Azure SQL
+    href: tutorial-assess-sql-vmware.md
 - name: Migrate
   items:
   - name: Overview
