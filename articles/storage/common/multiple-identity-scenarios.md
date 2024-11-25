@@ -94,7 +94,7 @@ You can also enable access to Azure resources for local development by assigning
 
 #### [.NET](#tab/csharp)
 
-1. In your project, add a reference to the `Azure.Identity` NuGet package. This library contains the necessary entities to implement `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.Messaging.ServiceBus` packages are added to connect to Blob Storage and Service Bus, respectively.
+1. In your project, install the `Azure.Identity` NuGet package. This library provides `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.Messaging.ServiceBus` packages are added to connect to Blob Storage and Service Bus, respectively.
 
     ```dotnetcli
     dotnet add package Azure.Identity
@@ -230,7 +230,7 @@ You can also enable access to Azure resources for local development by assigning
 
 #### [Node.js](#tab/javascript)
 
-1. In your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library provides `DefaultAzureCredential`. For this example, the `@azure/storage-blob` and `@azure/service-bus` packages are installed to interact with Blob Storage and Service Bus.
+1. In your project, install the `@azure/identity` package. This library provides `DefaultAzureCredential`. For this example, the `@azure/storage-blob` and `@azure/service-bus` packages are installed to interact with Blob Storage and Service Bus.
 
     ```bash
     npm install --save @azure/identity @azure/storage-blob @azure/service-bus
@@ -281,7 +281,7 @@ You can also enable access to Azure resources for local development by assigning
     # Create an instance of DefaultAzureCredential that will use a system-assigned managed identity
     credential = DefaultAzureCredential()
     
-    blobServiceClient = BlobServiceClient(
+    blob_service_client = BlobServiceClient(
         account_url="https://<my-storage-account-name>.blob.core.windows.net/",
         credential=credential
     )
@@ -289,11 +289,11 @@ You can also enable access to Azure resources for local development by assigning
     fully_qualified_namespace = os.environ['SERVICEBUS_FULLY_QUALIFIED_NAMESPACE']
     queue_name = os.environ['SERVICE_BUS_QUEUE_NAME']
     
-    with ServiceBusClient(fully_qualified_namespace, credential) as client:
-        with client.get_queue_sender(queue_name) as sender:
+    with ServiceBusClient(fully_qualified_namespace, credential) as service_bus_client:
+        with service_bus_client.get_queue_sender(queue_name) as sender:
             # Sending a single message
             single_message = ServiceBusMessage("Single message")
-            sender.send_messages(single_message)    
+            sender.send_messages(single_message)
     ```
 
 ---
@@ -310,12 +310,21 @@ Although the apps in the previous example all shared the same service access req
 
 :::image type="content" source="media/multiple-managed-identities-small.png" lightbox="media/multiple-managed-identities.png" alt-text="Diagram showing multiple user-assigned managed identities.":::
 
-To configure this setup in your code, make sure your application registers separate service clients to connect to each storage account or database. Make sure to pull in the correct managed identity client IDs for each service when configuring `DefaultAzureCredential`. The following code example configures the following service connections:
+To configure this setup in your code, ensure your application registers separate service clients to connect to each storage account or database. Make sure to pull in the correct managed identity client IDs for each service when configuring `DefaultAzureCredential`. The following code sample configures these Azure service connections:
 
 * Two connections to separate storage accounts using a shared user-assigned managed identity
 * A connection to Azure Cosmos DB and Azure SQL services using a second shared user-assigned managed identity
 
 ### [.NET](#tab/csharp)
+
+1. In your project, install the `Azure.Identity` package. This library provides `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app.
+
+```dotnetcli
+dotnet add package Azure.Identity
+dotnet add package Azure.Storage.Blobs
+dotnet add package Microsoft.Azure.Cosmos
+dotnet add package Microsoft.Data.SqlClient
+```
 
 ```csharp
 using Azure.Core;
@@ -329,7 +338,7 @@ string clientIdStorage =
 
 // Create a DefaultAzureCredential instance that configures the underlying
 // ManagedIdentityCredential to use a user-assigned managed identity.
-DefaultAzureCredential credential = new(
+DefaultAzureCredential credentialStorage = new(
     new DefaultAzureCredentialOptions
     {
         ManagedIdentityClientId = clientIdStorage,
@@ -338,25 +347,26 @@ DefaultAzureCredential credential = new(
 // First Blob Storage client that uses a user-assigned managed identity
 BlobServiceClient blobServiceClient1 = new(
     new Uri("https://<receipt-storage-account>.blob.core.windows.net"),
-    credential);
+    credentialStorage);
 
 // Second Blob Storage client that uses a user-assigned managed identity
 BlobServiceClient blobServiceClient2 = new(
     new Uri("https://<contract-storage-account>.blob.core.windows.net"),
-    credential);
+    credentialStorage);
 
 // Get the second user-assigned managed identity client ID to connect to shared databases
 string clientIdDatabases =
     Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Databases")!;
+DefaultAzureCredential credentialDatabases = new(
+    new DefaultAzureCredentialOptions
+    {
+        ManagedIdentityClientId = clientIdDatabases,
+    });
 
 // Create an Azure Cosmos DB client
 CosmosClient cosmosClient = new(
     Environment.GetEnvironmentVariable("COSMOS_ENDPOINT", EnvironmentVariableTarget.Process),
-    new DefaultAzureCredential(
-        new DefaultAzureCredentialOptions
-        {
-            ManagedIdentityClientId = clientIdDatabases,
-        }));
+    credentialDatabases);
 
 // Open a connection to Azure SQL using a user-assigned managed identity
 string connectionString =
@@ -370,7 +380,7 @@ using (SqlConnection connection = new(connectionString)
         string scope = authParams.Resource.EndsWith(defaultScopeSuffix)
             ? authParams.Resource
             : $"{authParams.Resource}{defaultScopeSuffix}";
-        AccessToken token = await credential.GetTokenAsync(
+        AccessToken token = await credentialDatabases.GetTokenAsync(
             new TokenRequestContext([scope]),
             cancellationToken);
 
@@ -566,7 +576,7 @@ public class ExampleService {
 
 ### [Node.js](#tab/javascript)
 
-1. Inside of your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library contains all of the necessary entities to implement `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app.
+1. In your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library provides `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app.
 
     ```bash
     npm install --save @azure/identity @azure/storage-blob @azure/cosmos mssql
@@ -641,7 +651,52 @@ public class ExampleService {
 
 ### [Python](#tab/python)
 
-TODO
+1. In your project, install the `azure-identity` package. This library provides `DefaultAzureCredential`. 
+
+    ```bash
+    pip install azure-identity azure-storage-blob azure-cosmos pyodbc
+    ```
+    
+1. Create service client objects for the Azure services your app will connect to. The following example connects to Blob Storage, Cosmos DB, and Azure SQL using the corresponding service clients.
+
+    ```python
+    from azure.cosmos import CosmosClient
+    from azure.identity import DefaultAzureCredential
+    from azure.storage.blob import BlobServiceClient
+    import os, pyodbc, struct
+    
+    # Create an instance of DefaultAzureCredential that will use a user-assigned managed identity
+    client_id_storage = os.environ['Managed_Identity_Client_ID_Storage']
+    credential_storage = DefaultAzureCredential(managed_identity_client_id=client_id_storage)
+    
+    # First Blob Storage client that uses a user-assigned managed identity
+    blob_service_client_1 = BlobServiceClient(
+        account_url="https://<receipt-storage-account>.blob.core.windows.net/",
+        credential=credential_storage
+    )
+
+    # Second Blob Storage client that uses a user-assigned managed identity
+    blob_service_client_2 = BlobServiceClient(
+        account_url="https://<contract-storage-account>.blob.core.windows.net/",
+        credential=credential_storage
+    )
+    
+    # Get the second user-assigned managed identity client ID to connect to shared databases
+    client_id_databases = os.environ['Managed_Identity_Client_ID_Databases']
+    credential_databases = DefaultAzureCredential(managed_identity_client_id=client_id_databases)
+
+    # Create an Azure Cosmos DB client
+    cosmos_client = CosmosClient(
+        os.environ['COSMOS_ENDPOINT'],
+        credential=credential_databases
+    )
+
+    # Azure SQL code here
+    token_bytes = credential.get_token("https://database.windows.net/.default").token.encode("UTF-16-LE")
+    token_struct = struct.pack(f'<I{len(token_bytes)}s', len(token_bytes), token_bytes)
+    SQL_COPT_SS_ACCESS_TOKEN = 1256  # This connection option is defined by microsoft in msodbcsql.h
+    conn = pyodbc.connect(connection_string, attrs_before={SQL_COPT_SS_ACCESS_TOKEN: token_struct})
+    ```
 
 ---
 
