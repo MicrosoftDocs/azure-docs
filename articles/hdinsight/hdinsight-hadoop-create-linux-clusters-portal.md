@@ -4,7 +4,7 @@ description: Learn to create Apache Hadoop, Apache HBase, and Apache Spark clust
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
-ms.date: 11/21/2023
+ms.date: 11/25/2024
 ---
 
 # Create Linux-based clusters in HDInsight by using the Azure portal

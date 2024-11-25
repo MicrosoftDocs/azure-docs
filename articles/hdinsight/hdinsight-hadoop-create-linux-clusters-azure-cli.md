@@ -4,7 +4,7 @@ description: Learn how to create Azure HDInsight clusters using the cross-platfo
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli, linux-related-content
-ms.date: 11/21/2023
+ms.date: 11/25/2024
 ---
 
 # Create HDInsight clusters using the Azure CLI
