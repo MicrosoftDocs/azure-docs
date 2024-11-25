@@ -10,6 +10,9 @@ ms.date: 07/10/2019
 
 # Open a support ticket for the Azure FXT Edge Filer
 
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
+
 This article explains how to get help with your Azure FXT Edge Filer system.
 
 Use the Azure portal to open a support ticket with Microsoft Customer Service and Support.
