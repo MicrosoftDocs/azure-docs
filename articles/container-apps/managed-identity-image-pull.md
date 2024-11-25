@@ -2,12 +2,12 @@
 title: Azure Container Apps image pull from Azure Container Registry with managed identity
 description: Set up Azure Container Apps to authenticate Azure Container Registry image pulls with managed identity
 services: container-apps
-author: v-jaswel
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ms.topic: how-to
 ms.date: 09/16/2022
-ms.author: v-wellsjason
+ms.author: cshoe
 zone_pivot_groups: container-apps-azure-portal-console-bicep
 ---
 
@@ -384,10 +384,10 @@ New-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroup
 Get identity's resource ID.
 
 ```azurecli
-IDENTITY_ID=`az identity show \
+IDENTITY_ID=$(az identity show \
   --name $IDENTITY \
   --resource-group $RESOURCE_GROUP \
-  --query id`
+  --query id)
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -432,8 +432,8 @@ az containerapp create \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --user-assigned <IDENTITY_ID> \
   --registry-identity <IDENTITY_ID> \
-  --registry-server "$REGISTRY_NAME.azurecr.io" \
-  --image "$REGISTRY_NAME.azurecr.io/$IMAGE_NAME:latest"
+  --registry-server "${REGISTRY_NAME}.azurecr.io" \
+  --image "${REGISTRY_NAME}.azurecr.io/${IMAGE_NAME}:latest"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -550,14 +550,14 @@ az containerapp registry set \
   --name $CONTAINERAPP_NAME \
   --resource-group $RESOURCE_GROUP \
   --identity system \
-  --server "$REGISTRY_NAME.azurecr.io"
+  --server "${REGISTRY_NAME}.azurecr.io"
 ```
 
 ```azurecli
 az containerapp update \
   --name $CONTAINERAPP_NAME \
   --resource-group $RESOURCE_GROUP \
-  --image "$REGISTRY_NAME.azurecr.io/$IMAGE_NAME:latest"
+  --image "${REGISTRY_NAME}.azurecr.io/${IMAGE_NAME}:latest"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -815,19 +815,19 @@ Deploy your container app with the following command.
 
 ```azurecli
 az deployment group create \
-  --resource-group "$RESOURCE_GROUP" \
-  --template-file "$BICEP_TEMPLATE" \
-  --parameters environmentName="$CONTAINERAPPS_ENVIRONMENT" \
-  logAnalyticsWorkspaceName="$LOG_ANALYTICS_WORKSPACE_NAME" \
-  appInsightsName="$APP_INSIGHTS_NAME" \
-  containerAppName="$CONTAINERAPP_NAME" \
-  azureContainerRegistry="$REGISTRY_NAME" \
-  azureContainerRegistryImage="$IMAGE_NAME" \
-  azureContainerRegistryImageTag="$IMAGE_TAG" \
-  azureContainerName="$CONTAINER_NAME" \
-  acrPullDefinitionId="$ACR_PULL_DEFINITION_ID" \
-  userAssignedIdentityName="$USER_ASSIGNED_IDENTITY_NAME" \
-  location="$LOCATION"
+  --resource-group $RESOURCE_GROUP \
+  --template-file $BICEP_TEMPLATE \
+  --parameters environmentName="${CONTAINERAPPS_ENVIRONMENT}" \
+  logAnalyticsWorkspaceName="${LOG_ANALYTICS_WORKSPACE_NAME}" \
+  appInsightsName="${APP_INSIGHTS_NAME}" \
+  containerAppName="${CONTAINERAPP_NAME}" \
+  azureContainerRegistry="${REGISTRY_NAME}" \
+  azureContainerRegistryImage="${IMAGE_NAME}" \
+  azureContainerRegistryImageTag="${IMAGE_TAG}" \
+  azureContainerName="${CONTAINER_NAME}" \
+  acrPullDefinitionId="${ACR_PULL_DEFINITION_ID}" \
+  userAssignedIdentityName="${USER_ASSIGNED_IDENTITY_NAME}" \
+  location="${LOCATION}"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
