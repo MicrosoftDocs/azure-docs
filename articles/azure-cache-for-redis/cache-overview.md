@@ -5,6 +5,8 @@ description: Learn about Azure Cache for Redis to enable cache-aside, content ca
 
 
 ms.topic: overview
+ms.custom:
+  - ignite-2024
 ms.date: 04/19/2024
 ---
 

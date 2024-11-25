@@ -4,6 +4,8 @@ description: Compare different plains available in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
+ms.custom:
+  - ignite-2024
 ms.topic: conceptual
 ms.date: 11/05/2024
 ms.author: cshoe

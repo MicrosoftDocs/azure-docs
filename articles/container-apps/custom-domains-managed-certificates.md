@@ -4,7 +4,7 @@ description: Learn to configure custom domain names and managed certificates in 
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: build-2023, devx-track-azurecli
+ms.custom: build-2023, devx-track-azurecli, ignite-2024
 ms.topic: how-to
 ms.date: 09/19/2024
 ms.author: cshoe

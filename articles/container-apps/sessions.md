@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 11/04/2024
 ms.author: cshoe
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2024
 ---
 
 # Azure Container Apps dynamic sessions overview

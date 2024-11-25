@@ -68,10 +68,12 @@ If these requirements are met, the user gets the application. Assigning applicat
 
 ## Application images
 
-Before you can use your application packages with Azure Virtual Desktop, you need to [Create an MSIX image](app-attach-create-msix-image.md) from your existing application packages using the MSIXMGR tool. You then need to store each disk image on a file share that is accessible by your session hosts. For more information on the requirements for a file share, see [File share](#file-share).
+::: zone pivot="app-attach"
+Before you can use MSIX application packages with Azure Virtual Desktop, you need to [Create an MSIX image](app-attach-create-msix-image.md) from your existing application packages. Alternatively, you can use an [App-V package instead](/windows/application-management/app-v/appv-creating-and-managing-virtualized-applications). You then need to store each MSIX image or App-V package on a file share that's accessible by your session hosts. For more information on the requirements for a file share, see [File share](#file-share).
+::: zone-end
 
-::: zone-pivot="app-attach"
-If using App-V, see [Creating and managing App-V virtualized applications](/windows/application-management/app-v/appv-creating-and-managing-virtualized-applications).
+::: zone pivot="msix-app-attach"
+Before you can use MSIX application packages with Azure Virtual Desktop, you need to [Create an MSIX image](app-attach-create-msix-image.md) from your existing application packages. You then need to store each disk image on a file share that's accessible by your session hosts. For more information on the requirements for a file share, see [File share](#file-share).
 ::: zone-end
 
 ### Disk image types

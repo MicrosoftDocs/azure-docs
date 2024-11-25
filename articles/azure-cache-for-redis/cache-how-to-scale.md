@@ -7,8 +7,7 @@ description: Learn how to scale your Azure Cache for Redis instances using the A
 ms.topic: conceptual
 ms.date: 07/01/2024
 ms.devlang: csharp
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ---
 
 # Scale an Azure Cache for Redis instance

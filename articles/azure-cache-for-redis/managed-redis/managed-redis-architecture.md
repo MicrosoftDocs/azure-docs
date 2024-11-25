@@ -1,11 +1,12 @@
 ---
 title: Azure Managed Redis (preview) Architecture
-description: Learn how Azure Managed Redis is architected 
+description: Learn how Azure Managed Redis is architected
 
-ms.service: azure
+ms.service: azure-managed-redis
+ms.custom:
+  - ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
-
 ---
 
 # Azure Managed Redis (preview) Architecture

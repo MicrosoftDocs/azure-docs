@@ -6,7 +6,7 @@ description: In this quickstart, learn how to access Azure Cache for Redis from 
 
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet
+ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet, ignite-2024
 ms.date: 03/25/2022
 ---
 # Quickstart: Use Azure Cache for Redis in .NET Framework

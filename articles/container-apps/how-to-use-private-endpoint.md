@@ -4,7 +4,7 @@ description: Learn how to use a private endpoint with an Azure Container Apps en
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic:  how-to
 ms.date: 11/6/2024
 ms.author: cshoe

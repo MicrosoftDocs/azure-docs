@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
+  - ignite-2024
 ms.date: 12/29/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
