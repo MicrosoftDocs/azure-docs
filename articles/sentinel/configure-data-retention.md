@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: tutorial 
-ms.date: 01/05/2023
+ms.date: 09/26/2024
 ms.custom: template-tutorial
 
 
@@ -72,13 +72,15 @@ In your Log Analytics workspace, change the interactive retention policy of the 
 
 ## Review interactive and total retention policies
 
-On the **Tables** page for the table you updated, review the field values for **Interactive retention** and **Total retention**. 
+On the **Tables** page, for the table you updated, review the field values for **Interactive retention** and **Total retention**. 
 
 :::image type="content" source="media/configure-data-retention/data-retention-archive-period.png" alt-text="Screenshot of the table view that shows the interactive retention and archive period columns.":::
 
 ## Clean up resources
 
 No resources were created but you might want to restore the data retention settings you changed.
+
+Depending on the settings set for your entire workspace, the settings updated in this tutorial might incur additional charges. To avoid these charges, restore the settings to their original values.
 
 ## Next steps
 

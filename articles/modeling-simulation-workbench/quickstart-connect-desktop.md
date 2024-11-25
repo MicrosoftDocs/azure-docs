@@ -3,7 +3,7 @@ title: "Quickstart: Connect to the desktop"
 description: "Connect and distribute URLs to connect to Modeling and Simulation Workbench."
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: quickstart
 ms.date: 09/27/2024
 

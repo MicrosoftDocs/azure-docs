@@ -1,6 +1,6 @@
 ---
-title: Create an ingress controller by using an existing Application Gateway instance
-description: This article provides information on how to deploy the Application Gateway Ingress Controller by using an existing Application Gateway instance.
+title: Create an ingress controller by using an existing Application Gateway deployment
+description: This article provides information on how to deploy the Application Gateway Ingress Controller by using an existing Application Gateway deployment.
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
@@ -10,9 +10,12 @@ ms.date: 9/17/2024
 ms.author: greglin
 ---
 
-# Install AGIC by using an existing Application Gateway instance
+# Install AGIC by using an existing Application Gateway deployment
 
 The Application Gateway Ingress Controller (AGIC) is a pod within your Azure Kubernetes Service (AKS) cluster. AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resources. It creates and applies an Azure Application Gateway configuration based on the status of the Kubernetes cluster.
+
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## Prerequisites
 
@@ -35,11 +38,11 @@ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admi
 helm init --tiller-namespace kube-system --service-account tiller-sa
 ```
 
-## Back up the Application Gateway instance
+## Back up the Application Gateway deployment
 
-Before you install AGIC, back up your Application Gateway instance's configuration:
+Before you install AGIC, back up your Application Gateway deployment's configuration:
 
-1. In the [Azure portal](https://portal.azure.com/), go to your Application Gateway instance.
+1. In the [Azure portal](https://portal.azure.com/), go to your Application Gateway deployment.
 2. In the **Automation** section, select **Export template** and then select **Download**.
 
 The downloaded .zip file contains JSON templates, Bash scripts, and PowerShell scripts that you can use to restore Application Gateway, if a restoration becomes necessary.
@@ -76,7 +79,7 @@ For this configuration, you need authorization for the AGIC pod to make HTTP req
     az identity list -g $resourceGroup --query "[?name == '$identityName'].principalId | [0]" -o tsv
     ```
 
-1. Grant the identity **Contributor** access to your Application Gateway instance. You need the ID of the Application Gateway instance, which looks like `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`.
+1. Grant the identity **Contributor** access to your Application Gateway deployment. You need the ID of the Application Gateway deployment, which looks like `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`.
 
    First, get the list of Application Gateway IDs in your subscription by running the following command:
 
@@ -286,21 +289,21 @@ Use [Cloud Shell](https://shell.azure.com/) to install the AGIC Helm package:
 
 1. Check the log of the newly created pod to verify that it started properly.
 
-To understand how you can expose an AKS service to the internet over HTTP or HTTPS by using an Azure Application Gateway instance, see [this how-to guide](ingress-controller-expose-service-over-http-https.md).
+To understand how you can expose an AKS service to the internet over HTTP or HTTPS by using an Azure Application Gateway deployment, see [this how-to guide](ingress-controller-expose-service-over-http-https.md).
 
-## Set up a shared Application Gateway instance
+## Set up a shared Application Gateway deployment
 
-By default, AGIC assumes full ownership of the Application Gateway instance that it's linked to. AGIC version 0.8.0 and later can share a single Application Gateway instance with other Azure components. For example, you could use the same Application Gateway instance for an app
+By default, AGIC assumes full ownership of the Application Gateway deployment that it's linked to. AGIC version 0.8.0 and later can share a single Application Gateway deployment with other Azure components. For example, you could use the same Application Gateway deployment for an app
 that's hosted on an [Azure virtual machine scale set](https://azure.microsoft.com/services/virtual-machine-scale-sets/) and an AKS cluster.
 
 ### Example scenario
 
-Let's look at an imaginary Application Gateway instance that manages traffic for two websites:
+Let's look at an imaginary Application Gateway deployment that manages traffic for two websites:
 
 - `dev.contoso.com`: Hosted on a new AKS cluster by using Application Gateway and AGIC.
 - `prod.contoso.com`: Hosted on a virtual machine scale set.
 
-With default settings, AGIC assumes 100% ownership of the Application Gateway instance that it's pointed to. AGIC overwrites all of the App Gateway configuration. If you manually create a listener for `prod.contoso.com` on Application Gateway without defining it in the Kubernetes ingress, AGIC deletes the `prod.contoso.com` configuration within seconds.
+With default settings, AGIC assumes 100% ownership of the Application Gateway deployment that it's pointed to. AGIC overwrites all of the App Gateway configuration. If you manually create a listener for `prod.contoso.com` on Application Gateway without defining it in the Kubernetes ingress, AGIC deletes the `prod.contoso.com` configuration within seconds.
 
 To install AGIC and also serve `prod.contoso.com` from the machines that use the virtual machine scale set, you must constrain AGIC to configuring
 `dev.contoso.com` only. You facilitate this constraint by instantiating the following [custom resource definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/):
@@ -320,7 +323,7 @@ The preceding command creates an `AzureIngressProhibitedTarget` object. This obj
 the Application Gateway configuration for `prod.contoso.com`. This object also explicitly instructs AGIC to avoid changing any configuration
 related to that host name.
 
-### Enable a shared Application Gateway instance by using a new AGIC installation
+### Enable a shared Application Gateway deployment by using a new AGIC installation
 
 To limit AGIC (version 0.8.0 and later) to a subset of the Application Gateway configuration, modify the `helm-config.yaml` template.
 In the `appgw:` section, add a `shared` key and set it to `true`:
@@ -382,11 +385,11 @@ Because Helm with `appgw.shared=true` and the default `prohibit-all-targets` blo
     kubectl delete AzureIngressProhibitedTarget prohibit-all-targets
     ```
 
-### Enable a shared Application Gateway instance for an existing AGIC installation
+### Enable a shared Application Gateway deployment for an existing AGIC installation
 
-Assume that you already have a working AKS cluster and an Application Gateway instance, and you configured AGIC in your cluster. You have an Ingress for `prod.contoso.com` and are successfully serving traffic for it from the cluster.
+Assume that you already have a working AKS cluster and an Application Gateway deployment, and you configured AGIC in your cluster. You have an Ingress for `prod.contoso.com` and are successfully serving traffic for it from the cluster.
 
-You want to add `staging.contoso.com` to your existing Application Gateway instance, but you need to host it on a [virtual machine](https://azure.microsoft.com/services/virtual-machines/). You're going to reuse the existing Application Gateway instance and manually configure a listener and back-end pools for `staging.contoso.com`. But manually tweaking the Application Gateway configuration (by using the [Azure portal](https://portal.azure.com), [Resource Manager APIs](/rest/api/resources/), or [Terraform](https://www.terraform.io/)) would conflict with AGIC's assumptions of full ownership. Shortly after you apply changes, AGIC overwrites or deletes them.
+You want to add `staging.contoso.com` to your existing Application Gateway deployment, but you need to host it on a [virtual machine](https://azure.microsoft.com/services/virtual-machines/). You're going to reuse the existing Application Gateway deployment and manually configure a listener and backend pools for `staging.contoso.com`. But manually tweaking the Application Gateway configuration (by using the [Azure portal](https://portal.azure.com), [Resource Manager APIs](/rest/api/resources/), or [Terraform](https://www.terraform.io/)) would conflict with AGIC's assumptions of full ownership. Shortly after you apply changes, AGIC overwrites or deletes them.
 
 You can prohibit AGIC from making changes to a subset of the configuration:
 
@@ -409,9 +412,9 @@ You can prohibit AGIC from making changes to a subset of the configuration:
     kubectl get AzureIngressProhibitedTargets
     ```
 
-3. Modify the Application Gateway configuration from the Azure portal. For example, add listeners, routing rules, and back ends. The new object that you created (`manually-configured-staging-environment`) prohibits AGIC from overwriting the Application Gateway configuration related to
+3. Modify the Application Gateway configuration from the Azure portal. For example, add listeners, routing rules, and backends. The new object that you created (`manually-configured-staging-environment`) prohibits AGIC from overwriting the Application Gateway configuration related to
 `staging.contoso.com`.
 
 ## Related content
 
-- [What is Application Gateway for Containers?](for-containers/overview.md)
+- [Application Gateway for Containers](for-containers/overview.md)

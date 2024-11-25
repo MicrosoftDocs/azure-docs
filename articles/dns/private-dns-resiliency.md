@@ -29,7 +29,7 @@ In this example:
 The example shown here doesn't illustrate a disaster recovery scenario, however the global nature of private zones also makes it possible to recreate VM1 in another VNet and assume its workload.
 
 > [!NOTE]
-> Azure Private DNS is an availability zone foundational, zone-reduntant service. For more information, see [Azure services with availability zone support](/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support). 
+> Azure Private DNS is a zone-redundant service. For more information, see [Azure services with availability zone support](/azure/reliability/availability-zones-service-support). 
 
 ## Next steps
 - To learn more about Private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md).

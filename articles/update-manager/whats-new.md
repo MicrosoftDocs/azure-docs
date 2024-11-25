@@ -5,12 +5,19 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/13/2024
+ms.date: 11/01/2024
 ---
 
 # What's new in Azure Update Manager
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
+
+## November 2024
+
+### Hotpatching (preview) on Arc-enabled machines
+
+Public preview: Azure Update Manager now supports Hotpatching on Arc enabled servers.  [Learn more](manage-hot-patching-arc-machines.md).
+
 
 ## August 2024
 
@@ -83,9 +90,9 @@ Azure Update Manager allows you to create and manage pre and post events on sche
 ### Alerting (preview)
 Azure Update Manager allows you to enable alerts to address events as captured in updates data. [Learn more](manage-alerts.md).
 
-### Azure Stack HCI patching
+### Azure Local patching
 
-Azure Update Manager allows you to patch Azure Stack HCI cluster. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
+Azure Update Manager allows you to patch Azure Local instance. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
 
 ## October 2023
 

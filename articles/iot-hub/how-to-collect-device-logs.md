@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.date: 01/20/2023
 ms.topic: how-to
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 services: iot-hub
 zone_pivot_groups: programming-languages-set-twenty-seven

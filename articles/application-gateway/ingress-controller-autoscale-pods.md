@@ -1,6 +1,6 @@
 ---
 title: Autoscale AKS pods with Azure Application Gateway metrics
-description: This article provides instructions on how to scale your AKS back-end pods by using Application Gateway metrics and the Azure Kubernetes Metrics Adapter.
+description: This article provides instructions on how to scale your AKS backend pods by using Application Gateway metrics and the Azure Kubernetes Metrics Adapter.
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
@@ -14,7 +14,7 @@ ms.author: greglin
 
 As incoming traffic increases, it becomes crucial to scale up your applications based on the demand.
 
-This article explains how you can use the `AvgRequestCountPerHealthyHost` metric in Azure Application Gateway to scale up Azure Kubernetes Service (AKS) pods for an application. The `AvgRequestCountPerHealthyHost` metric measures average requests sent to a specific combination of a back-end pool and a back-end HTTP setting.
+This article explains how you can use the `AvgRequestCountPerHealthyHost` metric in Azure Application Gateway to scale up Azure Kubernetes Service (AKS) pods for an application. The `AvgRequestCountPerHealthyHost` metric measures average requests sent to a specific combination of a backend pool and a backend HTTP setting.
 
 Use the following two components:
 
@@ -24,9 +24,12 @@ Use the following two components:
 > [!NOTE]
 > The Azure Kubernetes Metrics Adapter is no longer maintained. Kubernetes Event-driven Autoscaling (KEDA) is an alternative.
 
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Scaling and availability for Application Gateway for Containers](for-containers/scaling-zone-resiliency.md).
+
 ## Set up the Azure Kubernetes Metrics Adapter
 
-1. Create a Microsoft Entra service principal and assign it `Monitoring Reader` access over the Application Gateway instance's resource group:
+1. Create a Microsoft Entra service principal and assign it `Monitoring Reader` access over the Application Gateway deployment's resource group:
 
     ```azurecli
     applicationGatewayGroupName="<application-gateway-group-id>"
@@ -46,7 +49,7 @@ Use the following two components:
     kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/Azure/azure-k8s-metrics-adapter/master/deploy/adapter.yaml -n custom-metrics
     ```
 
-1. Create an `ExternalMetric` resource with the name `appgw-request-count-metric`. This resource instructs the metric adapter to expose the `AvgRequestCountPerHealthyHost` metric for the `myApplicationGateway` resource in the `myResourceGroup` resource group. You can use the `filter` field to target a specific back-end pool and back-end HTTP setting in the Application Gateway instance.
+1. Create an `ExternalMetric` resource with the name `appgw-request-count-metric`. This resource instructs the metric adapter to expose the `AvgRequestCountPerHealthyHost` metric for the `myApplicationGateway` resource in the `myResourceGroup` resource group. You can use the `filter` field to target a specific backend pool and backend HTTP setting in the Application Gateway deployment.
 
     ```yaml
     apiVersion: azure.com/v1alpha2
@@ -56,8 +59,8 @@ Use the following two components:
     spec:
         type: azuremonitor
         azure:
-            resourceGroup: myResourceGroup # replace with your Application Gateway instance's resource group name
-            resourceName: myApplicationGateway # replace with your Application Gateway instance's name
+            resourceGroup: myResourceGroup # replace with your Application Gateway deployment's resource group name
+            resourceName: myApplicationGateway # replace with your Application Gateway deployment's name
             resourceProviderNamespace: Microsoft.Network
             resourceType: applicationGateways
         metric:
@@ -123,7 +126,7 @@ Test your setup by using a load test tool like ApacheBench:
 ab -n10000 http://<applicaiton-gateway-ip-address>/
 ```
 
-## Next steps
+## Related content
 
 - [Troubleshoot Application Gateway Ingress Controller issues](ingress-controller-troubleshoot.md)
-- [What is Application Gateway for Containers?](for-containers/overview.md)
+- [Application Gateway for Containers](for-containers/overview.md)

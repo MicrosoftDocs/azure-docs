@@ -5,7 +5,7 @@ description: Use Event Grid or the device heartbeat pattern to monitor the conne
 author: kgremban
 ms.author: kgremban
 ms.topic: reference
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.date: 01/05/2024
 ---
 

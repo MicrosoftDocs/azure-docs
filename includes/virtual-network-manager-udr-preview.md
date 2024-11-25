@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: include
-ms.date: 10/14/2024
+ms.date: 10/23/2024
 ms.author: mbender-ms
 ms.custom: include-file
 ---

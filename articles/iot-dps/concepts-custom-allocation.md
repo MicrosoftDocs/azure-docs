@@ -7,8 +7,9 @@ author: kgremban
 ms.author: kgremban
 ms.date: 09/09/2022
 ms.topic: concept-article
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.custom: devx-track-csharp
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Understand custom allocation policies with Azure IoT Hub Device Provisioning Service

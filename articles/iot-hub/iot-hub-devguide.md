@@ -4,7 +4,7 @@ description: The Azure IoT Hub conceptual documentation includes discussions of 
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 11/03/2022
 ms.custom:

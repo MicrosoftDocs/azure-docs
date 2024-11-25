@@ -6,7 +6,8 @@ ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
 author: kgremban
 ms.author: kgremban
-ms.service: iot-dps
+ms.service: azure-iot-hub
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Monitor Azure IoT Hub Device Provisioning Service

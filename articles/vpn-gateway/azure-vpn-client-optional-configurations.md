@@ -21,7 +21,7 @@ This article helps you configure optional settings for the Azure VPN Client for 
 
 The steps in this article assume that you have configured your P2S gateway and have downloaded the Azure VPN Client to connecting client computers. For steps, see the following articles:
 
-* [Certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Certificate authentication](point-to-site-certificate-gateway.md)
 * [Microsoft Entra ID authentication](point-to-site-entra-gateway.md)
 
 ## Working with VPN client profile configuration files

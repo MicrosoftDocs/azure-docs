@@ -8,6 +8,7 @@ ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
   - engagement-fy24
+  - ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -69,7 +70,7 @@ To understand the inner components of a backup policy for the backup of AKS, ret
 $policyDefn = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureKubernetesService
 ```
 
-The policy template consists of a trigger criteria (which decides the factors to trigger the backup job) and a lifecycle (which decides when to delete, copy, or move the backups). In AKS backup, the default value for trigger is a scheduled hourly trigger is *every 4 hours (PT4H)* and retention of each backup is *365 days*.
+The policy template consists of a trigger criteria (which decides the factors to trigger the backup job) and a lifecycle (which decides when to delete, copy, or move the backups). In AKS backup, the default value for trigger is a scheduled hourly trigger is *every 4 hours (PT4H)* and retention of each backup is *7 days*.
 
 
 ```azurepowershell
@@ -96,6 +97,8 @@ If *once a day backup* is sufficient, then choose the *Daily backup frequency*. 
 > The time of the day indicates the backup start time and not the time when the backup completes. The time required for completing the backup operation is dependent on various factors, including number and size of the persistent volumes and churn rate between consecutive backups.
 
 If you want to edit the hourly frequency or the retention period, use the `Edit-AzDataProtectionPolicyTriggerClientObject` and/or `Edit-AzDataProtectionPolicyRetentionRuleClientObject` cmdlets. Once the policy object has all the required values, start creating a new policy from the policy object using the `New-AzDataProtectionBackupPolicy` cmdlet.
+
+
 
 ```azurepowershell
 New-AzDataProtectionBackupPolicy -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Name aksBkpPolicy -Policy $policyDefn

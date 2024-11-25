@@ -14,16 +14,19 @@ ms.author: greglin
 
 This article illustrates the usage of [Kubernetes ingress resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) to expose an example Azure Kubernetes Service (AKS) service through [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) over HTTP or HTTPS.
 
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
+
 ## Prerequisites
 
 - An installed `ingress-azure` Helm chart:
   - [Greenfield deployment](ingress-controller-install-new.md): If you're starting from scratch, refer to these installation instructions, which outline steps to deploy an AKS cluster with Application Gateway and install the Application Gateway Ingress Controller (AGIC) on the AKS cluster.
-  - [Brownfield deployment](ingress-controller-install-existing.md): If you have an existing AKS cluster and Application Gateway instance, refer to these instructions to install AGIC on the AKS cluster.
+  - [Brownfield deployment](ingress-controller-install-existing.md): If you have an existing AKS cluster and Application Gateway deployment, refer to these instructions to install AGIC on the AKS cluster.
 - An x509 certificate and its private key, if you want to use HTTPS on this application.
 
 ## Deploy the guestbook application
 
-The `guestbook` application is a canonical Kubernetes application that consists of a web UI front end, a back end, and a Redis database.
+The `guestbook` application is a canonical Kubernetes application that consists of a web UI frontend, a backend, and a Redis database.
 
 By default, `guestbook` exposes its application through a service with the name `frontend` on port `80`. Without a Kubernetes ingress resource, the service isn't accessible from outside the AKS cluster. You use the application, and set up ingress resources to access the application, through HTTP and HTTPS.
 
@@ -56,7 +59,7 @@ spec:
           servicePort: 80
 ```
 
-This ingress exposes the `frontend` service of the `guestbook-all-in-one` deployment as a default back end of the Application Gateway instance.
+This ingress exposes the `frontend` service of the `guestbook-all-in-one` deployment as a default backend of the Application Gateway deployment.
 
 Save the preceding ingress resource as `ing-guestbook.yaml`:
 
@@ -68,13 +71,13 @@ Save the preceding ingress resource as `ing-guestbook.yaml`:
 
 1. Check the log of the ingress controller for the deployment status.
 
-Now the `guestbook` application should be available. You can check the availability by visiting the public address of the Application Gateway instance.
+Now the `guestbook` application should be available. You can check the availability by visiting the public address of the Application Gateway deployment.
 
 ## Expose services over HTTPS
 
 ### Without a specified host name
 
-If you don't specify a host name, the `guestbook` service is available on all the host names that point to the Application Gateway instance.
+If you don't specify a host name, the `guestbook` service is available on all the host names that point to the Application Gateway deployment.
 
 1. Before you deploy the ingress resource, create a Kubernetes secret to host the certificate and private key:
 
@@ -177,4 +180,4 @@ spec:
 
 ## Related content
 
-- [What is Application Gateway for Containers?](for-containers/overview.md)
+- [Application Gateway for Containers](for-containers/overview.md)

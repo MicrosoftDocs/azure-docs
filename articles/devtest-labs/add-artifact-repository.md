@@ -220,7 +220,7 @@ Personal access token for the GitHub or Azure Repos repository.
 Whether the artifact repository is a VSOGit (Azure Repos) or GitHub repository.
 
 .EXAMPLE
-Set-AzContext -SubscriptionId 11111111-1111-1111-1111-111111111111
+Set-AzContext -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 .\New-DevTestLabArtifactRepository.ps1 -LabName "mydevtestlab" -LabResourceGroupName "mydtlrg" -ArtifactRepositoryName "MyTeam Repository" -RepositoryUri "https://github.com/<myteam>/<nameofrepo>.git" -PersonalAccessToken "1111...." -SourceType "GitHub"
 
 .NOTES

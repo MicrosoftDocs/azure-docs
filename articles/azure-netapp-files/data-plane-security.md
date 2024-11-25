@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 09/30/2024
+ms.date: 10/25/2024
 ms.author: anfdocs
 ---
 
@@ -114,9 +114,10 @@ For more information on data encryption at rest, see [Understand data encryption
 The data plane manages the encryption keys used to encrypt and decrypt data. These keys can be either platform-managed or customer-managed:
 
 - **Platform-managed keys** are automatically managed by Azure, ensuring secure storage and rotation of keys.
-- **Customer-managed keys** are stored in Azure Key Vault, allowing you to manage the lifecycle, usage permissions, and auditing of your encryption keys.
+- [**Customer-managed keys**](configure-customer-managed-keys.md) are stored in Azure Key Vault, allowing you to manage the lifecycle, usage permissions, and auditing of your encryption keys.
+- [**Customer-managed keys with managed Hardware Security Module (HSM)**](configure-customer-managed-keys-hardware.md) is an extension to customer-managed keys for Azure NetApp Files volume encryption feature. This HSM extension allows you to store your encryptions keys in a more secure FIPS 140-2 Level 3 HSM instead of the FIPS 140-2 Level 1 or Level 2 service used by Azure Key Vault (AKV).
 
-For more information about Azure NetApp Files key management, see [How are encryption keys managed](faq-security.md#how-are-encryption-keys-managed) or [Configure customer-managed keys](configure-customer-managed-keys.md).
+For more information about Azure NetApp Files key management, see [How are encryption keys managed](faq-security.md#how-are-encryption-keys-managed), [Configure customer-managed keys](configure-customer-managed-keys.md), or [customer-managed keys with managed HSM](configure-customer-managed-keys-hardware.md).
 
 ## Lightweight directory access protocol (LDAP) encryption
 
