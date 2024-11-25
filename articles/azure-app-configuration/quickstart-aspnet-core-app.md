@@ -148,7 +148,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     ```
     ---
 
-This code loads *all* key-values that have *no label* from your App Configuration store. For more information on loading data from App Configuration, see the [App Configuration provider API reference](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.extensions).
+    This code loads *all* key-values that have *no label* from your App Configuration store. For more information on loading data from App Configuration, see the [App Configuration provider API reference](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.extensions).
 
 
 ## Read from the App Configuration store
