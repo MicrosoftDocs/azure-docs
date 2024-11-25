@@ -56,6 +56,7 @@ sections:
           Is there a way to identify the time at which the policy will be executing?
         answer: |
           Unfortunately, there's no way to track the time at which the policy will be executing, as it's a background scheduling process. Lifecycle policies start execution within 24 hours of a rule being created or updated. Policies process objects continuously in the background, as required. Priority is given to requests from workloads. So, there's no way to track the time at which a policy may be executing. The time required to process objects may depend on the request rate for the storage account. This time may be longer if the request rate for the storage account approaches the storage account limit.
+  - name: Azure Storage blob inventory
     questions:
       - question: |
           I created a new inventory rule. Will it run at the same time every day?
