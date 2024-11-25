@@ -122,11 +122,11 @@ items:
         href: add-dual-stack-ipv6-vm-portal.md
       - name: Create a virtual machine with a dual-stack network
         href: create-vm-dual-stack-ipv6-portal.md
-      - name: Create virtual machine with static public IP
+      - name: Create a virtual machine with static public IP
         href: virtual-network-static-public-ip.md
-      - name: Create virtual machine with static private IP
+      - name: Create a virtual machine with static private IP
         href: virtual-networks-static-private-ip.md
-      - name: Create virtual machine with multiple IPs
+      - name: Create a virtual machine with multiple IPs
         items:
         - name: Azure portal
           href: virtual-network-multiple-ip-addresses-portal.md
