@@ -21,7 +21,7 @@ In this article, you learn how to add and configure a time window filter for you
 
 1. Create a feature flag named *Beta* in the **Feature Manager** menu of your App Configuration store and move to the right end of the feature flag you want to modify, then select the **More actions** ellipsis (**...**) action and **Edit**. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md).
 
-1. In the **Edit** pane that opens, check the **Enable feature flag** checkbox if it's currently unchecked,then check the **Use feature filter** checkbox and select **Create**.
+1. In the **Edit** pane that opens, check the **Enable feature flag** checkbox if it's currently unchecked, then check the **Use feature filter** checkbox and select **Create**.
 
     :::image type="content" source="media/time-window-filters/edit-a-feature-flag.png" alt-text="Screenshot of the Azure portal showing how to edit a feature flag.":::
 
@@ -33,7 +33,7 @@ In this article, you learn how to add and configure a time window filter for you
    - Setting a start time allows you to enable the feature flag on a specific date and time. A time window filter with no start time is active as soon as you save the feature filter details. 
    - Setting an end time allows you to disable the feature flag at a specific date and time. A time window filter with no end time remains active until you disable it. 
 
-    Uncheck the end time and enter a start time a few minutes ahead of your current time to schedule the *Beta* feature to be enabled automatically in a few minutes and never be disabled once enabled.
+   Uncheck the end time and enter a start time a few minutes ahead of your current time to schedule the *Beta* feature to be enabled automatically in a few minutes and never be disabled once enabled.
 
 1. A time zone is selected by default, based on your browser's current time zone. Optionally select another time zone.
 
