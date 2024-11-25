@@ -18,7 +18,7 @@ When customers create their first Microsoft Defender External Attack Surface Man
 
 The following kinds of assets are considered billable:  
 
-- Approved host : IP combinations  
+- Approved host:IP combinations  
 - Approved domains 
 - Approved IP addresses 
   
@@ -33,9 +33,9 @@ This section describes the conditions that the three aforementioned asset types 
 
 
 
-### Approved host : IP combinations
+### Approved host:IP combinations
 
-Hosts are considered billable if the Defender EASM system has observed resolutions within the last 30 days. If the host is in the Approved Inventory state, the host : IP combination is identified as a billable asset. All hosts in the Approved Inventory state are considered billable, regardless of the state of the coinciding IP address. The IP address doesn't need to be in the Approved Inventory state for the host : IP combination to be included in your billable asset count. 
+Hosts are considered billable if the Defender EASM system has observed resolutions within the last 30 days. If the host is in the Approved Inventory state, the host:IP combination is identified as a billable asset. All hosts in the Approved Inventory state are considered billable, regardless of the state of the coinciding IP address. The IP address doesn't need to be in the Approved Inventory state for the host:IP combination to be included in your billable asset count. 
 
  
 For example: if www.contoso.com resolved to 1.2.3.4 and 5.6.7.8 in the past 30 days, both combinations are added to the host count list: 
