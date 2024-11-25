@@ -13,9 +13,9 @@ This article demonstrates how to enable the virtual Trusted Platform Module (vTP
 
 A virtual Trusted Platform Module (vTPM) in VMware vSphere is a virtual counterpart of a physical TPM 2.0 chip, utilizing VM Encryption. It provides the same functionalities as a physical TPM but operates within VMs. Each VM can have its own unique and isolated vTPM, which helps secure sensitive information and maintain system integrity. This setting enables VMs to apply security features like BitLocker disk encryption and authenticate virtual hardware devices, creating a more secure virtual environment. 
 
-## Pre-requisites
+## Prerequisites
 
-Before configuring vTPM on a VM in Azure VMware Solution, ensure the following pre-requisites are met:
+Before configuring vTPM on a VM in Azure VMware Solution, ensure the following prerequisites are met:
 
 - The virtual machine must use EFI firmware.
 - The virtual machine must be at hardware version 14 or later.
@@ -43,7 +43,7 @@ Secure Boot is the first line of defense in Trusted Launch. It establishes a "ro
  
 ## Virtual Trusted Platform Module (vTPM) 
 
-The vTPM is a virtualized version of a hardware Trusted Platform Module (TPM) 2.0 device. It serves as a dedicated secure vault for storing keys, certificates, and secrets. What sets vTPM apart is its ability to operate in a secure environment outside the reach of any VM, making it tamper-resistant and highly secure. One of the key functions of vTPM is attestation. It measures the entire boot chain of a VM, including UEFI, OS, system components, and drivers, to certify that the VM booted securely. This attestation mechanism is invaluable for verifying the integrity of VMs and ensuring that they have not been compromised.
+The vTPM is a virtualized version of a hardware Trusted Platform Module (TPM) 2.0 device. It serves as a dedicated secure vault for storing keys, certificates, and secrets. What sets vTPM apart is its ability to operate in a secure environment outside the reach of any VM, making it tamper-resistant and highly secure. One of the key functions of vTPM is attestation. It measures the entire boot chain of a VM, including UEFI, OS, system components, and drivers, to certify that the VM booted securely. This attestation mechanism is invaluable for verifying the integrity of VMs and ensuring that they haven't been compromised.
  
 ## Virtualization-based Security (VBS) 
 
@@ -68,7 +68,7 @@ To configure vTPM on a VM in Azure VMware Solution, follow these steps:
 
 ## Unsupported scenarios 
 
-Migration of VMs with vTPM may not be supported by some tools. Check the documentation of the migration tool. If it is not supported, you can follow VMware documentation to safely disable vTPM and re-enable it post-migration. 
+Migration of VMs with vTPM might not be supported by some tools. Check the documentation of the migration tool. If it isn't supported, you can follow VMware documentation to safely disable vTPM and re-enable it post-migration. 
 
 ## More information
 [Securing Virtual Machines with Virtual Trusted Platform Module](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-A43B6914-E5F9-4CB1-9277-448AC9C467FB.html)
