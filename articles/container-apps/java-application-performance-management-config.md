@@ -7,7 +7,7 @@ services: container-apps
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 11/4/2024
+ms.date: 11/25/2024
 ms.author: kuzhong
 author: KarlErickson
 ---
@@ -25,6 +25,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
+- An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/).
 - An instance of [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 - An instance of Azure Container Registry or another container image registry.
 - [Docker](https://www.docker.com/), to build an image.
@@ -62,14 +63,14 @@ Use the following steps to define environment variables and ensure your Containe
 
 1. Sign in to the Azure CLI by using the following commands:
 
-    # [Azure CLI](#tab/azurecli)
+    # [Bash](#tab/bash)
 
     ```azurecli
     az login
     az account set --subscription $SUBSCRIPTION_ID
     ```
 
-    # [Azure PowerShell](#tab/azurepowershell)
+    # [PowerShell](#tab/powershell)
 
     ```azurepowershell
     az login
@@ -78,33 +79,33 @@ Use the following steps to define environment variables and ensure your Containe
 
 1. Use the following commands to ensure that you have the latest version of the Azure CLI extensions for Container Apps and Application Insights:
 
-    # [Azure CLI](#tab/azurecli)
+    # [Bash](#tab/bash)
 
-    ```bash
+    ```azurecli
     az extension add --name containerapp --upgrade
     az extension add --name application-insights --upgrade
     ```
 
-    # [Azure PowerShell](#tab/azurepowershell)
+    # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurepowershell
     az extension add --name containerapp --upgrade
     az extension add --name application-insights --upgrade
     ```
 
 1. Retrieve the connection string for your Application Insights instance by using the following commands:
 
-    # [Azure CLI](#tab/azurecli)
+    # [Bash](#tab/bash)
 
-    ```bash
+    ```azurecli
     CONNECTION_STRING=$(az monitor app-insights component show \
       --ids $APP_INSIGHTS_RESOURCE_ID \
       --query connectionString)
     ```
 
-    # [Azure PowerShell](#tab/azurepowershell)
+    # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurepowershell
     $CONNECTION_STRING=(az monitor app-insights component show `
       --ids $APP_INSIGHTS_RESOURCE_ID `
       --query connectionString)
@@ -160,16 +161,16 @@ To build a setup image for the Application Insights Java agent, use the followin
 
 1. Push the image to Azure Container Registry or another container image registry by using the following commands:
     
-    # [Azure CLI](#tab/azurecli)
+    # [Bash](#tab/bash)
 
-    ```bash
+    ```azurecli
     az acr login --name $CONTAINER_REGISTRY_NAME
     docker push "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
 
-    # [Azure PowerShell](#tab/azurepowershell)
+    # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurepowershell
     az acr login --name $CONTAINER_REGISTRY_NAME
     docker push "$CONTAINER_REGISTRY_NAME.azurecr.io/samples/java-agent-setup:1.0.0"
     ```
@@ -183,7 +184,7 @@ To create a Container Apps environment and a container app as the target Java ap
 
 1. Create a Container Apps environment by using the following command:
 
-    # [Azure CLI](#tab/azurecli)
+    # [Bash](#tab/bash)
 
     ```azurecli
     az containerapp env create \
@@ -193,7 +194,7 @@ To create a Container Apps environment and a container app as the target Java ap
         --query "properties.provisioningState"
     ```
 
-    # [Azure PowerShell](#tab/azurepowershell)
+    # [PowerShell](#tab/powershell)
 
     ```azurepowershell
     az containerapp env create `
@@ -209,9 +210,9 @@ To create a Container Apps environment and a container app as the target Java ap
 
 1. Create a container app for further configuration by using the following command:
 
-    # [Azure CLI](#tab/azurecli)
+    # [Bash](#tab/bash)
 
-    ```bash
+    ```azurecli
     az containerapp create \
         --name $CONTAINER_APP_NAME \
         --environment $ENVIRONMENT_NAME \
@@ -219,9 +220,9 @@ To create a Container Apps environment and a container app as the target Java ap
         --query "properties.provisioningState"
     ```
 
-    # [Azure PowerShell](#tab/azurepowershell)
+    # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurepowershell
     az containerapp create `
         --name $CONTAINER_APP_NAME `
         --environment $ENVIRONMENT_NAME `
@@ -239,9 +240,9 @@ Use the following steps to configure your init container with secrets, environme
 
 1. Write the current configuration of the running Container App to an **app.yaml** file in the current directory, by using the following command:
 
-    # [Azure CLI](#tab/azurecli)
+    # [Bash](#tab/bash)
 
-    ```bash
+    ```azurecli
     az containerapp show \
         --resource-group $RESOURCE_GROUP \
         --name $CONTAINER_APP_NAME \
@@ -249,9 +250,9 @@ Use the following steps to configure your init container with secrets, environme
     > app.yaml
     ```
 
-    # [Azure PowerShell](#tab/azurepowershell)
+    # [PowerShell](#tab/powershell)
 
-    ```powershell
+    ```azurepowershell
     az containerapp show `
         --resource-group $RESOURCE_GROUP `
         --name $CONTAINER_APP_NAME `
@@ -321,7 +322,7 @@ Use the following steps to configure your init container with secrets, environme
 
 1. Update the container app with the modified **app.yaml** file by using the following command:
 
-    # [Azure CLI](#tab/azurecli)
+    # [Bash](#tab/bash)
 
     ```azurecli
     az containerapp update \
@@ -331,7 +332,7 @@ Use the following steps to configure your init container with secrets, environme
         --query "properties.provisioningState"
     ```
 
-    # [Azure PowerShell](#tab/azurepowershell)
+    # [PowerShell](#tab/powershell)
 
     ```azurepowershell
     az containerapp update `
@@ -349,14 +350,14 @@ Use the following steps to configure your init container with secrets, environme
 
 The resources you created in this tutorial contribute to your Azure bill. If you don't need them long term, use the following command to remove the resource group and its resources:
 
-# [Azure CLI](#tab/azurecli)
+# [Bash](#tab/bash)
 
-```bash
+```azurecli
 az group delete --resource-group $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azurepowershell)
-```powershell
+# [PowerShell](#tab/powershell)
+```azurepowershell
 az group delete --resource-group $RESOURCE_GROUP
 ```
 
