@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Understand billable assets
 
-When customers create their first Microsoft Defender External Attack Surface Management (Defender EASM) resource, they are automatically granted a 30-day free trial.  Once the trial completes, customers are automatically charged based on their count of billable assets.   The charged amount appears on their core Azure billing, with “Defender EASM” appearing as separate line item on their invoice.
+When customers create their first Microsoft Defender External Attack Surface Management (Defender EASM) resource, they're automatically granted a 30-day free trial.  Once the trial completes, customers are automatically charged based on their count of billable assets.   The charged amount appears on their core Azure billing, with “Defender EASM” appearing as separate line item on their invoice.
 
 
 ## What is a billable asset? 
@@ -23,7 +23,7 @@ The following kinds of assets are considered billable:
 - Approved IP addresses 
   
   
-Assets are only categorized as billable if they are placed in the Approved Inventory state.  We don't charge for any other state. Additionally, duplicative host assets are NOT included in the billable asset count.  
+Assets are only categorized as billable if they're placed in the Approved Inventory state.  We don't charge for any other state. Additionally, duplicative host assets are NOT included in the billable asset count.  
 
 
 
@@ -35,7 +35,7 @@ This section describes the conditions that the three aforementioned asset types 
 
 ### Approved host : IP combinations
 
-Hosts are considered billable if the Defender EASM system has observed resolutions within the last 30 days. If the host is in the Approved Inventory state, the host : IP combination is identified as a billable asset. All hosts in the Approved Inventory state are considered billable, regardless of the state of the coinciding IP address. The IP address does not need to be in the Approved Inventory state for the host : IP combination to be included in your billable asset count. 
+Hosts are considered billable if the Defender EASM system has observed resolutions within the last 30 days. If the host is in the Approved Inventory state, the host : IP combination is identified as a billable asset. All hosts in the Approved Inventory state are considered billable, regardless of the state of the coinciding IP address. The IP address doesn't need to be in the Approved Inventory state for the host : IP combination to be included in your billable asset count. 
 
  
 For example: if www.contoso.com resolved to 1.2.3.4 and 5.6.7.8 in the past 30 days, both combinations are added to the host count list: 
@@ -64,9 +64,9 @@ These values are all considered “recent” if observed within the last 30 days
 
 ### Approved domains 
 
-Excluding the domains associated with a billable resolving host, all domains in the Approved Inventory state are part of the billable domain count. If a billable host is registered to the domain in question, the domain is not included in the billable asset count.  
+Excluding the domains associated with a billable resolving host, all domains in the Approved Inventory state are part of the billable domain count. If a billable host is registered to the domain in question, the domain isn't included in the billable asset count.  
 
-For example: if server1.contoso.com recently resolved to an IP address and is therefore included in your billable asset count, then contoso.com is not added to this count.   
+For example: if server1.contoso.com recently resolved to an IP address and is therefore included in your billable asset count, then contoso.com isn't added to this count.   
 
 
 ## Viewing billable asset data 
