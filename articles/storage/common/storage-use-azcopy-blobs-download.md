@@ -221,10 +221,18 @@ You can tweak your download operation by using optional flags. Here's a few exam
 |Scenario|Flag|
 |---|---|
 |Automatically decompress files.|**--decompress**|
-|Specify how detailed you want your copy-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
-|Specify if and how to overwrite the conflicting files and blobs at the destination.|**--overwrite**=\[true\|false\|ifSourceNewer\|prompt\]|
+|Specify how detailed you want your copy-related log entries to be.|**--log-level**=[WARNING\|ERROR\|INFO\|NONE]|
+|Specify if and how to overwrite the conflicting files and blobs at the destination.|**--overwrite**=[true\|false\|ifSourceNewer\|prompt]|
 
 For a complete list, see [options](storage-ref-azcopy-copy.md#options).
+
+## Download static website contents
+
+AzCopy does not support downloading data from static websites hosted in Azure Storage through the public endpoint, such as `https://mystorageaccount.z12.web.core.windows.net`. Instead, use the `$web` container at the blob endpoint to download files from your static website.
+
+```azcopy
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/$web/*' 'C:\myDirectory' --recursive
+```
 
 ## Next steps
 

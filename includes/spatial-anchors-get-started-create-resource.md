@@ -136,7 +136,7 @@ Install-Module -Name Az.MixedReality
 1. After you sign in, use the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet to select the subscription in which to set up the spatial anchors account:
 
    ```azurepowershell-interactive
-   Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+   Set-AzContext -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
    ```
 
 1. Run the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group, or use an existing resource group:

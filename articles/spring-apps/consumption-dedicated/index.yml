@@ -45,13 +45,13 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Spring Apps?
-            url: ../enterprise/overview.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+            url: ../basic-standard/overview.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
           - text: Version support for Java, Spring Boot, and more
-            url: ../enterprise/concept-app-customer-responsibilities.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+            url: ../basic-standard/concept-app-customer-responsibilities.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
           - text: What's new in Azure Spring Apps?
             url: ../enterprise/whats-new.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
           - text: Manage costs
-            url: ../enterprise/cost-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+            url: ../basic-standard/cost-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
           - text: Compare Java hosting options
             url: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
           - text: Landing zone accelerator
@@ -63,13 +63,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Launch your first app
-            url: ../enterprise/quickstart.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+            url: ../basic-standard/quickstart.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
           - text: Launch your first web app
-            url: ../enterprise/quickstart-deploy-web-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+            url: ../basic-standard/quickstart-deploy-web-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
           - text: Launch your first RESTful API app
             url: ../enterprise/quickstart-deploy-restful-api-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
           - text: Launch your first event-driven app
-            url: ../enterprise/quickstart-deploy-event-driven-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+            url: ../basic-standard/quickstart-deploy-event-driven-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
           - text: Provision a service instance
             url: quickstart-provision-standard-consumption-service-instance.md
           - text: Provision in an Azure Container Apps environment with a virtual network
@@ -97,7 +97,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Blue-green deployment strategies
-            url: ../enterprise/concepts-blue-green-deployment-strategies.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+            url: ../basic-standard/concepts-blue-green-deployment-strategies.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
 
   # Card (optional)
   - title: Manage and monitor apps

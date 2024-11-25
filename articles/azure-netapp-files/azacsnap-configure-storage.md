@@ -116,10 +116,10 @@ az role assignment create --assignee ${PRINCIPAL_ID} --role "AzAcSnap on ANF" --
 
     ```output
     {
-      "clientId": "00aa000a-aaaa-0000-00a0-00aa000aaa0a",
-      "clientSecret": "00aa000a-aaaa-0000-00a0-00aa000aaa0a",
-      "subscriptionId": "00aa000a-aaaa-0000-00a0-00aa000aaa0a",
-      "tenantId": "00aa000a-aaaa-0000-00a0-00aa000aaa0a",
+      "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+      "clientSecret": "Dd4Ee~5Ff6.-Gg7Hh8Ii9Jj0Kk1Ll2_Mm3Nn4Oo5",
+      "subscriptionId": "cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a",
+      "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
       "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
       "resourceManagerEndpointUrl": "https://management.azure.com/",
       "activeDirectoryGraphResourceId": "https://graph.windows.net/",
