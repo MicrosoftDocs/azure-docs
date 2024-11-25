@@ -22,7 +22,7 @@ Schema group is a logical group of similar schemas based on your business criter
 The security boundary imposed by the grouping mechanism help ensures that trade secrets don't inadvertently leak through metadata in situations where the namespace is shared among multiple partners. It also allows for application owners to manage schemas independent of other applications that share the same namespace.
 
 ### Schemas
-Schemas define the contract between producers and consumers. A schema defined in an Event Hubs schema registry helps manage the contract outside of event data, thus removing the payload overhead. A schema has a name, type (example: record, array, and so on.), compatibility mode (none, forward, backward, full), and serialization type (both Avro and Json). You can create multiple versions of a schema and retrieve and use a specific version of a schema. 
+Schemas define the contract between producers and consumers. A schema defined in an Event Hubs schema registry helps manage the contract outside of event data, thus removing the payload overhead. A schema has a name, type (example: record, array, and so on.), compatibility mode (none, forward, backward, full), and serialization type (both Avro and JSON). You can create multiple versions of a schema and retrieve and use a specific version of a schema. 
 
 ### Schema formats 
 Schema formats are used to determine the manner in which a schema is structured and defined, with each format outlining specific guidelines and syntax for defining the structure of the events that will be used for event streaming.
