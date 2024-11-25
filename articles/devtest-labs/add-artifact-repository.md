@@ -200,7 +200,7 @@ To add a catalog, complete the following tasks:
 
 1. Select **Save**.
 
-   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade-with-github-app-auth.png)
 
 The repository now appears in the **Repositories** list for the lab.
 
