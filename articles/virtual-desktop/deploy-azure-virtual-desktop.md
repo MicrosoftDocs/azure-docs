@@ -199,7 +199,7 @@ To create a host pool with a session host configuration, select the relevant tab
 
 Here's how to create a host pool with a session host configuration using the Azure portal, which also creates a default session host management policy and default session host configuration. You can change the default session host management policy and session host configuration after deployment.
 
-1. Make sure you've registered for the limited preview using the link at the beginning of this article, then sign in to the Azure portal using the specific link provided to you after registration.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
 
@@ -298,7 +298,7 @@ Here's how to create a host pool with a session host configuration, and a sessio
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Make sure you've registered for the limited preview using the link at the beginning of this article. Use the `New-AzWvdHostPool` cmdlet with the following example to create a host pool with a session host configuration using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [application group type](environment-setup.md#app-groups). More parameters are available; for more information, see the [New-AzWvdHostPool PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdhostpool).
+2. Use the `New-AzWvdHostPool` cmdlet with the following example to create a host pool with a session host configuration using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [application group type](environment-setup.md#app-groups). More parameters are available; for more information, see the [New-AzWvdHostPool PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdhostpool).
 
    ```azurepowershell
    $parameters = @{
