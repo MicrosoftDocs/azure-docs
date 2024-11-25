@@ -1,6 +1,6 @@
 ---
-title: Tutorial to assess SQL instances for migration to SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database
-description: Learn how to create assessment for Azure SQL in Azure Migrate
+title: Tutorial to assess SQL instances in VMWare VMs for migration to SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database
+description: Learn how to create assessment for Azure SQL in VMware VMs in Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 ---
 
 
-# Tutorial: Assess SQL instances for migration to Azure SQL
+# Tutorial: Assess SQL instances in VMware VMs for migration to Azure SQL
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 This article shows you how to assess discovered SQL Server instances and databases in preparation for migration to Azure SQL, using the Azure Migrate: Discovery and assessment tool.
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 - Before you follow this tutorial to assess your SQL Server instances for migration to Azure SQL, make sure you've discovered the SQL instances you want to assess using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-vmware.md).
-- If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
+- If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](../how-to-discover-sql-existing-project.md) in this article.
 
 ## Decide which sizing criteria to use
 
@@ -43,16 +43,17 @@ Decide whether you want to run an assessment using sizing criteria based on SQL 
 Run an assessment as follows:
 1. 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
     
-    :::image type="content" source="./media/tutorial-assess-sql/assess-migrate-inline.png" alt-text="Screenshot of Overview page for Azure Migrate." lightbox="./media/tutorial-assess-sql/assess-migrate-expanded.png":::
+    :::image type="content" source="../media/tutorial-assess-sql/assess-migrate-inline.png" alt-text="Screenshot of Overview page for Azure Migrate." lightbox="../media/tutorial-assess-sql/assess-migrate-expanded.png":::
 
 1. In **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure SQL**.
     
-    :::image type="content" source="./media/tutorial-assess-sql/assess-inline.png" alt-text="Screenshot of Dropdown to choose assessment type as Azure SQL." lightbox="./media/tutorial-assess-sql/assess-expanded.png":::
+    :::image type="content" source="../media/tutorial-assess-sql/assess-inline.png" alt-text="Screenshot of Dropdown to choose assessment type as Azure SQL." lightbox="../media/tutorial-assess-sql/assess-expanded.png":::
     
 1. In **Assess servers**, the assessment type is pre-selected as **Azure SQL** and the discovery source is defaulted to **Servers discovered from Azure Migrate appliance**.
 
 1. Select **Edit** to review the assessment settings.
-     :::image type="content" source="./media/tutorial-assess-sql/assess-servers-sql-inline.png" alt-text="Screenshot of Edit button from where assessment settings can be customized." lightbox="./media/tutorial-assess-sql/assess-servers-sql-expanded.png":::
+     :::image type="content" source="../media/tutorial-assess-sql/assess-servers-sql-inline.png" alt-text="Screenshot of Edit button from where assessment settings can be customized." lightbox="../media/tutorial-assess-sql/assess-servers-sql-expanded.png":::
+
 1. In **Assessment settings**, set the necessary values or retain the default values:
 
    **Section** | **Setting** | **Details**
@@ -60,8 +61,8 @@ Run an assessment as follows:
    Target and pricing settings | **Target location** | The Azure region to which you want to migrate. Azure SQL configuration and cost recommendations are based on the location that you specify.
    Target and pricing settings | **Environment type** | The environment for the SQL deployments to apply pricing applicable to Production or Dev/Test.
    Target and pricing settings | **Offer/Licensing program** |The Azure offer if you're enrolled. Currently, the field is Pay-as-you-go by default, which gives you retail Azure prices. <br/><br/>You can avail additional discount by applying reserved capacity and Azure Hybrid Benefit on top of Pay-as-you-go offer.<br/>You can apply Azure Hybrid Benefit on top of Pay-as-you-go offer and Dev/Test environment. The assessment doesn't support applying Reserved Capacity on top of Pay-as-you-go offer and Dev/Test environment. <br/>If the offer is set to *Pay-as-you-go* and Reserved capacity is set to *No reserved instances*, the monthly cost estimates are calculated by multiplying the number of hours chosen in the VM uptime field with the hourly price of the recommended SKU.
-   Target and pricing settings | **Savings options - Azure SQL MI and DB (PaaS)** | Specify the reserved capacity savings option that you want the assessment to consider, helping to optimize your Azure compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances. When you select any savings option other than 'None', the 'Discount (%)' and "VM uptime" settings aren't applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.
-   Target and pricing settings | **Savings options - SQL Server on Azure VM (IaaS)** | Specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. <br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and "VM uptime" settings aren't applicable. The monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.
+   Target and pricing settings | **Savings options - Azure SQL MI and DB (PaaS)** | Specify the reserved capacity savings option that you want the assessment to consider, helping to optimize your Azure compute cost. <br><br> [Azure reservations](../../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances. When you select any savings option other than 'None', the 'Discount (%)' and "VM uptime" settings aren't applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.
+   Target and pricing settings | **Savings options - SQL Server on Azure VM (IaaS)** | Specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. <br><br> [Azure reservations](../../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. <br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and "VM uptime" settings aren't applicable. The monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.
    Target and pricing settings | **Currency** | The billing currency for your account.
    Target and pricing settings | **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
    Target and pricing settings | **VM uptime** | Specify the duration (days per month/hour per day) that servers/VMs run. This is useful for computing cost estimates for SQL Server on Azure VM where you're aware that Azure VMs might not run continuously. <br/> Cost estimates for servers where recommended target is *SQL Server on Azure VM* are based on the duration specified. Default is 31 days per month/24 hours per day.
@@ -80,7 +81,7 @@ Run an assessment as follows:
    Azure SQL Database sizing | **Instance type** | Defaulted to *Single database*.
    Azure SQL Database sizing | **Purchase model** | Defaulted to *vCore*.
    Azure SQL Database sizing | **Compute tier** | Defaulted to *Provisioned*.
-   High availability and disaster recovery properties | **Disaster recovery region** | Defaulted to the [cross-region replication pair](../reliability/cross-region-replication-azure.md#azure-paired-regions) of the Target Location. In the unlikely event that the chosen Target Location doesn't yet have such a pair, the specified Target Location itself is chosen as the default disaster recovery region.
+   High availability and disaster recovery properties | **Disaster recovery region** | Defaulted to the [cross-region replication pair](../../reliability/cross-region-replication-azure.md#azure-paired-regions) of the Target Location. In the unlikely event that the chosen Target Location doesn't yet have such a pair, the specified Target Location itself is chosen as the default disaster recovery region.
    High availability and disaster recovery properties | **Multi-subnet intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you want asynchronous data replication where some replication delays are tolerable. This allows higher durability using geo-redundancy. In the event of failover, data that hasn't yet been replicated might be lost. <br/><br/> Select **High availability** if you desire the data replication to be synchronous and no data loss due to replication delay is allowable. This setting allows assessment to leverage built-in high availability options in Azure SQL Databases and Azure SQL Managed Instances, and availability zones and zone-redundancy in Azure Virtual Machines to provide higher availability. In the event of failover, no data is lost.  
    High availability and disaster recovery properties | **Internet Access** | Defaulted to Available.<br/><br/> Select **Available** if you allow outbound internet access from Azure VMs. This allows the use of [Cloud Witness](/azure/azure-sql/virtual-machines/windows/hadr-cluster-quorum-configure-how-to?view=azuresql&preserve-view=true&tabs=powershell) which is the recommended approach for Windows Server Failover Clusters in Azure Virtual Machines. <br/><br/> Select **Not available** if the Azure VMs have no outbound internet access. This requires the use of a Shared Disk as a witness for Windows Server Failover Clusters in Azure Virtual Machines. 
    High availability and disaster recovery properties | **Async commit mode intent** | Defaulted to Disaster recovery. <br/><br/> Select **Disaster recovery** if you're using asynchronous commit availability mode to enable higher durability for the data without affecting performance. In the event of failover, data that hasn't yet been replicated might be lost. <br/><br/> Select **High availability** if you're using asynchronous commit data availability mode to improve availability and scale out read traffic. This setting allows assessment to leverage built-in high availability features in Azure SQL Databases, Azure SQL Managed Instances, and Azure Virtual Machines to provide higher availability and scale out.
@@ -91,13 +92,13 @@ Run an assessment as follows:
 1.	In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
 1.	In **Select or create a group** > select **Create New** and specify a group name.
 
-     :::image type="content" source="./media/tutorial-assess-sql/assessment-add-servers-inline.png" alt-text="Screenshot of Location of New group button." lightbox="./media/tutorial-assess-sql/assessment-add-servers-expanded.png":::
+     :::image type="content" source="../media/tutorial-assess-sql/assessment-add-servers-inline.png" alt-text="Screenshot of Location of New group button." lightbox="../media/tutorial-assess-sql/assessment-add-servers-expanded.png":::
 
 1.	Select the appliance and select the servers you want to add to the group and select **Next**.
 1.	In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 1.	After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to Azure SQL assessment. If you do not see the number populated, select **Refresh** to get the latest updates.
 
-     :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-navigation.png" alt-text="Screenshot of Navigation to created assessment.":::
+     :::image type="content" source="../media/tutorial-assess-sql/assessment-sql-navigation.png" alt-text="Screenshot of Navigation to created assessment.":::
 
 1.	Select the assessment name, which you wish to view.
 
@@ -111,7 +112,7 @@ Run an assessment as follows:
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to Azure SQL assessment.
 2. Select the assessment name, which you wish to view. As an example(estimations and costs, for example, only):
       
-      :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-summary-inline.png" alt-text="Screenshot of Overview of SQL assessment." lightbox="./media/tutorial-assess-sql/assessment-sql-summary-expanded.png":::
+      :::image type="content" source="../media/tutorial-assess-sql/assessment-sql-summary-inline.png" alt-text="Screenshot of Overview of SQL assessment." lightbox="../media/tutorial-assess-sql/assessment-sql-summary-expanded.png":::
 
 3. Review the assessment summary. You can also edit the assessment settings or recalculate the assessment.
 
@@ -129,7 +130,7 @@ You can see the SQL Server instance readiness for different recommended deployme
 
     - You can go to the Readiness report to:
         - Review the recommended Azure SQL configurations for migrating to SQL Server on Azure VM and/or Azure SQL databases and/or Azure SQL Managed Instances.
-        - Understand details around migration issues/warnings that you can remediate before migration to the different Azure SQL targets. [Learn More](concepts-azure-sql-assessment-calculation.md).
+        - Understand details around migration issues/warnings that you can remediate before migration to the different Azure SQL targets. [Learn More](../concepts-azure-sql-assessment-calculation.md)
     - You can go to the cost estimates report to review cost of each of the SQL instance after migrating to the recommended deployment target.
 
    > [!NOTE]
@@ -167,7 +168,7 @@ You can review readiness reports for different migration strategies:
 
 1. Select the **Readiness** report for any of the migration strategies.
 
-    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-readiness-inline.png" alt-text="Screenshot with Details of Azure SQL readiness" lightbox="./media/tutorial-assess-sql/assessment-sql-readiness-expanded.png":::
+    :::image type="content" source="../media/tutorial-assess-sql/assessment-sql-readiness-inline.png" alt-text="Screenshot with Details of Azure SQL readiness" lightbox="../media/tutorial-assess-sql/assessment-sql-readiness-expanded.png":::
 
 1. Review the readiness columns in the respective reports:
     
@@ -197,7 +198,7 @@ The assessment summary shows the estimated monthly compute and storage costs for
     - Cost estimates are based on the recommended Azure SQL configuration for an instance/server/database.
     - Estimated total(compute and storage) monthly costs are displayed. As an example:
     
-      :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-cost-inline.png" alt-text="Screenshot of cost details." lightbox="./media/tutorial-assess-sql/assessment-sql-cost-expanded.png":::
+      :::image type="content" source="../media/tutorial-assess-sql/assessment-sql-cost-inline.png" alt-text="Screenshot of cost details." lightbox="../media/tutorial-assess-sql/assessment-sql-cost-expanded.png":::
 
     - The compute and storage costs are split in the individual cost estimates reports and at instance/server/database level.
 1. You can drill down at an instance level to see Azure SQL configuration and cost estimates at an instance level.  
@@ -215,10 +216,10 @@ The confidence rating helps you estimate the reliability of size recommendations
 61%-80% | 4 stars
 81%-100% | 5 stars
 
-[Learn more](concepts-azure-sql-assessment-calculation.md#confidence-ratings) about confidence ratings.
+[Learn more](../concepts-azure-sql-assessment-calculation.md#confidence-ratings) about confidence ratings.
 
 
 ## Next steps
 
-- [Learn more](concepts-azure-sql-assessment-calculation.md) about how Azure SQL assessments are calculated.
+- [Learn more](../concepts-azure-sql-assessment-calculation.md) about how Azure SQL assessments are calculated.
 - Start migrating SQL instances and databases using [Azure Database Migration Service](/azure/dms/dms-overview).
