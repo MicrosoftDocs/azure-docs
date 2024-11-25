@@ -5,7 +5,7 @@ description: Conceptual information about using Audio Streaming APIs with Call A
 author: Alvin
 ms.service: azure-communication-services
 ms.topic: overview
-ms.date: 07/17/2024
+ms.date: 11/24/2024
 ms.author: alvinhan
 ms.custom: public_prview
 ---
@@ -14,20 +14,25 @@ ms.custom: public_prview
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
-Azure Communication Services provides developers with Audio Streaming capabilities to get real-time access to audio streams to capture, analyze, and process audio content during active calls. In today's world consumption of live audio and video is prevalent, this content could be in the forms of online meetings, online conferences, customer support, etc.  With audio streaming access, developers can now build server applications to capture and analyze audio streams for each of the participants on the call in real-time. Developers can also combine audio streaming with other call automation actions or use their own AI models to analyze audio streams. Use cases include NLP for conversation analysis or providing real-time insights and suggestions to agents while they are in an active interaction with end users. 
+Azure Communication Services provides bidirectional audio streaming capabilities, offering developers powerful tools to capture, analyze, and process audio content during active calls. This paves the way for new possibilities in real-time communication for developers and businesses alike. 
 
-This public preview supports the ability for developers to get access to real-time audio streams over a WebSocket to analyze the call's audio in mixed and unmixed formats.
+By integrating bidirectional audio streaming with services like Azure Open AI and other real-time voice APIs, businesses can achieve seamless, low-latency communication. This significantly enhances the development and deployment of conversational AI solutions, allowing for more engaging and efficient interactions. 
 
-## Common use cases
-Audio streams can be used in many ways. Some examples of how developers may wish to use the audio streams in their applications include:
+With bidirectional streaming, businesses can now elevate their voice solutions to low-latency, human-like, interactive conversational AI agents. Our bidirectional streaming APIs enable developers to stream audio from an ongoing call on Azure Communication Services to their web servers in real-time and stream audio back into the call. While the initial focus of these features is to help businesses create conversational AI agents, other use cases include Natural Language Processing for conversation analysis or providing real-time insights and suggestions to agents while they are in active interaction with end users. 
+
+This public preview supports the ability for developers to access real-time audio streams over a WebSocket from Azure Communication Services and stream audio back into the call.
 
 ### Real-time call assistance
 
-**Improved AI powered suggestions** - Use real-time audio streams of active interactions between agents and customers to gauge the intent of the call and how your agents can provide a better experience to their customer through active suggestions using your own AI model to analyze the call.
+- **Leverage conversational AI Solutions:** Develop sophisticated customer support virtual agents that can interact with customers in real-time, providing immediate responses and solutions.
+
+- **Personalized customer experiences:** By harnessing real-time data, businesses can offer more personalized and dynamic customer interactions in real-time, leading to increased satisfaction and loyalty.
+
+- **Reduce wait times for customers:** By using bidirectional audio streams in combination with Large Language Models (LLMs) you can build virtual agents that can be the first point of contact for customers reducing the need for customers waiting for a human agent being available.
 
 ### Authentication
 
-**Biometric authentication** – Use the audio streams to carry out voice authentication, by running the audio from the call through your voice recognition/matching engine/tool.
+- **Biometric authentication** – Use the audio streams to carry out voice authentication, by running the audio from the call through your voice recognition/matching engine/tool.
 
 ## Sample architecture for subscribing to audio streams from an ongoing call - live agent scenario
 
@@ -46,8 +51,8 @@ The table below describes information that will help developers convert the audi
 - Framerate: 50 frames per second
 - Packet stream rate: 20 ms rate
 - Data packet: 64 Kbytes
-- Audio metric: 16-bit PCM mono at 16000 hz
-- Public string data is a base64 string that should be converted into a byte array to create raw PCM file.\
+- Audio metric: 16-bit PCM mono at 16000 hz and 24000 hz
+- Public string data is a base64 string that should be converted into a byte array to create raw PCM file.
 
 ## Billing
 See the [Azure Communication Services pricing page](https://azure.microsoft.com/pricing/details/communication-services/?msockid=3b3359f3828f6cfe30994a9483c76d50) for information on how audio streaming is billed.  Prices can be found in the calling category under audio streaming.
