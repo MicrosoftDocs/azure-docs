@@ -7,14 +7,14 @@ ms.author: rolyon
 ---
 
 ```kusto
-AuthorizationResources
+authorizationresources
 | where type =~ "microsoft.authorization/roleassignments"
 | where id startswith "/subscriptions"
 | extend PrincipalId = tostring(properties.principalId) 
 | extend Scope = tolower(properties.scope)
 | extend RoleDefinitionId = tolower(tostring(properties.roleDefinitionId))
 | join kind = leftouter (
-  AuthorizationResources
+  authorizationresources
   | where type =~ "microsoft.authorization/roledefinitions"
   | extend RoleName = tostring(properties.roleName)
   | extend RoleId = tolower(id)
