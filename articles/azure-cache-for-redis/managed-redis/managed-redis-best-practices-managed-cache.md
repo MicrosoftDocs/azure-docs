@@ -2,7 +2,7 @@
 title: Best practices for the managed tiers
 description: Learn the best practices when using the high performance Azure Managed Redis tiers.
 
-ms.service: azure
+ms.service: azure-managed-redis
 ms.custom:
   - ignite-2024
 ms.topic: conceptual
