@@ -87,7 +87,7 @@ Alert schema refers the following entities to capture details about the alert:<b
 
 > [!IMPORTANT]
 > - When building a product-specific parser, use the ASIM Alert schema when the alert contains information about a security incident or potential threat, and the primary details can be mapped directly to available Alert schema fields. The Alert schema is ideal for capturing summary information without extensive entity-specific fields.
-> - However, if you find yourself placing essential fields in 'AdditionalFields' due to a lack of direct field matches, consider a more specialized schema. For example, if an alert includes network-related details such as multiple IP addresses (e.g., SrcIpAdr, DstIpAddr), PortNumber details etc. then you may opt for the NetworkSession schema over the Alert schema. Specialized schemas also provide dedicated fields for capturing threat-related information, enhancing data quality and facilitating efficient analysis.
+> - However, if you find yourself placing essential fields in 'AdditionalFields' due to a lack of direct field matches, consider a more specialized schema. For example, if an alert includes network-related details such as multiple IP addresses e.g. SrcIpAdr, DstIpAddr, PortNumber etc. then you may opt for the NetworkSession schema over the Alert schema. Specialized schemas also provide dedicated fields for capturing threat-related information, enhancing data quality and facilitating efficient analysis.
 >
 
 ## Schema Details
