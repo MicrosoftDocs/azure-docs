@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 10/17/2024
+ms.date: 11/14/2024
 
 #CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as Real-Time Dashboards.
 ms.service: azure-iot-operations
@@ -14,13 +14,11 @@ ms.service: azure-iot-operations
 
 # Tutorial: Send asset telemetry to the cloud using a dataflow
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
 In this tutorial, you use a dataflow to forward messages from the MQTT broker to an event hub in the Azure Event Hubs service. The event hub can deliver the data to other cloud services for storage and analysis. In the next tutorial, you use a real-time dashboard to visualize the data.
 
 ## Prerequisites
 
-Before you begin this tutorial, you must complete [Tutorial: Add OPC UA assets to your Azure IoT Operations Preview cluster](tutorial-add-assets.md).
+Before you begin this tutorial, you must complete [Tutorial: Add OPC UA assets to your Azure IoT Operations cluster](tutorial-add-assets.md).
 
 ## What problem will we solve?
 
@@ -59,7 +57,7 @@ To create an Event Hubs namespace and an event hub, run the following Azure CLI 
 # [Bash](#tab/bash)
 
 ```bash
-az eventhubs namespace create --name ${CLUSTER_NAME:0:24} --resource-group $RESOURCE_GROUP --disable-local-auth true
+az eventhubs namespace create --name ${CLUSTER_NAME:0:24} --resource-group $RESOURCE_GROUP --disable-local-auth false
 
 az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GROUP --namespace-name ${CLUSTER_NAME:0:24} --retention-time 1 --partition-count 1 --cleanup-policy Delete
 ```
@@ -67,7 +65,7 @@ az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GRO
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az eventhubs namespace create --name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --resource-group $RESOURCE_GROUP --disable-local-auth true
+az eventhubs namespace create --name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --resource-group $RESOURCE_GROUP --disable-local-auth false
 
 az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GROUP --namespace-name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --retention-time 1 --partition-count 1 --cleanup-policy Delete
 ```
@@ -139,6 +137,12 @@ To create the dataflow:
     |-----------|--------------------|
     | Tag 10.Value    | ThermostatHumidity          |
     | temperature.Value | ThermostatTemperature       |
+
+1. To copy the asset ID from the message metadata, add the following rename transform:
+
+    | Datapoint | New datapoint name |
+    |-----------|--------------------|
+    | $metadata.user_property.externalAssetId | AssetId |
   
     The rename transformation looks like the following screenshot:
   
@@ -146,11 +150,9 @@ To create the dataflow:
 
     Select **Apply**.
 
-1. To add an asset ID field to the message, select the **Transforms** box in the editor and then select **+ Add** in the **New property** tile.
+1. The dataflow editor now looks like the following screenshot:
 
-1. In the **New property** editor, enter *AssetId* as the property key, *thermostat-01* as the property value, and select **Apply**. The dataflow editor now looks like the following screenshot:
-
-    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/dataflow-complete.png" alt-text="Screenshot of the dataflow.":::
+    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/dataflow-complete.png" alt-text="Screenshot of the completed dataflow.":::
 
 1. To start the dataflow running, enter *tutorial-dataflow* as its name and then select **Save**. After a few minutes, the **Provisioning State** changes to **Succeeded**. The dataflow is now running in your cluster.
 
