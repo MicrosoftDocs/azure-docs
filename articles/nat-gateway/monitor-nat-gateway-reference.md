@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ---
 # Azure NAT Gateway monitoring data reference
 
