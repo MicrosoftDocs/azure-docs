@@ -1,6 +1,6 @@
 ---
 title: Connect to a storage account using an Azure private endpoint
-description: Get started with this tutorial using Azure Private endpoint to connect to a storage account privately.
+description: This article explains how to connect Cloud Shell to a storage account using a private endpoint.
 ms.topic: how-to
 ms.date: 11/25/2024
 ---
