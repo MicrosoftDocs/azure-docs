@@ -82,7 +82,22 @@ Same thing can be achieved via ARM request if that is how you want to create HDI
 
     } 
     ```  
-     
+
+## MSI based Script Action using primary Azure Blob Storage storage 
+
+Previously while adding the primary storage as Azure Blob Storage storage in the Azure HDInsight cluster, you can't provide MSI for authentication. 
+Also to access a script action that isn't accessible anonymously, you need to mention the SAS Key in the script action parameters, so the Azure HDInsight Cluster can access the script for execution.
+
+Now, you can add Azure Blob Storage storage in Azure HDInsight cluster as a primary storage using MSI. 
+
+Hence there's no need to provide the SAS key in the script action parameters, while adding the script action, if the script uploaded to the  primary Azure Blob Storage storage account. 
+
+The script is downloaded and implemented. This will work even if the script isn't publicly accessible. 
+
+The new feature specifically supports scripts that aren't publicly accessible but don't require a SAS key or token. This provides an additional layer of security for scripts that need to be kept private. 
+
+The conventional script action in which is anonymously accessible or if a SAS key is passed along with the script URI, still works without any changes. For more information, see [Customize Azure HDInsight clusters by using script actions](./hdinsight-hadoop-customize-cluster-linux.md)     
+
 ## Next steps
 
 * [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](./hdinsight-managed-identities.md)
