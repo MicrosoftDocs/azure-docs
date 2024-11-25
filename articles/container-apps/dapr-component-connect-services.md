@@ -1,5 +1,5 @@
 ---
-title: Connecting to services via Dapr components
+title: Connect to external services via Dapr components
 description: Learn more about connecting Dapr components with Azure and external services.
 ms.author: hannahhunter
 author: hhunter-ms
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 09/23/2024
 ---
 
-# Connecting to services via Dapr components
+# Connect to external services via Dapr components
 
 Securely establish connections to Azure and external services for Dapr components using any of the following approaches.
 

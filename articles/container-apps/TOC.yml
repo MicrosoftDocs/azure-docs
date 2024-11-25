@@ -276,11 +276,11 @@
           href: enable-dapr.md
       - name: Dapr components
         items:
-        - name: Component overview
+        - name: Overview
           href: dapr-components.md
-        - name: Connecting Dapr components to external
+        - name: Connect to external services
           href: dapr-component-connect-services.md
-        - name: Connect to Azure services using Azure portal
+        - name: Connect to Azure services via Azure portal
           href: dapr-component-connection.md
       - name: Configure
         items:
