@@ -26,9 +26,9 @@ The following Azure Container Storage versions are supported:
 
 The following Azure Container Storage versions are no longer supported: 1.0.6-preview, 1.0.3-preview, 1.0.2-preview, 1.0.1-preview, 1.0.0-preview. See [Upgrade a preview installation to GA](#upgrade-a-preview-installation-to-ga) for upgrading guidance.
 
-## Minor vs. patch versions
+## Major vs Minor vs. Patch releases
 
-Minor versions introduce small improvements, performance enhancements, or minor new features without breaking existing functionality. For example, version 1.2.0 would move to 1.3.0. Patch versions are released more frequently than minor versions. They focus solely on bug fixes and security updates. For example, version 1.1.2 would be updated to 1.1.3.
+A **major release** introduces significant changes, often including new features, architectural updates, or breaking changes; for example, moving from version 1.1.0 to 2.0.0. A **minor release** adds enhancements or new functionality that are backward-compatible, such as moving from version 1.1.0 to 1.2.0. Lastly, a **patch release** focuses on resolving critical bugs, security issues, or minor optimizations while maintaining backward compatibility, such as moving from version 1.1.1 to 1.1.2, and is intended to ensure stability and reliability without introducing new features.
 
 ## Version 1.2.0 
 
@@ -60,6 +60,34 @@ Minor versions introduce small improvements, performance enhancements, or minor 
 - **Data plane stability**: We've also improved the stability of data-plane components, ensuring more reliable access to Azure Container Storage volumes and storage pools. This also enhances the management of data replication between storage nodes.
 - **Volume management improvements**: The update resolves issues with volume detachment during node drain scenarios, ensuring that volumes are safely and correctly detached, and allowing workloads to migrate smoothly without interruptions or data access issues.
 
+## Azure Container Storage Support Policy
+Azure Container Storage follows a transparent and predictable support lifecycle which is aligned with the overall AKS extension guidance on product lifecycle and support plan. In this way, we ensure you can plan your deployments and upgrades effectively. This section outlines the lifecycle, support commitment, and Kubernetes version compatibility for each Azure Container Storage release. 
+
+### Lifecycle and Patch Support 
+- **Major/Minor Releases**: Supported for 12 months from the release date. 
+- **Patch Releases**: Have the same end of life as the subsequent major/minor release.  
+
+| Release version | Release Date  | End of Life | Supported Kubernetes Versions |
+|----|----------------| ------------| -------- |
+|1.2.0- Minor Release | 11/11/2024 | 11/10/2025 | 1.30, 1.29, 1.28 | 
+|1.1.2- Patch Release | 10/16/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
+|1.1.1- Patch Release | 09/20/2024 | 07/29/2025 | 1.29, 1.28, 1.27 | 
+|1.1.0- General Availability| 07/30/2024 | 07/29/2025 | 1.29, 1.28, 1.27 | 
+
+### Kubernetes Version Compatibility 
+Azure Container Storage aligns with AKS support for Kubernetes versions using the N-2 practice. For each release: 
+- It supports the latest Kubernetes version generally available with AKS and the two prior versions. 
+- If compatibility is not possible due to deprecation or breaking API changes, the release notes will explicitly call out these exceptions.
+
+### Important Guidance for Version Synchronization 
+
+To maintain compatibility and avoid unvalidated combinations of Azure Container Storage and AKS: 
+
+- All patch releases within a minor version (e.g., 1.1.x) will support the same Kubernetes versions as the initial minor release (e.g., 1.1.0). 
+
+- New minor releases (e.g., 1.2.0 and subsequent 1.2.x) will support a sliding window of Kubernetes versions, advancing to the next version with each new minor release (e.g., 1.2.0 supports 1.28, 1.29, 1.30). 
+
+
 ## Upgrade a preview installation to GA
 
 If you already have a preview instance of Azure Container Storage running on your cluster, we recommend updating to the latest generally available (GA) version by running the following command: 
@@ -87,3 +115,7 @@ If you would like to disable auto-upgrades, run the following command:
 ```azurecli-interactive
 az k8s-extension update --cluster-name <cluster name> --resource-group <resource-group> --cluster-type managedClusters --auto-upgrade-minor-version false -n azurecontainerstorage
 ```
+## FAQ
+- How should I ensure Azure Container Storage is compatible with the latest Kubernetes version? 
+
+When releasing a major or minor version, Azure Container Storage validates the latest three available Kubernetes versions in AKS and updates the supported Kubernetes versions accordingly. Before upgrading the Kubernetes version in your AKS cluster, it is recommended to check if the version is included in the Azure Container Storage version support list. If the latest Azure Container Storage version does not yet support it, consider deferring the upgrade. As a general best practice, validate your workloads with the new version of Kubernetes or the new version of dependent components in a staging environment before upgrading in the production environment. 
