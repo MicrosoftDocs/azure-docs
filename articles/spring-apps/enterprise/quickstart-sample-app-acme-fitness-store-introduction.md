@@ -14,7 +14,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This quickstart describes the [fitness store](https://github.com/Azure-Samples/acme-fitness-store) sample application, which shows you how to deploy polyglot apps to an Azure Spring Apps Enterprise plan instance. You see how polyglot applications are built and deployed using Azure Spring Apps Enterprise plan capabilities. These capabilities include Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
 

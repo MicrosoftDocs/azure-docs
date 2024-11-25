@@ -15,9 +15,6 @@ A virtual hub is a Microsoft-managed virtual network that enables connectivity f
 
 A *secured* virtual hub is an [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) with associated security and routing policies configured by Azure Firewall Manager. Use secured virtual hubs to easily create hub-and-spoke and transitive architectures with native security services for traffic governance and protection. Multiple secured hubs can be deployed within the same region or across regions part of the same Virtual WAN resource. Use Firewall Manager in the Azure Portal to add additional secured hubs. 
 
-> [!IMPORTANT]
-> Currently, Azure Firewall in secured virtual hubs (vWAN) is not supported in Qatar and Poland Central.
-
 You can use a secured virtual hub to filter traffic between virtual networks (V2V), branch-to-branch (B2B)<sup>*</sup>, branch offices (B2V) and traffic to the Internet (B2I/V2I). A secured virtual hub provides automated routing. There's no need to configure your own UDRs (user defined routes) to route traffic through your firewall.
 
 You can choose the required security providers to protect and govern your network traffic, including Azure Firewall, third-party security as a service (SECaaS) providers, or both. To learn more, see [What is Azure Firewall Manager?](overview.md#known-issues). 

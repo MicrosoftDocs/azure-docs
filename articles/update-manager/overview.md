@@ -2,7 +2,7 @@
 title: Azure Update Manager overview
 description: This article tells what Azure Update Manager in Azure is and the system updates for your Windows and Linux machines in Azure, on-premises, and other cloud environments.
 ms.service: azure-update-manager
-ms.custom: linux-related-content
+ms.custom: linux-related-content, ignite-2024
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 08/30/2024
@@ -31,7 +31,7 @@ You can use Update Manager in Azure to:
     - [Hybrid machines](/azure/azure-arc/servers/)
     - [VMWare machines](/azure/azure-arc/vmware-vsphere/)
     - [SCVMM machines](/azure/azure-arc/system-center-virtual-machine-manager/)
-    - [Azure Stack HCI VMs](/azure-stack/hci/)
+    - [Azure Local VMs](/azure-stack/hci/)
 
 ## Key benefits
 

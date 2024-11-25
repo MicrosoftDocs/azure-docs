@@ -30,7 +30,7 @@ To use the **Firmware analysis** page to analyze your firmware security, your fi
 
 - Your image must be an unencrypted, Linux-based firmware image.
 
-- Your image must be less than 5 GB in size.
+- Your image must be less than 1 GB in size.
 
 ## Onboard your subscription to use Defender for Firmware Analysis
 > [!NOTE]

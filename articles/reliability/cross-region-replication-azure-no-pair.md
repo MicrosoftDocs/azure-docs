@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 09/10/2024
+ms.date: 11/11/2024
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability
 ---
@@ -127,6 +127,16 @@ To achieve geo-replication in nonpaired regions:
    > You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
 
 
+## Azure Virtual Desktop
+For geo-replication in nonpaired regions for Azure Virtual Desktop, you need to consider session host virtual machines and storage for user profiles, applications, and data. Microsoft manages the Azure Virtual Desktop control plane, which is globally distributed and highly available.
+
+- For session hosts, you can deploy virtual machines in multiple regions in an active-active scenario, or replicate them across regions using [Azure Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery) in an active-passive scenario.
+
+- For storage, see [Azure Storage](#azure-storage).
+
+For more information, see [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#active-active-vs-active-passive) and [Azure Virtual Desktop service architecture and resilience](../virtual-desktop/service-architecture-resilience.md).
+
+
 ## Azure Virtual Machines
 To achieve geo-replication in nonpaired regions, use [Azure Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery) service. Azure Site Recovery is the Disaster Recovery service from Azure that provides business continuity and disaster recovery by replicating workloads from the primary location to the secondary location. The secondary location can be a nonpaired region if supported by Azure Site Recovery.
 
@@ -134,7 +144,8 @@ To achieve geo-replication in nonpaired regions, use [Azure Site Recovery](/azur
 
 ## Next steps
 
-- [Azure services and regions that support availability zones](availability-zones-service-support.md)
+- [Azure services with availability zones](availability-zones-service-support.md)
+- [Azure regions with availability zones](availability-zones-region-support.md)
 - [Disaster recovery guidance by service](disaster-recovery-guidance-overview.md)
 - [Reliability guidance](./reliability-guidance-overview.md)
 - [Business continuity management program in Azure](./business-continuity-management-program.md)
