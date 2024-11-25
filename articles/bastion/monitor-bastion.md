@@ -34,7 +34,7 @@ Your service should have the following two articles:
 # Monitor  Azure Bastion
 
 <!-- Intro -->
-[!INCLUDE [azmon-horz-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor-horizontals/azmon-horz-intro.md)]
+[!INCLUDE [azmon-horz-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-intro.md)]
  
 ## Collect data with Azure Monitor 
 
