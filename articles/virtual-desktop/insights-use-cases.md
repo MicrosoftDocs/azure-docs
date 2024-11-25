@@ -143,7 +143,7 @@ To view session host performance:
 
    :::image type="content" source="media/insights-use-cases/insights-session-host-performance-3.png" alt-text="A screenshot showing values from the performance counters of session hosts." lightbox="media/insights-use-cases/insights-session-host-performance-3.png":::
 
-In cases where a session host has extended periods of high resource utilization, it’s worth considering increasing the [Azure VM size](../virtual-machines/sizes.md) of the session host to better accommodate user workloads.
+In cases where a session host has extended periods of high resource utilization, it’s worth considering increasing the [Azure VM size](/azure/virtual-machines/sizes) of the session host to better accommodate user workloads.
 
 ## Client version usage
 

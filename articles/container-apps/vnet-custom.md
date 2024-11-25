@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic:  how-to
-ms.date: 08/31/2022
+ms.date: 09/05/2024
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -145,6 +145,28 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 ---
 
+When using the Workload profiles environment, update the VNET to delegate the subnet to `Microsoft.App/environments`. This delegation is not applicable to the Consumption-only environment.
+
+# [Bash](#tab/bash)
+
+```azurecli-interactive
+az network vnet subnet update \
+  --resource-group $RESOURCE_GROUP \
+  --vnet-name $VNET_NAME \
+  --name infrastructure-subnet \
+  --delegations Microsoft.App/environments
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$delegation = New-AzDelegation -Name 'containerApp' -ServiceName 'Microsoft.App/environments'
+$vnet = Set-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet -AddressPrefix $SubnetArgs.AddressPrefix -Delegation $delegation
+$vnet | Set-AzVirtualNetwork
+```
+
+---
+
 With the virtual network created, you can retrieve the ID for the infrastructure subnet.
 
 # [Bash](#tab/bash)
@@ -222,7 +244,7 @@ The following table describes the parameters used in for `New-AzContainerAppMana
 |---|---|
 | `EnvName` | Name of the Container Apps environment. |
 | `ResourceGroupName` | Name of the resource group. |
-| `LogAnalyticConfigurationCustomerId` | The ID of an existing the Log Analytics workspace. |
+| `LogAnalyticConfigurationCustomerId` | The ID of an existing Log Analytics workspace. |
 | `LogAnalyticConfigurationSharedKey` | The Log Analytics client secret.|
 | `Location` | The Azure location where the environment is to deploy. |
 | `VnetConfigurationInfrastructureSubnetId` | Resource ID of a subnet for infrastructure components and user application containers. |

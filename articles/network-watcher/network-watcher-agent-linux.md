@@ -91,7 +91,7 @@ Network Watcher Agent extension for Linux can be installed on the following Linu
 | SUSE Linux Enterprise Server (SLES) | 12 and 15 (SP2, SP3, and SP4) |
 | Ubuntu | 16+ |
 
-<sup>1</sup> CentOS Linux reached its end-of-life (EOL) on June 30, 2024. For more information, see the [CentOS End Of Life guidance](../virtual-machines/workloads/centos/centos-end-of-life.md).
+<sup>1</sup> CentOS Linux reached its end-of-life (EOL) on June 30, 2024. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 <sup>2</sup> [Extended life cycle (ELS) support](https://www.oracle.com/a/ocom/docs/linux/oracle-linux-extended-support-ds.pdf) for Oracle Linux version 6.X ended on [July 1, 2024](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf).
 

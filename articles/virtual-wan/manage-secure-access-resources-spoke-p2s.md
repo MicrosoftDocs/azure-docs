@@ -85,7 +85,7 @@ In this section, you create a connection between your hub and the spoke VNet.
 
 ## <a name="create-vm"></a>Create virtual machines
 
-In this section, you create two VMs in your VNet, VM1 and VM2. In the network diagram, we use 10.18.0.4 and 10.18.0.5. When configuring your VMs, make sure to select the virtual network that you created (found on the Networking tab). For steps to create a VM, see [Quickstart: Create a VM](../virtual-machines/windows/quick-create-portal.md).
+In this section, you create two VMs in your VNet, VM1 and VM2. In the network diagram, we use 10.18.0.4 and 10.18.0.5. When configuring your VMs, make sure to select the virtual network that you created (found on the Networking tab). For steps to create a VM, see [Quickstart: Create a VM](/azure/virtual-machines/windows/quick-create-portal).
 
 ## <a name="secure"></a>Secure the virtual hub
 

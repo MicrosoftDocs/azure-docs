@@ -128,7 +128,7 @@ This document illustrates the guidelines to deploy **SAP BOBI Platform on Window
 
 Sizing is a process of determining the hardware requirement to run the application efficiently. For SAP BOBI Platform, sizing needs to be done using SAP sizing tool called [Quick Sizer](https://www.sap.com/about/benchmark/sizing.quick-sizer.html#quick-sizer). The tool provides the SAPS based on the input, which then needs to be mapped to certified Azure virtual machines types for SAP. SAP Note [1928533](https://launchpad.support.sap.com/#/notes/1928533) provides the list of supported SAP products and Azure VM types along with SAPS. For more information on sizing, check [SAP BI Sizing Guide](https://wiki.scn.sap.com/wiki/display/BOBJ/Sizing+and+Deploying+SAP+BusinessObjects+BI+4.x+Platform+and+Add-Ons).
 
-For storage need for SAP BOBI Platform, Azure offers different types of [Managed Disks](../../virtual-machines/managed-disks-overview.md). For SAP BOBI Installation directory, it's recommended to use premium managed disk and for the database that runs on virtual machines, follow the guidance that is provided in [DBMS deployment for SAP workload](dbms-guide-general.md).
+For storage need for SAP BOBI Platform, Azure offers different types of [Managed Disks](/azure/virtual-machines/managed-disks-overview). For SAP BOBI Installation directory, it's recommended to use premium managed disk and for the database that runs on virtual machines, follow the guidance that is provided in [DBMS deployment for SAP workload](dbms-guide-general.md).
 
 Azure supports two DBaaS offering for SAP BOBI Platform data tier - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) (BI Application running on Windows) and [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) (BI Application running on Linux and Windows). So based on the sizing result, you can choose purchasing model that best fits your need.
 
@@ -193,7 +193,7 @@ SAP BI Platform contains different components that might require specific VM typ
 
 ### Virtual machine scale sets with flexible orchestration
 
-[Virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) with flexible orchestration provide a logical grouping of platform-managed virtual machines. You have an option to create scale set within region or span it across availability zones. On creating, the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute VMs across specified zone and the scale set would also distribute VMs across different fault domains within the zone on a best effort basis.
+[Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) with flexible orchestration provide a logical grouping of platform-managed virtual machines. You have an option to create scale set within region or span it across availability zones. On creating, the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute VMs across specified zone and the scale set would also distribute VMs across different fault domains within the zone on a best effort basis.
 
 **For SAP workload only flexible scale set with FD=1 is supported.** The advantage of using flexible scale sets with FD=1 for cross zonal deployment, instead of traditional availability zone deployment is that the VMs deployed with the scale set would be distributed across different fault domains within the zone in a best-effort manner. To learn more about SAP workload deployment with scale set, see [flexible virtual machine scale deployment guide](./sap-high-availability-architecture-scenarios.md).
 
@@ -213,7 +213,7 @@ SAP BI Platform contains many different components and while designing the archi
 
 Also the number of update and fault domains that can be used by an Azure Availability Set within an Azure Scale unit is finite. So if you keep adding VMs to a single availability set, two or more VMs will eventually end in the same fault or update domain. For more information, see the [Azure Availability Sets](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/sap/workloads/planning-guide.md#azure-availability-sets) section of the Azure virtual machines planning and implementation for SAP document.
 
-To understand the concept of Azure availability sets and the way availability sets relate to Fault and Upgrade Domains, read [manage availability](../../virtual-machines/availability.md) article.
+To understand the concept of Azure availability sets and the way availability sets relate to Fault and Upgrade Domains, read [manage availability](/azure/virtual-machines/availability) article.
 
 > [!IMPORTANT]
 >
@@ -232,11 +232,11 @@ Based on the SAP BI Platform sizing, you need to map your requirement to Azure V
 
 Azure Storage is an Azure-managed cloud service that provides storage that is highly available, secure, durable, scalable, and redundant. Some of the storage types have limited use for SAP scenarios. But several Azure Storage types are well suited or optimized for specific SAP workload scenarios. For more information, refer [Azure Storage types for SAP Workload](planning-guide-storage.md) guide, as it highlights different storage options that are suited for SAP.
 
-Azure Storage has different Storage types available for customers and details for the same can be read in the article [What disk types are available in Azure?](../../virtual-machines/disks-types.md). SAP BOBI Platform uses following Azure Storage to build the application -
+Azure Storage has different Storage types available for customers and details for the same can be read in the article [What disk types are available in Azure?](/azure/virtual-machines/disks-types). SAP BOBI Platform uses following Azure Storage to build the application -
 
 - Azure-managed disks
 
-  It's a block-level storage volume that is managed by Azure. You can use the disks for SAP BOBI Platform application servers and databases, when installed on Azure virtual machines. There are different types of [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md) available, but it's recommended to use [Premium SSDs](../../virtual-machines/disks-types.md#premium-ssds) for SAP BOBI Platform application and database.
+  It's a block-level storage volume that is managed by Azure. You can use the disks for SAP BOBI Platform application servers and databases, when installed on Azure virtual machines. There are different types of [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) available, but it's recommended to use [Premium SSDs](/azure/virtual-machines/disks-types#premium-ssds) for SAP BOBI Platform application and database.
 
   In below example, Premium SSDs are used for BOBI Platform installation directory. For database installed on virtual machine, you can use managed disks for data and log volume as per the guidelines. CMS and Audit databases are typically small and it doesn’t have the same storage performance requirements as that of other SAP OLTP/OLAP databases.
 

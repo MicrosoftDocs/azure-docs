@@ -17,7 +17,9 @@ ms.custom: devx-track-go, devguide-go
 
 [!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
-This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client module for Go. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
+This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client module for Go. Once connected, use the [developer guides](#build-your-app) to learn how your code can operate on containers, blobs, and features of the Blob Storage service.
+
+If you're looking to start with a complete example, see [Quickstart: Azure Blob Storage client library for Go](storage-quickstart-blobs-go.md).
 
 [API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob) | [Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob)
 
@@ -59,7 +61,7 @@ Blob client module information:
 
 ## Authorize access and connect to Blob Storage
 
-To connect an application to Blob Storage, create a client object using [azblob.NewClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClient). This object is your starting point to interact with data resources at the storage account level. You can use it to operate on the storage account and its containers.
+To connect an app to Blob Storage, create a client object using [azblob.NewClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClient). This object is your starting point to interact with data resources at the storage account level. You can use it to operate on the storage account and its containers.
 
 To learn more about creating and managing client objects, including best practices, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
@@ -107,23 +109,25 @@ For information about how to obtain account keys and best practice guidelines fo
 
 ---
 
-## Build your application
+## Build your app
 
-As you build applications to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
+As you build apps to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
 
-The following guides show you how to work with data resources and perform specific actions using the Azure Blob Storage client module for Go:
+The following guides show you how to access data and perform specific actions using the Azure Blob Storage client module for Go:
 
 | Guide | Description |
-|--|---|
+| --- | --- |
+| [Configure a retry policy](storage-retry-policy-python.md) | Implement retry policies for client operations. |
+| [Copy blobs](storage-blob-copy-go.md) | Copy a blob from one location to another. |
 | [Create a container](storage-blob-container-create-go.md) | Create containers. |
+| [Delete and restore blobs](storage-blob-delete-go.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs. |
 | [Delete and restore containers](storage-blob-container-delete-go.md) | Delete containers, and if soft-delete is enabled, restore deleted containers. |
+| [Download blobs](storage-blob-download-go.md) | Download blobs by using strings, streams, and file paths. |
+| [Find blobs using tags](storage-blob-tags-go.md) | Set and retrieve tags, and use tags to find blobs. |
+| [List blobs](storage-blobs-list-go.md) | List blobs in different ways. |
 | [List containers](storage-blob-containers-list-go.md) | List containers in an account and the various options available to customize a listing. |
+| [Manage properties and metadata (blobs)](storage-blob-properties-metadata-go.md) | Manage container properties and metadata. |
 | [Manage properties and metadata (containers)](storage-blob-container-properties-metadata-go.md) | Manage container properties and metadata. |
 | [Upload blobs](storage-blob-upload-go.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
-| [Download blobs](storage-blob-download-go.md) | Download blobs by using strings, streams, and file paths. |
-| [List blobs](storage-blobs-list-go.md) | List blobs in different ways. |
-| [Delete and restore blobs](storage-blob-delete-go.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs. |
-| [Find blobs using tags](storage-blob-tags-go.md) | Set and retrieve tags, and use tags to find blobs. |
-| [Manage properties and metadata (blobs)](storage-blob-properties-metadata-go.md) | Manage container properties and metadata. |
 
 [!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]

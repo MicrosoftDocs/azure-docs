@@ -179,7 +179,7 @@ To revoke access to customer-managed keys, use [PowerShell](./customer-managed-k
 
 ## Customer-managed keys for Azure managed disks
 
-Customer-managed keys are also available for managing encryption of Azure managed disks. Customer-managed keys behave differently for managed disks than for Azure Storage resources. For more information, see [Server-side encryption of Azure managed disks](../../virtual-machines/disk-encryption.md) for Windows or [Server side encryption of Azure managed disks](../../virtual-machines/disk-encryption.md) for Linux.
+Customer-managed keys are also available for managing encryption of Azure managed disks. Customer-managed keys behave differently for managed disks than for Azure Storage resources. For more information, see [Server-side encryption of Azure managed disks](/azure/virtual-machines/disk-encryption) for Windows or [Server side encryption of Azure managed disks](/azure/virtual-machines/disk-encryption) for Linux.
 
 ## Next steps
 

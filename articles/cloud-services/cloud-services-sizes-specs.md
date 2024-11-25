@@ -33,7 +33,7 @@ The size of the virtual machine affects the pricing. The size also affects the p
 
 The following considerations might help you decide on a size:
 
-* The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHz and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. For detailed information and considerations about using these sizes, see [High performance compute virtual machine (VM) sizes](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHz and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. For detailed information and considerations about using these sizes, see [High performance compute virtual machine (VM) sizes](/azure/virtual-machines/sizes-hpc?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Dv3-series, Dv2-series, D-series, G-series, are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands. They offer a powerful combination for many enterprise-grade applications.
 * Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine {machine name}** or **Failed to create virtual machine {machine name}** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.
 * Your subscription might also limit the number of cores you can deploy in certain size families. To increase a quota, contact Azure Support.
@@ -83,7 +83,7 @@ The following tables show the sizes and the capacities they provide.
 | A7              | 8         | 56           | 2040                 | 4 / high |
 
 ## A-series - compute-intensive instances
-For information and considerations about using these sizes, see [High performance compute VM sizes](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For information and considerations about using these sizes, see [High performance compute VM sizes](/azure/virtual-machines/sizes-hpc?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 | Size            | CPU cores | Memory: GiB  | Temporary Storage: GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -184,7 +184,7 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 \*RDMA capable
 
 >[!IMPORTANT]
-> Microsoft Azure has introduced newer generations of high-performance computing (HPC), general purpose, and memory-optimized virtual machines (VMs). For this reason, we recommend that you migrate workloads from the original H-series and H-series Promo VMs to our newer offerings by August 31, 2022. Azure [HC](../virtual-machines/hc-series.md), [HBv2](../virtual-machines/hbv2-series.md), [HBv3](../virtual-machines/hbv3-series.md), [Dv4](../virtual-machines/dv4-dsv4-series.md), [Dav4](../virtual-machines/dav4-dasv4-series.md), [Ev4](../virtual-machines/ev4-esv4-series.md), and [Eav4](../virtual-machines/eav4-easv4-series.md) VMs have greater memory bandwidth, improved networking capabilities, and better cost and performance across various HPC workloads.
+> Microsoft Azure has introduced newer generations of high-performance computing (HPC), general purpose, and memory-optimized virtual machines (VMs). For this reason, we recommend that you migrate workloads from the original H-series and H-series Promo VMs to our newer offerings by August 31, 2022. Azure [HC](/azure/virtual-machines/hc-series), [HBv2](/azure/virtual-machines/hbv2-series), [HBv3](/azure/virtual-machines/hbv3-series), [Dv4](/azure/virtual-machines/dv4-dsv4-series), [Dav4](/azure/virtual-machines/dav4-dasv4-series), [Ev4](/azure/virtual-machines/ev4-esv4-series), and [Eav4](/azure/virtual-machines/eav4-easv4-series) VMs have greater memory bandwidth, improved networking capabilities, and better cost and performance across various HPC workloads.
 
  On August 31, 2022, we're retiring the following H-series Azure VM sizes:
 
@@ -230,4 +230,4 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 ## Next steps
 * Learn about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
-* Learn more [about high performance compute VM sizes](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for HPC workloads.
+* Learn more [about high performance compute VM sizes](/azure/virtual-machines/sizes-hpc?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for HPC workloads.

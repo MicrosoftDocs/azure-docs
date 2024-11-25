@@ -171,11 +171,11 @@ View the Custom Script Extension (CSE) log file for a Windows VM by following th
 
 1. Open and inspect a _STATUS_ file to view the error, such as _1.status_.
 
-For instructions on finding the log files on a **Linux** VM, see [Use the Azure Custom Script Extension Version 2 with Linux virtual machines](../virtual-machines/extensions/custom-script-linux.md#troubleshooting).
+For instructions on finding the log files on a **Linux** VM, see [Use the Azure Custom Script Extension Version 2 with Linux virtual machines](/azure/virtual-machines/extensions/custom-script-linux#troubleshooting).
 
 ### Check Azure Virtual Machine Agent
 
-Ensure the [Azure Virtual Machine Agent (VM Agent)](../virtual-machines/extensions/agent-windows.md) for your lab VM is installed and ready.
+Ensure the [Azure Virtual Machine Agent (VM Agent)](/azure/virtual-machines/extensions/agent-windows) for your lab VM is installed and ready.
 
 When your lab VM first starts, or when the CSE first installs to serve the request to apply artifacts, the lab VM might need to upgrade the VM Agent or wait for the VM Agent to initialize. The VM Agent might depend on services that take a long time to initialize. 
 
@@ -201,7 +201,7 @@ Determine whether the VM Agent is causing the artifact to stop responding by fol
 
    In this example, the VM Agent took 10 minutes and 20 seconds to start. The delay is because the out-of-box-experience (OOBE) service took a long time to start. The long start time for the VM Agent caused the artifact to stop responding.
 
-For general information about Azure extensions, see [Azure virtual machine extensions and features](../virtual-machines/extensions/overview.md). For more troubleshooting ideas, see [Azure Virtual Machine Agent overview](../virtual-machines/extensions/agent-windows.md).
+For general information about Azure extensions, see [Azure virtual machine extensions and features](/azure/virtual-machines/extensions/overview). For more troubleshooting ideas, see [Azure Virtual Machine Agent overview](/azure/virtual-machines/extensions/agent-windows).
 
 ### Investigate script issues
 

@@ -26,6 +26,8 @@ The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
+[!INCLUDE [api-management-azure-openai-models](../../includes/api-management-azure-openai-models.md)]
+
 ## Policy statement
 
 ```xml

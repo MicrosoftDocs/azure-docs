@@ -1313,5 +1313,5 @@ Whether you prefer automatic registering depends on the customer scenario. Autom
 
 1. [Automated SAP HANA System Replication in Scale-Up in pacemaker cluster](https://access.redhat.com/articles/3397471)
 2. [Support Policies for RHEL High Availability Clusters - Management of SAP HANA in a Cluster](https://access.redhat.com/articles/3397471)
-3. [Setting up Pacemaker on RHEL in Azure - Azure Virtual Machines](../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md)
+3. [Setting up Pacemaker on RHEL in Azure - Azure Virtual Machines](/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)
 4. [Azure HANA Large Instances control through Azure portal - Azure Virtual Machines](hana-li-portal.md)

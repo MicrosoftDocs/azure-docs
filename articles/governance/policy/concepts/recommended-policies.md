@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Azure virtual machine recommended policies
 
-The recommended policies for [Azure virtual machines](../../../virtual-machines/index.yml) are on the portal's **Overview** page for virtual machines and under the **Capabilities** tab. Select **Azure Policy** to open a pane that shows the recommended policies. Select the recommended policies to apply to this virtual machine and select **Assign policies** to create an assignment for each policy. **Assign policies** is unavailable, or greyed out, for any policy already assigned to a scope where the virtual machine is a member.
+The recommended policies for [Azure virtual machines](/azure/virtual-machines/) are on the portal's **Overview** page for virtual machines and under the **Capabilities** tab. Select **Azure Policy** to open a pane that shows the recommended policies. Select the recommended policies to apply to this virtual machine and select **Assign policies** to create an assignment for each policy. **Assign policies** is unavailable, or greyed out, for any policy already assigned to a scope where the virtual machine is a member.
 
 As an organization reaches maturity with [organizing their resources and resource hierarchy](/azure/cloud-adoption-framework/ready/azure-best-practices/organize-subscriptions), the recommendation is to transition these policy assignments from one per resource to the subscription or [management group](../../management-groups/index.yml) level.
 

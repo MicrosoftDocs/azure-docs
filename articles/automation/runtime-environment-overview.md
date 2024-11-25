@@ -3,8 +3,8 @@ title: Runtime environment (preview) in Azure Automation
 description: This article provides an overview on Runtime environment in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/17/2024
-ms.topic: conceptual
+ms.date: 11/19/2024
+ms.topic: overview
 ms.custom: references_regions, devx-track-azurecli
 ms.service: azure-automation
 ---
@@ -77,7 +77,6 @@ You can't edit these Runtime environments. However, any changes that are made in
 ## Limitations
 
 - Runtime environment is currently supported in all Public regions except Central India, Germany North, Italy North, Israel Central, Poland Central, UAE Central, and Government clouds.
-- Existing runbooks that are automatically moved from old experience to Runtime environment experience would be able to execute as both cloud and hybrid job. 
 - PowerShell Workflow, Graphical PowerShell, and Graphical PowerShell Workflow runbooks only work with System-generated PowerShell-5.1 Runtime environment.
 - Runbooks created in Runtime environment experience with Runtime version PowerShell 7.2 would show as PowerShell 5.1 runbooks in old experience.
 - RBAC permissions cannot be assigned to Runtime environment.

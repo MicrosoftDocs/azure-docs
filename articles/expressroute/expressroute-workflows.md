@@ -57,14 +57,14 @@ Ensure that the physical link and admin state are enabled across both links. Ref
 This section only pertains to the ExpressRoute partner connectivity model:
 
 * Provide the service key (s-key) to the connectivity provider.
-* Provide additional information needed by the connectivity provider (for example, VPN ID).
+* Provide additional information needed by the connectivity provider (for example, VLAN ID).
 * If the provider manages the routing configuration, provide the necessary details.
 
 You can ensure that the circuit has been provisioned successfully by verifying the ExpressRoute circuit provisioning state using PowerShell, the Azure portal or, CLI.
 
 ### 5. Configure routing domains
 
-Configure routing domains. If your connectivity provider manages Layer 3 configuration, they configure routing for your circuit. If your connectivity provider only offers Layer 2 services or if you're using ExpressRoute Direct, you must configure routing per the guidelines described in the [Routing requirements](expressroute-routing.md) and [Routing configuration](expressroute-howto-routing-classic.md) articles.
+Configure routing domains. If your connectivity provider manages Layer 3 configuration, they configure routing for your circuit. If your connectivity provider only offers Layer 2 services or if you're using ExpressRoute Direct, you must configure routing per the guidelines described in the [Routing requirements](expressroute-routing.md) and [Routing configuration](expressroute-howto-routing-arm.md) articles.
 
 #### For Azure private peering
 

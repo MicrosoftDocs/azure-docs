@@ -5,23 +5,23 @@ services: networking
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.topic: conceptual
-ms.date: 07/17/2024
+ms.date: 11/08/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
 ---
 
 # Azure networking services overview
 
 The networking services in Azure provide various networking capabilities that can be used together or separately. Select each of the following networking scenarios to learn more about them:
 
-- [**Networking foundation**](#foundation): Azure networking foundation services provide core connectivity for your resources in Azure - Virtual Network (VNet), Private Link, Azure DNS, Azure Virtual Network Manager, Azure Bastion, Route Server, NAT Gateway, Traffic Manager, Azure Network Watcher, and Azure Monitor.
-- [**Load balancing and content delivery**](#delivery): Azure load balancing and content delivery services allow for management, distribution, and optimization of your applications and workloads - Load balancer, Application Gateway, and Azure Front Door.
-- [**Hybrid connectivity**](#hybrid): Azure hybrid connectivity services secure communication to and from your resources in Azure - VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
-- [**Network security**](#security): Azure network security services protect your web applications and IaaS services from DDoS attacks and malicious actors - Firewall Manager, Firewall, Web Application Firewall, and DDoS Protection.
+- [**Networking foundation**](#foundation): [Azure networking foundation services](../foundations/index.yml) provide core connectivity for your resources in Azure - Virtual Network (VNet), Private Link, Azure DNS, Azure Bastion, Route Server, NAT Gateway, and Traffic Manager.
+- [**Load balancing and content delivery**](#delivery): [Azure load balancing and content delivery services](../load-balancer-content-delivery/index.yml)allow for management, distribution, and optimization of your applications and workloads - Load balancer, Application Gateway, and Azure Front Door.
+- [**Hybrid connectivity**](#hybrid): [Azure hybrid connectivity services](../hybrid-connectivity/index.yml) secure communication to and from your resources in Azure - VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
+- [**Network security**](#security): [Azure network security services](../security/index.yml) protect your web applications and IaaS services from DDoS attacks and malicious actors - Firewall Manager, Firewall, Web Application Firewall, and DDoS Protection.
+- [**Network Management and monitoring**](#management): [Azure network management and monitoring services](../monitoring-management/index.yml) provide tools to manage and monitor your network resources - Network Watcher, Azure Monitor, and Azure Virtual Network Manager.
 
 ## <a name="foundation"></a>Networking foundation
  
-This section describes services that provide the building blocks for designing and architecting a network environment in Azure - Virtual Network (VNet), Private Link, Azure DNS, Azure Virtual Network Manager, Azure Bastion, Route Server, NAT Gateway, Traffic Manager, Azure Network Watcher, and Azure Monitor.
+This section describes services that provide the building blocks for designing and architecting a network environment in Azure - Virtual Network (VNet), Private Link, Azure DNS, Azure Bastion, Route Server, NAT Gateway, and Traffic Manager.
 
 ### <a name="vnet"></a>Virtual network
 
@@ -58,25 +58,21 @@ Traffic between your virtual network and the service travels through the Microso
 
 Using Azure DNS, you can host and resolve public domains, manage DNS resolution in your virtual networks, and enable name resolution between Azure and your on-premises resources.
 
-### <a name="avnm"></a>Azure Virtual Network Manager
-
-[Azure Virtual Network Manager](../../virtual-network-manager/overview.md) is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define [network groups](../../virtual-network-manager/concept-network-groups.md) to identify and logically segment your virtual networks. Then you can determine the [connectivity](../../virtual-network-manager/concept-connectivity-configuration.md) and [security configurations](../../virtual-network-manager/concept-security-admins.md) you want and apply them across all the selected virtual networks in network groups at once.
-
-:::image type="content" source="../../virtual-network-manager/media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager.":::
-
 ### <a name="bastion"></a>Azure Bastion
 
 [Azure Bastion](../../bastion/bastion-overview.md) is a service that you can deploy in a virtual network to allow you to connect to a virtual machine using your browser and the Azure portal. You can also connect using the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you deploy inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software. There are various different SKU/tiers available for Azure Bastion. The tier you select affects the features that are available. For more information, see [About Bastion configuration settings](../../bastion/configuration-settings.md).
 
 :::image type="content" source="../../bastion/media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture.":::
 
-### <a name="routeserver"></a>Route Server
+### <a name="routeserver"></a>Azure Route Server
 
 [Azure Route Server](../../route-server/overview.md) simplifies dynamic routing between your network virtual appliance (NVA) and your virtual network. It allows you to exchange routing information directly through Border Gateway Protocol (BGP) routing protocol between any NVA that supports the BGP routing protocol and the Azure Software Defined Network (SDN) in the Azure Virtual Network (VNet) without the need to manually configure or maintain route tables.
 
+:::image type="content" source="../../route-server/media/overview/route-server-overview.png" alt-text="Diagram showing Azure Route Server configured in a virtual network.":::
+
 ### <a name="nat"></a>NAT Gateway
 
-Virtual Network NAT(network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
+NAT Gateway simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
 For more information, see [What is Azure NAT gateway](../../virtual-network/nat-gateway/nat-overview.md)?
 
 :::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Diagram of virtual network NAT gateway.":::
@@ -90,14 +86,6 @@ The following diagram shows endpoint priority-based routing with Traffic Manager
 :::image type="content" source="./media/networking-overview/priority.png" alt-text="Diagram of Azure Traffic Manager 'Priority' traffic-routing method.":::
 
 For more information about Traffic Manager, see [What is Azure Traffic Manager?](../../traffic-manager/traffic-manager-overview.md).
-
-### <a name="networkwatcher"></a>Azure Network Watcher
-
-[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
-
-### <a name="azuremonitor"></a>Azure Monitor
-
-[Azure Monitor](../../azure-monitor/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) maximizes the availability and performance of your applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
 
 ## <a name="delivery"></a>Load balancing and content delivery
 
@@ -167,8 +155,6 @@ The following diagram illustrates multiple site-to-site VPN connections to the s
 
 [Azure Peering Service](../../peering-service/about.md) enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
 
-This section describes networking services in Azure that help protect your network resources - Protect your applications  using any or a combination of these networking services in Azure - DDoS protection, Private Link, Firewall, Web Application Firewall, Network Security Groups, and Virtual Network Service Endpoints.
-
 ## <a name="security"></a>Network security
 
 This section describes networking services in Azure that protects and monitor your network resources - Firewall Manager, Firewall, Web Application Firewall, and DDoS Protection.
@@ -204,8 +190,38 @@ Azure DDoS Protection consists of two tiers:
 
 :::image type="content" source="./media/networking-overview/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
 
+### <a name="container-security"></a> Container network security
+
+Container network security is part of [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview). It provides enhanced control over AKS network security. With features like fully qualified domain name (FQDN) filtering, clusters using Azure CNI Powered by Cilium can implement FQDN-based network policies to achieve a Zero Trust security architecture in AKS.
+
+## <a name="management"></a>Network Management and monitoring
+
+This section describes network management and monitoring services in Azure - Network Watcher, Azure Monitor, and Azure Virtual Network Manager.
+
+### <a name="networkwatcher"></a>Azure Network Watcher
+
+[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
+
+:::image type="content" source="../../network-watcher/media/network-watcher-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
+
+### <a name="azuremonitor"></a>Azure Monitor
+
+[Azure Monitor](/azure/azure-monitor/overview?toc=%2fazure%2fnetworking%2ftoc.json) maximizes the availability and performance of your applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
+
+### <a name="avnm"></a>Azure Virtual Network Manager
+
+[Azure Virtual Network Manager](../../virtual-network-manager/overview.md) is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions. With Virtual Network Manager, you can define [network groups](../../virtual-network-manager/concept-network-groups.md) to identify and logically segment your virtual networks. Then you can determine the [connectivity](../../virtual-network-manager/concept-connectivity-configuration.md) and [security configurations](../../virtual-network-manager/concept-security-admins.md) you want and apply them across all the selected virtual networks in network groups at once.
+
+:::image type="content" source="../../virtual-network-manager/media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager.":::
+
+### <a name="container-monitoring"></a> Container network observability
+
+Container network observability is part of [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview). ACNS uses Hubble’s control plane to provide comprehensive visibility into AKS networking and performance. It offers real-time, detailed insights across node-level, pod-level, TCP, and DNS metrics, ensuring thorough monitoring of your network infrastructure. 
+
+:::image type="content" source="./media/networking-overview/advanced-network-observability.png" alt-text="Diagram of Container Network Observability.":::
+
 ## Next steps
 
 - Create your first virtual network, and connect a few virtual machines to it, by completing the steps in the [Create your first virtual network](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) article.
-- Connect your computer to a virtual network by completing the steps in the [Configure a point-to-site connection article](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- Connect your computer to a virtual network by completing the steps in the [Configure a point-to-site connection article](../../vpn-gateway/point-to-site-certificate-gateway.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Load balance Internet traffic to public servers by completing the steps in the [Create an Internet-facing load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) article.

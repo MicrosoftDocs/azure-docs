@@ -3,7 +3,7 @@ title: Azure Networking architecture documentation
 description: Learn about the reference architecture documentation available for Azure networking services.
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2023
 ms.author: allensu
 ---

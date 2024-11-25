@@ -22,7 +22,7 @@ Data engineers need to understand how to efficiently process complex data types 
 
 ## What are arrays and nested structures?
 
-The following object comes from [Application Insights](../azure-monitor/app/app-insights-overview.md). In this object, there are nested structures and arrays that contain nested structures.
+The following object comes from [Application Insights](/azure/azure-monitor/app/app-insights-overview). In this object, there are nested structures and arrays that contain nested structures.
 
 ```json
 {

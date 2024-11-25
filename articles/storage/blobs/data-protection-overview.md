@@ -1,20 +1,20 @@
 ---
 title: Data protection overview
 titleSuffix: Azure Storage
-description: The data protection options available for you're for Blob Storage and Azure Data Lake Storage Gen2 data enable you to protect your data from being deleted or overwritten. If you should need to recover data that has been deleted or overwritten, this guide can help you to choose the recovery option that's best for your scenario.
+description: The data protection options available for you're for Blob Storage and Azure Data Lake Storage data enable you to protect your data from being deleted or overwritten. If you should need to recover data that has been deleted or overwritten, this guide can help you to choose the recovery option that's best for your scenario.
 services: storage
 author: normesta
 
 ms.service: azure-blob-storage
 ms.date: 07/29/2024
-ms.topic: conceptual
+ms.topic: overview
 ms.author: normesta
 ms.reviewer: prishet
 ---
 
 # Data protection overview
 
-Azure Storage provides data protection for Blob Storage and Azure Data Lake Storage Gen2 to help you to prepare for scenarios where you need to recover data that has been deleted or overwritten. It's important to think about how to best protect your data before an incident occurs that could compromise it. This guide can help you decide in advance which data protection features your scenario requires, and how to implement them. If you should need to recover data that has been deleted or overwritten, this overview also provides guidance on how to proceed, based on your scenario.
+Azure Storage provides data protection for Blob Storage and Azure Data Lake Storage to help you to prepare for scenarios where you need to recover data that has been deleted or overwritten. It's important to think about how to best protect your data before an incident occurs that could compromise it. This guide can help you decide in advance which data protection features your scenario requires, and how to implement them. If you should need to recover data that has been deleted or overwritten, this overview also provides guidance on how to proceed, based on your scenario.
 
 In the Azure Storage documentation, *data protection* refers to strategies for protecting the storage account and data within it from being deleted or modified, or for restoring data after it has been deleted or modified. Azure Storage also offers options for *disaster recovery*, including multiple levels of redundancy to protect your data from service outages due to hardware problems or natural disasters. Customer-managed (unplanned) failover is another disaster recovery option that allows you to fail over to a secondary region if the primary region becomes unavailable. For more information about how your data is protected from service outages, see [Disaster recovery](#disaster-recovery).
 

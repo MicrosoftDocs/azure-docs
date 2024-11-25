@@ -88,9 +88,9 @@ procedureSection:
         Select **Create**.
 
         > [!NOTE]
-        > This is a simple deployment of Azure Virtual Machine. For advanced configuration and setup, see [Quickstart: Create a Windows virtual machine in the Azure portal](../../virtual-machines/windows/quick-create-portal.md)
+        > This is a simple deployment of Azure Virtual Machine. For advanced configuration and setup, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
         >
-        > For more information on Azure Virtual Machines, see [Windows virtual machines in Azure](../../virtual-machines/windows/overview.md)
+        > For more information on Azure Virtual Machines, see [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
   - title: |
       Change public IP address
     summary: |

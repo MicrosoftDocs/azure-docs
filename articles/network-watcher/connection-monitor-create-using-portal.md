@@ -195,7 +195,7 @@ In the Azure portal, to create alerts for a connection monitor, specify values f
 
 - **Condition name**: The alert is created on the `Test Result(preview)` metric. When the connection monitor test fails, the alert rule will fire.
 
-- **Action group name**: You can enter your email directly, or you can create alerts via action groups. If you enter your email directly, an action group with the name **NPM Email ActionGroup** is created. The email ID is added to that action group. If you choose to use action groups, you need to select a previously created action group. To learn how to create an action group, see [Create action groups in the Azure portal](../azure-monitor/alerts/action-groups.md). After the alert is created, you can [manage your alerts](../azure-monitor/alerts/alerts-metric.md#view-and-manage-with-azure-portal).
+- **Action group name**: You can enter your email directly, or you can create alerts via action groups. If you enter your email directly, an action group with the name **NPM Email ActionGroup** is created. The email ID is added to that action group. If you choose to use action groups, you need to select a previously created action group. To learn how to create an action group, see [Create action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups). After the alert is created, you can [manage your alerts](/azure/azure-monitor/alerts/alerts-metric#view-and-manage-with-azure-portal).
 
 - **Alert rule name**: The name of the connection monitor.
 

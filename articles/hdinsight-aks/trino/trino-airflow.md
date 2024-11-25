@@ -3,12 +3,15 @@ title: Use Apache Airflow with Trino cluster
 description: How to create Apache Airflow DAG to connect to Trino cluster with HDInsight on AKS
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Use Apache Airflow™ with Trino cluster
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This article demonstrates how to configure available open-source [Apache Airflow Trino provider](https://airflow.apache.org/docs/apache-airflow-providers-trino/stable/index.html) to connect to your Trino cluster with HDInsight on AKS.
 The objective is to show how you can connect Airflow to Trino with HDInsight on AKS considering main steps as obtaining access token and running query.

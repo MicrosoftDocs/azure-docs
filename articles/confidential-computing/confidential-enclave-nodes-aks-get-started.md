@@ -32,7 +32,7 @@ This quickstart requires:
 
 - A minimum of eight DCsv2/DCSv3/DCdsv3 cores available in your subscription.
 
-  By default, there is no pre-assigned quota for Intel SGX VM sizes for your Azure subscriptions. You should follow [these instructions](../azure-portal/supportability/per-vm-quota-requests.md) to request for VM core quota for your subscriptions.
+  By default, there is no pre-assigned quota for Intel SGX VM sizes for your Azure subscriptions. You should follow [these instructions](/azure/azure-portal/supportability/per-vm-quota-requests) to request for VM core quota for your subscriptions.
 
 ## Create an AKS cluster with enclave-aware confidential computing nodes and Intel SGX add-on
 
@@ -61,7 +61,7 @@ The above command will deploy a new AKS cluster with system node pool of non con
 
 ### Add a user node pool with confidential computing capabilities to the AKS cluster<a id="add-a-user-node-pool-with-confidential-computing-capabilities-to-the-aks-cluster"></a>
 
-Run the following command to add a user node pool of `Standard_DC4s_v3` size with three nodes to the AKS cluster. You can choose another larger sized SKU from the [list of supported DCsv2/DCsv3 SKUs and regions](../virtual-machines/dcv3-series.md).
+Run the following command to add a user node pool of `Standard_DC4s_v3` size with three nodes to the AKS cluster. You can choose another larger sized SKU from the [list of supported DCsv2/DCsv3 SKUs and regions](/azure/virtual-machines/dcv3-series).
 
 ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC4s_v3 --node-count 2
@@ -147,7 +147,7 @@ You're now ready to deploy a test application.
 Create a file named *hello-world-enclave.yaml* and paste in the following YAML manifest. You can find this sample application code in the [Open Enclave project](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). This deployment assumes that you've deployed the *confcom* add-on.
 
 > [!NOTE]
-> The following example pulls a public container image from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the image in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
+> The following example pulls a public container image from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the image in a private Azure container registry. [Learn more about working with public images.](/azure/container-registry/buffer-gate-public-content)
 
 ```yaml
 apiVersion: batch/v1

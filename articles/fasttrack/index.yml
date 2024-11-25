@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: ARMSGit
   ms.author: alricha
-  ms.date: 10/31/2023
+  ms.date: 08/27/2024
 
 # productDirectory section
 productDirectory:
@@ -57,6 +57,9 @@ conceptualContent:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep09-microsoft-identity-platform
               itemType: video
               text: Introduction to Microsoft Identity Platform
+            - url: https://aka.ms/ftalive-202400827-zpr
+              itemType: video
+              text: Zone Preferred Regions - NEW!
         # Card
         - title: Infrastructure
           links:
@@ -74,7 +77,7 @@ conceptualContent:
               text: 'Azure Routing: Ultimate Guide for Beginners (Spanish)'
             - url: https://aka.ms/ftalive-20240523-cloudserviceclassictocloudserviceextendedsupportmigration
               itemType: video
-              text: Classic Cloud Services to Cloud Services Extended Support Migration - NEW!
+              text: Classic Cloud Services to Cloud Services Extended Support Migration
             # Possible addition - Azure Networking Fundamentals (replace AVD)
             # Possible removal - AVD FastStart
         # Card
@@ -100,7 +103,7 @@ conceptualContent:
               text: ASE v2 to ASE v3 Migration - NEW!
             - url: https://aka.ms/ftalive-20240520-appgwv1v2migration
               itemType: video
-              text: App Gateway v1 to v2 Migration - NEW!
+              text: App Gateway v1 to v2 Migration
         # Card
         - title: Data
           links:
@@ -154,8 +157,34 @@ conceptualContent:
               text: Introduction to Kusto Query Language (KQL)
             - url: https://aka.ms/ftalive-202311-mdfc
               itemType: video
-              text: Microsoft Defender for Cloud (multi-cloud environments)
+              text: Microsoft Defender for Cloud (multicloud environments)
             # Possible additions - MDfC & MDfE
+    - title: "New Series'"
+      items:
+        # Card
+        - title: "Java Series"
+          links:
+            - url: https://aka.ms/ftalive-20241004-JavaAppTypes
+              itemType: video
+              text: Azure Java App Types
+            - url: https://aka.ms/ftalive-20241004-JavaAppsOnAKS
+              itemType: video
+              text: Azure Java Apps on AKS
+            - url: https://aka.ms/ftalive-20241004-JavaAppsOnContainers
+              itemType: video
+              text: Azure Java Apps on Containers
+            - url: https://aka.ms/ftalive-20241004-JavaAppsSpringApps
+              itemType: video
+              text: Azure Java Apps Spring Apps
+            - url: https://aka.ms/ftalive-20241004-JavaAppsWebApps
+              itemType: video
+              text: Azure Java Apps Web Apps
+            - url: https://aka.ms/ftalive-20241004-JavaAppsCodeAssessment
+              itemType: video
+              text: Azure Java Apps Code Assessment
+            - url: https://aka.ms/ftalive-20241004-JavaAppMigrations
+              itemType: video
+              text: Azure Java App Migrations
             
 # additionalContent section
 # Card with summary style

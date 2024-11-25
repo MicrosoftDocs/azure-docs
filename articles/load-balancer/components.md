@@ -95,8 +95,6 @@ An inbound NAT rule forwards incoming traffic sent to frontend IP address and po
 
 *Figure: Inbound NAT rules*
 
-
-
 ## Outbound rules
 
 An outbound rule configures outbound Network Address Translation (NAT) for all virtual machines or instances identified by the backend pool. This rule enables instances in the backend to communicate (outbound) to the internet or other endpoints.

@@ -13,6 +13,8 @@ ms.author: duau
 
 # Migrate between content delivery network providers
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 Content Delivery Network services can provide resiliency and add benefits for different types of workloads. Switching between content delivery network providers is a common practice when your web delivery requirements changes or when a different service is better suited for your business needs.
 
 The purpose of this article is to share best practices when migrating from one content delivery network service to another. In this article we talk about the different Azure Content Delivery Network services, how to compare these products and best practices to consider when performing the migration.
@@ -24,12 +26,6 @@ The purpose of this article is to share best practices when migrating from one c
 **Azure Front Door:** release two new tiers (Standard and Premium) on March 29, 2022, which is the next generation Azure Front Door. It combines the capabilities of Azure Front Door (classic), Microsoft content delivery network (classic), and Web Application Firewall. With features such as private link integration, enhancements to rules engine, diagnostics, and a one-stop secure application acceleration for Azure customers. For more information about Azure Front Door, see [Azure Front Door overview](../frontdoor/front-door-overview.md).
 
 **Azure CDN Standard/Premium from Edgio:** is an alternative to Azure Front Door for your general content delivery network and media solutions. Azure Content Delivery Network from Edgio is optimized for large media streaming workloads. It has unique content delivery network features such as cache warmup, log delivery services, and reporting features.
-
-**Azure CDN Standard from Akamai (Retiring October 31, 2023)**: In May 2016, Azure partnered with Akamai Technologies Inc to offer Azure Content Delivery Network Standard from Akamai. Recently, Azure and Akamai Technologies Inc have decided not to renew this partnership. As a result, starting October 31, 2023, Azure Content Delivery Network Standard from Akamai will no longer be supported.
-
-You'll still be able to manage your existing profiles until October 31. After October 31, you'll no longer be able to create a new Azure Content Delivery Network Standard from Akamai profiles or modify previously created profiles.
-
-If you don't migrate your workloads by October 31, we'll migrate your Azure Content Delivery Network Standard from Akamai profile to another Azure Content Delivery Network service with similar features and pricing starting November 1, 2023.
 
 ## Pricing comparison
 

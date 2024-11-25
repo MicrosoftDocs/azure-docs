@@ -30,7 +30,7 @@ If you can't resolve the issue, open a support request to contact Azure support:
 
    **[Contact Microsoft Azure Support - Microsoft Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4).**
 
-- To learn more about support requests, refer to: [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+- To learn more about support requests, refer to: [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Support for dev team leads
 Developer team leads are often assigned the DevCenter Project Admin role. Project Admins have access to manage projects and pools.
@@ -65,4 +65,4 @@ If you don’t see your issue in the discussion forum, you can report it to the 
 
 ## Next steps
 
-- To learn more about support requests, refer to: [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+- To learn more about support requests, refer to: [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).

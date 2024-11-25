@@ -13,6 +13,8 @@ ms.author: duau
 
 # Troubleshooting Azure Content Delivery Network file compression
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 This article helps you troubleshoot issues with [CDN file compression](cdn-improve-performance.md).
 
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure Support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

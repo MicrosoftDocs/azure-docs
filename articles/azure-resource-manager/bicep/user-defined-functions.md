@@ -3,12 +3,12 @@ title: User-defined functions in Bicep
 description: Describes how to define and use user-defined functions in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/15/2024
+ms.date: 10/23/2024
 ---
 
 # User-defined functions in Bicep
 
-Within your Bicep file, you can create your own functions. These functions are available for use in your Bicep files. User-defined functions are separate from the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
+Within your Bicep file, you can create your own functions. These functions are available for use in your Bicep files. User-defined functions are separate from the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files. Using user-defined functions automatically enables [language version 2.0](../templates/syntax.md#languageversion-20) code generation.
 
 [Bicep CLI version 0.26.X or higher](./install.md) is required to use this feature.
 
@@ -110,6 +110,7 @@ Decorators are written in the format `@expression` and are placed above function
 | --------- | ----------- | ------- |
 | [description](#description) | string | Provide descriptions for the function. |
 | [export](#export) | none | Indicates that the function is available for import by another Bicep file. |
+| [metadata](#metadata) | object | Custom properties to apply to the function. Can include a description property that is equivalent to the description decorator. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
 
@@ -127,6 +128,23 @@ Markdown-formatted text can be used for the description text.
 ### Export
 
 Use `@export()` to share the function with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
+
+### Metadata
+
+If you have custom properties that you want to apply to a user-defined function, add a metadata decorator. Within the metadata, define an object with the custom names and values. The object you define for the metadata can contain properties of any name and type.
+
+You might use this decorator to track information about the function that doesn't make sense to add to the [description](#description).
+
+```bicep
+@description('Configuration values that are applied when the application starts.')
+@metadata({
+  source: 'database'
+  contact: 'Web team'
+})
+type settings object
+```
+
+When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the `@metadata()` value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
 
 ## Next steps
 

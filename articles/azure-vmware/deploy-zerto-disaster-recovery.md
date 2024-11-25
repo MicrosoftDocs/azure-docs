@@ -84,7 +84,8 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 ## Install Zerto on Azure VMware Solution
 
-To deploy Zerto on Azure VMware Solution, follow these [instructions](https://help.zerto.com/bundle/Install.AVS.HTML/page/Prerequisites_Zerto_AVS.htm).
+To deploy Zerto on Azure VMware Solution, follow these [instructions](https://help.zerto.com/bundle/Install.AVS.HTML.10.0_U5/page/zerto_deployment_and_configuration.html
+).
 
 ## FAQs
 

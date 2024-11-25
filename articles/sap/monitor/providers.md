@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 08/22/2024
 ms.author: radeltch
 #Customer intent: As a developer, I want to learn what providers are available for Azure Monitor for SAP solutions so that I can connect to these providers.
 ---
@@ -34,7 +34,7 @@ You can configure one or more providers of the provider type SAP NetWeaver to en
 
 With the SAP NetWeaver provider, you can get the:
 
-- SAP system and application server availability (for example, instance process availability of Dispatcher, ICM, Gateway, Message Server, Enqueue Server, IGS Watchdog) (SAPOsControl).
+- SAP system and application server availability, for example, instance process availability of Dispatcher, ICM, Gateway, Message Server, Enqueue Server, and IGS Watchdog (SAPOsControl).
 - Work process usage statistics and trends (SAPOsControl).
 - Enqueue lock statistics and trends (SAPOsControl).
 - Queue usage statistics and trends (SAPOsControl).
@@ -60,7 +60,7 @@ For SOAP web methods:
 For SOAP+RFC:
    - FQDN of the SAP Web Dispatcher or the SAP application server.
    - SAP system ID, Instance no.
-   - SAP client ID, HTTP port, SAP username and password for login.
+   - SAP client ID, HTTP port, and SAP username and password for sign in.
    - Host file entries of all SAP application servers that get listed via the SAPcontrol `GetSystemInstanceList` web method.
 
 For more information, see [Configure SAP NetWeaver for Azure Monitor for SAP solutions](provider-netweaver.md).
@@ -78,7 +78,7 @@ With the SAP HANA provider, you can see the:
 - SAP HANA system replication.
 - SAP HANA backup data.
 - Fetching services.
-- Network throughput between the nodes in a scaleout system.
+- Network throughput between the nodes in a scale-out system.
 - SAP HANA long-idling cursors.
 - SAP HANA long-running transactions.
 - Checks for configuration parameter values.
@@ -122,7 +122,7 @@ Configuring SQL Server provider requires the:
 
 ## Provider type: High-availability cluster
 
-You can configure one or more providers of the provider type *high-availability cluster* to enable data collection from the Pacemaker cluster within the SAP landscape. The high-availability cluster provider connects to Pacemaker by using the [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) for **SUSE**-based clusters and by using [Performance co-pilot](https://access.redhat.com/articles/6139852) for **RHEL**-based clusters. Azure Monitor for SAP solutions then pulls data from the cluster and pushes it to the Log Analytics workspace in your subscription. The high-availability cluster provider collects data every 60 seconds from Pacemaker.
+You can configure one or more providers of the provider type *high-availability cluster* to enable data collection from the Pacemaker cluster within the SAP landscape. The high-availability cluster provider connects to Pacemaker by using the [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) for **SUSE**-based clusters and by using [Performance copilot](https://access.redhat.com/articles/6139852) for **RHEL**-based clusters. Azure Monitor for SAP solutions then pulls data from the cluster and pushes it to the Log Analytics workspace in your subscription. The high-availability cluster provider collects data every 60 seconds from Pacemaker.
 
 With the high-availability cluster provider, you can get the:
 

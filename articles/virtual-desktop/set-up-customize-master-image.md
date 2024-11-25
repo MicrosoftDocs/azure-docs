@@ -18,13 +18,13 @@ This article tells you how to prepare a master virtual hard disk (VHD) image for
 
 Windows 10 Enterprise multi-session is available in the Azure Compute Gallery or the Azure portal. There are two options for customizing this image.
 
-The first option is to provision a virtual machine (VM) in Azure by following the instructions in [Create a VM from a managed image](../virtual-machines/windows/create-vm-generalized-managed.md), and then skip ahead to [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
+The first option is to provision a virtual machine (VM) in Azure by following the instructions in [Create a VM from a managed image](/azure/virtual-machines/windows/create-vm-generalized-managed), and then skip ahead to [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
 
 The second option is to create the image locally by downloading the image, provisioning a Hyper-V VM, and customizing it to suit your needs, which we cover in the following section.
 
 ### Local image creation
 
-You can download an image following the instructions in [Export an image version to a managed disk](../virtual-machines/managed-disk-from-image-version.md) and then [Download a Windows VHD from Azure](../virtual-machines/windows/download-vhd.md). Once you've downloaded the image to a local location, open **Hyper-V Manager** to create a VM with the VHD you copied. The following instructions are a simple version, but you can find more detailed instructions in [Create a virtual machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v/).
+You can download an image following the instructions in [Export an image version to a managed disk](/azure/virtual-machines/managed-disk-from-image-version) and then [Download a Windows VHD from Azure](/azure/virtual-machines/windows/download-vhd). Once you've downloaded the image to a local location, open **Hyper-V Manager** to create a VM with the VHD you copied. The following instructions are a simple version, but you can find more detailed instructions in [Create a virtual machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v/).
 
 To create a VM with the copied VHD:
 
@@ -48,7 +48,7 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 ### Fixed disk
 
-If you create a VM from an existing VHD, it creates a dynamic disk by default. It can be changed to a fixed disk by selecting **Edit Disk...** as shown in the following image. For more detailed instructions, see [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
+If you create a VM from an existing VHD, it creates a dynamic disk by default. It can be changed to a fixed disk by selecting **Edit Disk...** as shown in the following image. For more detailed instructions, see [Prepare a Windows VHD or VHDX to upload to Azure](/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot of the Edit Disk option.](media/35772414b5a0f81f06f54065561d1414.png)
@@ -169,7 +169,7 @@ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\W
 
 ## Prepare the image for upload to Azure
 
-After you've finished configuration and installed all applications, follow the instructions in [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) to prepare the image.
+After you've finished configuration and installed all applications, follow the instructions in [Prepare a Windows VHD or VHDX to upload to Azure](/azure/virtual-machines/windows/prepare-for-upload-vhd-image) to prepare the image.
 
 After preparing the image for upload, make sure the VM remains in the off or deallocated state.
 

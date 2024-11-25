@@ -212,7 +212,7 @@ This article compares several ISV solutions that provide files services in Azure
 
 Learn more:
 
-- [Azure Disks](../../../../virtual-machines/managed-disks-overview.md)
+- [Azure Disks](/azure/virtual-machines/managed-disks-overview)
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
 - [Verified partners for primary and secondary storage](./partner-overview.md)
 - [Storage migration overview](../../../common/storage-migration-overview.md)

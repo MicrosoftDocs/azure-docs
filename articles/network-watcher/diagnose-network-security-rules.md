@@ -6,15 +6,13 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 10/30/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Diagnose network security rules
 
-You can use [network security groups](../virtual-network/network-security-groups-overview.md) to filter and control inbound and outbound network traffic to and from your Azure resources. You can also use [Azure Virtual Network Manager](../virtual-network-manager/overview.md) to apply admin security rules to your Azure resources to control network traffic.
-
-In this article, you learn how to use Azure Network Watcher [NSG diagnostics](network-watcher-network-configuration-diagnostics-overview.md) to check and troubleshoot security rules applied to your Azure traffic. NSG diagnostics checks if the traffic is allowed or denied by applied security rules.
+In this article, you learn how to use Azure Network Watcher [NSG diagnostics](nsg-diagnostics-overview.md) to check and troubleshoot security rules applied to your Azure traffic through [network security groups](../virtual-network/network-security-groups-overview.md?toc=/azure/network-watcher/toc.json) and [Azure Virtual Network Manager](../virtual-network-manager/overview.md?toc=/azure/network-watcher/toc.json). NSG diagnostics checks if the traffic is allowed or denied by applied security rules.
 
 The example in this article shows you how a misconfigured network security group can prevent you from using Azure Bastion to connect to a virtual machine.
 
@@ -22,13 +20,13 @@ The example in this article shows you how a misconfigured network security group
 
 # [**Portal**](#tab/portal)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Sign in to the [Azure portal](https://portal.azure.com/?WT.mc_id=A261C142F) with your Azure account.
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -38,7 +36,7 @@ The example in this article shows you how a misconfigured network security group
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Azure Cloud Shell or Azure CLI.
     
@@ -135,7 +133,7 @@ In this section, you create a virtual network with two subnets and an Azure Bast
 
     ```azurepowershell-interactive
     # Create an Azure Bastion host.
-    New-AzBastion -ResourceGroupName 'myResourceGroup' -Name 'myVNet-Bastion' --PublicIpAddressRgName 'myResourceGroup' -PublicIpAddressName 'myBastionIp' -VirtualNetwork $vnet
+    New-AzBastion -ResourceGroupName 'myResourceGroup' -Name 'myVNet-Bastion' -PublicIpAddressRgName 'myResourceGroup' -PublicIpAddressName 'myBastionIp' -VirtualNetwork $vnet
     ```
 
 # [**Azure CLI**](#tab/cli)
@@ -400,7 +398,7 @@ ResultsText : [
                     "SecurityRuleAccessResult": "Deny",
                     "EvaluatedNetworkSecurityGroups": [
                       {
-                        "NetworkSecurityGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
+                        "NetworkSecurityGroupId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
                         "MatchedRule": {
                           "RuleName": "VirtualNetwork",
                           "Action": "Allow"
@@ -417,7 +415,7 @@ ResultsText : [
                         ]
                       },
                       {
-                        "NetworkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
+                        "NetworkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
                         "MatchedRule": {
                           "RuleName": "DefaultRule_AllowVnetInBound",
                           "Action": "Allow"
@@ -434,7 +432,7 @@ ResultsText : [
                         ]
                       },
                       {
-                        "NetworkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
+                        "NetworkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
                         "MatchedRule": {
                           "RuleName": "UserRule_DenyVnetInBound",
                           "Action": "Deny"
@@ -481,12 +479,12 @@ Output similar to the following example output is returned:
       "networkSecurityGroupResult": {
         "evaluatedNetworkSecurityGroups": [
           {
-            "appliedTo": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
+            "appliedTo": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
             "matchedRule": {
               "action": "Allow",
               "ruleName": "VirtualNetwork"
             },
-            "networkSecurityGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
+            "networkSecurityGroupId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
             "rulesEvaluationResult": [
               {
                 "destinationMatched": true,
@@ -499,12 +497,12 @@ Output similar to the following example output is returned:
             ]
           },
           {
-            "appliedTo": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet",
+            "appliedTo": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet",
             "matchedRule": {
               "action": "Allow",
               "ruleName": "DefaultRule_AllowVnetInBound"
             },
-            "networkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
+            "networkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
             "rulesEvaluationResult": [
               {
                 "destinationMatched": true,
@@ -517,12 +515,12 @@ Output similar to the following example output is returned:
             ]
           },
           {
-            "appliedTo": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myvm36",
+            "appliedTo": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myvm36",
             "matchedRule": {
               "action": "Deny",
               "ruleName": "UserRule_DenyVnetInBound"
             },
-            "networkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
+            "networkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
             "rulesEvaluationResult": [
               {
                 "destinationMatched": true,
@@ -631,7 +629,7 @@ You can add the security rule to the network security group from the Network Wat
                         "SecurityRuleAccessResult": "Allow",
                         "EvaluatedNetworkSecurityGroups": [
                           {
-                            "NetworkSecurityGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
+                            "NetworkSecurityGroupId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
                             "MatchedRule": {
                               "RuleName": "VirtualNetwork",
                               "Action": "Allow"
@@ -648,7 +646,7 @@ You can add the security rule to the network security group from the Network Wat
                             ]
                           },
                           {
-                            "NetworkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
+                            "NetworkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
                             "MatchedRule": {
                               "RuleName": "DefaultRule_AllowVnetInBound",
                               "Action": "Allow"
@@ -665,7 +663,7 @@ You can add the security rule to the network security group from the Network Wat
                             ]
                           },
                           {
-                            "NetworkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
+                            "NetworkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
                             "MatchedRule": {
                               "RuleName": "UserRule_AllowBastionConnections",
                               "Action": "Allow"
@@ -716,12 +714,12 @@ You can add the security rule to the network security group from the Network Wat
           "networkSecurityGroupResult": {
             "evaluatedNetworkSecurityGroups": [
               {
-                "appliedTo": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
+                "appliedTo": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
                 "matchedRule": {
                   "action": "Allow",
                   "ruleName": "VirtualNetwork"
                 },
-                "networkSecurityGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
+                "networkSecurityGroupId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
                 "rulesEvaluationResult": [
                   {
                     "destinationMatched": true,
@@ -734,12 +732,12 @@ You can add the security rule to the network security group from the Network Wat
                 ]
               },
               {
-                "appliedTo": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet",
+                "appliedTo": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet",
                 "matchedRule": {
                   "action": "Allow",
                   "ruleName": "DefaultRule_AllowVnetInBound"
                 },
-                "networkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
+                "networkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
                 "rulesEvaluationResult": [
                   {
                     "destinationMatched": true,
@@ -752,12 +750,12 @@ You can add the security rule to the network security group from the Network Wat
                 ]
               },
               {
-                "appliedTo": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myvm36",
+                "appliedTo": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myvm36",
                 "matchedRule": {
                   "action": "Allow",
                   "ruleName": "UserRule_AllowBastionConnections"
                 },
-                "networkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
+                "networkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
                 "rulesEvaluationResult": [
                   {
                     "destinationMatched": true,
@@ -822,6 +820,6 @@ az group delete --name 'myResourceGroup' --yes --no-wait
 
 ---
 
-## Next steps
+## Related content
 - To learn about other Network Watcher tools, see [What is Azure Network Watcher?](network-watcher-overview.md)
 - To learn how to troubleshoot virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).

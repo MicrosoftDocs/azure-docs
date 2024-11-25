@@ -1,10 +1,10 @@
 ---
 title: Design secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the requirement and design phases of your web application project.
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
-ms.author: terrylan
-ms.date: 09/26/2023
+ms.author: mbaldwin
+ms.date: 09/29/2024
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -132,7 +132,7 @@ Apps, like package management, staging environments, custom domains,
 SSL/TLS certificates, and continuous deployment from Azure DevOps,
 GitHub, Docker Hub, and other sources.
 
-Azure offers other services that you can use to host websites and web applications. For most scenarios, Web Apps is the best choice. For a micro service architecture, consider [Azure Service Fabric](../../service-fabric/index.yml). If you need more control over the VMs that your code runs on, consider [Azure Virtual Machines](../../virtual-machines/index.yml). For more information about how to choose between these Azure services, see a [comparison of Azure App Service, Virtual Machines, Service Fabric, and Cloud Services](/azure/architecture/guide/technology-choices/compute-decision-tree).
+Azure offers other services that you can use to host websites and web applications. For most scenarios, Web Apps is the best choice. For a micro service architecture, consider [Azure Service Fabric](/azure/service-fabric/). If you need more control over the VMs that your code runs on, consider [Azure Virtual Machines](/azure/virtual-machines/). For more information about how to choose between these Azure services, see a [comparison of Azure App Service, Virtual Machines, Service Fabric, and Cloud Services](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ### Apply updates to components
 

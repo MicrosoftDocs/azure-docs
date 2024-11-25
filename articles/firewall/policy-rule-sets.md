@@ -4,7 +4,7 @@ description: Azure Firewall policy has a hierarchy of rule collection groups, ru
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 05/09/2024
 ms.author: victorh
 ---

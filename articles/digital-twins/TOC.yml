@@ -111,14 +111,10 @@
       href: how-to-authenticate-client.md
     - name: Create an app registration with Azure Digital Twins access
       href: how-to-create-app-registration.md
-    - name: Integrate with Azure SignalR Service
-      href: how-to-integrate-azure-signalr.md
   - name: Connect input
     items:
     - name: Ingest telemetry from IoT Hub
       href: how-to-ingest-iot-hub-data.md
-    - name: Automanage devices with DPS
-      href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Power Platform and Logic Apps
       href: how-to-use-power-platform-logic-apps-connector.md
   - name: Connect output
@@ -129,8 +125,6 @@
       href: how-to-create-routes.md
     - name: Create a data history connection
       href: how-to-create-data-history-connection.md
-    - name: Integrate with Azure Time Series Insights
-      href: how-to-integrate-time-series-insights.md
   - name: Monitor and troubleshoot
     items:
     - name: Monitor your instance

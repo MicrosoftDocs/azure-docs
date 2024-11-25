@@ -16,7 +16,7 @@ This article clarifies how Elastic SAN performance works, and how the combinatio
 
 ## How performance works
 
-Azure VMs have input/output operations per second (IOPS) and throughput performance limits based on the [type and size of the VM](../../virtual-machines/sizes.md). An Elastic SAN has a pool of performance that it allocates to each of its volumes. Elastic SAN volumes can be attached to VMs and each volume has its own IOPS and throughput limits.
+Azure VMs have input/output operations per second (IOPS) and throughput performance limits based on the [type and size of the VM](/azure/virtual-machines/sizes). An Elastic SAN has a pool of performance that it allocates to each of its volumes. Elastic SAN volumes can be attached to VMs and each volume has its own IOPS and throughput limits.
 
 Your application's performance gets throttled when it requests more IOPS or throughput than what is allotted for the VM or attached volumes. When throttled, the application has suboptimal performance, and can experience negative consequences like increased latency. One of the main benefits of an Elastic SAN is its ability to provision IOPS automatically, based on demand. Your SAN's IOPS are shared amongst all its volumes, so when a workload peaks, it can be handled without throttling or extra cost. This article shows how this provisioning works.
 

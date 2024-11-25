@@ -3,7 +3,7 @@ title: Use MQTT to communicate with Azure IoT Hub
 titleSuffix: Azure IoT Hub
 description: Support for devices that use MQTT to connect to an IoT Hub device-facing endpoint. Includes information about built-in MQTT support in the Azure IoT device SDKs.
 author: kgremban
-ms.service: iot
+ms.service: azure-iot
 services: iot
 ms.topic: conceptual
 ms.date: 06/27/2023
@@ -81,6 +81,8 @@ The following fragment shows how to specify the MQTT over WebSockets protocol wh
 from azure.iot.device.aio import IoTHubDeviceClient
 device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectionString, websockets=True)
 ```
+
+[!INCLUDE [iot-authentication-device-connection-string](../../includes/iot-authentication-device-connection-string.md)]
 
 ### Default keep-alive timeout
 

@@ -6,7 +6,8 @@ ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: kgremban
 ms.author: kgremban
-ms.service: iot-dps
+ms.service: azure-iot-hub
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Azure IoT Hub Device Provisioning Service monitoring data reference
@@ -84,7 +85,7 @@ The following JSON is an example of a successful attestation attempt from a devi
   {
     "CallerIPAddress": "24.18.226.XXX",
     "Category": "DeviceOperations",
-    "CorrelationId": "68952383-80c0-436f-a2e3-f8ae9a41c69d",
+    "CorrelationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "DurationMs": "226",
     "Level": "Information",
     "OperationName": "AttestationAttempt",
@@ -99,7 +100,7 @@ The following JSON is an example of a successful attestation attempt from a devi
     "ResultType": "Success",
     "SourceSystem": "Azure",
     "SubscriptionId": "747F1067-xxx-xxx-xxxx-9DEAA894152F",
-    "TenantId": "37dcb621-xxxx-xxxx-xxxx-e8c8addbc4e5",
+    "TenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "TimeGenerated": "2022-04-02T00:05:51Z",
     "Type": "AzureDiagnostics",
     "_ResourceId": "/subscriptions/747F1067-xxx-xxx-xxxx-9DEAA894152F/resourcegroups/myresourcegroup/providers/microsoft.devices/provisioningservices/myexampledps",
@@ -117,25 +118,25 @@ The following JSON is an example of a successful add (`Upsert`) individual enrol
   {
     "CallerIPAddress": "13.91.244.XXX",
     "Category": "ServiceOperations",
-    "CorrelationId": "23bd419d-d294-452b-9b1b-520afef5ef52",
+    "CorrelationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "DurationMs": "98",
     "Level": "Information",
     "OperationName": "Upsert",
     "OperationVersion": "October2021",
     "Resource": "MYEXAMPLEDPS",
     "ResourceGroup": "MYRESOURCEGROUP",
-    "ResourceId": "/SUBSCRIPTIONS/747F1067-xxxx-xxxx-xxxx-9DEAA894152F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DEVICES/PROVISIONINGSERVICES/MYEXAMPLEDPS",
+    "ResourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DEVICES/PROVISIONINGSERVICES/MYEXAMPLEDPS",
     "ResourceProvider": "MICROSOFT.DEVICES",
     "ResourceType": "PROVISIONINGSERVICES",
     "ResultDescription": "",
     "ResultSignature": "",
     "ResultType": "Success",
     "SourceSystem": "Azure",
-    "SubscriptionId": "747f1067-xxxx-xxxx-xxxx-9deaa894152f",
-    "TenantId": "37dcb621-xxxx-xxxx-xxxx-e8c8addbc4e5",
+    "SubscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+    "TenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "TimeGenerated": "2022-04-01T00:52:00Z",
     "Type": "AzureDiagnostics",
-    "_ResourceId": "/subscriptions/747F1067-xxxx-xxxx-xxxx-9DEAA894152F/resourcegroups/myresourcegroup/providers/microsoft.devices/provisioningservices/myexampledps",
+    "_ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myresourcegroup/providers/microsoft.devices/provisioningservices/myexampledps",
     "location_s": "centralus",
     "properties_s": "{\"id\":\"my-device-1\",\"type\":\"IndividualEnrollment\",\"protocol\":\"Http\"}",
   }

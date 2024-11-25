@@ -196,7 +196,7 @@ Get-AzDelegation @dg
   Actions           : {Microsoft.Network/virtualNetworks/subnets/join/action}
   Name              : myDelegation
   Etag              : W/"9cba4b0e-2ceb-444b-b553-454f8da07d8a"
-  Id                : /subscriptions/3bf09329-ca61-4fee-88cb-7e30b9ee305b/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/vnet-1/subnets/subnet-1/delegations/myDelegation
+  Id                : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/vnet-1/subnets/subnet-1/delegations/myDelegation
 ```
 
 # [**Azure CLI**](#tab/manage-subnet-delegation-cli)
@@ -230,7 +230,7 @@ az network vnet subnet show \
       "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"
     ],
     "etag": "W/\"30184721-8945-4e4f-9cc3-aa16b26589ac\"",
-    "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/vnet-1/subnets/subnet-1/delegations/0",
+    "id": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/vnet-1/subnets/subnet-1/delegations/0",
     "name": "0",
     "provisioningState": "Succeeded",
     "resourceGroup": "test-rg",

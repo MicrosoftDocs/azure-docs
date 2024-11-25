@@ -51,6 +51,14 @@
     href: ./tutorials/logic-app-calling-arg.md
 - name: Samples
   items:
+  - name: Starter query samples
+    displayName: samples, starter
+    href: ./samples/starter.md
+  - name: Advanced query samples
+    displayName: samples, advanced
+    href: ./samples/advanced.md
+  - name: Samples by category
+    href: ./samples/samples-by-category.md
   - name: Alerts samples
     displayName: samples, alerts
     href: ./samples/alerts-samples.md
@@ -98,6 +106,8 @@
   items:
   - name: Keyboard shortcuts
     href: ./reference/keyboard-shortcuts.md
+  - name: Supported Azure Resource Manager resource types
+    href: ./reference/supported-tables-resources.md 
   - name: CLI and SDK
     items:
     - name: Azure CLI

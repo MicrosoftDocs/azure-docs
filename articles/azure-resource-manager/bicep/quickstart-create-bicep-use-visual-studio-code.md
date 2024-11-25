@@ -1,17 +1,17 @@
 ---
 title: Create Bicep files - Visual Studio Code
-description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
-ms.date: 08/05/2024
+description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources.
+ms.date: 09/20/2024
 ms.topic: quickstart
 ms.custom: mode-ui, devx-track-bicep
-#Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files, so I can use them to deploy Azure resources.
+#Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files so that I can use them to deploy Azure resources.
 ---
 
 # Quickstart: Create Bicep files with Visual Studio Code
 
 This quickstart guides you through the steps to create a [Bicep file](overview.md) with Visual Studio Code. You create a storage account and a virtual network. You also learn how the Bicep extension simplifies development by providing type safety, syntax validation, and autocompletion.
 
-Similar authoring experience is also supported in Visual Studio.  See [Quickstart: Create Bicep files with Visual Studio](./quickstart-create-bicep-use-visual-studio.md).
+Similar authoring experience is also supported in Visual Studio. See [Quickstart: Create Bicep files with Visual Studio](./quickstart-create-bicep-use-visual-studio.md).
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ In *main.bicep*, type **vnet**, and then select **res-vnet** from the list, and 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-snippet.png" alt-text="Screenshot of adding snippet for virtual network.":::
 
 > [!TIP]
-> If you don't see those intellisense options in VS Code, make sure you've installed the Bicep extension as specified in [Prerequisites](#prerequisites). If you have installed the extension, give the Bicep language service some time to start after opening your Bicep file. It usually starts quickly, but you don't have intellisense options until it starts. A notification in the lower right corner indicates that the service is starting. When that notification disappears, the service is running.
+> If you don't see those IntelliSense options in VS Code, make sure you've installed the Bicep extension as specified in [Prerequisites](#prerequisites). If you have installed the extension, give the Bicep language service some time to start after opening your Bicep file. It usually starts quickly, but you don't have IntelliSense options until it starts. A notification in the lower right corner indicates that the service is starting. When that notification disappears, the service is running.
 
 Your Bicep file now contains the following code:
 
@@ -86,7 +86,7 @@ At the top of the file, add:
 param location
 ```
 
-When you add a space after **location**, notice that intellisense offers the data types that are available for the parameter. Select **string**.
+When you add a space after **location**, notice that IntelliSense offers the data types that are available for the parameter. Select **string**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-param.png" alt-text="Screenshot of adding string type to parameter.":::
 
@@ -120,7 +120,7 @@ Add both decorators and specify the character limits:
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 ```
 
-You can also add a description for the parameter. Include information that helps people deploying the Bicep file understand the value to provide.
+You can also add a description for the parameter. Include information that helps people deploying the Bicep file understand which value to provide.
 
 ```bicep
 @minLength(3)
@@ -133,9 +133,9 @@ Your parameters are ready to use.
 
 ## Add resource
 
-Instead of using a snippet to define the storage account, you use intellisense to set the values. Intellisense makes this step easier than having to manually type the values.
+Instead of using a snippet to define the storage account, you use IntelliSense to set the values. IntelliSense makes this step easier than having to manually type the values.
 
-To define a resource, use the `resource` keyword.  Below your virtual network, type **resource exampleStorage**:
+To define a resource, use the `resource` keyword. Below your virtual network, type **resource exampleStorage**:
 
 ```bicep
 resource exampleStorage
@@ -147,7 +147,7 @@ When you add a space after the symbolic name, a list of resource types is displa
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-resource-type.png" alt-text="Screenshot of selecting storage accounts for resource type.":::
 
-After selecting **Microsoft.Storage/storageAccounts**, you're presented with the available API versions. Select the latest version. For the following screenshot, it is **2023-01-01**.
+After selecting **Microsoft.Storage/storageAccounts**, you're presented with the available API versions. Select the latest version. For the following screenshot, it is **2023-05-01**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-api-version.png" alt-text="Screenshot of select API version for resource type.":::
 
@@ -158,7 +158,7 @@ After the single quote for the resource type, add **=** and a space. You're pres
 This option adds all of the properties for the resource type that are required for deployment. After selecting this option, your storage account has the following properties:
 
 ```bicep
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-01-01' =  {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name:
   location:
   sku: {
@@ -170,9 +170,9 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-01-01' =  {
 
 You're almost done. Just provide values for those properties.
 
-Again, intellisense helps you. Set `name` to `storageAccountName`, which is the parameter that contains a name for the storage account. For `location`, set it to `location`, which is a parameter you created earlier. When adding `sku.name` and `kind`, intellisense presents the valid options.
+Again, IntelliSense helps you. Set `name` to `storageAccountName`, which is the parameter that contains a name for the storage account. For `location`, set it to `location`, which is a parameter you created earlier. When adding `sku.name` and `kind`, IntelliSense presents the valid options.
 
-To add optional properties alongside the required properties, place the cursor at the desired location and press <kbd>Ctrl</kbd>+<kbd>Space</kbd>. Intellisense suggests unused properties as shown in the following screenshot.
+To add optional properties alongside the required properties, place the cursor at the desired location and press <kbd>Ctrl</kbd>+<kbd>Space</kbd>. IntelliSense suggests unused properties as shown in the following screenshot:
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/bicep-visual-studio-code-add-properties.png" alt-text="Screenshot of adding additional properties.":::
 
@@ -182,8 +182,9 @@ When finished, you have:
 @minLength(3)
 @maxLength(24)
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
+param location string = resourceGroup().location
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-01-01' = {
   name: 'exampleVNet'
   location: resourceGroup().location
   properties: {
@@ -209,7 +210,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   }
 }
 
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: storageAccountName
   location: 'eastus'
   sku: {

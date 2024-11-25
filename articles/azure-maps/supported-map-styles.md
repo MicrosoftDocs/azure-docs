@@ -82,7 +82,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **grayscale light** is a light version of the road map style.
 
-:::image type="content" source="./media/supported-map-styles/grayscale-light.jpg" lightbox="./media/supported-map-styles/grayscale-light.jpg" alt-text="A screenshot of map using the grayscale light style.":::
+:::image type="content" source="./media/supported-map-styles/grayscale-light.png" lightbox="./media/supported-map-styles/grayscale-light.png" alt-text="A screenshot of map using the grayscale light style.":::
 
 **Applicable APIs:**
 
@@ -131,7 +131,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **high_contrast_light** is a light map style with a higher contrast than the other styles.
 
-:::image type="content" source="./media/supported-map-styles/high-contrast-light.jpg" lightbox="./media/supported-map-styles/high-contrast-light.jpg" alt-text="A screenshot of map using the high contrast light map style.":::
+:::image type="content" source="./media/supported-map-styles/high-contrast-light.png" lightbox="./media/supported-map-styles/high-contrast-light.png" alt-text="A screenshot of map using the high contrast light map style.":::
 
 **Applicable APIs:**
 

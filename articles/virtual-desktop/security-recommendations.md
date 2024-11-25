@@ -110,23 +110,19 @@ Enabling [Conditional Access](../active-directory/conditional-access/overview.md
 
 Enabling audit log collection lets you view user and admin activity related to Azure Virtual Desktop. Some examples of key audit logs are:
 
--   [Azure Activity Log](../azure-monitor/essentials/activity-log.md)
+-   [Azure Activity Log](/azure/azure-monitor/essentials/activity-log)
 -   [Microsoft Entra Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md)
--   [Session hosts](../azure-monitor/agents/agent-windows.md)
+-   [Session hosts](/azure/azure-monitor/agents/agent-windows)
 -   [Key Vault logs](/azure/key-vault/general/logging)
-
-### Use RemoteApp
-
-When choosing a deployment model, you can either provide remote users access to entire desktops, or only select applications when published as a RemoteApp. RemoteApp provides a seamless experience as the user works with apps from their virtual desktop. RemoteApp reduces risk by only letting the user work with a subset of the remote machine exposed by the application.
 
 ### Monitor usage with Azure Monitor
 
-Monitor your Azure Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) for the Azure Virtual Desktop service to receive notifications whenever there's a service impacting event.
+Monitor your Azure Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal) for the Azure Virtual Desktop service to receive notifications whenever there's a service impacting event.
 
 ### Encrypt your session hosts
 
-Encrypt your session hosts with [managed disk encryption options](../virtual-machines/disk-encryption-overview.md) to protect stored data from unauthorized access. 
+Encrypt your session hosts with [managed disk encryption options](/azure/virtual-machines/disk-encryption-overview) to protect stored data from unauthorized access. 
 
 ## Session host security best practices
 
@@ -134,9 +130,9 @@ Session hosts are virtual machines that run inside an Azure subscription and vir
 
 ### Enable endpoint protection
 
-To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. To learn more, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
+To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. For more information, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus#configure-antivirus-file-and-folder-exclusions).
 
-For profile solutions like FSLogix or other solutions that mount virtual hard disk files, we recommend excluding those file extensions.
+For profile solutions like FSLogix or other solutions that mount virtual hard disk files, we recommend excluding those file extensions. For more information, see 
 
 ### Install an endpoint detection and response product
 
@@ -190,7 +186,7 @@ By restricting operating system capabilities, you can strengthen the security of
 
 ## Trusted launch
 
-Trusted launch are Azure VMs with enhanced security features aimed to protect against persistent attack techniques such as bottom-of-the-stack threats through attack vectors such as rootkits, boot kits, and kernel-level malware. It allows for secure deployment of VMs with verified boot loaders, OS kernels, and drivers, and also protects keys, certificates, and secrets in the VMs. Learn more about trusted launch at [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+Trusted launch are Azure VMs with enhanced security features aimed to protect against persistent attack techniques such as bottom-of-the-stack threats through attack vectors such as rootkits, boot kits, and kernel-level malware. It allows for secure deployment of VMs with verified boot loaders, OS kernels, and drivers, and also protects keys, certificates, and secrets in the VMs. Learn more about trusted launch at [Trusted launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
 
 When you add session hosts using the Azure portal, the default security type is **Trusted virtual machines**. This ensures that your VM meets the mandatory requirements for Windows 11. For more information about these requirements, see [Virtual machine support](/windows/whats-new/windows-11-requirements#virtual-machine-support).
 
@@ -213,7 +209,7 @@ You can create session hosts using confidential virtual machines when you [deplo
 
 ## Operating system disk encryption
 
-Encrypting the operating system disk is an extra layer of encryption that binds disk encryption keys to the confidential computing VM's Trusted Platform Module (TPM). This encryption makes the disk content accessible only to the VM. Integrity monitoring allows cryptographic attestation and verification of VM boot integrity and monitoring alerts if the VM didn’t boot because attestation failed with the defined baseline. For more information about integrity monitoring, see [Microsoft Defender for Cloud Integration](../virtual-machines/trusted-launch.md#microsoft-defender-for-cloud-integration). You can enable confidential compute encryption when you create session hosts using confidential VMs when you [create a host pool](create-host-pool.md) or [add session hosts to a host pool](add-session-hosts-host-pool.md).
+Encrypting the operating system disk is an extra layer of encryption that binds disk encryption keys to the confidential computing VM's Trusted Platform Module (TPM). This encryption makes the disk content accessible only to the VM. Integrity monitoring allows cryptographic attestation and verification of VM boot integrity and monitoring alerts if the VM didn’t boot because attestation failed with the defined baseline. For more information about integrity monitoring, see [Microsoft Defender for Cloud Integration](/azure/virtual-machines/trusted-launch#microsoft-defender-for-cloud-integration). You can enable confidential compute encryption when you create session hosts using confidential VMs when you [create a host pool](create-host-pool.md) or [add session hosts to a host pool](add-session-hosts-host-pool.md).
 
 ## Secure Boot
 

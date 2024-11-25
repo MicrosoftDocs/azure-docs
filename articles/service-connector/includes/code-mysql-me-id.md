@@ -15,7 +15,7 @@ using Azure.Core;
 using Azure.Identity;
 using MySqlConnector;
 
-// Uncomment the following lines according to the authentication type.
+// Uncomment the following lines corresponding to the authentication type you want to use.
 // For system-assigned managed identity.
 // var credential = new DefaultAzureCredential();
 
@@ -96,7 +96,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
     import mysql.connector
     import os
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned managed identity.
     # cred = ManagedIdentityCredential()    
 
@@ -139,7 +139,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     import os
 
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -199,7 +199,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    
    func main() {
        
-     // Uncomment the following lines according to the authentication type.
+     // Uncomment the following lines corresponding to the authentication type you want to use.
      // for system-assigned managed identity
      // cred, err := azidentity.NewDefaultAzureCredential(nil)
 
@@ -242,7 +242,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    
    const mysql = require('mysql2');
 
-   // Uncomment the following lines according to the authentication type.
+   // Uncomment the following lines corresponding to the authentication type you want to use.
    // for system-assigned managed identity
    // const credential = new DefaultAzureCredential();
 

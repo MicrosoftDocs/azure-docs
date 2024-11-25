@@ -4,7 +4,7 @@ description: There are few scenarios where Azure Firewall can potentially drop l
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 01/04/2023
 ms.author: victorh 
 ---

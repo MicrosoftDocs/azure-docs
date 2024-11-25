@@ -26,7 +26,7 @@ The following table lists all the upcoming breaking changes and feature retireme
 | [API version retirements][api2023] | June 1, 2024 |
 | [Workspaces preview breaking changes][workspaces2024] | June 14, 2024 |
 | [stv1 platform retirement - Global Azure][stv12024] | August 31, 2024 |
-| [stv1 platform retirement - Azure Government, Azure in China][stv1sov2025] | February 28, 2025 |
+| [stv1 platform retirement - Azure Government, Azure in China][stv1sov2025] | February 24, 2025 |
 | [Git repository retirement][git2025] | March 15, 2025 |
 | [Direct management API retirement][mgmtapi2025] | March 15, 2025 |
 | [Workspaces preview breaking changes, part 2][workspaces2025march] | March 31, 2025 |

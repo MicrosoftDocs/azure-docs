@@ -53,7 +53,7 @@ Use the following documents to learn how to create an Azure Virtual Network that
 > [!IMPORTANT]  
 > You must create and configure the DNS server before installing HDInsight into the virtual network.
 
-These steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md) and [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) DNS software, use the following steps:
+These steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see [Create VM - Azure CLI](/azure/virtual-machines/linux/quick-create-cli) and [Create VM - Azure PowerShell](/azure/virtual-machines/linux/quick-create-powershell).  To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) DNS software, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
   
@@ -73,7 +73,7 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
     |Region | Select the same region as the virtual network created earlier.  Not all VM sizes are available in all regions.  |
     |Availability options |  Select your desired level of availability.  Azure offers a range of options for managing availability and resiliency for your applications.  Architect your solution to use replicated VMs in Availability Zones or Availability Sets to protect your apps and data from datacenter outages and maintenance events. This example uses **No infrastructure redundancy required**. |
     |Image | Leave at **Ubuntu Server 18.04 LTS**. |
-    |Authentication type | __Password__ or __SSH public key__: The authentication method for the SSH account. We recommend using public keys, as they're more secure. This example uses **Password**.  For more information, see the [Create and use SSH keys for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md) document.|
+    |Authentication type | __Password__ or __SSH public key__: The authentication method for the SSH account. We recommend using public keys, as they're more secure. This example uses **Password**.  For more information, see the [Create and use SSH keys for Linux VMs](/azure/virtual-machines/linux/mac-create-ssh-keys) document.|
     |User name |Enter the administrator username for the VM.  This example uses **sshuser**.|
     |Password or SSH public key | The available field is determined by your choice for **Authentication type**.  Enter the appropriate value.|
     |Public inbound ports|Select **Allow selected ports**. Then select **SSH (22)** from the **Select inbound ports** drop-down list.|

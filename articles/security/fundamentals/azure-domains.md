@@ -25,8 +25,8 @@ This page is a partial list of the Azure domains in use. Some of them are REST A
 |[Azure API Management](https://azure.microsoft.com/services/api-management/)|*.azure-api.net|
 |[Azure BizTalk Services](https://azure.microsoft.com/pricing/details/biztalk-services/) (retired)|*.biztalk.windows.net|
 |[Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md)|*.blob.core.windows.net|
-|[Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) and [Azure Virtual Machines](../../virtual-machines/index.yml)|*.cloudapp.net|
-|[Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) and [Azure Virtual Machines](../../virtual-machines/index.yml)|*.cloudapp.azure.com|
+|[Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) and [Azure Virtual Machines](/azure/virtual-machines/)|*.cloudapp.net|
+|[Azure Cloud Services](../../cloud-services/cloud-services-choose-me.md) and [Azure Virtual Machines](/azure/virtual-machines/)|*.cloudapp.azure.com|
 |[Azure Container Registry](https://azure.microsoft.com/services/container-registry/)|*.azurecr.io|
 |Azure Container Service (deprecated)|*.azurecontainer.io|
 |[Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn/)|*.vo.msecnd.net|

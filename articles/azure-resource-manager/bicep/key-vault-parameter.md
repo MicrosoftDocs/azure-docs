@@ -116,7 +116,7 @@ The following procedure shows how to create a role with the minimum permission, 
       "DataActions": [],
       "NotDataActions": [],
       "AssignableScopes": [
-        "/subscriptions/00000000-0000-0000-0000-000000000000"
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
       ]
     }
     ```

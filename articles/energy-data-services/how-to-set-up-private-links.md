@@ -3,7 +3,7 @@ title: Create a private endpoint for Microsoft Azure Data Manager for Energy
 description: Learn how to set up private endpoints for Azure Data Manager for Energy by using Azure Private Link.
 author: Lakshmisha-KS
 ms.author: lakshmishaks
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 09/29/2022
 ms.custom: template-how-to
@@ -18,6 +18,9 @@ By using Azure Private Link, you can connect to an Azure Data Manager for Energy
 You can connect to an Azure Data Manager for Energy instance that's configured with Private Link by using an automatic or manual approval method. To learn more, see the [Private Link documentation](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
 This article describes how to set up a private endpoint for Azure Data Manager for Energy. 
+
+> [!NOTE]
+> To enable private endpoint, public access must be disabled for Azure Data Manager for Energy. If public access is enabled and private endpoint is created, the instance will only be accessed via private endpoint and not by public access.
 
 > [!NOTE]
 > Terraform currently does not support private endpoint creation for Azure Data Manager for Energy.
@@ -178,6 +181,17 @@ In the same virtual network, you can create multiple endpoints. Each end point w
 
 3. This is the IP to which your resource is connected.
 
+## New data partitions with static IP private endpoints
+It is preferable to create private endpoints with dynamic IP to enable dynamic data partition creation. If you initiate the creation of new data partitions with static IPs private endpoint, it will fail. Each new data partition requires three additional static IPs which the static IP private endpoint is not able to provide. 
+
+
+To create new data partitions successfully with static IP private endpoint, follow the below steps:
+1. Create a new private endpoint with either dynamic IP or enable public access.
+2. Delete existing private endpoint with static IP from Azure Data Manager for Energy instance and delete it from Azure resources also.
+3. Create new data partitions successfully.
+4. Delete the newly created private endpoint with dynamic IP and/or disable public access.
+5. Create a new private endpoint with static IP. This step will now ask to assign additional static IPs needed for new data partition.
+[![Screenshot that shows static IP with new data partition.](media/how-to-manage-private-links/private-links-19-static-ip.png)](media/how-to-manage-private-links/private-links-19-static-ip.png#lightbox)
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

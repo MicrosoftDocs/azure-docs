@@ -1,31 +1,35 @@
 ---
 title: Save costs with Microsoft Azure OpenAI Service Provisioned Reservations
-description: Learn about how to save costs with Microsoft Azure OpenAI Service Provisioned Reservations.
+description: Save costs with Microsoft Azure OpenAI Service Provisioned Reservations by committing to a reservation for your provisioned throughput units.
 author: bandersmsft
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: concept-article
-ms.date: 08/12/2024
+ms.topic: how-to
+ms.date: 10/09/2024
 ms.author: banders
 # customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Azure OpenAI Service Provisioned Reservations and buy one.
 ---
 
 # Save costs with Microsoft Azure OpenAI Service Provisioned Reservations
 
-You can save money on Azure OpenAI provisioned throughput by committing to a reservation for your provisioned throughput units (PTUs) usage for a duration of one month or one year. This article explains how you can save money with Azure OpenAI Service Provisioned Reservations. For more information about Azure OpenAI PTUs, see [Provisioned throughput units onboarding](../../ai-services/openai/how-to/provisioned-throughput-onboarding.md).
+You can save money on Azure OpenAI provisioned throughput by committing to a reservation for your provisioned throughput units (PTUs) usage for a duration of one month or one year. This article explains how you can save money with Azure OpenAI Service Provisioned Reservations. For more information about Azure OpenAI PTUs, see [Provisioned throughput units onboarding](/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
 
 To purchase an Azure OpenAI reservation, you choose an Azure region, quantity, and then add the Azure OpenAI SKU to your cart. Then you choose the quantity of provisioned throughput units that you want to purchase.
 
-When you purchase a reservation, the Azure OpenAI provisioned throughput usage that matches the reservation attributes is no longer charged at the pay-as-you-go rates.
+When you purchase a reservation, the Azure OpenAI provisioned throughput usage that matches the reservation attributes is no longer charged at the hourly rates. For pricing information, see the [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) page.
+
+## Reservation application
 
 A reservation applies to provisioned deployments only and doesn't include other offerings such as standard deployments or fine tuning. Azure OpenAI Service Provisioned Reservations also don't guarantee capacity availability. To ensure capacity availability, the recommended best practice is to create your deployments before you buy your reservation.
 
-When the reservation expires, Azure OpenAI deployments continue to run but are billed at the pay-as-you-go rate.
+When the reservation expires, Azure OpenAI deployments continue to run but are billed at the hourly rate.
+
+## Renewal options
 
 You can choose to enable automatic renewal of reservations by selecting the option in the renewal settings or at time of purchase. With Azure OpenAI reservation auto renewal, the reservation renews using the same reservation order ID, and a new reservation doesn't get purchased. You can also choose to replace this reservation with a new reservation purchase in renewal settings and a replacement reservation is purchased when the reservation expires. By default, the replacement reservation has the same attributes as the expiring reservation. You can optionally change the name, billing frequency, term, or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can set up renewal.
 
-For pricing information, see the [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) page.
+## Prerequisites
 
 You can buy an Azure OpenAI reservation in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pay for the reservation [up front or with monthly payments](prepare-buy-reservation.md). To buy a reservation:
 
@@ -40,9 +44,16 @@ For more information about how enterprise customers and pay-as-you-go customers 
 
 The Azure OpenAI reservation size should be based on the total provisioned throughput units that you consume via deployments. Reservation purchases are made in one provisioned throughput unit increments.
 
-For example, assume that your total consumption of provisioned throughput units is 64 units. You want to purchase a reservation for all of it, so you should purchase 64 of reservation quantity.
+For example, assume that your total consumption of provisioned throughput units is 100 units. You want to purchase a reservation for all of it, so you should purchase 100 of reservation quantity.
+
+> [!CAUTION]
+> Capacity availability for model deployments is dynamic and changes frequently across regions and models. To prevent buying a reservation for more PTUs than you can use, create deployments first. Then buy the reservation to cover the PTUs you deployed. This best practice ensures that you maximize the reservation discount and helps to prevent you from purchasing a term commitment that you can’t fully use.
 
 ## Buy a Microsoft Azure OpenAI reservation
+
+When you buy a reservation, the current UTC date and time are used to record the transaction.
+
+To buy an Azure OpenAI reservation, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations** and then select **Azure OpenAI**  
@@ -67,7 +78,9 @@ For example, assume that your total consumption of provisioned throughput units 
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md). However, Exchanges aren't allowed for Azure OpenAI Service Provisioned Reservations.
+*Exchange isn't supported for Azure OpenAI Service Provisioned reservations*.
+
+You can cancel or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
 If you want to request a refund for your Azure OpenAI reservation, you can do so by following these steps:
 
@@ -105,9 +118,26 @@ The following examples show how the Azure OpenAI reservation discount applies, d
 - **Example 3** - A reservation that's smaller than the deployed units. For example, you purchase 200 PTUs on a reservation and you deploy 600 PTUs. In this example, the reservation discount is applied to the 200 PTUs that were used. The remaining 400 PTUs are charged at the pay-as-you-go rate.
 - **Example 4** - A reservation that's the same size as the total of two deployments. For example, you purchase 200 PTUs on a reservation and you have two deployments of 100 PTUs each. In this example, the discount is applied to the sum of deployed units.
 
-## Increase the size of an Azure OpenAI reservation
+## Increase Azure OpenAI reservation capacity
 
-If you want to increase the size of your Azure OpenAI reservation, you can buy more Azure OpenAI Service Provisioned Reservations using the preceding steps.
+You can't change the size of a purchased reservation. If you want to increase your Azure OpenAI reservation capacity to cover more hourly PTUs, you can buy more Azure OpenAI Service Provisioned reservations.
+
+## Monthly amortized costs
+
+Your amortized reservation cost is based on each calendar month. So, based on each month of the year, your daily amortized cost can change. Here's an example that explains how your monthly amortized cost might differ:
+
+**Example 1** - If you buy a reservation January 10, the renewal is as follows:
+- Month 1: January 10 - February 9 (inclusive)
+- Month 2: February 10 – March 9 (inclusive), and so on
+
+**Example 2** - If you buy a reservation on December 29, 30, or 31 then the renewal date changes over the course of a year. For example, assume that you buy a reservation on December 30.
+- Month 1: December 30 - January 29 (inclusive)
+- Month 2: January 30 – February 27 (inclusive) – for a non leap year
+- Month 3: February 28 – March 27 (inclusive), and so on
+
+If your cost for a monthly reservation is $200 and:
+- The reservation was purchased in May, then you see daily the amortized cost of $200/*31*
+- The reservation was purchased in February, then you see a daily amortized cost of $200/*28*
 
 ## Related content
 

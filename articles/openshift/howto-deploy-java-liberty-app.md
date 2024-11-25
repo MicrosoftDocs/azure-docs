@@ -10,9 +10,9 @@ ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-jav
 
 # Deploy WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
 
-This article shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift (ARO) using the Azure portal.
+This article shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift using the Azure portal.
 
-This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to ARO. The offer automatically provisions several resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the Liberty Operators, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aro). If you prefer manual step-by-step guidance for running Liberty on ARO that doesn't utilize the automation enabled by the offer, see [Manually deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
+This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to Azure Red Hat OpenShift. The offer automatically provisions several resources including an Azure Red Hat OpenShift cluster with a built-in OpenShift Container Registry (OCR), the Liberty Operators, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aro). If you prefer manual step-by-step guidance for running Liberty on Azure Red Hat OpenShift that doesn't utilize the automation enabled by the offer, see [Manually deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](/azure/developer/java/ee/liberty-on-aro).
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
@@ -216,7 +216,7 @@ The following steps guide you through creating an Azure SQL Database single data
    export DB_RESOURCE_GROUP_NAME=<db-resource-group>
    ```
 
-Now that you created the database and ARO cluster, you can prepare the ARO to host your WebSphere Liberty application.
+Now that you created the database and Azure Red Hat OpenShift cluster, you can prepare the Azure Red Hat OpenShift cluster to host your WebSphere Liberty application.
 
 ## Configure and deploy the sample application
 
@@ -230,7 +230,7 @@ Clone the sample code for this guide by using the following commands. The sample
 git clone https://github.com/Azure-Samples/open-liberty-on-aro.git
 cd open-liberty-on-aro
 export BASE_DIR=$PWD
-git checkout 20240223
+git checkout 20240920
 cd 3-integration/connect-db/mssql
 ```
 
@@ -403,7 +403,7 @@ Use the following steps to deploy and test the application:
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, ARO cluster, Azure SQL Database, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, Azure Red Hat OpenShift cluster, Azure SQL Database, and all related resources.
 
 ```bash
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait

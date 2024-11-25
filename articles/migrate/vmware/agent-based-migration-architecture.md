@@ -12,7 +12,7 @@ ms.custom: vmware-scenario-422, engagement-fy23
 
 # Agent-based migration architecture
 
-This article provides an overview of the architecture and processes used for agent-based replication of VMware VMs with the [Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) tool.
+This article provides an overview of the architecture and processes used for agent-based replication of VMware VMs with the [Migration and modernization](../migrate-services-overview.md) tool.
 
 Using the Migration and modernization tool, you can replicate VMware VMs with a couple of options:
 
@@ -37,14 +37,14 @@ The table summarizes the components used for agent-based migration.
 
 **Component** | **Details** | **Installation**
 --- | --- | ---
-**Replication appliance** | The replication appliance (configuration server/process server) is an on-premises server that acts as a bridge between the on-premises environment, and the Migration and modernization tool. The appliance discovers the on-premises server inventory, so that the Migration and modernization tool can orchestrate replication and migration. The appliance has two components:<br/><br/> **Configuration server**: Connects to the Migration and modernization tool and coordinates replication.<br/> **Process server**: Handles data replication. The process server receives server data, compresses and encrypts it, and sends to Azure. In Azure, the Migration and modernization tool writes the data to managed disks. | By default the process server is installed together with the configuration server on the replication appliance.
-**Mobility service** | The Mobility service is an agent installed on each server you want to replicate and migrate. It sends replication data from the server to the process server. | Installation files for different versions of the Mobility service are located on the replication appliance. You download and install the agent you need, in accordance with the operating system and version of the server you want to replicate.
+**Replication appliance** | The replication appliance (configuration server/process server) is an on-premises server that acts as a bridge between the on-premises environment, and the Migration and modernization tool. The appliance discovers the on-premises server inventory, so that the Migration and modernization tool can orchestrate replication and migration. The appliance has two components:<br/><br/> **Configuration server**: Connects to the Migration and modernization tool and coordinates replication.<br/> **Process server**: Handles data replication. The process server receives server data, compresses, and encrypts it, and sends to Azure. In Azure, the Migration and modernization tool writes the data to managed disks. | By default the process server is installed together with the configuration server on the replication appliance.
+**Mobility service** | The Mobility service is an agent installed on each server you want to replicate and migrate. It sends replication data from the server to the process server. | Installation files for different versions of the Mobility service are located on the replication appliance. You download and install the agent you need, according to the operating system and version of the server you want to replicate.
 
 ## Mobility service installation
 
 You can deploy the Mobility Service using the following methods:
 
-- **Push installation**: The Mobility service is installed by the process server when you enable protection for a server. 
+- **Push installation**: The process server installs the Mobility service when you enable protection for a server. 
 - **Install manually**: You can install the Mobility service manually on each server through UI or command prompt.
 
 The Mobility service communicates with the replication appliance and replicated servers. If you have antivirus software running on the replication appliance, process servers, or servers being replicated, the following folders should be excluded from scanning:
@@ -74,12 +74,12 @@ The Mobility service communicates with the replication appliance and replicated 
 --- | --- 
 **Replicating servers** | The Mobility service running on VMs communicates with the on-premises replication appliance on port HTTPS 443 inbound, for replication management.<br/><br/> Servers send replication data to the process server on port HTTPS 9443 inbound. This port can be modified.
 **Replication appliance** | The replication appliance orchestrates replication with Azure over port HTTPS 443 outbound.
-**Process server** | The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
+**Process server** | The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
 
 
 ## Performance and scaling
 
-By default, you deploy a single replication appliance that runs both the configuration server and the process server. If you're only replicating a few servers, this deployment is sufficient. However, if you're replicating and migrating hundreds of servers, a single process server might not be able to handle all the replication traffic. In this case, you can deploy additional, scale-out process servers.
+By default, you deploy a single replication appliance that runs both the configuration server and the process server. If you're only replicating a few servers, this deployment is sufficient. However, if you're replicating and migrating hundreds of servers, a single process server might not be able to handle all the replication traffic. In this case, you can deploy additional scale-out process servers.
 
 ### Plan VMware deployment
 
@@ -112,7 +112,7 @@ If you need to deploy a scale-out process server, use this table to figure out s
 
 VMware traffic that replicates to Azure goes through a specific process server. You can limit upload throughput by throttling bandwidth on the servers that are running as process servers. You can influence bandwidth using this registry key:
 
-- The HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM registry value specifies the number of threads that are used for data transfer (initial or delta replication) of a disk. A higher value increases the network bandwidth that's used for replication. The default value is four. The maximum value is 32. Monitor traffic to optimize the value.
+- The HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM registry value specifies the number of threads that are used for data transfer (initial or delta replication) of a disk. A higher value increases the network bandwidth that's used for replication. The default value is four. The maximum value is 32. To optimize the value, monitor the traffic.
 - In addition, you can throttle bandwidth on the process server as follows:
 
     1. On the process server, open the Azure Backup MMC snap-in. There's a shortcut on the desktop or in the folder C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 

@@ -197,7 +197,7 @@ After you've deployed your infrastructure in Azure, it's important to make sure 
 
 Azure Advisor is a service that, among other things, identifies virtual machines with low utilization from a CPU or network usage standpoint. From there, you can decide to either shut down or resize the machine based on the estimated cost to continue running the machines. Advisor also provides recommendations for reserved instance purchases. The recommendations are based on your last 30 days of virtual machine usage. When acted on, the recommendations can help you reduce your spending.
 
-For more information, see [Azure Advisor](../../advisor/advisor-overview.md).
+For more information, see [Azure Advisor](/azure/advisor/advisor-overview).
 
 ### Size your VMs properly
 

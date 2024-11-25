@@ -163,6 +163,8 @@
       href: concepts-trusted-vm.md
     - name: Configure Failover for Multiple IP addresses
       href: concepts-multiple-ip-address-failover.md
+    - name: Configure Mobility Service Proxy Settings
+      href: configure-mobility-service-proxy-settings.md
     - name: Accelerated networking for Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
@@ -214,7 +216,7 @@
     - name: Migrate to Azure
       href: migrate-overview.md
     - name: Migration to availability zones 
-      href: ../availability-zones/migrate-recovery-services-vault.md     
+      href: ../reliability/migrate-recovery-services-vault.md     
   - name: Security
     items:
     - name: Security baseline
@@ -533,8 +535,6 @@
     href: azure-to-azure-powershell.md
   - name: Set up disaster recovery on Public MEC VMs using PowerShell
     href: tutorial-replicate-vms-edge-zone-to-azure-region.md
-  - name: Set up disaster recovery on Public MEC VMs to another Public MEC using PowerShell 
-    href: tutorial-replicate-vms-edge-zone-to-another-zone.md      
   - name: Set up disaster recovery of VMware VMs to Azure using PowerShell
     href: vmware-azure-disaster-recovery-powershell.md
   - name: Set up disaster recovery of Hyper-V VMs to Azure using PowerShell
@@ -585,6 +585,10 @@
       href: vmware-azure-troubleshoot-configuration-server.md
     - name: Process server errors
       href: vmware-physical-azure-troubleshoot-process-server.md
+    - name: Replication appliance health
+      href: vmware-troubleshoot-appliance-health-issue.md
+    - name: Mobility agent health
+      href: vmware-troubleshoot-mobility-agent-health.md      
     - name: Mobility service - push installation errors
       href: vmware-azure-troubleshoot-push-install.md
     - name: Failover to Azure errors

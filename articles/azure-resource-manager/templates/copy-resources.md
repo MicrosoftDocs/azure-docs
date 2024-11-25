@@ -3,7 +3,7 @@ title: Deploy multiple instances of resources
 description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times.
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 08/30/2023
+ms.date: 09/26/2024
 ---
 
 # Resource iteration in ARM templates
@@ -13,7 +13,6 @@ This article shows you how to create more than one instance of a resource in you
 You can also use copy loop with [properties](copy-properties.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
-
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [loops](../bicep/loops.md).

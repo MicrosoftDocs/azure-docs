@@ -4,21 +4,21 @@ description: This article contains information that can help you troubleshoot pr
 author: azaricstefan
 ms.author: stefanazaric
 ms.reviewer: whhender, wiassaf
-ms.date: 12/08/2022
+ms.topic: overview
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: overview
+ms.date: 09/26/2024
 ---
 
 # Troubleshoot serverless SQL pool in Azure Synapse Analytics
 
 This article contains information about how to troubleshoot the most frequent problems with serverless SQL pool in Azure Synapse Analytics.
 
-To learn more about Azure Synapse Analytics, see the [Overview](../index.yml), and [What's new in Azure Synapse Analytics?](../whats-new.md). 
+To learn more about Azure Synapse Analytics, check the topics in the [Overview](../index.yml).
 
 ## Synapse Studio
 
-Synapse Studio is an easy-to-use tool that you can use to access your data by using a browser without a need to install database access tools. Synapse Studio isn't designed to read a large set of data or full management of SQL objects.
+[Synapse Studio](../get-started-create-workspace.md#open-synapse-studio) is an easy-to-use tool that you can use to access your data by using a browser without a need to install database access tools. Synapse Studio isn't designed to read a large set of data or full management of SQL objects.
 
 ### Serverless SQL pool is grayed out in Synapse Studio
 
@@ -36,7 +36,7 @@ Your query might fail with the error message `Websocket connection was closed un
 - To resolve this issue, rerun your query. 
 - Try [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
 - If this message occurs often in your environment, get help from your network administrator. You can also check firewall settings, and check the [Troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
-- If the issue continues, create a [support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure portal. 
+- If the issue continues, create a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) through the Azure portal. 
 
 ### Serverless databases aren't shown in Synapse Studio
 
@@ -46,7 +46,7 @@ If you don't see the databases that are created in serverless SQL pool, check to
 
 Incorrect network configuration is often the cause of this behavior. Make sure the ports are properly configured. If you use a firewall or private endpoints, check these settings too. 
 
-Finally, make sure the appropriate roles are granted and have not been revoked.
+Finally, make sure the appropriate roles are granted and haven't been revoked.
 
 ### Unable to create new database as the request will use the old/expired key
 
@@ -66,7 +66,7 @@ If you have a shared access signature key that you should use to access files, m
 
 ### Can't read, list, or access files in Azure Data Lake Storage
 
-If you use a Microsoft Entra login without explicit credentials, make sure that your Microsoft Entra identity can access the files in storage. To access the files, your Microsoft Entra identity must have the **Blob Data Reader** permission, or permissions to **List** and **Read** [access control lists (ACL) in ADLS](../../storage/blobs/data-lake-storage-access-control-model.md). For more information, see [Query fails because file cannot be opened](#query-fails-because-file-cant-be-opened).
+If you use a Microsoft Entra login without explicit credentials, make sure that your Microsoft Entra identity can access the files in storage. To access the files, your Microsoft Entra identity must have the **Blob Data Reader** permission, or permissions to **List** and **Read** [access control lists (ACL) in ADLS](../../storage/blobs/data-lake-storage-access-control-model.md). For more information, see [Query fails because file can't be opened](#query-fails-because-file-cant-be-opened).
 
 If you access storage by using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has the **Data Reader** or **Contributor role** or specific ACL permissions. If you used a [shared access signature token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), make sure that it has `rl` permission and that it hasn't expired.
 
@@ -134,9 +134,9 @@ For more information, see:
 
 #### Content of Dataverse table can't be listed
 
-If you are using the Azure Synapse Link for Dataverse to read the linked DataVerse tables, you need to use Microsoft Entra account to access the linked data using the serverless SQL pool. For more information, see [Azure Synapse Link for Dataverse with Azure Data Lake](/powerapps/maker/data-platform/azure-synapse-link-data-lake).
+If you're using the Azure Synapse Link for Dataverse to read the linked DataVerse tables, you need to use Microsoft Entra account to access the linked data using the serverless SQL pool. For more information, see [Azure Synapse Link for Dataverse with Azure Data Lake](/powerapps/maker/data-platform/azure-synapse-link-data-lake).
 
-If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error: `External table '???' is not accessible because content of directory cannot be listed.`
+If you try to use a SQL login to read an external table that is referencing the DataVerse table, you'll get the following error: `External table '???' is not accessible because content of directory cannot be listed.`
 
 Dataverse external tables always use Microsoft Entra passthrough authentication. You *can't* configure them to use a [shared access signature key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity).
 
@@ -198,9 +198,9 @@ The error `Invalid object name 'table name'` indicates that you're using an obje
 
 This error happens if the length of your string or binary column type (for example `VARCHAR`, `VARBINARY`, or `NVARCHAR`) is shorter than the actual size of data that you are reading. You can fix this error by increasing the length of the column type:
 - If your string column is defined as the `VARCHAR(32)` type and the text is 60 characters, use the `VARCHAR(60)` type (or longer) in your column schema.
-- If you are using the schema inference (without the `WITH` schema), all string columns are automatically defined as the `VARCHAR(8000)` type. If you are getting this error, explicitly define the schema in a `WITH` clause with the larger `VARCHAR(MAX)` column type to resolve this error.
+- If you're using the schema inference (without the `WITH` schema), all string columns are automatically defined as the `VARCHAR(8000)` type. If you're getting this error, explicitly define the schema in a `WITH` clause with the larger `VARCHAR(MAX)` column type to resolve this error.
 - If your table is in the Lake database, try to increase the string column size in the Spark pool.
-- Try to `SET ANSI_WARNINGS OFF` to enable serverless SQL pool to automatically truncate the VARCHAR values, if this will not impact your functionalities.
+- Try to `SET ANSI_WARNINGS OFF` to enable serverless SQL pool to automatically truncate the VARCHAR values, if this won't impact your functionalities.
 
 ### Unclosed quotation mark after the character string
 
@@ -214,13 +214,13 @@ This error might happen if you use the `Latin1_General_100_BIN2_UTF8` collation 
 
 ### Couldn't allocate tempdb space while transferring data from one distribution to another
 
-The error `Could not allocate tempdb space while transferring data from one distribution to another` is returned when the query execution engine can't process data and transfer it between the nodes that are executing the query. It's a special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cant-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query.
+The error `Could not allocate tempdb space while transferring data from one distribution to another` is returned when the query execution engine can't process data and transfer it between the nodes that are executing the query. It's a special case of the generic [query fails because it can't be executed due to current resource constraints](#query-fails-because-it-cant-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query.
 
 Apply best practices before you file a support ticket.
 
 ### Query fails with an error handling an external file (max errors count reached)
 
-If your query fails with the error message `error handling external file: Max errors count reached`, it means that there is a mismatch of a specified column type and the data that needs to be loaded.
+If your query fails with the error message `error handling external file: Max errors count reached`, it means that there's a mismatch of a specified column type and the data that needs to be loaded.
 
 To get more information about the error and which rows and columns to look at, change the parser version from `2.0` to `1.0`.
 
@@ -577,7 +577,7 @@ There are reasons why this error code can happen:
 
 #### [0x80070005](#tab/x80070005)
 
-This error can occur when the authentication method is user identity, which is also known as Microsoft Entra pass-through, and the Microsoft Entra access token expires. This can happen if you are logging in for the first time after more than 90 days and at the same time you are inactive in the session for more than one hour. 
+This error can occur when the authentication method is user identity, which is also known as Microsoft Entra pass-through, and the Microsoft Entra access token expires. This can happen if you're logging in for the first time after more than 90 days and at the same time you're inactive in the session for more than one hour. 
 
 The error message might also resemble: `File {path} cannot be opened because it does not exist or it is used by another process.`
 
@@ -626,9 +626,9 @@ More information about syntax and usage:
 
 When the file format is Parquet, the query won't recover automatically. It needs to be retried by the client application.
 
-### Synapse Link for Dataverse
+### Azure Synapse Link for Dataverse
 
-This error can occur when reading data from Azure Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this behavior.
+This error can occur when reading data from Azure Synapse Link for Dataverse, when Azure Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this behavior.
 
 #### [0x800700A1](#tab/x800700A1)
 
@@ -640,7 +640,7 @@ To read or download a blob in the Archive tier, rehydrate it to an online tier. 
 
 #### [0x80070057](#tab/x80070057)
 
-This error can occur when the authentication method is user identity, which is also known as Microsoft Entra pass-through, and the Microsoft Entra access token expires. This can happen if you are logging in for the first time after more than 90 days and at the same time you are inactive in the session for more than one hour.
+This error can occur when the authentication method is user identity, which is also known as Microsoft Entra pass-through, and the Microsoft Entra access token expires. This can happen if you're logging in for the first time after more than 90 days and at the same time you're inactive in the session for more than one hour.
 
 The error message might also resemble the following pattern: `File {path} cannot be opened because it does not exist or it is used by another process.`
 
@@ -669,9 +669,9 @@ The error `Incorrect syntax near 'NOT'` indicates there are some external tables
 
 If your query returns NULL values instead of partitioning columns or can't find the partition columns, you have a few possible troubleshooting steps:
 
-- If you use tables to query a partitioned dataset, be aware that tables don't support partitioning. Replace the table with the [partitioned views](create-use-views.md#partitioned-views).
+- If you use tables to query a partitioned dataset, tables don't support partitioning. Replace the table with the [partitioned views](create-use-views.md#partitioned-views).
 - If you use the [partitioned views](create-use-views.md#partitioned-views) with the OPENROWSET that [queries partitioned files by using the FILEPATH() function](query-specific-files.md), make sure you correctly specified the wildcard pattern in the location and used the proper index for referencing the wildcard.
-- If you're querying the files directly in the partitioned folder, be aware that the partitioning columns aren't the parts of the file columns. The partitioning values are placed in the folder paths and not the files. For this reason, the files don't contain the partitioning values.
+- If you're querying the files directly in the partitioned folder, the partitioning columns aren't the parts of the file columns. The partitioning values are placed in the folder paths and not the files. For this reason, the files don't contain the partitioning values.
 
 ### <a id="#inserting-value-to-batch-for-column-type-datetime2-failed"></a>Insert value to batch for column type DATETIME2 failed
 
@@ -708,7 +708,7 @@ Describe anything that might be unusual compared to the regular workload. For ex
 
 ### Wildcard expansion timed out
 
-As described in the [Query folders and multiple files](../sql/query-folders-multiple-csv-files.md) section, Serverless SQL pool supports reading multiple files/folders by using wildcards. There is a maximum limit of 10 wildcards per query. You must be aware that  this functionality comes at a cost. It takes time for the serverless pool to list all the files that can match the wildcard. This introduces latency and this latency can increase if the number of files you are trying to query is high. In this case you can run into the following error:
+As described in the [Query folders and multiple files](../sql/query-folders-multiple-csv-files.md) section, Serverless SQL pool supports reading multiple files/folders by using wildcards. There's a maximum limit of 10 wildcards per query. You must be aware that  this functionality comes at a cost. It takes time for the serverless pool to list all the files that can match the wildcard. This introduces latency and this latency can increase if the number of files you're trying to query is high. In this case you can run into the following error:
 
 ```
 "Wildcard expansion timed out after X seconds." 
@@ -716,14 +716,14 @@ As described in the [Query folders and multiple files](../sql/query-folders-mult
 
 There are several mitigation steps that you can do to avoid this:
 - Apply best practices described in [Best Practices Serverless SQL Pool](../sql/best-practices-serverless-sql-pool.md).
-- Try to reduce the number of files you are trying to query, by compacting files into larger ones.  Try to keep your file sizes above 100MB. 
+- Try to reduce the number of files you're trying to query, by compacting files into larger ones.  Try to keep your file sizes above 100 MB. 
 - Make sure that filters over partitioning columns are used wherever possible. 
-- If you are using delta file format, use the optimize write feature in Spark.  This can improve the performance of queries by reducing the amount of data that needs to be read and processed. How to use optimize write is described in [Using optimize write on Apache Spark](../spark/optimize-write-for-apache-spark.md). 
+- If you're using delta file format, use the optimize write feature in Spark.  This can improve the performance of queries by reducing the amount of data that needs to be read and processed. How to use optimize write is described in [Using optimize write on Apache Spark](../spark/optimize-write-for-apache-spark.md). 
 - To avoid some of the top-level wildcards by effectively hardcoding the implicit filters over partitioning columns use [dynamic SQL](../sql/develop-dynamic-sql.md). 
 
 ### Missing column when using automatic schema inference
 
-You can easily query files without knowing or specifying schema, by omitting WITH clause. In that case column names and data types will be inferred from the files. Have in mind that if you are reading number of files at once, the schema will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. To explicitly specify the schema, please use OPENROWSET WITH clause. If you specify schema (by using external table or OPENROWSET WITH clause) default lax path mode will be used. That means that the columns that don’t exist in some files will be returned as NULLs (for rows from those files). To understand how path mode is used, please check the following [documentation](../sql/develop-openrowset.md) and [sample](../sql/develop-openrowset.md#specify-columns-using-json-paths). 
+You can easily query files without knowing or specifying schema, by omitting WITH clause. In that case column names and data types will be inferred from the files. Have in mind that if you're reading number of files at once, the schema will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. To explicitly specify the schema, use OPENROWSET WITH clause. If you specify schema (by using external table or OPENROWSET WITH clause) default lax path mode will be used. That means that the columns that don't exist in some files will be returned as NULLs (for rows from those files). To understand how path mode is used, check the following [documentation](../sql/develop-openrowset.md) and [sample](../sql/develop-openrowset.md#specify-columns-using-json-paths). 
 
 ## Configuration
 
@@ -742,7 +742,7 @@ If you get the error `CREATE DATABASE failed. User database limit has been alrea
 
 ### Creating or altering table failed because the minimum row size exceeds the maximum allowable table row size of 8060 bytes
 
-Any table can have up to 8KB size per row (not including off-row VARCHAR(MAX)/VARBINARY(MAX) data). If you create a table where the total size of cells in the row exceeds 8060 bytes, you will get the following error:
+Any table can have up to 8 KB size per row (not including off-row VARCHAR(MAX)/VARBINARY(MAX) data). If you create a table where the total size of cells in the row exceeds 8060 bytes, you'll get the following error:
 
 ```
 Msg 1701, Level 16, State 1, Line 3
@@ -751,9 +751,9 @@ including <???> bytes of internal overhead.
 This exceeds the maximum allowable table row size of 8060 bytes.
 ```
 
-This error also might happen in the Lake database if you create a Spark table with the column sizes that exceed 8060 bytes, and the serverless SQL pool cannot create a table that references the Spark table data.
+This error also might happen in the Lake database if you create a Spark table with the column sizes that exceed 8060 bytes, and the serverless SQL pool can't create a table that references the Spark table data.
 
-As a mitigation, avoid using the fixed size types like `CHAR(N)` and replace them with variable size `VARCHAR(N)` types, or decrease the size in `CHAR(N)`. See [8KB rows group limitation in SQL Server](/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105)).
+As a mitigation, avoid using the fixed size types like `CHAR(N)` and replace them with variable size `VARCHAR(N)` types, or decrease the size in `CHAR(N)`. See [8 KB rows group limitation in SQL Server](/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105)).
 
 ### Create a master key in the database or open the master key in the session before performing this operation
 
@@ -872,7 +872,7 @@ There are some limitations that you might see in Delta Lake support in serverles
 - Make sure that you're referencing the root Delta Lake folder in the [OPENROWSET](./develop-openrowset.md) function or external table location.
   - The root folder must have a subfolder named `_delta_log`. The query fails if there's no `_delta_log` folder. If you don't see that folder, you're referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) by using Apache Spark pools.
   - Don't specify wildcards to describe the partition schema. The Delta Lake query automatically identifies the Delta Lake partitions.
-- Delta Lake tables that are created in the Apache Spark pools are automatically available in serverless SQL pool, but the schema is not updated (public preview limitation). If you add columns in the Delta table using a Spark pool, the changes will not be shown in serverless SQL pool database.
+- Delta Lake tables that are created in the Apache Spark pools are automatically available in serverless SQL pool, but the schema isn't updated (public preview limitation). If you add columns in the Delta table using a Spark pool, the changes won't be shown in serverless SQL pool database.
 - External tables don't support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on the Delta Lake folder to use the partition elimination. See known issues and workarounds later in the article.
 - Serverless SQL pools don't support time travel queries. Use Apache Spark pools in Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools don't support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Synapse Analytics to [update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
@@ -884,22 +884,22 @@ There are some limitations that you might see in Delta Lake support in serverles
 
 ### Serverless support Delta 1.0 version
 
-Serverless SQL pools are reading only Delta Lake 1.0 version. Serverless SQL pools is a [Delta reader with level 1](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#reader-version-requirements), and doesn’t support the following features:
+Serverless SQL pools are reading only Delta Lake 1.0 version. Serverless SQL pools is a [Delta reader with level 1](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#reader-version-requirements), and doesn't support the following features:
 - Column mappings are ignored - serverless SQL pools will return original column names.
 - Delete vectors are ignored and the old version of deleted/updated rows will be returned (possibly wrong results).
 - The following Delta Lake features are not supported: [V2 checkpoints](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#v2-checkpoint-table-feature), [timestamp without timezone](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#timestamp-without-timezone-timestampntz), [VACUUM protocol check](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#vacuum-protocol-check)
 
 #### Delete vectors are ignored
 
-If your Delta lake table is configured to use Delta writer version 7, it will store deleted rows and old versions of updated rows in Delete Vectors (DV). Since serverless SQL pools have Delta reader 1 level, they will ignore the delete vectors and probably produce **wrong results** when reading unsupported Delta Lake version.
+If your Delta lake table is configured to use Delta writer version 7, it will store deleted rows and old versions of updated rows in Delete Vectors (DV). Since serverless SQL pools have Delta reader 1 level, they'll ignore the delete vectors and probably produce **wrong results** when reading unsupported Delta Lake version.
 
 #### Column rename in Delta table is not supported
 
-The serverless SQL pool does not support querying Delta Lake tables with the [renamed columns](https://docs.delta.io/latest/delta-batch.html#rename-columns). Serverless SQL pool cannot read data from the renamed column.
+The serverless SQL pool doesn't support querying Delta Lake tables with the [renamed columns](https://docs.delta.io/latest/delta-batch.html#rename-columns). Serverless SQL pool can't read data from the renamed column.
 
 ### The value of a column in the Delta table is NULL
 
-If you are using Delta data set that requires a Delta reader version 2 or higher, and uses the features that are unsupported in version 1 (for example - renaming columns, dropping columns, or column mapping), the values in the referenced columns might not be shown.
+If you're using Delta data set that requires a Delta reader version 2 or higher, and uses the features that are unsupported in version 1 (for example - renaming columns, dropping columns, or column mapping), the values in the referenced columns might not be shown.
 
 ### JSON text isn't properly formatted
 
@@ -917,7 +917,7 @@ Make sure that your Delta Lake dataset isn't corrupted. Verify that you can read
 
 Try to create a checkpoint on the Delta Lake dataset by using Apache Spark pool and rerun the query. The checkpoint aggregates transactional JSON log files and might solve the issue.
 
-If the dataset is valid, [create a support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) and provide more information:
+If the dataset is valid, [create a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) and provide more information:
 
 - Don't make any changes like adding or removing the columns or optimizing the table because this operation might change the state of the Delta Lake transaction log files.
 - Copy the content of the `_delta_log` folder into a new empty folder. *Do not* copy the `.parquet data` files.
@@ -928,11 +928,11 @@ Now you can continue using the Delta Lake folder with Spark pool. You'll provide
 
 ### <a id="#resolving-delta-logs-failed"></a>Resolve Delta logs failed
 
-The following error indicates that serverless SQL pool cannot resolve Delta logs: `Resolving Delta logs on path '%ls' failed with error: Cannot parse json object from log folder.`
+The following error indicates that serverless SQL pool can't resolve Delta logs: `Resolving Delta logs on path '%ls' failed with error: Cannot parse json object from log folder.`
 The most common cause is that `last_checkpoint_file` in `_delta_log` folder is larger than 200 bytes due to the `checkpointSchema` field added in Spark 3.3.
 
 There are two options available to circumvent this error:
-* Modify appropriate config in Spark notebook and generate a new checkpoint, so that `last_checkpoint_file` gets re-created. In case you are using Azure Databricks, the config modification is the following: `spark.conf.set("spark.databricks.delta.checkpointSchema.writeThresholdLength", 0);`
+* Modify appropriate config in Spark notebook and generate a new checkpoint, so that `last_checkpoint_file` gets re-created. In case you're using Azure Databricks, the config modification is the following: `spark.conf.set("spark.databricks.delta.checkpointSchema.writeThresholdLength", 0);`
 * Downgrade to Spark 3.2.1.
 
 Our engineering team is currently working on a full support for Spark 3.3.
@@ -942,38 +942,38 @@ Our engineering team is currently working on a full support for Spark 3.3.
 > [!NOTE]  
 > Replication of Delta tables that are created in Spark is still in public preview.
 
-If you created a Delta table in Spark, and it is not shown in the serverless SQL pool, check the following:
+If you created a Delta table in Spark, and it isn't shown in the serverless SQL pool, check the following:
 - Wait some time (usually 30 seconds) because the Spark tables are synchronized with delay.
-- If the table didn't appear in the serverless SQL pool after some time, check the schema of the Spark Delta table. Spark tables with complex types or the types that are not supported in serverless are not available. Try to create a Spark Parquet table with the same schema in a lake database and check would that table appears in the serverless SQL pool.
+- If the table didn't appear in the serverless SQL pool after some time, check the schema of the Spark Delta table. Spark tables with complex types or the types that aren't supported in serverless aren't available. Try to create a Spark Parquet table with the same schema in a lake database and check would that table appears in the serverless SQL pool.
 - Check the workspace Managed Identity access Delta Lake folder that is referenced by the table. Serverless SQL pool uses workspace Managed Identity to get the table column information from the storage to create the table.
 
 ## Lake database
 
-The Lake database tables that are created using Spark or Synapse designer are automatically available in serverless SQL pool for querying. You can use serverless SQL pool to query the Parquet, CSV, and Delta Lake tables that are created using Spark pool, and add additional schemas, views, procedures, table-value functions, and Microsoft Entra users in `db_datareader` role to your Lake database. Possible issues are listed in this section.
+The Lake database tables that are created using Spark or Synapse designer are automatically available in serverless SQL pool for querying. You can use serverless SQL pool to query the Parquet, CSV, and Delta Lake tables that are created using Spark pool, and add other schemas, views, procedures, table-value functions, and Microsoft Entra users in `db_datareader` role to your Lake database. Possible issues are listed in this section.
 
 ### A table created in Spark is not available in serverless pool
 
 Tables that are created might not be immediately available in serverless SQL pool.
 - The tables will be available in serverless pools with some delay. You might need to wait 5-10 minutes after creation of a table in Spark to see it in serverless SQL pool.
-- Only the tables that reference Parquet, CSV, and Delta formats are available in serverless SQL pool. Other table types are not available.
-- A table that contains some [unsupported column types](../metadata/table.md#share-spark-tables) will not be available in serverless SQL pool.
+- Only the tables that reference Parquet, CSV, and Delta formats are available in serverless SQL pool. Other table types aren't available.
+- A table that contains some [unsupported column types](../metadata/table.md#share-spark-tables) won't be available in serverless SQL pool.
 - Accessing Delta Lake tables in Lake databases is in **public preview**. Check other issues listed in this section or in the Delta Lake section.
 
 ### An external table created in Spark is showing unexpected results in serverless pool
-It can happen that there is a mismatch between the source Spark external table and the replicated external table on the serverless pool. This can happen if the files used in creating Spark external tabless are without extensions. To get the proper results make sure all files are with extensions such as .parquet. 
+It can happen that there's a mismatch between the source Spark external table and the replicated external table on the serverless pool. This can happen if the files used in creating Spark external tabless are without extensions. To get the proper results, make sure all files are with extensions such as .parquet. 
 
 ### Operation isn't allowed for a replicated database
 
-This error is returned if you are trying to modify a Lake database, create external tables, external data sources, database scoped credentials or other objects in your [Lake database](../metadata/database.md). These objects can be created only on SQL databases.
+This error is returned if you're trying to modify a Lake database, create external tables, external data sources, database scoped credentials or other objects in your [Lake database](../metadata/database.md). These objects can be created only on SQL databases.
 
-The Lake databases are replicated from the Apache Spark pool and managed by Apache Spark. Therefore, you cannot create objects like in SQL Databases by using T-SQL language.  
+The Lake databases are replicated from the Apache Spark pool and managed by Apache Spark. Therefore, you can't create objects like in SQL Databases by using T-SQL language.  
 
 Only the following operations are allowed in the Lake databases:
 - Creating, dropping, or altering views, procedures, and inline table-value functions (iTVF) in the **schemas other than `dbo`**. 
 - Creating and dropping the database users from Microsoft Entra ID.
 - Adding or removing database users from `db_datareader` schema.
 
-Other operations are not allowed in Lake databases.
+Other operations aren't allowed in Lake databases.
 
 > [!NOTE]
 > If you are creating a view, procedure, or function in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
@@ -986,9 +986,9 @@ Try to set up a data source in some SQL Database that references your Azure Data
 
 ### Delta tables in Lake databases do not have identical schema in Spark and serverless pools
 
-Serverless SQL pools enable you to access Parquet, CSV, and Delta tables that are created in Lake database using Spark or Synapse designer. Accessing the Delta tables is still in public preview, and currently serverless will synchronize a Delta table with Spark at the time of creation but will not update the schema if the columns are added later using the `ALTER TABLE` statement in Spark.
+Serverless SQL pools enable you to access Parquet, CSV, and Delta tables that are created in Lake database using Spark or Synapse designer. Accessing the Delta tables is still in public preview, and currently serverless will synchronize a Delta table with Spark at the time of creation but won't update the schema if the columns are added later using the `ALTER TABLE` statement in Spark.
 
-This is a public preview limitation. Drop and re-create the Delta table in Spark (if it is possible) instead of altering tables to resolve this issue.
+This is a public preview limitation. Drop and re-create the Delta table in Spark (if it's possible) instead of altering tables to resolve this issue.
 
 ## Performance
 
@@ -1010,7 +1010,7 @@ If you use Synapse Studio, try using a desktop client such as SQL Server Managem
 
 Check the following issues if you experience slow query execution:
 
-- Make sure that the client applications are collocated with the serverless SQL pool endpoint. Executing a query across the region can cause additional latency and slow streaming of result set.
+- Make sure that the client applications are collocated with the serverless SQL pool endpoint. Executing a query across the region can cause extra latency and slow streaming of result set.
 - Make sure that you don't have networking issues that can cause the slow streaming of result set
 - Make sure that the client application has enough resources (for example, not using 100% CPU).
 - Make sure that the storage account or Azure Cosmos DB analytical storage is placed in the same region as your serverless SQL endpoint.
@@ -1146,10 +1146,8 @@ If you get the error `CREATE DATABASE failed. User database limit has been alrea
 
 You don't need to use separate databases to isolate data for different tenants. All data is stored externally on a data lake and Azure Cosmos DB. The metadata like table, views, and function definitions can be successfully isolated by using schemas. Schema-based isolation is also used in Spark where databases and schemas are the same concepts.
 
-## Next steps
+## Related content
 
 - [Best practices for serverless SQL pool in Azure Synapse Analytics](best-practices-serverless-sql-pool.md)
 - [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)
 - [Store query results to storage using serverless SQL pool in Azure Synapse Analytics](create-external-table-as-select.md)
-- [Synapse Studio troubleshooting](../troubleshoot/troubleshoot-synapse-studio.md)
-- [Troubleshoot a slow query on a dedicated SQL Pool](/troubleshoot/azure/synapse-analytics/dedicated-sql/troubleshoot-dsql-perf-slow-query)

@@ -122,7 +122,7 @@ For more information about this feature, see [Configure the Azure Application Co
 
 ## Azure managed disks
 
-Microsoft provides many storage options for deploying databases such as SAP HANA. For details about some of these options, see [Azure Storage types for SAP workload](../virtual-machines/workloads/sap/planning-guide-storage.md). There's also a [cost-conscious solution with Azure premium storage](../virtual-machines/workloads/sap/hana-vm-premium-ssd-v1.md#cost-conscious-solution-with-azure-premium-storage).
+Microsoft provides many storage options for deploying databases such as SAP HANA. For details about some of these options, see [Azure Storage types for SAP workload](/azure/virtual-machines/workloads/sap/planning-guide-storage). There's also a [cost-conscious solution with Azure premium storage](/azure/virtual-machines/workloads/sap/hana-vm-premium-ssd-v1#cost-conscious-solution-with-azure-premium-storage).
 
 AzAcSnap can take application-consistent database snapshots when you deploy it on this type of architecture (that is, a virtual machine [VM] with managed disks). But the setup for this platform is slightly more complicated because in this scenario AzAcSnap takes an additional step to try and flush all I/O buffers and ensure they are written out to persistent storage.  On Linux AzAcSnap will call the `sync` command to flush file buffers, on Windows it uses the kernel call to FlushFileBuffers, before it takes a snapshot of the managed disks in the mounted logical volumes.
 

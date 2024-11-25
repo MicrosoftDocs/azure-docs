@@ -3,7 +3,7 @@ title: Add a heat map layer to a map | Microsoft Azure Maps
 description: Learn how to create a heat map and customize heat map layers using the Azure Maps Web SDK.
 author: sinnypan
 ms.author: sipa
-ms.date: 06/06/2023
+ms.date: 08/28/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -51,7 +51,7 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 
 The [Simple Heat Map Layer] sample demonstrates how to create a simple heat map from a data set of point features. For the source code for this sample, see [Simple Heat Map Layer source code].
 
-:::image type="content" source="./media/map-add-heat-map-layer/add-a-heat-map-layer.png" alt-text="Screenshot showing a map displaying a heat map.":::
+:::image type="content" source="./media/map-add-heat-map-layer/add-a-heat-map-layer.png" lightbox="./media/map-add-heat-map-layer/add-a-heat-map-layer.png" alt-text="Screenshot showing a map displaying a heat map.":::
 
 <!------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -81,7 +81,7 @@ The previous example customized the heat map by setting the radius and opacity o
 
 The [Heat Map Layer Options] sample shows how the different options of the heat map layer that affects rendering. For the source code for this sample, see [Heat Map Layer Options source code].
 
-:::image type="content" source="./media/map-add-heat-map-layer/heat-map-layer-options.png" alt-text="Screenshot showing a map displaying a heat map, and a panel with editable settings that show how the different options of the heat map layer affect rendering.":::
+:::image type="content" source="./media/map-add-heat-map-layer/heat-map-layer-options.png" lightbox="./media/map-add-heat-map-layer/heat-map-layer-options.png" alt-text="Screenshot showing a map displaying a heat map, and a panel with editable settings that show how the different options of the heat map layer affect rendering.":::
 
 <!------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result]
@@ -97,7 +97,7 @@ Scaling the radius so that it doubles with each zoom level creates a heat map th
 
 The [Consistent zoomable Heat Map] sample shows how to create a heat map where the radius of each data point covers the same physical area on the ground, creating a more consistent user experience when zooming the map. The heat map in this sample scales consistently between zoom levels 10 and 22. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Doubling the radius with each zoom level creates a heat map that looks consistent across all zoom levels. For the source code for this sample, see [Consistent zoomable Heat Map source code].
 
-:::image type="content" source="./media/map-add-heat-map-layer/consistent-zoomable-heat-map.png" alt-text="Screenshot showing a map displaying a heat map that uses a zoom expression that scales the radius for each zoom level.":::
+:::image type="content" source="./media/map-add-heat-map-layer/consistent-zoomable-heat-map.png" lightbox="./media/map-add-heat-map-layer/consistent-zoomable-heat-map.png" alt-text="Screenshot showing a map displaying a heat map that uses a zoom expression that scales the radius for each zoom level.":::
 
 <!------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true]
@@ -107,11 +107,11 @@ The `zoom` expression can only be used in `step` and `interpolate` expressions. 
 
 ```json
 [
-    `'interpolate', 
+    'interpolate',
     ['exponential', 2],
     ['zoom'],
     0, ['*', radiusMeters, 0.000012776039596366526],
-    24, [`'*', radiusMeters, 214.34637593279402]
+    24, ['*', radiusMeters, 214.34637593279402]
 ]
 ```
 

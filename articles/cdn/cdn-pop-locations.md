@@ -6,13 +6,15 @@ author: duongau
 manager: kumud
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2024
 ms.author: duau
 ms.custom: references_regions
 ---
 
 # Azure Content Delivery Network Coverage by Metro
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 > [!div class="op_single_selector"]
 > - [POP locations by region](cdn-pop-locations.md)

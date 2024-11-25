@@ -196,7 +196,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | certificateOrders | resource group | 3-30 | Alphanumerics. |
+> | certificateOrders | resource group | 3-50 | Alphanumerics. |
 
 ## Microsoft.CognitiveServices
 
@@ -492,6 +492,15 @@ In the following tables, the term alphanumeric refers to:
 > | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#|` or control characters <br><br>Can't end with space or period.  |
 > | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/|` or control characters <br><br>Can't end with space or period.  |
 > | activityLogAlerts | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#|` or control characters <br><br>Can't end with space or period.  |
+
+## Microsoft.AlertsManagement 
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | prometheusRuleGroups  | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#|` or control characters <br><br>Can't end with space or period.  |
+
+
 
 ## Microsoft.IoTCentral
 

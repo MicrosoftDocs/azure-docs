@@ -105,9 +105,8 @@ For more information, see [WebSocket support](application-gateway-websocket.md) 
 ## Connection draining
 
 Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the [Backend Setting](configuration-http-settings.md) and is applied to all backend pool members during rule creation. Once enabled, the application gateway ensures all deregistering instances of a backend pool don't receive any new requests while allowing existing requests to complete within a configured time limit. It applies to cases where backend instances are:
-- explicitly removed from the backend pool after a configuration change by a user
-- reported as unhealthy by the health probes, or
-- removed during a scale-in operation
+- explicitly removed from the backend pool after a configuration change by a user, or
+- reported as unhealthy by the health probes
 
 The only exception is when requests continue to be proxied to the deregistering instances because of gateway-managed session affinity. 
 

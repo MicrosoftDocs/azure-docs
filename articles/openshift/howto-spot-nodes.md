@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 This article provides the necessary details that allow you to configure your Azure Red Hat OpenShift cluster (ARO) to use Azure Spot Virtual Machines.
 
-Using Azure Spot Virtual Machines allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines. For more information around Spot Instances, see [Spot Virtual Machines](../virtual-machines/spot-vms.md).
+Using Azure Spot Virtual Machines allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines. For more information around Spot Instances, see [Spot Virtual Machines](/azure/virtual-machines/spot-vms).
 
 ## Before you begin
 

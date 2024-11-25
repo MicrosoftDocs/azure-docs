@@ -66,7 +66,7 @@ Microsoft Defender for Cloud periodically analyzes the security state of your Az
 | Recommendation | Comments | Defender for Cloud |
 |-|----|--|
 | Track how requests are authorized | Enable logging for Azure Storage to track how requests to the service are authorized. The logs indicate whether a request was made anonymously, by using an OAuth 2.0 token, by using Shared Key, or by using a shared access signature (SAS). For more information, see [Monitoring Azure Blob Storage with Azure Monitor](monitor-blob-storage.md) or [Azure Storage analytics logging with Classic Monitoring](../common/storage-analytics-logging.md). | - |
-| Set up alerts in Azure Monitor | Configure log alerts to evaluate resources logs at a set frequency and fire an alert based on the results. For more information, see [Log alerts in Azure Monitor](../../azure-monitor/alerts/alerts-unified-log.md). | - |
+| Set up alerts in Azure Monitor | Configure log alerts to evaluate resources logs at a set frequency and fire an alert based on the results. For more information, see [Log alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-unified-log). | - |
 
 ## Next steps
 

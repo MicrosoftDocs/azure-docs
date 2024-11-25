@@ -73,4 +73,4 @@ If you deploy Windows Server as session hosts in Azure Virtual Desktop, a Remote
 
 ## Known limitations
 
-If you create a Windows Server session host using the Azure Virtual Desktop host pool creation process, the process might automatically assign it an incorrect license type. To change the license type using PowerShell, follow the instructions in [Convert an existing VM using Azure Hybrid Benefit for Windows Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md#powershell-1).
+If you create a Windows Server session host using the Azure Virtual Desktop host pool creation process, the process might automatically assign it an incorrect license type. To change the license type using PowerShell, follow the instructions in [Convert an existing VM using Azure Hybrid Benefit for Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1).

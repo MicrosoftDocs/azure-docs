@@ -263,7 +263,7 @@ The Azure portal can also provide recommendations for performance enhancements, 
 
 :::image type="content" source="../media/3-security-access-operations/azure-portal-recommendations.png" border="true" alt-text="Screenshot of Azure portal recommendations for performance enhancements." lightbox="../media/3-security-access-operations/azure-portal-recommendations-lrg.png":::
 
-The portal supports integration with other Azure monitoring services, such as Operations Management Suite (OMS) and [Azure Monitor](../../../azure-monitor/overview.md), to provide an integrated monitoring experience of the data warehouse and the entire Azure analytics platform. For more information, see [Azure Synapse operations and management options](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+The portal supports integration with other Azure monitoring services, such as Operations Management Suite (OMS) and [Azure Monitor](/azure/azure-monitor/overview), to provide an integrated monitoring experience of the data warehouse and the entire Azure analytics platform. For more information, see [Azure Synapse operations and management options](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 
 ### High availability (HA) and disaster recovery (DR)
 
@@ -286,7 +286,7 @@ Azure Synapse automatically takes snapshots throughout the day and creates resto
 
 Azure Synapse supports user-defined restore points, which are created from manually triggered snapshots. By creating restore points before and after large data warehouse modifications, you ensure that the restore points are logically consistent. The user-defined restore points augment data protection and reduce recovery time if there are workload interruptions or user errors.
 
-In addition to snapshots, Azure Synapse performs a standard geo-backup once per day to a [paired data center](../../../availability-zones/cross-region-replication-azure.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored if restore points in the primary region aren't available.
+In addition to snapshots, Azure Synapse performs a standard geo-backup once per day to a [paired data center](../../../reliability/cross-region-replication-azure.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored if restore points in the primary region aren't available.
 
 >[!TIP]
 >Microsoft Azure provides automatic backups to a separate geographical location to enable DR.

@@ -5,9 +5,12 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: tutorial 
-ms.date: 01/05/2023
+ms.date: 09/26/2024
 ms.custom: template-tutorial
-#Customer intent: As an Azure account administrator, I want to archive older but less used data to save retention costs.
+
+
+#Customer intent: As a system administrator, I want to configure data retention policies for tables in a Log Analytics workspace so that I can manage Microsoft Sentinel storage costs and ensure compliance with data retention requirements.
+
 ---
 
 # Tutorial: Configure a data retention policy for a table in a Log Analytics workspace
@@ -69,7 +72,7 @@ In your Log Analytics workspace, change the interactive retention policy of the 
 
 ## Review interactive and total retention policies
 
-On the **Tables** page for the table you updated, review the field values for **Interactive retention** and **Total retention**. 
+On the **Tables** page, for the table you updated, review the field values for **Interactive retention** and **Total retention**. 
 
 :::image type="content" source="media/configure-data-retention/data-retention-archive-period.png" alt-text="Screenshot of the table view that shows the interactive retention and archive period columns.":::
 
@@ -77,7 +80,9 @@ On the **Tables** page for the table you updated, review the field values for **
 
 No resources were created but you might want to restore the data retention settings you changed.
 
+Depending on the settings set for your entire workspace, the settings updated in this tutorial might incur additional charges. To avoid these charges, restore the settings to their original values.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure interactive and long-term data retention policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md)
+> [Configure interactive and long-term data retention policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-configure)
