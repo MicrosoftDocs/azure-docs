@@ -1856,6 +1856,120 @@ View Virtual Machines in the portal and login as a regular user.
 }
 ```
 
+## Virtual Machine Operator
+
+This role is for providing necessary permissions on the staging storage account and target resource group during VM restore operations using Azure Backup.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | Microsoft.Authorization/*/read | Read access to all authorization resources |
+> | Microsoft.Compute/disks/read | Read access to compute disks |
+> | Microsoft.Compute/disks/write | Write access to compute disks |
+> | Microsoft.Compute/disks/delete | Delete access to compute disks |
+> | Microsoft.Compute/disks/beginGetAccess/action | Begin get access action on compute disks |
+> | Microsoft.Compute/disks/endGetAccess/action | End get access action on compute disks |
+> | Microsoft.Compute/locations/diskOperations/read | Read access to disk operations in a location |
+> | Microsoft.Compute/virtualMachines/read | Read access to virtual machines |
+> | Microsoft.Compute/virtualMachines/write | Write access to virtual machines |
+> | Microsoft.Compute/virtualMachines/delete | Delete access to virtual machines |
+> | Microsoft.Compute/virtualMachines/instanceView/read | Read access to virtual machine instance view |
+> | Microsoft.Compute/virtualMachines/extensions/read | Read access to virtual machine extensions |
+> | Microsoft.Compute/virtualMachines/extensions/write | Write access to virtual machine extensions |
+> | Microsoft.Compute/virtualMachines/extensions/delete | Delete access to virtual machine extensions |
+> | Microsoft.Insights/alertRules/* | Full access to alert rules |
+> | Microsoft.Network/locations/operationResults/read | Read access to operation results in a location |
+> | Microsoft.Network/locations/operations/read | Read access to operations in a location |
+> | Microsoft.Network/locations/usages/read | Read access to usage information in a location |
+> | Microsoft.Network/networkInterfaces/delete | Delete access to network interfaces |
+> | Microsoft.Network/networkInterfaces/ipconfigurations/read | Read access to IP configurations of network interfaces |
+> | Microsoft.Network/networkInterfaces/join/action | Join action on network interfaces |
+> | Microsoft.Network/networkInterfaces/read | Read access to network interfaces |
+> | Microsoft.Network/networkInterfaces/write | Write access to network interfaces |
+> | Microsoft.Network/networkSecurityGroups/read | Read access to network security groups |
+> | Microsoft.Network/networkSecurityGroups/securityRules/read | Read access to security rules of network security groups |
+> | Microsoft.Network/publicIPAddresses/delete | Delete access to public IP addresses |
+> | Microsoft.Network/publicIPAddresses/join/action | Join action on public IP addresses |
+> | Microsoft.Network/publicIPAddresses/read | Read access to public IP addresses |
+> | Microsoft.Network/publicIPAddresses/write | Write access to public IP addresses |
+> | Microsoft.Network/virtualNetworks/read | Read access to virtual networks |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Join action on virtual network subnets |
+> | Microsoft.Network/virtualNetworks/subnets/read | Read access to virtual network subnets |
+> | Microsoft.Resources/deployments/* | Full access to resource deployments |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Read access to resource groups in a subscription |
+> | Microsoft.Storage/checkNameAvailability/read | Read access to check name availability |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Delete access to blob service containers in storage accounts |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Read access to blob service containers in storage accounts |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Write access to blob service containers in storage accounts |
+> | Microsoft.Storage/storageAccounts/listKeys/action | List keys action on storage accounts |
+> | Microsoft.Storage/storageAccounts/read | Read access to storage accounts |
+> | Microsoft.Storage/storageAccounts/write | Write access to storage accounts |
+> | NotActions | none |
+> | DataActions | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Delete access to blobs in blob service containers |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Read access to blobs in blob service containers |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Write access to blobs in blob service containers |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | Add action on blobs in blob service containers |
+> | NotDataActions | none |
+
+```json
+"permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Compute/disks/read",
+                    "Microsoft.Compute/disks/write",
+                    "Microsoft.Compute/disks/delete",
+                    "Microsoft.Compute/disks/beginGetAccess/action",
+                    "Microsoft.Compute/disks/endGetAccess/action",
+                    "Microsoft.Compute/locations/diskOperations/read",
+                    "Microsoft.Compute/virtualMachines/read",
+                    "Microsoft.Compute/virtualMachines/write",
+                    "Microsoft.Compute/virtualMachines/delete",
+                    "Microsoft.Compute/virtualMachines/instanceView/read",
+                    "Microsoft.Compute/virtualMachines/extensions/read",
+                    "Microsoft.Compute/virtualMachines/extensions/write",
+                    "Microsoft.Compute/virtualMachines/extensions/delete",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.Network/locations/operationResults/read",
+                    "Microsoft.Network/locations/operations/read",
+                    "Microsoft.Network/locations/usages/read",
+                    "Microsoft.Network/networkInterfaces/delete",
+                    "Microsoft.Network/networkInterfaces/ipconfigurations/read",
+                    "Microsoft.Network/networkInterfaces/join/action",
+                    "Microsoft.Network/networkInterfaces/read",
+                    "Microsoft.Network/networkInterfaces/write",
+                    "Microsoft.Network/networkSecurityGroups/read",
+                    "Microsoft.Network/networkSecurityGroups/securityRules/read",
+                    "Microsoft.Network/publicIPAddresses/delete",
+                    "Microsoft.Network/publicIPAddresses/join/action",
+                    "Microsoft.Network/publicIPAddresses/read",
+                    "Microsoft.Network/publicIPAddresses/write",
+                    "Microsoft.Network/virtualNetworks/read",
+                    "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    "Microsoft.Network/virtualNetworks/subnets/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read",
+                    "Microsoft.Storage/checkNameAvailability/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+                    "Microsoft.Storage/storageAccounts/listKeys/action",
+                    "Microsoft.Storage/storageAccounts/read",
+                    "Microsoft.Storage/storageAccounts/write"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
+                ],
+
+
+
+```
+
+
 ## Windows 365 Network Interface Contributor
 
 This role is used by Windows 365 to provision required network resources and join Microsoft-hosted VMs to network interfaces.
