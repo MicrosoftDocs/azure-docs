@@ -268,19 +268,23 @@
         displayName: Developing with Dapr overview
       - name: Get started
         items:
-        - name: Daploy using Azure CLI
+        - name: Deploy using Azure CLI
           href: microservices-dapr.md
         - name: Deploy using ARM or Bicep
           href: microservices-dapr-azure-resource-manager.md
-        - name: Connect to Azure services via Dapr components
-          href: dapr-component-connection.md
-        - name: Enable Dapr
+        - name: Enable Dapr on an existing container app
           href: enable-dapr.md
+      - name: Dapr components
+        items:
+        - name: Component overview
+          href: dapr-components.md
+        - name: Connecting Dapr components to external
+          href: dapr-component-authentication.md
+        - name: Connect to Azure services using Azure portal
+          href: dapr-component-connection.md
       - name: Configure
         items:
-        - name: Dapr components
-          href: dapr-components.md
-        - name: Dapr component resiliency (preview)
+        - name: Set up Dapr resiliency policies (preview)
           href: dapr-component-resiliency.md
         - name: Scale Dapr apps with KEDA using Bicep
           href: dapr-keda-scaling.md

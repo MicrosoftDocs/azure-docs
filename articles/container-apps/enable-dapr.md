@@ -1,15 +1,15 @@
 ---
-title: Enable Dapr on your container app
+title: Enable Dapr on an existing container app
 description: Learn more about enabling Dapr on your Azure Container App service to develop applications.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-bicep
 ms.topic: conceptual
-ms.date: 12/18/2023
+ms.date: 11/25/2024
 ---
 
-# Enable Dapr on your container app
+# Enable Dapr on an existing container app
 
 You can configure Dapr using various [arguments and annotations][dapr-args] based on the runtime context. Azure Container Apps provides three channels through which you can enable Dapr:
 
