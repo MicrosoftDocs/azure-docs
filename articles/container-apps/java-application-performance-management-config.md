@@ -178,7 +178,7 @@ To build a setup image for the Application Insights Java agent, use the followin
 > [!TIP]
 > You can find code relevant to this step in the [azure-container-apps-java-samples](https://github.com/Azure-Samples/azure-container-apps-java-samples) GitHub repo.
 
-## Create a Container Apps environment and a Container App as the target Java app
+## Create a Container Apps environment and a container app as the target Java app
 
 To create a Container Apps environment and a container app as the target Java app, use the following steps:
 
@@ -238,7 +238,7 @@ To create a Container Apps environment and a container app as the target Java ap
 
 Use the following steps to configure your init container with secrets, environment variables, and volumes. This configuration allows you to use the stored information with your Application Insights instance.
 
-1. Write the current configuration of the running Container App to an **app.yaml** file in the current directory, by using the following command:
+1. Write the current configuration of the running container app to an **app.yaml** file in the current directory, by using the following command:
 
     # [Bash](#tab/bash)
 
