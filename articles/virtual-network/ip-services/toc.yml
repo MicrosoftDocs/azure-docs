@@ -99,7 +99,7 @@ items:
       - name: Upgrade guidance for Basic SKU public IP addresses
         href: public-ip-basic-upgrade-guidance.md
       - name: Upgrade a public IP address
-        href: public-ip-upgrade-portal.md
+        href: public-ip-upgrade.md
       - name: Migrate a classic reserved IP
         href: public-ip-upgrade-classic.md
     - name: Virtual machines
