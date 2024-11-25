@@ -6,7 +6,7 @@ services: storage
 author: alexwolfmsft
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 11/22/2024
+ms.date: 11/25/2024
 ms.author: alexwolf
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
@@ -71,7 +71,7 @@ The following steps demonstrate how to configure an app to use a system-assigned
 
 1. On the **Add role assignment** screen, for the **Assign access to** option, select **Managed identity**. Then choose **+Select members**.
 
-1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
+1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system-assigned identity, and then choose **Select** to close the flyout menu.
 
    :::image type="content" source="media/migration-select-identity.png" alt-text="Screenshot showing how to select a system-assigned managed identity.":::
 
@@ -94,7 +94,7 @@ You can also enable access to Azure resources for local development by assigning
 
 #### [.NET](#tab/csharp)
 
-1. In your project, install the `Azure.Identity` NuGet package. This library provides `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.Messaging.ServiceBus` packages are added to connect to Blob Storage and Service Bus, respectively.
+1. In your project, install the `Azure.Identity` package. This library provides `DefaultAzureCredential`. You can also add any other Azure libraries that are relevant to your app. For this example, the `Azure.Storage.Blobs` and `Azure.Messaging.ServiceBus` packages are added to connect to Blob Storage and Service Bus, respectively.
 
     ```dotnetcli
     dotnet add package Azure.Identity
@@ -102,7 +102,7 @@ You can also enable access to Azure resources for local development by assigning
     dotnet add package Azure.Storage.Blobs
     ```
 
-1. In the `Program.cs` file of your project, instantiate service clients for the services your app will connect to. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
+1. Instantiate service clients for the services your app will connect to. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
 
     ```csharp
     using Azure.Identity;
@@ -152,7 +152,7 @@ You can also enable access to Azure resources for local development by assigning
     </dependencies>
     ```
 
-1. Create instances of the service clients for the services your app will connect to. The following examples interacts with Blob Storage and Service Bus using the corresponding service clients.
+1. Instantiate service clients for the services your app will connect to. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
 
     ```java
     class Demo {
@@ -236,7 +236,7 @@ You can also enable access to Azure resources for local development by assigning
     npm install --save @azure/identity @azure/storage-blob @azure/service-bus
     ```
 
-1. In the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
+1. Instantiate service clients for the services your app will connect to. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
 
     ```javascript
     import { DefaultAzureCredential } from "@azure/identity";
@@ -319,270 +319,272 @@ To configure this setup in your code, ensure your application registers separate
 
 1. In your project, install the `Azure.Identity` package. This library provides `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app.
 
-```dotnetcli
-dotnet add package Azure.Identity
-dotnet add package Azure.Storage.Blobs
-dotnet add package Microsoft.Azure.Cosmos
-dotnet add package Microsoft.Data.SqlClient
-```
+    ```dotnetcli
+    dotnet add package Azure.Identity
+    dotnet add package Azure.Storage.Blobs
+    dotnet add package Microsoft.Azure.Cosmos
+    dotnet add package Microsoft.Data.SqlClient
+    ```
 
-```csharp
-using Azure.Core;
-using Azure.Identity;
-using Azure.Storage.Blobs;
-using Microsoft.Azure.Cosmos;
-using Microsoft.Data.SqlClient;
+1. Add the following to your code:
 
-string clientIdStorage =
-    Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Storage")!;
-
-// Create a DefaultAzureCredential instance that configures the underlying
-// ManagedIdentityCredential to use a user-assigned managed identity.
-DefaultAzureCredential credentialStorage = new(
-    new DefaultAzureCredentialOptions
+    ```csharp
+    using Azure.Core;
+    using Azure.Identity;
+    using Azure.Storage.Blobs;
+    using Microsoft.Azure.Cosmos;
+    using Microsoft.Data.SqlClient;
+    
+    string clientIdStorage =
+        Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Storage")!;
+    
+    // Create a DefaultAzureCredential instance that configures the underlying
+    // ManagedIdentityCredential to use a user-assigned managed identity.
+    DefaultAzureCredential credentialStorage = new(
+        new DefaultAzureCredentialOptions
+        {
+            ManagedIdentityClientId = clientIdStorage,
+        });
+    
+    // First Blob Storage client that uses a user-assigned managed identity
+    BlobServiceClient blobServiceClient1 = new(
+        new Uri("https://<receipt-storage-account>.blob.core.windows.net"),
+        credentialStorage);
+    
+    // Second Blob Storage client that uses a user-assigned managed identity
+    BlobServiceClient blobServiceClient2 = new(
+        new Uri("https://<contract-storage-account>.blob.core.windows.net"),
+        credentialStorage);
+    
+    // Get the second user-assigned managed identity client ID to connect to shared databases
+    string clientIdDatabases =
+        Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Databases")!;
+    DefaultAzureCredential credentialDatabases = new(
+        new DefaultAzureCredentialOptions
+        {
+            ManagedIdentityClientId = clientIdDatabases,
+        });
+    
+    // Create an Azure Cosmos DB client
+    CosmosClient cosmosClient = new(
+        Environment.GetEnvironmentVariable("COSMOS_ENDPOINT", EnvironmentVariableTarget.Process),
+        credentialDatabases);
+    
+    // Open a connection to Azure SQL using a user-assigned managed identity
+    string connectionString =
+        $"Server=<azure-sql-hostname>.database.windows.net;User Id={clientIdDatabases};Authentication=Active Directory Default;Database=<database-name>";
+    
+    using (SqlConnection connection = new(connectionString)
     {
-        ManagedIdentityClientId = clientIdStorage,
-    });
-
-// First Blob Storage client that uses a user-assigned managed identity
-BlobServiceClient blobServiceClient1 = new(
-    new Uri("https://<receipt-storage-account>.blob.core.windows.net"),
-    credentialStorage);
-
-// Second Blob Storage client that uses a user-assigned managed identity
-BlobServiceClient blobServiceClient2 = new(
-    new Uri("https://<contract-storage-account>.blob.core.windows.net"),
-    credentialStorage);
-
-// Get the second user-assigned managed identity client ID to connect to shared databases
-string clientIdDatabases =
-    Environment.GetEnvironmentVariable("Managed_Identity_Client_ID_Databases")!;
-DefaultAzureCredential credentialDatabases = new(
-    new DefaultAzureCredentialOptions
+        AccessTokenCallback = async (authParams, cancellationToken) =>
+        {
+            const string defaultScopeSuffix = "/.default";
+            string scope = authParams.Resource.EndsWith(defaultScopeSuffix)
+                ? authParams.Resource
+                : $"{authParams.Resource}{defaultScopeSuffix}";
+            AccessToken token = await credentialDatabases.GetTokenAsync(
+                new TokenRequestContext([scope]),
+                cancellationToken);
+    
+            return new SqlAuthenticationToken(token.Token, token.ExpiresOn);
+        }
+    })
     {
-        ManagedIdentityClientId = clientIdDatabases,
-    });
-
-// Create an Azure Cosmos DB client
-CosmosClient cosmosClient = new(
-    Environment.GetEnvironmentVariable("COSMOS_ENDPOINT", EnvironmentVariableTarget.Process),
-    credentialDatabases);
-
-// Open a connection to Azure SQL using a user-assigned managed identity
-string connectionString =
-    $"Server=<azure-sql-hostname>.database.windows.net;User Id={clientIdDatabases};Authentication=Active Directory Default;Database=<database-name>";
-
-using (SqlConnection connection = new(connectionString)
-{
-    AccessTokenCallback = async (authParams, cancellationToken) =>
-    {
-        const string defaultScopeSuffix = "/.default";
-        string scope = authParams.Resource.EndsWith(defaultScopeSuffix)
-            ? authParams.Resource
-            : $"{authParams.Resource}{defaultScopeSuffix}";
-        AccessToken token = await credentialDatabases.GetTokenAsync(
-            new TokenRequestContext([scope]),
-            cancellationToken);
-
-        return new SqlAuthenticationToken(token.Token, token.ExpiresOn);
+        connection.Open();
     }
-})
-{
-    connection.Open();
-}
-```
+    ```
 
 ### [Java](#tab/java)
 
-Add the following to your *pom.xml* file:
+1. Add the following to your *pom.xml* file:
 
-```xml
-<dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-sdk-bom</artifactId>
-      <version>1.2.5</version>
-      <type>pom</type>
-      <scope>import</scope>
-    </dependency>
-  </dependencies>
-</dependencyManagement>
-<dependencies>
-  <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-storage-blob</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-cosmos</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>com.microsoft.sqlserver</groupId>
-    <artifactId>mssql-jdbc</artifactId>
-    <version>11.2.1.jre17</version>
-  </dependency>
-</dependencies>
-```
+    ```xml
+    <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>com.azure</groupId>
+          <artifactId>azure-sdk-bom</artifactId>
+          <version>1.2.5</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-storage-blob</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-cosmos</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>11.2.1.jre17</version>
+      </dependency>
+    </dependencies>
+    ```
 
-Add the following to your code:
+1. Add the following to your code:
 
-```java
-class Demo {
-    public static void main(String[] args) {
-        // Get the first user-assigned managed identity client ID to connect to shared storage
-        String clientIdStorage = System.getenv("Managed_Identity_Client_ID_Storage");
-
-        // Get the DefaultAzureCredential from clientIdStorage
-        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-            .managedIdentityClientId(clientIdStorage)
-            .build();
-
-        // First blob storage client that uses a user-assigned managed identity
-        BlobServiceClient blobServiceClient1 = new BlobServiceClientBuilder()
-            .endpoint("https://<receipt-storage-account>.blob.core.windows.net")
-            .credential(credential)
-            .buildClient();
-
-        // Second blob storage client that uses a user-assigned managed identity
-        BlobServiceClient blobServiceClient2 = new BlobServiceClientBuilder()
-            .endpoint("https://<contract-storage-account>.blob.core.windows.net")
-            .credential(credential)
-            .buildClient();
-
-        // Get the second user-assigned managed identity ID to connect to shared databases
-        String clientIdDatabase = System.getenv("Managed_Identity_Client_ID_Databases");
-
-        // Create an Azure Cosmos DB client
-        CosmosClient cosmosClient = new CosmosClientBuilder()
-            .endpoint("https://<cosmos-db-account>.documents.azure.com:443/")
-            .credential(new DefaultAzureCredentialBuilder().managedIdentityClientId(clientIdDatabase).build())
-            .buildClient();
-
-        // Open a connection to Azure SQL using a managed identity
-        String connectionUrl = "jdbc:sqlserver://<azure-sql-hostname>.database.windows.net:1433;"
-            + "database=<database-name>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database"
-            + ".windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;";
-        try {
-            Connection connection = DriverManager.getConnection(connectionUrl);
-            Statement statement = connection.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
+    ```java
+    class Demo {
+        public static void main(String[] args) {
+            // Get the first user-assigned managed identity client ID to connect to shared storage
+            String clientIdStorage = System.getenv("Managed_Identity_Client_ID_Storage");
+    
+            // Get the DefaultAzureCredential from clientIdStorage
+            DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+                .managedIdentityClientId(clientIdStorage)
+                .build();
+    
+            // First blob storage client that uses a user-assigned managed identity
+            BlobServiceClient blobServiceClient1 = new BlobServiceClientBuilder()
+                .endpoint("https://<receipt-storage-account>.blob.core.windows.net")
+                .credential(credential)
+                .buildClient();
+    
+            // Second blob storage client that uses a user-assigned managed identity
+            BlobServiceClient blobServiceClient2 = new BlobServiceClientBuilder()
+                .endpoint("https://<contract-storage-account>.blob.core.windows.net")
+                .credential(credential)
+                .buildClient();
+    
+            // Get the second user-assigned managed identity ID to connect to shared databases
+            String clientIdDatabase = System.getenv("Managed_Identity_Client_ID_Databases");
+    
+            // Create an Azure Cosmos DB client
+            CosmosClient cosmosClient = new CosmosClientBuilder()
+                .endpoint("https://<cosmos-db-account>.documents.azure.com:443/")
+                .credential(new DefaultAzureCredentialBuilder().managedIdentityClientId(clientIdDatabase).build())
+                .buildClient();
+    
+            // Open a connection to Azure SQL using a managed identity
+            String connectionUrl = "jdbc:sqlserver://<azure-sql-hostname>.database.windows.net:1433;"
+                + "database=<database-name>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database"
+                + ".windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;";
+            try {
+                Connection connection = DriverManager.getConnection(connectionUrl);
+                Statement statement = connection.createStatement();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
-}
-```
+    ```
 
 ### [Spring](#tab/spring)
 
-Add the following to your *pom.xml* file:
+1. Add the following to your *pom.xml* file:
 
-```xml
-<dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>4.5.0</version>
-      <type>pom</type>
-      <scope>import</scope>
-    </dependency>
-  </dependencies>
-</dependencyManagement>
-<dependencies>
-  <dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-starter-cosmos</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>com.microsoft.sqlserver</groupId>
-    <artifactId>mssql-jdbc</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-jdbc</artifactId>
-  </dependency>
-</dependencies>
-```
+    ```xml
+    <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>com.azure.spring</groupId>
+          <artifactId>spring-cloud-azure-dependencies</artifactId>
+          <version>4.5.0</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-starter-cosmos</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jdbc</artifactId>
+      </dependency>
+    </dependencies>
+    ```
 
-Add the following to your *application.yml* file:
+1. Add the following to your *application.yml* file:
 
-```yaml
-spring:
-  cloud:
-    azure:
-      cosmos:
-        endpoint: https://<cosmos-db-account>.documents.azure.com:443/
-        credential:
-          client-id: <Managed_Identity_Client_ID_Databases>
-          managed-identity-enabled: true
-      storage:
-        blob:
-          endpoint: https://<contract-storage-account>.blob.core.windows.net
-          credential:
-            client-id: <Managed_Identity_Client_ID_Storage>
-            managed-identity-enabled: true
-  datasource:
-    url: jdbc:sqlserver://<azure-sql-hostname>.database.windows.net:1433;database=<database-name>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
-```
+    ```yaml
+    spring:
+      cloud:
+        azure:
+          cosmos:
+            endpoint: https://<cosmos-db-account>.documents.azure.com:443/
+            credential:
+              client-id: <Managed_Identity_Client_ID_Databases>
+              managed-identity-enabled: true
+          storage:
+            blob:
+              endpoint: https://<contract-storage-account>.blob.core.windows.net
+              credential:
+                client-id: <Managed_Identity_Client_ID_Storage>
+                managed-identity-enabled: true
+      datasource:
+        url: jdbc:sqlserver://<azure-sql-hostname>.database.windows.net:1433;database=<database-name>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryMSI;
+    ```
 
-Add the following to your code:
+1. Add the following to your code:
 
-> [!NOTE]
-> Spring Cloud Azure doesn't support configure multiple clients of the same service, the following codes create multiple beans for this situation.
+    > [!NOTE]
+    > Spring Cloud Azure doesn't support configure multiple clients of the same service, the following codes create multiple beans for this situation.
 
-```java
-@Configuration
-public class AzureStorageConfiguration {
-    @Bean("secondBlobServiceClient")
-    public BlobServiceClient secondBlobServiceClient(BlobServiceClientBuilder builder) {
-        return builder.endpoint("https://<receipt-storage-account>.blob.core.windows.net")
-            .buildClient();
+    ```java
+    @Configuration
+    public class AzureStorageConfiguration {
+        @Bean("secondBlobServiceClient")
+        public BlobServiceClient secondBlobServiceClient(BlobServiceClientBuilder builder) {
+            return builder.endpoint("https://<receipt-storage-account>.blob.core.windows.net")
+                .buildClient();
+        }
+    
+        @Bean("firstBlobServiceClient")
+        public BlobServiceClient firstBlobServiceClient(BlobServiceClientBuilder builder) {
+            return builder.buildClient();
+        }
     }
+    ```
 
-    @Bean("firstBlobServiceClient")
-    public BlobServiceClient firstBlobServiceClient(BlobServiceClientBuilder builder) {
-        return builder.buildClient();
+    ```java
+    @Service
+    public class ExampleService {
+        @Autowired
+        @Qualifier("firstBlobServiceClient")
+        private BlobServiceClient blobServiceClient1;
+    
+        @Autowired
+        @Qualifier("secondBlobServiceClient")
+        private BlobServiceClient blobServiceClient2;
+    
+        @Autowired
+        private CosmosClient cosmosClient;
+    
+        @Autowired
+        private JdbcTemplate jdbcTemplate;
     }
-}
-```
-
-```java
-@Service
-public class ExampleService {
-    @Autowired
-    @Qualifier("firstBlobServiceClient")
-    private BlobServiceClient blobServiceClient1;
-
-    @Autowired
-    @Qualifier("secondBlobServiceClient")
-    private BlobServiceClient blobServiceClient2;
-
-    @Autowired
-    private CosmosClient cosmosClient;
-
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-}
-```
+    ```
 
 ### [Node.js](#tab/javascript)
 
-1. In your project, use [npm](https://docs.npmjs.com/) to add a reference to the `@azure/identity` package. This library provides `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app.
+1. In your project, install the `@azure/identity` package. This library provides `DefaultAzureCredential`. Install any other [Azure SDK libraries](https://www.npmjs.com/search?q=%40azure) which are relevant to your app.
 
     ```bash
     npm install --save @azure/identity @azure/storage-blob @azure/cosmos mssql
     ```
 
-1. In the `index.js` file, create client objects for the Azure services your app will connect to. The following examples connect to Blob Storage, Cosmos DB, and Azure SQL using the corresponding service clients.
+1. Add the following to your code:
 
     ```javascript
     import { DefaultAzureCredential } from "@azure/identity";
@@ -657,7 +659,7 @@ public class ExampleService {
     pip install azure-identity azure-storage-blob azure-cosmos pyodbc
     ```
     
-1. Create service client objects for the Azure services your app will connect to. The following example connects to Blob Storage, Cosmos DB, and Azure SQL using the corresponding service clients.
+1. Add the following to your code:
 
     ```python
     from azure.cosmos import CosmosClient
