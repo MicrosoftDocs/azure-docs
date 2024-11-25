@@ -1,5 +1,5 @@
 ---
-title: Migrate servers to Azure by using Private Link
+title: Migrate Hyper-V servers to Azure by using Private Link
 description: Use Azure Migrate with private endpoints for migrations by using ExpressRoute private peering or VPN connections.
 author: vijain
 ms.author: vijain
@@ -10,16 +10,9 @@ ms.date: 12/14/2022
 ms.custom: engagement-fy23
 ---
 
-# Migrate servers to Azure using Private Link
+# Migrate Hyper-V servers to Azure using Private Link
 
 This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](migrate-services-overview.md) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
-
-## Next steps 
-
- - [Migrate VMs](tutorial-migrate-vmware.md#migrate-vms)
- - Complete the [migration process](tutorial-migrate-vmware.md#complete-the-migration).
- - Review the [post-migration best practices](tutorial-migrate-vmware.md#post-migration-best-practices). 
-
 
 This article shows you how to [migrate on-premises Hyper-V VMs to Azure](tutorial-migrate-hyper-v.md), using the [Migration and modernization](migrate-services-overview.md) tool, with agentless migration. You can also migrate using agent-based migration.  
 
@@ -27,7 +20,7 @@ This article shows you how to [migrate on-premises Hyper-V VMs to Azure](tutoria
 
 The following diagram illustrates the agentless migration workflow with private endpoints by using the Migration and modernization tool. 
 
- ![Diagram that shows replication architecture.](./media/how-to-use-azure-migrate-with-private-endpoints/replication-architecture.png)
+:::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/replication-architecture.png" alt-text="Diagram that shows replication architecture." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/replication-architecture.png":::
 
 For migrating Hyper-V VMs, the Migration and modernization tool installs software providers (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes.  
 1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Discover**. 
@@ -46,7 +39,7 @@ For migrating Hyper-V VMs, the Migration and modernization tool installs softwar
     - The key is valid for five days after you generate it. 
 1. Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate. 
 > [!Note]
->Before you register the replication provider, ensure that the vault's private link FQDNs are reachable from the machine that hosts the replication provider. Additional DNS configuration may be required for the on-premises replication appliance to resolve the private link FQDNs to their private IP addresses. Learn more about [how to verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution) 
+>Before you register the replication provider, ensure that the vault's private link FQDNs are reachable from the machine that hosts the replication provider. Additional DNS configuration can be required for the on-premises replication appliance to resolve the private link FQDNs to their private IP addresses. Learn more about [how to verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution) 
 
 Next, follow these instructions to [install and register the replication provider](tutorial-migrate-hyper-v.md#install-and-register-the-provider). 
   

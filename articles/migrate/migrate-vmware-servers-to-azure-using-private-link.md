@@ -1,5 +1,5 @@
 ---
-title: Migrate servers to Azure by using Private Link
+title: Migrate VMware servers to Azure by using Private Link
 description: Use Azure Migrate with private endpoints for migrations by using ExpressRoute private peering or VPN connections.
 author: vijain
 ms.author: vijain
@@ -10,7 +10,7 @@ ms.date: 12/14/2022
 ms.custom: engagement-fy23
 ---
 
-# Migrate servers to Azure using Private Link
+# Migrate VMware servers to Azure using Private Link
 
 This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](migrate-services-overview.md) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
 
@@ -36,7 +36,7 @@ After setting up the appliance and completing discovery, you can begin replicati
 
 The following diagram illustrates the agentless replication workflow with private endpoints by using the Migration and modernization tool.
 
-![Diagram that shows agentless replication architecture.](./media/how-to-use-azure-migrate-with-private-endpoints/agentless-replication-architecture.png)
+:::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/agentless-replication-architecture.png" alt-text="Diagram that shows agentless replication architecture." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/agentless-replication-architecture.png":::
 
 Enable replication as follows:
 1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
