@@ -24,6 +24,9 @@ The following considerations apply when using a warmup trigger:
 * The warmup trigger is only called during scale-out operations, not during restarts or other nonscaling startups. Make sure your logic can load all required dependencies without relying on the warmup trigger. Lazy loading is a good pattern to achieve this goal.
 * Dependencies created by warmup trigger should be shared with other functions in your app. To learn more, see [Static clients](manage-connections.md#static-clients).
 * If the [built-in authentication](../app-service/overview-authentication-authorization.md) (also known as Easy Auth) is used, [HTTPS Only](../app-service/configure-ssl-bindings.md#enforce-https) should be enabled for the warmup trigger to get invoked.
+* [Where applicable](https://github.com/Azure/azure-functions-host/blob/bc21cd69782312508f95d85d60863b8881de2c11/src/WebJobs.Script/Host/ScriptJobHostExtensions.cs#L36)
+  * the function must be named `Warmup` (case-insensitive) in order to be picked up by the host.
+  * the function-trigger must be named `WarmupTrigger` (case-insensitive) in order to be picked up by the host.
 
 ## Example
 
@@ -89,7 +92,7 @@ public void warmup( @WarmupTrigger Object warmupContext, ExecutionContext contex
 
 The following example shows a [JavaScript function](functions-reference-node.md) with a warmup trigger that runs on each new instance when added to your app:
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/warmupTrigger1.js" :::
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/warmupTrigger.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -127,7 +130,7 @@ module.exports = async function (warmupContext, context) {
 
 The following example shows a [TypeScript function](functions-reference-node.md) with a warmup trigger that runs on each new instance when added to your app:
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/warmupTrigger1.ts" :::
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/warmupTrigger.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 TypeScript samples aren't documented for model v3.
@@ -215,7 +218,8 @@ Warmup triggers don't require annotations. Just use a name of `warmup` (case-ins
 
 # [Model v4](#tab/nodejs-v4)
 
-There are no properties that need to be set on the `options` object passed to the `app.warmup()` method.
+- Your function-trigger must be named `warmupTrigger` (case-insensitive).
+- There are no properties that need to be set on the `options` object passed to the `app.warmup()` method.
 
 # [Model v3](#tab/nodejs-v3)
 
