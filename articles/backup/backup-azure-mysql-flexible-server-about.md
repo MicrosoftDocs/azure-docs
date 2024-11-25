@@ -13,7 +13,7 @@ ms.author: v-abhmallick
 
 [!INCLUDE [Azure Database for MySQL - Flexible Server backup advisory](../../includes/backup-mysql-flexible-server-advisory.md)]
 
-If you have an Azure Database for MySQL flexible server, you can extend the retention of backups beyond the current limit of 35 days with the built-in operational-tier backup capability of Azure Database for MySQL - Flexible Server. Azure Backup and Azure database services together allow you to build an enterprise-class backup solution for Azure Database for MySQL flexible servers that retain backups for *up to 10 years*.
+If you have an Azure Database for MySQL flexible server, you can extend the retention of backups beyond the current limit of 35 days with the built-in operational-tier backup capability of Azure Database for MySQL - Flexible Server. Azure Backup and Azure database services together allow you to build an enterprise-class backup solution for Azure Database for MySQL flexible servers that retains backups for *up to 10 years*.
 
 Extending backup retention from 35 days to 10 years can help your organization meet compliance and regulatory requirements. The backups are copied to an isolated storage environment outside your tenant and subscription to help protect against ransomware attacks. In addition to long-term retention, this feature enhances backup resiliency by protecting the source data from different levels of data loss, such as accidental deletions and ransomware.
 
@@ -33,7 +33,7 @@ After the configuration is complete:
 - Azure Backup invokes the backup based on the policy schedules on the Resource Manager API of Azure Database for MySQL - Flexible Server. It writes data to a secure blob container with a statistical analysis system (SAS) for enhanced security.
 - The backup job runs independently to prevent disruptions during long-running tasks.
 - The life cycles of the retention and recovery point align with the backup policies for effective management.
-- Azure Backup invokes the restore on the Resource Manager API of the Azure Database for MySQL flexible server by using the SAS for asynchronous, nondisruptive recovery.
+- Azure Backup invokes the restore on the Resource Manager API of Azure Database for MySQL - Flexible Server by using the SAS for asynchronous, nondisruptive recovery.
 
 :::image type="content" source="./media/backup-azure-mysql-flexible-server-about/mysql-flexible-server-backup-architecture.png" alt-text="Diagram that shows the backup flow for Azure Database for MySQL - Flexible Server." lightbox="./media/backup-azure-mysql-flexible-server-about/mysql-flexible-server-backup-architecture.png":::
 
@@ -47,8 +47,8 @@ The following table lists permissions that the vault MSI requires for successful
 
 | Operation | Permission |
 | --- | --- |
-| **Backup** | - Azure Database for MySQL - Flexible Server Long-Term Retention Backup role <br><br> - Reader role on the server's resource group. |
-| **Restore** | Storage Blob Data Contributor role on the target storage account. |
+| **Backup** | Azure Database for MySQL - Flexible Server Long-Term Retention Backup role <br><br> Reader role on the server's resource group |
+| **Restore** | Storage Blob Data Contributor role on the target storage account |
 
 ## Pricing
 
@@ -56,7 +56,7 @@ You incur charges for:
 
 - **Protected instance fee**: When you configure a backup for an Azure Database for MySQL flexible server, a protected instance is created. Azure Backup for MySQL - Flexible Server charges a protected instance fee according to the size of the database (in gigabytes) on a per-unit (250-GB) basis.
 
-- **Backup storage fee**: Azure Backup for MySQL flexible servers store backups in the Standard vault tier. Restore points stored in the Standard vault tier are charged a separate backup storage fee according to the total data stored (in gigabytes) and the redundancy type enabled on the Backup vault.
+- **Backup storage fee**: Azure Backup for MySQL flexible servers store backups in the Standard vault tier. Restore points stored in the Standard vault tier are charged a separate backup storage fee according to the total data stored (in gigabytes) and the redundancy type enabled on the Azure Backup vault.
 
 ## Related content
 

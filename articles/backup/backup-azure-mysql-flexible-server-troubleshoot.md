@@ -70,7 +70,7 @@ This article provides recommended actions to troubleshoot issues that you might 
 
 **Cause**: The required set of permissions isn't present to perform the restore operation.
 
-**Recommended action**: Assign the [appropriate permissions](backup-azure-mysql-flexible-server-about.md#permissions-for-an-azure-database-for-mysql---flexible-server-backup) and retrigger backup operation.
+**Recommended action**: Assign the [appropriate permissions](backup-azure-mysql-flexible-server-about.md#permissions-for-an-azure-database-for-mysql---flexible-server-backup) and retrigger the backup operation.
 
 ## Related content
 

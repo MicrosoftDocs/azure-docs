@@ -23,7 +23,7 @@ Here are important considerations for this preview feature:
 
 - The retention rules are evaluated in a predetermined order of priority. The priority is the highest for the yearly rule, followed by the monthly rule, and then the weekly rule.
 
-  Default retention settings are applied when no other rules qualify. For example, the same recovery point might be the first successful backup taken every week in addition to the first successful backup taken every month. However, because the monthly rule priority is higher than that of the weekly rule, the retention that corresponds to the first successful backup taken every month applies.
+  Default retention settings are applied when no other rules qualify. For example, the same recovery point might be the first successful backup taken every week in addition to the first successful backup taken every month. However, because the priority of the monthly rule is higher than the priority of the weekly rule, the retention that corresponds to the first successful backup taken every month applies.
 
 - By default, the retention rule is set to 3 months if no retention rule is set.
   
@@ -36,7 +36,8 @@ To create a backup policy, follow these steps:
 1. [Create an Azure Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
 2. Go to the Azure Backup vault, and then select **+Backup** to open the **Configure backup** pane.
-3. To create a new backup policy, under **Backup policy**, select **Create new**.
+
+3. Under **Backup policy**, select **Create new**.
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/create-backup-policy.png" alt-text="Screenshot that shows how to start creating a new backup policy." lightbox="./media/backup-azure-mysql-flexible-server/create-backup-policy.png":::
 
@@ -107,6 +108,7 @@ To trigger an on-demand backup (a backup that's not in the schedule specified in
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/backup-instances.png" alt-text="Screenshot that shows how to run an on-demand backup." lightbox="./media/backup-azure-mysql-flexible-server/backup-instances.png":::
 
 3. On the **MySQL database instance** pane, choose a retention rule from the list.
+
 4. Select **Backup now**.
 
 ## Monitor a backup job
