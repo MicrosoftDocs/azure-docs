@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 10/09/2024
+ms.date: 11/25/2024
 ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
 ---
 
@@ -23,7 +23,7 @@ This section describes how to use device application code to create a direct met
 
 [!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
-### Device import statements
+### Device import statement
 
 Use the following device import statement to access the Azure IoT SDK for Java.
 
@@ -88,6 +88,15 @@ The `ServiceClient` [DeviceMethod](/java/api/com.microsoft.azure.sdk.iot.service
 
 ### Connect to IoT hub
 
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
 Use the [DeviceMethod](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicemethod?#com-microsoft-azure-sdk-iot-service-devicetwin-devicemethod-devicemethod(java-lang-string)) constructor to add the service primary connection string and connect to IoT Hub.
 
 To invoke a direct method on a device through IoT Hub, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
@@ -100,6 +109,10 @@ For example:
 public static final String iotHubConnectionString = "HostName=xxxxx.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=xxxxxxxxxxxxxxxxxxxxxxxx";
 DeviceMethod methodClient = new DeviceMethod(iotHubConnectionString);
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-java](iot-hub-howto-connect-service-iothub-entra-java.md)]
 
 ### Invoke a method on a device
 

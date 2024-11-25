@@ -7,27 +7,29 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 10/09/2024
+ms.date: 11/25/2024
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
   * **Python SDK** - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
-    * Device applications require the **azure-iot-device** package. You can install the package using this command:
-
-      ```cmd/sh
-        pip install azure-iot-device
-      ```
-
-    * Service applications require the **azure-iot-hub** package. You can install the package using this command:
-
-      ```cmd/sh
-        pip install azure-iot-hub
-      ```
-
 ## Overview
 
 This article describes how to use the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) to create device and backend service application code for device direct methods.
+
+## Install packages
+
+The **azure-iot-device** library must be installed to create device applications.
+
+```cmd/sh
+pip install azure-iot-device
+```
+
+The **azure-iot-hub** library must be installed to create backend service applications.
+
+```cmd/sh
+pip install azure-iot-hub
+```
 
 ## Create a device application
 
@@ -41,12 +43,10 @@ This section describes how to use device application code to:
 
 ### Device import statements
 
-Add import statements to access `IoTHubDeviceClient` and `MethodResponse`.
+Add this import to access `IoTHubDeviceClient` and `MethodResponse`.
 
 ```python
 # import the device client library
-import time
-import datetime
 from azure.iot.device import IoTHubDeviceClient, MethodResponse
 ```
 
@@ -59,7 +59,7 @@ Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.devi
 ```python
 # substitute the device connection string in conn_str
 # and add it to the IoTHubDeviceClient object
-conn_str = "{IOT hub device connection string}"
+conn_str = "{IoT hub device connection string}"
 device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 ```
 
@@ -127,13 +127,20 @@ The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregist
 Add these import statements to connect to Iot Hub, receive cloud-to-device methods, and call device twin methods.
 
 ```python
-import sys, time
-
 from azure.iot.hub import IoTHubRegistryManager
 from azure.iot.hub.models import CloudToDeviceMethod, CloudToDeviceMethodResult, Twin
 ```
 
 ### Connect to IoT hub
+
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
 
 Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string). As a parameter, supply the **IoT Hub service connection string** that you created in the prerequisites section.
 
@@ -148,6 +155,10 @@ For example:
 IOTHUB_CONNECTION_STRING = "{IoT hub service connection string}"
 iothub_registry_manager = IoTHubRegistryManager.from_connection_string(IOTHUB_CONNECTION_STRING)
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-python](iot-hub-howto-connect-service-iothub-entra-python.md)]
 
 ### Invoke a method on a device
 

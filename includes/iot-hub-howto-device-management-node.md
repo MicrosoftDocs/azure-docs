@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 10/09/2024
+ms.date: 11/25/2024
 ms.custom: mqtt, devx-track-js
 ---
 
@@ -19,11 +19,7 @@ This article describes how to use the [Azure IoT SDK for Node.js](https://github
 
 ## Create a device application
 
-This section describes how to use device application code to:
-
-* Respond to a direct method called by the cloud
-* Trigger a simulated device reboot
-* Use the reported properties to enable device twin queries to identify devices and when they were last rebooted
+This section describes how to use device application code to create a direct method callback.
 
 ### Install SDK packages
 
@@ -161,7 +157,7 @@ The Azure IoT SDK for Node.js provides working samples of device apps that handl
 
 ## Create a backend application
 
-This section describes how to initiate a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
+This section describes how to invoke a direct method on a device.
 
 ### Install service SDK package
 
@@ -177,6 +173,15 @@ The [Registry](/javascript/api/azure-iothub/registry) class exposes all methods 
 
 ### Connect to IoT hub
 
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
 Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub.
 
 To invoke a direct method on a device through IoT Hub, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
@@ -190,6 +195,10 @@ var connectionString = '{IoT hub shared access policy connection string}';
 var client = Client.fromConnectionString(connectionString);
 var registry = Registry.fromConnectionString(serviceConnectionString);
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-node](iot-hub-howto-connect-service-iothub-entra-node.md)]
 
 ### Invoke a method on a device
 
