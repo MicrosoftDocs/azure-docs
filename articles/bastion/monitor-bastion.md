@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Bastion
-description: Start here to learn how to monitor [TODO-replace-with-service-name].
+description: Start here to learn how to monitor Azure Bastion by using Azure Monitor. Learn about collecting data and tools you can use to analyze data.
 ms.date: 12/02/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
@@ -9,34 +9,11 @@ ms.author: cherylmc
 ms.service: azure-bastion
 ---
 
-<!-- 
-According to the Content Pattern guidelines all comments must be removed before publication!!!
-IMPORTANT 
-To make this template easier to use, first:
-1. Search and replace [TODO-replace-with-service-name] with the official name of your service.
-2. Search and replace [TODO-replace-with-service-filename] with the service name to use in GitHub filenames.-->
-
-<!-- VERSION 4.0 November 2024
-For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
-
-<!-- All sections are required unless otherwise noted. Add service-specific information after the includes.
-Your service should have the following two articles:
-1. The overview monitoring article (based on this template)
-   - Title: "Monitor [TODO-replace-with-service-name]"
-   - TOC title: "Monitor"
-   - Filename: "monitor-[TODO-replace-with-service-filename].md"
-2. A reference article that lists all the metrics and logs for your service (based on the template data-reference-template.md).
-   - Title: "[TODO-replace-with-service-name] monitoring data reference"
-   - TOC title: "Monitoring data reference"
-   - Filename: "monitor-[TODO-replace-with-service-filename]-reference.md".
--->
-
 # Monitor  Azure Bastion
 
-<!-- Intro -->
 [!INCLUDE [azmon-horz-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-intro.md)]
- 
-## Collect data with Azure Monitor 
+
+## Collect data with Azure Monitor
 
 This table describes how you can collect data to monitor your service, and what you can do with the data once collected:
 
@@ -48,28 +25,16 @@ This table describes how you can collect data to monitor your service, and what 
 
 [!INCLUDE [azmon-horz-supported-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-supported-data.md)]
 
-## Built in monitoring for Azure Bastion
-
-<!-- Add any monitoring mechanisms build in to your service here. -->
-
-<!--## Use Azure Monitor tools to analyze the data-->
 [!INCLUDE [azmon-horz-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-tools.md)]
 
-<!--## Export Azure Monitor data -->
 [!INCLUDE [azmon-horz-export-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-export-data.md)]
 
-<!--## Use Kusto queries to analyze log data -->
 [!INCLUDE [azmon-horz-kusto](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-kusto.md)]
 
-<!-- ## Use Azure Monitor alerts to notify you of issues -->
 [!INCLUDE [azmon-horz-alerts-part-one](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-one.md)]
-
-<!-- Add any recommended alert rules here. -->
-
 
 [!INCLUDE [azmon-horz-alerts-part-two](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-two.md)]
 
-<!-- ## Get personalized recommendations using Azure Advisor -->
 [!INCLUDE [azmon-horz-advisor](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-advisor.md)]
 
 ## Related content
