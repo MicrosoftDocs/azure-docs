@@ -31,14 +31,26 @@ When you migrate a share to Azure, you need to describe the source share, the Az
 
 Before you begin following the examples in this article, it's important that you have an understanding of the Azure Storage Mover resource hierarchy. Review the [Understanding the Storage Mover resource hierarchy](resource-hierarchy.md) article, to understand the necessity of the job definition prerequisites.
 
-There are three prerequisites to the definition the migration of your source shares:
+The following are the prerequisites to the definition the migration of your source shares:
 
 - **An existing storage mover resource.**<br/>
   If you haven't deployed a storage mover resource, follow the steps in the *[Create a storage mover resource](storage-mover-create.md)* article. These steps help you deploy a storage mover resource to the desired region within your Azure subscription.
 - **At least one existing Azure Storage Mover agent virtual machine (VM).**<br/>
   The steps in the [Azure Storage Mover agent VM deployment](agent-deploy.md) and [agent registration](agent-register.md) articles guide you through the deployment and registration process.
-- **Finally, you need to create a job definition to define a migration.**<br/>
+- **A job definition to define migration.**<br/>
   Job definitions are organized in a migration project. You need at least one migration project in your storage mover resource. If you haven't already done so, follow the deployment steps in the [manage projects](project-manage.md) article to create a migration project.
+ - **Storage account access in case of firewall setting.**<br/>
+   If you have storage account firewall (security system) restrictions set, ensure that the traffic from agent VM is permitted to the storage account.
+- **Accessible endpoints.**<br/>
+  The below endpoints must be accessible from the agent.
+
+|Source protocol   |Target                               |Azure Endpoint                                        |Description                    |
+|------------------|-------------------------------------|------------------------------------------------------|-------------------------------|
+|SMB 2.x mount     |Azure file share (SMB)               |`< your-storage-account-name>.file.core.windows.net`  |Azure Files endpoint.          |
+|SMB 2.x mount     |Azure file share (SMB)               |`<your-keyvault-name>.vault.azure.net`                |Azure Key Vault endpoint.       |
+|NFS 3 & 4 mount   |Azure blob storage container         |`< your-storage-account-name>.blob.core.windows.net`  |Azure Blob container endpoint. |
+ 
+
 
 ## Create and start a job definition
 

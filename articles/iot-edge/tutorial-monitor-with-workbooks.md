@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 06/10/2024
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom: mvc
 ---
@@ -50,9 +50,9 @@ A Log Analytics workspace is necessary to collect the metrics data and provides 
 
 1. Once your workspace is created, select **Go to resource**.
 
-1. From the main menu under **Settings**, select **Agents management**.
+1. From the main menu under **Settings**, select **Agents**.
 
-1. Copy the values of **Workspace ID** and **Primary key**. You'll use these two values later in the tutorial to configure the metrics collector module to send the metrics to this workspace.
+1. Copy the values of **Workspace ID** and **Primary key**, available under 'Log Analytics agent instructions'. You'll use these two values later in the tutorial to configure the metrics collector module to send the metrics to this workspace.
 
 ## Retrieve your IoT hub resource ID
 

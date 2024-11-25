@@ -14,13 +14,15 @@ Application settings in a function app contain configuration options that affect
 
 In this article, example connection string values are truncated for readability.
 
+Because Azure Functions uses the Azure App Service platform for hosting, you might find some settings relevant to your function app hosting documented in [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
+
 ## App setting considerations
 
 When using app settings, you should be aware of the following considerations:
 
 + Changes to function app settings require your function app to be restarted.
 
-+ In setting names, double-underscore (`__`) and semicolon (`:`) are considered reserved values. Double-underscores are interpreted as hierarchical delimiters on both Windows and Linux, and colons are interpreted in the same way only on Linux. For example, the setting `AzureFunctionsWebHost__hostid=somehost_123456` would be interpreted as the following JSON object:
++ In setting names, double-underscore (`__`) and colon (`:`) are considered reserved values. Double-underscores are interpreted as hierarchical delimiters on both Windows and Linux, and colons are interpreted in the same way only on Windows. For example, the setting `AzureFunctionsWebHost__hostid=somehost_123456` would be interpreted as the following JSON object:
 
     ```json
     "AzureFunctionsWebHost": {
@@ -54,15 +56,18 @@ The instrumentation key for Application Insights. Don't use both `APPINSIGHTS_IN
 
 Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. Use of `APPLICATIONINSIGHTS_CONNECTION_STRING` is recommended.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
-
 ## APPLICATIONINSIGHTS_AUTHENTICATION_STRING
 
-The connection string for Application Insights by using Microsoft Entra authentication. Use this setting when you must connect to your Application Insights workspace by using Microsoft Entra authentication. The string contains the client ID of either a system-assigned or a user-assigned managed identity that is authorized to publish telemetry to your Application Insights workspace. For more information, see [Microsoft Entra authentication for Application Insights](../azure-monitor/app/azure-ad-authentication.md).
+Enables access to Application Insights by using Microsoft Entra authentication. Use this setting when you must connect to your Application Insights workspace by using Microsoft Entra authentication. For more information, see [Microsoft Entra authentication for Application Insights](/azure/azure-monitor/app/azure-ad-authentication).
 
-|Key|Sample value|
-|---|------------|
-|APPLICATIONINSIGHTS_AUTHENTICATION_STRING|`ClientId=<YOUR_CLIENT_ID>;Authorization=AAD`|
+When you use `APPLICATIONINSIGHTS_AUTHENTICATION_STRING`, the specific value that you set depends on the type of managed identity:
+
+| Managed identity | Setting value |
+| ----- | ----- |
+| System-assigned | `Authorization=AAD` |  
+| User-assigned | `Authorization=AAD;ClientId=<USER_ASSIGNED_CLIENT_ID>` |
+
+This authentication requirement is applied to connections from the Functions host, snapshot debugger, profiler, and any language-specific agents. To use this setting, the managed identity must already be available to the function app, with an assigned role equivalent to [Monitoring Metrics Publisher](/azure/role-based-access-control/built-in-roles/monitor#monitoring-metrics-publisher). 
 
 [!INCLUDE [functions-app-insights-disable-local-note](../../includes/functions-app-insights-disable-local-note.md)]
 
@@ -70,16 +75,16 @@ The connection string for Application Insights by using Microsoft Entra authenti
 
 The connection string for Application Insights. Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. While the use of `APPLICATIONINSIGHTS_CONNECTION_STRING` is recommended in all cases, it's required in the following cases:
 
-+ When your function app requires the added customizations supported by using the connection string.  
-+ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.
++ When your function app requires the added customizations supported by using the connection string  
++ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint
 
-For more information, see [Connection strings](../azure-monitor/app/sdk-connection-string.md).
+For more information, see [Connection strings](/azure/azure-monitor/app/sdk-connection-string).
 
 |Key|Sample value|
 |---|------------|
 |APPLICATIONINSIGHTS_CONNECTION_STRING|`InstrumentationKey=...`|
 
-To connect to Application Insights with Microsoft Entra authentication, you should instead use [`APPLICATIONINSIGHTS_AUTHENTICATION_STRING`](#applicationinsights_authentication_string).
+To connect to Application Insights with Microsoft Entra authentication, you should use [`APPLICATIONINSIGHTS_AUTHENTICATION_STRING`](#applicationinsights_authentication_string).
 
 ## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
@@ -184,7 +189,7 @@ When this app setting is omitted or set to `false`, a page similar to the follow
 
 ## AzureWebJobsDotNetReleaseCompilation
 
-`true` means use Release mode when compiling .NET code; `false` means use Debug mode. Default is `true`.
+`true` means use `Release` mode when compiling .NET code; `false` means use Debug mode. Default is `true`.
 
 |Key|Sample value|
 |---|------------|
@@ -433,7 +438,7 @@ For Node.js v18 or lower, the app setting is used, and the default behavior depe
 
 ## FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT
 
-Overrides the default limit on the body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 104857600 bytes. 
+Overrides the default limit on the body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 104,857,600 bytes. 
 
 |Key|Sample value|
 |---|------------|
@@ -807,21 +812,38 @@ Indicates whether the `/home` directory is shared across scaled instances, with 
 
 Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are managed in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
 
-### alwaysOn
+## AcrUseManagedIdentityCreds
+
+Indicates whether the image is obtained from an Azure Container Registry instance using managed identity authentication. A value of `true` requires that managed identity be used, which is recommended over stored authentication credentials as a security best practice. 
+
+## AcrUserManagedIdentityID 
+
+Indicates the managed identity to use when obtaining the image from an Azure Container Registry instance. Requires that `AcrUseManagedIdentityCreds` is set to `true`. These are the valid values:   
+
+| Value | Description |
+| ---- | ---- |
+| `system` | The system assigned managed identity of the function app is used. |
+| `<USER_IDENTITY_RESOURCE_ID>` | The fully qualified resource ID of a user-assigned managed identity. | 
+
+The identity that you specify must be added to the `ACRPull` role in the container registry. For more information, see [Create and configure a function app on Azure with the image](functions-deploy-container-apps.md?tabs=acr#create-and-configure-a-function-app-on-azure-with-the-image).
+
+## alwaysOn
 
 On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the Functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP trigger _wakes up_ your function app. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger functions, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
 
-### functionsRuntimeAdminIsolationEnabled
+## functionsRuntimeAdminIsolationEnabled
 
-Determines if the `/admin` endpoints are exposed for the function app. When "false", the app will serve these endpoints, and they can only be accessed using the master key for the function app. When "true", these endpoints are not served by the app.
+Determines whether the built-in administrator (`/admin`) endpoints in your function app can be accessed. When set to `false` (the default), the app allows requests to endpoints under `/admin` when those requests present a [master key](function-keys-how-to.md#understand-keys) in the request. When `true`, `/admin` endpoints can't be accessed, even with a master key.
 
-### linuxFxVersion 
+This property cannot be set for apps running on the Linux Consumption SKU, and it cannot be set for apps running on version 1.x of Azure Functions. If you are using version 1.x, you must first [migrate to version 4.x](./migrate-version-1-version-4.md). 
+
+## linuxFxVersion 
 
 For function apps running on Linux, `linuxFxVersion` indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. This setting can be set to a predefined value or a custom image URI.
 
 This value is set for you when you create your Linux function app. You might need to set it for ARM template and Bicep deployments and in certain upgrade scenarios. 
 
-#### Valid linuxFxVersion values
+### Valid linuxFxVersion values
 
 You can use the following Azure CLI command to see a table of current `linuxFxVersion` values, by supported Functions runtime version:
 
@@ -831,7 +853,7 @@ az functionapp list-runtimes --os linux --query "[].{stack:join(' ', [runtime, v
 
 The previous command requires you to upgrade to version 2.40 of the Azure CLI.  
 
-#### Custom images
+### Custom images
 
 When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is instead in the format `DOCKER|<IMAGE_URI>`, as in the following example:
 
@@ -842,17 +864,17 @@ This indicates the registry source of the deployed container. For more informati
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 
-### netFrameworkVersion
+## netFrameworkVersion
 
 Sets the specific version of .NET for C# functions. For more information, see [Update your function app in Azure](migrate-version-3-version-4.md?pivots=programming-language-csharp#update-your-function-app-in-azure). 
 
-### powerShellVersion 
+## powerShellVersion 
 
 Sets the specific version of PowerShell on which your functions run. For more information, see [Changing the PowerShell version](functions-reference-powershell.md#changing-the-powershell-version). 
 
 When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
-### vnetContentShareEnabled
+## vnetContentShareEnabled
 
 Apps running in a Premium plan use a file share to store content. The name of this content share is stored in the [`WEBSITE_CONTENTSHARE`](#website_contentshare) app setting and its connection string is stored in [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](#website_contentazurefileconnectionstring). To route traffic between your function app and content share through a virtual network, you must also set `vnetContentShareEnabled` to `true`. Enabling this site property is a requirement when [restricting your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) in the Elastic Premium and Dedicated hosting plans.
 
@@ -860,11 +882,11 @@ Apps running in a Premium plan use a file share to store content. The name of th
 
 This site property replaces the legacy [`WEBSITE_CONTENTOVERVNET`](#website_contentovervnet) setting.
 
-### vnetImagePullEnabled
+## vnetImagePullEnabled
 
 Functions [supports function apps running in Linux containers](functions-how-to-custom-container.md). To connect and pull from a container registry inside a virtual network, you must set `vnetImagePullEnabled` to `true`. This site property is supported in the Elastic Premium and Dedicated hosting plans. The Flex Consumption plan doesn't rely on site properties or app settings to configure Networking. For more information, see [Flex Consumption plan deprecations](#flex-consumption-plan-deprecations).
 
-### vnetRouteAllEnabled
+## vnetRouteAllEnabled
 
 Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `true` indicates that all application traffic is routed through the virtual network. Use this setting when configuring [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration) in the Elastic Premium and Dedicated plans. It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). For more information, see [Configure application routing](../app-service/configure-vnet-integration-routing.md#configure-application-routing).
 
@@ -887,7 +909,7 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |Replaced by functionAppConfig's deployment section|
 | `WEBSITE_CONTENTOVERVNET` |Not used for networking in Flex Consumption|
 | `WEBSITE_CONTENTSHARE` |Replaced by functionAppConfig's deployment section|
-| `WEBSITE_DNS_SERVER` |DNS is inherited from the integrated VNet in Flex|
+| `WEBSITE_DNS_SERVER` |DNS is inherited from the integrated virtual network in Flex|
 | `WEBSITE_NODE_DEFAULT_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
 | `WEBSITE_RUN_FROM_PACKAGE`|Not used for deployments in Flex Consumption|
 | `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` |Content share is not used in Flex Consumption|

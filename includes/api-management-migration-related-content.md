@@ -2,13 +2,10 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 02/13/2024
+ms.date: 08/12/2024
 ms.author: danlep
 ---
-## Video
 
-> [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=0e082046-7a52-48b6-8818-6997eb422992]
->
 
 ## Related content
 
@@ -16,4 +13,6 @@ ms.author: danlep
 
 *  [Benefits of stv2 compute platform for API Management](../articles/api-management/compute-infrastructure.md)
 
-* [Learn about stv1 platform retirement in August 2024](../articles/api-management/breaking-changes/stv1-platform-retirement-august-2024.md)
+* [stv1 platform retirement - global Azure (August 2024)](../articles/api-management/breaking-changes/stv1-platform-retirement-august-2024.md)
+
+* [stv1 platform retirement - Azure Government and Azure operated by 21Vianet (February 2025)](../articles/api-management/breaking-changes/stv1-platform-retirement-sovereign-clouds-february-2025.md)

@@ -4,8 +4,7 @@ description: In this tutorial, learn how to unpack your Azure Data Box Disk, con
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.custom: linux-related-content
 ms.topic: tutorial
 ms.date: 04/09/2024
@@ -23,7 +22,7 @@ ms.author: shaas
 > Azure Data Box disk with hardware encryption requires a SATA III connection. All other connections, including USB, are not supported.
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This tutorial describes how to unpack, connect, and unlock your Azure Data Box Disk.
 
@@ -123,7 +122,10 @@ Perform the following steps to connect and unlock your disks.
 
 1. In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order.
 2. Download the Data Box Disk toolset corresponding to the Windows client. This toolset contains 3 tools: Data Box Disk Unlock tool, Data Box Disk Validation tool, and Data Box Disk Split Copy tool.
-
+    
+    > [!NOTE]
+    > Powershell ISE is not supported for the Data Box Disk Tools
+    
     This procedure requires only the Data Box Disk Unlock tool. The remaining tools will be used in subsequent steps.
 
     > [!div class="nextstepaction"]

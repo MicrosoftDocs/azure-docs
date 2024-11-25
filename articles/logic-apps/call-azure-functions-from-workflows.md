@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/07/2024
+ai.usage: ai-assisted
+ms.date: 10/21/2024
 ---
 
 # Call Azure Functions from workflows in Azure Logic Apps
@@ -89,9 +90,9 @@ This how-to guide shows how to call an existing Azure function from your Consump
     > The **`body`** property here applies to the **`context`** object and isn't the same as 
     > the **Body** token in an action's output, which you might also pass to your function.
 
-  - Your function can't use custom routes unless you defined an [OpenAPI definition](../azure-functions/functions-openapi-definition.md) ([Swagger file](https://swagger.io/)).
+  - Your function can't use custom routes unless you defined an [OpenAPI definition](../azure-functions/functions-openapi-definition.md).
 
-    When you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when you work with function parameters. Before your workflow can find and access functions that have OpenAPI definitions, [set up your function app by following these steps](#function-swagger).
+    When you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when you work with function parameters. Before your workflow can find and access functions that have OpenAPI definitions, [set up your function app by following these steps](#open-ai-definition).
 
 - A Consumption or Standard logic app workflow that starts with any trigger.
 
@@ -103,11 +104,11 @@ This how-to guide shows how to call an existing Azure function from your Consump
 
 ## Tips for working with Azure functions
 
-<a name="function-swagger"></a>
+<a name="open-ai-definition"></a>
 
-### Generate an OpenAPI definition or Swagger file for your function
+### Find functions with OpenAPI definitions
 
-For a richer experience when you work with function parameters in the workflow designer, [generate an OpenAPI definition](../azure-functions/functions-openapi-definition.md) or [Swagger file](https://swagger.io/) for your function. To set up your function app so that your workflow can find and use functions that have Swagger descriptions, follow these steps:
+To set up your function app so that your workflow can find and use functions that have OpenAPI definitions, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your function app. Make sure that the function app is actively running.
 
@@ -117,7 +118,7 @@ For a richer experience when you work with function parameters in the workflow d
 
    1. Under **Allowed Origins**, add the asterisk (**`*`**) wildcard character, but remove all the other origins in the list, and select **Save**.
 
-      :::image type="content" source="media/logic-apps-azure-functions/function-cors-origins.png" alt-text="Screenshot shows Azure portal, CORS pane, and wildcard character * entered under Allowed Origins." lightbox="media/logic-apps-azure-functions/function-cors-origins.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/function-cors-origins.png" alt-text="Screenshot shows Azure portal, CORS pane, and wildcard character * entered under Allowed Origins." lightbox="media/call-azure-functions-from-workflows/function-cors-origins.png":::
 
 ### Access property values inside HTTP requests
 
@@ -148,6 +149,18 @@ Here's what happens inside this function:
 
 After you create your function in Azure, follow the steps to [add an Azure function to your workflow](#add-function-logic-app).
 
+### Pass URI parameters to a function
+
+If you have to pass a URI parameter to your function, you can use query parameters in the function's endpoint URL.
+
+1. With the workflow designer open for your logic app, and the function information pane open, from the **Advanced parameters** list, select **Queries**.
+
+   A table appears where you can enter parameter input as key-value pairs.
+
+1. Enter the key-value pair for your parameter, for example:
+
+   :::image type="content" source="media/call-azure-functions-from-workflows/queries-parameter.png" alt-text="Screenshot shows function information pane with Queries parameter and example key-value inputs.":::
+
 <a name="add-function-logic-app"></a>
 
 ## Add a function to your workflow (Consumption + Standard workflows)
@@ -160,19 +173,19 @@ To call an Azure function from your workflow, you can add that functions like an
 
 1. In the designer, [follow these general steps to add the **Azure Functions** action named **Choose an Azure function**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. In the **Create Connection** pane, follow these steps:
+1. In the **Add an action** pane, follow these steps:
 
-   1. Provide a **Connection Name** for the connection to your function app.
+   1. From the function apps list, select your function app, select the function, and then select **Add action**, for example:
 
-   1. From the function apps list, select your function app.
+      :::image type="content" source="media/call-azure-functions-from-workflows/select-function-app-function-consumption.png" alt-text="Screenshot shows Consumption workflow with a selected function app and function.":::
 
-   1. From the functions list, select the function, and then select **Add Action**, for example:
+1. After the function's information box appears, follow these steps:
 
-      :::image type="content" source="media/logic-apps-azure-functions/select-function-app-function-consumption.png" alt-text="Screenshot shows Consumption workflow with a selected function app and function." lightbox="media/logic-apps-azure-functions/select-function-app-function-consumption.png":::
+   1. For **Request Body**, provide your function's input, which must use the format for a JavaScript Object Notation (JSON) object, for example:
 
-1. In the selected function's action box, follow these steps:
+      `{"context": <selected-input> }`
 
-   1. For **Request Body**, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object. This input is the *context object* payload or message that your workflow sends to your function.
+      This input is the *context object* payload or message that your workflow sends to your function.
 
       - To select tokens that represent outputs from previous steps, select inside the **Request Body** box, and then select the option to open the dynamic content list (lightning icon).
 
@@ -180,15 +193,15 @@ To call an Azure function from your workflow, you can add that functions like an
 
       The following example specifies a JSON object with the **`content`** attribute and a token representing the **From** output from the email trigger as the **Request Body** value:
 
-      :::image type="content" source="media/logic-apps-azure-functions/function-request-body-example-consumption.png" alt-text="Screenshot shows Consumption workflow and a function with a Request Body example for the context object payload." lightbox="media/logic-apps-azure-functions/function-request-body-example-consumption.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/function-request-body-example-consumption.png" alt-text="Screenshot shows Consumption workflow and a function with a Request Body example for the context object payload.":::
 
       Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. Here's the complete example:
 
-      :::image type="content" source="media/logic-apps-azure-functions/request-body-example-complete.png" alt-text="Screenshot shows Consumption workflow and a function with a complete Request Body example for the context object payload." lightbox="media/logic-apps-azure-functions/request-body-example-complete.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/request-body-example-complete.png" alt-text="Screenshot shows Consumption workflow and a function with a complete Request Body example for the context object payload.":::
 
       If you provide a context object other than a JSON token that passes a string, a JSON object, or a JSON array, you get an error. However, you can cast the context object as a string by enclosing the token in quotation marks (**""**), for example, if you wanted to use the **Received Time** token:
 
-      :::image type="content" source="media/logic-apps-azure-functions/function-request-body-string-cast-example.png" alt-text="Screenshot shows Consumption workflow and a Request Body example that casts context object as a string." lightbox="media/logic-apps-azure-functions/function-request-body-string-cast-example.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/function-request-body-string-cast-example.png" alt-text="Screenshot shows Consumption workflow and a Request Body example that casts context object as a string.":::
 
    1. To specify other details such as the method to use, request headers, query parameters, or authentication, open the **Advanced parameters** list, and select the parameters that you want. For authentication, your options differ based on your selected function. For more information, review [Enable authentication for functions](#enable-authentication-functions).
 
@@ -202,36 +215,35 @@ To call an Azure function from your workflow, you can add that functions like an
 
    1. Provide a **Connection Name** for the connection to your function app.
 
-   1. From the function apps list, select your function app.
+   1. From the function apps list, select your function app, select the function, and then select **Create new**, for example:
 
-   1. From the functions list, select the function, and then select **Create New**, for example:
+   :::image type="content" source="media/call-azure-functions-from-workflows/select-function-app-function-standard.png" alt-text="Screenshot shows Standard workflow designer with selected function app and function.":::
 
-   :::image type="content" source="media/logic-apps-azure-functions/select-function-app-function-standard.png" alt-text="Screenshot shows Standard workflow designer with selected function app and function." lightbox="media/logic-apps-azure-functions/select-function-app-function-standard.png":::
+1. After the function's information box appears, follow these steps:
 
-1. In the **Call an Azure function** action box, follow these steps:
+   1. From the **Method** list, select the HTTP method required to call the selected function.
 
-   1. For **Method**, select the HTTP method required to call the selected function.
+   1. For **Request Body**, provide your function's input, which must use the format for a JavaScript Object Notation (JSON) object, for example:
 
-   1. For **Request Body**, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object. This input is the *context object* payload or message that your workflow sends to your function.
+      `{"context": <selected-input> }`
+   
+      This input is the *context object* payload or message that your workflow sends to your function.
 
       - To select tokens that represent outputs from previous steps, select inside the **Request Body** box, and then select the option to open the dynamic content list (lightning icon).
 
       - To create an expression, select inside the **Request Body** box, and then select option to open the expression editor (formula icon).
 
-      The following example specifies the following values:
+      The following example specifies a JSON object with the **`content`** attribute and a token representing the **From** output from the email trigger as the **Request Body** value:
 
-      - **Method**: **GET**
-      - **Request Body**: A JSON object with the **`content`** attribute and a token representing the **From** output from the email trigger.
-
-      :::image type="content" source="media/logic-apps-azure-functions/function-request-body-example-standard.png" alt-text="Screenshot shows Standard workflow and a function with a Request Body example for the context object payload." lightbox="media/logic-apps-azure-functions/function-request-body-example-standard.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/function-request-body-example-standard.png" alt-text="Screenshot shows Standard workflow and a function with a Request Body example for the context object payload.":::
 
       Here, the context object isn't cast as a string, so the object's content gets added directly to the JSON payload. Here's the complete example:
 
-      :::image type="content" source="media/logic-apps-azure-functions/request-body-example-complete.png" alt-text="Screenshot shows Standard workflow and a function with a complete Request Body example for the context object payload." lightbox="media/logic-apps-azure-functions/request-body-example-complete.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/request-body-example-complete.png" alt-text="Screenshot shows Standard workflow and a function with a complete Request Body example for the context object payload.":::
 
       If you provide a context object other than a JSON token that passes a string, a JSON object, or a JSON array, you get an error. However, you can cast the context object as a string by enclosing the token in quotation marks (**""**), for example, if you wanted to use the **Received Time** token:
 
-      :::image type="content" source="media/logic-apps-azure-functions/function-request-body-string-cast-example.png" alt-text="Screenshot shows Standard workflow and a Request Body example that casts context object as a string." lightbox="media/logic-apps-azure-functions/function-request-body-string-cast-example.png":::
+      :::image type="content" source="media/call-azure-functions-from-workflows/function-request-body-string-cast-example.png" alt-text="Screenshot shows Standard workflow and a Request Body example that casts context object as a string.":::
 
    1. To specify other details such as the method to use, request headers, query parameters, or authentication, open the **Advanced parameters** list, and select the parameters that you want. For authentication, your options differ based on your selected function. For more information, review [Enable authentication for functions](#enable-authentication-functions).
 
@@ -276,25 +288,25 @@ For your function to use your Consumption logic app's managed identity, you must
 
 1. On the function app resource menu, under **Development tools**, select **Advanced Tools** > **Go**.
 
-   :::image type="content" source="media/logic-apps-azure-functions/open-advanced-tools-kudu.png" alt-text="Screenshot shows function app menu with selected options for Advanced Tools and Go." lightbox="media/logic-apps-azure-functions/open-advanced-tools-kudu.png":::
+   :::image type="content" source="media/call-azure-functions-from-workflows/open-advanced-tools-kudu.png" alt-text="Screenshot shows function app menu with selected options for Advanced Tools and Go." lightbox="media/call-azure-functions-from-workflows/open-advanced-tools-kudu.png":::
 
 1. After the **Kudu Plus** page opens, on the Kudu website's title bar, from the **Debug Console** menu, select **CMD**.
 
-   :::image type="content" source="media/logic-apps-azure-functions/open-debug-console-kudu.png" alt-text="Screenshot shows Kudu Services page with opened Debug Console menu and selected option named CMD." lightbox="media/logic-apps-azure-functions/open-debug-console-kudu.png":::
+   :::image type="content" source="media/call-azure-functions-from-workflows/open-debug-console-kudu.png" alt-text="Screenshot shows Kudu Services page with opened Debug Console menu and selected option named CMD." lightbox="media/call-azure-functions-from-workflows/open-debug-console-kudu.png":::
 
 1. After the next page appears, from the folder list, select **site** > **wwwroot** > *your-function*.
 
    The following steps use an example function named **FabrikamAzureFunction**.
 
-   :::image type="content" source="media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png" alt-text="Screenshot shows folder list with the opened folders for the site, wwwroot, and your function." lightbox="media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png":::
+   :::image type="content" source="media/call-azure-functions-from-workflows/select-site-wwwroot-function-folder.png" alt-text="Screenshot shows folder list with the opened folders for the site, wwwroot, and your function." lightbox="media/call-azure-functions-from-workflows/select-site-wwwroot-function-folder.png":::
 
 1. Open the **function.json** file for editing.
 
-   :::image type="content" source="media/logic-apps-azure-functions/edit-function-json-file.png" alt-text="Screenshot shows the function.json file with selected edit command." lightbox="media/logic-apps-azure-functions/edit-function-json-file.png":::
+   :::image type="content" source="media/call-azure-functions-from-workflows/edit-function-json-file.png" alt-text="Screenshot shows the function.json file with selected edit command." lightbox="media/call-azure-functions-from-workflows/edit-function-json-file.png":::
 
 1. In the **bindings** object, check whether the **authLevel** property exists. If the property exists, set the property value to **`anonymous`**. Otherwise, add that property, and set the value.
 
-   :::image type="content" source="media/logic-apps-azure-functions/set-authentication-level-function-app.png" alt-text="Screenshot shows bindings object with authLevel property set to anonymous." lightbox="media/logic-apps-azure-functions/set-authentication-level-function-app.png":::
+   :::image type="content" source="media/call-azure-functions-from-workflows/set-authentication-level-function-app.png" alt-text="Screenshot shows bindings object with authLevel property set to anonymous." lightbox="media/call-azure-functions-from-workflows/set-authentication-level-function-app.png":::
 
 1. When you're done, save your settings. Continue to the next section.
 
@@ -324,13 +336,13 @@ Either run the PowerShell command named [**Get-AzureAccount**](/powershell/modul
 
 1. Copy and save your tenant ID for later use, for example:
 
-   :::image type="content" source="media/logic-apps-azure-functions/tenant-id.png" alt-text="Screenshot shows Microsoft Entra ID Properties page with tenant ID's copy button selected." lightbox="media/logic-apps-azure-functions/tenant-id.png":::
+   :::image type="content" source="media/call-azure-functions-from-workflows/tenant-id.png" alt-text="Screenshot shows Microsoft Entra ID Properties page with tenant ID's copy button selected." lightbox="media/call-azure-functions-from-workflows/tenant-id.png":::
 
 <a name="find-object-id"></a>
 
 #### Find the object ID for your managed identity
 
-After you enable the managed identity for your Consumption logic app resource, find the object for your managed identity. You'll use this ID to find the associated Enterprise application in your Entra tenant.
+After you enable the managed identity for your Consumption logic app resource, find the object for your managed identity. You'll use this ID to find the associated Enterprise application in your Microsoft Entra tenant.
 
 1. On the logic app menu, under **Settings**, select **Identity**, and then select either **System assigned** or **User assigned**.
 
@@ -338,17 +350,17 @@ After you enable the managed identity for your Consumption logic app resource, f
 
      Copy the identity's **Object (principal) ID**:
 
-     :::image type="content" source="media/logic-apps-azure-functions/system-identity-consumption.png" alt-text="Screenshot shows Consumption logic app's Identity page with selected tab named System assigned." lightbox="media/logic-apps-azure-functions/system-identity-consumption.png":::
+     :::image type="content" source="media/call-azure-functions-from-workflows/system-identity-consumption.png" alt-text="Screenshot shows Consumption logic app's Identity page with selected tab named System assigned." lightbox="media/call-azure-functions-from-workflows/system-identity-consumption.png":::
 
    - **User assigned**
 
      1. Select the identity:
 
-        :::image type="content" source="media/logic-apps-azure-functions/user-identity-consumption.png" alt-text="Screenshot shows Consumption logic app's Identity page with selected tab named User assigned." lightbox="media/logic-apps-azure-functions/user-identity-consumption.png":::
+        :::image type="content" source="media/call-azure-functions-from-workflows/user-identity-consumption.png" alt-text="Screenshot shows Consumption logic app's Identity page with selected tab named User assigned." lightbox="media/call-azure-functions-from-workflows/user-identity-consumption.png":::
 
      1. Copy the identity's **Object (principal) ID**:
 
-        :::image type="content" source="media/logic-apps-azure-functions/user-identity-object-id.png" alt-text="Screenshot shows Consumption logic app's user-assigned identity Overview page with the object (principal) ID selected." lightbox="media/logic-apps-azure-functions/user-identity-object-id.png":::
+        :::image type="content" source="media/call-azure-functions-from-workflows/user-identity-object-id.png" alt-text="Screenshot shows Consumption logic app's user-assigned identity Overview page with the object (principal) ID selected." lightbox="media/call-azure-functions-from-workflows/user-identity-object-id.png":::
 
 <a name="find-enterprise-application-id"></a>
 
@@ -356,13 +368,13 @@ After you enable the managed identity for your Consumption logic app resource, f
 
 When you enable a managed identity on your logic app resource, Azure automatically creates an associated [Azure Enterprise application](/entra/identity/enterprise-apps/add-application-portal) that has the same name. You now need to find the associated Enterprise application and copy its **Application ID**. Later, you use this application ID to add an identity provider for your function app by creating an app registration.
 
-1. In the [Azure portal](https://portal.azure.com), find and open your Entra tenant.
+1. In the [Azure portal](https://portal.azure.com), find and open your Microsoft Entra tenant.
 
 1. On the tenant menu, under **Manage**, select **Enterprise applications**.
 
 1. On the **All applications** page, in the search box, enter the object ID for your managed identity. From the results, find the matching enterprise application, and copy the **Application ID**:
 
-   :::image type="content" source="media/logic-apps-azure-functions/find-enterprise-application-id.png" alt-text="Screenshot shows Entra tenant page named All applications, with enterprise application object ID in search box, and selected matching application ID." lightbox="media/logic-apps-azure-functions/find-enterprise-application-id.png":::
+   :::image type="content" source="media/call-azure-functions-from-workflows/find-enterprise-application-id.png" alt-text="Screenshot shows Microsoft Entra tenant page named All applications, with enterprise application object ID in search box, and selected matching application ID." lightbox="media/call-azure-functions-from-workflows/find-enterprise-application-id.png":::
 
 1. Now, use the copied application ID to [add an identity provider to your function app](#create-app-registration).
 
@@ -376,7 +388,7 @@ Now that you have the tenant ID and the application ID, you can set up your func
 
 1. On the function app menu, under **Settings**, select **Authentication**, and then select **Add identity provider**.
 
-   :::image type="content" source="media/logic-apps-azure-functions/add-identity-provider.png" alt-text="Screenshot shows function app menu with Authentication page and selected option named Add identity provider." lightbox="media/logic-apps-azure-functions/add-identity-provider.png":::
+   :::image type="content" source="media/call-azure-functions-from-workflows/add-identity-provider.png" alt-text="Screenshot shows function app menu with Authentication page and selected option named Add identity provider." lightbox="media/call-azure-functions-from-workflows/add-identity-provider.png":::
 
 1. On the **Add an identity provider** pane, under **Basics**, from the **Identity provider** list, select **Microsoft**.
 
@@ -385,13 +397,13 @@ Now that you have the tenant ID and the application ID, you can set up your func
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Application (client) ID** | Yes | <*application-ID*> | The unique identifier to use for this app registration. For this example, use the application ID that you copied for the Enterprise application associated with your managed identity. |
-   | **Client secret** | Optional, but recommended | <*client-secret*> | The secret value that the app uses to prove its identity when requesting a token. The client secret is created and stored in your app's configuration as a slot-sticky [application setting](../app-service/configure-common.md#configure-app-settings) named **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. To manage the secret in Azure Key Vault instead, you can update this setting later to use [Key Vault references](../app-service/app-service-key-vault-references.md). <br><br>- If you provide a client secret value, sign-in operations use the hybrid flow, returning both access and refresh tokens. <br><br>- If you don't provide a client secret, sign-in operations use the OAuth 2.0 implicit grant flow, returning only an ID token. <br><br>These tokens are sent by the provider and stored in the EasyAuth token store. |
-   | **Issuer URL** | No | **<*authentication-endpoint-URL*>/<*Entra-tenant-ID*>/v2.0** | This URL redirects users to the correct Microsoft Entra tenant and downloads the appropriate metadata to determine the appropriate token signing keys and token issuer claim value. For apps that use Azure AD v1, omit **/v2.0** from the URL. <br><br>For this scenario, use the following URL: **`https://sts.windows.net/`<*Entra-tenant-ID*>** |
+   | **Client secret** | Optional, but recommended | <*client-secret*> | The secret value that the app uses to prove its identity when requesting a token. The client secret is created and stored in your app's configuration as a slot-sticky [application setting](../app-service/configure-common.md#configure-app-settings) named **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. <br><br>- Make sure to regularly rotate secrets and store them securely. For example, manage your secrets in Azure Key Vault where you can use a managed identity to retrieve the key without exposing the value to an unauthorized user. You can update this setting to use [Key Vault references](../app-service/app-service-key-vault-references.md). <br><br>- If you provide a client secret value, sign-in operations use the hybrid flow, returning both access and refresh tokens. <br><br>- If you don't provide a client secret, sign-in operations use the [OAuth 2.0 implicit grant flow](/entra/identity-platform/v2-oauth2-implicit-grant-flow). This method directly returns only an ID token or access token. These tokens are sent by the provider and stored in the EasyAuth token store. <br><br>**Important**: Due to security risks, the implicit grant flow is [no longer a suitable authentication method](/entra/identity-platform/v2-oauth2-implicit-grant-flow#prefer-the-auth-code-flow). Instead, use either [authorization code flow with Proof Key for Code Exchange (PKCE)](/entra/msal/dotnet/advanced/spa-authorization-code) or [single-page application (SPA) authorization codes](/entra/msal/dotnet/advanced/spa-authorization-code). |
+   | **Issuer URL** | No | **<*authentication-endpoint-URL*>/<*Microsoft-Entra-tenant-ID*>/v2.0** | This URL redirects users to the correct Microsoft Entra tenant and downloads the appropriate metadata to determine the appropriate token signing keys and token issuer claim value. For apps that use Azure AD v1, omit **/v2.0** from the URL. <br><br>For this scenario, use the following URL: **`https://sts.windows.net/`<*Microsoft-Entra-tenant-ID*>** |
    | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. For a cloud or server app where you want to allow authentication tokens from a web app, add the application ID URI for the web app. The configured client ID is always implicitly considered as an allowed audience. <br><br>For this scenario, the value is **`https://management.azure.com`**. Later, you can use the same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity](create-managed-service-identity.md#authenticate-access-with-identity). <br><br>**Important**: The application ID URI (resource ID) must exactly match the value that Microsoft Entra ID expects, including any required trailing slashes. |
 
    At this point, your version looks similar to this example:
 
-   :::image type="content" source="media/logic-apps-azure-functions/identity-provider-authentication-settings.png" alt-text="Screenshot shows app registration for your logic app and identity provider for your function app." lightbox="media/logic-apps-azure-functions/identity-provider-authentication-settings.png":::
+   :::image type="content" source="media/call-azure-functions-from-workflows/identity-provider-authentication-settings.png" alt-text="Screenshot shows app registration for your logic app and identity provider for your function app." lightbox="media/call-azure-functions-from-workflows/identity-provider-authentication-settings.png":::
 
    If you're setting up your function app with an identity provider for the first time, the **App Service authentication settings** section also appears. These options determine how your function app responds to unauthenticated requests. The default selection redirects all requests to log in with the new identity provider. You can customize this behavior now or adjust these settings later from the main **Authentication** page by selecting **Edit** next to **Authentication settings**. To learn more about these options, review [Authentication flow - Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md#authentication-flow).
 
@@ -403,7 +415,7 @@ Now that you have the tenant ID and the application ID, you can set up your func
 
 1. Copy the app registration's **App (client) ID** to use later in the Azure Functions action's **Audience** property for your workflow.
 
-   :::image type="content" source="media/logic-apps-azure-functions/identity-provider-application-id.png" alt-text="Screenshot shows new identity provider for function app." lightbox="media/logic-apps-azure-functions/identity-provider-application-id.png":::
+   :::image type="content" source="media/call-azure-functions-from-workflows/identity-provider-application-id.png" alt-text="Screenshot shows new identity provider for function app." lightbox="media/call-azure-functions-from-workflows/identity-provider-application-id.png":::
 
 1. Return to the designer and follow the [steps to authenticate access with the managed identity](create-managed-service-identity.md#authenticate-access-with-identity) by using the built-in Azure Functions action.
 

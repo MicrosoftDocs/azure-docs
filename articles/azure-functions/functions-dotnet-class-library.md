@@ -31,9 +31,6 @@ Azure Functions supports C# and C# script programming languages. If you're looki
 
 ### Updating to target .NET 8
 
-> [!NOTE]
-> Targeting .NET 8 with the in-process model is not yet enabled for apps in sovereign clouds. Updates will be communicated on [this tracking thread on GitHub](https://github.com/Azure/azure-functions-host/issues/9951).
-
 Apps using the in-process model can target .NET 8 by following the steps outlined in this section. However, if you choose to exercise this option, you should still begin planning your [migration to the isolated worker model](./migrate-dotnet-to-isolated-model.md) in advance of [support ending for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model).
 
 Many apps can change the configuration of the function app in Azure without updates to code or redeployment. To run .NET 8 with the in-process model, three configurations are required:
@@ -53,7 +50,7 @@ The following is an example of a minimal `project` file with these changes:
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <AzureFunctionsVersion>V4</AzureFunctionsVersion>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.4.0" />
@@ -229,9 +226,12 @@ The following example shows the relevant parts of the `.csproj` files that have 
   <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 </PropertyGroup>
 <ItemGroup>
-  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.4.0" />
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.5.0" />
 </ItemGroup>
 ```
+
+> [!IMPORTANT]
+> Starting with version 4.0.6517 of the Core Tools, in-process model projects must reference [version 4.5.0 or later of `Microsoft.NET.Sdk.Functions`](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/4.5.0). If an earlier version is used, the `func start` command will error.
 
 # [v1.x](#tab/v1)
 
@@ -286,13 +286,13 @@ You can also build your app with ReadyToRun from the command line. For more info
 
 ## Supported types for bindings
 
-Each binding has its own supported types; for instance, a blob trigger attribute can be applied to a string parameter, a POCO parameter, a `CloudBlockBlob` parameter, or any of several other supported types. The [binding reference article for blob bindings](functions-bindings-storage-blob-trigger.md#usage) lists all supported parameter types. For more information, see [Triggers and bindings](functions-triggers-bindings.md) and the [binding reference docs for each binding type](functions-triggers-bindings.md#next-steps).
+Each binding has its own supported types; for instance, a blob trigger attribute can be applied to a string parameter, a POCO parameter, a `CloudBlockBlob` parameter, or any of several other supported types. The [binding reference article for blob bindings](functions-bindings-storage-blob-trigger.md#usage) lists all supported parameter types. For more information, see [Triggers and bindings](functions-triggers-bindings.md) and the [binding reference docs for each binding type](functions-triggers-bindings.md#related-content).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 ## Binding to method return value
 
-You can use a method return value for an output binding, by applying the attribute to the method return value. For examples, see [Triggers and bindings](./functions-bindings-return-value.md). 
+You can use a method return value for an output binding, by applying the attribute to the method return value. For examples, see [Triggers and bindings](./functions-triggers-bindings.md). 
 
 Use the return value only if a successful function execution always results in a return value to pass to the output binding. Otherwise, use `ICollector` or `IAsyncCollector`, as shown in the following section.
 
@@ -454,7 +454,7 @@ Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <VE
 
 In this command, replace `<VERSION>` with a version of this package that supports your installed version of [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/). 
 
-The following C# examples uses the [custom telemetry API](../azure-monitor/app/api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
+The following C# examples uses the [custom telemetry API](/azure/azure-monitor/app/api-custom-events-metrics). The example is for a .NET class library, but the Application Insights code is the same for C# script.
 
 # [v4.x](#tab/v4)
 
@@ -526,7 +526,7 @@ namespace functionapp0915
 }
 ```
 
-In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) documentation in Application Insights. 
+In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](/azure/azure-monitor/app/api-custom-events-metrics#getmetric) documentation in Application Insights. 
 
 When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 

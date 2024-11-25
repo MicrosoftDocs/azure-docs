@@ -5,7 +5,7 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 03/16/2017
+ms.date: 08/08/2024
 ms.author: greglin
 ms.custom: template-how-to, devx-track-azurepowershell
 ---

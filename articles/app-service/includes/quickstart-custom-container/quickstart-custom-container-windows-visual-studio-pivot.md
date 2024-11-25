@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/30/2022
@@ -9,7 +9,7 @@ ms.author: cephalin
 
 [Azure App Service](../../overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the pre-configured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
-This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Azure Container Registry](../../../container-registry/container-registry-intro.md) from Visual Studio. You run the app in a custom container in Azure App Service.
+This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Azure Container Registry](/azure/container-registry/container-registry-intro) from Visual Studio. You run the app in a custom container in Azure App Service.
 
 To complete this quickstart, you need:
 
@@ -97,7 +97,7 @@ Create an ASP.NET web app by following these steps:
 
    ![Screenshot of Configure your a Web App for Containers.](../../media/quickstart-custom-container/configure-web-app-container.png)
 
-    If you have a custom image elsewhere for your web application, such as in [Azure Container Registry](../../../container-registry/index.yml) or in any other private repository, you can configure it here. Select **Review + Create** to continue.
+    If you have a custom image elsewhere for your web application, such as in [Azure Container Registry](/azure/container-registry/) or in any other private repository, you can configure it here. Select **Review + Create** to continue.
 
 1. Verify all the details and then select **Create** and wait for Azure to create the required resources.
 ![Screenshot of Create your a Web App for Containers.](../../media/quickstart-custom-container/web-app-container-create-start.png)

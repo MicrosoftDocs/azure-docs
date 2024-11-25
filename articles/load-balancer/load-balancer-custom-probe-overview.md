@@ -68,13 +68,13 @@ The protocol used by the health probe can be configured to one of the following 
 
 ## Probe interval & timeout
 
-The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. If the health probe succeeds on the next healthy probe up, Azure Load Balancer marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 5 seconds by default but can be explicitly set to another value.
+The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. If the health probe succeeds on the next healthy probe up, Azure Load Balancer marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 5 seconds by default in the Azure portal, but can be explicitly set to another value.
 
 In order to ensure a timely response is received, HTTP/S health probes have built-in timeouts. The following are the timeout durations for TCP and HTTP/S probes:
 * TCP probe timeout duration: N/A (probes will fail once the configured probe interval duration has passed and the next probe has been sent)
 * HTTP/S probe timeout duration: 30 seconds
 
-For HTTP/S probes, if the configured interval is longer than the above timeout period, the health probe will timeout and fail if no response is received during the timeout period. For example, if an HTTP health probe is configured with a probe interval of 120 seconds (every 2 minutes), and no probe response is received within the first 30 seconds, the probe will have reached its timeout period and fail.
+For HTTP/S probes, if the configured interval is longer than the above timeout period, the health probe will timeout and fail if no response is received during the timeout period. For example, if an HTTP health probe is configured with a probe interval of 120 seconds (every 2 minutes), and no probe response is received within the first 30 seconds, the probe will have reached its timeout period and fail. When the configured interval is shorter than the above timeout period, the health probe will fail if no response is received before the configured interval period completes and the next probe will be sent immediately.
 
 ## Design guidance
 
@@ -116,13 +116,15 @@ If you don't allow the [source IP](#probe-source-ip-address) of the probe in you
 
  ## Limitations
 
-* HTTPS probes don't support mutual authentication with a client certificate.
+* HTTPS probes doesn't support mutual authentication with a client certificate.
+
+* HTTP probes doesn't support using hostnames to probes backends
 
 * Enabling TCP timestamps can cause throttling or other performance issues, which can then cause health probes to timeout.
 
 * A Basic SKU load balancer health probe isn't supported with a virtual machine scale set.
 
-* HTTP probes don't support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
+* HTTP probes doesn't support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
 
 ## Next steps
 

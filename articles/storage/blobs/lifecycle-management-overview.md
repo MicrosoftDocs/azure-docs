@@ -5,7 +5,7 @@ description: Use Azure Blob Storage lifecycle management policies to create auto
 author: normesta
 
 ms.author: normesta
-ms.date: 05/01/2024
+ms.date: 10/25/2024
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: yzheng
@@ -186,13 +186,13 @@ The run conditions are based on age. Current versions use the last modified time
 
 ## Lifecycle policy runs
 
-The platform runs the lifecycle policy once a day. When you configure or edit a lifecycle policy., it can take up to 24 hours for changes to go into effect and for the first execution to start. The time taken for policy actions to complete depends on the number of blobs evaluated and operated on.
+When you configure or edit a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. The time taken for policy actions to complete depends on the number of blobs evaluated and operated on.
 
 If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. See [Regional availability and pricing](#regional-availability-and-pricing).  
 
 ### Lifecycle policy completed event
+The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. The following json shows an example `LifecyclePolicyCompleted` event for a policy. Because the policy definition includes the `delete`, `tierToCool`, `tierToCold`, and `tierToArchive` actions, a summary section appears for each one. 
 
-The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. The following json shows an example `LifecyclePolicyCompleted` event.
 
 ```json
 {
@@ -209,6 +209,11 @@ The `LifecyclePolicyCompleted` event is generated when the actions defined by a 
             "errorList": ""
         },
         "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToColdSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
             "errorList": ""
@@ -231,6 +236,7 @@ The following table describes the schema of the `LifecyclePolicyCompleted` event
 |scheduleTime|string|The time that the lifecycle policy was scheduled|
 |deleteSummary|vector\<byte\>|The results summary of blobs scheduled for delete operation|
 |tierToCoolSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cool operation|
+|tierToColdSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cold operation|
 |tierToArchiveSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-archive operation|
 
 ## Examples of lifecycle policies
@@ -449,7 +455,7 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
 
 The lifecycle management feature is available in all Azure regions.
 
-Lifecycle management policies are free of charge. Customers are billed for standard operation costs for the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) API calls. Delete operations are free. However, other Azure services and utilities such as [Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md) may charge for operations that are managed through a lifecycle policy.
+Lifecycle management policies are free of charge. Customers are billed for standard operation costs for the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) API calls. Delete operations are free. However, other Azure services and utilities such as [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction) may charge for operations that are managed through a lifecycle policy.
 
 Each update to a blob's last access time is billed under the [other operations](https://azure.microsoft.com/pricing/details/storage/blobs/) category. Each last access time update is charged as an "other transaction" at most once every 24 hours per object even if it's accessed 1000s of times in a day. This is separate from read transactions charges.
 
@@ -462,8 +468,6 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 - A lifecycle management policy must be read or written in full. Partial updates are not supported.
 
 - Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
-
-- If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
 
 - A lifecycle management policy can't change the tier of a blob that uses an encryption scope.
 

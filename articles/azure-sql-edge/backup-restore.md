@@ -3,14 +3,16 @@ title: Back up and restore databases - Azure SQL Edge
 description: Learn about backup and restore capabilities in Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
 # Back up and restore databases in Azure SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge is built on the latest versions of the Microsoft SQL Database Engine. It provides similar backup and restore database capabilities to SQL Server on Linux and SQL Server running in containers. The backup and restore component provides an essential safeguard for protecting data stored in your Azure SQL Edge databases.

@@ -34,5 +34,4 @@ ms.author: spelluru
 <!--Image references-->
 
 [connection-info]: ./media/relay-create-namespace-portal/connection-info.png
-[connection-string]: ./media/relay-create-namespace-portal/connection-string-vs2019.png
 [Azure portal]: https://portal.azure.com

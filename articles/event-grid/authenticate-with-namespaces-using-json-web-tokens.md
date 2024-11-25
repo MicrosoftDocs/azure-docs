@@ -57,7 +57,7 @@ For information configuring system and user-assigned identities using the Azure 
     az keyvault certificate import --vault-name "<your-key-vault-name>" -n "<cert name>" -f "<path to your certificate pem file> " 
     ```
      > [!NOTE]
-    > Your certificate must include the domain name in the Subject Alternative name for DNS. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
+    > Your certificate must include the domain name in the Subject Alternative name for DNS. For more information, see [Tutorial: Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate).
 
 
 ## Add role assignment in Azure Key Vault for the namespace’s managed identity 
@@ -79,7 +79,7 @@ You need to provide access to the namespace to access your Azure Key Vault accou
     az role assignment create --role "Key Vault Certificate User" --assignee $principalId --scope $keyVaultResourceId 
     ```
 
-    For more information about Key Vault access and the portal experience, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md). 
+    For more information about Key Vault access and the portal experience, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide). 
 
 ## Configure custom authentication settings on your Event Grid namespace 
 In this step, you configure custom authentication settings on your Event Grid namespace using Azure portal and Azure CLI. You need to create the namespace first then update it using the following steps.
@@ -110,7 +110,7 @@ Use the following command to update your namespace with the custom JWT authentic
 
   
 ```azurecli-interactive
-az resource update --resource-type Microsoft.EventGrid/namespaces --api-version 2024-06-01-preview --ids /subscriptions/69f9e5ac-ca07-42cc-98d2-4718d033bcc5/resourceGroups/dummy-cd-test/providers/Microsoft.EventGrid/namespaces/dummy-cd-test2 --set properties.topicSpacesConfiguration.clientAuthentication='{\"customJwtAuthentication\":{\"tokenIssuer\":\"dmpypin-issuer\",\"issuerCertificates\":[{\"certificateUrl\":\"https://dummyCert-cd-test.vault.azure.net/certificates/dummy-cd-test/4f844b284afd487e9bba0831191087br1\",\"identity\":{\"type\":\"SystemAssigned\"}}]}}' 
+az resource update --resource-type Microsoft.EventGrid/namespaces --api-version 2024-06-01-preview --ids /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dummy-cd-test/providers/Microsoft.EventGrid/namespaces/dummy-cd-test2 --set properties.topicSpacesConfiguration.clientAuthentication='{\"customJwtAuthentication\":{\"tokenIssuer\":\"dmpypin-issuer\",\"issuerCertificates\":[{\"certificateUrl\":\"https://dummyCert-cd-test.vault.azure.net/certificates/dummy-cd-test/4f844b284afd487e9bba0831191087br1\",\"identity\":{\"type\":\"SystemAssigned\"}}]}}' 
 ```
 ## JSON Web Token format
 Json Web Tokens are divided into the JWT Header and JWT payload sections.

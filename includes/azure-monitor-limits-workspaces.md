@@ -4,7 +4,7 @@ description: "include file"
 services: azure-monitor
 author: rboucher
 ms.topic: "include"
-ms.date: 04/23/2024
+ms.date: 10/06/2024
 ms.author: robb
 ms.custom: "include file"
 ---
@@ -78,21 +78,19 @@ ms.custom: "include file"
 
 | Category | Limit | Comments |
 |:---|:---|:---|
-| Maximum columns in a table         | 500 | Contact support for more |
+| Maximum columns in a table         | 500 | **AzureDiagnostics** -- columns above the limit are added to the dynamic 'AdditionalFields' column <br> **Custom log created by Data collector API** -- columns above the limit are added to the dynamic 'AdditionalFields' column <br> **Custom log** -- contact support for more |
 | Maximum number of custom log tables | 500 | Contact support for more |
 | Maximum characters for column name | 45 | |
 
 <b id="data-ingestion-volume-rate">Data ingestion volume rate</b>
 
-Azure Monitor is a high-scale data service that serves thousands of customers sending Terabytes of data each daily and at a growing pace. A soft volume rate limit intends to isolate Azure Monitor customers from sudden ingestion spikes in a multitenancy environment. The default ingestion volume rate threshold in workspaces is 500 MB (compressed), which is translated to approximately 6 GB/min uncompressed.
+Azure Monitor is a high-scale data service that serves thousands of customers sending Terabytes of data daily at a growing pace. To isolate and prevent interruptions in multitenancy service from sudden ingestion bursts, a default ingestion volume rate limit is placed in workspaces and set to 500 MB per minute compressed, which is translated to approximately **6 GB per minute uncompressed**. This limit applies to data ingested from Azure resources via [Diagnostic settings](../articles/azure-monitor/essentials/diagnostic-settings.md). The limit doesn't apply to data ingested from [agents](../articles/azure-monitor/agents/agents-overview.md), or Data Collection Rules.
 
-The volume rate limit applies to data ingested from Azure resources via [Diagnostic settings](../articles/azure-monitor/essentials/diagnostic-settings.md) and [Data Collector API](../articles/azure-monitor/logs/data-collector-api.md). When the volume rate limit is reached, a retry mechanism attempts to ingest the data four times in a period of 12 hours and drop it if operation fails. The limit doesn't apply to data ingested from [agents](../articles/azure-monitor/agents/agents-overview.md), or via DCR.
+When the ingested volume rate reaches 80% of the rate limit set in workspace, an event is sent to the `Operation` table in your workspace every 6 hours while the threshold is exceeded. When volume rate limit is reached, a retry mechanism attempts to ingest the data four times in a period of 12 hours and drop it if fails, an event is sent to the `Operation` table in your workspace every 6 hours while the threshold is exceeded. 
 
-When data sent to your workspace is at a volume rate higher than 80% of the threshold configured in your workspace, an event is sent to the `Operation` table in your workspace every 6 hours while the threshold continues to be exceeded. When the ingested volume rate is higher than the threshold, some data is dropped, an event is sent to the `Operation` table in your workspace every 6 hours while the threshold continues to be exceeded. 
+If your ingestion volume rate continues to exceed threshold or you're expecting to reach it sometime soon, **you can request to increase this limit by opening a support request**.
 
-If your ingestion volume rate continues to exceed the threshold or you're expecting to reach it sometime soon, **you can request to increase this limit by opening a support request**.
-
-It's also recommended to create an alert rule to proactively notify when you reach any ingestion limits. See [Monitor health of Log Analytics workspace in Azure Monitor](../articles/azure-monitor/logs/monitor-workspace.md).
+It's recommended to create an alert to get notified proactively when nearing or reaching ingestion limits. See [Monitor health of Log Analytics workspace in Azure Monitor](../articles/azure-monitor/logs/monitor-workspace.md).
 
 >[!NOTE]
 >Depending on how long you've been using Log Analytics, you might have access to legacy pricing tiers. Learn more about [Log Analytics legacy pricing tiers](../articles/azure-monitor/logs/cost-logs.md#legacy-pricing-tiers).

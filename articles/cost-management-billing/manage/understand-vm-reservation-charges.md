@@ -29,7 +29,7 @@ The following table illustrates the costs for your virtual machine after you pur
 |Linux VMs with software charges (For example, Red Hat) | The reservation covers the infrastructure costs. You're charged for additional software.|
 |Windows VMs without additional software |The reservation covers the infrastructure costs. You're charged for Windows software.|
 |Windows VMs with additional software (For example, SQL server) | The reservation covers the infrastructure costs. You're charged for Windows software and for additional software.|
-|Windows VMs with [Azure Hybrid Benefit](../../virtual-machines/windows/hybrid-use-benefit-licensing.md) | The reservation covers the infrastructure costs. The Windows software costs are covered by the Azure Hybrid Benefit. Any additional software is charged separately.|
+|Windows VMs with [Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | The reservation covers the infrastructure costs. The Windows software costs are covered by the Azure Hybrid Benefit. Any additional software is charged separately.|
 
 ## How reservation discount is applied
 
@@ -54,11 +54,11 @@ To understand and view the application of your Azure Reservations in billing usa
 
 ## Reservation discount for Windows VMs
 
-When you're running Windows VM instances, the reservation is applied to cover the infrastructure costs. The application of the reservation to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You're charged separately for Windows software on a per vCPU basis. See [Windows software costs with Reservations](../reservations/reserved-instance-windows-software-costs.md). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server](../../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+When you're running Windows VM instances, the reservation is applied to cover the infrastructure costs. The application of the reservation to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You're charged separately for Windows software on a per vCPU basis. See [Windows software costs with Reservations](../reservations/reserved-instance-windows-software-costs.md). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## Discount can apply to different sizes
 
-When you buy a Reserved VM Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the VM size you select. It can also apply to other VMs sizes that are in the same series instance size flexibility group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
+When you buy a Reserved VM Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the VM size you select. It can also apply to other VMs sizes that are in the same series instance size flexibility group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](/azure/virtual-machines/reserved-vm-instance-size-flexibility).
 
 ## Premium storage VMs don't get non-premium discounts
 
@@ -95,7 +95,7 @@ When the setting is on, reservation discounts automatically apply to matching VM
 
 Check the *ConsumedService* value in your usage data to determine if the usage is eligible for reservation discounts.
 
-For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
+For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](/azure/virtual-machines/reserved-vm-instance-size-flexibility).
 
 
 ## Need help? Contact us
@@ -107,7 +107,7 @@ If you have questions or need help,  [create a support request](https://go.micro
 To learn more about Azure Reservations, see the following articles:
 
 - [What are reservations for Azure?](../reservations/save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
 - [Manage reservations for Azure](../reservations/manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](../reservations/understand-reserved-instance-usage.md)

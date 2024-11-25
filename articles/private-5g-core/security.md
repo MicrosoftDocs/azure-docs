@@ -32,9 +32,9 @@ Azure Private 5G Core packet core instances are deployed on Azure Stack Edge dev
 
 In addition to the default [Encryption at rest](#encryption-at-rest) using Microsoft-Managed Keys (MMK), you can optionally use Customer Managed Keys (CMK) to encrypt data with your own key.
 
-If you elect to use a CMK, you'll need to create a Key URI in your [Azure Key Vault](../key-vault/index.yml) and a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with read, wrap, and unwrap access to the key. Note that:
+If you elect to use a CMK, you'll need to create a Key URI in your [Azure Key Vault](/azure/key-vault/) and a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with read, wrap, and unwrap access to the key. Note that:
 
-- The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](../key-vault/keys/how-to-configure-key-rotation.md).
+- The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation).
 - The SIM group accesses the key via the user-assigned identity.
 
 For more information on configuring CMK, see [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk).
@@ -76,13 +76,13 @@ Your RADIUS server must be reachable from your Azure Stack Edge device on the ma
 
 Access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) is secured by HTTPS. You can provide your own HTTPS certificate to attest access to your local diagnostics tools. Providing a certificate signed by a globally known and trusted certificate authority (CA) grants further security to your deployment; we recommend this option over using a certificate signed by its own private key (self-signed).
 
-If you decide to provide your own certificates for local monitoring access, you'll need to add the certificate to an [Azure Key Vault](../key-vault/index.yml) and set up the appropriate access permissions. See [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) for more information on configuring custom HTTPS certificates for local monitoring access.
+If you decide to provide your own certificates for local monitoring access, you'll need to add the certificate to an [Azure Key Vault](/azure/key-vault/) and set up the appropriate access permissions. See [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) for more information on configuring custom HTTPS certificates for local monitoring access.
 
 You can configure how access to your local monitoring tools is attested while [creating a site](create-a-site.md). For existing sites, you can modify the local access configuration by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
 We recommend that you rotate (replace) certificates at least once per year, including removing the old certificates from your system. You might need to rotate your certificates more frequently if they expire after less than one year, or if organizational policies require it.
 
-For more information on how to generate a Key Vault certificate, see [Certificate creation methods](../key-vault/certificates/create-certificate.md).
+For more information on how to generate a Key Vault certificate, see [Certificate creation methods](/azure/key-vault/certificates/create-certificate).
 
 ### Access authentication
 

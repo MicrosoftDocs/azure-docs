@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: render
 ---
 
 # Migrate Bing Maps Get Imagery Metadata API

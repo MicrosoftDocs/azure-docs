@@ -1,12 +1,12 @@
 ---
 title: Spacecraft resource - Azure Orbital Ground Station
-description: Learn about how you can represent your spacecraft details in Azure Orbital Ground Station.
+description: Learn about how you can represent your spacecraft details--Ephemeris, Links, and Authorizations--in Azure Orbital Ground Station.
 author: hrshelar
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: conceptual
 ms.custom: ga
 ms.date: 07/13/2022
-ms.author: hrshelar
+ms.author: mosagie
 #Customer intent: As a satellite operator or user, I want to understand what the spacecraft resource does so I can manage my mission.
 ---
 

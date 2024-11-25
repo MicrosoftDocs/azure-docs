@@ -3,7 +3,7 @@ title: Azure IoT support and help options | Microsoft Docs
 description: How to obtain help and support for questions or problems when you create solutions using Azure IoT Services.
 author: dominicbetts
 ms.author: dobett
-ms.service: iot
+ms.service: azure-iot
 services: iot
 ms.topic: conceptual
 ms.date: 02/28/2024

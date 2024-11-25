@@ -58,8 +58,8 @@ AzAcSnap is a single binary. It doesn't need additional agents or plug-ins to in
 
 - **Databases**
   - SAP HANA (see the [support matrix](#snapshot-support-matrix-from-sap) for details)
-  - Oracle Database release 12 or later (see [Oracle VM images and their deployment on Microsoft Azure](../virtual-machines/workloads/oracle/oracle-vm-solutions.md) for details)
-  - IBM Db2 for LUW on Linux-only version 10.5 or later (see [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](../virtual-machines/workloads/sap/dbms_guide_ibm.md) for details)
+  - Oracle Database release 12 or later (see [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions) for details)
+  - IBM Db2 for LUW on Linux-only version 10.5 or later (see [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](/azure/virtual-machines/workloads/sap/dbms_guide_ibm) for details)
 
 - **Operating systems**
   - SUSE Linux Enterprise Server 12+
@@ -75,7 +75,7 @@ AzAcSnap is a single binary. It doesn't need additional agents or plug-ins to in
 
 ## Supported scenarios
 
-The snapshot tools can be used in the following [Supported scenarios for HANA Large Instances](../virtual-machines/workloads/sap/hana-supported-scenario.md) and [SAP HANA with Azure NetApp Files](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md).
+The snapshot tools can be used in the following [Supported scenarios for HANA Large Instances](/azure/virtual-machines/workloads/sap/hana-supported-scenario) and [SAP HANA with Azure NetApp Files](/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp).
 
 ## Snapshot Support Matrix from SAP
 

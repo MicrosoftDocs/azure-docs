@@ -6,24 +6,18 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 07/05/2024
+ms.date: 11/04/2024
 ms.custom: vmware-scenario-422, engagement-fy24
-zone_pivot_groups: vmware-discovery-requirements
 ---
 
 # Support matrix for VMware discovery
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
-This article summarizes prerequisites and support requirements for using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool to discover and assess servers in a VMware environment for migration to Azure.
+This article summarizes prerequisites and support requirements for using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md) tool to discover and assess servers in a VMware environment for migration to Azure.
 
 To assess servers, first, create an Azure Migrate project. The Azure Migrate: Discovery and assessment tool is automatically added to the project. Then, deploy the Azure Migrate appliance. The appliance continuously discovers on-premises servers and sends configuration and performance metadata to Azure. When discovery is finished, gather the discovered servers into groups and run assessments per group.
 
 As you plan your migration of VMware servers to Azure, see the [migration support matrix](../migrate-support-matrix-vmware-migration.md).
 
-
-::: zone pivot="vmware-requirements"
 
 ## VMware requirements
 
@@ -32,9 +26,6 @@ VMware | Details
 vCenter Server | Servers that you want to discover and assess must be managed by vCenter Server version 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses aren't supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
 Permissions | The Azure Migrate: Discovery and assessment tool requires a vCenter Server read-only account.<br /><br /> If you want to use the tool for software inventory, agentless dependency analysis, web apps, and SQL discovery, the account must have privileges for guest operations on VMware virtual machines (VMs).
 
-:::zone-end
-
-::: zone pivot="server-requirements"
 
 ## Server requirements
 
@@ -43,9 +34,6 @@ VMware | Details
 Operating systems | All Windows and Linux operating systems can be assessed for migration.
 Storage | Disks attached to SCSI, IDE, and SATA-based controllers are supported.
 
-:::zone-end
-
-::: zone pivot="migrate-appliance-requirements"
 
 ## Azure Migrate appliance requirements
 
@@ -56,11 +44,6 @@ Here are more requirements for the appliance:
 - In Azure Government, you must deploy the appliance by using a [script](../deploy-appliance-script-government.md).
 - The appliance must be able to access specific URLs in [public clouds](../migrate-appliance.md#public-cloud-urls) and [government clouds](../migrate-appliance.md#government-cloud-urls).
 
-:::zone-end
-
-
-::: zone pivot="port-access-requirements"
-
 ## Port access requirements
 
 Device | Connection
@@ -69,10 +52,6 @@ Azure Migrate appliance | Inbound connections on TCP port 3389 to allow remote d
 vCenter Server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br /><br /> The appliance connects to vCenter on port 443 by default. If vCenter Server listens on a different port, you can modify the port when you set up discovery.
 ESXi hosts | For [discovery of software inventory](../how-to-discover-applications.md) or [agentless dependency analysis](../concepts-dependency-visualization.md#agentless-analysis), the appliance connects to ESXi hosts on TCP port 443 to discover software inventory and dependencies on the servers.
 
-::: zone-end
-
-
-::: zone pivot="software-inventory-requirements"
 
 ## Software inventory requirements
 
@@ -87,10 +66,6 @@ vCenter Server account | To interact with the servers for software inventory, th
 Server access | You can add multiple domain and nondomain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-sudo access) for all Linux servers.
 Port access | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory. <br /><br /> If you use domain credentials, the Azure Migrate appliance must be able to connect to the following TCP and UDP ports: <br /> <br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
 Discovery | Software inventory is performed from vCenter Server by using VMware Tools installed on the servers.<br/><br/> The appliance gathers the information about the software inventory from the server running vCenter Server through vSphere APIs.<br/><br/> Software inventory is agentless. No agent is installed on the server, and the appliance doesn't connect directly to the servers.
-
-::: zone-end
-
-::: zone pivot="sql-server-instance-database-discovery-requirements"
 
 ## SQL Server instance and database discovery requirements
 
@@ -297,9 +272,6 @@ Use the following sample scripts to create a login and provision it with the nec
   --GO
    ```
 
-::: zone-end
-
-::: zone pivot="web-apps-discovery"
 
 ## Web apps discovery requirements
 
@@ -321,10 +293,6 @@ Required privileges | Local admin. | Root or sudo user.
 > [!NOTE]
 > Data is always encrypted at rest and during transit.
 
-::: zone-end
-
-
-::: zone pivot="dependency-analysis-agentless-requirements"
 
 ## Dependency analysis requirements (agentless)
 
@@ -334,17 +302,17 @@ Support | Details
 --- | ---
 Supported servers | You can enable agentless dependency analysis on up to 1,000 servers (across multiple vCenter Servers) discovered per appliance.
 Windows servers | Windows Server 2022 <br/> Windows Server 2019<br /> Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br /> Windows Server 2008 (32-bit)
-Linux servers | Red Hat Enterprise Linux 5.1, 5.3, 5.11, 6.x, 7.x, 8.x <br /> Ubuntu 12.04, 14.04, 16.04, 18.04, 20.04 <br /> OracleLinux 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5 <br /> SUSE Linux 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3 <br /> Debian 7, 8, 9, 10, 11
+Linux servers | Red Hat Enterprise Linux 5.1, 5.3, 5.11, 6.x, 7.x, 8.x, 9.x <br /> Ubuntu 12.04, 14.04, 16.04, 18.04, 20.04, 22.04 <br /> OracleLinux 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5 <br /> SUSE Linux 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3 <br /> Debian 7, 8, 9, 10, 11
 Server requirements | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Servers must have PowerShell version 2.0 or later installed.<br /><br /> WMI should be enabled and available on Windows servers.
 vCenter Server account | The read-only account used by Azure Migrate and Modernize for assessment must have privileges for guest operations on VMware VMs.
-Windows server access |  A user account (local or domain) with administrator permissions on servers.
-Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time a sudo command is invoked. <br /><br /> Alternatively, you can create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files set by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
-Port access | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running the servers that have dependencies you want to discover. The server running vCenter Server returns an ESXi host connection to download the file containing the dependency data.
+Windows server access |  Guest user account
+Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time a sudo command is invoked. <br /><br /> Alternatively, you can create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files set by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>|
+|Port access | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running the servers that have dependencies you want to discover. The server running vCenter Server returns an ESXi host connection to download the file containing the dependency data.
 Discovery method |  Dependency information between servers is gathered by using VMware Tools installed on the server running vCenter Server.<br /><br /> The appliance gathers the information from the server by using vSphere APIs.<br /><br /> No agent is installed on the server, and the appliance doesn't connect directly to servers.
 
-::: zone-end
+> [!Note]
+> In some recent Linux OS versions, the netstat command was replaced by the `ss` command; have that in mind when preparing the servers.
 
-::: zone pivot="dependency-analysis-agent-based-requirements"
 
 ## Dependency analysis requirements (agent-based)
 
@@ -354,15 +322,14 @@ Requirement | Details
 --- | ---
 Before deployment | You should have a project in place with the Azure Migrate: Discovery and assessment tool added to the project.<br /><br />You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers.<br /><br />Learn how to [create a project for the first time](../create-manage-projects.md).<br /> Learn how to [add a discovery and assessment tool to an existing project](../how-to-assess.md).<br /> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](../how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
 Supported servers | Supported for all servers in your on-premises environment.
-Log Analytics | Azure Migrate and Modernize uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) for dependency visualization.<br /><br /> You associate a new or existing Log Analytics workspace with a project. You can't modify the workspace for a project after you add the workspace. <br /><br /> The workspace must be in the same subscription as the project.<br /><br /> The workspace must be located in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br /><br /> The workspace must be in a [region in which Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> In Log Analytics, the workspace associated with Azure Migrate is tagged with the project key and project name.
-Required agents | On each server that you want to analyze, install the following agents:<br />- Azure Monitor agent (AMA)<br />- [Dependency agent](../../azure-monitor/vm/vminsights-dependency-agent-maintenance.md)<br /><br /> If on-premises servers aren't connected to the internet, download and install the Log Analytics gateway on them.<br /><br /> Learn more about installing the [Dependency agent](../how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and the Azure Monitor agent.
+Log Analytics | Azure Migrate and Modernize uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) for dependency visualization.<br /><br /> You associate a new or existing Log Analytics workspace with a project. You can't modify the workspace for a project after you add the workspace. <br /><br /> The workspace must be in the same subscription as the project.<br /><br /> The workspace must be located in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br /><br /> The workspace must be in a [region in which Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> In Log Analytics, the workspace associated with Azure Migrate is tagged with the project key and project name.
+Required agents | On each server that you want to analyze, install the following agents:<br />- Azure Monitor agent (AMA)<br />- [Dependency agent](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance)<br /><br /> If on-premises servers aren't connected to the internet, download and install the Log Analytics gateway on them.<br /><br /> Learn more about installing the [Dependency agent](../how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and the Azure Monitor agent.
 Log Analytics workspace | The workspace must be in the same subscription as the project.<br /><br /> Azure Migrate supports workspaces that are located in the East US, Southeast Asia, and West Europe regions.<br /><br />  The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> You can't modify the workspace for a project after you add the workspace.
 Cost | The Service Map solution doesn't incur any charges for the first 180 days. The count starts from the day you associate the Log Analytics workspace with the project.<br /><br /> After 180 days, standard Log Analytics charges apply.<br /><br /> Using any solution other than Service Map in the associated Log Analytics workspace incurs [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br /><br /> When the project is deleted, the workspace isn't automatically deleted. After you delete the project, Service Map usage isn't free. Each node is charged according to the paid tier of the Log Analytics workspace.<br /><br />If you have projects that you created before Azure Migrate general availability (GA on February 28, 2018), you might incur other Service Map charges. To ensure that you're charged only after 180 days, we recommend that you create a new project. Workspaces that were created before GA are still chargeable.
-Management | When you register agents to the workspace, use the ID and key provided by the project.<br /><br /> You can use the Log Analytics workspace outside Azure Migrate and Modernize.<br /><br /> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](../../azure-monitor/logs/manage-access.md).<br /><br /> Don't delete the workspace created by Azure Migrate and Modernize unless you delete the project. If you do, the dependency visualization functionality doesn't work as expected.
+Management | When you register agents to the workspace, use the ID and key provided by the project.<br /><br /> You can use the Log Analytics workspace outside Azure Migrate and Modernize.<br /><br /> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](/azure/azure-monitor/logs/manage-access).<br /><br /> Don't delete the workspace created by Azure Migrate and Modernize unless you delete the project. If you do, the dependency visualization functionality doesn't work as expected.
 Internet connectivity | If servers aren't connected to the internet, install the Log Analytics gateway on the servers.
 Azure Government | Agent-based dependency analysis isn't supported.
 
-::: zone-end
 
 ## Limitations
 

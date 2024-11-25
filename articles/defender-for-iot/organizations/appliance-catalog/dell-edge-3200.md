@@ -32,7 +32,7 @@ The following image shows a view of the Dell Edge Gateway 3200 back panel:
 |Dimensions| Height: 60 mm <br>Width: 162 cm<br>Depth: 108 mm |
 |Processor| Intel Atom x6425RE |
 |Memory|16 GB |
-|Storage| 500 GB Hard Drive |
+|Storage| 512 GB Hard Drive |
 |Network controller| Ports: 2* 1 GbE RJ45 |
 |Management|iDRAC Group Manager, Disabled |
 |Rack support| Wall mount/ DIN rail support |

@@ -3,10 +3,9 @@ title: Diagnostic logs for Application Gateway for Containers
 description: Learn how to enable access logs for Application Gateway for Containers
 services: application-gateway
 author: greglin
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
-ms.topic: article
-ms.date: 07/17/2024
+ms.service: azure-appgw-for-containers
+ms.topic: concept-article
+ms.date: 9/16/2024
 ms.author: greglin
 ---
 
@@ -22,9 +21,9 @@ You can monitor Azure Application Gateway for Containers resources in the follow
 
 ## Diagnostic logs
 
-You can use different types of logs in Azure to manage and troubleshoot Application Gateway for Containers. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../../azure-monitor/logs/data-platform-logs.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
+You can use different types of logs in Azure to manage and troubleshoot Application Gateway for Containers. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
-* **Activity log**: You can use [Azure activity logs](../../azure-monitor/essentials/activity-log.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
+* **Activity log**: You can use [Azure activity logs](/azure/azure-monitor/essentials/activity-log) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
 * **Access log**: You can use this log to view Application Gateway for Containers access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. The data may be stored in a storage account that is specified at time of enable logging.
 
 ### Configure access log
@@ -71,7 +70,7 @@ New-AzDiagnosticSetting -Name 'AppGWForContainersLogs' -ResourceId "/subscriptio
 > [!Note]
 > After initially enabling diagnostic logs, it may take up to one hour before logs are available at your selected destination.
 
-For more information and Azure Monitor deployment tutorials, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md).
+For more information and Azure Monitor deployment tutorials, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
 ### Access log format
 
@@ -87,6 +86,8 @@ Each access log entry in Application Gateway for Containers contains the followi
 | clientIp | IP address of the client initiating the request to the frontend of Application Gateway for Containers |
 | frontendName | Name of the Application Gateway for Containers frontend that received the request from the client |
 | frontendPort | Port number the request was listened on by Application Gateway for Containers |
+| frontendTLSFailureReason | Contains information on why TLS negotiation failed. Commonly used for understanding failed authentication requests for client mutual authentication |
+| frontendTLSPeerFingerprint | The fingerprint (thumbprint) of the certificate presented by a client to the frontend of Application Gateway for Containers |
 | hostName | Host header value received from the client by Application Gateway for Containers |
 | httpMethod | HTTP Method of the request received from the client by Application Gateway for Containers as per [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4.3). |
 | httpStatusCode | HTTP Status code returned from Application Gateway for Containers to the client |
@@ -120,7 +121,9 @@ Here an example of the access log emitted in JSON format to a storage account.
         "backendTimeTaken": "-",
         "clientIp": "xxx.xxx.xxx.xxx:52526",
         "frontendName": "frontend-primary",
-        "frontendPort": "80",
+        "frontendPort": "443",
+        "frontendTLSFailureReason": "-",
+        "frontendTLSPeerFingerprint": "2c01bbc93009ad1fc977fe9115fae7ad298b665f",
         "hostName": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.fzXX.alb.azure.com",
         "httpMethod": "GET",
         "httpStatusCode": "200",
@@ -132,7 +135,7 @@ Here an example of the access log emitted in JSON format to a storage account.
         "responseBodyBytes": "91",
         "responseHeaderBytes": "190",
         "timeTaken": "2",
-        "tlsCipher": "-",
+        "tlsCipher": "TLS_AES_256_GCM_SHA384",
         "tlsProtocol": "-",
         "trackingId": "0ef125db-7fb7-48a0-b3fe-03fe0ffed873",
         "userAgent": "curl\/7.81.0"

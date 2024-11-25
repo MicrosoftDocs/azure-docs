@@ -19,6 +19,8 @@ To help you manage access to backend APIs, your API Management instance includes
 > * Currently, you can use credential manager to configure and manage connections (formerly called *authorizations*) for backend OAuth 2.0 APIs. 
 > * No breaking changes are introduced with credential manager. OAuth 2.0 credential providers and connections use the existing API Management [authorization](/rest/api/apimanagement/authorization) APIs and resource provider.
 
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
 ## Managed connections for OAuth 2.0 APIs
 
 Using credential manager, you can greatly simplify the process of authenticating and authorizing users, groups, and service principals across one or more backend or SaaS services that use OAuth 2.0. Using API Management's credential manager, easily configure OAuth 2.0, consent, acquire tokens, cache tokens in a credential store, and refresh tokens without writing a single line of code. Use access policies to delegate authentication to your API Management instance, service principals, users, or groups. For background about the OAuth 2.0, see [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow).

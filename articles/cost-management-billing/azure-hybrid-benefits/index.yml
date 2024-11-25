@@ -42,7 +42,7 @@ additionalContent:
         - title: General guidance
           links:
             - text: Explore Azure Hybrid Benefit for Windows VMs
-              url: ../../virtual-machines/windows/hybrid-use-benefit-licensing.md
+              url: /azure/virtual-machines/windows/hybrid-use-benefit-licensing
         # Card
         - title: Additional guidance and benefits
           links:
@@ -58,7 +58,7 @@ additionalContent:
             - text: License SQL Server, Windows Server, and Linux in Azure VMware Solution
               url: ../../azure-vmware/license-sql-windows-in-avs.md
             - text: Overview of Azure Dedicated Hosts for virtual machines
-              url: ../../virtual-machines/dedicated-hosts.md
+              url: /azure/virtual-machines/dedicated-hosts
     - title: SQL Server VMs in Azure  # < 60 chars (optional)
       items:
         # Card
@@ -92,11 +92,11 @@ additionalContent:
         - title: General guidance
           links:
             - text: Explore Azure Hybrid Benefit for Linux VMs
-              url: ../../virtual-machines/linux/azure-hybrid-benefit-linux.md
+              url: /azure/virtual-machines/linux/azure-hybrid-benefit-linux
         - title: Additional guidance and benefits
           links:
             - text: Azure Hybrid Benefit for Linux Virtual Machine Scale Sets
-              url: ../../virtual-machine-scale-sets/azure-hybrid-benefit-linux.md
+              url: /azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux
             - text: RHEL subscription mobility with Azure Hybrid Benefit for Linux
               url: /shows/inside-azure-for-it/rhel-subscription-mobility-with-azure-hybrid-benefit-for-linux
         - title: Deployment options
@@ -104,7 +104,7 @@ additionalContent:
             - text: License SQL Server, Windows Server, and Linux in Azure VMware Solution
               url: ../../azure-vmware/license-sql-windows-in-avs.md
             - text: Overview of Azure Dedicated Hosts for virtual machines
-              url: ../../virtual-machines/dedicated-hosts.md
+              url: /azure/virtual-machines/dedicated-hosts
     - title: Additional resources  # < 60 chars (optional)
       items:
         # Card

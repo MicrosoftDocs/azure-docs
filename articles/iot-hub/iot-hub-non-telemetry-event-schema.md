@@ -5,13 +5,13 @@ author: kgremban
 ms.author: kgremban  
 ms.topic: conceptual
 ms.date: 04/10/2024
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ---
 
 # Azure IoT Hub non-telemetry event schemas
 
-This article provides the properties and schemas for non-telemetry events emitted by Azure IoT Hub. Non-telemetry events are different from device-to-cloud and cloud-to-device messages in that they are emitted directly by IoT Hub in response to specific kinds of state changes associated with your devices. For example, lifecycle changes like a device or module being created or deleted, or connection state changes like a device or module connecting or disconnecting. 
+This article provides the properties and schemas for non-telemetry events emitted by Azure IoT Hub. Non-telemetry events are different from device-to-cloud and cloud-to-device messages in that IoT Hub emits these events in response to specific state changes associated with your devices. For example, lifecycle changes like a device or module being created or deleted, or connection state changes like a device or module connecting or disconnecting. 
 
 You can route non-telemetry events using message routing, or reach to non-telemetry events using Azure Event Grid. To learn more about IoT Hub message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md) and [React to IoT Hub events by using Event Grid](./iot-hub-event-grid.md).
 
@@ -34,7 +34,7 @@ Non-telemetry events share several common properties.
 
 ### System properties
 
-The following system properties are set by IoT Hub on each event.
+IoT Hub sets the following system properties on each event.
 
 | Property | Type |Description | Keyword for routing query |
 | -------- | ---- | ---------- | ------------------------- |
@@ -49,7 +49,7 @@ The following system properties are set by IoT Hub on each event.
 
 ### Application properties
 
-The following application properties are set by IoT Hub on each event.
+IoT Hub sets the following application properties on each event.
 
 | Property | Type |Description |
 | -------- | ---- | ---------- |
@@ -79,7 +79,7 @@ Connection state events are emitted whenever a device or module connects or disc
 | ---- | ----------- |
 | iothub-message-source |  deviceConnectionStateEvents |
 
-**Body**: The body contains a sequence number. The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you're converting the string to hex, then the number will be a 256-bit number. The sequence number is strictly increasing, and the latest event will have a higher number than other events. This is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action.
+**Body**: The body contains a sequence number. The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you're converting the string to hex, then the number will be a 256-bit number. The sequence number is strictly increasing, so the latest event has a higher number than older events. This is useful if you have frequent device connects and disconnects, and want to ensure that only the latest event is used to trigger a downstream action.
 
 ### Example
 
@@ -96,7 +96,7 @@ The following JSON shows a device connection state event emitted when a device d
             "system": {
                 "content_encoding": "utf-8",
                 "content_type": "application/json",
-                "correlation_id": "98dcbcf6-3398-c488-c62c-06330e65ea98",
+                "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd",
                 "user_id": "contoso-routing-hub"
             },
             "application": {
@@ -139,7 +139,7 @@ Device lifecycle events are emitted whenever a device or module is created or de
 | ---- | ----------- |
 | iothub-message-source |  deviceLifecycleEvents |
 
-**Body**: The body contains a representation of the device twin or module twin. It includes the device ID and module ID, the twin etag, the version property, and the tags, properties and associated metadata of the twin.
+**Body**: The body contains a representation of the device twin or module twin. It includes the device ID and module ID, the twin etag, the version property, and the tags, properties, and associated metadata of the twin.
 
 ### Example
 
@@ -218,7 +218,7 @@ Device twin change events are emitted whenever a device twin or a module twin is
 | ---- | ----------- |
 | iothub-message-source |  twinChangeEvents |
 
-**Body**: On an update, the body contains the version property of the twin and the updated tags and properties and their associated metadata. On a replace, the body contains the device ID and module ID, the twin etag, the version property, and all the tags, properties and associated metadata of the device or module twin.
+**Body**: On an update, the body contains the version property of the twin and the updated tags and properties and their associated metadata. On a replace, the body contains the device ID and module ID, the twin etag, the version property, and all the tags, properties, and associated metadata of the device or module twin.
 
 ### Example
 

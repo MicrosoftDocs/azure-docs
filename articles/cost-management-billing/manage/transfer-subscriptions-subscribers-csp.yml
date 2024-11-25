@@ -29,7 +29,7 @@ procedureSection:
       When the request is approved, the CSP can then provide a combined invoice to their customers. To learn more about CSPs transferring subscriptions, see [Get billing ownership of Azure subscriptions for your Microsoft Partner Agreement (MPA) account](mpa-request-ownership.md).
 
       >[!IMPORTANT]
-      > After transferring an EA or MCA enterprise subscription to a CSP partner, any quota increases previously applied to the EA subscription will be reset to the default value. If more quota is required after the subscription transfer, have your CSP provider submit a [quota increase](../../azure-portal/supportability/regional-quota-requests.md) request. 
+      > After transferring an EA or MCA enterprise subscription to a CSP partner, any quota increases previously applied to the EA subscription will be reset to the default value. If more quota is required after the subscription transfer, have your CSP provider submit a [quota increase](/azure/azure-portal/supportability/regional-quota-requests) request. 
     
       ## Other subscription transfers to a CSP partner
 
@@ -43,7 +43,7 @@ procedureSection:
         Ensure that the source and target CSP subscriptions are in the same Microsoft Entra tenant.  
           You can't change the Microsoft Entra tenant for an Azure CSP subscription. Instead, you must add or associate the source subscription to the CSP Microsoft Entra tenant. For more information, see [Associate or add an Azure subscription to your Microsoft Entra tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
           > [!IMPORTANT]
-          > - When you associate a subscription to a different Microsoft Entra directory, users that have roles assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
+          > - When you associate a subscription to a different Microsoft Entra directory, users that have roles assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml) lose their access.
           > - Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
       - |  
         The user account that you use to do the transfer must have [Azure RBAC](add-change-subscription-administrator.md) owner access on both subscriptions.
@@ -68,7 +68,7 @@ procedureSection:
           The change directory option isn't supported for the CSP subscription. For example, you're transferring from a CSP to a pay-as-you-go subscription. You need to change the directory of the pay-as-you-go subscription to match the directory.
 
           > [!IMPORTANT]
-          >  - When you associate a subscription to a different directory, users that have roles assigned using [Azure RBAC](../../role-based-access-control/role-assignments-portal.yml) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
+          >  - When you associate a subscription to a different directory, users that have roles assigned using [Azure RBAC](../../role-based-access-control/role-assignments-portal.yml) lose their access.
           >  - Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
       - |
         The customer user account that you use to do the transfer must have [Azure RBAC](add-change-subscription-administrator.md) owner access on both subscriptions.

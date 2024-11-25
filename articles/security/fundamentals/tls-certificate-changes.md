@@ -29,7 +29,7 @@ All Azure services are impacted by this change. Details for some services are li
 - [Azure Cosmos DB](/security/benchmark/azure/baselines/cosmos-db-security-baseline) began this transition in July 2022 with an expected completion in October 2022.
 - Details on [Azure Storage](../../storage/common/transport-layer-security-configure-minimum-version.md) TLS certificate changes can be found in [this Azure Storage blog post](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-critical-changes-are-almost-here-and-why-you/ba-p/2741581).
 - [Azure Cache for Redis](../../azure-cache-for-redis/cache-overview.md) is moving away from TLS certificates issued by Baltimore CyberTrust Root starting May 2022, as described in this [Azure Cache for Redis article](../../azure-cache-for-redis/cache-whats-new.md)
-- [Azure Instance Metadata Service](../../virtual-machines/linux/instance-metadata-service.md) has an expected completion in May 2022, as described in [this Azure Governance and Management blog post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953).
+- [Azure Instance Metadata Service](/azure/virtual-machines/linux/instance-metadata-service) has an expected completion in May 2022, as described in [this Azure Governance and Management blog post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953).
 
 ## What changed?
 

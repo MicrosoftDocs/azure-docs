@@ -4,7 +4,7 @@ description: Use HashiCorp Terraform to provision Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 6/07/2024
 ms.custom: engagement-fy23, devx-track-terraform
 ms.author: jacobjaygbay
@@ -193,7 +193,7 @@ resource "azapi_resource" "cloudVmCluster" {
         "clusterName": "cluster1",
         "dataStoragePercentage": 100,
         "isLocalBackupEnabled": false,
-        "cloudExadataInfrastructureId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg000/providers/Oracle.Database/cloudExadataInfrastructures/infra1",
+        "cloudExadataInfrastructureId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg000/providers/Oracle.Database/cloudExadataInfrastructures/infra1",
         "isSparseDiskgroupEnabled": false,
         "sshPublicKeys": [
           "ssh-key 1"
@@ -213,9 +213,9 @@ resource "azapi_resource" "cloudVmCluster" {
         "licenseModel": "LicenseIncluded",
         "scanListenerPortTcp": 1050,
         "scanListenerPortTcpSsl": 1025,
-        "vnetId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg000/providers/Microsoft.Network/virtualNetworks/vnet1",
+        "vnetId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg000/providers/Microsoft.Network/virtualNetworks/vnet1",
         "giVersion": "19.0.0.0",
-        "subnetId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg000/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+        "subnetId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg000/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
         "backupSubnetCidr": "172.17.5.0/24",
         "dataCollectionOptions": {
           "isDiagnosticsEventsEnabled": false,

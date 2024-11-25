@@ -4,7 +4,7 @@ description: Learn to configure common settings for an App Service app. App sett
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 06/04/2024
+ms.date: 10/03/2024
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, AppServiceConnectivity
 ms.devlang: azurecli
 author: cephalin
@@ -40,7 +40,7 @@ Other language stacks, likewise, get the app settings as environment variables a
 App settings are always encrypted when stored (encrypted-at-rest).
 
 > [!NOTE]
-> App settings can also be resolved from [Key Vault](../key-vault/index.yml) using [Key Vault references](app-service-key-vault-references.md).
+> If you store secrets in app settings, consider using [Key Vault references](app-service-key-vault-references.md). If your secrets are for connectivity to back-end resources, consider more secure connectivity options that don't require secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
 
 # [Azure portal](#tab/portal)
 
@@ -199,6 +199,9 @@ It's not possible to edit app settings in bulk by using a JSON file with Azure P
 
 ## Configure connection strings
 
+> [!NOTE]
+> Consider more secure connectivity options that don't require connection secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
+
 For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
 
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. 
@@ -235,7 +238,7 @@ For example, a MySQL connection string named *connectionstring1* can be accessed
 Connection strings are always encrypted when stored (encrypted-at-rest).
 
 > [!NOTE]
-> Connection strings can also be resolved from [Key Vault](../key-vault/index.yml) using [Key Vault references](app-service-key-vault-references.md).
+> Connection strings can also be resolved from [Key Vault](/azure/key-vault/) using [Key Vault references](app-service-key-vault-references.md).
 
 # [Azure portal](#tab/portal)
 
@@ -440,10 +443,11 @@ Here, you can configure some common settings for the app. Some settings require 
     > [!NOTE]
     > Most modern browsers support HTTP/2 protocol over TLS only, while non-encrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, secure your custom DNS name. For more information, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
     - **Web sockets**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
-    - **Always On**: Keeps the app loaded even when there's no traffic. When **Always On** isn't turned on (default), the app is unloaded after 20 minutes without any incoming requests. The unloaded app can cause high latency for new requests because of its warm-up time. When **Always On** is turned on, the front-end load balancer sends a GET request to the application root every five minutes. The continuous ping prevents the app from being unloaded.
+    - **Always On**: Keeps the app loaded even when there's no traffic. When **Always On** isn't turned on (default), the app is unloaded after 20 minutes without any incoming requests. The unloaded app can cause high latency for new requests because of its warm-up time. When **Always On** is turned on, the front-end load balancer sends a GET request to the application root every five minutes. It's important to ensure this request receives a 200 OK response to ensure any re-imaging operations are performed correctly. The continuous ping prevents the app from being unloaded.
     
         Always On is required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
-    - **ARR affinity**: In a multi-instance deployment, ensure that the client is routed to the same instance for the life of the session. You can set this option to **Off** for stateless applications.
+    - **Session affinity**: In a multi-instance deployment, ensure that the client is routed to the same instance for the life of the session. You can set this option to **Off** for stateless applications.
+    - **Session affinity proxy**: Session affinity proxy can be turned on if your app is behind a reverse proxy (like Azure Application Gateway or Azure Front Door) and you are using the default host name. The domain for the session affinity cookie will align with the forwarded host name from the reverse proxy. 
     - **HTTPS Only**: When enabled, all HTTP traffic is redirected to HTTPS.
     - **Minimum TLS version**: Select the minimum TLS encryption version required by your app.
 - **Debugging**: Enable remote debugging for [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.

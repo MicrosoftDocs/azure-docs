@@ -11,7 +11,7 @@ ms.author: cherylmc
 
 # Connect to a virtual machine scale set using Azure Bastion
 
-This article shows you how to securely and seamlessly connect to your virtual machine scale set instance in an Azure virtual network directly from the Azure portal using Azure Bastion. When you use Azure Bastion, VMs don't require a client, agent, or additional software. For more information about Azure Bastion, see the [Overview](bastion-overview.md). For more information about virtual machine scale sets, see [What are virtual machine scale sets?](../virtual-machine-scale-sets/overview.md)
+This article shows you how to securely and seamlessly connect to your virtual machine scale set instance in an Azure virtual network directly from the Azure portal using Azure Bastion. When you use Azure Bastion, VMs don't require a client, agent, or additional software. For more information about Azure Bastion, see the [Overview](bastion-overview.md). For more information about virtual machine scale sets, see [What are virtual machine scale sets?](/azure/virtual-machine-scale-sets/overview)
 
 ## Prerequisites
 

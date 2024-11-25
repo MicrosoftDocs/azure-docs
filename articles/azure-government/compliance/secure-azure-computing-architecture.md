@@ -106,10 +106,10 @@ As mentioned earlier, you can build the SACA reference by using a variety of app
 - There are Azure services that can meet requirements for log analytics, host-based protection, and IDS functionality. It's possible that some services aren’t generally available in Microsoft Azure DoD regions. In this case, you might need to use third-party tools if these Azure services can’t meet your requirements. Look at the tools you're comfortable with and the feasibility of using Azure native tooling.
 - We recommend that you use as many Azure native tools as possible. They're built with cloud security in mind and seamlessly integrate with the rest of the Azure platform. Use the Azure native tools in the following list to meet various SCCA requirements:
 
-    - [Azure Monitor](../../azure-monitor/overview.md)
-    - [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)
+    - [Azure Monitor](/azure/azure-monitor/overview)
+    - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
     - [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
-    - [Azure Key Vault](../../key-vault/general/overview.md)
+    - [Azure Key Vault](/azure/key-vault/general/overview)
     - [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md)
     - [Application Gateway](../../application-gateway/overview.md)
     - [Azure Firewall](../../firewall/overview.md)

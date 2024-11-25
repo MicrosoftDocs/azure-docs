@@ -3,8 +3,8 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages  in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/16/2023
-ms.topic: conceptual
+ms.date: 09/10/2024
+ms.topic: how-to
 ms.custom: has-adal-ref, references_regions, devx-track-azurepowershell, devx-track-python
 ms.service: azure-automation
 ---
@@ -96,12 +96,12 @@ You can import a Python 3.8 package and its dependencies by importing the follow
 
 #### [System assigned managed identity](#tab/sa-mi)
 
-```cmd
+```
 https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
 ```
 
 #### [User assigned managed identity](#tab/ua-mi)
-```cmd
+```python
 import requests
 import sys
 import pip

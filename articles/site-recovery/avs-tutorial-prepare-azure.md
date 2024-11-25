@@ -110,4 +110,4 @@ Learn more about:
 
 - [Preparing your infrastructure](avs-tutorial-prepare-avs.md)
 - [Azure networks](../virtual-network/virtual-networks-overview.md)
-- [Managed disks](../virtual-machines/managed-disks-overview.md).
+- [Managed disks](/azure/virtual-machines/managed-disks-overview).

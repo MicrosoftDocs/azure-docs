@@ -3,10 +3,10 @@ title: Add drawing tools toolbar to map | Microsoft Azure Maps
 description: How to add a drawing toolbar to a map using Azure Maps Web SDK
 author: sinnypan
 ms.author: sipa
-ms.date: 06/05/2023
+ms.date: 08/30/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Add a drawing tools toolbar to a map
@@ -29,7 +29,7 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
 
 For a complete working sample that demonstrates how to add a drawing toolbar to your map, see [Add drawing toolbar to map] in the [Azure Maps Samples]. For the source code for this sample, see [Add drawing toolbar to map source code].
 
-:::image type="content" source="./media/map-add-drawing-toolbar/add-drawing-toolbar.png" alt-text="Screenshot showing the drawing toolbar on a map.":::
+:::image type="content" source="./media/map-add-drawing-toolbar/add-drawing-toolbar.png" lightbox="./media/map-add-drawing-toolbar/add-drawing-toolbar.png" alt-text="Screenshot showing the drawing toolbar on a map.":::
 
 <!------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true]
@@ -52,7 +52,7 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
 
 The following screenshot shows a sample of an instance of the drawing manager that displays the toolbar with just a single drawing tool on the map:
 
-:::image type="content" source="./media/map-add-drawing-toolbar/limit-displayed-toolbar-options.png" alt-text="Screenshot that demonstrates an instance of the drawing manager that displays the toolbar with just a polygon drawing tool on the map.":::
+:::image type="content" source="./media/map-add-drawing-toolbar/limit-displayed-toolbar-options.png" lightbox="./media/map-add-drawing-toolbar/limit-displayed-toolbar-options.png" alt-text="Screenshot that demonstrates an instance of the drawing manager that displays the toolbar with just a polygon drawing tool on the map.":::
 
 <!------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true]
@@ -117,7 +117,7 @@ drawingManager.setOptions({
 
 For a complete working sample that demonstrates how to customize the rendering of the drawing shapes in the drawing manager by accessing the rendering layers, see [Change drawing rendering style] in the [Azure Maps Samples]. For the source code for this sample, see [Change drawing rendering style source code].
 
-:::image type="content" source="./media/map-add-drawing-toolbar/change-drawing-rendering-style.png" alt-text="Screenshot showing different drawing shaped rendered on a map.":::
+:::image type="content" source="./media/map-add-drawing-toolbar/change-drawing-rendering-style.png" lightbox="./media/map-add-drawing-toolbar/change-drawing-rendering-style.png" alt-text="Screenshot showing different drawing shapes rendered on a map.":::
 
 <!------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true]

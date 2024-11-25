@@ -27,6 +27,13 @@
   - name: Create a Batch pool and run a job - Python
     displayName: quickstart, first, create
     href: quick-run-python.md
+  - name: Deploy a Batch account and two pools - Terraform
+    displayName: quickstart, first, create
+    href: quick-deploy-batch-account-two-pools-terraform.md
+  - name: Deploy a Batch account and two pools with a start task - Terraform
+    displayName: quickstart, first, create
+    href: quick-deploy-batch-account-two-pools-start-task-terraform.md
+
   expanded: true
 - name: Tutorials
   items:
@@ -145,6 +152,8 @@
       href: batch-customer-managed-key.md
     - name: Move between regions
       href: account-move.md
+    - name: Rotate Batch account keys
+      href: account-key-rotation.md
   - name: Authenticate with Microsoft Entra ID
     items:
     - name: Microsoft Entra ID with Batch service
@@ -164,16 +173,18 @@
       href: resource-files.md
   - name: Create and manage pools
     items:
+    - name: Choose a VM size for compute nodes
+      href: batch-pool-vm-sizes.md
+    - name: Update pool properties
+      href: batch-pool-update-properties.md
+    - name: Create a pool in a virtual network
+      displayName: vNet
+      href: batch-virtual-network.md
     - name: Use simplified compute node communication
       href: simplified-compute-node-communication.md
     - name: Autoscale compute nodes
       displayName: scaling, dynamic, formula
       href: batch-automatic-scaling.md
-    - name: Choose a VM size for compute nodes
-      href: batch-pool-vm-sizes.md
-    - name: Move from Cloud Service to Virtual Machine pools
-      displayName: migrate
-      href: batch-pool-cloud-service-to-virtual-machine-configuration.md
     - name: Configure access to compute nodes
       displayName: rdp, ssh, network, remote
       href: pool-endpoint-configuration.md
@@ -187,9 +198,6 @@
       href: create-pool-availability-zones.md
     - name: Create a pool with disk encryption enabled
       href: disk-encryption.md
-    - name: Create a pool in a virtual network
-      displayName: vNet
-      href: batch-virtual-network.md
     - name: Create a pool with public IP addresses
       displayName: static
       href: create-pool-public-ip.md

@@ -18,14 +18,14 @@ sections:
   - name: Creating or deleting HDInsight clusters
     questions:
       - question: |
-          How do I provision an HDInsight cluster?
+          How do I provision a HDInsight cluster?
         answer: |
           To review the HDInsight clusters types, and the provisioning methods, see [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](./hdinsight-hadoop-provision-linux-clusters.md).
           
       - question: |
           How do I delete an existing HDInsight cluster?
         answer: |
-          To learn more about deleting a cluster when it's no longer in use, see [Delete an HDInsight cluster](hdinsight-delete-cluster.md).
+          To learn more about deleting a cluster when it's no longer in use, see [Delete a HDInsight cluster](hdinsight-delete-cluster.md).
           
           Try to leave at least 30 to 60 minutes between create and delete operations. Otherwise the operation may fail with the following error message:
           
@@ -39,9 +39,9 @@ sections:
           For more information, see [Capacity planning for HDInsight clusters](./hdinsight-capacity-planning.md).
           
       - question: |
-          What are the various types of nodes in an HDInsight cluster?
+          What are the various types of nodes in a HDInsight cluster?
         answer: |
-          See [Resource types in Azure HDInsight clusters](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters).
+          See [Resource types in Azure HDInsight clusters](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-cluster).
           
       - question: |
           What are the best practices for creating large HDInsight clusters?
@@ -55,20 +55,20 @@ sections:
   - name: Individual Components
     questions:
       - question: |
-          Can I install additional components on my cluster?
+          Can I install more components on my cluster?
         answer: |
-          Yes. To install additional components or customize cluster configuration, use:
+          Yes. To install more components or customize cluster configuration, use:
           
           - Scripts during or after creation. Scripts are invoked via [script action](./hdinsight-hadoop-customize-cluster-linux.md). Script action is a configuration option you can use from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. This configuration option can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK.
           
           - [HDInsight Application Platform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) to install applications.
           
-          For a list of supported components see [What are the Apache Hadoop components and versions available with HDInsight?](./hdinsight-component-versioning.md)
+          For a list of supported components, see [What are the Apache Hadoop components and versions available with HDInsight?](./hdinsight-component-versioning.md)
           
       - question: |
-          Can I upgrade the individual components that are pre-installed on the cluster?
+          Can I upgrade the individual components that are preinstalled on the cluster?
         answer: |
-          If you upgrade built-in components or applications that are pre-installed on your cluster, the resulting configuration won't be supported by Microsoft. These system configurations have not been tested by Microsoft. Try to use a different version of the HDInsight cluster that may already have the upgraded version of the component pre-installed.
+          If you upgrade built-in components or applications that are preinstalled on your cluster, the resulting configuration won't be supported by Microsoft. These system configurations haven't been tested by Microsoft. Try to use a different version of the HDInsight cluster that may already have the upgraded version of the component preinstalled.
           
           For example, upgrading Hive as an individual component isn't supported. HDInsight is a managed service, and many services are integrated with Ambari server and tested. Upgrading a Hive on its own causes the indexed binaries of other components to change, and will cause component integration issues on your cluster.
           
@@ -85,7 +85,7 @@ sections:
           
              :::image type="content" source="media/hdinsight-faq/ambari-settings.png" alt-text="Ambari Settings.":::
           
-          3. In the User Settings window, select the new timezone from the Timezone drop down, and then click Save.
+          3. In the User Settings window, select the new timezone from the Timezone drop down, and then select Save.
           
              :::image type="content" source="media/hdinsight-faq/ambari-user-settings.png" alt-text="Ambari User Settings.":::
           
@@ -94,7 +94,7 @@ sections:
       - question: |
           How can I migrate from the existing metastore to Azure SQL Database? 
         answer: |
-          To migrate from SQL Server to Azure SQL Database, see [Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database offline using DMS](../dms/tutorial-sql-server-to-azure-sql.md).
+          To migrate from SQL Server to Azure SQL Database, see [Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database offline using DMS](/azure/dms/tutorial-sql-server-to-azure-sql).
           
       - question: |
           Is the Hive metastore deleted when the cluster is deleted?
@@ -110,7 +110,7 @@ sections:
       - question: |
           Does migrating a Hive metastore also migrate the default policies of the Ranger database?
         answer: |
-          No, the policy definition is in the Ranger database, so migrating the Ranger database will migrate its policy.
+          No, the policy definition is in the Ranger database, so migrating the Ranger database migrates its policy.
 
       - question: |
           Can you migrate a Hive metastore from an Enterprise Security Package (ESP) cluster to a non-ESP cluster, and the other way around?
@@ -148,9 +148,9 @@ sections:
           - [HDInsight management IP addresses](./hdinsight-management-ip-addresses.md)
           
       - question: |
-          Can I deploy an additional virtual machine within the same subnet as an HDInsight cluster?
+          Can I deploy more virtual machine within the same subnet as a HDInsight cluster?
         answer: |
-          Yes, you can deploy an additional virtual machine within the same subnet as an HDInsight cluster. The following configurations are possible:
+          Yes, you can deploy more virtual machine within the same subnet as a HDInsight cluster. The following configurations are possible:
           
           - Edge nodes: You can add another edge node to the cluster, as described in [Use empty edge nodes on Apache Hadoop clusters in HDInsight](hdinsight-apps-use-edge-node.md).
           
@@ -175,7 +175,7 @@ sections:
           For information on malware protection, see [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md).
           
       - question: |
-          How do I create a keytab for an HDInsight ESP cluster?
+          How do I create a keytab for a HDInsight ESP cluster?
         answer: |
           Create a Kerberos keytab for your domain username. You can later use this keytab to authenticate to remote domain-joined clusters without entering a password. The domain name is uppercase:
           
@@ -196,7 +196,7 @@ sections:
       - question: |
           How do I determine the proper SALT value?
         answer: |
-          1. Use an interactive Kerberos login to determine the proper salt value for the keytab. Interactive Kerberos login will use the highest encryption by default. Tracing should be enabled to observe the salt. Below is a sample Kerberos login:
+          1. Use an interactive Kerberos sign-in to determine the proper salt value for the keytab. Interactive Kerberos sign-in uses the highest encryption by default. Tracing should be enabled to observe the salt. Below is a sample Kerberos sign-in:
           
           ```shell
           
@@ -215,9 +215,9 @@ sections:
           ```
  
       - question: |
-          Can I use an existing Microsoft Entra tenant to create an HDInsight cluster that has the ESP?
+          Can I use an existing Microsoft Entra tenant to create a HDInsight cluster that has the ESP?
         answer: |
-          Enable Microsoft Entra Domain Services before you can create an HDInsight cluster with ESP. Open-source Hadoop relies on Kerberos for Authentication (as opposed to OAuth).
+          Enable Microsoft Entra Domain Services before you can create a HDInsight cluster with ESP. Open-source Hadoop relies on Kerberos for Authentication (as opposed to OAuth).
           
           To join VMs to a domain, you must have a domain controller. Microsoft Entra Domain Services is the managed domain controller, and is considered an extension of Microsoft Entra ID. Microsoft Entra Domain Services provides all the Kerberos requirements to build a secure Hadoop cluster in a managed way. HDInsight as a managed service integrates with Microsoft Entra Domain Services to provide security.
           
@@ -236,7 +236,7 @@ sections:
             No, DAS is not supported on ESP clusters.
       
       - question: |
-          How can I pull login activity shown in Ranger?
+          How can I pull sign-in activity shown in Ranger?
         answer: |
           For auditing requirements, Microsoft recommends enabling Azure Monitor logs as described in [Use Azure Monitor logs to monitor HDInsight clusters](./hdinsight-hadoop-oms-log-analytics-tutorial.md).
           
@@ -301,7 +301,7 @@ sections:
           To audit blob storage accounts, configure monitoring using the procedure at [Monitor a storage account in the Azure portal](../storage/common/manage-storage-analytics-logs.md). An HDFS-audit log provides only auditing information for the local HDFS filesystem only (hdfs://mycluster).  It doesn't include operations that are done on remote storage.
           
       - question: |
-          How can I transfer files between a blob container and an HDInsight head node?
+          How can I transfer files between a blob container and a HDInsight head node?
         answer: |
           Run a script similar to the following shell script on your head node:
           
@@ -394,12 +394,12 @@ sections:
             ```
           
           > [!NOTE]
-          > Curl prompts you for a password. You must enter a valid password for the cluster login username.
+          > Curl prompts you for a password. You must enter a valid password for the cluster sign-in username.
           
   - name: Billing
     questions:
       - question: |
-          How much does it cost to deploy an HDInsight cluster?
+          How much does it cost to deploy a HDInsight cluster?
         answer: |
           For more information about pricing and FAQ related to billing, see the [Azure HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight/) page.
           
@@ -422,7 +422,7 @@ sections:
   - name: Hive
     questions:
       - question: |
-          Why does the Hive version appear as 1.2.1000 instead of 2.1 in the Ambari UI even though I'm running an HDInsight 3.6 cluster?
+          Why does the Hive version appear as 1.2.1000 instead of 2.1 in the Ambari UI even though I'm running a HDInsight 3.6 cluster?
         answer: |
           Although only 1.2 appears in the Ambari UI, HDInsight 3.6 contains both Hive 1.2 and Hive 2.1.
 

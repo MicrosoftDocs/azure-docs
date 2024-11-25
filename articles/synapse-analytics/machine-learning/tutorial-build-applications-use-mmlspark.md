@@ -13,7 +13,7 @@ ms.author: ruxu
 # Tutorial: Build machine learning applications using Synapse Machine Learning
 
 In this article, you will learn how to use Synapse Machine Learning ([SynapseML](https://github.com/microsoft/SynapseML)) to create machine learning applications. 
-SynapseML expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure AI services](../../ai-services/what-are-ai-services.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  SynapseML allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
+SynapseML expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure AI services](/azure/ai-services/what-are-ai-services), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  SynapseML allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
 Synapse Spark provide built-in SynapseML libraries including:
 
 - [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.
@@ -56,7 +56,7 @@ anomalydetector_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAM
 
 ## Text analytics sample
 
-The [Text Analytics](../../ai-services/language-service/index.yml) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between 0.0 and 1.0 where low scores indicate negative sentiment and high score indicates positive sentiment. This sample uses three simple sentences and returns the sentiment for each.
+The [Text Analytics](/azure/ai-services/language-service/) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between 0.0 and 1.0 where low scores indicate negative sentiment and high score indicates positive sentiment. This sample uses three simple sentences and returns the sentiment for each.
 
 ```python
 from pyspark.sql.functions import col
@@ -91,7 +91,7 @@ display(sentiment.transform(df_sentences).select("text", col("sentiment")[0].get
 | I am so happy today, its sunny! | positive |
 
 ## Computer vision sample
-[Computer Vision](../../ai-services/computer-vision/index.yml) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag the following image. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
+[Computer Vision](/azure/ai-services/computer-vision/) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag the following image. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
 
 ![image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg)
 
@@ -171,7 +171,7 @@ display(res_bingsearch.dropDuplicates())
 
 ## Anomaly detector sample
 
-[Anomaly Detector](../../ai-services/anomaly-detector/index.yml) is great for detecting irregularities in your time series data. In this sample, we use the service to find anomalies in the entire time series.
+[Anomaly Detector](/azure/ai-services/anomaly-detector/) is great for detecting irregularities in your time series data. In this sample, we use the service to find anomalies in the entire time series.
 
 ```python
 from pyspark.sql.functions import lit
@@ -232,7 +232,7 @@ display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value
 
 ## Speech-to-text sample
 
-The [Speech-to-text](../../ai-services/speech-service/index-text-to-speech.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe one audio file to text. 
+The [Speech-to-text](/azure/ai-services/speech-service/index-text-to-speech) service converts streams or files of spoken audio to text. In this sample, we transcribe one audio file to text. 
 
 ```python
 # Create a dataframe with our audio URLs, tied to the column called "url"

@@ -3,9 +3,9 @@ title: Frequently asked questions for Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions (FAQ).
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 07/24/2024
+ms.date: 10/15/2024
 ms.author: kendownie
-ms.topic: conceptual
+ms.topic: faq
 ms.custom: references_regions
 ---
 
@@ -54,6 +54,33 @@ ms.custom: references_regions
 * <a id="azure-container-storage-containeros"></a>
   **Does Azure Container Storage support Windows containers on AKS?**  
   No, Azure Container Storage only supports AKS containers running on Ubuntu and Azure Linux nodes.
+
+* <a id="azure-container-storage-ephemeralosdisk"></a>
+  **Does Azure Container Storage use the capacity from Ephemeral OS disks for ephemeral disk storage pool?**  
+  No, Azure Container Storage only discovers and uses the capacity from ephemeral data disks for ephemeral disk storage pool.
+
+* <a id="azure-container-storage-endpoints"></a>
+  **What endpoints need to be allowlisted in the Azure Firewall for Azure Container Storage to work?**
+
+  To ensure Azure Container Storage functions correctly, you must allowlist specific endpoints in your Azure Firewall. These endpoints are required for Azure 
+  Container Storage components to communicate with necessary Azure services. Failure to allowlist these endpoints can cause installation or runtime issues.
+ 
+  Endpoints to Allowlist:
+
+  `linuxgeneva-microsoft.azurecr.io`,
+  `eus2azreplstore137.blob.core.windows.net`,
+  `eus2azreplstore70.blob.core.windows.net`,
+  `eus2azreplstore155.blob.core.windows.net`,
+  `eus2azreplstore162.blob.core.windows.net`,
+  `*.hcp.eastus2.azmk8s.io`,
+  `management.azure.com`,
+  `login.microsoftonline.com`,
+  `packages.microsoft.com`,
+  `acs-mirror.azureedge.net`,
+  `eastus2.dp.kubernetesconfiguration.azure.com`,
+  `mcr.microsoft.com`.
+
+  For additional details, refer to the [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](/azure/aks/outbound-rules-control-egress) documentation and [Azure Arc-enabled Kubernetes network requirements.](/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud)
 
 ## See also
 

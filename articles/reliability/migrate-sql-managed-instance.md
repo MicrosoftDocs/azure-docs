@@ -2,7 +2,7 @@
 title: Migrate Azure SQL Managed Instance to availability zone support 
 description: Learn how to migrate your Azure SQL Managed Instance to availability zone support.
 author: vladai78
-ms.service: sql-database
+ms.service: azure-sql-database
 ms.topic: conceptual
 ms.date: 05/25/2023
 ms.author: anaharris 
@@ -13,7 +13,7 @@ ms.custom: references_regions, subject-reliability
 # Migrate SQL Managed Instance to availability zone support
 
 >[!IMPORTANT]
->Zone redundancy for SQL Managed Instance is currently in Preview. To learn which regions support SQL Instance zone redundancy, see [Services support by region](availability-zones-service-support.md).
+>Zone redundancy for SQL Managed Instance is currently in Preview. To learn which regions support SQL Instance zone redundancy, see [Services support by region](availability-zones-region-support.md).
 
 SQL Managed Instance offers a zone redundant configuration that uses [Azure availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) to replicate your instances across multiple physical locations within an Azure region. With zone redundancy enabled, your Business Critical managed instances become resilient to a larger set of failures, such as catastrophic datacenter outages, without any changes to application logic. For more information on the availability model for SQL Database, see [Business Critical service tier zone redundant availability section in the Azure SQL documentation](/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell&preserve-view=true#premium-and-business-critical-service-tier-zone-redundant-availability). 
 

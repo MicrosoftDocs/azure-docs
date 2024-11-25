@@ -1,16 +1,32 @@
 ---
 title: Azure Site Recovery Deployment Planner Version History
 description: Known different Site Recovery Deployment Planner Versions fixes and known limitations along with their release dates.
-services: site-recovery
 author: ankitaduttaMSFT
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-site-recovery
-ms.date: 07/08/2024
+ms.date: 10/28/2024
 ms.author: ankitadutta
 ---
 # Azure Site Recovery Deployment Planner Version History
 
 This article provides history of all versions of Azure Site Recovery Deployment Planner along with the fixes, known limitations in each and their release dates.
+
+## Version 3.0
+
+**Release Date: June 4, 2024**
+
+**Fixes:**
+
+- Added support for V2A Modernized. Latest version won't support V2A Classic, and supports only V2A Modernized.
+- Added support for the following:
+    - Windows 2016/2019/2022
+    - RHEL 9, Oracle Linux 9, Debian 10 and Debian 11 Linux distros 
+- Added vCenter 8.0 support
+- Added support for UEFI boot disk
+- Added support for GPv2 storage account to calculate throughput
+- Managed disk support for `s60` and `p60`
+- 32TB data disk support
+
 
 ## Version 2.52
 

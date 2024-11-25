@@ -3,14 +3,14 @@
 title: Prevent subdomain takeovers with Azure DNS alias records and Azure App Service's custom domain verification
 description: Learn how to avoid the common high-severity threat of subdomain takeover
 services: security
-author: terrylanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 03/27/2024
-ms.author: terrylan
+ms.author: mbaldwin
 
 ---
 # Prevent dangling DNS entries and avoid subdomain takeover
@@ -134,7 +134,7 @@ The **Microsoft Defender for App Service** plan includes dangling DNS detection.
 
 Microsoft Defender for Cloud's dangling DNS protection is available whether your domains are managed with Azure DNS or an external domain registrar and applies to App Service on both Windows and Linux.
 
-Learn more about this and other benefits of this Microsoft Defender plans in [Introduction to Microsoft Defender for App Service](../../defender-for-cloud/defender-for-app-service-introduction.md).
+Learn more about this and other benefits of this Microsoft Defender plans in [Introduction to Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction).
 
 ### Use Azure DNS alias records
 
@@ -201,10 +201,10 @@ Subscription 'A' and subscription 'B' are the only subscriptions belonging to Mi
 
 To learn more about related services and Azure features you can use to defend against subdomain takeover, see the following pages.
 
-- [Enable Microsoft Defender for App Service](../../defender-for-cloud/enable-enhanced-security.md) - to receive alerts when dangling DNS entries are detected
+- [Enable Microsoft Defender for App Service](/azure/defender-for-cloud/enable-enhanced-security) - to receive alerts when dangling DNS entries are detected
 
 - [Prevent dangling DNS records with Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Use a domain verification ID when adding custom domains in Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#1-configure-a-custom-domain)
+- [Use a domain verification ID when adding custom domains in Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#configure-a-custom-domain)
 
 - [Quickstart: Run your first Resource Graph query using Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)

@@ -27,6 +27,14 @@ If you try to delete the vault without removing the dependencies, you'll encount
 
 - Recovery Services vault cannot be deleted as there are backup items in soft deleted state in the vault. The soft deleted items are permanently deleted after 14 days of delete operation. Please try vault deletion after the backup items are permanently deleted and there is no item in soft deleted state left in the vault. For more information, see [Soft delete for Azure Backup](./backup-azure-security-feature-cloud.md).
 
+
+
+> [!NOTE]  
+> Before deleting a Backup protection policy from a vault, you must ensure that
+> - the policy doesn't have any associated Backup items.
+> - each associated item is associated with some other policy.
+
+
 ## Delete a Recovery Services vault
 
 > [!VIDEO https://www.youtube.com/embed/xg_TnyhK34o]
@@ -65,6 +73,9 @@ To delete a vault, follow these steps:
      :::image type="content" source="./media/backup-azure-delete-vault/delete-items-in-soft-delete-state-inline.png" alt-text="Screenshot showing the process to delete items in soft-delete state." lightbox="./media/backup-azure-delete-vault/delete-items-in-soft-delete-state-expanded.png":::
 
   1. Go to the vault dashboard menu -> **Backup Items**. Click **Stop Backup** to stop the backups of all listed items, and then click **Delete Backup Data** to delete. [Follow these steps](#delete-protected-items-in-the-cloud) to remove those items.
+
+  >[!Note]
+  > You don't need to delete Virtual Machine or policy, you only need to stop backup to the vault.
       
 - <a id="portal-delete-backup-servers">**Step 5:**</a> Delete Backup Servers
 

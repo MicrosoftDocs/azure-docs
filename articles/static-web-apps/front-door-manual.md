@@ -1,16 +1,16 @@
 ---
-title: "Tutorial: Configure Azure Front Door for Azure Static Web Apps"
-description: Learn how to set up Azure Front Door for Azure Static Web Apps
+title: "Tutorial: Configure a CDN for Azure Static Web Apps"
+description: Learn how to set up a content delivery network (CDN) for Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 10/01/2024
 ms.author: cshoe
 zone_pivot_groups: static-web-apps-afd-methods
 ---
 
-# Tutorial: Configure Azure Front Door for Azure Static Web Apps
+# Tutorial: Configure a CDN for Azure Static Web Apps
 
 By adding [Azure Front Door](../frontdoor/front-door-overview.md) as the CDN for your static web app, you benefit from a secure entry point for fast delivery of your web applications. 
 

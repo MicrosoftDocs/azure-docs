@@ -3,13 +3,13 @@ title: Microsoft Sentinel data connectors
 description: Learn about supported data connectors, like Microsoft Defender XDR (formerly Microsoft 365 Defender), Microsoft 365 and Office 365, Microsoft Entra ID, ATP, and Defender for Cloud Apps to Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 03/02/2024
+ms.date: 11/06/2024
 ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As a security architect or SOC analyst, I want to understand what data connectors are in Microsoft Sentinel.
+#Customer intent: As a security eningeer, I want to use data connectors to integrate various data sources into Microsoft Sentinel so that I can enhance threat detection and response capabilities.
 ---
 
 # Microsoft Sentinel data connectors
@@ -52,35 +52,22 @@ To add more data connectors, install the solution associated with the data conne
 
 ## REST API integration for data connectors
 
-Many security technologies provide a set of APIs for retrieving log files. Some data sources can use those APIs to connect to Microsoft Sentinel.
+Many security solutions provide a set of APIs for retrieving log files and other security data from their product or service. Those APIs connect to Microsoft Sentinel with one of the following methods:
+- The data source APIs are configured with the [Codeless Connector Platform](create-codeless-connector.md).
+- The data connector uses the Log Ingestion API for Azure Monitor as part of an Azure Function or Logic App.
 
-Data connectors that use APIs either integrate from the provider side or integrate using Azure Functions, as described in the following sections.
-
-### Integration on the provider side
-
-An API integration built by the provider connects with the provider data sources and pushes data into Microsoft Sentinel custom log tables by using the Azure Monitor Data Collector API. For more information, see [Send log data to Azure Monitor by using the HTTP Data Collector API](/azure/azure-monitor/logs/data-collector-api?branch=main&tabs=powershell).
-
-To learn about REST API integration, read your provider documentation and [Connect your data source to Microsoft Sentinel's REST-API to ingest data](connect-rest-api-template.md).
-
-### Integration using Azure Functions
-
-Integrations that use Azure Functions to connect with a provider API first format the data, and then send it to Microsoft Sentinel custom log tables using the Azure Monitor Data Collector API.
-
-For more information, see:
--  [Send log data to Azure Monitor by using the HTTP Data Collector API](/azure/azure-monitor/logs/data-collector-api?branch=main&tabs=powershell)
+For more information about connecting with Azure Functions, see the following articles:
 - [Use Azure Functions to connect your data source to Microsoft Sentinel](connect-azure-functions-template.md)
 - [Azure Functions documentation](../azure-functions/index.yml)
+- [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/)
 
-Integrations that use Azure Functions might have extra data ingestion costs, because you host Azure Functions in your Azure organization. Learn more about [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+For more information about connecting with Logic Apps, see [Connect with Logic Apps](create-custom-connector.md#connect-with-logic-apps).
 
 ## Agent-based integration for data connectors
 
 Microsoft Sentinel can use agents provided by the Azure Monitor service (on which Microsoft Sentinel is based) to collect data from any data source that can perform real-time log streaming. For example, most on-premises data sources connect by using agent-based integration.
 
 The following sections describe the different types of Microsoft Sentinel agent-based data connectors. To configure connections using agent-based mechanisms, follow the steps in each Microsoft Sentinel data connector page.
-
-> [!IMPORTANT]
-> The Log Analytics agent will be [**retired on 31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/) and succeeded by the Azure Monitor Agent (AMA). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
 <a name="syslog"></a><a name="common-event-format-cef"></a>
 
@@ -102,7 +89,7 @@ For some data sources, you can collect logs as files on Windows or Linux compute
 
 To connect using the Log Analytics custom log collection agent, follow the steps in each Microsoft Sentinel data connector page. After successful configuration, the data appears in custom tables.
 
-For more information, see [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md).
+For more information, see [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md).
 
 ## Service-to-service integration for data connectors
 

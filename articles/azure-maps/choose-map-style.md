@@ -6,6 +6,7 @@ ms.author: sipa
 ms.date: 04/26/2020
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ms.custom:
 ---
 

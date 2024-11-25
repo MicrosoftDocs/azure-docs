@@ -32,13 +32,15 @@ items:
     items:
     - name: Portal
       href: create-single-tenant-workflows-azure-portal.md
+    - name: Portal - Templates gallery
+      href: create-single-tenant-workflows-templates.md
     - name: Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
 - name: Tutorials
   items:
-  - name: Create Consumption schedule-based workflows
+  - name: Create Consumption schedule-based workflow
     href: tutorial-build-schedule-recurring-logic-app-workflow.md
-  - name: Create Consumption approval-based workflows
+  - name: Create Consumption approval-based workflow
     href: tutorial-process-mailing-list-subscriptions-workflow.md
   - name: Create Consumption workflow with Azure Storage and Azure Functions
     href: tutorial-process-email-attachments-workflow.md
@@ -91,16 +93,34 @@ items:
       href: designer-overview.md
     - name: Built-in versus Azure connector operations
       href: ../connectors/compare-built-in-azure-connectors.md
-    - name: Create Standard workflows - Portal
-      href: create-single-tenant-workflows-azure-portal.md
-    - name: Get AI-powered help from the workflow assistant
-      href: workflow-assistant-standard.md
-    - name: Create Standard workflows - Visual Studio Code
-      href: create-single-tenant-workflows-visual-studio-code.md
     - name: Estimate storage costs
       href: estimate-storage-costs.md
     - name: Set up SQL storage
       href: set-up-sql-db-storage-single-tenant-standard-workflows.md
+    - name: Create Standard workflows - Portal
+      href: create-single-tenant-workflows-azure-portal.md
+    - name: Create Standard workflows from templates - Portal
+      href: create-single-tenant-workflows-templates.md
+    - name: Get AI-powered help from the workflow assistant
+      href: workflow-assistant-standard.md
+    - name: Create Standard workflows - Visual Studio Code
+      href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Create and run .NET code
+      href: create-run-custom-code-functions.md
+    - name: Add and run C# scripts
+      href: add-run-csharp-scripts.md
+    - name: Add and run PowerShell scripts
+      href: add-run-powershell-scripts.md
+    - name: Parse or chunk content
+      href: parse-document-chunk-text.md
+    - name: Edit app and host settings
+      href: edit-app-settings-host-settings.md
+    - name: Enable stateful mode for stateless built-in connectors
+      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
+    - name: Create custom built-in connectors
+      href: create-custom-built-in-connector-standard.md
+    - name: Create and publish workflow templates
+      href: create-publish-workflow-templates.md
     - name: Secure traffic between Standard workflows and virtual networks
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
     - name: Develop for rules engine integration
@@ -125,14 +145,6 @@ items:
         href: rules-engine/test-rulesets.md
       - name: Create a rules engine project
         href: rules-engine/create-rules-engine-project.md
-    - name: Create and run .NET code
-      href: create-run-custom-code-functions.md
-    - name: Edit app and host settings
-      href: edit-app-settings-host-settings.md
-    - name: Enable stateful mode for stateless built-in connectors
-      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
-    - name: Create custom built-in connectors
-      href: create-custom-built-in-connector-standard.md
     - name: Set up deployment slots
       href: set-up-deployment-slots.md
     - name: DevOps deployment
@@ -147,6 +159,12 @@ items:
       href: export-from-consumption-to-standard-logic-app.md
     - name: Export from integration service environment to Standard logic app
       href: export-from-ise-to-standard-logic-app.md
+  - name: Hybrid deployment for Azure Logic Apps
+    items:
+    - name: Set up requirements for hybrid deployment
+      href: set-up-standard-workflows-hybrid-deployment-requirements.md
+    - name: Create Standard workflows for hybrid deployment
+      href: create-standard-workflows-hybrid-deployment.md
   - name: Azure Arc-enabled Logic Apps
     items:
     - name: About Azure Arc-enabled Logic Apps
@@ -183,8 +201,6 @@ items:
       href: logic-apps-create-variables-store-values.md
     - name: Perform data operations
       href: logic-apps-perform-data-operations.md
-    - name: Add and run C# scripts
-      href: add-run-csharp-scripts.md
     - name: Add and run JavaScript snippets
       href: add-run-javascript.md
     - name: Create cross-environment parameters for workflows
@@ -225,14 +241,6 @@ items:
       href: support-non-unicode-character-encoding.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
-  - name: Access Azure virtual networks
-    items:
-    - name: Access to Azure virtual networks
-      href: connect-virtual-network-vnet-isolated-environment-overview.md
-    - name: Set up access for multiple integration service environments
-      href: connect-virtual-network-vnet-set-up-single-ip-address.md
-    - name: Add resources to integration service environments
-      href: add-artifacts-integration-service-environment-ise.md
   - name: Access on-premises data sources
     items:
     - name: Install on-premises data gateway
@@ -324,7 +332,7 @@ items:
     - name: Azure Event Hubs
       href: ../connectors/connectors-create-api-azure-event-hubs.md
     - name: Azure Functions
-      href: logic-apps-azure-functions.md
+      href: call-azure-functions-from-workflows.md
     - name: Azure Logic Apps
       href: logic-apps-http-endpoint.md
     - name: Azure Monitor Application Insights
@@ -429,8 +437,6 @@ items:
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
       href: logic-apps-enterprise-integration-create-integration-account.md
-    - name: Manage integration service environments
-      href: ise-manage-integration-service-environment.md
     - name: Plan and manage costs
       href: plan-manage-costs.md
     - name: Manage Azure resources with automation tasks
@@ -456,9 +462,11 @@ items:
       - name: Monitor workflows
         href: monitor-logic-apps-overview.md
       - name: View workflow status and run history
-        href: monitor-logic-apps.md
+        href: view-workflow-status-run-history.md
       - name: View health and performance metrics
         href: view-workflow-metrics.md
+      - name: Enable Health Check for Standard workflows
+        href: monitor-health-standard-workflows.md
       - name: Enable and view enhanced telemetry for Standard workflows
         href: enable-enhanced-telemetry-standard-workflows.md
       - name: Monitor and collect diagnostic data for workflows

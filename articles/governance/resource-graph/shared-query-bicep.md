@@ -48,7 +48,7 @@ Set-AzContext -Subscription <subscriptionID>
 
 ## Review the Bicep file
 
-In this quickstart, you create a shared query called _Count VMs by OS_. To try this query in SDK or in portal with Resource Graph Explorer, see [Samples - Count virtual machines by OS type](/previous-versions/azure/governance/resource-graph/samples/starter#count-virtual-machines-by-os-type).
+In this quickstart, you create a shared query called _Count VMs by OS_. To try this query in SDK or in portal with Resource Graph Explorer, see [Samples - Count virtual machines by OS type](../resource-graph/samples/starter.md#count-virtual-machines-by-os-type).
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 

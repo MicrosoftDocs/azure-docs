@@ -6,6 +6,7 @@ ms.author: sipa
 ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Add a popup to the map

@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 09/11/2024
 ms.author: greglin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -241,7 +241,7 @@ No. Azure supports a single reverse DNS record for each Azure Cloud Service or P
 
 ### Can I configure reverse DNS for IPv6 PublicIpAddress resources?
 
-No. Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources and Cloud Services.
+No. Azure DNS does not currently support reverse DNS (PTR records) for public IPv6 addresses.
 
 ### Can I send emails to external domains from my Azure Compute services?
 

@@ -5,7 +5,7 @@ ms.service: azure-hdinsight
 ms.topic: troubleshooting
 author: reachnijel
 ms.author: nijelsf
-ms.date: 09/18/2023
+ms.date: 09/06/2024
 ---
 
 # Scenario: Apache Hive logs are filling up the disk space on the head nodes in Azure HDInsight

@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 # Monitor Apache Spark applications with Azure Log Analytics
 
-In this tutorial, you learn how to enable the Synapse Studio connector that's built in to Log Analytics. You can then collect and send Apache Spark application metrics and logs to your [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). Finally, you can use an Azure Monitor workbook to visualize the metrics and logs.
+In this tutorial, you learn how to enable the Synapse Studio connector that's built in to Log Analytics. You can then collect and send Apache Spark application metrics and logs to your [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). Finally, you can use an Azure Monitor workbook to visualize the metrics and logs.
 
 ## Configure workspace information
 
@@ -21,9 +21,9 @@ Follow these steps to configure the necessary information in Synapse Studio.
 ### Step 1: Create a Log Analytics workspace
 
 Consult one of the following resources to create this workspace:
-- [Create a workspace in the Azure portal.](../../azure-monitor/logs/quick-create-workspace.md)
-- [Create a workspace with Azure CLI.](../../azure-monitor/logs/resource-manager-workspace.md)
-- [Create and configure a workspace in Azure Monitor by using PowerShell.](../../azure-monitor/logs/powershell-workspace-configuration.md)
+- [Create a workspace in the Azure portal.](/azure/azure-monitor/logs/quick-create-workspace)
+- [Create a workspace with Azure CLI.](/azure/azure-monitor/logs/resource-manager-workspace)
+- [Create and configure a workspace in Azure Monitor by using PowerShell.](/azure/azure-monitor/logs/powershell-workspace-configuration)
 
 ### Step 2: Prepare an Apache Spark configuration file
 
@@ -45,7 +45,7 @@ spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
 #### Option 2: Configure with Azure Key Vault
 
 > [!NOTE]
-> You need to grant read secret permission to the users who will submit Apache Spark applications. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../../key-vault/general/rbac-guide.md). When you enable this feature in a Synapse pipeline, you need to use **Option 3**. This is necessary to obtain the secret from Azure Key Vault with workspace managed identity.
+> You need to grant read secret permission to the users who will submit Apache Spark applications. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide). When you enable this feature in a Synapse pipeline, you need to use **Option 3**. This is necessary to obtain the secret from Azure Key Vault with workspace managed identity.
 
 To configure Azure Key Vault to store the workspace key, follow these steps:
 
@@ -75,7 +75,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 #### Option 3. Configure with a linked service
 
 > [!NOTE]
-> In this option, you need to grant read secret permission to workspace managed identity. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../../key-vault/general/rbac-guide.md).
+> In this option, you need to grant read secret permission to workspace managed identity. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide).
 
 To configure a Key Vault linked service in Synapse Studio to store the workspace key, follow these steps:
 
@@ -240,17 +240,17 @@ SparkMetrics_CL
 
 ## Create and manage alerts
 
-Users can query to evaluate metrics and logs at a set frequency, and fire an alert based on the results. For more information, see [Create, view, and manage log alerts by using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
+Users can query to evaluate metrics and logs at a set frequency, and fire an alert based on the results. For more information, see [Create, view, and manage log alerts by using Azure Monitor](/azure/azure-monitor/alerts/alerts-log).
 
 ## Synapse workspace with data exfiltration protection enabled
 
 After the Synapse workspace is created with [data exfiltration protection](../security/workspace-data-exfiltration-protection.md) enabled.
 
-When you want to enable this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (A M P L S)](../../azure-monitor/logs/private-link-security.md) in the workspace’s approved Microsoft Entra tenants.
+When you want to enable this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (A M P L S)](/azure/azure-monitor/logs/private-link-security) in the workspace’s approved Microsoft Entra tenants.
 
 You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (A M P L S):
 
-1. If there is no existing A M P L S, you can follow [Azure Monitor Private Link connection setup](../../azure-monitor/logs/private-link-security.md) to create one.
+1. If there is no existing A M P L S, you can follow [Azure Monitor Private Link connection setup](/azure/azure-monitor/logs/private-link-security) to create one.
 2. Navigate to your A M P L S in Azure portal, on the **Azure Monitor Resources** page, click **Add** to add connection to your Azure Log Analytics workspace.
 3. Navigate to **Synapse Studio > Manage > Managed private endpoints**, click **New** button, select **Azure Monitor Private Link Scopes**, and **continue**.
    > [!div class="mx-imgBorder"]
@@ -262,7 +262,7 @@ You can follow below steps to create a managed private endpoint connection to Az
 6. Navigate to your A M P L S in Azure portal again, on the **Private Endpoint connections** page, select the connection provisioned and **Approve**.
 
 > [!NOTE] 
->  - The A M P L S object has a number of limits you should consider when planning your Private Link setup. See [A M P L S limits](../../azure-monitor/logs/private-link-security.md) for a deeper review of these limits. 
+>  - The A M P L S object has a number of limits you should consider when planning your Private Link setup. See [A M P L S limits](/azure/azure-monitor/logs/private-link-security) for a deeper review of these limits. 
 >  - Check if you have [right permission](../security/synapse-workspace-access-control-overview.md) to create managed private endpoint.
 
 ## Next steps

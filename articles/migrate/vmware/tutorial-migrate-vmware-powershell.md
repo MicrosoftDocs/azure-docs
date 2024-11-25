@@ -12,7 +12,7 @@ ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
 
 # Migrate VMware VMs to Azure (agentless) - PowerShell
 
-In this article, you learn how to migrate discovered VMware virtual machines (VMs) with the agentless method by using Azure PowerShell for [Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool).
+In this article, you learn how to migrate discovered VMware virtual machines (VMs) with the agentless method by using Azure PowerShell for [Migration and modernization](../migrate-services-overview.md).
 
 You learn how to:
 
@@ -54,7 +54,7 @@ Connect-AzAccount
 Use the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet to get the list of Azure subscriptions you have access to. Select the Azure subscription that has your Azure Migrate project to work with by using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
-Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+Set-AzContext -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ```
 
 ## Retrieve the Azure Migrate project
@@ -109,7 +109,7 @@ $DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.
 
 ## Initialize replication infrastructure
 
-[Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) uses multiple Azure resources for migrating VMs. Migration and modernization provisions the following resources, in the same resource group as the project.
+[Migration and modernization](../migrate-services-overview.md) uses multiple Azure resources for migrating VMs. Migration and modernization provisions the following resources, in the same resource group as the project.
 
 - **Service bus**: Migration and modernization uses the service bus to send replication orchestration messages to the appliance.
 - **Gateway storage account**: Migration and modernization uses the gateway storage account to store state information about the VMs being replicated.
@@ -323,7 +323,7 @@ $job = Get-AzMigrateJob -InputObject $job
 
 ## Update properties of a replicating VM
 
-[Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) allows you to change target properties, such as name, size, resource group, NIC configuration, and so on, for a replicating VM.
+[Migration and modernization](../migrate-services-overview.md) allows you to change target properties, such as name, size, resource group, NIC configuration, and so on, for a replicating VM.
 
 The following properties can be updated for a VM.
 
@@ -510,7 +510,7 @@ Write-Output $MigrateJob.State
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just-in-time administration](../../security-center/security-center-just-in-time.md).
     - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../../update-manager/overview.md).
     - Restrict network traffic to management endpoints with [network security groups](../../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../../virtual-machines/disk-encryption-overview.md) to help secure disks and keep data safe from theft and unauthorized access.
+    - Deploy [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview) to help secure disks and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) and [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
    - Consider deploying [Microsoft Cost Management](../../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.

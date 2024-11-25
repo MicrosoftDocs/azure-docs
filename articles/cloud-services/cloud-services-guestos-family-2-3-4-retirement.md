@@ -2,10 +2,10 @@
 title: Guest OS family 2, 3, and 4 retirement notice | Microsoft Docs
 description: Information about when the Azure Guest OS Family 2, 3, and 4 retirement happened and how to determine if their retirement affects you.
 services: cloud-services
-ms.subservice: auto-os-updates
+ms.subservice: guest-os-patching
 author: raiye
 manager: timlt
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.topic: article
 ms.date: 07/23/2024
 ms.author: raiye

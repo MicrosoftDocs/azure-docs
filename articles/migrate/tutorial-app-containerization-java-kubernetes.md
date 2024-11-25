@@ -1,18 +1,14 @@
 ---
 title: Azure App Containerization Java; Containerization and migration of Java web applications to Azure Kubernetes.
 description: Tutorial:Containerize & migrate Java web applications to Azure Kubernetes Service.
-author: vijain
-ms.author: vijain
-ms.manager: kmadnani
+author: anraghun
+ms.author: anraghun
 ms.custom: devx-track-java, devx-track-javaee, migration-java, subject-rbac-steps, devx-track-extended-java
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 07/05/2024
+ms.date: 09/19/2024
 ---
 # Java web app containerization and migration to Azure Kubernetes Service
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 In this article, you'll learn how to containerize Java web applications (running on Apache Tomcat) and migrate them to [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) using the Azure Migrate: App Containerization tool. The containerization process doesn’t require access to your codebase and provides an easy way to containerize existing applications. The tool works by using the running state of the applications on a server to determine the application components and helps you package them in a container image. The containerized application can then be deployed on Azure Kubernetes Service (AKS).
 
@@ -102,6 +98,8 @@ If you just created a free Azure account, you're the owner of your subscription.
 1. In **User settings**, verify that Microsoft Entra users can register applications (set to **Yes** by default).
 
       ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
+
+   [!INCLUDE [global-admin-usage.md](includes/global-admin-usage.md)]
 
 1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Microsoft Entra App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
@@ -203,7 +201,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
 ## Build container image
 
 
-1. **Select Azure Container Registry**: Use the dropdown to select an [Azure Container Registry](../container-registry/index.yml) that will be used to build and store the container images for the apps. You can use an existing Azure Container Registry or choose to create a new one using the Create new registry option.
+1. **Select Azure Container Registry**: Use the dropdown to select an [Azure Container Registry](/azure/container-registry/) that will be used to build and store the container images for the apps. You can use an existing Azure Container Registry or choose to create a new one using the Create new registry option.
 
     ![Screenshot for app ACR selection.](./media/tutorial-containerize-apps-aks/build-java-app.png)
 
@@ -283,5 +281,5 @@ To troubleshoot any issues with the tool, you can look at the log files on the W
 - Containerizing Java web apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on App Service. [Learn more](./tutorial-app-containerization-java-app-service.md)
 - Containerizing ASP.NET web apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
 - Containerizing ASP.NET web apps and deploying them on Windows containers on Azure App Service. [Learn more](./tutorial-app-containerization-aspnet-app-service.md)
-- What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service? [Learn more](../virtual-machines/workloads/oracle/weblogic-aks.md)
+- What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service? [Learn more](/azure/virtual-machines/workloads/oracle/weblogic-aks)
 - Open Liberty and WebSphere Liberty on AKS. [Learn more](/azure/developer/java/ee/websphere-family#open-liberty-and-websphere-liberty-on-aks)

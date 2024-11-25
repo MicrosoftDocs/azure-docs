@@ -8,12 +8,12 @@ ms.author: mbaldwin
 ms.date: 03/15/2024
 ---
 
-# Customer Lockbox for Microsoft Azure alternate email notifications (public preview)
+# Customer Lockbox for Microsoft Azure alternate email notifications
 
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-Customer Lockbox for Microsoft Azure is launching a new feature that enables customers to use alternate email IDs for getting Customer Lockbox notifications. This enables Customer Lockbox for Microsoft Azure customers to receive notifications in scenarios where their Azure account is not email enabled or if they have a service principal defined as the tenant admin or subscription owner.
+Alternate email notification feature enables customers to use alternate email IDs for getting Customer Lockbox notifications. This enables Customer Lockbox for Microsoft Azure customers to receive notifications in scenarios where their Azure account is not email enabled or if they have a service principal defined as the tenant admin or subscription owner.
 
 > [!IMPORTANT]
 > This feature only enables Customer Lockbox notifications to be sent to alternate email IDs. It does not enable alternate users to act as approvers for Customer Lockbox requests.

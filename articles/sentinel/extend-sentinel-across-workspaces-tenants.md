@@ -3,14 +3,19 @@ title: Extend Microsoft Sentinel across workspaces and tenants
 description: How to use Microsoft Sentinel to query and analyze data across workspaces and tenants.
 author: yelevin
 ms.topic: how-to
-ms.date: 06/28/2023
+ms.date: 10/17/2024
 ms.author: yelevin
-#Customer intent: As a security operator, I want to extend my workspace so I can query and analyze data across workspaces and tenants.
+appliesto: Microsoft Sentinel in the Azure portal
+
+#Customer intent: As a security analyst, I want to query data across multiple workspaces and tenants so that I can centralize incident management and enhance threat detection capabilities.
+
 ---
 
 # Extend Microsoft Sentinel across workspaces and tenants
 
-When you onboard Microsoft Sentinel, your first step is to select your Log Analytics workspace. While you can get the full benefit of the Microsoft Sentinel experience with a single workspace, in some cases, you might want to extend your workspace to query and analyze your data across workspaces and tenants. Learn more about [how Microsoft Sentinel can extend across multiple workspaces](prepare-multiple-workspaces.md).
+When you onboard Microsoft Sentinel, your first step is to select your Log Analytics workspace. While you can get the full benefit of the Microsoft Sentinel experience with a single workspace, in some cases, you might want to extend your workspace to query and analyze your data across workspaces and tenants. For more information, see [Design a Log Analytics workspace architecture](/azure/azure-monitor/logs/workspace-design) and [Prepare for multiple workspaces and tenants in Microsoft Sentinel](prepare-multiple-workspaces.md).
+
+If you onboard Microsoft Sentinel to the Microsoft Defender portal, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
 
 ## Manage incidents on multiple workspaces
 
@@ -18,15 +23,15 @@ Microsoft Sentinel supports a [multiple workspace incident view](./multiple-work
 
 ## Query multiple workspaces
 
-You can query [multiple workspaces](../azure-monitor/logs/cross-workspace-query.md), allowing you to search and correlate data from multiple workspaces in a single query.
+You can query [multiple workspaces](/azure/azure-monitor/logs/cross-workspace-query), allowing you to search and correlate data from multiple workspaces in a single query.
 
-- Use the [`workspace( )` expression](../azure-monitor/logs/workspace-expression.md), with the workspace identifier as the argument, to refer to a table in a different workspace.
+- Use the [`workspace( )` expression](/azure/azure-monitor/logs/workspace-expression), with the workspace identifier as the argument, to refer to a table in a different workspace.
 
-   - See [important information](../azure-monitor/logs/workspace-expression.md#syntax) about the use of identifier formats to ensure proper performance.
+   - See [important information](/azure/azure-monitor/logs/workspace-expression#syntax) about the use of identifier formats to ensure proper performance.
 
 - Use the [union operator](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) alongside the `workspace( )` expression to apply a query across tables in multiple workspaces.
 
-- You can use saved [functions](../azure-monitor/logs/functions.md) to simplify cross-workspace queries. For example, you can shorten a long reference to the *SecurityEvent* table in Customer A's workspace by saving the expression 
+- You can use saved [functions](/azure/azure-monitor/logs/functions) to simplify cross-workspace queries. For example, you can shorten a long reference to the *SecurityEvent* table in Customer A's workspace by saving the expression 
 
    ```kusto
    workspace("/subscriptions/<customerA_subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.OperationalInsights/workspaces/<workspaceName>").SecurityEvent
@@ -80,16 +85,16 @@ Cross-workspace hunting capabilities enable your threat hunters to create new hu
 
 ## Manage multiple workspaces using automation
 
-To configure and manage multiple Microsoft Sentinel workspaces, you need to automate the use of the Microsoft Sentinel management API. 
+To configure and manage multiple Log Analytics workspaces enabled for Microsoft Sentinel, you need to automate the use of the Microsoft Sentinel management API. 
 
 - Learn how to [automate the deployment of Microsoft Sentinel resources](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885), including alert rules, hunting queries, workbooks and playbooks.
 - Learn how to [deploy custom content from your repository](ci-cd.md). This resource provides a consolidated methodology for managing Microsoft Sentinel as code and for deploying and configuring resources from a private Azure DevOps or GitHub repository.
 
 ## Manage workspaces across tenants using Azure Lighthouse
 
-As mentioned above, in many scenarios, the different Microsoft Sentinel workspaces can be located in different Microsoft Entra tenants. You can use [Azure Lighthouse](../lighthouse/overview.md) to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on Microsoft Sentinel workspaces across all tenants. 
+As mentioned above, in many scenarios, the different Log Analytics workspaces enabled for Microsoft Sentinels can be located in different Microsoft Entra tenants. You can use [Azure Lighthouse](/azure/lighthouse/overview) to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on workspaces across all tenants. 
 
-Once Azure Lighthouse is [onboarded](../lighthouse/how-to/onboard-customer.md), use the [directory + subscription selector](./multiple-tenants-service-providers.md#how-to-access-microsoft-sentinel-in-managed-tenants) on the Azure portal to select all the subscriptions containing workspaces you want to manage, in order to ensure that they'll all be available in the different workspace selectors in the portal.
+Once Azure Lighthouse is [onboarded](/azure/lighthouse/how-to/onboard-customer), use the [directory + subscription selector](./multiple-tenants-service-providers.md#how-to-access-microsoft-sentinel-in-managed-tenants) on the Azure portal to select all the subscriptions containing workspaces you want to manage, in order to ensure that they'll all be available in the different workspace selectors in the portal.
 
 When using Azure Lighthouse, it's recommended to create a group for each Microsoft Sentinel role and delegate permissions from each tenant to those groups.
 

@@ -2,12 +2,12 @@
 title: FAQs about Azure Health Data Services
 description: This document provides answers to the frequently asked questions about Azure Health Data Services.
 services: healthcare-apis
-author: msjasteppe
+author: EXPEkesheth
 ms.custom: references_regions
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: reference
 ms.date: 12/15/2022
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Frequently asked questions about Azure Health Data Services

@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 03/03/2020
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Core IO operations

@@ -7,7 +7,7 @@ ms.author: peterbr
 ms.date: 05/11/2022
 ms.topic: best-practice
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: authentication
 ---
 
 # Authentication best practices

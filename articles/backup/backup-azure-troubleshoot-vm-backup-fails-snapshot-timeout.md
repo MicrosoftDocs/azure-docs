@@ -22,7 +22,7 @@ Most common backup failures can be self-resolved by following the troubleshootin
 
 ### Step 1: Check Azure VM health
 
-- **Ensure Azure VM provisioning state is 'Running'**: If the [VM provisioning state](../virtual-machines/states-billing.md) is in the **Stopped/Deallocated/Updating** state, then it will interfere with the backup operation. Open *Azure portal > VM > Overview >* and check the VM status to ensure it's **Running**  and retry the backup operation.
+- **Ensure Azure VM provisioning state is 'Running'**: If the [VM provisioning state](/azure/virtual-machines/states-billing) is in the **Stopped/Deallocated/Updating** state, then it will interfere with the backup operation. Open *Azure portal > VM > Overview >* and check the VM status to ensure it's **Running**  and retry the backup operation.
 - **Review pending OS updates or reboots**: Ensure there are no pending OS update or pending reboots on the VM.
 
 ### Step 2: Check Azure VM Guest Agent service health
@@ -30,11 +30,11 @@ Most common backup failures can be self-resolved by following the troubleshootin
 - **Ensure Azure VM Guest Agent service is started and up-to-date**:
   - On a Windows VM:
     - Navigate to **services.msc** and ensure **Windows Azure VM Guest Agent service** is up and running. Also, ensure the [latest version](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) is installed. To learn more, see [Windows VM guest agent issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
-    - The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](../virtual-machines/extensions/agent-windows.md#manual-installation) may be necessary when you create a custom VM image that's deployed to Azure.
+    - The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](/azure/virtual-machines/extensions/agent-windows#manual-installation) may be necessary when you create a custom VM image that's deployed to Azure.
     - Review the support matrix to check if VM runs on the [supported Windows operating system](backup-support-matrix-iaas.md#operating-system-support-windows).
   - On Linux VM,
-    - Ensure the Azure VM Guest Agent service is running by executing the command `ps -e`. Also, ensure the [latest version](../virtual-machines/extensions/update-linux-agent.md) is installed. To learn more, see [Linux VM guest agent issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
-    - Ensure the [Linux VM agent dependencies on system packages](../virtual-machines/extensions/agent-linux.md#requirements) have the supported configuration. For example: Supported Python version is 2.6 and above.
+    - Ensure the Azure VM Guest Agent service is running by executing the command `ps -e`. Also, ensure the [latest version](/azure/virtual-machines/extensions/update-linux-agent) is installed. To learn more, see [Linux VM guest agent issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
+    - Ensure the [Linux VM agent dependencies on system packages](/azure/virtual-machines/extensions/agent-linux#requirements) have the supported configuration. For example: Supported Python version is 2.6 and above.
     - Review the support matrix to check if VM runs on the [supported Linux operating system.](backup-support-matrix-iaas.md#operating-system-support-linux)
 
 ### Step 3: Check Azure VM Extension health
@@ -42,7 +42,7 @@ Most common backup failures can be self-resolved by following the troubleshootin
 - **Ensure all Azure VM Extensions are in 'provisioning succeeded' state**:
   If any extension is in a failed state, then it can interfere with the backup.
 - *Open  Azure portal > VM > Settings > Extensions > Extensions status* and check if all the extensions are in **provisioning succeeded** state.
-- Ensure all [extension issues](../virtual-machines/extensions/overview.md#troubleshoot-extensions) are resolved and retry the backup operation.
+- Ensure all [extension issues](/azure/virtual-machines/extensions/overview#troubleshoot-extensions) are resolved and retry the backup operation.
 - **Ensure COM+ System Application** is up and running. Also, the **Distributed Transaction Coordinator service** should be running as **Network Service account**. Follow the steps in this article to [troubleshoot COM+ and MSDTC issues](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error).
 
 ### Step 4: Check Azure Backup Extension health
@@ -57,9 +57,9 @@ Azure Backup uses the VM Snapshot Extension to take an application consistent ba
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- **Check if network access is required**: Extension packages are downloaded from the Azure Storage extension repository and extension status uploads are posted to Azure Storage. [Learn more](../virtual-machines/extensions/features-windows.md#network-access).
+- **Check if network access is required**: Extension packages are downloaded from the Azure Storage extension repository and extension status uploads are posted to Azure Storage. [Learn more](/azure/virtual-machines/extensions/features-windows#network-access).
   - If you're on a non-supported version of the agent, you need to allow outbound access to Azure storage in that region from the VM.
-  - If you've blocked access to `168.63.129.16` using the guest firewall or with a proxy, extensions will fail regardless of the above. Ports 80, 443, and 32526 are required, [Learn more](../virtual-machines/extensions/features-windows.md#network-access).
+  - If you've blocked access to `168.63.129.16` using the guest firewall or with a proxy, extensions will fail regardless of the above. Ports 80, 443, and 32526 are required, [Learn more](/azure/virtual-machines/extensions/features-windows#network-access).
 
 - **Ensure DHCP is enabled inside the guest VM**: This is required to get the host or fabric address from DHCP for the IaaS VM backup to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell and make sure the DHCP option inside the VM is enabled, [Learn more](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
 
@@ -101,7 +101,7 @@ After you register and schedule a VM for the Azure Backup service, Backup starts
 **Error code**: UserErrorVmProvisioningStateFailed<br>
 **Error message**: The VM is in failed provisioning state<br>
 
-This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state. To learn more, see [Provisioning states](../virtual-machines/states-billing.md).
+This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state. To learn more, see [Provisioning states](/azure/virtual-machines/states-billing).
 
 - If any extension is in a failed state, then it can interfere with the backup. Ensure those extension issues are resolved and retry the backup operation.
 - If the VM provisioning state is in an updating state, it can interfere with the backup. Ensure that it's healthy and retry the backup operation.
@@ -241,7 +241,7 @@ Also, verify that [Microsoft .NET 4.5 is installed](/dotnet/framework/migration-
 
 Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an outdated VM agent. To troubleshoot this issue, follow these general guidelines:
 
-1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/extensions/update-linux-agent.md).
+1. Follow the instructions for [updating the Linux VM agent](/azure/virtual-machines/extensions/update-linux-agent).
 
    > [!NOTE]
    > We *strongly recommend* that you update the agent only through a distribution repository. We don't recommend downloading the agent code directly from GitHub and updating it. If the latest agent for your distribution is not available, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.

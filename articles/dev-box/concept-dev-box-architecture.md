@@ -1,13 +1,14 @@
 ---
 title: Microsoft Dev Box architecture
-description: Learn about the architecture, key concepts & terminology for Microsoft Dev Box. Get an understanding about dev center, dev box, dev box definitions, and dev box pools.
+description: Learn about the architecture, key concepts & terminology for Microsoft Dev Box. Understand dev center, dev box, dev box definitions, and dev box pools.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.topic: conceptual
-ms.date: 12/12/2023
+ms.topic: concept-article
+ms.date: 09/24/2024
 ms.custom: template-concept
+
 #Customer intent: As a platform engineer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
 ---
 
@@ -35,15 +36,19 @@ The network connection that is associated with a dev box pool determines where t
 
 Developers can create a dev box from a dev box pool by using the developer portal. They might choose from a specific pool based on the VM image, compute resources, or the location where the dev box is hosted.
 
-Once the dev box is running, dev box users can [remotely connect](#user-connectivity) to it by using a remote desktop client or directly from the browser. Dev box users have full control over the dev boxes they created, and can manage them from the developer portal. 
+Once the dev box is running, dev box users can [remotely connect](#user-connectivity) to it by using a Remote Desktop client like Windows App, or directly from the browser. Dev box users have full control over the dev boxes they created, and can manage them from the developer portal. 
 
 ## Microsoft Dev Box architecture
 
-The *hosted on behalf of* architecture lets Microsoft services, after they’re delegated appropriate and scoped permissions to a virtual network by a subscription owner, attach hosted Azure services to a customer subscription. This connectivity model lets a Microsoft service provide software-as-a-service and user licensed services as opposed to standard consumption-based services.
+The *hosted on behalf of* architecture lets Microsoft services, after they're delegated appropriate and scoped permissions to a virtual network by a subscription owner, attach hosted Azure services to a customer subscription. This connectivity model lets a Microsoft service provide software-as-a-service and user licensed services as opposed to standard consumption-based services.
 
-Microsoft Dev Box uses the *hosted on-behalf* architecture, which means that the dev boxes exist in a subscription owned by Microsoft. Therefore, Microsoft incurs the costs for running and managing this infrastructure.
+Microsoft Dev Box uses the *hosted on-behalf* architecture, which means that the dev boxes exist in a subscription owned by Microsoft. Therefore, Microsoft incurs the costs for running and managing this infrastructure. Dev boxes are deployed in a subscription managed by Microsoft and connected to the customer's virtual network. 
 
 Microsoft Dev Box manages the capacity and in-region availability in the Microsoft Dev Box subscriptions. Microsoft Dev Box determines the Azure region to host your dev boxes based on the network connection you select when creating a dev box pool.
+
+To protect your data, Microsoft Dev Box encrypts the disk by default using a platform-managed key. You don't need to enable BitLocker and doing so can prevent you from accessing your dev box.
+
+For more information about data storage and protection in Azure services see: [Azure customer data protection](/azure/security/fundamentals/protection-customer-data). 
 
 For the network connection, you can also choose between a Microsoft-hosted network connection, and an Azure network connection that you create in your own subscription.
 
@@ -72,9 +77,9 @@ To determine the best region to host the dev boxes, you can let dev box users ta
 
 ### Microsoft Intune integration
 
-Microsoft Intune is used to manage your dev boxes. Every Dev Box user needs one Microsoft Intune license and can create multiple dev boxes. After a dev box is provisioned, you can manage it like any other Windows device in Microsoft Intune. For example, you can create [device configuration profiles](/mem/intune/configuration/device-profiles) to turn different settings on and off in Windows, or push apps and updates to your users’ dev boxes.
+Microsoft Intune is used to manage your dev boxes. Every Dev Box user needs one Microsoft Intune license and can create multiple dev boxes. After a dev box is provisioned, you can manage it like any other Windows device in Microsoft Intune. For example, you can create [device configuration profiles](/mem/intune/configuration/device-profiles) to turn different settings on and off in Windows, or push apps and updates to your users' dev boxes.
 
-Microsoft Intune and associated Windows components have various [network endpoints](/mem/intune/fundamentals/intune-endpoints) that must be allowed through the Virtual Network. Apple and Android endpoints can be safely ignored if you don’t use Microsoft Intune for managing those device types.
+Microsoft Intune and associated Windows components have various [network endpoints](/mem/intune/fundamentals/intune-endpoints) that must be allowed through the Virtual Network. Apple and Android endpoints can be safely ignored if you don't use Microsoft Intune for managing those device types.
 
 ### Identity services
 
@@ -97,7 +102,7 @@ When you configure dev boxes to use [Microsoft Entra join](/azure/active-directo
 
 ### User connectivity
 
-When a dev box is running, developers can connect to the dev box by using a Remote Desktop client or directly from within the browser.
+When a dev box is running, developers can connect to the dev box by using a Remote Desktop client like Windows App, or directly from within the browser.
 
 Dev box connectivity is provided by Azure Virtual Desktop. No inbound connections direct from the Internet are made to the dev box. Instead, the following connections are made:
 

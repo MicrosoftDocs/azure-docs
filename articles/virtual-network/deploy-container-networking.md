@@ -2,7 +2,7 @@
 title: Deploy Azure virtual network container networking
 description: Learn how to deploy the Azure Virtual Network container network interface (CNI) plug-in for Kubernetes clusters.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: allensu
@@ -68,7 +68,7 @@ The json example that follows is for a cluster with the following properties:
       }
     },
     "servicePrincipalProfile": {
-      "clientId": "dd438987-aa12-4754-b47d-375811889714",
+      "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
       "secret": "azure123"
     }
   }

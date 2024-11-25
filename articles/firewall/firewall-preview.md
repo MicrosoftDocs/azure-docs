@@ -1,6 +1,6 @@
 ---
 title: Azure Firewall preview features
-description: Learn about Azure Firewall preview features that are currently publicly available.
+description: Learn about Azure Firewall preview features that are publicly available now.
 services: firewall
 author: vhorne
 ms.service: azure-firewall
@@ -37,17 +37,26 @@ For more information, see [Azure Firewall Explicit proxy (preview)](explicit-pro
 
 With the Azure Firewall Resource Health check, you can now diagnose and get support for service problems that affect your Azure Firewall resource. Resource Health allows IT teams to receive proactive notifications on potential health degradations, and recommended mitigation actions per each health event type.  The resource health is also available in a dedicated page in the Azure portal resource page.
 Starting in August 2023, this preview is automatically enabled on all firewalls and no action is required to enable this functionality.
-For more information, see [Resource Health overview](../service-health/resource-health-overview.md).
+For more information, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
-### Auto-learn SNAT routes (preview)
+### Autolearn SNAT routes (preview)
 
-You can configure Azure Firewall to auto-learn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
+You can configure Azure Firewall to autolearn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
 
 ### Parallel IP Group updates (preview)
 
 You can now update multiple IP Groups in parallel at the same time. This is useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM template, CLI, and PowerShell).
 
 For more information, see [IP Groups in Azure Firewall](ip-groups.md#parallel-ip-group-updates-preview).
+
+### Private IP address DNAT rules (preview)
+
+You can now configure a DNAT rule on Azure Firewall Policy with the private IP address of the Azure Firewall as the destination. Previously, DNAT rules only worked with Azure Firewall Public IP addresses.
+This capability helps with connectivity between overlapped IP networks, which is a common scenario for enterprises when onboarding new partners to their network or merging with new acquisitions.
+This is also relevant for hybrid scenarios, connecting on-premises datacenters to Azure, where DNAT bridges the gap, enabling communication between private resources over nonroutable IP addresses.
+
+For more information, see [Private IP DNAT Support and Scenarios with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/private-ip-dnat-support-and-scenarios-with-azure-firewall/ba-p/4230073).
+
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Iterative loops in Bicep
 description: Use loops to iterate over collections in Bicep
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/11/2024
+ms.date: 08/28/2024
 ---
 
 # Iterative loops in Bicep
@@ -99,7 +99,7 @@ The next example creates the number of storage accounts specified in the `storag
 param location string = resourceGroup().location
 param storageCount int = 2
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' = [for i in range(0, storageCount): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2023-05-01' = [for i in range(0, storageCount): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -150,7 +150,7 @@ param storageNames array = [
   'coho'
 ]
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' = [for name in storageNames: {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2023-05-01' = [for name in storageNames: {
   name: '${name}${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -213,7 +213,7 @@ var storageConfigurations = [
   }
 ]
 
-resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-04-01' = [for (config, i) in storageConfigurations: {
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-05-01' = [for (config, i) in storageConfigurations: {
   name: '${storageAccountNamePrefix}${config.suffix}${i}'
   location: resourceGroup().location
   sku: {
@@ -309,13 +309,13 @@ By default, Azure resources are deployed in parallel. When you use a loop to cre
 
 You might not want to update all instances of a resource type at the same time. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time. You can specify that a subset of the instances be batched together and deployed at the same time. The other instances wait for that batch to complete.
 
-To serially deploy instances of a resource, add the [batchSize decorator](./file.md#resource-and-module-decorators). Set its value to the number of instances to deploy concurrently. A dependency is created on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
+To serially deploy instances of a resource, add the [batchSize decorator](./file.md#decorators). Set its value to the number of instances to deploy concurrently. A dependency is created on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 ```bicep
 param location string = resourceGroup().location
 
 @batchSize(2)
-resource storageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' = [for i in range(0, 4): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2023-05-01' = [for i in range(0, 4): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -331,33 +331,33 @@ The `batchSize` decorator is in the [sys namespace](bicep-functions.md#namespace
 
 ## Iteration for a child resource
 
-You can't use a loop for a nested child resource. To create more than one instance of a child resource, change the child resource to a top-level resource.
+To create more than one instance of a child resource, both of the following Bicep files would work.
 
-For example, suppose you typically define a file service and file share as nested resources for a storage account.
+**Nested child resources**
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+param location string = resourceGroup().location
+
+resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: 'examplestorage'
-  location: resourceGroup().location
+  location: location
   kind: 'StorageV2'
   sku: {
     name: 'Standard_LRS'
   }
   resource service 'fileServices' = {
     name: 'default'
-    resource share 'shares' = {
-      name: 'exampleshare'
-    }
+    resource share 'shares' = [for i in range(0, 3): {
+      name: 'exampleshare${i}'
+    }]
   }
 }
 ```
 
-To create more than one file share, move it outside of the storage account. You define the relationship with the parent resource through the `parent` property.
-
-The following example shows how to create a storage account, file service, and more than one file share:
+**Top-level child resources**
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -366,12 +366,12 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-05-01' = {
   name: 'default'
   parent: stg
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = [for i in range(0, 3): {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-05-01' = [for i in range(0, 3): {
   name: 'exampleshare${i}'
   parent: service
 }]
@@ -387,7 +387,7 @@ The outputs of the two samples in [Integer index](#integer-index) can be written
 param location string = resourceGroup().location
 param storageCount int = 2
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' = [for i in range(0, storageCount): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2023-05-01' = [for i in range(0, storageCount): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {

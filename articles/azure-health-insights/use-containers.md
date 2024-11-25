@@ -1,7 +1,7 @@
 ---
 title: How to use Azure AI Health Insights containers
 titleSuffix: Azure AI Health Insights
-description: Learn how to use Project Health Insight models on premises using Docker containers.
+description: Learn how to use Azure AI Health Insight models on premises using Docker containers.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -31,7 +31,7 @@ You must meet the following prerequisites before using Azure AI Health Insights 
 The host that runs the Docker container on your premises, should be an x64-based computer. It can also be a Docker hosting service in Azure, such as:
 
 * [Azure Kubernetes Service](/azure/aks/).
-* [Azure Container Instances](../../articles/container-instances/index.yml).
+* [Azure Container Instances](/azure/container-instances/).
 * A [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 The following table describes the minimum and recommended specifications for the different Health Insights containers.
@@ -40,7 +40,6 @@ The following table describes the minimum and recommended specifications for the
 | Model | Minimum cpu | Maximum cpu | Minimum memory | Maximum memory|
 |----------|--|--|--|--|
 | Trial Matcher | 4000m |4000m |5G | 7G | 
-| OncoPhenotype | 4000m |8000m |2G | 12G |
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
@@ -49,11 +48,12 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 Azure AI Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They reside within the `azure-cognitive-services/health-insights/` repository and can be found by their model name.
 
 - Clinical Trial Matcher: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/clinical-matching`
-- Onco-Phenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/cancer-profiling`
 
-To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/clinical-matching/tags/list` and `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/cancer-profiling/tags/list`.
+To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/v2/azure-cognitive-services/health-insights/clinical-matching/tags/list`.
 
-- Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the [docker hub clinical matching page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-clinical-matching) and [docker hub cancer profiling page](https://hub.docker.com/_/microsoft-azure-cognitive-services-health-insights-cancer-profiling)  
+- Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. 
+You can find the featured tags on the [docker hub clinical matching page](https://hub.docker.com/r/microsoft/azure-cognitive-services-health-insights-clinical-matching).  
+
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/health-insights/<model-name>:<tag-name>
@@ -95,7 +95,7 @@ When you use Azure AI Health Insights container, the data contained in your API 
 ### Run the container locally 
 
 > [!IMPORTANT]
-> The docker run command can only be used of the cancer-profiling model, to use the clinical-matching model, you should use the docker compose command. see Example Docker compose file.
+> To use the clinical-matching model, you should use the docker compose command. see Example Docker compose file.
 
 To run the container in your own environment after downloading the container image, execute the following `docker run` command. Replace the placeholders below with your own values:
 
@@ -129,12 +129,12 @@ This command:
 Use the example cURL request as a reference how to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/health-insights/<model>/jobs?api-version=<version>/' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X PUT 'http://<serverURL>:5000/health-insights/<model>/jobs/id?api-version=<version>/' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 ```
 
 #### Example docker compose file
 
-The below example shows how a [docker compose](https://docs.docker.com/compose/reference/overview) file can be created to deploy the health-insights containers. 
+The below example shows how a [docker compose](https://docs.docker.com/reference/compose-file/) file can be created to deploy the health-insights containers. 
 
 ```yaml
 version: "3"

@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 08/14/2024
 ms.author: banders
 ---
 
@@ -54,7 +54,7 @@ You can buy savings plans by using Azure role-based access control (RBAC) permis
 #### Purchase by using Azure RBAC permissions
 
 - You must have the savings plan purchaser role within, or be an owner of, the subscription that you plan to use, which is specified as `billingScopeId`.
-- The `billingScopeId` property in the request body must use the `/subscriptions/10000000-0000-0000-0000-000000000000` format.
+- The `billingScopeId` property in the request body must use the `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e` format.
 
 #### Purchase by using billing permissions
 
@@ -64,7 +64,7 @@ Permission needed to purchase varies by the type of account that you have:
 - **Microsoft Customer Agreement**: You must be a billing profile contributor or higher.
 - **Microsoft Partner Agreement**: Only Azure RBAC permissions are currently supported.
 
-The `billingScopeId` property in the request body must use the `/providers/Microsoft.Billing/billingAccounts/{accountId}/billingSubscriptions/10000000-0000-0000-0000-000000000000` format.
+The `billingScopeId` property in the request body must use the `/providers/Microsoft.Billing/billingAccounts/{accountId}/billingSubscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e` format.
 
 
 ## View savings plan purchases and payments

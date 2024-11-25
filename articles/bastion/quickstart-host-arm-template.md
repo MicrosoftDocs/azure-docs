@@ -116,7 +116,7 @@ When you finish using the virtual network and the virtual machines, delete the r
 In this quickstart, you deployed Bastion by using an ARM template. You then connected to a virtual machine securely via Bastion. Continue with the following steps if you want to copy and paste to your virtual machine.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
+> [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
 
 > [!div class="nextstepaction"]
 > [Create an RDP connection to a Windows VM using Azure Bastion](../bastion/bastion-connect-vm-rdp-windows.md)

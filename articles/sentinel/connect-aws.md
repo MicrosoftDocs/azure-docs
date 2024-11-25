@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 01/31/2024
+
+
+#Customer intent: As a security engineer, I want to connect AWS service logs to Microsoft Sentinel so that analysts can centralize log management and enhance threat detection capabilities.
+
 ---
 
 # Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data

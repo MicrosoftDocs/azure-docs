@@ -210,9 +210,9 @@ The application is finally ready for migration:
 
 After successfully migrating your applications to AKS, you may explore the following articles to optimize your apps for cloud:
 
-- Set up CI/CD with [Azure Pipelines](/azure/aks/devops-pipeline), [GitHub Actions](/azure/aks/kubernetes-action) or [through GitOps](../azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd.md).
+- Set up CI/CD with [Azure Pipelines](/azure/aks/devops-pipeline), [GitHub Actions](/azure/aks/kubernetes-action) or [through GitOps](/azure/azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd).
 - Use Azure Monitor to [monitor health and performance of AKS and your apps](/azure/aks/monitor-aks).
-- Harden the security posture of your AKS cluster and containers with [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-enable.md).
+- Harden the security posture of your AKS cluster and containers with [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-enable).
 - Optimize [Windows Dockerfiles](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context).
 - [Review and implement best practices](/azure/aks/best-practices) to build and manage apps on AKS.
 

@@ -6,8 +6,8 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 06/06/2023
-ms.custom: engagement-fy23
+ms.date: 08/06/2024
+ms.custom: engagement-fy25
 ---
 
 # Assessment - Common questions
@@ -220,7 +220,7 @@ For Azure SQL Managed Instance, there's no storage cost added for the first 32 G
 
 ### Can I migrate my disks to Ultra disk using Azure Migrate?
 
-No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra disks. Find steps to deploy Ultra disk [here](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk)
+No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra disks. Find steps to deploy Ultra disk [here](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
 
 ### Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
 
@@ -303,4 +303,4 @@ For machines imported via a CSV file, the default migration tool in an AVS asses
 
 ## Next steps
 
-Read the [Azure Migrate overview](migrate-services-overview.md).
+Learn more about discovering [VMware VMs](./vmware/tutorial-discover-vmware.md), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).

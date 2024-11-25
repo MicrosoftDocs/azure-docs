@@ -25,7 +25,7 @@ Used with [Data discovery and classification](/azure/azure-sql/database/data-dis
 
 ## Threat detection
 
-[Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) is a tool for security posture management and threat detection. It protects workloads running in Azure, including (but not exclusively) servers, app service, key vaults, Kubernetes services, storage accounts, and Azure SQL Databases.
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) is a tool for security posture management and threat detection. It protects workloads running in Azure, including (but not exclusively) servers, app service, key vaults, Kubernetes services, storage accounts, and Azure SQL Databases.
 
 As one of the options available with Microsoft Defender for Cloud, [Microsoft Defender for SQL](/azure/azure-sql/database/azure-defender-for-sql) extends Defender for Cloud's data security package to secure databases. It can discover and mitigate potential database vulnerabilities by detecting anomalous activities that could be a potential threat to the database. Specifically, it continually monitors your database for:
 
@@ -54,7 +54,6 @@ For an overview of Azure compliance offerings, download the latest version of th
 
 For more information related to this white paper, check out the following resources:
 
-- [Azure Synapse Analytics Blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/bg-p/AzureSynapseAnalyticsBlog)
 - [Azure security baseline for Azure Synapse dedicated SQL pool (formerly SQL DW)](/security/benchmark/azure/baselines/synapse-analytics-security-baseline)
 - [Overview of the Microsoft cloud security benchmark](/security/benchmark/azure/overview)
 - [Security baselines for Azure](/security/benchmark/azure/security-baselines-overview)

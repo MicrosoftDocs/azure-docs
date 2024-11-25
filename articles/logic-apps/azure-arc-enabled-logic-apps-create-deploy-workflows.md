@@ -23,11 +23,11 @@ For example, this cluster can be Azure Kubernetes Service, bare-metal Kubernetes
 For more information, review the following documentation:
 
 - [What is Azure Arc-enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md)
-- [Single-tenant versus multitenant and integration service environment](../logic-apps/single-tenant-overview-compare.md)
-- [Azure Arc overview](../azure-arc/overview.md)
+- [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)
+- [Azure Arc overview](/azure/azure-arc/overview)
 - [Azure Kubernetes Service overview](/azure/aks/intro-kubernetes)
-- [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
-- [Custom locations on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md)
+- [What is Azure Arc-enabled Kubernetes?](/azure/azure-arc/kubernetes/overview)
+- [Custom locations on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-custom-locations)
 - [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)
 - [Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
 
@@ -49,7 +49,7 @@ This section describes the common prerequisites across all the approaches and to
   For more information, review the following documentation:
 
   - [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)
-  - [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md)
+  - [Cluster extensions on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-extensions)
   - [Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
   - [Change the default scaling behavior](#change-scaling)
 
@@ -439,7 +439,7 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
             },
             {
                "name": "FUNCTIONS_WORKER_RUNTIME",
-               "value": "node"
+               "value": "dotnet"
             },
             {
                "name": "AzureWebJobsStorage",
@@ -465,13 +465,29 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
 }
 ```
 
+> [!NOTE]
+> 
+> By default, **FUNCTIONS_WORKER_RUNTIME** app setting for your logic app is **`dotnet`**. 
+> Previously, **`node`** was the default value. However, **`dotnet`** is now the default 
+> value for all new and existing deployed Arc enabled logic apps, even for apps that had 
+> a different value. This change shouldn't affect your workflow's runtime, and everything 
+> should work the same way as before. For more information, see the 
+> [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+>
+> The **APP_KIND** app setting for your logic app is set to **workflowapp**, but in some scenarios, 
+> this app setting is missing, for example, due to Azure Resource Manager templates or other scenarios 
+> where the setting might not be included. If certain actions don't work, such as the 
+> **Execute JavaScript Code** action or the workflow stops working, check that the 
+> **APP_KIND** app setting exists and is set to to **workflowapp**. For more information, see the 
+> [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+
 ### Container deployment
 
 If you prefer to use container tools and deployment processes, you can containerize your logic apps and deploy them to Azure Arc-enabled Logic Apps. For this scenario, complete the following high-level tasks when you set up your infrastructure:
 
 - Set up a Docker registry for hosting your container images.
 
-- To containerize your logic app, add the following Dockerfile to your logic app project's root folder, and follow the steps for building and publishing an image to your Docker registry, for example, review [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](../container-registry/container-registry-tutorial-quick-task.md).
+- To containerize your logic app, add the following Dockerfile to your logic app project's root folder, and follow the steps for building and publishing an image to your Docker registry, for example, review [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](/azure/container-registry/container-registry-tutorial-quick-task).
 
   > [!NOTE]
   > If you [use SQL as your storage provider](set-up-sql-db-storage-single-tenant-standard-workflows.md), make sure that you use an Azure Functions image version 3.3.1 or later.
@@ -537,7 +553,7 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
             },
             {
                "name": "FUNCTIONS_WORKER_RUNTIME",
-               "value": "node"
+               "value": "dotnet"
             },
             {
                "name": "AzureWebJobsStorage",
@@ -574,6 +590,8 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
    }
 }
 ```
+
+[!INCLUDE [functions-language-runtime](includes/functions-language-runtime.md)]
 
 <a name="include-app-service-plan"></a>
 

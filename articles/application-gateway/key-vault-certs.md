@@ -11,7 +11,7 @@ ms.author: greglin
 
 # TLS termination with Key Vault certificates
 
-[Azure Key Vault](../key-vault/general/overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the v2 SKU of Application Gateway.
+[Azure Key Vault](/azure/key-vault/general/overview) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the v2 SKU of Application Gateway.
 
 Application Gateway offers two models for TLS termination:
 
@@ -38,7 +38,7 @@ After Application Gateway is configured to use Key Vault certificates, its insta
 
 Application Gateway uses a secret identifier in Key Vault to reference the certificates. For Azure PowerShell, the Azure CLI, or Azure Resource Manager, we strongly recommend that you use a secret identifier that doesn't specify a version. This way, Application Gateway automatically rotates the certificate if a newer version is available in your Key Vault. An example of a secret URI without a version is `https://myvault.vault.azure.net/secrets/mysecret/`. You may refer to the PowerShell steps provided in the [following section](#key-vault-azure-role-based-access-control-permission-model).
 
-The Azure portal supports only Key Vault certificates, not secrets. Application Gateway still supports referencing secrets from Key Vault, but only through non-portal resources like PowerShell, the Azure CLI, APIs, and Azure Resource Manager templates (ARM templates).
+The Azure portal supports only Key Vault certificates, not secrets. Application Gateway still supports referencing secrets from Key Vault, but only through non-portal resources like PowerShell, the Azure CLI, APIs, and Azure Resource Manager templates (ARM templates). Key Vault certificates must have an exportable private key in order for the Application Gateway to be able to use them.
 
 References to Key Vaults in other Azure subscriptions are supported, but must be configured via ARM Template, Azure PowerShell, CLI, Bicep, etc. Cross-subscription key vault configuration is not supported by Application Gateway via Azure portal today.
 
@@ -160,7 +160,7 @@ Azure Application Gateway doesn't just poll for the renewed certificate version 
 4. You find a recommendation titled **Resolve Azure Key Vault issue for your Application Gateway**, if your gateway is experiencing this issue. Ensure the correct subscription is selected from the drop-down options above.
 5. Select it to view the error details, the associated key vault resource and the  [troubleshooting guide](../application-gateway/application-gateway-key-vault-common-errors.md) to fix your exact issue.
 
-By identifying such an event through Azure Advisor or Resource Health, you can quickly resolve any configuration problems with your Key Vault. We strongly recommend you take advantage of [Azure Advisor](../advisor/advisor-alerts-portal.md) and [Resource Health](../service-health/resource-health-alert-monitor-guide.md) alerts to stay informed when a problem is detected.
+By identifying such an event through Azure Advisor or Resource Health, you can quickly resolve any configuration problems with your Key Vault. We strongly recommend you take advantage of [Azure Advisor](/azure/advisor/advisor-alerts-portal) and [Resource Health](/azure/service-health/resource-health-alert-monitor-guide) alerts to stay informed when a problem is detected.
  
 For Advisor alert, use "Resolve Azure Key Vault issue for your Application Gateway" in the recommendation type shown:</br>
 ![Diagram that shows steps for Advisor alert.](media/key-vault-certs/advisor-alert.png)

@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 02/22/2024
+ms.date: 09/12/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about VPN troubleshoot so I can use it to troubleshoot my VPN virtual network gateways and their connections whenever resources in a virtual network can't communicate with on-premises machines over a VPN connection.
 ---
@@ -162,28 +162,28 @@ The following example shows the contents of the Scrubbed-wfpdiag.txt file. In th
 
 ```
 ...
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Deleted ICookie from the high priority thread pool list
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|IKE diagnostic event:
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Event Header:
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Timestamp: 1601-01-01T00:00:00.000Z
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Flags: 0x00000106
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|    Local address field set
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|    Remote address field set
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|    IP version field set
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  IP version: IPv4
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  IP protocol: 0
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Local address: 13.78.238.92
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Remote address: 52.161.24.36
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Local Port: 0
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Remote Port: 0
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Application ID:
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  User SID: <invalid>
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Failure type: IKE/Authip Main Mode Failure
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Type specific info:
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Failure error code:0x000035e9
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|    IKE authentication credentials are unacceptable
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Failure point: Remote
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Deleted ICookie from the high priority thread pool list
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| IKE diagnostic event:
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Event Header:
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Timestamp: 1601-01-01T00:00:00.000Z
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Flags: 0x00000106
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Local address field set
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Remote address field set
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| IP version field set
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| IP version: IPv4
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| IP protocol: 0
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Local address: 203.0.113.92
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Remote address: 203.0.113.36
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Local Port: 0
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Remote Port: 0
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Application ID:
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| User SID: <invalid>
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Failure type: IKE/Authip Main Mode Failure
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Type specific info:
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Failure error code:0x000035e9
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| IKE authentication credentials are unacceptable
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36|
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Failure point: Remote
 ...
 ```
 

@@ -22,7 +22,7 @@ You learn how to:
 > - Create an Azure Blob Storage for use as a Dapr state store
 > - Deploy a Container Apps environment to host container apps
 > - Deploy two dapr-enabled container apps: one that produces orders and one that consumes orders and stores them
-> - Assign a user-assigned identity to a container app and supply it with the appropiate role assignment to authenticate to the Dapr state store
+> - Assign a user-assigned identity to a container app and supply it with the appropriate role assignment to authenticate to the Dapr state store
 > - Verify the interaction between the two microservices.
 
 With Azure Container Apps, you get a [fully managed version of the Dapr APIs](./dapr-overview.md) when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities.

@@ -19,9 +19,6 @@ To get started with using App Configuration references in App Service, you'll fi
 
 1. Create an App Configuration store by following the [App Configuration quickstart](../azure-app-configuration/quickstart-azure-app-configuration-create.md).
 
-    > [!NOTE]
-    > App Configuration references do not yet support network-restricted configuration stores.
-
 1. Create a [managed identity](overview-managed-identity.md) for your application.
 
     App Configuration references will use the app's system assigned identity by default, but you can [specify a user-assigned identity](#access-app-configuration-store-with-a-user-assigned-identity).
@@ -58,7 +55,7 @@ In addition to storing raw configuration values, Azure App Configuration has its
 
 1. Identify the identity that you used for the App Configuration reference. Access to the vault must be granted to that same identity.
 
-1. Create an [access policy in Key Vault](../key-vault/general/security-features.md#privileged-access) for that identity. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
+1. Create an [access policy in Key Vault](/azure/key-vault/general/security-features#privileged-access) for that identity. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
 
 ## Reference syntax
 

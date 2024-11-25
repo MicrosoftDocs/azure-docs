@@ -2,7 +2,7 @@
 title: Manage Azure Cloud Services (classic) using Azure Automation | Microsoft Docs
 description: Learn about how the Azure Automation service can be used to manage Azure cloud services at scale.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah

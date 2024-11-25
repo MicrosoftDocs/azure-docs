@@ -3,11 +3,9 @@ title: Using API Management service to generate HTTP requests
 description: Learn to use request and response policies in API Management to call external services from your API
 services: api-management
 author: dlepow
-manager: erikre
-ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 04/14/2022
+ms.date: 08/05/2024
 ms.author: danlep
 
 ---
@@ -17,7 +15,7 @@ ms.author: danlep
 
 The policies available in Azure API Management service can do a wide range of useful work based purely on the incoming request, the outgoing response, and basic configuration information. However, being able to interact with external services from API Management policies opens up many more opportunities.
 
-You have previously seen how to interact with the [Azure Event Hub service for logging, monitoring, and analytics](api-management-log-to-eventhub-sample.md). This article demonstrates policies that allow you to interact with any external HTTP-based service. These policies can be used for triggering remote events or for retrieving information that is used to manipulate the original request and response in some way.
+You have previously seen how to interact with the [Azure Event Hubs service for logging, monitoring, and analytics](api-management-log-to-eventhub-sample.md). This article demonstrates policies that allow you to interact with any external HTTP-based service. These policies can be used for triggering remote events or for retrieving information that is used to manipulate the original request and response in some way.
 
 ## Send-One-Way-Request
 Possibly the simplest external interaction is the fire-and-forget style of request that allows an external service to be notified of some kind of important event. The control flow policy `choose` can be used to detect any kind of condition that you are interested in.  If the condition is satisfied, you can make an external HTTP request using the [send-one-way-request](./send-one-way-request-policy.md) policy. This could be a request to a messaging system like Hipchat or Slack, or a mail API like SendGrid or MailChimp, or for critical support incidents something like PagerDuty. All of these messaging systems have simple HTTP APIs that can be invoked.
@@ -95,7 +93,7 @@ The `response-variable-name` attribute is used to give access the returned respo
 
 From the response object, you can retrieve the body and RFC 7622 tells API Management that the response must be a JSON object and must contain at least a property called `active` that is a boolean value. When `active` is true then the token is considered valid.
 
-Alternatively, if the authorization server doesn't include the "active" field to indicate whether the token is valid, use a tool like Postman to determine what properties are set in a valid token. For example, if a valid token response contains a property called "expires_in", check whether this property name exists in the authorization server response this way:
+Alternatively, if the authorization server doesn't include the "active" field to indicate whether the token is valid, use an HTTP client tool such as `curl` to determine what properties are set in a valid token. For example, if a valid token response contains a property called "expires_in", check whether this property name exists in the authorization server response this way:
 
 ```xml
 <when condition="@(((IResponse)context.Variables["tokenstate"]).Body.As<JObject>().Property("expires_in") == null)">

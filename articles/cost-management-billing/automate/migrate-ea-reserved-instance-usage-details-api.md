@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Reserved Instance Usage Details API.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/23/2024
+ms.date: 08/14/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -47,7 +47,7 @@ The POST request returns a location to poll the report generation status as outl
 Status code 202
 
 ```http
-Location: https://management.azure.com/providers/Microsoft.Billing/billingAccounts/9845612/providers/Microsoft.CostManagement/reservationDetailsOperationResults/cf9f95c9-af6b-41dd-a622-e6f4fc60c3ee?api-version=2023-11-01
+Location: https://management.azure.com/providers/Microsoft.Billing/billingAccounts/9845612/providers/Microsoft.CostManagement/reservationDetailsOperationResults/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?api-version=2023-11-01
 Retry-After: 60
 ```
 
@@ -57,7 +57,7 @@ Status code 200
 {
   "status": "Completed",
   "properties": {
-    "reportUrl": "https://storage.blob.core.windows.net/details/20200911/00000000-0000-0000-0000-000000000000?sv=2016-05-31&sr=b&sig=jep8HT2aphfUkyERRZa5LRfd9RPzjXbzB%2F9TNiQ",
+    "reportUrl": "https://storage.blob.core.windows.net/details/20200911/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?sv=2016-05-31&sr=b&sig=jep8HT2aphfUkyERRZa5LRfd9RPzjXbzB%2F9TNiQ",
     "validUntil": "2020-09-12T02:56:55.5021869Z"
   }
 }
@@ -75,7 +75,7 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{bi
 {
   "status": "Completed",
   "properties": {
-    "reportUrl": "https://storage.blob.core.windows.net/details/20200911/00000000-0000-0000-0000-000000000000?sv=2016-05-31&sr=b&sig=jep8HT2aphfUkyERRZa5LRfd9RPzjXbzB%2F9TNiQ",
+    "reportUrl": "https://storage.blob.core.windows.net/details/20200911/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb?sv=2016-05-31&sr=b&sig=jep8HT2aphfUkyERRZa5LRfd9RPzjXbzB%2F9TNiQ",
     "validUntil": "2020-09-12T02:56:55.5021869Z"
   }
 }
@@ -89,11 +89,11 @@ Old response:
 
 ```json
 {
-    "reservationOrderId": "00000000-0000-0000-0000-000000000000",
-    "reservationId": "00000000-0000-0000-0000-000000000000",
+    "reservationOrderId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+    "reservationId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
     "usageDate": "2018-02-01T00:00:00",
     "skuName": "Standard_F2s",
-    "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourvegroup1/providers/microsoft.compute/virtualmachines/VM1",
+    "instanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/resourvegroup1/providers/microsoft.compute/virtualmachines/VM1",
     "totalReservedQuantity": 18.000000000000000,
     "reservedHours": 432.000000000000000,
     "usedHours": 400.000000000000000

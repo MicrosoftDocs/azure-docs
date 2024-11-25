@@ -7,7 +7,7 @@ ms.author: patricka
 ms.date: 04/08/2024
 ms.topic: conceptual
 ms.reviewer: veyalla
-ms.service: iot-edge 
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
@@ -118,11 +118,11 @@ Select a severity row to see alerts details. The **Alert rule** link takes you t
 
 ## Customize workbooks
 
-[Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md) are very customizable. You can edit the public templates to suit your requirements. All the visualizations are driven by resource-centric [Kusto Query Language](/azure/data-explorer/kusto/query/) queries on the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. 
+[Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) are very customizable. You can edit the public templates to suit your requirements. All the visualizations are driven by resource-centric [Kusto Query Language](/azure/data-explorer/kusto/query/) queries on the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. 
 
 To begin customizing a workbook, first enter editing mode. Select the **Edit** button in the menu bar of the workbook. Curated workbooks make extensive use of workbook groups. You may need to select **Edit** on several nested groups before being able to view a visualization query.
 
-Save your changes as a new workbook. You can [share](../azure-monitor/visualize/workbooks-overview.md#access-control) the saved workbook with your team or [deploy them programmatically](../azure-monitor/visualize/workbooks-automate.md) as part of your organization's resource deployments.
+Save your changes as a new workbook. You can [share](/azure/azure-monitor/visualize/workbooks-overview#access-control) the saved workbook with your team or [deploy them programmatically](/azure/azure-monitor/visualize/workbooks-automate) as part of your organization's resource deployments.
 
 
 ## Next steps

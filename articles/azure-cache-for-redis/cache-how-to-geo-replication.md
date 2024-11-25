@@ -1,13 +1,13 @@
 ---
 title: Configure passive geo-replication for Premium Azure Cache for Redis instances
 description: Learn how to use cross-region replication to provide disaster recovery on the Premium tier of Azure Cache for Redis.
-author: flang-msft
 
-ms.service: azure-cache-redis
+
+
 ms.topic: how-to
 ms.custom: engagement-fy23
 ms.date: 12/15/2023
-ms.author: franlanglois
+
 ---
 
 # Configure passive geo-replication for Premium Azure Cache for Redis instances
@@ -266,7 +266,7 @@ Geo-replicated caches and their resource groups can't be deleted while linked un
 
 ### What region should I use for my secondary linked cache?
 
-In general, we recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, we recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../availability-zones/cross-region-replication-azure.md).
+In general, we recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, we recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../reliability/cross-region-replication-azure.md).
 
 ### Can I configure a firewall with geo-replication?
 

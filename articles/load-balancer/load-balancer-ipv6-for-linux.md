@@ -7,7 +7,7 @@ author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/21/2024
+ms.date: 09/17/2024
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23, doc-a-thon, linux-related-content
 ---
@@ -131,6 +131,8 @@ For Ubuntu versions 17.10 or higher, follow these steps:
     :::image type="content" source="./media/load-balancer-ipv6-for-linux/ipv6-ip-address-ifconfig.png" alt-text="Screenshot of ifconfig showing IPv6 IP address.":::
 
 # [Debian](#tab/debian)
+
+All supported Debian images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM based on an older or custom Debian image, follow these steps:
 
 1. Edit the */etc/dhcp/dhclient6.conf* file, and add the following line:
 

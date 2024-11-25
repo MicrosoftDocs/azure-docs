@@ -4,9 +4,8 @@ description: Describes Azure Data Box security features in the device, service, 
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
-ms.topic: conceptual
+ms.service: azure-databox
+ms.topic: overview
 ms.date: 04/13/2022
 ms.author: shaas
 ---

@@ -33,7 +33,7 @@ This sample solution demonstrates integration of Azure Backup with Microsoft Def
 ## Prerequisites
 
 - [Enable Azure Backup for Azure virtual machines](tutorial-backup-vm-at-scale.md).
-- [Enable Microsoft Defender for Servers Plan 2 for the Subscription](../defender-for-cloud/enable-enhanced-security.md#enable-enhanced-security-features-on-a-subscription).
+- [Enable Microsoft Defender for Servers Plan 2 for the Subscription](/azure/defender-for-cloud/enable-enhanced-security#enable-enhanced-security-features-on-a-subscription).
 
 ## Deploy Azure Logic Apps
 
@@ -85,7 +85,7 @@ To authorize the API connection to Office 365, follow these steps:
 
 ## Trigger the logic app
 
-You can trigger the deployed logic app *manually* or *automatically* using [workflow automation](../defender-for-cloud/workflow-automation.yml).
+You can trigger the deployed logic app *manually* or *automatically* using [workflow automation](/azure/defender-for-cloud/workflow-automation).
 
 ### Trigger manually
 
@@ -104,7 +104,7 @@ To trigger the logic app manually, follow these steps:
 
 ### Trigger using workflow automation via Azure portal
 
-Workflow automation ensures that during a security alert, your backups corresponding to the VM facing this issue changes to **Stop backup and retain data** state, thus suspend policy and pause recovery point pruning. You can also use Azure Policy to deploy [workflow automation](../defender-for-cloud/workflow-automation.yml).
+Workflow automation ensures that during a security alert, your backups corresponding to the VM facing this issue changes to **Stop backup and retain data** state, thus suspend policy and pause recovery point pruning. You can also use Azure Policy to deploy [workflow automation](/azure/defender-for-cloud/workflow-automation).
 
 >[!Note]
 >The minimum role required to deploy the workflow automation are:

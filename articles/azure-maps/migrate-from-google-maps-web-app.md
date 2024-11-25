@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 09/28/2023
 ms.topic: tutorial
 ms.service: azure-maps
-ms.custom:
+ms.subservice: web-sdk
 ---
 
 # Tutorial: Migrate a web app from Google Maps
@@ -189,7 +189,7 @@ Load a map with the same view in Azure Maps along with a map style control and z
 
         function initMap() {
             map = new atlas.Map('myMap', {
-                center: [-73.985, 40.747],  //Format coordinates as longitude, latitude.
+                center: [-73.985, 40.74],  //Format coordinates as longitude, latitude.
                 zoom: 11,   //Subtract the zoom level by one.
 
                 //Specify authentication information when loading the map.
@@ -709,7 +709,6 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 }));
 ```
 
-![Azure Maps polygon](media/migrate-google-maps-web-app/azure-maps-polygon.jpg)
 :::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-polygon.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-polyline.jpg" alt-text="A screenshot of an Azure Maps map with a solid red line forming a triangle filled with semi-transparent green shown to demonstrate a polygon.":::
 
 **More resources:**
@@ -1148,7 +1147,6 @@ Directly import GeoJSON data using the `importDataFromUrl` function on the `Data
 </html>
 ```
 
-![Azure Maps clustering](media/migrate-google-maps-web-app/azure-maps-clustering.jpg)
 :::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-clustering.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-clustering.jpg" alt-text="A screenshot of an Azure Maps map of the world with various sized red, green and yellow circles with numbers in them. Created using three layers, a bubble layer for drawing scaled colored circles based on the size of the clusters. A symbol layer to render the cluster size as text and a second symbol layer for rendering the unclustered points.":::
 
 **More resources:**

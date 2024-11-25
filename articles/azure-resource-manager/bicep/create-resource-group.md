@@ -3,7 +3,7 @@ title: Use Bicep to create a new resource group
 description: Describes how to use Bicep to create a new resource group in your Azure subscription.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 09/26/2023
+ms.date: 09/26/2024
 ---
 
 # Create resource groups by using Bicep

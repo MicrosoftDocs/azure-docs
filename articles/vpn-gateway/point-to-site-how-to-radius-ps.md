@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 This article helps you create a point-to-site (P2S) connection that uses RADIUS authentication. You can create this configuration using either PowerShell, or the Azure portal. If you want to authenticate using a different method, see the following articles:
 
-* [Certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Certificate authentication](point-to-site-certificate-gateway.md)
 * [Microsoft Entra ID authentication](openvpn-azure-ad-tenant.md)
 
 For more information about point-to-site VPN connections, see [About P2S VPN](point-to-site-about.md).
@@ -139,7 +139,7 @@ The [Network Policy Server (NPS)](/windows-server/networking/technologies/nps/np
 
 ## <a name="creategw"></a>Create the VPN gateway
 
-In this step, you configure and create the virtual network gateway for your VNet. For more complete information about authentication and tunnel type, see [Specify tunnel and authentication type](vpn-gateway-howto-point-to-site-resource-manager-portal.md#type) in the Azure portal version of this article.
+In this step, you configure and create the virtual network gateway for your VNet. For more complete information about authentication and tunnel type, see [Specify tunnel and authentication type](point-to-site-certificate-gateway.md#type) in the Azure portal version of this article.
 
 * The -GatewayType must be 'Vpn' and the -VpnType must be 'RouteBased'.
 * A VPN gateway can take 45 minutes or more to build, depending on the [Gateway SKU](about-gateway-skus.md) you select.

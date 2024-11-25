@@ -1,18 +1,17 @@
 ---
-title: 'Tutorial: Migrate a web app from Bing Maps | Microsoft Azure Maps'
-description: Tutorial on how to migrate a web app from Bing Maps to Microsoft Azure Maps.
+title: 'Migrate a web app from Bing Maps | Microsoft Azure Maps'
+description: How to migrate a web app from Bing Maps to Microsoft Azure Maps.
 author: sinnypan
 ms.author: sipa
-ms.date: 10/28/2021
-ms.topic: tutorial
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
+ms.subservice: web-sdk
 ---
 
-# Tutorial: Migrate a web app from Bing Maps
+# Migrate a web app from Bing Maps
 
-Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript. This tutorial demonstrates how to:
+Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript. This article demonstrates how to:
 
 > [!div class="checklist"]
 >
@@ -1619,7 +1618,7 @@ In Azure Maps, the drawing tools module needs to be loaded by loading the JavaSc
 </html>
 ```
 
-:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools-l.jpg" alt-text="Screenshot showing the Azure Maps drawing tools.":::
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools.jpg" alt-text="Screenshot showing the Azure Maps drawing tools.":::
 
 > [!TIP]
 > In Azure Maps layers the drawing tools provide multiple ways that users can draw shapes. For example, when drawing a polygon the user can click to add each point, or hold the left mouse button down and drag the mouse to draw a path. This can be modified using the `interactionType` option of the `DrawingManager`.

@@ -13,7 +13,7 @@ ms.date: 05/02/2022
 # Automate Mobility Service installation
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes how to automate installation and updates for the Mobility Service agent in [Azure Site Recovery](site-recovery-overview.md).
 

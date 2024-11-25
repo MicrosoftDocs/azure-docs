@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 07/30/2024
+ms.date: 11/04/2024
 ms.author: banders
 ---
 
@@ -105,7 +105,7 @@ Other points to keep in mind before an enrollment transfer:
   - The enrollment or account transfer between different currencies affects monthly reservation purchases. The following image illustrates the effects.  
     :::image type="content" source="./media/ea-transfers/cross-currency-reservation-transfer-effects.png" alt-text="Diagram illustrating the effects  of cross currency reservation transfers." border="false" lightbox="./media/ea-transfers/cross-currency-reservation-transfer-effects.png":::
 
-  - When there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of next monthly payment for an individual reservation. This cancellation is intentional and affects only the monthly reservation purchases.
+  - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of next monthly payment for an individual reservation. This cancellation is intentional and affects only the monthly reservation purchases.
   - You might have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency. If you repurchase a reservation, the purchase term (one or three years) is reset. The repurchase doesn't continue under the previous term.
 - If there's a backdated enrollment transfer, any reservation or savings plan benefit is applicable from the transfer request submission date - not from the effective transfer date.
 

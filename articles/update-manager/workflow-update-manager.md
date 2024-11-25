@@ -13,18 +13,20 @@ ms.topic: overview
 
 Update Manager assesses and applies updates to all Azure machines and Azure Arc-enabled servers for both Windows and Linux. 
 
-![Diagram that shows the Update Manager workflow.](./media/overview/update-management-center-overview.png)
+
+:::image type="content" source="./media/overview/update-manager-overview.png" alt-text="Screenshot that shows the update manager workflow." lightbox="./media/overview/update-manager-overview.png":::
+
 
 ## Update Manager VM extensions
 
-When an Azure Update Manager operation(AUM) is enabled or triggered on your Azure or Arc-enabled server, AUM installs an [Azure extension](../virtual-machines/extensions/overview.md) or [Arc-enabled servers extensions](../azure-arc/servers/manage-vm-extensions.md) respectively on your machine to manage the updates. 
+When an Azure Update Manager operation(AUM) is enabled or triggered on your Azure or Arc-enabled server, AUM installs an [Azure extension](/azure/virtual-machines/extensions/overview) or [Arc-enabled servers extensions](/azure/azure-arc/servers/manage-vm-extensions) respectively on your machine to manage the updates. 
 
 The extension is automatically installed on your machine when you initiate any Update Manager operation on your machine for the first time, such as Check for updates, Install one-time update, Periodic Assessment or when scheduled update deployment runs on your machine for the first time. 
 
 Customer doesn't have to explicitly install the extension and its lifecycle as it is managed by Azure Update Manager including installation and configuration. The Update Manager extension is installed and managed by using the below agents, which are required for Update Manager to work on your machines: 
 
-- [Azure VM Windows agent](../virtual-machines/extensions/agent-windows.md) or the [Azure VM Linux agent](../virtual-machines/extensions/agent-linux.md) for Azure VMs.
-- [Azure Arc-enabled servers agent](../azure-arc/servers/agent-overview.md) 
+- [Azure VM Windows agent](/azure/virtual-machines/extensions/agent-windows) or the [Azure VM Linux agent](/azure/virtual-machines/extensions/agent-linux) for Azure VMs.
+- [Azure Arc-enabled servers agent](/azure/azure-arc/servers/agent-overview) 
 
 >[!NOTE]
 > Arc connectivity is a prerequisite for Update Manager, non-Azure machines including Arc-enabled VMWare, SCVMM etc.

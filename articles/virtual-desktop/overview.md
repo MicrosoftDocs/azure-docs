@@ -25,11 +25,11 @@ Azure Virtual Desktop is a desktop and app virtualization service that runs on A
 
 - Manage desktops and apps from different Windows and Windows Server operating systems with a unified management experience.
 
-- Host desktops and apps on-premises in a hybrid configuration with Azure Stack HCI.
+- Host desktops and apps on-premises in a hybrid configuration with Azure Local.
 
 ## Introductory video
 
-Learn about Azure Virtual Desktop (formerly Windows Virtual Desktop), why it's unique, and what's new in this video:
+Learn about Azure Virtual Desktop (formerly Windows Virtual Desktop), why it's unique, and what's new in this video:<br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/aPEibGMvxZw]
 

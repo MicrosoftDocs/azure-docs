@@ -3,8 +3,8 @@ title: Built-in policy definitions for Lab Services
 description: Lists Azure Policy built-in policy definitions for Azure Lab Services. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.date: 02/06/2024
 ms.topic: reference
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.service: azure-lab-services
 ms.custom: subject-policy-reference
 ---

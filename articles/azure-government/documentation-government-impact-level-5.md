@@ -32,7 +32,7 @@ You need to address two key areas for Azure services in IL5 scope: compute isola
 
 ### Compute isolation
 
-IL5 separation requirements are stated in Section 5.2.2.3 (Page 51) of the [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, **all IL5 virtual machines and virtual machine scale sets** should be isolated by DoD mission owners via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/) or [isolated virtual machines](../virtual-machines/isolation.md). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
+IL5 separation requirements are stated in Section 5.2.2.3 (Page 51) of the [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, **all IL5 virtual machines and virtual machine scale sets** should be isolated by DoD mission owners via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/) or [isolated virtual machines](/azure/virtual-machines/isolation). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
 
 For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data, you should accomplish isolation by focusing on the data being processed and how it's stored and retained. This approach ensures the data is stored in protected mediums. It also ensures the data isn't present on these services for extended periods unless it's encrypted as needed.
 
@@ -62,65 +62,71 @@ Be sure to review the entry for each service you're using and ensure that all is
 
 For AI and machine learning services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=project-bonsai,genomics,search,bot-service,databricks,machine-learning-service,cognitive-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-### [Azure AI Search](../search/index.yml)
+### [Azure AI Search](/azure/search/)
 
-- Configure encryption at rest of content in Azure AI Search by [using customer-managed keys in Azure Key Vault](../search/search-security-manage-encryption-keys.md).
+- Configure encryption at rest of content in Azure AI Search by [using customer-managed keys in Azure Key Vault](/azure/search/search-security-manage-encryption-keys).
 
-### [Azure Machine Learning](../machine-learning/index.yml)
+### [Azure Machine Learning](/azure/machine-learning/)
 
-- Configure encryption at rest of content in Azure Machine Learning by using customer-managed keys in Azure Key Vault. Azure Machine Learning stores snapshots, output, and logs in the Azure Blob Storage account that's associated with the Azure Machine Learning workspace and customer subscription. All the data stored in Azure Blob Storage is [encrypted at rest with Microsoft-managed keys](../machine-learning/concept-enterprise-security.md). Customers can use their own keys for data stored in Azure Blob Storage. See [Configure encryption with customer-managed keys stored in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
+- Configure encryption at rest of content in Azure Machine Learning by using customer-managed keys in Azure Key Vault. Azure Machine Learning stores snapshots, output, and logs in the Azure Blob Storage account that's associated with the Azure Machine Learning workspace and customer subscription. All the data stored in Azure Blob Storage is [encrypted at rest with Microsoft-managed keys](/azure/machine-learning/concept-enterprise-security). Customers can use their own keys for data stored in Azure Blob Storage. See [Configure encryption with customer-managed keys stored in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md).
 
 <a name='cognitive-services-content-moderator'></a>
 
-### [Azure AI services: Content Moderator](../ai-services/content-moderator/index.yml)
+### [Azure AI services: Content Moderator](/azure/ai-services/content-moderator/)
 
-- Configure encryption at rest of content in the Content Moderator service by [using customer-managed keys in Azure Key Vault](../ai-services/content-moderator/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
+- Configure encryption at rest of content in the Content Moderator service by [using customer-managed keys in Azure Key Vault](/azure/ai-services/content-moderator/encrypt-data-at-rest#customer-managed-keys-with-azure-key-vault).
 
 <a name='cognitive-services-custom-vision'></a>
 
-### [Azure AI services: Custom Vision](../ai-services/custom-vision-service/index.yml)
+### [Azure AI services: Custom Vision](/azure/ai-services/custom-vision-service/)
 
-- Configure encryption at rest of content in Azure AI Custom Vision [using customer-managed keys in Azure Key Vault](../ai-services/custom-vision-service/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
+- Configure encryption at rest of content in Azure AI Custom Vision [using customer-managed keys in Azure Key Vault](/azure/ai-services/custom-vision-service/encrypt-data-at-rest#customer-managed-keys-with-azure-key-vault).
 
 <a name='cognitive-services-face'></a>
 
-### [Azure AI services: Face](../ai-services/computer-vision/overview-identity.md)
+### [Azure AI services: Face](/azure/ai-services/computer-vision/overview-identity)
 
-- Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](../ai-services/computer-vision/identity-encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
+- Configure encryption at rest of content in the Face service by [using customer-managed keys in Azure Key Vault](/azure/ai-services/computer-vision/identity-encrypt-data-at-rest#customer-managed-keys-with-azure-key-vault).
 
 <a name='cognitive-services-language-understanding-luis'></a>
 
-### [Azure AI Language Understanding (LUIS)](../ai-services/luis/index.yml)
+### [Azure AI Language Understanding (LUIS)](/azure/ai-services/luis/)
 
-- Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](../ai-services/luis/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
+- Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](/azure/ai-services/luis/encrypt-data-at-rest#customer-managed-keys-with-azure-key-vault).
 
-Azure AI Language Understanding (LUIS) is part of [Azure AI Language](../ai-services/language-service/index.yml).
+Azure AI Language Understanding (LUIS) is part of [Azure AI Language](/azure/ai-services/language-service/).
+
+<a name='cognitive-services-azure-openai'></a>
+
+### [Azure AI services: Azure OpenAI](/azure/ai-services/openai/azure-government/)
+
+- Configure encryption at rest of content in Azure OpenAI [using customer-managed keys in Azure Key Vault](/azure/ai-services/openai/encrypt-data-at-rest#use-customer-managed-keys-with-azure-key-vault).
 
 <a name='cognitive-services-personalizer'></a>
 
-### [Azure AI services: Personalizer](../ai-services/personalizer/index.yml)
+### [Azure AI services: Personalizer](/azure/ai-services/personalizer/)
 
-- Configure encryption at rest of content in Azure AI Personalizer [using customer-managed keys in Azure Key Vault](../ai-services/personalizer/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
+- Configure encryption at rest of content in Azure AI Personalizer [using customer-managed keys in Azure Key Vault](/azure/ai-services/personalizer/encrypt-data-at-rest#customer-managed-keys-with-azure-key-vault).
 
 <a name='cognitive-services-qna-maker'></a>
 
-### [Azure AI services: QnA Maker](../ai-services/qnamaker/index.yml)
+### [Azure AI services: QnA Maker](/azure/ai-services/qnamaker/)
 
-- Configure encryption at rest of content in Azure AI QnA Maker [using customer-managed keys in Azure Key Vault](../ai-services/qnamaker/encrypt-data-at-rest.md).
+- Configure encryption at rest of content in Azure AI QnA Maker [using customer-managed keys in Azure Key Vault](/azure/ai-services/qnamaker/encrypt-data-at-rest).
 
-Azure AI QnA Maker is part of [Azure AI Language](../ai-services/language-service/index.yml).
+Azure AI QnA Maker is part of [Azure AI Language](/azure/ai-services/language-service/).
 
 <a name='cognitive-services-speech'></a>
 
-### [Azure AI Speech](../ai-services/speech-service/index.yml)
+### [Azure AI Speech](/azure/ai-services/speech-service/)
 
-- Configure encryption at rest of content in Speech Services by [using customer-managed keys in Azure Key Vault](../ai-services/speech-service/speech-encryption-of-data-at-rest.md).
+- Configure encryption at rest of content in Speech Services by [using customer-managed keys in Azure Key Vault](/azure/ai-services/speech-service/speech-encryption-of-data-at-rest).
 
 <a name='cognitive-services-translator'></a>
 
-### [Azure AI services: Translator](../ai-services/translator/index.yml)
+### [Azure AI services: Translator](/azure/ai-services/translator/)
 
-- Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](../ai-services/translator/encrypt-data-at-rest.md).
+- Configure encryption at rest of content in the Translator service by [using customer-managed keys in Azure Key Vault](/azure/ai-services/translator/encrypt-data-at-rest).
 
 
 ## Analytics
@@ -169,7 +175,7 @@ For Compute services availability in Azure Government, see [Products available b
 
 - Enable user subscription mode, which will require a Key Vault instance for proper encryption and key storage. For more information, see the documentation on [batch account configurations](../batch/batch-account-create-portal.md).
 
-### [Virtual machines](../virtual-machines/index.yml) and [virtual machine scale sets](../virtual-machine-scale-sets/index.yml)
+### [Virtual machines](/azure/virtual-machines/) and [virtual machine scale sets](/azure/virtual-machine-scale-sets/)
 
 You can use Azure virtual machines with multiple deployment mediums. You can do so for single virtual machines and for virtual machines deployed via the Azure virtual machine scale sets feature.
 
@@ -178,7 +184,7 @@ All virtual machines should use Disk Encryption for virtual machines or Disk Enc
 > [!IMPORTANT]
 > When you deploy VMs in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia, you must use Azure Dedicated Host, as described in the next section.
 
-#### [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md)
+#### [Azure Dedicated Host](/azure/virtual-machines/dedicated-hosts)
 
 Azure Dedicated Host provides physical servers that can host one or more virtual machines and that are dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our datacenters, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. You can then place VMs directly into your provisioned hosts, in whatever configuration meets your needs.
 
@@ -186,20 +192,20 @@ These VMs provide the necessary level of isolation required to support IL5 workl
 
 Current Dedicated Host SKUs (VM series and Host Type) that offer the required compute isolation include SKUs in the VM families listed on the [Dedicated Host pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/).
 
-#### [Isolated virtual machines](../virtual-machines/isolation.md)
+#### [Isolated virtual machines](/azure/virtual-machines/isolation)
 
 Virtual machine scale sets aren't currently supported on Azure Dedicated Host. But specific VM types, when deployed, consume the entire physical host for the VM. Isolated VM types can be deployed via virtual machine scale sets to provide proper compute isolation with all the benefits of virtual machine scale sets in place. When you configure your scale set, select the appropriate SKU. To encrypt the data at rest, see the next section for supportable encryption options.
 
 > [!IMPORTANT]
-> As new hardware generations become available, some VM types might require reconfiguration (scale up or migration to a new VM SKU) to ensure they remain on properly dedicated hardware. For more information, see **[Virtual machine isolation in Azure](../virtual-machines/isolation.md).**
+> As new hardware generations become available, some VM types might require reconfiguration (scale up or migration to a new VM SKU) to ensure they remain on properly dedicated hardware. For more information, see **[Virtual machine isolation in Azure](/azure/virtual-machines/isolation).**
 
 #### Disk encryption for virtual machines
 
 You can encrypt the storage that supports these virtual machines in one of two ways to support necessary encryption standards.
 
 - Use Azure Disk Encryption to encrypt the drives by using dm-crypt (Linux) or BitLocker (Windows):
-  - [Enable Azure Disk Encryption for Linux](../virtual-machines/linux/disk-encryption-overview.md)
-  - [Enable Azure Disk Encryption for Windows](../virtual-machines/windows/disk-encryption-overview.md)
+  - [Enable Azure Disk Encryption for Linux](/azure/virtual-machines/linux/disk-encryption-overview)
+  - [Enable Azure Disk Encryption for Windows](/azure/virtual-machines/windows/disk-encryption-overview)
 - Use Azure Storage service encryption for storage accounts with your own key to encrypt the storage account that holds the disks:
   - [Storage service encryption with customer-managed keys](../storage/common/customer-managed-keys-configure-key-vault.md)
 
@@ -207,7 +213,7 @@ You can encrypt the storage that supports these virtual machines in one of two w
 
 You can encrypt disks that support virtual machine scale sets by using Azure Disk Encryption:
 
-- [Encrypt disks in virtual machine scale sets](../virtual-machine-scale-sets/disk-encryption-key-vault.md)
+- [Encrypt disks in virtual machine scale sets](/azure/virtual-machine-scale-sets/disk-encryption-key-vault)
 
 ## Containers
 
@@ -217,29 +223,29 @@ For Containers services availability in Azure Government, see [Products availabl
 
 - Configure encryption at rest of content in AKS by [using customer-managed keys in Azure Key Vault](/azure/aks/azure-disk-customer-managed-keys).
 
-### [Container Instances](../container-instances/index.yml)
+### [Container Instances](/azure/container-instances/)
 
-- Azure Container Instances automatically encrypts data related to your containers when it's persisted in the cloud. Data in Container Instances is encrypted and decrypted with 256-bit AES encryption and enabled for all Container Instances deployments. You can rely on Microsoft-managed keys for the encryption of your container data, or you can manage the encryption by using your own keys. For more information, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md). 
+- Azure Container Instances automatically encrypts data related to your containers when it's persisted in the cloud. Data in Container Instances is encrypted and decrypted with 256-bit AES encryption and enabled for all Container Instances deployments. You can rely on Microsoft-managed keys for the encryption of your container data, or you can manage the encryption by using your own keys. For more information, see [Encrypt deployment data](/azure/container-instances/container-instances-encrypt-data). 
 
-### [Container Registry](../container-registry/index.yml) 
+### [Container Registry](/azure/container-registry/) 
 
-- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an extra encryption layer by [using a key that you create and manage in Azure Key Vault](../container-registry/tutorial-enable-customer-managed-keys.md).
+- When you store images and other artifacts in a Container Registry, Azure automatically encrypts the registry content at rest by using service-managed keys. You can supplement the default encryption with an extra encryption layer by [using a key that you create and manage in Azure Key Vault](/azure/container-registry/tutorial-enable-customer-managed-keys).
 
 ## Databases
 
 For Databases services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sql,sql-server-stretch-database,redis-cache,database-migration,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-### [Azure Cosmos DB](../cosmos-db/index.yml)
+### [Azure Cosmos DB](/azure/cosmos-db/)
 
-- Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with keys managed by Microsoft (service-managed keys). Optionally, you can choose to add a second layer of encryption with keys you manage (customer-managed keys). For more information, see [Configure customer-managed keys for your Azure Cosmos DB account with Azure Key Vault](../cosmos-db/how-to-setup-cmk.md).
+- Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with keys managed by Microsoft (service-managed keys). Optionally, you can choose to add a second layer of encryption with keys you manage (customer-managed keys). For more information, see [Configure customer-managed keys for your Azure Cosmos DB account with Azure Key Vault](/azure/cosmos-db/how-to-setup-cmk).
 
-### [Azure Database for MySQL](../mysql/index.yml) 
+### [Azure Database for MySQL](/azure/mysql/) 
 
-- Data encryption with customer-managed keys for Azure Database for MySQL enables you to bring your own key (BYOK) for data protection at rest. This encryption is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. For more information, see [Azure Database for MySQL data encryption with a customer-managed key](../mysql/concepts-data-encryption-mysql.md).
+- Data encryption with customer-managed keys for Azure Database for MySQL enables you to bring your own key (BYOK) for data protection at rest. This encryption is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. For more information, see [Azure Database for MySQL data encryption with a customer-managed key](/azure/mysql/concepts-data-encryption-mysql).
 
-### [Azure Database for PostgreSQL](../postgresql/index.yml) 
+### [Azure Database for PostgreSQL](/azure/postgresql/) 
 
-- Data encryption with customer-managed keys for Azure Database for PostgreSQL Single Server is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. For more information, see [Azure Database for PostgreSQL Single Server data encryption with a customer-managed key](../postgresql/concepts-data-encryption-postgresql.md).
+- Data encryption with customer-managed keys for Azure Database for PostgreSQL Single Server is set at the server level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. For more information, see [Azure Database for PostgreSQL Single Server data encryption with a customer-managed key](/azure/postgresql/concepts-data-encryption-postgresql).
 
 ### [Azure Healthcare APIs](../healthcare-apis/index.yml) (formerly Azure API for FHIR)
 
@@ -292,15 +298,15 @@ For Management and governance services availability in Azure Government, see [Pr
 
 - You can store your managed application definition in a storage account that you provide when you create the application. Doing so allows you to manage its location and access for your regulatory needs, including [storage encryption with customer-managed keys](#storage-encryption-with-key-vault-managed-keys). For more information, see [Bring your own storage](../azure-resource-manager/managed-applications/publish-service-catalog-bring-your-own-storage.md).
 
-### [Azure Monitor](../azure-monitor/index.yml)
+### [Azure Monitor](/azure/azure-monitor/)
 
-- By default, all data and saved queries are encrypted at rest using Microsoft-managed keys. Configure encryption at rest of your data in Azure Monitor [using customer-managed keys in Azure Key Vault](../azure-monitor/logs/customer-managed-keys.md).
+- By default, all data and saved queries are encrypted at rest using Microsoft-managed keys. Configure encryption at rest of your data in Azure Monitor [using customer-managed keys in Azure Key Vault](/azure/azure-monitor/logs/customer-managed-keys).
 
-#### [Log Analytics](../azure-monitor/logs/data-platform-logs.md)
+#### [Log Analytics](/azure/azure-monitor/logs/data-platform-logs)
 
-Log Analytics, which is a feature of Azure Monitor, is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/logs/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+Log Analytics, which is a feature of Azure Monitor, is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](/azure/azure-monitor/logs/data-security#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
-Log Analytics may also be used to ingest extra customer-provided logs. These logs may include data ingested as part of operating Microsoft Defender for Cloud or Microsoft Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/logs/customer-managed-keys.md).
+Log Analytics may also be used to ingest extra customer-provided logs. These logs may include data ingested as part of operating Microsoft Defender for Cloud or Microsoft Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](/azure/azure-monitor/logs/customer-managed-keys).
 
 ### [Azure Site Recovery](../site-recovery/index.yml)
 

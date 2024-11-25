@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 05/23/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Limit call rate by key
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this call rate is exceeded, the caller receives a `429 Too Many Requests` response status code.
 
@@ -57,7 +57,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
-- [**Gateways:**](api-management-gateways-overview.md) classic, v2, self-hosted
+- [**Gateways:**](api-management-gateways-overview.md) classic, v2, self-hosted, workspace
 
 ### Usage notes
 

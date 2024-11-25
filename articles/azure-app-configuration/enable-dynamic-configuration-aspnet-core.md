@@ -81,7 +81,7 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 1. Call the `UseAzureAppConfiguration` method. It enables your app to use the App Configuration middleware to update the configuration for you automatically.
 
-    Update *Program.cs* withe the following code. 
+    Update *Program.cs* with the following code. 
 
     ```csharp
     // Existing code in Program.cs

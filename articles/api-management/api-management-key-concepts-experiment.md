@@ -108,7 +108,7 @@ Using the developer portal, developers can:
 
 API Management integrates with many complementary Azure services to create enterprise solutions, including:
 
-* [Azure Key Vault](../key-vault/general/overview.md) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
+* [Azure Key Vault](/azure/key-vault/general/overview) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
 * [Azure Monitor](api-management-howto-use-azure-monitor.md) for logging, reporting, and alerting on management operations, systems events, and API requests​
 * [Application Insights](api-management-howto-app-insights.md) for live metrics, end-to-end tracing, and troubleshooting
 * [Virtual networks](virtual-network-concepts.md), [private endpoints](private-endpoint.md), and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​

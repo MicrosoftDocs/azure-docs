@@ -7,7 +7,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage, Premium SSD v2'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 06/28/2024
+ms.date: 10/29/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -37,7 +37,7 @@ The major difference of Premium SSD v2 to the existing netWeaver and HANA certif
 - With Premium SSD v2, the same storage configuration applies to the HANA certified Ev4, Ev5, and M-series virtual machines (VM) that offer the same memory 
 - Unlike premium storage, there's no disk bursting for Premium SSD v2
 
-Not having Azure Write Accelerator support or support by other caches makes the configuration of Premium SSD v2 for the different VM families easier and more unified and avoid variations that need to be considered in deployment automation. Not having bursting capabilities makes throughput and IOPS delivered more deterministic and reliable. Since Premium SSD v2 is a new storage type, there are still some restrictions related to its features and capabilities. to read up on these limitations and differences between the different storages, start with reading the document [Azure managed disk types](../../virtual-machines/disks-types.md).
+Not having Azure Write Accelerator support or support by other caches makes the configuration of Premium SSD v2 for the different VM families easier and more unified and avoid variations that need to be considered in deployment automation. Not having bursting capabilities makes throughput and IOPS delivered more deterministic and reliable. Since Premium SSD v2 is a new storage type, there are still some restrictions related to its features and capabilities. to read up on these limitations and differences between the different storages, start with reading the document [Azure managed disk types](/azure/virtual-machines/disks-types).
 
 
 ## Production recommended storage solution based on Azure premium storage
@@ -90,15 +90,23 @@ Configuration for SAP **/hana/data** volume:
 | M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 4,912 GB | 800 MBps | 12,000 | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 40,000 | 3,424 GB | 1,000 MBps| 15,000 | 
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 40,000 | 6,848 GB | 1,000 MBps | 15,000 | 
+| M416(d)s_6_v3 | 5,696 GiB | 4,000 MBps | 130,000 | 6,848 GB | 1,200 MBps| 30,000 | 
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 6,848 GB | 1,200 MBps| 17,000 | 
 | M416s_8_v2 | 7,600 GiB | 2,000 MBps | 80,000 | 9,120 GB | 1,250 MBps| 20,000 | 
+| M416(d)s_8_v3 | 7,600 GiB | 4,000 MBps | 130,000 | 9,120 GB | 1,250 MBps| 30,000 |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 80,000 | 13,680 GB | 1,300 MBps| 25,000 | 
+| M624(d)s_12_v3, M832(d)s_12_v3 | 11,400 GiB | 4,000 MBps | 130,000 | 13,680 GB | 1,300 MBps| 40,000 |
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 
+| M832i(d)s_16_v3 | 15,200 GiB | 8,000 Mbps | 130,000 | 19,200 GB | 4,000 MBps<sup>2</sup> | 60,000 | 
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 
+| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 130,000/260,000<sup>3</sup> | 36,0000 GB | 2,000 MBps<sup>2</sup> | 80,000 | 
+| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 130,000/260,000<sup>3</sup> | 36,0000 GB | 2,000 MBps<sup>2</sup> | 80,000 | 
 
 <sup>1</sup> VM type not available by default. Contact your Microsoft account team
 
 <sup>2</sup> Maximum throughput provided by the VM and throughput requirement by SAP HANA workload, especially savepoint activity,  can force you to deploy significant more throughput and IOPS
+
+<sup>3</sup> Larger number with using NVMe interface usage
 
 
 For the **/hana/log** volume. the configuration would look like:
@@ -130,14 +138,23 @@ For the **/hana/log** volume. the configuration would look like:
 | M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 40,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 40,000 | 512 GB | 350 MBps | 4,500 | 1,024 GB |
+| M416(d)s_6_v3 | 5,696 GiB | 4,000 MBps | 130,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
-| M416s_8_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
+| M416s_8_v2 | 7,600 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
+| M416(d)s_8_v3 | 7,600 GiB | 4,000 MBps | 130,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
+| M624(d)s_12_v3, M832(d)s_12_v3 | 11,400 GiB | 4,000 MBps | 130,000 | 512 GB | 600 MBps | 6,000 | 1,024 GB |
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
+| M832i(d)s_16_v3 | 15,200 GiB | 8,000 Mbps | 130,000 | 512 GB | 600 MBps | 10,000 | 1,024 GB |
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
+| M896ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 130,000/260,000<sup>3</sup> | 600 MBps | 10,000 | 1,024 GB |
+| M1792ixds_32_v3<sup>1</sup> | 30,400 GiB | 8,000 Mbps | 130,000/260,000<sup>3</sup> | 600 MBps | 10,000 | 1,024 GB |
 
 <sup>1</sup> VM type not available by default. Contact your Microsoft account team  
+
 <sup>2</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system)   
+
+<sup>3</sup> Larger number with using NVMe interface usage
 
 
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase either IOPS, and/or throughput on the individual disks you're using. 

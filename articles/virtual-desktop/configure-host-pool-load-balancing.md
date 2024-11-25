@@ -1,7 +1,6 @@
 ---
 title: Configure host pool load balancing in Azure Virtual Desktop
 description: How to configure the load balancing method for pooled host pools in Azure Virtual Desktop.
-ms.custom:
 ms.topic: how-to
 author: sipastak
 ms.author: sipastak 
@@ -51,10 +50,11 @@ To configure load balancing for a pooled host pool, you need:
 
 - An Azure account assigned the [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) role.
 
-- If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
-
+- If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## Configure load balancing
+
+Select the relevant tab for your scenario.
 
 ### [Azure portal](#tab/portal) 
 
@@ -74,7 +74,7 @@ Here's how to configure load balancing with the Azure portal:
 
 ### [Azure PowerShell](#tab/powershell)
 
-Here's how to configure load balancing with Azure PowerShell:
+Here's how to configure load balancing with Azure PowerShell. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -116,7 +116,7 @@ Here's how to configure load balancing with Azure PowerShell:
    Get-AzWvdHostPool @parameters | Format-Table Name, LoadBalancerType, MaxSessionLimit
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    Name        LoadBalancerType MaxSessionLimit
@@ -161,7 +161,7 @@ Here's how to configure load balancing with Azure CLI:
        --output table
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    Name         LoadBalancerType    MaxSessionLimit
