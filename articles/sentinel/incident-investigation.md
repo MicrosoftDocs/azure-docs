@@ -5,10 +5,9 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 01/01/2023
-
-
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to use Microsoft Sentinel for incident investigation so that I can efficiently manage and resolve security threats.
-
 ---
 
 # Understand Microsoft Sentinel's incident investigation and case management capabilities

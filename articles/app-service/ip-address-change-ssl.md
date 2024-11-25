@@ -26,11 +26,11 @@ If you received a notification that the TLS/SSL IP address of your Azure App Ser
 
 3.	Select your App Service app from the list.
 
-4.	Under the **Settings** header, click **SSL settings** in the left navigation.
+4.	Under the **Settings** header, click **Custom domain** in the left navigation.
 
-1. In the TLS/SSL bindings section, select the host name record. In the editor that opens, choose **SNI SSL** on the **SSL Type** drop-down menu and click **Add Binding**. When you see the operation success message, the existing IP address has been released.
+5. In the **Custom domains** section, look for the domain with the Binding type of IP Based SSL. Click the three elipses for that domain and select **Update binding**. In the editor that opens, choose **SNI SSL** for the TLS/SSL type and click **Update**.
 
-6.	In the **SSL bindings** section, again select the same host name record with the certificate. In the editor that opens, this time choose **IP Based SSL** on the **SSL Type** drop-down menu and click **Add Binding**. When you see the operation success message, you’ve acquired a new IP address.
+6.	In the **Custom domains** section, select the same host name record. In the editor that opens, this time choose **IP Based SSL** for the TLS/SSL type and click **Update**. When you see the operation success message, you’ve acquired a new IP address.
 
 7.	If an A record (DNS record pointing directly to your IP address) is configured in your Domain Registration Portal (third party DNS Provider or Azure DNS), replace the existing IP address with the newly generated one. You can find the new IP address by following the instructions in the next section.
 

@@ -30,7 +30,7 @@ The following table provides information about supported authorization options f
 | --- | --- | --- |
 | Microsoft Entra ID | [Authorize access to Azure Storage data with Microsoft Entra ID](../blobs/authorize-access-azure-active-directory.md) | Microsoft recommends using Microsoft Entra ID with managed identities to authorize requests to blob resources. |
 | Shared Key (storage account key) | [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key/) | Microsoft recommends that you [disallow Shared Key authorization](shared-key-authorization-prevent.md) for your storage accounts. |
-| Shared access signature (SAS) | [Using shared access signatures (SAS)](storage-sas-overview.md) | When SAS authorization is necessary, Microsoft recommends using user delegation SAS for limited delegated access to blob resources. |
+| Shared access signature (SAS) | [Using shared access signatures (SAS)](storage-sas-overview.md) | When SAS authorization is necessary, Microsoft recommends using user delegation SAS for limited delegated access to blob resources. SAS authorization is supported for Blob Storage and Data Lake Storage, and can be used for calls to `blob` endpoints and `dfs` endpoints. |
 | Anonymous read access | [Overview: Remediating anonymous read access for blob data](../blobs/anonymous-read-access-overview.md) | Microsoft recommends that you disable anonymous access for all of your storage accounts. |
 | Storage Local Users | Supported for SFTP only. To learn more see [Authorize access to Blob Storage for an SFTP client](../blobs/secure-file-transfer-protocol-support-how-to.md) | See guidance for options. |
 
@@ -60,7 +60,7 @@ The following table provides information about supported authorization options f
 
 | Authorization option | Guidance | Recommendation |
 | --- | --- | --- |
-| Microsoft Entra ID | [Authorize access to Azure Storage data with Microsoft Entra ID](../blobs/authorize-access-azure-active-directory.md) | Microsoft recommends using Microsoft Entra ID with managed identities to authorize requests to queue resources. |
+| Microsoft Entra ID | [Authorize access to Azure Storage data with Microsoft Entra ID](../queues/authorize-access-azure-active-directory.md) | Microsoft recommends using Microsoft Entra ID with managed identities to authorize requests to queue resources. |
 | Shared Key (storage account key) | [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key/) | Microsoft recommends that you [disallow Shared Key authorization](shared-key-authorization-prevent.md) for your storage accounts. |
 | Shared access signature (SAS) | User delegation SAS isn't supported for Queue Storage. To learn more, see [Using shared access signatures (SAS)](storage-sas-overview.md). | Microsoft doesn't recommend using SAS tokens secured by the account key. |
 
@@ -70,7 +70,7 @@ The following table provides information about supported authorization options f
 
 | Authorization option | Guidance | Recommendation |
 | --- | --- | --- |
-| Microsoft Entra ID | [Authorize access to Azure Storage data with Microsoft Entra ID](../blobs/authorize-access-azure-active-directory.md) | Microsoft recommends using Microsoft Entra ID with managed identities to authorize requests to table resources. |
+| Microsoft Entra ID | [Authorize access to Azure Storage data with Microsoft Entra ID](../tables/authorize-access-azure-active-directory.md) | Microsoft recommends using Microsoft Entra ID with managed identities to authorize requests to table resources. |
 | Shared Key (storage account key) | [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key/) | Microsoft recommends that you [disallow Shared Key authorization](shared-key-authorization-prevent.md) for your storage accounts. |
 | Shared access signature (SAS) | User delegation SAS isn't supported for Table Storage. To learn more, see [Using shared access signatures (SAS)](storage-sas-overview.md). | Microsoft doesn't recommend using SAS tokens secured by the account key. |
 

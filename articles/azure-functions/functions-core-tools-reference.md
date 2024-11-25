@@ -507,7 +507,7 @@ The following considerations apply when using `func extensions install`:
 
 + For compiled C# projects (both in-process and isolated worker process), instead use standard NuGet package installation methods, such as `dotnet add package`.
 
-+ To manually install extensions using Core Tools, you must have the [.NET 6.0 SDK](https://dotnet.microsoft.com/download) installed.
++ To manually install extensions using Core Tools, you must have the [.NET SDK](https://dotnet.microsoft.com/download) installed.
 
 + When possible, you should instead use [extension bundles](functions-bindings-register.md#extension-bundles). The following are some reasons why you might need to install extensions manually:
 
