@@ -5,7 +5,7 @@ description: Use Azure Blob Storage lifecycle management policies to create auto
 author: normesta
 
 ms.author: normesta
-ms.date: 10/25/2024
+ms.date: 11/25/2024
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.custom: references_regions, engagement-fy23
@@ -17,8 +17,8 @@ Azure Blob Storage lifecycle management offers a rule-based policy that you can 
 
 With the lifecycle management policy, you can:
 
-- Transition blobs from cool to hot immediately when they're accessed, to optimize for performance.
-- Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost.
+- Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost.- 
+- Transition blobs back from cool to hot immediately when they're accessed.
 - Delete current versions of a blob, previous versions of a blob, or blob snapshots at the end of their lifecycles.
 - Apply rules to an entire storage account, to select containers, or to a subset of blobs using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters.
 
@@ -187,9 +187,9 @@ The run conditions are based on age. Current versions use the last modified time
 
 When you add or edit the rules of a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. 
 
-An active policy processes objects continuously, and is interrupted if changes are made to the policy. If you edit, delete, or disable a rule while a run is in progress, then that run terminates within 15 minutes, and runs again within 24 hours. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
+An active policy processes objects continuously, and is interrupted if changes are made to the policy. If you edit, delete, or disable a rule, then the execution of that policy terminates within 15 minutes, and is restarted again within 24 hours with updated rules. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
 
-The time required for a run to complete depends on the number of blobs evaluated and operated on. Runs can take longer if the number of requests being made per second reaches the request per second limit of the account. All requests made to storage account, including requests made by policy runs, accrue to the same limit on requests per second, and as that limit approaches, priority is given to requests made by workloads. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+The time required for a run to complete depends on the number of blobs evaluated and operated on. The latency with which a blob is evaluated and operated on may be longer if the request rate for the storage account approaches the storage account limit. All requests made to storage account, including requests made by policy runs, accrue to the same limit on requests per second, and as that limit approaches, priority is given to requests made by workloads. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 To view default scale limits, see the following articles:
 
