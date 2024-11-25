@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot
 services: iot
 ms.topic: conceptual
-ms.date: 02/28/2024
+ms.date: 11/11/2024
 
 # Generated from YAML source.
 ---
@@ -38,6 +38,31 @@ In the [Device Provisioning Service](#device-provisioning-service), the allocati
 Casing rules: Always lowercase.
 
 Applies to: Device Provisioning Service
+
+### Asset
+
+A physical or virtual item of value that you want to manage, monitor, and collect data from. An asset can be a machine, a device, a software component, an entire system, or a physical object of value such as a field of crops, or a building. Assets are typically in a location that you control (such as a factory) and typically can't connect to the public internet.
+
+The following items are examples of IoT assets:
+- robotic arms, conveyor belts, elevators
+- industrial CNC machines, lathes, saws, drills
+- medical diagnostic imaging machines
+- security video cameras
+- software or software components
+- programmable logic controllers (PLC)
+- entire manufacturing systems
+- buildings
+- agricultural crops
+
+In Azure IoT Operations, an [asset](../iot-operations/manage-devices-assets/overview-manage-assets.md) is a core element of a solution.
+
+Casing rules: Always lowercase when you're referring to a specific asset.
+
+Always capitalize and style as code when you're referring to `Asset` as a named code or configuration element.
+
+Example usage: An industrial CNC machine is an *asset* in an edge-based solution.  The *`Asset`* Custom Resource Definition (CRD) is used with an edge-based solution built on Azure IoT Operations.  The *`Asset`* resource type is used with Azure Resource Manager (ARM) in the cloud.
+
+Applies to: Azure IoT Operations
 
 ### Attestation mechanism
 
@@ -79,6 +104,14 @@ Casing rules: Always lowercase.
 
 Applies to: Iot Hub
 
+### Azure Device Registry
+
+This component provides a single centralized registry for devices and assets that are projected as Azure resources.
+
+On first mention in an article, use _Azure Device Registry_. On subsequent mentions, you can use _Device Registry_. Never use an acronym.
+
+Applies to: Azure IoT Operations
+
 ### Azure Digital Twins
 
 A platform as a service (PaaS) offering for creating digital representations of real-world things, places, business processes, and people. Build twin graphs that represent entire environments, and use them to gain insights to drive better products, optimize operations and costs, and create breakthrough customer experiences.
@@ -103,6 +136,24 @@ First and subsequent mentions: Always spell out in full as *Azure Digital Twins 
 
 Applies to: Digital Twins
 
+### Azure IoT
+
+Azure Internet of Things (IoT) is a collection of components, services, and SDKs that let you build [edge-based](#edge-based-solution) and [cloud-based](#cloud-based-solution) solutions to securely connect, manage, monitor, and control IoT [assets](#asset) at scale.
+
+First and subsequent mentions: When you're referring to the collection of Azure services and features that support IoT, always spell out in full as *Azure IoT*. 
+
+Example usage: *Azure IoT* is a collection of managed and platform services that connect, monitor, and control your IoT devices. 
+
+Applies to: Azure IoT Operations, Iot Hub, IoT Central, IoT Edge, Azure Digital Twins, Device Provisioning Service, IoT Central
+
+### Azure IoT Layered Network Management (preview)
+
+An Azure IoT Operations capability that lets you secure communication between devices and the cloud through isolated network environments based on the ISA-95/Purdue Network architecture.
+
+On first mention in an article, use _Azure IoT Layered Network Management (preview)_. On subsequent mentions, you can use _Layered Network Management_. Never use an acronym.
+
+Applies to: Azure IoT Operations
+
 ### Azure IoT Explorer
 
 A tool you can use to view the [telemetry](#telemetry) the [device](#device) is sending, work with device [properties](#properties), and call [commands](#command). You can also use the explorer to interact with and test your devices, and to manage [IoT Plug and Play devices](#iot-plug-and-play-device).
@@ -113,15 +164,15 @@ Casing rules: Always capitalize as *Azure IoT Explorer*.
 
 Applies to: Iot Hub, Device developer
 
-### Azure IoT Operations Preview - enabled by Azure Arc
+### Azure IoT Operations - enabled by Azure Arc
 
 A unified data plane for the edge. It's a collection of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters. It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
 
 [Learn more](../iot-operations/get-started/overview-iot-operations.md)
 
-On first mention in an article, use *Azure IoT Operations Preview - enabled by Azure Arc*. On subsequent mentions, you can use *Azure IoT Operations*. Never use an acronym.
+On first mention in an article, use *Azure IoT Operations - enabled by Azure Arc*. On subsequent mentions, you can use *Azure IoT Operations*. Never use an acronym.
 
-Casing rules: Always capitalize as *Azure IoT Operations Preview - enabled by Azure Arc* or *Azure IoT Operations*.
+Casing rules: Always capitalize as *Azure IoT Operations - enabled by Azure Arc* or *Azure IoT Operations*.
 
 ### Azure IoT Tools
 
@@ -133,7 +184,7 @@ Applies to: Iot Hub, IoT Edge, IoT Central, Device developer
 
 ### Azure IoT device SDKs
 
-These SDKS, available for multiple languages, enable you to create [device apps](#device-app) that interact with an [IoT hub](#iot-hub) or an IoT Central application.
+The device SDKS, available for multiple languages, enable you to create [device apps](#device-app) that interact with an [IoT hub](#iot-hub) or an IoT Central application.
 
 [Learn more](./iot-sdks.md)
 
@@ -177,9 +228,19 @@ Applies to: Iot Hub
 
 ## C
 
+### Cloud-based solution
+
+An integrated set of IoT assets, components, and services, that addresses an organizational need and sends the data to a centralized cloud.
+
+You can build cloud-based solutions using the services described in the [Azure IoT overview](iot-introduction.md).
+
+Casing rules: Always lowercase.
+
+Applies to: Iot Hub, IoT Central, IoT Edge, Azure Digital Twins, Device Provisioning Service, IoT Central
+
 ### Cloud gateway
 
-A cloud-hosted app that enables connectivity for [devices](#device) that cannot connect directly to [IoT Hub](#iot-hub) or IoT Central. A cloud [gateway](#gateway) is hosted in the cloud in contrast to a [field gateway](#field-gateway) that runs local to your devices. A common use case for a cloud gateway is to implement protocol translation for your devices.
+A cloud-hosted app that enables connectivity for [devices](#device) that can't connect directly to [IoT Hub](#iot-hub) or IoT Central. A cloud [gateway](#gateway) is hosted in the cloud in contrast to a [field gateway](#field-gateway) that runs local to your devices. A common use case for a cloud gateway is to implement protocol translation for your devices.
 
 Casing rules: Always lowercase.
 
@@ -199,7 +260,7 @@ Messages sent from an [IoT hub](#iot-hub) to a connected [device](#device). Ofte
 
 Casing rules: Always lowercase.
 
-Abbreviation: Do not use *C2D*.
+Abbreviation: Don't use *C2D*.
 
 Applies to: Iot Hub
 
@@ -225,6 +286,14 @@ Casing rules: Always lowercase.
 
 Applies to: Iot Hub
 
+### Connector for OPC UA
+
+In Azure IoT Operations, this component manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers to MQTT broker topics.
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations
+
 ### Connection string
 
 Use in your app code to encapsulate the information required to connect to an [endpoint](#endpoint). A connection string typically includes the address of the endpoint and security information, but connection string formats vary across services. There are two types of connection string associated with the [IoT Hub](#iot-hub) service:
@@ -246,13 +315,21 @@ Applies to: Iot Hub
 
 ### Custom gateway
 
-Enables connectivity for [devices](#device) that cannot connect directly to [IoT Hub](#iot-hub) or IoT Central. You can use Azure [IoT Edge](#iot-edge) to build custom [gateways](#gateway) that implement custom logic to handle messages, custom protocol conversions, and other processing.
+Enables connectivity for [devices](#device) that can't connect directly to [IoT Hub](#iot-hub) or IoT Central. You can use Azure [IoT Edge](#iot-edge) to build custom [gateways](#gateway) that implement custom logic to handle messages, custom protocol conversions, and other processing.
 
 Casing rules: Always lowercase.
 
 Applies to: Iot Hub, IoT Central
 
 ## D
+
+### Dataflows
+
+An Azure IoT Operations component that lets you aggregate, enrich, normalize, and filter the data from your devices and assets. Dataflows is a data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud.
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations
 
 ### Default component
 
@@ -288,11 +365,21 @@ Applies to: Iot Hub
 
 ### Device
 
-In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example, a device might be an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse.
+In the context of IoT, a device is a piece of computer hardware that can collect or generate data, and send or exchange data with other devices and systems. Devices can connect to edge or cloud solutions.  Typically, a device might be in a location you don't control (such as a third party business) and connects to the public internet.
+
+The following items are examples of IoT devices:
+- consumer wearables
+- connected cars
+- smart coffee machines
+- smart vending machines
+- crop sensors
+- connected thermostats
+- computers, phones, or tablets
+- other computer hardware with microcontroller units (MCUs) or microprocessor units (MPUs).
 
 Casing rules: Always lowercase.
 
-Applies to: Iot Hub, IoT Central, IoT Edge, Device Provisioning Service, Device developer
+Applies to: Iot Hub, IoT Central, IoT Edge, Device Provisioning Service
 
 ### Device Provisioning Service
 
@@ -396,7 +483,7 @@ Refers to messages sent from a connected [device](#device) to [IoT Hub](#iot-hub
 
 Casing rules: Always lowercase.
 
-Abbreviation: Do not use *D2C*.
+Abbreviation: Don't use *D2C*.
 
 Applies to: Iot Hub
 
@@ -459,6 +546,16 @@ Casing rules: Always lowercase.
 Applies to: Iot Hub, IoT Central, Digital Twins
 
 ## E
+
+### Edge-based solution
+
+An integrated set of IoT assets, components, and services, that meets an organizational need and runs close to where the data is generated (for example, in a factory), rather than send the data to a centralized cloud.
+
+You can build edge-based solutions using the services described in the [Azure IoT overview](iot-introduction.md).
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations, IoT Edge, IoT Hub
 
 ### Endpoint
 
@@ -526,7 +623,7 @@ Applies to: Iot Hub, IoT Central
 
 ### Gateway
 
-A gateway enables connectivity for [devices](#device) that cannot connect directly to [IoT Hub](#iot-hub). See also [field gateway](#field-gateway), [cloud gateway](#cloud-gateway), and [custom gateway](#custom-gateway).
+A gateway enables connectivity for [devices](#device) that can't connect directly to [IoT Hub](#iot-hub). See also [field gateway](#field-gateway), [cloud gateway](#cloud-gateway), and [custom gateway](#custom-gateway).
 
 Casing rules: Always lowercase.
 
@@ -536,7 +633,7 @@ Applies to: Iot Hub, IoT Central
 
 An example of a [field gateway](#field-gateway). A [gateway](#gateway) [device](#device) can be standard IoT device or an [IoT Edge device](#iot-edge-device).
 
-A gateway device enables connectivity for downstream devices that cannot connect directly to [IoT Hub](#iot-hub).
+A gateway device enables connectivity for downstream devices that can't connect directly to [IoT Hub](#iot-hub).
 
 Casing rules: Always lowercase.
 
@@ -766,6 +863,14 @@ Abbreviation: MQTT
 
 Applies to: Iot Hub, IoT Central, Device developer
 
+### MQTT broker
+
+An MQTT broker that runs on the edge as part of Azure IoT Operations. The component lets you publish and subscribe to MQTT topics. You can use the MQTT broker to build event-driven architectures that connect your devices and assets to the cloud.
+
+Casing rules: Always lowercase as *MQTT broker*.
+
+Applies to: Azure IoT Operations
+
 ### Model
 
 A definition of a type of entity in your physical environment, including its [properties](#properties), telemetries, and [components](#component). Models are used to create [digital twins](#digital-twin) that represent specific physical objects of this type. Models are written in the [Digital Twins Definition Language](#digital-twins-definition-language).
@@ -802,7 +907,7 @@ Applies to: Iot Hub, IoT Central, Digital Twins
 
 ### Module
 
-The [IoT Hub](#iot-hub) [device](#device) SDKs let you instantiate modules where each one opens an independent connection to your IoT hub. This lets you use separate namespaces for different [components](#component) on your device.
+The [IoT Hub](#iot-hub) [device](#device) SDKs let you instantiate modules where each one opens an independent connection to your IoT hub. This capability lets you use separate namespaces for different [components](#component) on your device.
 
 [Module identity](#module-identity) and [module twin](#module-twin) provide the same capabilities as [device identity](#device-identity) and [device twin](#device-twin) but at a finer granularity.
 
@@ -816,7 +921,7 @@ Applies to: Iot Hub, IoT Edge, Device developer
 
 A unique identifier assigned to every [module](#module) that belongs to a [device](#device). Module identities are also registered in the [identity registry](#identity-registry).
 
-The module identity details the security credentials the module uses to authenticate with the [IoT Hub](#iot-hub) or, in the case of an [IoT Edge](#iot-edge) module to the [IoT Edge hub](#iot-edge-hub).
+The module identity details the security credentials the module uses to authenticate with the [IoT Hub](#iot-hub) or, for an [IoT Edge](#iot-edge) module, to the [IoT Edge hub](#iot-edge-hub).
 
 Casing rules: Always lowercase.
 
@@ -847,6 +952,14 @@ In the context of [Digital Twins](#digital-twin), a set of [models](#model) for 
 [Learn more](../digital-twins/concepts-ontologies.md)
 
 Applies to: Digital Twins
+
+### Operations experience
+
+This web UI provides a unified experience for operational technologists to manage assets and dataflows in an Azure IoT Operations deployment.
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations
 
 ### Operational technology
 
@@ -936,7 +1049,7 @@ Applies to: Digital Twins
 
 ### Reported configuration
 
-In the context of a [device twin](#device-twin), this refers to the complete set of [properties](#properties) and metadata in the [device](#device) twin that are reported to the [solution](#solution) back end.
+In the context of a [device twin](#device-twin), refers to the complete set of [properties](#properties) and metadata in the [device](#device) twin that are reported to the [solution](#solution) back end.
 
 Casing rules: Always lowercase.
 
@@ -1040,7 +1153,7 @@ Applies to: Iot Hub
 
 ### Tag
 
-In the context of a [device twin](#device-twin), tags are [device](#device) metadata stored and retrieved by the [solution](#solution) back end in the form of a JSON document. Tags are not visible to apps on a device.
+In the context of a [device twin](#device-twin), tags are [device](#device) metadata stored and retrieved by the [solution](#solution) back end in the form of a JSON document. Tags aren't visible to apps on a device.
 
 Casing rules: Always lowercase.
 
@@ -1056,9 +1169,9 @@ Applies to: IoT Edge
 
 ### Telemetry
 
-The data, such as wind speed or temperature, sent to an [IoT hub](#iot-hub) that was collected by a [device](#device) from its sensors.
+The data, such as wind speed or temperature, that a device collects from its sensors and sends to an [IoT hub](#iot-hub).
 
-Unlike [properties](#properties), telemetry is not stored on a [digital twin](#digital-twin); it is a stream of time-bound data events that need to be handled as they occur.
+Unlike [properties](#properties), telemetry isn't stored on a [digital twin](#digital-twin); it's a stream of time-bound data events that need to be handled as they occur.
 
 In IoT Plug and Play and [Azure Digital Twins](#azure-digital-twins), telemetry fields defined in an [interface](#interface) represent measurements. These measurements are typically values such as sensor readings that are sent by devices, like [IoT Plug and Play devices](#iot-plug-and-play-device), as a stream of data.
 
@@ -1102,4 +1215,3 @@ A relative term describing services that feed data into the current context. For
 Casing rules: Always lowercase.
 
 Applies to: Iot Hub, IoT Central, Digital Twins
-

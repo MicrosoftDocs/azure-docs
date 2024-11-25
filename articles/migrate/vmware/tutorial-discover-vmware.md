@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 07/02/2024
+ms.date: 11/20/2024
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
@@ -114,7 +114,7 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 
 Your user account on your servers must have the required permissions to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can provide the user account information in the appliance configuration manager. The appliance doesn't install agents on the servers.
 
-* For **Windows servers** and web apps discovery, create an account (local or domain) that has administrator permissions on the servers. To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](./migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. Learn how to [assign the required role to the user account](/sql/relational-databases/security/authentication-access/server-level-roles).
+* To perform software inventory and agentless dependency analysis, create a guest user account (local or domain) on the servers. To perform web app discovery, you need an account with administrative permissions on the servers. To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](./migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. Learn how to [assign the required role to the user account](/sql/relational-databases/security/authentication-access/server-level-roles).
 * For **Linux servers**, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
 
 > [!NOTE]
@@ -362,7 +362,16 @@ To view the remaining duration until end of support, that is, the number of mont
 The **Database instances** displays the number of instances discovered by Azure Migrate. Select the number of instances to view the database instance details. The **Database instance license support status** displays the support status of the database instance. Selecting the support status opens a pane on the right, which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
 
 To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
- 
+
+## Onboard to Azure Local (optional)
+
+> [!Note]
+> Perform this step only if you are migrating to [Azure Local](/azure-stack/hci/overview).
+
+Provide the Azure Local instance information and the credentials to connect to the system. For more information, see [Download the Azure Local software](/azure-stack/hci/deploy/download-azure-stack-hci-software).
+
+:::image type="content" source="../media/tutorial-discover-hyper-v/onboard-hci.png" alt-text="Screenshot that shows the Onboard to Azure Local section.":::
+
 
 ## Next steps
 

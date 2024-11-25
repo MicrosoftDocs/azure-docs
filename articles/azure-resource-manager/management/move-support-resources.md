@@ -806,7 +806,14 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | databaseaccounts | **Yes** | No | No |
+> | databaseaccounts | **Yes** | **Yes** | No |
+> | mongoClusters | No | No | No |
+> | cassandraClusters | No | No | No |
+
+Moves between Resource groups and subscriptions are supported for APIs that use the RU architecture (Microsoft.DocumentDB/databaseAccounts), but not for those based on the vCore architecture, such as:
+
+- MongoDB vCore (Microsoft.DocumentDB/mongoClusters)
+- Azure Managed Instance for Apache Cassandra (Microsoft.DocumentDB/cassandraClusters)
 
 ## Microsoft.DomainRegistration
 
