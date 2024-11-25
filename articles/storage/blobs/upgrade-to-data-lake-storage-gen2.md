@@ -4,7 +4,7 @@ description: Description goes here.
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 11/15/2024
+ms.date: 11/25/2024
 ms.author: normesta
 
 ---
