@@ -1904,12 +1904,15 @@ This role is for providing necessary permissions on the staging storage account 
 > | Microsoft.Storage/storageAccounts/listKeys/action | List keys action on storage accounts |
 > | Microsoft.Storage/storageAccounts/read | Read access to storage accounts |
 > | Microsoft.Storage/storageAccounts/write | Write access to storage accounts |
-> | NotActions | none |
-> | DataActions | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Delete access to blobs in blob service containers |
+> | NotActions |      |
+> | none |       |
+> | DataActions |      |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Delete access to blobs in blob service containers |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Read access to blobs in blob service containers |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Write access to blobs in blob service containers |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | Add action on blobs in blob service containers |
-> | NotDataActions | none |
+> | NotDataActions |     |
+> | none |     |
 
 ```json
 "permissions": [
