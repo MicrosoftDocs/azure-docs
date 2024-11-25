@@ -8,6 +8,8 @@ ms.topic: overview
 ms.date: 02/20/2022
 ms.custom: template-overview
 ---
+> [!IMPORTANT]
+> Azure Private 5G Core service will retire 30 September 2025. To prevent any service disruption, please migrate before 30 September 2025 to Microsoft partner solutions in Azure marketplace such as [Nokia 4G & 5G private wireless](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/nokiaofamericacorporation1591716055441.ndac_5g-ready_private_wireless?tab=Overview), [Ericsson Private 5G](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/ericssonab1605633442837.ericsson_private_five_g?tab=Overview) or other private network solutions of your choice.
 
 # What is Azure Private 5G Core?
 
