@@ -15,15 +15,15 @@ from the storage account and use a private endpoint. When you use a private endp
 account is accessible only from the virtual network where the private endpoint is created. You must
 also add a DNS record for the private endpoint. Without the DNS record, Cloud Shell can't connect to
 the storage account. Under this condition, when you start a Cloud Shell session, you see a message
-that you are using ephemeral storage.
+that you're using ephemeral storage.
 
 This article shows you how to create a private endpoint for a storage account and create the
 necessary DNS record.
 
 ## Disable public access to storage account
 
-Before you create the private endpoint, it's recommended to disable public access to the storage
-account. Use the following steps to disable public access to the storage account.
+Before you create the private endpoint, you should disable public access to the storage account. Use
+the following steps to disable public access to the storage account.
 
 1. In the search box at the top of the portal, enter **Storage account**. Select **Storage
    accounts** in the search results.
@@ -37,8 +37,7 @@ account. Use the following steps to disable public access to the storage account
 1. In the search box at the top of the portal, enter **Private endpoint**. Select **Private
    endpoints**.
 1. Select **+ Create** in **Private endpoints**.
-1. In the **Basics** tab of **Create a private endpoint**, enter or select the following
-   information.
+1. In the **Basics** tab of **Create a private endpoint**, create the following configuration:
 
    |        Setting         |                     Value                      |
    | ---------------------- | ---------------------------------------------- |
