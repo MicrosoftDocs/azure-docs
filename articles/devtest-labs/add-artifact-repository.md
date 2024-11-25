@@ -141,29 +141,42 @@ To add a catalog, complete the following tasks:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your dev center or project.
- 
-1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
- 
-1. In the **Add catalog** pane, enter, or select the following:
- 
-   | Field | Value |
-   |-----|-----| 
-   | **Name** | Enter a name for the catalog. |
-   | **Catalog source** | Select **GitHub**. |
-   | **Authentication type** | Select **GitHub app**.|
+1. Navigate to your lab.
 
-1. To install the Microsoft Dev Center app, select **configure your repositories**.
-  
+1. On the lab's **Overview** page, select **Configuration and policies** from the left navigation.
+
+1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
+
+1. Select **Add** in the top menu bar.
+
+1. In the **Repository** pane, enter the following information:
+
+   - **Name**: A repository name to use in the lab.
+   - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
+
+1. To install the Microsoft Dev Center app, select **Microsoft DevCenter GitHub app**.
+
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png" alt-text="Screenshot showing Microsoft DevCenter GitHub app option on Add a repo page, with example entries and install link highlighted." lightbox="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png":::
+
 1. If you're prompted to authenticate to GitHub, authenticate.
  
-1. On the **Microsoft DevCenter** page, select **Configure**.
+1. On the **Microsoft DevCenter** page, select **Install**.
+
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-install-github-app.png" alt-text="Screenshot showing Microsoft DevCenter GitHub app installation page." lightbox="media/devtest-lab-add-repo/devtestlab-install-github-app.png":::
  
 1. Select the GitHub organization that contains the artifact repository you want to add to the lab. You must be an owner of the organization to install this app.
-  
+
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-install-github-app-select-organization.png" alt-text="Screenshot of the Install Microsoft DevCenter page, with a GitHub organization highlighted." lightbox="media/devtest-lab-add-repo/devtestlab-install-github-app-select-organization.png":::
+
 1. On the Install Microsoft DevCenter page, select **Only select repositories**, select the repository you want to add to the lab, and then select **Install**. 
- 
+
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-select-one-repository.png" alt-text="Screenshot of the Install Microsoft DevCenter page, with one repository selected and highlighted." lightbox="media/devtest-lab-add-repo/devtestlab-select-one-repository.png":::
+
+   You can select multiple repositories to add to the lab. You must add each repository separately to the lab, as described in this article.
+
 1. On the **Microsoft DevCenter by Microsoft would like permission to:** page, review the permissions required, and then select **Authorize Microsoft Dev Center**.
+
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-authorize-microsoft-dev-center.png" alt-text="Screenshot of the Microsoft DevCenter by Microsoft would like permission to page, with authorize highlighted." lightbox="media/devtest-lab-add-repo/devtestlab-authorize-microsoft-dev-center.png":::
 
 ### Add an GitHub artifact repository to a lab in the Azure portal
 
