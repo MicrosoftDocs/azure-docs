@@ -31,7 +31,7 @@ You can create custom feature filters that enable features based on your specifi
 
 ## Add a custom feature filter
 
-1. Create a feature flag named *Beta* in the **Feature Manager** menu of your App Configuration store and move to the right end of the feature flag you want to modify, then select the **More actions** ellipsis (**...**) action and **Edit**. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md).
+1. Create a feature flag named *Beta* in your App Configuration store and edit it. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md#edit-feature-flags).
 
 1. In the **Edit feature flag** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
 

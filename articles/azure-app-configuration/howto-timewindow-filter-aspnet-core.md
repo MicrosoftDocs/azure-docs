@@ -19,7 +19,7 @@ The example used in this tutorial is based on the ASP.NET Core application intro
 ## Prerequisites
 
 - Create an [ASP.NET Core application with a feature flag](./quickstart-feature-flag-aspnet-core.md).
-- [Add a non-recurring time window filter to the feature flag](./howto-timewindow-filter.md)
+- [Add a time window filter to the feature flag](./howto-timewindow-filter.md)
 - Update the [`Microsoft.FeatureManagement.AspNetCore`](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/) package to version **3.0.0** or later.
 
 ## Use the time window filter
@@ -48,6 +48,8 @@ Once the start time has passed, refresh your browser a few times. You'll notice 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of browser with Beta menu.](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
+
+If recurrence is enabled when you set up the time window filter, the **Beta** menu will disappear once your current time passes the end time you set in the time window filter. However, the **Beta** menu will reappear according to your recurrence settings and continue this pattern until the recurrence expiration time, if set.
 
 ## Next steps
 
