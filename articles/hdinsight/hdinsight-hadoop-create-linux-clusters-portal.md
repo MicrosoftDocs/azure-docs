@@ -51,7 +51,7 @@ From the **Basics** tab, provide the following information:
 |Cluster login password|Provide the password.|
 |Confirm cluster login password|Reenter the password|
 |Secure Shell (SSH) username|Provide the username, default is **sshuser**|
-|Use cluster login password for SSH|If you want the same SSH password as the admin password you specified earlier, select the **Use cluster login password for SSH** check box. If not, provide either a **PASSWORD** or **PUBLIC KEY** to authenticate the SSH user. A public key is the approach we recommend. Choose **Select** at the bottom to save the credentials configuration.  For more information, see [Connect to HDInsight (Apache Hadoop) by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
+|Use cluster login password for SSH|If you want the same SSH password as the admin password you specified earlier, select the **`Use cluster login password for SSH`** check box. If not, provide either a **PASSWORD** or **PUBLIC KEY** to authenticate the SSH user. A public key is the approach we recommend. Choose **Select** at the bottom to save the credentials configuration.  For more information, see [Connect to HDInsight (Apache Hadoop) by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
 
 Select **Next: Storage >>** to advance to the next tab.
 
@@ -155,7 +155,7 @@ Some of the icons in the window are explained as follows:
 
 ## Delete the cluster
 
-See [Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI](./hdinsight-delete-cluster.md).
+See [Delete a HDInsight cluster using your browser, PowerShell, or the Azure CLI](./hdinsight-delete-cluster.md).
 
 ## Troubleshoot
 
@@ -163,7 +163,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 ## Next steps
 
-You've successfully created an HDInsight cluster. Now learn how to work with your cluster.
+You've successfully created a HDInsight cluster. Now learn how to work with your cluster.
 
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
 * [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)

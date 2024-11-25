@@ -24,9 +24,9 @@ If you're using multiple clusters together, you can create a virtual network, an
 ## Create an Apache Spark cluster in HDInsight
 
 > [!IMPORTANT]  
-> Billing for HDInsight clusters is prorated per minute, whether you are using them or not. Be sure to delete your cluster after you have finished using it. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
+> Billing for HDInsight clusters is prorated per minute, whether you're using them or not. Be sure to delete your cluster after you have finished using it. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
 
-Creating an HDInsight cluster includes creating the following Azure objects and resources:
+Creating a HDInsight cluster includes creating the following Azure objects and resources:
 
 - An Azure resource group. An Azure resource group is a container for Azure resources.
 - An Azure storage account or Azure Data Lake Storage.  Each HDInsight cluster requires a dependent data storage. In this quickstart, you create a cluster that uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
@@ -36,7 +36,7 @@ You use a PowerShell script to create the resources.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-When you run the PowerShell script, you are prompted to enter the following values:
+When you run the PowerShell script, you're prompted to enter the following values:
 
 |Parameter|Value|
 |------|------|
@@ -188,11 +188,11 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 ## Clean up resources
 
-HDInsight saves your data in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. If you plan to work on the tutorial listed in [Next steps](#next-steps) immediately, you might want to keep the cluster.
+HDInsight saves your data in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it isn't in use. You're also charged for a HDInsight cluster, even when it isn't in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use. If you plan to work on the tutorial listed in [Next steps](#next-steps) immediately, you might want to keep the cluster.
 
 Switch back to the Azure portal, and select **Delete**.
 
-:::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure portal delete an HDInsight cluster." border="true":::
+:::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure portal delete a HDInsight cluster." border="true":::
 
 You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight cluster, and the default storage account.
 
@@ -221,7 +221,7 @@ Remove-AzResourceGroup `
 
 ## Next steps
 
-In this quickstart, you learned how to create an Apache Spark cluster in HDInsight and run a basic Spark SQL query. Advance to the next tutorial to learn how to use an HDInsight cluster to run interactive queries on sample data.
+In this quickstart, you learned how to create an Apache Spark cluster in HDInsight and run a basic Spark SQL query. Advance to the next tutorial to learn how to use a HDInsight cluster to run interactive queries on sample data.
 
 > [!div class="nextstepaction"]
 > [Run interactive queries on Apache Spark](./apache-spark-load-data-run-query.md)

@@ -106,7 +106,7 @@ If you're using multiple clusters together, you can create a virtual network, an
 
 ## Clean up resources
 
-After you complete the quickstart, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it isn't in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use.
+After you complete the quickstart, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it isn't in use. You're also charged for a HDInsight cluster, even when it isn't in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use.
 
 Enter all or some of the following commands to remove resources:
 
@@ -133,7 +133,7 @@ az group delete \
 
 ## Next steps
 
-In this quickstart, you learned how to create an Apache Spark cluster in Azure HDInsight using Azure CLI.  Advance to the next tutorial to learn how to use an HDInsight cluster to run interactive queries on sample data.
+In this quickstart, you learned how to create an Apache Spark cluster in Azure HDInsight using Azure CLI.  Advance to the next tutorial to learn how to use a HDInsight cluster to run interactive queries on sample data.
 
 > [!div class="nextstepaction"]
 > [Run interactive queries on Apache Spark](./apache-spark-load-data-run-query.md)
