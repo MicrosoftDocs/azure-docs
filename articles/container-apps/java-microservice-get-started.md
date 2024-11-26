@@ -1,18 +1,19 @@
 ---
-title: Launch your first Java Microservice Application with Managed Java Components in Azure Container Apps
+title: Launch your First Java Microservice Application with Managed Java Components in Azure Container Apps
 description: Learn how to deploy a Java microservice project in Azure Container Apps with managed Java components.
 services: container-apps
-author: craigshoemaker
+author: KarlErickson
 ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: quickstart
-ms.date: 11/21/2024
+ms.date: 11/25/2024
 ms.author: cshoe
+
 ---
 
-# Tutorial: Launch your first Java microservice application with managed Java components in Azure Container Apps
+# Quickstart: Launch your first Java microservice application with managed Java components in Azure Container Apps
 
-In this article, you learn how to deploy an application that uses Java components to handle configuration management, service discovery, and manage health and metrics. The sample application used in this example is the Java PetClinic sample which uses the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps.
+In this quickstart, you learn how to deploy an application in Azure Container Apps that uses Java components to handle configuration management, service discovery, and manage health and metrics. The sample application used in this example is the Java PetClinic, which uses the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps:
 
 :::image type="complex" source="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png" alt-text="Diagram of the relationship between the Git repository containing a versioned YAML config file, a browser and mobile app, and an Azure Resource Group that contains an Azure Container Apps environment." lightbox="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png":::
    Diagram of an Azure Container Apps (A C A) environment illustrating the architecture of a microservices-based application deployed within an Azure Resource Group. An Azure Resource Group contains the Azure Container Apps environment. The environment includes three A C A managed Java components:  a config server, a service registry, and an admin server. The config server fetches configuration data stored as versioned YAML files in a Git repository external to the Azure Resource Group, the service registry handles service discovery and registration, and the admin server provides a live view of the system. An A P I Gateway routes requests to three microservices: vets service, customers service, and visits service. Each service is linked to its own database for data persistence. The application supports external interactions through a browser and a mobile app, and integrates with monitoring tools via Azure Log Analytics Workspaces for tracking system performance and health.
@@ -20,21 +21,21 @@ In this article, you learn how to deploy an application that uses Java component
 
 The PetClinic application includes the following features:
 
-* The frontend app is standalone Node.js web application hosted on the API Gateway app.
-* Requests to API Gateway routes requests to backend service apps.
+* The frontend is a standalone Node.js web app hosted on the API Gateway app.
+* Requests to the API gateway routes requests to backend service apps.
 * Backend apps are built with Spring Boot.
-* Each backend app uses HyperSQL DataBase as the persistent store.
-* The apps use managed Java components on Azure Container Apps, including Service Registry, Config Server, and Admin Server.
+* Each backend app uses a HyperSQL database as the persistent store.
+* The apps use managed Java components on Azure Container Apps, including a service registry, config server, and admin server.
 * The config server reads data from a Git repository.
-* Log Analytics workspace is responsible for logging server data.
+* A Log Analytics workspace logs server data.
 
-In this tutorial you:
+In this tutorial, you:
 
 > [!div class="checklist"]
-> * Create Config Server, Eureka Server, Admin and admin components
-> * Create a series of microservice applications
+> * Create a config server, Eureka server, admin server, and admin components
+> * Create a series of microservice apps
 > * Bind the server components to your microservices apps
-> * Deploy the collection of applications
+> * Deploy the collection of apps
 > * Review the deployed apps
 
 By the end of this article, you deploy one web application and three backend applications that are configured to work with three different Java components. You can then manage each component via the Azure portal.
@@ -43,15 +44,15 @@ By the end of this article, you deploy one web application and three backend app
 
 | Requirement  | Instructions |
 |--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).<br><br>You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
+| Azure account | If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the **Contributor** or **Owner** permission on the Azure subscription to use this quickstart. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| Container Apps CLI extension | Use version `0.3.47` or higher. Use the `az extension add --name containerapp --upgrade --allow-preview` command to install the latest version. |
+| Azure Container Apps CLI extension | Use version 0.3.47 or higher. Use the `az extension add --name containerapp --upgrade --allow-preview` command to install the latest version. |
 
 ## Setup
 
-1. Begin by creating variables with your custom values.
+Create environment variables, create a resource group, and create an Azure Container Apps environment using the following steps:
 
-    Before you run this command, make sure to replace the placeholder values surrounded by `<>` with your own values.
+1. Create environment variables with your custom values. Before you run this command, replace the placeholder values surrounded by `<>` with your own values.
 
     ```bash
     export RESOURCE_GROUP=<RESOURCE_GROUP>
@@ -59,7 +60,7 @@ By the end of this article, you deploy one web application and three backend app
     export CONTAINER_APP_ENVIRONMENT=<CONTAINER_APPS_ENVIRONMENT>
     ```
 
-1. Create variables which hold the settings for your microservices app. These values are used to define the names and configurations of the Java components and the Container Apps that will be used to deploy the microservices.
+1. Create environment variables that contain the settings for your microservices app. These values are used to define the names and configurations of the Java components and the Azure Container Apps that will be used to deploy the microservices.
 
     ```bash
     export CONFIG_SERVER_COMPONENT=configserver
@@ -86,19 +87,17 @@ By the end of this article, you deploy one web application and three backend app
 
     ```azurecli
     az group create \
-      --name $RESOURCE_GROUP \
-      --location $LOCATION
+        --name $RESOURCE_GROUP \
+        --location $LOCATION
     ```
 
-1. Create your Container Apps environment.
-
-    This environment hosts both the Java components and your container apps.
+1. Create your Azure Container Apps environment, which hosts both the Java components and your container apps.
 
     ```azurecli
     az containerapp env create \
-      --name $CONTAINER_APP_ENVIRONMENT \
-      --resource-group $RESOURCE_GROUP \
-      --location $LOCATION
+        --resource-group $RESOURCE_GROUP \
+        --name $CONTAINER_APP_ENVIRONMENT \
+        --location $LOCATION
     ```
 
 ## Create Java components
