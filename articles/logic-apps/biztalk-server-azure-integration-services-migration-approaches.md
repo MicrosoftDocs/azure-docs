@@ -4,7 +4,7 @@ description: Learn about migration strategies, planning, and best practices for 
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
-author: kewear,haroldcampos
+author: haroldcampos
 ms.author: kewear,haroldcampos
 ms.reviewer: estfan, azla
 ms.topic: conceptual
