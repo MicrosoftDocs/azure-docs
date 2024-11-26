@@ -16,9 +16,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ❌ C#
+**This article applies to:** ✅ Java ❎ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article shows you how to use Netflix Turbine and Netflix Hystrix on Azure Spring Apps. Spring Cloud [Netflix Turbine](https://github.com/Netflix/Turbine) is widely used to aggregate multiple [Netflix Hystrix](https://github.com/Netflix/Hystrix) metrics streams so that streams can be monitored in a single view using Hystrix dashboard.
 

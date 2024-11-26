@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article includes specifications for the use of Azure Spring Apps in a virtual network.
 

@@ -3,7 +3,7 @@ title: Microsoft Playwright Testing authentication
 description: Learn how to manage authentication and authorization for Microsoft Playwright Testing preview
 ms.topic: how-to
 ms.date: 09/07/2024
-ms.custom: playwright-testing-preview
+ms.custom: playwright-testing-preview, ignite-2024
 zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---

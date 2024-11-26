@@ -4,11 +4,10 @@ description: Learn about failover, patching, and the update process for Azure Ma
 
 
 
-ms.service: azure
+ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.date: 11/15/2024
-ms.custom: engagement-fy23
-
+ms.custom: engagement-fy23, ignite-2024
 ---
 
 # Failover and patching for Azure Managed Redis (preview)

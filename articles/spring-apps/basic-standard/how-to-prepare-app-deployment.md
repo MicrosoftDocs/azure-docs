@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-spring-apps
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 ::: zone pivot="programming-language-csharp"
 This article shows how to prepare an existing Steeltoe application for deployment to Azure Spring Apps. Azure Spring Apps provides robust services to host, monitor, scale, and update a Steeltoe app.
