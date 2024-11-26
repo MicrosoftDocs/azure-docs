@@ -40,7 +40,7 @@ This public preview supports the ability for developers to access real-time audi
 
 ## Supported formats
 
-### Mixed format
+### Mixed
 Contains mixed audio of all participants on the call. All audio is flattened into one stream.
 	
 ### Unmixed
