@@ -178,3 +178,15 @@ Use Wireshark to open the trace file. Look for connection failures or unresponsi
 
 1. Filter the packets with the *ip.addr == [IP address]* parameter. Input the IP address of your custom DNS service address.
 1. Review the DNS query and response, check if there's a domain name that isn't on the allowlist of Layered Network Management.
+
+## Operations experience
+
+To sign in to the [operations experience](https://iotoperations.azure.com) web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance.
+
+If you receive one of the following error messages: 
+
+- A problem occurred getting unassigned instances
+- Message: The request is not authorized
+- Code: PermissionDenied
+
+Verify your Microsoft Entra ID account meets the requirements in the [prerequisites](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites) section for operations experience access. 

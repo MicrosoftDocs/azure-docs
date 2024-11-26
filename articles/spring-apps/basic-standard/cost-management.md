@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
 
 This article describes the cost-saving options and capabilities that Azure Spring Apps provides.
 

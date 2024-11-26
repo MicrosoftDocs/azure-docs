@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-azurecli, engagement-fy23
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article shows how to map Domain Name System (DNS) names to applications to access multiple Azure Spring Apps service instances in the same virtual network.
 

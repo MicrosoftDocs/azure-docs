@@ -6,13 +6,13 @@ ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
 ms.date: 11/04/2024
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2024
 #CustomerIntent: As a network security administrator, I want to understand how to use Network Security Perimeter to control network access to Azure PaaS resources.
 ---
 
 # What is Network Security Perimeter?
 
-Network Security Perimeter allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Storage acoount and SQL Database server) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter; access can be exempted by using explicit access rules for public inbound and outbound.
+Network Security Perimeter allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Storage account and SQL Database server) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter; access can be exempted by using explicit access rules for public inbound and outbound.
 
 For access patterns involving traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md).
 
@@ -91,13 +91,13 @@ A network security perimeter-aware private link resource is a PaaS resource that
 
 | Private link resource name | Resource type | Resources |
 |---------------------------|---------------|-----------|
-| Azure Monitor             | Microsoft.Insights/dataCollectionEndpoints</br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service |
-| Azure AI Search          | Microsoft.Search/searchServices | - |
-| Cosmos DB                | Microsoft.DocumentDB/databaseAccounts | - |
+| [Azure Monitor](/azure/azure-monitor/essentials/network-security-perimeter)             | Microsoft.Insights/dataCollectionEndpoints</br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service |
+| [Azure AI Search](/azure/search/search-security-network-security-perimiter)          | Microsoft.Search/searchServices | - |
+| [Cosmos DB](/azure/cosmos-db/how-to-configure-nsp)                | Microsoft.DocumentDB/databaseAccounts | - |
 | Event Hubs                | Microsoft.EventHub/namespaces | - |
-| Key Vault                 | Microsoft.KeyVault/vaults | - |
-| SQL DB                    | Microsoft.Sql/servers | - |
-| [Storage](/azure/storage/common/storage-network-security)               | Microsoft.Storage/storageAccounts | - |
+| [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | - |
+| [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | - |
+| [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | - |
 
 > [!NOTE]
 > 
@@ -115,4 +115,4 @@ Network security perimeter is currently available in all Azure public cloud regi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md)
+> [Create a network security perimeter in the Azure portal](./create-network-security-perimeter-portal.md)

@@ -1,13 +1,9 @@
 ---
 title: Managed identity for storage accounts
 description: Learn to Azure Cache for Redis
-
-
-
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic: conceptual
 ms.date: 08/29/2022
-
 ---
 
 # Managed identity for storage

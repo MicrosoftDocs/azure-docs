@@ -7,6 +7,7 @@ ms.date: 11/16/2023
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
+  - ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

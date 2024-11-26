@@ -7,6 +7,7 @@ ms.author: rosemalcolm
 ms.service: dev-box
 ms.custom:
   - build-2024
+  - ignite-2024
 ms.topic: how-to
 ms.date: 10/26/2024
 #customer intent: As a developer, I want to learn how to use the Dev Home app, so that I can create and manage my dev boxes.
@@ -32,6 +33,24 @@ You might see Dev Home in the Start menu. If you see it there, you can select it
 
 Dev Home is available in the Microsoft Store. To install or update Dev Home, go to the Dev Home (Preview) page in the [Microsoft Store](https://aka.ms/devhome) and select **Get** or **Update**.
 
+## Add extensions
+
+Dev Home uses extensions to provide more functionality. To support the Dev Box features, you need to install the Dev Home Azure Extension.
+
+To add an extension:
+
+1. In Dev Home, from the left menu, select **Extensions**.
+ 
+   :::image type="content" source="media/how-to-use-dev-home-create-dev-box/dev-home-extensions.png" alt-text="Screenshot of Dev Home, showing the Extensions page."::: 
+ 
+1. In the list of extensions **Available in the Microsoft Store**, on the **Dev Home Azure Extension (Preview)**, select **Get**.
+ 
+   :::image type="content" source="media/how-to-use-dev-home-create-dev-box/dev-home-get-extension.png" alt-text="Screenshot of Dev Home, showing the Extensions page with the Dev Home Azure Extension highlighted.":::
+
+1. In the Microsoft Store dialog, select **Get** to install the extension.
+
+   :::image type="content" source="media/how-to-use-dev-home-create-dev-box/dev-home-get-extension-store.png" alt-text="Screenshot of the Microsoft Store dialog with the Get button highlighted.":::
+
 ## Sign in to Dev Home
 
 Dev Home allows you to work with many different services, like Microsoft Hyper-V, Windows Subsystem for Linux (WSL), and Microsoft Dev Box. To access your chosen service, you must sign in to your Microsoft account, or your Work or School account.
@@ -50,24 +69,6 @@ To sign in:
 1. Select **Add account** and follow the prompts to sign in.
 
    :::image type="content" source="media/how-to-use-dev-home-create-dev-box/dev-home-sign-in.png" alt-text="Screenshot of Dev Home, showing the Accounts page with Add account highlighted.":::
-
-## Add extensions
-
-Dev Home uses extensions to provide more functionality. To support the Dev Box features, you need to install the Dev Home Azure Extension.
-
-To add an extension:
-
-1. In Dev Home, from the left menu, select **Extensions**.
- 
-   :::image type="content" source="media/how-to-use-dev-home-create-dev-box/dev-home-extensions.png" alt-text="Screenshot of Dev Home, showing the Extensions page."::: 
- 
-1. In the list of extensions **Available in the Microsoft Store**, on the **Dev Home Azure Extension (Preview)**, select **Get**.
- 
-   :::image type="content" source="media/how-to-use-dev-home-create-dev-box/dev-home-get-extension.png" alt-text="Screenshot of Dev Home, showing the Extensions page with the Dev Home Azure Extension highlighted.":::
-
-1. In the Microsoft Store dialog, select **Get** to install the extension.
-
-   :::image type="content" source="media/how-to-use-dev-home-create-dev-box/dev-home-get-extension-store.png" alt-text="Screenshot of the Microsoft Store dialog with the Get button highlighted.":::
 
 ## Create a dev box
 
