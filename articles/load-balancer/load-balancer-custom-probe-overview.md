@@ -54,8 +54,8 @@ The protocol used by the health probe can be configured to one of the following 
 | **Scenario** | **TCP probe** | **HTTP/HTTPS probe** |
 | --- | --- | --- | 
 | Overview | TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port. TCP probes terminate a connection with a four-way close TCP handshake. | HTTP and HTTPS issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS). HTTP / HTTPS probes can be useful to implement your own logic to remove instances from load balancer if the probe port is also the listener for the service. |
-| Probe failure behavior | A TCP probe fails when:</br>- The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of timed-out probe requests, which were configured to go unanswered before marking down the probe.</br>- The probe receives a TCP reset from the instance. | An HTTP/HTTPS probe fails when:</br>- Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). </br>- Probe endpoint doesn't respond at all during the minimum of the probe interval and 30-second timeout period. Multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached.</br>- Probe endpoint closes the connection via a TCP reset.
-| Probe up behavior | TCP health probes are considered healthy and mark the backend endpoint as healthy when:</br>- The health probe is successful once after the VM boots.</br>- Any backend endpoint that has achieved a healthy state is eligible for receiving new flows.  | The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period. HTTP/HTTPS health probes are considered healthy and mark the backend endpoint as healthy when:</br>- The health probe is successful once after the VM boots.</br>- Any backend endpoint that has achieved a healthy state is eligible for receiving new flows.
+| Probe failure behavior | A TCP probe fails when:</br>- The TCP listener on the instance doesn't respond at all during the timeout period. A probe is marked down based on the number of timed-out probe requests, which were configured to go unanswered before marking down the probe.</br>- The probe receives a TCP reset from the instance. | An HTTP/HTTPS probe fails when:</br>- Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). </br>- Probe endpoint doesn't respond at all during the minimum of the probe interval and 30-second timeout period. Multiple probe requests can go unanswered before the probe gets marked as not running and until the sum of all timeout intervals is reached.</br>- Probe endpoint closes the connection via a TCP reset.
+| Probe up behavior | TCP health probes are considered healthy and mark the backend endpoint as healthy when:</br>- The health probe is successful once after the VM boots.</br>- Any backend endpoint that achieves a healthy state is eligible for receiving new flows. | The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period. HTTP/HTTPS health probes are considered healthy and mark the backend endpoint as healthy when:</br>- The health probe is successful once after the VM boots.</br>- Any backend endpoint that achieves a healthy state is eligible for receiving new flows.
 
 > [!NOTE] 
 > The HTTPS probe requires the use of certificates based that have a minimum signature hash of SHA256 in the entire chain.
@@ -65,17 +65,17 @@ The protocol used by the health probe can be configured to one of the following 
 | **Scenario** | **TCP connections** | **UDP datagrams** |
 | --- | --- | --- | 
 | Single instance probes down |  New TCP connections succeed to remaining healthy backend endpoint. Established TCP connections to this backend endpoint continue. |   Existing UDP flows move to another healthy instance in the backend pool.|
-| All instances probe down | No new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend instance.  Basic Load Balancer terminates all existing TCP flows to the backend pool. |  All existing UDP flows terminate. |
+| All instances probe down | No new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend instance. Basic Load Balancer terminates all existing TCP flows to the backend pool. |  All existing UDP flows terminate. |
 
 ## Probe interval & timeout
 
 The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. If the health probe succeeds on the next healthy probe up, Azure Load Balancer marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 5 seconds by default in the Azure portal, but can be explicitly set to another value.
 
 In order to ensure a timely response is received, HTTP/S health probes have built-in timeouts. The following are the timeout durations for TCP and HTTP/S probes:
-- TCP probe timeout duration: N/A (probes will fail once the configured probe interval duration has passed and the next probe has been sent)
+- TCP probe timeout duration: N/A (probes will fail once the configured probe interval duration passes and the next probe is sent)
 - HTTP/S probe timeout duration: 30 seconds
 
-For HTTP/S probes, if the configured interval is longer than the above timeout period, the health probe will timeout and fail if no response is received during the timeout period. For example, if an HTTP health probe is configured with a probe interval of 120 seconds (every 2 minutes), and no probe response is received within the first 30 seconds, the probe will have reached its timeout period and fail. When the configured interval is shorter than the above timeout period, the health probe will fail if no response is received before the configured interval period completes and the next probe will be sent immediately.
+For HTTP/S probes, if the configured interval is longer than the above timeout period, the health probe will timeout and fail if no response is received during the timeout period. For example, if an HTTP health probe is configured with a probe interval of 120 seconds (every 2 minutes), and no probe response is received within the first 30 seconds, the probe reaches its timeout period and fail. When the configured interval is shorter than the above timeout period, the health probe will fail if no response is received before the configured interval period completes and the next probe will be sent immediately.
 
 ## Design guidance
 
@@ -91,7 +91,7 @@ For HTTP/S probes, if the configured interval is longer than the above timeout p
 
 * If you have multiple interfaces configured in your virtual machine, ensure you respond to the probe on the interface you received it on. You may need to source network address translate this address in the VM on a per interface basis.
 
-* Note that a probe definition isn't mandatory or checked for when using Azure PowerShell, Azure CLI, Templates or API. Probe validation tests are only done when using the Azure portal.
+* Note that a probe definition isn't mandatory or checked for when using Azure PowerShell, Azure CLI, Azure Resource Manager templates, or API calls. Probe validation tests are only done when using the Azure portal.
 
 * If the health probe fluctuates, the load balancer waits longer before it puts the backend endpoint back in the healthy state. This extra wait time protects the user and the infrastructure and is an intentional policy.
 
@@ -101,9 +101,9 @@ For HTTP/S probes, if the configured interval is longer than the above timeout p
  
 * To test a health probe failure or mark down an individual instance, use a [network security group](../virtual-network/network-security-groups-overview.md) to explicitly block the health probe. Create an NSG rule to block the destination port or [source IP](#probe-source-ip-address) to simulate the failure of a probe.
 
-* Unlike load balancing rules, inbound NAT rules do not need a health probe attached to it.
+* Unlike load balancing rules, inbound NAT rules don't need a health probe attached to it.
 
-* It is not recommended to block the Azure Load Balancer health probe IP or port with NSG rules. This is an unsupported scenario and can cause the NSG rules to take delayed effect, resulting in the health probes to inaccurately represent the availability of your backend instances.
+* It isn't recommended to block the Azure Load Balancer health probe IP or port with NSG rules. This is an unsupported scenario and can cause the NSG rules to take delayed effect, resulting in the health probes to inaccurately represent the availability of your backend instances.
 
 ## Monitoring
 
@@ -113,19 +113,19 @@ For HTTP/S probes, if the configured interval is longer than the above timeout p
 
 For Azure Load Balancer's health probe to mark up your instance, you **must** allow 168.63.129.16 IP address in any Azure [network security groups](../virtual-network/network-security-groups-overview.md) and local firewall policies. The **AzureLoadBalancer** service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default. You can learn more about this IP [here](../virtual-network/what-is-ip-address-168-63-129-16.md).
 
-If you don't allow the [source IP](#probe-source-ip-address) of the probe in your firewall policies, the health probe fails as it is unable to reach your instance.  In turn, Azure Load Balancer marks your instance as *down* due to the health probe failure. This misconfiguration can cause your load balanced application scenario to fail. All IPv4 Load Balancer health probes originate from the IP address 168.63.129.16 as their source. IPv6 probes use a link-local address (fe80::1234:5678:9abc) as their source. For a dual-stack Azure Load Balancer, you must [configure a Network Security Group](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md#create-a-network-security-group-rule-for-inbound-and-outbound-connections) for the IPv6 health probe to function.
+If you don't allow the [source IP](#probe-source-ip-address) of the probe in your firewall policies, the health probe fails as it is unable to reach your instance. In turn, Azure Load Balancer marks your instance as *down* due to the health probe failure. This misconfiguration can cause your load balanced application scenario to fail. All IPv4 Load Balancer health probes originate from the IP address 168.63.129.16 as their source. IPv6 probes use a link-local address (fe80::1234:5678:9abc) as their source. For a dual-stack Azure Load Balancer, you must [configure a Network Security Group](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md#create-a-network-security-group-rule-for-inbound-and-outbound-connections) for the IPv6 health probe to function.
 
  ## Limitations
 
-* HTTPS probes doesn't support mutual authentication with a client certificate.
+* HTTPS probes don't support mutual authentication with a client certificate.
 
-* HTTP probes doesn't support using hostnames to probes backends
+* HTTP probes don't support using hostnames to probe backends.
 
 * Enabling TCP timestamps can cause throttling or other performance issues, which can then cause health probes to timeout.
 
 * A Basic SKU load balancer health probe isn't supported with a virtual machine scale set.
 
-* HTTP probes doesn't support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
+* HTTP probes don't support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
 
 ## Next steps
 
