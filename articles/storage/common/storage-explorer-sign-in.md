@@ -45,7 +45,8 @@ If you want to remove your entire Azure account, then click on the **Remove** ne
 By default sign-in will happen in your OS' **default web browser**. Signing-in with your default web browser streamlines how you access resources secured via CA policies, such as MFA. If for some reason signing in with your OS' **default web browser** isn't working, you can change where or how Storage Explorer performs sign-in.
 
 Under **Settings (gear icon on the left)** > **Application** > **Sign-in**, look for the **Sign in with** setting. There are three options:
-- **Default Web Browser**: sign-in will happen in your OS' **default web browser**. This option is recommended.
+- **Authentication Broker**: sign-in will happen via your OS' **authentication broker**. This option is recommended if you are on Windows.
+- **Default Web Browser**: sign-in will happen in your OS' **default web browser**. This option is recommended if you are on macOS or Linux, or if you're having issues with the **authentication broker** option.
 - **Integrated Sign-In**: sign-in will happen in a Storage Explorer window. This option may be useful if you're having issues using your **default web browser** to sign in.
 - **Device Code Flow**: Storage Explorer will give you a code to enter into a browser window. This option isn't recommended. Device code flow isn't compatible with many CA policies.
 
