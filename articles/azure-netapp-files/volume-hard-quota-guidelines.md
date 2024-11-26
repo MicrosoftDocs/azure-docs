@@ -34,7 +34,7 @@ The *initial* behavior:
 * Expected bandwidth: 128 MiB/s
 * Total usable (and client visible) capacity: 100 TiB   
     You aren't able to write more data on the volume beyond this size.
-* Capacity pool: Automatically grows with 1 TiB increments when it is full.
+* Capacity pool: Automatically grows with 1 TiB increments when it's full.
 * Volume quota change: Only changes performance (bandwidth) of the volume. It doesn't change client visible or usable capacity.
 
 The *changed* behavior:  
@@ -52,7 +52,7 @@ This section provides guidance on how to operationalize the change to volume har
 
 ### Currently provisioned volumes and capacity pools
 
-Because of the volume hard quota change, you should change your operating model. The provisioned volumes and capacity pools require ongoing capacity management.  Because the changed behavior happen instantly, the Azure NetApp Files team recommends a series of one-time corrective measures for existing, previously provisioned volumes and capacity pools, as described in this section.
+Because of the volume hard quota change, you should change your operating model. The provisioned volumes and capacity pools require ongoing capacity management.  Because the changed behavior happened instantly, the Azure NetApp Files team recommends a series of one-time corrective measures for existing, previously provisioned volumes and capacity pools, as described in this section.
 
 #### One-time corrective or preventative measures recommendations  
 
@@ -120,7 +120,7 @@ The following example shows volume capacity reporting in Linux *after* the chang
 
 You can use the community-supported Logic Apps ANFCapacityManager tool to monitor Azure NetApp Files capacity and receive tailored alerting. The ANFCapacityManager tool is available on the [ANFCapacityManager GitHub page](https://github.com/ANFTechTeam/ANFCapacityManager).
 
-ANFCapacityManager is an Azure Logic App that manages capacity-based alert rules. It automatically increases volume sizes to prevent your Azure NetApp Files volumes from running out of space. It is easy to deploy and provides the following Alert Management capabilities:
+ANFCapacityManager is an Azure Logic App that manages capacity-based alert rules. It automatically increases volume sizes to prevent your Azure NetApp Files volumes from running out of space. It's easy to deploy and provides the following Alert Management capabilities:
 
 * When an Azure NetApp Files capacity pool or volume is created, ANFCapacityManager creates a metric alert rule based on the specified percent consumed threshold.
 * When an Azure NetApp Files capacity pool or volume is resized, ANFCapacityManager modifies the metric alert rule based on the specified percent capacity consumed threshold. If the alert rule doesn't exist, it's created.
@@ -160,7 +160,7 @@ You can [change the size of a volume](azure-netapp-files-resize-capacity-pools-o
 
 In some cases, the hosting capacity pool doesn't have sufficient capacity to resize the volumes. However, you can [change the capacity pool size](azure-netapp-files-resize-capacity-pools-or-volumes.md#resizing-the-capacity-pool-or-a-volume-using-azure-cli) in 1-TiB increments or decrements. The capacity pool size can't be smaller than 4 TiB. *Resizing the capacity pool changes the purchased Azure NetApp Files capacity.*
 
-1. From the Manage NetApp Account blade, select the capacity pool that you want to resize.
+1. From the **Manage NetApp Account** menu, select the capacity pool that you want to resize.
 2. Right-click the capacity pool name or select the `…` icon at the end of the capacity pool’s row to display the context menu.
 3. Use the context menu options to resize or delete the capacity pool.    
 
