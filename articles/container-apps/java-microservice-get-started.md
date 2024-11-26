@@ -14,7 +14,9 @@ ms.author: cshoe
 
 In this article, you learn how to deploy an application that uses Java components to handle configuration management, service discovery, and manage health and metrics. The sample application used in this example is the Java PetClinic sample which uses the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps.
 
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png" alt-text="Architecture of pet clinic app." lightbox="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png":::
+:::image type="complex" source="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png" alt-text="Diagram of the relationship between the Git repository containing a versioned YAML config file, a browser and mobile app, and an Azure Resource Group that contains an Azure Container Apps environment." lightbox="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png":::
+   Diagram of an Azure Container Apps (A C A) environment illustrating the architecture of a microservices-based application deployed within an Azure Resource Group. An Azure Resource Group contains the Azure Container Apps environment. The environment includes three A C A managed Java components:  a config server, a service registry, and an admin server. The config server fetches configuration data stored as versioned YAML files in a Git repository external to the Azure Resource Group, the service registry handles service discovery and registration, and the admin server provides a live view of the system. An A P I Gateway routes requests to three microservices: vets service, customers service, and visits service. Each service is linked to its own database for data persistence. The application supports external interactions through a browser and a mobile app, and integrates with monitoring tools via Azure Log Analytics Workspaces for tracking system performance and health.
+:::image-end:::
 
 The PetClinic application includes the following features:
 
@@ -313,7 +315,7 @@ The `containerapp update` command creates bindings for each app.
 
 1. In the *Bindings* section, add the four apps created in this tutorial.
 
-:::image type="content" source="media/java-deploy-war-file/bind-apps.png" alt-text="Bind apps.":::
+:::image type="content" source="media/java-deploy-war-file/bind-apps.png" alt-text="Screenshot of the Bindings section, which allows the user to select apps to bind to the Container App. Four apps are listed: customers-service, vets-service, visits-service, and a p i -gateway.":::
 
 ---
 
@@ -325,7 +327,7 @@ The `containerapp update` command creates bindings for each app.
 
     The application should resemble the following screenshot.
 
-    :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of pet clinic application." lightbox="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png":::
+    :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of the pet clinic application, showing a welcome page that contains a dog and cat." lightbox="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png":::
 
 1. View the Eureka Server dashboard.
 
@@ -360,13 +362,15 @@ The `containerapp update` command creates bindings for each app.
 
     Open the URL in your browser, and you should see an application that resembles the following screenshot.
 
-    :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-admin.png" alt-text="Screenshot of pet clinic application Admin." lightbox="media/java-deploy-war-file/azure-container-apps-petclinic-admin.png":::
+    :::image type="complex" source="media/java-deploy-war-file/azure-container-apps-petclinic-admin.png" alt-text="Screenshot of the Admin dashboard showing five services up, along with version information for four of the services.":::
+       Screenshot of pet clinic Admin dashboard, indicating that all instances are up. The following five instances are each listed as up: CUSTOMERS-SERVICE, SPRING BOOT ADMIN SERVER, VETS-SERVICE, VISITS-SERVICE, and A P I -GATEWAY. The dashboard indicates that there is one instance of each service, and each service except for SPRING BOOT ADMIN SERVER is version 3.2.7.
+    :::image-end:::
 
 ## Optional: Configure Java components
 
 The Java components created in this tutorial can be configured through the Azure portal. You can go to the **Configurations** section and add or update configurations for your Java components.
 
-:::image type="content" source="media/java-deploy-war-file/java-component-configurations.png" alt-text="Configure Java components.":::
+:::image type="content" source="media/java-deploy-war-file/java-component-configurations.png" alt-text="Screenshot of the Configurations section, showing Property Name and Value textboxes, and the ability to delete a property.":::
 
 The supported configurations for each Java component are listed in the following links.
 
