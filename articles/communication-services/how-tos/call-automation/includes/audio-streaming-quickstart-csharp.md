@@ -16,16 +16,17 @@ ms.author: alvinhan
 - An Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp).
 - A new web service application created using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- A websocket server that can receive media streams.
+- A websocket server that can send and receive media streams.
 
 ## Set up a websocket server
 Azure Communication Services requires your server application to set up a WebSocket server to stream audio in real-time. WebSocket is a standardized protocol that provides a full-duplex communication channel over a single TCP connection. 
-You can optionally use Azure services Azure WebApps that allows you to create an application to receive audio streams over a websocket connection. Follow this [quickstart](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/).
+
+You can review documentation [here](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/) to learn more about websockets and how to use them.
 
 ## Receiving and Sending audio streaming data
 There are multiple ways to start receiving audio stream, which can be configured using the `startMediaStreaming` flag in the `mediaStreamingOptions` setup. You can also specify the desired sample rate used for recieving or sending audio data using the `audioFormat` parameter. Currently supported formats are PCM 24K mono and PCM 16K mono, with the default being PCM 16K mono.
 
-To enable bidirectional audio streaming, where you're sending audio data into the call, you can enable the `EnableBidirectional` flag. 
+To enable bidirectional audio streaming, where you're sending audio data into the call, you can enable the `EnableBidirectional` flag. For more details refer to the [API specifications](https://learn.microsoft.com/rest/api/communication/callautomation/answer-call/answer-call?view=rest-communication-callautomation-2024-06-15-preview&tabs=HTTP#mediastreamingoptions).
 
 ### Start streaming audio to your webserver at time of answering the call
 Enable automatic audio streaming when the call is established by setting the flag `startMediaStreaming: true`.
@@ -95,28 +96,20 @@ await callMedia.StopMediaStreamingAsync();
 The sample below demonstrates how to listen to audio streams using your websocket server.
 
 ``` C#
-public async Task StartReceivingFromAcsMediaWebSocket() {
-  if (m_webSocket == null) {
-    return;
-  }
-  try {
-    while (m_webSocket.State == WebSocketState.Open || m_webSocket.State == WebSocketState.Closed) {
-      byte[] receiveBuffer = new byte[2048];
-      WebSocketReceiveResult receiveResult = await m_webSocket.ReceiveAsync(new ArraySegment < byte > (receiveBuffer), m_cts.Token);
+private async Task StartReceivingFromAcsMediaWebSocket(Websocket websocket) {
 
-      if (receiveResult.MessageType != WebSocketMessageType.Close) {
-        string data = Encoding.UTF8.GetString(receiveBuffer).TrimEnd('\0');
-        var input = StreamingData.Parse(data, AudioData.class);
-        if (input is AudioData audioData) {
-          using(var ms = new MemoryStream(audioData.Data)) {
-            // Forward audio data to external AI
-            await m_aiServiceHandler.SendAudioToExternalAI(ms);
-          }
-        }
+  while (webSocket.State == WebSocketState.Open || webSocket.State == WebSocketState.Closed) {
+    byte[] receiveBuffer = new byte[2048];
+    WebSocketReceiveResult receiveResult = await webSocket.ReceiveAsync(
+      new ArraySegment < byte > (receiveBuffer));
+
+    if (receiveResult.MessageType != WebSocketMessageType.Close) {
+      string data = Encoding.UTF8.GetString(receiveBuffer).TrimEnd('\0');
+      var input = StreamingData.Parse(data);
+      if (input is AudioData audioData) {
+        // Add your code here to process the received audio chunk
       }
     }
-  } catch (Exception ex) {
-    Console.WriteLine($"Exception -> {ex}");
   }
 }
 ```
@@ -158,58 +151,23 @@ Once Azure Communication Services begins streaming audio to your WebSocket serve
 The example below demonstrates how to transmit the audio data back into the call after it has been processed by another service, for instance Azure OpenAI or other such voice based Large Language Models.
 
 ``` C#
-private void ConvertToAcsAudioPacketAndForward(byte[] audioData) {
-  var audio = OutStreamingData.GetStreamingDataForOutbound(audioData)
+var audioData = OutStreamingData.GetAudioDataForOutbound(audioData))
+byte[] jsonBytes = Encoding.UTF8.GetBytes(audioData);
 
-  // Serialize the JSON object to a string
-  string jsonString = System.Text.Json.JsonSerializer.Serialize < OutStreamingData > (audio);
-
-  // queue it to the buffer
-  try {
-    m_channel.Writer.TryWrite(async () => await m_mediaStreaming.SendMessageAsync(jsonString));
-  } catch (Exception ex) {
-    Console.WriteLine($"\"Exception received on ReceiveAudioForOutBound {ex}");
-  }
-}
-
-public async Task SendMessageAsync(string message) {
-  if (m_webSocket?.State == WebSocketState.Open) {
-    byte[] jsonBytes = Encoding.UTF8.GetBytes(message);
-
-    // Send the PCM audio chunk over WebSocket
-    await m_webSocket.SendAsync(new ArraySegment < byte > (jsonBytes), WebSocketMessageType.Text, endOfMessage: true, CancellationToken.None);
-  }
-}
+// Write your logic to send the PCM audio chunk over the WebSocket
+// Example of how to send audio data over the WebSocket
+await m_webSocket.SendAsync(new ArraySegment < byte > (jsonBytes), WebSocketMessageType.Text, endOfMessage: true, CancellationToken.None);
 ```
 
 You can also control the playback of audio in the call when streaming back to Azure Communication Services, based on your logic or business flow. For example, when voice activity is detected and you want to stop the queued up audio, you can send a stop message via the WebSocket to stop the audio from playing in the call.
 
 ``` C#
-private void StopAudio() {
-  try {
-    var jsonObject = OutStreamingData.GetStopAudioForOutbound();
+var stopData = OutStreamingData.GetStopAudioForOutbound();
+byte[] jsonBytes = Encoding.UTF8.GetBytes(stopData);
 
-    // Serialize the JSON object to a string
-    string jsonString = System.Text.Json.JsonSerializer.Serialize < OutStreamingData > (jsonObject);
-
-    try {
-      m_channel.Writer.TryWrite(async () => await m_mediaStreaming.SendMessageAsync(jsonString));
-    } catch (Exception ex) {
-      Console.WriteLine($"\"Exception received on ReceiveAudioForOutBound {ex}");
-    }
-  } catch (Exception ex) {
-    Console.WriteLine($"Exception during streaming -> {ex}");
-  }
-}
-
-public async Task SendMessageAsync(string message) {
-  if (m_webSocket?.State == WebSocketState.Open) {
-    byte[] jsonBytes = Encoding.UTF8.GetBytes(message);
-
-    // Send the PCM audio chunk over WebSocket
-    await m_webSocket.SendAsync(new ArraySegment < byte > (jsonBytes), WebSocketMessageType.Text, endOfMessage: true, CancellationToken.None);
-  }
-}
+// Write your logic to send stop data to ACS over the WebSocket
+// Example of how to send stop data over the WebSocket
+await m_webSocket.SendAsync(new ArraySegment < byte > (jsonBytes), WebSocketMessageType.Text, endOfMessage: true, CancellationToken.None);
 ```
 
 
