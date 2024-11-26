@@ -54,7 +54,7 @@ For a higher return on investment (ROI), we recommend that any BizTalk migration
 
 ## Deliver a BizTalk migration project
 
-To deliver a BizTalk Migration Project, we recommend following the  Iterative or wave based approach. We recommend following [scrum](https://www.scrum.org/). While scrum does not include the concept of a Sprint Zero (Sprint 0) for pre-sprinting activities, we recommend the first sprint to focus on team alignment and technical discovery. After sprint 0, follows the execution of multiple migration sprints focused on releasing features towards a minimum viable product (MVP).
+To complete such a project, we recommend that you follow the iterative or wave-based approach and use the [Scrum process](https://www.scrum.org/). While Scrum doesn't include a Sprint Zero (Sprint 0) concept for pre-sprint activities, we recommend that you focus your first sprint on team alignment and technical discovery. After Sprint 0, follow the execution of multiple migration sprints and focus on releasing features towards a minimum viable product (MVP).
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-gradual-migration.png" alt-text="Diagram showing migration waves.":::
 
