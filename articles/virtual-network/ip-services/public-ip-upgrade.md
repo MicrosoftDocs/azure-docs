@@ -160,6 +160,8 @@ In this section, you verify the public IP address is now the standard SKU using 
 
 # [Azure CLI](#tab/azurecli/)
 
+With the following Azure CLI command, verify that the SKU is listed as **Standard** in the output:
+
 ```azurecli-interactive
 # Get the SKU of the public IP address.
 az network public-ip show \
@@ -168,10 +170,9 @@ az network public-ip show \
   --query sku \
   --output tsv
 ```
-> [NOTE!]
-> The command should display **Standard**.
 
 # [Azure PowerShell](#tab/azurepowershell)
+With the following Azure PowerShell command, verify that the SKU is listed as **Standard** in the output:
 
 ```azurepowershell-interactive
 ### Place the public IP address into a variable. ###
@@ -184,8 +185,6 @@ $pubIP = Get-AzPublicIpAddress @ip
 ### Display setting. ####
 $pubIP.Sku.Name
 ```
-> [NOTE!]
-> The command should display **Standard**.
 
 ---
 
