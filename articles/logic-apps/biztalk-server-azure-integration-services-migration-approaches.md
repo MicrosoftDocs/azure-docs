@@ -9,7 +9,7 @@ ms.author: haroldcampos
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 11/04/2024
-# Customer intent: As a BizTalk Server customer, I want to learn about migration options, planning considerations, and best practices for moving from BizTalk Server to Azure Integration Services.
+# Customer intent: As a BizTalk Server customer, I want to learn about migration options, planning considerations, and best practices for moving from BizTalk Server to Azure Logic Apps.
 ---
 
 # Migration approaches for BizTalk Server to Azure Logic Apps
