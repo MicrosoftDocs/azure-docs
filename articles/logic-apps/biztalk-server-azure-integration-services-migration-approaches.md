@@ -36,7 +36,7 @@ This approach might also take longer to reap or accrue value. If you've already 
 
 We only recommend to consider this approach If you have small, low complexity BizTalk workloads, Subject Matter Experts (SMEs) with knowledge of the BizTalk environment, and there is a direct mapping in the features you are currently using with BizTalk Server, in Azure Logic Apps. Experience in Azure Logic Apps, considerably reduces risks of following this approach.
 
-### Iterative or Wave based (recommended)
+### Iterative or wave based (Recommended)
 
 This approach provides the opportunity for your organization to incrementally achieve value, but sooner than they might otherwise. Your project team can learn about the technology stack early by using retrospectives. For example, you can deploy an existing BizTalk interface or project to production and then learn about the solution's needs, which include management, scalability, operations, and monitoring. After you gain this knowledge, you can plan sprints to optimize existing capabilities or introduce new patterns that you can subsequently use in future work. 
 
