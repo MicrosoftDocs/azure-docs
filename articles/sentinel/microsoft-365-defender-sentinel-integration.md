@@ -77,8 +77,8 @@ Defender XDR enriches and groups alerts from multiple Microsoft Defender product
 
 Other services whose alerts are collected by Defender XDR include:
 
-- [Microsoft Purview Data Loss Prevention](/microsoft-365/security/defender/investigate-dlp))
-- [Microsoft Entra ID Protection](/defender-cloud-apps/aadip-integration))
+- [Microsoft Purview Data Loss Prevention](/microsoft-365/security/defender/investigate-dlp)
+- [Microsoft Entra ID Protection](/defender-cloud-apps/aadip-integration)
 
 The Defender XDR connector also brings incidents from Microsoft Defender for Cloud. To synchronize alerts and entities from these incidents as well, you must enable the Defender for Cloud connector in Microsoft Sentinel. Otherwise, your Defender for Cloud incidents appear empty. For more information, see [Ingest Microsoft Defender for Cloud incidents with Microsoft Defender XDR integration](ingest-defender-for-cloud-incidents.md).
 
