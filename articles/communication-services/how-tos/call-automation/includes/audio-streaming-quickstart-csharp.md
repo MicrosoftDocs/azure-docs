@@ -151,7 +151,7 @@ Once Azure Communication Services begins streaming audio to your WebSocket serve
 The example below demonstrates how to transmit the audio data back into the call after it has been processed by another service, for instance Azure OpenAI or other such voice based Large Language Models.
 
 ``` C#
-var audioData = OutStreamingData.GetAudioDataForOutbound(audioData))
+var audioData = OutStreamingData.GetAudioDataForOutbound(audioData)),
 byte[] jsonBytes = Encoding.UTF8.GetBytes(audioData);
 
 // Write your logic to send the PCM audio chunk over the WebSocket
