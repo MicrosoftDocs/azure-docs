@@ -12,7 +12,7 @@ ms.custom: template-concept, engagement-fy23
 
 # Azure Load Balancer health probes
 
-An Azure Load Balancer health probe is a feature that detects the health status of your application instances. It sends a request to the instances to check if they are available and responding to requests. The health probe can be configured to use different protocols such as TCP, HTTP, or HTTPS. It is an important feature because it helps you to detect application failures, manage load, and plan for downtime.
+An Azure Load Balancer health probe is a feature that detects the health status of your application instances. It sends a request to the instances to check if they're available and responding to requests. The health probe can be configured to use different protocols such as TCP, HTTP, or HTTPS. It's an important feature because it helps you to detect application failures, manage load, and plan for downtime.
 
 Azure Load Balancer rules require a health probe to detect the endpoint status. The configuration of the health probe and probe responses determines which backend pool instances receive new connections. Use health probes to detect the failure of an application. Generate a custom response to a health probe. Use the health probe for flow control to manage load or planned downtime. When a health probe fails, the load balancer stops sending new connections to the respective unhealthy instance. Outbound connectivity isn't affected, only inbound.
 
@@ -20,7 +20,7 @@ Azure Load Balancer rules require a health probe to detect the endpoint status. 
 
 Health probes support multiple protocols. The availability of a specific health probe protocol varies by Load Balancer SKU. Additionally, the behavior of the service varies by Load Balancer SKU as shown in this table:
 
-| | Standard SKU | Basic SKU |
+| | **Standard SKU** | **Basic SKU** |
 | --- | --- | --- |
 | **[Probe protocol](#probe-protocol)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Probe down behavior](#probe-down-behavior)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
@@ -29,39 +29,40 @@ Health probes support multiple protocols. The availability of a specific health 
 
 Health probes have the following properties:
 
-| Health Probe property name | Details|
+| **Health Probe property name** | **Details** |
 | --- | --- | 
-| Name | Name of the health probe. This is a name you get to define for your health probe |
-| Protocol | Protocol of health probe. This is the protocol type you would like the health probe to use. Options are: TCP, HTTP, HTTPS |
-| Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check its health |
-| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between different probes on two consecutive health check attempts to the virtual machine |
-| Used by | The list of load balancer rules using this specific health probe. You should have at least one rule using the health probe for it to be effective |
+| Name | Name of the health probe. This is a name you get to define for your health probe. |
+| Protocol | Protocol of health probe. This is the protocol type you would like the health probe to use. Options are: TCP, HTTP, HTTPS. |
+| Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check its health. |
+| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between different probes on two consecutive health check attempts to the virtual machine. |
+| Used by | The list of load balancer rules using this specific health probe. You should have at least one rule using the health probe for it to be effective. |
 
 ## Probe configuration
 
 Health probe configuration consists of the following elements:
 
-| Health Probe configuration | Details |
+| **Health Probe configuration** | **Details** |
 | --- | --- | 
-| Protocol | Protocol of health probe. This is the protocol type you would like the health probe to use. Available options are: TCP, HTTP, HTTPS |
+| Protocol | Protocol of health probe. This is the protocol type you would like the health probe to use. Available options are: TCP, HTTP, HTTPS. |
 | Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check the virtual machine's health status. You must ensure that the virtual machine is also listening on this port (that is, the port is open). |
-| Interval | Interval of health probe. The amount of time (in seconds) between consecutive health check attempts to the virtual machine |
+| Interval | Interval of health probe. The amount of time (in seconds) between consecutive health check attempts to the virtual machine. |
 
 ## Probe protocol
 
 The protocol used by the health probe can be configured to one of the following options: TCP, HTTP, HTTPS.
 
-| Scenario | TCP probe | HTTP/HTTPS probe |
+| **Scenario** | **TCP probe** | **HTTP/HTTPS probe** |
 | --- | --- | --- | 
 | Overview | TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port. TCP probes terminate a connection with a four-way close TCP handshake. | HTTP and HTTPS issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS).   HTTP / HTTPS probes can be useful to implement your own logic to remove instances from load balancer if the probe port is also the listener for the service. |
-| Probe failure behavior | A TCP probe fails when: 1. The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of timed-out probe requests, which were configured to go unanswered before marking down the probe. 2. The probe receives a TCP reset from the instance. | An HTTP/HTTPS probe fails when: 1. Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). 2.  Probe endpoint doesn't respond at all during the minimum of the probe interval and 30-second timeout period. Multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached. 3. Probe endpoint closes the connection via a TCP reset.
-| Probe up behavior | TCP health probes are considered healthy and mark the backend endpoint as healthy when: 1. The health probe is successful once after the VM boots. 2. Any backend endpoint that has achieved a healthy state is eligible for receiving new flows.  | The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period. HTTP/HTTPS health probes are considered healthy and mark the backend endpoint as healthy when: 1. The health probe is successful once after the VM boots. 2. Any backend endpoint that has achieved a healthy state is eligible for receiving new flows.
+| Probe failure behavior | A TCP probe fails when:</br>1. The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of timed-out probe requests, which were configured to go unanswered before marking down the probe.</br>2. The probe receives a TCP reset from the instance. | An HTTP/HTTPS probe fails when:</br>1. Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500).</br2>2.  Probe endpoint doesn't respond at all during the minimum of the probe interval and 30-second timeout period. Multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached.</br>3. Probe endpoint closes the connection via a TCP reset.
+| Probe up behavior | TCP health probes are considered healthy and mark the backend endpoint as healthy when:</br>1. The health probe is successful once after the VM boots.</br>2. Any backend endpoint that has achieved a healthy state is eligible for receiving new flows.  | The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period. HTTP/HTTPS health probes are considered healthy and mark the backend endpoint as healthy when:</br>1. The health probe is successful once after the VM boots.</br>2. Any backend endpoint that has achieved a healthy state is eligible for receiving new flows.
 
 > [!NOTE] 
 > The HTTPS probe requires the use of certificates based that have a minimum signature hash of SHA256 in the entire chain.
 
 ## Probe down behavior
-| Scenario | TCP connections | UDP datagrams |
+
+| **Scenario** | **TCP connections** | **UDP datagrams** |
 | --- | --- | --- | 
 | Single instance probes down |  New TCP connections succeed to remaining healthy backend endpoint. Established TCP connections to this backend endpoint continue. |   Existing UDP flows move to another healthy instance in the backend pool.|
 | All instances probe down | No new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend instance.  Basic Load Balancer terminates all existing TCP flows to the backend pool. |  All existing UDP flows terminate. |
@@ -71,8 +72,8 @@ The protocol used by the health probe can be configured to one of the following 
 The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. If the health probe succeeds on the next healthy probe up, Azure Load Balancer marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 5 seconds by default in the Azure portal, but can be explicitly set to another value.
 
 In order to ensure a timely response is received, HTTP/S health probes have built-in timeouts. The following are the timeout durations for TCP and HTTP/S probes:
-* TCP probe timeout duration: N/A (probes will fail once the configured probe interval duration has passed and the next probe has been sent)
-* HTTP/S probe timeout duration: 30 seconds
+- TCP probe timeout duration: N/A (probes will fail once the configured probe interval duration has passed and the next probe has been sent)
+- HTTP/S probe timeout duration: 30 seconds
 
 For HTTP/S probes, if the configured interval is longer than the above timeout period, the health probe will timeout and fail if no response is received during the timeout period. For example, if an HTTP health probe is configured with a probe interval of 120 seconds (every 2 minutes), and no probe response is received within the first 30 seconds, the probe will have reached its timeout period and fail. When the configured interval is shorter than the above timeout period, the health probe will fail if no response is received before the configured interval period completes and the next probe will be sent immediately.
 
