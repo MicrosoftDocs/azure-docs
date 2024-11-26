@@ -1,5 +1,5 @@
 ---
-title: Discover servers on Hyper-V with Azure Migrate Discovery and assessment 
+title: Discover servers on Hyper-V with Azure Migrate Discovery and assessment
 description: Learn how to discover on-premises servers on Hyper-V with the Azure Migrate Discovery and assessment tool.
 author: Vikram1988
 ms.author: vibansa
@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 11/04/2024
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
+ms.custom: mvc, subject-rbac-steps, engagement-fy24, ignite-2024
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
 
@@ -372,14 +372,14 @@ The **Database instances** displays the number of instances discovered by Azure 
 
 To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
 
-## Onboard to Azure Stack HCI (optional)
+## Onboard to Azure Local (optional)
 
 > [!Note]
-> Perform this step only if you are migrating to [Azure Stack HCI](/azure-stack/hci/overview).
+> Perform this step only if you are migrating to [Azure Local](/azure-stack/hci/overview).
 
-Provide the Azure Stack cluster information and the credentials to connect to the cluster. For more information, see [Download the Azure Stack HCI software](/azure-stack/hci/deploy/download-azure-stack-hci-software).
+Provide the Azure Local instance information and the credentials to connect to the system. For more information, see [Download the Azure Local software](/azure-stack/hci/deploy/download-azure-stack-hci-software).
 
-:::image type="content" source="./media/tutorial-discover-hyper-v/onboard-hci.png" alt-text="Screenshot that shows the Onboard to Azure Stack HCI section.":::
+:::image type="content" source="./media/tutorial-discover-hyper-v/onboard-hci.png" alt-text="Screenshot that shows the Onboard to Azure Local section.":::
 
 
 ## Next steps
