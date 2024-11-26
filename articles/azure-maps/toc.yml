@@ -48,6 +48,8 @@ items:
     href: choose-pricing-tier.md
   - name: Azure Maps geographic scope
     href: geographic-scope.md
+  - name: Consent management
+    href: consent-management.md
   - name: Creator for Indoor maps
     items:
     - name: Indoor map concepts
