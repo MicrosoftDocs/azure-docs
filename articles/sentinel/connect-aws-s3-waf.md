@@ -4,7 +4,7 @@ description: Use the Amazon Web Services (AWS) S3-based Web Application Firewall
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 08/18/2024
+ms.date: 11/26/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -69,11 +69,13 @@ To simplify the onboarding process, the **Amazon Web Services S3 WAF** connector
 
 To run the script to set up the AWS environment, use the following steps:
 
-1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
+1. In the Azure portal, from the Microsoft Sentinel navigation menu, expand **Configuration** and select **Data connectors**.
 
-1. Select **Amazon Web Services S3 WAF** from the data connectors gallery.
+    In the Defender portal, from the quick launch menu, expand **Microsoft Sentinel > Configuration** and select **Data connectors**.
 
-   If you don't see the connector, install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel, or update the solution to the latest version.
+1. Select **Amazon Web Services S3 WAF** from the list of data connectors.
+
+   If you don't see the connector, install the Amazon Web Services solution from the **Content hub** under **Content management** in Microsoft Sentinel, or update the solution to the latest version.
 
 1. In the details pane for the connector, select **Open connector page**.
 
@@ -81,7 +83,7 @@ To run the script to set up the AWS environment, use the following steps:
 
 1. In the **Configuration** section, under **1. AWS CloudFormation Deployment**, select the [AWS CloudFormation Stacks](https://aka.ms/awsCloudFormationLink#/stacks/create) link. This opens the AWS console in a new browser tab.
 
-1. Return to the Microsoft Sentinel tab. Select **Download** under *Template 1: OpenID Connect authentication deployment* to download the template that creates the OIDC web identity provider. The template is downloaded as a JSON file to your designated downloads folder.
+1. Return to the tab of the portal where you have Microsoft Sentinel open. Select **Download** under *Template 1: OpenID Connect authentication deployment* to download the template that creates the OIDC web identity provider. The template is downloaded as a JSON file to your designated downloads folder.
 
     > [!NOTE]
     > If you have the older AWS S3 connector, and therefore you already have an OIDC web identity provider, you can skip this step.
@@ -118,7 +120,11 @@ Follow the instructions on the AWS Console page for creating a new stack.
 
 1. Choose a name for the stack.
 
-1. Where prompted, enter your Microsoft Sentinel Workspace ID. You can find it in **Microsoft Sentinel** > **Configuration** > **Settings** > **Workspace settings**.
+1. Where prompted, enter your Microsoft Sentinel Workspace ID. To find your Workspace ID:
+
+    - In the Azure portal, in the Microsoft Sentinel navigation menu, expand **Configuration** and select **Settings**. Select the **Workspace settings** tab, and find the Workspace ID on the Log Analytics workspace page.
+
+    - In the Defender portal, in the quick launch menu, expand **System** and select **Settings**. Select **Microsoft Sentinel**, then select **Log Analytics settings** under **Settings for `[WORKSPACE_NAME]`**. Find the Workspace ID on the Log Analytics workspace page, which opens in a new browser tab.
 
 1. Advance through the rest of the process and create the stack.
 
