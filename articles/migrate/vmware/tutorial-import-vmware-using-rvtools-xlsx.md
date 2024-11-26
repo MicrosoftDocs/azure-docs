@@ -12,7 +12,7 @@ ms.custom: vmware-scenario-422
 
 # Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)
 
-[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 

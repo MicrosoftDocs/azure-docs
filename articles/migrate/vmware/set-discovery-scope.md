@@ -10,7 +10,7 @@ ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
 # Set discovery scope for servers in VMware vSphere environment
-[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 This article describes how to limit the scope of discovery for servers in VMware vSphere environment when you are:
 

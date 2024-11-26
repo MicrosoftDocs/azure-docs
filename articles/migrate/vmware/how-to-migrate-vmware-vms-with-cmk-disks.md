@@ -13,7 +13,7 @@ ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
 
 # Migrate VMware VMs to Azure VMs enabled with server-side encryption and customer-managed keys
 
-[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 This article describes how to migrate VMware VMs to Azure virtual machines with disks encrypted using server-side encryption(SSE) with customer-managed keys(CMK), using Migration and modernization (agentless replication).
 

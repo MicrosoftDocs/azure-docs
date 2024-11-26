@@ -13,7 +13,7 @@ ms.custom: vmware-scenario-422, MVC, engagement-fy24
 
 # Tutorial: Assess VMware VMs for migration to Azure VMs
 
-[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 

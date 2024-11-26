@@ -13,7 +13,7 @@ ms.custom: vmware-scenario-422, engagement-fy23
 
 # Scale migration of VMware VMs 
 
-[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 This article helps you understand how to use scripts to migrate large number of VMware virtual machines (VMs) using the agentless method. To scale migrations, you use [Azure Migrate PowerShell module](./tutorial-migrate-vmware-powershell.md). 
 

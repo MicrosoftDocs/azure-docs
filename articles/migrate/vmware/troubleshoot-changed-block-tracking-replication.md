@@ -12,7 +12,7 @@ ms.custom: vmware-scenario-422, engagement-fy24
 
 # Troubleshooting replication issues in agentless VMware VM migration
 
-[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 This article describes some common issues and specific errors that you might encounter when you replicate on-premises VMware VMs using the Migration and modernization agentless method.
 
