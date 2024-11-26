@@ -65,15 +65,15 @@ The following steps demonstrate how to configure an app to use a system-assigned
 
 1. Choose **+ Add** and then **Add role assignment**.
 
-   :::image type="content" source="media/assign-role-system-identity.png" alt-text="Screenshot showing how to assign a system-assigned managed identity.":::
+   :::image type="content" source="media/assign-role-system-identity.png" alt-text="Screenshot showing how to locate the Azure portal section for assigning a role to a system-assigned managed identity.":::
 
 1. In the **Role** search box, search for *Storage Blob Data Contributor*, which grants permissions to perform read and write operations on blob data. You can assign whatever role is appropriate for your use case. Select the *Storage Blob Data Contributor* from the list and choose **Next**.
 
 1. On the **Add role assignment** screen, for the **Assign access to** option, select **Managed identity**. Then choose **+Select members**.
 
-1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system-assigned identity, and then choose **Select** to close the flyout menu.
+1. In the flyout, search for the managed identity you created by entering the name of your App Service. Select the system-assigned identity, and then choose **Select** to close the flyout menu.
 
-   :::image type="content" source="media/migration-select-identity.png" alt-text="Screenshot showing how to select a system-assigned managed identity.":::
+   :::image type="content" source="media/migration-select-identity.png" alt-text="Screenshot showing how to assign a role to a system-assigned managed identity in the Azure portal.":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
@@ -102,7 +102,7 @@ You can also enable access to Azure resources for local development by assigning
     dotnet add package Azure.Storage.Blobs
     ```
 
-1. Instantiate service clients for the services your app will connect to. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
+1. Instantiate service clients for the Azure services to which your app will connect. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
 
     ```csharp
     using Azure.Identity;
@@ -153,7 +153,7 @@ You can also enable access to Azure resources for local development by assigning
     </dependencies>
     ```
 
-1. Instantiate service clients for the services your app will connect to. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
+1. Instantiate service clients for the Azure services to which your app will connect. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
 
     ```java
     class Demo {
@@ -239,7 +239,7 @@ You can also enable access to Azure resources for local development by assigning
     npm install --save @azure/identity @azure/storage-blob @azure/service-bus
     ```
 
-1. Instantiate service clients for the services your app will connect to. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
+1. Instantiate service clients for the Azure services to which your app will connect. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
 
     ```javascript
     import { DefaultAzureCredential } from "@azure/identity";
@@ -275,7 +275,7 @@ You can also enable access to Azure resources for local development by assigning
     pip install azure-identity azure-servicebus azure-storage-blob
     ```
 
-1. Instantiate service clients for the services your app will connect to. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
+1. Instantiate service clients for the Azure services to which your app will connect. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
 
     ```python
     from azure.identity import DefaultAzureCredential
@@ -304,7 +304,7 @@ You can also enable access to Azure resources for local development by assigning
 
 ---
 
-When this code runs locally, `DefaultAzureCredential` searches a credential chain for the first available credentials. If the `Managed_Identity_Client_ID` is null locally, it will automatically use the credentials from your local Azure CLI or Visual Studio sign-in. You can read more about this process in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
+When this code runs locally, `DefaultAzureCredential` searches its credential chain for the first available credentials. If the `Managed_Identity_Client_ID` is null locally, it automatically uses the credentials from your local Azure CLI or Visual Studio sign-in. You can read more about this process in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
 
 When the application is deployed to Azure, `DefaultAzureCredential` automatically retrieves the `Managed_Identity_Client_ID` variable from the App Service environment. That value becomes available when a managed identity is associated with your app.
 
@@ -312,14 +312,14 @@ This overall process ensures that your app can run securely locally and in Azure
 
 ## Connect multiple apps using multiple managed identities
 
-Although the apps in the previous example all shared the same service access requirements, real-world environments are often more nuanced. Consider a scenario where multiple apps connect to the same storage accounts, but two of the apps also access different services or databases.
+Although the apps in the previous example shared the same service access requirements, real-world environments are often more nuanced. Consider a scenario where multiple apps connect to the same storage accounts, but two of the apps also access different services or databases.
 
 :::image type="content" source="media/multiple-managed-identities-small.png" lightbox="media/multiple-managed-identities.png" alt-text="Diagram showing multiple user-assigned managed identities.":::
 
 To configure this setup in your code, ensure your application registers separate service clients to connect to each storage account or database. Reference the correct managed identity client IDs for each service when configuring `DefaultAzureCredential`. The following code sample configures these Azure service connections:
 
 * Two connections to separate storage accounts using a shared user-assigned managed identity
-* A connection to Azure Cosmos DB and Azure SQL services using a second user-assigned managed identity. This managed identity is shared when the Azure SQL client driver allows for it; see the code comments for more details.
+* A connection to Azure Cosmos DB and Azure SQL services using a second user-assigned managed identity. This managed identity is shared when the Azure SQL client driver allows for it. For more information, see the code comments.
 
 ### [.NET](#tab/csharp)
 
@@ -715,7 +715,7 @@ To configure this setup in your code, ensure your application registers separate
 
 ---
 
-You can also associate a user-assigned managed identity and a system-assigned managed identity to a resource simultaneously. This can be useful in scenarios where all of the apps require access to the same shared services, but one of the apps also has a very specific dependency on an additional service. Using a system-assigned managed identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
+You can also associate a user-assigned managed identity and a system-assigned managed identity to a resource simultaneously. This can be useful in scenarios where all of the apps require access to the same shared services, but one of the apps also has a specific dependency on an additional service. Using a system-assigned managed identity also ensures that the identity tied to that specific app is deleted when the app is deleted, which can help keep your environment clean.
 
 :::image type="content" lightbox="media/user-and-system-assigned-identities-small.png" source="media/user-and-system-assigned-identities.png" alt-text="Diagram showing user-assigned and system-assigned managed identities.":::
 
