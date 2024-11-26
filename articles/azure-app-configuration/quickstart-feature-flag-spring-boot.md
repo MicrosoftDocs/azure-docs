@@ -117,11 +117,26 @@ To create a new Spring Boot project:
 
 ## Connect to an App Configuration store
 
-1. Navigate to the `resources` directory of your app and open `bootstrap.properties`.  If the file does not exist, create it. Add the following line to the file.
+1. Navigate to the `resources` directory of your app and open `bootstrap.properties` or `bootstrap.yaml` file. If the file does not exist, create it. Add the following line to the file.
+
+   ### [properties](#tab/properties)
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
+    ```
+
+    ### [yaml](#tab/yaml)
+
+    ```yaml
+    spring:
+      cloud:
+        azure:
+          appconfiguration:
+            stores[0]:
+              feature-flags:
+                enabled: 'true'
+              connection-string: ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the connection string to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
