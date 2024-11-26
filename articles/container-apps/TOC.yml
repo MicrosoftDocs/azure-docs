@@ -34,10 +34,6 @@
         - name: Command line
           href: deploy-artifact.md
           displayName: java
-      - name: Deploy your first AI application
-        items:
-        - name: Azd automation
-          href: first-ai-application.md
       - name: Run a job
         items:
         - name: Azure portal
@@ -350,6 +346,9 @@
         displayName: java
       - name: Launch your first Java app
         href: java-get-started.md
+        displayName: java
+      - name: Launch your first AI application
+        href: first-ai-application.md
         displayName: java
       - name: Get started using IntelliJ
         href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
