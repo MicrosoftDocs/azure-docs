@@ -50,7 +50,7 @@ For a higher return on investment (ROI), we recommend that any BizTalk migration
 - Stateful or stateless workflow capabilities in Azure Logic Apps (Standard)
 - Native, built-in (in-app) mainframe and midranges integration with connectors in Azure Logic Apps (Standard)
 - Pub-sub messaging using Azure Service Bus
-- Advanced SOAP capabilities in APIM
+- Advanced SOAP capabilities in Azure API Management
 
 ## Deliver a BizTalk migration project
 
