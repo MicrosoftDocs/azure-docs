@@ -12,7 +12,7 @@ ms.date: 03/21/2024
 #Customerintent: As a developer, I want to create a feature filter to activate a feature flag depending on a specific scenario.
 ---
 
-# Tutorial: Enable conditional features with feature filters
+# Enable conditional features with feature filters
 
 Feature flags allow you to activate or deactivate functionality in your application. A simple feature flag is either on or off. The application always behaves the same way. For example, you could roll out a new feature behind a feature flag. When the feature flag is enabled, all users see the new feature. Disabling the feature flag hides the new feature.
 
@@ -65,7 +65,7 @@ You can create custom feature filters that enable features based on your specifi
 
 ## Next steps
 
-To learn more about the built-in feature filters, continue to the following tutorials:
+To learn more about the built-in feature filters, continue to the following docs:
 
 > [!div class="nextstepaction"]
 > [Enable features on a schedule](./howto-timewindow-filter.md)
