@@ -596,7 +596,7 @@ To configure this setup in your code, ensure your application registers separate
 1. In your project, install the required packages. The Azure Identity library provides `DefaultAzureCredential`.
 
     ```bash
-    npm install --save @azure/identity @azure/storage-blob @azure/cosmos mssql
+    npm install --save @azure/identity @azure/storage-blob @azure/cosmos tedious
     ```
 
 1. Add the following to your code:
@@ -605,7 +605,7 @@ To configure this setup in your code, ensure your application registers separate
     import { DefaultAzureCredential } from "@azure/identity";
     import { BlobServiceClient } from "@azure/storage-blob";
     import { CosmosClient } from "@azure/cosmos";
-    import { sql } from "mssql";
+    import { Connection } from "tedious";
 
     // Create a DefaultAzureCredential instance that configures the underlying
     // ManagedIdentityCredential to use a user-assigned managed identity.
@@ -637,27 +637,23 @@ To configure this setup in your code, ensure your application registers separate
       credential: credentialDatabases
     });
     
-    // Open a connection to Azure SQL using a managed identity with mssql package.
-    // mssql reads the environment variables to get the managed identity.
-    // The DefaultAzureCredential instance stored in the credentialDatabases variable can't be 
-    // used here, so sharing isn't possible between Cosmos DB and Azure SQL.
-    const server = process.env.AZURE_SQL_SERVER;
-    const database = process.env.AZURE_SQL_DATABASE;
-    const port = parseInt(process.env.AZURE_SQL_PORT);
-
+    // Configure connection and connect to Azure SQL
     const config = {
-        server,
-        port,
-        database,
-        authentication: {
-            type: 'azure-active-directory-default'
-        },
+      server: process.env.AZURE_SQL_SERVER,
+      authentication: {
+        type: 'azure-active-directory-access-token',
         options: {
-            encrypt: true
+          token: credentialDatabases.getToken("https://database.windows.net//.default").token
         }
+      },
+      options: {
+        database: process.env.AZURE_SQL_DATABASE,
+        encrypt: true
+      }
     };
 
-    await sql.connect(sqlConfig);
+    const connection = new Connection(config);
+    connection.connect();
     ```
 
 ### [Python](#tab/python)
