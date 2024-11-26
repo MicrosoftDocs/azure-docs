@@ -403,6 +403,8 @@
       href: deploy-intelligent-apps.md
 - name: WordPress
   items:
+    - name: WordPress overview
+      href: overview-wordpress.md
     - name: Deploy WordPress
       href: quickstart-wordpress.md
     - name: Migrate WordPress
@@ -411,6 +413,8 @@
       href: reference-app-settings.md#wordpress
     - name: Customize API Management developer portal
       href: /api-management/developer-portal-wordpress-plugin.md
+    - name: Troubleshoot WordPress
+      href: troubleshoot-wordpress.md      
 - name: WebJobs
   items:
     - name: Create WebJobs
