@@ -46,7 +46,7 @@ BizTalk Server and Azure Logic Apps have different architectures. To further mod
 
 For a higher return on investment (ROI), we recommend that any BizTalk migration use the core native capabilities in Azure Logic Apps (Standard) as much as possible and extended with other Azure Integration Services as needed. This combination makes additional scenarios possible, for example:
 
-- Cloud native hybrid capabilities with Logic Apps Hybrid
+- Cloud native hybrid capabilities with Azure Logic Apps (Standard) with hybrid deployment
 - Stateful or stateless workflow capabilities in Azure Logic Apps (Standard)
 - Native, built-in (in-app) mainframe and midranges integration with connectors in Azure Logic Apps (Standard)
 - Pub-sub messaging using Azure Service Bus
