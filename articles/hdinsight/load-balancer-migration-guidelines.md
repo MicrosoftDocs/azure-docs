@@ -26,7 +26,7 @@ This transition is done in line with the announcement of retirement of Azure bas
 
 ### New cluster creation
 
-There are several ways provided in the document [Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections)that could provide outbound connectivity for a cluster. The only compatible way with HDInsight is to associate a NAT gateway to the subnet, which supports auto-scaling features of HDInsight clusters. 
+There are several ways provided in the document [Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections) that could provide outbound connectivity for a cluster. The only compatible way with HDInsight is to associate a NAT gateway to the subnet, which supports auto-scaling features of HDInsight clusters. 
 
 * **Scenario 1:** HDInsight clusters without custom virtual network (Creating cluster without any virtual network).
 
@@ -38,7 +38,7 @@ There are several ways provided in the document [Source Network Address Translat
 
       **Approach 1:** Create the cluster with a new subnet
        
-      1. Create a new NAT gateway and a new Network Security Group(NSG) or use the existing ones.
+      1. Create a new NAT gateway and a new Network Security Group (NSG) or use the existing ones.
    
          > [!NOTE]
          > You can use an existing NAT gateway and NSG.
