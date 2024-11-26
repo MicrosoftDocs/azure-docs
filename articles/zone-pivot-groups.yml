@@ -1588,6 +1588,17 @@ groups:
   - id: existing-mc
     title: Existing Maintenance Configuration
 # Owner: sudhirsneha
+- id: support-matrix-updates
+  title: Support for updates, one time updates, periodic assessments and scheduled patching
+  prompt: Choose the environment
+  pivots:
+  - id: azure-vm
+    title: Azure Virtual Machines
+  - id: azure-arc-enabled-servers
+    title: Azure Arc-enabled servers
+  - id: win-iot-arc-servers
+    title: Windows IoT Enterprise on Arc enabled servers (preview)
+# Owner: sudhirsneha
 - id: enable-change-tracking-inventory-using-monitoring-agent
   title: Requirements to enable change tracking and inventory using monitoring agent
   prompt: Choose a deployment environment

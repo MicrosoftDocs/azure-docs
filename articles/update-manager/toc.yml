@@ -19,6 +19,9 @@ items:
     href: roles-permissions.md
   - name: Support matrix
     href: support-matrix.md
+    items:
+      - name: Support matrix for updates, one time updates, Periodic assessment and Scheduled patching
+        href: support-matrix-updates.md
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
