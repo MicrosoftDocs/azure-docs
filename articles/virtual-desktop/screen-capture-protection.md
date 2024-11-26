@@ -13,7 +13,7 @@ Screen capture protection, alongside [watermarking](watermarking.md), helps prev
 
 There are two supported scenarios for screen capture protection, depending on the version of Windows you're using:
 
-- **Block screen capture on client**: the session host instructs a supported Remote Desktop client to enable screen capture protection for a remote session. This option prevents screen capture from the client of applications running in the remote session.
+- **Block screen capture on client**: the session host instructs a supported Remote Desktop or Windows App client to enable screen capture protection for a remote session. This option prevents screen capture from the client of applications running in the remote session.
 
 - **Block screen capture on client and server**: the session host instructs a supported Remote Desktop client to enable screen capture protection for a remote session. This option prevents screen capture from the client of applications running in the remote session, but also prevents tools and services within the session host from capturing the screen.
 
@@ -28,7 +28,7 @@ When screen capture protection is enabled, users can't share their Remote Deskto
 
 - Your session hosts must be running one of the following versions of Windows to use screen capture protection:
 
-   - **Block screen capture on client** is available with a [supported version of Windows 10 or Windows 11](prerequisites.md#operating-systems-and-licenses).
+   - **Block screen capture on client** is available with a [supported version of Windows 10 or Windows 11](prerequisites.md#operating-systems-and-licenses) or a [supported version of Windows App on iOS/iPadOS or Android using Intune MAM](/azure/virtual-desktop/client-device-redirection-intune)
    - **Block screen capture on client and server** is available starting with Windows 11, version 22H2.
 
 - Users must connect to Azure Virtual Desktop with Windows App or the Remote Desktop app to use screen capture protection. The following table shows supported scenarios. If a user tries to connect with a different app or version, the connection is denied and shows an error message with the code `0x1151`.
@@ -39,6 +39,8 @@ When screen capture protection is enabled, users can't share their Remote Deskto
    | Remote Desktop client on Windows | 1.2.1672 or later | Yes | Yes. Client device OS must be Windows 11, version 22H2 or later. |
    | Azure Virtual Desktop Store app | Any | Yes | Yes. Client device OS must be Windows 11, version 22H2 or later. |
    | Windows App on macOS | Any | Yes | Yes |
+   | Windows App on iOS/iPadOS | 11.0.7 or later | Yes | Yes |
+   | Windows App (Preview) on Android | 1.0.145 | Yes | Yes |
    | Remote Desktop client on macOS | 10.7.0 or later | Yes | Yes |
 
 - To configure Microsoft Intune, you need:
@@ -57,7 +59,7 @@ When screen capture protection is enabled, users can't share their Remote Deskto
 
 Screen capture protection is configured on session hosts and enforced by the client. Select the relevant tab for your scenario.
 
-# [Microsoft Intune](#tab/intune)
+# [Microsoft Intune (Windows)](#tab/intune)
 
 To configure screen capture protection using Microsoft Intune:
 
@@ -87,7 +89,7 @@ To configure screen capture protection using Microsoft Intune:
 
 1. Once the policy applies to the computers providing a remote session, restart them for the settings to take effect.
 
-# [Group Policy](#tab/group-policy)
+# [Group Policy (Windows)](#tab/group-policy)
 
 To configure screen capture protection using Group Policy:
 
@@ -109,6 +111,25 @@ To configure screen capture protection using Group Policy:
 
 1. Ensure the policy is applied to the computers providing a remote session, then restart them for the settings to take effect.
 
+# [iOS/iPadOS](#tab/iOS)
+
+To configure screen capture protection using Intune App Protection Policies:
+
+1. Follow the steps to create an [App protection policy](/azure/virtual-desktop/client-device-redirection-intune) for your device.
+
+1. On the **Data protection** tab, set **Send org data to other apps** with a value of **None**.
+
+1. Configure other settings as needed and target the App Protection Policy to users and devices as listed in [App protection policy](/azure/virtual-desktop/client-device-redirection-intune). 
+
+# [Android](#tab/Android)
+
+To configure screen capture protection using Intune App Protection Policies:
+
+1. Follow the steps to create an [App protection policy](/azure/virtual-desktop/client-device-redirection-intune) for your device.
+
+1. On the **Data protection** tab, set **Screen capture and Google Assistant** to **Block**.
+
+1. Configure other settings as needed and target the App Protection Policy to users and devices as listed in [App protection policy](/azure/virtual-desktop/client-device-redirection-intune). 
 ---
 
 ## Verify screen capture protection

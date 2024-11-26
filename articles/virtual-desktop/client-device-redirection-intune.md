@@ -147,7 +147,7 @@ Before you can configure redirection settings on a client device using Microsoft
 
 - A client device running one of the following versions of Windows App or the Remote Desktop app:
    - For Windows App:
-      - iOS/iPadOS: 11.0.4 or later.
+      - iOS/iPadOS: 11.0.7 or later.
       - Android: 1.0.145 or later.
 
    - Remote Desktop app:
@@ -224,6 +224,7 @@ To create and apply an app protection policy, follow the steps in [How to create
 
    - For iOS and iPadOS, you can configure the following settings:
 
+      - Send org data to other apps. Set to **None** to enable screen capture protection. 
       - Restrict cut, copy, and paste between other apps
       - Third-party keyboards
 
