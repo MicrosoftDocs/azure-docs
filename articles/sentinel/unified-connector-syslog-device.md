@@ -321,7 +321,6 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 
 1. Follow these instructions to configure the VMware ESXi to forward syslog:
 
-   - [VMware ESXi 3.5 and 4.x](https://knowledge.broadcom.com/external/article/316619/signing-certificate-is-not-valid-error-i.html)
    - [VMware ESXi 5.0+](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.monitoring.doc/GUID-9F67DB52-F469-451F-B6C8-DAE8D95976E7.html)
 
 1. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
