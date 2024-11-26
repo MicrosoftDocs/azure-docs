@@ -20,7 +20,7 @@ The example used in this tutorial is based on the Node.js application introduced
 ## Prerequisites
 
 - Create a [Node.js application with a feature flag](./quickstart-feature-flag-javascript.md).
-- [Add a non-recurring time window filter to the feature flag](./howto-timewindow-filter.md)
+- [Add a time window filter to the feature flag](./howto-timewindow-filter.md)
 
 ## Use the time window filter
 
