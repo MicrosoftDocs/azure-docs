@@ -102,7 +102,7 @@ You can also enable access to Azure resources for local development by assigning
     dotnet add package Azure.Storage.Blobs
     ```
 
-1. Instantiate service clients for the Azure services to which your app will connect. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
+1. Instantiate service clients for the Azure services to which your app must connect. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
 
     ```csharp
     using Azure.Identity;
@@ -153,7 +153,7 @@ You can also enable access to Azure resources for local development by assigning
     </dependencies>
     ```
 
-1. Instantiate service clients for the Azure services to which your app will connect. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
+1. Instantiate service clients for the Azure services to which your app must connect. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
 
     ```java
     class Demo {
@@ -205,7 +205,7 @@ You can also enable access to Azure resources for local development by assigning
     </dependencies>
     ```
 
-1. Create instances of the service clients for the services your app will connect to. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
+1. Instantiate service clients for the Azure services to which your app must connect. The following examples connect to Blob Storage and Service Bus using the corresponding service clients.
 
     ```yaml
     spring:
@@ -239,7 +239,7 @@ You can also enable access to Azure resources for local development by assigning
     npm install --save @azure/identity @azure/storage-blob @azure/service-bus
     ```
 
-1. Instantiate service clients for the Azure services to which your app will connect. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
+1. Instantiate service clients for the Azure services to which your app must connect. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
 
     ```javascript
     import { DefaultAzureCredential } from "@azure/identity";
@@ -275,7 +275,7 @@ You can also enable access to Azure resources for local development by assigning
     pip install azure-identity azure-servicebus azure-storage-blob
     ```
 
-1. Instantiate service clients for the Azure services to which your app will connect. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
+1. Instantiate service clients for the Azure services to which your app must connect. The following code sample interacts with Blob Storage and Service Bus using the corresponding service clients.
 
     ```python
     from azure.identity import DefaultAzureCredential
