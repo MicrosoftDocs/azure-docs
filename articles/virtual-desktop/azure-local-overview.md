@@ -70,6 +70,17 @@ To run Azure Virtual Desktop on Azure Local, you need to make sure you're licens
 
 There are different classifications of data for Azure Virtual Desktop, such as customer input, customer data, diagnostic data, and service-generated data. With Azure Local, you can choose to store user data on-premises when you deploy session host virtual machines (VMs) and associated services such as file servers. However, some customer data, diagnostic data, and service-generated data is still stored in Azure. For more information on how Azure Virtual Desktop stores different kinds of data, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
+### FSLogix profile containers storage
+
+To store FSLogix profile containers, we recommend you create a VM-based file share cluster on top of your Azure Local instance.
+
+1. Deploy a virtual machine. See [Create virtual machine](/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine) for more information.
+1. For storage redundancy and high availability, you can [set up a file server cluster](/windows-server/failover-clustering/deploy-two-node-clustered-file-server?tabs=server-manager) in place of the single VM and enable [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm). 
+1. Configure storage permissions. See [Configure SMB Storage permissions](/fslogix/how-to-configure-storage-permissions) for more information.
+1. Configure FSLogix [profile containers](/fslogix/tutorial-configure-profile-containers). 
+
+For large Azure Virtual Desktop deployments that have high resource requirements, we recommend that the profile container storage is located external to Azure Local and on any separate SMB file share on the same network as your session hosts. This allows you to independently scale storage and compute resources for your profile management based on your usage needs independently of your Azure Local instance.  
+
 ## Limitations
 
 Azure Virtual Desktop on Azure Local has the following limitations:
