@@ -34,7 +34,7 @@ This public preview supports the ability for developers to access real-time audi
 
 - **Biometric authentication** – Use the audio streams to carry out voice authentication, by running the audio from the call through your voice recognition/matching engine/tool.
 
-## Sample architecture for subscribing to audio streams from an ongoing call - live agent scenario
+## Sample architecture showing how bidirectional audio streaming can be used for conversational AI agents
 
 [![Screenshot of architecture diagram for audio streaming.](./media/bidirectional-streaming.png)](./media/bidirectional-streaming.png#lightbox)
 
@@ -47,10 +47,10 @@ Contains mixed audio of all participants on the call. All audio is flattened int
 Contains audio per participant per channel, with support for up to four channels for the four most dominant speakers at any point in a call. You also get a participantRawID that you can use to determine the speaker. 
 
 ## Additional information
-The following describes information that helps developers convert the audio packets into audible content that can be used by their applications.
+The following describes information about audio that is sent from Azure Communication Services, that developers can use to convert the audio packets into audible content that can be used by their applications.
 - Framerate: 50 frames per second
 - Packet stream rate: 20-ms rate
-- Data packet: 64 Kbytes
+- Data packet size: 640 bytes for 16000 hz and 960 bytes for 24000 hz
 - Audio metric: 16-bit PCM mono at 16000 hz and 24000 hz
 - Public string data is a base64 string that should be converted into a byte array to create raw PCM file.
 
