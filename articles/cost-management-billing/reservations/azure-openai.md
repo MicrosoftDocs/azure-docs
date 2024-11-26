@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/09/2024
+ms.date: 11/26/2024
 ms.author: banders
 # customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Azure OpenAI Service Provisioned Reservations and buy one.
 ---
@@ -15,9 +15,14 @@ ms.author: banders
 
 You can save money on Azure OpenAI provisioned throughput by committing to a reservation for your provisioned throughput units (PTUs) usage for a duration of one month or one year. This article explains how you can save money with Azure OpenAI Service Provisioned Reservations. For more information about Azure OpenAI PTUs, see [Provisioned throughput units onboarding](/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
 
-To purchase an Azure OpenAI reservation, you choose an Azure region, quantity, and then add the Azure OpenAI SKU to your cart. Then you choose the quantity of provisioned throughput units that you want to purchase.
+To purchase an Azure OpenAI reservation, you choose an Azure region, quantity, and the deployment type that you want covered. Then add the Azure OpenAI SKU (Global, Managed Area (Data Zone), or Regional) to your cart. Then verify the quantity of provisioned throughput units that you want to purchase and complete your order.
 
-When you purchase a reservation, the Azure OpenAI provisioned throughput usage that matches the reservation attributes is no longer charged at the hourly rates. For pricing information, see the [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) page.
+When you purchase a reservation, the Azure OpenAI provisioned throughput usage that matches the reservation attributes is no longer charged at the hourly rates. 
+
+>[!NOTE]
+>Reservations for Global, Managed Area (Data Zone), and Regional deployments aren't interchangeable. You need to purchase a separate reservation for each deployment type. For more information about transitioning provisioned deployments, see [Transition Azure OpenAI provisioned deployments](azure-openai-provisioned-deployments.md).
+
+For pricing information, see the [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) page.
 
 ## Reservation application
 
@@ -40,11 +45,11 @@ You can buy an Azure OpenAI reservation in the [Azure portal](https://portal.azu
 
 For more information about how enterprise customers and pay-as-you-go customers are charged for reservation purchases, see [Understand Azure reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md) and [Understand Azure reservation usage for your pay-as-you-go subscription](understand-reserved-instance-usage.md).
 
-## Choose the right size before purchase
+## Choose the right size and deployment type before purchase
 
 The Azure OpenAI reservation size should be based on the total provisioned throughput units that you consume via deployments. Reservation purchases are made in one provisioned throughput unit increments.
 
-For example, assume that your total consumption of provisioned throughput units is 100 units. You want to purchase a reservation for all of it, so you should purchase 100 of reservation quantity.
+For example, assume you deployed 100 units of the Provisioned Regional deployment type and 50 units of Provisioned Global deployment type. In this example, you should purchase a Provisioned Managed Regional reservation for a quantity of 100 units and a Provisioned Managed Global reservation for a quantity of 50 units to cover all of your deployed PTUs.
 
 > [!CAUTION]
 > Capacity availability for model deployments is dynamic and changes frequently across regions and models. To prevent buying a reservation for more PTUs than you can use, create deployments first. Then buy the reservation to cover the PTUs you deployed. This best practice ensures that you maximize the reservation discount and helps to prevent you from purchasing a term commitment that you can’t fully use.
@@ -69,12 +74,13 @@ To buy an Azure OpenAI reservation, follow these steps:
         - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
         - For pay-as-you-go customers, the shared scope is all pay-as-you-go subscriptions created by the account administrator.
     - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. The management group scope applies to all subscriptions throughout the entire management group hierarchy. To buy a reservation for a management group, you must have at least read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription.
-5. Select a region to choose an Azure region that gets covered by the reservation and select **Add to cart**.  
+5. Select a region to choose an Azure region that gets covered by the reservation.
+6. Select the products to cover your deployment type (Global, Managed Area (Data Zone), or Regional) and select **Add to cart**.  
     :::image type="content" source="./media/azure-openai/select-provisioned-throughput.png" border="true" alt-text="Screenshot showing the Select product to purchase page." lightbox="./media/azure-openai/select-provisioned-throughput.png" :::
-6. In the cart, choose the quantity of provisioned throughout units that you want to purchase. For example, a quantity of 64 would cover up to 64 deployed provisioned throughout units every hour.
-7. Select **Next: Review + Buy** and review your purchase choices and their prices.
-8. Select **Buy now**.
-9. After purchase, you can select **View this Reservation** to see your purchase status.
+7. In the cart, choose the quantity of provisioned throughput units that you want to purchase. For example, a quantity of 64 would cover up to 64 deployed provisioned throughput units every hour.
+8. Select **Next: Review + Buy** and review your purchase choices and their prices.
+9. Select **Buy now**.
+10. After purchase, you can select **View this Reservation** to see your purchase status.
 
 ## Cancel, exchange, or refund reservations
 
@@ -98,14 +104,17 @@ The sum total of all canceled reservation commitment in your billing scope (such
 
 ## How reservation discounts apply to Azure OpenAI
 
-After you buy a reservation for Azure OpenAI, the discount associated with the reservation automatically gets applied to any units you deployed in the specified region. As long as they fall within the scope of the reservation. The reservation discount applies to the usage emitted by the provisioned throughput pay-as-you-go meters.
+After you buy a reservation for Azure OpenAI, the discount associated with the reservation automatically gets applied to any units that are deployed in the specified region, as long as they fall within the scope of the reservation. The reservation discount applies to the usage emitted by the provisioned throughput pay-as-you-go meters.
+
+>[!NOTE]
+>Reservations for Global, Managed Area (Data Zone), and Regional deployments aren't interchangeable. You must purchase a separate reservation for each deployment type.
 
 ### Reservation discount application
 
 The application of the Azure OpenAI reservation is based on an hourly comparison between the reserved and deployed PTUs. The sum of deployed PTUs up-to the amount reserved are covered (paid for) via the reservation, while any deployed PTUs in excess of the reserved PTUs get charged at the hourly, pay-as-you-go rate. There are a few other points to keep in mind:
 
 - PTUs for partial-hour deployments are pro-rated based on the number of minutes the deployment exists during the hour. For example, a 100 PTU deployment that exists for only 15 minutes of an hour period is considered as a 25 PTU deployment. Specifically, 15 minutes is 1/4 of an hour, so only 1/4 of the deployed PTUs are considered for billing and reservation application during that hour.
-- Deployments are matched to reservations based on the reservation scope before the reservation is applied. For example, a reservation scoped to a single subscription only cover deployments within that subscription. Deployments in other subscriptions are charged the hourly, pay-as-you-go rate, unless they're covered by other reservations that have them in scope.
+- Deployments are matched to reservations based on the reservation scope before the reservation is applied. For example, a reservation scoped to a single subscription only covers deployments within that subscription. Deployments in other subscriptions are charged at the hourly pay-as-you-go rate, unless they're covered by other reservations that have them in scope.
 
 The reservation price assumes a 24x7 deployment of the reserved PTUs. In periods with fewer deployed PTUs than reserved PTUs, all deployed PTUs get covered by the reservation, but the excess reserved PTUs aren't used. These excess reserved PTUs are lost and don't carry over to other periods.
 
@@ -113,10 +122,13 @@ The reservation price assumes a 24x7 deployment of the reserved PTUs. In periods
 
 The following examples show how the Azure OpenAI reservation discount applies, depending on the deployments.
 
-- **Example 1** - A reservation that's exactly the same size as the deployed units. For example, you purchase 100 PTUs on a reservation and you deploy 100 PTUs. In this example, you only pay the reservation price.
-- **Example 2** - A reservation that's larger than your deployed units. For example, you purchase 300 PTUs on a reservation and you only deploy 100 PTUs. In this example, the reservation discount is applied to 100 PTUs. The remaining 200 PTUs, in the reservation will go unused, and won't carry forward to future billing periods.
-- **Example 3** - A reservation that's smaller than the deployed units. For example, you purchase 200 PTUs on a reservation and you deploy 600 PTUs. In this example, the reservation discount is applied to the 200 PTUs that were used. The remaining 400 PTUs are charged at the pay-as-you-go rate.
-- **Example 4** - A reservation that's the same size as the total of two deployments. For example, you purchase 200 PTUs on a reservation and you have two deployments of 100 PTUs each. In this example, the discount is applied to the sum of deployed units.
+**Example 1** - A regional reservation that's exactly the same size as the regional deployed units. For example, you purchase 100 PTUs on a regional reservation and you deploy 100 regional PTUs. In this example, you only pay the reservation price.
+
+**Example 2** - A global reservation that's larger than your global deployed units. For example, you purchase 300 PTUs on a global reservation and you only deploy 100 global PTUs. In this example, the global reservation discount is applied to 100 global PTUs. The remaining 200 PTUs, in the global reservation will go unused, and won't carry forward to future billing periods.
+
+**Example 3** - A data zone reservation that's smaller than the data zone deployed units. For example, you purchase 200 PTUs on a data zone reservation and you deploy 600 data zone PTUs. In this example, the data zone reservation discount is applied to the 200 data zone PTUs that were used. The remaining 400 data zone  PTUs are charged at the pay-as-you-go rate.
+
+**Example 4** - A regional reservation that's the same size as the total of two regional  deployments. For example, you purchase 200 regional PTUs on a reservation and you have two deployments of 100 regional PTUs each. In this example, the discount is applied to the sum of deployed units.
 
 ## Increase Azure OpenAI reservation capacity
 
@@ -136,8 +148,8 @@ Your amortized reservation cost is based on each calendar month. So, based on ea
 - Month 3: February 28 – March 27 (inclusive), and so on
 
 If your cost for a monthly reservation is $200 and:
-- The reservation was purchased in May, then you see daily the amortized cost of $200/*31*
-- The reservation was purchased in February, then you see a daily amortized cost of $200/*28*
+- The reservation was purchased in May, then you see daily the amortized cost of $200/*31*.
+- The reservation was purchased in February, then you see a daily amortized cost of $200/*28*.
 
 ## Related content
 
