@@ -3,7 +3,7 @@ title: Discover and deploy Microsoft Sentinel out-of-the-box content from Conten
 description: Learn how to find and deploy Sentinel packaged solutions containing data connectors, analytics rules, hunting queries, workbooks, and other content.
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/01/2024
+ms.date: 11/26/2024
 ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -43,24 +43,25 @@ For more information about other roles and permissions supported for Microsoft S
 
 ## Discover content
 
-The content hub offers the best way to find new content or manage the solutions you already installed. 
+The content hub offers the best way to find new content or manage the solutions you already installed.
 
-- For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
     The **Content hub** page displays a searchable grid or a list of solutions and standalone content.
 
-- Search for the solutions of standalone content items that you need. Either use the **AI search field** or filter by selecting specific values from the filters. Using AI search allows you to perform a fuzzy search and use approximate vocabulary. In the following example, you can see several solutions which include specific content items that match the search criteria.
+1. Search for the solutions or standalone content items that you need. Either select specific values from the filters, or enter a search term into the **Search** box. Searches use AI to support fuzzy searches and approximate vocabulary.
+
+    When searching, make sure to press **ENTER** to start the search. The number of search results is limited to 50 items, including both solutions and content items found within solutions. If you don't find what you're looking for, try refining the search expression or use different filters.
 
     For more information, see [Categories for Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions.md#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions).
 
+1. Select a solution from the list to view information about the solution as well as the types of content items it includes.
 
-> [!IMPORTANT]
-> Make sure you press enter to execute the search based on your search string. 
->
-> The number of search results is limited to 50 items, including solutions and content items found within solutions. If you did not find what you are looking for, try to refine your search expression or use additional filters.
->
+    Expand a solution in the search or filter results to view the list of content items it includes. The information pane on the left presents detailed information about the content item.
 
-- Select a solution from the list to view information about the solution as well as the types of content items it includes. For example, in the following image, the **Windows Security Events** solution indicates it includes two data connector, analytics rules, hunting queries, and playbooks.
+    For example, in the following image, the **Windows Security Events** solution indicates it includes two data connector, analytics rules, hunting queries, and playbooks.
+
+    The following examples show several solutions that include content items that match the search criteria.
 
     #### [Azure portal](#tab/azure-portal)
     :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal.":::
@@ -68,12 +69,9 @@ The content hub offers the best way to find new content or manage the solutions 
    #### [Defender portal](#tab/defender-portal)
    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list-defender.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Defender portal.":::
 
-- Expand a solution in the result set using the arrow on the left side to view the list of content items it includes. The information pane on the left presents detailed information about the content item.
+    ----
 
-> [!NOTE]
-> Iif you want to use a content item which is part of a solution, you still need to install the entire solution. Therefore there is an “install solution” button on the information panel of the content item, which will install the solution the content item is part of. 
->
-
+To use a content item that's part of a solution, you must install the entire solution. If you've selected a specific content item, select **Install solution** in the details pane on the side to install the relevant solution.
 
 ## Install or update content
 
