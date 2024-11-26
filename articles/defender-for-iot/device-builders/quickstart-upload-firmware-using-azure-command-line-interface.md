@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Upload firmware images to Defender for IoT Firmware Analysis using Azure CLI"
 description: "Learn how to upload firmware images for analysis using the Azure CLI."
-author: karengu0
-ms.author: karenguo
+author: limwainstein
+ms.author: lwainstein
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.date: 01/29/2024

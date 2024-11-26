@@ -3749,6 +3749,26 @@
       "source_path_from_root": "/articles/virtual-network/tutorial-connect-virtual-networks-cli.md",
       "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-upload-firmware-using-azure-command-line-interface.md",
+      "redirect_url": "/azure/firmware-analysis/overview-firmware-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-upload-firmware-using-powershell.md",
+      "redirect_url": "/azure/firmware-analysis/overview-firmware-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/device-builders/tutorial-analyze-firmwares.md",
+      "redirect_url": "/azure/firmware-analysis/overview-firmware-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/device-builders/defender-iot-firmware-analysis-faq.md",
+      "redirect_url": "/azure/firmware-analysis/overview-firmware-analysis",
+      "redirect_document_id": false
     }
   ]
 }

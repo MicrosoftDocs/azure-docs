@@ -2,6 +2,8 @@
 title: Analyze a firmware image with Microsoft Defender for IoT.
 description: Learn to analyze a compiled firmware image within Microsoft Defender for IoT.
 ms.topic: tutorial
+author: limwainstein
+ms.author: lwainstein
 ms.date: 06/15/2023    
 #Customer intent: As a device builder, I want to see what vulnerabilities or weaknesses might exist in my firmware image.
 ---

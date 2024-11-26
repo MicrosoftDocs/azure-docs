@@ -1,6 +1,8 @@
 ---
 title: Frequently asked questions about Defender for IoT Firmware analysis
 description: Find answers to some of the common questions about Defender for IoT Firmware Analysis. This article includes the file systems that are supported by Defender for IoT Firmware Analysis, and links to the Azure CLI and Azure PowerShell commands.
+author: limwainstein
+ms.author: lwainstein
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 01/10/2024
