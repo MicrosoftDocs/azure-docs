@@ -54,9 +54,9 @@ The following table lists permissions that the vault MSI requires for successful
 
 You incur charges for:
 
-- **Protected instance fee**: When you configure a backup for an Azure Database for MySQL flexible server, a protected instance is created. Azure Backup for MySQL - Flexible Server charges a protected instance fee according to the size of the database (in gigabytes) on a per-unit (250-GB) basis.
+- **Protected instance fee**: When you configure a backup for an Azure Database for MySQL flexible server, a protected instance is created. Azure Backup charges a protected instance fee according to the size of the database (in gigabytes) on a per-unit (250-GB) basis.
 
-- **Backup storage fee**: Azure Backup for MySQL flexible servers store backups in the Standard vault tier. Restore points stored in the Standard vault tier are charged a separate backup storage fee according to the total data stored (in gigabytes) and the redundancy type enabled on the Backup vault.
+- **Backup storage fee**: Azure Backup stores backups of Azure Database for MySQL flexible servers in the Standard vault tier. Restore points stored in the Standard vault tier are charged a separate backup storage fee according to the total data stored (in gigabytes) and the redundancy type enabled on the Backup vault.
 
 ## Related content
 
