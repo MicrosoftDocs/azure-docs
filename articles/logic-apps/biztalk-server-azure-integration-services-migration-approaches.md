@@ -48,7 +48,7 @@ For a higher return on investment (ROI), we recommend that any BizTalk migration
 
 - Cloud native hybrid capabilities with Logic Apps Hybrid
 - Stateful or stateless workflow capabilities in Azure Logic Apps (Standard)
-- In-App Mainframe and Midranges Integration with Logic Apps connectors
+- Native, built-in (in-app) mainframe and midranges integration with connectors in Azure Logic Apps (Standard)
 - Pub-Sub messaging using Azure Service Bus
 - Advanced SOAP capabilities in APIM
 
