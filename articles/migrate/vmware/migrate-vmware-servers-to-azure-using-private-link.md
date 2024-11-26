@@ -11,15 +11,15 @@ ms.custom: engagement-fy23
 
 # Migrate VMware servers to Azure using Private Link (agentless)
 
-This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](migrate-services-overview.md) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
+This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](../migrate-services-overview.md) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
 
-This article shows how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization tool](migrate-services-overview.md), with agentless migration.
+This article shows how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization tool](../migrate-services-overview.md), with agentless migration.
 
 ## Set up the Azure Migrate appliance
 
-The Migration and modernization tool runs a lightweight VMware VM appliance to enable the discovery, assessment, and agentless migration of VMware VMs. If you have followed the [Discovery and assessment tutorial](discover-and-assess-using-private-endpoints.md), you've already set the appliance up. If you didn't, [set up and configure the appliance](./discover-and-assess-using-private-endpoints.md#set-up-the-azure-migrate-appliance) before you proceed.
+The Migration and modernization tool runs a lightweight VMware VM appliance to enable the discovery, assessment, and agentless migration of VMware VMs. If you have followed the [Discovery and assessment tutorial](../discover-and-assess-using-private-endpoints.md), you've already set the appliance up. If you didn't, [set up and configure the appliance](../discover-and-assess-using-private-endpoints.md#set-up-the-azure-migrate-appliance) before you proceed.
 
-To use a private connection for replication, you can use the storage account created earlier during Azure Migrate project setup or create a new cache storage account and configure private endpoint. To create a new storage account with private endpoint, see [Private endpoint for storage account](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint).
+To use a private connection for replication, you can use the storage account created earlier during Azure Migrate project setup or create a new cache storage account and configure private endpoint. To create a new storage account with private endpoint, see [Private endpoint for storage account](../../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint).
 
  - The private endpoint allows the Azure Migrate appliance to connect to the cache storage account using a private connection like an ExpressRoute private peering or VPN. Data can then be transferred directly on the private IP address.
 
@@ -35,7 +35,7 @@ After setting up the appliance and completing discovery, you can begin replicati
 
 The following diagram illustrates the agentless replication workflow with private endpoints by using the Migration and modernization tool.
 
-:::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/agentless-replication-architecture.png" alt-text="Diagram that shows agentless replication architecture." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/agentless-replication-architecture.png":::
+:::image type="content" source="../media/how-to-use-azure-migrate-with-private-endpoints/agentless-replication-architecture.png" alt-text="Diagram that shows agentless replication architecture." lightbox="../media/how-to-use-azure-migrate-with-private-endpoints/agentless-replication-architecture.png":::
 
 Enable replication as follows:
 1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
@@ -54,7 +54,7 @@ Enable replication as follows:
     >[!NOTE] 
     > Only the storage accounts in the selected target region and Azure Migrate project subscription are listed.
 
-1. Next, [**create a private endpoint for the storage account**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account) to enable replications over a private link. Ensure that the Azure Migrate appliance has network connectivity to the storage account on its private endpoint. Learn how to [verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution).  
+1. Next, [**create a private endpoint for the storage account**](#create-a-private-endpoint-for-the-storage-account) to enable replications over a private link. Ensure that the Azure Migrate appliance has network connectivity to the storage account on its private endpoint. Learn how to [verify network connectivity](../troubleshoot-network-connectivity.md#verify-dns-resolution).  
     >[!NOTE] 
     > - The storage account cannot be changed after you enable replication.  
     > - To orchestrate replications, Azure Migrate will grant the trusted Microsoft services and the Recovery Services vault managed identity access to the selected storage account. 
@@ -110,20 +110,20 @@ Azure Migrate doesn't create any additional resources for replications using Azu
 
 ## Create a private endpoint for the storage account  
 
-To replicate by using ExpressRoute with private peering, [**create a private endpoint**](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) for the cache/replication storage account (target subresource: *blob*). 
+To replicate by using ExpressRoute with private peering, [**create a private endpoint**](../../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) for the cache/replication storage account (target subresource: *blob*). 
 
 >[!Note] 
 > You can create private endpoints only on a general-purpose v2 storage account. For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/). 
 
 Create the private endpoint for the storage account in the same virtual network as the Azure Migrate project private endpoint or another virtual network connected to this network. 
 
-Select **Yes** and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the virtual network. It also adds the DNS records for the resolution of new IPs and FQDNs that are created. Learn more about [private DNS zones](../dns/private-dns-overview.md). 
+Select **Yes** and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the virtual network. It also adds the DNS records for the resolution of new IPs and FQDNs that are created. Learn more about [private DNS zones](../../dns/private-dns-overview.md). 
 
 If the user who created the private endpoint is also the storage account owner, the private endpoint creation will be auto approved. Otherwise, the owner of the storage account must approve the private endpoint for use. To approve or reject a requested private endpoint connection, on the storage account page under **Networking**, go to **Private endpoint connections**. 
 
 Review the status of the private endpoint connection state before you continue. 
 
-Ensure that the on-premises appliance has network connectivity to the storage account via its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the Migrate appliance and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](./troubleshoot-network-connectivity.md#verify-dns-resolution)
+Ensure that the on-premises appliance has network connectivity to the storage account via its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the Migrate appliance and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](../troubleshoot-network-connectivity.md#verify-dns-resolution)
 
 ## Next steps 
 
