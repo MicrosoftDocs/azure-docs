@@ -36,17 +36,17 @@ Select a different target Azure VM SKU that can attach more data disks and retry
 
 ## Migration fails for Private endpoint enabled Azure Migrate projects  
 
-The migration fails if the storage account that you select for replicating VMs doesn't have the Firewall settings of the target VNET. 
+The migration fails if the storage account that you select for replicating VMs doesn't have the Firewall settings of the target virtual network. 
 
 ### Recommended action
 
-Add the target VNET into the firewall in the storage account that you select in the above step for replicating VMs:  
+Add the target virtual network into the firewall in the storage account that you select in the above step for replicating VMs:  
 
-1. Go to **Networking** > **Firewall and Virtual Networks** > **Public Network Access – Enabled from selected Virtual Network and IP address** > **Virtual Network** > Add existing Virtual Network and add your target VNET. Then proceed with the Test Migration/Migration.    
+1. Go to **Networking** > **Firewall and Virtual Networks** > **Public Network Access – Enabled from selected Virtual Network and IP address** > **Virtual Network** > Add existing Virtual Network and add your target virtual network. Then proceed with the Test Migration/Migration.    
 
 2. Perform the initial replication by following [these](./vmware/migrate-vmware-servers-to-azure-using-private-link.md#replicate-vms) steps.  
 
-## Server is migrated without OS upgrade with status “Completed with errors”  
+## Server is migrated without OS upgrade with status "Completed with errors"  
 
 If the source OS version and the OS version to be upgraded are the same, the server migrates without an OS upgrade with the status **Completed with errors**. For example, if the source OS version is Windows 2019 and the upgrade option selected is Windows 2019, then the server is migrated without an OS upgrade with the status **Completed with errors**. 
 
