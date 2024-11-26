@@ -21,7 +21,7 @@ This guide covers migration strategies and resources along with planning conside
 > For a migration overview and guide to choosing services in Azure for your migration, review the following documentation:
 >
 > - [Why migrate from BizTalk Server to Azure Logic Apps?](biztalk-server-to-azure-integration-services-overview.md)
-> - [Choose the best Azure Integration Services offerings for your scenario](azure-integration-services-choose-capabilities.md)
+> - [Choose the best integration service in Azure for your scenario](azure-integration-services-choose-capabilities.md)
 
 ## Strategy options
 
