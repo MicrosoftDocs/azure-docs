@@ -36,7 +36,7 @@ This public preview supports the ability for developers to access real-time audi
 
 ## Sample architecture for subscribing to audio streams from an ongoing call - live agent scenario
 
-[![Screenshot of architecture diagram for audio streaming.](./media/audio-streaming-diagram.png)](./media/audio-streaming-diagram.png#lightbox)
+[![Screenshot of architecture diagram for audio streaming.](./media/bidirectional-streaming.png)](./media/bidirectional-streaming.png#lightbox)
 
 ## Supported formats
 
