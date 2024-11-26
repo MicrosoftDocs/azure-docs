@@ -44,7 +44,7 @@ Regardless of your approach, if you plan on moving to Azure Logic Apps or Azure 
 
 BizTalk Server and Azure Logic Apps have different architectures. To further modernize your solutions, you can use Azure Integration Services to extend the capabilities in Azure Logic Apps that address core customer integration needs.
 
-To have a higher Return of investment (ROI), we recommend any BizTalk migration to leverage as much as possible, the core native capabilities of Logic Apps extended by other Azure Integration Services as needed. This would allow scenarios such as:
+For a higher return on investment (ROI), we recommend that any BizTalk migration use the core native capabilities in Azure Logic Apps (Standard) as much as possible and extended with other Azure Integration Services as needed. This combination makes additional scenarios possible, for example:
 
 - Cloud native hybrid capabilities with Logic Apps Hybrid
 - Stateful Workflow capabilities using Logic Apps workflows
