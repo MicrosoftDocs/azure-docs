@@ -33,4 +33,4 @@ Long-term retention for Azure Database for MySQL - Flexible Server (preview) is 
 
 - [Long-term retention for Azure Database for MySQL - Flexible Server by using Azure Backup](backup-azure-mysql-flexible-server-about.md)
 - [Back up an Azure Database for MySQL flexible server (preview)](backup-azure-mysql-flexible-server.md)
-- [Restore an Azure Database for MySQL flexible Server (preview)](backup-azure-mysql-flexible-server-restore.md)
+- [Restore an Azure Database for MySQL flexible server (preview)](backup-azure-mysql-flexible-server-restore.md)
