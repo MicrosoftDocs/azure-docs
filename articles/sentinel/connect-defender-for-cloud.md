@@ -35,7 +35,7 @@ appliesto:
 
     If you're onboarded to Microsoft's unifed SecOps platform, you'll still want to install the **Microsoft Defender for Cloud** solution to use built-in security content with Microsoft Sentinel.
 
-    If you're using Microsoft Sentinel in the Defender portal without Microsoft Defender XDR, this procedure is still relevant for you. <!--check this with Cat-->
+    If you're using Microsoft Sentinel in the Defender portal without Microsoft Defender XDR, this procedure is still relevant for you. 
 
 - You must have the following roles and permissions:
 
