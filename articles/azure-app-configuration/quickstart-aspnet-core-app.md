@@ -121,7 +121,9 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
-    var builder = new ConfigurationBuilder();
+    var builder = WebApplication.CreateBuilder(args); 
+    
+    // Load configuration from Azure App Configuration 
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
         string endpoint = builder.Configuration.Get("Endpoints:AppConfiguration");
@@ -148,7 +150,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     ```
     ---
 
-    This code loads *all* key-values that have *no label* from your App Configuration store. For more information on loading data from App Configuration, see the [App Configuration provider API reference](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.extensions).
+    This code loads *all* key-values that have *no label* from your App Configuration store. For more information on loading data from App Configuration, see the [App Configuration provider API reference](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfigurationExtensions).
 
 
 ## Read from the App Configuration store
