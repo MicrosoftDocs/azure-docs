@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 11/18/2024
+ms.date: 11/26/2024
 ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: powershell
@@ -57,7 +57,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, and you are not prompted to select the subscription, then set your active subscription to subscription of the storage account that you want operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+2. If your identity is associated with more than one subscription, and you are not prompted to select the subscription, then set your active subscription to the subscription of the storage account that you want to operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
    ```powershell
    Select-AzSubscription -SubscriptionId <subscription-id>

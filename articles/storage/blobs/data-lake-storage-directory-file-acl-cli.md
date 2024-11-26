@@ -34,7 +34,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. Verify that the version of Azure CLI that have installed is `2.6.0` or higher by using the following command.
+2. Verify that the version of Azure CLI that you have installed is `2.6.0` or higher by using the following command.
 
    ```azurecli
     az --version
@@ -56,13 +56,12 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
    To learn more about different authentication methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
 
-2. If your identity is associated with more than one subscription, and you are not prompted to select the subscription, then set your active subscription to subscription of the storage account that you want operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+2. If your identity is associated with more than one subscription, and you are not prompted to select the subscription, then set your active subscription to the subscription of the storage account that you want to operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
    ```azurecli
    az account set --subscription <subscription-id>
    ```
 
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
 > [!NOTE]

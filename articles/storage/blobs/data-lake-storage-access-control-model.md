@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 11/15/2024
+ms.date: 11/26/2024
 ms.author: normesta
 ms.custom: engagement-fy23
 ---
@@ -21,7 +21,7 @@ Data Lake Storage supports the following authorization mechanisms:
 - Attribute-based access control (Azure ABAC)
 - Access control lists (ACL)
 
- Shared Key, account SAS, and service SAS authorization grants access to a user (or application) without requiring them to have an identity in Microsoft Entra ID. With these two forms of authentication, Azure RBAC, Azure ABAC, and ACLs have no effect. ACLs can be applied to user delegated SAS tokens because those tokens are secured with Microsoft Entra credentials. See [Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization).
+ Shared Key, account SAS, and service SAS authorization grants access to a user (or application) without requiring them to have an identity in Microsoft Entra ID. With these forms of authentication, Azure RBAC, Azure ABAC, and ACLs have no effect. ACLs can be applied to user delegated SAS tokens because those tokens are secured with Microsoft Entra credentials. See [Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization).
 
 Azure RBAC and ACL both require the user (or application) to have an identity in Microsoft Entra ID. Azure RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account. Azure ABAC allows you to refine RBAC role assignments by adding conditions. For example, you can grant read or write access to all data objects in a storage account that have a specific tag. ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.
 

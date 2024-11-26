@@ -4,7 +4,7 @@ description: Description goes here.
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 11/25/2024
+ms.date: 11/26/2024
 ms.author: normesta
 
 ---
@@ -80,7 +80,7 @@ Renaming a blob is far more efficient because client applications can rename a b
 
 ## Impact on costs
 
-There is no cost to perform the upgrade. After you upgrade, the cost to store your data doesn't change, but the cost of a transaction can change depending on which [Storage account endpoint](../common/storage-account-overview.md#storage-account-endpoints) clients, applications, and workloads use to read and write data. See [Requests to the blob service endpoint](../common/storage-plan-manage-costs.md#requests-to-the-blob-service-endpoint) and [Requests to the Data Lake Storage endpoint](../common/storage-plan-manage-costs.md#requests-to-the-data-lake-storage-endpoint).
+There is no cost to perform the upgrade. After you upgrade, the cost to store your data doesn't change, but the cost of a transaction can change depending on which [Storage account endpoint](../common/storage-account-overview.md#storage-account-endpoints) clients, applications, and workloads you use to read and write data. See [Requests to the blob service endpoint](../common/storage-plan-manage-costs.md#requests-to-the-blob-service-endpoint) and [Requests to the Data Lake Storage endpoint](../common/storage-plan-manage-costs.md#requests-to-the-data-lake-storage-endpoint).
 
 Aside from pricing changes, consider the cost savings associated with Data Lake Storage capabilities. Overall total of cost of ownership typically declines because of higher throughput and optimized operations. Higher throughput enables you to transfer more data in less time. A hierarchical namespace improves the efficiency of operations.  
 
