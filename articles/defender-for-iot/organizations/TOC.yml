@@ -92,8 +92,10 @@
     items:
     - name: Configure traffic mirroring
       items:
-      - name: Overview
+      - name: Traffic mirroring overview
         href: traffic-mirroring/traffic-mirroring-overview.md
+      - name: Traffic mirroring set up
+        href: traffic-mirroring/network-sensor-mirroring-set-up.md 
       - name: Configure a switch SPAN port
         href: traffic-mirroring/configure-mirror-span.md
       - name: Configure a remote SPAN (RSPAN)
