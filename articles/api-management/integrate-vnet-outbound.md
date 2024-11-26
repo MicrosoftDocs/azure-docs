@@ -63,8 +63,6 @@ The subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
 
 For more information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
-[!INCLUDE [api-management-virtual-network-address-prefix](../../includes/api-management-virtual-network-address-prefix.md)]
-
 ### Permissions
 
 You must have at least the following role-based access control permissions on the subnet or at a higher level to configure virtual network integration:
