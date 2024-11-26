@@ -59,7 +59,7 @@ To complete such a project, we recommend that you follow the iterative or wave-b
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-gradual-migration.png" alt-text="Diagram showing migration waves.":::
 
 
-### Sprint Zero
+### Sprint 0
 
 During this sprint, we recommend that you execute BizTalk Server Environments Discovery with Waves Planning. Understanding the project's breadth and depth is critical for success. The following list includes the specific areas to address during Sprint 0:
 
