@@ -78,6 +78,6 @@ If your scenario requires inbound endpoints, you have two options:
 
 ## Next steps
 
-* Learn more about [Azure regions and availability zones](../availability-zones/az-overview.md)
+* Learn more about [Azure regions and availability zones](../reliability/availability-zones-overview.md)
 * Learn more about [Azure NAT Gateway](./nat-overview.md)
 * Learn more about [Azure Load balancer](../load-balancer/load-balancer-overview.md)

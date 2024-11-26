@@ -2,7 +2,7 @@
 title: Support Matrix for Azure file share backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure file shares.
 ms.topic: reference
-ms.date: 09/09/2024
+ms.date: 11/20/2024
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -31,6 +31,10 @@ Azure file shares backup is available in all regions, **except** for Germany Cen
 Vaulted backup for Azure Files (preview) is available in West Central US, Southeast Asia, UK South, East Asia, UK West, India Central.
 
 ---
+
+### Supported regions for Cross Subscription Backup (preview)
+
+Cross Subscription Backup (CSB) for Azure File share (preview) is currently available in the following regions: East Asia, Southeast Asia, UK South, UK West, Central India.
 
 ## Supported storage accounts
 

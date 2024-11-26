@@ -5,6 +5,7 @@ author: GemmaWakeford
 ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: concept-article
+ms.date: 10/22/2024
 
 #CustomerIntent: As someone learning about Azure Communications Gateway, I want to understand the Provisioning Platform, so that I know whether I need to integrate with it
 ---

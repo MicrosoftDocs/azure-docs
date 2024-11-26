@@ -4,12 +4,10 @@ description: This article takes you through all the panels and options available
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 11/26/2024
 appliesto: 
-    - Microsoft Sentinel in the Azure portal
-
+  - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to efficiently investigate security incidents using a comprehensive case management platform so that I can reduce the mean time to resolve (MTTR) and ensure effective incident response.
-
 ---
 
 # Navigate and investigate incidents in Microsoft Sentinel
