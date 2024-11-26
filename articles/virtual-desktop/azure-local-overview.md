@@ -72,11 +72,16 @@ There are different classifications of data for Azure Virtual Desktop, such as c
 
 ### FSLogix profile containers storage
 
-To store FSLogix profile containers, we recommend you create a VM-based file share cluster on top of your Azure Local instance.
-
-1. Deploy a virtual machine. See [Create virtual machine](/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine) for more information.
-1. For storage redundancy and high availability, you can [set up a file server cluster](/windows-server/failover-clustering/deploy-two-node-clustered-file-server?tabs=server-manager) in place of the single VM and enable [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm). 
-1. Configure storage permissions. See [Configure SMB Storage permissions](/fslogix/how-to-configure-storage-permissions) for more information.
+To store FSLogix profile containers, you need to provide an SMB share. We recommend you create a VM-based file share cluster using Storage Spaces Direct on top of your Azure Local instance.
+	
+Here are the high-level steps you need to perform:
+	
+1. Deploy virtual machines on Azure Local. For more information, see [Manage VMs with Windows Admin Center on Azure Local](/azure/azure-local/manage/vm).
+	
+1. For storage redundancy and high availability, use [Storage Spaces Direct in guest virtual machine clusters](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm). For more information, see [Deploy Storage Spaces Direct on Windows Server](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct).
+	
+1. Configure storage permissions. For more information, see [Configure SMB Storage permissions](/fslogix/how-to-configure-storage-permissions).
+	
 1. Configure FSLogix [profile containers](/fslogix/tutorial-configure-profile-containers). 
 
 For large Azure Virtual Desktop deployments that have high resource requirements, we recommend that the profile container storage is located external to Azure Local and on any separate SMB file share on the same network as your session hosts. This allows you to independently scale storage and compute resources for your profile management based on your usage needs independently of your Azure Local instance.  
