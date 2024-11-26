@@ -21,17 +21,17 @@ ms.author: alvinhan
 ## Set up a websocket server
 Azure Communication Services requires your server application to set up a WebSocket server to stream audio in real-time. WebSocket is a standardized protocol that provides a full-duplex communication channel over a single TCP connection. 
 
-You can review documentation [here](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/) to learn more about websockets and how to use them.
+You can review documentation [here](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/) to learn more about WebSockets and how to use them.
 
 ## Receiving and Sending audio streaming data
-There are multiple ways to start receiving audio stream, which can be configured using the `startMediaStreaming` flag in the `mediaStreamingOptions` setup. You can also specify the desired sample rate used for recieving or sending audio data using the `audioFormat` parameter. Currently supported formats are PCM 24K mono and PCM 16K mono, with the default being PCM 16K mono.
+There are multiple ways to start receiving audio stream, which can be configured using the `startMediaStreaming` flag in the `mediaStreamingOptions` setup. You can also specify the desired sample rate used for receiving or sending audio data using the `audioFormat` parameter. Currently supported formats are PCM 24K mono and PCM 16K mono, with the default being PCM 16K mono.
 
-To enable bidirectional audio streaming, where you're sending audio data into the call, you can enable the `EnableBidirectional` flag. For more details refer to the [API specifications](https://learn.microsoft.com/rest/api/communication/callautomation/answer-call/answer-call?view=rest-communication-callautomation-2024-06-15-preview&tabs=HTTP#mediastreamingoptions).
+To enable bidirectional audio streaming, where you're sending audio data into the call, you can enable the `EnableBidirectional` flag. For more details, refer to the [API specifications](https://learn.microsoft.com/rest/api/communication/callautomation/answer-call/answer-call?view=rest-communication-callautomation-2024-06-15-preview&tabs=HTTP#mediastreamingoptions).
 
 ### Start streaming audio to your webserver at time of answering the call
 Enable automatic audio streaming when the call is established by setting the flag `startMediaStreaming: true`.
  
-This ensures that audio streaming starts automatically as soon as the call is connected.
+This setting ensures that audio streaming starts automatically as soon as the call is connected.
 
 ``` C#
 var mediaStreamingOptions = new MediaStreamingOptions(
@@ -80,9 +80,9 @@ await callMedia.StartMediaStreamingAsync();
 
 
 ## Stop audio streaming
-To stop recieving audio streams during a call, you can use the **Stop streaming API**. This allows you to stop the audio streaming at any point in the call. There are two ways that audio streaming can be stopped;
+To stop receiving audio streams during a call, you can use the **Stop streaming API**. This allows you to stop the audio streaming at any point in the call. There are two ways that audio streaming can be stopped;
 1. **Triggering the Stop streaming API:** Use the API to stop receiving audio streaming data while the call is still active.
-2. **Automatic stop on call disconnect:** Audio streaming will automatically stop when the call is disconnected.
+2. **Automatic stop on call disconnect:** Audio streaming automatically stops when the call is disconnected.
 
 ``` C#
 StopMediaStreamingOptions options = new StopMediaStreamingOptions() {
@@ -93,7 +93,7 @@ await callMedia.StopMediaStreamingAsync();
 ```
 
 ## Handling audio streams in your websocket server
-The sample below demonstrates how to listen to audio streams using your websocket server.
+This sample demonstrates how to listen to audio streams using your websocket server.
 
 ``` C#
 private async Task StartReceivingFromAcsMediaWebSocket(Websocket websocket) {
@@ -114,7 +114,7 @@ private async Task StartReceivingFromAcsMediaWebSocket(Websocket websocket) {
 }
 ```
 
-The first packet you receive will contain metadata about the streaming, including audio settings such as encoding, sample rate, and other configuration details.
+The first packet you receive contains metadata about the stream, including audio settings such as encoding, sample rate, and other configuration details.
 
 ``` json
 {
@@ -144,11 +144,11 @@ After sending the metadata packet, Azure Communication Services (ACS) will begin
 ```
 
 ## Sending audio streaming data to Azure Communication Services
-If bidirectional streaming is enabled using the `EnableBidirectional` flag in the `MediaStreamingOptions`, you can stream audio data back to Azure Communication Services, which will play the audio into the call.
+If bidirectional streaming is enabled using the `EnableBidirectional` flag in the `MediaStreamingOptions`, you can stream audio data back to Azure Communication Services, which plays the audio into the call.
 
-Once Azure Communication Services begins streaming audio to your WebSocket server, you can relay the audio to the LLM and vice versa. After the LLM processes the audio content, it streams the response back to your service, which you can then send into the Azure Communication Services call.
+Once Azure Communication Services begins streaming audio to your WebSocket server, you can relay the audio to your AI services. After your AI service processes the audio content, you can stream the audio back to the on-going call in Azure Communication Services.
 
-The example below demonstrates how to transmit the audio data back into the call after it has been processed by another service, for instance Azure OpenAI or other such voice based Large Language Models.
+The example demonstrates how another service, such as Azure OpenAI or other voice-based Large Language Models, processes and transmits the audio data back into the call.
 
 ``` C#
 var audioData = OutStreamingData.GetAudioDataForOutbound(audioData)),
