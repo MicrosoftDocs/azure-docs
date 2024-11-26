@@ -202,8 +202,10 @@ items:
         href: how-to-use-azure-migrate-with-private-endpoints.md
       - name: Discover and assess using Azure Private Link
         href: discover-and-assess-using-private-endpoints.md
-      - name: Migrate servers to Azure using Private Link
-        href: migrate-servers-to-azure-using-private-link.md
+      - name: Migrate Hyper-V servers to Azure using Private Link
+        href: migrate-hyper-v-servers-to-azure-using-private-link.md
+      - name: Migrate servers to Azure using Private Link for agent-based migration
+        href: migrate-servers-to-azure-using-private-link-agent-based.md
       - name: Troubleshoot network connectivity
         href: troubleshoot-network-connectivity.md
   - name: Discover

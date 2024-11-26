@@ -1,6 +1,6 @@
 ---
 title: Migrate servers to Azure using Private Link through agent-based replications
-description: Use Azure Migrate to migrate servers over a private network by using Azure Private Link.
+description: Use Azure Migrate to migrate servers over a private network using Azure Private Link for agent-based replications.
 author: vijain
 ms.author: vijain
 ms.topic: how-to

@@ -104,7 +104,7 @@ Region | Same region as virtual machine | Storage account should be in the same 
 Subscription | Can be different from source virtual machines | The Storage account need not be in the same subscription as the source virtual machine(s).
 Azure Storage firewalls for virtual networks | Supported | If you're using firewall enabled replication storage account or target storage account, ensure you [Allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions). Also, ensure that you allow access to at least one subnet of source virtual network. **You should allow access from All networks for public endpoint connectivity.** 
 Soft delete | Not supported | Soft delete isn't supported because once it's enabled on replication storage account, it increases cost. Azure Migrate performs very frequent creates/deletes of log files while replicating causing costs to increase.
-Private endpoint | Supported | Follow the guidance to [set up Azure Migrate with private endpoints](migrate-servers-to-azure-using-private-link.md?pivots=hyperv).
+Private endpoint | Supported | Follow the guidance to [set up Azure Migrate with private endpoints](migrate-hyper-v-servers-to-azure-using-private-link.md).
 
 ## Azure VM requirements
 

@@ -306,6 +306,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/migrate/migrate-servers-to-azure-using-private-link.md",
+            "redirect_url": "/azure/migrate/migrate-hyper-v-servers-to-azure-using-private-link",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/migrate/tutorial-assess-sql-vmware.md",
             "redirect_url": "/azure/migrate/vmware/tutorial-assess-sql-vmware",
             "redirect_document_id": false
