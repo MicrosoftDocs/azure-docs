@@ -5,7 +5,7 @@ services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
-ms.author: kewear,haroldcampos
+ms.author: haroldcampos
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 11/04/2024
