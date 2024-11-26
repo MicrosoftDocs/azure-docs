@@ -6,7 +6,7 @@ services: storage
 author: alexwolfmsft
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 11/25/2024
+ms.date: 11/26/2024
 ms.author: alexwolf
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
@@ -304,7 +304,7 @@ You can also enable access to Azure resources for local development by assigning
 
 ---
 
-When this code runs locally, `DefaultAzureCredential` searches its credential chain for the first available credentials. If the `Managed_Identity_Client_ID` is null locally, it automatically uses the credentials from your local Azure CLI or Visual Studio sign-in. You can read more about this process in the [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme#defaultazurecredential).
+When this code runs locally, `DefaultAzureCredential` searches its credential chain for the first available credentials. If the `Managed_Identity_Client_ID` environment variable is null locally, a credential corresponding to a locally installed developer tool is used. For example, Azure CLI or Visual Studio. To learn more about this process, see section [Explore DefaultAzureCredential](#explore-defaultazurecredential).
 
 When the application is deployed to Azure, `DefaultAzureCredential` automatically retrieves the `Managed_Identity_Client_ID` variable from the App Service environment. That value becomes available when a managed identity is associated with your app.
 
@@ -316,7 +316,7 @@ Although the apps in the previous example shared the same service access require
 
 :::image type="content" source="media/multiple-managed-identities-small.png" lightbox="media/multiple-managed-identities.png" alt-text="Diagram showing multiple user-assigned managed identities.":::
 
-To configure this setup in your code, ensure your application registers separate service clients to connect to each storage account or database. Reference the correct managed identity client IDs for each service when configuring `DefaultAzureCredential`. The following code sample configures these Azure service connections:
+To configure this setup in your code, ensure your application registers separate service clients to connect to each storage account or database. Reference the correct managed identity client IDs for each service when configuring `DefaultAzureCredential`. The following code samples configure these Azure service connections:
 
 * Two connections to separate storage accounts using a shared user-assigned managed identity
 * A connection to Azure Cosmos DB and Azure SQL services using a second user-assigned managed identity. This managed identity is shared when the Azure SQL client driver allows for it. For more information, see the code comments.
@@ -723,7 +723,7 @@ These types of scenarios are explored in more depth in the [managed identity bes
 
 ## Next steps
 
-In this tutorial, you learned how to migrate an application to passwordless connections. You can read the following resources to explore the concepts discussed in this article in more depth:
+In this tutorial, you learned how to migrate an application to passwordless connections. Read the following resources to explore the concepts discussed in this article in more depth:
 
 * [Authorize access to blobs using Microsoft Entra ID](../blobs/authorize-access-azure-active-directory.md)
 * To learn more about .NET, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
