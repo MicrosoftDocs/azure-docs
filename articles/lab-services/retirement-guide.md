@@ -131,7 +131,7 @@ To ensure that you have the resources you require when you need them, you should
 - Be flexible on the region where you're requesting capacity, if possible.
 - Make incremental requests for VM cores rather than making large, bulk requests. Break requests for large number of cores into smaller requests for extra flexibility in how those requests are fulfilled.
 
-### Should I request the same amount of Azure subscription core limits with my preferred transition solution?
+### Should I request the same number of Azure subscription core limits with my preferred transition solution?
 Make sure to review your lab usage trends and not assume you require the same volume of core limits. Keep in mind, the recommended transition solutions allow for more efficient use of lab resources which can reduce the overall number of cores needed. For example, multi-session VDI offerings enable multiple users to share the same VM. 
 
 ## Related content

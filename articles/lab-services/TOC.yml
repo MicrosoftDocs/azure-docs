@@ -4,6 +4,8 @@
   items:
   - name: Azure Lab Services retirement guide
     href: retirement-guide.md
+  - name: Find and delete lab resources
+    href: find-delete-resources.md
   - name: What is Azure Lab Services?
     href: lab-services-overview.md
   expanded: true
