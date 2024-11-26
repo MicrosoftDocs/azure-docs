@@ -34,7 +34,7 @@ A "big bang" or "direct changeover" is an approach that requires lots of plannin
 
 This approach might also take longer to reap or accrue value. If you've already completed some migration activities, but you haven't yet released them into production due to other pending or in-progress work, your migrated artifacts aren't generating value for your organization.
 
-We only recommend to consider this approach If you have small, low complexity BizTalk workloads, Subject Matter Experts (SMEs) with knowledge of the BizTalk environment, and there is a direct mapping in the features you are currently using with BizTalk Server, in Azure Logic Apps. Experience in Azure Logic Apps, considerably reduces risks of following this approach.
+We recommend that you consider this approach only if you have small, low complexity BizTalk workloads, subject matter experts (SMEs) who know your BizTalk environment, and direct mappings between the BizTalk features that you currently use and Azure Logic Apps. Experience with Azure Logic Apps also considerably reduces the risks with following this approach.
 
 ### Iterative or wave based (Recommended)
 
