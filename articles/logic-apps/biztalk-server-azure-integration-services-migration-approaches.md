@@ -42,7 +42,7 @@ This approach provides the opportunity for your organization to incrementally ac
 
 Regardless of your approach, if you plan on moving to Azure Logic Apps or Azure in general, strongly consider refactoring your BizTalk Server solutions into serverless or cloud-native solutions before you decommission your server infrastructure. This choice is an excellent strategy if your organization wants to transform the business completely to the cloud.
 
-BizTalk Server and Azure Logic Apps have different architectures. Azure Logic Apps provides capabilities that address core customer integration needs that can be extended with Azure Integration Services to further modernize your solutions.
+BizTalk Server and Azure Logic Apps have different architectures. To further modernize your solutions, you can use Azure Integration Services to extend the capabilities in Azure Logic Apps that address core customer integration needs.
 
 To have a higher Return of investment (ROI), we recommend any BizTalk migration to leverage as much as possible, the core native capabilities of Logic Apps extended by other Azure Integration Services as needed. This would allow scenarios such as:
 
