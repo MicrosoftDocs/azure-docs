@@ -154,3 +154,4 @@ While authorization is preferred, and OAuth 2.0 has become the dominant method o
 ## Next steps
 * Learn more about [authentication and authorization](../active-directory/develop/authentication-vs-authorization.md) in the Microsoft identity platform.
 * Learn how to [mitigate OWASP API security threats](mitigate-owasp-api-threats.md) using API Management.
+* Learn how to [build a comprehensive API security strategy](https://aka.ms/API-Security-EBook)   

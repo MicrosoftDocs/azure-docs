@@ -5,7 +5,8 @@ author: aysancag
 ms.author: aysancag
 ms.date: 2/09/2021
 ms.topic: concept-article
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Device groups

@@ -4,7 +4,7 @@ description: This article tells how to use change tracking and inventory to trac
 services: automation
 ms.subservice: change-inventory-management
 ms.custom: linux-related-content
-ms.date: 09/19/2024
+ms.date: 11/19/2024
 ms.topic: how-to
 ms.service: azure-automation
 ---
@@ -25,7 +25,10 @@ To manage tracking and inventory, ensure that you enable Change tracking with AM
 
 1. In the [Azure portal](https://portal.azure.com), select the virtual machine.
 1. Select a specific VM for which you would like to configure the Change tracking settings. 
-1. Under **Operations**, select **Change tracking**
+1. Under **Operations**, select **Change tracking**.
+   
+   :::image type="content" source="media/manage-change-tracking-monitoring-agent/configure-file-settings.png" alt-text="Screenshot of selecting the change tracking to configure file settings." lightbox="media/manage-change-tracking-monitoring-agent/configure-file-settings.png":::
+
 1. Select **Settings** to view the **Data Collection Rule Configuration** (DCR) page. Here, you can do the following actions:
    1. Configure changes on a VM at a granular level.  
    1. Select the filter to configure the workspace.

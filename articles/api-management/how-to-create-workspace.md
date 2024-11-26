@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
 ms.author: danlep
-ms.date: 07/10/2024
+ms.date: 11/12/2024
 ms.custom:
 ---
 
@@ -24,7 +24,8 @@ Follow the steps in this article to:
 * Assign permissions to the workspace
 
 > [!NOTE]
-> Currently, creating a workspace gateway is a long-running operation that can take up to 3 hours or more to complete. 
+> * Currently, creating a workspace gateway is a long-running operation that can take up to 3 hours or more to complete. 
+> * We're introducing the ability to associate multiple workspaces with a workspace gateway, helping organizations manage APIs with workspaces at a lower cost. This feature is being rolled out starting in December 2024 and it may not be available to all eligible services before January. [Learn more](https://aka.ms/apim/workspaces/sharedgateway)
 
 ## Prerequisites
 

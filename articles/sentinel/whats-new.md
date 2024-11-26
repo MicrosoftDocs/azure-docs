@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
 ms.date: 09/09/2024
+
+
+#Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
+
 ---
 
 # What's new in Microsoft Sentinel
@@ -21,6 +25,7 @@ The listed features were released in the last three months. For information abou
 ## November 2024
 
 - [New S3-based data connector for Amazon Web Services WAF logs (Preview)](#new-s3-based-data-connector-for-amazon-web-services-waf-logs-preview)
+- [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
 
 ### New S3-based data connector for Amazon Web Services WAF logs (Preview)
 
@@ -28,9 +33,14 @@ Ingest logs from Amazon Web Services' web application firewall (WAF) with Micros
 
 For more details and setup instructions, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS WAF logs](connect-aws-s3-waf.md).
 
-## October 2024
+### Microsoft Sentinel availability in Microsoft Defender portal
 
+We previously announced Microsoft Sentinel is generally available within Microsoft's unified security operations platform in the Microsoft Defender portal.
 
+Now, **in preview**, Microsoft Sentinel is available in the Defender portal even without Microsoft Defender XDR or a Microsoft 365 E5 license. For more information, see:
+
+ - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+ - [Connect Microsoft Sentinel to the Microsoft Defender portal](/defender-xdr/microsoft-sentinel-onboard)
 
 ## September 2024
 
@@ -177,66 +187,9 @@ Microsoft Sentinel now provides the ability to create dynamic summaries using [A
 
 - Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
 - Run high performance Kusto Query Language (KQL) queries on summarized data.
-- Use summary rule results for longer in investigations, hunting, and compliance activities.
+- Use summary rule results for longer periods in investigations, hunting, and compliance activities.
 
 For more information, see [Aggregate Microsoft Sentinel data with summary rules](summary-rules.md).
-
-## July 2024
-
-- [SOC optimizations now generally available](#soc-optimizations-now-generally-available)
-- [SAP Business Technology Platform (BTP) connector now generally available](#sap-business-technology-platform-btp-connector-now-generally-available-ga)
-- [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
-
-### SOC optimizations now generally available
-
-The SOC optimization experience in both the Azure and Defender portals is now generally available for all Microsoft Sentinel customers, including both data value and threat-based recommendations.
-
-- **Use data value recommendations** to improve your data usage of ingested billable logs, gain visibility to underused logs, and discover the right detections for those logs or the right adjustments to your log tier or ingestion.
-
-- **Use threat-based recommendations** to help identify gaps in coverage against specific attacks based on Microsoft research and mitigate them by ingesting the recommended logs and adding recommended detections.
-
-The [`recommendations`](soc-optimization/soc-optimization-api.md) API is still in Preview. 
-
-For more information, see:
-
-- [Optimize your security operations](soc-optimization/soc-optimization-access.md)
-- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)
-
-### SAP Business Technology Platform (BTP) connector now generally available (GA)
-
-The Microsoft Sentinel Solution for SAP BTP is now generally available (GA). This solution provides visibility into your SAP BTP environment, and helps you detect and respond to threats and suspicious activities.
-
-For more information, see:
-
-- [Microsoft Sentinel Solution for SAP Business Technology Platform (BTP)](sap/sap-btp-solution-overview.md)
-- [Deploy the Microsoft Sentinel solution for SAP BTP](sap/deploy-sap-btp-solution.md)
-- [Microsoft Sentinel Solution for SAP BTP: security content reference](sap/sap-btp-security-content.md)
-
-### Microsoft unified security platform now generally available
-
-Microsoft Sentinel is now generally available within the Microsoft unified security operations platform in the Microsoft Defender portal. The Microsoft unified security operations platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, and Microsoft Copilot in Microsoft Defender. For more information, see the following resources:
-
-- Blog post: [General availability of the  Microsoft unified security operations platform](https://aka.ms/unified-soc-announcement)
-- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
-- [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard)
-- [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
-
-## June 2024
-
-- [Codeless Connector Platform now generally available](#codeless-connector-platform-now-generally-available)
-- [Advanced threat indicator search capability available](#advanced-threat-indicator-search-capability-available)
-
-### Codeless Connector Platform now generally available
-
-The Codeless Connector Platform (CCP), is now generally available (GA). Check out the [announcement blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-create-your-own-codeless-data-connector/ba-p/4174439).
-
-For more information on the CCP enhancements and capabilities, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
-
-### Advanced threat indicator search capability available
-
-Threat intelligence search and filtering capabilities have been enhanced, and the experience now has parity across the Microsoft Sentinel and Microsoft Defender portals. Search supports a maximum of 10 conditions with each containing up to 3 subclauses.
-
-For more information, see the updated screenshot in [View and manage your threat indicators](understand-threat-intelligence.md#view-and-manage-your-threat-indicators).
 
 ## Next steps
 

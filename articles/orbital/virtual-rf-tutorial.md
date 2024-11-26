@@ -2,7 +2,7 @@
 title: Virtual RF via demodulation of Aqua using GNU Radio
 description: Learn how to use virtual RF (vRF) instead of a managed modem. Receive a raw RF signal from NASA's Aqua public satellite and process it in GNU Radio.
 author: 777arc
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: tutorial
 ms.custom: ga
 ms.date: 04/21/2023

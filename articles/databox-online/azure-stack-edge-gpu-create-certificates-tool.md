@@ -2,8 +2,7 @@
 title: Create certificates for Azure Stack Edge Pro GPU via Azure Stack Hub Readiness Checker tool
 description: Describes how to create certificate requests and then get and install certificates on your Azure Stack Edge Pro GPU device using the Azure Stack Hub Readiness Checker tool.
 author: alkohli
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/01/2021
 ms.author: alkohli

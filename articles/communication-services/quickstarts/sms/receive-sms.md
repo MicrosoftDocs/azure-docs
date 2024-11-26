@@ -27,7 +27,7 @@ The `SMSReceived` event generated when an SMS is sent to an Azure Communication 
 ```json
 [{
   "id": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
-  "topic": "/subscriptions/50ad1522-5c2c-4d9a-a6c8-67c11ecb75b8/resourcegroups/acse2e/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "topic": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/acse2e/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
   "subject": "/phonenumber/15555555555",
   "data": {
     "MessageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",

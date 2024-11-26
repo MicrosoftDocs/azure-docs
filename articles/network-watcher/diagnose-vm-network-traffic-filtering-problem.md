@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 09/30/2024
+ms.date: 10/14/2024
 
 #Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
 ---
@@ -150,8 +150,6 @@ To determine why the rules in the previous section allow or deny communication, 
     :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png" alt-text="Screenshot of Effective security rules in Network Watcher." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png" :::
 
 1. Under **Outbound rules**, select **AllowInternetOutBound** to see the allowed destination IP address prefixes under this security rule.
-
-    :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/internet-prefixes.png" alt-text="Screenshot of the prefixes of AllowInternetOutBound rule." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/internet-prefixes.png" :::
 
     You can see that address prefix **13.104.0.0/13** is among the address prefixes of **AllowInternetOutBound** rule. This prefix encompasses IP address **13.107.21.200** which you tested in step 4 of previous section.
 

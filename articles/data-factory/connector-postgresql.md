@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 10/09/2024
 ms.author: jianleishen
 ---
 # Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -308,9 +308,9 @@ When copying data from PostgreSQL, the following mappings are used from PostgreS
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the PostgreSQL linked service
+## <a name="upgrade-the-postgresql-linked-service"></a> Upgrade the PostgreSQL connector
 
-Here are steps that help you upgrade your PostgreSQL linked service:
+Here are steps that help you upgrade your PostgreSQL connector:
 
 1. Create a new PostgreSQL linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 

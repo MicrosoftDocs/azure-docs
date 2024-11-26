@@ -22,7 +22,7 @@ This article shows you how to publish applications that are installed locally wi
 
 ## Prerequisites
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 In order to publish an application to a RemoteApp application group, you need the following things:
 
@@ -32,7 +32,7 @@ In order to publish an application to a RemoteApp application group, you need th
 
 - At least one session host is powered on in the host pool the application group is assigned to.
 
-- The applications you want to publish are installed on the session hosts in the host pool the application group is assigned to. If you're using app attach, you must add and assign an MSIX package to your host pool before you start. For more information, see [Add and manage app attach applications](app-attach-setup.md).
+- The applications you want to publish are installed on the session hosts in the host pool the application group is assigned to. If you're using app attach, you must add and assign an MSIX, Appx, or App-V package to your host pool before you start. For more information, see [Add and manage app attach applications](app-attach-setup.md).
 
 - As a minimum, the Azure account you use must have the [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) built-in role-based access control (RBAC) roles on the resource group, or on the subscription to create the resources.
 
@@ -60,7 +60,7 @@ In order to publish an application to a RemoteApp application group, you need th
 
 To add applications to a RemoteApp application group, select the relevant tab for your scenario and follow the steps.
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Here's how to add applications to a RemoteApp application group using the Azure portal.
 
@@ -262,7 +262,7 @@ Using `shell:appsFolder` means the application icon isn't picked up automaticall
 
 Select the relevant tab for your scenario and follow the steps.
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Here's how to publish a Microsoft Store application using the Windows user interface and the Azure portal:
 

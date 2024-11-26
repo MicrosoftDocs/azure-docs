@@ -4,7 +4,7 @@ description: Describes how to apply updates using the Azure portal and local web
 services: databox
 author: stevenmatthew
 
-ms.service: databox
+ms.service: azure-databox
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: shaas

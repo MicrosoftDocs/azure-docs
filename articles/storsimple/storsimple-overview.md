@@ -6,7 +6,7 @@ manager: alkohli
 ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.topic: article
-ms.date: 07/10/2023
+ms.date: 11/07/2024
 ms.author: alkohli
 ROBOTS: NOINDEX
 ---
@@ -21,8 +21,8 @@ The following resources are available to help you migrate backup files or to cop
 |Resource   |Description   |
 |---------------------------|----------------------------|
 |[Azure StorSimple 8000 Series Copy Utility](https://aka.ms/storsimple-copy-utility)     |Microsoft is providing a read-only data copy utility to recover and migrate your backup files from StorSimple cloud snapshots. The StorSimple 8000 Series Copy Utility is designed to run in your environment. You can install and configure the Utility, and then use your Service Encryption Key to authenticate and download your metadata from the cloud.|
-|Azure StorSimple 8000 Series Copy Utility documentation    |Instructions for use of the Copy Utility. |
-|StorSimple archived documentation   |Archived StorSimple articles from Microsoft technical documentation.   |
+|[Azure StorSimple 8000 Series Copy Utility documentation](https://aka.ms/storsimple-copy-utility-docs)    |Instructions for use of the Copy Utility. |
+|[StorSimple archived documentation](https://aka.ms/storsimple-archive-docs)   |Archived StorSimple articles from Microsoft technical documentation.   |
 
 ## Copy data and then decommission your appliance
 

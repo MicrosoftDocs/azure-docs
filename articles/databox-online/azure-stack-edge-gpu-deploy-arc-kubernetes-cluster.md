@@ -4,8 +4,7 @@ description: Describes how to enable Azure Arc on an existing Kubernetes cluster
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/17/2022
 ms.author: alkohli
@@ -117,7 +116,7 @@ You can also register resource providers via the `az cli`. For more information,
     PS /home/user> az role assignment create --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 --assignee xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myaserg1
     {
       "canDelegate": null,
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myaserg1/providers/Microsoft.Authorization/roleAssignments/59272f92-e5ce-4aeb-9c0c-62532d8caf25",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myaserg1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000",
       "name": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "principalType": "ServicePrincipal",

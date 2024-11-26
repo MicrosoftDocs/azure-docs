@@ -10,7 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: As an SOC analyst, I want to match my security data with Microsoft threat intelligence so that I can generate high-fidelity alerts and incidents.
+
+
+#Customer intent: As a security operations analyst, I want to match my security data with Microsoft threat intelligence so I can generate high fidelity alerts and incidents.
+
 ---
 
 # Use matching analytics to detect threats

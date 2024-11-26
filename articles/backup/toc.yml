@@ -36,8 +36,30 @@
     items:
     - name: From the Azure portal
       href: quick-backup-aks.md
+    - name: With Azure CLI
+      href: quick-kubernetes-backup-cli.md
+    - name: With PowerShell
+      href: quick-kubernetes-backup-powershell.md
+    - name: With Azure Resource Manager
+      href: quick-kubernetes-backup-arm.md
+    - name: With Bicep
+      href: quick-kubernetes-backup-bicep.md
     - name: With Terraform
       href: quick-kubernetes-backup-terraform.md
+  - name: Configure backup for Azure Database for PostgreSQL  - Flexible Server 
+    items:
+    - name: With Azure portal
+      href: quick-backup-postgresql-flexible-server-portal.md
+    - name: With Azure CLI
+      href: quick-backup-postgresql-flexible-server-cli.md
+    - name: With PowerShell
+      href: quick-backup-postgresql-flexible-server-powershell.md    
+    - name: With Terraform
+      href: quick-backup-postgresql-flexible-server-terraform.md
+    - name: With Azure Resource Manager template
+      href: quick-backup-postgresql-flexible-server-arm.md
+    - name: With Azure Bicep template
+      href: quick-backup-postgresql-flexible-server-bicep.md
   - name: Configure vaulted backup for Azure Blob
     items: 
     - name: From the Azure portal
@@ -134,6 +156,8 @@
       href: sql-support-matrix.md
     - name: SAP HANA Backup support matrix
       href: sap-hana-backup-support-matrix.md
+    - name: SAP ASE Backup support matrix
+      href: sap-ase-backup-support-matrix.md
     - name: Azure Database for MySQL - Flexible Server long-term retention support matrix
       href: backup-azure-mysql-flexible-server-support-matrix.md
     - name: Azure file share backup support matrix
@@ -202,10 +226,12 @@
       href: sap-hana-database-about.md
     - name: Architecture
       href: azure-backup-architecture-for-sap-hana-backup.md
-  - name: Azure Database for MySQL - Flexible Server long-term retention
+    - name: Azure Database for MySQL - Flexible Server long-term retention
     href: backup-azure-mysql-flexible-server-about.md
   - name: Azure Database for PostgreSQL -Flexible server backup
     href: backup-azure-database-postgresql-flex-overview.md
+  - name: SAP ASE database on Azure VM backup
+    href: sap-ase-database-about.md
   - name: Azure Kubernetes Service backup
     items:
     - name: Overview
@@ -232,6 +258,8 @@
       href: multi-user-authorization-concept.md
     - name: Immutable vault
       href: backup-azure-immutable-vault-concept.md
+    - name: Secure by Default with Azure Backup (Preview)
+      href: secure-by-default.md
     - name: Private endpoints
       items:
       - name: V1 experience
@@ -282,6 +310,8 @@
         href: backup-during-vm-creation.md
       - name: Back up an Azure VM using Enhanced policy
         href: backup-azure-vms-enhanced-policy.md
+      - name: Back up an Azure VM in Azure extended zones (preview)
+        href: backup-azure-vms-extended-zones.md
       - name: Back up Azure VM with agentless multi-disk crash-consistent backup
         href: backup-azure-vms-agentless-multi-disk-crash-consistent.md
       - name: Back up an Azure VM from VM settings
@@ -400,6 +430,20 @@
         href: backup-azure-database-postgresql-flex.md
       - name: Restore
         href: restore-azure-database-postgresql-flex.md
+      - name: Manage
+        href: backup-azure-database-postgresql-flex-manage.md
+    - name: With Azure CLI
+      items:
+      - name: Backup
+        href: back-up-azure-database-postgresql-flex-backup-cli.md
+      - name: Restore
+        href: backup-azure-database-postgresql-flex-restore-cli.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: back-up-azure-database-postgresql-flex-backup-powershell.md
+      - name: Restore
+        href: backup-azure-database-postgresql-flex-restore-powershell.md
     - name: With REST API
       items:
       - name: Create a policy
@@ -570,6 +614,14 @@
         href: sap-hana-database-instances-restore.md
     - name: Manage
       href: sap-hana-database-manage.md
+  - name: SAP ASE database on Azure VM backup
+    items:
+    - name: Backup
+      href: sap-ase-database-backup.md
+    - name: Restore
+      href: sap-ase-database-restore.md
+    - name: Manage
+      href: sap-ase-database-manage.md
   - name: Azure Backup Server (MABS)
     items:
     - name: Protection matrices
@@ -835,6 +887,8 @@
       href: backup-azure-sap-hana-database-troubleshoot.md
     - name: SAP HANA database instance backup in Azure VM
       href: sap-hana-database-instance-troubleshoot.md
+    - name: SAP ASE database backup in Azure VMs
+      href: troubleshoot-sap-ase-sybase-database-backup.md
     - name: System State
       href: backup-azure-system-state-troubleshoot.md
     - name: Archive tier

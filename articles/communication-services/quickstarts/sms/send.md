@@ -18,7 +18,7 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 > [!IMPORTANT]
 > SMS capabilities depend on the phone number you use and the country/region that you're operating within as determined by your Azure billing address. For more information, see [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md).
 
-[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
 
 <br/>
 
@@ -58,7 +58,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Toll-free verification
 
-To utilize a new toll-free number for sending SMS messages, it is mandatory to undergo a toll-free verification process. For guidance on how to complete the verification of your toll-free number, please refer to the [Quickstart for submitting a toll-free verification](./apply-for-toll-free-verification.md). Note that only toll-free numbers that have been fully verified are authorized to send out SMS traffic. Any SMS traffic from unverified toll-free numbers directed to US and CA phone numbers will be blocked.
+To use a new toll-free number for sending SMS messages, you must complete a toll-free verification process. For guidance on how to complete the verification of your toll-free number, see the [Quickstart for submitting a toll-free verification](./apply-for-toll-free-verification.md). Only fully verified toll-free numbers are authorized to send out SMS traffic. Any SMS traffic from unverified toll-free numbers directed to US and CA phone numbers are blocked.
 
 ## Next steps
 

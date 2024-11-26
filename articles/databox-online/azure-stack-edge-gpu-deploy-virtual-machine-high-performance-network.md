@@ -4,8 +4,7 @@ description: Learn how to deploy high performance network VMs on your Azure Stac
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 11/23/2022
 ms.author: alkohli

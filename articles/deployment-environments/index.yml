@@ -95,3 +95,15 @@ landingContent:
             url: how-to-configure-project-admin.md
           - text: Grant access to create environments
             url: how-to-configure-deployment-environments-user.md
+
+  # Card
+  - title: Use Azure Developer CLI with ADE
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Use Azure Developer CLI (azd) with ADE
+            url: concept-azure-developer-cli-with-deployment-environments.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create environments with Azure Developer CLI (azd)
+            url: how-to-create-environment-with-azure-developer.md

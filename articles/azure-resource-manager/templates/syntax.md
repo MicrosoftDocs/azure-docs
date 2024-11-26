@@ -3,7 +3,7 @@ title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 09/26/2024
+ms.date: 10/23/2024
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -539,6 +539,13 @@ The enhancements and changes that come with languageVersion 2.0:
 * The `deployment` function returns a limited subset of properties. See [deployment](./template-functions-deployment.md#deployment).
 * If Deployments resource is used in a symbolic-name deployment, use apiVersion `2020-09-01` or later.
 * In resource definition, double-escaping values within an expression is no longer needed.  See [Escape characters](./template-expressions.md#escape-characters).
+
+Using any of following Bicep features automatically enables language version 2.0 code generation:
+
+* [user-defined types](../bicep/user-defined-data-types.md)
+* [user-defined functions](../bicep/user-defined-functions.md)
+* [compile-time imports](../bicep/bicep-import.md)
+* [experimental features](../bicep/bicep-config.md#enable-experimental-features)
 
 ## Next steps
 

@@ -1,21 +1,20 @@
 ---
 title: Configure level 3 cluster in an isolated network
-description: Prepare a level 3 cluster and connect it to the Azure IoT Layered Network Management service
+description: Prepare a level 3 cluster and connect it to the Azure IoT Layered Network Management (preview) service
 author: PatAltimore
 ms.subservice: layered-network-management
 ms.author: patricka
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 07/02/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
+ms.service: azure-iot-operations
 ---
 
-# Configure level 3 cluster in an isolated network with Azure IoT Layered Network Management Preview
+# Configure level 3 cluster in an isolated network with Azure IoT Layered Network Management (preview)
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-You can configure a special isolated network environment for deploying Azure IoT Operations Preview. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster to meet all the prerequisites of Azure IoT Operations and Arc-enable the cluster through the Azure IoT Layered Network Management Preview service in the upper level. Before you start this process, the Layered Network Management service has to be ready for accepting the connection request from this level.
+You can configure a special isolated network environment for deploying Azure IoT Operations. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster to meet all the prerequisites of Azure IoT Operations and Arc-enable the cluster through the Azure IoT Layered Network Management (preview) service in the upper level. Before you start this process, the Layered Network Management (preview) service has to be ready for accepting the connection request from this level.
 
 You'll complete the following tasks:
 - Set up the host system and install all the required software in an internet facing environment.
@@ -245,6 +244,7 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     az provider register -n "Microsoft.KubernetesConfiguration"
     az provider register -n "Microsoft.IoTOperations"
     az provider register -n "Microsoft.DeviceRegistry"
+    az provider register -n "Microsoft.SecretSyncController"
     ```
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
     ```bash
@@ -256,7 +256,7 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     ```
     > [!TIP]
     > If the `connectedk8s` commands fail, try using the cmdlets in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
-1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses. The command you use depends on your version of Azure CLI:
+1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses.  Run the following command exactly as written, without changing the GUID value. The command you use depends on your version of Azure CLI:
     ```powershell
     # If you're using an Azure CLI version lower than 2.37.0, use the following command:
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
@@ -291,5 +291,5 @@ After you've deployed Azure IoT Operations to your cluster, enable inbound conne
 
 ## Related content
 
-- [Configure Azure IoT Layered Network Management Preview on level 4 cluster](./howto-configure-l4-cluster-layered-network.md)
+- [Configure Azure IoT Layered Network Management on level 4 cluster](./howto-configure-l4-cluster-layered-network.md)
 - [Create sample network environment](./howto-configure-layered-network.md)

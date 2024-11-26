@@ -1,6 +1,36 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/sentinel/sap/select-ingestion-profiles.md",
+            "redirect_url": "/azure/sentinel/sap/reference-systemconfig-json",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/sap/configure-audit.md",
+            "redirect_url": "/azure/sentinel/sap/preparing-sap#configure-sap-auditing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/sap/configure-audit-log-rules.md",
+            "redirect_url": "/azure/sentinel/sap/preparing-sap#configure-sap-auditing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/sap/configuration-file-reference.md",
+            "redirect_url": "/azure/sentinel/sap/reference-systemconfig-json",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/sap/sap-incident-response-playbooks.md",
+            "redirect_url": "/azure/sentinel/sap/sap-solution-security-content#available-playbooks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/sap/configure-snc.md",
+            "redirect_url": "/azure/sentinel/sap/preparing-sap#configure-your-system-to-use-snc-for-secure-connections",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/sentinel/best-practices-workspace-architecture.md",
             "redirect_url": "/azure/azure-monitor/logs/workspace-design",
             "redirect_document_id": false
@@ -1647,11 +1677,6 @@
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-stealthwatch.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/data-connectors/hyas-protect.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
         },

@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 04/16/2024
+
+
+#Customer intent: As a security analyst, I want to integrate Microsoft Defender for Cloud with Microsoft Defender XDR so that I can ingest and synchronize incidents and alerts into Microsoft Sentinel for comprehensive threat detection and response.
+
 ---
 
 # Ingest Microsoft Defender for Cloud incidents with Microsoft Defender XDR integration

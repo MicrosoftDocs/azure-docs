@@ -31,6 +31,8 @@
     href: vpn-gateway-highlyavailable.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
+  - name: Roles and permissions
+    href: roles-permissions.md
   - name: About gateway SKUs
     href: about-gateway-skus.md
   - name: About gateway SKU consolidation
@@ -140,7 +142,7 @@
       - name: P2S gateway configuration
         items:
         - name: Azure portal
-          href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+          href: point-to-site-certificate-gateway.md
         - name: Azure PowerShell
           href: vpn-gateway-howto-point-to-site-rm-ps.md
       - name: VPN client configuration
@@ -152,7 +154,11 @@
           - name: Azure VPN client
             href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
           - name: OpenVPN client
-            href: point-to-site-vpn-client-certificate-windows-openvpn-client.md
+            items:
+            - name: Version 2.x
+              href: point-to-site-vpn-client-certificate-windows-openvpn-client.md
+            - name: Version 3.x
+              href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md
         - name: Linux clients
           items:
           - name: Azure VPN client

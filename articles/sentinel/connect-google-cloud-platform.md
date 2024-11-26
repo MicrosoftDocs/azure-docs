@@ -5,7 +5,9 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 01/17/2024
-#Customer intent: As a security operator, I want to ingest Google Cloud Platform log data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in my multicloud environment.
+
+#Customer intent: As a security engineer, I want to ingest Google Cloud Platform log data into Microsoft Sentinel so that analysts can monitor and detect potential threats across my multicloud environment.
+
 ---
 
 # Ingest Google Cloud Platform log data into Microsoft Sentinel
