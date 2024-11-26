@@ -52,7 +52,7 @@ For a higher return on investment (ROI), we recommend that any BizTalk migration
 - Pub-sub messaging using Azure Service Bus
 - Advanced SOAP capabilities in APIM
 
-## Delivering a BizTalk Migration Project
+## Deliver a BizTalk migration project
 
 To deliver a BizTalk Migration Project, we recommend following the  Iterative or wave based approach. We recommend following [scrum](https://www.scrum.org/). While scrum does not include the concept of a Sprint Zero (Sprint 0) for pre-sprinting activities, we recommend the first sprint to focus on team alignment and technical discovery. After sprint 0, follows the execution of multiple migration sprints focused on releasing features towards a minimum viable product (MVP).
 
