@@ -134,7 +134,7 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
 
     ```kusto
     let csl_columnmatch=(column_name: string) {
-    CommonSecurityLog
+    Custom_CommonSecurityLog
     | where isnotempty(column_name)
     | extend
         Date = format_datetime(TimeGenerated, "yyyy-MM-dd"),
