@@ -13,7 +13,7 @@ ms.author: v-abhmallick
 
 [!INCLUDE [Azure Database for MySQL - Flexible Server backup advisory](../../includes/backup-mysql-flexible-server-advisory.md)]
 
-If you have an Azure Database for MySQL flexible server, you can extend the retention of backups beyond the current limit of 35 days with the built-in operational-tier backup capability of Azure Database for MySQL - Flexible Server. Azure Backup and Azure database services together allow you to build an enterprise-class backup solution for Azure Database for MySQL flexible servers that retains backups for *up to 10 years*.
+When you use an Azure Database for MySQL flexible server, you can extend the retention of backups beyond the current limit of 35 days with the built-in operational-tier backup capability of Azure Database for MySQL - Flexible Server. Azure Backup and Azure database services together allow you to build an enterprise-class backup solution for Azure Database for MySQL flexible servers that retains backups for *up to 10 years*.
 
 Extending backup retention from 35 days to 10 years can help your organization meet compliance and regulatory requirements. The backups are copied to an isolated storage environment outside your tenant and subscription to help protect against ransomware attacks. In addition to long-term retention, this feature enhances backup resiliency by protecting the source data from different levels of data loss, such as accidental deletions and ransomware.
 
@@ -25,7 +25,7 @@ You can recover this backup in your specified storage containers, which you can 
 
 To back up an Azure Database for MySQL flexible server:
 
-1. Grant permissions to the Azure Backup vault MSI on the target Azure Resource Manager resource (Azure Database for MySQL flexible server), to establish access and control.
+1. Grant permissions to the Backup vault MSI on the target Azure Resource Manager resource (Azure Database for MySQL flexible server), to establish access and control.
 2. Configure backup policies to specify the scheduling, retention, and other parameters.
 
 After the configuration is complete:
@@ -56,7 +56,7 @@ You incur charges for:
 
 - **Protected instance fee**: When you configure a backup for an Azure Database for MySQL flexible server, a protected instance is created. Azure Backup for MySQL - Flexible Server charges a protected instance fee according to the size of the database (in gigabytes) on a per-unit (250-GB) basis.
 
-- **Backup storage fee**: Azure Backup for MySQL flexible servers store backups in the Standard vault tier. Restore points stored in the Standard vault tier are charged a separate backup storage fee according to the total data stored (in gigabytes) and the redundancy type enabled on the Azure Backup vault.
+- **Backup storage fee**: Azure Backup for MySQL flexible servers store backups in the Standard vault tier. Restore points stored in the Standard vault tier are charged a separate backup storage fee according to the total data stored (in gigabytes) and the redundancy type enabled on the Backup vault.
 
 ## Related content
 

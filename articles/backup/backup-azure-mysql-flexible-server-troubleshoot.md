@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Database for MySQL - Flexible Server Backup Using Azure Backup
+title: Troubleshoot Azure Database for MySQL - Flexible Server Backup by Using Azure Backup
 description: Get troubleshooting information for backing up Azure Database for MySQL - Flexible Server.
 ms.topic: troubleshooting
 ms.date: 11/21/2024

@@ -17,15 +17,15 @@ Learn more about the [supported scenarios, considerations, and limitations](back
 
 ## Prerequisites
 
-Backup data is stored in the Azure Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. Ensure that the target storage account for the restore has the `AllowCrossTenantReplication` property set to `true`.
+Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. Ensure that the target storage account for the restore has the `AllowCrossTenantReplication` property set to `true`.
 
 ## Restore an Azure Database for MySQL - Flexible Server database
 
 To restore the database, follow these steps:
 
-1. Go to the Azure Backup vault, and then select **Backup instances**.
+1. Go to the Backup vault, and then select **Backup instances**.
 
-2. Select the Azure Database for MySQL flexible server, and then select **Restore**.
+2. Select **Azure Database for MySQL - Flexible Server (preview)** > **Restore**.
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/restore-parameters.png" alt-text="Screenshot that shows how to go to a backup instance." lightbox="./media/backup-azure-mysql-flexible-server-restore/restore-parameters.png":::
 

@@ -1,5 +1,5 @@
 ---
-title: Back Up an Azure Database for MySQL Flexible Server by using Azure Backup
+title: Back Up an Azure Database for MySQL Flexible Server by Using Azure Backup
 description: Learn how to back up an Azure Database for MySQL flexible server.
 ms.topic: how-to
 ms.date: 11/21/2024
@@ -33,9 +33,9 @@ Learn more about the [supported scenarios, considerations, and limitations](back
 
 To create a backup policy, follow these steps:
 
-1. [Create an Azure Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
+1. [Create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
-2. Go to the Azure Backup vault, and then select **+Backup** to open the **Configure backup** pane.
+2. Go to the Backup vault, and then select **+Backup** to open the **Configure backup** pane.
 
 3. Under **Backup policy**, select **Create new**.
 
@@ -63,13 +63,13 @@ You can configure a backup for the entire Azure Database for MySQL - Flexible Se
 
 To configure a backup, follow these steps:
 
-1. In the Azure portal, go to the Azure Backup vault, and then select **+Backup**.
+1. In the Azure portal, go to the Backup vault, and then select **+Backup**.
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/configure-backup.png" alt-text="Screenshot that shows how to start a backup configuration." lightbox="./media/backup-azure-mysql-flexible-server/configure-backup.png":::
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server/configure-backup-basic.png" alt-text="Screenshot that shows the Basics tab on the pane for configuring a backup." lightbox="./media/backup-azure-mysql-flexible-server/configure-backup-basic.png":::
 
-   Alternatively, go to **Backup center** >  **+Backup**.
+   Alternatively, go to **Business Continuity Center** >  **+Backup**.
 
 2. Select the backup policy that you created, which defines the backup schedule and the retention duration.
 
@@ -101,7 +101,7 @@ To configure a backup, follow these steps:
 
 To trigger an on-demand backup (a backup that's not in the schedule specified in the policy), follow these steps:
 
-1. Go to the Azure Backup vault, select **Backup instances**, and then select the backup instance for which you want to take a backup.
+1. Go to the Backup vault, select **Backup instances**, and then select the backup instance for which you want to take a backup.
 
 2. Select **Backup Now**.
 
