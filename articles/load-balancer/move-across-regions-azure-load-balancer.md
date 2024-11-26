@@ -17,12 +17,6 @@ In a literal sense, you can't move an Azure load balancer from one region to ano
 
 In this article, you'll learn how to move an external or internal load balancer from one Azure region to another using the Azure portal or Azure PowerShell. Choose the tab that matches your preferred method and the type of load balancer you want to move.
 
-# [External load balancer](#tab/external-load-balancer)
-
-## Move an external load balancer to another region using the Azure portal
-
-Use this procedure to move an external load balancer to another region using the Azure portal or Azure PowerShell.
-
 ## Prerequisites
 
 # [Azure Portal](#tab/azure-portal/external-load-balancer)
@@ -52,11 +46,6 @@ Use this procedure to move an external load balancer to another region using the
 - Verify that your Azure subscription allows you to create external load balancers in the target region that's used. Contact support to enable the required quota.
 
 - Make sure that your subscription has enough resources to support the addition of load balancers for this process.  See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
-
-# [Internal load balancer](#tab/internal-load-balancer)
-
-## Move an external load balancer to another region using the Azure portal
-
 
 # [Azure Portal](#tab/azure-portal/internal-load-balancer)
 
