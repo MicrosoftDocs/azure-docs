@@ -188,7 +188,7 @@ This section enables you to capture details related to a file entity involved in
 |-------|-------|------|-------------|
 | **FileName** | Optional | string | Name of the file associated with the alert, without path or a location.<br><br>e.g. `Notepad.exe` |
 | **FilePath** | Optional | string | he full, normalized path of the target file, including the folder or location, the file name, and the extension.<br><br>e.g. `C:\Windows\System32\notepad.exe` |
-| **FileSHA1** | Optional | string | SHA1 hash of the file.<br><br>e.g. `d55c5a4df19b46db8c54` |
+| **FileSHA1** | Optional | string | SHA1 hash of the file.<br><br>e.g. `j5kl6mn7op8qr9st0uv1` |
 | **FileSHA256** | Optional | string | SHA256 hash of the file.<br><br>e.g. `a1bc2de3fh4ij5kl6mn7op8qrs2de3` |
 | **FileMD5** | Optional | string | MD5 hash of the file.<br><br>e.g. `j5kl6mn7op8qr9st0uv1wx2yz3ab4c` |
 | **FileSize** | Optional | long | Size of the file in bytes.<br><br>e.g. `123456` |
@@ -219,7 +219,7 @@ If your alert includes information about email entity, use the following fields 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | **EmailMessageId** | Optional | string | Unique identifier for the email message, associated with the alert.<br><br>e.g. `Request for Invoice Access` |
-| **EmailSubject** | Optional | string | Subject of the email.<br><br>e.g. `72b90fc1-8fe3-455e-71a8-08dce6f17f15` |
+| **EmailSubject** | Optional | string | Subject of the email.<br><br>e.g. `j5kl6mn7-op8q-r9st-0uv1-wx2yz3ab4c` |
 
 
 
