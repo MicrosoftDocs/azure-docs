@@ -401,6 +401,14 @@
   items:
     - name: Deploy an application that uses OpenAI on App Service
       href: deploy-intelligent-apps.md
+- name: WordPress
+  items:
+    - name: Deploy WordPress
+      href: quickstart-wordpress.md
+    - name: Migrate WordPress
+      href: migrate-wordpress.md
+    - name: Configure WordPress
+      href: reference-app-settings.md#wordpress      
 - name: WebJobs
   items:
     - name: Create WebJobs
