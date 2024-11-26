@@ -11,6 +11,9 @@ ms.date: 10/22/2024
 
 # What is Azure Communications Gateway?
 
+> [!IMPORTANT]
+> The Azure Communications Gateway service will retire on October 30, 2025. To prevent any service disruption, please transition to another [Microsoft Teams Direct Routing certified Session Border Controller (SBC)](https://learn.microsoft.com/microsoftteams/direct-routing-border-controllers) solution before October 30, 2025.
+
 Azure Communications Gateway provides quick, reliable and secure integration with multiple services for telecommunications operators:
 
 - Microsoft Teams calling through the Operator Connect, Teams Phone Mobile and Microsoft Teams Direct Routing programs

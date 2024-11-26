@@ -3749,6 +3749,21 @@
       "source_path_from_root": "/articles/virtual-network/tutorial-connect-virtual-networks-cli.md",
       "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ip-services/public-ip-upgrade-portal.md",
+      "redirect_url": "/azure/virtual-network/ip-services/public-ip-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ip-services/public-ip-upgrade-cli.md",
+      "redirect_url": "/azure/virtual-network/ip-services/public-ip-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ip-services/public-ip-upgrade-powershell.md",
+      "redirect_url": "/azure/virtual-network/ip-services/public-ip-upgrade",
+      "redirect_document_id": false
     }
   ]
 }
