@@ -1,5 +1,5 @@
 ---
-title: Enable conditional features with a custom filter in Python
+title: Enable conditional features with a custom filter in a Python application
 titleSuffix: Azure App Configuration
 description: Learn how to implement a custom feature filter to enable conditional feature flags for your Python application.
 ms.service: azure-app-configuration

@@ -1,5 +1,5 @@
 ---
-title: Enable features on a schedule in an ASP.NET Core app
+title: Enable features on a schedule in an ASP.NET Core application
 titleSuffix: Azure App Configuration
 description: Learn how to enable feature flags on a schedule in an ASP.NET Core application by using time window filters.
 ms.service: azure-app-configuration

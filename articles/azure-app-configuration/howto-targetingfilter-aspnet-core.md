@@ -1,5 +1,5 @@
 ---
-title: Roll out features to targeted audiences, ASP.NET Core app
+title: Roll out features to targeted audiences in an ASP.NET Core app
 titleSuffix: Azure App Configuration
 description: Learn how to enable staged rollout of features for targeted audiences in an ASP.NET Core application.
 ms.service: azure-app-configuration

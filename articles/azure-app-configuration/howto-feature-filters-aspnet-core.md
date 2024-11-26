@@ -1,5 +1,5 @@
 ---
-title: Enable conditional features with a custom filter in ASP.NET Core
+title: Enable conditional features with a custom filter in an ASP.NET Core application
 titleSuffix: Azure App Configuration
 description: Learn how to implement a custom feature filter to enable conditional feature flags for your ASP.NET Core application.
 ms.service: azure-app-configuration
