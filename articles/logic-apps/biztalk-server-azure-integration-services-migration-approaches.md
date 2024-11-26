@@ -61,7 +61,7 @@ To complete such a project, we recommend that you follow the iterative or wave-b
 
 ### Sprint Zero
 
-During the Sprint Zero, we recommend the execution of a BizTalk Server Environments Discovery along with the Waves Planning. It is critical to understand the project's breadth and depth. The following list includes specific areas to address during Sprint Zero.
+During this sprint, we recommend that you execute BizTalk Server Environments Discovery with Waves Planning. Understanding the project's breadth and depth is critical for success. The following list includes the specific areas to address during Sprint 0:
 
 | Area | Description |
 |------|-------------|
