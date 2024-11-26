@@ -1,0 +1,47 @@
+### YamlMime:Landing
+
+title: Neon Serverless Postgres - An Azure Native ISV Service
+summary: Neon in Microsoft Azure
+
+metadata:
+  title: Neon Serverless Postgres – An Azure Native ISV Service
+  description: Neon Serverless Postgres – An Azure Native ISV Service integrates with Azure to combine the benefits of Neon with the Azure cloud.
+  ms.topic: landing-page
+  ms.custom:
+  ms.date: 11/26/2024
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+  - title: About Neon Serverless Postgres
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is About Neon Serverless Postgres?
+            url: overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your Neon Serverless Postgres resource
+            url: manage.md
+
+  - title: Create a Neon Serverless Postgres resource
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with Neon Serverless Postgres
+            url: create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting Neon Serverless Postgres
+            url: troubleshoot.md
+  
+  - title: Tools
+    linkLists:
+      - linkListType: reference 
+        links:
+        - text: Neon Serverless Postgres developer tools 
+          url: tools.md
+        - text: Azure CLI
+          url: /cli/azure/neon
+
+  

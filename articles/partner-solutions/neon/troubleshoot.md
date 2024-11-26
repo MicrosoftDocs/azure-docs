@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Neon Serverless Postgres 
-description: Learn how to troubleshoot Neon Serverless Postgres.
+description: his article provides information about getting support and troubleshooting Neon Serverless Postgres.
 author: ProfessorKendrick
 ms.topic: overview
 ms.custom:
@@ -28,10 +28,10 @@ Only users with Owner or Contributor access on the Azure subscription can create
 ## Marketplace purchase errors
 
 ### The Microsoft.SaaS resource provider isn't registered on the Azure subscription.
-You must make sure your Azure subscription is registered for the resource provider before you use it. Learn more about [resource provider registration](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) and [resolving errors on resource provider registration](../../azure/azure-resource-manager/troubleshooting/error-register-resource-provider).
+You must make sure your Azure subscription is registered for the resource provider before you use it. Learn more about [resource provider registration](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) and [resolving errors on resource provider registration](../../azure-resource-manager/troubleshooting/error-register-resource-provider.md).
 
 ### Plan can't be purchased on a free subscription.
-You can't make marketplace purchases on a free Azure subscription. Refer to the [Azure free account FAQ](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account). For more information, see [purchase SaaS offer in the Azure portal](/marketplace/purchase-saas-offer-in-azure-portal).
+You can't make marketplace purchases on a free Azure subscription. Refer to the [Azure free account FAQ](https://azure.microsoft.com/pricing/purchase-options/azure-account). For more information, see [purchase SaaS offer in the Azure portal](/marketplace/purchase-saas-offer-in-azure-portal).
 
 ### Purchase failed because we couldn't find a valid payment method associated with your Azure subscription.
 Use a different Azure subscription or add or update current credit card or payment method information for this subscription. For more information, see [purchase SaaS offer in the Azure portal](/marketplace/purchase-saas-offer-in-azure-portal).
@@ -52,14 +52,14 @@ Customer uses private marketplace to limit the access of its organization to spe
 Use a different subscription or check if your EA subscription is enabled for Marketplace purchase. For more information, see Enable Marketplace purchases.
 If those options don't solve the problem, contact [Neon support]. 
 
-## Deployment Failed error
+### Deployment Failed error
 If you get a Deployment Failed error, check the status of your Azure subscription. Make sure it isn't suspended and doesn't have any billing issues.
 
-## Resource creation takes a long time
+### Resource creation takes a long time
 If the deployment process takes more than three hours to complete, contact [Neon support](https://neon.tech/docs/introduction/support).
 If the deployment fails and the Neon resource has a status of Failed, delete the resource. After deletion, try to create the resource again
 
-## Other Troubleshooting resources
+### Other Troubleshooting resources
 
 ### Errors when connecting to your Neon database
 If you encounter issues when connecting to your Neon database, refer to the [Connection errors section in the Neon documentation](https://neon.tech/docs/connect/connection-errors) for potential solutions.
