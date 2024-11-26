@@ -310,7 +310,7 @@
             - name: Use Microsoft Teams
               displayName: applications, apps, webrtc
               href: teams-on-avd.md
-            - name: Use OneDrive with RemoteApp
+            - name: Launch OneDrive with RemoteApp
               displayName: applications, apps
               href: onedrive-remoteapp.md
     - name: Migrate from classic
