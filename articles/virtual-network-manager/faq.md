@@ -5,9 +5,12 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: azure-virtual-network-manager
 ms.topic: faq
-ms.date: 11/25/2024
+ms.date: 01/30/2024
 ms.author: mbender
-ms.custom: reference_regions
+ms.custom:
+  - references_regions
+  - engagement-fy23
+  - ignite-2023
 ---
 
 # Azure Virtual Network Manager FAQ
@@ -48,7 +51,6 @@ You can deploy and manage an Azure Virtual Network Manager instance and configur
 * [Azure portal](./create-virtual-network-manager-portal.md)
 * [Azure CLI](./create-virtual-network-manager-cli.md)
 * [Azure PowerShell](./create-virtual-network-manager-powershell.md)
-* [ARM Template](./create-virtual-network-manager-template.md)
 * [Terraform](./create-virtual-network-manager-terraform.md)
 
 ## Technical
@@ -56,22 +58,6 @@ You can deploy and manage an Azure Virtual Network Manager instance and configur
 ### Can a virtual network belong to multiple Azure Virtual Network Manager instances?
 
 Yes, a virtual network can belong to more than one Azure Virtual Network Manager instance.
-
-### Can spoke VNets be connected to a VWAN hub while in a mesh topology so that those spoke VNets can communicate directly?
-
-Yes, spoke VNets can connect to VWAN hubs while in the mesh group. Those VNets in the mesh group have direct connectivity.
-
-### Will operations to the IP prefixes in VNETs that are a part of the Azure Virtual Network Manager mesh propagate automatically? 
-
-VNets in mesh are automatically in sync. IP prefixes will be updated automatically. This means that traffic within the mesh will work even after there are changes in IP prefixes in VNets in the mesh.
-
-### How do I verify a mesh topology is configured and applied?"? 
-
-Please refer to the documentation [How to view applied configurations](/azure/virtual-network-manager/how-to-view-applied-configurations?branch=main). A mesh topology is not a VNet peering, so you cannot see mesh connectivity in peering.
-
-### What happens if the region where the Azure Virtual Network Manager is created is down? Does it affect deployed configurations or only prevent configuration changes?
-
-Only the ability to change configurations will be impacted. Once Azure Virtual Network Manager has programmed the configuration after you commit the configuration, it will continue to operate. For example, if the Azure Virtual Network Manager instance is created in region 1 and the mesh topology is established in region 2, the mesh in region 2 will continue to function even if region 1 becomes unavailable. 
 
 ### What is a global mesh network topology?
 
