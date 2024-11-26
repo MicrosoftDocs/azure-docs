@@ -1,7 +1,7 @@
 ---
 title: Set up traffic mirroring - Defender for IoT
 description: A quick guide for the correct placement and mirroring of the OT sensor in your network for Microsoft Defender for IoT.
-ms.topic: install-set-up-deploy
+ms.topic: how-to
 ms.date: 10/30/2024
 ---
 

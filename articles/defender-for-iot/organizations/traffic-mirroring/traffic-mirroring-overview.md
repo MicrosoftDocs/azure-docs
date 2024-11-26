@@ -1,11 +1,11 @@
 ---
-title: Configure traffic mirroring overview - Microsoft Defender for IoT
+title: Traffic mirroring overview - Microsoft Defender for IoT
 description: This article serves as an overview for configuring traffic mirroring for Microsoft Defender for IoT.
 ms.date: 07/04/2023
-ms.topic: install-set-up-deploy
+ms.topic: conceptual
 ---
 
-# Configure traffic mirroring
+# Traffic mirroring overview
 
 This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT and provides an overview of the procedures for configuring traffic mirroring in your network.
 
@@ -67,4 +67,4 @@ Defender for IoT also supports traffic mirroring with TAP configurations. For mo
 ## Next steps
 
 > [!div class="step-by-step"]
-> [Network sensor mirroring set up >>](network-sensor-mirroring-set-up.md)
+> [Network sensor mirroring set up >>](set-up-traffic-mirroring.md)
