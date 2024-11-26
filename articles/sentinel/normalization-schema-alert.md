@@ -16,7 +16,7 @@ ms.author: vakohl
 
 The Microsoft Sentinel Alert Schema is designed to normalize security-related alerts from various products into a standardized format within Microsoft Advanced Security Information Model (ASIM). This schema focuses exclusively on security events, ensuring consistent and efficient analysis across different data sources.
 
-The Alert Schema represents various types of security alerts, such as threats, suspicious activities, user behavior anomalies and compliance violations. These alerts are reported by different security products and systems, including but not limited to EDRs, antivirus softwares, intrusion detection systems, data loss prevention tools etc.
+The Alert Schema represents various types of security alerts, such as threats, suspicious activities, user behavior anomalies and compliance violations. These alerts are reported by different security products and systems, including but not limited to EDRs, antivirus software, intrusion detection systems, data loss prevention tools etc.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
@@ -100,7 +100,7 @@ The following list mentions fields that have specific guidelines for Alert event
 |-------|-------|------|-------------|
 | **EventType** | Mandatory | Enumerated | Type of the event.<br><br>Supported values are:<br>-`Alert` |
 | **EventSubType** | Recommended | Enumerated | Specifies the subtype or category of the alert event, providing more granular detail within the broader event classification. This field helps distinguish the nature of the detected issue, improving incident prioritization and response strategies.<br><br>Supported values include:<br>- `Threat` (Represents a confirmed or highly likely malicious activity that could compromise the system or network)<br>- `Suspicious Activity` (Flags behavior or events that appear unusual or suspicious, though not yet confirmed as malicious)<br>- `Anomaly` (Identifies deviations from normal patterns that could indicate a potential security risk or operational issue)<br>- `Compliance Violation` (Highlights activities that breach regulatory, policy, or compliance standards) |
-| **EventUid** | Mandatory | string | A machine-readable, alphanumeric string that uniquely identifies an alert within a system. <br> e.g. `ca66e2bdc45f2d8840b367e067` |
+| **EventUid** | Mandatory | string | A machine-readable, alphanumeric string that uniquely identifies an alert within a system. <br> e.g. `A1bC2dE3fH4iJ5kL6mN7oP8qR9s` |
 | **EventMessage** | Optional | string | Detailed information about the alert, including its context, cause, and potential impact. <br> e.g. `Potential use of the Rubeus tool for kerberoasting, a technique used to extract service account credentials from Kerberos tickets.` |
 | **IpAddr** | Alias | | Alias or friendly name for `DvcIpAddr` field. |
 | **Hostname** | Alias | | Alias or friendly name for `DvcHostname` field. |
@@ -132,10 +132,10 @@ The following table covers fields that provide critical insights into the rules 
 | **AlertOriginalStatus** | Optional | string | The status of the alert as reported by the originating system. |
 | **DetectionMethod** | Optional | Enumerated | Provides detailed information about the specific detection method, technology, or data source that contributed to the generation of the alert. This field offers greater insight into how the alert was detected or triggered, aiding in the understanding of the detection context and reliability.<br><br>Supported values include:<br>- `EDR`: Endpoint Detection and Response systems that monitor and analyze endpoint activities to identify threats.<br>- `Behavioral Analytics`: Techniques that detect abnormal patterns in user, device, or system behavior.<br>- `Reputation`: Threat detection based on the reputation of IP addresses, domains, or files.<br>- `Threat Intelligence`: External or internal intelligence feeds providing data on known threats or adversary tactics.<br>- `Intrusion Detection`: Systems that monitor network traffic or activities for signs of intrusions or attacks.<br>- `Automated Investigation`: Automated systems that analyze and investigate alerts, reducing manual workload.<br>- `Antivirus`: Traditional antivirus engines that detect malware based on signatures and heuristics.<br>- `Data Loss Prevention`: Solutions focused on preventing unauthorized data transfers or leaks.<br>- `User Defined Blocked List`: Custom lists defined by users to block specific IPs, domains, or files.<br>- `Cloud Security Posture Management`: Tools that assess and manage security risks in cloud environments.<br>- `Cloud Application Security`: Solutions that secure cloud applications and data.<br>-`Scheduled Alerts`: Alerts generated based on predefined schedules or thresholds.<br>- `Other`: Any other detection method not covered by the above categories. |
 | **Rule** | Alias | string | Either the value of RuleName or the value of RuleNumber. If the value of RuleNumber is used, the type should be converted to string. |
-| **RuleNumber** | Optional | int | The number of the rule associated with the alert.<br><br>e.g. `600708` |
+| **RuleNumber** | Optional | int | The number of the rule associated with the alert.<br><br>e.g. `123456` |
 | **RuleName** | Optional | string | The name or ID of the rule associated with the alert.<br><br>e.g. `Server PSEXEC Execution via Remote Access` |
 | **RuleDescription** | Optional | string | Description of the rule associated with the alert.<br><br>e.g. `This rule detects remote execution on a server using PSEXEC, which may indicate unauthorized administrative activity or lateral movement within the network` |
-| **ThreatId** | Optional | string | The ID of the threat or malware identified in the alert.<br><br> e.g. `7570037250905284790` |
+| **ThreatId** | Optional | string | The ID of the threat or malware identified in the alert.<br><br> e.g. `1234567891011121314` |
 | **ThreatName** | Optional | string | The name of the threat or malware identified in the alert.<br><br> e.g. `Init.exe` |
 | **ThreatFirstReportedTime** | Optional | datetime | Date and time when the threat was first reported.<br><br> e.g. `2024-09-19T10:12:10.0000000Z` |
 | **ThreatLastReportedTime** | Optional | datetime | Date and time when the threat was last reported.<br><br> e.g. `2024-09-19T10:12:10.0000000Z` |
@@ -158,15 +158,15 @@ This section defines fields related to the identification and classification of 
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| **UserId** | Optional | string | A machine-readable, alphanumeric, unique representation of the user associated with the alert.<br><br>e.g. `00urjk4znu3BcncfY0h7` |
+| **UserId** | Optional | string | A machine-readable, alphanumeric, unique representation of the user associated with the alert.<br><br>e.g. `A1bC2dE3fH4iJ5kL6mN7o` |
 | **UserIdType** | Conditional | Enumerated | The type of the user ID, such as `GUID`, `SID`, or `Email`.<br><br>Supported values are:<br>- `GUID`<br>- `SID`<br>- `Email`<br>- `Username`<br>- `Phone`<br>- `Other` |
 | **Username** | Recommended | string | Name of the user associated with the alert, including domain information when available.<br><br>e.g. `Contoso\JSmith` or `john.smith@contoso.com` |
 | **User** | Alias | string | Alias or friendly name for `Username` field. |
 | **UsernameType** | Conditional | UsernameType | Specifies the type of the user name stored in the `Username` field. For more information, and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Windows` |
 | **UserType** | Optional | UserType | The type of the Actor. For more information, and list of allowed values, see [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br> e.g. `Guest`|
 | **OriginalUserType** | Optional | string | The user type as reported by the reporting device. |
-| **UserSessionId** | Optional | string | The unique ID of the user's session associated with the alert.<br><br>e.g. `d73f9a8b-61a5-4c49-9d7f-bc3e3e7b5a12` |
-| **UserScopeId** | Optional | string | The scope ID, such as Microsoft Entra Directory ID, in which UserId and Username are defined.<br><br>e.g. `a2f6789c-1234-45de-9abc-5678def01234` |
+| **UserSessionId** | Optional | string | The unique ID of the user's session associated with the alert.<br><br>e.g. `a1bc2de3-fh4i-j5kl-6mn7-op8qr9st0u` |
+| **UserScopeId** | Optional | string | The scope ID, such as Microsoft Entra Directory ID, in which UserId and Username are defined.<br><br>e.g. `a1bc2de3-fh4i-j5kl-6mn7-op8qrs` |
 | **UserScope** | Optional | string | The scope, such as Microsoft Entra tenant, in which UserId and Username are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).<br><br>e.g. `Contoso Directory` |
 
 ### Process Fields
@@ -175,7 +175,7 @@ This section allows you to capture details related to a process entity involved 
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| **ProcessId** | Optional | string | The process ID (PID) associated with the alert.<br><br>e.g. `48610176` |
+| **ProcessId** | Optional | string | The process ID (PID) associated with the alert.<br><br>e.g. `12345678` |
 | **ProcessCommandLine** | Optional | string | Command line used to start the process.<br><br>e.g. `"choco.exe" -v` |
 | **ProcessName** | Optional | string | Name of the process.<br><br>e.g. `C:\Windows\explorer.exe` |
 | **ProcessFileCompany** | Optional | string | Company that created the process image file.<br><br>e.g. `Microsoft` |
@@ -189,9 +189,9 @@ This section enables you to capture details related to a file entity involved in
 | **FileName** | Optional | string | Name of the file associated with the alert, without path or a location.<br><br>e.g. `Notepad.exe` |
 | **FilePath** | Optional | string | he full, normalized path of the target file, including the folder or location, the file name, and the extension.<br><br>e.g. `C:\Windows\System32\notepad.exe` |
 | **FileSHA1** | Optional | string | SHA1 hash of the file.<br><br>e.g. `d55c5a4df19b46db8c54` |
-| **FileSHA256** | Optional | string | SHA256 hash of the file.<br><br>e.g. `e81bb824c4a09a811af17deae22f22dd` |
-| **FileMD5** | Optional | string | MD5 hash of the file.<br><br>e.g. `75a599802f1fa166cdadb360960b1dd0` |
-| **FileSize** | Optional | long | Size of the file in bytes.<br><br>e.g. `834936` |
+| **FileSHA256** | Optional | string | SHA256 hash of the file.<br><br>e.g. `a1bc2de3fh4ij5kl6mn7op8qrs2de3` |
+| **FileMD5** | Optional | string | MD5 hash of the file.<br><br>e.g. `j5kl6mn7op8qr9st0uv1wx2yz3ab4c` |
+| **FileSize** | Optional | long | Size of the file in bytes.<br><br>e.g. `123456` |
 
 ### Url Field
 
