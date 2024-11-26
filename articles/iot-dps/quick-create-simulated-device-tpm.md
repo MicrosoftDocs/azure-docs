@@ -628,7 +628,6 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     ![Java TPM device program final](./media/quick-create-simulated-device-tpm/program-final-java.png)
 
 ::: zone-end
-::: zone pivot="programming-language-csharp, programming-language-ansi-c, programming-language-nodejs, programming-language-java"
 
 ## Confirm your device provisioning registration
 
