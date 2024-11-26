@@ -18,6 +18,8 @@ ms.author: yelevin
 [Microsoft Defender for Cloud Defender plans](/azure/defender-for-cloud/defender-for-cloud-introduction#protect-cloud-workloads) are enabled per subscription. While Microsoft Sentinel's legacy connector for Defender for Cloud Apps is also configured per subscription, the **Tenant-based Microsoft Defender for Cloud** connector, in preview, allows you to collect Defender for Cloud alerts over your entire tenant without having to enable each subscription separately. The tenant-based connector also works with [Defender for Cloud's integration with Microsoft Defender XDR](ingest-defender-for-cloud-incidents.md) to ensure that all of your Defender for Cloud alerts are fully included in any incidents you receive through [Microsoft Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+> [!NOTE]
+> The connector does not support syncing alerts from subscriptions owned by other tenants, even when Lighthouse is enabled for those tenants.
 
 ## Alert synchronization
 
