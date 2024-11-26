@@ -34,10 +34,36 @@ The Operator Nexus Platform offers a managed credential rotation process that au
 - Console User SSH keys for emergency access
 - Local path storage
 
-When a new Cluster is created, the credentials are automatically rotated during deployment. The managed credential process then automatically rotates these credentials periodically based on the credential type. The updated credentials are written to the key vault associated with the Cluster resource. With the 2024-07-01-GA API, the credential rotation status is available on the Bare Metal Machine or Storage Appliance resources in the `secretRotationStatus` data construct for each of the rotated credentials.
+When a new Cluster is created, the credentials are automatically rotated during deployment. The managed credential process then automatically rotates these credentials periodically based on the credential type. The updated credentials are written to the key vault associated with the Cluster resource.
 
 > [!NOTE]
 > The introduction of this capability enables auto-rotation for existing instances. If any of the supported credentials have not been rotated within the expected rotation time period, they will be rotated during the management upgrade.
+
+With the 2024-07-01-GA API, the credential rotation status is available on the Bare Metal Machine or Storage Appliance resources in the `secretRotationStatus` data construct for each of the rotated credentials.
+
+One example of this `secretRotationStatus` looks like:
+```
+       "secretRotationStatus": [
+            {
+                "lastRotationTime": "2024-10-30T17:48:23Z",
+                "rotationPeriodDays": 14,
+                "secretArchiveReference": {
+                    "keyVaultId": "<KV Resource ID>",
+                    "secretName": "YYYYYYYYYYYYYYYYYYYYYY-storage-appliance-credential-manager-ZZZZZZZ",
+                    "secretVersion": "XXXXXXXXXXXXXX"
+                },
+                "secretType": "Bare Metal Machine Identity - console"
+            },
+```
+
+In the `secretRotationStatus` object, the following fields provide context to the state of the last rotation:
+
+- `lastRotationTime`: The timestamp in UTC of the previous successful rotation.
+- `rotationPeriodDays`: The number in days the Credential Manager service is scheduled to rotate this credential. This value isn't remaining days from the `lastRotatedTime` since rotation can be delayed, but how many days on a schedule the service rotates a particular credential.
+- `secretArchiveReference`: A reference to the Key Vault that the credential is stored. It contains the ID of the key vault, the secret name of the stored credential, and the version of the secret that was previously rotated.
+
+>[!NOTE]
+> If a credential is changed on a device outside of the automatic credential rotation service, the next rotation will likely fail due to the secret not being known by the software. This prevents further automated rotation and a [baremetal machine replace](./howto-baremetal-functions.md) is required to address manually changed credentials.
 
 Operator Nexus also provides a service for preemptive rotation of the above Platform credentials. This service is available to customers upon request through a support ticket. Credential rotation for Operator Nexus Fabric devices also requires a support ticket. Instructions for generating a support request are described in the next section.
 
