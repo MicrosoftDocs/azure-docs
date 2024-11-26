@@ -59,9 +59,7 @@ There are several ways provided in the document [Source Network Address Translat
 
      **Approach 2:** Create the cluster using the existing subnet
 
-      Your existing virtual network may be incompatible with Azure Standard Load Balancer, to upgrade your existing custom virtual network to integrate with Azure standard load balancer. 
-
-      You need to attach a network security group and a NAT gateway to your existing subnet. Since the existing subnet which has HDInsight clusters with Azure basic load balancers can't be associated with an NAT gateway due to incompatibility with basic load balancer, there are two scenarios:
+      Your existing virtual network may be incompatible with Azure Standard Load Balancer, to upgrade your existing custom virtual network to integrate with Azure standard load balancer. You need to attach a network security group and a NAT gateway to your existing subnet. Since the existing subnet which has HDInsight clusters with Azure basic load balancers can't be associated with an NAT gateway due to incompatibility with basic load balancer, there are two scenarios:
 
       * **Case 1:** Existing subnet has no HDInsight clusters with Azure Basic Load Balancers
 
