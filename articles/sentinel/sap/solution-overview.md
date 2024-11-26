@@ -4,7 +4,7 @@ description: This article provides an overview of the Microsoft Sentinel solutio
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 09/15/2024
+ms.date: 11/05/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -34,10 +34,14 @@ For example, the following image shows a sample environment where the Microsoft 
 
 :::image type="content" source="media/deployment-overview/sap-sentinel-multi-sid-overview.png" alt-text="Diagram of a multi-SID SAP landscape with Microsoft Sentinel." lightbox="media/deployment-overview/sap-sentinel-multi-sid-overview.png" border="false":::
 
-Microsoft Sentinel also provides the [Microsoft Sentinel solution for SAP BTP](sap-btp-solution-overview.md), which offers threat monitoring and detection for SAP Business Technology Platform (BTP).
+Microsoft Sentinel also offers solutions for the following SAP environment configuraitons:
+
+- (Preview) The Microsoft Sentinel SAP Agentless solution offers threat monitoring and detection for the SAP Audit Log only, with an agentless data connector for simpler deployment.
+- The [Microsoft Sentinel solution for SAP BTP](sap-btp-solution-overview.md) offers threat monitoring and detection for SAP Business Technology Platform (BTP).
 
 ## Threat detection coverage
 
+<!--is this true for agentless?-->
 The Microsoft Sentinel solution for SAP applications supports threat detections such as the following, and more:
 
 - **Suspicious privileges operations**, such as privileged user creation or usage of break-glass users
@@ -57,6 +61,8 @@ Investigate SAP incidents just as you would any other incidents in Microsoft Sen
 
 ## Certification
 
+<!--is this true for agentless?-->
+
 Microsoft Sentinel solution for SAP applications is certified for SAP S/4HANA Cloud, Private Edition RISE with SAP, and SAP S/4 on-premises.
 
 - The integration scenarios include S/4-BC-XAL 1.0/S/4 EXTERNAL ALERT AND MONITORING 1.0 (for S/4).
@@ -67,6 +73,7 @@ For more information, see the certification on the [SAP Certified Solutions Dire
 
 ## Solution pricing
 
+<!--is this true for agentless?-->
 While the Microsoft Sentinel for SAP solutions are free to install, there's an extra hourly charge for activating and using the solution on production systems.
 
 - The extra hourly charge applies to connected, active  production systems only. Inactive systems aren't subject to charges. If a system's status is unknown to Microsoft Sentinel, such as because of permission issues, it's counted as a production system.

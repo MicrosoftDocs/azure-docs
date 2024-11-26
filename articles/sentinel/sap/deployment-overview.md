@@ -4,7 +4,7 @@ description: Get an introduction to the process of deploying the Microsoft Senti
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 05/26/2024
+ms.date: 11/05/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -19,13 +19,20 @@ Use the Microsoft Sentinel solution for SAP applications to monitor your SAP sys
 
 This article introduces you to the Microsoft Sentinel solution for SAP applications deployment.
 
+> [!IMPORTANT]
+> Noted features are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Solution components
 
 The Microsoft Sentinel solution for SAP applications includes a data connector, which collects logs from your SAP systems and sends them to your Microsoft Sentinel workspace, and out-of-the-box security content, which helps you gain insight into your organization's SAP environment and detect and respond to security threats.
 
 ### Data connector
 
-The Microsoft Sentinel for SAP data connector is an agent installed as a container on a Linux virtual machine, physical server, or Kubernetes cluster. The agent collects application logs for all of your onboarded SAP SIDs from across the entire SAP system landscape, and then sends those logs to your Log Analytics workspace in Microsoft Sentinel.
+The Microsoft Sentinel solution for SAP applications supports both a containerized data connector agent and an agentless data connector. <!--is agentless limited to only the audit log?--> Both agents collect application logs for all your onboarded SAP SIDs from across the entire SAP system landscape, and then send those logs to your Log Analytics workspace in Microsoft Sentinel.
+
+Select one of the following tabs to learn more:
+
+### [Containerized data connector agent](#tab/agent)
 
 For example, the following image shows a multi-SID SAP landscape with a split between production and nonproduction systems, including the SAP Business Technology Platform. All the systems in this image are onboarded to Microsoft Sentinel for the SAP solution.
 
@@ -41,9 +48,30 @@ Microsoft Sentinel supports a few options for storing your agent configuration i
 
 You can also authenticate using SAP's Secure Network Communication (SNC) and X.509 certificates. While using SNC provides a higher level of authentication security, it might not be practical for all scenarios.
 
+### SAP data connector agent configuration file
+
+When using the data connector agent, the deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. The file is located in the `/sapcon-app/sapcon/config/system` directory on your VM. You can use this file to update the configuration of your SAP data connector agent.
+
+Earlier versions of the deployment script, released before June 2023, generated a **systemconfig.ini** file instead. For more information, see:
+
+- [Systemconfig.json file reference](reference-systemconfig-json.md)
+- [Systemconfig.ini file reference](reference-systemconfig.md) (legacy)
+
+<!--is this relevant for agentless?-->
+
+### [Agentless data connector (Preview)](#tab/agentless)
+
+The Microsoft Sentinel agentless data connector for SAP uses the SAP BTP Cloud Connector to connect to your SAP system and pull logs from it, as shown in the following image:
+
+:::image type="content" source="media/deployment-overview/agentless-connector.png" alt-text="Diagram that shows the Microsoft Sentinel agentless data connector in a SAP environment.":::
+
+<!--needs more description here-->
+
+---
+
 ### Security content
 
-The Microsoft Sentinel solution for SAP applications includes the following types of security content to help you gain insight into your organization's SAP environment and detect and respond to security threats:
+The Microsoft Sentinel solutions for SAP applications include the following types of security content to help you gain insight into your organization's SAP environment and detect and respond to security threats:
 
 - **Analytics rules** and **watchlists** for threat detection.
 - **Functions** for easy data access.
@@ -55,7 +83,7 @@ For more information, see [Microsoft Sentinel solution for SAP applications: sec
 
 ## Deployment flow and personas
 
-Deploying the Microsoft Sentinel solution for SAP applications involves several steps and requires collaboration across multiple teams, including the **security**, **infrastructure**, and **SAP BASIS** teams. The following image shows the steps in deploying the Microsoft Sentinel solution for SAP applications, with relevant teams indicated:
+Deploying the Microsoft Sentinel solutions for SAP applications involves several steps and requires collaboration across multiple teams, including the **security**, **infrastructure**, and **SAP BASIS** teams. The following image shows the steps in deploying the Microsoft Sentinel solutions for SAP applications, with relevant teams indicated:
 
 :::image type="content" source="media/deployment-steps/full-flow.png" alt-text="Diagram showing the full steps in the Microsoft Sentinel solution for SAP applications deployment flow." border="false":::
 
@@ -67,21 +95,27 @@ We recommend that you involve all relevant teams when planning your deployment t
 
 1. The following steps can happen in parallel as they involve separate teams, and aren't dependent on each other:
 
-    1. [Deploy the Microsoft Sentinel solution for SAP applications from the content hub](deploy-sap-security-content.md). This step is handled by the security team on the Azure portal.
+    1. [Deploy the Microsoft Sentinel solution for SAP applications from the content hub](deploy-sap-security-content.md). Make sure that you install the correct solution for your environment. This step is handled by the security team on the Azure portal.
 
-    1. [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md), including configuring SAP authorizations, configuring SAP auditing, and more. We recommend that these steps be done by your SAP BASIS team, and our documentation includes references to SAP documentation.
+    1. [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md), including configuring SAP authorizations, configuring SAP auditing, and more. We recommend that these steps be done by your SAP BASIS team, and our documentation includes references to SAP documentation. <!--is all of this relevant for agentless?>
 
-1. [Connect your SAP system by deploying your data connector agent container](deploy-data-connector-agent-container.md). This step requires coordination between your security, infrastructure, and SAP BASIS teams.
+1. [Connect your SAP system](deploy-data-connector-agent-container.md) using one of the following methods, depending on the Microsoft Sentinel solution you deployed:
+
+    - Deploy a containerized data connector agent
+    - Use an agentless data connector with the SAP Cloud Connetor (Preview)
+
+    This step requires coordination between your security, infrastructure, and SAP BASIS teams.
 
 1. [Enable SAP detections and threat protection](deployment-solution-configuration.md). This step is handled by the security team on the Azure portal.
 
 **Extra options include:**
 
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
-- [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
+- [Deploy a SAP data connector agent manually](sap-solution-deploy-alternate.md)
 
 ## Stop SAP data collection
 
+<!--what about agentless?-->
 If you need to stop Microsoft Sentinel from collecting your SAP data, stop log ingestion and disable the connector. Then remove the extra user role and any optional CRs installed on your SAP system.
 
 For more information, see [Stop SAP data collection](stop-collection.md).

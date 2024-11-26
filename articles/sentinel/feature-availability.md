@@ -6,7 +6,7 @@ ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
-ms.date: 11/07/2024
+ms.date: 11/26/2024
 
 
 #Customer intent: As a security operations manager, I want to understand the Microsoft Sentinel's feature availability across different Azure environments so that I can effectively plan and manage our security operations.
@@ -160,6 +160,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Threat protection for SAP](sap/deployment-overview.md)</sup> |GA |&#x2705;|&#x2705; |&#x2705; |
+|[Agentless data connector](sap/deployment-overview.md#data-connector) | Public preview | &#x2705; |&#10060; | &#10060;|
 
 ## Threat intelligence support		
 

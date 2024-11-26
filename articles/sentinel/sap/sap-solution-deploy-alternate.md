@@ -20,6 +20,10 @@ This article provides procedures for deploying and configuring the Microsoft Sen
 
 Content in this article is intended for your **SAP BASIS** teams. For more information, see [Deploy a SAP data connector agent from the command line](deploy-command-line.md).
 
+> [!NOTE]
+> This article isn't relevant for the SAP agentless solution.
+>
+
 ## Prerequisites
 
 - Make sure that your system complies with the prerequisites documented in the main [SAP data connector prerequisites document](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) before you start.
@@ -410,5 +414,5 @@ For more information, see [Reference of tables retrieved directly from SAP syste
 
 For more information, see:
 
-- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Connect your SAP system to Microsoft Sentinel](deploy-data-connector-agent-container.md)
 - [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)

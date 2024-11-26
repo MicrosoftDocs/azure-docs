@@ -21,7 +21,11 @@ During the data connector agent update process, there might be a brief downtime 
 
 The automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel solution for SAP applications. To successfully update the solution, your agent needs to be up to date. The solution is updated separately, as you would any other [Microsoft Sentinel solution](../sentinel-solutions-deploy.md#install-or-update-content).
 
-Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
+Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams. 
+
+> [!NOTE]
+> This article isn't relevant the SAP agentless solution.
+>
 
 ## Prerequisites
 

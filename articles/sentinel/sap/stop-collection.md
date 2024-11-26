@@ -20,6 +20,8 @@ There might be instances where you need to halt the data collection from your SA
 
 This article provides step-by-step instructions on how to stop the ingestion of SAP logs into Microsoft Sentinel and disable the data connector.
 
+<!--how to do this for agentless?-->
+
 ## Prerequisites
 
 Before you stop the data collection from your SAP applications, ensure you have administrative access to:

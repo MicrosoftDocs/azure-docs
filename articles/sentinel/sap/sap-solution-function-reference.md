@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 # Microsoft Sentinel solution for SAP applications - functions reference
 
-This article describes a selection of functions that are available in your workspace after you install the Microsoft Sentinel solution for SAP applications. Discover more functions by browsing in Microsoft Sentinel and loading the function code.
+This article describes a selection of functions that are available in your workspace after you install a Microsoft Sentinel solution for SAP applications. Discover more functions by browsing in Microsoft Sentinel and loading the function code.
 
 Find functions as follows:
 

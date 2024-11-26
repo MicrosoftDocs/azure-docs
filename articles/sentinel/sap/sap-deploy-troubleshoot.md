@@ -1,24 +1,28 @@
 ---
-title: Microsoft Sentinel solution for SAP applications deployment troubleshooting
-description: Learn how to troubleshoot specific issues that might occur in your Microsoft Sentinel solution for SAP applications deployment.
+title: Troubleshoot the Microsoft Sentinel solution for SAP applications data connector agent
+description: Learn how to troubleshoot specific issues that might occur in your Microsoft Sentinel solution for SAP applications data connector agent deployment.
 author: batamig
 ms.author: bagol
 ms.topic: troubleshooting
-ms.date: 01/09/2023
+ms.date: 11/07/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
-#Customer intent: As an SAP BASIS team member, I want to troubleshoot issues with my Microsoft Sentinel for SAP applications data connector so that I can ensure accurate and timely data ingestion and monitoring.
+#Customer intent: As an SAP BASIS team member, I want to troubleshoot issues with my Microsoft Sentinel for SAP applications data connector agent so that I can ensure accurate and timely data ingestion and monitoring.
 
 ---
 
 # Troubleshooting your Microsoft Sentinel solution for SAP applications deployment
 
-This article includes troubleshooting steps to help you ensure accurate and timely data ingestion and monitoring for your SAP environment with Microsoft Sentinel.
+This article includes troubleshooting steps to help you ensure accurate and timely data ingestion and monitoring for your SAP environment with Microsoft Sentinel and the data connector agent.
 
 Selected troubleshooting procedures are only relevant when your data connector agent is [deployed via the command line](deploy-command-line.md). If you used the recommended procedure to [deploy the agent from the portal](deploy-data-connector-agent-container.md), use the portal to make any configuration changes.
+
+> [!NOTE]
+> This article is relevant only for the data connector agent, and isn't relevant for the SAP agentless solution.
+>
 
 ## Useful Docker commands
 
@@ -212,7 +216,7 @@ If you're using SAP BASIS versions higher than 7.5 SP12 and are missing IP addre
 
 ### Missing SAP change request
 
-If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-prerequisites) and [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md).
+If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-prerequisites-for-the-data-connector-agent-container) and [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md).
 
 
 ### No data is showing in the SAP table data log

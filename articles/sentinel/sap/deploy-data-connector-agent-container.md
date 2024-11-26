@@ -1,5 +1,5 @@
 ---
-title: Connect your SAP system by deploying your data connector agent container | Microsoft Sentinel
+title: Connect your SAP system to Microsoft Sentinel | Microsoft Sentinel
 description: This article describes how to connect your SAP system to Microsoft Sentinel by deploying the container that that hosts the SAP data connector agent.
 author: batamig
 ms.author: bagol
@@ -10,18 +10,19 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+zone_pivot_groups: sentinel-sap-connection
 
-#Customer intent: As a security, infrastructure, or SAP BASIS team member, I want to deploy and configure a containerized SAP data connector agent so that I can ingest SAP data into Microsoft Sentinel for enhanced monitoring and threat detection.
+#Customer intent: As a security, infrastructure, or SAP BASIS team member, I want to connect my SAP system to Microsoft Sentinel so that I can ingest SAP data into Microsoft Sentinel for enhanced monitoring and threat detection.
 
 ---
 
-# Connect your SAP system by deploying your data connector agent container
+# Connect your SAP system to Microsoft Sentinel
 
-For the Microsoft Sentinel solution for SAP applications to operate correctly, you must first get your SAP data into Microsoft Sentinel. To accomplish this, you need to deploy the solution's SAP data connector agent.
+For the Microsoft Sentinel solution for SAP applications to operate correctly, you must first get your SAP data into Microsoft Sentinel. Do this by either deploying the Microsoft Sentinel SAP data connector agent, or by connecting the Microsoft Sentinel agentless data connector for SAP. Select the option at the top of the page that matches your environment.
 
-This article describes how to deploy the container that hosts the SAP data connector agent and connect to your SAP system, and is the third step in deploying the Microsoft Sentinel solution for SAP applications. Make sure to perform the steps in this article in the order that they're presented.
+This article describes the third step in deploying the Microsoft Sentinel solution for SAP applications. Make sure to perform the steps in this article in the order that they're presented.
 
-:::image type="content" source="media/deployment-steps/deploy-data-connector.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Deploy your data agent container step." border="false" :::
+:::image type="content" source="media/deployment-steps/deploy-data-connector.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Connect your SAP system step." border="false" :::
 
 Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
@@ -33,7 +34,20 @@ Before you deploy the data connector agent:
 
 - Make sure that you have the [Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md) installed in your Microsoft Sentinel workspace.
 
-- Make sure that your SAP system is fully [prepared for the deployment](preparing-sap.md). If you're deploying the data connector agent to communicate with Microsoft Sentinel over SNC, make sure that you completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
+- Make sure that your SAP system is fully [prepared for the deployment](preparing-sap.md). 
+
+    :::zone pivot="connection-agent"
+    If you're deploying the data connector agent to communicate with Microsoft Sentinel over SNC, make sure that you completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
+
+    :::zone-end
+
+    :::zone pivot="connection-agentless"
+    If you're deploying the agentless data connector, make sure your DCR is configured as described in [Install the solution from the content hub](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
+
+    :::zone-end
+
+:::zone pivot="connection-agent"
+
 
 ## Watch a demo video
 
@@ -49,7 +63,7 @@ Includes more details about using Azure KeyVault. No audio, demonstration only w
 
 ## Create a virtual machine and configure access to your credentials
 
-We recommend creating a dedicated virtual machine for your data connector agent container to ensure optimal performance and avoid potential conflicts. For more information, see [System prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#system-prerequisites).
+We recommend creating a dedicated virtual machine for your data connector agent container to ensure optimal performance and avoid potential conflicts. For more information, see [System prerequisites for the data connector agent container](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#system-prerequisites-for-the-data-connector-agent-container).
 
 We recommend that you store your SAP and authentication secrets in an [Azure key vault](/azure/key-vault/general/authentication). How you access your key vault depends on where your virtual machine (VM) is deployed:
 
@@ -371,9 +385,30 @@ The system configuration you defined is deployed into the Azure key vault you de
 
 At this stage, the system's **Health** status is **Pending**. If the agent is updated successfully, it pulls the configuration from Azure Key vault, and the status changes to **System healthy**. This update can take up to 10 minutes.
 
+The deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. For more information, see [SAP data connector agent configuration file](deployment-overview.md#sap-data-connector-agent-configuration-file).
+
+:::zone-end
+
+:::zone pivot="connection-agentless"
+
+## Connect your agentless data connector
+
+1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **SAP Agentless (Preview)** data connector.
+1. In the **Configuration** area, under **Connect events from SAP to Microsoft Sentinel**, select **Add connection**.
+1. In the **Agentless connection** side pane, enter the following details:
+
+    - **RFC destination name (e.g. RFC-PRD-400)**: THe name of the RFC destination, taken from your BTP destination.
+    - **SAP Agentless Client ID**: The *clientid* value taken from the Proccess Integration Runtime service key JSON file.
+    - **SAP Agentless Client Secret**: The *clientsecret* value taken from the Process Integration Runtime service key JSON file.
+    - **Authorization server URL (UAA server)**: The *tokenurlurl* value taken from the Process Integration Runtime service key JSON file, without the `/oauth/token` suffix. Use the following syntax: `https://<azure-private>.authentication.<myEndpoint>.hana.ondeman.com`. For example: `https://trial2-a1b2c3d4.authentication.a1b2.hana.ondemand.com` <!--not sure what this syntax means - azure private?-->
+    - **Integration Suite Endpoint**: The *url* value taken from the Process Integration Runtime service key JSON file. Use the following syntax: `https://azure-private.<myIntegrationSuiteEndpoint>.hana.ondemand.com`. <!--do we have an example?-->
+:::zone-end
+
 ## Check connectivity and health
 
-After you deploy the SAP data connector agent, check your agent's health and connectivity. For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md).
+After you deploy the SAP data connector, check your agent's health and connectivity. For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md). <!--will this procedure be relevant for agentless?-->
+
+
 
 ## Next step
 

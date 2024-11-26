@@ -18,7 +18,11 @@ This article provides command line options for deploying an SAP data connector a
 
 However, if you're using a configuration file to store your credentials instead of Azure Key Vault, or if you're an advanced user who wants to deploy the data connector manually, such as in a Kubernetes cluster, use the procedures in this article instead.
 
-While you can run multiple data connector agents on a single machine, we recommend that you start with one only, monitor the performance, and then increase the number of connectors slowly. We also recommend that your **security** team perform this procedure with help from the **SAP BASIS** team.
+While you can run multiple data connector agents on a single machine, we recommend that you start with one only, monitor the performance, and then increase the number of connectors slowly. We also recommend that your **security** team perform this procedure with help from the **SAP BASIS** team. 
+
+> [!NOTE]
+> This article isn't relevant for the SAP agentless solution.
+>
 
 ## Prerequisites
 

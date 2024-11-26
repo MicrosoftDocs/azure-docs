@@ -1762,3 +1762,12 @@ groups:
     title: Premium v2 and Premium v3
   - id: isolated
     title: Isolated v2 (App Service Environment)
+# Owner: bagol
+- id: sentinel-sap-connection
+  title: Connection
+  prompt: Choose an connection type
+  pivots:
+  - id: connection-agent
+    title: Data connector agent
+  - id: connection-agentless
+    title: Agentless data connector (Preview)
