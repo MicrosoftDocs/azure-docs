@@ -27,7 +27,7 @@ You can choose between these logs destinations:
     - Log Analytics workspace for viewing and analysis.
     - Azure storage account to archive.
     - Azure event hub for data ingestion and analytic services. For more information, see [Azure Event Hubs](../event-hubs/event-hubs-about.md).
-    - An Azure partner monitoring solution such as, Datadog, Elastic, Logz.io and others.  For more information, see [Partner solutions](../partner-solutions/overview.md).  
+    - An Azure partner monitoring solution such as Datadog, Elastic, Logz.io and others.  For more information, see [Partner solutions](../partner-solutions/overview.md).  
 - **Don't save logs**: You can disable the storage of log data. When disabled, you can still view real-time container logs via the **Logs stream** feature in your container app. For more information, see [Log streaming](log-streaming.md).
 
 When *Don't save logs* or the *Azure Monitor* destination is selected, the **Logs** menu item providing the Log Analytics query editor in the Azure portal is disabled.
