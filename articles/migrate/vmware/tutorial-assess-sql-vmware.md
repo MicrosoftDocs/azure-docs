@@ -12,6 +12,8 @@ ms.custom: engagement-fy24
 
 # Tutorial: Assess SQL instances in VMware VMs for migration to Azure SQL
 
+[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 This article shows you how to assess discovered SQL Server instances and databases in preparation for migration to Azure SQL, using the Azure Migrate: Discovery and assessment tool.
 

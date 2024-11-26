@@ -12,6 +12,8 @@ ms.custom: vmware-scenario-422, mvc, engagement-fy23
 
 # Migrate VMware VMs to Azure (agentless)
 
+[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+
 This article shows you how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization](../migrate-services-overview.md) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
 
 This tutorial is the third in a series that demonstrates how to assess and migrate VMware VMs to Azure.

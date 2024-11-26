@@ -12,6 +12,8 @@ ms.custom: vmware-scenario-422, mvc, engagement-fy23
 
 # Troubleshoot slow replication or stuck migration issues in agentless VMware migration 
 
+[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+
 This article helps you troubleshoot slow replication or stuck migration issues that you may encounter when you replicate on-premises VMware VMs using the Azure Migrate: Server Migration agentless method.
 
 

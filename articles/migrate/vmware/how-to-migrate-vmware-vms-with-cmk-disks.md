@@ -13,6 +13,8 @@ ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
 
 # Migrate VMware VMs to Azure VMs enabled with server-side encryption and customer-managed keys
 
+[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+
 This article describes how to migrate VMware VMs to Azure virtual machines with disks encrypted using server-side encryption(SSE) with customer-managed keys(CMK), using Migration and modernization (agentless replication).
 
 The Migration and modernization portal experience lets you [migrate VMware VMs to Azure with agentless replication.](tutorial-migrate-vmware.md) The portal experience supports DES/CMK. DES should be created before starting replication and must be provided while starting replication. It cannot be provided at the time of migration. In this article, you'll see how to create and deploy an [Azure Resource Manager template](../../azure-resource-manager/templates/overview.md) to replicate a VMware VM and configure the replicated disks in Azure to use SSE with CMK.

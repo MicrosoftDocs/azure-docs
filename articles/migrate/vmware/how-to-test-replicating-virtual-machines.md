@@ -13,6 +13,8 @@ ms.custom: vmware-scenario-422, engagement-fy23
 
 # Test migrate replicating virtual machines
 
+[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+
 This article helps you understand how to test replicating virtual machines. Test migration provides a way to test and validate migrations prior to the actual migration.  
 
 

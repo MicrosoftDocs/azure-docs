@@ -13,6 +13,8 @@ ms.custom: vmware-scenario-422, mvc, subject-rbac-steps, engagement-fy24
 
 # Tutorial: Discover servers running in a VMware environment with Azure Migrate
 
+[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
 This tutorial shows you how to discover the servers that are running in your VMware environment by using the Azure Migrate: Discovery and assessment tool, a lightweight Azure Migrate appliance. You deploy the appliance as a server running in your vCenter Server instance, to continuously discover servers and their performance metadata, applications that are running on servers, server dependencies, web apps, and SQL Server instances and databases.

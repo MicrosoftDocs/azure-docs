@@ -12,6 +12,8 @@ ms.custom: vmware-scenario-422, engagement-fy23
 
 # Set up an appliance for servers in a VMware environment
 
+[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+
 This article describes how to set up the Azure Migrate appliance for assessment by using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md) tool.
 
 The [Azure Migrate appliance](../migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in vCenter Server and to send server configuration and performance metadata to Azure.

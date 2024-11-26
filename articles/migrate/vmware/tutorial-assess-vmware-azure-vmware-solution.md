@@ -12,6 +12,8 @@ ms.custom: vmware-scenario-422, MVC, engagement-fy23
 
 # Tutorial: Assess VMware servers for migration to AVS
 
+[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
 This article shows you how to assess discovered VMware virtual machines/servers for migration to Azure VMware Solution (AVS), using the Azure Migrate. AVS is a managed service that allows you to run the VMware platform in Azure.

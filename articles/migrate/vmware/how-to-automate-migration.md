@@ -13,6 +13,8 @@ ms.custom: vmware-scenario-422, engagement-fy23
 
 # Scale migration of VMware VMs 
 
+[!INCLUDE [scenario-banner.md](includes/scenario-banner.md)]
+
 This article helps you understand how to use scripts to migrate large number of VMware virtual machines (VMs) using the agentless method. To scale migrations, you use [Azure Migrate PowerShell module](./tutorial-migrate-vmware-powershell.md). 
 
 The Azure Migrate VMware migration automation scripts are available for download in the [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) repo on GitHub. The scripts can be used to migrate VMware VMs to Azure using the agentless migration method. The Azure Migrate PowerShell commands used in these scripts are documented [here](./tutorial-migrate-vmware-powershell.md).
