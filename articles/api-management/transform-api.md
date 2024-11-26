@@ -16,7 +16,7 @@ ms.author: danlep
 
 In this tutorial, you learn about configuring [policies](api-management-howto-policies.md) to protect or transform your API. Policies are a collection of statements that are run sequentially on the request or response of an API that modify the API's behavior. 
 
-For example, you might want to set a custom response header. Or, protect your backend API by configuring a rate limit policy, so that the API isn't overused by developers. These examples are just an introduction to to API Management policies. For more policy options, see [API Management policies](api-management-policies.md).
+For example, you might want to set a custom response header. Or, protect your backend API by configuring a rate limit policy, so that the API isn't overused by developers. These examples are a simple introduction to API Management policies. For more policy options, see [API Management policies](api-management-policies.md).
 
 > [!NOTE]
 > By default, API Management configures a global [`forward-request`](forward-request-policy.md) policy. The `forward-request` policy is needed for the gateway to complete a request to a backend service.
@@ -81,7 +81,7 @@ This section shows you how to configure a custom response header using the `set-
 
 ## Protect an API by adding rate limit policy (throttling)
 
-This section shows how to add protection to your backend API by configuring rate limits, so that the API isn't overused by developers. This example shows how to configure the `rate-limit-by-key` policy using the code editor. In this example, the limit is set to three calls per 15 seconds. After 15 seconds, a developer can retry calling tge API.
+This section shows how to add protection to your backend API by configuring rate limits, so that the API isn't overused by developers. This example shows how to configure the `rate-limit-by-key` policy using the code editor. In this example, the limit is set to three calls per 15 seconds. After 15 seconds, a developer can retry calling the API.
 
 > [!NOTE]
 > This policy isn't supported in the Consumption tier.
@@ -135,7 +135,7 @@ The rest of this section tests policy transformations that you set in this artic
 ### Test the custom response header
 
 1. Select **Swagger Petstore** > **Test**.
-1. SSelect the **GET Finds pets by status** operation, and optionally select a different value of the *status* **Query parameter**. Select **Send**.
+1. Select the **GET Finds pets by status** operation, and optionally select a different value of the *status* **Query parameter**. Select **Send**.
 
     As you can see, the custom response header is added:
 
