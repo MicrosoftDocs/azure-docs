@@ -67,7 +67,7 @@ During this sprint, we recommend that you execute BizTalk Server Environments Di
 |------|-------------|
 | Discovery | Capture data about all your interfaces and applications so you can learn the number of interfaces and applications that you need to migrate. You also need to assign complexity to each interface or process. During this cataloging process, collect the following information to prioritize work: <br><br>- Adapters in use <br><br>- BizTalk Server features in use, such as Business Activity Monitoring, Business Rules Engine, EDI, and so on <br><br>- Custom code, such as expressions, maps, and pipeline components <br><br>- Message throughput <br><br>- Message sizes <br><br>- Dependencies <br><br>- Application and system dependencies |
 | Architecture design | Create the high-level architecture to use as the focal point for the migration. This design includes elements that address high-level functional and non-functional needs. |
-| Minimum Viable Product (MVP) Definition | Define the first wave features. In other words, what processes need to be supported after the first wave has been completed. |
+| Minimum viable product (MVP) definition | Define the first wave features. In other words, the processes that need support after you complete the first wave. |
 | Initial migration backlog | Define the first wave features and their workitems with technical elaboration. |
 
 
