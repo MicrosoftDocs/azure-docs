@@ -28,7 +28,7 @@ This public preview supports the ability for developers to access real-time audi
 
 - **Personalized customer experiences:** By harnessing real-time data, businesses can offer more personalized and dynamic customer interactions in real-time, leading to increased satisfaction and loyalty.
 
-- **Reduce wait times for customers:** By using bidirectional audio streams in combination with Large Language Models (LLMs), you can build virtual agents that can be the first point of contact for customers, reducing the need for them to wait for a human agent to become available.
+- **Reduce wait times for customers:** Using bidirectional audio streams with Large Language Models (LLMs), you can create virtual agents that serve as the first point of contact for customers, reducing their wait time for a human agent.
 
 ### Authentication
 
@@ -47,11 +47,11 @@ Contains mixed audio of all participants on the call. All audio is flattened int
 Contains audio per participant per channel, with support for up to four channels for the four most dominant speakers at any point in a call. You also get a participantRawID that you can use to determine the speaker. 
 
 ## Additional information
-The following describes information about audio that is sent from Azure Communication Services, that developers can use to convert the audio packets into audible content that can be used by their applications.
+Developers can use the following information about audio sent from Azure Communication Services to convert the audio packets into audible content for their applications.
 - Framerate: 50 frames per second
 - Packet stream rate: 20-ms rate
-- Data packet size: 640 bytes for 16000 hz and 960 bytes for 24000 hz
-- Audio metric: 16-bit PCM mono at 16000 hz and 24000 hz
+- Data packet size: 640 bytes for 16,000 hz and 960 bytes for 24,000 hz
+- Audio metric: 16-bit PCM mono at 16,000 hz and 24,000 hz
 - Public string data is a base64 string that should be converted into a byte array to create raw PCM file.
 
 ## Billing
