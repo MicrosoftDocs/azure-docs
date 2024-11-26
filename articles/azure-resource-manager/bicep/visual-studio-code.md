@@ -3,7 +3,7 @@ title: Create Bicep files by using Visual Studio Code
 description: Learn how to use Visual Studio Code to create Bicep files.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 10/14/2024
+ms.date: 11/21/2024
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -198,6 +198,24 @@ When your Bicep file uses modules that are published to a registry, the restore 
 The Bicep Deployment Pane is an experimental feature. For more information, see [Using the Deployment Pane](https://github.com/Azure/bicep/blob/main/docs/experimental/deploy-ui.md).
 
 You can also open the deployment pane side-by-side with the Bicep file.
+
+## Use quick fix suggestions
+
+The yellow light bulb in VS Code represents a quick fix suggestion. It appears when the editor detects an issue or an improvement opportunity in your code. Clicking on the light bulb displays a menu of actions that can address the issue or enhance the code.
+
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-quick-fix-suggestions.png" alt-text="Screenshot of Visual Studio Code quick fix suggestions.":::
+
+For the extract commands, see [Extract paramters, variables, and types](#extract-parameters-variables-and-types). In **More Actions**, it suggests adding [decorators](./variables.md#use-decorators).
+
+## Extract parameters, variables, and types
+
+Extracting [variables](./variables.md), [parameters](./parameters.md), and [user-defined data types](./user-defined-data-types.md) involves isolating and defining these components from existing code to improve code structure, maintainability, and clarity.
+
+The following screenshot shows a definition of a storage account resource. You can extract a parameter or a variable, or a user-defined data type based of a property, such as `kind`. Select the `kind` line from the code, and then select the yellow light bulb icon, the context windows shows the available extract options.
+
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extraction.png" alt-text="Screenshot of variable, parameter, type extraction.":::
+
+
 
 ## View documentation
 
