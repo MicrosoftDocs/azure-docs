@@ -30,9 +30,10 @@ Use this procedure to move an external load balancer to another region using the
 Use this procedure to move an internal load balancer to another region using the Azure portal or Azure PowerShell.
 
 ---
+
 # [Azure portal](#tab/azure-portal/external-load-balancer)
 
-## Prerequisites
+#### Prerequisites
 
 - Make sure the Azure external load balancer is in the Azure region from which you want to move.
 
@@ -46,12 +47,12 @@ Use this procedure to move an internal load balancer to another region using the
 
 - Make sure your subscription has enough resources to support the addition of the load balancers. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-## Prepare and move
+#### Prepare and move
 The following procedures show how to prepare the external load balancer for the move by using a Resource Manager template and move the external load balancer configuration to the target region by using the Azure portal. You must first export the public IP configuration of external load balancer.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-### Export the public IP template and deploy the public IP from the portal
+#### Export the public IP template and deploy the public IP from the portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
 2. Locate the resource group that contains the source public IP and select it.
@@ -189,7 +190,7 @@ The following procedures show how to prepare the external load balancer for the 
 
 20. If you have another public IP that's being used for outbound NAT for the load balancer being moved, repeat the previous steps to export and deploy the second outbound public IP to the target region.
 
-### Export the external load balancer template and deploy the load balancer from the Azure portal
+#### Export the external load balancer template and deploy the load balancer from the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
 2. Locate the resource group that contains the source external load balancer and select it.
@@ -435,15 +436,15 @@ The following procedures show how to prepare the external load balancer for the 
 
 19. Select **Purchase** to deploy the target public IP.
 
-## Discard
+### Discard
 
 If you want to discard the target public IP and external load balancer, delete the resource group that contains them. To do so, select the resource group from your dashboard in the portal and then select **Delete** at the top of the overview page.
 
-## Clean up
+### Clean up
 
 To commit the changes and complete the move of the public IP and external load balancer, delete the source public IP and external load balancer or resource group. To do so, select that resource group from your dashboard in the portal and then select **Delete** at the top of each page.
 
-## Next steps
+### Next steps
 
 In this tutorial, you moved an Azure external load balancer from one region to another and cleaned up the source resources. To learn more about moving resources between regions and disaster recovery in Azure, see:
 
@@ -453,7 +454,7 @@ In this tutorial, you moved an Azure external load balancer from one region to a
 
 # [Azure PowerShell](#tab/azure-powershell/external-load-balancer)
 
-## Prerequisites
+### Prerequisites
 
 - Make sure that the Azure external load balancer is in the Azure region from which you want to move.
 
@@ -468,13 +469,13 @@ In this tutorial, you moved an Azure external load balancer from one region to a
 - Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 
-## Prepare and move
+### Prepare and move
 The following steps show how to prepare the external load balancer for the move using a Resource Manager template, and move the external load balancer configuration to the target region using Azure PowerShell. As part of this process, the public IP configuration of the external load balancer must be included and must me done first before moving the external load balancer.
 
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-### Export the public IP template and deploy from Azure PowerShell
+#### Export the public IP template and deploy from Azure PowerShell
 
 1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
     
@@ -642,7 +643,7 @@ The following steps show how to prepare the external load balancer for the move 
 
     ```
 
-### Export the external load balancer template and deploy from Azure PowerShell
+#### Export the external load balancer template and deploy from Azure PowerShell
 
 1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
     
@@ -931,7 +932,7 @@ The following steps show how to prepare the external load balancer for the move 
 
     ```
 
-## Discard 
+### Discard 
 
 After the deployment, if you wish to start over or discard the public IP and load balancer in the target, delete the resource group that was created in the target and the moved public IP and load balancer will be deleted. To remove the resource group, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
@@ -941,7 +942,7 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ```
 
-## Clean up
+### Clean up
 
 To commit the changes and complete the move of the NSG, delete the source NSG or resource group, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) or [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) and [Remove-AzLoadBalancer](/powershell/module/az.network/remove-azloadbalancer)
 
@@ -960,7 +961,7 @@ Remove-AzPublicIpAddress -Name <public-ip> -ResourceGroupName <resource-group-na
 
 ```
 
-## Next steps
+### Next steps
 
 In this tutorial, you moved an Azure network security group from one region to another and cleaned up the source resources. To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
@@ -970,7 +971,7 @@ In this tutorial, you moved an Azure network security group from one region to a
 
 # [Azure portal](#tab/azure-portal/internal-load-balancer)
 
-## Prerequisites
+### Prerequisites
 
 - Make sure that the Azure internal load balancer is in the Azure region from which you want to move.
 
@@ -985,13 +986,13 @@ In this tutorial, you moved an Azure network security group from one region to a
 - Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 
-## Prepare and move
+### Prepare and move
 The following steps show how to prepare the internal load balancer for the move using a Resource Manager template, and move the internal load balancer configuration to the target region using the Azure portal. As part of this process, the virtual network configuration of the internal load balancer must be included and must be done first before moving the internal load balancer.
 
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-### Export the virtual network template and deploy from the Azure portal
+#### Export the virtual network template and deploy from the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source virtual network and select it.
@@ -1370,15 +1371,15 @@ The following steps show how to prepare the internal load balancer for the move 
 
 19. Select the **Purchase** button to deploy the target virtual network.
 
-## Discard
+### Discard
 
 If you wish to discard the target virtual network and internal load balancer, delete the resource group that contains the target virtual network and internal load balancer. To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page.
 
-## Clean up
+### Clean up
 
 To commit the changes and complete the move of the virtual network and internal load balancer, delete the source virtual network and internal load balancer or resource group. To do so, select the virtual network and internal load balancer or resource group from your dashboard in the portal and select **Delete** at the top of each page.
 
-## Next steps
+### Next steps
 
 In this tutorial, you moved an Azure internal load balancer from one region to another and cleaned up the source resources. To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
@@ -1389,7 +1390,7 @@ In this tutorial, you moved an Azure internal load balancer from one region to a
 
 # [Azure PowerShell](#tab/azure-powershell/internal-load-balancer)
 
-## Prerequisites
+### Prerequisites
 
 - Make sure that the Azure internal load balancer is in the Azure region from which you want to move.
 
@@ -1404,13 +1405,13 @@ In this tutorial, you moved an Azure internal load balancer from one region to a
 - Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 
-## Prepare and move
+### Prepare and move
 The following steps show how to prepare the internal load balancer for the move using a Resource Manager template, and move the internal load balancer configuration to the target region using Azure PowerShell. As part of this process, the virtual network configuration of the internal load balancer must be included and must be done first before moving the internal load balancer.
 
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-### Export the virtual network template and deploy from Azure PowerShell
+#### Export the virtual network template and deploy from Azure PowerShell
 
 1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
     
@@ -1591,7 +1592,7 @@ The following steps show how to prepare the internal load balancer for the move 
     Get-AzVirtualNetwork -Name <target-virtual-network-name> -ResourceGroupName <target-resource-group-name>
 
     ```
-### Export the internal load balancer template and deploy from Azure PowerShell
+#### Export the internal load balancer template and deploy from Azure PowerShell
 
 1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
     
@@ -1853,8 +1854,7 @@ The following steps show how to prepare the internal load balancer for the move 
     Get-AzLoadBalancer -Name <target-publicip-name> -ResourceGroupName <target-resource-group-name>
 
     ```
-
-## Discard 
+### Discard 
 
 After the deployment, if you wish to start over or discard the virtual network and load balancer in the target, delete the resource group that was created in the target and the moved virtual network and load balancer will be deleted. To remove the resource group, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
@@ -1864,7 +1864,7 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ```
 
-## Clean up
+### Clean up
 
 To commit the changes and complete the move of the NSG, delete the source NSG or resource group, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) or [Remove-AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork) and [Remove-AzLoadBalancer](/powershell/module/az.network/remove-azloadbalancer)
 
@@ -1883,7 +1883,7 @@ Remove-AzVirtualNetwork -Name <virtual-network-name> -ResourceGroupName <resourc
 
 ```
 
-## Next steps
+### Next steps
 
 In this tutorial, you moved an Azure internal load balancer from one region to another and cleaned up the source resources. To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
