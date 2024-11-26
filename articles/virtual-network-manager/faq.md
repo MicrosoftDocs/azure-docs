@@ -67,7 +67,7 @@ VNets in mesh are automatically in sync. IP prefixes will be updated automatical
 
 ### How do I verify a mesh topology is configured and applied?"? 
 
-Please refer to the documentation [How to view applied configurations](how-to-view-applied-configurations). A mesh topology is not a VNet peering, so you cannot see mesh connectivity in peering.
+Please refer to the documentation [How to view applied configurations](/azure/virtual-network-manager/how-to-view-applied-configurations?branch=main). A mesh topology is not a VNet peering, so you cannot see mesh connectivity in peering.
 
 ### What happens if the region where the Azure Virtual Network Manager is created is down? Does it affect deployed configurations or only prevent configuration changes?
 
