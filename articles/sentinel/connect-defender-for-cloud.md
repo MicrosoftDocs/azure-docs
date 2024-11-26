@@ -19,7 +19,7 @@ ms.author: yelevin
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 > [!NOTE]
-> The connector does not support syncing alerts from subscriptions owned by other tenants even when Lighthouse is enabled for those tenants.
+> The connector does not support syncing alerts from subscriptions owned by other tenants, even when Lighthouse is enabled for those tenants.
 
 ## Alert synchronization
 
