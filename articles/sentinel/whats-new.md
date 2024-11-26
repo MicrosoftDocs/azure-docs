@@ -31,7 +31,7 @@ The listed features were released in the last three months. For information abou
 Microsoft Sentinel now provides a unified solution for Microsoft Power Platform, Microsoft Dynamics 365 Customer Engagement, and Microsoft Dynamics 365 Finance and Operations. The solution includes data connectors and security content for all platforms.
 
 
-The updated solution removes the **Dynamics 365 CE Apps** and the **Dynamics 365 Finance and Operations** solutions from the Microsoft Sentinel **Content hub**. Existing customers will see that these solutions are renamed to the Microsoft Business Applications solution.
+The updated solution removes the **Dynamics 365 CE Apps** and the **Dynamics 365 Finance and Operations** solutions from the Microsoft Sentinel **Content hub**. Existing customers will see that these solutions are renamed to the **Microsoft Business Applications** solution.
 
 The updated solution also removes the Power Platform Inventory data connector while we work on stability improvements. While customers who are already using the Power Platform Inventory data connector can continue to use it, it won't be available to install or deploy for new customers. <!--what happens if they don't update to the new solution - they'd still have the data connector, right?-->
 
