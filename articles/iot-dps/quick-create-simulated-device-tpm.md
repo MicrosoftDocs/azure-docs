@@ -16,9 +16,9 @@ ms.subservice: azure-iot-hub-dps
 # Quickstart: Provision a simulated TPM device
 
 ::: zone pivot="programming-language-csharp, programming-language-ansi-c, programming-language-nodejs, programming-language-java"
-In this quickstart, you'll create a simulated device on your Windows machine. The simulated device will be configured to use a [Trusted Platform Module (TPM) attestation](concepts-tpm-attestation.md) mechanism for authentication. After you've configured your device, you'll provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service. Sample code will then be used to help enroll the device with a Device Provisioning Service instance.
+In this quickstart, you'll create a simulated device on your Windows machine. The simulated device will be configured to use a [Trusted Platform Module (TPM) attestation](concepts-tpm-attestation.md) mechanism for authentication. After you configure your device, you'll provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service. Sample code will then be used to help enroll the device with a Device Provisioning Service instance.
 
-If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.  Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing.
+If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also make sure that you complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing.
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
 
@@ -377,7 +377,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
     java -jar ./provisioning-tpm-sample-{version}-with-deps.jar
     ```
 
-5. When the program begins running, it will display the *_Endorsement key_* and *_Registration ID_*.  Copy these values for the next section. Make sure to leave the program running.
+5. When the program begins running, it will display the *_Endorsement key_* and *_Registration ID_*. Copy these values for the next section. Make sure to leave the program running.
 
 ::: zone-end
 
@@ -640,34 +640,9 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 4. In the **Device management** section, select **Devices**.
 
-:::zone-end
-:::zone pivot="programming-language-ansi-c"
 5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
 
-    ![Device is registered with the IoT hub for C](./media/quick-create-simulated-device-tpm/hub-registration.png)
-
-:::zone-end
-
-:::zone pivot="programming-language-csharp"
-5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
-
-      ![Device is registered with the IoT hub for C#](./media/quick-create-simulated-device-tpm/hub-registration.png)
-
-::: zone-end
-
-::: zone pivot="programming-language-nodejs"
-5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
-
-    ![Device is registered with the IoT hub for Node.js](./media/quick-create-simulated-device-tpm/hub-registration.png)
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
-
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-tpm/hub-registration.png)
-
-::: zone-end
+   ![Screenshot that shows that the provisioned device is registered with the IoT hub.](./media/quick-create-simulated-device-tpm/hub-registration.png)
 
 > [!NOTE]
 > If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
