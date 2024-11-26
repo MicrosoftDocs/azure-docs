@@ -1,7 +1,7 @@
 ---
 title: Enable features on a schedule
 titleSuffix: Azure App Configuration
-description: Learn how to enable feature flags on a schedule.
+description: Learn how to enable feature flags on a schedule using time window filters in Azure App Configuration.
 ms.service: azure-app-configuration
 ms.devlang: csharp
 author: zhiyuanliang-ms
@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.date: 03/26/2024
 ---
 
-# Tutorial: Enable features on a schedule
+# Enable features on a schedule
 
 [Feature filters](./howto-feature-filters.md#what-is-a-feature-filter) allow a feature flag to be enabled or disabled conditionally. The time window filter is one of the feature management library's built-in feature filters. It allows you to turn on or off a feature on a schedule. For example, when you have a new product announcement, you can use it to unveil a feature automatically at a planned time. You can also use it to discontinue a promotional discount as scheduled after the marketing campaign ends.
 
-In this article, you will learn how to add and configure a time window filter for your feature flags.
+In this article, you learn how to add and configure a time window filter for your feature flags.
 
 ## Add a time window filter
 
@@ -48,7 +48,7 @@ In this article, you will learn how to add and configure a time window filter fo
 
 ## Next steps
 
-To learn more about the feature filters, continue to the following tutorials:
+To learn more about the feature filters, continue to the following docs:
 
 > [!div class="nextstepaction"]
 > [Enable conditional features with feature filters](./howto-feature-filters.md)

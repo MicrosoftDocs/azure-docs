@@ -1,7 +1,7 @@
 ---
 title: Roll out features to targeted audiences
 titleSuffix: Azure App Configuration
-description: Learn how to enable staged rollout of features for targeted audiences.
+description: Learn how to enable staged rollout of features for targeted audiences, using targeting filters with Azure App Configuration.
 ms.service: azure-app-configuration
 ms.devlang: csharp
 author: zhiyuanliang-ms
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 03/26/2024
 ---
 
-# Tutorial: Roll out features to targeted audiences
+# Roll out features to targeted audiences
 
 Targeting is a feature management strategy that enables developers to progressively roll out new features to their user base. The strategy is built on the concept of targeting a set of users known as the targeted audience. An audience is made up of specific users, groups, and a designated percentage of the entire user base.
 
@@ -76,7 +76,7 @@ In this article, you will learn how to add and configure a targeting filter for 
 
 ## Next steps
 
-To learn more about the feature filters, continue to the following tutorials:
+To learn more about the feature filters, continue to the following dos:
 
 > [!div class="nextstepaction"]
 > [Enable conditional features with feature filters](./howto-feature-filters.md)

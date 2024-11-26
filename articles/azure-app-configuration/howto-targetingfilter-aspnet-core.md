@@ -1,18 +1,25 @@
 ---
-title: Roll out features to targeted audiences in an ASP.NET Core app
+title: Roll out features to targeted audiences, ASP.NET Core app
 titleSuffix: Azure App Configuration
 description: Learn how to enable staged rollout of features for targeted audiences in an ASP.NET Core application.
 ms.service: azure-app-configuration
 ms.devlang: csharp
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 03/26/2024
 ---
 
 # Tutorial: Roll out features to targeted audiences in an ASP.NET Core application
 
 In this tutorial, you'll use the targeting filter to roll out a feature to targeted audience for your ASP.NET Core application. For more information about the targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
+
+In this tutorial, you:
+
+> [!div class="checklist"]
+> * Create a web application with a feature flag
+> * Enable targeting for the web application
+> * Test the targeting filter
 
 ## Prerequisites
 
@@ -221,7 +228,7 @@ The targeting filter evaluates a user's feature state based on the user's target
 
 ## Next steps
 
-To learn more about the feature filters, continue to the following tutorials.
+To learn more about the feature filters, continue to the following docs.
 
 > [!div class="nextstepaction"]
 > [Enable conditional features with feature filters](./howto-feature-filters.md)
