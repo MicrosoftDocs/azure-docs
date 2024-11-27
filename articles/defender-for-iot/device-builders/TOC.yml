@@ -69,7 +69,7 @@
     href: concept-recommendations.md
   - name: Firmware analysis (preview)
     displayName: IoT, OT, firmware, analysis
-    href: overview-firmware-analysis.md
+    href: /azure/firmware-analysis/overview-firmware-analysis
   - name: Azure role-based access control for Defender for IoT Firmware analysis
     displayName: RBAC, role, access, control, firmware, analysis
     href: /azure/firmware-analysis/firmware-analysis-rbac

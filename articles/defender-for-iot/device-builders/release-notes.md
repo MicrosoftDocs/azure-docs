@@ -17,9 +17,7 @@ For more information, see [Upgrade the Microsoft Defender for IoT micro agent](u
 
 ## November 2025
 
-You can now access the **Firmware analysis** page both from Defender for IoT, and directly via the Azure portal.
-
-The firmware analysis documentation is now located and maintained as part of the Azure portal documentation. See the full [firmware analysis documentation set](/azure/firmware-analysis/overview-firmware-analysis).
+The firmware analysis documentation is now located and maintained as part of the Azure documentation. See the full [firmware analysis documentation](/azure/firmware-analysis/overview-firmware-analysis).
 
 ## August 2024
 

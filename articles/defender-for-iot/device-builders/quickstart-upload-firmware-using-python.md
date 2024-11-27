@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Upload firmware images to Defender for IoT Firmware Analysis using Python"
 description: "Learn how to upload firmware images for analysis using Python."
-author: karengu0
-ms.author: karenguo
+author: limwainstein
+ms.author: lwainstein
 ms.topic: quickstart
 ms.custom: devx-track-python
 ms.date: 04/10/2024
