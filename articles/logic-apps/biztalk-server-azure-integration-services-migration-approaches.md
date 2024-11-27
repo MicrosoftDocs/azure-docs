@@ -166,7 +166,7 @@ During a wave, your team completes the activities to migrate, test, and release 
 
 During each wave, migration focuses on the agreed User Stories. For the first wave, your team focuses on the initial backlog. Technology decisions must use the information in the BizTalk Server features mapping, described by [Feature matchup - Why migrate from BizTalk Server to Azure Logic Apps](/azure/logic-apps/biztalk-server-to-azure-integration-services-overview#feature-matchup)?
 
-The following illustration depicts what should occur in the migration waves.
+The following diagram shows the events that should happen during migration waves:
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-migration-steps.png" alt-text="Diagram showing migration waves.":::
 
