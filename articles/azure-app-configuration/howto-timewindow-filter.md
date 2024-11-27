@@ -11,7 +11,7 @@ ms.date: 10/31/2024
 #customer intent: As an application developer, I want to enable a recurring time window filter in a feature flag so that I can enable or disable features on a schedule.
 ---
 
-# Enable features on a schedule
+# Tutorial: Enable features on a schedule
 
 [Feature filters](./howto-feature-filters.md#what-is-a-feature-filter) allow a feature flag to be enabled or disabled conditionally. The time window filter is one of the feature management library's built-in feature filters. It allows you to turn on or off a feature on a schedule. For example, when you have a new product announcement, you can use it to unveil a feature automatically at a planned time. You can also use it to discontinue a promotional discount as scheduled after the marketing campaign ends.
 
