@@ -33,29 +33,32 @@ landingContent:
         links:
           - text: Geting started with VMware migration
             url: start-here-vmware.md
-          - text: Assess ASP.NET web apps for migration to Azure App Service
-            url: ./tutorial-assess-webapps.md
-          - text: Assess SQL instances for migration to Azure SQL
-            url: ./tutorial-assess-sql.md
+          - text: Support Matrix for VMware discovery
+            url: migrate-support-matrix-vmware.md
+          - text: Support Matrix for VMware migration
+            url: migrate-support-matrix-vmware-migration.md
           - text: Migrate VMware VMs with Migration and modernization
             url: ./server-migrate-overview.md
-          - text: Migrate Hyper-V VMs with Migration and modernization
-            url: ./tutorial-migrate-hyper-v.md
-          - text: Migrate physical servers/VMs with Migration and modernization
-            url: ./tutorial-migrate-physical-virtual-machines.md
-          - text: Modernize ASP.NET web apps to Azure Kubernetes Service (AKS)
-            url: ./tutorial-modernize-asp-net-aks.md
-          - text: Create an Azure Spring Apps assessment
-            url: ./how-to-create-azure-spring-apps-assessment.md
 
-
-  - title: Start deployment
+  - title: Discover
     linkLists:
-      - linkListType: deploy
+      - linkListType: tutorial
         links:
-          - text: Review the VMware support matrix
-            url: ./migrate-support-matrix-vmware.md
+          - text: Geting started with VMware migration
+            url: start-here-vmware.md
+          - text: Support Matrix for VMware discovery
+            url: migrate-support-matrix-vmware.md
+          - text: Support Matrix for VMware migration
+            url: migrate-support-matrix-vmware-migration.md
+          - text: Migrate VMware VMs with Migration and modernization
+            url: ./server-migrate-overview.md
 
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Scale VMware assessment
+            url: ./scale-vmware-assessment.md
   - title: Manage
     linkLists:
       - linkListType: how-to-guide
