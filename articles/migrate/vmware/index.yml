@@ -38,45 +38,52 @@ landingContent:
           - text: Support Matrix for VMware migration
             url: migrate-support-matrix-vmware-migration.md
           - text: Migrate VMware VMs with Migration and modernization
-            url: ./server-migrate-overview.md
+            url: server-migrate-overview.md
 
   - title: Discover
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Geting started with VMware migration
-            url: start-here-vmware.md
-          - text: Support Matrix for VMware discovery
-            url: migrate-support-matrix-vmware.md
-          - text: Support Matrix for VMware migration
-            url: migrate-support-matrix-vmware-migration.md
-          - text: Migrate VMware VMs with Migration and modernization
-            url: ./server-migrate-overview.md
+          - text: Discover VMware servers
+            url: tutorial-discover-vmware.md
+          - text: Set discovery scope
+            url: set-discovery-scope.md
 
+  - title: Assess
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Assess VMware VMs for migration to Azure
+            url: tutorial-assess-vmware-azure-vm.md
+          - text: Assess VMware VMs for migration to Azure VMware Solution
+            url: tutorial-assess-vmware-azure-vmware-solution.md
+  
   - title: Manage
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Scale VMware assessment
-            url: ./scale-vmware-assessment.md
-  - title: Manage
+            url: scale-vmware-assessment.md
+  
+  - title: Migrate
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: tutorial
         links:
-          - text: Scale VMware assessment
-            url: ./scale-vmware-assessment.md
+          - text: Migrate VMware vSphere VMs with agent-based migration
+            url: tutorial-migrate-vmware-agent.md
+          - text: Migrate VMware vSphere VMs with agentless migration
+            url: tutorial-migrate-vmware.md
+          - text: Migrate VMware vSphere VMs with PowerShell
+            url: tutorial-migrate-vmware-powershell.md
+  
   - title: Learn more
     linkLists:
       - linkListType: learn
         links:
           - text: Learn about VMware/physical agent-based migration
-            url: ./agent-based-migration-architecture.md
-          - text: Learn about Hyper-V migration
-            url: ./hyper-v-migration-architecture.md
-          - text: Learn about assessments
-            url: ./concepts-assessment-calculation.md
-          - text: Learn about dependency visualization
-            url: ./concepts-dependency-visualization.md
+            url: agent-based-migration-architecture.md
+          - text: Learn about agentless migration architecture
+            url: concepts-vmware-agentless-migration.md
 
   - title: Get involved
     linkLists:
