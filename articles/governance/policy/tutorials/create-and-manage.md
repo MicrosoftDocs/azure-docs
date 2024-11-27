@@ -163,7 +163,7 @@ create a virtual machine in the G series, the request is denied.
    ```
 
    The _field_ property in the policy rule must be a supported value. A full list of values is found
-   on [policy definition structure fields](../concepts/definition-structure.md#fields). An example
+   on [policy definition structure fields](../concepts/definition-structure-policy-rule.md#fields). An example
    of an alias might be `"Microsoft.Compute/VirtualMachines/Size"`.
 
    To view more Azure Policy samples, see [Azure Policy samples](../samples/index.md).
@@ -682,4 +682,4 @@ In this tutorial, you successfully accomplished the following tasks:
 To learn more about the structures of policy definitions, look at this article:
 
 > [!div class="nextstepaction"]
-> [Azure Policy definition structure](../concepts/definition-structure.md)
+> [Azure Policy definition structure](../concepts/definition-structure-basics.md)

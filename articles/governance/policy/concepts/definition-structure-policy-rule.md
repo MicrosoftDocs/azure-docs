@@ -633,7 +633,7 @@ The following functions are only available in policy rules:
 - `field(fieldName)`
   - `fieldName`: [Required] string - Name of the [field](./definition-structure-policy-rule.md#fields) to retrieve
   - Returns the value of that field from the resource that is being evaluated by the If condition.
-  - `field` is primarily used with `auditIfNotExists` and `deployIfNotExists` to reference fields on the resource that are being evaluated. An example of this use can be seen in the [DeployIfNotExists example](effect-deploy-if-not-exists.md-example).
+  - `field` is primarily used with `auditIfNotExists` and `deployIfNotExists` to reference fields on the resource that are being evaluated. An example of this use can be seen in the [DeployIfNotExists example](effect-deploy-if-not-exists.md#deployifnotexists-example).
 
 - `requestContext().apiVersion`
   - Returns the API version of the request that triggered policy evaluation (example: `2021-09-01`). This value is the API version that was used in the PUT/PATCH request for evaluations on resource creation/update. The latest API version is always used during compliance evaluation on existing resources.

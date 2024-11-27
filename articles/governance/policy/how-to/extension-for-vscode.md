@@ -10,7 +10,7 @@ ms.custom: devx-track-arm-template
 > Applies to Azure Policy extension version **0.1.2** and newer
 
 Learn how to use the Azure Policy extension for Visual Studio Code (VS Code) to look up
-[aliases](../concepts/definition-structure.md#aliases), review resources and policy definitions,
+[aliases](../concepts/definition-structure-alias.md), review resources and policy definitions,
 export objects, and evaluate policy definitions. First, we'll describe how to install the Azure
 Policy extension in Visual Studio Code. Then we'll walk through how to look up aliases.
 
@@ -150,7 +150,7 @@ matching aliases.
 
 > [!NOTE]
 > The VS Code extension only supports evaluation of Resource Manager mode properties. For more
-> information about the modes, see the [mode definitions](../concepts/definition-structure.md#mode).
+> information about the modes, see the [mode definitions](../concepts/definition-structure-basics.md#mode).
 
 ### Search for and view policy definitions and assignments
 
@@ -251,7 +251,7 @@ example:
 
 > [!NOTE]
 > The VS Code extension only supports evaluation of Resource Manager mode properties. For more
-> information about the modes, see the [mode definitions](../concepts/definition-structure.md#mode).
+> information about the modes, see the [mode definitions](../concepts/definition-structure-basics.md#mode).
 >
 > The evaluation feature does not work on macOS and Linux installations of the extension.
 
@@ -283,7 +283,7 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 ## Next steps
 
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Study the [Azure Policy definition structure](../concepts/definition-structure.md).
+- Study the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
 - Read [Understanding policy effects](../concepts/effect-basics.md).
 - Understand how to [programmatically create policy definitions](programmatically-create.md).
 - Learn how to [remediate non-compliant resources](remediate-resources.md).

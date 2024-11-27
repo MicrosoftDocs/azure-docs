@@ -390,7 +390,7 @@ Below is an example of the **policyMetadata** object. This example metadata belo
 
 ## Next steps
 
-- See the [definition structure](./definition-structure.md)
+- See the [definition structure](./definition-structure-basics.md)
 - Review examples at [Azure Policy samples](../samples/index.md).
 - Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).

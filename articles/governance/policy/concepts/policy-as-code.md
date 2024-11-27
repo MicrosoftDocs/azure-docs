@@ -29,7 +29,7 @@ before it's too late and they're attempting to deploy in production.
 
 Before getting into the details of Azure Policy as Code workflow, it's important to understand some fundamental concepts, like how to author policy definitions and initiative definitions, and how to leverage exemptions on assignments of those definitions:
 
-- [Policy definition](./definition-structure.md)
+- [Policy definition](./definition-structure-basics.md)
 - [Initiative definition](./initiative-definition-structure.md)
 - [Policy exemption](./exemption-structure.md)
 
@@ -221,7 +221,7 @@ supports scripted steps and automation based on triggers.
 
 ## Next steps
 
-- Learn about the [policy definition structure](./definition-structure.md).
+- Learn about the [policy definition structure](./definition-structure-basics.md).
 - Learn about the [policy assignment structure](./assignment-structure.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

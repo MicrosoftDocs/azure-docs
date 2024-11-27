@@ -171,7 +171,7 @@ To remediate the existing resources, follow these steps:
      ```
 
    For more information about authoring a policy definition, see [Azure Policy Definition
-   Structure](../concepts/definition-structure.md).
+   Structure](../concepts/definition-structure-basics.md).
 
 1. Run the following command to create a policy definition using the ModifyVMIdentities.json file.
 

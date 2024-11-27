@@ -11,7 +11,7 @@ Regulatory Compliance in Azure Policy provides built-in initiative definitions t
 **controls** and **compliance domains** based on responsibility (_Customer_, _Microsoft_, _Shared_).
 For Microsoft-responsible controls, we provide additional details of our audit results based on
 third-party attestation and our implementation details to achieve that compliance.
-Microsoft-responsible controls are of `policyType` [static](./definition-structure.md#policy-type).
+Microsoft-responsible controls are of `policyType` [static](./definition-structure-basics.md#policy-type).
 
 > [!NOTE]
 > Regulatory Compliance is a Preview feature. For updated built-ins, the initiatives
@@ -60,7 +60,7 @@ compliance** tab provides a granular view of each resource that's evaluated by a
 the currently viewed **control**.
 
 > [!NOTE]
-> An evaluation type of **Microsoft managed** is for a [static](./definition-structure.md#policy-type) policy definition `policyType`.
+> An evaluation type of **Microsoft managed** is for a [static](./definition-structure-basics.md#policy-type) policy definition `policyType`.
 
 :::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Screenshot of the Regulatory Compliance details for the Boundary Protection control of the NIST SP 800-53 R4 built-in definition.":::
 

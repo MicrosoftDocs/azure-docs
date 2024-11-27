@@ -36,7 +36,7 @@ All Azure Policy data and objects are encrypted at rest. For more information, s
 ## Overview
 
 Azure Policy evaluates resources and actions in Azure by comparing the properties of those resources to business
-rules. These business rules, described in [JSON format](./concepts/definition-structure.md), are
+rules. These business rules, described in [JSON format](./concepts/definition-structure-basics.md), are
 known as [policy definitions](#policy-definition). To simplify management, several business rules
 can be grouped together to form a [policy initiative](#initiative-definition) (sometimes called a
 _policySet_). Once your business rules have been formed, the policy definition or initiative is
@@ -48,10 +48,10 @@ individual resources. The assignment applies to all resources within the
 that assignment. Subscopes can be excluded, if necessary. For more information, see
 [Scope in Azure Policy](./concepts/scope.md).
 
-Azure Policy uses a [JSON format](./concepts/definition-structure.md) to form the logic the
+Azure Policy uses a [JSON format](./concepts/definition-structure-basics.md) to form the logic the
 evaluation uses to determine whether a resource is compliant or not. Definitions include metadata
 and the policy rule. The defined rule can use functions, parameters, logical operators, conditions,
-and property [aliases](./concepts/definition-structure.md#aliases) to match exactly the scenario you
+and property [aliases](./concepts/definition-structure-alias.md) to match exactly the scenario you
 want. The policy rule determines which resources in the scope of the assignment get evaluated.
 
 ### Understand evaluation outcomes
@@ -82,7 +82,7 @@ how an organization wants the platform to respond to a non-compliant resource in
 
 Azure Policy makes each of these business responses possible through the application of
 [effects](./concepts/effect-basics.md). Effects are set in the **policy rule** portion of the
-[policy definition](./concepts/definition-structure.md).
+[policy definition](./concepts/definition-structure-basics.md).
 
 ### Remediate non-compliant resources
 
@@ -165,7 +165,7 @@ Specifically, the required resource provider permission is `Microsoft.Network/ne
 
 Although a policy can be assigned at the management group level, _only_ resources at the subscription or resource group level are evaluated.
 
-For certain resource providers such as [Machine configuration](../machine-configuration/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Key Vault](/azure/key-vault/general/overview), there's a deeper integration for managing settings and objects. To find out more, go to [Resource Provider modes](./concepts/definition-structure.md#resource-provider-modes).
+For certain resource providers such as [Machine configuration](../machine-configuration/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Key Vault](/azure/key-vault/general/overview), there's a deeper integration for managing settings and objects. To find out more, go to [Resource Provider modes](./concepts/definition-structure-basics.md#resource-provider-modes).
 
 ### Recommendations for managing policies
 
@@ -224,7 +224,7 @@ updates. For a complete list, see [Policy evaluation
 triggers](./how-to/get-compliance-data.md#evaluation-triggers).
 
 To learn more about the structures of policy definitions, review
-[Policy Definition Structure](./concepts/definition-structure.md).
+[Policy Definition Structure](./concepts/definition-structure-basics.md).
 
 Policy parameters help simplify your policy management by reducing the number of policy definitions
 you must create. You can define parameters when creating a policy definition to make it more
@@ -238,7 +238,7 @@ _location_. Then you can give it different values such as _EastUS_ or _WestUS_ w
 policy.
 
 For more information about policy parameters, see
-[Definition structure - Parameters](./concepts/definition-structure.md#parameters).
+[Definition structure - Parameters](./concepts/definition-structure-parameters.md).
 
 ### Initiative definition
 
@@ -328,5 +328,5 @@ available. For information on the assignment structure, see
 Now that you have an overview of Azure Policy and some of the key concepts, here are the suggested
 next steps:
 
-- [Review the policy definition structure](./concepts/definition-structure.md).
+- [Review the policy definition structure](./concepts/definition-structure-basics.md).
 - [Assign a policy definition using the portal](./assign-policy-portal.md).
