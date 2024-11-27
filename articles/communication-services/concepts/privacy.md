@@ -38,8 +38,6 @@ The list of geographies you can choose from includes:
 - United Kingdom
 - United States
 
-
-
 ## Data collection
 
 Azure Communication Services only collects diagnostic data required to deliver the service. 
@@ -77,7 +75,15 @@ Azure Communication Services maintains a directory of phone numbers associated w
 
 ### Chat
 
-Azure Communication Services stores chat messages indefinitely till they are deleted. Chat thread participants can use ListMessages to view message history for a particular thread. Users that are removed from a chat thread are able to view previous message history but cannot send or receive new messages. Accidentally deleted messages are not recoverable by the system.
+Azure Communication Services stores chat threads according to the [data retention policy](/purview/create-retention-policies) in effect when the thread is created. You can update the retention policy if needed during the retention time period you set. After you delete a chat thread (by policy or by a Delete API request), it can't be retrieved.
+
+[!INCLUDE [chat-retention-policy.md](../../includes/chat-retention-policy.md)]
+
+You can choose between indefinite thread retention, automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread), or immediate deletion using the APIs [Delete Chat Message](/rest/api/communication/chat/chat-thread/delete-chat-message) or [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). 
+
+Any thread created before the new retention policy isn't affected unless you specifically change the policy for that thread. If you submit a support request for a deleted chat thread more than 30 days after the retention policy has deleted that thread, it can no longer be retrieved and no information about that thread is available. If needed, open a support ticket as quickly as possible within the 30 day window after you create a thread so we can assist you.
+
+Chat thread participants can use `ListMessages` to view message history for a particular thread. The `ListMessages` API can't return the history of a thread if the thread is deleted. Users that are removed from a chat thread are able to view previous message history but can't send or receive new messages. Accidentally deleted messages aren't recoverable by the system.
 
 Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, and delete messages.
 
