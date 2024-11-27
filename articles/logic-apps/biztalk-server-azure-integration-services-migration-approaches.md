@@ -107,7 +107,7 @@ We recommend that your MVP include the following in-scope processes, which are e
 
   - High-level system functionality: You can extract this information using the discovery tools and express the descriptions in terms of features.
   - Actors or personas: Use this information to determine the individuals affected by the MVP's supported scenarios.
-    1. Orchestrations: This can be extracted from the Discovery tools.
+  - Orchestrations: You can extract this information using the discovery tools.
     1. Data Entities and Messages: This gives an opportunity to understand if further improvements can be included in the data exchanged by the BizTalk Server environment.
     1. Data Mappings: Today's world relies on JSON. BizTalk Server on XML. This is a great moment to decide the data format and conversion needs for the new platform.
     1. Business Rules: Business Rules are data centric and open an opportunity to re-think the approach for them or reuse them using Logic Apps capabilities.
