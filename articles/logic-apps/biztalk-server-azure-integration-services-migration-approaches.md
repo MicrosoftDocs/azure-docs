@@ -126,7 +126,9 @@ The Initial Backlog is the set of User Stories, grouped in features that are use
 
 > [!NOTE]
 >
->For instance, let's say that you have a BizTalk Server project that has  an orchestration called "LoanReception" >that is used by customers to request Bank loans. The following is a proposed Feature and User Story: 
+
+For example, suppose you have a BizTalk Server project with an orchestration called "LoanReception" that customers use to request bank loans. So, you have the following proposed Feature and User Story:
+
 >
 >Feature: 
 >Loan Processing
