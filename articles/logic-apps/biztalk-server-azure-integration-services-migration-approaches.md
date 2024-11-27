@@ -111,7 +111,7 @@ We recommend that your MVP include the following in-scope processes, which are e
   - Data entities and messages: These elements give you an opportunity to learn whether you can include further improvements in the data exchanged by the BizTalk Server environment.
  - Data mappings: Today's world relies on JSON. However, BizTalk Server uses XML. This moment is a great opportunity to decide the data format and conversion needs for the new platform.
   - Business rules: These data-centric rules open an opportunity for you to rethink their approach or reuse them by employing Azure Logic Apps capabilities.
-    1. Regulatory Considerations: This is more relevant if customers don't have workloads running in the cloud.
+  - Regulatory considerations: This aspect is more relevant if your customers don't have cloud-based workloads.
     1. Data Privacy Considerations: Privacy has to be a top priority. As there is a potential environment change, unless the customer is chosing the Hybrid deployment model, this has to be addressed in each wave.
     1. Secure by Design: Each feature has to be secure by design.
     1. Proposed features for Coexistence: When delivering each wave, there will be a certain degree of coexistence. This hybrid architecture has to be aligned with existing Service Level Indicators (SLIs) and Service Level Objectives (SLOs).
