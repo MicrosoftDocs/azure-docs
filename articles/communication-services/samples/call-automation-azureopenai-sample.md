@@ -15,9 +15,9 @@ zone_pivot_groups: acs-js-csharp
 
 # ACS Call Automation and Azure OpenAI Service
 
-This is a sample application demonstrated during Microsoft Ignite 2024. It highlights an integration of Azure Communication Services with Azure OpenAI Service to enable intelligent conversational agents.
+This sample application was demonstrated during Microsoft Ignite 2024. It highlights an integration of Azure Communication Services with Azure OpenAI Service to enable intelligent conversational agents.
 
-In this sample, we'll cover off what this sample does and what you need as pre-requisites before we run this sample locally on your machine. 
+In this sample, we cover off what this sample does and what you need as prerequisites before we run this sample locally on your machine. 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Azure Communication Services Call Automation OpenAI C# sample](./includes/call-automation-azureopenai-csharp.md)]
