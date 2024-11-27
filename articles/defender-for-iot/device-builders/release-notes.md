@@ -15,7 +15,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 For more information, see [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md).
 
-## November 2025
+## November 2024
 
 The firmware analysis documentation is now located and maintained as part of the Azure documentation. See the full [firmware analysis documentation](/azure/firmware-analysis/overview-firmware-analysis).
 
