@@ -20,7 +20,7 @@ Then you can get the feature API object from the call instance:
 const mediaAccessFeature = call.feature(Features.MediaAccess);
 ```
 
-### Forbid or permit audio and video for Teams meeting attendees:
+### Forbid or permit audio and video for Teams meeting attendees
 To change the Media access state for an attendee, you can use the `forbidAudio()`, `permitAudio()`,  `forbidVideo()`, and `permitVideo()` methods. These methods are async, to verify results can be used to `mediaAccessChanged` listeners.
 ```js
 const mediaAccessFeature = call.feature(Features.MediaAccsss);
@@ -61,7 +61,7 @@ const mediaAccessChangedHandler = (event) => {
 };
 
 const meetingMediaAccessChangedHandler = (event) => {
-    console.log(`Latest meeting media access states ${event.mediaAccesses}`);
+    console.log(`Latest meeting media access state ${event.mediaAccesses}`);
 };
 
 mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler):
