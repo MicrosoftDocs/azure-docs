@@ -93,7 +93,7 @@ An MVP is a product version with just enough features to be customer usable. Thi
 
 We recommend that your MVP definition include the following business outcomes, which are expressed as [*Epics*](/azure/devops/boards/backlogs/define-features-epics?view=azure-devops&tabs=agile-process#what-makes-a-feature-or-epic) in Scrum terminology:
 
-1. Business Outcomes (expressed in Epics).- 
+- **Business outcomes (Epics)**
     1. What is the primary goal we are trying to achieve? 
     1. What are the set of capabilities/features for what we are trying to address this MVP?
     1. Business Process Flow: This brings an opportunity to optimize existing processes supported by BizTalk Server. 
