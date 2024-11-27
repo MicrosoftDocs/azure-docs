@@ -2,7 +2,7 @@
 title: Overview - retention of Azure Database for MySQL - Flexible Server for long term by using Azure Backup
 description: This article provides an overview of Azure Database for MySQL - Flexible Server retention for long term.
 ms.topic: overview
-ms.date: 03/08/2024
+ms.date: 11/21/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -10,6 +10,8 @@ ms.author: v-abhmallick
 ---
 
 # Long-term retention for Azure Database for MySQL - Flexible Server by using Azure Backup (preview)
+
+[!INCLUDE [Azure Database for MySQL - Flexible Server backup advisory](../../includes/backup-mysql-flexible-server-advisory.md)]
 
 Azure Backup and Azure Database Services together allow you to build an enterprise-class backup solution for Azure Database for MySQL - Flexible servers that retain backups for **up to 10 years**. If you have an Azure Database for MySQL - Flexible server, then you can extend  the retention of backups beyond 35 days with built-in operational tier backup capability of MySQL - Flexible database.
 

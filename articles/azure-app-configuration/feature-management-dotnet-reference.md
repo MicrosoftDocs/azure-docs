@@ -1470,8 +1470,3 @@ To learn how to use feature filters, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
 > [Roll out features to targeted audiences](./howto-targetingfilter.md)
-
-To learn how to run experiments with variant feature flags, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [Run experiments with variant feature flags](./run-experiments-aspnet-core.md)

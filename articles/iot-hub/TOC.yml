@@ -275,6 +275,8 @@
             - name: Use Azure CLI
               displayName: automatic device management
               href: iot-hub-automatic-device-management-cli.md
+        - name: Regenerate keys
+          href: regenerate-keys.md
     - name: Develop
       items:
         - name: Send cloud-to-device messages
@@ -287,19 +289,8 @@
           displayName: device twins
           href: how-to-device-twins.md   
         - name: Get started with module twins
-          items:
-            - name: Portal
-              displayName: module twins, module identity
-              href: module-twins-portal-dotnet.md
-            - name: .NET
-              displayName: module twins, module identity
-              href: module-twins-dotnet.md
-            - name: Python
-              displayName: module twins, module identity
-              href: module-twins-python.md
-            - name: Node.js
-              displayName: module twins, module identity
-              href: module-twins-node.md
+          displayName: module twins, module identity
+          href: how-to-module-twins.md         
         - name: Get started with device management
           items:
             - name: CLI
@@ -440,7 +431,7 @@
       href: reference-iot-hub-extension.md
     - name: Resource Manager template
       displayName: Microsoft.Devices, IotHubs/certificates, IotHubs/eventHubEndpoints/ConsumerGroups, IotHubs/privateEndpointConnections
-      href: /azure/templates/microsoft.devices/iothub-allversions
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Azure Policy built-ins
       href: ./policy-reference.md
     - name: X.509 certificates
