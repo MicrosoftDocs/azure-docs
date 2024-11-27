@@ -155,7 +155,7 @@ The following diagram shows the suggested durations for Epics, Features, User St
 
 ### Migration waves (Sprints)
 
-After Sprint Zero has been completed, the team has a clear view of the MVP to be built. A **wave** is a set of sprints. The initial backlog should include workitems that as much as possible should follow the next illustration:
+After your team completes Sprint 0, you should have a clear view of the MVP to build. A *wave* is a set of sprints. Your initial backlog should include work items that follow the next diagram as much as possible:
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-gradual-waves.png" alt-text="Diagram showing migration waves.":::
 
