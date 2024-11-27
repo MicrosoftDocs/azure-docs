@@ -89,7 +89,9 @@ To set up your initial environment, use the [Azure Integration Services Landing 
 
 #### Minimum viable project (MVP) definition
 
- An MVP is a version of the product that has just enough features to be usable by the customer. It shows the possible potential of the product in order to gather feedback from the customer and continue the work. For a BizTalk Migration, the definition of an MVP should reflect the waves (groups of sprints towards working features) that are needed to meet the initial integration workloads. We recommend the MVP definition to include:
+An MVP is a product version with just enough features to be customer usable. This version shows the product's possibilities and potential to gather customer feedback and continue the work. For a BizTalk migration, your MVP definition reflects the iterations, waves, or groups of sprints that you need to make progress towards working features and to meet initial integration workloads.
+
+We recommend that your MVP definition include the following business outcomes, which are expressed as [*Epics*](/azure/devops/boards/backlogs/define-features-epics?view=azure-devops&tabs=agile-process#what-makes-a-feature-or-epic) in Scrum terminology:
 
 1. Business Outcomes (expressed in Epics).- 
     1. What is the primary goal we are trying to achieve? 
