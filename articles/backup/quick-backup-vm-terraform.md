@@ -86,25 +86,25 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
 
 1. Get the Azure resource group name.
 
-```Terraform
+```console
 resource_group_name = $(terraform outout -raw azurerm_resource_group_name)
 ```
 
 1. Get the Backup recovery services vault name.
 
-```Terraform
+```console
 recovery_services_vault_name = $(terraform output -raw azurerm_recovery_services_vault_name)
 ```
 
 1. Get the Windows VM name.
 
-```Terraform
+```console
 windows_virtual_machine_name = $(terraform output -raw azurerm_windows_virtual_machine_name)
 ```
 
 1. Run [az backup protection backup-now]( /cli/azure/backup/protection #az-backup-protection-backup-now) to start a backup job.
 
-```Terraform
+```azcli
 az backup protection backup-now --resource-group $resource_group_name \
                                 --vault-name $recovery_services_vault_name \
                                 --container-name $windows_virtual_machine_name \
@@ -114,7 +114,7 @@ az backup protection backup-now --resource-group $resource_group_name \
 
 1. Run [az backup job list]( /cli/azure/backup/job #az-backup-job-list) to monitor the backup job.
 
-```Terraform
+```azcli
 az backup job list --resource-group $resource_group_name \
                    --vault-name $recovery_services_vault_name \
                    --output table
