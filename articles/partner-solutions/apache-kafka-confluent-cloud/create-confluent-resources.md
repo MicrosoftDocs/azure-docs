@@ -15,7 +15,7 @@ The next step after creating a Confluent Organization is to create other Conflue
 Creating multiple environments within a Confluent organization is a good practice. It allows for clear separation of resources among teams or projects, ensuring there's no interference between them.
 
 > [!TIP]
-> In your Confluent organization, open **Confluent entity management** > **Environments (preview)** > **Manage environment in Confluent portal** to access advanced environment configuration in the Confluent UI.
+> In your Confluent organization, open **Confluent entity management** > **Environments (Preview)** > **Manage environment in Confluent portal** to access advanced environment configuration in the Confluent UI.
 
 > [!NOTE]
 > As of the time of writing this document, Azure doesn't support Confluent schema registry configuration. Access this option directly in the Confluent UI by selecting **Manage Schema Registry** on the top ribbon in your environment.
@@ -25,7 +25,7 @@ Creating multiple environments within a Confluent organization is a good practic
 Create a new Confluent environment following the guidelines below:
 
 1. Open your Confluent organization in the Azure portal and open **Confluent entity management** > **Environments (preview)** from the left menu.
-1. Select **Create environment** at the top. This action opens a new blade on the right hand side.
+1. Select **Create Environment** at the top. This action opens a new blade on the right hand side.
 1. Enter a name for the new **Environment**.
 
    :::image type="content" source="./media/create-confluent-resources/create-environment.png" alt-text="Screenshot from the Azure portal showing the Create environment blade.":::
@@ -39,7 +39,7 @@ Create a new Confluent environment following the guidelines below:
 
 To view the environments in your Confluent organization:
 
-1. Open your Confluent organization in the Azure portal and open **Confluent entity management** > **Environments (preview)** from the left menu. This blade lists all the environments nested under the Confluent organization.
+1. Open your Confluent organization in the Azure portal and open **Confluent entity management** > **Environments (Preview)** from the left menu. This blade lists all the environments nested under the Confluent organization.
 1. Select **>** to expand an environment, showing the clusters nested within the environment. 
 1. Use the search bar or the filter at the top to look for a specific environment. 
 
@@ -74,7 +74,7 @@ Select **Create a cluster** in the top ribbon of your environment page. A new wi
 
 To view the clusters in your Confluent organization:
 
-1. Go to **Environments (preview)** to view a list of all the environments nested under your organization. Select **>** to show the clusters nested within the environment. 
+1. Go to **Environments (Preview)** to view a list of all the environments nested under your organization. Select **>** to show the clusters nested within the environment. 
 1. Select the cluster name you want to access. If you don't see your cluster, select the **See all Clusters** link in your environment to open up a list of clusters nested within your environment.
 
    Alternatively, select the environment where your cluster is nested. This opens a list of clusters nested within the environment. You can monitor the type, status, and region of these clusters.  
