@@ -25,7 +25,7 @@ Fusion is enabled by default in Microsoft Sentinel, as an [analytics rule](detec
 > [!NOTE]
 > Microsoft Sentinel currently uses 30 days of historical data to train the Fusion engine's machine learning algorithms. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Microsoft Sentinel workspace. To opt out of Fusion, navigate to **Microsoft Sentinel** \> **Configuration** \> **Analytics \> Active rules**, right-click on the **Advanced Multistage Attack Detection** rule, and select **Disable.**
 
-For Microsoft Sentinel workspaces that are onboarded to the Microsoft Defender portal, Fusion is disabled.Its functionality is replaced by the Microsoft Defender XDR correlation engine.
+For Microsoft Sentinel workspaces that are onboarded to the Microsoft Defender portal, Fusion is disabled. Its functionality is replaced by the Microsoft Defender XDR correlation engine.
 
 ## Fusion for emerging threats
 
@@ -70,7 +70,7 @@ The Fusion engine's ML algorithms constantly learn from existing attacks and app
 
 You don't need to have connected all the data sources listed above in order to make Fusion for emerging threats work. However, the more data sources you have connected, the broader the coverage, and the more threats Fusion will find.
 
-When the Fusion engine's correlations result in the detection of an emerging threat, Microsoft Sentinel generats a high-severity incident titled **Possible multistage attack activities detected by Fusion**.
+When the Fusion engine's correlations result in the detection of an emerging threat, Microsoft Sentinel generates a high-severity incident titled **Possible multistage attack activities detected by Fusion**.
 
 ## Fusion for ransomware
 

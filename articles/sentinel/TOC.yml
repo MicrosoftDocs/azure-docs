@@ -313,7 +313,7 @@
       href: data-connectors/azure-cognitive-search.md
     - name: Azure DDoS Protection
       href: data-connectors/azure-ddos-protection.md
-    - name: Azure Event Hub
+    - name: Azure Event Hubs
       href: data-connectors/azure-event-hub.md
     - name: Azure Firewall
       href: data-connectors/azure-firewall.md

@@ -33,7 +33,7 @@ If you have registered Microsoft Sentinel in your tenant, and your customers in 
 
 1. From the ***subscription name* | Resource providers** screen, search for and select *Microsoft.OperationalInsights* and *Microsoft.SecurityInsights*, and check the **Status** column. If the provider's status is *NotRegistered*, select **Register**.
 
-    :::image type="content" source="media/multiple-tenants-service-providers/check-resource-provider.png" alt-text="Check resource providers":::
+    :::image type="content" source="media/multiple-tenants-service-providers/check-resource-provider.png" alt-text="Screenshot of checking resource providers.":::
 
 ## Access Microsoft Sentinel in managed tenants
 

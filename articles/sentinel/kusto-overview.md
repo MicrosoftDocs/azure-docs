@@ -58,7 +58,7 @@ Explore the demo environment. Like Log Analytics in your production environment,
 
 Like in this demo environment, you can query and filter data in the Microsoft Sentinel **Logs** page. You can select a table and drill down to see columns. You can modify the default columns shown using the **Column chooser**, and you can set the default time range for queries. If the time range is explicitly defined in the query, the time filter is unavailable (grayed out). For more information, see 
 
-If your onboarded to [Microsoft's unified security operations platform](microsoft-sentinel-defender-portal.md), you can also query and filter data in the Microsoft Defender **Advanced hunting** page. For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json&branch=main).
+If you're onboarded to [Microsoft's unified security operations platform](microsoft-sentinel-defender-portal.md), you can also query and filter data in the Microsoft Defender **Advanced hunting** page. For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json&branch=main).
 
 ## Query structure
 
@@ -86,7 +86,7 @@ SigninLogs                              // Get data
 Because the output of every step serves as the input for the following step, the order of the steps can determine the query's results and affect its performance. It's crucial that you order the steps according to what you want to get out of the query.
 
 > [!TIP]
-> - A good rule of thumb is to filter your data early, so you are only passing relevant data down the pipeline. This greatly increases performance and ensure that you aren't accidentally including irrelevant data in summarization steps.
+> - A good rule of thumb is to filter your data early, so you are only passing relevant data down the pipeline. This greatly increases performance and ensures that you aren't accidentally including irrelevant data in summarization steps.
 > - This article points out some other best practices to keep in mind. For a more complete list, see [query best practices](/azure/data-explorer/kusto/query/best-practices).
 
 Hopefully, you now have an appreciation for the overall structure of a query in Kusto Query Language. Now let's look at the actual query operators themselves, which are used to create a query.
@@ -144,7 +144,7 @@ While most of the data types are standard, you might be less familiar with types
 | `Tick` | nanoseconds |
 
 
-***Guid*** is a datatype representing a 128-bit, globally-unique identifier, which follows the standard format of [8]-[4]-[4]-[4]-[12], where each [number] represents the number of characters and each character can range from 0-9 or a-f.
+***Guid*** is a datatype representing a 128-bit, globally unique identifier, which follows the standard format of [8]-[4]-[4]-[4]-[12], where each [number] represents the number of characters and each character can range from 0-9 or a-f.
 
 > [!NOTE]
 > Kusto Query Language has both tabular and scalar operators. Throughout the rest of this article, if you simply see the word "operator," you can assume it means tabular operator, unless otherwise noted.

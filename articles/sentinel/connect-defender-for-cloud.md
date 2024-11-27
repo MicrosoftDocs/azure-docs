@@ -23,7 +23,7 @@ appliesto:
 
     - When you connect Microsoft Defender for Cloud to Microsoft Sentinel, the status of security alerts that get ingested into Microsoft Sentinel is synchronized between the two services. So, for example, when an alert is closed in Defender for Cloud, that alert displays as closed in Microsoft Sentinel as well.
 
-    - Changing the status of an alert in Defender for Cloud won't* affect the status of any Microsoft Sentinel **incidents** that contain the Microsoft Sentinel alert, only that of the alert itself.
+    - Changing the status of an alert in Defender for Cloud won't affect the status of any Microsoft Sentinel **incidents** that contain the Microsoft Sentinel alert, only that of the alert itself.
 
 - **Bi-directional alert synchronization**: Enabling **bi-directional sync** automatically syncs the status of original security alerts with that of the Microsoft Sentinel incidents that contain those alerts. So, for example, when a Microsoft Sentinel incident containing a security alerts is closed, the corresponding original alert is closed in Microsoft Defender for Cloud automatically.
 
@@ -33,7 +33,7 @@ appliesto:
 
 - You must be using Microsoft Sentinel in the Azure portal. If you're onboarded to Microsoft's unified security operations (SecOps) platform, Defender for Cloud alerts are already ingested into Microsoft Defender XDR, and the **Tenant-based Microsoft Defender for Cloud (Preview)** data connector isn't listed in the **Data connectors** page in the Defender portal. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
 
-    If you're onboarded to Microsoft's unifed SecOps platform, you'll still want to install the **Microsoft Defender for Cloud** solution to use built-in security content with Microsoft Sentinel.
+    If you're onboarded to Microsoft's unified SecOps platform, you'll still want to install the **Microsoft Defender for Cloud** solution to use built-in security content with Microsoft Sentinel.
 
     If you're using Microsoft Sentinel in the Defender portal without Microsoft Defender XDR, this procedure is still relevant for you. 
 

@@ -432,7 +432,7 @@ For more information about false positives and benign positives, see [Handle fal
 
 After choosing the appropriate classification, add some descriptive text in the **Comment** field. This is useful in the event you need to refer back to this incident. Select **Apply** when you’re done, and the incident is closed.
 
-:::image type="content" source="media/investigate-incidents/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
+:::image type="content" source="media/investigate-incidents/closing-reasons-comment-apply.png" alt-text="Screenshot of closing an incident.":::
 
 ## Search for incidents
 
