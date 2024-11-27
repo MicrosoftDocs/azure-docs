@@ -13,9 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java, passwordless-java, service
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article shows you how to create a managed identity for an app deployed to Azure Spring Apps and use it to access Azure SQL Database.
 

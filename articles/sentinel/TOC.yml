@@ -111,10 +111,6 @@
   items:  
   - name: Overview
     href: sentinel-solutions.md
-  - name: Tutorial - Monitor Zero Trust security architectures
-    href: sentinel-solution.md   
-  - name: OOTB content centralization changes
-    href: sentinel-content-centralize.md
   - name: Deploy out-of-the-box content
     href: sentinel-solutions-deploy.md
   - name: Delete out-of-the-box content
@@ -127,6 +123,8 @@
       href: sentinel-solutions-catalog.md
     - name: ASIM-based domain solutions
       href: domain-based-essential-solutions.md
+    - name: Monitor Zero Trust 
+      href: sentinel-solution.md   
   - name: Manage custom content from repositories
     items:
     - name: Overview
@@ -1121,6 +1119,8 @@
     href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
+  - name: OOTB content centralization changes
+    href: sentinel-content-centralize.md
   - name: Build and publish Microsoft Sentinel solutions
     items:
     - name: Publish solutions
@@ -1159,6 +1159,8 @@
         href: normalization-known-issues.md
       - name: ASIM schemas
         items:
+        - name: ASIM alert event schema
+          href: normalization-schema-alert.md
         - name: ASIM audit event schema
           href: normalization-schema-audit.md
         - name: ASIM authentication schema

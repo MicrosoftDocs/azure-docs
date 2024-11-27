@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to deploy your static files to an Azure Spring Apps Enterprise plan instance using the Tanzu Web Servers buildpack. This approach is useful if you have applications that are purely for holding static files like HTML, CSS, or front-end applications built with the JavaScript framework of your choice. You can directly deploy these applications with an automatically configured web server (HTTPD and NGINX) to serve those assets.
 

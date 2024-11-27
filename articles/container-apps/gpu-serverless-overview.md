@@ -4,6 +4,8 @@ description: Learn to how to use GPUs with apps and jobs in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
 ms.date: 11/06/2024
 ms.author: cshoe
