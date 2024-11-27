@@ -3773,7 +3773,9 @@
     {
       "source_path_from_root": "/articles/defender-for-iot/device-builders/defender-iot-firmware-analysis-rbac.md",
       "redirect_url": "/azure/firmware-analysis/overview-firmware-analysis",
+      "redirect_document_id": false
      },
+     {
       "source_path_from_root": "/articles/virtual-network/ip-services/public-ip-upgrade-portal.md",
       "redirect_url": "/azure/virtual-network/ip-services/public-ip-upgrade",
       "redirect_document_id": false
