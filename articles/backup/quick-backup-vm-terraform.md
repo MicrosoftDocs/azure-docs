@@ -1,18 +1,18 @@
 ---
-title: 'Quickstart: Create an Azure Windows virtual machine using Terraform'
-description: In this quickstart, you create an Azure Windows virtual machine (VM), virtual network, subnet, public IP, network security group, network interface, storage account, Azure Backup recovery services vault, Backup policy, and a protected VM for backup.
+title: 'Quickstart: Back up a virtual machine in Azure with Terraform'
+description: In this quickstart, you create an Azure Windows virtual machine (VM), virtual network, subnet, public IP, network security group, network interface, storage account, Azure Backup recovery services vault, Backup policy, and a protected VM for backup. This can help you to configure Backup to run a backup on demand.
 ms.topic: quickstart
 ms.date: 11/27/2024
 ms.custom: devx-track-terraform
 ms.service: windows
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-#customer intent: As a Terraform user, I want to see how to create and configure an Azure virtual network, subnet, public IP, network security group, network interface, storage account, virtual machine, Azure Backup recovery services vault, and Backup policy.
+#customer intent: As a Terraform user, I want to see how to create and configure an Azure virtual network, subnet, public IP, network security group, network interface, storage account, virtual machine, Azure Backup recovery services vault, and Backup policy to configure Backup and run a backup on demand.
 content_well_notification: 
   - AI-contribution
 ---
 
-# Quickstart: Create an Azure Windows virtual machine using Terraform
+# Quickstart: Back up a virtual machine in Azure with Terraform
 
 In this quickstart, you create an Azure Windows virtual machine (VM) and associated resources using Terraform. An Azure Windows VM is a scalable computing resource that Azure provides. It's an on-demand, virtualized Windows server in the Azure cloud. You can use it to deploy, test, and run applications, among other things. In addition to the VM, this code also creates a virtual network, subnet, public IP, network security group, network interface, storage account, Azure Backup recovery services vault, and Backup policy.
 
@@ -96,7 +96,7 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
     windows_virtual_machine_name = $(terraform output -raw azurerm_windows_virtual_machine_name)
     ```
 
-1. Run [az backup protection backup-now]( /cli/azure/backup/protection #az-backup-protection-backup-now) to start a backup job.
+1. Run [az backup protection backup-now](/cli/azure/backup/protection #az-backup-protection-backup-now) to start a backup job.
 
     ```azurecli
     az backup protection backup-now --resource-group $resource_group_name \
@@ -106,7 +106,7 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
                                     --backup-management-type AzureIaaSVM
     ```
 
-1. Run [az backup job list]( /cli/azure/backup/job #az-backup-job-list) to monitor the backup job.
+1. Run [az backup job list](/cli/azure/backup/job #az-backup-job-list) to monitor the backup job.
 
     ```azurecli
     az backup job list --resource-group $resource_group_name \
@@ -114,14 +114,14 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
                        --output table
     ```
 
-The output is similar to the following example, which shows the backup job is *InProgress*:
+    The output is similar to the following example, which shows the backup job is *InProgress*:
 
-```output
-Name      Operation        Status      Item Name    Start Time UTC       Duration
---------  ---------------  ----------  -----------  -------------------  --------------
-a0a8e5e6  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48.718366
-fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
-```
+    ```output
+    Name      Operation        Status      Item Name    Start Time UTC       Duration
+    --------  ---------------  ----------  -----------  -------------------  --------------
+    a0a8e5e6  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48.718366
+    fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
+    ```
 
 When the *Status* of the backup job reports *Completed*, your VM is protected with Backup recovery services and has a full recovery point stored.
 
