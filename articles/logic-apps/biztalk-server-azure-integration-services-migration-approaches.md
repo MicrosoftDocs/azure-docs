@@ -79,7 +79,7 @@ For another way to generate an inventory with BizTalk Server elements, you can u
 
 #### Architecture design
 
-While Azure Logic Apps provide capabilities that allow reusability of BizTalk Server assets, your Architecture Design must be modern to embrace the benefits of more modern capabilities. From a functional perspective, leverage business logic as much as possible. From a product modernization perspective, leverage Azure Integration Services as much as possible. For quality and cross-cutting concerns, we recommend using the [Azure Well-Architected Framework](/azure/well-architected/what-is-well-architected-framework.md).
+While Azure Logic Apps provides capabilities that let you reuse BizTalk Server assets, you must have a modern architecture design to embrace the benefits from more modern capabilities. From a functional perspective, use your business logic as much as possible. From a product modernization perspective, use Azure Integration Services as much as you can. For quality and cross-cutting concerns, we recommend that you use the [Azure Well-Architected Framework](/azure/well-architected/what-is-well-architected-framework).
 
 BizTalk migrations are Mission-critical workloads under the Azure Well-Architected Framework. [Mission-critical workloads](/well-architected/mission-critical/mission-critical-overview.md) describe a collection of application resources, which must be highly reliable on the platform. The workload must always be available, resilient to failures, and operational.
 
