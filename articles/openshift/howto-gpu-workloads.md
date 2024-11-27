@@ -188,6 +188,27 @@ ARO uses Kubernetes MachineSet to create machine sets. The procedure below expla
 
 1. Verify the other data in the yaml file.
 
+#### Ensure the correct SKU is set
+
+Depending on the image used for the machine set, the value for `image.sku` must be set accordingly. This is to ensure if generation 1 or 2 virtual machine for Hyper-V will be used. More details [here](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+
+Example:
+
+If using `Standard_NC4as_T4_v3` it is supported both versions, as mentioned at [Feature support](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ncast4v3-series?tabs=sizebasic#feature-support). So no changes is required.
+
+If using `Standard_NC24ads_A100_v4`, only **Generation 2 VM** is [supported](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nca100v4-series?tabs=sizebasic).
+In this case, the `image.sku` value must follow the equivalent `v2` version of the image that corresponds to the cluster's original `image.sku`. For this example, the value will be `v410-v2`.
+
+This can be found using below command:
+
+```bash
+az vm image list --all --offer aro4 --publisher azureopenshift
+```
+
+If the cluster was created with the base SKU image `aro_410`, and the same value is kept in the machine set it will fail with error below:
+```
+failure sending request for machine myworkernode: cannot create vm: compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=400 -- Original Error: Code="BadRequest" Message="The selected VM size 'Standard_NC24ads_A100_v4' cannot boot Hypervisor Generation '1'.
+```
 #### Create GPU machine set
 
 Use the following steps to create the new GPU machine. It may take 10-15 minutes to provision a new GPU machine. If this step fails, sign in to [Azure portal](https://portal.azure.com) and ensure there are no availability issues. To do so, go to **Virtual Machines** and search for the worker name you created previously to see the status of VMs.
