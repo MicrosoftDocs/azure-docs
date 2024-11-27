@@ -663,6 +663,8 @@ items:
       href: samples/email-detect-sensitive-content.md
   - name: Call Automation
     items:
+    - name: Call Automation Azure Open AI sample
+      href: samples/call-automation-azureopenai-sample.md
     - name: Call Automation AI sample
       href: samples/call-automation-ai.md
 - name: Concepts
