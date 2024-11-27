@@ -1,7 +1,7 @@
 items:
 - name: Migration of VMware virtual machines to Azure
   href: index.yml
-- name: Start here to migrate VMware to Azure
+- name: Start here to migrate VMware VMs to Azure
   href: start-here-vmware.md
 - name: Support matrix for VMware discovery
   href: migrate-support-matrix-vmware.md
