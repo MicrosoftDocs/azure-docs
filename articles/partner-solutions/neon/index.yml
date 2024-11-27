@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Neon Serverless Postgres - An Azure Native ISV Service
+title: Neon Serverless Postgres
 summary: Neon in Microsoft Azure
 
 metadata:
-  title: Neon Serverless Postgres – An Azure Native ISV Service
-  description: Neon Serverless Postgres – An Azure Native ISV Service integrates with Azure to combine the benefits of Neon with the Azure cloud.
+  title: Neon Serverless Postgres
+  description: Neon Serverless Postgres integrates with Azure to combine the benefits of Neon with the Azure cloud.
   ms.topic: landing-page
   ms.custom:
   ms.date: 11/26/2024

@@ -17,7 +17,7 @@ This quickstart shows you how to create a Neon Serverless Postgres (preview) res
 
 ## Setup
 
-Begin by signing in to the [Azure portal](https://aka.ms/ANI/NeonServerlessPostgres/AzurePortal).
+Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a Neon Serverless Postgres resource
 
@@ -41,7 +41,7 @@ The *Basics* tab has three sections:
 - Azure Resource details
 - New Organization details
 
-<!--add image-->
+   :::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot from the Azure portal showing the Basics tab to create a new Neon resource.":::
 
 There are required fields in each section that you need to fill out.
 
@@ -72,16 +72,12 @@ There are required fields in each section that you need to fill out.
 
 ### Tags tab (optional)
 
-If you wish, you can optionally create a tag for your Neon Serverless Postgres resource.
-
-1. Select the **Review + create** button at the bottom of the page. 
+If you wish, you can optionally create a tag for your Neon Serverless Postgres resource, then select the **Review + create** button at the bottom of the page. 
 
 ### Review + create tab
 
-<!--TODO: Add image-->
-
 > [!NOTE]
-> The view automation template link directs you to a downloadable [ARM template](LINK). 
+> The view automation template link directs you to a downloadable [ARM template](../../azure-resource-manager/templates/overview.md). 
 
 If the review identifies errors, a red dot appears next each section where errors exist. Fields with errors are highlighted in red. 
 
@@ -93,10 +89,7 @@ If the review identifies errors, a red dot appears next each section where error
 
 Once the resource is created, select **Go to Resource** to navigate to the Neon resource. 
 
-## Related content
-
-To learn more about Azure, review [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts).
-
 ## Next steps
 
-[Manage your Neon  integration through the portal](manage.md)
+> [!div class="nextstepaction"]
+> [Manage your Neon  integration through the portal](manage.md)

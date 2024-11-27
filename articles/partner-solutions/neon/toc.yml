@@ -1,7 +1,7 @@
 items:
 - name: Overview
   items:
-  - name: What is Neon Serverless Postgres - An Azure Native ISV Service
+  - name: What is Neon Serverless Postgres
     href: overview.md
   - name: Neon Postgres resources and developer tools
     href: tools.md

@@ -14,7 +14,7 @@ Easily provision, manage, and tightly integrate independent software vendor (ISV
 
 Microsoft and [Neon](https://neon.tech/) developed this service and manage it together.
 
-<!--You can find Neon Serverless Postgres  in the [Azure portal]().or get it on [Azure Marketplace]().-->
+You can find Neon Serverless Postgres  in the [Azure portal](https://portal.azure.com/).or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/).
 
 Neon is a cloud-native Postgres solution designed for modern applications. It offers a serverless, fully managed, and scalable Postgres database. 
 Neon's advanced features include autoscaling, scale-to-zero, database branching, instant point-in-time restore, and time travel queries. 
@@ -38,12 +38,16 @@ Here are the key capabilities provided by the Neon integration:
 
 ## Find Neon Serverless Postgres
 
-From the [Azure Marketplace](LINK), search for _Neon Serverless Postgres_. Once you subscribe, you'll be directed to a the [Create a Neon Serverless Postgres resource](create.md#create-a-neon-serverless-postgres-resource)pane.
+From the [Azure Marketplace](https://azuremarketplace.microsoft.com/), search for _Neon Serverless Postgres_. Once you subscribe, you'll be directed to a the [Create a Neon Serverless Postgres resource](create.md#create-a-neon-serverless-postgres-resource)pane.
 
-You can also find Neon Serverless Postgres in the [Azure portal](LINK).-->
+You can also find Neon Serverless Postgres in the [Azure portal](https://portal.azure.com/).
 
-## Related content 
+## Next steps
+> [!div class="nextstepaction"]
+> [QuickStart: Get started with Neon](create.md)
 
-- [QuickStart: Get started with Neon](create.md)
-- [Manage your Neon  integration through the portal](manage.md)
-- [Neon Serverless Postgres developer resources and tools](tools.md)
+> [!div class="nextstepaction"]
+> [Manage your Neon  integration through the portal](manage.md)
+
+> [!div class="nextstepaction"]
+> [Neon Serverless Postgres developer resources and tools](tools.md)

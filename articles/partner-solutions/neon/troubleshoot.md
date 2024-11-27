@@ -16,11 +16,11 @@ You can get support for your Neon deployment through a New Support request. Fo
 
 To contact support about Neon resource, select the resource in the Resource menu. 
 
-<!--add image-->
+   :::image type="content" source="media/troubleshoot/troubleshoot.png" alt-text="Screenshot from the Azure portal showing how to open a new support request.":::
 
-Select Support + troubleshooting in Help menu on the left of the Overview page. 
+Select **Support + troubleshooting** > **New Support Request** in the left-menu in the Azure portal.
 
-Select **Create a support request**. You're redirected to the partner portal where you can raise a support ticket.
+Select **here** to create a support request. You're redirected to the partner portal where you can raise a support ticket.
 
 ## Unable to create a Neon resource as not a subscription owner/ contributor
 Only users with Owner or Contributor access on the Azure subscription can create Neon resources. Ensure you have the appropriate access before setting up this integration.

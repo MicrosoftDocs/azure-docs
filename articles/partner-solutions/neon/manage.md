@@ -16,9 +16,9 @@ Single sign-on (SSO) is already enabled when you created your Neon  resource. To
 
 1. Navigate to the Overview for your instance of the Neon resource. 
 
-1. Select the SSO URL.
+1. Select the portal SSO URL.
 
-<!--add image-->
+   :::image type="content" source="media/manage/overview.png" alt-text="Screenshot from the Azure portal showing the Neon SSO URL.":::
 
 > [!NOTE] 
 > The first time you access this URL, depending on your Azure tenant settings, you might be asked to verify your email address on the Neon portal. Once the email address is verified, you can access the Neon portal.
@@ -37,6 +37,7 @@ Once the Neon resource is deleted, all billing stops for that resource through A
 
 1. Select **Delete**.
 
-## Related content 
+## Next steps
 
-[Neon Serverless Postgres developer resources and tools](tools.md)
+> [!div class="nextstepaction"]
+> [Neon Serverless Postgres developer resources and tools](tools.md)
