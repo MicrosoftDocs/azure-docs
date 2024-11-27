@@ -1,6 +1,6 @@
 ---
-title: include file 
-description: include file for Call Automation and Azure OpenAI sample
+title: Include file 
+description: Include file for Call Automation and Azure OpenAI sample
 services: azure-communication-services
 ms.service: azure-communication-services
 ms.subservice: call-automation
@@ -15,7 +15,7 @@ Find the project for this sample on [GitHub](https://github.com/Azure-Samples/co
 
 ## Overview 
 
-This sample is a server-side application that helps you create a virtual assistant capable of handling calls using Call Automation and responding to customers using the newly announced integration with Azure OpenAI services to provide low-latency, real-time responses to callers. 
+This server-side application helps create a virtual assistant that can handle phone calls and respond to customers using Azure OpenAI services, providing quick and real-time answers.
 
 ## Prerequisites
 
@@ -27,11 +27,11 @@ This sample is a server-side application that helps you create a virtual assista
 
 ## Setup Instructions
 
-Before running this sample, you'll need to setup the resources above with the following configuration updates:
+Before running this sample, you need to set up the resources with the following configuration updates:
 
 ##### 1. Setup and host your Azure DevTunnel
 
-[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands below to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We will then use this endpoint to notify your application of calling events from the ACS Call Automation service.
+[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We use this endpoint to notify your application of calling events from the ACS Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -42,23 +42,23 @@ devtunnel host
 ##### 2. Add the required API Keys and endpoints
 Open the appsettings.json file to configure the following settings:
 
-    - `DevTunnelUri`: your dev tunnel endpoint
-    - `AcsConnectionString`: Azure Communication Service resource's connection string.
-    - `AzureOpenAIServiceKey`: Open AI's Service Key
-    - `AzureOpenAIServiceEndpoint`: Open AI's Service Endpoint
-    - `AzureOpenAIDeploymentModelName`: Open AI's Model name
+    - DevTunnelUri: your dev tunnel endpoint
+    - AcsConnectionString: Azure Communication Service resource's connection string.
+    - AzureOpenAIServiceKey: Open AI's Service Key
+    - AzureOpenAIServiceEndpoint: Open AI's Service Endpoint
+    - AzureOpenAIDeploymentModelName: Open AI's Model name
 
 ## Running the application
 
 1. Azure DevTunnel: Ensure your AzureDevTunnel URI is active and points to the correct port of your localhost application
 2. Run `dotnet run` to build and run the sample application
-3. Register an EventGrid Webhook for the IncomingCall Event that points to your DevTunnel URI. Instructions [here](/azure/communication-services/concepts/call-automation/incoming-call-notification). For example:
+3. Register an Event Grid Webhook for the IncomingCall Event that points to your DevTunnel URI. Instructions [here](/azure/communication-services/concepts/call-automation/incoming-call-notification). For example:
 
 ``` code
  https://<devtunelurl>/api/incomingCall
 ```
 
-Once that's completed you should have a running application. The best way to test this is to place a call to your ACS phone number and talk to your intelligent agent.
+Once that's completed, you should have a running application. The best way to test this is to place a call to your ACS phone number and talk to your intelligent agent.
 
 ## Next steps
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md).
