@@ -160,7 +160,7 @@ If you've tried the [developer portal](api-management-howto-developer-portal-cus
 
 Each revision to your API can be accessed using a specially formed URL. Add `;rev={revisionNumber}` at the end of your API URL path, but before the query string, to access a specific revision of that API. For example, you might use a URL similar to the following to access revision 2 of the Swagger Petstore API:
 
-`https://apim-hello-world.azure-api.net/store;rev=2/speakers`
+`https://apim-hello-world.azure-api.net/store/pet/1;rev=2/`
 
 You can find the URL paths for your API's revisions on the **Revisions** tab in the Azure portal.
 
