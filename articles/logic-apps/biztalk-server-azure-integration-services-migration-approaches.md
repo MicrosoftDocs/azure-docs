@@ -127,7 +127,6 @@ The [*initial backlog*](/azure/devops/boards/backlogs/backlogs-overview?view=azu
 
 For example, suppose you have a BizTalk Server project with an orchestration called "LoanReception" that customers use to request bank loans. So, you have the following proposed Feature and User Story:
 
->
 >Feature: 
 >Loan Processing
 >
