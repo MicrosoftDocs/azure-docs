@@ -33,7 +33,7 @@ Now you can view the individual content available in a specific solution directl
 
 This new visibility helps you understand the content available to you, and more easily identify, plan, and install the specific solutions you need. For example:
 
-:::image type="content" source="media/sentinel-solutions-deploy/granular-content.png" alt-text="Screenshot of showing granular content.":::
+:::image type="content" source="media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of showing granular content.":::
 
 The granular solution content updates also include a generative AI-based search engine that helps you run more robust searches, diving deep into the solution content and returning results for similar terms.
 
