@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Back up a virtual machine in Azure with Terraform'
-description: In this quickstart, you learn how to configure Azure Backup to run a backup on demand by creating an Azure Windows virtual machine (VM), virtual network, subnet, public IP, network security group, network interface, storage account, Backup recovery services vault, Backup policy, and a protected VM for backup. 
+description: In this quickstart, you learn how to configure Azure Backup to run a backup on demand by creating and configuring an Azure Windows virtual machine (VM), virtual network, subnet, public IP, network security group, network interface, storage account, virtual machine, Backup recovery services vault, and Backup policy. 
 ms.topic: quickstart
 ms.date: 11/27/2024
 ms.custom: devx-track-terraform
 ms.service: windows
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-#customer intent: As a Terraform user, I want to see how to configure Azure Backup to run a backup on demand by creating and configure an Azure virtual network, subnet, public IP, network security group, network interface, storage account, virtual machine, Backup recovery services vault, and Backup policy.
+#customer intent: As a Terraform user, I want to see how to configure Azure Backup to run a backup on demand by creating and configuring an Azure virtual network, subnet, public IP, network security group, network interface, storage account, virtual machine, Backup recovery services vault, and Backup policy.
 content_well_notification: 
   - AI-contribution
 ---
