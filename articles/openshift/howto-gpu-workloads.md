@@ -190,19 +190,28 @@ ARO uses Kubernetes MachineSet to create machine sets. The procedure below expla
 
 #### Ensure the correct SKU is set
 
-Depending on the image used for the machine set, the value for `image.sku` must be set accordingly. This is to ensure if generation 1 or 2 virtual machine for Hyper-V will be used. More details [here](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Depending on the image used for the machine set, both values for `image.sku` and `image.version` must be set accordingly. This is to ensure if generation 1 or 2 virtual machine for Hyper-V will be used. More details [here](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 Example:
 
 If using `Standard_NC4as_T4_v3` it is supported both versions, as mentioned at [Feature support](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ncast4v3-series?tabs=sizebasic#feature-support). So no changes is required.
 
-If using `Standard_NC24ads_A100_v4`, only **Generation 2 VM** is [supported](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nca100v4-series?tabs=sizebasic).
+If using `Standard_NC24ads_A100_v4`, only **Generation 2 VM** is [supported](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/nca100v4-series?tabs=sizebasic#feature-support).
 In this case, the `image.sku` value must follow the equivalent `v2` version of the image that corresponds to the cluster's original `image.sku`. For this example, the value will be `v410-v2`.
 
 This can be found using below command:
 
 ```bash
-az vm image list --all --offer aro4 --publisher azureopenshift
+az vm image list --architecture x64 -o table --all --offer aro4 --publisher azureopenshift
+```
+
+```
+Filtered output:
+
+SKU      VERSION
+-------  ---------------
+v410-v2  410.84.20220125
+aro_410  410.84.20220125
 ```
 
 If the cluster was created with the base SKU image `aro_410`, and the same value is kept in the machine set it will fail with error below:
