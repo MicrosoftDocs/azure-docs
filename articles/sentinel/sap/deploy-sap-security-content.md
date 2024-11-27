@@ -72,6 +72,10 @@ Installing the Microsoft Sentinel **SAP applications** solution makes the **Micr
 
 Installing the Microsoft Sentinel **SAP Agentless** solution makes the agentless **Microsoft Sentinel for SAP** available for you in as a Microsoft Sentinel data connector. The solution also deploys security content, such as the **SAP -Audit Controls** workbook and SAP-related analytics rules, a data collection endpoint, and a data collection rule (DCR).
 
+Access to the **SAP Agentless** solution is provided together with your acceptance to the limited preview program. For more information, see <!--xref to blog--> and [Azure prerequisites (1)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#azure-prerequisites-1).
+
+also requires registration and is only available to approved customers and partners during the preview period. For more information, see <!--xref to blog / sign up form-->.
+
 1. In the Microsoft Sentinel **Content hub**, search for **SAP Agentless (Preview)** to install the solution with the agentless data connector on your Log Analytics workspace enabled for Microsoft Sentinel.
 
 1. On the **Sentinel Solution for SAP (Agentless) (preview)** page, select **Create** to define deployment settings.

@@ -39,7 +39,6 @@ Instead of deploying a virtual machine and containerized agent, use the SAP Clou
 For more information, see:
 
 - <!--blog / sign up form-->
-- [Install the solution from the content hub](sap/deploy-sap-security-content.md#install-the-solution-from-the-content-hub)
 - [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
 
 ### Microsoft Sentinel availability in Microsoft Defender portal
