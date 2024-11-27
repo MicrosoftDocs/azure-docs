@@ -357,7 +357,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 
 1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning Service. Note your _ID Scope_ and _Provisioning Service Global Endpoint_.
 
-    ![Device Provisioning Service information](./media/quick-create-simulated-device-tpm/copy-id-scope-and-global-device-endpoint.png)
+    ![Screenshot of Device Provisioning Service overview page in the Azure portal.](./media/quick-create-simulated-device-tpm/copy-id-scope-and-global-device-endpoint.png)
 
 2. Edit `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _ID Scope_ and _Provisioning Service Global Endpoint_ as noted before.
 
@@ -436,7 +436,8 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 2. Copy the **_ID Scope_** value.
 
-    ![Extract Device Provisioning Service endpoint information from the portal](./media/quick-create-simulated-device-tpm/extract-dps-endpoints.png)
+    ![Screenshot of the ID Scope value in the Device Provisioning Service overview page from the portal.](./media/quick-create-simulated-device-tpm/extract-dps-endpoints.png)
+
 3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
 4. Near the top of the file, find the `#define` statements for each device protocol as shown below. Make sure only `SAMPLE_AMQP` is uncommented.
@@ -496,7 +497,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 2. Copy the **_ID Scope_** value.
 
-    ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints.png)
+    ![Screenshot that shows copying the provisioning service Scope ID from the portal.](./media/quick-create-simulated-device-tpm/extract-dps-endpoints.png)
 
 3. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
@@ -533,7 +534,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 2. Copy the **_ID Scope_** value.
 
-     ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints.png)
+     ![Screenshot that shows copying the Device Provisioning Service endpoint information from the portal.](./media/quick-create-simulated-device-tpm/extract-dps-endpoints.png)
 
 3. Open a text editor of your choice.
 
