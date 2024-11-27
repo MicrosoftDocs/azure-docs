@@ -98,7 +98,7 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
 
 1. Run [az backup protection backup-now]( /cli/azure/backup/protection #az-backup-protection-backup-now) to start a backup job.
 
-    ```azcli
+    ```azurecli
     az backup protection backup-now --resource-group $resource_group_name \
                                     --vault-name $recovery_services_vault_name \
                                     --container-name $windows_virtual_machine_name \
@@ -108,7 +108,7 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
 
 1. Run [az backup job list]( /cli/azure/backup/job #az-backup-job-list) to monitor the backup job.
 
-    ```azcli
+    ```azurecli
     az backup job list --resource-group $resource_group_name \
                        --vault-name $recovery_services_vault_name \
                        --output table
