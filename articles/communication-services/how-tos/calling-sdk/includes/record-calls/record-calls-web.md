@@ -78,7 +78,7 @@ The following tables show support of explicit consent for specific call type and
 |Microsoft 365 user           | ✔️            |      |          |            |                       | ✔️                      |
  
  
- You can check if the meeting recording requires explicit consent by property `isConsentRequired`. If the value is set to `true`, then explicit consent is required for the call.
+You can check if the meeting recording requires explicit consent by property `isConsentRequired`. If the value is set to `true`, then explicit consent is required for the call.
  
 ```js
 const isConsentRequired = callRecordingApi.isConsentRequired;
