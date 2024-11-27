@@ -88,6 +88,8 @@ also requires registration and is only available to approved customers and partn
 
     The deployment process can take a few minutes. After the deployment is finished, you can view the deployed content in Microsoft Sentinel.
 
+1. In the Microsoft Sentinel **Configuration > Data connectors** page, locate the **SAP ABAP and S/4 via cloud** data connector.
+
 1. In Azure, navigate to the **Data collection rules** page and locate the new DCR. The DCR's naming convention uses the following syntax: *Microsoft-Sentinel-SCCCL-DCR-**
 
 1. On the DCR's **Overview** page, locate the following elements and copy them for use later in the deployment:
