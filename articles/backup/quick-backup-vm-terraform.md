@@ -1,26 +1,26 @@
 ---
 title: 'Quickstart: Create an Azure Windows virtual machine using Terraform'
-description: In this quickstart, you create an Azure Windows virtual machine (VM), virtual network, subnet, public IP, network security group, network interface, storage account, recovery services vault, backup policy, and a protected VM for backup.
+description: In this quickstart, you create an Azure Windows virtual machine (VM), virtual network, subnet, public IP, network security group, network interface, storage account, Azure Backup recovery services vault, Backup policy, and a protected VM for backup.
 ms.topic: quickstart
 ms.date: 11/27/2024
 ms.custom: devx-track-terraform
 ms.service: windows
 author: v-abhmallick
 ms.author: AbhishekMallick-MS
-#customer intent: As a Terraform user, I want to see how to create and configure an Azure virtual network, subnet, public IP, network security group, network interface, storage account, virtual machine, recovery services vault, and backup policy.
+#customer intent: As a Terraform user, I want to see how to create and configure an Azure virtual network, subnet, public IP, network security group, network interface, storage account, virtual machine, Azure Backup recovery services vault, and Backup policy.
 content_well_notification: 
   - AI-contribution
 ---
 
-# Quickstart: Create an Azure windows virtual machine using Terraform
+# Quickstart: Create an Azure Windows virtual machine using Terraform
 
-In this quickstart, you create an Azure Windows virtual machine (VM) and associated resources using Terraform. An Azure Windows VM is a scalable computing resource that Azure provides. It's an on-demand, virtualized Windows server in the Azure cloud. You can use it to deploy, test, and run applications, among other things. In addition to the VM, this code also creates a virtual network, subnet, public IP, network security group, network interface, storage account, recovery services vault, and backup policy.
+In this quickstart, you create an Azure Windows virtual machine (VM) and associated resources using Terraform. An Azure Windows VM is a scalable computing resource that Azure provides. It's an on-demand, virtualized Windows server in the Azure cloud. You can use it to deploy, test, and run applications, among other things. In addition to the VM, this code also creates a virtual network, subnet, public IP, network security group, network interface, storage account, Azure Backup recovery services vault, and Backup policy.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 > [!div class="checklist"]
 > * Specify the required version of Terraform and the required providers.
-> * Configure the Azure provider with recovery service features.
+> * Configure the Azure provider with Backup recovery services features.
 > * Declare variables for the resource group location, resource group name prefix, and an enabled soft delete status.
 > * Generate a random pet name for the resource group.
 > * Create an Azure resource group with the generated pet name.
@@ -29,16 +29,16 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
 > * Create a subnet within the virtual network with a unique name and a specified address prefix.
 > * Create a public IP address with a unique name.
 > * Create a network security group with two security rules for remote desk protocol and web traffic.
-> * Create a network interface with a unique name and attach it to the subnet and public IP address.
+> * Create a network interface with a unique name, and attach it to the subnet and public IP address.
 > * Associate the network security group with the network interface.
 > * Create a storage account for boot diagnostics.
-> * Create a Windows VM with a unique name, specified size, and attached to the network interface.
+> * Create a Windows VM with a unique name, is a specified size, and is attached to the network interface.
 > * Generate a random ID for a unique storage account name.
 > * Generate a random password for the VM.
-> * Create a recovery services vault with a unique name.
-> * Create a backup policy for the VM with daily frequency and a retention period of 7 days.
-> * Protect the VM with the created backup policy.
-> * Output the names of the resource group, recovery services vault, backup policy, and VM.
+> * Create a Backup recovery services vault with a unique name.
+> * Create a Backup policy for the VM with daily frequency and a retention period of seven days.
+> * Protect the VM with the created Backup policy.
+> * Output the names of the resource group, Backup recovery services vault, Backup policy, and VM.
 > * Output the public IP address and admin password of the VM.
 
 ## Prerequisites
@@ -90,7 +90,7 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
 resource_group_name = $(terraform outout -raw azurerm_resource_group_name)
 ```
 
-1. Get the Recovery Services vault name.
+1. Get the Backup recovery services vault name.
 
 ```Terraform
 recovery_services_vault_name = $(terraform output -raw azurerm_recovery_services_vault_name)
@@ -129,7 +129,7 @@ a0a8e5e6  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-When the *Status* of the backup job reports *Completed*, your VM is protected with Recovery Services and has a full recovery point stored.
+When the *Status* of the backup job reports *Completed*, your VM is protected with Backup recovery services and has a full recovery point stored.
 
 ---
 
@@ -144,4 +144,4 @@ When the *Status* of the backup job reports *Completed*, your VM is protected wi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [See more articles about Azure windows VMs](/search/?terms=Azure%20windows%20virtual%20machine%20and%20terraform).
+> [See more articles about Azure Windows VMs](/search/?terms=Azure%20windows%20virtual%20machine%20and%20terraform).
