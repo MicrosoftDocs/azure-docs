@@ -148,7 +148,7 @@ For example, suppose you have a BizTalk Server project with an orchestration cal
 >- "Customize Azure Integration Services required for messaging patterns"
 
 
-The illustration below, depicts suggest durations for Epics, Features User Stories and tasks. While this is an implementation decision, this times consider you are indeed leveraging existing BizTalk artifacts in Azure Logic Apps. Leverage Azure Templates as much as possible. Please read [Create a Standard logic app workflow from a prebuilt template (Preview)](logic-apps/create-single-tenant-workflows-templates) for more information.
+The following diagram shows the suggested durations for Epics, Features, User Stories, and Tasks, which subdivide User Stories. Although implementation decisions affect these durations, they assume that you are using existing BizTalk artifacts in Azure Logic Apps. Create your Standard workflows by using the [prebuilt workflow templates](/azure/logic-apps/create-single-tenant-workflows-templates) as much as possible.
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-triangle-mvp.png" alt-text="Diagram showing MVP waves.":::
 
