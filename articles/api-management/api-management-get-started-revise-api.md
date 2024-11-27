@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: mvc, devx-track-azurecli, devdivchpfy22
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 11/27/2024
 ms.author: danlep
 
 ---
@@ -43,7 +43,7 @@ In this tutorial, you learn how to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and go to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs**.
-2. Select *Swagger Petstore** from the API list (or another API to which you want to add revisions).
+2. Select **Swagger Petstore** from the API list (or another API to which you want to add revisions).
 3. Select the **Revisions** tab.
 4. Select **+ Add revision**.
 
@@ -158,13 +158,13 @@ If you've tried the [developer portal](api-management-howto-developer-portal-cus
 
 ## Access an API revision
 
-Each revision to your API can be accessed using a specially formed URL. Add `;rev={revisionNumber}` at the end of your API URL path, but before the query string, to access a specific revision of that API. For example, you might use a URL similar to the following to access revision 2 of the Demo Conference API:
+Each revision to your API can be accessed using a specially formed URL. Add `;rev={revisionNumber}` at the end of your API URL path, but before the query string, to access a specific revision of that API. For example, you might use a URL similar to the following to access revision 2 of the Swagger Petstore API:
 
-`https://apim-hello-world.azure-api.net/petstore;rev=2/speakers`
+`https://apim-hello-world.azure-api.net/store;rev=2/speakers`
 
 You can find the URL paths for your API's revisions on the **Revisions** tab in the Azure portal.
 
-:::image type="content" source="media/transform-api/revision-url-path.png" alt-text="Screenshot of revision URLs in the portal.":::
+:::image type="content" source="media/api-management-get-started-revise-api/revision-url-path.png" alt-text="Screenshot of revision URLs in the portal.":::
 
 > [!TIP]
 > You can access the *current* revision of your API using the API path without the `;rev` string, in addition to the full URL that appends `;rev={revisionNumber}` to your API path.
