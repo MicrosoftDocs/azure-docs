@@ -88,7 +88,10 @@ You can securely issue commands to your Azure Cache for Redis instances using th
 
 > [!IMPORTANT]
 >
-> The Redis Console does not work with [VNet](cache-how-to-premium-vnet.md). When your cache is part of a VNet, only clients in the VNet can access the cache. Because Redis Console runs in your local browser, which is outside the VNet, it can't connect to your cache.
+> The Redis Console does not work when cache has any of the following
+> * [Virtual Network](cache-how-to-premium-vnet.md). When your cache is part of a VNet, only clients in the VNet can access the cache. Because Redis Console runs in your local browser, which is outside the VNet, it can't connect to your cache.
+> * [Private Link](cache-private-link.md)
+> * [Access Keys disabled](cache-azure-active-directory-for-authentication.md#disable-access-key-authentication-on-your-cache)
 >
 
 To access the Redis Console, select **Console** tab in the working pane of Resource menu.
