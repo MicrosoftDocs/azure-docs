@@ -68,7 +68,7 @@ The Microsoft Sentinel agentless data connector for SAP uses the SAP BTP Cloud C
 <!--needs more description here-->
 
 > [!IMPORTANT]
-> Microsoft Sentinel's support for an agentless data connector is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here.
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. For more information, see <!--xref to blog / sign up form-->.
 
 ---
 

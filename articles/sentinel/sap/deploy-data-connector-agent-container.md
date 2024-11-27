@@ -27,7 +27,8 @@ This article describes the third step in deploying the Microsoft Sentinel soluti
 Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
 > [!IMPORTANT]
-> Microsoft Sentinel's support for an agentless data connector is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here.
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. For more information, see <!--xref to blog / sign up form-->.
+
 
 ## Prerequisites
 
@@ -35,7 +36,7 @@ Before you deploy the data connector agent:
 
 - Make sure that all of the deployment prerequisites are in place. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-- Make sure that you have the [Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md) installed in your Microsoft Sentinel workspace.
+- Make sure that you have the Microsoft Sentinel solution for **SAP applications** or the **SAP Agentless** solution [installed in your Microsoft Sentinel workspace](deploy-sap-security-content.md).
 
 - Make sure that your SAP system is fully [prepared for the deployment](preparing-sap.md). 
 

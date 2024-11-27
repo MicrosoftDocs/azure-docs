@@ -26,7 +26,7 @@ This article is part of the second step in deploying the Microsoft Sentinel solu
 The procedures in this article are typically performed by your **SAP BASIS** team. If you're using the agentless solution, you might also need to involve your **security** team.
 
 > [!IMPORTANT]
-> Microsoft Sentinel's support for an agentless data connector is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here.
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. For more information, see <!--xref to blog / sign up form-->.
 
 ## Prerequisites
 

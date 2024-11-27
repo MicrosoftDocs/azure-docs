@@ -26,7 +26,7 @@ Reviewing and ensuring that you have or understand all the prerequisites is the 
 Content in this article is relevant for your **security**, **infrastructure**, and **SAP BASIS** teams. Select a connection type to list the prerequisites for your environment.
 
 > [!IMPORTANT]
-> Microsoft Sentinel's support for an agentless data connector is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here.
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. For more information, see <!--xref to blog / sign up form-->.
 
 :::zone pivot="connection-agent"
 

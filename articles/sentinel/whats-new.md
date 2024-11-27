@@ -31,10 +31,14 @@ The listed features were released in the last three months. For information abou
 
 The Microsoft Sentinel solution for SAP applications now supports an agentless deployment, using SAP's own cloud platform features supported by the SAP Cloud Connector to provide simplified, agentless connectivity.
 
-Instead of deploying a virtual machine and containerized agent, use the SAP Cloud Connector and its existing connections to backend ABAP systems to connect your SAP system to Microsoft Sentinel.
+Instead of deploying a virtual machine and containerized agent, use the SAP Cloud Connector and its existing connections to back-end ABAP systems to connect your SAP system to Microsoft Sentinel.
+
+> [!IMPORTANT]
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. 
 
 For more information, see:
 
+- <!--blog / sign up form-->
 - [Install the solution from the content hub](sap/deploy-sap-security-content.md#install-the-solution-from-the-content-hub)
 - [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
 
