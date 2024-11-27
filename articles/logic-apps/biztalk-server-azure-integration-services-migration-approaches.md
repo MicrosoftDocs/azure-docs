@@ -87,7 +87,7 @@ To complete the architecture design for your BizTalk migration, follow [Design m
 
 To set up your initial environment, use the [Azure Integration Services Landing Zone Accelerator](https://github.com/[Azure/Integration-Services-Landing-Zone-Accelerator), which is targeted for building and deploying an integration platform using a typical enterprise landing zone design.
 
-#### MVP Definition
+#### Minimum viable project (MVP) definition
 
  An MVP is a version of the product that has just enough features to be usable by the customer. It shows the possible potential of the product in order to gather feedback from the customer and continue the work. For a BizTalk Migration, the definition of an MVP should reflect the waves (groups of sprints towards working features) that are needed to meet the initial integration workloads. We recommend the MVP definition to include:
 
