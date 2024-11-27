@@ -399,7 +399,7 @@ The deployment procedure generates a **systemconfig.json** file that contains th
 
 1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **SAP Agentless (Preview)** data connector.
 
-1. In the **Configuration** area, under **Connect events from SAP to Microsoft Sentinel**, select **Add connection**.
+1. In the **Configuration** area, under **Connect an SAP integration suite to Microsoft Sentinel**, select **Add connection**.
 
 1. In the **Agentless connection** side pane, enter the following details:
 
@@ -413,8 +413,6 @@ The deployment procedure generates a **systemconfig.json** file that contains th
 ## Check connectivity and health
 
 After you deploy the SAP data connector, check your agent's health and connectivity. For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md). <!--will this procedure be relevant for agentless?-->
-
-
 
 ## Next step
 

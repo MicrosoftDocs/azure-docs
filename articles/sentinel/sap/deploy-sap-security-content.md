@@ -88,9 +88,9 @@ also requires registration and is only available to approved customers and partn
 
     The deployment process can take a few minutes. After the deployment is finished, you can view the deployed content in Microsoft Sentinel.
 
-1. In the Microsoft Sentinel **Configuration > Data connectors** page, locate and select the **SAP ABAP and S/4 via cloud** data connector.
+1. In the Microsoft Sentinel **Configuration > Data connectors** page, locate and select the **SAP ABAP and S/4 via cloud connector (Preview)** data connector.
 
-1. On the data connector details page, select to deploy the DCR and Entra ID app registration.
+1. On the **SAP ABAP and S/4 via cloud connector (Preview)** page,  in the **Configuration** area, select **Deploy push connector resources** to deploy a data collection rule (DCR) and Microsoft Entra ID app registration to your subscription. <!--the UI here doesn't mention an Entra ID app registration. Should it?-->
 
 1. <a name="deployment"></a>Once deployed, note the following values for later use:
 
