@@ -39,7 +39,7 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
 
 - Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
 ## Implement the Terraform code
 
@@ -96,7 +96,7 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
     windows_virtual_machine_name = $(terraform output -raw azurerm_windows_virtual_machine_name)
     ```
 
-1. Run [az backup protection backup-now](/cli/azure/backup/protection #az-backup-protection-backup-now) to start a backup job.
+1. Run [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now) to start a backup job.
 
     ```azurecli
     az backup protection backup-now --resource-group $resource_group_name \
@@ -106,7 +106,7 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
                                     --backup-management-type AzureIaaSVM
     ```
 
-1. Run [az backup job list](/cli/azure/backup/job #az-backup-job-list) to monitor the backup job.
+1. Run [az backup job list](/cli/azure/backup/job#az-backup-job-list) to monitor the backup job.
 
     ```azurecli
     az backup job list --resource-group $resource_group_name \
