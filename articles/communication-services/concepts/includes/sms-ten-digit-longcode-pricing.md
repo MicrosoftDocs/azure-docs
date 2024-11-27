@@ -14,23 +14,26 @@ ms.author: prakulka
 ---
 ## SMS Pricing for Azure Communication Services
 
-This page provides an overview of the pricing for 10DLC SMS services available through Azure Communication Services (ACS). Pricing is split into different types of services: brand registration, campaign registration, phone number leasing, and message usage.
+This page provides an overview of the pricing for 10DLC (10-Digit Long Code) SMS services available through Azure Communication Services (ACS). The 10DLC SMS service requires registering a brand, registering a campaign, and provisioning a 10DLC number through the Azure portal. Pay-as-you-go pricing applies to these different services: brand registration, campaign registration, phone number leasing, and message usage.
 
 ### 1. **Registration Fees**
+Registration fees are required for brands and campaigns to comply with U.S. 10DLC regulations. 
+
+- **Brand**: A brand represents your business or organization. It's a unique identity used to register campaigns with mobile carriers.
+- **Campaign**: A campaign is a use case associated with a brand, such as promotional messages, customer notifications, or emergency alerts. Campaign registration ensures compliance with messaging regulations and helps carriers distinguish legitimate traffic from spam.
+
+> **Note:** Brand vetting is **required as per The Campaign Registry (TCR)** in the following cases:  
+> - To achieve higher trust scores for better message throughput and delivery rates.    
+> Trust scores and vetting requirements are determined by TCR and participating carriers.
+
 The following fees apply to the registration of brands and campaigns.
 
 | Category           | Fee Type               | Fee Subtype                    | Frequency   | Description                          | Fee    |
 |--------------------|------------------------|--------------------------------|-------------|--------------------------------------|--------|
 | **Brand**          | Registration           | Per Brand                      | One off     | Fee for brand registration           | $4     |
+| **Brand**          | Vetting                | Per Brand                      | One off     | Standard vetting for brand registration | $40     |
 | **Campaign**       | Standard               | Per campaign                   | Monthly     | Standard campaign registration fee   | $10    |
 
-
-### 2. **Vetting Fees**
-Vetting fees are applicable to brand and campaign registration.
-
-| Category           | Fee Type               | Fee Subtype                   | Frequency   | Description                          | Fee    |
-|--------------------|------------------------|--------------------------------|-------------|--------------------------------------|--------|
-| **Brand**          | Standard               | Per brand                      | One off     | Standard vetting for brand registration | $40   |
 
 ### 3. **Phone Number Leasing**
 Monthly leasing fees for phone numbers.
