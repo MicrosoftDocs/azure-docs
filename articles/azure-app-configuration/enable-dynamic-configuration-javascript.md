@@ -3,13 +3,13 @@ title: Use dynamic configuration in JavaScript
 titleSuffix: Azure App Configuration
 description: Learn how to dynamically update configuration data for JavaScript.
 services: azure-app-configuration
-author: eskibear
+author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 03/27/2024
 ms.custom: devx-track-js
-ms.author: yanzh
+ms.author: zhiyuanliang
 #Customer intent: As a JavaScript developer, I want to dynamically update my app to use the latest configuration data in Azure App Configuration.
 ---
 # Tutorial: Use dynamic configuration in JavaScript
@@ -44,8 +44,8 @@ Choose the following instructions based on how your application consumes configu
     ### [Use configuration as Map](#tab/configuration-map)
 
     ```javascript
-    // Connecting to Azure App Configuration using connection string
-    const settings = await load(connectionString, {
+    // Connecting to Azure App Configuration using endpoint and token credential
+    const settings = await load(endpoint, credential, {
         // Setting up to refresh when the sentinel key is changed
         refreshOptions: {
             enabled: true,
@@ -60,8 +60,8 @@ Choose the following instructions based on how your application consumes configu
     To ensure an up-to-date configuration, update the configuration object in the `onRefresh` callback triggered whenever a configuration change is detected and the configuration is updated.
 
     ```javascript
-    // Connecting to Azure App Configuration using connection string
-    const settings = await load(connectionString, {
+    // Connecting to Azure App Configuration using endpoint and token credential
+    const settings = await load(endpoint, credential, {
         // Setting up to refresh when the sentinel key is changed
         refreshOptions: {
             enabled: true,
@@ -115,11 +115,13 @@ Choose the following instructions based on how your application consumes configu
     ```javascript
     const sleepInMs = require("util").promisify(setTimeout);
     const { load } = require("@azure/app-configuration-provider");
-    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+    const { DefaultAzureCredential } = require("@azure/identity");
+    const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
+    const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
 
     async function run() {
-        // Connecting to Azure App Configuration using connection string
-        const settings = await load(connectionString, {
+        // Connecting to Azure App Configuration using endpoint and token credential
+        const settings = await load(endpoint, credential, {
             // Setting up to refresh when the sentinel key is changed
             refreshOptions: {
                 enabled: true,
@@ -142,11 +144,13 @@ Choose the following instructions based on how your application consumes configu
     ```javascript
     const sleepInMs = require("util").promisify(setTimeout);
     const { load } = require("@azure/app-configuration-provider");
-    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+    const { DefaultAzureCredential } = require("@azure/identity");
+    const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
+    const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
 
     async function run() {
-        // Connecting to Azure App Configuration using connection string
-        const settings = await load(connectionString, {
+        // Connecting to Azure App Configuration using endpoint and token credential
+        const settings = await load(endpoint, credential, {
             // Setting up to refresh when the sentinel key is changed
             refreshOptions: {
                 enabled: true,
